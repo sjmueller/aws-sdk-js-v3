@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import {
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
-  UpdateSecurityGroupRuleDescriptionsIngressResult
+  UpdateSecurityGroupRuleDescriptionsIngressResult,
 } from "../models/index.ts";
 import {
   deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
-  serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand
+  serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateSecurityGroupRuleDescriptionsIngressCommandInput = UpdateSecurityGroupRuleDescriptionsIngressRequest;
@@ -39,9 +32,7 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput
-  ) {
+  constructor(readonly input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
     UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsIngressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
     input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> {
-    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

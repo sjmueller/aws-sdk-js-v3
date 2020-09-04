@@ -1,18 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { PutEventStreamRequest, PutEventStreamResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutEventStreamCommand,
-  serializeAws_restJson1PutEventStreamCommand
+  serializeAws_restJson1PutEventStreamCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutEventStreamCommandInput = PutEventStreamRequest;
-export type PutEventStreamCommandOutput = PutEventStreamResponse &
-  __MetadataBearer;
+export type PutEventStreamCommandOutput = PutEventStreamResponse & __MetadataBearer;
 
 export class PutEventStreamCommand extends $Command<
   PutEventStreamCommandInput,
@@ -47,14 +39,15 @@ export class PutEventStreamCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventStreamCommandInput, PutEventStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutEventStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEventStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class PutEventStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutEventStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutEventStreamCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutEventStreamCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventStreamCommandOutput> {
     return deserializeAws_restJson1PutEventStreamCommand(output, context);
   }
 

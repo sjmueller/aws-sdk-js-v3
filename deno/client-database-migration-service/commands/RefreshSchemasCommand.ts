@@ -1,18 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
 import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RefreshSchemasCommand,
-  serializeAws_json1_1RefreshSchemasCommand
+  serializeAws_json1_1RefreshSchemasCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
-export type RefreshSchemasCommandOutput = RefreshSchemasResponse &
-  __MetadataBearer;
+export type RefreshSchemasCommandOutput = RefreshSchemasResponse & __MetadataBearer;
 
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,
@@ -47,14 +43,15 @@ export class RefreshSchemasCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RefreshSchemasCommandInput, RefreshSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RefreshSchemasMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RefreshSchemasResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class RefreshSchemasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RefreshSchemasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RefreshSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshSchemasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RefreshSchemasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshSchemasCommandOutput> {
     return deserializeAws_json1_1RefreshSchemasCommand(output, context);
   }
 

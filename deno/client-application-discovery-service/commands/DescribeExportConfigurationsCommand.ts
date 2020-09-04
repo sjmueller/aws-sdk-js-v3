@@ -1,21 +1,15 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import {
-  DescribeExportConfigurationsRequest,
-  DescribeExportConfigurationsResponse
-} from "../models/index.ts";
+import { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeExportConfigurationsCommand,
-  serializeAws_json1_1DescribeExportConfigurationsCommand
+  serializeAws_json1_1DescribeExportConfigurationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeExportConfigurationsCommandInput = DescribeExportConfigurationsRequest;
-export type DescribeExportConfigurationsCommandOutput = DescribeExportConfigurationsResponse &
-  __MetadataBearer;
+export type DescribeExportConfigurationsCommandOutput = DescribeExportConfigurationsResponse & __MetadataBearer;
 
 export class DescribeExportConfigurationsCommand extends $Command<
   DescribeExportConfigurationsCommandInput,
@@ -49,18 +42,16 @@ export class DescribeExportConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeExportConfigurationsCommandInput,
-    DescribeExportConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeExportConfigurationsCommandInput, DescribeExportConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeExportConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExportConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class DescribeExportConfigurationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeExportConfigurationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportConfigurationsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeExportConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeExportConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeExportConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeExportConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeExportConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

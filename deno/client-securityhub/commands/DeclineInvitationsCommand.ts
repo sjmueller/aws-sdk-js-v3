@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient.ts";
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsResponse
-} from "../models/index.ts";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
-  serializeAws_restJson1DeclineInvitationsCommand
+  serializeAws_restJson1DeclineInvitationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
-export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse &
-  __MetadataBearer;
+export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __MetadataBearer;
 
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,
@@ -50,14 +39,15 @@ export class DeclineInvitationsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeclineInvitationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeclineInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeclineInvitationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeclineInvitationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeclineInvitationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
     return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  StartDiscovererRequest,
-  StartDiscovererResponse
-} from "../models/index.ts";
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
+import { StartDiscovererRequest, StartDiscovererResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartDiscovererCommand,
-  serializeAws_restJson1StartDiscovererCommand
+  serializeAws_restJson1StartDiscovererCommand,
 } from "../protocols/Aws_restJson1.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartDiscovererCommandInput = StartDiscovererRequest;
-export type StartDiscovererCommandOutput = StartDiscovererResponse &
-  __MetadataBearer;
+export type StartDiscovererCommandOutput = StartDiscovererResponse & __MetadataBearer;
 
 export class StartDiscovererCommand extends $Command<
   StartDiscovererCommandInput,
   StartDiscovererCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,18 @@ export class StartDiscovererCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDiscovererCommandInput, StartDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartDiscovererRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDiscovererResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class StartDiscovererCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDiscovererCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartDiscovererCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDiscovererCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDiscovererCommandOutput> {
     return deserializeAws_restJson1StartDiscovererCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeFlowDefinitionCommand,
-  serializeAws_json1_1DescribeFlowDefinitionCommand
+  serializeAws_json1_1DescribeFlowDefinitionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeFlowDefinitionCommandInput = DescribeFlowDefinitionRequest;
-export type DescribeFlowDefinitionCommandOutput = DescribeFlowDefinitionResponse &
-  __MetadataBearer;
+export type DescribeFlowDefinitionCommandOutput = DescribeFlowDefinitionResponse & __MetadataBearer;
 
 export class DescribeFlowDefinitionCommand extends $Command<
   DescribeFlowDefinitionCommandInput,
@@ -49,18 +38,16 @@ export class DescribeFlowDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFlowDefinitionCommandInput,
-    DescribeFlowDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFlowDefinitionCommandInput, DescribeFlowDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeFlowDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFlowDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeFlowDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFlowDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFlowDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFlowDefinitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowDefinitionCommandOutput> {
     return deserializeAws_json1_1DescribeFlowDefinitionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  PutDataCatalogEncryptionSettingsRequest,
-  PutDataCatalogEncryptionSettingsResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
-  serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand
+  serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutDataCatalogEncryptionSettingsCommandInput = PutDataCatalogEncryptionSettingsRequest;
-export type PutDataCatalogEncryptionSettingsCommandOutput = PutDataCatalogEncryptionSettingsResponse &
-  __MetadataBearer;
+export type PutDataCatalogEncryptionSettingsCommandOutput = PutDataCatalogEncryptionSettingsResponse & __MetadataBearer;
 
 export class PutDataCatalogEncryptionSettingsCommand extends $Command<
   PutDataCatalogEncryptionSettingsCommandInput,
@@ -49,18 +38,16 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDataCatalogEncryptionSettingsCommandInput,
-    PutDataCatalogEncryptionSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDataCatalogEncryptionSettingsCommandInput, PutDataCatalogEncryptionSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutDataCatalogEncryptionSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDataCatalogEncryptionSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     input: PutDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> {
-    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

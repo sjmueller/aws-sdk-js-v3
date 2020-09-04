@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient.ts";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
 import { ListFunctionsRequest, ListFunctionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListFunctionsCommand,
-  serializeAws_restJson1ListFunctionsCommand
+  serializeAws_restJson1ListFunctionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListFunctionsCommandInput = ListFunctionsRequest;
-export type ListFunctionsCommandOutput = ListFunctionsResponse &
-  __MetadataBearer;
+export type ListFunctionsCommandOutput = ListFunctionsResponse & __MetadataBearer;
 
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,
@@ -47,14 +39,15 @@ export class ListFunctionsCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFunctionsCommandInput, ListFunctionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListFunctionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFunctionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListFunctionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListFunctionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFunctionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListFunctionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
     return deserializeAws_restJson1ListFunctionsCommand(output, context);
   }
 

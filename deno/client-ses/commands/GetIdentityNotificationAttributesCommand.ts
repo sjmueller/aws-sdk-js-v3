@@ -1,21 +1,14 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import {
   GetIdentityNotificationAttributesRequest,
-  GetIdentityNotificationAttributesResponse
+  GetIdentityNotificationAttributesResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_queryGetIdentityNotificationAttributesCommand,
-  serializeAws_queryGetIdentityNotificationAttributesCommand
+  serializeAws_queryGetIdentityNotificationAttributesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetIdentityNotificationAttributesCommandInput = GetIdentityNotificationAttributesRequest;
@@ -49,18 +42,16 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityNotificationAttributesCommandInput,
-    GetIdentityNotificationAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityNotificationAttributesCommandInput, GetIdentityNotificationAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetIdentityNotificationAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityNotificationAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     input: GetIdentityNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityNotificationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityNotificationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityNotificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityNotificationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

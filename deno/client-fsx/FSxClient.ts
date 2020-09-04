@@ -1,59 +1,35 @@
 import {
   CancelDataRepositoryTaskCommandInput,
-  CancelDataRepositoryTaskCommandOutput
+  CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand.ts";
-import {
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput
-} from "./commands/CreateBackupCommand.ts";
+import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand.ts";
 import {
   CreateDataRepositoryTaskCommandInput,
-  CreateDataRepositoryTaskCommandOutput
+  CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand.ts";
-import {
-  CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput
-} from "./commands/CreateFileSystemCommand.ts";
+import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand.ts";
 import {
   CreateFileSystemFromBackupCommandInput,
-  CreateFileSystemFromBackupCommandOutput
+  CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand.ts";
-import {
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
-} from "./commands/DeleteBackupCommand.ts";
-import {
-  DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput
-} from "./commands/DeleteFileSystemCommand.ts";
-import {
-  DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput
-} from "./commands/DescribeBackupsCommand.ts";
+import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand.ts";
+import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand.ts";
+import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand.ts";
 import {
   DescribeDataRepositoryTasksCommandInput,
-  DescribeDataRepositoryTasksCommandOutput
+  DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand.ts";
 import {
   DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput
+  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput
-} from "./commands/UpdateFileSystemCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -61,38 +37,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -101,9 +73,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -138,8 +111,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateFileSystemCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -213,14 +185,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -228,9 +205,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FSxClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FSxClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -239,9 +214,7 @@ export type FSxClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -265,7 +238,7 @@ export class FSxClient extends __Client<
   constructor(configuration: FSxClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -280,6 +253,7 @@ export class FSxClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

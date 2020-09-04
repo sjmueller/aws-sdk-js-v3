@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/index.ts";
 import {
   deserializeAws_queryDetachInstancesCommand,
-  serializeAws_queryDetachInstancesCommand
+  serializeAws_queryDetachInstancesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DetachInstancesCommandInput = DetachInstancesQuery;
-export type DetachInstancesCommandOutput = DetachInstancesAnswer &
-  __MetadataBearer;
+export type DetachInstancesCommandOutput = DetachInstancesAnswer & __MetadataBearer;
 
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,
@@ -47,14 +39,15 @@ export class DetachInstancesCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachInstancesCommandInput, DetachInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DetachInstancesQuery.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachInstancesAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DetachInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetachInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetachInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetachInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInstancesCommandOutput> {
     return deserializeAws_queryDetachInstancesCommand(output, context);
   }
 

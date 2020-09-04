@@ -1,21 +1,11 @@
-import {
-  LakeFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LakeFormationClient.ts";
-import {
-  RegisterResourceRequest,
-  RegisterResourceResponse
-} from "../models/index.ts";
+import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
+import { RegisterResourceRequest, RegisterResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RegisterResourceCommand,
-  serializeAws_json1_1RegisterResourceCommand
+  serializeAws_json1_1RegisterResourceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterResourceCommandInput = RegisterResourceRequest;
-export type RegisterResourceCommandOutput = RegisterResourceResponse &
-  __MetadataBearer;
+export type RegisterResourceCommandOutput = RegisterResourceResponse & __MetadataBearer;
 
 export class RegisterResourceCommand extends $Command<
   RegisterResourceCommandInput,
@@ -50,14 +39,15 @@ export class RegisterResourceCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterResourceCommandInput, RegisterResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class RegisterResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterResourceCommandOutput> {
     return deserializeAws_json1_1RegisterResourceCommand(output, context);
   }
 

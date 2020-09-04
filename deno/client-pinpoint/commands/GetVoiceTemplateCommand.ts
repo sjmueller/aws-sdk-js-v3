@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  GetVoiceTemplateRequest,
-  GetVoiceTemplateResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetVoiceTemplateCommand,
-  serializeAws_restJson1GetVoiceTemplateCommand
+  serializeAws_restJson1GetVoiceTemplateCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetVoiceTemplateCommandInput = GetVoiceTemplateRequest;
-export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse &
-  __MetadataBearer;
+export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse & __MetadataBearer;
 
 export class GetVoiceTemplateCommand extends $Command<
   GetVoiceTemplateCommandInput,
@@ -50,14 +39,15 @@ export class GetVoiceTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVoiceTemplateCommandInput, GetVoiceTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetVoiceTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetVoiceTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetVoiceTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVoiceTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceTemplateCommandOutput> {
     return deserializeAws_restJson1GetVoiceTemplateCommand(output, context);
   }
 

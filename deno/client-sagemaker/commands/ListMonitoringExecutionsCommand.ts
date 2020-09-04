@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListMonitoringExecutionsCommand,
-  serializeAws_json1_1ListMonitoringExecutionsCommand
+  serializeAws_json1_1ListMonitoringExecutionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListMonitoringExecutionsCommandInput = ListMonitoringExecutionsRequest;
-export type ListMonitoringExecutionsCommandOutput = ListMonitoringExecutionsResponse &
-  __MetadataBearer;
+export type ListMonitoringExecutionsCommandOutput = ListMonitoringExecutionsResponse & __MetadataBearer;
 
 export class ListMonitoringExecutionsCommand extends $Command<
   ListMonitoringExecutionsCommandInput,
@@ -49,18 +38,16 @@ export class ListMonitoringExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMonitoringExecutionsCommandInput,
-    ListMonitoringExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMonitoringExecutionsCommandInput, ListMonitoringExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListMonitoringExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMonitoringExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListMonitoringExecutionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMonitoringExecutionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMonitoringExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMonitoringExecutionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMonitoringExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringExecutionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringExecutionsCommandOutput> {
+    return deserializeAws_json1_1ListMonitoringExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

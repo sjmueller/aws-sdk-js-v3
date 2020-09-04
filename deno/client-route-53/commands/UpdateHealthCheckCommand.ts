@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  UpdateHealthCheckRequest,
-  UpdateHealthCheckResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { UpdateHealthCheckRequest, UpdateHealthCheckResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlUpdateHealthCheckCommand,
-  serializeAws_restXmlUpdateHealthCheckCommand
+  serializeAws_restXmlUpdateHealthCheckCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateHealthCheckCommandInput = UpdateHealthCheckRequest;
-export type UpdateHealthCheckCommandOutput = UpdateHealthCheckResponse &
-  __MetadataBearer;
+export type UpdateHealthCheckCommandOutput = UpdateHealthCheckResponse & __MetadataBearer;
 
 export class UpdateHealthCheckCommand extends $Command<
   UpdateHealthCheckCommandInput,
@@ -50,14 +39,15 @@ export class UpdateHealthCheckCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateHealthCheckCommandInput, UpdateHealthCheckCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateHealthCheckRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHealthCheckResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateHealthCheckCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateHealthCheckCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateHealthCheckCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateHealthCheckCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHealthCheckCommandOutput> {
     return deserializeAws_restXmlUpdateHealthCheckCommand(output, context);
   }
 

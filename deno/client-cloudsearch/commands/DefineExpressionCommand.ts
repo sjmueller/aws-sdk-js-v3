@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient.ts";
-import {
-  DefineExpressionRequest,
-  DefineExpressionResponse
-} from "../models/index.ts";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
+import { DefineExpressionRequest, DefineExpressionResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDefineExpressionCommand,
-  serializeAws_queryDefineExpressionCommand
+  serializeAws_queryDefineExpressionCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DefineExpressionCommandInput = DefineExpressionRequest;
-export type DefineExpressionCommandOutput = DefineExpressionResponse &
-  __MetadataBearer;
+export type DefineExpressionCommandOutput = DefineExpressionResponse & __MetadataBearer;
 
 export class DefineExpressionCommand extends $Command<
   DefineExpressionCommandInput,
@@ -50,14 +39,15 @@ export class DefineExpressionCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DefineExpressionCommandInput, DefineExpressionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DefineExpressionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DefineExpressionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DefineExpressionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DefineExpressionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DefineExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDefineExpressionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DefineExpressionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineExpressionCommandOutput> {
     return deserializeAws_queryDefineExpressionCommand(output, context);
   }
 

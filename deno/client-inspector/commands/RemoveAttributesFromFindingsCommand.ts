@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient.ts";
-import {
-  RemoveAttributesFromFindingsRequest,
-  RemoveAttributesFromFindingsResponse
-} from "../models/index.ts";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
+import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RemoveAttributesFromFindingsCommand,
-  serializeAws_json1_1RemoveAttributesFromFindingsCommand
+  serializeAws_json1_1RemoveAttributesFromFindingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveAttributesFromFindingsCommandInput = RemoveAttributesFromFindingsRequest;
-export type RemoveAttributesFromFindingsCommandOutput = RemoveAttributesFromFindingsResponse &
-  __MetadataBearer;
+export type RemoveAttributesFromFindingsCommandOutput = RemoveAttributesFromFindingsResponse & __MetadataBearer;
 
 export class RemoveAttributesFromFindingsCommand extends $Command<
   RemoveAttributesFromFindingsCommandInput,
@@ -49,18 +38,16 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveAttributesFromFindingsCommandInput,
-    RemoveAttributesFromFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveAttributesFromFindingsCommandInput, RemoveAttributesFromFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveAttributesFromFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAttributesFromFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveAttributesFromFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAttributesFromFindingsCommand(
-      input,
-      context
-    );
+  private serialize(input: RemoveAttributesFromFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1RemoveAttributesFromFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAttributesFromFindingsCommandOutput> {
-    return deserializeAws_json1_1RemoveAttributesFromFindingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveAttributesFromFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

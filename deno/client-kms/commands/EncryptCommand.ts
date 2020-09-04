@@ -1,18 +1,8 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient.ts";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
 import { EncryptRequest, EncryptResponse } from "../models/index.ts";
-import {
-  deserializeAws_json1_1EncryptCommand,
-  serializeAws_json1_1EncryptCommand
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type EncryptCommandInput = EncryptRequest;
 export type EncryptCommandOutput = EncryptResponse & __MetadataBearer;
 
-export class EncryptCommand extends $Command<
-  EncryptCommandInput,
-  EncryptCommandOutput,
-  KMSClientResolvedConfig
-> {
+export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,15 @@ export class EncryptCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EncryptCommandInput, EncryptCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: EncryptRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EncryptResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +50,11 @@ export class EncryptCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EncryptCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EncryptCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EncryptCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EncryptCommandOutput> {
     return deserializeAws_json1_1EncryptCommand(output, context);
   }
 

@@ -1,15 +1,12 @@
 import {
   CreateHomeRegionControlCommandInput,
-  CreateHomeRegionControlCommandOutput
+  CreateHomeRegionControlCommandOutput,
 } from "./commands/CreateHomeRegionControlCommand.ts";
 import {
   DescribeHomeRegionControlsCommandInput,
-  DescribeHomeRegionControlsCommandOutput
+  DescribeHomeRegionControlsCommandOutput,
 } from "./commands/DescribeHomeRegionControlsCommand.ts";
-import {
-  GetHomeRegionCommandInput,
-  GetHomeRegionCommandOutput
-} from "./commands/GetHomeRegionCommand.ts";
+import { GetHomeRegionCommandInput, GetHomeRegionCommandOutput } from "./commands/GetHomeRegionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -17,38 +14,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -57,9 +50,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -72,8 +66,7 @@ export type ServiceOutputTypes =
   | DescribeHomeRegionControlsCommandOutput
   | GetHomeRegionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -147,14 +140,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -162,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MigrationHubConfigClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MigrationHubConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -173,9 +169,7 @@ export type MigrationHubConfigClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MigrationHubConfigClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MigrationHubConfigClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -189,25 +183,28 @@ export type MigrationHubConfigClientResolvedConfig = __SmithyResolvedConfigurati
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
  *
- *          <p>You can use these APIs within your home region only. If you call these APIs from outside
- *       your home region, your calls are rejected, except for the ability to register your agents and
- *       connectors. </p>
- *
- *          <p> You must call <code>GetHomeRegion</code> at least once before you call any other AWS
- *       Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration
- *       Hub home region.</p>
- *
- *          <p>The <code>StartDataCollection</code> API call in AWS Application Discovery Service allows
- *       your agents and connectors to begin collecting data that flows directly into the home region,
- *       and it will prevent you from enabling data collection information to be sent outside the home
- *       region. </p>
+ *          <ul>
+ *             <li>
+ *                <p>You must make API calls for write actions (create, notify, associate, disassociate,
+ *           import, or put) while in your home region, or a <code>HomeRegionNotSetException</code>
+ *           error is returned.</p>
+ *             </li>
+ *             <li>
+ *                <p>API calls for read actions (list, describe, stop, and delete) are permitted outside of
+ *           your home region.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you call a write API outside the home region, an <code>InvalidInputException</code>
+ *           is returned.</p>
+ *             </li>
+ *             <li>
+ *                <p>You can call <code>GetHomeRegion</code> action to obtain the account's Migration Hub
+ *           home region.</p>
+ *             </li>
+ *          </ul>
  *
  *          <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
  *       API reference. </p>
- *
- *          <note>
- *             <p>The Migration Hub Home Region APIs do not support AWS Organizations.</p>
- *          </note>
  */
 export class MigrationHubConfigClient extends __Client<
   __HttpHandlerOptions,
@@ -220,7 +217,7 @@ export class MigrationHubConfigClient extends __Client<
   constructor(configuration: MigrationHubConfigClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -235,6 +232,7 @@ export class MigrationHubConfigClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

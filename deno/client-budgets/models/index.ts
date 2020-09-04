@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -21,10 +15,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -37,26 +30,16 @@ export namespace AccessDeniedException {
 export interface Budget {
   __type?: "Budget";
   /**
-   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.</p>
+   * <p>The types of costs that are included in this <code>COST</code> budget.</p>
    * 		       <p>
-   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to <code>100</code>, which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code> with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and <code>UpdateBudget</code> actions. </p>
+   *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>, and <code>Savings_Plans_Coverage</code> budgets do not have <code>CostTypes</code>.</p>
    */
-  BudgetLimit?: Spend;
+  CostTypes?: CostTypes;
 
   /**
-   * <p>The name of a budget. The name must be unique within an account. The <code>:</code> and <code>\</code> characters aren't allowed in <code>BudgetName</code>.</p>
+   * <p>The length of time until a budget resets the actual and forecasted spend. <code>DAILY</code> is available only for <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>, and <code>Savings_Plans_Coverage</code> budgets.</p>
    */
-  BudgetName: string | undefined;
-
-  /**
-   * <p>Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.</p>
-   */
-  BudgetType: BudgetType | string | undefined;
-
-  /**
-   * <p>The actual and forecasted cost or usage that the budget tracks.</p>
-   */
-  CalculatedSpend?: CalculatedSpend;
+  TimeUnit: TimeUnit | string | undefined;
 
   /**
    * <p>The cost filters, such as service or tag, that are applied to a budget.</p>
@@ -82,11 +65,9 @@ export interface Budget {
   CostFilters?: { [key: string]: string[] };
 
   /**
-   * <p>The types of costs that are included in this <code>COST</code> budget.</p>
-   * 		       <p>
-   *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>, and <code>Savings_Plans_Coverage</code> budgets do not have <code>CostTypes</code>.</p>
+   * <p>The actual and forecasted cost or usage that the budget tracks.</p>
    */
-  CostTypes?: CostTypes;
+  CalculatedSpend?: CalculatedSpend;
 
   /**
    * <p>The last time that you updated this budget.</p>
@@ -108,6 +89,18 @@ export interface Budget {
   PlannedBudgetLimits?: { [key: string]: Spend };
 
   /**
+   * <p>The name of a budget. The name must be unique within an account. The <code>:</code> and <code>\</code> characters aren't allowed in <code>BudgetName</code>.</p>
+   */
+  BudgetName: string | undefined;
+
+  /**
+   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.</p>
+   * 		       <p>
+   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to <code>100</code>, which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code> with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and <code>UpdateBudget</code> actions. </p>
+   */
+  BudgetLimit?: Spend;
+
+  /**
    * <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before <code>06/15/87 00:00 UTC</code>. </p>
    * 		       <p>If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, AWS set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API. </p>
    * 		       <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
@@ -116,14 +109,14 @@ export interface Budget {
   TimePeriod?: TimePeriod;
 
   /**
-   * <p>The length of time until a budget resets the actual and forecasted spend. <code>DAILY</code> is available only for <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>, and <code>Savings_Plans_Coverage</code> budgets.</p>
+   * <p>Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.</p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  BudgetType: BudgetType | string | undefined;
 }
 
 export namespace Budget {
   export const filterSensitiveLog = (obj: Budget): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Budget => __isa(o, "Budget");
 }
@@ -151,10 +144,9 @@ export interface BudgetedAndActualAmounts {
 
 export namespace BudgetedAndActualAmounts {
   export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BudgetedAndActualAmounts =>
-    __isa(o, "BudgetedAndActualAmounts");
+  export const isa = (o: any): o is BudgetedAndActualAmounts => __isa(o, "BudgetedAndActualAmounts");
 }
 
 /**
@@ -168,16 +160,14 @@ export interface BudgetPerformanceHistory {
   BudgetName?: string;
 
   /**
-   * <p> The type of a budget. It must be one of the following types: </p>
-   * 		       <p>
-   *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>, or <code>RI_COVERAGE</code>.</p>
-   */
-  BudgetType?: BudgetType | string;
-
-  /**
    * <p>A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.</p>
    */
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
+
+  /**
+   * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
+   */
+  TimeUnit?: TimeUnit | string;
 
   /**
    * <p>The history of the cost filters for a budget during the specified time period.</p>
@@ -190,17 +180,18 @@ export interface BudgetPerformanceHistory {
   CostTypes?: CostTypes;
 
   /**
-   * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
+   * <p> The type of a budget. It must be one of the following types: </p>
+   * 		       <p>
+   *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>, or <code>RI_COVERAGE</code>.</p>
    */
-  TimeUnit?: TimeUnit | string;
+  BudgetType?: BudgetType | string;
 }
 
 export namespace BudgetPerformanceHistory {
   export const filterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BudgetPerformanceHistory =>
-    __isa(o, "BudgetPerformanceHistory");
+  export const isa = (o: any): o is BudgetPerformanceHistory => __isa(o, "BudgetPerformanceHistory");
 }
 
 export enum BudgetType {
@@ -209,7 +200,7 @@ export enum BudgetType {
   RIUtilization = "RI_UTILIZATION",
   SPCoverage = "SAVINGS_PLANS_COVERAGE",
   SPUtilization = "SAVINGS_PLANS_UTILIZATION",
-  Usage = "USAGE"
+  Usage = "USAGE",
 }
 
 /**
@@ -219,28 +210,27 @@ export enum BudgetType {
 export interface CalculatedSpend {
   __type?: "CalculatedSpend";
   /**
-   * <p>The amount of cost, usage, or RI units that you have used.</p>
-   */
-  ActualSpend: Spend | undefined;
-
-  /**
    * <p>The amount of cost, usage, or RI units that you are forecasted to use.</p>
    */
   ForecastedSpend?: Spend;
+
+  /**
+   * <p>The amount of cost, usage, or RI units that you have used.</p>
+   */
+  ActualSpend: Spend | undefined;
 }
 
 export namespace CalculatedSpend {
   export const filterSensitiveLog = (obj: CalculatedSpend): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CalculatedSpend =>
-    __isa(o, "CalculatedSpend");
+  export const isa = (o: any): o is CalculatedSpend => __isa(o, "CalculatedSpend");
 }
 
 export enum ComparisonOperator {
   EQUAL_TO = "EQUAL_TO",
   GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN"
+  LESS_THAN = "LESS_THAN",
 }
 
 /**
@@ -250,6 +240,18 @@ export enum ComparisonOperator {
  */
 export interface CostTypes {
   __type?: "CostTypes";
+  /**
+   * <p>Specifies whether a budget includes upfront RI costs.</p>
+   * 		       <p>The default value is <code>true</code>.</p>
+   */
+  IncludeUpfront?: boolean;
+
+  /**
+   * <p>Specifies whether a budget includes subscriptions.</p>
+   * 		       <p>The default value is <code>true</code>.</p>
+   */
+  IncludeSubscription?: boolean;
+
   /**
    * <p>Specifies whether a budget includes credits.</p>
    * 		       <p>The default value is <code>true</code>.</p>
@@ -263,10 +265,10 @@ export interface CostTypes {
   IncludeDiscount?: boolean;
 
   /**
-   * <p>Specifies whether a budget includes non-RI subscription costs.</p>
+   * <p>Specifies whether a budget includes refunds.</p>
    * 		       <p>The default value is <code>true</code>.</p>
    */
-  IncludeOtherSubscription?: boolean;
+  IncludeRefund?: boolean;
 
   /**
    * <p>Specifies whether a budget includes recurring fees such as monthly RI fees.</p>
@@ -275,16 +277,16 @@ export interface CostTypes {
   IncludeRecurring?: boolean;
 
   /**
-   * <p>Specifies whether a budget includes refunds.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   * <p>Specifies whether a budget uses the amortized rate.</p>
+   * 		       <p>The default value is <code>false</code>.</p>
    */
-  IncludeRefund?: boolean;
+  UseAmortized?: boolean;
 
   /**
-   * <p>Specifies whether a budget includes subscriptions.</p>
+   * <p>Specifies whether a budget includes non-RI subscription costs.</p>
    * 		       <p>The default value is <code>true</code>.</p>
    */
-  IncludeSubscription?: boolean;
+  IncludeOtherSubscription?: boolean;
 
   /**
    * <p>Specifies whether a budget includes support subscription fees.</p>
@@ -293,33 +295,21 @@ export interface CostTypes {
   IncludeSupport?: boolean;
 
   /**
-   * <p>Specifies whether a budget includes taxes.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
-   */
-  IncludeTax?: boolean;
-
-  /**
-   * <p>Specifies whether a budget includes upfront RI costs.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
-   */
-  IncludeUpfront?: boolean;
-
-  /**
-   * <p>Specifies whether a budget uses the amortized rate.</p>
-   * 		       <p>The default value is <code>false</code>.</p>
-   */
-  UseAmortized?: boolean;
-
-  /**
    * <p>Specifies whether a budget uses a blended rate.</p>
    * 		       <p>The default value is <code>false</code>.</p>
    */
   UseBlended?: boolean;
+
+  /**
+   * <p>Specifies whether a budget includes taxes.</p>
+   * 		       <p>The default value is <code>true</code>.</p>
+   */
+  IncludeTax?: boolean;
 }
 
 export namespace CostTypes {
   export const filterSensitiveLog = (obj: CostTypes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CostTypes => __isa(o, "CostTypes");
 }
@@ -330,9 +320,9 @@ export namespace CostTypes {
 export interface CreateBudgetRequest {
   __type?: "CreateBudgetRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget.</p>
+   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, AWS creates the notifications and subscribers for you.</p>
    */
-  AccountId: string | undefined;
+  NotificationsWithSubscribers?: NotificationWithSubscribers[];
 
   /**
    * <p>The budget object that you want to create.</p>
@@ -340,17 +330,16 @@ export interface CreateBudgetRequest {
   Budget: Budget | undefined;
 
   /**
-   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, AWS creates the notifications and subscribers for you.</p>
+   * <p>The <code>accountId</code> that is associated with the budget.</p>
    */
-  NotificationsWithSubscribers?: NotificationWithSubscribers[];
+  AccountId: string | undefined;
 }
 
 export namespace CreateBudgetRequest {
   export const filterSensitiveLog = (obj: CreateBudgetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBudgetRequest =>
-    __isa(o, "CreateBudgetRequest");
+  export const isa = (o: any): o is CreateBudgetRequest => __isa(o, "CreateBudgetRequest");
 }
 
 /**
@@ -362,10 +351,9 @@ export interface CreateBudgetResponse {
 
 export namespace CreateBudgetResponse {
   export const filterSensitiveLog = (obj: CreateBudgetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBudgetResponse =>
-    __isa(o, "CreateBudgetResponse");
+  export const isa = (o: any): o is CreateBudgetResponse => __isa(o, "CreateBudgetResponse");
 }
 
 /**
@@ -374,14 +362,9 @@ export namespace CreateBudgetResponse {
 export interface CreateNotificationRequest {
   __type?: "CreateNotificationRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to create a notification for.</p>
+   * <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
    */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.</p>
-   */
-  BudgetName: string | undefined;
+  Subscribers: Subscriber[] | undefined;
 
   /**
    * <p>The notification that you want to create.</p>
@@ -389,22 +372,22 @@ export interface CreateNotificationRequest {
   Notification: Notification | undefined;
 
   /**
-   * <p>A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.</p>
+   * <p>The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.</p>
    */
-  Subscribers: Subscriber[] | undefined;
+  BudgetName: string | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want to create a notification for.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace CreateNotificationRequest {
   export const filterSensitiveLog = (obj: CreateNotificationRequest): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        Subscriber.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateNotificationRequest =>
-    __isa(o, "CreateNotificationRequest");
+  export const isa = (o: any): o is CreateNotificationRequest => __isa(o, "CreateNotificationRequest");
 }
 
 /**
@@ -416,10 +399,9 @@ export interface CreateNotificationResponse {
 
 export namespace CreateNotificationResponse {
   export const filterSensitiveLog = (obj: CreateNotificationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNotificationResponse =>
-    __isa(o, "CreateNotificationResponse");
+  export const isa = (o: any): o is CreateNotificationResponse => __isa(o, "CreateNotificationResponse");
 }
 
 /**
@@ -427,16 +409,6 @@ export namespace CreateNotificationResponse {
  */
 export interface CreateSubscriberRequest {
   __type?: "CreateSubscriberRequest";
-  /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to create a subscriber for.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The name of the budget that you want to subscribe to. Budget names must be unique within an account.</p>
-   */
-  BudgetName: string | undefined;
-
   /**
    * <p>The notification that you want to create a subscriber for.</p>
    */
@@ -446,17 +418,24 @@ export interface CreateSubscriberRequest {
    * <p>The subscriber that you want to associate with a budget notification.</p>
    */
   Subscriber: Subscriber | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want to create a subscriber for.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The name of the budget that you want to subscribe to. Budget names must be unique within an account.</p>
+   */
+  BudgetName: string | undefined;
 }
 
 export namespace CreateSubscriberRequest {
   export const filterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
     ...obj,
-    ...(obj.Subscriber && {
-      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber)
-    })
+    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
-  export const isa = (o: any): o is CreateSubscriberRequest =>
-    __isa(o, "CreateSubscriberRequest");
+  export const isa = (o: any): o is CreateSubscriberRequest => __isa(o, "CreateSubscriberRequest");
 }
 
 /**
@@ -468,18 +447,15 @@ export interface CreateSubscriberResponse {
 
 export namespace CreateSubscriberResponse {
   export const filterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriberResponse =>
-    __isa(o, "CreateSubscriberResponse");
+  export const isa = (o: any): o is CreateSubscriberResponse => __isa(o, "CreateSubscriberResponse");
 }
 
 /**
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
-export interface CreationLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CreationLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CreationLimitExceededException";
   $fault: "client";
   /**
@@ -489,13 +465,10 @@ export interface CreationLimitExceededException
 }
 
 export namespace CreationLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: CreationLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreationLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreationLimitExceededException =>
-    __isa(o, "CreationLimitExceededException");
+  export const isa = (o: any): o is CreationLimitExceededException => __isa(o, "CreationLimitExceededException");
 }
 
 /**
@@ -504,22 +477,21 @@ export namespace CreationLimitExceededException {
 export interface DeleteBudgetRequest {
   __type?: "DeleteBudgetRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to delete.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The name of the budget that you want to delete.</p>
    */
   BudgetName: string | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want to delete.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace DeleteBudgetRequest {
   export const filterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBudgetRequest =>
-    __isa(o, "DeleteBudgetRequest");
+  export const isa = (o: any): o is DeleteBudgetRequest => __isa(o, "DeleteBudgetRequest");
 }
 
 /**
@@ -531,10 +503,9 @@ export interface DeleteBudgetResponse {
 
 export namespace DeleteBudgetResponse {
   export const filterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBudgetResponse =>
-    __isa(o, "DeleteBudgetResponse");
+  export const isa = (o: any): o is DeleteBudgetResponse => __isa(o, "DeleteBudgetResponse");
 }
 
 /**
@@ -542,11 +513,6 @@ export namespace DeleteBudgetResponse {
  */
 export interface DeleteNotificationRequest {
   __type?: "DeleteNotificationRequest";
-  /**
-   * <p>The <code>accountId</code> that is associated with the budget whose notification you want to delete.</p>
-   */
-  AccountId: string | undefined;
-
   /**
    * <p>The name of the budget whose notification you want to delete.</p>
    */
@@ -556,14 +522,18 @@ export interface DeleteNotificationRequest {
    * <p>The notification that you want to delete.</p>
    */
   Notification: Notification | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget whose notification you want to delete.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace DeleteNotificationRequest {
   export const filterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationRequest =>
-    __isa(o, "DeleteNotificationRequest");
+  export const isa = (o: any): o is DeleteNotificationRequest => __isa(o, "DeleteNotificationRequest");
 }
 
 /**
@@ -575,10 +545,9 @@ export interface DeleteNotificationResponse {
 
 export namespace DeleteNotificationResponse {
   export const filterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationResponse =>
-    __isa(o, "DeleteNotificationResponse");
+  export const isa = (o: any): o is DeleteNotificationResponse => __isa(o, "DeleteNotificationResponse");
 }
 
 /**
@@ -587,9 +556,9 @@ export namespace DeleteNotificationResponse {
 export interface DeleteSubscriberRequest {
   __type?: "DeleteSubscriberRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to delete.</p>
+   * <p>The notification whose subscriber you want to delete.</p>
    */
-  AccountId: string | undefined;
+  Notification: Notification | undefined;
 
   /**
    * <p>The name of the budget whose subscriber you want to delete.</p>
@@ -597,9 +566,9 @@ export interface DeleteSubscriberRequest {
   BudgetName: string | undefined;
 
   /**
-   * <p>The notification whose subscriber you want to delete.</p>
+   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to delete.</p>
    */
-  Notification: Notification | undefined;
+  AccountId: string | undefined;
 
   /**
    * <p>The subscriber that you want to delete.</p>
@@ -610,12 +579,9 @@ export interface DeleteSubscriberRequest {
 export namespace DeleteSubscriberRequest {
   export const filterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
     ...obj,
-    ...(obj.Subscriber && {
-      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber)
-    })
+    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
   });
-  export const isa = (o: any): o is DeleteSubscriberRequest =>
-    __isa(o, "DeleteSubscriberRequest");
+  export const isa = (o: any): o is DeleteSubscriberRequest => __isa(o, "DeleteSubscriberRequest");
 }
 
 /**
@@ -627,28 +593,17 @@ export interface DeleteSubscriberResponse {
 
 export namespace DeleteSubscriberResponse {
   export const filterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriberResponse =>
-    __isa(o, "DeleteSubscriberResponse");
+  export const isa = (o: any): o is DeleteSubscriberResponse => __isa(o, "DeleteSubscriberResponse");
 }
 
 export interface DescribeBudgetPerformanceHistoryRequest {
   __type?: "DescribeBudgetPerformanceHistoryRequest";
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
    */
   BudgetName: string | undefined;
-
-  /**
-   * <p> An integer that represents how many entries a paginated response contains. The maximum is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p> A generic string.</p>
@@ -656,16 +611,24 @@ export interface DescribeBudgetPerformanceHistoryRequest {
   NextToken?: string;
 
   /**
+   * <p> An integer that represents how many entries a paginated response contains. The maximum is 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Retrieves how often the budget went into an <code>ALARM</code> state for the specified time period.</p>
    */
   TimePeriod?: TimePeriod;
+
+  /**
+   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace DescribeBudgetPerformanceHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeBudgetPerformanceHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeBudgetPerformanceHistoryRequest =>
     __isa(o, "DescribeBudgetPerformanceHistoryRequest");
@@ -674,22 +637,20 @@ export namespace DescribeBudgetPerformanceHistoryRequest {
 export interface DescribeBudgetPerformanceHistoryResponse {
   __type?: "DescribeBudgetPerformanceHistoryResponse";
   /**
+   * <p> A generic string.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
    * 		       <p>For <code>DAILY</code> budgets, the history saves the state of the budget for the last 60 days. For <code>MONTHLY</code> budgets, the history saves the state of the budget for the current month plus the last 12 months. For <code>QUARTERLY</code> budgets, the history saves the state of the budget for the last four quarters.</p>
    */
   BudgetPerformanceHistory?: BudgetPerformanceHistory;
-
-  /**
-   * <p> A generic string.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeBudgetPerformanceHistoryResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeBudgetPerformanceHistoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeBudgetPerformanceHistoryResponse =>
     __isa(o, "DescribeBudgetPerformanceHistoryResponse");
@@ -701,22 +662,21 @@ export namespace DescribeBudgetPerformanceHistoryResponse {
 export interface DescribeBudgetRequest {
   __type?: "DescribeBudgetRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want a description of.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The name of the budget that you want a description of.</p>
    */
   BudgetName: string | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want a description of.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace DescribeBudgetRequest {
   export const filterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetRequest =>
-    __isa(o, "DescribeBudgetRequest");
+  export const isa = (o: any): o is DescribeBudgetRequest => __isa(o, "DescribeBudgetRequest");
 }
 
 /**
@@ -732,10 +692,9 @@ export interface DescribeBudgetResponse {
 
 export namespace DescribeBudgetResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetResponse =>
-    __isa(o, "DescribeBudgetResponse");
+  export const isa = (o: any): o is DescribeBudgetResponse => __isa(o, "DescribeBudgetResponse");
 }
 
 /**
@@ -749,22 +708,21 @@ export interface DescribeBudgetsRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeBudgetsRequest {
   export const filterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetsRequest =>
-    __isa(o, "DescribeBudgetsRequest");
+  export const isa = (o: any): o is DescribeBudgetsRequest => __isa(o, "DescribeBudgetsRequest");
 }
 
 /**
@@ -773,22 +731,21 @@ export namespace DescribeBudgetsRequest {
 export interface DescribeBudgetsResponse {
   __type?: "DescribeBudgetsResponse";
   /**
-   * <p>A list of budgets.</p>
-   */
-  Budgets?: Budget[];
-
-  /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of budgets.</p>
+   */
+  Budgets?: Budget[];
 }
 
 export namespace DescribeBudgetsResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBudgetsResponse =>
-    __isa(o, "DescribeBudgetsResponse");
+  export const isa = (o: any): o is DescribeBudgetsResponse => __isa(o, "DescribeBudgetsResponse");
 }
 
 /**
@@ -802,11 +759,6 @@ export interface DescribeNotificationsForBudgetRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget whose notifications you want descriptions of.</p>
-   */
-  BudgetName: string | undefined;
-
-  /**
    * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
    */
   MaxResults?: number;
@@ -815,13 +767,16 @@ export interface DescribeNotificationsForBudgetRequest {
    * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the budget whose notifications you want descriptions of.</p>
+   */
+  BudgetName: string | undefined;
 }
 
 export namespace DescribeNotificationsForBudgetRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeNotificationsForBudgetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNotificationsForBudgetRequest =>
     __isa(o, "DescribeNotificationsForBudgetRequest");
@@ -844,10 +799,8 @@ export interface DescribeNotificationsForBudgetResponse {
 }
 
 export namespace DescribeNotificationsForBudgetResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeNotificationsForBudgetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNotificationsForBudgetResponse =>
     __isa(o, "DescribeNotificationsForBudgetResponse");
@@ -864,14 +817,14 @@ export interface DescribeSubscribersForNotificationRequest {
   AccountId: string | undefined;
 
   /**
+   * <p>The notification whose subscribers you want to list.</p>
+   */
+  Notification: Notification | undefined;
+
+  /**
    * <p>The name of the budget whose subscribers you want descriptions of.</p>
    */
   BudgetName: string | undefined;
-
-  /**
-   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The pagination token that you include in your request to indicate the next set of results that you want to retrieve.</p>
@@ -879,16 +832,14 @@ export interface DescribeSubscribersForNotificationRequest {
   NextToken?: string;
 
   /**
-   * <p>The notification whose subscribers you want to list.</p>
+   * <p>An optional integer that represents how many entries a paginated response contains. The maximum is 100.</p>
    */
-  Notification: Notification | undefined;
+  MaxResults?: number;
 }
 
 export namespace DescribeSubscribersForNotificationRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSubscribersForNotificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSubscribersForNotificationRequest =>
     __isa(o, "DescribeSubscribersForNotificationRequest");
@@ -911,28 +862,18 @@ export interface DescribeSubscribersForNotificationResponse {
 }
 
 export namespace DescribeSubscribersForNotificationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSubscribersForNotificationResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationResponse): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        Subscriber.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (
-    o: any
-  ): o is DescribeSubscribersForNotificationResponse =>
+  export const isa = (o: any): o is DescribeSubscribersForNotificationResponse =>
     __isa(o, "DescribeSubscribersForNotificationResponse");
 }
 
 /**
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
-export interface DuplicateRecordException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateRecordException extends __SmithyException, $MetadataBearer {
   name: "DuplicateRecordException";
   $fault: "client";
   /**
@@ -943,18 +884,15 @@ export interface DuplicateRecordException
 
 export namespace DuplicateRecordException {
   export const filterSensitiveLog = (obj: DuplicateRecordException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateRecordException =>
-    __isa(o, "DuplicateRecordException");
+  export const isa = (o: any): o is DuplicateRecordException => __isa(o, "DuplicateRecordException");
 }
 
 /**
  * <p>The pagination token expired.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   /**
@@ -965,18 +903,15 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredNextTokenException =>
-    __isa(o, "ExpiredNextTokenException");
+  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -987,18 +922,15 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The pagination token is invalid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1009,18 +941,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1031,10 +960,9 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1051,10 +979,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1088,14 +1015,14 @@ export interface Notification {
   ComparisonOperator: ComparisonOperator | string | undefined;
 
   /**
+   * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For <code>PERCENTAGE</code> thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%, AWS notifies you when you go over 160 dollars.</p>
+   */
+  ThresholdType?: ThresholdType | string;
+
+  /**
    * <p>Whether this notification is in alarm. If a budget notification is in the <code>ALARM</code> state, you have passed the set threshold for the budget.</p>
    */
   NotificationState?: NotificationState | string;
-
-  /**
-   * <p>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for how much you're forecasted to spend (<code>FORECASTED</code>).</p>
-   */
-  NotificationType: NotificationType | string | undefined;
 
   /**
    * <p>The threshold that is associated with a notification. Thresholds are always a percentage.</p>
@@ -1103,26 +1030,26 @@ export interface Notification {
   Threshold: number | undefined;
 
   /**
-   * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For <code>PERCENTAGE</code> thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%, AWS notifies you when you go over 160 dollars.</p>
+   * <p>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for how much you're forecasted to spend (<code>FORECASTED</code>).</p>
    */
-  ThresholdType?: ThresholdType | string;
+  NotificationType: NotificationType | string | undefined;
 }
 
 export namespace Notification {
   export const filterSensitiveLog = (obj: Notification): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Notification => __isa(o, "Notification");
 }
 
 export enum NotificationState {
   ALARM = "ALARM",
-  OK = "OK"
+  OK = "OK",
 }
 
 export enum NotificationType {
   ACTUAL = "ACTUAL",
-  FORECASTED = "FORECASTED"
+  FORECASTED = "FORECASTED",
 }
 
 /**
@@ -1142,18 +1069,11 @@ export interface NotificationWithSubscribers {
 }
 
 export namespace NotificationWithSubscribers {
-  export const filterSensitiveLog = (
-    obj: NotificationWithSubscribers
-  ): any => ({
+  export const filterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
     ...obj,
-    ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        Subscriber.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is NotificationWithSubscribers =>
-    __isa(o, "NotificationWithSubscribers");
+  export const isa = (o: any): o is NotificationWithSubscribers => __isa(o, "NotificationWithSubscribers");
 }
 
 /**
@@ -1185,7 +1105,7 @@ export interface Spend {
 
 export namespace Spend {
   export const filterSensitiveLog = (obj: Spend): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Spend => __isa(o, "Spend");
 }
@@ -1221,19 +1141,19 @@ export interface Subscriber {
 export namespace Subscriber {
   export const filterSensitiveLog = (obj: Subscriber): any => ({
     ...obj,
-    ...(obj.Address && { Address: SENSITIVE_STRING })
+    ...(obj.Address && { Address: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Subscriber => __isa(o, "Subscriber");
 }
 
 export enum SubscriptionType {
   EMAIL = "EMAIL",
-  SNS = "SNS"
+  SNS = "SNS",
 }
 
 export enum ThresholdType {
   ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
-  PERCENTAGE = "PERCENTAGE"
+  PERCENTAGE = "PERCENTAGE",
 }
 
 /**
@@ -1242,21 +1162,21 @@ export enum ThresholdType {
 export interface TimePeriod {
   __type?: "TimePeriod";
   /**
-   * <p>The end date for a budget. If you didn't specify an end date, AWS set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
-   * 		       <p>After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the <code>UpdateBudget</code> operation.</p>
-   */
-  End?: Date;
-
-  /**
    * <p>The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
    * 		       <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
    */
   Start?: Date;
+
+  /**
+   * <p>The end date for a budget. If you didn't specify an end date, AWS set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
+   * 		       <p>After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the <code>UpdateBudget</code> operation.</p>
+   */
+  End?: Date;
 }
 
 export namespace TimePeriod {
   export const filterSensitiveLog = (obj: TimePeriod): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TimePeriod => __isa(o, "TimePeriod");
 }
@@ -1265,7 +1185,7 @@ export enum TimeUnit {
   ANNUALLY = "ANNUALLY",
   DAILY = "DAILY",
   MONTHLY = "MONTHLY",
-  QUARTERLY = "QUARTERLY"
+  QUARTERLY = "QUARTERLY",
 }
 
 /**
@@ -1274,22 +1194,21 @@ export enum TimeUnit {
 export interface UpdateBudgetRequest {
   __type?: "UpdateBudgetRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The budget that you want to update your budget to.</p>
    */
   NewBudget: Budget | undefined;
+
+  /**
+   * <p>The <code>accountId</code> that is associated with the budget that you want to update.</p>
+   */
+  AccountId: string | undefined;
 }
 
 export namespace UpdateBudgetRequest {
   export const filterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBudgetRequest =>
-    __isa(o, "UpdateBudgetRequest");
+  export const isa = (o: any): o is UpdateBudgetRequest => __isa(o, "UpdateBudgetRequest");
 }
 
 /**
@@ -1301,10 +1220,9 @@ export interface UpdateBudgetResponse {
 
 export namespace UpdateBudgetResponse {
   export const filterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBudgetResponse =>
-    __isa(o, "UpdateBudgetResponse");
+  export const isa = (o: any): o is UpdateBudgetResponse => __isa(o, "UpdateBudgetResponse");
 }
 
 /**
@@ -1318,6 +1236,11 @@ export interface UpdateNotificationRequest {
   AccountId: string | undefined;
 
   /**
+   * <p>The previous notification that is associated with a budget.</p>
+   */
+  OldNotification: Notification | undefined;
+
+  /**
    * <p>The name of the budget whose notification you want to update.</p>
    */
   BudgetName: string | undefined;
@@ -1326,19 +1249,13 @@ export interface UpdateNotificationRequest {
    * <p>The updated notification to be associated with a budget.</p>
    */
   NewNotification: Notification | undefined;
-
-  /**
-   * <p>The previous notification that is associated with a budget.</p>
-   */
-  OldNotification: Notification | undefined;
 }
 
 export namespace UpdateNotificationRequest {
   export const filterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationRequest =>
-    __isa(o, "UpdateNotificationRequest");
+  export const isa = (o: any): o is UpdateNotificationRequest => __isa(o, "UpdateNotificationRequest");
 }
 
 /**
@@ -1350,10 +1267,9 @@ export interface UpdateNotificationResponse {
 
 export namespace UpdateNotificationResponse {
   export const filterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationResponse =>
-    __isa(o, "UpdateNotificationResponse");
+  export const isa = (o: any): o is UpdateNotificationResponse => __isa(o, "UpdateNotificationResponse");
 }
 
 /**
@@ -1362,19 +1278,14 @@ export namespace UpdateNotificationResponse {
 export interface UpdateSubscriberRequest {
   __type?: "UpdateSubscriberRequest";
   /**
-   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to update.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The name of the budget whose subscriber you want to update.</p>
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The updated subscriber that is associated with a budget notification.</p>
+   * <p>The <code>accountId</code> that is associated with the budget whose subscriber you want to update.</p>
    */
-  NewSubscriber: Subscriber | undefined;
+  AccountId: string | undefined;
 
   /**
    * <p>The notification whose subscriber you want to update.</p>
@@ -1385,20 +1296,20 @@ export interface UpdateSubscriberRequest {
    * <p>The previous subscriber that is associated with a budget notification.</p>
    */
   OldSubscriber: Subscriber | undefined;
+
+  /**
+   * <p>The updated subscriber that is associated with a budget notification.</p>
+   */
+  NewSubscriber: Subscriber | undefined;
 }
 
 export namespace UpdateSubscriberRequest {
   export const filterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
     ...obj,
-    ...(obj.NewSubscriber && {
-      NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber)
-    }),
-    ...(obj.OldSubscriber && {
-      OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber)
-    })
+    ...(obj.OldSubscriber && { OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber) }),
+    ...(obj.NewSubscriber && { NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber) }),
   });
-  export const isa = (o: any): o is UpdateSubscriberRequest =>
-    __isa(o, "UpdateSubscriberRequest");
+  export const isa = (o: any): o is UpdateSubscriberRequest => __isa(o, "UpdateSubscriberRequest");
 }
 
 /**
@@ -1410,8 +1321,7 @@ export interface UpdateSubscriberResponse {
 
 export namespace UpdateSubscriberResponse {
   export const filterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriberResponse =>
-    __isa(o, "UpdateSubscriberResponse");
+  export const isa = (o: any): o is UpdateSubscriberResponse => __isa(o, "UpdateSubscriberResponse");
 }

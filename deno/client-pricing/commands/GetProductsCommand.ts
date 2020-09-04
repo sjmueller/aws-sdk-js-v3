@@ -1,18 +1,11 @@
-import {
-  PricingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PricingClient.ts";
+import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient.ts";
 import { GetProductsRequest, GetProductsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetProductsCommand,
-  serializeAws_json1_1GetProductsCommand
+  serializeAws_json1_1GetProductsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetProductsCommandInput = GetProductsRequest;
@@ -46,14 +39,15 @@ export class GetProductsCommand extends $Command<
     configuration: PricingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetProductsCommandInput, GetProductsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetProductsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetProductsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class GetProductsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetProductsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProductsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetProductsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProductsCommandOutput> {
     return deserializeAws_json1_1GetProductsCommand(output, context);
   }
 

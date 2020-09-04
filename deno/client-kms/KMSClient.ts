@@ -1,184 +1,97 @@
-import {
-  CancelKeyDeletionCommandInput,
-  CancelKeyDeletionCommandOutput
-} from "./commands/CancelKeyDeletionCommand.ts";
+import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "./commands/CancelKeyDeletionCommand.ts";
 import {
   ConnectCustomKeyStoreCommandInput,
-  ConnectCustomKeyStoreCommandOutput
+  ConnectCustomKeyStoreCommandOutput,
 } from "./commands/ConnectCustomKeyStoreCommand.ts";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand.ts";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
 import {
   CreateCustomKeyStoreCommandInput,
-  CreateCustomKeyStoreCommandOutput
+  CreateCustomKeyStoreCommandOutput,
 } from "./commands/CreateCustomKeyStoreCommand.ts";
-import {
-  CreateGrantCommandInput,
-  CreateGrantCommandOutput
-} from "./commands/CreateGrantCommand.ts";
-import {
-  CreateKeyCommandInput,
-  CreateKeyCommandOutput
-} from "./commands/CreateKeyCommand.ts";
-import {
-  DecryptCommandInput,
-  DecryptCommandOutput
-} from "./commands/DecryptCommand.ts";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand.ts";
+import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand.ts";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand.ts";
+import { DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand.ts";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteCustomKeyStoreCommandInput,
-  DeleteCustomKeyStoreCommandOutput
+  DeleteCustomKeyStoreCommandOutput,
 } from "./commands/DeleteCustomKeyStoreCommand.ts";
 import {
   DeleteImportedKeyMaterialCommandInput,
-  DeleteImportedKeyMaterialCommandOutput
+  DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand.ts";
 import {
   DescribeCustomKeyStoresCommandInput,
-  DescribeCustomKeyStoresCommandOutput
+  DescribeCustomKeyStoresCommandOutput,
 } from "./commands/DescribeCustomKeyStoresCommand.ts";
-import {
-  DescribeKeyCommandInput,
-  DescribeKeyCommandOutput
-} from "./commands/DescribeKeyCommand.ts";
-import {
-  DisableKeyCommandInput,
-  DisableKeyCommandOutput
-} from "./commands/DisableKeyCommand.ts";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand.ts";
+import { DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand.ts";
 import {
   DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput
+  DisableKeyRotationCommandOutput,
 } from "./commands/DisableKeyRotationCommand.ts";
 import {
   DisconnectCustomKeyStoreCommandInput,
-  DisconnectCustomKeyStoreCommandOutput
+  DisconnectCustomKeyStoreCommandOutput,
 } from "./commands/DisconnectCustomKeyStoreCommand.ts";
-import {
-  EnableKeyCommandInput,
-  EnableKeyCommandOutput
-} from "./commands/EnableKeyCommand.ts";
-import {
-  EnableKeyRotationCommandInput,
-  EnableKeyRotationCommandOutput
-} from "./commands/EnableKeyRotationCommand.ts";
-import {
-  EncryptCommandInput,
-  EncryptCommandOutput
-} from "./commands/EncryptCommand.ts";
-import {
-  GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput
-} from "./commands/GenerateDataKeyCommand.ts";
+import { EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand.ts";
+import { EnableKeyRotationCommandInput, EnableKeyRotationCommandOutput } from "./commands/EnableKeyRotationCommand.ts";
+import { EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand.ts";
+import { GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput } from "./commands/GenerateDataKeyCommand.ts";
 import {
   GenerateDataKeyPairCommandInput,
-  GenerateDataKeyPairCommandOutput
+  GenerateDataKeyPairCommandOutput,
 } from "./commands/GenerateDataKeyPairCommand.ts";
 import {
   GenerateDataKeyPairWithoutPlaintextCommandInput,
-  GenerateDataKeyPairWithoutPlaintextCommandOutput
+  GenerateDataKeyPairWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyPairWithoutPlaintextCommand.ts";
 import {
   GenerateDataKeyWithoutPlaintextCommandInput,
-  GenerateDataKeyWithoutPlaintextCommandOutput
+  GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand.ts";
-import {
-  GenerateRandomCommandInput,
-  GenerateRandomCommandOutput
-} from "./commands/GenerateRandomCommand.ts";
-import {
-  GetKeyPolicyCommandInput,
-  GetKeyPolicyCommandOutput
-} from "./commands/GetKeyPolicyCommand.ts";
+import { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand.ts";
+import { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand.ts";
 import {
   GetKeyRotationStatusCommandInput,
-  GetKeyRotationStatusCommandOutput
+  GetKeyRotationStatusCommandOutput,
 } from "./commands/GetKeyRotationStatusCommand.ts";
 import {
   GetParametersForImportCommandInput,
-  GetParametersForImportCommandOutput
+  GetParametersForImportCommandOutput,
 } from "./commands/GetParametersForImportCommand.ts";
-import {
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
-} from "./commands/GetPublicKeyCommand.ts";
-import {
-  ImportKeyMaterialCommandInput,
-  ImportKeyMaterialCommandOutput
-} from "./commands/ImportKeyMaterialCommand.ts";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand.ts";
-import {
-  ListGrantsCommandInput,
-  ListGrantsCommandOutput
-} from "./commands/ListGrantsCommand.ts";
-import {
-  ListKeyPoliciesCommandInput,
-  ListKeyPoliciesCommandOutput
-} from "./commands/ListKeyPoliciesCommand.ts";
-import {
-  ListKeysCommandInput,
-  ListKeysCommandOutput
-} from "./commands/ListKeysCommand.ts";
-import {
-  ListResourceTagsCommandInput,
-  ListResourceTagsCommandOutput
-} from "./commands/ListResourceTagsCommand.ts";
+import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand.ts";
+import { ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput } from "./commands/ImportKeyMaterialCommand.ts";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
+import { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand.ts";
+import { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "./commands/ListKeyPoliciesCommand.ts";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand.ts";
+import { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "./commands/ListResourceTagsCommand.ts";
 import {
   ListRetirableGrantsCommandInput,
-  ListRetirableGrantsCommandOutput
+  ListRetirableGrantsCommandOutput,
 } from "./commands/ListRetirableGrantsCommand.ts";
-import {
-  PutKeyPolicyCommandInput,
-  PutKeyPolicyCommandOutput
-} from "./commands/PutKeyPolicyCommand.ts";
-import {
-  ReEncryptCommandInput,
-  ReEncryptCommandOutput
-} from "./commands/ReEncryptCommand.ts";
-import {
-  RetireGrantCommandInput,
-  RetireGrantCommandOutput
-} from "./commands/RetireGrantCommand.ts";
-import {
-  RevokeGrantCommandInput,
-  RevokeGrantCommandOutput
-} from "./commands/RevokeGrantCommand.ts";
+import { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "./commands/PutKeyPolicyCommand.ts";
+import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand.ts";
+import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand.ts";
+import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand.ts";
 import {
   ScheduleKeyDeletionCommandInput,
-  ScheduleKeyDeletionCommandOutput
+  ScheduleKeyDeletionCommandOutput,
 } from "./commands/ScheduleKeyDeletionCommand.ts";
 import { SignCommandInput, SignCommandOutput } from "./commands/SignCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand.ts";
 import {
   UpdateCustomKeyStoreCommandInput,
-  UpdateCustomKeyStoreCommandOutput
+  UpdateCustomKeyStoreCommandOutput,
 } from "./commands/UpdateCustomKeyStoreCommand.ts";
 import {
   UpdateKeyDescriptionCommandInput,
-  UpdateKeyDescriptionCommandOutput
+  UpdateKeyDescriptionCommandOutput,
 } from "./commands/UpdateKeyDescriptionCommand.ts";
-import {
-  VerifyCommandInput,
-  VerifyCommandOutput
-} from "./commands/VerifyCommand.ts";
+import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -186,38 +99,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -226,9 +135,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -327,8 +237,7 @@ export type ServiceOutputTypes =
   | UpdateKeyDescriptionCommandOutput
   | VerifyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -402,14 +311,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -417,9 +331,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -428,9 +340,7 @@ export type KMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -541,7 +451,7 @@ export class KMSClient extends __Client<
   constructor(configuration: KMSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -556,6 +466,7 @@ export class KMSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

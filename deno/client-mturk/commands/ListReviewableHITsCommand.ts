@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
-import {
-  ListReviewableHITsRequest,
-  ListReviewableHITsResponse
-} from "../models/index.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
+import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListReviewableHITsCommand,
-  serializeAws_json1_1ListReviewableHITsCommand
+  serializeAws_json1_1ListReviewableHITsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListReviewableHITsCommandInput = ListReviewableHITsRequest;
-export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse &
-  __MetadataBearer;
+export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse & __MetadataBearer;
 
 export class ListReviewableHITsCommand extends $Command<
   ListReviewableHITsCommandInput,
@@ -50,14 +39,15 @@ export class ListReviewableHITsCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListReviewableHITsCommandInput, ListReviewableHITsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListReviewableHITsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReviewableHITsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListReviewableHITsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListReviewableHITsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListReviewableHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReviewableHITsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListReviewableHITsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReviewableHITsCommandOutput> {
     return deserializeAws_json1_1ListReviewableHITsCommand(output, context);
   }
 

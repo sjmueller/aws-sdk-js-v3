@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient.ts";
-import {
-  GetReplicationJobsRequest,
-  GetReplicationJobsResponse
-} from "../models/index.ts";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
+import { GetReplicationJobsRequest, GetReplicationJobsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetReplicationJobsCommand,
-  serializeAws_json1_1GetReplicationJobsCommand
+  serializeAws_json1_1GetReplicationJobsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetReplicationJobsCommandInput = GetReplicationJobsRequest;
-export type GetReplicationJobsCommandOutput = GetReplicationJobsResponse &
-  __MetadataBearer;
+export type GetReplicationJobsCommandOutput = GetReplicationJobsResponse & __MetadataBearer;
 
 export class GetReplicationJobsCommand extends $Command<
   GetReplicationJobsCommandInput,
@@ -50,14 +39,15 @@ export class GetReplicationJobsCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetReplicationJobsCommandInput, GetReplicationJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetReplicationJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReplicationJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetReplicationJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetReplicationJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetReplicationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReplicationJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetReplicationJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationJobsCommandOutput> {
     return deserializeAws_json1_1GetReplicationJobsCommand(output, context);
   }
 

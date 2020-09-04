@@ -1,21 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient.ts";
-import {
-  BatchGetResourceConfigRequest,
-  BatchGetResourceConfigResponse
-} from "../models/index.ts";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
+import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetResourceConfigCommand,
-  serializeAws_json1_1BatchGetResourceConfigCommand
+  serializeAws_json1_1BatchGetResourceConfigCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchGetResourceConfigCommandInput = BatchGetResourceConfigRequest;
-export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse &
-  __MetadataBearer;
+export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse & __MetadataBearer;
 
 export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandInput,
@@ -49,18 +38,16 @@ export class BatchGetResourceConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetResourceConfigCommandInput,
-    BatchGetResourceConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetResourceConfigCommandInput, BatchGetResourceConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchGetResourceConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetResourceConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class BatchGetResourceConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetResourceConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchGetResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetResourceConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetResourceConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetResourceConfigCommandOutput> {
     return deserializeAws_json1_1BatchGetResourceConfigCommand(output, context);
   }
 

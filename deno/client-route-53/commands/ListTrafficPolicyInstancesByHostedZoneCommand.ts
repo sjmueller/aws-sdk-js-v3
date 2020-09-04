@@ -1,22 +1,15 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
 import {
   ListTrafficPolicyInstancesByHostedZoneRequest,
-  ListTrafficPolicyInstancesByHostedZoneResponse
+  ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
-  serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
+  serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getIdNormalizerPlugin } from "../../middleware-sdk-route53/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListTrafficPolicyInstancesByHostedZoneCommandInput = ListTrafficPolicyInstancesByHostedZoneRequest;
@@ -40,9 +33,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput
-  ) {
+  constructor(readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -52,19 +43,17 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    ListTrafficPolicyInstancesByHostedZoneCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTrafficPolicyInstancesByHostedZoneCommandInput, ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -78,20 +67,14 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

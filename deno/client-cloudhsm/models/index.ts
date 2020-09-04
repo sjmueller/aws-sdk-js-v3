@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AddTagsToResourceRequest {
@@ -20,10 +16,9 @@ export interface AddTagsToResourceRequest {
 
 export namespace AddTagsToResourceRequest {
   export const filterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceRequest =>
-    __isa(o, "AddTagsToResourceRequest");
+  export const isa = (o: any): o is AddTagsToResourceRequest => __isa(o, "AddTagsToResourceRequest");
 }
 
 export interface AddTagsToResourceResponse {
@@ -36,56 +31,50 @@ export interface AddTagsToResourceResponse {
 
 export namespace AddTagsToResourceResponse {
   export const filterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceResponse =>
-    __isa(o, "AddTagsToResourceResponse");
+  export const isa = (o: any): o is AddTagsToResourceResponse => __isa(o, "AddTagsToResourceResponse");
 }
 
 export enum ClientVersion {
   FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3"
+  FIVE_THREE = "5.3",
 }
 
 /**
  * <p>Indicates that an internal error occurred.</p>
  */
-export interface CloudHsmInternalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInternalException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmInternalException";
   $fault: "server";
-  /**
-   * <p>Additional information about the error.</p>
-   */
-  message?: string;
-
   /**
    * <p>Indicates if the action can be retried.</p>
    */
   retryable?: boolean;
+
+  /**
+   * <p>Additional information about the error.</p>
+   */
+  message?: string;
 }
 
 export namespace CloudHsmInternalException {
   export const filterSensitiveLog = (obj: CloudHsmInternalException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmInternalException =>
-    __isa(o, "CloudHsmInternalException");
+  export const isa = (o: any): o is CloudHsmInternalException => __isa(o, "CloudHsmInternalException");
 }
 
 export enum CloudHsmObjectState {
   DEGRADED = "DEGRADED",
   READY = "READY",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
-export interface CloudHsmServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmServiceException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmServiceException";
   $fault: "client";
   /**
@@ -101,10 +90,9 @@ export interface CloudHsmServiceException
 
 export namespace CloudHsmServiceException {
   export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmServiceException =>
-    __isa(o, "CloudHsmServiceException");
+  export const isa = (o: any): o is CloudHsmServiceException => __isa(o, "CloudHsmServiceException");
 }
 
 /**
@@ -120,10 +108,9 @@ export interface CreateHapgRequest {
 
 export namespace CreateHapgRequest {
   export const filterSensitiveLog = (obj: CreateHapgRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHapgRequest =>
-    __isa(o, "CreateHapgRequest");
+  export const isa = (o: any): o is CreateHapgRequest => __isa(o, "CreateHapgRequest");
 }
 
 /**
@@ -139,10 +126,9 @@ export interface CreateHapgResponse {
 
 export namespace CreateHapgResponse {
   export const filterSensitiveLog = (obj: CreateHapgResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHapgResponse =>
-    __isa(o, "CreateHapgResponse");
+  export const isa = (o: any): o is CreateHapgResponse => __isa(o, "CreateHapgResponse");
 }
 
 /**
@@ -151,10 +137,21 @@ export namespace CreateHapgResponse {
 export interface CreateHsmRequest {
   __type?: "CreateHsmRequest";
   /**
-   * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
-   *       same token will be ignored.</p>
+   * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
    */
-  ClientToken?: string;
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one
+   *       syslog monitoring server.</p>
+   */
+  SyslogIp?: string;
+
+  /**
+   * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
+   *       behalf.</p>
+   */
+  IamRoleArn: string | undefined;
 
   /**
    * <p>The IP address to assign to the HSM's ENI.</p>
@@ -169,20 +166,9 @@ export interface CreateHsmRequest {
   ExternalId?: string;
 
   /**
-   * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
-   *       behalf.</p>
-   */
-  IamRoleArn: string | undefined;
-
-  /**
    * <p>The SSH public key to install on the HSM.</p>
    */
   SshKey: string | undefined;
-
-  /**
-   * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
-   */
-  SubnetId: string | undefined;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -202,18 +188,17 @@ export interface CreateHsmRequest {
   SubscriptionType: SubscriptionType | string | undefined;
 
   /**
-   * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one
-   *       syslog monitoring server.</p>
+   * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
+   *       same token will be ignored.</p>
    */
-  SyslogIp?: string;
+  ClientToken?: string;
 }
 
 export namespace CreateHsmRequest {
   export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmRequest =>
-    __isa(o, "CreateHsmRequest");
+  export const isa = (o: any): o is CreateHsmRequest => __isa(o, "CreateHsmRequest");
 }
 
 /**
@@ -229,10 +214,9 @@ export interface CreateHsmResponse {
 
 export namespace CreateHsmResponse {
   export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmResponse =>
-    __isa(o, "CreateHsmResponse");
+  export const isa = (o: any): o is CreateHsmResponse => __isa(o, "CreateHsmResponse");
 }
 
 /**
@@ -254,10 +238,9 @@ export interface CreateLunaClientRequest {
 
 export namespace CreateLunaClientRequest {
   export const filterSensitiveLog = (obj: CreateLunaClientRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLunaClientRequest =>
-    __isa(o, "CreateLunaClientRequest");
+  export const isa = (o: any): o is CreateLunaClientRequest => __isa(o, "CreateLunaClientRequest");
 }
 
 /**
@@ -273,10 +256,9 @@ export interface CreateLunaClientResponse {
 
 export namespace CreateLunaClientResponse {
   export const filterSensitiveLog = (obj: CreateLunaClientResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLunaClientResponse =>
-    __isa(o, "CreateLunaClientResponse");
+  export const isa = (o: any): o is CreateLunaClientResponse => __isa(o, "CreateLunaClientResponse");
 }
 
 /**
@@ -292,10 +274,9 @@ export interface DeleteHapgRequest {
 
 export namespace DeleteHapgRequest {
   export const filterSensitiveLog = (obj: DeleteHapgRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHapgRequest =>
-    __isa(o, "DeleteHapgRequest");
+  export const isa = (o: any): o is DeleteHapgRequest => __isa(o, "DeleteHapgRequest");
 }
 
 /**
@@ -311,10 +292,9 @@ export interface DeleteHapgResponse {
 
 export namespace DeleteHapgResponse {
   export const filterSensitiveLog = (obj: DeleteHapgResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHapgResponse =>
-    __isa(o, "DeleteHapgResponse");
+  export const isa = (o: any): o is DeleteHapgResponse => __isa(o, "DeleteHapgResponse");
 }
 
 /**
@@ -330,10 +310,9 @@ export interface DeleteHsmRequest {
 
 export namespace DeleteHsmRequest {
   export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmRequest =>
-    __isa(o, "DeleteHsmRequest");
+  export const isa = (o: any): o is DeleteHsmRequest => __isa(o, "DeleteHsmRequest");
 }
 
 /**
@@ -349,10 +328,9 @@ export interface DeleteHsmResponse {
 
 export namespace DeleteHsmResponse {
   export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmResponse =>
-    __isa(o, "DeleteHsmResponse");
+  export const isa = (o: any): o is DeleteHsmResponse => __isa(o, "DeleteHsmResponse");
 }
 
 export interface DeleteLunaClientRequest {
@@ -365,10 +343,9 @@ export interface DeleteLunaClientRequest {
 
 export namespace DeleteLunaClientRequest {
   export const filterSensitiveLog = (obj: DeleteLunaClientRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLunaClientRequest =>
-    __isa(o, "DeleteLunaClientRequest");
+  export const isa = (o: any): o is DeleteLunaClientRequest => __isa(o, "DeleteLunaClientRequest");
 }
 
 export interface DeleteLunaClientResponse {
@@ -381,10 +358,9 @@ export interface DeleteLunaClientResponse {
 
 export namespace DeleteLunaClientResponse {
   export const filterSensitiveLog = (obj: DeleteLunaClientResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLunaClientResponse =>
-    __isa(o, "DeleteLunaClientResponse");
+  export const isa = (o: any): o is DeleteLunaClientResponse => __isa(o, "DeleteLunaClientResponse");
 }
 
 /**
@@ -400,10 +376,9 @@ export interface DescribeHapgRequest {
 
 export namespace DescribeHapgRequest {
   export const filterSensitiveLog = (obj: DescribeHapgRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHapgRequest =>
-    __isa(o, "DescribeHapgRequest");
+  export const isa = (o: any): o is DescribeHapgRequest => __isa(o, "DescribeHapgRequest");
 }
 
 /**
@@ -412,9 +387,10 @@ export namespace DescribeHapgRequest {
 export interface DescribeHapgResponse {
   __type?: "DescribeHapgResponse";
   /**
-   * <p>The ARN of the high-availability partition group.</p>
+   * <p>The list of partition serial numbers that belong to the high-availability partition
+   *       group.</p>
    */
-  HapgArn?: string;
+  PartitionSerialList?: string[];
 
   /**
    * <p>The serial number of the high-availability partition group.</p>
@@ -424,17 +400,7 @@ export interface DescribeHapgResponse {
   /**
    * <p></p>
    */
-  HsmsLastActionFailed?: string[];
-
-  /**
-   * <p></p>
-   */
   HsmsPendingDeletion?: string[];
-
-  /**
-   * <p></p>
-   */
-  HsmsPendingRegistration?: string[];
 
   /**
    * <p>The label for the high-availability partition group.</p>
@@ -447,10 +413,19 @@ export interface DescribeHapgResponse {
   LastModifiedTimestamp?: string;
 
   /**
-   * <p>The list of partition serial numbers that belong to the high-availability partition
-   *       group.</p>
+   * <p>The ARN of the high-availability partition group.</p>
    */
-  PartitionSerialList?: string[];
+  HapgArn?: string;
+
+  /**
+   * <p></p>
+   */
+  HsmsLastActionFailed?: string[];
+
+  /**
+   * <p></p>
+   */
+  HsmsPendingRegistration?: string[];
 
   /**
    * <p>The state of the high-availability partition group.</p>
@@ -460,10 +435,9 @@ export interface DescribeHapgResponse {
 
 export namespace DescribeHapgResponse {
   export const filterSensitiveLog = (obj: DescribeHapgResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHapgResponse =>
-    __isa(o, "DescribeHapgResponse");
+  export const isa = (o: any): o is DescribeHapgResponse => __isa(o, "DescribeHapgResponse");
 }
 
 /**
@@ -472,24 +446,23 @@ export namespace DescribeHapgResponse {
 export interface DescribeHsmRequest {
   __type?: "DescribeHsmRequest";
   /**
-   * <p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code>
-   *       parameter must be specified.</p>
-   */
-  HsmArn?: string;
-
-  /**
    * <p>The serial number of the HSM. Either the <code>HsmArn</code> or the
    *         <code>HsmSerialNumber</code> parameter must be specified.</p>
    */
   HsmSerialNumber?: string;
+
+  /**
+   * <p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code>
+   *       parameter must be specified.</p>
+   */
+  HsmArn?: string;
 }
 
 export namespace DescribeHsmRequest {
   export const filterSensitiveLog = (obj: DescribeHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHsmRequest =>
-    __isa(o, "DescribeHsmRequest");
+  export const isa = (o: any): o is DescribeHsmRequest => __isa(o, "DescribeHsmRequest");
 }
 
 /**
@@ -498,29 +471,19 @@ export namespace DescribeHsmRequest {
 export interface DescribeHsmResponse {
   __type?: "DescribeHsmResponse";
   /**
-   * <p>The Availability Zone that the HSM is in.</p>
+   * <p>The subscription start date.</p>
    */
-  AvailabilityZone?: string;
+  SubscriptionStartDate?: string;
 
   /**
-   * <p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>
+   * <p>The name of the HSM vendor.</p>
    */
-  EniId?: string;
+  VendorName?: string;
 
   /**
-   * <p>The IP address assigned to the HSM's ENI.</p>
+   * <p>The identifier of the subnet that the HSM is in.</p>
    */
-  EniIp?: string;
-
-  /**
-   * <p>The ARN of the HSM.</p>
-   */
-  HsmArn?: string;
-
-  /**
-   * <p>The HSM model type.</p>
-   */
-  HsmType?: string;
+  SubnetId?: string;
 
   /**
    * <p>The ARN of the IAM role assigned to the HSM.</p>
@@ -528,29 +491,24 @@ export interface DescribeHsmResponse {
   IamRoleArn?: string;
 
   /**
-   * <p>The list of partitions on the HSM.</p>
+   * <p>Contains additional information about the status of the HSM.</p>
    */
-  Partitions?: string[];
+  StatusDetails?: string;
 
   /**
-   * <p>The serial number of the HSM.</p>
+   * <p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>
    */
-  SerialNumber?: string;
+  EniId?: string;
 
   /**
-   * <p>The date and time that the server certificate was last updated.</p>
+   * <p>The identifier of the VPC that the HSM is in.</p>
    */
-  ServerCertLastUpdated?: string;
+  VpcId?: string;
 
   /**
-   * <p>The URI of the certificate server.</p>
+   * <p>The Availability Zone that the HSM is in.</p>
    */
-  ServerCertUri?: string;
-
-  /**
-   * <p>The HSM software version.</p>
-   */
-  SoftwareVersion?: string;
+  AvailabilityZone?: string;
 
   /**
    * <p>The date and time that the SSH key was last updated.</p>
@@ -563,19 +521,14 @@ export interface DescribeHsmResponse {
   SshPublicKey?: string;
 
   /**
-   * <p>The status of the HSM.</p>
+   * <p>The HSM software version.</p>
    */
-  Status?: HsmStatus | string;
+  SoftwareVersion?: string;
 
   /**
-   * <p>Contains additional information about the status of the HSM.</p>
+   * <p>The date and time that the server certificate was last updated.</p>
    */
-  StatusDetails?: string;
-
-  /**
-   * <p>The identifier of the subnet that the HSM is in.</p>
-   */
-  SubnetId?: string;
+  ServerCertLastUpdated?: string;
 
   /**
    * <p>The subscription end date.</p>
@@ -583,9 +536,9 @@ export interface DescribeHsmResponse {
   SubscriptionEndDate?: string;
 
   /**
-   * <p>The subscription start date.</p>
+   * <p>The ARN of the HSM.</p>
    */
-  SubscriptionStartDate?: string;
+  HsmArn?: string;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -605,79 +558,96 @@ export interface DescribeHsmResponse {
   SubscriptionType?: SubscriptionType | string;
 
   /**
-   * <p>The name of the HSM vendor.</p>
+   * <p>The HSM model type.</p>
    */
-  VendorName?: string;
+  HsmType?: string;
 
   /**
-   * <p>The identifier of the VPC that the HSM is in.</p>
+   * <p>The URI of the certificate server.</p>
    */
-  VpcId?: string;
+  ServerCertUri?: string;
+
+  /**
+   * <p>The list of partitions on the HSM.</p>
+   */
+  Partitions?: string[];
+
+  /**
+   * <p>The status of the HSM.</p>
+   */
+  Status?: HsmStatus | string;
+
+  /**
+   * <p>The IP address assigned to the HSM's ENI.</p>
+   */
+  EniIp?: string;
+
+  /**
+   * <p>The serial number of the HSM.</p>
+   */
+  SerialNumber?: string;
 }
 
 export namespace DescribeHsmResponse {
   export const filterSensitiveLog = (obj: DescribeHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHsmResponse =>
-    __isa(o, "DescribeHsmResponse");
+  export const isa = (o: any): o is DescribeHsmResponse => __isa(o, "DescribeHsmResponse");
 }
 
 export interface DescribeLunaClientRequest {
   __type?: "DescribeLunaClientRequest";
   /**
-   * <p>The certificate fingerprint.</p>
-   */
-  CertificateFingerprint?: string;
-
-  /**
    * <p>The ARN of the client.</p>
    */
   ClientArn?: string;
+
+  /**
+   * <p>The certificate fingerprint.</p>
+   */
+  CertificateFingerprint?: string;
 }
 
 export namespace DescribeLunaClientRequest {
   export const filterSensitiveLog = (obj: DescribeLunaClientRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLunaClientRequest =>
-    __isa(o, "DescribeLunaClientRequest");
+  export const isa = (o: any): o is DescribeLunaClientRequest => __isa(o, "DescribeLunaClientRequest");
 }
 
 export interface DescribeLunaClientResponse {
   __type?: "DescribeLunaClientResponse";
-  /**
-   * <p>The certificate installed on the HSMs used by this client.</p>
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The certificate fingerprint.</p>
-   */
-  CertificateFingerprint?: string;
-
-  /**
-   * <p>The ARN of the client.</p>
-   */
-  ClientArn?: string;
-
   /**
    * <p>The label of the client.</p>
    */
   Label?: string;
 
   /**
+   * <p>The certificate fingerprint.</p>
+   */
+  CertificateFingerprint?: string;
+
+  /**
+   * <p>The ARN of the client.</p>
+   */
+  ClientArn?: string;
+
+  /**
    * <p>The date and time the client was last modified.</p>
    */
   LastModifiedTimestamp?: string;
+
+  /**
+   * <p>The certificate installed on the HSMs used by this client.</p>
+   */
+  Certificate?: string;
 }
 
 export namespace DescribeLunaClientResponse {
   export const filterSensitiveLog = (obj: DescribeLunaClientResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLunaClientResponse =>
-    __isa(o, "DescribeLunaClientResponse");
+  export const isa = (o: any): o is DescribeLunaClientResponse => __isa(o, "DescribeLunaClientResponse");
 }
 
 export interface GetConfigRequest {
@@ -688,27 +658,31 @@ export interface GetConfigRequest {
   ClientArn: string | undefined;
 
   /**
-   * <p>The client version.</p>
-   */
-  ClientVersion: ClientVersion | string | undefined;
-
-  /**
    * <p>A list of ARNs that identify the high-availability partition groups that are associated
    *       with the client.</p>
    */
   HapgList: string[] | undefined;
+
+  /**
+   * <p>The client version.</p>
+   */
+  ClientVersion: ClientVersion | string | undefined;
 }
 
 export namespace GetConfigRequest {
   export const filterSensitiveLog = (obj: GetConfigRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigRequest =>
-    __isa(o, "GetConfigRequest");
+  export const isa = (o: any): o is GetConfigRequest => __isa(o, "GetConfigRequest");
 }
 
 export interface GetConfigResponse {
   __type?: "GetConfigResponse";
+  /**
+   * <p>The type of credentials.</p>
+   */
+  ConfigType?: string;
+
   /**
    * <p>The certificate file containing the server.pem files of the HSMs.</p>
    */
@@ -718,19 +692,13 @@ export interface GetConfigResponse {
    * <p>The chrystoki.conf configuration file.</p>
    */
   ConfigFile?: string;
-
-  /**
-   * <p>The type of credentials.</p>
-   */
-  ConfigType?: string;
 }
 
 export namespace GetConfigResponse {
   export const filterSensitiveLog = (obj: GetConfigResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigResponse =>
-    __isa(o, "GetConfigResponse");
+  export const isa = (o: any): o is GetConfigResponse => __isa(o, "GetConfigResponse");
 }
 
 export enum HsmStatus {
@@ -740,15 +708,13 @@ export enum HsmStatus {
   SUSPENDED = "SUSPENDED",
   TERMINATED = "TERMINATED",
   TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -764,10 +730,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -779,10 +744,9 @@ export interface ListAvailableZonesRequest {
 
 export namespace ListAvailableZonesRequest {
   export const filterSensitiveLog = (obj: ListAvailableZonesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAvailableZonesRequest =>
-    __isa(o, "ListAvailableZonesRequest");
+  export const isa = (o: any): o is ListAvailableZonesRequest => __isa(o, "ListAvailableZonesRequest");
 }
 
 export interface ListAvailableZonesResponse {
@@ -795,10 +759,9 @@ export interface ListAvailableZonesResponse {
 
 export namespace ListAvailableZonesResponse {
   export const filterSensitiveLog = (obj: ListAvailableZonesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAvailableZonesResponse =>
-    __isa(o, "ListAvailableZonesResponse");
+  export const isa = (o: any): o is ListAvailableZonesResponse => __isa(o, "ListAvailableZonesResponse");
 }
 
 export interface ListHapgsRequest {
@@ -812,32 +775,30 @@ export interface ListHapgsRequest {
 
 export namespace ListHapgsRequest {
   export const filterSensitiveLog = (obj: ListHapgsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHapgsRequest =>
-    __isa(o, "ListHapgsRequest");
+  export const isa = (o: any): o is ListHapgsRequest => __isa(o, "ListHapgsRequest");
 }
 
 export interface ListHapgsResponse {
   __type?: "ListHapgsResponse";
   /**
-   * <p>The list of high-availability partition groups.</p>
-   */
-  HapgList: string[] | undefined;
-
-  /**
    * <p>If not null, more results are available. Pass this value to <code>ListHapgs</code> to
    *       retrieve the next set of items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of high-availability partition groups.</p>
+   */
+  HapgList: string[] | undefined;
 }
 
 export namespace ListHapgsResponse {
   export const filterSensitiveLog = (obj: ListHapgsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHapgsResponse =>
-    __isa(o, "ListHapgsResponse");
+  export const isa = (o: any): o is ListHapgsResponse => __isa(o, "ListHapgsResponse");
 }
 
 export interface ListHsmsRequest {
@@ -851,10 +812,9 @@ export interface ListHsmsRequest {
 
 export namespace ListHsmsRequest {
   export const filterSensitiveLog = (obj: ListHsmsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHsmsRequest =>
-    __isa(o, "ListHsmsRequest");
+  export const isa = (o: any): o is ListHsmsRequest => __isa(o, "ListHsmsRequest");
 }
 
 /**
@@ -863,23 +823,22 @@ export namespace ListHsmsRequest {
 export interface ListHsmsResponse {
   __type?: "ListHsmsResponse";
   /**
-   * <p>The list of ARNs that identify the HSMs.</p>
-   */
-  HsmList?: string[];
-
-  /**
    * <p>If not null, more results are available. Pass this value to <code>ListHsms</code> to
    *       retrieve the next set of items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of ARNs that identify the HSMs.</p>
+   */
+  HsmList?: string[];
 }
 
 export namespace ListHsmsResponse {
   export const filterSensitiveLog = (obj: ListHsmsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHsmsResponse =>
-    __isa(o, "ListHsmsResponse");
+  export const isa = (o: any): o is ListHsmsResponse => __isa(o, "ListHsmsResponse");
 }
 
 export interface ListLunaClientsRequest {
@@ -893,32 +852,30 @@ export interface ListLunaClientsRequest {
 
 export namespace ListLunaClientsRequest {
   export const filterSensitiveLog = (obj: ListLunaClientsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLunaClientsRequest =>
-    __isa(o, "ListLunaClientsRequest");
+  export const isa = (o: any): o is ListLunaClientsRequest => __isa(o, "ListLunaClientsRequest");
 }
 
 export interface ListLunaClientsResponse {
   __type?: "ListLunaClientsResponse";
   /**
-   * <p>The list of clients.</p>
-   */
-  ClientList: string[] | undefined;
-
-  /**
    * <p>If not null, more results are available. Pass this to <code>ListLunaClients</code> to
    *       retrieve the next set of items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of clients.</p>
+   */
+  ClientList: string[] | undefined;
 }
 
 export namespace ListLunaClientsResponse {
   export const filterSensitiveLog = (obj: ListLunaClientsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLunaClientsResponse =>
-    __isa(o, "ListLunaClientsResponse");
+  export const isa = (o: any): o is ListLunaClientsResponse => __isa(o, "ListLunaClientsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -931,10 +888,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -946,21 +902,19 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ModifyHapgRequest {
   __type?: "ModifyHapgRequest";
   /**
-   * <p>The ARN of the high-availability partition group to modify.</p>
+   * <p>The list of partition serial numbers to make members of the high-availability partition
+   *       group.</p>
    */
-  HapgArn: string | undefined;
+  PartitionSerialList?: string[];
 
   /**
    * <p>The new label for the high-availability partition group.</p>
@@ -968,18 +922,16 @@ export interface ModifyHapgRequest {
   Label?: string;
 
   /**
-   * <p>The list of partition serial numbers to make members of the high-availability partition
-   *       group.</p>
+   * <p>The ARN of the high-availability partition group to modify.</p>
    */
-  PartitionSerialList?: string[];
+  HapgArn: string | undefined;
 }
 
 export namespace ModifyHapgRequest {
   export const filterSensitiveLog = (obj: ModifyHapgRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHapgRequest =>
-    __isa(o, "ModifyHapgRequest");
+  export const isa = (o: any): o is ModifyHapgRequest => __isa(o, "ModifyHapgRequest");
 }
 
 export interface ModifyHapgResponse {
@@ -992,10 +944,9 @@ export interface ModifyHapgResponse {
 
 export namespace ModifyHapgResponse {
   export const filterSensitiveLog = (obj: ModifyHapgResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHapgResponse =>
-    __isa(o, "ModifyHapgResponse");
+  export const isa = (o: any): o is ModifyHapgResponse => __isa(o, "ModifyHapgResponse");
 }
 
 /**
@@ -1004,17 +955,23 @@ export namespace ModifyHapgResponse {
 export interface ModifyHsmRequest {
   __type?: "ModifyHsmRequest";
   /**
+   * <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same
+   *       Availability Zone as the current subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The new external ID.</p>
+   */
+  ExternalId?: string;
+
+  /**
    * <p>The new IP address for the elastic network interface (ENI) attached to the
    *       HSM.</p>
    *          <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP
    *       address will be randomly chosen from the CIDR range of the new subnet.</p>
    */
   EniIp?: string;
-
-  /**
-   * <p>The new external ID.</p>
-   */
-  ExternalId?: string;
 
   /**
    * <p>The ARN of the HSM to modify.</p>
@@ -1027,12 +984,6 @@ export interface ModifyHsmRequest {
   IamRoleArn?: string;
 
   /**
-   * <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same
-   *       Availability Zone as the current subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
    * <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports
    *       one syslog monitoring server.</p>
    */
@@ -1041,10 +992,9 @@ export interface ModifyHsmRequest {
 
 export namespace ModifyHsmRequest {
   export const filterSensitiveLog = (obj: ModifyHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHsmRequest =>
-    __isa(o, "ModifyHsmRequest");
+  export const isa = (o: any): o is ModifyHsmRequest => __isa(o, "ModifyHsmRequest");
 }
 
 /**
@@ -1060,31 +1010,29 @@ export interface ModifyHsmResponse {
 
 export namespace ModifyHsmResponse {
   export const filterSensitiveLog = (obj: ModifyHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyHsmResponse =>
-    __isa(o, "ModifyHsmResponse");
+  export const isa = (o: any): o is ModifyHsmResponse => __isa(o, "ModifyHsmResponse");
 }
 
 export interface ModifyLunaClientRequest {
   __type?: "ModifyLunaClientRequest";
   /**
-   * <p>The new certificate for the client.</p>
-   */
-  Certificate: string | undefined;
-
-  /**
    * <p>The ARN of the client.</p>
    */
   ClientArn: string | undefined;
+
+  /**
+   * <p>The new certificate for the client.</p>
+   */
+  Certificate: string | undefined;
 }
 
 export namespace ModifyLunaClientRequest {
   export const filterSensitiveLog = (obj: ModifyLunaClientRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyLunaClientRequest =>
-    __isa(o, "ModifyLunaClientRequest");
+  export const isa = (o: any): o is ModifyLunaClientRequest => __isa(o, "ModifyLunaClientRequest");
 }
 
 export interface ModifyLunaClientResponse {
@@ -1097,35 +1045,31 @@ export interface ModifyLunaClientResponse {
 
 export namespace ModifyLunaClientResponse {
   export const filterSensitiveLog = (obj: ModifyLunaClientResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyLunaClientResponse =>
-    __isa(o, "ModifyLunaClientResponse");
+  export const isa = (o: any): o is ModifyLunaClientResponse => __isa(o, "ModifyLunaClientResponse");
 }
 
 export interface RemoveTagsFromResourceRequest {
   __type?: "RemoveTagsFromResourceRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
-   */
-  ResourceArn: string | undefined;
-
   /**
    * <p>The tag key or keys to remove.</p>
    *          <p>Specify only the tag key to remove (not the value). To overwrite the value for an
    *       existing tag, use <a>AddTagsToResource</a>.</p>
    */
   TagKeyList: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace RemoveTagsFromResourceRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveTagsFromResourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceRequest =>
-    __isa(o, "RemoveTagsFromResourceRequest");
+  export const isa = (o: any): o is RemoveTagsFromResourceRequest => __isa(o, "RemoveTagsFromResourceRequest");
 }
 
 export interface RemoveTagsFromResourceResponse {
@@ -1137,17 +1081,14 @@ export interface RemoveTagsFromResourceResponse {
 }
 
 export namespace RemoveTagsFromResourceResponse {
-  export const filterSensitiveLog = (
-    obj: RemoveTagsFromResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveTagsFromResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceResponse =>
-    __isa(o, "RemoveTagsFromResourceResponse");
+  export const isa = (o: any): o is RemoveTagsFromResourceResponse => __isa(o, "RemoveTagsFromResourceResponse");
 }
 
 export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION"
+  PRODUCTION = "PRODUCTION",
 }
 
 /**
@@ -1157,19 +1098,19 @@ export enum SubscriptionType {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key of the tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The value of the tag.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The key of the tag.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }

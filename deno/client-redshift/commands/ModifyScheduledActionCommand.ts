@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { ModifyScheduledActionMessage, ScheduledAction } from "../models/index.ts";
 import {
   deserializeAws_queryModifyScheduledActionCommand,
-  serializeAws_queryModifyScheduledActionCommand
+  serializeAws_queryModifyScheduledActionCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyScheduledActionCommandInput = ModifyScheduledActionMessage;
-export type ModifyScheduledActionCommandOutput = ScheduledAction &
-  __MetadataBearer;
+export type ModifyScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
 
 export class ModifyScheduledActionCommand extends $Command<
   ModifyScheduledActionCommandInput,
@@ -46,18 +38,16 @@ export class ModifyScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyScheduledActionCommandInput,
-    ModifyScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyScheduledActionCommandInput, ModifyScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyScheduledActionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduledAction.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ModifyScheduledActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyScheduledActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyScheduledActionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyScheduledActionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyScheduledActionCommandOutput> {
     return deserializeAws_queryModifyScheduledActionCommand(output, context);
   }
 

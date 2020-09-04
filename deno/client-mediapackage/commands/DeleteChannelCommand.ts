@@ -1,18 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient.ts";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
 import { DeleteChannelRequest, DeleteChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
-  serializeAws_restJson1DeleteChannelCommand
+  serializeAws_restJson1DeleteChannelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteChannelCommandInput = DeleteChannelRequest;
-export type DeleteChannelCommandOutput = DeleteChannelResponse &
-  __MetadataBearer;
+export type DeleteChannelCommandOutput = DeleteChannelResponse & __MetadataBearer;
 
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,
@@ -47,14 +39,15 @@ export class DeleteChannelCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteChannelCommandInput, DeleteChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
     return deserializeAws_restJson1DeleteChannelCommand(output, context);
   }
 

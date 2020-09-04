@@ -1,21 +1,15 @@
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import {
-  DescribeProblemRequest,
-  DescribeProblemResponse
-} from "../models/index.ts";
+import { DescribeProblemRequest, DescribeProblemResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeProblemCommand,
-  serializeAws_json1_1DescribeProblemCommand
+  serializeAws_json1_1DescribeProblemCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeProblemCommandInput = DescribeProblemRequest;
-export type DescribeProblemCommandOutput = DescribeProblemResponse &
-  __MetadataBearer;
+export type DescribeProblemCommandOutput = DescribeProblemResponse & __MetadataBearer;
 
 export class DescribeProblemCommand extends $Command<
   DescribeProblemCommandInput,
@@ -50,14 +43,15 @@ export class DescribeProblemCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProblemCommandInput, DescribeProblemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeProblemRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProblemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DescribeProblemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeProblemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeProblemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProblemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeProblemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProblemCommandOutput> {
     return deserializeAws_json1_1DescribeProblemCommand(output, context);
   }
 

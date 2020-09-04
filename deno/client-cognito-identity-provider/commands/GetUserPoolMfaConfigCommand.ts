@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  GetUserPoolMfaConfigRequest,
-  GetUserPoolMfaConfigResponse
-} from "../models/index.ts";
+import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetUserPoolMfaConfigCommand,
-  serializeAws_json1_1GetUserPoolMfaConfigCommand
+  serializeAws_json1_1GetUserPoolMfaConfigCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetUserPoolMfaConfigCommandInput = GetUserPoolMfaConfigRequest;
-export type GetUserPoolMfaConfigCommandOutput = GetUserPoolMfaConfigResponse &
-  __MetadataBearer;
+export type GetUserPoolMfaConfigCommandOutput = GetUserPoolMfaConfigResponse & __MetadataBearer;
 
 export class GetUserPoolMfaConfigCommand extends $Command<
   GetUserPoolMfaConfigCommandInput,
@@ -49,18 +42,16 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetUserPoolMfaConfigCommandInput,
-    GetUserPoolMfaConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetUserPoolMfaConfigCommandInput, GetUserPoolMfaConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetUserPoolMfaConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserPoolMfaConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class GetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUserPoolMfaConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUserPoolMfaConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUserPoolMfaConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserPoolMfaConfigCommandOutput> {
     return deserializeAws_json1_1GetUserPoolMfaConfigCommand(output, context);
   }
 

@@ -1,16 +1,12 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface Application {
   __type?: "Application";
   /**
-   * <p>The description of the application.</p>
+   * <p>The application name.</p>
    */
-  Description?: string;
+  Name?: string;
 
   /**
    * <p>The application ID.</p>
@@ -18,14 +14,14 @@ export interface Application {
   Id?: string;
 
   /**
-   * <p>The application name.</p>
+   * <p>The description of the application.</p>
    */
-  Name?: string;
+  Description?: string;
 }
 
 export namespace Application {
   export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Application => __isa(o, "Application");
 }
@@ -33,20 +29,20 @@ export namespace Application {
 export interface Applications {
   __type?: "Applications";
   /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: Application[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: Application[];
 }
 
 export namespace Applications {
   export const filterSensitiveLog = (obj: Applications): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Applications => __isa(o, "Applications");
 }
@@ -54,9 +50,7 @@ export namespace Applications {
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -64,19 +58,17 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
+}
+
+export enum BytesMeasure {
+  KILOBYTES = "KILOBYTES",
 }
 
 export interface Configuration {
   __type?: "Configuration";
-  /**
-   * <p>The configuration version.</p>
-   */
-  ConfigurationVersion?: string;
-
   /**
    * <p>The content of the configuration or the configuration data.</p>
    */
@@ -87,11 +79,17 @@ export interface Configuration {
    *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
+
+  /**
+   * <p>The configuration version.</p>
+   */
+  ConfigurationVersion?: string;
 }
 
 export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
@@ -104,24 +102,14 @@ export interface ConfigurationProfile {
   ApplicationId?: string;
 
   /**
-   * <p>The configuration profile description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The configuration profile ID.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The URI location of the configuration.</p>
-   */
-  LocationUri?: string;
-
-  /**
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
+
+  /**
+   * <p>A list of methods for validating the configuration.</p>
+   */
+  Validators?: Validator[];
 
   /**
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
@@ -130,39 +118,48 @@ export interface ConfigurationProfile {
   RetrievalRoleArn?: string;
 
   /**
-   * <p>A list of methods for validating the configuration.</p>
+   * <p>The URI location of the configuration.</p>
    */
-  Validators?: Validator[];
+  LocationUri?: string;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The configuration profile description.</p>
+   */
+  Description?: string;
 }
 
 export namespace ConfigurationProfile {
   export const filterSensitiveLog = (obj: ConfigurationProfile): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ConfigurationProfile =>
-    __isa(o, "ConfigurationProfile");
+  export const isa = (o: any): o is ConfigurationProfile => __isa(o, "ConfigurationProfile");
 }
 
 export interface ConfigurationProfiles {
   __type?: "ConfigurationProfiles";
   /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: ConfigurationProfileSummary[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: ConfigurationProfileSummary[];
 }
 
 export namespace ConfigurationProfiles {
   export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationProfiles =>
-    __isa(o, "ConfigurationProfiles");
+  export const isa = (o: any): o is ConfigurationProfiles => __isa(o, "ConfigurationProfiles");
 }
 
 /**
@@ -176,14 +173,9 @@ export interface ConfigurationProfileSummary {
   ApplicationId?: string;
 
   /**
-   * <p>The ID of the configuration profile.</p>
+   * <p>The types of validators in the configuration profile.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The URI location of the configuration.</p>
-   */
-  LocationUri?: string;
+  ValidatorTypes?: (ValidatorType | string)[];
 
   /**
    * <p>The name of the configuration profile.</p>
@@ -191,19 +183,21 @@ export interface ConfigurationProfileSummary {
   Name?: string;
 
   /**
-   * <p>The types of validators in the configuration profile.</p>
+   * <p>The URI location of the configuration.</p>
    */
-  ValidatorTypes?: (ValidatorType | string)[];
+  LocationUri?: string;
+
+  /**
+   * <p>The ID of the configuration profile.</p>
+   */
+  Id?: string;
 }
 
 export namespace ConfigurationProfileSummary {
-  export const filterSensitiveLog = (
-    obj: ConfigurationProfileSummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfigurationProfileSummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationProfileSummary =>
-    __isa(o, "ConfigurationProfileSummary");
+  export const isa = (o: any): o is ConfigurationProfileSummary => __isa(o, "ConfigurationProfileSummary");
 }
 
 /**
@@ -218,19 +212,13 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
-  /**
-   * <p>A description of the application.</p>
-   */
-  Description?: string;
-
   /**
    * <p>A name for the application.</p>
    */
@@ -242,32 +230,32 @@ export interface CreateApplicationRequest {
    *          define.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A description of the application.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest =>
-    __isa(o, "CreateApplicationRequest");
+  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateConfigurationProfileRequest {
   __type?: "CreateConfigurationProfileRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>The ARN of an IAM role with permission to access the configuration at the specified
+   *          LocationUri.</p>
    */
-  ApplicationId: string | undefined;
+  RetrievalRoleArn?: string;
 
   /**
-   * <p>A description of the configuration profile.</p>
+   * <p>A list of methods for validating the configuration.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>A URI to locate the configuration. You can specify either a Systems Manager (SSM) document or an SSM Parameter Store parameter. For an SSM document, specify either the document name in the format <code>ssm-document://<Document name></code> or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format <code>ssm-parameter://<Parameter name></code> or the ARN.</p>
-   */
-  LocationUri: string | undefined;
+  Validators?: Validator[];
 
   /**
    * <p>A name for the configuration profile.</p>
@@ -275,10 +263,9 @@ export interface CreateConfigurationProfileRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
+   * <p>The application ID.</p>
    */
-  RetrievalRoleArn: string | undefined;
+  ApplicationId: string | undefined;
 
   /**
    * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
@@ -288,32 +275,37 @@ export interface CreateConfigurationProfileRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>A list of methods for validating the configuration.</p>
+   * <p>A description of the configuration profile.</p>
    */
-  Validators?: Validator[];
+  Description?: string;
+
+  /**
+   * <p>A URI to locate the configuration. You can specify a Systems Manager (SSM) document, an SSM
+   *          Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify either the
+   *          document name in the format <code>ssm-document://<Document_name></code> or the Amazon
+   *          Resource Name (ARN). For a parameter, specify either the parameter name in the format
+   *             <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,
+   *          specify the URI in the following format: <code>s3://<bucket>/<objectKey>
+   *          </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</p>
+   */
+  LocationUri: string | undefined;
 }
 
 export namespace CreateConfigurationProfileRequest {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationProfileRequest): any => ({
+    ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is CreateConfigurationProfileRequest =>
-    __isa(o, "CreateConfigurationProfileRequest");
+  export const isa = (o: any): o is CreateConfigurationProfileRequest => __isa(o, "CreateConfigurationProfileRequest");
 }
 
 export interface CreateDeploymentStrategyRequest {
   __type?: "CreateDeploymentStrategyRequest";
   /**
-   * <p>Total amount of time for a deployment to last.</p>
+   * <p>The percentage of targets to receive a deployed configuration during each
+   *          interval.</p>
    */
-  DeploymentDurationInMinutes: number | undefined;
-
-  /**
-   * <p>A description of the deployment strategy.</p>
-   */
-  Description?: string;
+  GrowthFactor: number | undefined;
 
   /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
@@ -322,15 +314,11 @@ export interface CreateDeploymentStrategyRequest {
   FinalBakeTimeInMinutes?: number;
 
   /**
-   * <p>The percentage of targets to receive a deployed configuration during each
-   *          interval.</p>
+   * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
+   *          define.</p>
    */
-  GrowthFactor: number | undefined;
-
-  /**
-   * <p>The algorithm used to define how percentage grows over time.</p>
-   */
-  GrowthType?: GrowthType | string;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>A name for the deployment strategy.</p>
@@ -343,34 +331,65 @@ export interface CreateDeploymentStrategyRequest {
   ReplicateTo: ReplicateTo | string | undefined;
 
   /**
-   * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>Total amount of time for a deployment to last.</p>
    */
-  Tags?: { [key: string]: string };
+  DeploymentDurationInMinutes: number | undefined;
+
+  /**
+   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   *          following growth types:</p>
+   *          <p>
+   *             <b>Linear</b>: For this type, AppConfig processes the
+   *          deployment by dividing the total number of targets by the value specified for <code>Step
+   *             percentage</code>. For example, a linear deployment that uses a <code>Step
+   *             percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After
+   *          those deployments are complete, the system deploys the configuration to the next 10
+   *          percent. This continues until 100% of the targets have successfully received the
+   *          configuration.</p>
+   *
+   *          <p>
+   *             <b>Exponential</b>: For this type, AppConfig processes the
+   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
+   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
+   *          the number of steps until the configuration is deployed to all targets. For example, if you
+   *          specify a growth factor of 2, then the system rolls out the configuration as
+   *          follows:</p>
+   *          <p>
+   *             <code>2*(2^0)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^1)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^2)</code>
+   *          </p>
+   *          <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the
+   *          targets, 8% of the targets, and continues until the configuration has been deployed to all
+   *          targets.</p>
+   */
+  GrowthType?: GrowthType | string;
+
+  /**
+   * <p>A description of the deployment strategy.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateDeploymentStrategyRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDeploymentStrategyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDeploymentStrategyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentStrategyRequest =>
-    __isa(o, "CreateDeploymentStrategyRequest");
+  export const isa = (o: any): o is CreateDeploymentStrategyRequest => __isa(o, "CreateDeploymentStrategyRequest");
 }
 
 export interface CreateEnvironmentRequest {
   __type?: "CreateEnvironmentRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
+   *          resources. Each tag consists of a key and an optional value, both of which you
+   *          define.</p>
    */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>A description of the environment.</p>
-   */
-  Description?: string;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
@@ -378,24 +397,72 @@ export interface CreateEnvironmentRequest {
   Monitors?: Monitor[];
 
   /**
+   * <p>A description of the environment.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A name for the environment.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>The application ID.</p>
    */
-  Tags?: { [key: string]: string };
+  ApplicationId: string | undefined;
 }
 
 export namespace CreateEnvironmentRequest {
   export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentRequest =>
-    __isa(o, "CreateEnvironmentRequest");
+  export const isa = (o: any): o is CreateEnvironmentRequest => __isa(o, "CreateEnvironmentRequest");
+}
+
+export interface CreateHostedConfigurationVersionRequest {
+  __type?: "CreateHostedConfigurationVersionRequest";
+  /**
+   * <p>An optional locking token used to prevent race conditions from overwriting configuration
+   *          updates when creating a new version. To ensure your data is not overwritten when creating
+   *          multiple hosted configuration versions in rapid succession, specify the version of the
+   *          latest hosted configuration version.</p>
+   */
+  LatestVersionNumber?: number;
+
+  /**
+   * <p>The content of the configuration or the configuration data.</p>
+   */
+  Content: Uint8Array | undefined;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export namespace CreateHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: CreateHostedConfigurationVersionRequest): any => ({
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is CreateHostedConfigurationVersionRequest =>
+    __isa(o, "CreateHostedConfigurationVersionRequest");
 }
 
 export interface DeleteApplicationRequest {
@@ -408,10 +475,9 @@ export interface DeleteApplicationRequest {
 
 export namespace DeleteApplicationRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationRequest =>
-    __isa(o, "DeleteApplicationRequest");
+  export const isa = (o: any): o is DeleteApplicationRequest => __isa(o, "DeleteApplicationRequest");
 }
 
 export interface DeleteConfigurationProfileRequest {
@@ -428,13 +494,10 @@ export interface DeleteConfigurationProfileRequest {
 }
 
 export namespace DeleteConfigurationProfileRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationProfileRequest =>
-    __isa(o, "DeleteConfigurationProfileRequest");
+  export const isa = (o: any): o is DeleteConfigurationProfileRequest => __isa(o, "DeleteConfigurationProfileRequest");
 }
 
 export interface DeleteDeploymentStrategyRequest {
@@ -446,104 +509,74 @@ export interface DeleteDeploymentStrategyRequest {
 }
 
 export namespace DeleteDeploymentStrategyRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDeploymentStrategyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDeploymentStrategyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentStrategyRequest =>
-    __isa(o, "DeleteDeploymentStrategyRequest");
+  export const isa = (o: any): o is DeleteDeploymentStrategyRequest => __isa(o, "DeleteDeploymentStrategyRequest");
 }
 
 export interface DeleteEnvironmentRequest {
   __type?: "DeleteEnvironmentRequest";
   /**
-   * <p>The application ID that includes the environment you want to delete.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The ID of the environment you want to delete.</p>
    */
   EnvironmentId: string | undefined;
+
+  /**
+   * <p>The application ID that includes the environment you want to delete.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace DeleteEnvironmentRequest {
   export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentRequest =>
-    __isa(o, "DeleteEnvironmentRequest");
+  export const isa = (o: any): o is DeleteEnvironmentRequest => __isa(o, "DeleteEnvironmentRequest");
+}
+
+export interface DeleteHostedConfigurationVersionRequest {
+  __type?: "DeleteHostedConfigurationVersionRequest";
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The versions number to delete.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+}
+
+export namespace DeleteHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: DeleteHostedConfigurationVersionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteHostedConfigurationVersionRequest =>
+    __isa(o, "DeleteHostedConfigurationVersionRequest");
 }
 
 export interface Deployment {
   __type?: "Deployment";
-  /**
-   * <p>The ID of the application that was deployed.</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The time the deployment completed. </p>
-   */
-  CompletedAt?: Date;
-
-  /**
-   * <p>Information about the source location of the configuration.</p>
-   */
-  ConfigurationLocationUri?: string;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  ConfigurationName?: string;
-
-  /**
-   * <p>The ID of the configuration profile that was deployed.</p>
-   */
-  ConfigurationProfileId?: string;
-
-  /**
-   * <p>The configuration version that was deployed.</p>
-   */
-  ConfigurationVersion?: string;
-
-  /**
-   * <p>Total amount of time the deployment lasted.</p>
-   */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The sequence number of the deployment.</p>
-   */
-  DeploymentNumber?: number;
-
   /**
    * <p>The ID of the deployment strategy that was deployed.</p>
    */
   DeploymentStrategyId?: string;
 
   /**
-   * <p>The description of the deployment.</p>
+   * <p>The ID of the application that was deployed.</p>
    */
-  Description?: string;
+  ApplicationId?: string;
 
   /**
-   * <p>The ID of the environment that was deployed.</p>
+   * <p>Information about the source location of the configuration.</p>
    */
-  EnvironmentId?: string;
-
-  /**
-   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
-   */
-  FinalBakeTimeInMinutes?: number;
-
-  /**
-   * <p>The percentage of targets to receive a deployed configuration during each
-   *          interval.</p>
-   */
-  GrowthFactor?: number;
+  ConfigurationLocationUri?: string;
 
   /**
    * <p>The algorithm used to define how percentage grew over time.</p>
@@ -556,40 +589,146 @@ export interface Deployment {
   PercentageComplete?: number;
 
   /**
+   * <p>The state of the deployment.</p>
+   */
+  State?: DeploymentState | string;
+
+  /**
+   * <p>A list containing all events related to a deployment. The most recent events are
+   *          displayed first.</p>
+   */
+  EventLog?: DeploymentEvent[];
+
+  /**
+   * <p>The configuration version that was deployed.</p>
+   */
+  ConfigurationVersion?: string;
+
+  /**
+   * <p>The description of the deployment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the configuration profile that was deployed.</p>
+   */
+  ConfigurationProfileId?: string;
+
+  /**
+   * <p>Total amount of time the deployment lasted.</p>
+   */
+  DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>The amount of time AppConfig monitored for alarms before considering the deployment to be
+   *          complete and no longer eligible for automatic roll back.</p>
+   */
+  FinalBakeTimeInMinutes?: number;
+
+  /**
    * <p>The time the deployment started.</p>
    */
   StartedAt?: Date;
 
   /**
-   * <p>The state of the deployment.</p>
+   * <p>The sequence number of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  DeploymentNumber?: number;
+
+  /**
+   * <p>The percentage of targets to receive a deployed configuration during each
+   *          interval.</p>
+   */
+  GrowthFactor?: number;
+
+  /**
+   * <p>The time the deployment completed. </p>
+   */
+  CompletedAt?: Date;
+
+  /**
+   * <p>The name of the configuration.</p>
+   */
+  ConfigurationName?: string;
+
+  /**
+   * <p>The ID of the environment that was deployed.</p>
+   */
+  EnvironmentId?: string;
 }
 
 export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
+}
+
+/**
+ * <p>An object that describes a deployment event.</p>
+ */
+export interface DeploymentEvent {
+  __type?: "DeploymentEvent";
+  /**
+   * <p>The date and time the event occurred.</p>
+   */
+  OccurredAt?: Date;
+
+  /**
+   * <p>A description of the deployment event. Descriptions include, but are not limited to, the
+   *          user account or the CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
+   *          that received the deployment, or in the case of an internal error, a recommendation to
+   *          attempt a new deployment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The entity that triggered the deployment event. Events can be triggered by a user, AWS
+   *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
+   */
+  TriggeredBy?: TriggeredBy | string;
+
+  /**
+   * <p>The type of deployment event. Deployment event types include the start, stop, or
+   *          completion of a deployment; a percentage update; the start or stop of a bake period; the
+   *          start or completion of a rollback.</p>
+   */
+  EventType?: DeploymentEventType | string;
+}
+
+export namespace DeploymentEvent {
+  export const filterSensitiveLog = (obj: DeploymentEvent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeploymentEvent => __isa(o, "DeploymentEvent");
+}
+
+export enum DeploymentEventType {
+  BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
+  DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
+  DEPLOYMENT_STARTED = "DEPLOYMENT_STARTED",
+  PERCENTAGE_UPDATED = "PERCENTAGE_UPDATED",
+  ROLLBACK_COMPLETED = "ROLLBACK_COMPLETED",
+  ROLLBACK_STARTED = "ROLLBACK_STARTED",
 }
 
 export interface Deployments {
   __type?: "Deployments";
   /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: DeploymentSummary[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: DeploymentSummary[];
 }
 
 export namespace Deployments {
   export const filterSensitiveLog = (obj: Deployments): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
 }
@@ -600,37 +739,51 @@ export enum DeploymentState {
   DEPLOYING = "DEPLOYING",
   ROLLED_BACK = "ROLLED_BACK",
   ROLLING_BACK = "ROLLING_BACK",
-  VALIDATING = "VALIDATING"
+  VALIDATING = "VALIDATING",
 }
 
 export interface DeploymentStrategies {
   __type?: "DeploymentStrategies";
   /**
-   * <p>The elements from this collection.</p>
-   */
-  Items?: DeploymentStrategy[];
-
-  /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: DeploymentStrategy[];
 }
 
 export namespace DeploymentStrategies {
   export const filterSensitiveLog = (obj: DeploymentStrategies): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeploymentStrategies =>
-    __isa(o, "DeploymentStrategies");
+  export const isa = (o: any): o is DeploymentStrategies => __isa(o, "DeploymentStrategies");
 }
 
 export interface DeploymentStrategy {
   __type?: "DeploymentStrategy";
   /**
+   * <p>The algorithm used to define how percentage grew over time.</p>
+   */
+  GrowthType?: GrowthType | string;
+
+  /**
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
+
+  /**
+   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
+   */
+  ReplicateTo?: ReplicateTo | string;
+
+  /**
+   * <p>The deployment strategy ID.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The description of the deployment strategy.</p>
@@ -644,38 +797,22 @@ export interface DeploymentStrategy {
   FinalBakeTimeInMinutes?: number;
 
   /**
-   * <p>The percentage of targets that received a deployed configuration during each
-   *          interval.</p>
-   */
-  GrowthFactor?: number;
-
-  /**
-   * <p>The algorithm used to define how percentage grew over time.</p>
-   */
-  GrowthType?: GrowthType | string;
-
-  /**
-   * <p>The deployment strategy ID.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of the deployment strategy.</p>
    */
   Name?: string;
 
   /**
-   * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
+   * <p>The percentage of targets that received a deployed configuration during each
+   *          interval.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  GrowthFactor?: number;
 }
 
 export namespace DeploymentStrategy {
   export const filterSensitiveLog = (obj: DeploymentStrategy): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeploymentStrategy =>
-    __isa(o, "DeploymentStrategy");
+  export const isa = (o: any): o is DeploymentStrategy => __isa(o, "DeploymentStrategy");
 }
 
 /**
@@ -683,31 +820,6 @@ export namespace DeploymentStrategy {
  */
 export interface DeploymentSummary {
   __type?: "DeploymentSummary";
-  /**
-   * <p>Time the deployment completed.</p>
-   */
-  CompletedAt?: Date;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  ConfigurationName?: string;
-
-  /**
-   * <p>The version of the configuration.</p>
-   */
-  ConfigurationVersion?: string;
-
-  /**
-   * <p>Total amount of time the deployment lasted.</p>
-   */
-  DeploymentDurationInMinutes?: number;
-
-  /**
-   * <p>The sequence number of the deployment.</p>
-   */
-  DeploymentNumber?: number;
-
   /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
    *          complete and no longer eligible for automatic roll back.</p>
@@ -719,6 +831,21 @@ export interface DeploymentSummary {
    *          interval.</p>
    */
   GrowthFactor?: number;
+
+  /**
+   * <p>The sequence number of the deployment.</p>
+   */
+  DeploymentNumber?: number;
+
+  /**
+   * <p>Time the deployment completed.</p>
+   */
+  CompletedAt?: Date;
+
+  /**
+   * <p>Total amount of time the deployment lasted.</p>
+   */
+  DeploymentDurationInMinutes?: number;
 
   /**
    * <p>The algorithm used to define how percentage grows over time.</p>
@@ -736,6 +863,16 @@ export interface DeploymentSummary {
   StartedAt?: Date;
 
   /**
+   * <p>The name of the configuration.</p>
+   */
+  ConfigurationName?: string;
+
+  /**
+   * <p>The version of the configuration.</p>
+   */
+  ConfigurationVersion?: string;
+
+  /**
    * <p>The state of the deployment.</p>
    */
   State?: DeploymentState | string;
@@ -743,14 +880,18 @@ export interface DeploymentSummary {
 
 export namespace DeploymentSummary {
   export const filterSensitiveLog = (obj: DeploymentSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeploymentSummary =>
-    __isa(o, "DeploymentSummary");
+  export const isa = (o: any): o is DeploymentSummary => __isa(o, "DeploymentSummary");
 }
 
 export interface Environment {
   __type?: "Environment";
+  /**
+   * <p>The name of the environment.</p>
+   */
+  Name?: string;
+
   /**
    * <p>The application ID.</p>
    */
@@ -762,6 +903,14 @@ export interface Environment {
   Description?: string;
 
   /**
+   * <p>The state of the environment. An environment can be in one of the following states:
+   *             <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or
+   *             <code>ROLLED_BACK</code>
+   *          </p>
+   */
+  State?: EnvironmentState | string;
+
+  /**
    * <p>The environment ID.</p>
    */
   Id?: string;
@@ -770,24 +919,11 @@ export interface Environment {
    * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
    */
   Monitors?: Monitor[];
-
-  /**
-   * <p>The name of the environment.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The state of the environment. An environment can be in one of the following states:
-   *             <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or
-   *             <code>ROLLED_BACK</code>
-   *          </p>
-   */
-  State?: EnvironmentState | string;
 }
 
 export namespace Environment {
   export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
@@ -808,7 +944,7 @@ export interface Environments {
 
 export namespace Environments {
   export const filterSensitiveLog = (obj: Environments): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Environments => __isa(o, "Environments");
 }
@@ -817,7 +953,7 @@ export enum EnvironmentState {
   DEPLOYING = "DEPLOYING",
   READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
   ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK"
+  ROLLING_BACK = "ROLLING_BACK",
 }
 
 export interface GetApplicationRequest {
@@ -830,75 +966,93 @@ export interface GetApplicationRequest {
 
 export namespace GetApplicationRequest {
   export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRequest =>
-    __isa(o, "GetApplicationRequest");
+  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetConfigurationProfileRequest {
   __type?: "GetConfigurationProfileRequest";
   /**
+   * <p>The ID of the configuration profile you want to get.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+
+  /**
    * <p>The ID of the application that includes the configuration profile you want to
    *          get.</p>
    */
   ApplicationId: string | undefined;
-
-  /**
-   * <p>The ID of the configuration profile you want to get.</p>
-   */
-  ConfigurationProfileId: string | undefined;
 }
 
 export namespace GetConfigurationProfileRequest {
-  export const filterSensitiveLog = (
-    obj: GetConfigurationProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConfigurationProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationProfileRequest =>
-    __isa(o, "GetConfigurationProfileRequest");
+  export const isa = (o: any): o is GetConfigurationProfileRequest => __isa(o, "GetConfigurationProfileRequest");
 }
 
 export interface GetConfigurationRequest {
   __type?: "GetConfigurationRequest";
   /**
-   * <p>The application to get.</p>
+   * <p>The environment to get. Specify either the environment name or the environment
+   *          ID.</p>
    */
-  Application: string | undefined;
+  Environment: string | undefined;
 
   /**
-   * <p>The configuration version returned in the most recent GetConfiguration response.</p>
-   */
-  ClientConfigurationVersion?: string;
-
-  /**
-   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to deploy
-   *          the configuration in intervals, as defined in the deployment strategy.</p>
-   */
-  ClientId: string | undefined;
-
-  /**
-   * <p>The configuration to get.</p>
+   * <p>The configuration to get. Specify either the configuration name or the configuration
+   *          ID.</p>
    */
   Configuration: string | undefined;
 
   /**
-   * <p>The environment to get.</p>
+   * <p>A unique ID to identify the client for the configuration. This ID enables AppConfig to
+   *          deploy the configuration in intervals, as defined in the deployment strategy.</p>
    */
-  Environment: string | undefined;
+  ClientId: string | undefined;
+
+  /**
+   * <p>The application to get. Specify either the application name or the application
+   *          ID.</p>
+   */
+  Application: string | undefined;
+
+  /**
+   * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
+   *          response.</p>
+   *          <important>
+   *             <p>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+   *             to identify the configuration version on your clients. If you don’t send
+   *                <code>ClientConfigurationVersion</code> with each call to
+   *                <code>GetConfiguration</code>, your clients receive the current configuration. You
+   *             are charged each time your clients receive a configuration.</p>
+   *             <p>To avoid excess charges, we recommend that you include the
+   *                <code>ClientConfigurationVersion</code> value with every call to
+   *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
+   *             calls to <code>GetConfiguration</code> must pass this value by using the
+   *                <code>ClientConfigurationVersion</code> parameter. </p>
+   *          </important>
+   *          <p>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving the Configuration</a> in the
+   *          <i>AWS AppConfig User Guide</i>.</p>
+   */
+  ClientConfigurationVersion?: string;
 }
 
 export namespace GetConfigurationRequest {
   export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationRequest =>
-    __isa(o, "GetConfigurationRequest");
+  export const isa = (o: any): o is GetConfigurationRequest => __isa(o, "GetConfigurationRequest");
 }
 
 export interface GetDeploymentRequest {
   __type?: "GetDeploymentRequest";
+  /**
+   * <p>The ID of the environment that includes the deployment you want to get. </p>
+   */
+  EnvironmentId: string | undefined;
+
   /**
    * <p>The ID of the application that includes the deployment you want to get. </p>
    */
@@ -908,19 +1062,13 @@ export interface GetDeploymentRequest {
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber: number | undefined;
-
-  /**
-   * <p>The ID of the environment that includes the deployment you want to get. </p>
-   */
-  EnvironmentId: string | undefined;
 }
 
 export namespace GetDeploymentRequest {
   export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentRequest =>
-    __isa(o, "GetDeploymentRequest");
+  export const isa = (o: any): o is GetDeploymentRequest => __isa(o, "GetDeploymentRequest");
 }
 
 export interface GetDeploymentStrategyRequest {
@@ -932,46 +1080,169 @@ export interface GetDeploymentStrategyRequest {
 }
 
 export namespace GetDeploymentStrategyRequest {
-  export const filterSensitiveLog = (
-    obj: GetDeploymentStrategyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDeploymentStrategyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentStrategyRequest =>
-    __isa(o, "GetDeploymentStrategyRequest");
+  export const isa = (o: any): o is GetDeploymentStrategyRequest => __isa(o, "GetDeploymentStrategyRequest");
 }
 
 export interface GetEnvironmentRequest {
   __type?: "GetEnvironmentRequest";
   /**
-   * <p>The ID of the application that includes the environment you want to get.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The ID of the environment you wnat to get.</p>
    */
   EnvironmentId: string | undefined;
+
+  /**
+   * <p>The ID of the application that includes the environment you want to get.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace GetEnvironmentRequest {
   export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEnvironmentRequest =>
-    __isa(o, "GetEnvironmentRequest");
+  export const isa = (o: any): o is GetEnvironmentRequest => __isa(o, "GetEnvironmentRequest");
+}
+
+export interface GetHostedConfigurationVersionRequest {
+  __type?: "GetHostedConfigurationVersionRequest";
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The version.</p>
+   */
+  VersionNumber: number | undefined;
+}
+
+export namespace GetHostedConfigurationVersionRequest {
+  export const filterSensitiveLog = (obj: GetHostedConfigurationVersionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetHostedConfigurationVersionRequest =>
+    __isa(o, "GetHostedConfigurationVersionRequest");
 }
 
 export enum GrowthType {
-  LINEAR = "LINEAR"
+  EXPONENTIAL = "EXPONENTIAL",
+  LINEAR = "LINEAR",
+}
+
+export interface HostedConfigurationVersion {
+  __type?: "HostedConfigurationVersion";
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId?: string;
+
+  /**
+   * <p>The configuration version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The content of the configuration or the configuration data.</p>
+   */
+  Content?: Uint8Array;
+}
+
+export namespace HostedConfigurationVersion {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersion): any => ({
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is HostedConfigurationVersion => __isa(o, "HostedConfigurationVersion");
+}
+
+export interface HostedConfigurationVersions {
+  __type?: "HostedConfigurationVersions";
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The elements from this collection.</p>
+   */
+  Items?: HostedConfigurationVersionSummary[];
+}
+
+export namespace HostedConfigurationVersions {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersions): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HostedConfigurationVersions => __isa(o, "HostedConfigurationVersions");
+}
+
+/**
+ * <p>Information about the configuration.</p>
+ */
+export interface HostedConfigurationVersionSummary {
+  __type?: "HostedConfigurationVersionSummary";
+  /**
+   * <p>A description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The configuration version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>A standard MIME type describing the format of the configuration content. For more
+   *          information, see <a href="https://docs.aws.amazon.com/https:/www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId?: string;
+}
+
+export namespace HostedConfigurationVersionSummary {
+  export const filterSensitiveLog = (obj: HostedConfigurationVersionSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is HostedConfigurationVersionSummary => __isa(o, "HostedConfigurationVersionSummary");
 }
 
 /**
  * <p>There was an internal failure in the AppConfig service.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -979,10 +1250,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListApplicationsRequest {
@@ -1001,19 +1271,13 @@ export interface ListApplicationsRequest {
 
 export namespace ListApplicationsRequest {
   export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListConfigurationProfilesRequest {
   __type?: "ListConfigurationProfilesRequest";
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
@@ -1024,20 +1288,33 @@ export interface ListConfigurationProfilesRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace ListConfigurationProfilesRequest {
-  export const filterSensitiveLog = (
-    obj: ListConfigurationProfilesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListConfigurationProfilesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationProfilesRequest =>
-    __isa(o, "ListConfigurationProfilesRequest");
+  export const isa = (o: any): o is ListConfigurationProfilesRequest => __isa(o, "ListConfigurationProfilesRequest");
 }
 
 export interface ListDeploymentsRequest {
   __type?: "ListDeploymentsRequest";
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The application ID.</p>
    */
@@ -1047,49 +1324,34 @@ export interface ListDeploymentsRequest {
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListDeploymentsRequest {
   export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsRequest =>
-    __isa(o, "ListDeploymentsRequest");
+  export const isa = (o: any): o is ListDeploymentsRequest => __isa(o, "ListDeploymentsRequest");
 }
 
 export interface ListDeploymentStrategiesRequest {
   __type?: "ListDeploymentStrategiesRequest";
   /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListDeploymentStrategiesRequest {
-  export const filterSensitiveLog = (
-    obj: ListDeploymentStrategiesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDeploymentStrategiesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentStrategiesRequest =>
-    __isa(o, "ListDeploymentStrategiesRequest");
+  export const isa = (o: any): o is ListDeploymentStrategiesRequest => __isa(o, "ListDeploymentStrategiesRequest");
 }
 
 export interface ListEnvironmentsRequest {
@@ -1113,10 +1375,41 @@ export interface ListEnvironmentsRequest {
 
 export namespace ListEnvironmentsRequest {
   export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEnvironmentsRequest =>
-    __isa(o, "ListEnvironmentsRequest");
+  export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
+}
+
+export interface ListHostedConfigurationVersionsRequest {
+  __type?: "ListHostedConfigurationVersionsRequest";
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
+}
+
+export namespace ListHostedConfigurationVersionsRequest {
+  export const filterSensitiveLog = (obj: ListHostedConfigurationVersionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListHostedConfigurationVersionsRequest =>
+    __isa(o, "ListHostedConfigurationVersionsRequest");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1129,10 +1422,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
@@ -1153,41 +1445,57 @@ export interface Monitor {
 
 export namespace Monitor {
   export const filterSensitiveLog = (obj: Monitor): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Monitor => __isa(o, "Monitor");
 }
 
+/**
+ * <p>The configuration size is too large.</p>
+ */
+export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
+  name: "PayloadTooLargeException";
+  $fault: "client";
+  Limit?: number;
+  Size?: number;
+  Message?: string;
+  Measure?: BytesMeasure | string;
+}
+
+export namespace PayloadTooLargeException {
+  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PayloadTooLargeException => __isa(o, "PayloadTooLargeException");
+}
+
 export enum ReplicateTo {
   NONE = "NONE",
-  SSM_DOCUMENT = "SSM_DOCUMENT"
+  SSM_DOCUMENT = "SSM_DOCUMENT",
 }
 
 /**
  * <p>The requested resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  Message?: string;
   ResourceName?: string;
+  Message?: string;
 }
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface ResourceTags {
   __type?: "ResourceTags";
   /**
-   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
+   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your
+   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
    *          define.</p>
    */
   Tags?: { [key: string]: string };
@@ -1195,9 +1503,26 @@ export interface ResourceTags {
 
 export namespace ResourceTags {
   export const filterSensitiveLog = (obj: ResourceTags): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
+}
+
+/**
+ * <p>The number of hosted configuration versions exceeds the limit for the AppConfig
+ *          configuration store. Delete one or more versions and try again.</p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface StartDeploymentRequest {
@@ -1208,11 +1533,6 @@ export interface StartDeploymentRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The configuration profile ID.</p>
-   */
-  ConfigurationProfileId: string | undefined;
-
-  /**
    * <p>The configuration version to deploy.</p>
    */
   ConfigurationVersion: string | undefined;
@@ -1221,6 +1541,11 @@ export interface StartDeploymentRequest {
    * <p>The deployment strategy ID.</p>
    */
   DeploymentStrategyId: string | undefined;
+
+  /**
+   * <p>The configuration profile ID.</p>
+   */
+  ConfigurationProfileId: string | undefined;
 
   /**
    * <p>A description of the deployment.</p>
@@ -1242,18 +1567,17 @@ export interface StartDeploymentRequest {
 
 export namespace StartDeploymentRequest {
   export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartDeploymentRequest =>
-    __isa(o, "StartDeploymentRequest");
+  export const isa = (o: any): o is StartDeploymentRequest => __isa(o, "StartDeploymentRequest");
 }
 
 export interface StopDeploymentRequest {
   __type?: "StopDeploymentRequest";
   /**
-   * <p>The application ID.</p>
+   * <p>The environment ID.</p>
    */
-  ApplicationId: string | undefined;
+  EnvironmentId: string | undefined;
 
   /**
    * <p>The sequence number of the deployment.</p>
@@ -1261,17 +1585,16 @@ export interface StopDeploymentRequest {
   DeploymentNumber: number | undefined;
 
   /**
-   * <p>The environment ID.</p>
+   * <p>The application ID.</p>
    */
-  EnvironmentId: string | undefined;
+  ApplicationId: string | undefined;
 }
 
 export namespace StopDeploymentRequest {
   export const filterSensitiveLog = (obj: StopDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopDeploymentRequest =>
-    __isa(o, "StopDeploymentRequest");
+  export const isa = (o: any): o is StopDeploymentRequest => __isa(o, "StopDeploymentRequest");
 }
 
 export interface TagResourceRequest {
@@ -1291,40 +1614,40 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export enum TriggeredBy {
+  APPCONFIG = "APPCONFIG",
+  CLOUDWATCH_ALARM = "CLOUDWATCH_ALARM",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  USER = "USER",
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The ARN of the resource for which to remove tags.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tag keys to delete.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource for which to remove tags.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateApplicationRequest {
   __type?: "UpdateApplicationRequest";
-  /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
   /**
    * <p>A description of the application.</p>
    */
@@ -1334,18 +1657,33 @@ export interface UpdateApplicationRequest {
    * <p>The name of the application.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest =>
-    __isa(o, "UpdateApplicationRequest");
+  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateConfigurationProfileRequest {
   __type?: "UpdateConfigurationProfileRequest";
+  /**
+   * <p>The name of the configuration profile.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of an IAM role with permission to access the configuration at the specified
+   *          LocationUri.</p>
+   */
+  RetrievalRoleArn?: string;
+
   /**
    * <p>The application ID.</p>
    */
@@ -1362,34 +1700,59 @@ export interface UpdateConfigurationProfileRequest {
   Description?: string;
 
   /**
-   * <p>The name of the configuration profile.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ARN of an IAM role with permission to access the configuration at the specified
-   *          LocationUri.</p>
-   */
-  RetrievalRoleArn?: string;
-
-  /**
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
 }
 
 export namespace UpdateConfigurationProfileRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateConfigurationProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateConfigurationProfileRequest): any => ({
+    ...obj,
+    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is UpdateConfigurationProfileRequest =>
-    __isa(o, "UpdateConfigurationProfileRequest");
+  export const isa = (o: any): o is UpdateConfigurationProfileRequest => __isa(o, "UpdateConfigurationProfileRequest");
 }
 
 export interface UpdateDeploymentStrategyRequest {
   __type?: "UpdateDeploymentStrategyRequest";
+  /**
+   * <p>A description of the deployment strategy.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The algorithm used to define how percentage grows over time. AWS AppConfig supports the
+   *          following growth types:</p>
+   *          <p>
+   *             <b>Linear</b>: For this type, AppConfig processes the
+   *          deployment by increments of the growth factor evenly distributed over the deployment time.
+   *          For example, a linear deployment that uses a growth factor of 20 initially makes the
+   *          configuration available to 20 percent of the targets. After 1/5th of the deployment time
+   *          has passed, the system updates the percentage to 40 percent. This continues until 100% of
+   *          the targets are set to receive the deployed configuration.</p>
+   *
+   *          <p>
+   *             <b>Exponential</b>: For this type, AppConfig processes the
+   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
+   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
+   *          the number of steps until the configuration is deployed to all targets. For example, if you
+   *          specify a growth factor of 2, then the system rolls out the configuration as
+   *          follows:</p>
+   *          <p>
+   *             <code>2*(2^0)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^1)</code>
+   *          </p>
+   *          <p>
+   *             <code>2*(2^2)</code>
+   *          </p>
+   *          <p>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the
+   *          targets, 8% of the targets, and continues until the configuration has been deployed to all
+   *          targets.</p>
+   */
+  GrowthType?: GrowthType | string;
+
   /**
    * <p>Total amount of time for a deployment to last.</p>
    */
@@ -1399,11 +1762,6 @@ export interface UpdateDeploymentStrategyRequest {
    * <p>The deployment strategy ID.</p>
    */
   DeploymentStrategyId: string | undefined;
-
-  /**
-   * <p>A description of the deployment strategy.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
@@ -1416,39 +1774,21 @@ export interface UpdateDeploymentStrategyRequest {
    *          interval.</p>
    */
   GrowthFactor?: number;
-
-  /**
-   * <p>The algorithm used to define how percentage grows over time.</p>
-   */
-  GrowthType?: GrowthType | string;
 }
 
 export namespace UpdateDeploymentStrategyRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDeploymentStrategyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDeploymentStrategyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentStrategyRequest =>
-    __isa(o, "UpdateDeploymentStrategyRequest");
+  export const isa = (o: any): o is UpdateDeploymentStrategyRequest => __isa(o, "UpdateDeploymentStrategyRequest");
 }
 
 export interface UpdateEnvironmentRequest {
   __type?: "UpdateEnvironmentRequest";
   /**
-   * <p>The application ID.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>A description of the environment.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The environment ID.</p>
-   */
-  EnvironmentId: string | undefined;
 
   /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
@@ -1456,17 +1796,26 @@ export interface UpdateEnvironmentRequest {
   Monitors?: Monitor[];
 
   /**
+   * <p>The environment ID.</p>
+   */
+  EnvironmentId: string | undefined;
+
+  /**
    * <p>The name of the environment.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The application ID.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace UpdateEnvironmentRequest {
   export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentRequest =>
-    __isa(o, "UpdateEnvironmentRequest");
+  export const isa = (o: any): o is UpdateEnvironmentRequest => __isa(o, "UpdateEnvironmentRequest");
 }
 
 export interface ValidateConfigurationRequest {
@@ -1488,13 +1837,10 @@ export interface ValidateConfigurationRequest {
 }
 
 export namespace ValidateConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: ValidateConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ValidateConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ValidateConfigurationRequest =>
-    __isa(o, "ValidateConfigurationRequest");
+  export const isa = (o: any): o is ValidateConfigurationRequest => __isa(o, "ValidateConfigurationRequest");
 }
 
 /**
@@ -1507,12 +1853,14 @@ export namespace ValidateConfigurationRequest {
 export interface Validator {
   __type?: "Validator";
   /**
-   * <p>Either the JSON Schema content or an AWS Lambda function name.</p>
+   * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda
+   *          function.</p>
    */
   Content: string | undefined;
 
   /**
-   * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code>
+   * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and
+   *          <code>LAMBDA</code>
    *          </p>
    */
   Type: ValidatorType | string | undefined;
@@ -1520,12 +1868,13 @@ export interface Validator {
 
 export namespace Validator {
   export const filterSensitiveLog = (obj: Validator): any => ({
-    ...obj
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Validator => __isa(o, "Validator");
 }
 
 export enum ValidatorType {
   JSON_SCHEMA = "JSON_SCHEMA",
-  LAMBDA = "LAMBDA"
+  LAMBDA = "LAMBDA",
 }

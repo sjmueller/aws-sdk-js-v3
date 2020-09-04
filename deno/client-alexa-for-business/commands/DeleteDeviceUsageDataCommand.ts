@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  DeleteDeviceUsageDataRequest,
-  DeleteDeviceUsageDataResponse
-} from "../models/index.ts";
+import { DeleteDeviceUsageDataRequest, DeleteDeviceUsageDataResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteDeviceUsageDataCommand,
-  serializeAws_json1_1DeleteDeviceUsageDataCommand
+  serializeAws_json1_1DeleteDeviceUsageDataCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDeviceUsageDataCommandInput = DeleteDeviceUsageDataRequest;
-export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse &
-  __MetadataBearer;
+export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse & __MetadataBearer;
 
 export class DeleteDeviceUsageDataCommand extends $Command<
   DeleteDeviceUsageDataCommandInput,
@@ -49,18 +42,16 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDeviceUsageDataCommandInput,
-    DeleteDeviceUsageDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDeviceUsageDataCommandInput, DeleteDeviceUsageDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDeviceUsageDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeviceUsageDataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDeviceUsageDataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDeviceUsageDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeviceUsageDataCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDeviceUsageDataCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceUsageDataCommandOutput> {
     return deserializeAws_json1_1DeleteDeviceUsageDataCommand(output, context);
   }
 

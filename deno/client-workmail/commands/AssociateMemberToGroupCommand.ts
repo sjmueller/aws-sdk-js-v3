@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient.ts";
-import {
-  AssociateMemberToGroupRequest,
-  AssociateMemberToGroupResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
+import { AssociateMemberToGroupRequest, AssociateMemberToGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateMemberToGroupCommand,
-  serializeAws_json1_1AssociateMemberToGroupCommand
+  serializeAws_json1_1AssociateMemberToGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateMemberToGroupCommandInput = AssociateMemberToGroupRequest;
-export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse &
-  __MetadataBearer;
+export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse & __MetadataBearer;
 
 export class AssociateMemberToGroupCommand extends $Command<
   AssociateMemberToGroupCommandInput,
@@ -49,18 +38,16 @@ export class AssociateMemberToGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateMemberToGroupCommandInput,
-    AssociateMemberToGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateMemberToGroupCommandInput, AssociateMemberToGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateMemberToGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AssociateMemberToGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateMemberToGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateMemberToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateMemberToGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateMemberToGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberToGroupCommandOutput> {
     return deserializeAws_json1_1AssociateMemberToGroupCommand(output, context);
   }
 

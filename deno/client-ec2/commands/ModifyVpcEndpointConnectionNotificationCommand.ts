@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import {
   ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointConnectionNotificationResult
+  ModifyVpcEndpointConnectionNotificationResult,
 } from "../models/index.ts";
 import {
   deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
-  serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand
+  serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyVpcEndpointConnectionNotificationCommandInput = ModifyVpcEndpointConnectionNotificationRequest;
@@ -39,9 +32,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ModifyVpcEndpointConnectionNotificationCommandInput
-  ) {
+  constructor(readonly input: ModifyVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     ModifyVpcEndpointConnectionNotificationCommandInput,
     ModifyVpcEndpointConnectionNotificationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyVpcEndpointConnectionNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVpcEndpointConnectionNotificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

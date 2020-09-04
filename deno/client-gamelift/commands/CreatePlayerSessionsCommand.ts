@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  CreatePlayerSessionsInput,
-  CreatePlayerSessionsOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { CreatePlayerSessionsInput, CreatePlayerSessionsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreatePlayerSessionsCommand,
-  serializeAws_json1_1CreatePlayerSessionsCommand
+  serializeAws_json1_1CreatePlayerSessionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePlayerSessionsCommandInput = CreatePlayerSessionsInput;
-export type CreatePlayerSessionsCommandOutput = CreatePlayerSessionsOutput &
-  __MetadataBearer;
+export type CreatePlayerSessionsCommandOutput = CreatePlayerSessionsOutput & __MetadataBearer;
 
 export class CreatePlayerSessionsCommand extends $Command<
   CreatePlayerSessionsCommandInput,
@@ -49,18 +38,16 @@ export class CreatePlayerSessionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePlayerSessionsCommandInput,
-    CreatePlayerSessionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePlayerSessionsCommandInput, CreatePlayerSessionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePlayerSessionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlayerSessionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreatePlayerSessionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePlayerSessionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePlayerSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePlayerSessionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePlayerSessionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionsCommandOutput> {
     return deserializeAws_json1_1CreatePlayerSessionsCommand(output, context);
   }
 

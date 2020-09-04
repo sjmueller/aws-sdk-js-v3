@@ -1,21 +1,11 @@
-import {
-  EventBridgeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EventBridgeClient.ts";
-import {
-  ListPartnerEventSourcesRequest,
-  ListPartnerEventSourcesResponse
-} from "../models/index.ts";
+import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
+import { ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPartnerEventSourcesCommand,
-  serializeAws_json1_1ListPartnerEventSourcesCommand
+  serializeAws_json1_1ListPartnerEventSourcesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPartnerEventSourcesCommandInput = ListPartnerEventSourcesRequest;
-export type ListPartnerEventSourcesCommandOutput = ListPartnerEventSourcesResponse &
-  __MetadataBearer;
+export type ListPartnerEventSourcesCommandOutput = ListPartnerEventSourcesResponse & __MetadataBearer;
 
 export class ListPartnerEventSourcesCommand extends $Command<
   ListPartnerEventSourcesCommandInput,
@@ -49,18 +38,16 @@ export class ListPartnerEventSourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPartnerEventSourcesCommandInput,
-    ListPartnerEventSourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPartnerEventSourcesCommandInput, ListPartnerEventSourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPartnerEventSourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPartnerEventSourcesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListPartnerEventSourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPartnerEventSourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPartnerEventSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPartnerEventSourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPartnerEventSourcesCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourcesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartnerEventSourcesCommandOutput> {
+    return deserializeAws_json1_1ListPartnerEventSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

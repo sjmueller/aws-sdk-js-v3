@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
-import {
-  GetBucketReplicationOutput,
-  GetBucketReplicationRequest
-} from "../models/index.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
+import { GetBucketReplicationOutput, GetBucketReplicationRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetBucketReplicationCommand,
-  serializeAws_restXmlGetBucketReplicationCommand
+  serializeAws_restXmlGetBucketReplicationCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBucketReplicationCommandInput = GetBucketReplicationRequest;
-export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput &
-  __MetadataBearer;
+export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput & __MetadataBearer;
 
 export class GetBucketReplicationCommand extends $Command<
   GetBucketReplicationCommandInput,
@@ -50,19 +39,17 @@ export class GetBucketReplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketReplicationCommandInput,
-    GetBucketReplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketReplicationCommandInput, GetBucketReplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBucketReplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketReplicationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,17 +59,11 @@ export class GetBucketReplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBucketReplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketReplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBucketReplicationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketReplicationCommandOutput> {
     return deserializeAws_restXmlGetBucketReplicationCommand(output, context);
   }
 

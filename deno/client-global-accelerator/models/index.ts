@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -12,9 +8,26 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface Accelerator {
   __type?: "Accelerator";
   /**
-   * <p>The Amazon Resource Name (ARN) of the accelerator.</p>
+   * <p>The name of the accelerator. The name must contain only alphanumeric characters or
+   * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
-  AcceleratorArn?: string;
+  Name?: string;
+
+  /**
+   * <p>Describes the deployment status of the accelerator.</p>
+   */
+  Status?: AcceleratorStatus | string;
+
+  /**
+   * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
+   * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The date and time that the accelerator was last modified.</p>
+   */
+  LastModifiedTime?: Date;
 
   /**
    * <p>The date and time that the accelerator was created.</p>
@@ -23,20 +36,13 @@ export interface Accelerator {
 
   /**
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>
-   * 		       <p>The naming convention for the DNS name is: a lower case letter a,
+   * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>For more information about the default
-   * 			DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">Support for DNS Addressing in Global Accelerator</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
-
-  /**
-   * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
-   */
-  Enabled?: boolean;
 
   /**
    * <p>The value for the address type must be IPv4.
@@ -50,25 +56,14 @@ export interface Accelerator {
   IpSets?: IpSet[];
 
   /**
-   * <p>The date and time that the accelerator was last modified.</p>
+   * <p>The Amazon Resource Name (ARN) of the accelerator.</p>
    */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The name of the accelerator. The name must contain only alphanumeric characters or
-   * 			hyphens (-), and must not begin or end with a hyphen.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Describes the deployment status of the accelerator.</p>
-   */
-  Status?: AcceleratorStatus | string;
+  AcceleratorArn?: string;
 }
 
 export namespace Accelerator {
   export const filterSensitiveLog = (obj: Accelerator): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Accelerator => __isa(o, "Accelerator");
 }
@@ -79,12 +74,13 @@ export namespace Accelerator {
 export interface AcceleratorAttributes {
   __type?: "AcceleratorAttributes";
   /**
-   * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
-   * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
+   * 				<code>FlowLogsEnabled</code> is <code>true</code>.</p>
+   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
+   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   * 		       <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
-  FlowLogsEnabled?: boolean;
+  FlowLogsS3Prefix?: string;
 
   /**
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
@@ -94,61 +90,51 @@ export interface AcceleratorAttributes {
   FlowLogsS3Bucket?: string;
 
   /**
-   * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
-   * 				<code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket.</p>
+   * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
+   * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
+   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
    */
-  FlowLogsS3Prefix?: string;
+  FlowLogsEnabled?: boolean;
 }
 
 export namespace AcceleratorAttributes {
   export const filterSensitiveLog = (obj: AcceleratorAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorAttributes =>
-    __isa(o, "AcceleratorAttributes");
+  export const isa = (o: any): o is AcceleratorAttributes => __isa(o, "AcceleratorAttributes");
 }
 
 /**
  * <p>The accelerator that you specified could not be disabled.</p>
  */
-export interface AcceleratorNotDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotDisabledException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotDisabledException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AcceleratorNotDisabledException {
-  export const filterSensitiveLog = (
-    obj: AcceleratorNotDisabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceleratorNotDisabledException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorNotDisabledException =>
-    __isa(o, "AcceleratorNotDisabledException");
+  export const isa = (o: any): o is AcceleratorNotDisabledException => __isa(o, "AcceleratorNotDisabledException");
 }
 
 /**
  * <p>The accelerator that you specified doesn't exist.</p>
  */
-export interface AcceleratorNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AcceleratorNotFoundException {
-  export const filterSensitiveLog = (
-    obj: AcceleratorNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceleratorNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceleratorNotFoundException =>
-    __isa(o, "AcceleratorNotFoundException");
+  export const isa = (o: any): o is AcceleratorNotFoundException => __isa(o, "AcceleratorNotFoundException");
 }
 
 export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
@@ -156,9 +142,7 @@ export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 /**
  * <p>You don't have access permission.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -166,29 +150,55 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
+}
+
+export interface AdvertiseByoipCidrRequest {
+  __type?: "AdvertiseByoipCidrRequest";
+  /**
+   * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
+   * 			You can't advertise only a portion of the provisioned range.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export namespace AdvertiseByoipCidrRequest {
+  export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AdvertiseByoipCidrRequest => __isa(o, "AdvertiseByoipCidrRequest");
+}
+
+export interface AdvertiseByoipCidrResponse {
+  __type?: "AdvertiseByoipCidrResponse";
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace AdvertiseByoipCidrResponse {
+  export const filterSensitiveLog = (obj: AdvertiseByoipCidrResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AdvertiseByoipCidrResponse => __isa(o, "AdvertiseByoipCidrResponse");
 }
 
 /**
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
  */
-export interface AssociatedEndpointGroupFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedEndpointGroupFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AssociatedEndpointGroupFoundException {
-  export const filterSensitiveLog = (
-    obj: AssociatedEndpointGroupFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociatedEndpointGroupFoundException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociatedEndpointGroupFoundException =>
     __isa(o, "AssociatedEndpointGroupFoundException");
@@ -198,22 +208,198 @@ export namespace AssociatedEndpointGroupFoundException {
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
  */
-export interface AssociatedListenerFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedListenerFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AssociatedListenerFoundException {
-  export const filterSensitiveLog = (
-    obj: AssociatedListenerFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociatedListenerFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociatedListenerFoundException =>
-    __isa(o, "AssociatedListenerFoundException");
+  export const isa = (o: any): o is AssociatedListenerFoundException => __isa(o, "AssociatedListenerFoundException");
+}
+
+/**
+ * <p>Information about an IP address range that is provisioned for use with your AWS resources through
+ * 			bring your own IP address (BYOIP).</p>
+ * 		       <p>The following describes each BYOIP <code>State</code> that your IP address range can be in.</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>
+ *                   <b>PENDING_PROVISIONING</b> —
+ * 				You’ve submitted a request to provision an IP address range but it is not yet provisioned with
+ * 				AWS Global Accelerator.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>READY</b> — The address range is provisioned
+ * 				with AWS Global Accelerator and can be advertised.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>PENDING_ADVERTISING</b> — You’ve submitted a
+ * 				request for AWS Global Accelerator to advertise an address range but it is not yet being advertised.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>ADVERTISING</b> — The address range is
+ * 				being advertised by AWS Global Accelerator.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>PENDING_WITHDRAWING</b> — You’ve submitted
+ * 				a request to withdraw an address range from being advertised but it is still being advertised
+ * 				by AWS Global Accelerator.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>PENDING_DEPROVISIONING</b> — You’ve submitted a
+ * 				request to deprovision an address range from AWS Global Accelerator but it is still provisioned.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>DEPROVISIONED</b> — The address range is deprovisioned
+ * 				from AWS Global Accelerator.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>FAILED_PROVISION </b> — The request to
+ * 				provision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 				you provide all of the correct information, and try again. If the request fails
+ * 				a second time, contact AWS support.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>FAILED_ADVERTISING</b> — The request for AWS Global Accelerator
+ * 				to advertise the address range was not successful. Please make sure that
+ * 				you provide all of the correct information, and try again. If the request fails
+ * 				a second time, contact AWS support.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>FAILED_WITHDRAW</b> — The request to withdraw
+ * 				the address range from advertising by AWS Global Accelerator was not successful. Please make sure that
+ * 				you provide all of the correct information, and try again. If the request fails
+ * 				a second time, contact AWS support.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>FAILED_DEPROVISION </b> — The request to
+ * 				deprovision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 				you provide all of the correct information, and try again. If the request fails
+ * 				a second time, contact AWS support.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ByoipCidr {
+  __type?: "ByoipCidr";
+  /**
+   * <p>The address range, in CIDR notation.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>A history of status changes for an IP address range that that you bring to AWS Global Accelerator
+   * 			through bring your own IP address (BYOIP).</p>
+   */
+  Events?: ByoipCidrEvent[];
+
+  /**
+   * <p>The state of the address pool.</p>
+   */
+  State?: ByoipCidrState | string;
+}
+
+export namespace ByoipCidr {
+  export const filterSensitiveLog = (obj: ByoipCidr): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ByoipCidr => __isa(o, "ByoipCidr");
+}
+
+/**
+ * <p>A complex type that contains a <code>Message</code> and a <code>Timestamp</code> value for changes
+ * 			that you make in the status an IP address range that you bring to AWS Global Accelerator through bring your own IP
+ * 			address (BYOIP).</p>
+ */
+export interface ByoipCidrEvent {
+  __type?: "ByoipCidrEvent";
+  /**
+   * <p>A timestamp when you make a status change for an IP address range that you bring to AWS Global Accelerator through
+   * 			bring your own IP address (BYOIP).</p>
+   */
+  Timestamp?: Date;
+
+  /**
+   * <p>A string that contains an <code>Event</code> message describing changes that you make in the status
+   * 			of an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
+   */
+  Message?: string;
+}
+
+export namespace ByoipCidrEvent {
+  export const filterSensitiveLog = (obj: ByoipCidrEvent): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ByoipCidrEvent => __isa(o, "ByoipCidrEvent");
+}
+
+/**
+ * <p>The CIDR that you specified was not found or is incorrect.</p>
+ */
+export interface ByoipCidrNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ByoipCidrNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ByoipCidrNotFoundException {
+  export const filterSensitiveLog = (obj: ByoipCidrNotFoundException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ByoipCidrNotFoundException => __isa(o, "ByoipCidrNotFoundException");
+}
+
+export enum ByoipCidrState {
+  ADVERTISING = "ADVERTISING",
+  DEPROVISIONED = "DEPROVISIONED",
+  FAILED_ADVERTISING = "FAILED_ADVERTISING",
+  FAILED_DEPROVISION = "FAILED_DEPROVISION",
+  FAILED_PROVISION = "FAILED_PROVISION",
+  FAILED_WITHDRAW = "FAILED_WITHDRAW",
+  PENDING_ADVERTISING = "PENDING_ADVERTISING",
+  PENDING_DEPROVISIONING = "PENDING_DEPROVISIONING",
+  PENDING_PROVISIONING = "PENDING_PROVISIONING",
+  PENDING_WITHDRAWING = "PENDING_WITHDRAWING",
+  READY = "READY",
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS
+ * 			account using bring your own IP addresses (BYOIP). </p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+ * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ */
+export interface CidrAuthorizationContext {
+  __type?: "CidrAuthorizationContext";
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   */
+  Signature: string | undefined;
+}
+
+export namespace CidrAuthorizationContext {
+  export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CidrAuthorizationContext => __isa(o, "CidrAuthorizationContext");
 }
 
 export type ClientAffinity = "NONE" | "SOURCE_IP";
@@ -221,16 +407,17 @@ export type ClientAffinity = "NONE" | "SOURCE_IP";
 export interface CreateAcceleratorRequest {
   __type?: "CreateAcceleratorRequest";
   /**
-   * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
-   * 		       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
-   */
-  Enabled?: boolean;
-
-  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of an accelerator.</p>
    */
-  IdempotencyToken: string | undefined;
+  IdempotencyToken?: string;
+
+  /**
+   * <p>Create tags for an accelerator.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The value for the address type must be IPv4.
@@ -243,14 +430,31 @@ export interface CreateAcceleratorRequest {
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
+   * 		       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Optionally, if you've added your own IP address pool to Global Accelerator, you can choose IP addresses
+   * 			from your own pool to use for the accelerator's static IP
+   * 			addresses. You can specify one or two addresses, separated by a comma. Do not include the /32
+   * 			suffix.</p>
+   * 		       <p>If you specify only one IP address from your IP address range, Global Accelerator assigns a second
+   * 			static IP address for the accelerator from the AWS IP address pool.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
+   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  IpAddresses?: string[];
 }
 
 export namespace CreateAcceleratorRequest {
   export const filterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAcceleratorRequest =>
-    __isa(o, "CreateAcceleratorRequest");
+  export const isa = (o: any): o is CreateAcceleratorRequest => __isa(o, "CreateAcceleratorRequest");
 }
 
 export interface CreateAcceleratorResponse {
@@ -263,18 +467,23 @@ export interface CreateAcceleratorResponse {
 
 export namespace CreateAcceleratorResponse {
   export const filterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAcceleratorResponse =>
-    __isa(o, "CreateAcceleratorResponse");
+  export const isa = (o: any): o is CreateAcceleratorResponse => __isa(o, "CreateAcceleratorResponse");
 }
 
 export interface CreateEndpointGroupRequest {
   __type?: "CreateEndpointGroupRequest";
   /**
-   * <p>The list of endpoint objects.</p>
+   * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
-  EndpointConfigurations?: EndpointConfiguration[];
+  ListenerArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
+   * 			uniqueness—of the request.</p>
+   */
+  IdempotencyToken?: string;
 
   /**
    * <p>The name of the AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
@@ -288,10 +497,10 @@ export interface CreateEndpointGroupRequest {
   HealthCheckIntervalSeconds?: number;
 
   /**
-   * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
-   * 			default value is slash (/).</p>
+   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
+   * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
-  HealthCheckPath?: string;
+  ThresholdCount?: number;
 
   /**
    * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
@@ -307,21 +516,15 @@ export interface CreateEndpointGroupRequest {
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
-   * 			uniqueness—of the request.</p>
+   * <p>The list of endpoint objects.</p>
    */
-  IdempotencyToken: string | undefined;
+  EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the listener.</p>
+   * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
+   * 			default value is slash (/).</p>
    */
-  ListenerArn: string | undefined;
-
-  /**
-   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
-   * 			unhealthy endpoint to healthy. The default value is 3.</p>
-   */
-  ThresholdCount?: number;
+  HealthCheckPath?: string;
 
   /**
    * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
@@ -335,10 +538,9 @@ export interface CreateEndpointGroupRequest {
 
 export namespace CreateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointGroupRequest =>
-    __isa(o, "CreateEndpointGroupRequest");
+  export const isa = (o: any): o is CreateEndpointGroupRequest => __isa(o, "CreateEndpointGroupRequest");
 }
 
 export interface CreateEndpointGroupResponse {
@@ -350,22 +552,14 @@ export interface CreateEndpointGroupResponse {
 }
 
 export namespace CreateEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: CreateEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointGroupResponse =>
-    __isa(o, "CreateEndpointGroupResponse");
+  export const isa = (o: any): o is CreateEndpointGroupResponse => __isa(o, "CreateEndpointGroupResponse");
 }
 
 export interface CreateListenerRequest {
   __type?: "CreateListenerRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of your accelerator.</p>
-   */
-  AcceleratorArn: string | undefined;
-
   /**
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always
@@ -383,28 +577,32 @@ export interface CreateListenerRequest {
   ClientAffinity?: ClientAffinity | string;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
-   * 			uniqueness—of the request.</p>
-   */
-  IdempotencyToken: string | undefined;
-
-  /**
    * <p>The list of port ranges to support for connections from clients to your accelerator.</p>
    */
   PortRanges: PortRange[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of your accelerator.</p>
+   */
+  AcceleratorArn: string | undefined;
+
+  /**
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
   Protocol: Protocol | string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
+   * 			uniqueness—of the request.</p>
+   */
+  IdempotencyToken?: string;
 }
 
 export namespace CreateListenerRequest {
   export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateListenerRequest =>
-    __isa(o, "CreateListenerRequest");
+  export const isa = (o: any): o is CreateListenerRequest => __isa(o, "CreateListenerRequest");
 }
 
 export interface CreateListenerResponse {
@@ -417,10 +615,9 @@ export interface CreateListenerResponse {
 
 export namespace CreateListenerResponse {
   export const filterSensitiveLog = (obj: CreateListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateListenerResponse =>
-    __isa(o, "CreateListenerResponse");
+  export const isa = (o: any): o is CreateListenerResponse => __isa(o, "CreateListenerResponse");
 }
 
 export interface DeleteAcceleratorRequest {
@@ -433,10 +630,9 @@ export interface DeleteAcceleratorRequest {
 
 export namespace DeleteAcceleratorRequest {
   export const filterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAcceleratorRequest =>
-    __isa(o, "DeleteAcceleratorRequest");
+  export const isa = (o: any): o is DeleteAcceleratorRequest => __isa(o, "DeleteAcceleratorRequest");
 }
 
 export interface DeleteEndpointGroupRequest {
@@ -449,10 +645,9 @@ export interface DeleteEndpointGroupRequest {
 
 export namespace DeleteEndpointGroupRequest {
   export const filterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointGroupRequest =>
-    __isa(o, "DeleteEndpointGroupRequest");
+  export const isa = (o: any): o is DeleteEndpointGroupRequest => __isa(o, "DeleteEndpointGroupRequest");
 }
 
 export interface DeleteListenerRequest {
@@ -465,10 +660,40 @@ export interface DeleteListenerRequest {
 
 export namespace DeleteListenerRequest {
   export const filterSensitiveLog = (obj: DeleteListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteListenerRequest =>
-    __isa(o, "DeleteListenerRequest");
+  export const isa = (o: any): o is DeleteListenerRequest => __isa(o, "DeleteListenerRequest");
+}
+
+export interface DeprovisionByoipCidrRequest {
+  __type?: "DeprovisionByoipCidrRequest";
+  /**
+   * <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified
+   * 			when you provisioned the address range.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export namespace DeprovisionByoipCidrRequest {
+  export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeprovisionByoipCidrRequest => __isa(o, "DeprovisionByoipCidrRequest");
+}
+
+export interface DeprovisionByoipCidrResponse {
+  __type?: "DeprovisionByoipCidrResponse";
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace DeprovisionByoipCidrResponse {
+  export const filterSensitiveLog = (obj: DeprovisionByoipCidrResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeprovisionByoipCidrResponse => __isa(o, "DeprovisionByoipCidrResponse");
 }
 
 export interface DescribeAcceleratorAttributesRequest {
@@ -480,10 +705,8 @@ export interface DescribeAcceleratorAttributesRequest {
 }
 
 export namespace DescribeAcceleratorAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAcceleratorAttributesRequest =>
     __isa(o, "DescribeAcceleratorAttributesRequest");
@@ -498,10 +721,8 @@ export interface DescribeAcceleratorAttributesResponse {
 }
 
 export namespace DescribeAcceleratorAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAcceleratorAttributesResponse =>
     __isa(o, "DescribeAcceleratorAttributesResponse");
@@ -517,10 +738,9 @@ export interface DescribeAcceleratorRequest {
 
 export namespace DescribeAcceleratorRequest {
   export const filterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorRequest =>
-    __isa(o, "DescribeAcceleratorRequest");
+  export const isa = (o: any): o is DescribeAcceleratorRequest => __isa(o, "DescribeAcceleratorRequest");
 }
 
 export interface DescribeAcceleratorResponse {
@@ -532,13 +752,10 @@ export interface DescribeAcceleratorResponse {
 }
 
 export namespace DescribeAcceleratorResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAcceleratorResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorResponse =>
-    __isa(o, "DescribeAcceleratorResponse");
+  export const isa = (o: any): o is DescribeAcceleratorResponse => __isa(o, "DescribeAcceleratorResponse");
 }
 
 export interface DescribeEndpointGroupRequest {
@@ -550,13 +767,10 @@ export interface DescribeEndpointGroupRequest {
 }
 
 export namespace DescribeEndpointGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEndpointGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointGroupRequest =>
-    __isa(o, "DescribeEndpointGroupRequest");
+  export const isa = (o: any): o is DescribeEndpointGroupRequest => __isa(o, "DescribeEndpointGroupRequest");
 }
 
 export interface DescribeEndpointGroupResponse {
@@ -568,13 +782,10 @@ export interface DescribeEndpointGroupResponse {
 }
 
 export namespace DescribeEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointGroupResponse =>
-    __isa(o, "DescribeEndpointGroupResponse");
+  export const isa = (o: any): o is DescribeEndpointGroupResponse => __isa(o, "DescribeEndpointGroupResponse");
 }
 
 export interface DescribeListenerRequest {
@@ -587,10 +798,9 @@ export interface DescribeListenerRequest {
 
 export namespace DescribeListenerRequest {
   export const filterSensitiveLog = (obj: DescribeListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeListenerRequest =>
-    __isa(o, "DescribeListenerRequest");
+  export const isa = (o: any): o is DescribeListenerRequest => __isa(o, "DescribeListenerRequest");
 }
 
 export interface DescribeListenerResponse {
@@ -603,10 +813,9 @@ export interface DescribeListenerResponse {
 
 export namespace DescribeListenerResponse {
   export const filterSensitiveLog = (obj: DescribeListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeListenerResponse =>
-    __isa(o, "DescribeListenerResponse");
+  export const isa = (o: any): o is DescribeListenerResponse => __isa(o, "DescribeListenerResponse");
 }
 
 /**
@@ -615,23 +824,6 @@ export namespace DescribeListenerResponse {
 export interface EndpointConfiguration {
   __type?: "EndpointConfiguration";
   /**
-   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
-   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html">
-   * 			Viewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
-   */
-  ClientIPPreservationEnabled?: boolean;
-
-  /**
-   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
-   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID.</p>
-   */
-  EndpointId?: string;
-
-  /**
    * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
    * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
    * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
@@ -639,14 +831,31 @@ export interface EndpointConfiguration {
    * 				<i>AWS Global Accelerator Developer Guide</i>.</p>
    */
   Weight?: number;
+
+  /**
+   * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
+   * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
+   * 			allocation ID. For EC2 instances, this is the EC2 instance ID. </p>
+   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
+   * 			The value is true or false. The default value is true for new accelerators. </p>
+   * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
+   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   */
+  ClientIPPreservationEnabled?: boolean;
 }
 
 export namespace EndpointConfiguration {
   export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointConfiguration =>
-    __isa(o, "EndpointConfiguration");
+  export const isa = (o: any): o is EndpointConfiguration => __isa(o, "EndpointConfiguration");
 }
 
 /**
@@ -668,9 +877,19 @@ export interface EndpointDescription {
   /**
    * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
    * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
-   * 			allocation ID. An Application Load Balancer can be either internal or internet-facing.</p>
+   * 			allocation ID. For EC2 instances, this is the EC2 instance ID. </p>
+   * 		       <p>An Application Load Balancer can be either internal or internet-facing.</p>
    */
   EndpointId?: string;
+
+  /**
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
+   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
+   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
+   * 				<i>AWS Global Accelerator Developer Guide</i>. </p>
+   */
+  Weight?: number;
 
   /**
    * <p>The reason code associated with why the endpoint is not healthy. If the endpoint state is healthy, a reason code is
@@ -710,23 +929,13 @@ export interface EndpointDescription {
    * <p>The health status of the endpoint.</p>
    */
   HealthState?: HealthState | string;
-
-  /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
-   * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
-   * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
-   * 				<i>AWS Global Accelerator Developer Guide</i>. </p>
-   */
-  Weight?: number;
 }
 
 export namespace EndpointDescription {
   export const filterSensitiveLog = (obj: EndpointDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointDescription =>
-    __isa(o, "EndpointDescription");
+  export const isa = (o: any): o is EndpointDescription => __isa(o, "EndpointDescription");
 }
 
 /**
@@ -735,21 +944,6 @@ export namespace EndpointDescription {
  */
 export interface EndpointGroup {
   __type?: "EndpointGroup";
-  /**
-   * <p>The list of endpoint objects.</p>
-   */
-  EndpointDescriptions?: EndpointDescription[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-   */
-  EndpointGroupArn?: string;
-
-  /**
-   * <p>The AWS Region that this endpoint group belongs.</p>
-   */
-  EndpointGroupRegion?: string;
-
   /**
    * <p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>
    */
@@ -762,6 +956,16 @@ export interface EndpointGroup {
   HealthCheckPath?: string;
 
   /**
+   * <p>The AWS Region that this endpoint group belongs.</p>
+   */
+  EndpointGroupRegion?: string;
+
+  /**
+   * <p>The list of endpoint objects.</p>
+   */
+  EndpointDescriptions?: EndpointDescription[];
+
+  /**
    * <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p>
    *
    * 		       <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a
@@ -770,16 +974,21 @@ export interface EndpointGroup {
   HealthCheckPort?: number;
 
   /**
+   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
+   * 			unhealthy endpoint to healthy. The default value is 3.</p>
+   */
+  ThresholdCount?: number;
+
+  /**
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
-   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
-   * 			unhealthy endpoint to healthy. The default value is 3.</p>
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
-  ThresholdCount?: number;
+  EndpointGroupArn?: string;
 
   /**
    * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
@@ -793,7 +1002,7 @@ export interface EndpointGroup {
 
 export namespace EndpointGroup {
   export const filterSensitiveLog = (obj: EndpointGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EndpointGroup => __isa(o, "EndpointGroup");
 }
@@ -801,19 +1010,15 @@ export namespace EndpointGroup {
 /**
  * <p>The endpoint group that you specified already exists.</p>
  */
-export interface EndpointGroupAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace EndpointGroupAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: EndpointGroupAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EndpointGroupAlreadyExistsException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EndpointGroupAlreadyExistsException =>
     __isa(o, "EndpointGroupAlreadyExistsException");
@@ -822,59 +1027,64 @@ export namespace EndpointGroupAlreadyExistsException {
 /**
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
-export interface EndpointGroupNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace EndpointGroupNotFoundException {
-  export const filterSensitiveLog = (
-    obj: EndpointGroupNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EndpointGroupNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointGroupNotFoundException =>
-    __isa(o, "EndpointGroupNotFoundException");
+  export const isa = (o: any): o is EndpointGroupNotFoundException => __isa(o, "EndpointGroupNotFoundException");
 }
 
 export enum HealthCheckProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
-  TCP = "TCP"
+  TCP = "TCP",
 }
 
 export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
 
 /**
+ * <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
+ * 		incorrect for this action.</p>
+ */
+export interface IncorrectCidrStateException extends __SmithyException, $MetadataBearer {
+  name: "IncorrectCidrStateException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IncorrectCidrStateException {
+  export const filterSensitiveLog = (obj: IncorrectCidrStateException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is IncorrectCidrStateException => __isa(o, "IncorrectCidrStateException");
+}
+
+/**
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServiceErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>An argument that you specified is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -882,18 +1092,15 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>There isn't another item to return.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -901,18 +1108,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
-export interface InvalidPortRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPortRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPortRangeException";
   $fault: "client";
   Message?: string;
@@ -920,14 +1124,13 @@ export interface InvalidPortRangeException
 
 export namespace InvalidPortRangeException {
   export const filterSensitiveLog = (obj: InvalidPortRangeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPortRangeException =>
-    __isa(o, "InvalidPortRangeException");
+  export const isa = (o: any): o is InvalidPortRangeException => __isa(o, "InvalidPortRangeException");
 }
 
 export enum IpAddressType {
-  IPV4 = "IPV4"
+  IPV4 = "IPV4",
 }
 
 /**
@@ -936,19 +1139,19 @@ export enum IpAddressType {
 export interface IpSet {
   __type?: "IpSet";
   /**
-   * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
-   */
-  IpAddresses?: string[];
-
-  /**
    * <p>The types of IP addresses included in this IP set.</p>
    */
   IpFamily?: string;
+
+  /**
+   * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
+   */
+  IpAddresses?: string[];
 }
 
 export namespace IpSet {
   export const filterSensitiveLog = (obj: IpSet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IpSet => __isa(o, "IpSet");
 }
@@ -956,9 +1159,7 @@ export namespace IpSet {
 /**
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -966,10 +1167,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAcceleratorsRequest {
@@ -987,10 +1187,9 @@ export interface ListAcceleratorsRequest {
 
 export namespace ListAcceleratorsRequest {
   export const filterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAcceleratorsRequest =>
-    __isa(o, "ListAcceleratorsRequest");
+  export const isa = (o: any): o is ListAcceleratorsRequest => __isa(o, "ListAcceleratorsRequest");
 }
 
 export interface ListAcceleratorsResponse {
@@ -1008,10 +1207,50 @@ export interface ListAcceleratorsResponse {
 
 export namespace ListAcceleratorsResponse {
   export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAcceleratorsResponse =>
-    __isa(o, "ListAcceleratorsResponse");
+  export const isa = (o: any): o is ListAcceleratorsResponse => __isa(o, "ListAcceleratorsResponse");
+}
+
+export interface ListByoipCidrsRequest {
+  __type?: "ListByoipCidrsRequest";
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make
+   * 			another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListByoipCidrsRequest {
+  export const filterSensitiveLog = (obj: ListByoipCidrsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListByoipCidrsRequest => __isa(o, "ListByoipCidrsRequest");
+}
+
+export interface ListByoipCidrsResponse {
+  __type?: "ListByoipCidrsResponse";
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about your address ranges.</p>
+   */
+  ByoipCidrs?: ByoipCidr[];
+}
+
+export namespace ListByoipCidrsResponse {
+  export const filterSensitiveLog = (obj: ListByoipCidrsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListByoipCidrsResponse => __isa(o, "ListByoipCidrsResponse");
 }
 
 export interface ListEndpointGroupsRequest {
@@ -1022,22 +1261,21 @@ export interface ListEndpointGroupsRequest {
   ListenerArn: string | undefined;
 
   /**
-   * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListEndpointGroupsRequest {
   export const filterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEndpointGroupsRequest =>
-    __isa(o, "ListEndpointGroupsRequest");
+  export const isa = (o: any): o is ListEndpointGroupsRequest => __isa(o, "ListEndpointGroupsRequest");
 }
 
 export interface ListEndpointGroupsResponse {
@@ -1055,10 +1293,9 @@ export interface ListEndpointGroupsResponse {
 
 export namespace ListEndpointGroupsResponse {
   export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEndpointGroupsResponse =>
-    __isa(o, "ListEndpointGroupsResponse");
+  export const isa = (o: any): o is ListEndpointGroupsResponse => __isa(o, "ListEndpointGroupsResponse");
 }
 
 /**
@@ -1083,6 +1320,11 @@ export interface Listener {
   ClientAffinity?: ClientAffinity | string;
 
   /**
+   * <p>The protocol for the connections from clients to the accelerator.</p>
+   */
+  Protocol?: Protocol | string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
@@ -1091,16 +1333,11 @@ export interface Listener {
    * <p>The list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
-
-  /**
-   * <p>The protocol for the connections from clients to the accelerator.</p>
-   */
-  Protocol?: Protocol | string;
 }
 
 export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
@@ -1108,9 +1345,7 @@ export namespace Listener {
 /**
  * <p>The listener that you specified doesn't exist.</p>
  */
-export interface ListenerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1118,10 +1353,9 @@ export interface ListenerNotFoundException
 
 export namespace ListenerNotFoundException {
   export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListenerNotFoundException =>
-    __isa(o, "ListenerNotFoundException");
+  export const isa = (o: any): o is ListenerNotFoundException => __isa(o, "ListenerNotFoundException");
 }
 
 export interface ListListenersRequest {
@@ -1132,43 +1366,71 @@ export interface ListListenersRequest {
   AcceleratorArn: string | undefined;
 
   /**
-   * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListListenersRequest {
   export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListListenersRequest =>
-    __isa(o, "ListListenersRequest");
+  export const isa = (o: any): o is ListListenersRequest => __isa(o, "ListListenersRequest");
 }
 
 export interface ListListenersResponse {
   __type?: "ListListenersResponse";
   /**
-   * <p>The list of listeners for an accelerator.</p>
-   */
-  Listeners?: Listener[];
-
-  /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of listeners for an accelerator.</p>
+   */
+  Listeners?: Listener[];
 }
 
 export namespace ListListenersResponse {
   export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListListenersResponse =>
-    __isa(o, "ListListenersResponse");
+  export const isa = (o: any): o is ListListenersResponse => __isa(o, "ListListenersResponse");
+}
+
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
+}
+
+export interface ListTagsForResourceResponse {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   * <p>Root level tag for the Tags parameters.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -1177,30 +1439,170 @@ export namespace ListListenersResponse {
 export interface PortRange {
   __type?: "PortRange";
   /**
-   * <p>The first port in the range of ports, inclusive.</p>
-   */
-  FromPort?: number;
-
-  /**
    * <p>The last port in the range of ports, inclusive.</p>
    */
   ToPort?: number;
+
+  /**
+   * <p>The first port in the range of ports, inclusive.</p>
+   */
+  FromPort?: number;
 }
 
 export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
 
 export enum Protocol {
   TCP = "TCP",
-  UDP = "UDP"
+  UDP = "UDP",
+}
+
+export interface ProvisionByoipCidrRequest {
+  __type?: "ProvisionByoipCidrRequest";
+  /**
+   * <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can
+   * 			specify is /24. The address range cannot overlap with another address range that you've brought
+   * 			to this or another Region.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address range to
+   * 			Amazon using BYOIP.
+   * 		</p>
+   */
+  CidrAuthorizationContext: CidrAuthorizationContext | undefined;
+}
+
+export namespace ProvisionByoipCidrRequest {
+  export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ProvisionByoipCidrRequest => __isa(o, "ProvisionByoipCidrRequest");
+}
+
+export interface ProvisionByoipCidrResponse {
+  __type?: "ProvisionByoipCidrResponse";
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace ProvisionByoipCidrResponse {
+  export const filterSensitiveLog = (obj: ProvisionByoipCidrResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ProvisionByoipCidrResponse => __isa(o, "ProvisionByoipCidrResponse");
+}
+
+/**
+ * <p>A complex type that contains a <code>Tag</code> key and <code>Tag</code> value.</p>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>A string that contains a <code>Tag</code> key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>A string that contains a <code>Tag</code> value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to a resource. A tag consists of a key and a value that you define.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export interface TagResourceResponse {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The tag key pairs that you want to remove from the specified resources.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
+}
+
+export interface UntagResourceResponse {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAcceleratorAttributesRequest {
   __type?: "UpdateAcceleratorAttributesRequest";
+  /**
+   * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
+   * 				<code>FlowLogsEnabled</code> is <code>true</code>. </p>
+   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
+   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   * 			      <p>s3-bucket_name//AWSLogs/aws_account_id</p>
+   */
+  FlowLogsS3Prefix?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
+   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 			bucket.</p>
+   */
+  FlowLogsS3Bucket?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>
    */
@@ -1213,27 +1615,11 @@ export interface UpdateAcceleratorAttributesRequest {
    * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
-
-  /**
-   * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
-   * 			bucket.</p>
-   */
-  FlowLogsS3Bucket?: string;
-
-  /**
-   * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
-   * 				<code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket.</p>
-   */
-  FlowLogsS3Prefix?: string;
 }
 
 export namespace UpdateAcceleratorAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateAcceleratorAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateAcceleratorAttributesRequest =>
     __isa(o, "UpdateAcceleratorAttributesRequest");
@@ -1248,10 +1634,8 @@ export interface UpdateAcceleratorAttributesResponse {
 }
 
 export namespace UpdateAcceleratorAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateAcceleratorAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateAcceleratorAttributesResponse =>
     __isa(o, "UpdateAcceleratorAttributesResponse");
@@ -1260,35 +1644,34 @@ export namespace UpdateAcceleratorAttributesResponse {
 export interface UpdateAcceleratorRequest {
   __type?: "UpdateAcceleratorRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
-   */
-  AcceleratorArn: string | undefined;
-
-  /**
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
-   * <p>The value for the address type must be IPv4.
-   * 			</p>
-   */
-  IpAddressType?: IpAddressType | string;
-
-  /**
    * <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
+   */
+  AcceleratorArn: string | undefined;
+
+  /**
+   * <p>The value for the address type must be IPv4.
+   * 			</p>
+   */
+  IpAddressType?: IpAddressType | string;
 }
 
 export namespace UpdateAcceleratorRequest {
   export const filterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAcceleratorRequest =>
-    __isa(o, "UpdateAcceleratorRequest");
+  export const isa = (o: any): o is UpdateAcceleratorRequest => __isa(o, "UpdateAcceleratorRequest");
 }
 
 export interface UpdateAcceleratorResponse {
@@ -1301,10 +1684,9 @@ export interface UpdateAcceleratorResponse {
 
 export namespace UpdateAcceleratorResponse {
   export const filterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAcceleratorResponse =>
-    __isa(o, "UpdateAcceleratorResponse");
+  export const isa = (o: any): o is UpdateAcceleratorResponse => __isa(o, "UpdateAcceleratorResponse");
 }
 
 export interface UpdateEndpointGroupRequest {
@@ -1315,20 +1697,26 @@ export interface UpdateEndpointGroupRequest {
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
-   */
-  EndpointGroupArn: string | undefined;
-
-  /**
    * <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
-   * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
-   * 			default value is slash (/).</p>
+   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
+   * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
-  HealthCheckPath?: string;
+  ThresholdCount?: number;
+
+  /**
+   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
+   * 			value is TCP.</p>
+   */
+  HealthCheckProtocol?: HealthCheckProtocol | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
+   */
+  EndpointGroupArn: string | undefined;
 
   /**
    * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
@@ -1338,18 +1726,6 @@ export interface UpdateEndpointGroupRequest {
   HealthCheckPort?: number;
 
   /**
-   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
-   * 			value is TCP.</p>
-   */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
-
-  /**
-   * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
-   * 			unhealthy endpoint to healthy. The default value is 3.</p>
-   */
-  ThresholdCount?: number;
-
-  /**
    * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
@@ -1357,14 +1733,19 @@ export interface UpdateEndpointGroupRequest {
    * 		       <p>The default value is 100.</p>
    */
   TrafficDialPercentage?: number;
+
+  /**
+   * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
+   * 			default value is slash (/).</p>
+   */
+  HealthCheckPath?: string;
 }
 
 export namespace UpdateEndpointGroupRequest {
   export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointGroupRequest =>
-    __isa(o, "UpdateEndpointGroupRequest");
+  export const isa = (o: any): o is UpdateEndpointGroupRequest => __isa(o, "UpdateEndpointGroupRequest");
 }
 
 export interface UpdateEndpointGroupResponse {
@@ -1376,13 +1757,10 @@ export interface UpdateEndpointGroupResponse {
 }
 
 export namespace UpdateEndpointGroupResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateEndpointGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointGroupResponse =>
-    __isa(o, "UpdateEndpointGroupResponse");
+  export const isa = (o: any): o is UpdateEndpointGroupResponse => __isa(o, "UpdateEndpointGroupResponse");
 }
 
 export interface UpdateListenerRequest {
@@ -1404,6 +1782,11 @@ export interface UpdateListenerRequest {
   ClientAffinity?: ClientAffinity | string;
 
   /**
+   * <p>The updated protocol for the connections from clients to the accelerator.</p>
+   */
+  Protocol?: Protocol | string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the listener to update.</p>
    */
   ListenerArn: string | undefined;
@@ -1412,19 +1795,13 @@ export interface UpdateListenerRequest {
    * <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
-
-  /**
-   * <p>The updated protocol for the connections from clients to the accelerator.</p>
-   */
-  Protocol?: Protocol | string;
 }
 
 export namespace UpdateListenerRequest {
   export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateListenerRequest =>
-    __isa(o, "UpdateListenerRequest");
+  export const isa = (o: any): o is UpdateListenerRequest => __isa(o, "UpdateListenerRequest");
 }
 
 export interface UpdateListenerResponse {
@@ -1437,8 +1814,37 @@ export interface UpdateListenerResponse {
 
 export namespace UpdateListenerResponse {
   export const filterSensitiveLog = (obj: UpdateListenerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateListenerResponse =>
-    __isa(o, "UpdateListenerResponse");
+  export const isa = (o: any): o is UpdateListenerResponse => __isa(o, "UpdateListenerResponse");
+}
+
+export interface WithdrawByoipCidrRequest {
+  __type?: "WithdrawByoipCidrRequest";
+  /**
+   * <p>The address range, in CIDR notation.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export namespace WithdrawByoipCidrRequest {
+  export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WithdrawByoipCidrRequest => __isa(o, "WithdrawByoipCidrRequest");
+}
+
+export interface WithdrawByoipCidrResponse {
+  __type?: "WithdrawByoipCidrResponse";
+  /**
+   * <p>Information about the address pool.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export namespace WithdrawByoipCidrResponse {
+  export const filterSensitiveLog = (obj: WithdrawByoipCidrResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WithdrawByoipCidrResponse => __isa(o, "WithdrawByoipCidrResponse");
 }

@@ -1,18 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
 import { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1RemoveIpRoutesCommand,
-  serializeAws_json1_1RemoveIpRoutesCommand
+  serializeAws_json1_1RemoveIpRoutesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveIpRoutesCommandInput = RemoveIpRoutesRequest;
-export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult &
-  __MetadataBearer;
+export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult & __MetadataBearer;
 
 export class RemoveIpRoutesCommand extends $Command<
   RemoveIpRoutesCommandInput,
@@ -47,14 +43,15 @@ export class RemoveIpRoutesCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveIpRoutesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveIpRoutesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class RemoveIpRoutesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveIpRoutesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RemoveIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveIpRoutesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RemoveIpRoutesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveIpRoutesCommandOutput> {
     return deserializeAws_json1_1RemoveIpRoutesCommand(output, context);
   }
 

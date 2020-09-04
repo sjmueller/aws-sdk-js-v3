@@ -1,21 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
-import {
-  EnvironmentDescription,
-  UpdateEnvironmentMessage
-} from "../models/index.ts";
+import { EnvironmentDescription, UpdateEnvironmentMessage } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateEnvironmentCommand,
-  serializeAws_queryUpdateEnvironmentCommand
+  serializeAws_queryUpdateEnvironmentCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateEnvironmentCommandInput = UpdateEnvironmentMessage;
-export type UpdateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type UpdateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,
@@ -50,14 +43,15 @@ export class UpdateEnvironmentCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateEnvironmentMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateEnvironmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
     return deserializeAws_queryUpdateEnvironmentCommand(output, context);
   }
 

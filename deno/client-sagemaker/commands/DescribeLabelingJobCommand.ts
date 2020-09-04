@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DescribeLabelingJobRequest,
-  DescribeLabelingJobResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeLabelingJobCommand,
-  serializeAws_json1_1DescribeLabelingJobCommand
+  serializeAws_json1_1DescribeLabelingJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeLabelingJobCommandInput = DescribeLabelingJobRequest;
-export type DescribeLabelingJobCommandOutput = DescribeLabelingJobResponse &
-  __MetadataBearer;
+export type DescribeLabelingJobCommandOutput = DescribeLabelingJobResponse & __MetadataBearer;
 
 export class DescribeLabelingJobCommand extends $Command<
   DescribeLabelingJobCommandInput,
@@ -49,18 +38,16 @@ export class DescribeLabelingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLabelingJobCommandInput,
-    DescribeLabelingJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLabelingJobCommandInput, DescribeLabelingJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeLabelingJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLabelingJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeLabelingJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLabelingJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLabelingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLabelingJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLabelingJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelingJobCommandOutput> {
     return deserializeAws_json1_1DescribeLabelingJobCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient.ts";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
 import { AssociateLinkRequest, AssociateLinkResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AssociateLinkCommand,
-  serializeAws_restJson1AssociateLinkCommand
+  serializeAws_restJson1AssociateLinkCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateLinkCommandInput = AssociateLinkRequest;
-export type AssociateLinkCommandOutput = AssociateLinkResponse &
-  __MetadataBearer;
+export type AssociateLinkCommandOutput = AssociateLinkResponse & __MetadataBearer;
 
 export class AssociateLinkCommand extends $Command<
   AssociateLinkCommandInput,
@@ -47,14 +39,15 @@ export class AssociateLinkCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateLinkCommandInput, AssociateLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class AssociateLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLinkCommandOutput> {
     return deserializeAws_restJson1AssociateLinkCommand(output, context);
   }
 

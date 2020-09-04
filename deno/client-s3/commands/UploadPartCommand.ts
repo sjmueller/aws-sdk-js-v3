@@ -1,21 +1,13 @@
-import { Buffer } from "../../buffer/mod.ts";
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { UploadPartOutput, UploadPartRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlUploadPartCommand,
-  serializeAws_restXmlUploadPartCommand
+  serializeAws_restXmlUploadPartCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { getSsecPlugin } from "../../middleware-ssec/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +16,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UploadPartCommandInput = Omit<UploadPartRequest, "Body"> & {
@@ -51,16 +43,17 @@ export class UploadPartCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCommandInput, UploadPartCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UploadPartRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadPartOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +63,11 @@ export class UploadPartCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UploadPartCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UploadPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUploadPartCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UploadPartCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCommandOutput> {
     return deserializeAws_restXmlUploadPartCommand(output, context);
   }
 

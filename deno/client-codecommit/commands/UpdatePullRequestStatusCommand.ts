@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  UpdatePullRequestStatusInput,
-  UpdatePullRequestStatusOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { UpdatePullRequestStatusInput, UpdatePullRequestStatusOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdatePullRequestStatusCommand,
-  serializeAws_json1_1UpdatePullRequestStatusCommand
+  serializeAws_json1_1UpdatePullRequestStatusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdatePullRequestStatusCommandInput = UpdatePullRequestStatusInput;
-export type UpdatePullRequestStatusCommandOutput = UpdatePullRequestStatusOutput &
-  __MetadataBearer;
+export type UpdatePullRequestStatusCommandOutput = UpdatePullRequestStatusOutput & __MetadataBearer;
 
 export class UpdatePullRequestStatusCommand extends $Command<
   UpdatePullRequestStatusCommandInput,
@@ -49,18 +38,16 @@ export class UpdatePullRequestStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePullRequestStatusCommandInput,
-    UpdatePullRequestStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePullRequestStatusCommandInput, UpdatePullRequestStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdatePullRequestStatusInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePullRequestStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class UpdatePullRequestStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdatePullRequestStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdatePullRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePullRequestStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePullRequestStatusCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestStatusCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePullRequestStatusCommandOutput> {
+    return deserializeAws_json1_1UpdatePullRequestStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

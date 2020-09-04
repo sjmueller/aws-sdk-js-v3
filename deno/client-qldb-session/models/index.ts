@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -14,10 +10,9 @@ export interface AbortTransactionRequest {
 
 export namespace AbortTransactionRequest {
   export const filterSensitiveLog = (obj: AbortTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AbortTransactionRequest =>
-    __isa(o, "AbortTransactionRequest");
+  export const isa = (o: any): o is AbortTransactionRequest => __isa(o, "AbortTransactionRequest");
 }
 
 /**
@@ -29,30 +24,27 @@ export interface AbortTransactionResult {
 
 export namespace AbortTransactionResult {
   export const filterSensitiveLog = (obj: AbortTransactionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AbortTransactionResult =>
-    __isa(o, "AbortTransactionResult");
+  export const isa = (o: any): o is AbortTransactionResult => __isa(o, "AbortTransactionResult");
 }
 
 /**
- * <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ * <p>Returned if the request is malformed or contains an error such as an invalid parameter
+ *          value or a missing required parameter.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -61,25 +53,24 @@ export namespace BadRequestException {
 export interface CommitTransactionRequest {
   __type?: "CommitTransactionRequest";
   /**
-   * <p>Specifies the commit digest for the transaction to commit. For every active
-   * 	    transaction, the commit digest must be passed. QLDB validates
-   * 	    <code>CommitDigest</code> and rejects the commit with an error if the
-   * 	    digest computed on the client does not match the digest computed by QLDB.</p>
-   */
-  CommitDigest: Uint8Array | undefined;
-
-  /**
-   * <p>Specifies the transaction id of the transaction to commit.</p>
+   * <p>Specifies the transaction ID of the transaction to commit.</p>
    */
   TransactionId: string | undefined;
+
+  /**
+   * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
+   *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
+   *          the commit with an error if the digest computed on the client does not match the digest
+   *          computed by QLDB.</p>
+   */
+  CommitDigest: Uint8Array | undefined;
 }
 
 export namespace CommitTransactionRequest {
   export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionRequest =>
-    __isa(o, "CommitTransactionRequest");
+  export const isa = (o: any): o is CommitTransactionRequest => __isa(o, "CommitTransactionRequest");
 }
 
 /**
@@ -88,22 +79,21 @@ export namespace CommitTransactionRequest {
 export interface CommitTransactionResult {
   __type?: "CommitTransactionResult";
   /**
+   * <p>The transaction ID of the committed transaction.</p>
+   */
+  TransactionId?: string;
+
+  /**
    * <p>The commit digest of the committed transaction.</p>
    */
   CommitDigest?: Uint8Array;
-
-  /**
-   * <p>The transaction id of the committed transaction.</p>
-   */
-  TransactionId?: string;
 }
 
 export namespace CommitTransactionResult {
   export const filterSensitiveLog = (obj: CommitTransactionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionResult =>
-    __isa(o, "CommitTransactionResult");
+  export const isa = (o: any): o is CommitTransactionResult => __isa(o, "CommitTransactionResult");
 }
 
 /**
@@ -115,10 +105,9 @@ export interface EndSessionRequest {
 
 export namespace EndSessionRequest {
   export const filterSensitiveLog = (obj: EndSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndSessionRequest =>
-    __isa(o, "EndSessionRequest");
+  export const isa = (o: any): o is EndSessionRequest => __isa(o, "EndSessionRequest");
 }
 
 /**
@@ -130,10 +119,9 @@ export interface EndSessionResult {
 
 export namespace EndSessionResult {
   export const filterSensitiveLog = (obj: EndSessionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndSessionResult =>
-    __isa(o, "EndSessionResult");
+  export const isa = (o: any): o is EndSessionResult => __isa(o, "EndSessionResult");
 }
 
 /**
@@ -147,22 +135,21 @@ export interface ExecuteStatementRequest {
   Parameters?: ValueHolder[];
 
   /**
+   * <p>Specifies the transaction ID of the request.</p>
+   */
+  TransactionId: string | undefined;
+
+  /**
    * <p>Specifies the statement of the request.</p>
    */
   Statement: string | undefined;
-
-  /**
-   * <p>Specifies the transaction id of the request.</p>
-   */
-  TransactionId: string | undefined;
 }
 
 export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteStatementRequest =>
-    __isa(o, "ExecuteStatementRequest");
+  export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -178,10 +165,9 @@ export interface ExecuteStatementResult {
 
 export namespace ExecuteStatementResult {
   export const filterSensitiveLog = (obj: ExecuteStatementResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecuteStatementResult =>
-    __isa(o, "ExecuteStatementResult");
+  export const isa = (o: any): o is ExecuteStatementResult => __isa(o, "ExecuteStatementResult");
 }
 
 /**
@@ -195,17 +181,16 @@ export interface FetchPageRequest {
   NextPageToken: string | undefined;
 
   /**
-   * <p>Specifies the transaction id of the page to be fetched.</p>
+   * <p>Specifies the transaction ID of the page to be fetched.</p>
    */
   TransactionId: string | undefined;
 }
 
 export namespace FetchPageRequest {
   export const filterSensitiveLog = (obj: FetchPageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FetchPageRequest =>
-    __isa(o, "FetchPageRequest");
+  export const isa = (o: any): o is FetchPageRequest => __isa(o, "FetchPageRequest");
 }
 
 /**
@@ -221,18 +206,15 @@ export interface FetchPageResult {
 
 export namespace FetchPageResult {
   export const filterSensitiveLog = (obj: FetchPageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FetchPageResult =>
-    __isa(o, "FetchPageResult");
+  export const isa = (o: any): o is FetchPageResult => __isa(o, "FetchPageResult");
 }
 
 /**
- * <p>Returned if the session doesn't exist anymore because it timed-out or expired.</p>
+ * <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
  */
-export interface InvalidSessionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
   name: "InvalidSessionException";
   $fault: "client";
   Code?: string;
@@ -241,18 +223,15 @@ export interface InvalidSessionException
 
 export namespace InvalidSessionException {
   export const filterSensitiveLog = (obj: InvalidSessionException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSessionException =>
-    __isa(o, "InvalidSessionException");
+  export const isa = (o: any): o is InvalidSessionException => __isa(o, "InvalidSessionException");
 }
 
 /**
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -260,18 +239,16 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
- * <p>Returned when a transaction cannot be written to the journal due to a failure in the verification phase of Optimistic Concurrency Control.</p>
+ * <p>Returned when a transaction cannot be written to the journal due to a failure in the
+ *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
  */
-export interface OccConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OccConflictException extends __SmithyException, $MetadataBearer {
   name: "OccConflictException";
   $fault: "client";
   Message?: string;
@@ -279,10 +256,9 @@ export interface OccConflictException
 
 export namespace OccConflictException {
   export const filterSensitiveLog = (obj: OccConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OccConflictException =>
-    __isa(o, "OccConflictException");
+  export const isa = (o: any): o is OccConflictException => __isa(o, "OccConflictException");
 }
 
 /**
@@ -303,7 +279,7 @@ export interface Page {
 
 export namespace Page {
   export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Page => __isa(o, "Page");
 }
@@ -311,9 +287,7 @@ export namespace Page {
 /**
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
-export interface RateExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RateExceededException extends __SmithyException, $MetadataBearer {
   name: "RateExceededException";
   $fault: "client";
   Message?: string;
@@ -321,18 +295,18 @@ export interface RateExceededException
 
 export namespace RateExceededException {
   export const filterSensitiveLog = (obj: RateExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RateExceededException =>
-    __isa(o, "RateExceededException");
+  export const isa = (o: any): o is RateExceededException => __isa(o, "RateExceededException");
 }
 
 export interface SendCommandRequest {
   __type?: "SendCommandRequest";
   /**
-   * <p>Command to abort the current transaction.</p>
+   * <p>Command to start a new session. A session token is obtained as part of the
+   *          response.</p>
    */
-  AbortTransaction?: AbortTransactionRequest;
+  StartSession?: StartSessionRequest;
 
   /**
    * <p>Command to commit the specified transaction.</p>
@@ -345,9 +319,14 @@ export interface SendCommandRequest {
   EndSession?: EndSessionRequest;
 
   /**
-   * <p>Command to execute a statement in the specified transaction.</p>
+   * <p>Command to start a new transaction.</p>
    */
-  ExecuteStatement?: ExecuteStatementRequest;
+  StartTransaction?: StartTransactionRequest;
+
+  /**
+   * <p>Command to abort the current transaction.</p>
+   */
+  AbortTransaction?: AbortTransactionRequest;
 
   /**
    * <p>Command to fetch a page.</p>
@@ -355,53 +334,33 @@ export interface SendCommandRequest {
   FetchPage?: FetchPageRequest;
 
   /**
-   * <p>Specifies the session token for the current command. A session token is constant throughout the life of the session.</p>
-   *          <p>To obtain a session token, run the <code>StartSession</code> command. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Specifies the session token for the current command. A session token is constant
+   *          throughout the life of the session.</p>
+   *          <p>To obtain a session token, run the <code>StartSession</code> command. This
+   *             <code>SessionToken</code> is required for every subsequent command that is issued during
+   *          the current session.</p>
    */
   SessionToken?: string;
 
   /**
-   * <p>Command to start a new session. A session token is obtained as part of the
-   * 	    response.</p>
+   * <p>Command to execute a statement in the specified transaction.</p>
    */
-  StartSession?: StartSessionRequest;
-
-  /**
-   * <p>Command to start a new transaction.</p>
-   */
-  StartTransaction?: StartTransactionRequest;
+  ExecuteStatement?: ExecuteStatementRequest;
 }
 
 export namespace SendCommandRequest {
   export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendCommandRequest =>
-    __isa(o, "SendCommandRequest");
+  export const isa = (o: any): o is SendCommandRequest => __isa(o, "SendCommandRequest");
 }
 
 export interface SendCommandResult {
   __type?: "SendCommandResult";
   /**
-   * <p>Contains the details of the aborted transaction.</p>
-   */
-  AbortTransaction?: AbortTransactionResult;
-
-  /**
-   * <p>Contains the details of the committed transaction.</p>
-   */
-  CommitTransaction?: CommitTransactionResult;
-
-  /**
    * <p>Contains the details of the ended session.</p>
    */
   EndSession?: EndSessionResult;
-
-  /**
-   * <p>Contains the details of the executed statement.</p>
-   */
-  ExecuteStatement?: ExecuteStatementResult;
 
   /**
    * <p>Contains the details of the fetched page.</p>
@@ -409,8 +368,14 @@ export interface SendCommandResult {
   FetchPage?: FetchPageResult;
 
   /**
-   * <p>Contains the details of the started session that includes a session token. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Contains the details of the aborted transaction.</p>
+   */
+  AbortTransaction?: AbortTransactionResult;
+
+  /**
+   * <p>Contains the details of the started session that includes a session token. This
+   *             <code>SessionToken</code> is required for every subsequent command that is issued during
+   *          the current session.</p>
    */
   StartSession?: StartSessionResult;
 
@@ -418,18 +383,27 @@ export interface SendCommandResult {
    * <p>Contains the details of the started transaction.</p>
    */
   StartTransaction?: StartTransactionResult;
+
+  /**
+   * <p>Contains the details of the committed transaction.</p>
+   */
+  CommitTransaction?: CommitTransactionResult;
+
+  /**
+   * <p>Contains the details of the executed statement.</p>
+   */
+  ExecuteStatement?: ExecuteStatementResult;
 }
 
 export namespace SendCommandResult {
   export const filterSensitiveLog = (obj: SendCommandResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendCommandResult =>
-    __isa(o, "SendCommandResult");
+  export const isa = (o: any): o is SendCommandResult => __isa(o, "SendCommandResult");
 }
 
 /**
- * <p>Specifies a request to start a a new session.</p>
+ * <p>Specifies a request to start a new session.</p>
  */
 export interface StartSessionRequest {
   __type?: "StartSessionRequest";
@@ -441,10 +415,9 @@ export interface StartSessionRequest {
 
 export namespace StartSessionRequest {
   export const filterSensitiveLog = (obj: StartSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartSessionRequest =>
-    __isa(o, "StartSessionRequest");
+  export const isa = (o: any): o is StartSessionRequest => __isa(o, "StartSessionRequest");
 }
 
 /**
@@ -453,18 +426,17 @@ export namespace StartSessionRequest {
 export interface StartSessionResult {
   __type?: "StartSessionResult";
   /**
-   * <p>Session token of the started session. This <code>SessionToken</code> is
-   * 	    required for every subsequent command that is issued during the current session.</p>
+   * <p>Session token of the started session. This <code>SessionToken</code> is required for
+   *          every subsequent command that is issued during the current session.</p>
    */
   SessionToken?: string;
 }
 
 export namespace StartSessionResult {
   export const filterSensitiveLog = (obj: StartSessionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartSessionResult =>
-    __isa(o, "StartSessionResult");
+  export const isa = (o: any): o is StartSessionResult => __isa(o, "StartSessionResult");
 }
 
 /**
@@ -476,10 +448,9 @@ export interface StartTransactionRequest {
 
 export namespace StartTransactionRequest {
   export const filterSensitiveLog = (obj: StartTransactionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartTransactionRequest =>
-    __isa(o, "StartTransactionRequest");
+  export const isa = (o: any): o is StartTransactionRequest => __isa(o, "StartTransactionRequest");
 }
 
 /**
@@ -488,38 +459,37 @@ export namespace StartTransactionRequest {
 export interface StartTransactionResult {
   __type?: "StartTransactionResult";
   /**
-   * <p>The transaction id of the started transaction.</p>
+   * <p>The transaction ID of the started transaction.</p>
    */
   TransactionId?: string;
 }
 
 export namespace StartTransactionResult {
   export const filterSensitiveLog = (obj: StartTransactionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartTransactionResult =>
-    __isa(o, "StartTransactionResult");
+  export const isa = (o: any): o is StartTransactionResult => __isa(o, "StartTransactionResult");
 }
 
 /**
- * <p>A structure that can contains values in multiple encoding formats.</p>
+ * <p>A structure that can contain an Amazon Ion value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
   __type?: "ValueHolder";
   /**
-   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure. </p>
+   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonBinary?: Uint8Array;
 
   /**
-   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure. </p>
+   * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
 }
 
 export namespace ValueHolder {
   export const filterSensitiveLog = (obj: ValueHolder): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

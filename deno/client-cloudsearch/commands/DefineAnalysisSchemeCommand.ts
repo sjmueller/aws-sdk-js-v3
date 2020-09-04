@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient.ts";
-import {
-  DefineAnalysisSchemeRequest,
-  DefineAnalysisSchemeResponse
-} from "../models/index.ts";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
+import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDefineAnalysisSchemeCommand,
-  serializeAws_queryDefineAnalysisSchemeCommand
+  serializeAws_queryDefineAnalysisSchemeCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DefineAnalysisSchemeCommandInput = DefineAnalysisSchemeRequest;
-export type DefineAnalysisSchemeCommandOutput = DefineAnalysisSchemeResponse &
-  __MetadataBearer;
+export type DefineAnalysisSchemeCommandOutput = DefineAnalysisSchemeResponse & __MetadataBearer;
 
 export class DefineAnalysisSchemeCommand extends $Command<
   DefineAnalysisSchemeCommandInput,
@@ -49,18 +38,16 @@ export class DefineAnalysisSchemeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DefineAnalysisSchemeCommandInput,
-    DefineAnalysisSchemeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DefineAnalysisSchemeCommandInput, DefineAnalysisSchemeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DefineAnalysisSchemeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DefineAnalysisSchemeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DefineAnalysisSchemeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DefineAnalysisSchemeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DefineAnalysisSchemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDefineAnalysisSchemeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DefineAnalysisSchemeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineAnalysisSchemeCommandOutput> {
     return deserializeAws_queryDefineAnalysisSchemeCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  CreateSnapshotScheduleMessage,
-  SnapshotSchedule
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { CreateSnapshotScheduleMessage, SnapshotSchedule } from "../models/index.ts";
 import {
   deserializeAws_queryCreateSnapshotScheduleCommand,
-  serializeAws_queryCreateSnapshotScheduleCommand
+  serializeAws_queryCreateSnapshotScheduleCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSnapshotScheduleCommandInput = CreateSnapshotScheduleMessage;
-export type CreateSnapshotScheduleCommandOutput = SnapshotSchedule &
-  __MetadataBearer;
+export type CreateSnapshotScheduleCommandOutput = SnapshotSchedule & __MetadataBearer;
 
 export class CreateSnapshotScheduleCommand extends $Command<
   CreateSnapshotScheduleCommandInput,
@@ -49,18 +38,16 @@ export class CreateSnapshotScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSnapshotScheduleCommandInput,
-    CreateSnapshotScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSnapshotScheduleCommandInput, CreateSnapshotScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSnapshotScheduleMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: SnapshotSchedule.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateSnapshotScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSnapshotScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSnapshotScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSnapshotScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotScheduleCommandOutput> {
     return deserializeAws_queryCreateSnapshotScheduleCommand(output, context);
   }
 

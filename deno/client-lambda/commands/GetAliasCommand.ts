@@ -1,18 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient.ts";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
 import { AliasConfiguration, GetAliasRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetAliasCommand,
-  serializeAws_restJson1GetAliasCommand
+  serializeAws_restJson1GetAliasCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAliasCommandInput = GetAliasRequest;
 export type GetAliasCommandOutput = AliasConfiguration & __MetadataBearer;
 
-export class GetAliasCommand extends $Command<
-  GetAliasCommandInput,
-  GetAliasCommandOutput,
-  LambdaClientResolvedConfig
-> {
+export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +35,15 @@ export class GetAliasCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAliasCommandInput, GetAliasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAliasRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AliasConfiguration.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +53,11 @@ export class GetAliasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAliasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAliasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAliasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAliasCommandOutput> {
     return deserializeAws_restJson1GetAliasCommand(output, context);
   }
 

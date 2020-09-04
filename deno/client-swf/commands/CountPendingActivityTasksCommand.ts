@@ -1,21 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient.ts";
-import {
-  CountPendingActivityTasksInput,
-  PendingTaskCount
-} from "../models/index.ts";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
+import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/index.ts";
 import {
   deserializeAws_json1_0CountPendingActivityTasksCommand,
-  serializeAws_json1_0CountPendingActivityTasksCommand
+  serializeAws_json1_0CountPendingActivityTasksCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CountPendingActivityTasksCommandInput = CountPendingActivityTasksInput;
-export type CountPendingActivityTasksCommandOutput = PendingTaskCount &
-  __MetadataBearer;
+export type CountPendingActivityTasksCommandOutput = PendingTaskCount & __MetadataBearer;
 
 export class CountPendingActivityTasksCommand extends $Command<
   CountPendingActivityTasksCommandInput,
@@ -49,18 +38,16 @@ export class CountPendingActivityTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CountPendingActivityTasksCommandInput,
-    CountPendingActivityTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CountPendingActivityTasksCommandInput, CountPendingActivityTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CountPendingActivityTasksInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PendingTaskCount.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class CountPendingActivityTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CountPendingActivityTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CountPendingActivityTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CountPendingActivityTasksCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class CountPendingActivityTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountPendingActivityTasksCommandOutput> {
-    return deserializeAws_json1_0CountPendingActivityTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0CountPendingActivityTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

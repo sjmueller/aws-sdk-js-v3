@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  ModifyDBSnapshotMessage,
-  ModifyDBSnapshotResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { ModifyDBSnapshotMessage, ModifyDBSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBSnapshotCommand,
-  serializeAws_queryModifyDBSnapshotCommand
+  serializeAws_queryModifyDBSnapshotCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyDBSnapshotCommandInput = ModifyDBSnapshotMessage;
-export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult &
-  __MetadataBearer;
+export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult & __MetadataBearer;
 
 export class ModifyDBSnapshotCommand extends $Command<
   ModifyDBSnapshotCommandInput,
@@ -50,14 +39,15 @@ export class ModifyDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBSnapshotCommandInput, ModifyDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyDBSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ModifyDBSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSnapshotCommandOutput> {
     return deserializeAws_queryModifyDBSnapshotCommand(output, context);
   }
 

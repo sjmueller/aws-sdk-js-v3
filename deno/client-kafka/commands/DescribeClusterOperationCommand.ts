@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient.ts";
-import {
-  DescribeClusterOperationRequest,
-  DescribeClusterOperationResponse
-} from "../models/index.ts";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
+import { DescribeClusterOperationRequest, DescribeClusterOperationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeClusterOperationCommand,
-  serializeAws_restJson1DescribeClusterOperationCommand
+  serializeAws_restJson1DescribeClusterOperationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeClusterOperationCommandInput = DescribeClusterOperationRequest;
-export type DescribeClusterOperationCommandOutput = DescribeClusterOperationResponse &
-  __MetadataBearer;
+export type DescribeClusterOperationCommandOutput = DescribeClusterOperationResponse & __MetadataBearer;
 
 export class DescribeClusterOperationCommand extends $Command<
   DescribeClusterOperationCommandInput,
@@ -49,18 +38,16 @@ export class DescribeClusterOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterOperationCommandInput,
-    DescribeClusterOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterOperationCommandInput, DescribeClusterOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeClusterOperationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClusterOperationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,12 @@ export class DescribeClusterOperationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeClusterOperationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeClusterOperationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeClusterOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeClusterOperationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeClusterOperationCommandOutput> {
-    return deserializeAws_restJson1DescribeClusterOperationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterOperationCommandOutput> {
+    return deserializeAws_restJson1DescribeClusterOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

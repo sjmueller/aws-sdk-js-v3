@@ -1,21 +1,15 @@
 import {
   IoTJobsDataPlaneClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient.ts";
-import {
-  UpdateJobExecutionRequest,
-  UpdateJobExecutionResponse
-} from "../models/index.ts";
+import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateJobExecutionCommand,
-  serializeAws_restJson1UpdateJobExecutionCommand
+  serializeAws_restJson1UpdateJobExecutionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateJobExecutionCommandInput = UpdateJobExecutionRequest;
-export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse &
-  __MetadataBearer;
+export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse & __MetadataBearer;
 
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,
@@ -50,14 +43,15 @@ export class UpdateJobExecutionCommand extends $Command<
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateJobExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class UpdateJobExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateJobExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateJobExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateJobExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobExecutionCommandOutput> {
     return deserializeAws_restJson1UpdateJobExecutionCommand(output, context);
   }
 

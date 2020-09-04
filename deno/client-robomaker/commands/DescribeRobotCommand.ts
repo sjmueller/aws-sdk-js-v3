@@ -1,18 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
 import { DescribeRobotRequest, DescribeRobotResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeRobotCommand,
-  serializeAws_restJson1DescribeRobotCommand
+  serializeAws_restJson1DescribeRobotCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRobotCommandInput = DescribeRobotRequest;
-export type DescribeRobotCommandOutput = DescribeRobotResponse &
-  __MetadataBearer;
+export type DescribeRobotCommandOutput = DescribeRobotResponse & __MetadataBearer;
 
 export class DescribeRobotCommand extends $Command<
   DescribeRobotCommandInput,
@@ -47,14 +39,15 @@ export class DescribeRobotCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRobotCommandInput, DescribeRobotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRobotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRobotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DescribeRobotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRobotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRobotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRobotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRobotCommandOutput> {
     return deserializeAws_restJson1DescribeRobotCommand(output, context);
   }
 

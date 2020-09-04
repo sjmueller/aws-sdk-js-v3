@@ -1,18 +1,15 @@
 import {
   ElasticTranscoderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
 import { ReadPipelineRequest, ReadPipelineResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ReadPipelineCommand,
-  serializeAws_restJson1ReadPipelineCommand
+  serializeAws_restJson1ReadPipelineCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ReadPipelineCommandInput = ReadPipelineRequest;
@@ -46,14 +43,15 @@ export class ReadPipelineCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReadPipelineCommandInput, ReadPipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ReadPipelineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReadPipelineResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class ReadPipelineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReadPipelineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReadPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ReadPipelineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ReadPipelineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPipelineCommandOutput> {
     return deserializeAws_restJson1ReadPipelineCommand(output, context);
   }
 

@@ -1,17 +1,8 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   __type?: "AcceptDirectConnectGatewayAssociationProposalRequest";
-  /**
-   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
-   */
-  associatedGatewayOwnerAccount: string | undefined;
-
   /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
@@ -24,20 +15,21 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
+   * <p>The ID of the AWS account that owns the virtual private gateway or transit gateway.</p>
+   */
+  associatedGatewayOwnerAccount: string | undefined;
+
+  /**
    * <p>The ID of the request proposal.</p>
    */
   proposalId: string | undefined;
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptDirectConnectGatewayAssociationProposalRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptDirectConnectGatewayAssociationProposalRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is AcceptDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "AcceptDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -50,24 +42,30 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalResult {
-  export const filterSensitiveLog = (
-    obj: AcceptDirectConnectGatewayAssociationProposalResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptDirectConnectGatewayAssociationProposalResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is AcceptDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "AcceptDirectConnectGatewayAssociationProposalResult");
 }
 
 export enum AddressFamily {
   IPv4 = "ipv4",
-  IPv6 = "ipv6"
+  IPv6 = "ipv6",
 }
 
 export interface AllocateConnectionOnInterconnectRequest {
   __type?: "AllocateConnectionOnInterconnectRequest";
+  /**
+   * <p>The name of the provisioned connection.</p>
+   */
+  connectionName: string | undefined;
+
+  /**
+   * <p>The dedicated VLAN provisioned to the connection.</p>
+   */
+  vlan: number | undefined;
+
   /**
    * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
    *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners
@@ -75,11 +73,6 @@ export interface AllocateConnectionOnInterconnectRequest {
    *     are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>
    */
   bandwidth: string | undefined;
-
-  /**
-   * <p>The name of the provisioned connection.</p>
-   */
-  connectionName: string | undefined;
 
   /**
    * <p>The ID of the interconnect on which the connection will be provisioned.</p>
@@ -90,18 +83,11 @@ export interface AllocateConnectionOnInterconnectRequest {
    * <p>The ID of the AWS account of the customer for whom the connection will be provisioned.</p>
    */
   ownerAccount: string | undefined;
-
-  /**
-   * <p>The dedicated VLAN provisioned to the connection.</p>
-   */
-  vlan: number | undefined;
 }
 
 export namespace AllocateConnectionOnInterconnectRequest {
-  export const filterSensitiveLog = (
-    obj: AllocateConnectionOnInterconnectRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocateConnectionOnInterconnectRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AllocateConnectionOnInterconnectRequest =>
     __isa(o, "AllocateConnectionOnInterconnectRequest");
@@ -110,19 +96,9 @@ export namespace AllocateConnectionOnInterconnectRequest {
 export interface AllocateHostedConnectionRequest {
   __type?: "AllocateHostedConnectionRequest";
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   * <p>The tags associated with the connection.</p>
    */
-  bandwidth: string | undefined;
-
-  /**
-   * <p>The ID of the interconnect or LAG.</p>
-   */
-  connectionId: string | undefined;
-
-  /**
-   * <p>The name of the hosted connection.</p>
-   */
-  connectionName: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The ID of the AWS account ID of the customer for the connection.</p>
@@ -130,24 +106,31 @@ export interface AllocateHostedConnectionRequest {
   ownerAccount: string | undefined;
 
   /**
-   * <p>The tags associated with the connection.</p>
+   * <p>The name of the hosted connection.</p>
    */
-  tags?: Tag[];
+  connectionName: string | undefined;
 
   /**
    * <p>The dedicated VLAN provisioned to the hosted connection.</p>
    */
   vlan: number | undefined;
+
+  /**
+   * <p>The ID of the interconnect or LAG.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   */
+  bandwidth: string | undefined;
 }
 
 export namespace AllocateHostedConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: AllocateHostedConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocateHostedConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AllocateHostedConnectionRequest =>
-    __isa(o, "AllocateHostedConnectionRequest");
+  export const isa = (o: any): o is AllocateHostedConnectionRequest => __isa(o, "AllocateHostedConnectionRequest");
 }
 
 export interface AllocatePrivateVirtualInterfaceRequest {
@@ -158,23 +141,19 @@ export interface AllocatePrivateVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>Information about the private virtual interface.</p>
-   */
-  newPrivateVirtualInterfaceAllocation:
-    | NewPrivateVirtualInterfaceAllocation
-    | undefined;
-
-  /**
    * <p>The ID of the AWS account that owns the virtual private interface.</p>
    */
   ownerAccount: string | undefined;
+
+  /**
+   * <p>Information about the private virtual interface.</p>
+   */
+  newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 }
 
 export namespace AllocatePrivateVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: AllocatePrivateVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocatePrivateVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AllocatePrivateVirtualInterfaceRequest =>
     __isa(o, "AllocatePrivateVirtualInterfaceRequest");
@@ -183,28 +162,24 @@ export namespace AllocatePrivateVirtualInterfaceRequest {
 export interface AllocatePublicVirtualInterfaceRequest {
   __type?: "AllocatePublicVirtualInterfaceRequest";
   /**
-   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
+   * <p>The ID of the AWS account that owns the public virtual interface.</p>
    */
-  connectionId: string | undefined;
+  ownerAccount: string | undefined;
 
   /**
    * <p>Information about the public virtual interface.</p>
    */
-  newPublicVirtualInterfaceAllocation:
-    | NewPublicVirtualInterfaceAllocation
-    | undefined;
+  newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the public virtual interface.</p>
+   * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
    */
-  ownerAccount: string | undefined;
+  connectionId: string | undefined;
 }
 
 export namespace AllocatePublicVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: AllocatePublicVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocatePublicVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AllocatePublicVirtualInterfaceRequest =>
     __isa(o, "AllocatePublicVirtualInterfaceRequest");
@@ -213,28 +188,24 @@ export namespace AllocatePublicVirtualInterfaceRequest {
 export interface AllocateTransitVirtualInterfaceRequest {
   __type?: "AllocateTransitVirtualInterfaceRequest";
   /**
-   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
+   * <p>The ID of the AWS account that owns the transit virtual interface.</p>
    */
-  connectionId: string | undefined;
+  ownerAccount: string | undefined;
 
   /**
    * <p>Information about the transit virtual interface.</p>
    */
-  newTransitVirtualInterfaceAllocation:
-    | NewTransitVirtualInterfaceAllocation
-    | undefined;
+  newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the transit virtual interface.</p>
+   * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
    */
-  ownerAccount: string | undefined;
+  connectionId: string | undefined;
 }
 
 export namespace AllocateTransitVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: AllocateTransitVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocateTransitVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AllocateTransitVirtualInterfaceRequest =>
     __isa(o, "AllocateTransitVirtualInterfaceRequest");
@@ -249,10 +220,8 @@ export interface AllocateTransitVirtualInterfaceResult {
 }
 
 export namespace AllocateTransitVirtualInterfaceResult {
-  export const filterSensitiveLog = (
-    obj: AllocateTransitVirtualInterfaceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AllocateTransitVirtualInterfaceResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AllocateTransitVirtualInterfaceResult =>
     __isa(o, "AllocateTransitVirtualInterfaceResult");
@@ -261,24 +230,21 @@ export namespace AllocateTransitVirtualInterfaceResult {
 export interface AssociateConnectionWithLagRequest {
   __type?: "AssociateConnectionWithLagRequest";
   /**
-   * <p>The ID of the connection.</p>
-   */
-  connectionId: string | undefined;
-
-  /**
    * <p>The ID of the LAG with which to associate the connection.</p>
    */
   lagId: string | undefined;
+
+  /**
+   * <p>The ID of the connection.</p>
+   */
+  connectionId: string | undefined;
 }
 
 export namespace AssociateConnectionWithLagRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateConnectionWithLagRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateConnectionWithLagRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateConnectionWithLagRequest =>
-    __isa(o, "AssociateConnectionWithLagRequest");
+  export const isa = (o: any): o is AssociateConnectionWithLagRequest => __isa(o, "AssociateConnectionWithLagRequest");
 }
 
 /**
@@ -287,9 +253,9 @@ export namespace AssociateConnectionWithLagRequest {
 export interface AssociatedGateway {
   __type?: "AssociatedGateway";
   /**
-   * <p>The ID of the associated gateway.</p>
+   * <p>The type of associated gateway.</p>
    */
-  id?: string;
+  type?: GatewayType | string;
 
   /**
    * <p>The ID of the AWS account that owns the associated virtual private gateway or transit gateway.</p>
@@ -297,22 +263,21 @@ export interface AssociatedGateway {
   ownerAccount?: string;
 
   /**
+   * <p>The ID of the associated gateway.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The Region where the associated gateway is located.</p>
    */
   region?: string;
-
-  /**
-   * <p>The type of associated gateway.</p>
-   */
-  type?: GatewayType | string;
 }
 
 export namespace AssociatedGateway {
   export const filterSensitiveLog = (obj: AssociatedGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociatedGateway =>
-    __isa(o, "AssociatedGateway");
+  export const isa = (o: any): o is AssociatedGateway => __isa(o, "AssociatedGateway");
 }
 
 export interface AssociateHostedConnectionRequest {
@@ -329,36 +294,30 @@ export interface AssociateHostedConnectionRequest {
 }
 
 export namespace AssociateHostedConnectionRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateHostedConnectionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateHostedConnectionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateHostedConnectionRequest =>
-    __isa(o, "AssociateHostedConnectionRequest");
+  export const isa = (o: any): o is AssociateHostedConnectionRequest => __isa(o, "AssociateHostedConnectionRequest");
 }
 
 export interface AssociateVirtualInterfaceRequest {
   __type?: "AssociateVirtualInterfaceRequest";
   /**
-   * <p>The ID of the LAG or connection.</p>
-   */
-  connectionId: string | undefined;
-
-  /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the LAG or connection.</p>
+   */
+  connectionId: string | undefined;
 }
 
 export namespace AssociateVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateVirtualInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateVirtualInterfaceRequest =>
-    __isa(o, "AssociateVirtualInterfaceRequest");
+  export const isa = (o: any): o is AssociateVirtualInterfaceRequest => __isa(o, "AssociateVirtualInterfaceRequest");
 }
 
 /**
@@ -367,29 +326,9 @@ export namespace AssociateVirtualInterfaceRequest {
 export interface BGPPeer {
   __type?: "BGPPeer";
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The IP address assigned to the customer interface.</p>
    */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   */
-  asn?: number;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
-   */
-  awsDeviceV2?: string;
+  customerAddress?: string;
 
   /**
    * <p>The ID of the BGP peer.</p>
@@ -424,6 +363,31 @@ export interface BGPPeer {
   bgpPeerState?: BGPPeerState | string;
 
   /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   */
+  asn?: number;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The Direct Connect endpoint on which the BGP peer terminates.</p>
+   */
+  awsDeviceV2?: string;
+
+  /**
    * <p>The status of the BGP peer. The following are the possible values:</p>
    *          <ul>
    *             <li>
@@ -442,16 +406,11 @@ export interface BGPPeer {
    *          </ul>
    */
   bgpStatus?: BGPStatus | string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
 }
 
 export namespace BGPPeer {
   export const filterSensitiveLog = (obj: BGPPeer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BGPPeer => __isa(o, "BGPPeer");
 }
@@ -461,13 +420,13 @@ export enum BGPPeerState {
   Deleted = "deleted",
   Deleting = "deleting",
   Pending = "pending",
-  Verifying = "verifying"
+  Verifying = "verifying",
 }
 
 export enum BGPStatus {
   Down = "down",
   Unknown = "unknown",
-  Up = "up"
+  Up = "up",
 }
 
 export interface ConfirmConnectionRequest {
@@ -480,10 +439,9 @@ export interface ConfirmConnectionRequest {
 
 export namespace ConfirmConnectionRequest {
   export const filterSensitiveLog = (obj: ConfirmConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmConnectionRequest =>
-    __isa(o, "ConfirmConnectionRequest");
+  export const isa = (o: any): o is ConfirmConnectionRequest => __isa(o, "ConfirmConnectionRequest");
 }
 
 export interface ConfirmConnectionResponse {
@@ -534,19 +492,13 @@ export interface ConfirmConnectionResponse {
 
 export namespace ConfirmConnectionResponse {
   export const filterSensitiveLog = (obj: ConfirmConnectionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmConnectionResponse =>
-    __isa(o, "ConfirmConnectionResponse");
+  export const isa = (o: any): o is ConfirmConnectionResponse => __isa(o, "ConfirmConnectionResponse");
 }
 
 export interface ConfirmPrivateVirtualInterfaceRequest {
   __type?: "ConfirmPrivateVirtualInterfaceRequest";
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
   /**
    * <p>The ID of the virtual private gateway.</p>
    */
@@ -556,13 +508,16 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
 }
 
 export namespace ConfirmPrivateVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: ConfirmPrivateVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmPrivateVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmPrivateVirtualInterfaceRequest =>
     __isa(o, "ConfirmPrivateVirtualInterfaceRequest");
@@ -615,10 +570,8 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
 }
 
 export namespace ConfirmPrivateVirtualInterfaceResponse {
-  export const filterSensitiveLog = (
-    obj: ConfirmPrivateVirtualInterfaceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmPrivateVirtualInterfaceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmPrivateVirtualInterfaceResponse =>
     __isa(o, "ConfirmPrivateVirtualInterfaceResponse");
@@ -633,10 +586,8 @@ export interface ConfirmPublicVirtualInterfaceRequest {
 }
 
 export namespace ConfirmPublicVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: ConfirmPublicVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmPublicVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmPublicVirtualInterfaceRequest =>
     __isa(o, "ConfirmPublicVirtualInterfaceRequest");
@@ -689,10 +640,8 @@ export interface ConfirmPublicVirtualInterfaceResponse {
 }
 
 export namespace ConfirmPublicVirtualInterfaceResponse {
-  export const filterSensitiveLog = (
-    obj: ConfirmPublicVirtualInterfaceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmPublicVirtualInterfaceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmPublicVirtualInterfaceResponse =>
     __isa(o, "ConfirmPublicVirtualInterfaceResponse");
@@ -701,21 +650,19 @@ export namespace ConfirmPublicVirtualInterfaceResponse {
 export interface ConfirmTransitVirtualInterfaceRequest {
   __type?: "ConfirmTransitVirtualInterfaceRequest";
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId: string | undefined;
-
-  /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId: string | undefined;
 }
 
 export namespace ConfirmTransitVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: ConfirmTransitVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmTransitVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmTransitVirtualInterfaceRequest =>
     __isa(o, "ConfirmTransitVirtualInterfaceRequest");
@@ -768,10 +715,8 @@ export interface ConfirmTransitVirtualInterfaceResponse {
 }
 
 export namespace ConfirmTransitVirtualInterfaceResponse {
-  export const filterSensitiveLog = (
-    obj: ConfirmTransitVirtualInterfaceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmTransitVirtualInterfaceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfirmTransitVirtualInterfaceResponse =>
     __isa(o, "ConfirmTransitVirtualInterfaceResponse");
@@ -783,9 +728,9 @@ export namespace ConfirmTransitVirtualInterfaceResponse {
 export interface Connection {
   __type?: "Connection";
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
-  awsDevice?: string;
+  jumboFrameCapable?: boolean;
 
   /**
    * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
@@ -793,9 +738,24 @@ export interface Connection {
   awsDeviceV2?: string;
 
   /**
-   * <p>The bandwidth of the connection.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  bandwidth?: string;
+  vlan?: number;
+
+  /**
+   * <p>The name of the connection.</p>
+   */
+  connectionName?: string;
+
+  /**
+   * <p>The AWS Region where the connection is located.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
 
   /**
    * <p>The ID of the connection.</p>
@@ -803,9 +763,14 @@ export interface Connection {
   connectionId?: string;
 
   /**
-   * <p>The name of the connection.</p>
+   * <p>The tags associated with the connection.</p>
    */
-  connectionName?: string;
+  tags?: Tag[];
+
+  /**
+   * <p>The ID of the AWS account that owns the connection.</p>
+   */
+  ownerAccount?: string;
 
   /**
    * <p>The state of the connection. The following are the possible values:</p>
@@ -851,34 +816,9 @@ export interface Connection {
   connectionState?: ConnectionState | string;
 
   /**
-   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
-
-  /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   */
-  jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
-
-  /**
-   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
-   */
-  loaIssueTime?: Date;
-
-  /**
-   * <p>The location of the connection.</p>
-   */
-  location?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the connection.</p>
-   */
-  ownerAccount?: string;
+  awsDevice?: string;
 
   /**
    * <p>The name of the AWS Direct Connect service provider associated with the connection.</p>
@@ -886,29 +826,34 @@ export interface Connection {
   partnerName?: string;
 
   /**
+   * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
+   */
+  loaIssueTime?: Date;
+
+  /**
+   * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
+   */
+  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+
+  /**
    * <p>The name of the service provider associated with the connection.</p>
    */
   providerName?: string;
 
   /**
-   * <p>The AWS Region where the connection is located.</p>
+   * <p>The bandwidth of the connection.</p>
    */
-  region?: string;
+  bandwidth?: string;
 
   /**
-   * <p>The tags associated with the connection.</p>
+   * <p>The location of the connection.</p>
    */
-  tags?: Tag[];
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan?: number;
+  location?: string;
 }
 
 export namespace Connection {
   export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
@@ -923,7 +868,7 @@ export interface Connections {
 
 export namespace Connections {
   export const filterSensitiveLog = (obj: Connections): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Connections => __isa(o, "Connections");
 }
@@ -954,10 +899,9 @@ export interface CreateBGPPeerRequest {
 
 export namespace CreateBGPPeerRequest {
   export const filterSensitiveLog = (obj: CreateBGPPeerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBGPPeerRequest =>
-    __isa(o, "CreateBGPPeerRequest");
+  export const isa = (o: any): o is CreateBGPPeerRequest => __isa(o, "CreateBGPPeerRequest");
 }
 
 export interface CreateBGPPeerResponse {
@@ -970,18 +914,32 @@ export interface CreateBGPPeerResponse {
 
 export namespace CreateBGPPeerResponse {
   export const filterSensitiveLog = (obj: CreateBGPPeerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBGPPeerResponse =>
-    __isa(o, "CreateBGPPeerResponse");
+  export const isa = (o: any): o is CreateBGPPeerResponse => __isa(o, "CreateBGPPeerResponse");
 }
 
 export interface CreateConnectionRequest {
   __type?: "CreateConnectionRequest";
   /**
+   * <p>The name of the service provider associated with the requested connection.</p>
+   */
+  providerName?: string;
+
+  /**
    * <p>The bandwidth of the connection.</p>
    */
   bandwidth: string | undefined;
+
+  /**
+   * <p>The location of the connection.</p>
+   */
+  location: string | undefined;
+
+  /**
+   * <p>The tags to associate with the lag.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The name of the connection.</p>
@@ -992,37 +950,21 @@ export interface CreateConnectionRequest {
    * <p>The ID of the LAG.</p>
    */
   lagId?: string;
-
-  /**
-   * <p>The location of the connection.</p>
-   */
-  location: string | undefined;
-
-  /**
-   * <p>The name of the service provider associated with the requested connection.</p>
-   */
-  providerName?: string;
-
-  /**
-   * <p>The tags to associate with the lag.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateConnectionRequest {
   export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionRequest =>
-    __isa(o, "CreateConnectionRequest");
+  export const isa = (o: any): o is CreateConnectionRequest => __isa(o, "CreateConnectionRequest");
 }
 
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
   __type?: "CreateDirectConnectGatewayAssociationProposalRequest";
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * <p>The ID of the virtual private gateway or transit gateway.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+  gatewayId: string | undefined;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1030,30 +972,26 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  directConnectGatewayOwnerAccount: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway or transit gateway.</p>
-   */
-  gatewayId: string | undefined;
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+
+  /**
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   */
+  directConnectGatewayOwnerAccount: string | undefined;
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayAssociationProposalRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationProposalRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "CreateDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -1066,30 +1004,19 @@ export interface CreateDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalResult {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayAssociationProposalResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationProposalResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "CreateDirectConnectGatewayAssociationProposalResult");
 }
 
 export interface CreateDirectConnectGatewayAssociationRequest {
   __type?: "CreateDirectConnectGatewayAssociationRequest";
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
-   *          <p>This parameter is required when you create an association to a transit gateway.</p>
-   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   * <p>The ID of the virtual private gateway.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId: string | undefined;
+  virtualGatewayId?: string;
 
   /**
    * <p>The ID of the virtual private gateway or transit gateway.</p>
@@ -1097,20 +1024,23 @@ export interface CreateDirectConnectGatewayAssociationRequest {
   gatewayId?: string;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * <p>The ID of the Direct Connect gateway.</p>
    */
-  virtualGatewayId?: string;
+  directConnectGatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway</p>
+   *          <p>This parameter is required when you create an association to a transit gateway.</p>
+   *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   */
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace CreateDirectConnectGatewayAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationRequest =>
     __isa(o, "CreateDirectConnectGatewayAssociationRequest");
 }
 
@@ -1123,14 +1053,10 @@ export interface CreateDirectConnectGatewayAssociationResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationResult {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationResult =>
     __isa(o, "CreateDirectConnectGatewayAssociationResult");
 }
 
@@ -1150,13 +1076,10 @@ export interface CreateDirectConnectGatewayRequest {
 }
 
 export namespace CreateDirectConnectGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDirectConnectGatewayRequest =>
-    __isa(o, "CreateDirectConnectGatewayRequest");
+  export const isa = (o: any): o is CreateDirectConnectGatewayRequest => __isa(o, "CreateDirectConnectGatewayRequest");
 }
 
 export interface CreateDirectConnectGatewayResult {
@@ -1168,21 +1091,28 @@ export interface CreateDirectConnectGatewayResult {
 }
 
 export namespace CreateDirectConnectGatewayResult {
-  export const filterSensitiveLog = (
-    obj: CreateDirectConnectGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDirectConnectGatewayResult =>
-    __isa(o, "CreateDirectConnectGatewayResult");
+  export const isa = (o: any): o is CreateDirectConnectGatewayResult => __isa(o, "CreateDirectConnectGatewayResult");
 }
 
 export interface CreateInterconnectRequest {
   __type?: "CreateInterconnectRequest";
   /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId?: string;
+
+  /**
    * <p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>
    */
   bandwidth: string | undefined;
+
+  /**
+   * <p>The name of the service provider associated with the interconnect.</p>
+   */
+  providerName?: string;
 
   /**
    * <p>The name of the interconnect.</p>
@@ -1190,19 +1120,9 @@ export interface CreateInterconnectRequest {
   interconnectName: string | undefined;
 
   /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
-
-  /**
    * <p>The location of the interconnect.</p>
    */
   location: string | undefined;
-
-  /**
-   * <p>The name of the service provider associated with the interconnect.</p>
-   */
-  providerName?: string;
 
   /**
    * <p>The tags to associate with the interconnect.</p>
@@ -1212,23 +1132,42 @@ export interface CreateInterconnectRequest {
 
 export namespace CreateInterconnectRequest {
   export const filterSensitiveLog = (obj: CreateInterconnectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInterconnectRequest =>
-    __isa(o, "CreateInterconnectRequest");
+  export const isa = (o: any): o is CreateInterconnectRequest => __isa(o, "CreateInterconnectRequest");
 }
 
 export interface CreateLagRequest {
   __type?: "CreateLagRequest";
+  /**
+   * <p>The ID of an existing connection to migrate to the LAG.</p>
+   */
+  connectionId?: string;
+
+  /**
+   * <p>The name of the service provider associated with the LAG.</p>
+   */
+  providerName?: string;
+
+  /**
+   * <p>The number of physical connections initially provisioned and bundled by the LAG.</p>
+   */
+  numberOfConnections: number | undefined;
+
+  /**
+   * <p>The tags to associate with the LAG.</p>
+   */
+  tags?: Tag[];
+
   /**
    * <p>The tags to associate with the automtically created LAGs.</p>
    */
   childConnectionTags?: Tag[];
 
   /**
-   * <p>The ID of an existing connection to migrate to the LAG.</p>
+   * <p>The location for the LAG.</p>
    */
-  connectionId?: string;
+  location: string | undefined;
 
   /**
    * <p>The bandwidth of the individual physical connections bundled by the LAG. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. </p>
@@ -1239,34 +1178,13 @@ export interface CreateLagRequest {
    * <p>The name of the LAG.</p>
    */
   lagName: string | undefined;
-
-  /**
-   * <p>The location for the LAG.</p>
-   */
-  location: string | undefined;
-
-  /**
-   * <p>The number of physical connections initially provisioned and bundled by the LAG.</p>
-   */
-  numberOfConnections: number | undefined;
-
-  /**
-   * <p>The name of the service provider associated with the LAG.</p>
-   */
-  providerName?: string;
-
-  /**
-   * <p>The tags to associate with the LAG.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateLagRequest {
   export const filterSensitiveLog = (obj: CreateLagRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLagRequest =>
-    __isa(o, "CreateLagRequest");
+  export const isa = (o: any): o is CreateLagRequest => __isa(o, "CreateLagRequest");
 }
 
 export interface CreatePrivateVirtualInterfaceRequest {
@@ -1283,10 +1201,8 @@ export interface CreatePrivateVirtualInterfaceRequest {
 }
 
 export namespace CreatePrivateVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: CreatePrivateVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePrivateVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreatePrivateVirtualInterfaceRequest =>
     __isa(o, "CreatePrivateVirtualInterfaceRequest");
@@ -1306,10 +1222,8 @@ export interface CreatePublicVirtualInterfaceRequest {
 }
 
 export namespace CreatePublicVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: CreatePublicVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePublicVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreatePublicVirtualInterfaceRequest =>
     __isa(o, "CreatePublicVirtualInterfaceRequest");
@@ -1318,21 +1232,19 @@ export namespace CreatePublicVirtualInterfaceRequest {
 export interface CreateTransitVirtualInterfaceRequest {
   __type?: "CreateTransitVirtualInterfaceRequest";
   /**
-   * <p>The ID of the connection.</p>
-   */
-  connectionId: string | undefined;
-
-  /**
    * <p>Information about the transit virtual interface.</p>
    */
   newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
+
+  /**
+   * <p>The ID of the connection.</p>
+   */
+  connectionId: string | undefined;
 }
 
 export namespace CreateTransitVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTransitVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitVirtualInterfaceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitVirtualInterfaceRequest =>
     __isa(o, "CreateTransitVirtualInterfaceRequest");
@@ -1347,10 +1259,8 @@ export interface CreateTransitVirtualInterfaceResult {
 }
 
 export namespace CreateTransitVirtualInterfaceResult {
-  export const filterSensitiveLog = (
-    obj: CreateTransitVirtualInterfaceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTransitVirtualInterfaceResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateTransitVirtualInterfaceResult =>
     __isa(o, "CreateTransitVirtualInterfaceResult");
@@ -1359,32 +1269,31 @@ export namespace CreateTransitVirtualInterfaceResult {
 export interface DeleteBGPPeerRequest {
   __type?: "DeleteBGPPeerRequest";
   /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   */
-  asn?: number;
-
-  /**
-   * <p>The ID of the BGP peer.</p>
-   */
-  bgpPeerId?: string;
-
-  /**
    * <p>The IP address assigned to the customer interface.</p>
    */
   customerAddress?: string;
 
   /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   */
+  asn?: number;
+
+  /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
+
+  /**
+   * <p>The ID of the BGP peer.</p>
+   */
+  bgpPeerId?: string;
 }
 
 export namespace DeleteBGPPeerRequest {
   export const filterSensitiveLog = (obj: DeleteBGPPeerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBGPPeerRequest =>
-    __isa(o, "DeleteBGPPeerRequest");
+  export const isa = (o: any): o is DeleteBGPPeerRequest => __isa(o, "DeleteBGPPeerRequest");
 }
 
 export interface DeleteBGPPeerResponse {
@@ -1397,10 +1306,9 @@ export interface DeleteBGPPeerResponse {
 
 export namespace DeleteBGPPeerResponse {
   export const filterSensitiveLog = (obj: DeleteBGPPeerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBGPPeerResponse =>
-    __isa(o, "DeleteBGPPeerResponse");
+  export const isa = (o: any): o is DeleteBGPPeerResponse => __isa(o, "DeleteBGPPeerResponse");
 }
 
 export interface DeleteConnectionRequest {
@@ -1413,10 +1321,9 @@ export interface DeleteConnectionRequest {
 
 export namespace DeleteConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionRequest =>
-    __isa(o, "DeleteConnectionRequest");
+  export const isa = (o: any): o is DeleteConnectionRequest => __isa(o, "DeleteConnectionRequest");
 }
 
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
@@ -1428,14 +1335,10 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayAssociationProposalRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationProposalRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "DeleteDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -1448,23 +1351,19 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalResult {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayAssociationProposalResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationProposalResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "DeleteDirectConnectGatewayAssociationProposalResult");
 }
 
 export interface DeleteDirectConnectGatewayAssociationRequest {
   __type?: "DeleteDirectConnectGatewayAssociationRequest";
   /**
-   * <p>The ID of the Direct Connect gateway association.</p>
+   * <p>The ID of the virtual private gateway.</p>
    */
-  associationId?: string;
+  virtualGatewayId?: string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -1472,20 +1371,16 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
-  virtualGatewayId?: string;
+  associationId?: string;
 }
 
 export namespace DeleteDirectConnectGatewayAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationRequest =>
     __isa(o, "DeleteDirectConnectGatewayAssociationRequest");
 }
 
@@ -1498,14 +1393,10 @@ export interface DeleteDirectConnectGatewayAssociationResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationResult {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationResult =>
     __isa(o, "DeleteDirectConnectGatewayAssociationResult");
 }
 
@@ -1518,13 +1409,10 @@ export interface DeleteDirectConnectGatewayRequest {
 }
 
 export namespace DeleteDirectConnectGatewayRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectConnectGatewayRequest =>
-    __isa(o, "DeleteDirectConnectGatewayRequest");
+  export const isa = (o: any): o is DeleteDirectConnectGatewayRequest => __isa(o, "DeleteDirectConnectGatewayRequest");
 }
 
 export interface DeleteDirectConnectGatewayResult {
@@ -1536,13 +1424,10 @@ export interface DeleteDirectConnectGatewayResult {
 }
 
 export namespace DeleteDirectConnectGatewayResult {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectConnectGatewayResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectConnectGatewayResult =>
-    __isa(o, "DeleteDirectConnectGatewayResult");
+  export const isa = (o: any): o is DeleteDirectConnectGatewayResult => __isa(o, "DeleteDirectConnectGatewayResult");
 }
 
 export interface DeleteInterconnectRequest {
@@ -1555,10 +1440,9 @@ export interface DeleteInterconnectRequest {
 
 export namespace DeleteInterconnectRequest {
   export const filterSensitiveLog = (obj: DeleteInterconnectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInterconnectRequest =>
-    __isa(o, "DeleteInterconnectRequest");
+  export const isa = (o: any): o is DeleteInterconnectRequest => __isa(o, "DeleteInterconnectRequest");
 }
 
 export interface DeleteInterconnectResponse {
@@ -1602,10 +1486,9 @@ export interface DeleteInterconnectResponse {
 
 export namespace DeleteInterconnectResponse {
   export const filterSensitiveLog = (obj: DeleteInterconnectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInterconnectResponse =>
-    __isa(o, "DeleteInterconnectResponse");
+  export const isa = (o: any): o is DeleteInterconnectResponse => __isa(o, "DeleteInterconnectResponse");
 }
 
 export interface DeleteLagRequest {
@@ -1618,10 +1501,9 @@ export interface DeleteLagRequest {
 
 export namespace DeleteLagRequest {
   export const filterSensitiveLog = (obj: DeleteLagRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLagRequest =>
-    __isa(o, "DeleteLagRequest");
+  export const isa = (o: any): o is DeleteLagRequest => __isa(o, "DeleteLagRequest");
 }
 
 export interface DeleteVirtualInterfaceRequest {
@@ -1633,13 +1515,10 @@ export interface DeleteVirtualInterfaceRequest {
 }
 
 export namespace DeleteVirtualInterfaceRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVirtualInterfaceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVirtualInterfaceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualInterfaceRequest =>
-    __isa(o, "DeleteVirtualInterfaceRequest");
+  export const isa = (o: any): o is DeleteVirtualInterfaceRequest => __isa(o, "DeleteVirtualInterfaceRequest");
 }
 
 export interface DeleteVirtualInterfaceResponse {
@@ -1689,21 +1568,19 @@ export interface DeleteVirtualInterfaceResponse {
 }
 
 export namespace DeleteVirtualInterfaceResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteVirtualInterfaceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVirtualInterfaceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualInterfaceResponse =>
-    __isa(o, "DeleteVirtualInterfaceResponse");
+  export const isa = (o: any): o is DeleteVirtualInterfaceResponse => __isa(o, "DeleteVirtualInterfaceResponse");
 }
 
 export interface DescribeConnectionLoaRequest {
   __type?: "DescribeConnectionLoaRequest";
   /**
-   * <p>The ID of the connection.</p>
+   * <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
+   *       the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
-  connectionId: string | undefined;
+  providerName?: string;
 
   /**
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
@@ -1711,20 +1588,16 @@ export interface DescribeConnectionLoaRequest {
   loaContentType?: LoaContentType | string;
 
   /**
-   * <p>The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter,
-   *       the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
+   * <p>The ID of the connection.</p>
    */
-  providerName?: string;
+  connectionId: string | undefined;
 }
 
 export namespace DescribeConnectionLoaRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConnectionLoaRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConnectionLoaRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConnectionLoaRequest =>
-    __isa(o, "DescribeConnectionLoaRequest");
+  export const isa = (o: any): o is DescribeConnectionLoaRequest => __isa(o, "DescribeConnectionLoaRequest");
 }
 
 export interface DescribeConnectionLoaResponse {
@@ -1736,13 +1609,10 @@ export interface DescribeConnectionLoaResponse {
 }
 
 export namespace DescribeConnectionLoaResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConnectionLoaResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConnectionLoaResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConnectionLoaResponse =>
-    __isa(o, "DescribeConnectionLoaResponse");
+  export const isa = (o: any): o is DescribeConnectionLoaResponse => __isa(o, "DescribeConnectionLoaResponse");
 }
 
 export interface DescribeConnectionsOnInterconnectRequest {
@@ -1754,10 +1624,8 @@ export interface DescribeConnectionsOnInterconnectRequest {
 }
 
 export namespace DescribeConnectionsOnInterconnectRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConnectionsOnInterconnectRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConnectionsOnInterconnectRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConnectionsOnInterconnectRequest =>
     __isa(o, "DescribeConnectionsOnInterconnectRequest");
@@ -1773,23 +1641,22 @@ export interface DescribeConnectionsRequest {
 
 export namespace DescribeConnectionsRequest {
   export const filterSensitiveLog = (obj: DescribeConnectionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConnectionsRequest =>
-    __isa(o, "DescribeConnectionsRequest");
+  export const isa = (o: any): o is DescribeConnectionsRequest => __isa(o, "DescribeConnectionsRequest");
 }
 
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsRequest";
   /**
-   * <p>The ID of the associated gateway.</p>
-   */
-  associatedGatewayId?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
+
+  /**
+   * <p>The ID of the proposal.</p>
+   */
+  proposalId?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1805,64 +1672,61 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   nextToken?: string;
 
   /**
-   * <p>The ID of the proposal.</p>
+   * <p>The ID of the associated gateway.</p>
    */
-  proposalId?: string;
+  associatedGatewayId?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAssociationProposalsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationProposalsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationProposalsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAssociationProposalsRequest");
 }
 
 export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsResult";
   /**
-   * <p>Describes the Direct Connect gateway association proposals.</p>
-   */
-  directConnectGatewayAssociationProposals?: DirectConnectGatewayAssociationProposal[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Describes the Direct Connect gateway association proposals.</p>
+   */
+  directConnectGatewayAssociationProposals?: DirectConnectGatewayAssociationProposal[];
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAssociationProposalsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationProposalsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationProposalsResult =>
     __isa(o, "DescribeDirectConnectGatewayAssociationProposalsResult");
 }
 
 export interface DescribeDirectConnectGatewayAssociationsRequest {
   __type?: "DescribeDirectConnectGatewayAssociationsRequest";
   /**
-   * <p>The ID of the associated gateway.</p>
-   */
-  associatedGatewayId?: string;
-
-  /**
    * <p>The ID of the Direct Connect gateway association.</p>
    */
   associationId?: string;
 
   /**
+   * <p>The token provided in the previous call to retrieve the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
+
+  /**
+   * <p>The ID of the associated gateway.</p>
+   */
+  associatedGatewayId?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1873,50 +1737,37 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
   maxResults?: number;
 
   /**
-   * <p>The token provided in the previous call to retrieve the next page.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The ID of the virtual private gateway.</p>
    */
   virtualGatewayId?: string;
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAssociationsRequest");
 }
 
 export interface DescribeDirectConnectGatewayAssociationsResult {
   __type?: "DescribeDirectConnectGatewayAssociationsResult";
   /**
-   * <p>Information about the associations.</p>
-   */
-  directConnectGatewayAssociations?: DirectConnectGatewayAssociation[];
-
-  /**
    * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the associations.</p>
+   */
+  directConnectGatewayAssociations?: DirectConnectGatewayAssociation[];
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAssociationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationsResult =>
     __isa(o, "DescribeDirectConnectGatewayAssociationsResult");
 }
 
@@ -1947,39 +1798,31 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAttachmentsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAttachmentsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAttachmentsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAttachmentsRequest");
 }
 
 export interface DescribeDirectConnectGatewayAttachmentsResult {
   __type?: "DescribeDirectConnectGatewayAttachmentsResult";
   /**
-   * <p>The attachments.</p>
-   */
-  directConnectGatewayAttachments?: DirectConnectGatewayAttachment[];
-
-  /**
    * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The attachments.</p>
+   */
+  directConnectGatewayAttachments?: DirectConnectGatewayAttachment[];
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewayAttachmentsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAttachmentsResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAttachmentsResult =>
     __isa(o, "DescribeDirectConnectGatewayAttachmentsResult");
 }
 
@@ -2005,10 +1848,8 @@ export interface DescribeDirectConnectGatewaysRequest {
 }
 
 export namespace DescribeDirectConnectGatewaysRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewaysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewaysRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDirectConnectGatewaysRequest =>
     __isa(o, "DescribeDirectConnectGatewaysRequest");
@@ -2028,10 +1869,8 @@ export interface DescribeDirectConnectGatewaysResult {
 }
 
 export namespace DescribeDirectConnectGatewaysResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectConnectGatewaysResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewaysResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDirectConnectGatewaysResult =>
     __isa(o, "DescribeDirectConnectGatewaysResult");
@@ -2046,13 +1885,10 @@ export interface DescribeHostedConnectionsRequest {
 }
 
 export namespace DescribeHostedConnectionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeHostedConnectionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHostedConnectionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHostedConnectionsRequest =>
-    __isa(o, "DescribeHostedConnectionsRequest");
+  export const isa = (o: any): o is DescribeHostedConnectionsRequest => __isa(o, "DescribeHostedConnectionsRequest");
 }
 
 export interface DescribeInterconnectLoaRequest {
@@ -2063,24 +1899,21 @@ export interface DescribeInterconnectLoaRequest {
   interconnectId: string | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   */
-  loaContentType?: LoaContentType | string;
-
-  /**
    * <p>The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   */
+  loaContentType?: LoaContentType | string;
 }
 
 export namespace DescribeInterconnectLoaRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInterconnectLoaRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInterconnectLoaRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInterconnectLoaRequest =>
-    __isa(o, "DescribeInterconnectLoaRequest");
+  export const isa = (o: any): o is DescribeInterconnectLoaRequest => __isa(o, "DescribeInterconnectLoaRequest");
 }
 
 export interface DescribeInterconnectLoaResponse {
@@ -2092,13 +1925,10 @@ export interface DescribeInterconnectLoaResponse {
 }
 
 export namespace DescribeInterconnectLoaResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeInterconnectLoaResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInterconnectLoaResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInterconnectLoaResponse =>
-    __isa(o, "DescribeInterconnectLoaResponse");
+  export const isa = (o: any): o is DescribeInterconnectLoaResponse => __isa(o, "DescribeInterconnectLoaResponse");
 }
 
 export interface DescribeInterconnectsRequest {
@@ -2110,13 +1940,10 @@ export interface DescribeInterconnectsRequest {
 }
 
 export namespace DescribeInterconnectsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeInterconnectsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeInterconnectsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeInterconnectsRequest =>
-    __isa(o, "DescribeInterconnectsRequest");
+  export const isa = (o: any): o is DescribeInterconnectsRequest => __isa(o, "DescribeInterconnectsRequest");
 }
 
 export interface DescribeLagsRequest {
@@ -2129,10 +1956,9 @@ export interface DescribeLagsRequest {
 
 export namespace DescribeLagsRequest {
   export const filterSensitiveLog = (obj: DescribeLagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLagsRequest =>
-    __isa(o, "DescribeLagsRequest");
+  export const isa = (o: any): o is DescribeLagsRequest => __isa(o, "DescribeLagsRequest");
 }
 
 export interface DescribeLoaRequest {
@@ -2143,23 +1969,22 @@ export interface DescribeLoaRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
-   */
-  loaContentType?: LoaContentType | string;
-
-  /**
    * <p>The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the
    *       LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
+   */
+  loaContentType?: LoaContentType | string;
 }
 
 export namespace DescribeLoaRequest {
   export const filterSensitiveLog = (obj: DescribeLoaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLoaRequest =>
-    __isa(o, "DescribeLoaRequest");
+  export const isa = (o: any): o is DescribeLoaRequest => __isa(o, "DescribeLoaRequest");
 }
 
 export interface DescribeTagsRequest {
@@ -2172,10 +1997,9 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResponse {
@@ -2188,54 +2012,45 @@ export interface DescribeTagsResponse {
 
 export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResponse =>
-    __isa(o, "DescribeTagsResponse");
+  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 export interface DescribeVirtualInterfacesRequest {
   __type?: "DescribeVirtualInterfacesRequest";
   /**
-   * <p>The ID of the connection.</p>
-   */
-  connectionId?: string;
-
-  /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId?: string;
+
+  /**
+   * <p>The ID of the connection.</p>
+   */
+  connectionId?: string;
 }
 
 export namespace DescribeVirtualInterfacesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeVirtualInterfacesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeVirtualInterfacesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualInterfacesRequest =>
-    __isa(o, "DescribeVirtualInterfacesRequest");
+  export const isa = (o: any): o is DescribeVirtualInterfacesRequest => __isa(o, "DescribeVirtualInterfacesRequest");
 }
 
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface DirectConnectClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DirectConnectClientException extends __SmithyException, $MetadataBearer {
   name: "DirectConnectClientException";
   $fault: "client";
   message?: string;
 }
 
 export namespace DirectConnectClientException {
-  export const filterSensitiveLog = (
-    obj: DirectConnectClientException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectConnectClientException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DirectConnectClientException =>
-    __isa(o, "DirectConnectClientException");
+  export const isa = (o: any): o is DirectConnectClientException => __isa(o, "DirectConnectClientException");
 }
 
 /**
@@ -2244,14 +2059,9 @@ export namespace DirectConnectClientException {
 export interface DirectConnectGateway {
   __type?: "DirectConnectGateway";
   /**
-   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   * <p>The error message if the state of an object failed to advance.</p>
    */
-  amazonSideAsn?: number;
-
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
+  stateChangeError?: string;
 
   /**
    * <p>The name of the Direct Connect gateway.</p>
@@ -2282,22 +2092,26 @@ export interface DirectConnectGateway {
   directConnectGatewayState?: DirectConnectGatewayState | string;
 
   /**
+   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   */
+  amazonSideAsn?: number;
+
+  /**
    * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
    */
   ownerAccount?: string;
 
   /**
-   * <p>The error message if the state of an object failed to advance.</p>
+   * <p>The ID of the Direct Connect gateway.</p>
    */
-  stateChangeError?: string;
+  directConnectGatewayId?: string;
 }
 
 export namespace DirectConnectGateway {
   export const filterSensitiveLog = (obj: DirectConnectGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DirectConnectGateway =>
-    __isa(o, "DirectConnectGateway");
+  export const isa = (o: any): o is DirectConnectGateway => __isa(o, "DirectConnectGateway");
 }
 
 /**
@@ -2305,21 +2119,6 @@ export namespace DirectConnectGateway {
  */
 export interface DirectConnectGatewayAssociation {
   __type?: "DirectConnectGatewayAssociation";
-  /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
-   */
-  allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-
-  /**
-   * <p>Information about the associated gateway.</p>
-   */
-  associatedGateway?: AssociatedGateway;
-
-  /**
-   * <p>The ID of the Direct Connect gateway association.</p>
-   */
-  associationId?: string;
-
   /**
    * <p>The state of the association. The following are the possible values:</p>
    *          <ul>
@@ -2344,24 +2143,9 @@ export interface DirectConnectGatewayAssociation {
   associationState?: DirectConnectGatewayAssociationState | string;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the associated gateway.</p>
-   */
-  directConnectGatewayOwnerAccount?: string;
-
-  /**
    * <p>The error message if the state of an object failed to advance.</p>
    */
   stateChangeError?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
-   */
-  virtualGatewayId?: string;
 
   /**
    * <p>The ID of the AWS account that owns the virtual private gateway.</p>
@@ -2372,27 +2156,26 @@ export interface DirectConnectGatewayAssociation {
    * <p>The AWS Region where the virtual private gateway is located.</p>
    */
   virtualGatewayRegion?: string;
-}
 
-export namespace DirectConnectGatewayAssociation {
-  export const filterSensitiveLog = (
-    obj: DirectConnectGatewayAssociation
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DirectConnectGatewayAssociation =>
-    __isa(o, "DirectConnectGatewayAssociation");
-}
+  /**
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   */
+  allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
-/**
- * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
- */
-export interface DirectConnectGatewayAssociationProposal {
-  __type?: "DirectConnectGatewayAssociationProposal";
+  /**
+   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
+   */
+  virtualGatewayId?: string;
+
   /**
    * <p>Information about the associated gateway.</p>
    */
   associatedGateway?: AssociatedGateway;
+
+  /**
+   * <p>The ID of the AWS account that owns the associated gateway.</p>
+   */
+  directConnectGatewayOwnerAccount?: string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2400,20 +2183,23 @@ export interface DirectConnectGatewayAssociationProposal {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the Direct Connect gateway association.</p>
    */
-  directConnectGatewayOwnerAccount?: string;
+  associationId?: string;
+}
 
-  /**
-   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
-   */
-  existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+export namespace DirectConnectGatewayAssociation {
+  export const filterSensitiveLog = (obj: DirectConnectGatewayAssociation): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DirectConnectGatewayAssociation => __isa(o, "DirectConnectGatewayAssociation");
+}
 
-  /**
-   * <p>The ID of the association proposal.</p>
-   */
-  proposalId?: string;
-
+/**
+ * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
+ */
+export interface DirectConnectGatewayAssociationProposal {
+  __type?: "DirectConnectGatewayAssociationProposal";
   /**
    * <p>The state of the proposal. The following are possible values:</p>
    *          <ul>
@@ -2437,22 +2223,42 @@ export interface DirectConnectGatewayAssociationProposal {
    * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
   requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+
+  /**
+   * <p>The existing Amazon VPC prefixes advertised to the Direct Connect gateway.</p>
+   */
+  existingAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+
+  /**
+   * <p>The ID of the association proposal.</p>
+   */
+  proposalId?: string;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
+
+  /**
+   * <p>Information about the associated gateway.</p>
+   */
+  associatedGateway?: AssociatedGateway;
+
+  /**
+   * <p>The ID of the AWS account that owns the Direct Connect gateway.</p>
+   */
+  directConnectGatewayOwnerAccount?: string;
 }
 
 export namespace DirectConnectGatewayAssociationProposal {
-  export const filterSensitiveLog = (
-    obj: DirectConnectGatewayAssociationProposal
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectConnectGatewayAssociationProposal): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DirectConnectGatewayAssociationProposal =>
     __isa(o, "DirectConnectGatewayAssociationProposal");
 }
 
-export type DirectConnectGatewayAssociationProposalState =
-  | "accepted"
-  | "deleted"
-  | "requested";
+export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted" | "requested";
 
 export type DirectConnectGatewayAssociationState =
   | "associated"
@@ -2466,6 +2272,26 @@ export type DirectConnectGatewayAssociationState =
  */
 export interface DirectConnectGatewayAttachment {
   __type?: "DirectConnectGatewayAttachment";
+  /**
+   * <p>The error message if the state of an object failed to advance.</p>
+   */
+  stateChangeError?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   */
+  virtualInterfaceOwnerAccount?: string;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
+
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
+
   /**
    * <p>The state of the attachment. The following are the possible values:</p>
    *          <ul>
@@ -2490,81 +2316,43 @@ export interface DirectConnectGatewayAttachment {
   attachmentState?: DirectConnectGatewayAttachmentState | string;
 
   /**
-   * <p>The type of attachment.</p>
-   */
-  attachmentType?: DirectConnectGatewayAttachmentType | string;
-
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
-  /**
-   * <p>The error message if the state of an object failed to advance.</p>
-   */
-  stateChangeError?: string;
-
-  /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  virtualInterfaceId?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
-   */
-  virtualInterfaceOwnerAccount?: string;
-
-  /**
    * <p>The AWS Region where the virtual interface is located.</p>
    */
   virtualInterfaceRegion?: string;
+
+  /**
+   * <p>The type of attachment.</p>
+   */
+  attachmentType?: DirectConnectGatewayAttachmentType | string;
 }
 
 export namespace DirectConnectGatewayAttachment {
-  export const filterSensitiveLog = (
-    obj: DirectConnectGatewayAttachment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectConnectGatewayAttachment): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DirectConnectGatewayAttachment =>
-    __isa(o, "DirectConnectGatewayAttachment");
+  export const isa = (o: any): o is DirectConnectGatewayAttachment => __isa(o, "DirectConnectGatewayAttachment");
 }
 
-export type DirectConnectGatewayAttachmentState =
-  | "attached"
-  | "attaching"
-  | "detached"
-  | "detaching";
+export type DirectConnectGatewayAttachmentState = "attached" | "attaching" | "detached" | "detaching";
 
-export type DirectConnectGatewayAttachmentType =
-  | "PrivateVirtualInterface"
-  | "TransitVirtualInterface";
+export type DirectConnectGatewayAttachmentType = "PrivateVirtualInterface" | "TransitVirtualInterface";
 
-export type DirectConnectGatewayState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "pending";
 
 /**
  * <p>A server-side error occurred.</p>
  */
-export interface DirectConnectServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DirectConnectServerException extends __SmithyException, $MetadataBearer {
   name: "DirectConnectServerException";
   $fault: "client";
   message?: string;
 }
 
 export namespace DirectConnectServerException {
-  export const filterSensitiveLog = (
-    obj: DirectConnectServerException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DirectConnectServerException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DirectConnectServerException =>
-    __isa(o, "DirectConnectServerException");
+  export const isa = (o: any): o is DirectConnectServerException => __isa(o, "DirectConnectServerException");
 }
 
 export interface DisassociateConnectionFromLagRequest {
@@ -2581,10 +2369,8 @@ export interface DisassociateConnectionFromLagRequest {
 }
 
 export namespace DisassociateConnectionFromLagRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateConnectionFromLagRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateConnectionFromLagRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DisassociateConnectionFromLagRequest =>
     __isa(o, "DisassociateConnectionFromLagRequest");
@@ -2593,9 +2379,7 @@ export namespace DisassociateConnectionFromLagRequest {
 /**
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
   name: "DuplicateTagKeysException";
   $fault: "client";
   message?: string;
@@ -2603,21 +2387,20 @@ export interface DuplicateTagKeysException
 
 export namespace DuplicateTagKeysException {
   export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateTagKeysException =>
-    __isa(o, "DuplicateTagKeysException");
+  export const isa = (o: any): o is DuplicateTagKeysException => __isa(o, "DuplicateTagKeysException");
 }
 
 export enum GatewayType {
   TransitGateway = "transitGateway",
-  VirtualPrivateGateway = "virtualPrivateGateway"
+  VirtualPrivateGateway = "virtualPrivateGateway",
 }
 
 export enum HasLogicalRedundancy {
   No = "no",
   Unknown = "unknown",
-  Yes = "yes"
+  Yes = "yes",
 }
 
 /**
@@ -2626,14 +2409,9 @@ export enum HasLogicalRedundancy {
 export interface Interconnect {
   __type?: "Interconnect";
   /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
+   * <p>The ID of the interconnect.</p>
    */
-  awsDevice?: string;
-
-  /**
-   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
-   */
-  awsDeviceV2?: string;
+  interconnectId?: string;
 
   /**
    * <p>The bandwidth of the connection.</p>
@@ -2646,14 +2424,9 @@ export interface Interconnect {
   hasLogicalRedundancy?: HasLogicalRedundancy | string;
 
   /**
-   * <p>The ID of the interconnect.</p>
+   * <p>The name of the service provider associated with the interconnect.</p>
    */
-  interconnectId?: string;
-
-  /**
-   * <p>The name of the interconnect.</p>
-   */
-  interconnectName?: string;
+  providerName?: string;
 
   /**
    * <p>The state of the interconnect. The following are the possible values:</p>
@@ -2692,14 +2465,14 @@ export interface Interconnect {
   interconnectState?: InterconnectState | string;
 
   /**
+   * <p>The tags associated with the interconnect.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
    */
   jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId?: string;
 
   /**
    * <p>The time of the most recent call to <a>DescribeLoa</a> for this connection.</p>
@@ -2707,14 +2480,14 @@ export interface Interconnect {
   loaIssueTime?: Date;
 
   /**
-   * <p>The location of the connection.</p>
+   * <p>The ID of the LAG.</p>
    */
-  location?: string;
+  lagId?: string;
 
   /**
-   * <p>The name of the service provider associated with the interconnect.</p>
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
-  providerName?: string;
+  awsDevice?: string;
 
   /**
    * <p>The AWS Region where the connection is located.</p>
@@ -2722,14 +2495,24 @@ export interface Interconnect {
   region?: string;
 
   /**
-   * <p>The tags associated with the interconnect.</p>
+   * <p>The Direct Connect endpoint on which the physical connection terminates.</p>
    */
-  tags?: Tag[];
+  awsDeviceV2?: string;
+
+  /**
+   * <p>The location of the connection.</p>
+   */
+  location?: string;
+
+  /**
+   * <p>The name of the interconnect.</p>
+   */
+  interconnectName?: string;
 }
 
 export namespace Interconnect {
   export const filterSensitiveLog = (obj: Interconnect): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Interconnect => __isa(o, "Interconnect");
 }
@@ -2744,19 +2527,12 @@ export interface Interconnects {
 
 export namespace Interconnects {
   export const filterSensitiveLog = (obj: Interconnects): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Interconnects => __isa(o, "Interconnects");
 }
 
-export type InterconnectState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
+export type InterconnectState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
 
 /**
  * <p>Information about a link aggregation group (LAG).</p>
@@ -2764,30 +2540,9 @@ export type InterconnectState =
 export interface Lag {
   __type?: "Lag";
   /**
-   * <p>Indicates whether the LAG can host other connections.</p>
+   * <p>The name of the service provider associated with the LAG.</p>
    */
-  allowsHostedConnections?: boolean;
-
-  /**
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   */
-  awsDevice?: string;
-
-  /**
-   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
-   */
-  awsDeviceV2?: string;
-
-  /**
-   * <p>The connections bundled by the LAG.</p>
-   */
-  connections?: Connection[];
-
-  /**
-   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
-   *       values are 1Gbps and 10Gbps. </p>
-   */
-  connectionsBandwidth?: string;
+  providerName?: string;
 
   /**
    * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
@@ -2795,19 +2550,19 @@ export interface Lag {
   hasLogicalRedundancy?: HasLogicalRedundancy | string;
 
   /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
    */
-  jumboFrameCapable?: boolean;
+  awsDeviceV2?: string;
+
+  /**
+   * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+   */
+  awsDevice?: string;
 
   /**
    * <p>The ID of the LAG.</p>
    */
   lagId?: string;
-
-  /**
-   * <p>The name of the LAG.</p>
-   */
-  lagName?: string;
 
   /**
    * <p>The state of the LAG. The following are the possible values:</p>
@@ -2846,14 +2601,35 @@ export interface Lag {
   lagState?: LagState | string;
 
   /**
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   */
+  jumboFrameCapable?: boolean;
+
+  /**
+   * <p>Indicates whether the LAG can host other connections.</p>
+   */
+  allowsHostedConnections?: boolean;
+
+  /**
+   * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
+   *       values are 1Gbps and 10Gbps. </p>
+   */
+  connectionsBandwidth?: string;
+
+  /**
+   * <p>The tags associated with the LAG.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The location of the LAG.</p>
    */
   location?: string;
 
   /**
-   * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
+   * <p>The name of the LAG.</p>
    */
-  minimumLinks?: number;
+  lagName?: string;
 
   /**
    * <p>The number of physical connections bundled by the LAG, up to a maximum of 10.</p>
@@ -2866,9 +2642,9 @@ export interface Lag {
   ownerAccount?: string;
 
   /**
-   * <p>The name of the service provider associated with the LAG.</p>
+   * <p>The connections bundled by the LAG.</p>
    */
-  providerName?: string;
+  connections?: Connection[];
 
   /**
    * <p>The AWS Region where the connection is located.</p>
@@ -2876,14 +2652,14 @@ export interface Lag {
   region?: string;
 
   /**
-   * <p>The tags associated with the LAG.</p>
+   * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
-  tags?: Tag[];
+  minimumLinks?: number;
 }
 
 export namespace Lag {
   export const filterSensitiveLog = (obj: Lag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Lag => __isa(o, "Lag");
 }
@@ -2898,19 +2674,77 @@ export interface Lags {
 
 export namespace Lags {
   export const filterSensitiveLog = (obj: Lags): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Lags => __isa(o, "Lags");
 }
 
-export type LagState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
+export type LagState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
+
+export interface ListVirtualInterfaceTestHistoryRequest {
+  __type?: "ListVirtualInterfaceTestHistoryRequest";
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the virtual interface failover test.</p>
+   */
+  testId?: string;
+
+  /**
+   * <p>The status of the virtual interface failover test.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The BGP peers that were placed in the DOWN state during the virtual interface failover test.</p>
+   */
+  bgpPeers?: string[];
+
+  /**
+   * <p>The ID of the virtual interface that was tested.</p>
+   */
+  virtualInterfaceId?: string;
+}
+
+export namespace ListVirtualInterfaceTestHistoryRequest {
+  export const filterSensitiveLog = (obj: ListVirtualInterfaceTestHistoryRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListVirtualInterfaceTestHistoryRequest =>
+    __isa(o, "ListVirtualInterfaceTestHistoryRequest");
+}
+
+export interface ListVirtualInterfaceTestHistoryResponse {
+  __type?: "ListVirtualInterfaceTestHistoryResponse";
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the tested virtual interface.</p>
+   */
+  virtualInterfaceTestHistory?: VirtualInterfaceTestHistory[];
+}
+
+export namespace ListVirtualInterfaceTestHistoryResponse {
+  export const filterSensitiveLog = (obj: ListVirtualInterfaceTestHistoryResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListVirtualInterfaceTestHistoryResponse =>
+    __isa(o, "ListVirtualInterfaceTestHistoryResponse");
+}
 
 /**
  * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
@@ -2930,13 +2764,13 @@ export interface Loa {
 
 export namespace Loa {
   export const filterSensitiveLog = (obj: Loa): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Loa => __isa(o, "Loa");
 }
 
 export enum LoaContentType {
-  PDF = "application/pdf"
+  PDF = "application/pdf",
 }
 
 /**
@@ -2945,19 +2779,14 @@ export enum LoaContentType {
 export interface Location {
   __type?: "Location";
   /**
-   * <p>The available port speeds for the location.</p>
-   */
-  availablePortSpeeds?: string[];
-
-  /**
    * <p>The name of the service provider for the location.</p>
    */
   availableProviders?: string[];
 
   /**
-   * <p>The code for the location.</p>
+   * <p>The available port speeds for the location.</p>
    */
-  locationCode?: string;
+  availablePortSpeeds?: string[];
 
   /**
    * <p>The name of the location. This includes the name of the colocation partner and the physical site of the building.</p>
@@ -2968,11 +2797,16 @@ export interface Location {
    * <p>The AWS Region for the location.</p>
    */
   region?: string;
+
+  /**
+   * <p>The code for the location.</p>
+   */
+  locationCode?: string;
 }
 
 export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Location => __isa(o, "Location");
 }
@@ -2987,7 +2821,7 @@ export interface Locations {
 
 export namespace Locations {
   export const filterSensitiveLog = (obj: Locations): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Locations => __isa(o, "Locations");
 }
@@ -2998,19 +2832,9 @@ export namespace Locations {
 export interface NewBGPPeer {
   __type?: "NewBGPPeer";
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The IP address assigned to the customer interface.</p>
    */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   */
-  asn?: number;
+  customerAddress?: string;
 
   /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
@@ -3018,14 +2842,24 @@ export interface NewBGPPeer {
   authKey?: string;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    */
-  customerAddress?: string;
+  asn?: number;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
 }
 
 export namespace NewBGPPeer {
   export const filterSensitiveLog = (obj: NewBGPPeer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NewBGPPeer => __isa(o, "NewBGPPeer");
 }
@@ -3036,14 +2870,34 @@ export namespace NewBGPPeer {
 export interface NewPrivateVirtualInterface {
   __type?: "NewPrivateVirtualInterface";
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
-  addressFamily?: AddressFamily | string;
+  authKey?: string;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
    */
-  amazonAddress?: string;
+  virtualInterfaceName: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  virtualGatewayId?: string;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan: number | undefined;
+
+  /**
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   */
+  mtu?: number;
 
   /**
    * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
@@ -3052,9 +2906,9 @@ export interface NewPrivateVirtualInterface {
   asn: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  authKey?: string;
+  addressFamily?: AddressFamily | string;
 
   /**
    * <p>The IP address assigned to the customer interface.</p>
@@ -3062,42 +2916,21 @@ export interface NewPrivateVirtualInterface {
   customerAddress?: string;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
-  /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   */
-  mtu?: number;
-
-  /**
    * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * <p>The IP address assigned to the Amazon interface.</p>
    */
-  virtualGatewayId?: string;
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
-   */
-  virtualInterfaceName: string | undefined;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan: number | undefined;
+  amazonAddress?: string;
 }
 
 export namespace NewPrivateVirtualInterface {
   export const filterSensitiveLog = (obj: NewPrivateVirtualInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NewPrivateVirtualInterface =>
-    __isa(o, "NewPrivateVirtualInterface");
+  export const isa = (o: any): o is NewPrivateVirtualInterface => __isa(o, "NewPrivateVirtualInterface");
 }
 
 /**
@@ -3106,14 +2939,14 @@ export namespace NewPrivateVirtualInterface {
 export interface NewPrivateVirtualInterfaceAllocation {
   __type?: "NewPrivateVirtualInterfaceAllocation";
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
-  addressFamily?: AddressFamily | string;
+  mtu?: number;
 
   /**
-   * <p>The IP address assigned to the Amazon interface.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  amazonAddress?: string;
+  vlan: number | undefined;
 
   /**
    * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
@@ -3132,31 +2965,29 @@ export interface NewPrivateVirtualInterfaceAllocation {
   customerAddress?: string;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  mtu?: number;
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
 
   /**
    * <p>The tags associated with the private virtual interface.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
-   */
-  virtualInterfaceName: string | undefined;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan: number | undefined;
 }
 
 export namespace NewPrivateVirtualInterfaceAllocation {
-  export const filterSensitiveLog = (
-    obj: NewPrivateVirtualInterfaceAllocation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NewPrivateVirtualInterfaceAllocation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NewPrivateVirtualInterfaceAllocation =>
     __isa(o, "NewPrivateVirtualInterfaceAllocation");
@@ -3168,30 +2999,10 @@ export namespace NewPrivateVirtualInterfaceAllocation {
 export interface NewPublicVirtualInterface {
   __type?: "NewPublicVirtualInterface";
   /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
    * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
    *          <p>The valid values are 1-2147483647.</p>
    */
   asn: number | undefined;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
 
   /**
    * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
@@ -3199,14 +3010,34 @@ export interface NewPublicVirtualInterface {
   routeFilterPrefixes?: RouteFilterPrefix[];
 
   /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
    * <p>The tags associated with the public virtual interface.</p>
    */
   tags?: Tag[];
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  virtualInterfaceName: string | undefined;
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
 
   /**
    * <p>The ID of the VLAN.</p>
@@ -3216,10 +3047,9 @@ export interface NewPublicVirtualInterface {
 
 export namespace NewPublicVirtualInterface {
   export const filterSensitiveLog = (obj: NewPublicVirtualInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NewPublicVirtualInterface =>
-    __isa(o, "NewPublicVirtualInterface");
+  export const isa = (o: any): o is NewPublicVirtualInterface => __isa(o, "NewPublicVirtualInterface");
 }
 
 /**
@@ -3228,14 +3058,39 @@ export namespace NewPublicVirtualInterface {
 export interface NewPublicVirtualInterfaceAllocation {
   __type?: "NewPublicVirtualInterfaceAllocation";
   /**
-   * <p>The address family for the BGP peer.</p>
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
    */
-  addressFamily?: AddressFamily | string;
+  routeFilterPrefixes?: RouteFilterPrefix[];
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  vlan: number | undefined;
 
   /**
    * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName: string | undefined;
+
+  /**
+   * <p>The tags associated with the public virtual interface.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
 
   /**
    * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
@@ -3244,41 +3099,14 @@ export interface NewPublicVirtualInterfaceAllocation {
   asn: number | undefined;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
-
-  /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   */
-  routeFilterPrefixes?: RouteFilterPrefix[];
-
-  /**
-   * <p>The tags associated with the public virtual interface.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
-   */
-  virtualInterfaceName: string | undefined;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan: number | undefined;
+  addressFamily?: AddressFamily | string;
 }
 
 export namespace NewPublicVirtualInterfaceAllocation {
-  export const filterSensitiveLog = (
-    obj: NewPublicVirtualInterfaceAllocation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NewPublicVirtualInterfaceAllocation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NewPublicVirtualInterfaceAllocation =>
     __isa(o, "NewPublicVirtualInterfaceAllocation");
@@ -3290,22 +3118,6 @@ export namespace NewPublicVirtualInterfaceAllocation {
 export interface NewTransitVirtualInterface {
   __type?: "NewTransitVirtualInterface";
   /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn?: number;
-
-  /**
    * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
   authKey?: string;
@@ -3316,14 +3128,30 @@ export interface NewTransitVirtualInterface {
   customerAddress?: string;
 
   /**
-   * <p>The ID of the Direct Connect gateway.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  directConnectGatewayId?: string;
+  vlan?: number;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The address family for the BGP peer.</p>
    */
-  mtu?: number;
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName?: string;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn?: number;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
 
   /**
    * <p>The tags associated with the transitive virtual interface.</p>
@@ -3331,22 +3159,21 @@ export interface NewTransitVirtualInterface {
   tags?: Tag[];
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
    */
-  virtualInterfaceName?: string;
+  mtu?: number;
 
   /**
-   * <p>The ID of the VLAN.</p>
+   * <p>The ID of the Direct Connect gateway.</p>
    */
-  vlan?: number;
+  directConnectGatewayId?: string;
 }
 
 export namespace NewTransitVirtualInterface {
   export const filterSensitiveLog = (obj: NewTransitVirtualInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NewTransitVirtualInterface =>
-    __isa(o, "NewTransitVirtualInterface");
+  export const isa = (o: any): o is NewTransitVirtualInterface => __isa(o, "NewTransitVirtualInterface");
 }
 
 /**
@@ -3360,9 +3187,19 @@ export interface NewTransitVirtualInterfaceAllocation {
   addressFamily?: AddressFamily | string;
 
   /**
+   * <p>The tags associated with the transitive virtual interface.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The IP address assigned to the Amazon interface.</p>
    */
   amazonAddress?: string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName?: string;
 
   /**
    * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
@@ -3371,14 +3208,9 @@ export interface NewTransitVirtualInterfaceAllocation {
   asn?: number;
 
   /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   * <p>The ID of the VLAN.</p>
    */
-  authKey?: string;
-
-  /**
-   * <p>The IP address assigned to the customer interface.</p>
-   */
-  customerAddress?: string;
+  vlan?: number;
 
   /**
    * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
@@ -3386,26 +3218,19 @@ export interface NewTransitVirtualInterfaceAllocation {
   mtu?: number;
 
   /**
-   * <p>The tags associated with the transitive virtual interface.</p>
+   * <p>The IP address assigned to the customer interface.</p>
    */
-  tags?: Tag[];
+  customerAddress?: string;
 
   /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
    */
-  virtualInterfaceName?: string;
-
-  /**
-   * <p>The ID of the VLAN.</p>
-   */
-  vlan?: number;
+  authKey?: string;
 }
 
 export namespace NewTransitVirtualInterfaceAllocation {
-  export const filterSensitiveLog = (
-    obj: NewTransitVirtualInterfaceAllocation
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NewTransitVirtualInterfaceAllocation): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NewTransitVirtualInterfaceAllocation =>
     __isa(o, "NewTransitVirtualInterfaceAllocation");
@@ -3417,19 +3242,19 @@ export namespace NewTransitVirtualInterfaceAllocation {
 export interface ResourceTag {
   __type?: "ResourceTag";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn?: string;
-
-  /**
    * <p>The tags.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn?: string;
 }
 
 export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
@@ -3448,10 +3273,81 @@ export interface RouteFilterPrefix {
 
 export namespace RouteFilterPrefix {
   export const filterSensitiveLog = (obj: RouteFilterPrefix): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RouteFilterPrefix =>
-    __isa(o, "RouteFilterPrefix");
+  export const isa = (o: any): o is RouteFilterPrefix => __isa(o, "RouteFilterPrefix");
+}
+
+export interface StartBgpFailoverTestRequest {
+  __type?: "StartBgpFailoverTestRequest";
+  /**
+   * <p>The time in minutes that the virtual interface failover test will last.</p>
+   *          <p>Maximum value: 180 minutes (3 hours).</p>
+   *          <p>Default: 180 minutes (3 hours).</p>
+   */
+  testDurationInMinutes?: number;
+
+  /**
+   * <p>The ID of the virtual interface you want to test.</p>
+   */
+  virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>The BGP peers to place in the DOWN state.</p>
+   */
+  bgpPeers?: string[];
+}
+
+export namespace StartBgpFailoverTestRequest {
+  export const filterSensitiveLog = (obj: StartBgpFailoverTestRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StartBgpFailoverTestRequest => __isa(o, "StartBgpFailoverTestRequest");
+}
+
+export interface StartBgpFailoverTestResponse {
+  __type?: "StartBgpFailoverTestResponse";
+  /**
+   * <p>Information about the virtual interface failover test.</p>
+   */
+  virtualInterfaceTest?: VirtualInterfaceTestHistory;
+}
+
+export namespace StartBgpFailoverTestResponse {
+  export const filterSensitiveLog = (obj: StartBgpFailoverTestResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StartBgpFailoverTestResponse => __isa(o, "StartBgpFailoverTestResponse");
+}
+
+export interface StopBgpFailoverTestRequest {
+  __type?: "StopBgpFailoverTestRequest";
+  /**
+   * <p>The ID of the virtual interface you no longer want to test.</p>
+   */
+  virtualInterfaceId: string | undefined;
+}
+
+export namespace StopBgpFailoverTestRequest {
+  export const filterSensitiveLog = (obj: StopBgpFailoverTestRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StopBgpFailoverTestRequest => __isa(o, "StopBgpFailoverTestRequest");
+}
+
+export interface StopBgpFailoverTestResponse {
+  __type?: "StopBgpFailoverTestResponse";
+  /**
+   * <p>Information about the virtual interface failover test.</p>
+   */
+  virtualInterfaceTest?: VirtualInterfaceTestHistory;
+}
+
+export namespace StopBgpFailoverTestResponse {
+  export const filterSensitiveLog = (obj: StopBgpFailoverTestResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StopBgpFailoverTestResponse => __isa(o, "StopBgpFailoverTestResponse");
 }
 
 /**
@@ -3472,7 +3368,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -3480,22 +3376,21 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tags to add.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3504,18 +3399,15 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -3523,31 +3415,29 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tag keys of the tags to remove.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3556,18 +3446,17 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDirectConnectGatewayAssociationRequest {
   __type?: "UpdateDirectConnectGatewayAssociationRequest";
   /**
-   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
+   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
-  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -3575,20 +3464,16 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   associationId?: string;
 
   /**
-   * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
+   * <p>The Amazon VPC prefixes to advertise to the Direct Connect gateway.</p>
    */
-  removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
+  addAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDirectConnectGatewayAssociationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayAssociationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is UpdateDirectConnectGatewayAssociationRequest =>
     __isa(o, "UpdateDirectConnectGatewayAssociationRequest");
 }
 
@@ -3601,24 +3486,15 @@ export interface UpdateDirectConnectGatewayAssociationResult {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationResult {
-  export const filterSensitiveLog = (
-    obj: UpdateDirectConnectGatewayAssociationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayAssociationResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is UpdateDirectConnectGatewayAssociationResult =>
     __isa(o, "UpdateDirectConnectGatewayAssociationResult");
 }
 
 export interface UpdateLagRequest {
   __type?: "UpdateLagRequest";
-  /**
-   * <p>The ID of the LAG.</p>
-   */
-  lagId: string | undefined;
-
   /**
    * <p>The name of the LAG.</p>
    */
@@ -3628,34 +3504,36 @@ export interface UpdateLagRequest {
    * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
+
+  /**
+   * <p>The ID of the LAG.</p>
+   */
+  lagId: string | undefined;
 }
 
 export namespace UpdateLagRequest {
   export const filterSensitiveLog = (obj: UpdateLagRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateLagRequest =>
-    __isa(o, "UpdateLagRequest");
+  export const isa = (o: any): o is UpdateLagRequest => __isa(o, "UpdateLagRequest");
 }
 
 export interface UpdateVirtualInterfaceAttributesRequest {
   __type?: "UpdateVirtualInterfaceAttributesRequest";
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   */
-  mtu?: number;
-
-  /**
    * <p>The ID of the virtual private interface.</p>
    */
   virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   */
+  mtu?: number;
 }
 
 export namespace UpdateVirtualInterfaceAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateVirtualInterfaceAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateVirtualInterfaceAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateVirtualInterfaceAttributesRequest =>
     __isa(o, "UpdateVirtualInterfaceAttributesRequest");
@@ -3697,10 +3575,9 @@ export interface VirtualGateway {
 
 export namespace VirtualGateway {
   export const filterSensitiveLog = (obj: VirtualGateway): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VirtualGateway =>
-    __isa(o, "VirtualGateway");
+  export const isa = (o: any): o is VirtualGateway => __isa(o, "VirtualGateway");
 }
 
 export interface VirtualGateways {
@@ -3713,10 +3590,9 @@ export interface VirtualGateways {
 
 export namespace VirtualGateways {
   export const filterSensitiveLog = (obj: VirtualGateways): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VirtualGateways =>
-    __isa(o, "VirtualGateways");
+  export const isa = (o: any): o is VirtualGateways => __isa(o, "VirtualGateways");
 }
 
 /**
@@ -3725,111 +3601,14 @@ export namespace VirtualGateways {
 export interface VirtualInterface {
   __type?: "VirtualInterface";
   /**
-   * <p>The address family for the BGP peer.</p>
-   */
-  addressFamily?: AddressFamily | string;
-
-  /**
-   * <p>The IP address assigned to the Amazon interface.</p>
-   */
-  amazonAddress?: string;
-
-  /**
-   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
-   */
-  amazonSideAsn?: number;
-
-  /**
-   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
-   *          <p>The valid values are 1-2147483647.</p>
-   */
-  asn?: number;
-
-  /**
-   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
-   */
-  authKey?: string;
-
-  /**
-   * <p>The
-   *       Direct Connect endpoint on which the virtual interface terminates.</p>
-   */
-  awsDeviceV2?: string;
-
-  /**
-   * <p>The BGP peers configured on this virtual interface.</p>
-   */
-  bgpPeers?: BGPPeer[];
-
-  /**
    * <p>The ID of the connection.</p>
    */
   connectionId?: string;
 
   /**
-   * <p>The IP address assigned to the customer interface.</p>
+   * <p>The BGP peers configured on this virtual interface.</p>
    */
-  customerAddress?: string;
-
-  /**
-   * <p>The customer router configuration.</p>
-   */
-  customerRouterConfig?: string;
-
-  /**
-   * <p>The ID of the Direct Connect gateway.</p>
-   */
-  directConnectGatewayId?: string;
-
-  /**
-   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
-   */
-  jumboFrameCapable?: boolean;
-
-  /**
-   * <p>The location of the connection.</p>
-   */
-  location?: string;
-
-  /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
-   */
-  mtu?: number;
-
-  /**
-   * <p>The ID of the AWS account that owns the virtual interface.</p>
-   */
-  ownerAccount?: string;
-
-  /**
-   * <p>The AWS Region where the virtual interface is located.</p>
-   */
-  region?: string;
-
-  /**
-   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
-   */
-  routeFilterPrefixes?: RouteFilterPrefix[];
-
-  /**
-   * <p>The tags associated with the virtual interface.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
-   */
-  virtualGatewayId?: string;
-
-  /**
-   * <p>The ID of the virtual interface.</p>
-   */
-  virtualInterfaceId?: string;
-
-  /**
-   * <p>The name of the virtual interface assigned by the customer network.</p>
-   */
-  virtualInterfaceName?: string;
+  bgpPeers?: BGPPeer[];
 
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -3880,17 +3659,113 @@ export interface VirtualInterface {
   virtualInterfaceType?: string;
 
   /**
+   * <p>The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.</p>
+   */
+  routeFilterPrefixes?: RouteFilterPrefix[];
+
+  /**
+   * <p>The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.</p>
+   */
+  authKey?: string;
+
+  /**
+   * <p>The
+   *       Direct Connect endpoint on which the virtual interface terminates.</p>
+   */
+  awsDeviceV2?: string;
+
+  /**
+   * <p>The tags associated with the virtual interface.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+   */
+  jumboFrameCapable?: boolean;
+
+  /**
+   * <p>The ID of the AWS account that owns the virtual interface.</p>
+   */
+  ownerAccount?: string;
+
+  /**
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   */
+  mtu?: number;
+
+  /**
+   * <p>The IP address assigned to the customer interface.</p>
+   */
+  customerAddress?: string;
+
+  /**
+   * <p>The ID of the Direct Connect gateway.</p>
+   */
+  directConnectGatewayId?: string;
+
+  /**
+   * <p>The customer router configuration.</p>
+   */
+  customerRouterConfig?: string;
+
+  /**
+   * <p>The location of the connection.</p>
+   */
+  location?: string;
+
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
+
+  /**
+   * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+   */
+  amazonSideAsn?: number;
+
+  /**
+   * <p>The IP address assigned to the Amazon interface.</p>
+   */
+  amazonAddress?: string;
+
+  /**
+   * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>
+   */
+  virtualGatewayId?: string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).</p>
+   */
+  virtualInterfaceName?: string;
+
+  /**
    * <p>The ID of the VLAN.</p>
    */
   vlan?: number;
+
+  /**
+   * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</p>
+   *          <p>The valid values are 1-2147483647.</p>
+   */
+  asn?: number;
+
+  /**
+   * <p>The address family for the BGP peer.</p>
+   */
+  addressFamily?: AddressFamily | string;
+
+  /**
+   * <p>The AWS Region where the virtual interface is located.</p>
+   */
+  region?: string;
 }
 
 export namespace VirtualInterface {
   export const filterSensitiveLog = (obj: VirtualInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VirtualInterface =>
-    __isa(o, "VirtualInterface");
+  export const isa = (o: any): o is VirtualInterface => __isa(o, "VirtualInterface");
 }
 
 export interface VirtualInterfaces {
@@ -3903,10 +3778,9 @@ export interface VirtualInterfaces {
 
 export namespace VirtualInterfaces {
   export const filterSensitiveLog = (obj: VirtualInterfaces): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VirtualInterfaces =>
-    __isa(o, "VirtualInterfaces");
+  export const isa = (o: any): o is VirtualInterfaces => __isa(o, "VirtualInterfaces");
 }
 
 export type VirtualInterfaceState =
@@ -3919,3 +3793,56 @@ export type VirtualInterfaceState =
   | "rejected"
   | "unknown"
   | "verifying";
+
+/**
+ * <p>Information about the virtual interface failover test.</p>
+ */
+export interface VirtualInterfaceTestHistory {
+  __type?: "VirtualInterfaceTestHistory";
+  /**
+   * <p>The ID of the virtual interface failover test.</p>
+   */
+  testId?: string;
+
+  /**
+   * <p>The owner ID of the tested virtual interface.</p>
+   */
+  ownerAccount?: string;
+
+  /**
+   * <p>The status of the virtual interface failover test.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The time that the virtual interface moves out of the DOWN state.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>The BGP peers that were put in the DOWN state as part of the virtual interface failover test.</p>
+   */
+  bgpPeers?: string[];
+
+  /**
+   * <p>The time that the virtual interface moves to the DOWN state.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The ID of the tested virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
+
+  /**
+   * <p>The time that the virtual interface failover test ran in minutes.</p>
+   */
+  testDurationInMinutes?: number;
+}
+
+export namespace VirtualInterfaceTestHistory {
+  export const filterSensitiveLog = (obj: VirtualInterfaceTestHistory): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is VirtualInterfaceTestHistory => __isa(o, "VirtualInterfaceTestHistory");
+}

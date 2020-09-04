@@ -1,323 +1,213 @@
-import {
-  AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput
-} from "./commands/AssociateWebACLCommand.ts";
+import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand.ts";
 import {
   CreateByteMatchSetCommandInput,
-  CreateByteMatchSetCommandOutput
+  CreateByteMatchSetCommandOutput,
 } from "./commands/CreateByteMatchSetCommand.ts";
-import {
-  CreateGeoMatchSetCommandInput,
-  CreateGeoMatchSetCommandOutput
-} from "./commands/CreateGeoMatchSetCommand.ts";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand.ts";
+import { CreateGeoMatchSetCommandInput, CreateGeoMatchSetCommandOutput } from "./commands/CreateGeoMatchSetCommand.ts";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateRateBasedRuleCommandInput,
-  CreateRateBasedRuleCommandOutput
+  CreateRateBasedRuleCommandOutput,
 } from "./commands/CreateRateBasedRuleCommand.ts";
 import {
   CreateRegexMatchSetCommandInput,
-  CreateRegexMatchSetCommandOutput
+  CreateRegexMatchSetCommandOutput,
 } from "./commands/CreateRegexMatchSetCommand.ts";
 import {
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput
+  CreateRegexPatternSetCommandOutput,
 } from "./commands/CreateRegexPatternSetCommand.ts";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand.ts";
-import {
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
-} from "./commands/CreateRuleGroupCommand.ts";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand.ts";
+import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand.ts";
 import {
   CreateSizeConstraintSetCommandInput,
-  CreateSizeConstraintSetCommandOutput
+  CreateSizeConstraintSetCommandOutput,
 } from "./commands/CreateSizeConstraintSetCommand.ts";
 import {
   CreateSqlInjectionMatchSetCommandInput,
-  CreateSqlInjectionMatchSetCommandOutput
+  CreateSqlInjectionMatchSetCommandOutput,
 } from "./commands/CreateSqlInjectionMatchSetCommand.ts";
+import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand.ts";
 import {
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
-} from "./commands/CreateWebACLCommand.ts";
-import {
-  CreateXssMatchSetCommandInput,
-  CreateXssMatchSetCommandOutput
-} from "./commands/CreateXssMatchSetCommand.ts";
+  CreateWebACLMigrationStackCommandInput,
+  CreateWebACLMigrationStackCommandOutput,
+} from "./commands/CreateWebACLMigrationStackCommand.ts";
+import { CreateXssMatchSetCommandInput, CreateXssMatchSetCommandOutput } from "./commands/CreateXssMatchSetCommand.ts";
 import {
   DeleteByteMatchSetCommandInput,
-  DeleteByteMatchSetCommandOutput
+  DeleteByteMatchSetCommandOutput,
 } from "./commands/DeleteByteMatchSetCommand.ts";
-import {
-  DeleteGeoMatchSetCommandInput,
-  DeleteGeoMatchSetCommandOutput
-} from "./commands/DeleteGeoMatchSetCommand.ts";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand.ts";
+import { DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput } from "./commands/DeleteGeoMatchSetCommand.ts";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput
+  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand.ts";
 import {
   DeletePermissionPolicyCommandInput,
-  DeletePermissionPolicyCommandOutput
+  DeletePermissionPolicyCommandOutput,
 } from "./commands/DeletePermissionPolicyCommand.ts";
 import {
   DeleteRateBasedRuleCommandInput,
-  DeleteRateBasedRuleCommandOutput
+  DeleteRateBasedRuleCommandOutput,
 } from "./commands/DeleteRateBasedRuleCommand.ts";
 import {
   DeleteRegexMatchSetCommandInput,
-  DeleteRegexMatchSetCommandOutput
+  DeleteRegexMatchSetCommandOutput,
 } from "./commands/DeleteRegexMatchSetCommand.ts";
 import {
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput
+  DeleteRegexPatternSetCommandOutput,
 } from "./commands/DeleteRegexPatternSetCommand.ts";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand.ts";
-import {
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
-} from "./commands/DeleteRuleGroupCommand.ts";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
+import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand.ts";
 import {
   DeleteSizeConstraintSetCommandInput,
-  DeleteSizeConstraintSetCommandOutput
+  DeleteSizeConstraintSetCommandOutput,
 } from "./commands/DeleteSizeConstraintSetCommand.ts";
 import {
   DeleteSqlInjectionMatchSetCommandInput,
-  DeleteSqlInjectionMatchSetCommandOutput
+  DeleteSqlInjectionMatchSetCommandOutput,
 } from "./commands/DeleteSqlInjectionMatchSetCommand.ts";
-import {
-  DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
-} from "./commands/DeleteWebACLCommand.ts";
-import {
-  DeleteXssMatchSetCommandInput,
-  DeleteXssMatchSetCommandOutput
-} from "./commands/DeleteXssMatchSetCommand.ts";
+import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand.ts";
+import { DeleteXssMatchSetCommandInput, DeleteXssMatchSetCommandOutput } from "./commands/DeleteXssMatchSetCommand.ts";
 import {
   DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput
+  DisassociateWebACLCommandOutput,
 } from "./commands/DisassociateWebACLCommand.ts";
-import {
-  GetByteMatchSetCommandInput,
-  GetByteMatchSetCommandOutput
-} from "./commands/GetByteMatchSetCommand.ts";
-import {
-  GetChangeTokenCommandInput,
-  GetChangeTokenCommandOutput
-} from "./commands/GetChangeTokenCommand.ts";
+import { GetByteMatchSetCommandInput, GetByteMatchSetCommandOutput } from "./commands/GetByteMatchSetCommand.ts";
+import { GetChangeTokenCommandInput, GetChangeTokenCommandOutput } from "./commands/GetChangeTokenCommand.ts";
 import {
   GetChangeTokenStatusCommandInput,
-  GetChangeTokenStatusCommandOutput
+  GetChangeTokenStatusCommandOutput,
 } from "./commands/GetChangeTokenStatusCommand.ts";
-import {
-  GetGeoMatchSetCommandInput,
-  GetGeoMatchSetCommandOutput
-} from "./commands/GetGeoMatchSetCommand.ts";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand.ts";
+import { GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput } from "./commands/GetGeoMatchSetCommand.ts";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand.ts";
 import {
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput
+  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand.ts";
 import {
   GetPermissionPolicyCommandInput,
-  GetPermissionPolicyCommandOutput
+  GetPermissionPolicyCommandOutput,
 } from "./commands/GetPermissionPolicyCommand.ts";
-import {
-  GetRateBasedRuleCommandInput,
-  GetRateBasedRuleCommandOutput
-} from "./commands/GetRateBasedRuleCommand.ts";
+import { GetRateBasedRuleCommandInput, GetRateBasedRuleCommandOutput } from "./commands/GetRateBasedRuleCommand.ts";
 import {
   GetRateBasedRuleManagedKeysCommandInput,
-  GetRateBasedRuleManagedKeysCommandOutput
+  GetRateBasedRuleManagedKeysCommandOutput,
 } from "./commands/GetRateBasedRuleManagedKeysCommand.ts";
-import {
-  GetRegexMatchSetCommandInput,
-  GetRegexMatchSetCommandOutput
-} from "./commands/GetRegexMatchSetCommand.ts";
+import { GetRegexMatchSetCommandInput, GetRegexMatchSetCommandOutput } from "./commands/GetRegexMatchSetCommand.ts";
 import {
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
+  GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand.ts";
-import {
-  GetRuleCommandInput,
-  GetRuleCommandOutput
-} from "./commands/GetRuleCommand.ts";
-import {
-  GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
-} from "./commands/GetRuleGroupCommand.ts";
+import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand.ts";
+import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand.ts";
 import {
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
+  GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand.ts";
 import {
   GetSizeConstraintSetCommandInput,
-  GetSizeConstraintSetCommandOutput
+  GetSizeConstraintSetCommandOutput,
 } from "./commands/GetSizeConstraintSetCommand.ts";
 import {
   GetSqlInjectionMatchSetCommandInput,
-  GetSqlInjectionMatchSetCommandOutput
+  GetSqlInjectionMatchSetCommandOutput,
 } from "./commands/GetSqlInjectionMatchSetCommand.ts";
-import {
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand.ts";
+import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand.ts";
 import {
   GetWebACLForResourceCommandInput,
-  GetWebACLForResourceCommandOutput
+  GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand.ts";
-import {
-  GetXssMatchSetCommandInput,
-  GetXssMatchSetCommandOutput
-} from "./commands/GetXssMatchSetCommand.ts";
+import { GetXssMatchSetCommandInput, GetXssMatchSetCommandOutput } from "./commands/GetXssMatchSetCommand.ts";
 import {
   ListActivatedRulesInRuleGroupCommandInput,
-  ListActivatedRulesInRuleGroupCommandOutput
+  ListActivatedRulesInRuleGroupCommandOutput,
 } from "./commands/ListActivatedRulesInRuleGroupCommand.ts";
-import {
-  ListByteMatchSetsCommandInput,
-  ListByteMatchSetsCommandOutput
-} from "./commands/ListByteMatchSetsCommand.ts";
-import {
-  ListGeoMatchSetsCommandInput,
-  ListGeoMatchSetsCommandOutput
-} from "./commands/ListGeoMatchSetsCommand.ts";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand.ts";
+import { ListByteMatchSetsCommandInput, ListByteMatchSetsCommandOutput } from "./commands/ListByteMatchSetsCommand.ts";
+import { ListGeoMatchSetsCommandInput, ListGeoMatchSetsCommandOutput } from "./commands/ListGeoMatchSetsCommand.ts";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand.ts";
 import {
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput
+  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand.ts";
 import {
   ListRateBasedRulesCommandInput,
-  ListRateBasedRulesCommandOutput
+  ListRateBasedRulesCommandOutput,
 } from "./commands/ListRateBasedRulesCommand.ts";
 import {
   ListRegexMatchSetsCommandInput,
-  ListRegexMatchSetsCommandOutput
+  ListRegexMatchSetsCommandOutput,
 } from "./commands/ListRegexMatchSetsCommand.ts";
 import {
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput
+  ListRegexPatternSetsCommandOutput,
 } from "./commands/ListRegexPatternSetsCommand.ts";
 import {
   ListResourcesForWebACLCommandInput,
-  ListResourcesForWebACLCommandOutput
+  ListResourcesForWebACLCommandOutput,
 } from "./commands/ListResourcesForWebACLCommand.ts";
-import {
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
-} from "./commands/ListRuleGroupsCommand.ts";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand.ts";
+import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand.ts";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand.ts";
 import {
   ListSizeConstraintSetsCommandInput,
-  ListSizeConstraintSetsCommandOutput
+  ListSizeConstraintSetsCommandOutput,
 } from "./commands/ListSizeConstraintSetsCommand.ts";
 import {
   ListSqlInjectionMatchSetsCommandInput,
-  ListSqlInjectionMatchSetsCommandOutput
+  ListSqlInjectionMatchSetsCommandOutput,
 } from "./commands/ListSqlInjectionMatchSetsCommand.ts";
 import {
   ListSubscribedRuleGroupsCommandInput,
-  ListSubscribedRuleGroupsCommandOutput
+  ListSubscribedRuleGroupsCommandOutput,
 } from "./commands/ListSubscribedRuleGroupsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand.ts";
-import {
-  ListXssMatchSetsCommandInput,
-  ListXssMatchSetsCommandOutput
-} from "./commands/ListXssMatchSetsCommand.ts";
+import { ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand.ts";
+import { ListXssMatchSetsCommandInput, ListXssMatchSetsCommandOutput } from "./commands/ListXssMatchSetsCommand.ts";
 import {
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput
+  PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand.ts";
 import {
   PutPermissionPolicyCommandInput,
-  PutPermissionPolicyCommandOutput
+  PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateByteMatchSetCommandInput,
-  UpdateByteMatchSetCommandOutput
+  UpdateByteMatchSetCommandOutput,
 } from "./commands/UpdateByteMatchSetCommand.ts";
-import {
-  UpdateGeoMatchSetCommandInput,
-  UpdateGeoMatchSetCommandOutput
-} from "./commands/UpdateGeoMatchSetCommand.ts";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand.ts";
+import { UpdateGeoMatchSetCommandInput, UpdateGeoMatchSetCommandOutput } from "./commands/UpdateGeoMatchSetCommand.ts";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand.ts";
 import {
   UpdateRateBasedRuleCommandInput,
-  UpdateRateBasedRuleCommandOutput
+  UpdateRateBasedRuleCommandOutput,
 } from "./commands/UpdateRateBasedRuleCommand.ts";
 import {
   UpdateRegexMatchSetCommandInput,
-  UpdateRegexMatchSetCommandOutput
+  UpdateRegexMatchSetCommandOutput,
 } from "./commands/UpdateRegexMatchSetCommand.ts";
 import {
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput
+  UpdateRegexPatternSetCommandOutput,
 } from "./commands/UpdateRegexPatternSetCommand.ts";
-import {
-  UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
-} from "./commands/UpdateRuleCommand.ts";
-import {
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
-} from "./commands/UpdateRuleGroupCommand.ts";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand.ts";
+import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand.ts";
 import {
   UpdateSizeConstraintSetCommandInput,
-  UpdateSizeConstraintSetCommandOutput
+  UpdateSizeConstraintSetCommandOutput,
 } from "./commands/UpdateSizeConstraintSetCommand.ts";
 import {
   UpdateSqlInjectionMatchSetCommandInput,
-  UpdateSqlInjectionMatchSetCommandOutput
+  UpdateSqlInjectionMatchSetCommandOutput,
 } from "./commands/UpdateSqlInjectionMatchSetCommand.ts";
-import {
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
-} from "./commands/UpdateWebACLCommand.ts";
-import {
-  UpdateXssMatchSetCommandInput,
-  UpdateXssMatchSetCommandOutput
-} from "./commands/UpdateXssMatchSetCommand.ts";
+import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "./commands/UpdateWebACLCommand.ts";
+import { UpdateXssMatchSetCommandInput, UpdateXssMatchSetCommandOutput } from "./commands/UpdateXssMatchSetCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -325,38 +215,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -365,9 +251,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -383,6 +270,7 @@ export type ServiceInputTypes =
   | CreateSizeConstraintSetCommandInput
   | CreateSqlInjectionMatchSetCommandInput
   | CreateWebACLCommandInput
+  | CreateWebACLMigrationStackCommandInput
   | CreateXssMatchSetCommandInput
   | DeleteByteMatchSetCommandInput
   | DeleteGeoMatchSetCommandInput
@@ -465,6 +353,7 @@ export type ServiceOutputTypes =
   | CreateSizeConstraintSetCommandOutput
   | CreateSqlInjectionMatchSetCommandOutput
   | CreateWebACLCommandOutput
+  | CreateWebACLMigrationStackCommandOutput
   | CreateXssMatchSetCommandOutput
   | DeleteByteMatchSetCommandOutput
   | DeleteGeoMatchSetCommandOutput
@@ -534,8 +423,7 @@ export type ServiceOutputTypes =
   | UpdateWebACLCommandOutput
   | UpdateXssMatchSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -609,14 +497,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -624,9 +517,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFRegionalClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WAFRegionalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -635,9 +526,7 @@ export type WAFRegionalClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -647,8 +536,17 @@ export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and data types listed in the reference are available for protecting Application Load Balancers. You can use these actions and data types by means of the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Regions and Endpoints</a>. This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ *          <p>This is the <i>AWS WAF Regional Classic API Reference</i> for using AWS WAF Classic with the AWS resources, Elastic Load Balancing (ELB) Application Load Balancers and API Gateway APIs. The AWS WAF Classic actions and data types listed in the reference are available for protecting Elastic Load Balancing (ELB) Application Load Balancers and API Gateway APIs. You can use these actions and data types by means of the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Regions and Endpoints</a>. This guide is for developers who need detailed information about the AWS WAF Classic API actions, data types, and errors. For detailed information about AWS WAF Classic features and an overview of how to use the AWS WAF Classic API, see the
+ *       <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *         WAF Classic</a> in the developer guide.</p>
  */
 export class WAFRegionalClient extends __Client<
   __HttpHandlerOptions,
@@ -661,7 +559,7 @@ export class WAFRegionalClient extends __Client<
   constructor(configuration: WAFRegionalClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -676,6 +574,7 @@ export class WAFRegionalClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

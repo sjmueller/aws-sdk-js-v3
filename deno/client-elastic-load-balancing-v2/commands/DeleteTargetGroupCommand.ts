@@ -1,21 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
-import {
-  DeleteTargetGroupInput,
-  DeleteTargetGroupOutput
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteTargetGroupCommand,
-  serializeAws_queryDeleteTargetGroupCommand
+  serializeAws_queryDeleteTargetGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
-export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput &
-  __MetadataBearer;
+export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput & __MetadataBearer;
 
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +40,18 @@ export class DeleteTargetGroupCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteTargetGroupInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTargetGroupOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DeleteTargetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteTargetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTargetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteTargetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetGroupCommandOutput> {
     return deserializeAws_queryDeleteTargetGroupCommand(output, context);
   }
 

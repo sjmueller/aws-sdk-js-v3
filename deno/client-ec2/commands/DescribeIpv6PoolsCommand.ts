@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeIpv6PoolsRequest,
-  DescribeIpv6PoolsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
-  serializeAws_ec2DescribeIpv6PoolsCommand
+  serializeAws_ec2DescribeIpv6PoolsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
-export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult &
-  __MetadataBearer;
+export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult & __MetadataBearer;
 
 export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandInput,
@@ -50,14 +39,15 @@ export class DescribeIpv6PoolsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeIpv6PoolsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIpv6PoolsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeIpv6PoolsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeIpv6PoolsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeIpv6PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIpv6PoolsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeIpv6PoolsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpv6PoolsCommandOutput> {
     return deserializeAws_ec2DescribeIpv6PoolsCommand(output, context);
   }
 

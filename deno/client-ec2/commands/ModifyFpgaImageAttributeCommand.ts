@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  ModifyFpgaImageAttributeRequest,
-  ModifyFpgaImageAttributeResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/index.ts";
 import {
   deserializeAws_ec2ModifyFpgaImageAttributeCommand,
-  serializeAws_ec2ModifyFpgaImageAttributeCommand
+  serializeAws_ec2ModifyFpgaImageAttributeCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyFpgaImageAttributeCommandInput = ModifyFpgaImageAttributeRequest;
-export type ModifyFpgaImageAttributeCommandOutput = ModifyFpgaImageAttributeResult &
-  __MetadataBearer;
+export type ModifyFpgaImageAttributeCommandOutput = ModifyFpgaImageAttributeResult & __MetadataBearer;
 
 export class ModifyFpgaImageAttributeCommand extends $Command<
   ModifyFpgaImageAttributeCommandInput,
@@ -49,18 +38,16 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyFpgaImageAttributeCommandInput,
-    ModifyFpgaImageAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyFpgaImageAttributeCommandInput, ModifyFpgaImageAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyFpgaImageAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyFpgaImageAttributeResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyFpgaImageAttributeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyFpgaImageAttributeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyFpgaImageAttributeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyFpgaImageAttributeCommandOutput> {
     return deserializeAws_ec2ModifyFpgaImageAttributeCommand(output, context);
   }
 

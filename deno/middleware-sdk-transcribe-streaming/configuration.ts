@@ -1,5 +1,6 @@
-import { Provider, RequestSigner, RequestHandler } from "../types/mod.ts";
 import { SignatureV4 as BaseSignatureV4 } from "../signature-v4/mod.ts";
+import { Provider, RequestHandler, RequestSigner } from "../types/mod.ts";
+
 import { SignatureV4 } from "./signer.ts";
 
 export interface WebSocketInputConfig {}
@@ -26,10 +27,8 @@ export const resolveWebSocketConfig = <T>(
           if (validateSigner(signerObj)) {
             return new SignatureV4({ signer: signerObj });
           }
-          throw new Error(
-            "Expected SignatureV4 signer, please check the client constructor."
-          );
-        }
+          throw new Error("Expected SignatureV4 signer, please check the client constructor.");
+        },
       };
 
 const validateSigner = (signer: any): signer is BaseSignatureV4 =>

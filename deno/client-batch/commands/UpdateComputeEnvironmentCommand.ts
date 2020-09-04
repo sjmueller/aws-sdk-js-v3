@@ -1,21 +1,11 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient.ts";
-import {
-  UpdateComputeEnvironmentRequest,
-  UpdateComputeEnvironmentResponse
-} from "../models/index.ts";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
+import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateComputeEnvironmentCommand,
-  serializeAws_restJson1UpdateComputeEnvironmentCommand
+  serializeAws_restJson1UpdateComputeEnvironmentCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateComputeEnvironmentCommandInput = UpdateComputeEnvironmentRequest;
-export type UpdateComputeEnvironmentCommandOutput = UpdateComputeEnvironmentResponse &
-  __MetadataBearer;
+export type UpdateComputeEnvironmentCommandOutput = UpdateComputeEnvironmentResponse & __MetadataBearer;
 
 export class UpdateComputeEnvironmentCommand extends $Command<
   UpdateComputeEnvironmentCommandInput,
@@ -49,18 +38,16 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateComputeEnvironmentCommandInput,
-    UpdateComputeEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateComputeEnvironmentCommandInput, UpdateComputeEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateComputeEnvironmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateComputeEnvironmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,12 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateComputeEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateComputeEnvironmentCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateComputeEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateComputeEnvironmentCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComputeEnvironmentCommandOutput> {
+    return deserializeAws_restJson1UpdateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

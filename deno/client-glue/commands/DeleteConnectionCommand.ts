@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  DeleteConnectionRequest,
-  DeleteConnectionResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
-  serializeAws_json1_1DeleteConnectionCommand
+  serializeAws_json1_1DeleteConnectionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteConnectionCommandInput = DeleteConnectionRequest;
-export type DeleteConnectionCommandOutput = DeleteConnectionResponse &
-  __MetadataBearer;
+export type DeleteConnectionCommandOutput = DeleteConnectionResponse & __MetadataBearer;
 
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
@@ -50,14 +39,15 @@ export class DeleteConnectionCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
     return deserializeAws_json1_1DeleteConnectionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DeleteExperimentRequest,
-  DeleteExperimentResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteExperimentCommand,
-  serializeAws_json1_1DeleteExperimentCommand
+  serializeAws_json1_1DeleteExperimentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteExperimentCommandInput = DeleteExperimentRequest;
-export type DeleteExperimentCommandOutput = DeleteExperimentResponse &
-  __MetadataBearer;
+export type DeleteExperimentCommandOutput = DeleteExperimentResponse & __MetadataBearer;
 
 export class DeleteExperimentCommand extends $Command<
   DeleteExperimentCommandInput,
@@ -50,14 +39,15 @@ export class DeleteExperimentCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteExperimentCommandInput, DeleteExperimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteExperimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteExperimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteExperimentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteExperimentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExperimentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteExperimentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
     return deserializeAws_json1_1DeleteExperimentCommand(output, context);
   }
 

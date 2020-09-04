@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  DescribeAvailablePatchesRequest,
-  DescribeAvailablePatchesResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAvailablePatchesCommand,
-  serializeAws_json1_1DescribeAvailablePatchesCommand
+  serializeAws_json1_1DescribeAvailablePatchesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAvailablePatchesCommandInput = DescribeAvailablePatchesRequest;
-export type DescribeAvailablePatchesCommandOutput = DescribeAvailablePatchesResult &
-  __MetadataBearer;
+export type DescribeAvailablePatchesCommandOutput = DescribeAvailablePatchesResult & __MetadataBearer;
 
 export class DescribeAvailablePatchesCommand extends $Command<
   DescribeAvailablePatchesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAvailablePatchesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAvailablePatchesCommandInput,
-    DescribeAvailablePatchesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAvailablePatchesCommandInput, DescribeAvailablePatchesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAvailablePatchesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailablePatchesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeAvailablePatchesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAvailablePatchesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAvailablePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAvailablePatchesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAvailablePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailablePatchesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAvailablePatchesCommandOutput> {
+    return deserializeAws_json1_1DescribeAvailablePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

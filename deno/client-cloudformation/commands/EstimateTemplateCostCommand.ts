@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  EstimateTemplateCostInput,
-  EstimateTemplateCostOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/index.ts";
 import {
   deserializeAws_queryEstimateTemplateCostCommand,
-  serializeAws_queryEstimateTemplateCostCommand
+  serializeAws_queryEstimateTemplateCostCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type EstimateTemplateCostCommandInput = EstimateTemplateCostInput;
-export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput &
-  __MetadataBearer;
+export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput & __MetadataBearer;
 
 export class EstimateTemplateCostCommand extends $Command<
   EstimateTemplateCostCommandInput,
@@ -49,18 +38,16 @@ export class EstimateTemplateCostCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EstimateTemplateCostCommandInput,
-    EstimateTemplateCostCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EstimateTemplateCostCommandInput, EstimateTemplateCostCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: EstimateTemplateCostInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EstimateTemplateCostOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class EstimateTemplateCostCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EstimateTemplateCostCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EstimateTemplateCostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEstimateTemplateCostCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EstimateTemplateCostCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EstimateTemplateCostCommandOutput> {
     return deserializeAws_queryEstimateTemplateCostCommand(output, context);
   }
 

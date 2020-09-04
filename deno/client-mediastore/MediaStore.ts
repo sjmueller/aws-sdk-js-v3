@@ -2,92 +2,107 @@ import { MediaStoreClient } from "./MediaStoreClient.ts";
 import {
   CreateContainerCommand,
   CreateContainerCommandInput,
-  CreateContainerCommandOutput
+  CreateContainerCommandOutput,
 } from "./commands/CreateContainerCommand.ts";
 import {
   DeleteContainerCommand,
   DeleteContainerCommandInput,
-  DeleteContainerCommandOutput
+  DeleteContainerCommandOutput,
 } from "./commands/DeleteContainerCommand.ts";
 import {
   DeleteContainerPolicyCommand,
   DeleteContainerPolicyCommandInput,
-  DeleteContainerPolicyCommandOutput
+  DeleteContainerPolicyCommandOutput,
 } from "./commands/DeleteContainerPolicyCommand.ts";
 import {
   DeleteCorsPolicyCommand,
   DeleteCorsPolicyCommandInput,
-  DeleteCorsPolicyCommandOutput
+  DeleteCorsPolicyCommandOutput,
 } from "./commands/DeleteCorsPolicyCommand.ts";
 import {
   DeleteLifecyclePolicyCommand,
   DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput
+  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand.ts";
+import {
+  DeleteMetricPolicyCommand,
+  DeleteMetricPolicyCommandInput,
+  DeleteMetricPolicyCommandOutput,
+} from "./commands/DeleteMetricPolicyCommand.ts";
 import {
   DescribeContainerCommand,
   DescribeContainerCommandInput,
-  DescribeContainerCommandOutput
+  DescribeContainerCommandOutput,
 } from "./commands/DescribeContainerCommand.ts";
 import {
   GetContainerPolicyCommand,
   GetContainerPolicyCommandInput,
-  GetContainerPolicyCommandOutput
+  GetContainerPolicyCommandOutput,
 } from "./commands/GetContainerPolicyCommand.ts";
 import {
   GetCorsPolicyCommand,
   GetCorsPolicyCommandInput,
-  GetCorsPolicyCommandOutput
+  GetCorsPolicyCommandOutput,
 } from "./commands/GetCorsPolicyCommand.ts";
 import {
   GetLifecyclePolicyCommand,
   GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
+  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand.ts";
+import {
+  GetMetricPolicyCommand,
+  GetMetricPolicyCommandInput,
+  GetMetricPolicyCommandOutput,
+} from "./commands/GetMetricPolicyCommand.ts";
 import {
   ListContainersCommand,
   ListContainersCommandInput,
-  ListContainersCommandOutput
+  ListContainersCommandOutput,
 } from "./commands/ListContainersCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutContainerPolicyCommand,
   PutContainerPolicyCommandInput,
-  PutContainerPolicyCommandOutput
+  PutContainerPolicyCommandOutput,
 } from "./commands/PutContainerPolicyCommand.ts";
 import {
   PutCorsPolicyCommand,
   PutCorsPolicyCommandInput,
-  PutCorsPolicyCommandOutput
+  PutCorsPolicyCommandOutput,
 } from "./commands/PutCorsPolicyCommand.ts";
 import {
   PutLifecyclePolicyCommand,
   PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
+  PutLifecyclePolicyCommandOutput,
 } from "./commands/PutLifecyclePolicyCommand.ts";
+import {
+  PutMetricPolicyCommand,
+  PutMetricPolicyCommandInput,
+  PutMetricPolicyCommandOutput,
+} from "./commands/PutMetricPolicyCommand.ts";
 import {
   StartAccessLoggingCommand,
   StartAccessLoggingCommandInput,
-  StartAccessLoggingCommandOutput
+  StartAccessLoggingCommandOutput,
 } from "./commands/StartAccessLoggingCommand.ts";
 import {
   StopAccessLoggingCommand,
   StopAccessLoggingCommandInput,
-  StopAccessLoggingCommandOutput
+  StopAccessLoggingCommandOutput,
 } from "./commands/StopAccessLoggingCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -115,17 +130,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public createContainer(
     args: CreateContainerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateContainerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerCommandOutput) => void),
     cb?: (err: any, data?: CreateContainerCommandOutput) => void
   ): Promise<CreateContainerCommandOutput> | void {
     const command = new CreateContainerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -152,17 +164,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteContainer(
     args: DeleteContainerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteContainerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerCommandOutput) => void),
     cb?: (err: any, data?: DeleteContainerCommandOutput) => void
   ): Promise<DeleteContainerCommandOutput> | void {
     const command = new DeleteContainerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -187,17 +196,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteContainerPolicy(
     args: DeleteContainerPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteContainerPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteContainerPolicyCommandOutput) => void
   ): Promise<DeleteContainerPolicyCommandOutput> | void {
     const command = new DeleteContainerPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -226,17 +232,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteCorsPolicy(
     args: DeleteCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteCorsPolicyCommandOutput) => void
   ): Promise<DeleteCorsPolicyCommandOutput> | void {
     const command = new DeleteCorsPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -261,17 +264,46 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): Promise<DeleteLifecyclePolicyCommandOutput> | void {
     const command = new DeleteLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
+   */
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMetricPolicyCommandOutput>;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    cb: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): void;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): void;
+  public deleteMetricPolicy(
+    args: DeleteMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
+  ): Promise<DeleteMetricPolicyCommandOutput> | void {
+    const command = new DeleteMetricPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -302,17 +334,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public describeContainer(
     args: DescribeContainerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContainerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContainerCommandOutput) => void),
     cb?: (err: any, data?: DescribeContainerCommandOutput) => void
   ): Promise<DescribeContainerCommandOutput> | void {
     const command = new DescribeContainerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -339,17 +368,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public getContainerPolicy(
     args: GetContainerPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContainerPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetContainerPolicyCommandOutput) => void
   ): Promise<GetContainerPolicyCommandOutput> | void {
     const command = new GetContainerPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -378,17 +404,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public getCorsPolicy(
     args: GetCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetCorsPolicyCommandOutput) => void
   ): Promise<GetCorsPolicyCommandOutput> | void {
     const command = new GetCorsPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -413,17 +436,46 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): Promise<GetLifecyclePolicyCommandOutput> | void {
     const command = new GetLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the metric policy for the specified container. </p>
+   */
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricPolicyCommandOutput>;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): void;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): void;
+  public getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): Promise<GetMetricPolicyCommandOutput> | void {
+    const command = new GetMetricPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -456,17 +508,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public listContainers(
     args: ListContainersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContainersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContainersCommandOutput) => void),
     cb?: (err: any, data?: ListContainersCommandOutput) => void
   ): Promise<ListContainersCommandOutput> | void {
     const command = new ListContainersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -491,17 +540,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -532,17 +578,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public putContainerPolicy(
     args: PutContainerPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutContainerPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutContainerPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutContainerPolicyCommandOutput) => void
   ): Promise<PutContainerPolicyCommandOutput> | void {
     const command = new PutContainerPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -577,17 +620,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public putCorsPolicy(
     args: PutCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutCorsPolicyCommandOutput) => void
   ): Promise<PutCorsPolicyCommandOutput> | void {
     const command = new PutCorsPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -613,17 +653,46 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutLifecyclePolicyCommandOutput) => void
   ): Promise<PutLifecyclePolicyCommandOutput> | void {
     const command = new PutLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
+   */
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMetricPolicyCommandOutput>;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): void;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): void;
+  public putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): Promise<PutMetricPolicyCommandOutput> | void {
+    const command = new PutMetricPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -648,17 +717,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public startAccessLogging(
     args: StartAccessLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAccessLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAccessLoggingCommandOutput) => void),
     cb?: (err: any, data?: StartAccessLoggingCommandOutput) => void
   ): Promise<StartAccessLoggingCommandOutput> | void {
     const command = new StartAccessLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,17 +749,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public stopAccessLogging(
     args: StopAccessLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopAccessLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAccessLoggingCommandOutput) => void),
     cb?: (err: any, data?: StopAccessLoggingCommandOutput) => void
   ): Promise<StopAccessLoggingCommandOutput> | void {
     const command = new StopAccessLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -705,14 +768,8 @@ export class MediaStore extends MediaStoreClient {
    *             tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50
    *             tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -720,17 +777,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -755,17 +809,14 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

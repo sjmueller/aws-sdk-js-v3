@@ -1,21 +1,15 @@
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient.ts";
-import {
-  DeleteHumanLoopRequest,
-  DeleteHumanLoopResponse
-} from "../models/index.ts";
+import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteHumanLoopCommand,
-  serializeAws_restJson1DeleteHumanLoopCommand
+  serializeAws_restJson1DeleteHumanLoopCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteHumanLoopCommandInput = DeleteHumanLoopRequest;
-export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse &
-  __MetadataBearer;
+export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse & __MetadataBearer;
 
 export class DeleteHumanLoopCommand extends $Command<
   DeleteHumanLoopCommandInput,
@@ -50,14 +43,15 @@ export class DeleteHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHumanLoopCommandInput, DeleteHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteHumanLoopRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DeleteHumanLoopCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteHumanLoopCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteHumanLoopCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteHumanLoopCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanLoopCommandOutput> {
     return deserializeAws_restJson1DeleteHumanLoopCommand(output, context);
   }
 

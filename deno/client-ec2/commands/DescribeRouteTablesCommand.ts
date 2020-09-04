@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeRouteTablesRequest,
-  DescribeRouteTablesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeRouteTablesCommand,
-  serializeAws_ec2DescribeRouteTablesCommand
+  serializeAws_ec2DescribeRouteTablesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRouteTablesCommandInput = DescribeRouteTablesRequest;
-export type DescribeRouteTablesCommandOutput = DescribeRouteTablesResult &
-  __MetadataBearer;
+export type DescribeRouteTablesCommandOutput = DescribeRouteTablesResult & __MetadataBearer;
 
 export class DescribeRouteTablesCommand extends $Command<
   DescribeRouteTablesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeRouteTablesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRouteTablesCommandInput,
-    DescribeRouteTablesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRouteTablesCommandInput, DescribeRouteTablesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRouteTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRouteTablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeRouteTablesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRouteTablesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRouteTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeRouteTablesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRouteTablesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteTablesCommandOutput> {
     return deserializeAws_ec2DescribeRouteTablesCommand(output, context);
   }
 

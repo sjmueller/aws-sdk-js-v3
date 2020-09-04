@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client.ts";
-import {
-  PutAccountSuppressionAttributesRequest,
-  PutAccountSuppressionAttributesResponse
-} from "../models/index.ts";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
+import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
-  serializeAws_restJson1PutAccountSuppressionAttributesCommand
+  serializeAws_restJson1PutAccountSuppressionAttributesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutAccountSuppressionAttributesCommandInput = PutAccountSuppressionAttributesRequest;
-export type PutAccountSuppressionAttributesCommandOutput = PutAccountSuppressionAttributesResponse &
-  __MetadataBearer;
+export type PutAccountSuppressionAttributesCommandOutput = PutAccountSuppressionAttributesResponse & __MetadataBearer;
 
 export class PutAccountSuppressionAttributesCommand extends $Command<
   PutAccountSuppressionAttributesCommandInput,
@@ -49,18 +38,16 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutAccountSuppressionAttributesCommandInput,
-    PutAccountSuppressionAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutAccountSuppressionAttributesCommandInput, PutAccountSuppressionAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutAccountSuppressionAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSuppressionAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSuppressionAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutAccountSuppressionAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSuppressionAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutAccountSuppressionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

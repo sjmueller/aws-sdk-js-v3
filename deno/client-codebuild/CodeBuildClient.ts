@@ -1,139 +1,88 @@
+import { BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput } from "./commands/BatchDeleteBuildsCommand.ts";
 import {
-  BatchDeleteBuildsCommandInput,
-  BatchDeleteBuildsCommandOutput
-} from "./commands/BatchDeleteBuildsCommand.ts";
-import {
-  BatchGetBuildsCommandInput,
-  BatchGetBuildsCommandOutput
-} from "./commands/BatchGetBuildsCommand.ts";
-import {
-  BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput
-} from "./commands/BatchGetProjectsCommand.ts";
+  BatchGetBuildBatchesCommandInput,
+  BatchGetBuildBatchesCommandOutput,
+} from "./commands/BatchGetBuildBatchesCommand.ts";
+import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand.ts";
+import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand.ts";
 import {
   BatchGetReportGroupsCommandInput,
-  BatchGetReportGroupsCommandOutput
+  BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand.ts";
-import {
-  BatchGetReportsCommandInput,
-  BatchGetReportsCommandOutput
-} from "./commands/BatchGetReportsCommand.ts";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand.ts";
-import {
-  CreateReportGroupCommandInput,
-  CreateReportGroupCommandOutput
-} from "./commands/CreateReportGroupCommand.ts";
-import {
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
-} from "./commands/CreateWebhookCommand.ts";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand.ts";
-import {
-  DeleteReportCommandInput,
-  DeleteReportCommandOutput
-} from "./commands/DeleteReportCommand.ts";
-import {
-  DeleteReportGroupCommandInput,
-  DeleteReportGroupCommandOutput
-} from "./commands/DeleteReportGroupCommand.ts";
+import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand.ts";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
+import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand.ts";
+import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand.ts";
+import { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "./commands/DeleteBuildBatchCommand.ts";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand.ts";
+import { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand.ts";
+import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "./commands/DeleteReportGroupCommand.ts";
 import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteSourceCredentialsCommandInput,
-  DeleteSourceCredentialsCommandOutput
+  DeleteSourceCredentialsCommandOutput,
 } from "./commands/DeleteSourceCredentialsCommand.ts";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand.ts";
 import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "./commands/DeleteWebhookCommand.ts";
-import {
-  DescribeTestCasesCommandInput,
-  DescribeTestCasesCommandOutput
-} from "./commands/DescribeTestCasesCommand.ts";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand.ts";
+  DescribeCodeCoveragesCommandInput,
+  DescribeCodeCoveragesCommandOutput,
+} from "./commands/DescribeCodeCoveragesCommand.ts";
+import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "./commands/DescribeTestCasesCommand.ts";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand.ts";
 import {
   ImportSourceCredentialsCommandInput,
-  ImportSourceCredentialsCommandOutput
+  ImportSourceCredentialsCommandOutput,
 } from "./commands/ImportSourceCredentialsCommand.ts";
 import {
   InvalidateProjectCacheCommandInput,
-  InvalidateProjectCacheCommandOutput
+  InvalidateProjectCacheCommandOutput,
 } from "./commands/InvalidateProjectCacheCommand.ts";
+import { ListBuildBatchesCommandInput, ListBuildBatchesCommandOutput } from "./commands/ListBuildBatchesCommand.ts";
 import {
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand.ts";
+  ListBuildBatchesForProjectCommandInput,
+  ListBuildBatchesForProjectCommandOutput,
+} from "./commands/ListBuildBatchesForProjectCommand.ts";
+import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand.ts";
 import {
   ListBuildsForProjectCommandInput,
-  ListBuildsForProjectCommandOutput
+  ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand.ts";
 import {
   ListCuratedEnvironmentImagesCommandInput,
-  ListCuratedEnvironmentImagesCommandOutput
+  ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand.ts";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand.ts";
-import {
-  ListReportGroupsCommandInput,
-  ListReportGroupsCommandOutput
-} from "./commands/ListReportGroupsCommand.ts";
-import {
-  ListReportsCommandInput,
-  ListReportsCommandOutput
-} from "./commands/ListReportsCommand.ts";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand.ts";
+import { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "./commands/ListReportGroupsCommand.ts";
+import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand.ts";
 import {
   ListReportsForReportGroupCommandInput,
-  ListReportsForReportGroupCommandOutput
+  ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand.ts";
 import {
   ListSharedProjectsCommandInput,
-  ListSharedProjectsCommandOutput
+  ListSharedProjectsCommandOutput,
 } from "./commands/ListSharedProjectsCommand.ts";
 import {
   ListSharedReportGroupsCommandInput,
-  ListSharedReportGroupsCommandOutput
+  ListSharedReportGroupsCommandOutput,
 } from "./commands/ListSharedReportGroupsCommand.ts";
 import {
   ListSourceCredentialsCommandInput,
-  ListSourceCredentialsCommandOutput
+  ListSourceCredentialsCommandOutput,
 } from "./commands/ListSourceCredentialsCommand.ts";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand.ts";
-import {
-  StartBuildCommandInput,
-  StartBuildCommandOutput
-} from "./commands/StartBuildCommand.ts";
-import {
-  StopBuildCommandInput,
-  StopBuildCommandOutput
-} from "./commands/StopBuildCommand.ts";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand.ts";
-import {
-  UpdateReportGroupCommandInput,
-  UpdateReportGroupCommandOutput
-} from "./commands/UpdateReportGroupCommand.ts";
-import {
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
-} from "./commands/UpdateWebhookCommand.ts";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand.ts";
+import { RetryBuildBatchCommandInput, RetryBuildBatchCommandOutput } from "./commands/RetryBuildBatchCommand.ts";
+import { RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand.ts";
+import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./commands/StartBuildBatchCommand.ts";
+import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand.ts";
+import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand.ts";
+import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand.ts";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand.ts";
+import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "./commands/UpdateReportGroupCommand.ts";
+import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -141,38 +90,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -181,13 +126,15 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | BatchDeleteBuildsCommandInput
+  | BatchGetBuildBatchesCommandInput
   | BatchGetBuildsCommandInput
   | BatchGetProjectsCommandInput
   | BatchGetReportGroupsCommandInput
@@ -195,16 +142,20 @@ export type ServiceInputTypes =
   | CreateProjectCommandInput
   | CreateReportGroupCommandInput
   | CreateWebhookCommandInput
+  | DeleteBuildBatchCommandInput
   | DeleteProjectCommandInput
   | DeleteReportCommandInput
   | DeleteReportGroupCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteSourceCredentialsCommandInput
   | DeleteWebhookCommandInput
+  | DescribeCodeCoveragesCommandInput
   | DescribeTestCasesCommandInput
   | GetResourcePolicyCommandInput
   | ImportSourceCredentialsCommandInput
   | InvalidateProjectCacheCommandInput
+  | ListBuildBatchesCommandInput
+  | ListBuildBatchesForProjectCommandInput
   | ListBuildsCommandInput
   | ListBuildsForProjectCommandInput
   | ListCuratedEnvironmentImagesCommandInput
@@ -216,7 +167,11 @@ export type ServiceInputTypes =
   | ListSharedReportGroupsCommandInput
   | ListSourceCredentialsCommandInput
   | PutResourcePolicyCommandInput
+  | RetryBuildBatchCommandInput
+  | RetryBuildCommandInput
+  | StartBuildBatchCommandInput
   | StartBuildCommandInput
+  | StopBuildBatchCommandInput
   | StopBuildCommandInput
   | UpdateProjectCommandInput
   | UpdateReportGroupCommandInput
@@ -224,6 +179,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | BatchDeleteBuildsCommandOutput
+  | BatchGetBuildBatchesCommandOutput
   | BatchGetBuildsCommandOutput
   | BatchGetProjectsCommandOutput
   | BatchGetReportGroupsCommandOutput
@@ -231,16 +187,20 @@ export type ServiceOutputTypes =
   | CreateProjectCommandOutput
   | CreateReportGroupCommandOutput
   | CreateWebhookCommandOutput
+  | DeleteBuildBatchCommandOutput
   | DeleteProjectCommandOutput
   | DeleteReportCommandOutput
   | DeleteReportGroupCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteSourceCredentialsCommandOutput
   | DeleteWebhookCommandOutput
+  | DescribeCodeCoveragesCommandOutput
   | DescribeTestCasesCommandOutput
   | GetResourcePolicyCommandOutput
   | ImportSourceCredentialsCommandOutput
   | InvalidateProjectCacheCommandOutput
+  | ListBuildBatchesCommandOutput
+  | ListBuildBatchesForProjectCommandOutput
   | ListBuildsCommandOutput
   | ListBuildsForProjectCommandOutput
   | ListCuratedEnvironmentImagesCommandOutput
@@ -252,14 +212,17 @@ export type ServiceOutputTypes =
   | ListSharedReportGroupsCommandOutput
   | ListSourceCredentialsCommandOutput
   | PutResourcePolicyCommandOutput
+  | RetryBuildBatchCommandOutput
+  | RetryBuildCommandOutput
+  | StartBuildBatchCommandOutput
   | StartBuildCommandOutput
+  | StopBuildBatchCommandOutput
   | StopBuildCommandOutput
   | UpdateProjectCommandOutput
   | UpdateReportGroupCommandOutput
   | UpdateWebhookCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -333,14 +296,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -348,9 +316,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeBuildClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeBuildClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -359,9 +325,7 @@ export type CodeBuildClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -372,183 +336,188 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <fullname>AWS CodeBuild</fullname>
- *          <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
- *          runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need
- *          to provision, manage, and scale your own build servers. It provides prepackaged build
- *          environments for the most popular programming languages and build tools, such as Apache
- *          Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use
- *          your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You pay only
- *          for the build time you consume. For more information about AWS CodeBuild, see the <i>
- *                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User Guide</a>.</i>
+ *         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
+ *             runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+ *             need to provision, manage, and scale your own build servers. It provides prepackaged
+ *             build environments for the most popular programming languages and build tools, such as
+ *             Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
+ *             to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
+ *             pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
+ *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+ *                     Guide</a>.</i>
  *          </p>
- *          <p>AWS CodeBuild supports these operations:</p>
- *          <ul>
+ *         <p>AWS CodeBuild supports these operations:</p>
+ *         <ul>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchGetBuilds</code>: Gets information about one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetProjects</code>: Gets information about one or more build projects.
- *                A <i>build project</i> defines how AWS CodeBuild runs a build. This includes
- *                information such as where to get the source code to build, the build environment to
- *                use, the build commands to run, and where to store the build output. A
- *                <i>build environment</i> is a representation of operating system,
- *                programming language runtime, and tools that AWS CodeBuild uses to run a build. You can add
- *                tags to build projects to help manage your resources and costs.</p>
+ *                 <p>
+ *                   <code>BatchGetProjects</code>: Gets information about one or more build
+ *                     projects. A <i>build project</i> defines how AWS CodeBuild runs a build.
+ *                     This includes information such as where to get the source code to build, the
+ *                     build environment to use, the build commands to run, and where to store the
+ *                     build output. A <i>build environment</i> is a representation of
+ *                     operating system, programming language runtime, and tools that AWS CodeBuild uses to run
+ *                     a build. You can add tags to build projects to help manage your resources and
+ *                     costs.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReportGroups</code>: Returns an array of report groups.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReportGroups</code>: Returns an array of report groups. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReports</code>: Returns an array of reports.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReports</code>: Returns an array of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateProject</code>: Creates a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>CreateReportGroup</code>: Creates a report group. A report group contains a collection of reports.
- *             </p>
+ *                 <p>
+ *                     <code>CreateReportGroup</code>: Creates a report group. A report group contains
+ *                     a collection of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
- *                rebuilding the source code every time a code change is pushed to the
- *                repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteProject</code>: Deletes a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReport</code>: Deletes a report.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReport</code>: Deletes a report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReportGroup</code>: Deletes a report group.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReportGroup</code>: Deletes a report group. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteResourcePolicy</code>: Deletes a resource policy that is identified
+ *                     by its resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise,
- *                or Bitbucket source credentials.</p>
+ *                 <p>
+ *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub
+ *                     Enterprise, or Bitbucket source credentials.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding
- *                the source code every time a code change is pushed to the repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.
- *             </p>
+ *                 <p>
+ *                     <code>DescribeTestCases</code>: Returns a list of details about test cases for a
+ *                     report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>GetResourcePolicy</code>: Gets a resource policy that is identified by its
+ *                     resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ImportSourceCredentials</code>: Imports the source repository credentials for an AWS CodeBuild project that has its source code stored
- *                in a GitHub, GitHub Enterprise, or Bitbucket repository.</p>
+ *                 <p>
+ *                   <code>ImportSourceCredentials</code>: Imports the source repository
+ *                     credentials for an AWS CodeBuild project that has its source code stored in a
+ *                     GitHub, GitHub Enterprise, or Bitbucket repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>InvalidateProjectCache</code>: Resets the cache for a project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing
- *                a single build.</p>
+ *                 <p>
+ *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID
+ *                     representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified
- *                build project, with each build ID representing a single build.</p>
+ *                     build project, with each build ID representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images
- *                that are managed by AWS CodeBuild.</p>
+ *                 <p>
+ *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker
+ *                     images that are managed by AWS CodeBuild.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListProjects</code>: Gets a list of build project names, with each build
- *                project name representing a single build project.</p>
+ *                     project name representing a single build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the
+ *                     current AWS account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS
+ *                     account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports
+ *                     that belong to a <code>ReportGroup</code>. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>
+ *                 <p>
+ *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects
+ *                     shared with the current AWS account or user.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>
+ *                 <p>
+ *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with
+ *                     report groups shared with the current AWS account or user</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes
- *                the authentication type, token ARN, and type of source provider for one set of credentials.</p>
+ *                 <p>
+ *                   <code>ListSourceCredentials</code>: Returns a list of
+ *                         <code>SourceCredentialsInfo</code> objects. Each
+ *                         <code>SourceCredentialsInfo</code> object includes the authentication type,
+ *                     token ARN, and type of source provider for one set of credentials.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.
- *             </p>
+ *                 <p>
+ *                     <code>PutResourcePolicy</code>: Stores a resource policy for the ARN of a
+ *                         <code>Project</code> or <code>ReportGroup</code> object. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StartBuild</code>: Starts running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StopBuild</code>: Attempts to stop running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateProject</code>: Changes the settings of an existing build
- *                project.</p>
+ *                     project.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateReportGroup</code>: Changes a report group.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>
+ *                 <p>
+ *                   <code>UpdateWebhook</code>: Changes the settings of an existing
+ *                     webhook.</p>
  *             </li>
  *          </ul>
  */
@@ -563,7 +532,7 @@ export class CodeBuildClient extends __Client<
   constructor(configuration: CodeBuildClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -578,6 +547,7 @@ export class CodeBuildClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

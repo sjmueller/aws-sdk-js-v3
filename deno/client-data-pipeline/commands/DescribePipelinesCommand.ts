@@ -1,21 +1,11 @@
-import {
-  DataPipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataPipelineClient.ts";
-import {
-  DescribePipelinesInput,
-  DescribePipelinesOutput
-} from "../models/index.ts";
+import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
+import { DescribePipelinesInput, DescribePipelinesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribePipelinesCommand,
-  serializeAws_json1_1DescribePipelinesCommand
+  serializeAws_json1_1DescribePipelinesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribePipelinesCommandInput = DescribePipelinesInput;
-export type DescribePipelinesCommandOutput = DescribePipelinesOutput &
-  __MetadataBearer;
+export type DescribePipelinesCommandOutput = DescribePipelinesOutput & __MetadataBearer;
 
 export class DescribePipelinesCommand extends $Command<
   DescribePipelinesCommandInput,
@@ -50,14 +39,15 @@ export class DescribePipelinesCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePipelinesCommandInput, DescribePipelinesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribePipelinesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePipelinesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribePipelinesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePipelinesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePipelinesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePipelinesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipelinesCommandOutput> {
     return deserializeAws_json1_1DescribePipelinesCommand(output, context);
   }
 

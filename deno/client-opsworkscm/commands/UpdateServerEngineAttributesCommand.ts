@@ -1,21 +1,11 @@
-import {
-  OpsWorksCMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksCMClient.ts";
-import {
-  UpdateServerEngineAttributesRequest,
-  UpdateServerEngineAttributesResponse
-} from "../models/index.ts";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
+import { UpdateServerEngineAttributesRequest, UpdateServerEngineAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateServerEngineAttributesCommand,
-  serializeAws_json1_1UpdateServerEngineAttributesCommand
+  serializeAws_json1_1UpdateServerEngineAttributesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateServerEngineAttributesCommandInput = UpdateServerEngineAttributesRequest;
-export type UpdateServerEngineAttributesCommandOutput = UpdateServerEngineAttributesResponse &
-  __MetadataBearer;
+export type UpdateServerEngineAttributesCommandOutput = UpdateServerEngineAttributesResponse & __MetadataBearer;
 
 export class UpdateServerEngineAttributesCommand extends $Command<
   UpdateServerEngineAttributesCommandInput,
@@ -49,18 +38,16 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServerEngineAttributesCommandInput,
-    UpdateServerEngineAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServerEngineAttributesCommandInput, UpdateServerEngineAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateServerEngineAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerEngineAttributesCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateServerEngineAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServerEngineAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

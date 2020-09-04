@@ -2,187 +2,187 @@ import { SWFClient } from "./SWFClient.ts";
 import {
   CountClosedWorkflowExecutionsCommand,
   CountClosedWorkflowExecutionsCommandInput,
-  CountClosedWorkflowExecutionsCommandOutput
+  CountClosedWorkflowExecutionsCommandOutput,
 } from "./commands/CountClosedWorkflowExecutionsCommand.ts";
 import {
   CountOpenWorkflowExecutionsCommand,
   CountOpenWorkflowExecutionsCommandInput,
-  CountOpenWorkflowExecutionsCommandOutput
+  CountOpenWorkflowExecutionsCommandOutput,
 } from "./commands/CountOpenWorkflowExecutionsCommand.ts";
 import {
   CountPendingActivityTasksCommand,
   CountPendingActivityTasksCommandInput,
-  CountPendingActivityTasksCommandOutput
+  CountPendingActivityTasksCommandOutput,
 } from "./commands/CountPendingActivityTasksCommand.ts";
 import {
   CountPendingDecisionTasksCommand,
   CountPendingDecisionTasksCommandInput,
-  CountPendingDecisionTasksCommandOutput
+  CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand.ts";
 import {
   DeprecateActivityTypeCommand,
   DeprecateActivityTypeCommandInput,
-  DeprecateActivityTypeCommandOutput
+  DeprecateActivityTypeCommandOutput,
 } from "./commands/DeprecateActivityTypeCommand.ts";
 import {
   DeprecateDomainCommand,
   DeprecateDomainCommandInput,
-  DeprecateDomainCommandOutput
+  DeprecateDomainCommandOutput,
 } from "./commands/DeprecateDomainCommand.ts";
 import {
   DeprecateWorkflowTypeCommand,
   DeprecateWorkflowTypeCommandInput,
-  DeprecateWorkflowTypeCommandOutput
+  DeprecateWorkflowTypeCommandOutput,
 } from "./commands/DeprecateWorkflowTypeCommand.ts";
 import {
   DescribeActivityTypeCommand,
   DescribeActivityTypeCommandInput,
-  DescribeActivityTypeCommandOutput
+  DescribeActivityTypeCommandOutput,
 } from "./commands/DescribeActivityTypeCommand.ts";
 import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
+  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand.ts";
 import {
   DescribeWorkflowExecutionCommand,
   DescribeWorkflowExecutionCommandInput,
-  DescribeWorkflowExecutionCommandOutput
+  DescribeWorkflowExecutionCommandOutput,
 } from "./commands/DescribeWorkflowExecutionCommand.ts";
 import {
   DescribeWorkflowTypeCommand,
   DescribeWorkflowTypeCommandInput,
-  DescribeWorkflowTypeCommandOutput
+  DescribeWorkflowTypeCommandOutput,
 } from "./commands/DescribeWorkflowTypeCommand.ts";
 import {
   GetWorkflowExecutionHistoryCommand,
   GetWorkflowExecutionHistoryCommandInput,
-  GetWorkflowExecutionHistoryCommandOutput
+  GetWorkflowExecutionHistoryCommandOutput,
 } from "./commands/GetWorkflowExecutionHistoryCommand.ts";
 import {
   ListActivityTypesCommand,
   ListActivityTypesCommandInput,
-  ListActivityTypesCommandOutput
+  ListActivityTypesCommandOutput,
 } from "./commands/ListActivityTypesCommand.ts";
 import {
   ListClosedWorkflowExecutionsCommand,
   ListClosedWorkflowExecutionsCommandInput,
-  ListClosedWorkflowExecutionsCommandOutput
+  ListClosedWorkflowExecutionsCommandOutput,
 } from "./commands/ListClosedWorkflowExecutionsCommand.ts";
 import {
   ListDomainsCommand,
   ListDomainsCommandInput,
-  ListDomainsCommandOutput
+  ListDomainsCommandOutput,
 } from "./commands/ListDomainsCommand.ts";
 import {
   ListOpenWorkflowExecutionsCommand,
   ListOpenWorkflowExecutionsCommandInput,
-  ListOpenWorkflowExecutionsCommandOutput
+  ListOpenWorkflowExecutionsCommandOutput,
 } from "./commands/ListOpenWorkflowExecutionsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWorkflowTypesCommand,
   ListWorkflowTypesCommandInput,
-  ListWorkflowTypesCommandOutput
+  ListWorkflowTypesCommandOutput,
 } from "./commands/ListWorkflowTypesCommand.ts";
 import {
   PollForActivityTaskCommand,
   PollForActivityTaskCommandInput,
-  PollForActivityTaskCommandOutput
+  PollForActivityTaskCommandOutput,
 } from "./commands/PollForActivityTaskCommand.ts";
 import {
   PollForDecisionTaskCommand,
   PollForDecisionTaskCommandInput,
-  PollForDecisionTaskCommandOutput
+  PollForDecisionTaskCommandOutput,
 } from "./commands/PollForDecisionTaskCommand.ts";
 import {
   RecordActivityTaskHeartbeatCommand,
   RecordActivityTaskHeartbeatCommandInput,
-  RecordActivityTaskHeartbeatCommandOutput
+  RecordActivityTaskHeartbeatCommandOutput,
 } from "./commands/RecordActivityTaskHeartbeatCommand.ts";
 import {
   RegisterActivityTypeCommand,
   RegisterActivityTypeCommandInput,
-  RegisterActivityTypeCommandOutput
+  RegisterActivityTypeCommandOutput,
 } from "./commands/RegisterActivityTypeCommand.ts";
 import {
   RegisterDomainCommand,
   RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
+  RegisterDomainCommandOutput,
 } from "./commands/RegisterDomainCommand.ts";
 import {
   RegisterWorkflowTypeCommand,
   RegisterWorkflowTypeCommandInput,
-  RegisterWorkflowTypeCommandOutput
+  RegisterWorkflowTypeCommandOutput,
 } from "./commands/RegisterWorkflowTypeCommand.ts";
 import {
   RequestCancelWorkflowExecutionCommand,
   RequestCancelWorkflowExecutionCommandInput,
-  RequestCancelWorkflowExecutionCommandOutput
+  RequestCancelWorkflowExecutionCommandOutput,
 } from "./commands/RequestCancelWorkflowExecutionCommand.ts";
 import {
   RespondActivityTaskCanceledCommand,
   RespondActivityTaskCanceledCommandInput,
-  RespondActivityTaskCanceledCommandOutput
+  RespondActivityTaskCanceledCommandOutput,
 } from "./commands/RespondActivityTaskCanceledCommand.ts";
 import {
   RespondActivityTaskCompletedCommand,
   RespondActivityTaskCompletedCommandInput,
-  RespondActivityTaskCompletedCommandOutput
+  RespondActivityTaskCompletedCommandOutput,
 } from "./commands/RespondActivityTaskCompletedCommand.ts";
 import {
   RespondActivityTaskFailedCommand,
   RespondActivityTaskFailedCommandInput,
-  RespondActivityTaskFailedCommandOutput
+  RespondActivityTaskFailedCommandOutput,
 } from "./commands/RespondActivityTaskFailedCommand.ts";
 import {
   RespondDecisionTaskCompletedCommand,
   RespondDecisionTaskCompletedCommandInput,
-  RespondDecisionTaskCompletedCommandOutput
+  RespondDecisionTaskCompletedCommandOutput,
 } from "./commands/RespondDecisionTaskCompletedCommand.ts";
 import {
   SignalWorkflowExecutionCommand,
   SignalWorkflowExecutionCommandInput,
-  SignalWorkflowExecutionCommandOutput
+  SignalWorkflowExecutionCommandOutput,
 } from "./commands/SignalWorkflowExecutionCommand.ts";
 import {
   StartWorkflowExecutionCommand,
   StartWorkflowExecutionCommandInput,
-  StartWorkflowExecutionCommandOutput
+  StartWorkflowExecutionCommandOutput,
 } from "./commands/StartWorkflowExecutionCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   TerminateWorkflowExecutionCommand,
   TerminateWorkflowExecutionCommandInput,
-  TerminateWorkflowExecutionCommandOutput
+  TerminateWorkflowExecutionCommandOutput,
 } from "./commands/TerminateWorkflowExecutionCommand.ts";
 import {
   UndeprecateActivityTypeCommand,
   UndeprecateActivityTypeCommandInput,
-  UndeprecateActivityTypeCommandOutput
+  UndeprecateActivityTypeCommandOutput,
 } from "./commands/UndeprecateActivityTypeCommand.ts";
 import {
   UndeprecateDomainCommand,
   UndeprecateDomainCommandInput,
-  UndeprecateDomainCommandOutput
+  UndeprecateDomainCommandOutput,
 } from "./commands/UndeprecateDomainCommand.ts";
 import {
   UndeprecateWorkflowTypeCommand,
   UndeprecateWorkflowTypeCommandInput,
-  UndeprecateWorkflowTypeCommandOutput
+  UndeprecateWorkflowTypeCommandOutput,
 } from "./commands/UndeprecateWorkflowTypeCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -269,17 +269,14 @@ export class SWF extends SWFClient {
   ): void;
   public countClosedWorkflowExecutions(
     args: CountClosedWorkflowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CountClosedWorkflowExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CountClosedWorkflowExecutionsCommandOutput) => void),
     cb?: (err: any, data?: CountClosedWorkflowExecutionsCommandOutput) => void
   ): Promise<CountClosedWorkflowExecutionsCommandOutput> | void {
     const command = new CountClosedWorkflowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -350,17 +347,14 @@ export class SWF extends SWFClient {
   ): void;
   public countOpenWorkflowExecutions(
     args: CountOpenWorkflowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CountOpenWorkflowExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CountOpenWorkflowExecutionsCommandOutput) => void),
     cb?: (err: any, data?: CountOpenWorkflowExecutionsCommandOutput) => void
   ): Promise<CountOpenWorkflowExecutionsCommandOutput> | void {
     const command = new CountOpenWorkflowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -412,17 +406,14 @@ export class SWF extends SWFClient {
   ): void;
   public countPendingActivityTasks(
     args: CountPendingActivityTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CountPendingActivityTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CountPendingActivityTasksCommandOutput) => void),
     cb?: (err: any, data?: CountPendingActivityTasksCommandOutput) => void
   ): Promise<CountPendingActivityTasksCommandOutput> | void {
     const command = new CountPendingActivityTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -474,17 +465,14 @@ export class SWF extends SWFClient {
   ): void;
   public countPendingDecisionTasks(
     args: CountPendingDecisionTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CountPendingDecisionTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CountPendingDecisionTasksCommandOutput) => void),
     cb?: (err: any, data?: CountPendingDecisionTasksCommandOutput) => void
   ): Promise<CountPendingDecisionTasksCommandOutput> | void {
     const command = new CountPendingDecisionTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,17 +539,14 @@ export class SWF extends SWFClient {
   ): void;
   public deprecateActivityType(
     args: DeprecateActivityTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateActivityTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateActivityTypeCommandOutput) => void),
     cb?: (err: any, data?: DeprecateActivityTypeCommandOutput) => void
   ): Promise<DeprecateActivityTypeCommandOutput> | void {
     const command = new DeprecateActivityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -617,17 +602,14 @@ export class SWF extends SWFClient {
   ): void;
   public deprecateDomain(
     args: DeprecateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateDomainCommandOutput) => void),
     cb?: (err: any, data?: DeprecateDomainCommandOutput) => void
   ): Promise<DeprecateDomainCommandOutput> | void {
     const command = new DeprecateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -695,17 +677,14 @@ export class SWF extends SWFClient {
   ): void;
   public deprecateWorkflowType(
     args: DeprecateWorkflowTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateWorkflowTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateWorkflowTypeCommandOutput) => void),
     cb?: (err: any, data?: DeprecateWorkflowTypeCommandOutput) => void
   ): Promise<DeprecateWorkflowTypeCommandOutput> | void {
     const command = new DeprecateWorkflowTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -768,17 +747,14 @@ export class SWF extends SWFClient {
   ): void;
   public describeActivityType(
     args: DescribeActivityTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeActivityTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivityTypeCommandOutput) => void),
     cb?: (err: any, data?: DescribeActivityTypeCommandOutput) => void
   ): Promise<DescribeActivityTypeCommandOutput> | void {
     const command = new DescribeActivityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -827,17 +803,14 @@ export class SWF extends SWFClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -890,17 +863,14 @@ export class SWF extends SWFClient {
   ): void;
   public describeWorkflowExecution(
     args: DescribeWorkflowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkflowExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkflowExecutionCommandOutput) => void
   ): Promise<DescribeWorkflowExecutionCommandOutput> | void {
     const command = new DescribeWorkflowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -963,17 +933,14 @@ export class SWF extends SWFClient {
   ): void;
   public describeWorkflowType(
     args: DescribeWorkflowTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkflowTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkflowTypeCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkflowTypeCommandOutput) => void
   ): Promise<DescribeWorkflowTypeCommandOutput> | void {
     const command = new DescribeWorkflowTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1027,17 +994,14 @@ export class SWF extends SWFClient {
   ): void;
   public getWorkflowExecutionHistory(
     args: GetWorkflowExecutionHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowExecutionHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowExecutionHistoryCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowExecutionHistoryCommandOutput) => void
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> | void {
     const command = new GetWorkflowExecutionHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1089,17 +1053,14 @@ export class SWF extends SWFClient {
   ): void;
   public listActivityTypes(
     args: ListActivityTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivityTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivityTypesCommandOutput) => void),
     cb?: (err: any, data?: ListActivityTypesCommandOutput) => void
   ): Promise<ListActivityTypesCommandOutput> | void {
     const command = new ListActivityTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1171,17 +1132,14 @@ export class SWF extends SWFClient {
   ): void;
   public listClosedWorkflowExecutions(
     args: ListClosedWorkflowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClosedWorkflowExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClosedWorkflowExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListClosedWorkflowExecutionsCommandOutput) => void
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> | void {
     const command = new ListClosedWorkflowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1222,14 +1180,8 @@ export class SWF extends SWFClient {
    *       For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF
    *         Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
    */
-  public listDomains(
-    args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainsCommandOutput>;
-  public listDomains(
-    args: ListDomainsCommandInput,
-    cb: (err: any, data?: ListDomainsCommandOutput) => void
-  ): void;
+  public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
+  public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   public listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -1237,17 +1189,14 @@ export class SWF extends SWFClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1319,17 +1268,14 @@ export class SWF extends SWFClient {
   ): void;
   public listOpenWorkflowExecutions(
     args: ListOpenWorkflowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOpenWorkflowExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpenWorkflowExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListOpenWorkflowExecutionsCommandOutput) => void
   ): Promise<ListOpenWorkflowExecutionsCommandOutput> | void {
     const command = new ListOpenWorkflowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1354,17 +1300,14 @@ export class SWF extends SWFClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1413,17 +1356,14 @@ export class SWF extends SWFClient {
   ): void;
   public listWorkflowTypes(
     args: ListWorkflowTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkflowTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowTypesCommandOutput) => void),
     cb?: (err: any, data?: ListWorkflowTypesCommandOutput) => void
   ): Promise<ListWorkflowTypesCommandOutput> | void {
     const command = new ListWorkflowTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1483,17 +1423,14 @@ export class SWF extends SWFClient {
   ): void;
   public pollForActivityTask(
     args: PollForActivityTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForActivityTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForActivityTaskCommandOutput) => void),
     cb?: (err: any, data?: PollForActivityTaskCommandOutput) => void
   ): Promise<PollForActivityTaskCommandOutput> | void {
     const command = new PollForActivityTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1565,17 +1502,14 @@ export class SWF extends SWFClient {
   ): void;
   public pollForDecisionTask(
     args: PollForDecisionTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForDecisionTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForDecisionTaskCommandOutput) => void),
     cb?: (err: any, data?: PollForDecisionTaskCommandOutput) => void
   ): Promise<PollForDecisionTaskCommandOutput> | void {
     const command = new PollForDecisionTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1647,17 +1581,14 @@ export class SWF extends SWFClient {
   ): void;
   public recordActivityTaskHeartbeat(
     args: RecordActivityTaskHeartbeatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RecordActivityTaskHeartbeatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecordActivityTaskHeartbeatCommandOutput) => void),
     cb?: (err: any, data?: RecordActivityTaskHeartbeatCommandOutput) => void
   ): Promise<RecordActivityTaskHeartbeatCommandOutput> | void {
     const command = new RecordActivityTaskHeartbeatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1728,17 +1659,14 @@ export class SWF extends SWFClient {
   ): void;
   public registerActivityType(
     args: RegisterActivityTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterActivityTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterActivityTypeCommandOutput) => void),
     cb?: (err: any, data?: RegisterActivityTypeCommandOutput) => void
   ): Promise<RegisterActivityTypeCommandOutput> | void {
     const command = new RegisterActivityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1786,17 +1714,14 @@ export class SWF extends SWFClient {
   ): void;
   public registerDomain(
     args: RegisterDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDomainCommandOutput) => void),
     cb?: (err: any, data?: RegisterDomainCommandOutput) => void
   ): Promise<RegisterDomainCommandOutput> | void {
     const command = new RegisterDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1868,17 +1793,14 @@ export class SWF extends SWFClient {
   ): void;
   public registerWorkflowType(
     args: RegisterWorkflowTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterWorkflowTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterWorkflowTypeCommandOutput) => void),
     cb?: (err: any, data?: RegisterWorkflowTypeCommandOutput) => void
   ): Promise<RegisterWorkflowTypeCommandOutput> | void {
     const command = new RegisterWorkflowTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1941,20 +1863,14 @@ export class SWF extends SWFClient {
   ): void;
   public requestCancelWorkflowExecution(
     args: RequestCancelWorkflowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RequestCancelWorkflowExecutionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestCancelWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: RequestCancelWorkflowExecutionCommandOutput) => void
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> | void {
     const command = new RequestCancelWorkflowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2020,17 +1936,14 @@ export class SWF extends SWFClient {
   ): void;
   public respondActivityTaskCanceled(
     args: RespondActivityTaskCanceledCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RespondActivityTaskCanceledCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RespondActivityTaskCanceledCommandOutput) => void),
     cb?: (err: any, data?: RespondActivityTaskCanceledCommandOutput) => void
   ): Promise<RespondActivityTaskCanceledCommandOutput> | void {
     const command = new RespondActivityTaskCanceledCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2094,17 +2007,14 @@ export class SWF extends SWFClient {
   ): void;
   public respondActivityTaskCompleted(
     args: RespondActivityTaskCompletedCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RespondActivityTaskCompletedCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RespondActivityTaskCompletedCommandOutput) => void),
     cb?: (err: any, data?: RespondActivityTaskCompletedCommandOutput) => void
   ): Promise<RespondActivityTaskCompletedCommandOutput> | void {
     const command = new RespondActivityTaskCompletedCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2161,17 +2071,14 @@ export class SWF extends SWFClient {
   ): void;
   public respondActivityTaskFailed(
     args: RespondActivityTaskFailedCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RespondActivityTaskFailedCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RespondActivityTaskFailedCommandOutput) => void),
     cb?: (err: any, data?: RespondActivityTaskFailedCommandOutput) => void
   ): Promise<RespondActivityTaskFailedCommandOutput> | void {
     const command = new RespondActivityTaskFailedCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2215,17 +2122,14 @@ export class SWF extends SWFClient {
   ): void;
   public respondDecisionTaskCompleted(
     args: RespondDecisionTaskCompletedCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RespondDecisionTaskCompletedCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RespondDecisionTaskCompletedCommandOutput) => void),
     cb?: (err: any, data?: RespondDecisionTaskCompletedCommandOutput) => void
   ): Promise<RespondDecisionTaskCompletedCommandOutput> | void {
     const command = new RespondDecisionTaskCompletedCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2288,17 +2192,14 @@ export class SWF extends SWFClient {
   ): void;
   public signalWorkflowExecution(
     args: SignalWorkflowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignalWorkflowExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignalWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: SignalWorkflowExecutionCommandOutput) => void
   ): Promise<SignalWorkflowExecutionCommandOutput> | void {
     const command = new SignalWorkflowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2388,17 +2289,14 @@ export class SWF extends SWFClient {
   ): void;
   public startWorkflowExecution(
     args: StartWorkflowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartWorkflowExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartWorkflowExecutionCommandOutput) => void
   ): Promise<StartWorkflowExecutionCommandOutput> | void {
     const command = new StartWorkflowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2411,14 +2309,8 @@ export class SWF extends SWFClient {
    *             <p>Amazon SWF supports a maximum of 50 tags per resource.</p>
    *          </note>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2426,17 +2318,14 @@ export class SWF extends SWFClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2504,17 +2393,14 @@ export class SWF extends SWFClient {
   ): void;
   public terminateWorkflowExecution(
     args: TerminateWorkflowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateWorkflowExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: TerminateWorkflowExecutionCommandOutput) => void
   ): Promise<TerminateWorkflowExecutionCommandOutput> | void {
     const command = new TerminateWorkflowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2580,17 +2466,14 @@ export class SWF extends SWFClient {
   ): void;
   public undeprecateActivityType(
     args: UndeprecateActivityTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UndeprecateActivityTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UndeprecateActivityTypeCommandOutput) => void),
     cb?: (err: any, data?: UndeprecateActivityTypeCommandOutput) => void
   ): Promise<UndeprecateActivityTypeCommandOutput> | void {
     const command = new UndeprecateActivityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2643,17 +2526,14 @@ export class SWF extends SWFClient {
   ): void;
   public undeprecateDomain(
     args: UndeprecateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UndeprecateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UndeprecateDomainCommandOutput) => void),
     cb?: (err: any, data?: UndeprecateDomainCommandOutput) => void
   ): Promise<UndeprecateDomainCommandOutput> | void {
     const command = new UndeprecateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2719,17 +2599,14 @@ export class SWF extends SWFClient {
   ): void;
   public undeprecateWorkflowType(
     args: UndeprecateWorkflowTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UndeprecateWorkflowTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UndeprecateWorkflowTypeCommandOutput) => void),
     cb?: (err: any, data?: UndeprecateWorkflowTypeCommandOutput) => void
   ): Promise<UndeprecateWorkflowTypeCommandOutput> | void {
     const command = new UndeprecateWorkflowTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2754,17 +2631,14 @@ export class SWF extends SWFClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

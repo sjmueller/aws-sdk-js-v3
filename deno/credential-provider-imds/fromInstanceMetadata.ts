@@ -1,54 +1,110 @@
-import { CredentialProvider } from "../types/mod.ts";
-import {
-  RemoteProviderInit,
-  providerConfigFromInit
-} from "./remoteProvider/RemoteProviderInit.ts";
-import { httpGet } from "./remoteProvider/httpGet.ts";
-import {
-  fromImdsCredentials,
-  isImdsCredentials
-} from "./remoteProvider/ImdsCredentials.ts";
-import { retry } from "./remoteProvider/retry.ts";
 import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialProvider, Credentials } from "../types/mod.ts";
+import { RequestOptions } from "http.ts";
+
+import { httpRequest } from "./remoteProvider/httpRequest.ts";
+import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials.ts";
+import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit.ts";
+import { retry } from "./remoteProvider/retry.ts";
+
+const IMDS_IP = "169.254.169.254";
+const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
+const IMDS_TOKEN_PATH = "/latest/api/token";
 
 /**
  * Creates a credential provider that will source credentials from the EC2
  * Instance Metadata Service
  */
-export function fromInstanceMetadata(
-  init: RemoteProviderInit = {}
-): CredentialProvider {
+export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
+  // when set to true, metadata service will not fetch token
+  let disableFetchToken = false;
   const { timeout, maxRetries } = providerConfigFromInit(init);
-  return async () => {
+
+  const getCredentials = async (maxRetries: number, options: RequestOptions) => {
     const profile = (
-      await retry<string>(
-        async () => await requestFromEc2Imds(timeout),
-        maxRetries
-      )
+      await retry<string>(async () => {
+        let profile: string;
+        try {
+          profile = await getProfile(options);
+        } catch (err) {
+          if (err.statusCode === 401) {
+            disableFetchToken = false;
+          }
+          throw err;
+        }
+        return profile;
+      }, maxRetries)
     ).trim();
 
     return retry(async () => {
-      const credsResponse = JSON.parse(
-        await requestFromEc2Imds(timeout, profile)
-      );
-      if (!isImdsCredentials(credsResponse)) {
-        throw new ProviderError(
-          "Invalid response received from instance metadata service."
-        );
+      let creds: Credentials;
+      try {
+        creds = await getCredentialsFromProfile(profile, options);
+      } catch (err) {
+        if (err.statusCode === 401) {
+          disableFetchToken = false;
+        }
+        throw err;
       }
-
-      return fromImdsCredentials(credsResponse);
+      return creds;
     }, maxRetries);
   };
-}
 
-const IMDS_IP = "169.254.169.254";
-const IMDS_PATH = "latest/meta-data/iam/security-credentials";
+  return async () => {
+    if (disableFetchToken) {
+      return getCredentials(maxRetries, { timeout });
+    } else {
+      let token: string;
+      try {
+        token = (await getMetadataToken({ timeout })).toString();
+      } catch (error) {
+        if (error?.statusCode === 400) {
+          throw Object.assign(error, {
+            message: "EC2 Metadata token request returned error",
+          });
+        } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
+          disableFetchToken = true;
+        }
+        return getCredentials(maxRetries, { timeout });
+      }
+      return getCredentials(maxRetries, {
+        timeout,
+        headers: {
+          "x-aws-ec2-metadata-token": token,
+        },
+      });
+    }
+  };
+};
 
-function requestFromEc2Imds(timeout: number, path?: string): Promise<string> {
-  return httpGet({
+const getMetadataToken = async (options: RequestOptions) =>
+  httpRequest({
+    ...options,
     host: IMDS_IP,
-    path: `/${IMDS_PATH}/${path ? path : ""}`,
-    timeout
-  }).then(buffer => buffer.toString());
-}
+    path: IMDS_TOKEN_PATH,
+    method: "PUT",
+    headers: {
+      "x-aws-ec2-metadata-token-ttl-seconds": "21600",
+    },
+  });
+
+const getProfile = async (options: RequestOptions) =>
+  (await httpRequest({ ...options, host: IMDS_IP, path: IMDS_PATH })).toString();
+
+const getCredentialsFromProfile = async (profile: string, options: RequestOptions) => {
+  const credsResponse = JSON.parse(
+    (
+      await httpRequest({
+        ...options,
+        host: IMDS_IP,
+        path: IMDS_PATH + profile,
+      })
+    ).toString()
+  );
+
+  if (!isImdsCredentials(credsResponse)) {
+    throw new ProviderError("Invalid response received from instance metadata service.");
+  }
+
+  return fromImdsCredentials(credsResponse);
+};

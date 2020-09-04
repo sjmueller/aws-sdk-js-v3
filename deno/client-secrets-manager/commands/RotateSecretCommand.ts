@@ -1,18 +1,11 @@
-import {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecretsManagerClient.ts";
+import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
 import { RotateSecretRequest, RotateSecretResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RotateSecretCommand,
-  serializeAws_json1_1RotateSecretCommand
+  serializeAws_json1_1RotateSecretCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RotateSecretCommandInput = RotateSecretRequest;
@@ -46,14 +39,15 @@ export class RotateSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RotateSecretCommandInput, RotateSecretCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RotateSecretRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateSecretResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class RotateSecretCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RotateSecretCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RotateSecretCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RotateSecretCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateSecretCommandOutput> {
     return deserializeAws_json1_1RotateSecretCommand(output, context);
   }
 

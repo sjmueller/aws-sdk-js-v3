@@ -1,8 +1,10 @@
 import { defaultRegionInfoProvider } from "./endpoints.ts";
+import { Logger as __Logger } from "../types/mod.ts";
 
 export const ClientSharedValues = {
-  apiVersion: "2019-03-26",
+  apiVersion: "2020-05-31",
   disableHostPrefix: false,
+  logger: {} as __Logger,
   regionInfoProvider: defaultRegionInfoProvider,
-  signingName: "cloudfront"
+  signingName: "cloudfront",
 };

@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient.ts";
-import {
-  BatchDeleteImageRequest,
-  BatchDeleteImageResponse
-} from "../models/index.ts";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
+import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchDeleteImageCommand,
-  serializeAws_json1_1BatchDeleteImageCommand
+  serializeAws_json1_1BatchDeleteImageCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDeleteImageCommandInput = BatchDeleteImageRequest;
-export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse &
-  __MetadataBearer;
+export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse & __MetadataBearer;
 
 export class BatchDeleteImageCommand extends $Command<
   BatchDeleteImageCommandInput,
@@ -50,14 +39,15 @@ export class BatchDeleteImageCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDeleteImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteImageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class BatchDeleteImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDeleteImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteImageCommandOutput> {
     return deserializeAws_json1_1BatchDeleteImageCommand(output, context);
   }
 

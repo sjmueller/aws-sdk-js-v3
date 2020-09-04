@@ -1,123 +1,143 @@
 import { Route53DomainsClient } from "./Route53DomainsClient.ts";
 import {
+  AcceptDomainTransferFromAnotherAwsAccountCommand,
+  AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand.ts";
+import {
+  CancelDomainTransferToAnotherAwsAccountCommand,
+  CancelDomainTransferToAnotherAwsAccountCommandInput,
+  CancelDomainTransferToAnotherAwsAccountCommandOutput,
+} from "./commands/CancelDomainTransferToAnotherAwsAccountCommand.ts";
+import {
   CheckDomainAvailabilityCommand,
   CheckDomainAvailabilityCommandInput,
-  CheckDomainAvailabilityCommandOutput
+  CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand.ts";
 import {
   CheckDomainTransferabilityCommand,
   CheckDomainTransferabilityCommandInput,
-  CheckDomainTransferabilityCommandOutput
+  CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand.ts";
 import {
   DeleteTagsForDomainCommand,
   DeleteTagsForDomainCommandInput,
-  DeleteTagsForDomainCommandOutput
+  DeleteTagsForDomainCommandOutput,
 } from "./commands/DeleteTagsForDomainCommand.ts";
 import {
   DisableDomainAutoRenewCommand,
   DisableDomainAutoRenewCommandInput,
-  DisableDomainAutoRenewCommandOutput
+  DisableDomainAutoRenewCommandOutput,
 } from "./commands/DisableDomainAutoRenewCommand.ts";
 import {
   DisableDomainTransferLockCommand,
   DisableDomainTransferLockCommandInput,
-  DisableDomainTransferLockCommandOutput
+  DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand.ts";
 import {
   EnableDomainAutoRenewCommand,
   EnableDomainAutoRenewCommandInput,
-  EnableDomainAutoRenewCommandOutput
+  EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand.ts";
 import {
   EnableDomainTransferLockCommand,
   EnableDomainTransferLockCommandInput,
-  EnableDomainTransferLockCommandOutput
+  EnableDomainTransferLockCommandOutput,
 } from "./commands/EnableDomainTransferLockCommand.ts";
 import {
   GetContactReachabilityStatusCommand,
   GetContactReachabilityStatusCommandInput,
-  GetContactReachabilityStatusCommandOutput
+  GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand.ts";
 import {
   GetDomainDetailCommand,
   GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput
+  GetDomainDetailCommandOutput,
 } from "./commands/GetDomainDetailCommand.ts";
 import {
   GetDomainSuggestionsCommand,
   GetDomainSuggestionsCommandInput,
-  GetDomainSuggestionsCommandOutput
+  GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand.ts";
 import {
   GetOperationDetailCommand,
   GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput
+  GetOperationDetailCommandOutput,
 } from "./commands/GetOperationDetailCommand.ts";
 import {
   ListDomainsCommand,
   ListDomainsCommandInput,
-  ListDomainsCommandOutput
+  ListDomainsCommandOutput,
 } from "./commands/ListDomainsCommand.ts";
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
-  ListOperationsCommandOutput
+  ListOperationsCommandOutput,
 } from "./commands/ListOperationsCommand.ts";
 import {
   ListTagsForDomainCommand,
   ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput
+  ListTagsForDomainCommandOutput,
 } from "./commands/ListTagsForDomainCommand.ts";
 import {
   RegisterDomainCommand,
   RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
+  RegisterDomainCommandOutput,
 } from "./commands/RegisterDomainCommand.ts";
+import {
+  RejectDomainTransferFromAnotherAwsAccountCommand,
+  RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  RejectDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand.ts";
 import {
   RenewDomainCommand,
   RenewDomainCommandInput,
-  RenewDomainCommandOutput
+  RenewDomainCommandOutput,
 } from "./commands/RenewDomainCommand.ts";
 import {
   ResendContactReachabilityEmailCommand,
   ResendContactReachabilityEmailCommandInput,
-  ResendContactReachabilityEmailCommandOutput
+  ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand.ts";
 import {
   RetrieveDomainAuthCodeCommand,
   RetrieveDomainAuthCodeCommandInput,
-  RetrieveDomainAuthCodeCommandOutput
+  RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand.ts";
 import {
   TransferDomainCommand,
   TransferDomainCommandInput,
-  TransferDomainCommandOutput
+  TransferDomainCommandOutput,
 } from "./commands/TransferDomainCommand.ts";
+import {
+  TransferDomainToAnotherAwsAccountCommand,
+  TransferDomainToAnotherAwsAccountCommandInput,
+  TransferDomainToAnotherAwsAccountCommandOutput,
+} from "./commands/TransferDomainToAnotherAwsAccountCommand.ts";
 import {
   UpdateDomainContactCommand,
   UpdateDomainContactCommandInput,
-  UpdateDomainContactCommandOutput
+  UpdateDomainContactCommandOutput,
 } from "./commands/UpdateDomainContactCommand.ts";
 import {
   UpdateDomainContactPrivacyCommand,
   UpdateDomainContactPrivacyCommandInput,
-  UpdateDomainContactPrivacyCommandOutput
+  UpdateDomainContactPrivacyCommandOutput,
 } from "./commands/UpdateDomainContactPrivacyCommand.ts";
 import {
   UpdateDomainNameserversCommand,
   UpdateDomainNameserversCommandInput,
-  UpdateDomainNameserversCommandOutput
+  UpdateDomainNameserversCommandOutput,
 } from "./commands/UpdateDomainNameserversCommand.ts";
 import {
   UpdateTagsForDomainCommand,
   UpdateTagsForDomainCommandInput,
-  UpdateTagsForDomainCommandOutput
+  UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand.ts";
 import {
   ViewBillingCommand,
   ViewBillingCommandInput,
-  ViewBillingCommandOutput
+  ViewBillingCommandOutput,
 } from "./commands/ViewBillingCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -126,7 +146,101 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  */
 export class Route53Domains extends Route53DomainsClient {
   /**
-   * <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must submit another request to determine the availability of the domain name.</p>
+   * <p>Accepts the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+   * 		</p>
+   *
+   * 		       <p>Use either
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			to determine whether the operation succeeded.
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
+   * 		</p>
+   */
+  public acceptDomainTransferFromAnotherAwsAccount(
+    args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput>;
+  public acceptDomainTransferFromAnotherAwsAccount(
+    args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+    cb: (err: any, data?: AcceptDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public acceptDomainTransferFromAnotherAwsAccount(
+    args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public acceptDomainTransferFromAnotherAwsAccount(
+    args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AcceptDomainTransferFromAnotherAwsAccountCommandOutput) => void),
+    cb?: (err: any, data?: AcceptDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> | void {
+    const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the transfer of a domain from the current AWS account to another AWS account. You initiate a transfer between AWS accounts using
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+   * 		</p>
+   *
+   * 		       <important>
+   * 			         <p>You must cancel the transfer before the other AWS account accepts the transfer using
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.</p>
+   * 		       </important>
+   *
+   * 		       <p>Use either
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			to determine whether the operation succeeded.
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
+   * 		</p>
+   */
+  public cancelDomainTransferToAnotherAwsAccount(
+    args: CancelDomainTransferToAnotherAwsAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput>;
+  public cancelDomainTransferToAnotherAwsAccount(
+    args: CancelDomainTransferToAnotherAwsAccountCommandInput,
+    cb: (err: any, data?: CancelDomainTransferToAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public cancelDomainTransferToAnotherAwsAccount(
+    args: CancelDomainTransferToAnotherAwsAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDomainTransferToAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public cancelDomainTransferToAnotherAwsAccount(
+    args: CancelDomainTransferToAnotherAwsAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelDomainTransferToAnotherAwsAccountCommandOutput) => void),
+    cb?: (err: any, data?: CancelDomainTransferToAnotherAwsAccountCommandOutput) => void
+  ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> | void {
+    const command = new CancelDomainTransferToAnotherAwsAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must
+   * 			submit another request to determine the availability of the domain name.</p>
    */
   public checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
@@ -143,17 +257,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckDomainAvailabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckDomainAvailabilityCommandOutput) => void),
     cb?: (err: any, data?: CheckDomainAvailabilityCommandOutput) => void
   ): Promise<CheckDomainAvailabilityCommandOutput> | void {
     const command = new CheckDomainAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -178,17 +289,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public checkDomainTransferability(
     args: CheckDomainTransferabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckDomainTransferabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckDomainTransferabilityCommandOutput) => void),
     cb?: (err: any, data?: CheckDomainTransferabilityCommandOutput) => void
   ): Promise<CheckDomainTransferabilityCommandOutput> | void {
     const command = new CheckDomainTransferabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -214,17 +322,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public deleteTagsForDomain(
     args: DeleteTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsForDomainCommandOutput) => void
   ): Promise<DeleteTagsForDomainCommandOutput> | void {
     const command = new DeleteTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -249,17 +354,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public disableDomainAutoRenew(
     args: DisableDomainAutoRenewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableDomainAutoRenewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDomainAutoRenewCommandOutput) => void),
     cb?: (err: any, data?: DisableDomainAutoRenewCommandOutput) => void
   ): Promise<DisableDomainAutoRenewCommandOutput> | void {
     const command = new DisableDomainAutoRenewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -268,11 +370,11 @@ export class Route53Domains extends Route53DomainsClient {
 
   /**
    * <p>This operation removes the transfer lock on the domain (specifically the
-   * 	<code>clientTransferProhibited</code> status) to allow domain transfers. We recommend
-   * 	you refrain from performing this action unless you intend to transfer the domain to a
-   * 	different registrar. Successful submission returns an operation ID that you can use to track
-   * 	the progress and completion of the action. If the request is not completed successfully, the
-   * 	domain registrant will be notified by email.</p>
+   * 			<code>clientTransferProhibited</code> status) to allow domain transfers. We recommend
+   * 			you refrain from performing this action unless you intend to transfer the domain to a
+   * 			different registrar. Successful submission returns an operation ID that you can use to track
+   * 			the progress and completion of the action. If the request is not completed successfully, the
+   * 			domain registrant will be notified by email.</p>
    */
   public disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
@@ -289,17 +391,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableDomainTransferLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDomainTransferLockCommandOutput) => void),
     cb?: (err: any, data?: DisableDomainTransferLockCommandOutput) => void
   ): Promise<DisableDomainTransferLockCommandOutput> | void {
     const command = new DisableDomainTransferLockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -307,11 +406,12 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires. The cost of renewing your domain registration is billed to your AWS account.</p>
+   * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires.
+   * 			The cost of renewing your domain registration is billed to your AWS account.</p>
    * 		       <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see
-   * 			<a href="http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times">"Renewal, restoration, and deletion times"</a>
-   * 			on the website for our registrar associate, Gandi. Amazon Route 53 requires that you renew before the end of the renewal period that is listed
-   * 			on the Gandi website so we can complete processing before the deadline.</p>
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains That You Can Register with Amazon Route 53</a>
+   * 			in the <i>Amazon Route 53 Developer Guide</i>. Route 53 requires that you renew before the end of the renewal period
+   * 			so we can complete processing before the deadline.</p>
    */
   public enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
@@ -328,17 +428,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableDomainAutoRenewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDomainAutoRenewCommandOutput) => void),
     cb?: (err: any, data?: EnableDomainAutoRenewCommandOutput) => void
   ): Promise<EnableDomainAutoRenewCommandOutput> | void {
     const command = new EnableDomainAutoRenewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -365,17 +462,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public enableDomainTransferLock(
     args: EnableDomainTransferLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableDomainTransferLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDomainTransferLockCommandOutput) => void),
     cb?: (err: any, data?: EnableDomainTransferLockCommandOutput) => void
   ): Promise<EnableDomainTransferLockCommandOutput> | void {
     const command = new EnableDomainTransferLockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -402,17 +496,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactReachabilityStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactReachabilityStatusCommandOutput) => void),
     cb?: (err: any, data?: GetContactReachabilityStatusCommandOutput) => void
   ): Promise<GetContactReachabilityStatusCommandOutput> | void {
     const command = new GetContactReachabilityStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -438,17 +529,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getDomainDetail(
     args: GetDomainDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainDetailCommandOutput) => void),
     cb?: (err: any, data?: GetDomainDetailCommandOutput) => void
   ): Promise<GetDomainDetailCommandOutput> | void {
     const command = new GetDomainDetailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -456,8 +544,7 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>The GetDomainSuggestions operation returns a list of suggested domain names given a string, which can
-   * 			either be a domain name or simply a word or phrase (without spaces).</p>
+   * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
    */
   public getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
@@ -474,17 +561,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainSuggestionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainSuggestionsCommandOutput) => void),
     cb?: (err: any, data?: GetDomainSuggestionsCommandOutput) => void
   ): Promise<GetDomainSuggestionsCommandOutput> | void {
     const command = new GetDomainSuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -509,17 +593,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getOperationDetail(
     args: GetOperationDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationDetailCommandOutput) => void),
     cb?: (err: any, data?: GetOperationDetailCommandOutput) => void
   ): Promise<GetOperationDetailCommandOutput> | void {
     const command = new GetOperationDetailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -529,14 +610,8 @@ export class Route53Domains extends Route53DomainsClient {
   /**
    * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>
    */
-  public listDomains(
-    args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainsCommandOutput>;
-  public listDomains(
-    args: ListDomainsCommandInput,
-    cb: (err: any, data?: ListDomainsCommandOutput) => void
-  ): void;
+  public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
+  public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   public listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -544,17 +619,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -562,7 +634,8 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation returns the operation IDs of operations that are not yet complete.</p>
+   * <p>Returns information about all of the operations that return an operation ID and that have ever been
+   * 			performed on domains that were registered by the current account. </p>
    */
   public listOperations(
     args: ListOperationsCommandInput,
@@ -579,17 +652,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listOperations(
     args: ListOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -615,17 +685,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listTagsForDomain(
     args: ListTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForDomainCommandOutput) => void
   ): Promise<ListTagsForDomainCommandOutput> | void {
     const command = new ListTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -638,7 +705,7 @@ export class Route53Domains extends Route53DomainsClient {
    * 		       <p>When you register a domain, Amazon Route 53 does the following:</p>
    * 			      <ul>
    *             <li>
-   *                <p>Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon Route 53 assigns four name servers
+   *                <p>Creates a Route 53 hosted zone that has the same name as the domain. Route 53 assigns four name servers
    * 					to your hosted zone and automatically updates your domain registration with the names of these name servers.</p>
    *             </li>
    *             <li>
@@ -675,17 +742,58 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public registerDomain(
     args: RegisterDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDomainCommandOutput) => void),
     cb?: (err: any, data?: RegisterDomainCommandOutput) => void
   ): Promise<RegisterDomainCommandOutput> | void {
     const command = new RegisterDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Rejects the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+   * 		</p>
+   *
+   * 		       <p>Use either
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			to determine whether the operation succeeded.
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
+   * 		</p>
+   */
+  public rejectDomainTransferFromAnotherAwsAccount(
+    args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput>;
+  public rejectDomainTransferFromAnotherAwsAccount(
+    args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
+    cb: (err: any, data?: RejectDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public rejectDomainTransferFromAnotherAwsAccount(
+    args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public rejectDomainTransferFromAnotherAwsAccount(
+    args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RejectDomainTransferFromAnotherAwsAccountCommandOutput) => void),
+    cb?: (err: any, data?: RejectDomainTransferFromAnotherAwsAccountCommandOutput) => void
+  ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> | void {
+    const command = new RejectDomainTransferFromAnotherAwsAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,16 +805,10 @@ export class Route53Domains extends Route53DomainsClient {
    * 		       <p>We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the
    * 			expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing Registration for a Domain</a>
-   * 			in the Amazon Route 53 Developer Guide.</p>
+   * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
    */
-  public renewDomain(
-    args: RenewDomainCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RenewDomainCommandOutput>;
-  public renewDomain(
-    args: RenewDomainCommandInput,
-    cb: (err: any, data?: RenewDomainCommandOutput) => void
-  ): void;
+  public renewDomain(args: RenewDomainCommandInput, options?: __HttpHandlerOptions): Promise<RenewDomainCommandOutput>;
+  public renewDomain(args: RenewDomainCommandInput, cb: (err: any, data?: RenewDomainCommandOutput) => void): void;
   public renewDomain(
     args: RenewDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -714,17 +816,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public renewDomain(
     args: RenewDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewDomainCommandOutput) => void),
     cb?: (err: any, data?: RenewDomainCommandOutput) => void
   ): Promise<RenewDomainCommandOutput> | void {
     const command = new RenewDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -750,20 +849,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResendContactReachabilityEmailCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResendContactReachabilityEmailCommandOutput) => void),
     cb?: (err: any, data?: ResendContactReachabilityEmailCommandOutput) => void
   ): Promise<ResendContactReachabilityEmailCommandOutput> | void {
     const command = new ResendContactReachabilityEmailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -788,17 +881,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public retrieveDomainAuthCode(
     args: RetrieveDomainAuthCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void),
     cb?: (err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void
   ): Promise<RetrieveDomainAuthCodeCommandOutput> | void {
     const command = new RetrieveDomainAuthCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -806,21 +896,38 @@ export class Route53Domains extends Route53DomainsClient {
   }
 
   /**
-   * <p>This operation transfers a domain from another registrar to Amazon Route 53. When the transfer is complete,
-   * 			the domain is registered either with Amazon Registrar (for .com, .net, and .org domains) or with our registrar associate, Gandi
-   * 			(for all other TLDs).</p>
-   * 		       <p>For transfer requirements, a detailed procedure, and information about viewing the status of a domain transfer, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html">Transferring Registration for a Domain
-   * 			to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * <p>Transfers a domain from another registrar to Amazon Route 53. When the transfer is complete, the domain is registered either with
+   * 			Amazon Registrar (for .com, .net, and .org domains) or with our registrar associate, Gandi (for all other TLDs).</p>
+   * 		       <p>For more information about transferring domains, see the following topics:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>For transfer requirements, a detailed procedure, and information about viewing the status of a domain that you're transferring
+   * 				to Route 53, see
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html">Transferring Registration for a
+   * 				Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For information about how to transfer a domain from one AWS account to another, see
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   *                <p>For information about how to transfer a domain to another domain registrar, see
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html">Transferring a Domain from
+   * 				Amazon Route 53 to Another Registrar</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   *             </li>
+   *          </ul>
    * 		       <p>If the registrar for your domain is also the DNS service provider for the domain, we highly recommend that you
-   * 			consider transferring your DNS service to Amazon Route 53 or to another DNS service provider before you transfer
-   * 			your registration. Some registrars provide free DNS service when you purchase a domain registration. When you transfer
-   * 			the registration, the previous registrar will not renew your domain registration and could end your DNS service at any time.</p>
-   * 		       <important>
-   *             <p>If the registrar for your domain is also the DNS service provider for the domain and you don't
-   * 			transfer DNS service to another provider, your website, email, and the web applications associated with the domain
-   * 			might become unavailable.</p>
-   *          </important>
+   * 			transfer your DNS service to Route 53 or to another DNS service provider before you transfer your registration. Some registrars
+   * 			provide free DNS service when you purchase a domain registration. When you transfer the registration, the previous registrar
+   * 			will not renew your domain registration and could end your DNS service at any time.</p>
+   *
+   * 			      <important>
+   * 				        <p>If the registrar for your domain is also the DNS service provider for the domain and you don't
+   * 					transfer DNS service to another provider, your website, email, and the web applications associated with the domain
+   * 					might become unavailable.</p>
+   * 			      </important>
+   *
    * 		       <p>If the transfer is successful, this method returns an operation ID that you can use to track the progress and
    * 			completion of the action. If the transfer doesn't complete successfully, the domain registrant will be notified by email.</p>
    */
@@ -839,17 +946,80 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public transferDomain(
     args: TransferDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransferDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferDomainCommandOutput) => void),
     cb?: (err: any, data?: TransferDomainCommandOutput) => void
   ): Promise<TransferDomainCommandOutput> | void {
     const command = new TransferDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Transfers a domain from the current AWS account to another AWS account. Note the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>The AWS account that you're transferring the domain to must accept the transfer. If the other account
+   * 				doesn't accept the transfer within 3 days, we cancel the transfer. See
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   *                <p>You can cancel the transfer before the other account accepts it. See
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_CancelDomainTransferToAnotherAwsAccount.html">CancelDomainTransferToAnotherAwsAccount</a>.
+   * 				</p>
+   * 			         </li>
+   *             <li>
+   *                <p>The other account can reject the transfer. See
+   * 					<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RejectDomainTransferFromAnotherAwsAccount.html">RejectDomainTransferFromAnotherAwsAccount</a>.
+   * 				</p>
+   * 			         </li>
+   *          </ul>
+   *
+   * 		       <important>
+   * 			         <p>When you transfer a domain from one AWS account to another, Route 53 doesn't transfer the hosted zone that is associated
+   * 				with the domain. DNS resolution isn't affected if the domain and the hosted zone are owned by separate accounts,
+   * 				so transferring the hosted zone is optional. For information about transferring the hosted zone to another AWS account, see
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html">Migrating a Hosted Zone to a
+   * 				Different AWS Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * 		       </important>
+   *
+   * 		       <p>Use either
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			to determine whether the operation succeeded.
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
+   * 		</p>
+   */
+  public transferDomainToAnotherAwsAccount(
+    args: TransferDomainToAnotherAwsAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TransferDomainToAnotherAwsAccountCommandOutput>;
+  public transferDomainToAnotherAwsAccount(
+    args: TransferDomainToAnotherAwsAccountCommandInput,
+    cb: (err: any, data?: TransferDomainToAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public transferDomainToAnotherAwsAccount(
+    args: TransferDomainToAnotherAwsAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TransferDomainToAnotherAwsAccountCommandOutput) => void
+  ): void;
+  public transferDomainToAnotherAwsAccount(
+    args: TransferDomainToAnotherAwsAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferDomainToAnotherAwsAccountCommandOutput) => void),
+    cb?: (err: any, data?: TransferDomainToAnotherAwsAccountCommandOutput) => void
+  ): Promise<TransferDomainToAnotherAwsAccountCommandOutput> | void {
+    const command = new TransferDomainToAnotherAwsAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -877,17 +1047,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainContact(
     args: UpdateDomainContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainContactCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainContactCommandOutput) => void
   ): Promise<UpdateDomainContactCommandOutput> | void {
     const command = new UpdateDomainContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -899,8 +1066,17 @@ export class Route53Domains extends Route53DomainsClient {
    * 			contact information such as email address is replaced either with contact information for Amazon Registrar (for .com, .net, and .org
    * 			domains) or with contact information for our registrar associate, Gandi.</p>
    * 		       <p>This operation affects only the contact information for the specified contact type (registrant, administrator, or tech).
-   * 			If the request succeeds, Amazon Route 53 returns an operation ID that you can use with <a>GetOperationDetail</a> to track the progress and
-   * 			completion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.</p>
+   * 			If the request succeeds, Amazon Route 53 returns an operation ID that you can use with
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
+   * 			to track the progress and completion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.</p>
+   * 		       <important>
+   *             <p>By disabling the privacy service via API, you consent to the publication of the contact information provided for this domain
+   * 			via the public WHOIS database. You certify that you are the registrant of this domain name and have the authority to make this decision.
+   * 			You may withdraw your consent at any time by enabling privacy protection using either <code>UpdateDomainContactPrivacy</code> or the
+   * 			Route 53 console. Enabling privacy protection removes the contact information provided for this domain from the WHOIS database.
+   * 			For more information on our privacy practices, see
+   * 			<a href="https://aws.amazon.com/privacy/">https://aws.amazon.com/privacy/</a>.</p>
+   *          </important>
    */
   public updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
@@ -917,17 +1093,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void
   ): Promise<UpdateDomainContactPrivacyCommandOutput> | void {
     const command = new UpdateDomainContactPrivacyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -955,17 +1128,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateDomainNameservers(
     args: UpdateDomainNameserversCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainNameserversCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameserversCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainNameserversCommandOutput) => void
   ): Promise<UpdateDomainNameserversCommandOutput> | void {
     const command = new UpdateDomainNameserversCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -991,17 +1161,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public updateTagsForDomain(
     args: UpdateTagsForDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTagsForDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTagsForDomainCommandOutput) => void),
     cb?: (err: any, data?: UpdateTagsForDomainCommandOutput) => void
   ): Promise<UpdateTagsForDomainCommandOutput> | void {
     const command = new UpdateTagsForDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1011,14 +1178,8 @@ export class Route53Domains extends Route53DomainsClient {
   /**
    * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
    */
-  public viewBilling(
-    args: ViewBillingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ViewBillingCommandOutput>;
-  public viewBilling(
-    args: ViewBillingCommandInput,
-    cb: (err: any, data?: ViewBillingCommandOutput) => void
-  ): void;
+  public viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;
+  public viewBilling(args: ViewBillingCommandInput, cb: (err: any, data?: ViewBillingCommandOutput) => void): void;
   public viewBilling(
     args: ViewBillingCommandInput,
     options: __HttpHandlerOptions,
@@ -1026,17 +1187,14 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public viewBilling(
     args: ViewBillingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ViewBillingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ViewBillingCommandOutput) => void),
     cb?: (err: any, data?: ViewBillingCommandOutput) => void
   ): Promise<ViewBillingCommandOutput> | void {
     const command = new ViewBillingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

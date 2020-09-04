@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient.ts";
-import {
-  CreateNotificationSubscriptionRequest,
-  CreateNotificationSubscriptionResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
+import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateNotificationSubscriptionCommand,
-  serializeAws_restJson1CreateNotificationSubscriptionCommand
+  serializeAws_restJson1CreateNotificationSubscriptionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateNotificationSubscriptionCommandInput = CreateNotificationSubscriptionRequest;
-export type CreateNotificationSubscriptionCommandOutput = CreateNotificationSubscriptionResponse &
-  __MetadataBearer;
+export type CreateNotificationSubscriptionCommandOutput = CreateNotificationSubscriptionResponse & __MetadataBearer;
 
 export class CreateNotificationSubscriptionCommand extends $Command<
   CreateNotificationSubscriptionCommandInput,
@@ -49,18 +38,16 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNotificationSubscriptionCommandInput,
-    CreateNotificationSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNotificationSubscriptionCommandInput, CreateNotificationSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateNotificationSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotificationSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     input: CreateNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNotificationSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateNotificationSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateNotificationSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateNotificationSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

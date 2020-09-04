@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryListConfigurationSetsCommand,
-  serializeAws_queryListConfigurationSetsCommand
+  serializeAws_queryListConfigurationSetsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListConfigurationSetsCommandInput = ListConfigurationSetsRequest;
-export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse &
-  __MetadataBearer;
+export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse & __MetadataBearer;
 
 export class ListConfigurationSetsCommand extends $Command<
   ListConfigurationSetsCommandInput,
@@ -49,18 +38,16 @@ export class ListConfigurationSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConfigurationSetsCommandInput,
-    ListConfigurationSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConfigurationSetsCommandInput, ListConfigurationSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListConfigurationSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListConfigurationSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListConfigurationSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListConfigurationSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListConfigurationSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
     return deserializeAws_queryListConfigurationSetsCommand(output, context);
   }
 

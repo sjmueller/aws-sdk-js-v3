@@ -1,8 +1,9 @@
-import { HttpRequest } from "../types/mod.ts";
 import { buildQueryString } from "../querystring-builder/mod.ts";
+import { HttpRequest } from "../types/mod.ts";
 
 export function formatUrl(request: HttpRequest): string {
-  let { protocol, path, hostname, port, query } = request;
+  const { port, query } = request;
+  let { protocol, path, hostname } = request;
   if (protocol && protocol.substr(-1) !== ":") {
     protocol += ":";
   }

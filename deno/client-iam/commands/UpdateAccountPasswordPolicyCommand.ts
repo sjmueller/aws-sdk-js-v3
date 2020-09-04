@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { UpdateAccountPasswordPolicyRequest } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateAccountPasswordPolicyCommand,
-  serializeAws_queryUpdateAccountPasswordPolicyCommand
+  serializeAws_queryUpdateAccountPasswordPolicyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateAccountPasswordPolicyCommandInput = UpdateAccountPasswordPolicyRequest;
@@ -45,18 +38,16 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAccountPasswordPolicyCommandInput,
-    UpdateAccountPasswordPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAccountPasswordPolicyCommandInput, UpdateAccountPasswordPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateAccountPasswordPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +57,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAccountPasswordPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccountPasswordPolicyCommand(input, context);
   }
 
@@ -77,10 +65,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryUpdateAccountPasswordPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

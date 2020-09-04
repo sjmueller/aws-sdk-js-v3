@@ -2,103 +2,87 @@ import { SQSClient } from "./SQSClient.ts";
 import {
   AddPermissionCommand,
   AddPermissionCommandInput,
-  AddPermissionCommandOutput
+  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand.ts";
 import {
   ChangeMessageVisibilityBatchCommand,
   ChangeMessageVisibilityBatchCommandInput,
-  ChangeMessageVisibilityBatchCommandOutput
+  ChangeMessageVisibilityBatchCommandOutput,
 } from "./commands/ChangeMessageVisibilityBatchCommand.ts";
 import {
   ChangeMessageVisibilityCommand,
   ChangeMessageVisibilityCommandInput,
-  ChangeMessageVisibilityCommandOutput
+  ChangeMessageVisibilityCommandOutput,
 } from "./commands/ChangeMessageVisibilityCommand.ts";
 import {
   CreateQueueCommand,
   CreateQueueCommandInput,
-  CreateQueueCommandOutput
+  CreateQueueCommandOutput,
 } from "./commands/CreateQueueCommand.ts";
 import {
   DeleteMessageBatchCommand,
   DeleteMessageBatchCommandInput,
-  DeleteMessageBatchCommandOutput
+  DeleteMessageBatchCommandOutput,
 } from "./commands/DeleteMessageBatchCommand.ts";
 import {
   DeleteMessageCommand,
   DeleteMessageCommandInput,
-  DeleteMessageCommandOutput
+  DeleteMessageCommandOutput,
 } from "./commands/DeleteMessageCommand.ts";
 import {
   DeleteQueueCommand,
   DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
+  DeleteQueueCommandOutput,
 } from "./commands/DeleteQueueCommand.ts";
 import {
   GetQueueAttributesCommand,
   GetQueueAttributesCommandInput,
-  GetQueueAttributesCommandOutput
+  GetQueueAttributesCommandOutput,
 } from "./commands/GetQueueAttributesCommand.ts";
 import {
   GetQueueUrlCommand,
   GetQueueUrlCommandInput,
-  GetQueueUrlCommandOutput
+  GetQueueUrlCommandOutput,
 } from "./commands/GetQueueUrlCommand.ts";
 import {
   ListDeadLetterSourceQueuesCommand,
   ListDeadLetterSourceQueuesCommandInput,
-  ListDeadLetterSourceQueuesCommandOutput
+  ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand.ts";
 import {
   ListQueueTagsCommand,
   ListQueueTagsCommandInput,
-  ListQueueTagsCommandOutput
+  ListQueueTagsCommandOutput,
 } from "./commands/ListQueueTagsCommand.ts";
-import {
-  ListQueuesCommand,
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand.ts";
-import {
-  PurgeQueueCommand,
-  PurgeQueueCommandInput,
-  PurgeQueueCommandOutput
-} from "./commands/PurgeQueueCommand.ts";
+import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand.ts";
+import { PurgeQueueCommand, PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand.ts";
 import {
   ReceiveMessageCommand,
   ReceiveMessageCommandInput,
-  ReceiveMessageCommandOutput
+  ReceiveMessageCommandOutput,
 } from "./commands/ReceiveMessageCommand.ts";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
+  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand.ts";
 import {
   SendMessageBatchCommand,
   SendMessageBatchCommandInput,
-  SendMessageBatchCommandOutput
+  SendMessageBatchCommandOutput,
 } from "./commands/SendMessageBatchCommand.ts";
 import {
   SendMessageCommand,
   SendMessageCommandInput,
-  SendMessageCommandOutput
+  SendMessageCommandOutput,
 } from "./commands/SendMessageCommand.ts";
 import {
   SetQueueAttributesCommand,
   SetQueueAttributesCommandInput,
-  SetQueueAttributesCommandOutput
+  SetQueueAttributesCommandOutput,
 } from "./commands/SetQueueAttributesCommand.ts";
-import {
-  TagQueueCommand,
-  TagQueueCommandInput,
-  TagQueueCommandOutput
-} from "./commands/TagQueueCommand.ts";
-import {
-  UntagQueueCommand,
-  UntagQueueCommandInput,
-  UntagQueueCommandOutput
-} from "./commands/UntagQueueCommand.ts";
+import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand.ts";
+import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
@@ -200,10 +184,10 @@ export class SQS extends SQSClient {
    *          </note>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
@@ -224,17 +208,14 @@ export class SQS extends SQSClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -292,17 +273,14 @@ export class SQS extends SQSClient {
   ): void;
   public changeMessageVisibility(
     args: ChangeMessageVisibilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeMessageVisibilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeMessageVisibilityCommandOutput) => void),
     cb?: (err: any, data?: ChangeMessageVisibilityCommandOutput) => void
   ): Promise<ChangeMessageVisibilityCommandOutput> | void {
     const command = new ChangeMessageVisibilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -320,10 +298,10 @@ export class SQS extends SQSClient {
    *          </important>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public changeMessageVisibilityBatch(
@@ -341,17 +319,14 @@ export class SQS extends SQSClient {
   ): void;
   public changeMessageVisibilityBatch(
     args: ChangeMessageVisibilityBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeMessageVisibilityBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeMessageVisibilityBatchCommandOutput) => void),
     cb?: (err: any, data?: ChangeMessageVisibilityBatchCommandOutput) => void
   ): Promise<ChangeMessageVisibilityBatchCommandOutput> | void {
     const command = new ChangeMessageVisibilityBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -359,8 +334,8 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the request.
-   *           Keep the following caveats in mind:</p>
+   * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
+   *             the request. Keep the following in mind:</p>
    *          <ul>
    *             <li>
    *               <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
@@ -381,6 +356,10 @@ export class SQS extends SQSClient {
    *          </ul>
    *
    *          <p>To successfully create a new queue, you must provide a queue name that adheres to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits related to queues</a> and is unique within the scope of your queues.</p>
+   *         <note>
+   *             <p>After you create a queue, you must wait at least one second after the queue is
+   *                 created to be able to use the queue.</p>
+   *         </note>
    *          <p>To get the queue URL, use the <code>
    *                <a>GetQueueUrl</a>
    *             </code> action. <code>
@@ -397,23 +376,17 @@ export class SQS extends SQSClient {
    *          </ul>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
    */
-  public createQueue(
-    args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateQueueCommandOutput>;
-  public createQueue(
-    args: CreateQueueCommandInput,
-    cb: (err: any, data?: CreateQueueCommandOutput) => void
-  ): void;
+  public createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
+  public createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
   public createQueue(
     args: CreateQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -421,17 +394,14 @@ export class SQS extends SQSClient {
   ): void;
   public createQueue(
     args: CreateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateQueueCommandOutput) => void
   ): Promise<CreateQueueCommandOutput> | void {
     const command = new CreateQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,17 +445,14 @@ export class SQS extends SQSClient {
   ): void;
   public deleteMessage(
     args: DeleteMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMessageCommandOutput) => void),
     cb?: (err: any, data?: DeleteMessageCommandOutput) => void
   ): Promise<DeleteMessageCommandOutput> | void {
     const command = new DeleteMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -500,10 +467,10 @@ export class SQS extends SQSClient {
    *          </important>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public deleteMessageBatch(
@@ -521,17 +488,14 @@ export class SQS extends SQSClient {
   ): void;
   public deleteMessageBatch(
     args: DeleteMessageBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMessageBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMessageBatchCommandOutput) => void),
     cb?: (err: any, data?: DeleteMessageBatchCommandOutput) => void
   ): Promise<DeleteMessageBatchCommandOutput> | void {
     const command = new DeleteMessageBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -539,7 +503,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.</p>
+   * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents.</p>
    *          <important>
    *             <p>Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any messages in the queue are no longer available.
    *       </p>
@@ -553,14 +517,8 @@ export class SQS extends SQSClient {
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
    */
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteQueueCommandOutput>;
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
-    cb: (err: any, data?: DeleteQueueCommandOutput) => void
-  ): void;
+  public deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
+  public deleteQueue(args: DeleteQueueCommandInput, cb: (err: any, data?: DeleteQueueCommandOutput) => void): void;
   public deleteQueue(
     args: DeleteQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -568,17 +526,14 @@ export class SQS extends SQSClient {
   ): void;
   public deleteQueue(
     args: DeleteQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueueCommandOutput) => void
   ): Promise<DeleteQueueCommandOutput> | void {
     const command = new DeleteQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -590,13 +545,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
    *          </note>
-   *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
-   *          <p>
-   *             <code>&Attribute.1=first</code>
-   *          </p>
-   *          <p>
-   *             <code>&Attribute.2=second</code>
-   *          </p>
    */
   public getQueueAttributes(
     args: GetQueueAttributesCommandInput,
@@ -613,17 +561,14 @@ export class SQS extends SQSClient {
   ): void;
   public getQueueAttributes(
     args: GetQueueAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueueAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueueAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetQueueAttributesCommandOutput) => void
   ): Promise<GetQueueAttributesCommandOutput> | void {
     const command = new GetQueueAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -638,14 +583,8 @@ export class SQS extends SQSClient {
    *             </code> or see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow Developers to Write Messages to a Shared Queue</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
    *     </p>
    */
-  public getQueueUrl(
-    args: GetQueueUrlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetQueueUrlCommandOutput>;
-  public getQueueUrl(
-    args: GetQueueUrlCommandInput,
-    cb: (err: any, data?: GetQueueUrlCommandOutput) => void
-  ): void;
+  public getQueueUrl(args: GetQueueUrlCommandInput, options?: __HttpHandlerOptions): Promise<GetQueueUrlCommandOutput>;
+  public getQueueUrl(args: GetQueueUrlCommandInput, cb: (err: any, data?: GetQueueUrlCommandOutput) => void): void;
   public getQueueUrl(
     args: GetQueueUrlCommandInput,
     options: __HttpHandlerOptions,
@@ -653,17 +592,14 @@ export class SQS extends SQSClient {
   ): void;
   public getQueueUrl(
     args: GetQueueUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueueUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueueUrlCommandOutput) => void),
     cb?: (err: any, data?: GetQueueUrlCommandOutput) => void
   ): Promise<GetQueueUrlCommandOutput> | void {
     const command = new GetQueueUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -692,17 +628,14 @@ export class SQS extends SQSClient {
   ): void;
   public listDeadLetterSourceQueues(
     args: ListDeadLetterSourceQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeadLetterSourceQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeadLetterSourceQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListDeadLetterSourceQueuesCommandOutput) => void
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> | void {
     const command = new ListDeadLetterSourceQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -716,14 +649,8 @@ export class SQS extends SQSClient {
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
    */
-  public listQueues(
-    args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListQueuesCommandOutput>;
-  public listQueues(
-    args: ListQueuesCommandInput,
-    cb: (err: any, data?: ListQueuesCommandOutput) => void
-  ): void;
+  public listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
+  public listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
   public listQueues(
     args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
@@ -731,17 +658,14 @@ export class SQS extends SQSClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -769,17 +693,14 @@ export class SQS extends SQSClient {
   ): void;
   public listQueueTags(
     args: ListQueueTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueueTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueueTagsCommandOutput) => void),
     cb?: (err: any, data?: ListQueueTagsCommandOutput) => void
   ): Promise<ListQueueTagsCommandOutput> | void {
     const command = new ListQueueTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -802,14 +723,8 @@ export class SQS extends SQSClient {
    *         <p>Messages sent to the queue <i>after</i> you call
    *                 <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
    */
-  public purgeQueue(
-    args: PurgeQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PurgeQueueCommandOutput>;
-  public purgeQueue(
-    args: PurgeQueueCommandInput,
-    cb: (err: any, data?: PurgeQueueCommandOutput) => void
-  ): void;
+  public purgeQueue(args: PurgeQueueCommandInput, options?: __HttpHandlerOptions): Promise<PurgeQueueCommandOutput>;
+  public purgeQueue(args: PurgeQueueCommandInput, cb: (err: any, data?: PurgeQueueCommandOutput) => void): void;
   public purgeQueue(
     args: PurgeQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -817,17 +732,14 @@ export class SQS extends SQSClient {
   ): void;
   public purgeQueue(
     args: PurgeQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurgeQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurgeQueueCommandOutput) => void),
     cb?: (err: any, data?: PurgeQueueCommandOutput) => void
   ): Promise<PurgeQueueCommandOutput> | void {
     const command = new PurgeQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -887,17 +799,14 @@ export class SQS extends SQSClient {
   ): void;
   public receiveMessage(
     args: ReceiveMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReceiveMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReceiveMessageCommandOutput) => void),
     cb?: (err: any, data?: ReceiveMessageCommandOutput) => void
   ): Promise<ReceiveMessageCommandOutput> | void {
     const command = new ReceiveMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -935,17 +844,14 @@ export class SQS extends SQSClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -962,14 +868,8 @@ export class SQS extends SQSClient {
    * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
    *          </important>
    */
-  public sendMessage(
-    args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendMessageCommandOutput>;
-  public sendMessage(
-    args: SendMessageCommandInput,
-    cb: (err: any, data?: SendMessageCommandOutput) => void
-  ): void;
+  public sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
+  public sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
   public sendMessage(
     args: SendMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -977,17 +877,14 @@ export class SQS extends SQSClient {
   ): void;
   public sendMessage(
     args: SendMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageCommandOutput) => void),
     cb?: (err: any, data?: SendMessageCommandOutput) => void
   ): Promise<SendMessageCommandOutput> | void {
     const command = new SendMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1009,10 +906,10 @@ export class SQS extends SQSClient {
    *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses the default value for the queue.</p>
    *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
    *          <p>
-   *             <code>&Attribute.1=first</code>
+   *             <code>&AttributeName.1=first</code>
    *          </p>
    *          <p>
-   *             <code>&Attribute.2=second</code>
+   *             <code>&AttributeName.2=second</code>
    *          </p>
    */
   public sendMessageBatch(
@@ -1030,17 +927,14 @@ export class SQS extends SQSClient {
   ): void;
   public sendMessageBatch(
     args: SendMessageBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageBatchCommandOutput) => void),
     cb?: (err: any, data?: SendMessageBatchCommandOutput) => void
   ): Promise<SendMessageBatchCommandOutput> | void {
     const command = new SendMessageBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1079,17 +973,14 @@ export class SQS extends SQSClient {
   ): void;
   public setQueueAttributes(
     args: SetQueueAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetQueueAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetQueueAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetQueueAttributesCommandOutput) => void
   ): Promise<SetQueueAttributesCommandOutput> | void {
     const command = new SetQueueAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1119,14 +1010,8 @@ export class SQS extends SQSClient {
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         </note>
    */
-  public tagQueue(
-    args: TagQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagQueueCommandOutput>;
-  public tagQueue(
-    args: TagQueueCommandInput,
-    cb: (err: any, data?: TagQueueCommandOutput) => void
-  ): void;
+  public tagQueue(args: TagQueueCommandInput, options?: __HttpHandlerOptions): Promise<TagQueueCommandOutput>;
+  public tagQueue(args: TagQueueCommandInput, cb: (err: any, data?: TagQueueCommandOutput) => void): void;
   public tagQueue(
     args: TagQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -1134,17 +1019,14 @@ export class SQS extends SQSClient {
   ): void;
   public tagQueue(
     args: TagQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagQueueCommandOutput) => void),
     cb?: (err: any, data?: TagQueueCommandOutput) => void
   ): Promise<TagQueueCommandOutput> | void {
     const command = new TagQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1157,14 +1039,8 @@ export class SQS extends SQSClient {
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         </note>
    */
-  public untagQueue(
-    args: UntagQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagQueueCommandOutput>;
-  public untagQueue(
-    args: UntagQueueCommandInput,
-    cb: (err: any, data?: UntagQueueCommandOutput) => void
-  ): void;
+  public untagQueue(args: UntagQueueCommandInput, options?: __HttpHandlerOptions): Promise<UntagQueueCommandOutput>;
+  public untagQueue(args: UntagQueueCommandInput, cb: (err: any, data?: UntagQueueCommandOutput) => void): void;
   public untagQueue(
     args: UntagQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -1172,17 +1048,14 @@ export class SQS extends SQSClient {
   ): void;
   public untagQueue(
     args: UntagQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagQueueCommandOutput) => void),
     cb?: (err: any, data?: UntagQueueCommandOutput) => void
   ): Promise<UntagQueueCommandOutput> | void {
     const command = new UntagQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

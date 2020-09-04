@@ -1,21 +1,11 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient.ts";
-import {
-  AssociateS3ResourcesRequest,
-  AssociateS3ResourcesResult
-} from "../models/index.ts";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient.ts";
+import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateS3ResourcesCommand,
-  serializeAws_json1_1AssociateS3ResourcesCommand
+  serializeAws_json1_1AssociateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateS3ResourcesCommandInput = AssociateS3ResourcesRequest;
-export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult &
-  __MetadataBearer;
+export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult & __MetadataBearer;
 
 export class AssociateS3ResourcesCommand extends $Command<
   AssociateS3ResourcesCommandInput,
@@ -49,18 +38,16 @@ export class AssociateS3ResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateS3ResourcesCommandInput,
-    AssociateS3ResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateS3ResourcesCommandInput, AssociateS3ResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AssociateS3ResourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateS3ResourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateS3ResourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateS3ResourcesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1AssociateS3ResourcesCommand(output, context);
   }
 

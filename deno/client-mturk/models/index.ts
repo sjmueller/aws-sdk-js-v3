@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AcceptQualificationRequestRequest {
@@ -22,13 +18,10 @@ export interface AcceptQualificationRequestRequest {
 }
 
 export namespace AcceptQualificationRequestRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptQualificationRequestRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptQualificationRequestRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AcceptQualificationRequestRequest =>
-    __isa(o, "AcceptQualificationRequestRequest");
+  export const isa = (o: any): o is AcceptQualificationRequestRequest => __isa(o, "AcceptQualificationRequestRequest");
 }
 
 export interface AcceptQualificationRequestResponse {
@@ -36,10 +29,8 @@ export interface AcceptQualificationRequestResponse {
 }
 
 export namespace AcceptQualificationRequestResponse {
-  export const filterSensitiveLog = (
-    obj: AcceptQualificationRequestResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptQualificationRequestResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptQualificationRequestResponse =>
     __isa(o, "AcceptQualificationRequestResponse");
@@ -49,17 +40,17 @@ export interface ApproveAssignmentRequest {
   __type?: "ApproveAssignmentRequest";
   /**
    * <p>
-   *             The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
-   *         </p>
-   */
-  AssignmentId: string | undefined;
-
-  /**
-   * <p>
    *             A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>.
    *         </p>
    */
   OverrideRejection?: boolean;
+
+  /**
+   * <p>
+   *             The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+   *         </p>
+   */
+  AssignmentId: string | undefined;
 
   /**
    * <p>
@@ -71,10 +62,9 @@ export interface ApproveAssignmentRequest {
 
 export namespace ApproveAssignmentRequest {
   export const filterSensitiveLog = (obj: ApproveAssignmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApproveAssignmentRequest =>
-    __isa(o, "ApproveAssignmentRequest");
+  export const isa = (o: any): o is ApproveAssignmentRequest => __isa(o, "ApproveAssignmentRequest");
 }
 
 export interface ApproveAssignmentResponse {
@@ -83,10 +73,9 @@ export interface ApproveAssignmentResponse {
 
 export namespace ApproveAssignmentResponse {
   export const filterSensitiveLog = (obj: ApproveAssignmentResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApproveAssignmentResponse =>
-    __isa(o, "ApproveAssignmentResponse");
+  export const isa = (o: any): o is ApproveAssignmentResponse => __isa(o, "ApproveAssignmentResponse");
 }
 
 /**
@@ -98,35 +87,11 @@ export namespace ApproveAssignmentResponse {
 export interface Assignment {
   __type?: "Assignment";
   /**
-   * <p> The date and time the Worker accepted the assignment.</p>
+   * <p> The date and time of the deadline for the assignment. This
+   *             value is derived from the deadline specification for the HIT and the
+   *             date and time the Worker accepted the HIT.</p>
    */
-  AcceptTime?: Date;
-
-  /**
-   * <p> The Worker's answers submitted for the HIT contained in a
-   *             QuestionFormAnswers document, if the Worker provides an answer. If
-   *             the Worker does not provide any answers, Answer may contain a
-   *             QuestionFormAnswers document, or Answer may be empty.</p>
-   */
-  Answer?: string;
-
-  /**
-   * <p> If the Worker has submitted results and the Requester has
-   *             approved the results, ApprovalTime is the date and time the Requester
-   *             approved the results. This value is omitted from the assignment if
-   *             the Requester has not yet approved the results.</p>
-   */
-  ApprovalTime?: Date;
-
-  /**
-   * <p> A unique identifier for the assignment.</p>
-   */
-  AssignmentId?: string;
-
-  /**
-   * <p> The status of the assignment.</p>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
+  Deadline?: Date;
 
   /**
    * <p> If results have been submitted, AutoApprovalTime is the date
@@ -140,11 +105,14 @@ export interface Assignment {
   AutoApprovalTime?: Date;
 
   /**
-   * <p> The date and time of the deadline for the assignment. This
-   *             value is derived from the deadline specification for the HIT and the
-   *             date and time the Worker accepted the HIT.</p>
+   * <p> The status of the assignment.</p>
    */
-  Deadline?: Date;
+  AssignmentStatus?: AssignmentStatus | string;
+
+  /**
+   * <p> A unique identifier for the assignment.</p>
+   */
+  AssignmentId?: string;
 
   /**
    * <p> The ID of the HIT.</p>
@@ -152,11 +120,17 @@ export interface Assignment {
   HITId?: string;
 
   /**
-   * <p> If the Worker has submitted results and the Requester has
-   *             rejected the results, RejectionTime is the date and time the
-   *             Requester rejected the results.</p>
+   * <p> The date and time the Worker accepted the assignment.</p>
    */
-  RejectionTime?: Date;
+  AcceptTime?: Date;
+
+  /**
+   * <p> If the Worker has submitted results and the Requester has
+   *             approved the results, ApprovalTime is the date and time the Requester
+   *             approved the results. This value is omitted from the assignment if
+   *             the Requester has not yet approved the results.</p>
+   */
+  ApprovalTime?: Date;
 
   /**
    * <p> The feedback string included with the call to the
@@ -176,11 +150,26 @@ export interface Assignment {
    * <p> The ID of the Worker who accepted the HIT.</p>
    */
   WorkerId?: string;
+
+  /**
+   * <p> The Worker's answers submitted for the HIT contained in a
+   *             QuestionFormAnswers document, if the Worker provides an answer. If
+   *             the Worker does not provide any answers, Answer may contain a
+   *             QuestionFormAnswers document, or Answer may be empty.</p>
+   */
+  Answer?: string;
+
+  /**
+   * <p> If the Worker has submitted results and the Requester has
+   *             rejected the results, RejectionTime is the date and time the
+   *             Requester rejected the results.</p>
+   */
+  RejectionTime?: Date;
 }
 
 export namespace Assignment {
   export const filterSensitiveLog = (obj: Assignment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Assignment => __isa(o, "Assignment");
 }
@@ -188,7 +177,7 @@ export namespace Assignment {
 export enum AssignmentStatus {
   Approved = "Approved",
   Rejected = "Rejected",
-  Submitted = "Submitted"
+  Submitted = "Submitted",
 }
 
 export interface AssociateQualificationWithWorkerRequest {
@@ -205,27 +194,25 @@ export interface AssociateQualificationWithWorkerRequest {
 
   /**
    * <p>
+   *             The ID of the Worker to whom the Qualification is being assigned.
+   *             Worker IDs are included with submitted HIT assignments and Qualification requests.
+   *         </p>
+   */
+  WorkerId: string | undefined;
+
+  /**
+   * <p>
    *             Specifies whether to send a notification email message to the Worker
    *             saying that the qualification was assigned to the Worker.
    *             Note: this is true by default.
    *         </p>
    */
   SendNotification?: boolean;
-
-  /**
-   * <p>
-   *             The ID of the Worker to whom the Qualification is being assigned.
-   *             Worker IDs are included with submitted HIT assignments and Qualification requests.
-   *         </p>
-   */
-  WorkerId: string | undefined;
 }
 
 export namespace AssociateQualificationWithWorkerRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateQualificationWithWorkerRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateQualificationWithWorkerRequest =>
     __isa(o, "AssociateQualificationWithWorkerRequest");
@@ -236,10 +223,8 @@ export interface AssociateQualificationWithWorkerResponse {
 }
 
 export namespace AssociateQualificationWithWorkerResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateQualificationWithWorkerResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateQualificationWithWorkerResponse =>
     __isa(o, "AssociateQualificationWithWorkerResponse");
@@ -251,14 +236,9 @@ export namespace AssociateQualificationWithWorkerResponse {
 export interface BonusPayment {
   __type?: "BonusPayment";
   /**
-   * <p>The ID of the assignment associated with this bonus payment.</p>
+   * <p>The Reason text given when the bonus was granted, if any.</p>
    */
-  AssignmentId?: string;
-
-  /**
-   * <p>A string representing a currency amount.</p>
-   */
-  BonusAmount?: string;
+  Reason?: string;
 
   /**
    * <p>The date and time of when the bonus was granted.</p>
@@ -266,19 +246,24 @@ export interface BonusPayment {
   GrantTime?: Date;
 
   /**
-   * <p>The Reason text given when the bonus was granted, if any.</p>
+   * <p>A string representing a currency amount.</p>
    */
-  Reason?: string;
+  BonusAmount?: string;
 
   /**
    * <p>The ID of the Worker to whom the bonus was paid.</p>
    */
   WorkerId?: string;
+
+  /**
+   * <p>The ID of the assignment associated with this bonus payment.</p>
+   */
+  AssignmentId?: string;
 }
 
 export namespace BonusPayment {
   export const filterSensitiveLog = (obj: BonusPayment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BonusPayment => __isa(o, "BonusPayment");
 }
@@ -293,20 +278,20 @@ export enum Comparator {
   LessThan = "LessThan",
   LessThanOrEqualTo = "LessThanOrEqualTo",
   NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn"
+  NotIn = "NotIn",
 }
 
 export interface CreateAdditionalAssignmentsForHITRequest {
   __type?: "CreateAdditionalAssignmentsForHITRequest";
   /**
-   * <p>The ID of the HIT to extend.</p>
-   */
-  HITId: string | undefined;
-
-  /**
    * <p>The number of additional assignments to request for this HIT.</p>
    */
   NumberOfAdditionalAssignments: number | undefined;
+
+  /**
+   * <p>The ID of the HIT to extend.</p>
+   */
+  HITId: string | undefined;
 
   /**
    * <p>
@@ -322,10 +307,8 @@ export interface CreateAdditionalAssignmentsForHITRequest {
 }
 
 export namespace CreateAdditionalAssignmentsForHITRequest {
-  export const filterSensitiveLog = (
-    obj: CreateAdditionalAssignmentsForHITRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateAdditionalAssignmentsForHITRequest =>
     __isa(o, "CreateAdditionalAssignmentsForHITRequest");
@@ -336,10 +319,8 @@ export interface CreateAdditionalAssignmentsForHITResponse {
 }
 
 export namespace CreateAdditionalAssignmentsForHITResponse {
-  export const filterSensitiveLog = (
-    obj: CreateAdditionalAssignmentsForHITResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateAdditionalAssignmentsForHITResponse =>
     __isa(o, "CreateAdditionalAssignmentsForHITResponse");
@@ -347,44 +328,6 @@ export namespace CreateAdditionalAssignmentsForHITResponse {
 
 export interface CreateHITRequest {
   __type?: "CreateHITRequest";
-  /**
-   * <p>
-   *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
-   *             If a Worker does not complete the assignment within the specified duration,
-   *             the assignment is considered abandoned. If the HIT is still active
-   *             (that is, its lifetime has not elapsed), the assignment becomes available
-   *             for other users to find and accept.
-   *         </p>
-   */
-  AssignmentDurationInSeconds: number | undefined;
-
-  /**
-   * <p>
-   *             The Assignment-level Review Policy applies to the assignments under the HIT.
-   *             You can specify for Mechanical Turk to take various actions based on the policy.
-   *         </p>
-   */
-  AssignmentReviewPolicy?: ReviewPolicy;
-
-  /**
-   * <p>
-   *             The number of seconds after an assignment for the HIT has been submitted,
-   *             after which the assignment is considered Approved automatically
-   *             unless the Requester explicitly rejects it.
-   *         </p>
-   */
-  AutoApprovalDelayInSeconds?: number;
-
-  /**
-   * <p>
-   *             A general description of the HIT. A description includes detailed information about the kind of task
-   *             the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded
-   *             view of search results, and in the HIT and assignment screens. A good description gives the user enough
-   *             information to evaluate the HIT before accepting it.
-   *         </p>
-   */
-  Description: string | undefined;
-
   /**
    * <p>
    *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
@@ -398,43 +341,20 @@ export interface CreateHITRequest {
 
   /**
    * <p>
-   *             If the HITLayoutId is provided, any placeholder values must be filled in with values
-   *             using the HITLayoutParameter structure. For more information, see HITLayout.
+   *             A general description of the HIT. A description includes detailed information about the kind of task
+   *             the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded
+   *             view of search results, and in the HIT and assignment screens. A good description gives the user enough
+   *             information to evaluate the HIT before accepting it.
    *         </p>
    */
-  HITLayoutParameters?: HITLayoutParameter[];
+  Description: string | undefined;
 
   /**
    * <p>
-   *             The HIT-level Review Policy applies to the HIT.
-   *             You can specify for Mechanical Turk to take various actions based on the policy.
+   *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
    *         </p>
    */
-  HITReviewPolicy?: ReviewPolicy;
-
-  /**
-   * <p>
-   *             One or more words or phrases that describe the HIT, separated by commas.
-   *             These words are used in searches to find HITs.
-   *         </p>
-   */
-  Keywords?: string;
-
-  /**
-   * <p>
-   *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
-   *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
-   *             even if not all of the assignments for the HIT have been accepted.
-   *         </p>
-   */
-  LifetimeInSeconds: number | undefined;
-
-  /**
-   * <p>
-   *             The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
-   *         </p>
-   */
-  MaxAssignments?: number;
+  Reward: string | undefined;
 
   /**
    * <p>
@@ -450,42 +370,23 @@ export interface CreateHITRequest {
 
   /**
    * <p>
-   *             The data the person completing the HIT uses to produce the results.
+   *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
+   *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
+   *             even if not all of the assignments for the HIT have been accepted.
    *         </p>
-   *         <p>
-   *             Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure,
-   *             or an HTMLQuestion data structure. The XML question data must not be larger than
-   *             64 kilobytes (65,535 bytes) in size, including whitespace.
-   *         </p>
-   *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
    */
-  Question?: string;
+  LifetimeInSeconds: number | undefined;
 
   /**
    * <p>
-   *             An arbitrary data field.
-   *             The RequesterAnnotation parameter lets your application attach arbitrary data
-   *             to the HIT for tracking purposes.
-   *             For example, this parameter could be an identifier internal to the Requester's application
-   *             that corresponds with the HIT.
-   *         </p>
-   *         <p>
-   *             The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT.
-   *             It is not shown to the Worker, or any other Requester.
-   *         </p>
-   *         <p>
-   *             The RequesterAnnotation parameter may be different for each HIT you submit.
-   *             It does not affect how your HITs are grouped.
+   *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
+   *             If a Worker does not complete the assignment within the specified duration,
+   *             the assignment is considered abandoned. If the HIT is still active
+   *             (that is, its lifetime has not elapsed), the assignment becomes available
+   *             for other users to find and accept.
    *         </p>
    */
-  RequesterAnnotation?: string;
-
-  /**
-   * <p>
-   *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
-   *         </p>
-   */
-  Reward: string | undefined;
+  AssignmentDurationInSeconds: number | undefined;
 
   /**
    * <p>
@@ -515,14 +416,93 @@ export interface CreateHITRequest {
    *         </note>
    */
   UniqueRequestToken?: string;
+
+  /**
+   * <p>
+   *             The number of seconds after an assignment for the HIT has been submitted,
+   *             after which the assignment is considered Approved automatically
+   *             unless the Requester explicitly rejects it.
+   *         </p>
+   */
+  AutoApprovalDelayInSeconds?: number;
+
+  /**
+   * <p>
+   *             The data the person completing the HIT uses to produce the results.
+   *         </p>
+   *         <p>
+   *             Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure,
+   *             or an HTMLQuestion data structure. The XML question data must not be larger than
+   *             64 kilobytes (65,535 bytes) in size, including whitespace.
+   *         </p>
+   *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
+   */
+  Question?: string;
+
+  /**
+   * <p>
+   *             The HIT-level Review Policy applies to the HIT.
+   *             You can specify for Mechanical Turk to take various actions based on the policy.
+   *         </p>
+   */
+  HITReviewPolicy?: ReviewPolicy;
+
+  /**
+   * <p>
+   *             The Assignment-level Review Policy applies to the assignments under the HIT.
+   *             You can specify for Mechanical Turk to take various actions based on the policy.
+   *         </p>
+   */
+  AssignmentReviewPolicy?: ReviewPolicy;
+
+  /**
+   * <p>
+   *             An arbitrary data field.
+   *             The RequesterAnnotation parameter lets your application attach arbitrary data
+   *             to the HIT for tracking purposes.
+   *             For example, this parameter could be an identifier internal to the Requester's application
+   *             that corresponds with the HIT.
+   *         </p>
+   *         <p>
+   *             The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT.
+   *             It is not shown to the Worker, or any other Requester.
+   *         </p>
+   *         <p>
+   *             The RequesterAnnotation parameter may be different for each HIT you submit.
+   *             It does not affect how your HITs are grouped.
+   *         </p>
+   */
+  RequesterAnnotation?: string;
+
+  /**
+   * <p>
+   *             If the HITLayoutId is provided, any placeholder values must be filled in with values
+   *             using the HITLayoutParameter structure. For more information, see HITLayout.
+   *         </p>
+   */
+  HITLayoutParameters?: HITLayoutParameter[];
+
+  /**
+   * <p>
+   *             The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+   *         </p>
+   */
+  MaxAssignments?: number;
+
+  /**
+   * <p>
+   *             One or more words or phrases that describe the HIT, separated by commas.
+   *             These words are used in searches to find HITs.
+   *         </p>
+   */
+  Keywords?: string;
 }
 
 export namespace CreateHITRequest {
   export const filterSensitiveLog = (obj: CreateHITRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITRequest =>
-    __isa(o, "CreateHITRequest");
+  export const isa = (o: any): o is CreateHITRequest => __isa(o, "CreateHITRequest");
 }
 
 export interface CreateHITResponse {
@@ -538,34 +518,13 @@ export interface CreateHITResponse {
 
 export namespace CreateHITResponse {
   export const filterSensitiveLog = (obj: CreateHITResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITResponse =>
-    __isa(o, "CreateHITResponse");
+  export const isa = (o: any): o is CreateHITResponse => __isa(o, "CreateHITResponse");
 }
 
 export interface CreateHITTypeRequest {
   __type?: "CreateHITTypeRequest";
-  /**
-   * <p>
-   *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
-   *             If a Worker does not complete the assignment within the specified duration,
-   *             the assignment is considered abandoned. If the HIT is still active
-   *             (that is, its lifetime has not elapsed), the assignment becomes available
-   *             for other users to find and accept.
-   *         </p>
-   */
-  AssignmentDurationInSeconds: number | undefined;
-
-  /**
-   * <p>
-   *             The number of seconds after an assignment for the HIT has been submitted,
-   *             after which the assignment is considered Approved automatically
-   *             unless the Requester explicitly rejects it.
-   *         </p>
-   */
-  AutoApprovalDelayInSeconds?: number;
-
   /**
    * <p>
    *             A general description of the HIT. A description includes detailed information about the kind of task
@@ -575,14 +534,6 @@ export interface CreateHITTypeRequest {
    *         </p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>
-   *             One or more words or phrases that describe the HIT, separated by commas.
-   *             These words are used in searches to find HITs.
-   *         </p>
-   */
-  Keywords?: string;
 
   /**
    * <p>
@@ -598,10 +549,22 @@ export interface CreateHITTypeRequest {
 
   /**
    * <p>
-   *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
+   *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
+   *             If a Worker does not complete the assignment within the specified duration,
+   *             the assignment is considered abandoned. If the HIT is still active
+   *             (that is, its lifetime has not elapsed), the assignment becomes available
+   *             for other users to find and accept.
    *         </p>
    */
-  Reward: string | undefined;
+  AssignmentDurationInSeconds: number | undefined;
+
+  /**
+   * <p>
+   *             One or more words or phrases that describe the HIT, separated by commas.
+   *             These words are used in searches to find HITs.
+   *         </p>
+   */
+  Keywords?: string;
 
   /**
    * <p>
@@ -611,14 +574,29 @@ export interface CreateHITTypeRequest {
    *         </p>
    */
   Title: string | undefined;
+
+  /**
+   * <p>
+   *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
+   *         </p>
+   */
+  Reward: string | undefined;
+
+  /**
+   * <p>
+   *             The number of seconds after an assignment for the HIT has been submitted,
+   *             after which the assignment is considered Approved automatically
+   *             unless the Requester explicitly rejects it.
+   *         </p>
+   */
+  AutoApprovalDelayInSeconds?: number;
 }
 
 export namespace CreateHITTypeRequest {
   export const filterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITTypeRequest =>
-    __isa(o, "CreateHITTypeRequest");
+  export const isa = (o: any): o is CreateHITTypeRequest => __isa(o, "CreateHITTypeRequest");
 }
 
 export interface CreateHITTypeResponse {
@@ -631,10 +609,9 @@ export interface CreateHITTypeResponse {
 
 export namespace CreateHITTypeResponse {
   export const filterSensitiveLog = (obj: CreateHITTypeResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITTypeResponse =>
-    __isa(o, "CreateHITTypeResponse");
+  export const isa = (o: any): o is CreateHITTypeResponse => __isa(o, "CreateHITTypeResponse");
 }
 
 export interface CreateHITWithHITTypeRequest {
@@ -649,44 +626,11 @@ export interface CreateHITWithHITTypeRequest {
 
   /**
    * <p>
-   *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
-   *             and create an additional HIT by providing those values as HITLayoutParameters.
-   *         </p>
-   *         <p>
-   *             Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
-   *         </p>
-   */
-  HITLayoutId?: string;
-
-  /**
-   * <p>
    *             If the HITLayoutId is provided, any placeholder values must be filled in with values
    *             using the HITLayoutParameter structure. For more information, see HITLayout.
    *         </p>
    */
   HITLayoutParameters?: HITLayoutParameter[];
-
-  /**
-   * <p>
-   *             The HIT-level Review Policy applies to the HIT.
-   *             You can specify for Mechanical Turk to take various actions based on the policy.
-   *         </p>
-   */
-  HITReviewPolicy?: ReviewPolicy;
-
-  /**
-   * <p>The HIT type ID you want to create this HIT with.</p>
-   */
-  HITTypeId: string | undefined;
-
-  /**
-   * <p>
-   *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
-   *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
-   *             even if not all of the assignments for the HIT have been accepted.
-   *         </p>
-   */
-  LifetimeInSeconds: number | undefined;
 
   /**
    * <p>
@@ -697,16 +641,28 @@ export interface CreateHITWithHITTypeRequest {
 
   /**
    * <p>
-   *             The data the person completing the HIT uses to produce the results.
+   *             A unique identifier for this request which allows you to retry the call
+   *             on error without creating duplicate HITs.
+   *             This is useful in cases such as network timeouts where it is unclear whether or not
+   *             the call succeeded on the server.
+   *             If the HIT already exists in the system from a previous call using the same UniqueRequestToken,
+   *             subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error
+   *             with a message containing the HITId.
    *         </p>
-   *         <p>
-   *             Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure,
-   *             or an HTMLQuestion data structure. The XML question data must not be larger than
-   *             64 kilobytes (65,535 bytes) in size, including whitespace.
-   *         </p>
-   *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
+   *         <note>
+   *             <p>
+   *                 Note: It is your responsibility to ensure uniqueness of the token.
+   *                 The unique token expires after 24 hours. Subsequent calls using the same
+   *                 UniqueRequestToken made after the 24 hour limit could create duplicate HITs.
+   *             </p>
+   *         </note>
    */
-  Question?: string;
+  UniqueRequestToken?: string;
+
+  /**
+   * <p>The HIT type ID you want to create this HIT with.</p>
+   */
+  HITTypeId: string | undefined;
 
   /**
    * <p>
@@ -729,33 +685,51 @@ export interface CreateHITWithHITTypeRequest {
 
   /**
    * <p>
-   *             A unique identifier for this request which allows you to retry the call
-   *             on error without creating duplicate HITs.
-   *             This is useful in cases such as network timeouts where it is unclear whether or not
-   *             the call succeeded on the server.
-   *             If the HIT already exists in the system from a previous call using the same UniqueRequestToken,
-   *             subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error
-   *             with a message containing the HITId.
+   *             The data the person completing the HIT uses to produce the results.
    *         </p>
-   *         <note>
-   *             <p>
-   *                 Note: It is your responsibility to ensure uniqueness of the token.
-   *                 The unique token expires after 24 hours. Subsequent calls using the same
-   *                 UniqueRequestToken made after the 24 hour limit could create duplicate HITs.
-   *             </p>
-   *         </note>
+   *         <p>
+   *             Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure,
+   *             or an HTMLQuestion data structure. The XML question data must not be larger than
+   *             64 kilobytes (65,535 bytes) in size, including whitespace.
+   *         </p>
+   *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
    */
-  UniqueRequestToken?: string;
+  Question?: string;
+
+  /**
+   * <p>
+   *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
+   *             and create an additional HIT by providing those values as HITLayoutParameters.
+   *         </p>
+   *         <p>
+   *             Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
+   *         </p>
+   */
+  HITLayoutId?: string;
+
+  /**
+   * <p>
+   *             The HIT-level Review Policy applies to the HIT.
+   *             You can specify for Mechanical Turk to take various actions based on the policy.
+   *         </p>
+   */
+  HITReviewPolicy?: ReviewPolicy;
+
+  /**
+   * <p>
+   *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
+   *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
+   *             even if not all of the assignments for the HIT have been accepted.
+   *         </p>
+   */
+  LifetimeInSeconds: number | undefined;
 }
 
 export namespace CreateHITWithHITTypeRequest {
-  export const filterSensitiveLog = (
-    obj: CreateHITWithHITTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHITWithHITTypeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITWithHITTypeRequest =>
-    __isa(o, "CreateHITWithHITTypeRequest");
+  export const isa = (o: any): o is CreateHITWithHITTypeRequest => __isa(o, "CreateHITWithHITTypeRequest");
 }
 
 export interface CreateHITWithHITTypeResponse {
@@ -770,17 +744,21 @@ export interface CreateHITWithHITTypeResponse {
 }
 
 export namespace CreateHITWithHITTypeResponse {
-  export const filterSensitiveLog = (
-    obj: CreateHITWithHITTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHITWithHITTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHITWithHITTypeResponse =>
-    __isa(o, "CreateHITWithHITTypeResponse");
+  export const isa = (o: any): o is CreateHITWithHITTypeResponse => __isa(o, "CreateHITWithHITTypeResponse");
 }
 
 export interface CreateQualificationTypeRequest {
   __type?: "CreateQualificationTypeRequest";
+  /**
+   * <p>A long description for the Qualification type. On the Amazon
+   *             Mechanical Turk website, the long description is displayed when a
+   *             Worker examines a Qualification type.</p>
+   */
+  Description: string | undefined;
+
   /**
    * <p>The answers to the Qualification test specified in the Test
    *             parameter, in the form of an AnswerKey data structure.</p>
@@ -791,62 +769,10 @@ export interface CreateQualificationTypeRequest {
   AnswerKey?: string;
 
   /**
-   * <p>Specifies whether requests for the Qualification type are
-   *             granted immediately, without prompting the Worker with a
-   *             Qualification test.</p>
-   *         <p>Constraints: If the Test parameter is specified, this
-   *             parameter cannot be true.</p>
-   */
-  AutoGranted?: boolean;
-
-  /**
-   * <p>The Qualification value to use for automatically granted
-   *             Qualifications. This parameter is used only if the AutoGranted
-   *             parameter is true.</p>
-   */
-  AutoGrantedValue?: number;
-
-  /**
-   * <p>A long description for the Qualification type. On the Amazon
-   *             Mechanical Turk website, the long description is displayed when a
-   *             Worker examines a Qualification type.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>One or more words or phrases that describe the Qualification
-   *             type, separated by commas. The keywords of a type make the type
-   *             easier to find during a search.</p>
-   */
-  Keywords?: string;
-
-  /**
-   * <p> The name you give to the Qualification type. The type name
-   *             is used to represent the Qualification to Workers, and to find the
-   *             type using a Qualification type search. It must be unique across all
-   *             of your Qualification types.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The initial status of the Qualification type.</p>
    *         <p>Constraints: Valid values are: Active | Inactive</p>
    */
   QualificationTypeStatus: QualificationTypeStatus | string | undefined;
-
-  /**
-   * <p>The number of seconds that a Worker must wait after
-   *             requesting a Qualification of the Qualification type before the
-   *             worker can retry the Qualification request.</p>
-   *         <p>Constraints: None. If not specified, retries are disabled and
-   *             Workers can request a Qualification of this type only once, even if
-   *             the Worker has not been granted the Qualification. It is not possible
-   *             to disable retries for a Qualification type after it has been created
-   *             with retries enabled. If you want to disable retries, you must delete
-   *             existing retry-enabled Qualification type and then create a new
-   *             Qualification type with retries disabled.</p>
-   */
-  RetryDelayInSeconds?: number;
 
   /**
    * <p>
@@ -870,16 +796,58 @@ export interface CreateQualificationTypeRequest {
    *             Qualification.</p>
    */
   TestDurationInSeconds?: number;
+
+  /**
+   * <p>The Qualification value to use for automatically granted
+   *             Qualifications. This parameter is used only if the AutoGranted
+   *             parameter is true.</p>
+   */
+  AutoGrantedValue?: number;
+
+  /**
+   * <p>The number of seconds that a Worker must wait after
+   *             requesting a Qualification of the Qualification type before the
+   *             worker can retry the Qualification request.</p>
+   *         <p>Constraints: None. If not specified, retries are disabled and
+   *             Workers can request a Qualification of this type only once, even if
+   *             the Worker has not been granted the Qualification. It is not possible
+   *             to disable retries for a Qualification type after it has been created
+   *             with retries enabled. If you want to disable retries, you must delete
+   *             existing retry-enabled Qualification type and then create a new
+   *             Qualification type with retries disabled.</p>
+   */
+  RetryDelayInSeconds?: number;
+
+  /**
+   * <p>One or more words or phrases that describe the Qualification
+   *             type, separated by commas. The keywords of a type make the type
+   *             easier to find during a search.</p>
+   */
+  Keywords?: string;
+
+  /**
+   * <p> The name you give to the Qualification type. The type name
+   *             is used to represent the Qualification to Workers, and to find the
+   *             type using a Qualification type search. It must be unique across all
+   *             of your Qualification types.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether requests for the Qualification type are
+   *             granted immediately, without prompting the Worker with a
+   *             Qualification test.</p>
+   *         <p>Constraints: If the Test parameter is specified, this
+   *             parameter cannot be true.</p>
+   */
+  AutoGranted?: boolean;
 }
 
 export namespace CreateQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: CreateQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateQualificationTypeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateQualificationTypeRequest =>
-    __isa(o, "CreateQualificationTypeRequest");
+  export const isa = (o: any): o is CreateQualificationTypeRequest => __isa(o, "CreateQualificationTypeRequest");
 }
 
 export interface CreateQualificationTypeResponse {
@@ -892,13 +860,10 @@ export interface CreateQualificationTypeResponse {
 }
 
 export namespace CreateQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: CreateQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateQualificationTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateQualificationTypeResponse =>
-    __isa(o, "CreateQualificationTypeResponse");
+  export const isa = (o: any): o is CreateQualificationTypeResponse => __isa(o, "CreateQualificationTypeResponse");
 }
 
 export interface CreateWorkerBlockRequest {
@@ -916,10 +881,9 @@ export interface CreateWorkerBlockRequest {
 
 export namespace CreateWorkerBlockRequest {
   export const filterSensitiveLog = (obj: CreateWorkerBlockRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateWorkerBlockRequest =>
-    __isa(o, "CreateWorkerBlockRequest");
+  export const isa = (o: any): o is CreateWorkerBlockRequest => __isa(o, "CreateWorkerBlockRequest");
 }
 
 export interface CreateWorkerBlockResponse {
@@ -928,10 +892,9 @@ export interface CreateWorkerBlockResponse {
 
 export namespace CreateWorkerBlockResponse {
   export const filterSensitiveLog = (obj: CreateWorkerBlockResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateWorkerBlockResponse =>
-    __isa(o, "CreateWorkerBlockResponse");
+  export const isa = (o: any): o is CreateWorkerBlockResponse => __isa(o, "CreateWorkerBlockResponse");
 }
 
 export interface DeleteHITRequest {
@@ -944,10 +907,9 @@ export interface DeleteHITRequest {
 
 export namespace DeleteHITRequest {
   export const filterSensitiveLog = (obj: DeleteHITRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHITRequest =>
-    __isa(o, "DeleteHITRequest");
+  export const isa = (o: any): o is DeleteHITRequest => __isa(o, "DeleteHITRequest");
 }
 
 export interface DeleteHITResponse {
@@ -956,10 +918,9 @@ export interface DeleteHITResponse {
 
 export namespace DeleteHITResponse {
   export const filterSensitiveLog = (obj: DeleteHITResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHITResponse =>
-    __isa(o, "DeleteHITResponse");
+  export const isa = (o: any): o is DeleteHITResponse => __isa(o, "DeleteHITResponse");
 }
 
 export interface DeleteQualificationTypeRequest {
@@ -971,13 +932,10 @@ export interface DeleteQualificationTypeRequest {
 }
 
 export namespace DeleteQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteQualificationTypeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteQualificationTypeRequest =>
-    __isa(o, "DeleteQualificationTypeRequest");
+  export const isa = (o: any): o is DeleteQualificationTypeRequest => __isa(o, "DeleteQualificationTypeRequest");
 }
 
 export interface DeleteQualificationTypeResponse {
@@ -985,13 +943,10 @@ export interface DeleteQualificationTypeResponse {
 }
 
 export namespace DeleteQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteQualificationTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteQualificationTypeResponse =>
-    __isa(o, "DeleteQualificationTypeResponse");
+  export const isa = (o: any): o is DeleteQualificationTypeResponse => __isa(o, "DeleteQualificationTypeResponse");
 }
 
 export interface DeleteWorkerBlockRequest {
@@ -1009,10 +964,9 @@ export interface DeleteWorkerBlockRequest {
 
 export namespace DeleteWorkerBlockRequest {
   export const filterSensitiveLog = (obj: DeleteWorkerBlockRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkerBlockRequest =>
-    __isa(o, "DeleteWorkerBlockRequest");
+  export const isa = (o: any): o is DeleteWorkerBlockRequest => __isa(o, "DeleteWorkerBlockRequest");
 }
 
 export interface DeleteWorkerBlockResponse {
@@ -1021,10 +975,9 @@ export interface DeleteWorkerBlockResponse {
 
 export namespace DeleteWorkerBlockResponse {
   export const filterSensitiveLog = (obj: DeleteWorkerBlockResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkerBlockResponse =>
-    __isa(o, "DeleteWorkerBlockResponse");
+  export const isa = (o: any): o is DeleteWorkerBlockResponse => __isa(o, "DeleteWorkerBlockResponse");
 }
 
 export interface DisassociateQualificationFromWorkerRequest {
@@ -1035,25 +988,21 @@ export interface DisassociateQualificationFromWorkerRequest {
   QualificationTypeId: string | undefined;
 
   /**
-   * <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
-   */
-  Reason?: string;
-
-  /**
    * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
    */
   WorkerId: string | undefined;
+
+  /**
+   * <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
+   */
+  Reason?: string;
 }
 
 export namespace DisassociateQualificationFromWorkerRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateQualificationFromWorkerRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateQualificationFromWorkerRequest =>
+  export const isa = (o: any): o is DisassociateQualificationFromWorkerRequest =>
     __isa(o, "DisassociateQualificationFromWorkerRequest");
 }
 
@@ -1062,14 +1011,10 @@ export interface DisassociateQualificationFromWorkerResponse {
 }
 
 export namespace DisassociateQualificationFromWorkerResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateQualificationFromWorkerResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateQualificationFromWorkerResponse =>
+  export const isa = (o: any): o is DisassociateQualificationFromWorkerResponse =>
     __isa(o, "DisassociateQualificationFromWorkerResponse");
 }
 
@@ -1085,7 +1030,7 @@ export enum EventType {
   HITExpired = "HITExpired",
   HITExtended = "HITExtended",
   HITReviewable = "HITReviewable",
-  Ping = "Ping"
+  Ping = "Ping",
 }
 
 export interface GetAccountBalanceRequest {
@@ -1094,10 +1039,9 @@ export interface GetAccountBalanceRequest {
 
 export namespace GetAccountBalanceRequest {
   export const filterSensitiveLog = (obj: GetAccountBalanceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountBalanceRequest =>
-    __isa(o, "GetAccountBalanceRequest");
+  export const isa = (o: any): o is GetAccountBalanceRequest => __isa(o, "GetAccountBalanceRequest");
 }
 
 export interface GetAccountBalanceResponse {
@@ -1105,20 +1049,19 @@ export interface GetAccountBalanceResponse {
   /**
    * <p>A string representing a currency amount.</p>
    */
-  AvailableBalance?: string;
+  OnHoldBalance?: string;
 
   /**
    * <p>A string representing a currency amount.</p>
    */
-  OnHoldBalance?: string;
+  AvailableBalance?: string;
 }
 
 export namespace GetAccountBalanceResponse {
   export const filterSensitiveLog = (obj: GetAccountBalanceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountBalanceResponse =>
-    __isa(o, "GetAccountBalanceResponse");
+  export const isa = (o: any): o is GetAccountBalanceResponse => __isa(o, "GetAccountBalanceResponse");
 }
 
 export interface GetAssignmentRequest {
@@ -1131,57 +1074,54 @@ export interface GetAssignmentRequest {
 
 export namespace GetAssignmentRequest {
   export const filterSensitiveLog = (obj: GetAssignmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssignmentRequest =>
-    __isa(o, "GetAssignmentRequest");
+  export const isa = (o: any): o is GetAssignmentRequest => __isa(o, "GetAssignmentRequest");
 }
 
 export interface GetAssignmentResponse {
   __type?: "GetAssignmentResponse";
+  /**
+   * <p> The HIT associated with this assignment. The response
+   *             includes one HIT element.</p>
+   */
+  HIT?: HIT;
+
   /**
    * <p> The assignment. The response includes one Assignment
    *             element.
    *         </p>
    */
   Assignment?: Assignment;
-
-  /**
-   * <p> The HIT associated with this assignment. The response
-   *             includes one HIT element.</p>
-   */
-  HIT?: HIT;
 }
 
 export namespace GetAssignmentResponse {
   export const filterSensitiveLog = (obj: GetAssignmentResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssignmentResponse =>
-    __isa(o, "GetAssignmentResponse");
+  export const isa = (o: any): o is GetAssignmentResponse => __isa(o, "GetAssignmentResponse");
 }
 
 export interface GetFileUploadURLRequest {
   __type?: "GetFileUploadURLRequest";
   /**
-   * <p>The ID of the assignment that contains the question with a
-   *             FileUploadAnswer.</p>
-   */
-  AssignmentId: string | undefined;
-
-  /**
    * <p>The identifier of the question with a FileUploadAnswer, as
    *             specified in the QuestionForm of the HIT.</p>
    */
   QuestionIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the assignment that contains the question with a
+   *             FileUploadAnswer.</p>
+   */
+  AssignmentId: string | undefined;
 }
 
 export namespace GetFileUploadURLRequest {
   export const filterSensitiveLog = (obj: GetFileUploadURLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFileUploadURLRequest =>
-    __isa(o, "GetFileUploadURLRequest");
+  export const isa = (o: any): o is GetFileUploadURLRequest => __isa(o, "GetFileUploadURLRequest");
 }
 
 export interface GetFileUploadURLResponse {
@@ -1196,10 +1136,9 @@ export interface GetFileUploadURLResponse {
 
 export namespace GetFileUploadURLResponse {
   export const filterSensitiveLog = (obj: GetFileUploadURLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFileUploadURLResponse =>
-    __isa(o, "GetFileUploadURLResponse");
+  export const isa = (o: any): o is GetFileUploadURLResponse => __isa(o, "GetFileUploadURLResponse");
 }
 
 export interface GetHITRequest {
@@ -1212,7 +1151,7 @@ export interface GetHITRequest {
 
 export namespace GetHITRequest {
   export const filterSensitiveLog = (obj: GetHITRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetHITRequest => __isa(o, "GetHITRequest");
 }
@@ -1227,33 +1166,29 @@ export interface GetHITResponse {
 
 export namespace GetHITResponse {
   export const filterSensitiveLog = (obj: GetHITResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetHITResponse =>
-    __isa(o, "GetHITResponse");
+  export const isa = (o: any): o is GetHITResponse => __isa(o, "GetHITResponse");
 }
 
 export interface GetQualificationScoreRequest {
   __type?: "GetQualificationScoreRequest";
   /**
-   * <p>The ID of the QualificationType.</p>
-   */
-  QualificationTypeId: string | undefined;
-
-  /**
    * <p>The ID of the Worker whose Qualification is being updated.</p>
    */
   WorkerId: string | undefined;
+
+  /**
+   * <p>The ID of the QualificationType.</p>
+   */
+  QualificationTypeId: string | undefined;
 }
 
 export namespace GetQualificationScoreRequest {
-  export const filterSensitiveLog = (
-    obj: GetQualificationScoreRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetQualificationScoreRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetQualificationScoreRequest =>
-    __isa(o, "GetQualificationScoreRequest");
+  export const isa = (o: any): o is GetQualificationScoreRequest => __isa(o, "GetQualificationScoreRequest");
 }
 
 export interface GetQualificationScoreResponse {
@@ -1268,13 +1203,10 @@ export interface GetQualificationScoreResponse {
 }
 
 export namespace GetQualificationScoreResponse {
-  export const filterSensitiveLog = (
-    obj: GetQualificationScoreResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetQualificationScoreResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetQualificationScoreResponse =>
-    __isa(o, "GetQualificationScoreResponse");
+  export const isa = (o: any): o is GetQualificationScoreResponse => __isa(o, "GetQualificationScoreResponse");
 }
 
 export interface GetQualificationTypeRequest {
@@ -1286,13 +1218,10 @@ export interface GetQualificationTypeRequest {
 }
 
 export namespace GetQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: GetQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetQualificationTypeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetQualificationTypeRequest =>
-    __isa(o, "GetQualificationTypeRequest");
+  export const isa = (o: any): o is GetQualificationTypeRequest => __isa(o, "GetQualificationTypeRequest");
 }
 
 export interface GetQualificationTypeResponse {
@@ -1304,13 +1233,10 @@ export interface GetQualificationTypeResponse {
 }
 
 export namespace GetQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: GetQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetQualificationTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetQualificationTypeResponse =>
-    __isa(o, "GetQualificationTypeResponse");
+  export const isa = (o: any): o is GetQualificationTypeResponse => __isa(o, "GetQualificationTypeResponse");
 }
 
 /**
@@ -1321,57 +1247,11 @@ export namespace GetQualificationTypeResponse {
 export interface HIT {
   __type?: "HIT";
   /**
-   * <p> The length of time, in seconds, that a Worker has to
-   *             complete the HIT after accepting it.</p>
-   */
-  AssignmentDurationInSeconds?: number;
-
-  /**
-   * <p>The amount of time, in seconds, after the Worker submits an
-   *             assignment for the HIT that the results are automatically approved by
-   *             Amazon Mechanical Turk. This is the amount of time the Requester has
-   *             to reject an assignment submitted by a Worker before the assignment
-   *             is auto-approved and the Worker is paid.
+   * <p>The number of times the HIT can be accepted and completed
+   *             before the HIT becomes unavailable.
    *         </p>
    */
-  AutoApprovalDelayInSeconds?: number;
-
-  /**
-   * <p> The date and time the HIT was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p> A general description of the HIT.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The date and time the HIT expires.</p>
-   */
-  Expiration?: Date;
-
-  /**
-   * <p> The ID of the HIT Group of this HIT.</p>
-   */
-  HITGroupId?: string;
-
-  /**
-   * <p> A unique identifier for the HIT.</p>
-   */
-  HITId?: string;
-
-  /**
-   * <p> The ID of the HIT Layout of this HIT.</p>
-   */
-  HITLayoutId?: string;
-
-  /**
-   * <p> Indicates the review status of the HIT. Valid Values are
-   *             NotReviewed | MarkedForReview | ReviewedAppropriate |
-   *             ReviewedInappropriate.</p>
-   */
-  HITReviewStatus?: HITReviewStatus | string;
+  MaxAssignments?: number;
 
   /**
    * <p>The status of the HIT and its assignments. Valid Values are
@@ -1386,6 +1266,32 @@ export interface HIT {
   HITTypeId?: string;
 
   /**
+   * <p> The date and time the HIT was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p> The length of time, in seconds, that a Worker has to
+   *             complete the HIT after accepting it.</p>
+   */
+  AssignmentDurationInSeconds?: number;
+
+  /**
+   * <p>The date and time the HIT expires.</p>
+   */
+  Expiration?: Date;
+
+  /**
+   * <p> A general description of the HIT.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p> The ID of the HIT Group of this HIT.</p>
+   */
+  HITGroupId?: string;
+
+  /**
    * <p> One or more words or phrases that describe the HIT,
    *             separated by commas. Search terms similar to the keywords of a HIT
    *             are more likely to have the HIT in the search results.</p>
@@ -1393,17 +1299,10 @@ export interface HIT {
   Keywords?: string;
 
   /**
-   * <p>The number of times the HIT can be accepted and completed
-   *             before the HIT becomes unavailable.
-   *         </p>
+   * <p> An arbitrary data field the Requester who created the HIT
+   *             can use. This field is visible only to the creator of the HIT.</p>
    */
-  MaxAssignments?: number;
-
-  /**
-   * <p> The number of assignments for this HIT that are available
-   *             for Workers to accept.</p>
-   */
-  NumberOfAssignmentsAvailable?: number;
+  RequesterAnnotation?: string;
 
   /**
    * <p> The number of assignments for this HIT that have been
@@ -1412,11 +1311,22 @@ export interface HIT {
   NumberOfAssignmentsCompleted?: number;
 
   /**
+   * <p> The number of assignments for this HIT that are available
+   *             for Workers to accept.</p>
+   */
+  NumberOfAssignmentsAvailable?: number;
+
+  /**
    * <p> The number of assignments for this HIT that are being
    *             previewed or have been accepted by Workers, but have not yet been
    *             submitted, returned, or abandoned.</p>
    */
   NumberOfAssignmentsPending?: number;
+
+  /**
+   * <p> The ID of the HIT Layout of this HIT.</p>
+   */
+  HITLayoutId?: string;
 
   /**
    * <p>
@@ -1431,6 +1341,21 @@ export interface HIT {
   QualificationRequirements?: QualificationRequirement[];
 
   /**
+   * <p>The amount of time, in seconds, after the Worker submits an
+   *             assignment for the HIT that the results are automatically approved by
+   *             Amazon Mechanical Turk. This is the amount of time the Requester has
+   *             to reject an assignment submitted by a Worker before the assignment
+   *             is auto-approved and the Worker is paid.
+   *         </p>
+   */
+  AutoApprovalDelayInSeconds?: number;
+
+  /**
+   * <p>A string representing a currency amount.</p>
+   */
+  Reward?: string;
+
+  /**
    * <p> The data the Worker completing the HIT uses produce the
    *             results. This is either either a QuestionForm, HTMLQuestion or an
    *             ExternalQuestion data structure.</p>
@@ -1438,15 +1363,16 @@ export interface HIT {
   Question?: string;
 
   /**
-   * <p> An arbitrary data field the Requester who created the HIT
-   *             can use. This field is visible only to the creator of the HIT.</p>
+   * <p> Indicates the review status of the HIT. Valid Values are
+   *             NotReviewed | MarkedForReview | ReviewedAppropriate |
+   *             ReviewedInappropriate.</p>
    */
-  RequesterAnnotation?: string;
+  HITReviewStatus?: HITReviewStatus | string;
 
   /**
-   * <p>A string representing a currency amount.</p>
+   * <p> A unique identifier for the HIT.</p>
    */
-  Reward?: string;
+  HITId?: string;
 
   /**
    * <p> The title of the HIT.</p>
@@ -1456,7 +1382,7 @@ export interface HIT {
 
 export namespace HIT {
   export const filterSensitiveLog = (obj: HIT): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HIT => __isa(o, "HIT");
 }
@@ -1464,7 +1390,7 @@ export namespace HIT {
 export enum HITAccessActions {
   Accept = "Accept",
   DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept"
+  PreviewAndAccept = "PreviewAndAccept",
 }
 
 /**
@@ -1492,17 +1418,16 @@ export interface HITLayoutParameter {
 
 export namespace HITLayoutParameter {
   export const filterSensitiveLog = (obj: HITLayoutParameter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HITLayoutParameter =>
-    __isa(o, "HITLayoutParameter");
+  export const isa = (o: any): o is HITLayoutParameter => __isa(o, "HITLayoutParameter");
 }
 
 export enum HITReviewStatus {
   MarkedForReview = "MarkedForReview",
   NotReviewed = "NotReviewed",
   ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate"
+  ReviewedInappropriate = "ReviewedInappropriate",
 }
 
 export enum HITStatus {
@@ -1510,11 +1435,12 @@ export enum HITStatus {
   Disposed = "Disposed",
   Reviewable = "Reviewable",
   Reviewing = "Reviewing",
-  Unassignable = "Unassignable"
+  Unassignable = "Unassignable",
 }
 
 export interface ListAssignmentsForHITRequest {
   __type?: "ListAssignmentsForHITRequest";
+  MaxResults?: number;
   /**
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
@@ -1526,7 +1452,6 @@ export interface ListAssignmentsForHITRequest {
    */
   HITId: string | undefined;
 
-  MaxResults?: number;
   /**
    * <p>Pagination token</p>
    */
@@ -1534,13 +1459,10 @@ export interface ListAssignmentsForHITRequest {
 }
 
 export namespace ListAssignmentsForHITRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssignmentsForHITRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssignmentsForHITRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssignmentsForHITRequest =>
-    __isa(o, "ListAssignmentsForHITRequest");
+  export const isa = (o: any): o is ListAssignmentsForHITRequest => __isa(o, "ListAssignmentsForHITRequest");
 }
 
 export interface ListAssignmentsForHITResponse {
@@ -1568,24 +1490,18 @@ export interface ListAssignmentsForHITResponse {
 }
 
 export namespace ListAssignmentsForHITResponse {
-  export const filterSensitiveLog = (
-    obj: ListAssignmentsForHITResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssignmentsForHITResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssignmentsForHITResponse =>
-    __isa(o, "ListAssignmentsForHITResponse");
+  export const isa = (o: any): o is ListAssignmentsForHITResponse => __isa(o, "ListAssignmentsForHITResponse");
 }
 
 export interface ListBonusPaymentsRequest {
   __type?: "ListBonusPaymentsRequest";
   /**
-   * <p>The ID of the assignment associated with the bonus payments
-   *             to retrieve. If specified, only bonus payments for the given
-   *             assignment are returned. Either the HITId parameter or the
-   *             AssignmentId parameter must be specified</p>
+   * <p>Pagination token</p>
    */
-  AssignmentId?: string;
+  NextToken?: string;
 
   /**
    * <p>The ID of the HIT associated with the bonus payments to
@@ -1597,17 +1513,19 @@ export interface ListBonusPaymentsRequest {
 
   MaxResults?: number;
   /**
-   * <p>Pagination token</p>
+   * <p>The ID of the assignment associated with the bonus payments
+   *             to retrieve. If specified, only bonus payments for the given
+   *             assignment are returned. Either the HITId parameter or the
+   *             AssignmentId parameter must be specified</p>
    */
-  NextToken?: string;
+  AssignmentId?: string;
 }
 
 export namespace ListBonusPaymentsRequest {
   export const filterSensitiveLog = (obj: ListBonusPaymentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBonusPaymentsRequest =>
-    __isa(o, "ListBonusPaymentsRequest");
+  export const isa = (o: any): o is ListBonusPaymentsRequest => __isa(o, "ListBonusPaymentsRequest");
 }
 
 export interface ListBonusPaymentsResponse {
@@ -1620,38 +1538,37 @@ export interface ListBonusPaymentsResponse {
   BonusPayments?: BonusPayment[];
 
   /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
-   *             returns a pagination token in the response. You can use this pagination token
-   *             to retrieve the next set of results.
-   *         </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of bonus payments on this page in the filtered
    *             results list, equivalent to the number of bonus payments being
    *             returned by this call.
    *         </p>
    */
   NumResults?: number;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   *             returns a pagination token in the response. You can use this pagination token
+   *             to retrieve the next set of results.
+   *         </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListBonusPaymentsResponse {
   export const filterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBonusPaymentsResponse =>
-    __isa(o, "ListBonusPaymentsResponse");
+  export const isa = (o: any): o is ListBonusPaymentsResponse => __isa(o, "ListBonusPaymentsResponse");
 }
 
 export interface ListHITsForQualificationTypeRequest {
   __type?: "ListHITsForQualificationTypeRequest";
   /**
    * <p>
-   *             Limit the number of results returned.
+   *             The ID of the Qualification type to use when querying HITs.
    *         </p>
    */
-  MaxResults?: number;
+  QualificationTypeId: string | undefined;
 
   /**
    * <p>Pagination Token</p>
@@ -1660,17 +1577,15 @@ export interface ListHITsForQualificationTypeRequest {
 
   /**
    * <p>
-   *             The ID of the Qualification type to use when querying HITs.
+   *             Limit the number of results returned.
    *         </p>
    */
-  QualificationTypeId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListHITsForQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: ListHITsForQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListHITsForQualificationTypeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListHITsForQualificationTypeRequest =>
     __isa(o, "ListHITsForQualificationTypeRequest");
@@ -1679,9 +1594,10 @@ export namespace ListHITsForQualificationTypeRequest {
 export interface ListHITsForQualificationTypeResponse {
   __type?: "ListHITsForQualificationTypeResponse";
   /**
-   * <p> The list of HIT elements returned by the query.</p>
+   * <p> The number of HITs on this page in the filtered results
+   *             list, equivalent to the number of HITs being returned by this call.	</p>
    */
-  HITs?: HIT[];
+  NumResults?: number;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1692,17 +1608,14 @@ export interface ListHITsForQualificationTypeResponse {
   NextToken?: string;
 
   /**
-   * <p> The number of HITs on this page in the filtered results
-   *             list, equivalent to the number of HITs being returned by this call.	</p>
+   * <p> The list of HIT elements returned by the query.</p>
    */
-  NumResults?: number;
+  HITs?: HIT[];
 }
 
 export namespace ListHITsForQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: ListHITsForQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListHITsForQualificationTypeResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListHITsForQualificationTypeResponse =>
     __isa(o, "ListHITsForQualificationTypeResponse");
@@ -1719,18 +1632,18 @@ export interface ListHITsRequest {
 
 export namespace ListHITsRequest {
   export const filterSensitiveLog = (obj: ListHITsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHITsRequest =>
-    __isa(o, "ListHITsRequest");
+  export const isa = (o: any): o is ListHITsRequest => __isa(o, "ListHITsRequest");
 }
 
 export interface ListHITsResponse {
   __type?: "ListHITsResponse";
   /**
-   * <p> The list of HIT elements returned by the query.</p>
+   * <p>The number of HITs on this page in the filtered results list,
+   *             equivalent to the number of HITs being returned by this call.</p>
    */
-  HITs?: HIT[];
+  NumResults?: number;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1741,62 +1654,49 @@ export interface ListHITsResponse {
   NextToken?: string;
 
   /**
-   * <p>The number of HITs on this page in the filtered results list,
-   *             equivalent to the number of HITs being returned by this call.</p>
+   * <p> The list of HIT elements returned by the query.</p>
    */
-  NumResults?: number;
+  HITs?: HIT[];
 }
 
 export namespace ListHITsResponse {
   export const filterSensitiveLog = (obj: ListHITsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListHITsResponse =>
-    __isa(o, "ListHITsResponse");
+  export const isa = (o: any): o is ListHITsResponse => __isa(o, "ListHITsResponse");
 }
 
 export interface ListQualificationRequestsRequest {
   __type?: "ListQualificationRequestsRequest";
   /**
+   * <p>The ID of the QualificationType.</p>
+   */
+  QualificationTypeId?: string;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   *             returns a pagination token in the response. You can use this pagination token
+   *             to retrieve the next set of results.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
    * <p> The maximum number of results to return in a single call.
    *         </p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
-   *             returns a pagination token in the response. You can use this pagination token
-   *             to retrieve the next set of results.
-   *         </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the QualificationType.</p>
-   */
-  QualificationTypeId?: string;
 }
 
 export namespace ListQualificationRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: ListQualificationRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListQualificationRequestsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListQualificationRequestsRequest =>
-    __isa(o, "ListQualificationRequestsRequest");
+  export const isa = (o: any): o is ListQualificationRequestsRequest => __isa(o, "ListQualificationRequestsRequest");
 }
 
 export interface ListQualificationRequestsResponse {
   __type?: "ListQualificationRequestsResponse";
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
-   *             returns a pagination token in the response. You can use this pagination token
-   *             to retrieve the next set of results.
-   *         </p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The number of Qualification requests on this page in the filtered results list,
    *             equivalent to the number of Qualification requests being returned by this call.</p>
@@ -1810,34 +1710,25 @@ export interface ListQualificationRequestsResponse {
    *             by the query.</p>
    */
   QualificationRequests?: QualificationRequest[];
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   *             returns a pagination token in the response. You can use this pagination token
+   *             to retrieve the next set of results.
+   *         </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListQualificationRequestsResponse {
-  export const filterSensitiveLog = (
-    obj: ListQualificationRequestsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListQualificationRequestsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListQualificationRequestsResponse =>
-    __isa(o, "ListQualificationRequestsResponse");
+  export const isa = (o: any): o is ListQualificationRequestsResponse => __isa(o, "ListQualificationRequestsResponse");
 }
 
 export interface ListQualificationTypesRequest {
   __type?: "ListQualificationTypesRequest";
-  /**
-   * <p> The maximum number of results to return in a single call.
-   *         </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p> Specifies that only Qualification types that the Requester
-   *             created are returned. If false, the operation returns all
-   *             Qualification types.
-   *         </p>
-   */
-  MustBeOwnedByCaller?: boolean;
-
   /**
    * <p>Specifies that only Qualification types that a user can
    *             request through the Amazon Mechanical Turk web site, such as by
@@ -1851,12 +1742,26 @@ export interface ListQualificationTypesRequest {
   MustBeRequestable: boolean | undefined;
 
   /**
+   * <p> The maximum number of results to return in a single call.
+   *         </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
    */
   NextToken?: string;
+
+  /**
+   * <p> Specifies that only Qualification types that the Requester
+   *             created are returned. If false, the operation returns all
+   *             Qualification types.
+   *         </p>
+   */
+  MustBeOwnedByCaller?: boolean;
 
   /**
    * <p> A text query against all of the searchable attributes of
@@ -1867,13 +1772,10 @@ export interface ListQualificationTypesRequest {
 }
 
 export namespace ListQualificationTypesRequest {
-  export const filterSensitiveLog = (
-    obj: ListQualificationTypesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListQualificationTypesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListQualificationTypesRequest =>
-    __isa(o, "ListQualificationTypesRequest");
+  export const isa = (o: any): o is ListQualificationTypesRequest => __isa(o, "ListQualificationTypesRequest");
 }
 
 export interface ListQualificationTypesResponse {
@@ -1887,33 +1789,38 @@ export interface ListQualificationTypesResponse {
   NextToken?: string;
 
   /**
+   * <p> The list of QualificationType elements returned by the
+   *             query.
+   *         </p>
+   */
+  QualificationTypes?: QualificationType[];
+
+  /**
    * <p> The number of Qualification types on this page in the
    *             filtered results list, equivalent to the number of types this
    *             operation returns.
    *         </p>
    */
   NumResults?: number;
-
-  /**
-   * <p> The list of QualificationType elements returned by the
-   *             query.
-   *         </p>
-   */
-  QualificationTypes?: QualificationType[];
 }
 
 export namespace ListQualificationTypesResponse {
-  export const filterSensitiveLog = (
-    obj: ListQualificationTypesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListQualificationTypesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListQualificationTypesResponse =>
-    __isa(o, "ListQualificationTypesResponse");
+  export const isa = (o: any): o is ListQualificationTypesResponse => __isa(o, "ListQualificationTypesResponse");
 }
 
 export interface ListReviewableHITsRequest {
   __type?: "ListReviewableHITsRequest";
+  /**
+   * <p>
+   *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
+   *             Reviewable is the default value.
+   *         </p>
+   */
+  Status?: ReviewableHITStatus | string;
+
   /**
    * <p>
    *             The ID of the HIT type of the HITs to consider for the query.
@@ -1933,22 +1840,13 @@ export interface ListReviewableHITsRequest {
    * <p>Pagination Token</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>
-   *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
-   *             Reviewable is the default value.
-   *         </p>
-   */
-  Status?: ReviewableHITStatus | string;
 }
 
 export namespace ListReviewableHITsRequest {
   export const filterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListReviewableHITsRequest =>
-    __isa(o, "ListReviewableHITsRequest");
+  export const isa = (o: any): o is ListReviewableHITsRequest => __isa(o, "ListReviewableHITsRequest");
 }
 
 export interface ListReviewableHITsResponse {
@@ -1976,19 +1874,13 @@ export interface ListReviewableHITsResponse {
 
 export namespace ListReviewableHITsResponse {
   export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListReviewableHITsResponse =>
-    __isa(o, "ListReviewableHITsResponse");
+  export const isa = (o: any): o is ListReviewableHITsResponse => __isa(o, "ListReviewableHITsResponse");
 }
 
 export interface ListReviewPolicyResultsForHITRequest {
   __type?: "ListReviewPolicyResultsForHITRequest";
-  /**
-   * <p>The unique identifier of the HIT to retrieve review results for.</p>
-   */
-  HITId: string | undefined;
-
   /**
    * <p>Limit the number of results returned.</p>
    */
@@ -2001,6 +1893,13 @@ export interface ListReviewPolicyResultsForHITRequest {
 
   /**
    * <p>
+   *             Specify if the operation should retrieve a list of the results computed by the Review Policies.
+   *         </p>
+   */
+  RetrieveResults?: boolean;
+
+  /**
+   * <p>
    *             The Policy Level(s) to retrieve review results for - HIT or Assignment.
    *             If omitted, the default behavior is to retrieve all data for both policy levels.
    *             For a list of all the described policies, see Review Policies.
@@ -2009,26 +1908,22 @@ export interface ListReviewPolicyResultsForHITRequest {
   PolicyLevels?: (ReviewPolicyLevel | string)[];
 
   /**
+   * <p>The unique identifier of the HIT to retrieve review results for.</p>
+   */
+  HITId: string | undefined;
+
+  /**
    * <p>
    *             Specify if the operation should retrieve a list of the actions taken executing
    *             the Review Policies and their outcomes.
    *         </p>
    */
   RetrieveActions?: boolean;
-
-  /**
-   * <p>
-   *             Specify if the operation should retrieve a list of the results computed by the Review Policies.
-   *         </p>
-   */
-  RetrieveResults?: boolean;
 }
 
 export namespace ListReviewPolicyResultsForHITRequest {
-  export const filterSensitiveLog = (
-    obj: ListReviewPolicyResultsForHITRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListReviewPolicyResultsForHITRequest =>
     __isa(o, "ListReviewPolicyResultsForHITRequest");
@@ -2037,23 +1932,10 @@ export namespace ListReviewPolicyResultsForHITRequest {
 export interface ListReviewPolicyResultsForHITResponse {
   __type?: "ListReviewPolicyResultsForHITResponse";
   /**
-   * <p> The name of the Assignment-level Review Policy. This
-   *             contains only the PolicyName element.
+   * <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
    *         </p>
    */
-  AssignmentReviewPolicy?: ReviewPolicy;
-
-  /**
-   * <p> Contains both ReviewResult and ReviewAction elements for an
-   *             Assignment.
-   *         </p>
-   */
-  AssignmentReviewReport?: ReviewReport;
-
-  /**
-   * <p>The HITId of the HIT for which results have been returned.</p>
-   */
-  HITId?: string;
+  HITReviewReport?: ReviewReport;
 
   /**
    * <p>The name of the HIT-level Review Policy. This contains only
@@ -2062,10 +1944,11 @@ export interface ListReviewPolicyResultsForHITResponse {
   HITReviewPolicy?: ReviewPolicy;
 
   /**
-   * <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
+   * <p> The name of the Assignment-level Review Policy. This
+   *             contains only the PolicyName element.
    *         </p>
    */
-  HITReviewReport?: ReviewReport;
+  AssignmentReviewPolicy?: ReviewPolicy;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2074,13 +1957,23 @@ export interface ListReviewPolicyResultsForHITResponse {
    *         </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The HITId of the HIT for which results have been returned.</p>
+   */
+  HITId?: string;
+
+  /**
+   * <p> Contains both ReviewResult and ReviewAction elements for an
+   *             Assignment.
+   *         </p>
+   */
+  AssignmentReviewReport?: ReviewReport;
 }
 
 export namespace ListReviewPolicyResultsForHITResponse {
-  export const filterSensitiveLog = (
-    obj: ListReviewPolicyResultsForHITResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListReviewPolicyResultsForHITResponse =>
     __isa(o, "ListReviewPolicyResultsForHITResponse");
@@ -2097,14 +1990,19 @@ export interface ListWorkerBlocksRequest {
 
 export namespace ListWorkerBlocksRequest {
   export const filterSensitiveLog = (obj: ListWorkerBlocksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListWorkerBlocksRequest =>
-    __isa(o, "ListWorkerBlocksRequest");
+  export const isa = (o: any): o is ListWorkerBlocksRequest => __isa(o, "ListWorkerBlocksRequest");
 }
 
 export interface ListWorkerBlocksResponse {
   __type?: "ListWorkerBlocksResponse";
+  /**
+   * <p> The list of WorkerBlocks, containing the collection of
+   *             Worker IDs and reasons for blocking.</p>
+   */
+  WorkerBlocks?: WorkerBlock[];
+
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
@@ -2119,30 +2017,22 @@ export interface ListWorkerBlocksResponse {
    *             this call.</p>
    */
   NumResults?: number;
-
-  /**
-   * <p> The list of WorkerBlocks, containing the collection of
-   *             Worker IDs and reasons for blocking.</p>
-   */
-  WorkerBlocks?: WorkerBlock[];
 }
 
 export namespace ListWorkerBlocksResponse {
   export const filterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListWorkerBlocksResponse =>
-    __isa(o, "ListWorkerBlocksResponse");
+  export const isa = (o: any): o is ListWorkerBlocksResponse => __isa(o, "ListWorkerBlocksResponse");
 }
 
 export interface ListWorkersWithQualificationTypeRequest {
   __type?: "ListWorkersWithQualificationTypeRequest";
   /**
-   * <p>
-   *             Limit the number of results returned.
-   *         </p>
+   * <p>The ID of the Qualification type of the Qualifications to
+   *             return.</p>
    */
-  MaxResults?: number;
+  QualificationTypeId: string | undefined;
 
   /**
    * <p>Pagination Token</p>
@@ -2150,10 +2040,11 @@ export interface ListWorkersWithQualificationTypeRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID of the Qualification type of the Qualifications to
-   *             return.</p>
+   * <p>
+   *             Limit the number of results returned.
+   *         </p>
    */
-  QualificationTypeId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>
@@ -2165,10 +2056,8 @@ export interface ListWorkersWithQualificationTypeRequest {
 }
 
 export namespace ListWorkersWithQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: ListWorkersWithQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListWorkersWithQualificationTypeRequest =>
     __isa(o, "ListWorkersWithQualificationTypeRequest");
@@ -2199,10 +2088,8 @@ export interface ListWorkersWithQualificationTypeResponse {
 }
 
 export namespace ListWorkersWithQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: ListWorkersWithQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListWorkersWithQualificationTypeResponse =>
     __isa(o, "ListWorkersWithQualificationTypeResponse");
@@ -2231,7 +2118,7 @@ export interface Locale {
 
 export namespace Locale {
   export const filterSensitiveLog = (obj: Locale): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Locale => __isa(o, "Locale");
 }
@@ -2242,24 +2129,6 @@ export namespace Locale {
  */
 export interface NotificationSpecification {
   __type?: "NotificationSpecification";
-  /**
-   * <p>
-   *             The target for notification messages. The Destination’s format is determined by the specified Transport:
-   *         </p>
-   *         <ul>
-   *             <li>
-   *                 <p>When Transport is Email, the Destination is your email address.</p>
-   *             </li>
-   *             <li>
-   *                 <p>When Transport is SQS, the Destination is your queue URL.</p>
-   *             </li>
-   *             <li>
-   *                 <p>When Transport is SNS, the Destination is the ARN of your topic.</p>
-   *             </li>
-   *          </ul>
-   */
-  Destination: string | undefined;
-
   /**
    * <p> The list of events that should cause notifications to be
    *             sent. Valid Values: AssignmentAccepted | AssignmentAbandoned |
@@ -2279,6 +2148,24 @@ export interface NotificationSpecification {
   Transport: NotificationTransport | string | undefined;
 
   /**
+   * <p>
+   *             The target for notification messages. The Destination’s format is determined by the specified Transport:
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                 <p>When Transport is Email, the Destination is your email address.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When Transport is SQS, the Destination is your queue URL.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When Transport is SNS, the Destination is the ARN of your topic.</p>
+   *             </li>
+   *          </ul>
+   */
+  Destination: string | undefined;
+
+  /**
    * <p>The version of the Notification API to use. Valid value is
    *             2006-05-05.</p>
    */
@@ -2287,21 +2174,20 @@ export interface NotificationSpecification {
 
 export namespace NotificationSpecification {
   export const filterSensitiveLog = (obj: NotificationSpecification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotificationSpecification =>
-    __isa(o, "NotificationSpecification");
+  export const isa = (o: any): o is NotificationSpecification => __isa(o, "NotificationSpecification");
 }
 
 export enum NotificationTransport {
   Email = "Email",
   SNS = "SNS",
-  SQS = "SQS"
+  SQS = "SQS",
 }
 
 export enum NotifyWorkersFailureCode {
   HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure"
+  SoftFailure = "SoftFailure",
 }
 
 /**
@@ -2311,12 +2197,6 @@ export enum NotifyWorkersFailureCode {
  */
 export interface NotifyWorkersFailureStatus {
   __type?: "NotifyWorkersFailureStatus";
-  /**
-   * <p> Encoded value for the failure type.
-   *         </p>
-   */
-  NotifyWorkersFailureCode?: NotifyWorkersFailureCode | string;
-
   /**
    * <p> A message detailing the reason the Worker could not be
    *             notified.
@@ -2328,18 +2208,30 @@ export interface NotifyWorkersFailureStatus {
    * <p> The ID of the Worker.</p>
    */
   WorkerId?: string;
+
+  /**
+   * <p> Encoded value for the failure type.
+   *         </p>
+   */
+  NotifyWorkersFailureCode?: NotifyWorkersFailureCode | string;
 }
 
 export namespace NotifyWorkersFailureStatus {
   export const filterSensitiveLog = (obj: NotifyWorkersFailureStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersFailureStatus =>
-    __isa(o, "NotifyWorkersFailureStatus");
+  export const isa = (o: any): o is NotifyWorkersFailureStatus => __isa(o, "NotifyWorkersFailureStatus");
 }
 
 export interface NotifyWorkersRequest {
   __type?: "NotifyWorkersRequest";
+  /**
+   * <p>A list of Worker IDs you wish to notify. You
+   *             can notify upto
+   *             100 Workers at a time.</p>
+   */
+  WorkerIds: string[] | undefined;
+
   /**
    * <p>The text of the email message to send. Can include up to
    *             4,096 characters</p>
@@ -2351,21 +2243,13 @@ export interface NotifyWorkersRequest {
    *             to 200 characters.</p>
    */
   Subject: string | undefined;
-
-  /**
-   * <p>A list of Worker IDs you wish to notify. You
-   *             can notify upto
-   *             100 Workers at a time.</p>
-   */
-  WorkerIds: string[] | undefined;
 }
 
 export namespace NotifyWorkersRequest {
   export const filterSensitiveLog = (obj: NotifyWorkersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersRequest =>
-    __isa(o, "NotifyWorkersRequest");
+  export const isa = (o: any): o is NotifyWorkersRequest => __isa(o, "NotifyWorkersRequest");
 }
 
 export interface NotifyWorkersResponse {
@@ -2381,10 +2265,9 @@ export interface NotifyWorkersResponse {
 
 export namespace NotifyWorkersResponse {
   export const filterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotifyWorkersResponse =>
-    __isa(o, "NotifyWorkersResponse");
+  export const isa = (o: any): o is NotifyWorkersResponse => __isa(o, "NotifyWorkersResponse");
 }
 
 /**
@@ -2395,28 +2278,27 @@ export namespace NotifyWorkersResponse {
 export interface ParameterMapEntry {
   __type?: "ParameterMapEntry";
   /**
-   * <p> The QuestionID from the HIT that is used to identify which
-   *             question requires Mechanical Turk to score as part of the
-   *             ScoreMyKnownAnswers/2011-09-01 Review Policy.
-   *         </p>
-   */
-  Key?: string;
-
-  /**
    * <p> The list of answers to the question specified in the
    *             MapEntry Key element. The Worker must match all values in order for
    *             the answer to be scored correctly.
    *         </p>
    */
   Values?: string[];
+
+  /**
+   * <p> The QuestionID from the HIT that is used to identify which
+   *             question requires Mechanical Turk to score as part of the
+   *             ScoreMyKnownAnswers/2011-09-01 Review Policy.
+   *         </p>
+   */
+  Key?: string;
 }
 
 export namespace ParameterMapEntry {
   export const filterSensitiveLog = (obj: ParameterMapEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterMapEntry =>
-    __isa(o, "ParameterMapEntry");
+  export const isa = (o: any): o is ParameterMapEntry => __isa(o, "ParameterMapEntry");
 }
 
 /**
@@ -2432,23 +2314,22 @@ export interface PolicyParameter {
   Key?: string;
 
   /**
+   * <p> The list of values of the Parameter</p>
+   */
+  Values?: string[];
+
+  /**
    * <p> List of ParameterMapEntry objects.
    *         </p>
    */
   MapEntries?: ParameterMapEntry[];
-
-  /**
-   * <p> The list of values of the Parameter</p>
-   */
-  Values?: string[];
 }
 
 export namespace PolicyParameter {
   export const filterSensitiveLog = (obj: PolicyParameter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyParameter =>
-    __isa(o, "PolicyParameter");
+  export const isa = (o: any): o is PolicyParameter => __isa(o, "PolicyParameter");
 }
 
 /**
@@ -2458,15 +2339,6 @@ export namespace PolicyParameter {
  */
 export interface Qualification {
   __type?: "Qualification";
-  /**
-   * <p> The date and time the Qualification was granted to the
-   *             Worker. If the Worker's Qualification was revoked, and then
-   *             re-granted based on a new Qualification request, GrantTime is the
-   *             date and time of the last call to the AcceptQualificationRequest
-   *             operation.</p>
-   */
-  GrantTime?: Date;
-
   /**
    * <p> The value (score) of the Qualification, if the Qualification
    *             has an integer value.</p>
@@ -2479,26 +2351,35 @@ export interface Qualification {
   LocaleValue?: Locale;
 
   /**
+   * <p> The ID of the Worker who possesses the Qualification.
+   *         </p>
+   */
+  WorkerId?: string;
+
+  /**
    * <p> The ID of the Qualification type for the Qualification.</p>
    */
   QualificationTypeId?: string;
+
+  /**
+   * <p> The date and time the Qualification was granted to the
+   *             Worker. If the Worker's Qualification was revoked, and then
+   *             re-granted based on a new Qualification request, GrantTime is the
+   *             date and time of the last call to the AcceptQualificationRequest
+   *             operation.</p>
+   */
+  GrantTime?: Date;
 
   /**
    * <p> The status of the Qualification. Valid values are Granted |
    *             Revoked.</p>
    */
   Status?: QualificationStatus | string;
-
-  /**
-   * <p> The ID of the Worker who possesses the Qualification.
-   *         </p>
-   */
-  WorkerId?: string;
 }
 
 export namespace Qualification {
   export const filterSensitiveLog = (obj: Qualification): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Qualification => __isa(o, "Qualification");
 }
@@ -2511,13 +2392,16 @@ export namespace Qualification {
 export interface QualificationRequest {
   __type?: "QualificationRequest";
   /**
-   * <p> The Worker's answers for the Qualification type's test
-   *             contained in a QuestionFormAnswers document, if the type has a test
-   *             and the Worker has submitted answers. If the Worker does not provide
-   *             any answers, Answer may be empty.
+   * <p> The ID of the Qualification type the Worker is requesting,
+   *             as returned by the CreateQualificationType operation.
    *         </p>
    */
-  Answer?: string;
+  QualificationTypeId?: string;
+
+  /**
+   * <p> The ID of the Worker requesting the Qualification.</p>
+   */
+  WorkerId?: string;
 
   /**
    * <p>The ID of the Qualification request, a unique identifier
@@ -2526,13 +2410,6 @@ export interface QualificationRequest {
    *         </p>
    */
   QualificationRequestId?: string;
-
-  /**
-   * <p> The ID of the Qualification type the Worker is requesting,
-   *             as returned by the CreateQualificationType operation.
-   *         </p>
-   */
-  QualificationTypeId?: string;
 
   /**
    * <p>The date and time the Qualification request had a status of
@@ -2544,6 +2421,15 @@ export interface QualificationRequest {
   SubmitTime?: Date;
 
   /**
+   * <p> The Worker's answers for the Qualification type's test
+   *             contained in a QuestionFormAnswers document, if the type has a test
+   *             and the Worker has submitted answers. If the Worker does not provide
+   *             any answers, Answer may be empty.
+   *         </p>
+   */
+  Answer?: string;
+
+  /**
    * <p> The contents of the Qualification test that was presented to
    *             the Worker, if the type has a test and the Worker has submitted
    *             answers. This value is identical to the QuestionForm associated with
@@ -2551,19 +2437,13 @@ export interface QualificationRequest {
    *             Qualification.</p>
    */
   Test?: string;
-
-  /**
-   * <p> The ID of the Worker requesting the Qualification.</p>
-   */
-  WorkerId?: string;
 }
 
 export namespace QualificationRequest {
   export const filterSensitiveLog = (obj: QualificationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QualificationRequest =>
-    __isa(o, "QualificationRequest");
+  export const isa = (o: any): o is QualificationRequest => __isa(o, "QualificationRequest");
 }
 
 /**
@@ -2594,33 +2474,20 @@ export interface QualificationRequirement {
   ActionsGuarded?: HITAccessActions | string;
 
   /**
-   * <p>The kind of comparison to make against a Qualification's
-   *             value. You can compare a Qualification's value to an IntegerValue to
-   *             see if it is LessThan, LessThanOrEqualTo, GreaterThan,
-   *             GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You
-   *             can compare it to a LocaleValue to see if it is EqualTo, or
-   *             NotEqualTo the LocaleValue. You can check to see if the value is In
-   *             or NotIn a set of IntegerValue
-   *             or LocaleValue values. Lastly, a
-   *             Qualification requirement can also
-   *             test if a Qualification Exists or
-   *             DoesNotExist in the user's profile,
-   *             regardless of its value.
+   * <p> DEPRECATED: Use the <code>ActionsGuarded</code> field instead.
+   *             If RequiredToPreview is true, the question data for the HIT will not be shown
+   *             when a Worker whose Qualifications do not meet this requirement tries
+   *             to preview the HIT. That is, a Worker's Qualifications must meet all
+   *             of the requirements for which RequiredToPreview is true in order to
+   *             preview the HIT. If a Worker meets all of the requirements where
+   *             RequiredToPreview is true (or if there are no such requirements), but
+   *             does not meet all of the requirements for the HIT, the Worker will be
+   *             allowed to preview the HIT's question data, but will not be allowed
+   *             to accept and complete the HIT. The default is false. This should not
+   *             be used in combination with the <code>ActionsGuarded</code> field.
    *         </p>
    */
-  Comparator: Comparator | string | undefined;
-
-  /**
-   * <p> The integer value to compare against the Qualification's
-   *             value. IntegerValue must not be present if Comparator is Exists or
-   *             DoesNotExist. IntegerValue can only be used if the Qualification type
-   *             has an integer value; it cannot be used with the Worker_Locale
-   *             QualificationType ID. When performing a set comparison by using the
-   *             In or the NotIn comparator, you can use up to 15 IntegerValue
-   *             elements in a QualificationRequirement data structure.
-   *         </p>
-   */
-  IntegerValues?: number[];
+  RequiredToPreview?: boolean;
 
   /**
    * <p> The locale value to compare against the Qualification's
@@ -2637,38 +2504,50 @@ export interface QualificationRequirement {
   LocaleValues?: Locale[];
 
   /**
+   * <p> The integer value to compare against the Qualification's
+   *             value. IntegerValue must not be present if Comparator is Exists or
+   *             DoesNotExist. IntegerValue can only be used if the Qualification type
+   *             has an integer value; it cannot be used with the Worker_Locale
+   *             QualificationType ID. When performing a set comparison by using the
+   *             In or the NotIn comparator, you can use up to 15 IntegerValue
+   *             elements in a QualificationRequirement data structure.
+   *         </p>
+   */
+  IntegerValues?: number[];
+
+  /**
    * <p> The ID of the Qualification type for the requirement.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   * <p> DEPRECATED: Use the <code>ActionsGuarded</code> field instead.
-   *             If RequiredToPreview is true, the question data for the HIT will not be shown
-   *             when a Worker whose Qualifications do not meet this requirement tries
-   *             to preview the HIT. That is, a Worker's Qualifications must meet all
-   *             of the requirements for which RequiredToPreview is true in order to
-   *             preview the HIT. If a Worker meets all of the requirements where
-   *             RequiredToPreview is true (or if there are no such requirements), but
-   *             does not meet all of the requirements for the HIT, the Worker will be
-   *             allowed to preview the HIT's question data, but will not be allowed
-   *             to accept and complete the HIT. The default is false. This should not
-   *             be used in combination with the <code>ActionsGuarded</code> field.
+   * <p>The kind of comparison to make against a Qualification's
+   *             value. You can compare a Qualification's value to an IntegerValue to
+   *             see if it is LessThan, LessThanOrEqualTo, GreaterThan,
+   *             GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You
+   *             can compare it to a LocaleValue to see if it is EqualTo, or
+   *             NotEqualTo the LocaleValue. You can check to see if the value is In
+   *             or NotIn a set of IntegerValue
+   *             or LocaleValue values. Lastly, a
+   *             Qualification requirement can also
+   *             test if a Qualification Exists or
+   *             DoesNotExist in the user's profile,
+   *             regardless of its value.
    *         </p>
    */
-  RequiredToPreview?: boolean;
+  Comparator: Comparator | string | undefined;
 }
 
 export namespace QualificationRequirement {
   export const filterSensitiveLog = (obj: QualificationRequirement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QualificationRequirement =>
-    __isa(o, "QualificationRequirement");
+  export const isa = (o: any): o is QualificationRequirement => __isa(o, "QualificationRequirement");
 }
 
 export enum QualificationStatus {
   Granted = "Granted",
-  Revoked = "Revoked"
+  Revoked = "Revoked",
 }
 
 /**
@@ -2682,78 +2561,14 @@ export enum QualificationStatus {
 export interface QualificationType {
   __type?: "QualificationType";
   /**
-   * <p>The answers to the Qualification test specified in the Test
-   *             parameter.</p>
-   */
-  AnswerKey?: string;
-
-  /**
-   * <p>Specifies that requests for the Qualification type are
-   *             granted immediately, without prompting the Worker with a
-   *             Qualification test. Valid values are True | False.</p>
-   */
-  AutoGranted?: boolean;
-
-  /**
-   * <p> The Qualification integer value to use for automatically
-   *             granted Qualifications, if AutoGranted is true. This is 1 by default.
+   * <p> The questions for a Qualification test associated with this
+   *             Qualification type that a user can take to obtain a Qualification of
+   *             this type. This parameter must be specified if AnswerKey is present.
+   *             A Qualification type cannot have both a specified Test parameter and
+   *             an AutoGranted value of true.
    *         </p>
    */
-  AutoGrantedValue?: number;
-
-  /**
-   * <p> The date and time the Qualification type was created.
-   *         </p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p> A long description for the Qualification type.
-   *         </p>
-   */
-  Description?: string;
-
-  /**
-   * <p> Specifies whether the Qualification type is one that a user
-   *             can request through the Amazon Mechanical Turk web site, such as by
-   *             taking a Qualification test. This value is False for Qualifications
-   *             assigned automatically by the system. Valid values are True | False.
-   *         </p>
-   */
-  IsRequestable?: boolean;
-
-  /**
-   * <p> One or more words or phrases that describe theQualification
-   *             type, separated by commas. The Keywords make the type easier to find
-   *             using a search.
-   *         </p>
-   */
-  Keywords?: string;
-
-  /**
-   * <p> The name of the Qualification type. The type name is used to
-   *             identify the type, and to find the type using a Qualification type
-   *             search.
-   *         </p>
-   */
-  Name?: string;
-
-  /**
-   * <p> A unique identifier for the Qualification type. A
-   *             Qualification type is given a Qualification type ID when you call the
-   *             CreateQualificationType operation.
-   *         </p>
-   */
-  QualificationTypeId?: string;
-
-  /**
-   * <p> The status of the Qualification type. A Qualification type's
-   *             status determines if users can apply to receive a Qualification of
-   *             this type, and if HITs can be created with requirements based on this
-   *             type. Valid values are Active | Inactive.
-   *         </p>
-   */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
+  Test?: string;
 
   /**
    * <p> The amount of time, in seconds, Workers must wait after
@@ -2768,14 +2583,41 @@ export interface QualificationType {
   RetryDelayInSeconds?: number;
 
   /**
-   * <p> The questions for a Qualification test associated with this
-   *             Qualification type that a user can take to obtain a Qualification of
-   *             this type. This parameter must be specified if AnswerKey is present.
-   *             A Qualification type cannot have both a specified Test parameter and
-   *             an AutoGranted value of true.
+   * <p> The name of the Qualification type. The type name is used to
+   *             identify the type, and to find the type using a Qualification type
+   *             search.
    *         </p>
    */
-  Test?: string;
+  Name?: string;
+
+  /**
+   * <p> One or more words or phrases that describe theQualification
+   *             type, separated by commas. The Keywords make the type easier to find
+   *             using a search.
+   *         </p>
+   */
+  Keywords?: string;
+
+  /**
+   * <p> A unique identifier for the Qualification type. A
+   *             Qualification type is given a Qualification type ID when you call the
+   *             CreateQualificationType operation.
+   *         </p>
+   */
+  QualificationTypeId?: string;
+
+  /**
+   * <p>Specifies that requests for the Qualification type are
+   *             granted immediately, without prompting the Worker with a
+   *             Qualification test. Valid values are True | False.</p>
+   */
+  AutoGranted?: boolean;
+
+  /**
+   * <p> The date and time the Qualification type was created.
+   *         </p>
+   */
+  CreationTime?: Date;
 
   /**
    * <p> The amount of time, in seconds, given to a Worker to
@@ -2784,19 +2626,55 @@ export interface QualificationType {
    *         </p>
    */
   TestDurationInSeconds?: number;
+
+  /**
+   * <p> A long description for the Qualification type.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * <p> The Qualification integer value to use for automatically
+   *             granted Qualifications, if AutoGranted is true. This is 1 by default.
+   *         </p>
+   */
+  AutoGrantedValue?: number;
+
+  /**
+   * <p> The status of the Qualification type. A Qualification type's
+   *             status determines if users can apply to receive a Qualification of
+   *             this type, and if HITs can be created with requirements based on this
+   *             type. Valid values are Active | Inactive.
+   *         </p>
+   */
+  QualificationTypeStatus?: QualificationTypeStatus | string;
+
+  /**
+   * <p> Specifies whether the Qualification type is one that a user
+   *             can request through the Amazon Mechanical Turk web site, such as by
+   *             taking a Qualification test. This value is False for Qualifications
+   *             assigned automatically by the system. Valid values are True | False.
+   *         </p>
+   */
+  IsRequestable?: boolean;
+
+  /**
+   * <p>The answers to the Qualification test specified in the Test
+   *             parameter.</p>
+   */
+  AnswerKey?: string;
 }
 
 export namespace QualificationType {
   export const filterSensitiveLog = (obj: QualificationType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QualificationType =>
-    __isa(o, "QualificationType");
+  export const isa = (o: any): o is QualificationType => __isa(o, "QualificationType");
 }
 
 export enum QualificationTypeStatus {
   Active = "Active",
-  Inactive = "Inactive"
+  Inactive = "Inactive",
 }
 
 export interface RejectAssignmentRequest {
@@ -2818,10 +2696,9 @@ export interface RejectAssignmentRequest {
 
 export namespace RejectAssignmentRequest {
   export const filterSensitiveLog = (obj: RejectAssignmentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RejectAssignmentRequest =>
-    __isa(o, "RejectAssignmentRequest");
+  export const isa = (o: any): o is RejectAssignmentRequest => __isa(o, "RejectAssignmentRequest");
 }
 
 export interface RejectAssignmentResponse {
@@ -2830,10 +2707,9 @@ export interface RejectAssignmentResponse {
 
 export namespace RejectAssignmentResponse {
   export const filterSensitiveLog = (obj: RejectAssignmentResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RejectAssignmentResponse =>
-    __isa(o, "RejectAssignmentResponse");
+  export const isa = (o: any): o is RejectAssignmentResponse => __isa(o, "RejectAssignmentResponse");
 }
 
 export interface RejectQualificationRequestRequest {
@@ -2855,13 +2731,10 @@ export interface RejectQualificationRequestRequest {
 }
 
 export namespace RejectQualificationRequestRequest {
-  export const filterSensitiveLog = (
-    obj: RejectQualificationRequestRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectQualificationRequestRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RejectQualificationRequestRequest =>
-    __isa(o, "RejectQualificationRequestRequest");
+  export const isa = (o: any): o is RejectQualificationRequestRequest => __isa(o, "RejectQualificationRequestRequest");
 }
 
 export interface RejectQualificationRequestResponse {
@@ -2869,10 +2742,8 @@ export interface RejectQualificationRequestResponse {
 }
 
 export namespace RejectQualificationRequestResponse {
-  export const filterSensitiveLog = (
-    obj: RejectQualificationRequestResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectQualificationRequestResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectQualificationRequestResponse =>
     __isa(o, "RejectQualificationRequestResponse");
@@ -2890,14 +2761,14 @@ export interface RequestError extends __SmithyException, $MetadataBearer {
 
 export namespace RequestError {
   export const filterSensitiveLog = (obj: RequestError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RequestError => __isa(o, "RequestError");
 }
 
 export enum ReviewableHITStatus {
   Reviewable = "Reviewable",
-  Reviewing = "Reviewing"
+  Reviewing = "Reviewing",
 }
 
 /**
@@ -2915,6 +2786,11 @@ export interface ReviewActionDetail {
   ActionId?: string;
 
   /**
+   * <p> The date when the action was completed.</p>
+   */
+  CompleteTime?: Date;
+
+  /**
    * <p> The nature of the action itself. The Review Policy is
    *             responsible for examining the HIT and Assignments, emitting results,
    *             and deciding which other actions will be necessary. </p>
@@ -2922,26 +2798,9 @@ export interface ReviewActionDetail {
   ActionName?: string;
 
   /**
-   * <p> The date when the action was completed.</p>
-   */
-  CompleteTime?: Date;
-
-  /**
-   * <p> Present only when the Results have a FAILED Status.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p> A description of the outcome of the review.</p>
    */
   Result?: string;
-
-  /**
-   * <p> The current disposition of the action: INTENDED, SUCCEEDED,
-   *             FAILED, or CANCELLED.
-   *         </p>
-   */
-  Status?: ReviewActionStatus | string;
 
   /**
    * <p> The specific HITId or AssignmentID targeted by the action.</p>
@@ -2952,21 +2811,32 @@ export interface ReviewActionDetail {
    * <p> The type of object in TargetId.</p>
    */
   TargetType?: string;
+
+  /**
+   * <p> Present only when the Results have a FAILED Status.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p> The current disposition of the action: INTENDED, SUCCEEDED,
+   *             FAILED, or CANCELLED.
+   *         </p>
+   */
+  Status?: ReviewActionStatus | string;
 }
 
 export namespace ReviewActionDetail {
   export const filterSensitiveLog = (obj: ReviewActionDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReviewActionDetail =>
-    __isa(o, "ReviewActionDetail");
+  export const isa = (o: any): o is ReviewActionDetail => __isa(o, "ReviewActionDetail");
 }
 
 export enum ReviewActionStatus {
   Cancelled = "Cancelled",
   Failed = "Failed",
   Intended = "Intended",
-  Succeeded = "Succeeded"
+  Succeeded = "Succeeded",
 }
 
 /**
@@ -2991,14 +2861,14 @@ export interface ReviewPolicy {
 
 export namespace ReviewPolicy {
   export const filterSensitiveLog = (obj: ReviewPolicy): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ReviewPolicy => __isa(o, "ReviewPolicy");
 }
 
 export enum ReviewPolicyLevel {
   Assignment = "Assignment",
-  HIT = "HIT"
+  HIT = "HIT",
 }
 
 /**
@@ -3025,7 +2895,7 @@ export interface ReviewReport {
 
 export namespace ReviewReport {
   export const filterSensitiveLog = (obj: ReviewReport): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ReviewReport => __isa(o, "ReviewReport");
 }
@@ -3038,18 +2908,6 @@ export namespace ReviewReport {
 export interface ReviewResultDetail {
   __type?: "ReviewResultDetail";
   /**
-   * <p> A unique identifier of the Review action result.
-   *         </p>
-   */
-  ActionId?: string;
-
-  /**
-   * <p> Key identifies the particular piece of reviewed information.
-   *         </p>
-   */
-  Key?: string;
-
-  /**
    * <p> Specifies the QuestionId the result is describing. Depending
    *             on whether the TargetType is a HIT or Assignment this results could
    *             specify multiple values. If TargetType is HIT and QuestionId is
@@ -3060,6 +2918,18 @@ export interface ReviewResultDetail {
    *         </p>
    */
   QuestionId?: string;
+
+  /**
+   * <p> A unique identifier of the Review action result.
+   *         </p>
+   */
+  ActionId?: string;
+
+  /**
+   * <p> Key identifies the particular piece of reviewed information.
+   *         </p>
+   */
+  Key?: string;
 
   /**
    * <p>The HITID or AssignmentId about which this result was taken.
@@ -3086,10 +2956,9 @@ export interface ReviewResultDetail {
 
 export namespace ReviewResultDetail {
   export const filterSensitiveLog = (obj: ReviewResultDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReviewResultDetail =>
-    __isa(o, "ReviewResultDetail");
+  export const isa = (o: any): o is ReviewResultDetail => __isa(o, "ReviewResultDetail");
 }
 
 export interface SendBonusRequest {
@@ -3100,18 +2969,23 @@ export interface SendBonusRequest {
   AssignmentId: string | undefined;
 
   /**
+   * <p>A message that explains the reason for the bonus payment. The
+   *             Worker receiving the bonus can see this message.</p>
+   */
+  Reason: string | undefined;
+
+  /**
+   * <p>The ID of the Worker being paid the bonus.</p>
+   */
+  WorkerId: string | undefined;
+
+  /**
    * <p>
    *             The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and
    *             "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
    *         </p>
    */
   BonusAmount: string | undefined;
-
-  /**
-   * <p>A message that explains the reason for the bonus payment. The
-   *             Worker receiving the bonus can see this message.</p>
-   */
-  Reason: string | undefined;
 
   /**
    * <p>A unique identifier for this request, which allows you to
@@ -3123,19 +2997,13 @@ export interface SendBonusRequest {
    *             request ID.</p>
    */
   UniqueRequestToken?: string;
-
-  /**
-   * <p>The ID of the Worker being paid the bonus.</p>
-   */
-  WorkerId: string | undefined;
 }
 
 export namespace SendBonusRequest {
   export const filterSensitiveLog = (obj: SendBonusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendBonusRequest =>
-    __isa(o, "SendBonusRequest");
+  export const isa = (o: any): o is SendBonusRequest => __isa(o, "SendBonusRequest");
 }
 
 export interface SendBonusResponse {
@@ -3144,10 +3012,9 @@ export interface SendBonusResponse {
 
 export namespace SendBonusResponse {
   export const filterSensitiveLog = (obj: SendBonusResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendBonusResponse =>
-    __isa(o, "SendBonusResponse");
+  export const isa = (o: any): o is SendBonusResponse => __isa(o, "SendBonusResponse");
 }
 
 export interface SendTestEventNotificationRequest {
@@ -3173,13 +3040,10 @@ export interface SendTestEventNotificationRequest {
 }
 
 export namespace SendTestEventNotificationRequest {
-  export const filterSensitiveLog = (
-    obj: SendTestEventNotificationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SendTestEventNotificationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SendTestEventNotificationRequest =>
-    __isa(o, "SendTestEventNotificationRequest");
+  export const isa = (o: any): o is SendTestEventNotificationRequest => __isa(o, "SendTestEventNotificationRequest");
 }
 
 export interface SendTestEventNotificationResponse {
@@ -3187,13 +3051,10 @@ export interface SendTestEventNotificationResponse {
 }
 
 export namespace SendTestEventNotificationResponse {
-  export const filterSensitiveLog = (
-    obj: SendTestEventNotificationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SendTestEventNotificationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SendTestEventNotificationResponse =>
-    __isa(o, "SendTestEventNotificationResponse");
+  export const isa = (o: any): o is SendTestEventNotificationResponse => __isa(o, "SendTestEventNotificationResponse");
 }
 
 /**
@@ -3202,13 +3063,13 @@ export namespace SendTestEventNotificationResponse {
 export interface ServiceFault extends __SmithyException, $MetadataBearer {
   name: "ServiceFault";
   $fault: "server";
-  Message?: string;
   TurkErrorCode?: string;
+  Message?: string;
 }
 
 export namespace ServiceFault {
   export const filterSensitiveLog = (obj: ServiceFault): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ServiceFault => __isa(o, "ServiceFault");
 }
@@ -3217,27 +3078,24 @@ export interface UpdateExpirationForHITRequest {
   __type?: "UpdateExpirationForHITRequest";
   /**
    * <p>
-   *             The date and time at which you want the HIT to expire
-   *         </p>
-   */
-  ExpireAt: Date | undefined;
-
-  /**
-   * <p>
    *             The HIT to update.
    *         </p>
    */
   HITId: string | undefined;
+
+  /**
+   * <p>
+   *             The date and time at which you want the HIT to expire
+   *         </p>
+   */
+  ExpireAt: Date | undefined;
 }
 
 export namespace UpdateExpirationForHITRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateExpirationForHITRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateExpirationForHITRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateExpirationForHITRequest =>
-    __isa(o, "UpdateExpirationForHITRequest");
+  export const isa = (o: any): o is UpdateExpirationForHITRequest => __isa(o, "UpdateExpirationForHITRequest");
 }
 
 export interface UpdateExpirationForHITResponse {
@@ -3245,24 +3103,14 @@ export interface UpdateExpirationForHITResponse {
 }
 
 export namespace UpdateExpirationForHITResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateExpirationForHITResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateExpirationForHITResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateExpirationForHITResponse =>
-    __isa(o, "UpdateExpirationForHITResponse");
+  export const isa = (o: any): o is UpdateExpirationForHITResponse => __isa(o, "UpdateExpirationForHITResponse");
 }
 
 export interface UpdateHITReviewStatusRequest {
   __type?: "UpdateHITReviewStatusRequest";
-  /**
-   * <p>
-   *             The ID of the HIT to update.
-   *         </p>
-   */
-  HITId: string | undefined;
-
   /**
    * <p>
    *             Specifies how to update the HIT status. Default is <code>False</code>.
@@ -3281,16 +3129,20 @@ export interface UpdateHITReviewStatusRequest {
    *          </ul>
    */
   Revert?: boolean;
+
+  /**
+   * <p>
+   *             The ID of the HIT to update.
+   *         </p>
+   */
+  HITId: string | undefined;
 }
 
 export namespace UpdateHITReviewStatusRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateHITReviewStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateHITReviewStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateHITReviewStatusRequest =>
-    __isa(o, "UpdateHITReviewStatusRequest");
+  export const isa = (o: any): o is UpdateHITReviewStatusRequest => __isa(o, "UpdateHITReviewStatusRequest");
 }
 
 export interface UpdateHITReviewStatusResponse {
@@ -3298,34 +3150,30 @@ export interface UpdateHITReviewStatusResponse {
 }
 
 export namespace UpdateHITReviewStatusResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateHITReviewStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateHITReviewStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateHITReviewStatusResponse =>
-    __isa(o, "UpdateHITReviewStatusResponse");
+  export const isa = (o: any): o is UpdateHITReviewStatusResponse => __isa(o, "UpdateHITReviewStatusResponse");
 }
 
 export interface UpdateHITTypeOfHITRequest {
   __type?: "UpdateHITTypeOfHITRequest";
   /**
-   * <p>The HIT to update.</p>
-   */
-  HITId: string | undefined;
-
-  /**
    * <p>The ID of the new HIT type.</p>
    */
   HITTypeId: string | undefined;
+
+  /**
+   * <p>The HIT to update.</p>
+   */
+  HITId: string | undefined;
 }
 
 export namespace UpdateHITTypeOfHITRequest {
   export const filterSensitiveLog = (obj: UpdateHITTypeOfHITRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateHITTypeOfHITRequest =>
-    __isa(o, "UpdateHITTypeOfHITRequest");
+  export const isa = (o: any): o is UpdateHITTypeOfHITRequest => __isa(o, "UpdateHITTypeOfHITRequest");
 }
 
 export interface UpdateHITTypeOfHITResponse {
@@ -3334,10 +3182,9 @@ export interface UpdateHITTypeOfHITResponse {
 
 export namespace UpdateHITTypeOfHITResponse {
   export const filterSensitiveLog = (obj: UpdateHITTypeOfHITResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateHITTypeOfHITResponse =>
-    __isa(o, "UpdateHITTypeOfHITResponse");
+  export const isa = (o: any): o is UpdateHITTypeOfHITResponse => __isa(o, "UpdateHITTypeOfHITResponse");
 }
 
 export interface UpdateNotificationSettingsRequest {
@@ -3368,13 +3215,10 @@ export interface UpdateNotificationSettingsRequest {
 }
 
 export namespace UpdateNotificationSettingsRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateNotificationSettingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateNotificationSettingsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationSettingsRequest =>
-    __isa(o, "UpdateNotificationSettingsRequest");
+  export const isa = (o: any): o is UpdateNotificationSettingsRequest => __isa(o, "UpdateNotificationSettingsRequest");
 }
 
 export interface UpdateNotificationSettingsResponse {
@@ -3382,10 +3226,8 @@ export interface UpdateNotificationSettingsResponse {
 }
 
 export namespace UpdateNotificationSettingsResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateNotificationSettingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateNotificationSettingsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateNotificationSettingsResponse =>
     __isa(o, "UpdateNotificationSettingsResponse");
@@ -3394,35 +3236,9 @@ export namespace UpdateNotificationSettingsResponse {
 export interface UpdateQualificationTypeRequest {
   __type?: "UpdateQualificationTypeRequest";
   /**
-   * <p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p>
-   */
-  AnswerKey?: string;
-
-  /**
-   * <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p>
-   *         <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
-   */
-  AutoGranted?: boolean;
-
-  /**
-   * <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
-   */
-  AutoGrantedValue?: number;
-
-  /**
-   * <p>The new description of the Qualification type.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ID of the Qualification type to update.</p>
    */
   QualificationTypeId: string | undefined;
-
-  /**
-   * <p>The new status of the Qualification type - Active | Inactive</p>
-   */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
 
   /**
    * <p>The amount of time, in seconds, that Workers must wait
@@ -3437,6 +3253,32 @@ export interface UpdateQualificationTypeRequest {
   RetryDelayInSeconds?: number;
 
   /**
+   * <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p>
+   *         <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
+   */
+  AutoGranted?: boolean;
+
+  /**
+   * <p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p>
+   */
+  AnswerKey?: string;
+
+  /**
+   * <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
+   */
+  TestDurationInSeconds?: number;
+
+  /**
+   * <p>The new status of the Qualification type - Active | Inactive</p>
+   */
+  QualificationTypeStatus?: QualificationTypeStatus | string;
+
+  /**
+   * <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
+   */
+  AutoGrantedValue?: number;
+
+  /**
    * <p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p>
    *         <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p>
    *         <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>
@@ -3444,19 +3286,16 @@ export interface UpdateQualificationTypeRequest {
   Test?: string;
 
   /**
-   * <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
+   * <p>The new description of the Qualification type.</p>
    */
-  TestDurationInSeconds?: number;
+  Description?: string;
 }
 
 export namespace UpdateQualificationTypeRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateQualificationTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateQualificationTypeRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateQualificationTypeRequest =>
-    __isa(o, "UpdateQualificationTypeRequest");
+  export const isa = (o: any): o is UpdateQualificationTypeRequest => __isa(o, "UpdateQualificationTypeRequest");
 }
 
 export interface UpdateQualificationTypeResponse {
@@ -3468,13 +3307,10 @@ export interface UpdateQualificationTypeResponse {
 }
 
 export namespace UpdateQualificationTypeResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateQualificationTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateQualificationTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateQualificationTypeResponse =>
-    __isa(o, "UpdateQualificationTypeResponse");
+  export const isa = (o: any): o is UpdateQualificationTypeResponse => __isa(o, "UpdateQualificationTypeResponse");
 }
 
 /**
@@ -3499,7 +3335,7 @@ export interface WorkerBlock {
 
 export namespace WorkerBlock {
   export const filterSensitiveLog = (obj: WorkerBlock): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is WorkerBlock => __isa(o, "WorkerBlock");
 }

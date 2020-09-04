@@ -2,52 +2,57 @@ import { MacieClient } from "./MacieClient.ts";
 import {
   AssociateMemberAccountCommand,
   AssociateMemberAccountCommandInput,
-  AssociateMemberAccountCommandOutput
+  AssociateMemberAccountCommandOutput,
 } from "./commands/AssociateMemberAccountCommand.ts";
 import {
   AssociateS3ResourcesCommand,
   AssociateS3ResourcesCommandInput,
-  AssociateS3ResourcesCommandOutput
+  AssociateS3ResourcesCommandOutput,
 } from "./commands/AssociateS3ResourcesCommand.ts";
 import {
   DisassociateMemberAccountCommand,
   DisassociateMemberAccountCommandInput,
-  DisassociateMemberAccountCommandOutput
+  DisassociateMemberAccountCommandOutput,
 } from "./commands/DisassociateMemberAccountCommand.ts";
 import {
   DisassociateS3ResourcesCommand,
   DisassociateS3ResourcesCommandInput,
-  DisassociateS3ResourcesCommandOutput
+  DisassociateS3ResourcesCommandOutput,
 } from "./commands/DisassociateS3ResourcesCommand.ts";
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
+  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand.ts";
 import {
   ListS3ResourcesCommand,
   ListS3ResourcesCommandInput,
-  ListS3ResourcesCommandOutput
+  ListS3ResourcesCommandOutput,
 } from "./commands/ListS3ResourcesCommand.ts";
 import {
   UpdateS3ResourcesCommand,
   UpdateS3ResourcesCommandInput,
-  UpdateS3ResourcesCommandOutput
+  UpdateS3ResourcesCommandOutput,
 } from "./commands/UpdateS3ResourcesCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <fullname>Amazon Macie</fullname>
- *          <p>Amazon Macie is a security service that uses machine learning to automatically
- *       discover, classify, and protect sensitive data in AWS. Macie recognizes sensitive data such as
- *       personally identifiable information (PII) or intellectual property, and provides you with
- *       dashboards and alerts that give visibility into how this data is being accessed or moved. For
- *       more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Macie User
- *         Guide</a>. </p>
+ * <fullname>Amazon Macie Classic</fullname>
+ *          <p>Amazon Macie Classic is a security service that uses machine learning to automatically
+ *       discover, classify, and protect sensitive data in AWS. Macie Classic recognizes sensitive data
+ *       such as personally identifiable information (PII) or intellectual property, and provides you
+ *       with dashboards and alerts that give visibility into how this data is being accessed or moved.
+ *       For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Amazon Macie
+ *         Classic User Guide</a>. </p>
+ *          <p>A new Amazon Macie is now available with significant design improvements and additional
+ *       features, at a lower price and in most AWS Regions. We encourage you to explore and use
+ *       the new and improved features, and benefit from the reduced cost. To learn about features and
+ *       pricing for the new Amazon Macie, see <a href="https://aws.amazon.com/macie/">Amazon Macie</a>.</p>
  */
 export class Macie extends MacieClient {
   /**
-   * <p>Associates a specified AWS account with Amazon Macie as a member account.</p>
+   * <p>Associates a specified AWS account with Amazon Macie Classic as a member
+   *       account.</p>
    */
   public associateMemberAccount(
     args: AssociateMemberAccountCommandInput,
@@ -64,17 +69,14 @@ export class Macie extends MacieClient {
   ): void;
   public associateMemberAccount(
     args: AssociateMemberAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateMemberAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateMemberAccountCommandOutput) => void),
     cb?: (err: any, data?: AssociateMemberAccountCommandOutput) => void
   ): Promise<AssociateMemberAccountCommandOutput> | void {
     const command = new AssociateMemberAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -82,11 +84,11 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Associates specified S3 resources with Amazon Macie for monitoring and data
+   * <p>Associates specified S3 resources with Amazon Macie Classic for monitoring and data
    *       classification. If memberAccountId isn't specified, the action associates specified S3
-   *       resources with Macie for the current master account. If memberAccountId is specified, the
-   *       action associates specified S3 resources with Macie for the specified member account.
-   *     </p>
+   *       resources with Macie Classic for the current master account. If memberAccountId is specified,
+   *       the action associates specified S3 resources with Macie Classic for the specified member
+   *       account. </p>
    */
   public associateS3Resources(
     args: AssociateS3ResourcesCommandInput,
@@ -103,17 +105,14 @@ export class Macie extends MacieClient {
   ): void;
   public associateS3Resources(
     args: AssociateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: AssociateS3ResourcesCommandOutput) => void
   ): Promise<AssociateS3ResourcesCommandOutput> | void {
     const command = new AssociateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -121,7 +120,7 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Removes the specified member account from Amazon Macie.</p>
+   * <p>Removes the specified member account from Amazon Macie Classic.</p>
    */
   public disassociateMemberAccount(
     args: DisassociateMemberAccountCommandInput,
@@ -138,17 +137,14 @@ export class Macie extends MacieClient {
   ): void;
   public disassociateMemberAccount(
     args: DisassociateMemberAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateMemberAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMemberAccountCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMemberAccountCommandOutput) => void
   ): Promise<DisassociateMemberAccountCommandOutput> | void {
     const command = new DisassociateMemberAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -156,10 +152,10 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId
-   *       isn't specified, the action removes specified S3 resources from Macie for the current master
-   *       account. If memberAccountId is specified, the action removes specified S3 resources from Macie
-   *       for the specified member account.</p>
+   * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If
+   *       memberAccountId isn't specified, the action removes specified S3 resources from Macie Classic
+   *       for the current master account. If memberAccountId is specified, the action removes specified
+   *       S3 resources from Macie Classic for the specified member account.</p>
    */
   public disassociateS3Resources(
     args: DisassociateS3ResourcesCommandInput,
@@ -176,17 +172,14 @@ export class Macie extends MacieClient {
   ): void;
   public disassociateS3Resources(
     args: DisassociateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: DisassociateS3ResourcesCommandOutput) => void
   ): Promise<DisassociateS3ResourcesCommandOutput> | void {
     const command = new DisassociateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -194,8 +187,8 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Lists all Amazon Macie member accounts for the current Amazon Macie master
-   *       account.</p>
+   * <p>Lists all Amazon Macie Classic member accounts for the current Amazon Macie Classic
+   *       master account.</p>
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -212,17 +205,14 @@ export class Macie extends MacieClient {
   ): void;
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListMemberAccountsCommandOutput) => void
   ): Promise<ListMemberAccountsCommandOutput> | void {
     const command = new ListMemberAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -230,10 +220,10 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't
-   *       specified, the action lists the S3 resources associated with Amazon Macie for the current
-   *       master account. If memberAccountId is specified, the action lists the S3 resources associated
-   *       with Amazon Macie for the specified member account. </p>
+   * <p>Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId
+   *       isn't specified, the action lists the S3 resources associated with Amazon Macie Classic for
+   *       the current master account. If memberAccountId is specified, the action lists the S3 resources
+   *       associated with Amazon Macie Classic for the specified member account. </p>
    */
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
@@ -250,17 +240,14 @@ export class Macie extends MacieClient {
   ): void;
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListS3ResourcesCommandOutput) => void
   ): Promise<ListS3ResourcesCommandOutput> | void {
     const command = new ListS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -270,9 +257,9 @@ export class Macie extends MacieClient {
   /**
    * <p>Updates the classification types for the specified S3 resources. If memberAccountId
    *       isn't specified, the action updates the classification types of the S3 resources associated
-   *       with Amazon Macie for the current master account. If memberAccountId is specified, the action
-   *       updates the classification types of the S3 resources associated with Amazon Macie for the
-   *       specified member account. </p>
+   *       with Amazon Macie Classic for the current master account. If memberAccountId is specified, the
+   *       action updates the classification types of the S3 resources associated with Amazon Macie
+   *       Classic for the specified member account. </p>
    */
   public updateS3Resources(
     args: UpdateS3ResourcesCommandInput,
@@ -289,17 +276,14 @@ export class Macie extends MacieClient {
   ): void;
   public updateS3Resources(
     args: UpdateS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: UpdateS3ResourcesCommandOutput) => void
   ): Promise<UpdateS3ResourcesCommandOutput> | void {
     const command = new UpdateS3ResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

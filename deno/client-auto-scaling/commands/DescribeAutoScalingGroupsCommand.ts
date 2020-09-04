@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
-import {
-  AutoScalingGroupNamesType,
-  AutoScalingGroupsType
-} from "../models/index.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeAutoScalingGroupsCommand,
-  serializeAws_queryDescribeAutoScalingGroupsCommand
+  serializeAws_queryDescribeAutoScalingGroupsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
-export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType &
-  __MetadataBearer;
+export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType & __MetadataBearer;
 
 export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAutoScalingGroupsCommandInput,
-    DescribeAutoScalingGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAutoScalingGroupsCommandInput, DescribeAutoScalingGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AutoScalingGroupNamesType.filterSensitiveLog,
+      outputFilterSensitiveLog: AutoScalingGroupsType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAutoScalingGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAutoScalingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAutoScalingGroupsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingGroupsCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

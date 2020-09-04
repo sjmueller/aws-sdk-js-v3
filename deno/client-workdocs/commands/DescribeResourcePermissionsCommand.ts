@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient.ts";
-import {
-  DescribeResourcePermissionsRequest,
-  DescribeResourcePermissionsResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
+import { DescribeResourcePermissionsRequest, DescribeResourcePermissionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeResourcePermissionsCommand,
-  serializeAws_restJson1DescribeResourcePermissionsCommand
+  serializeAws_restJson1DescribeResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeResourcePermissionsCommandInput = DescribeResourcePermissionsRequest;
-export type DescribeResourcePermissionsCommandOutput = DescribeResourcePermissionsResponse &
-  __MetadataBearer;
+export type DescribeResourcePermissionsCommandOutput = DescribeResourcePermissionsResponse & __MetadataBearer;
 
 export class DescribeResourcePermissionsCommand extends $Command<
   DescribeResourcePermissionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeResourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeResourcePermissionsCommandInput,
-    DescribeResourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeResourcePermissionsCommandInput, DescribeResourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeResourcePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResourcePermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeResourcePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeResourcePermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeResourcePermissionsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeResourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeResourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

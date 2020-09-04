@@ -2,157 +2,133 @@ import { CloudWatchEventsClient } from "./CloudWatchEventsClient.ts";
 import {
   ActivateEventSourceCommand,
   ActivateEventSourceCommandInput,
-  ActivateEventSourceCommandOutput
+  ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand.ts";
 import {
   CreateEventBusCommand,
   CreateEventBusCommandInput,
-  CreateEventBusCommandOutput
+  CreateEventBusCommandOutput,
 } from "./commands/CreateEventBusCommand.ts";
 import {
   CreatePartnerEventSourceCommand,
   CreatePartnerEventSourceCommandInput,
-  CreatePartnerEventSourceCommandOutput
+  CreatePartnerEventSourceCommandOutput,
 } from "./commands/CreatePartnerEventSourceCommand.ts";
 import {
   DeactivateEventSourceCommand,
   DeactivateEventSourceCommandInput,
-  DeactivateEventSourceCommandOutput
+  DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand.ts";
 import {
   DeleteEventBusCommand,
   DeleteEventBusCommandInput,
-  DeleteEventBusCommandOutput
+  DeleteEventBusCommandOutput,
 } from "./commands/DeleteEventBusCommand.ts";
 import {
   DeletePartnerEventSourceCommand,
   DeletePartnerEventSourceCommandInput,
-  DeletePartnerEventSourceCommandOutput
+  DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand.ts";
-import {
-  DeleteRuleCommand,
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand.ts";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
 import {
   DescribeEventBusCommand,
   DescribeEventBusCommandInput,
-  DescribeEventBusCommandOutput
+  DescribeEventBusCommandOutput,
 } from "./commands/DescribeEventBusCommand.ts";
 import {
   DescribeEventSourceCommand,
   DescribeEventSourceCommandInput,
-  DescribeEventSourceCommandOutput
+  DescribeEventSourceCommandOutput,
 } from "./commands/DescribeEventSourceCommand.ts";
 import {
   DescribePartnerEventSourceCommand,
   DescribePartnerEventSourceCommandInput,
-  DescribePartnerEventSourceCommandOutput
+  DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand.ts";
 import {
   DescribeRuleCommand,
   DescribeRuleCommandInput,
-  DescribeRuleCommandOutput
+  DescribeRuleCommandOutput,
 } from "./commands/DescribeRuleCommand.ts";
 import {
   DisableRuleCommand,
   DisableRuleCommandInput,
-  DisableRuleCommandOutput
+  DisableRuleCommandOutput,
 } from "./commands/DisableRuleCommand.ts";
-import {
-  EnableRuleCommand,
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "./commands/EnableRuleCommand.ts";
+import { EnableRuleCommand, EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand.ts";
 import {
   ListEventBusesCommand,
   ListEventBusesCommandInput,
-  ListEventBusesCommandOutput
+  ListEventBusesCommandOutput,
 } from "./commands/ListEventBusesCommand.ts";
 import {
   ListEventSourcesCommand,
   ListEventSourcesCommandInput,
-  ListEventSourcesCommandOutput
+  ListEventSourcesCommandOutput,
 } from "./commands/ListEventSourcesCommand.ts";
 import {
   ListPartnerEventSourceAccountsCommand,
   ListPartnerEventSourceAccountsCommandInput,
-  ListPartnerEventSourceAccountsCommandOutput
+  ListPartnerEventSourceAccountsCommandOutput,
 } from "./commands/ListPartnerEventSourceAccountsCommand.ts";
 import {
   ListPartnerEventSourcesCommand,
   ListPartnerEventSourcesCommandInput,
-  ListPartnerEventSourcesCommandOutput
+  ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand.ts";
 import {
   ListRuleNamesByTargetCommand,
   ListRuleNamesByTargetCommandInput,
-  ListRuleNamesByTargetCommandOutput
+  ListRuleNamesByTargetCommandOutput,
 } from "./commands/ListRuleNamesByTargetCommand.ts";
-import {
-  ListRulesCommand,
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand.ts";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTargetsByRuleCommand,
   ListTargetsByRuleCommandInput,
-  ListTargetsByRuleCommandOutput
+  ListTargetsByRuleCommandOutput,
 } from "./commands/ListTargetsByRuleCommand.ts";
-import {
-  PutEventsCommand,
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand.ts";
+import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand.ts";
 import {
   PutPartnerEventsCommand,
   PutPartnerEventsCommandInput,
-  PutPartnerEventsCommandOutput
+  PutPartnerEventsCommandOutput,
 } from "./commands/PutPartnerEventsCommand.ts";
 import {
   PutPermissionCommand,
   PutPermissionCommandInput,
-  PutPermissionCommandOutput
+  PutPermissionCommandOutput,
 } from "./commands/PutPermissionCommand.ts";
-import {
-  PutRuleCommand,
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "./commands/PutRuleCommand.ts";
-import {
-  PutTargetsCommand,
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "./commands/PutTargetsCommand.ts";
+import { PutRuleCommand, PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand.ts";
+import { PutTargetsCommand, PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand.ts";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
+  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand.ts";
 import {
   RemoveTargetsCommand,
   RemoveTargetsCommandInput,
-  RemoveTargetsCommandOutput
+  RemoveTargetsCommandOutput,
 } from "./commands/RemoveTargetsCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   TestEventPatternCommand,
   TestEventPatternCommandInput,
-  TestEventPatternCommandOutput
+  TestEventPatternCommandOutput,
 } from "./commands/TestEventPatternCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -202,17 +178,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public activateEventSource(
     args: ActivateEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivateEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateEventSourceCommandOutput) => void),
     cb?: (err: any, data?: ActivateEventSourceCommandOutput) => void
   ): Promise<ActivateEventSourceCommandOutput> | void {
     const command = new ActivateEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -241,17 +214,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public createEventBus(
     args: CreateEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventBusCommandOutput) => void),
     cb?: (err: any, data?: CreateEventBusCommandOutput) => void
   ): Promise<CreateEventBusCommandOutput> | void {
     const command = new CreateEventBusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -310,17 +280,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePartnerEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePartnerEventSourceCommandOutput) => void),
     cb?: (err: any, data?: CreatePartnerEventSourceCommandOutput) => void
   ): Promise<CreatePartnerEventSourceCommandOutput> | void {
     const command = new CreatePartnerEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -350,17 +317,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeactivateEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateEventSourceCommandOutput) => void),
     cb?: (err: any, data?: DeactivateEventSourceCommandOutput) => void
   ): Promise<DeactivateEventSourceCommandOutput> | void {
     const command = new DeactivateEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -389,17 +353,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public deleteEventBus(
     args: DeleteEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventBusCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventBusCommandOutput) => void
   ): Promise<DeleteEventBusCommandOutput> | void {
     const command = new DeleteEventBusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -427,17 +388,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePartnerEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePartnerEventSourceCommandOutput) => void),
     cb?: (err: any, data?: DeletePartnerEventSourceCommandOutput) => void
   ): Promise<DeletePartnerEventSourceCommandOutput> | void {
     const command = new DeletePartnerEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -456,14 +414,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             services. You can delete these rules using the <code>Force</code> option, but you should
    *             do so only if you're sure that the other service isn't still using that rule.</p>
    */
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRuleCommandOutput>;
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    cb: (err: any, data?: DeleteRuleCommandOutput) => void
-  ): void;
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -471,17 +423,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -511,17 +460,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public describeEventBus(
     args: DescribeEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventBusCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventBusCommandOutput) => void
   ): Promise<DescribeEventBusCommandOutput> | void {
     const command = new DescribeEventBusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -550,17 +496,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public describeEventSource(
     args: DescribeEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventSourceCommandOutput) => void
   ): Promise<DescribeEventSourceCommandOutput> | void {
     const command = new DescribeEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -589,17 +532,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePartnerEventSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePartnerEventSourceCommandOutput) => void),
     cb?: (err: any, data?: DescribePartnerEventSourceCommandOutput) => void
   ): Promise<DescribePartnerEventSourceCommandOutput> | void {
     const command = new DescribePartnerEventSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -616,10 +556,7 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
     args: DescribeRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRuleCommandOutput>;
-  public describeRule(
-    args: DescribeRuleCommandInput,
-    cb: (err: any, data?: DescribeRuleCommandOutput) => void
-  ): void;
+  public describeRule(args: DescribeRuleCommandInput, cb: (err: any, data?: DescribeRuleCommandOutput) => void): void;
   public describeRule(
     args: DescribeRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -627,17 +564,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public describeRule(
     args: DescribeRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuleCommandOutput) => void),
     cb?: (err: any, data?: DescribeRuleCommandOutput) => void
   ): Promise<DescribeRuleCommandOutput> | void {
     const command = new DescribeRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -651,14 +585,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *         <p>When you disable a rule, incoming events might continue to match to the disabled
    *             rule. Allow a short period of time for changes to take effect.</p>
    */
-  public disableRule(
-    args: DisableRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisableRuleCommandOutput>;
-  public disableRule(
-    args: DisableRuleCommandInput,
-    cb: (err: any, data?: DisableRuleCommandOutput) => void
-  ): void;
+  public disableRule(args: DisableRuleCommandInput, options?: __HttpHandlerOptions): Promise<DisableRuleCommandOutput>;
+  public disableRule(args: DisableRuleCommandInput, cb: (err: any, data?: DisableRuleCommandOutput) => void): void;
   public disableRule(
     args: DisableRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -666,17 +594,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public disableRule(
     args: DisableRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableRuleCommandOutput) => void),
     cb?: (err: any, data?: DisableRuleCommandOutput) => void
   ): Promise<DisableRuleCommandOutput> | void {
     const command = new DisableRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -690,14 +615,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *         <p>When you enable a rule, incoming events might not immediately start matching to a
    *             newly enabled rule. Allow a short period of time for changes to take effect.</p>
    */
-  public enableRule(
-    args: EnableRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableRuleCommandOutput>;
-  public enableRule(
-    args: EnableRuleCommandInput,
-    cb: (err: any, data?: EnableRuleCommandOutput) => void
-  ): void;
+  public enableRule(args: EnableRuleCommandInput, options?: __HttpHandlerOptions): Promise<EnableRuleCommandOutput>;
+  public enableRule(args: EnableRuleCommandInput, cb: (err: any, data?: EnableRuleCommandOutput) => void): void;
   public enableRule(
     args: EnableRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -705,17 +624,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public enableRule(
     args: EnableRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableRuleCommandOutput) => void),
     cb?: (err: any, data?: EnableRuleCommandOutput) => void
   ): Promise<EnableRuleCommandOutput> | void {
     const command = new EnableRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -743,17 +659,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listEventBuses(
     args: ListEventBusesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventBusesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventBusesCommandOutput) => void),
     cb?: (err: any, data?: ListEventBusesCommandOutput) => void
   ): Promise<ListEventBusesCommandOutput> | void {
     const command = new ListEventBusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -782,17 +695,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listEventSources(
     args: ListEventSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListEventSourcesCommandOutput) => void
   ): Promise<ListEventSourcesCommandOutput> | void {
     const command = new ListEventSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -821,20 +731,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPartnerEventSourceAccountsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> | void {
     const command = new ListPartnerEventSourceAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -863,17 +767,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPartnerEventSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartnerEventSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListPartnerEventSourcesCommandOutput) => void
   ): Promise<ListPartnerEventSourcesCommandOutput> | void {
     const command = new ListPartnerEventSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -899,17 +800,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRuleNamesByTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleNamesByTargetCommandOutput) => void),
     cb?: (err: any, data?: ListRuleNamesByTargetCommandOutput) => void
   ): Promise<ListRuleNamesByTargetCommandOutput> | void {
     const command = new ListRuleNamesByTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -924,14 +822,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             <code>ListRules</code> doesn't list the targets of a rule. To see the targets
    *             associated with a rule, use <a>ListTargetsByRule</a>.</p>
    */
-  public listRules(
-    args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRulesCommandOutput>;
-  public listRules(
-    args: ListRulesCommandInput,
-    cb: (err: any, data?: ListRulesCommandOutput) => void
-  ): void;
+  public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   public listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -939,17 +831,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -974,17 +863,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1009,17 +895,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTargetsByRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetsByRuleCommandOutput) => void),
     cb?: (err: any, data?: ListTargetsByRuleCommandOutput) => void
   ): Promise<ListTargetsByRuleCommandOutput> | void {
     const command = new ListTargetsByRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1030,14 +913,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    * <p>Sends custom events to EventBridge so that they can be matched to rules. These events can be from your custom applications
    *         and services.</p>
    */
-  public putEvents(
-    args: PutEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEventsCommandOutput>;
-  public putEvents(
-    args: PutEventsCommandInput,
-    cb: (err: any, data?: PutEventsCommandOutput) => void
-  ): void;
+  public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
+  public putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
   public putEvents(
     args: PutEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -1045,17 +922,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public putEvents(
     args: PutEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1084,17 +958,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPartnerEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPartnerEventsCommandOutput) => void),
     cb?: (err: any, data?: PutPartnerEventsCommandOutput) => void
   ): Promise<PutPartnerEventsCommandOutput> | void {
     const command = new PutPartnerEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1134,17 +1005,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public putPermission(
     args: PutPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionCommandOutput) => void
   ): Promise<PutPermissionCommandOutput> | void {
     const command = new PutPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1201,14 +1069,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             which alerts you when charges exceed your specified limit. For more information, see
    *             <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with Budgets</a>.</p>
    */
-  public putRule(
-    args: PutRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutRuleCommandOutput>;
-  public putRule(
-    args: PutRuleCommandInput,
-    cb: (err: any, data?: PutRuleCommandOutput) => void
-  ): void;
+  public putRule(args: PutRuleCommandInput, options?: __HttpHandlerOptions): Promise<PutRuleCommandOutput>;
+  public putRule(args: PutRuleCommandInput, cb: (err: any, data?: PutRuleCommandOutput) => void): void;
   public putRule(
     args: PutRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1216,17 +1078,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public putRule(
     args: PutRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRuleCommandOutput) => void),
     cb?: (err: any, data?: PutRuleCommandOutput) => void
   ): Promise<PutRuleCommandOutput> | void {
     const command = new PutRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1367,14 +1226,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             in <code>FailedEntries</code> provides the ID of the failed target and the error
    *             code.</p>
    */
-  public putTargets(
-    args: PutTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutTargetsCommandOutput>;
-  public putTargets(
-    args: PutTargetsCommandInput,
-    cb: (err: any, data?: PutTargetsCommandOutput) => void
-  ): void;
+  public putTargets(args: PutTargetsCommandInput, options?: __HttpHandlerOptions): Promise<PutTargetsCommandOutput>;
+  public putTargets(args: PutTargetsCommandInput, cb: (err: any, data?: PutTargetsCommandOutput) => void): void;
   public putTargets(
     args: PutTargetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1382,17 +1235,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public putTargets(
     args: PutTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTargetsCommandOutput) => void),
     cb?: (err: any, data?: PutTargetsCommandOutput) => void
   ): Promise<PutTargetsCommandOutput> | void {
     const command = new PutTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1419,17 +1269,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1461,17 +1308,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public removeTargets(
     args: RemoveTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTargetsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTargetsCommandOutput) => void
   ): Promise<RemoveTargetsCommandOutput> | void {
     const command = new RemoveTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1492,14 +1336,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             tag.</p>
    *             <p>You can associate as many as 50 tags with a resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1507,17 +1345,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1547,17 +1382,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public testEventPattern(
     args: TestEventPatternCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestEventPatternCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestEventPatternCommandOutput) => void),
     cb?: (err: any, data?: TestEventPatternCommandOutput) => void
   ): Promise<TestEventPatternCommandOutput> | void {
     const command = new TestEventPatternCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1582,17 +1414,14 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

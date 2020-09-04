@@ -1,21 +1,11 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient.ts";
-import {
-  StartQueryExecutionInput,
-  StartQueryExecutionOutput
-} from "../models/index.ts";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
+import { StartQueryExecutionInput, StartQueryExecutionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartQueryExecutionCommand,
-  serializeAws_json1_1StartQueryExecutionCommand
+  serializeAws_json1_1StartQueryExecutionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartQueryExecutionCommandInput = StartQueryExecutionInput;
-export type StartQueryExecutionCommandOutput = StartQueryExecutionOutput &
-  __MetadataBearer;
+export type StartQueryExecutionCommandOutput = StartQueryExecutionOutput & __MetadataBearer;
 
 export class StartQueryExecutionCommand extends $Command<
   StartQueryExecutionCommandInput,
@@ -49,18 +38,16 @@ export class StartQueryExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartQueryExecutionCommandInput,
-    StartQueryExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartQueryExecutionCommandInput, StartQueryExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartQueryExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartQueryExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class StartQueryExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartQueryExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartQueryExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartQueryExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryExecutionCommandOutput> {
     return deserializeAws_json1_1StartQueryExecutionCommand(output, context);
   }
 

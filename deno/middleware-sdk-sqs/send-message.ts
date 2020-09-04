@@ -1,22 +1,21 @@
-import { PreviouslyResolved } from "./configurations.ts";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "../types/mod.ts";
 import { toHex } from "../util-hex-encoding/mod.ts";
+
+import { PreviouslyResolved } from "./configurations.ts";
 
 interface SendMessageResult {
   MD5OfMessageBody?: string;
 }
 
-export function sendMessageMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function sendMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -30,7 +29,7 @@ export function sendMessageMiddleware(
       throw new Error("InvalidChecksumError");
     }
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -38,16 +37,11 @@ export function sendMessageMiddleware(
 export const sendMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "sendMessageMiddleware"
+  name: "sendMessageMiddleware",
 };
 
-export const getSendMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageMiddleware(config),
-      sendMessageMiddlewareOptions
-    );
-  }
+export const getSendMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(sendMessageMiddleware(config), sendMessageMiddlewareOptions);
+  },
 });

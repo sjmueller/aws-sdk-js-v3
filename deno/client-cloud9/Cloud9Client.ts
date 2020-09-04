@@ -1,42 +1,39 @@
 import {
   CreateEnvironmentEC2CommandInput,
-  CreateEnvironmentEC2CommandOutput
+  CreateEnvironmentEC2CommandOutput,
 } from "./commands/CreateEnvironmentEC2Command.ts";
 import {
   CreateEnvironmentMembershipCommandInput,
-  CreateEnvironmentMembershipCommandOutput
+  CreateEnvironmentMembershipCommandOutput,
 } from "./commands/CreateEnvironmentMembershipCommand.ts";
-import {
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
-} from "./commands/DeleteEnvironmentCommand.ts";
+import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand.ts";
 import {
   DeleteEnvironmentMembershipCommandInput,
-  DeleteEnvironmentMembershipCommandOutput
+  DeleteEnvironmentMembershipCommandOutput,
 } from "./commands/DeleteEnvironmentMembershipCommand.ts";
 import {
   DescribeEnvironmentMembershipsCommandInput,
-  DescribeEnvironmentMembershipsCommandOutput
+  DescribeEnvironmentMembershipsCommandOutput,
 } from "./commands/DescribeEnvironmentMembershipsCommand.ts";
 import {
   DescribeEnvironmentStatusCommandInput,
-  DescribeEnvironmentStatusCommandOutput
+  DescribeEnvironmentStatusCommandOutput,
 } from "./commands/DescribeEnvironmentStatusCommand.ts";
 import {
   DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput
+  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand.ts";
+import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand.ts";
 import {
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
-} from "./commands/ListEnvironmentsCommand.ts";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand.ts";
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand.ts";
 import {
   UpdateEnvironmentMembershipCommandInput,
-  UpdateEnvironmentMembershipCommandOutput
+  UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -45,38 +42,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -85,9 +78,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -99,6 +93,9 @@ export type ServiceInputTypes =
   | DescribeEnvironmentStatusCommandInput
   | DescribeEnvironmentsCommandInput
   | ListEnvironmentsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentMembershipCommandInput;
 
@@ -111,11 +108,13 @@ export type ServiceOutputTypes =
   | DescribeEnvironmentStatusCommandOutput
   | DescribeEnvironmentsCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -189,14 +188,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -204,9 +208,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Cloud9ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Cloud9ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -215,9 +217,7 @@ export type Cloud9ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -266,6 +266,18 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListTagsForResource</code>: Gets the tags for an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TagResource</code>: Adds tags to an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UntagResource</code>: Removes tags from an environment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p>
  *             </li>
  *             <li>
@@ -285,7 +297,7 @@ export class Cloud9Client extends __Client<
   constructor(configuration: Cloud9ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -300,6 +312,7 @@ export class Cloud9Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

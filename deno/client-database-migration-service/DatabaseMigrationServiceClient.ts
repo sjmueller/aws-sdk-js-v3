@@ -1,191 +1,176 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand.ts";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand.ts";
 import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand.ts";
+  CancelReplicationTaskAssessmentRunCommandInput,
+  CancelReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/CancelReplicationTaskAssessmentRunCommand.ts";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand.ts";
 import {
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand.ts";
 import {
   CreateReplicationInstanceCommandInput,
-  CreateReplicationInstanceCommandOutput
+  CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand.ts";
 import {
   CreateReplicationSubnetGroupCommandInput,
-  CreateReplicationSubnetGroupCommandOutput
+  CreateReplicationSubnetGroupCommandOutput,
 } from "./commands/CreateReplicationSubnetGroupCommand.ts";
 import {
   CreateReplicationTaskCommandInput,
-  CreateReplicationTaskCommandOutput
+  CreateReplicationTaskCommandOutput,
 } from "./commands/CreateReplicationTaskCommand.ts";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand.ts";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "./commands/DeleteConnectionCommand.ts";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand.ts";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand.ts";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand.ts";
 import {
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand.ts";
 import {
   DeleteReplicationInstanceCommandInput,
-  DeleteReplicationInstanceCommandOutput
+  DeleteReplicationInstanceCommandOutput,
 } from "./commands/DeleteReplicationInstanceCommand.ts";
 import {
   DeleteReplicationSubnetGroupCommandInput,
-  DeleteReplicationSubnetGroupCommandOutput
+  DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand.ts";
 import {
+  DeleteReplicationTaskAssessmentRunCommandInput,
+  DeleteReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/DeleteReplicationTaskAssessmentRunCommand.ts";
+import {
   DeleteReplicationTaskCommandInput,
-  DeleteReplicationTaskCommandOutput
+  DeleteReplicationTaskCommandOutput,
 } from "./commands/DeleteReplicationTaskCommand.ts";
 import {
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
+  DescribeApplicableIndividualAssessmentsCommandInput,
+  DescribeApplicableIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeApplicableIndividualAssessmentsCommand.ts";
+import {
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand.ts";
 import {
   DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput
+  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand.ts";
 import {
   DescribeEndpointTypesCommandInput,
-  DescribeEndpointTypesCommandOutput
+  DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand.ts";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "./commands/DescribeEndpointsCommand.ts";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand.ts";
 import {
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand.ts";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand.ts";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand.ts";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
-  DescribeOrderableReplicationInstancesCommandOutput
+  DescribeOrderableReplicationInstancesCommandOutput,
 } from "./commands/DescribeOrderableReplicationInstancesCommand.ts";
 import {
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand.ts";
 import {
   DescribeRefreshSchemasStatusCommandInput,
-  DescribeRefreshSchemasStatusCommandOutput
+  DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand.ts";
 import {
   DescribeReplicationInstanceTaskLogsCommandInput,
-  DescribeReplicationInstanceTaskLogsCommandOutput
+  DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand.ts";
 import {
   DescribeReplicationInstancesCommandInput,
-  DescribeReplicationInstancesCommandOutput
+  DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand.ts";
 import {
   DescribeReplicationSubnetGroupsCommandInput,
-  DescribeReplicationSubnetGroupsCommandOutput
+  DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand.ts";
 import {
   DescribeReplicationTaskAssessmentResultsCommandInput,
-  DescribeReplicationTaskAssessmentResultsCommandOutput
+  DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand.ts";
 import {
-  DescribeReplicationTasksCommandInput,
-  DescribeReplicationTasksCommandOutput
-} from "./commands/DescribeReplicationTasksCommand.ts";
+  DescribeReplicationTaskAssessmentRunsCommandInput,
+  DescribeReplicationTaskAssessmentRunsCommandOutput,
+} from "./commands/DescribeReplicationTaskAssessmentRunsCommand.ts";
 import {
-  DescribeSchemasCommandInput,
-  DescribeSchemasCommandOutput
-} from "./commands/DescribeSchemasCommand.ts";
+  DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  DescribeReplicationTaskIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand.ts";
+import {
+  DescribeReplicationTasksCommandInput,
+  DescribeReplicationTasksCommandOutput,
+} from "./commands/DescribeReplicationTasksCommand.ts";
+import { DescribeSchemasCommandInput, DescribeSchemasCommandOutput } from "./commands/DescribeSchemasCommand.ts";
 import {
   DescribeTableStatisticsCommandInput,
-  DescribeTableStatisticsCommandOutput
+  DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand.ts";
-import {
-  ImportCertificateCommandInput,
-  ImportCertificateCommandOutput
-} from "./commands/ImportCertificateCommand.ts";
+import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ModifyEndpointCommandInput,
-  ModifyEndpointCommandOutput
-} from "./commands/ModifyEndpointCommand.ts";
+import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand.ts";
 import {
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand.ts";
 import {
   ModifyReplicationInstanceCommandInput,
-  ModifyReplicationInstanceCommandOutput
+  ModifyReplicationInstanceCommandOutput,
 } from "./commands/ModifyReplicationInstanceCommand.ts";
 import {
   ModifyReplicationSubnetGroupCommandInput,
-  ModifyReplicationSubnetGroupCommandOutput
+  ModifyReplicationSubnetGroupCommandOutput,
 } from "./commands/ModifyReplicationSubnetGroupCommand.ts";
 import {
   ModifyReplicationTaskCommandInput,
-  ModifyReplicationTaskCommandOutput
+  ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand.ts";
 import {
   RebootReplicationInstanceCommandInput,
-  RebootReplicationInstanceCommandOutput
+  RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand.ts";
-import {
-  RefreshSchemasCommandInput,
-  RefreshSchemasCommandOutput
-} from "./commands/RefreshSchemasCommand.ts";
-import {
-  ReloadTablesCommandInput,
-  ReloadTablesCommandOutput
-} from "./commands/ReloadTablesCommand.ts";
+import { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "./commands/RefreshSchemasCommand.ts";
+import { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "./commands/ReloadTablesCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   StartReplicationTaskAssessmentCommandInput,
-  StartReplicationTaskAssessmentCommandOutput
+  StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand.ts";
 import {
+  StartReplicationTaskAssessmentRunCommandInput,
+  StartReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/StartReplicationTaskAssessmentRunCommand.ts";
+import {
   StartReplicationTaskCommandInput,
-  StartReplicationTaskCommandOutput
+  StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand.ts";
 import {
   StopReplicationTaskCommandInput,
-  StopReplicationTaskCommandOutput
+  StopReplicationTaskCommandOutput,
 } from "./commands/StopReplicationTaskCommand.ts";
-import {
-  TestConnectionCommandInput,
-  TestConnectionCommandOutput
-} from "./commands/TestConnectionCommand.ts";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -193,38 +178,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -233,14 +214,16 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
+  | CancelReplicationTaskAssessmentRunCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateReplicationInstanceCommandInput
@@ -252,8 +235,10 @@ export type ServiceInputTypes =
   | DeleteEventSubscriptionCommandInput
   | DeleteReplicationInstanceCommandInput
   | DeleteReplicationSubnetGroupCommandInput
+  | DeleteReplicationTaskAssessmentRunCommandInput
   | DeleteReplicationTaskCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeApplicableIndividualAssessmentsCommandInput
   | DescribeCertificatesCommandInput
   | DescribeConnectionsCommandInput
   | DescribeEndpointTypesCommandInput
@@ -268,6 +253,8 @@ export type ServiceInputTypes =
   | DescribeReplicationInstancesCommandInput
   | DescribeReplicationSubnetGroupsCommandInput
   | DescribeReplicationTaskAssessmentResultsCommandInput
+  | DescribeReplicationTaskAssessmentRunsCommandInput
+  | DescribeReplicationTaskIndividualAssessmentsCommandInput
   | DescribeReplicationTasksCommandInput
   | DescribeSchemasCommandInput
   | DescribeTableStatisticsCommandInput
@@ -283,6 +270,7 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | StartReplicationTaskAssessmentCommandInput
+  | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
   | StopReplicationTaskCommandInput
   | TestConnectionCommandInput;
@@ -290,6 +278,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
+  | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateReplicationInstanceCommandOutput
@@ -301,8 +290,10 @@ export type ServiceOutputTypes =
   | DeleteEventSubscriptionCommandOutput
   | DeleteReplicationInstanceCommandOutput
   | DeleteReplicationSubnetGroupCommandOutput
+  | DeleteReplicationTaskAssessmentRunCommandOutput
   | DeleteReplicationTaskCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeApplicableIndividualAssessmentsCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeConnectionsCommandOutput
   | DescribeEndpointTypesCommandOutput
@@ -317,6 +308,8 @@ export type ServiceOutputTypes =
   | DescribeReplicationInstancesCommandOutput
   | DescribeReplicationSubnetGroupsCommandOutput
   | DescribeReplicationTaskAssessmentResultsCommandOutput
+  | DescribeReplicationTaskAssessmentRunsCommandOutput
+  | DescribeReplicationTaskIndividualAssessmentsCommandOutput
   | DescribeReplicationTasksCommandOutput
   | DescribeSchemasCommandOutput
   | DescribeTableStatisticsCommandOutput
@@ -332,12 +325,12 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
+  | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
   | StopReplicationTaskCommandOutput
   | TestConnectionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -411,14 +404,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -426,9 +424,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DatabaseMigrationServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DatabaseMigrationServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -437,9 +433,7 @@ export type DatabaseMigrationServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DatabaseMigrationServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DatabaseMigrationServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -471,7 +465,7 @@ export class DatabaseMigrationServiceClient extends __Client<
   constructor(configuration: DatabaseMigrationServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -486,6 +480,7 @@ export class DatabaseMigrationServiceClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,15 @@
 import {
   IoTJobsDataPlaneClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient.ts";
-import {
-  StartNextPendingJobExecutionRequest,
-  StartNextPendingJobExecutionResponse
-} from "../models/index.ts";
+import { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartNextPendingJobExecutionCommand,
-  serializeAws_restJson1StartNextPendingJobExecutionCommand
+  serializeAws_restJson1StartNextPendingJobExecutionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartNextPendingJobExecutionCommandInput = StartNextPendingJobExecutionRequest;
-export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse &
-  __MetadataBearer;
+export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse & __MetadataBearer;
 
 export class StartNextPendingJobExecutionCommand extends $Command<
   StartNextPendingJobExecutionCommandInput,
@@ -49,18 +42,16 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartNextPendingJobExecutionCommandInput,
-    StartNextPendingJobExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartNextPendingJobExecutionCommandInput, StartNextPendingJobExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartNextPendingJobExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartNextPendingJobExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartNextPendingJobExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartNextPendingJobExecutionCommand(
-      input,
-      context
-    );
+  private serialize(input: StartNextPendingJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StartNextPendingJobExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNextPendingJobExecutionCommandOutput> {
-    return deserializeAws_restJson1StartNextPendingJobExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartNextPendingJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,15 @@
 import {
   CodeGuruReviewerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeGuruReviewerClient.ts";
-import {
-  AssociateRepositoryRequest,
-  AssociateRepositoryResponse
-} from "../models/index.ts";
+import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AssociateRepositoryCommand,
-  serializeAws_restJson1AssociateRepositoryCommand
+  serializeAws_restJson1AssociateRepositoryCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
-export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse &
-  __MetadataBearer;
+export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse & __MetadataBearer;
 
 export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandInput,
@@ -49,18 +42,16 @@ export class AssociateRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRepositoryCommandInput,
-    AssociateRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateRepositoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRepositoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class AssociateRepositoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateRepositoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateRepositoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateRepositoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
     return deserializeAws_restJson1AssociateRepositoryCommand(output, context);
   }
 

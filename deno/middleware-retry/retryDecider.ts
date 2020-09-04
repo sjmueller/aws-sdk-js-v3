@@ -2,7 +2,7 @@ import {
   isClockSkewError,
   isRetryableByTrait,
   isThrottlingError,
-  isTransientError
+  isTransientError,
 } from "../service-error-classification/mod.ts";
 import { SdkError } from "../smithy-client/mod.ts";
 
@@ -11,10 +11,5 @@ export const defaultRetryDecider = (error: SdkError) => {
     return false;
   }
 
-  return (
-    isRetryableByTrait(error) ||
-    isClockSkewError(error) ||
-    isThrottlingError(error) ||
-    isTransientError(error)
-  );
+  return isRetryableByTrait(error) || isClockSkewError(error) || isThrottlingError(error) || isTransientError(error);
 };

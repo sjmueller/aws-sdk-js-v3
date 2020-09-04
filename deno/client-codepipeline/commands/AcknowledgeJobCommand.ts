@@ -1,18 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
 import { AcknowledgeJobInput, AcknowledgeJobOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1AcknowledgeJobCommand,
-  serializeAws_json1_1AcknowledgeJobCommand
+  serializeAws_json1_1AcknowledgeJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AcknowledgeJobCommandInput = AcknowledgeJobInput;
-export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput &
-  __MetadataBearer;
+export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput & __MetadataBearer;
 
 export class AcknowledgeJobCommand extends $Command<
   AcknowledgeJobCommandInput,
@@ -47,14 +39,15 @@ export class AcknowledgeJobCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AcknowledgeJobCommandInput, AcknowledgeJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AcknowledgeJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AcknowledgeJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class AcknowledgeJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AcknowledgeJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AcknowledgeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcknowledgeJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AcknowledgeJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeJobCommandOutput> {
     return deserializeAws_json1_1AcknowledgeJobCommand(output, context);
   }
 

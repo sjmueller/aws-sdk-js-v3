@@ -1,14 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export enum ActionType {
   GetCertificate = "GetCertificate",
   IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions"
+  ListPermissions = "ListPermissions",
 }
 
 /**
@@ -30,62 +26,21 @@ export interface ASN1Subject {
   CommonName?: string;
 
   /**
-   * <p>Two-digit code that specifies the country in which the certificate subject
-   * 			located.</p>
-   */
-  Country?: string;
-
-  /**
-   * <p>Disambiguating information for the certificate subject.</p>
-   */
-  DistinguishedNameQualifier?: string;
-
-  /**
-   * <p>Typically a qualifier appended to the name of an individual. Examples include Jr. for
-   * 			junior, Sr. for senior, and III for third.</p>
-   */
-  GenerationQualifier?: string;
-
-  /**
-   * <p>First name.</p>
-   */
-  GivenName?: string;
-
-  /**
    * <p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the
    * 			first letter of the <b>SurName</b>.</p>
    */
   Initials?: string;
 
   /**
-   * <p>The locality (such as a city or town) in which the certificate subject is
-   * 			located.</p>
+   * <p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the
+   * 			certificate subject.</p>
    */
-  Locality?: string;
+  Title?: string;
 
   /**
-   * <p>Legal name of the organization with which the certificate subject is affiliated.
-   * 		</p>
+   * <p>First name.</p>
    */
-  Organization?: string;
-
-  /**
-   * <p>A subdivision or unit of the organization (such as sales or finance) with which the
-   * 			certificate subject is affiliated.</p>
-   */
-  OrganizationalUnit?: string;
-
-  /**
-   * <p>Typically a shortened version of a longer <b>GivenName</b>.
-   * 			For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth,
-   * 			Liz, or Eliza.</p>
-   */
-  Pseudonym?: string;
-
-  /**
-   * <p>The certificate serial number.</p>
-   */
-  SerialNumber?: string;
+  GivenName?: string;
 
   /**
    * <p>State in which the subject of the certificate is located.</p>
@@ -99,28 +54,69 @@ export interface ASN1Subject {
   Surname?: string;
 
   /**
-   * <p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the
-   * 			certificate subject.</p>
+   * <p>The certificate serial number.</p>
    */
-  Title?: string;
+  SerialNumber?: string;
+
+  /**
+   * <p>Two-digit code that specifies the country in which the certificate subject
+   * 			located.</p>
+   */
+  Country?: string;
+
+  /**
+   * <p>Legal name of the organization with which the certificate subject is affiliated.
+   * 		</p>
+   */
+  Organization?: string;
+
+  /**
+   * <p>Typically a shortened version of a longer <b>GivenName</b>.
+   * 			For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth,
+   * 			Liz, or Eliza.</p>
+   */
+  Pseudonym?: string;
+
+  /**
+   * <p>A subdivision or unit of the organization (such as sales or finance) with which the
+   * 			certificate subject is affiliated.</p>
+   */
+  OrganizationalUnit?: string;
+
+  /**
+   * <p>Disambiguating information for the certificate subject.</p>
+   */
+  DistinguishedNameQualifier?: string;
+
+  /**
+   * <p>The locality (such as a city or town) in which the certificate subject is
+   * 			located.</p>
+   */
+  Locality?: string;
+
+  /**
+   * <p>Typically a qualifier appended to the name of an individual. Examples include Jr. for
+   * 			junior, Sr. for senior, and III for third.</p>
+   */
+  GenerationQualifier?: string;
 }
 
 export namespace ASN1Subject {
   export const filterSensitiveLog = (obj: ASN1Subject): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ASN1Subject => __isa(o, "ASN1Subject");
 }
 
 export enum AuditReportResponseFormat {
   CSV = "CSV",
-  JSON = "JSON"
+  JSON = "JSON",
 }
 
 export enum AuditReportStatus {
   CREATING = "CREATING",
   FAILED = "FAILED",
-  SUCCESS = "SUCCESS"
+  SUCCESS = "SUCCESS",
 }
 
 /**
@@ -137,6 +133,16 @@ export enum AuditReportStatus {
 export interface CertificateAuthority {
   __type?: "CertificateAuthority";
   /**
+   * <p>Status of your private CA.</p>
+   */
+  Status?: CertificateAuthorityStatus | string;
+
+  /**
+   * <p>Date and time at which your private CA was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
    * <p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is
    * 					<code>
    *                <i>12345678-1234-1234-1234-123456789012</i>
@@ -145,34 +151,14 @@ export interface CertificateAuthority {
   Arn?: string;
 
   /**
-   * <p>Your private CA configuration.</p>
-   */
-  CertificateAuthorityConfiguration?: CertificateAuthorityConfiguration;
-
-  /**
-   * <p>Date and time at which your private CA was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>Reason the request to create your private CA failed.</p>
-   */
-  FailureReason?: FailureReason | string;
-
-  /**
-   * <p>Date and time at which your private CA was last updated.</p>
-   */
-  LastStateChangeAt?: Date;
-
-  /**
    * <p>Date and time after which your private CA certificate is not valid.</p>
    */
   NotAfter?: Date;
 
   /**
-   * <p>Date and time before which your private CA certificate is not valid.</p>
+   * <p>Serial number of your private CA.</p>
    */
-  NotBefore?: Date;
+  Serial?: string;
 
   /**
    * <p>The period during which a deleted CA can be restored. For more information, see the
@@ -181,33 +167,42 @@ export interface CertificateAuthority {
   RestorableUntil?: Date;
 
   /**
+   * <p>Date and time at which your private CA was last updated.</p>
+   */
+  LastStateChangeAt?: Date;
+
+  /**
+   * <p>Reason the request to create your private CA failed.</p>
+   */
+  FailureReason?: FailureReason | string;
+
+  /**
    * <p>Information about the certificate revocation list (CRL) created and maintained by your
    * 			private CA. </p>
    */
   RevocationConfiguration?: RevocationConfiguration;
 
   /**
-   * <p>Serial number of your private CA.</p>
+   * <p>Date and time before which your private CA certificate is not valid.</p>
    */
-  Serial?: string;
-
-  /**
-   * <p>Status of your private CA.</p>
-   */
-  Status?: CertificateAuthorityStatus | string;
+  NotBefore?: Date;
 
   /**
    * <p>Type of your private CA.</p>
    */
   Type?: CertificateAuthorityType | string;
+
+  /**
+   * <p>Your private CA configuration.</p>
+   */
+  CertificateAuthorityConfiguration?: CertificateAuthorityConfiguration;
 }
 
 export namespace CertificateAuthority {
   export const filterSensitiveLog = (obj: CertificateAuthority): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthority =>
-    __isa(o, "CertificateAuthority");
+  export const isa = (o: any): o is CertificateAuthority => __isa(o, "CertificateAuthority");
 }
 
 /**
@@ -239,13 +234,10 @@ export interface CertificateAuthorityConfiguration {
 }
 
 export namespace CertificateAuthorityConfiguration {
-  export const filterSensitiveLog = (
-    obj: CertificateAuthorityConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CertificateAuthorityConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateAuthorityConfiguration =>
-    __isa(o, "CertificateAuthorityConfiguration");
+  export const isa = (o: any): o is CertificateAuthorityConfiguration => __isa(o, "CertificateAuthorityConfiguration");
 }
 
 export enum CertificateAuthorityStatus {
@@ -255,64 +247,49 @@ export enum CertificateAuthorityStatus {
   DISABLED = "DISABLED",
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
-  PENDING_CERTIFICATE = "PENDING_CERTIFICATE"
+  PENDING_CERTIFICATE = "PENDING_CERTIFICATE",
 }
 
 export enum CertificateAuthorityType {
   ROOT = "ROOT",
-  SUBORDINATE = "SUBORDINATE"
+  SUBORDINATE = "SUBORDINATE",
 }
 
 /**
  * <p>The certificate authority certificate you are importing does not comply with
  * 			conditions specified in the certificate that signed it.</p>
  */
-export interface CertificateMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateMismatchException extends __SmithyException, $MetadataBearer {
   name: "CertificateMismatchException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CertificateMismatchException {
-  export const filterSensitiveLog = (
-    obj: CertificateMismatchException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CertificateMismatchException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateMismatchException =>
-    __isa(o, "CertificateMismatchException");
+  export const isa = (o: any): o is CertificateMismatchException => __isa(o, "CertificateMismatchException");
 }
 
 /**
  * <p>A previous update to your private CA is still ongoing.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CreateCertificateAuthorityAuditReportRequest {
   __type?: "CreateCertificateAuthorityAuditReportRequest";
-  /**
-   * <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
-   */
-  AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p>
    * 		       <p>
@@ -322,20 +299,21 @@ export interface CreateCertificateAuthorityAuditReportRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
+   */
+  AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
+
+  /**
    * <p>The name of the S3 bucket that will contain the audit report.</p>
    */
   S3BucketName: string | undefined;
 }
 
 export namespace CreateCertificateAuthorityAuditReportRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCertificateAuthorityAuditReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCertificateAuthorityAuditReportRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateCertificateAuthorityAuditReportRequest =>
+  export const isa = (o: any): o is CreateCertificateAuthorityAuditReportRequest =>
     __isa(o, "CreateCertificateAuthorityAuditReportRequest");
 }
 
@@ -354,31 +332,33 @@ export interface CreateCertificateAuthorityAuditReportResponse {
 }
 
 export namespace CreateCertificateAuthorityAuditReportResponse {
-  export const filterSensitiveLog = (
-    obj: CreateCertificateAuthorityAuditReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCertificateAuthorityAuditReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateCertificateAuthorityAuditReportResponse =>
+  export const isa = (o: any): o is CreateCertificateAuthorityAuditReportResponse =>
     __isa(o, "CreateCertificateAuthorityAuditReportResponse");
 }
 
 export interface CreateCertificateAuthorityRequest {
   __type?: "CreateCertificateAuthorityRequest";
   /**
-   * <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and
-   * 			X.500 certificate subject information.</p>
+   * <p>Contains a Boolean value that you can use to enable a certification revocation list
+   * 			(CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an
+   * 			optional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For
+   * 			more information, see the <a>CrlConfiguration</a> structure. </p>
    */
-  CertificateAuthorityConfiguration:
-    | CertificateAuthorityConfiguration
-    | undefined;
+  RevocationConfiguration?: RevocationConfiguration;
 
   /**
    * <p>The type of the certificate authority.</p>
    */
   CertificateAuthorityType: CertificateAuthorityType | string | undefined;
+
+  /**
+   * <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and
+   * 			X.500 certificate subject information.</p>
+   */
+  CertificateAuthorityConfiguration: CertificateAuthorityConfiguration | undefined;
 
   /**
    * <p>Alphanumeric string that can be used to distinguish between calls to <b>CreateCertificateAuthority</b>. Idempotency tokens time out after
@@ -391,14 +371,6 @@ export interface CreateCertificateAuthorityRequest {
   IdempotencyToken?: string;
 
   /**
-   * <p>Contains a Boolean value that you can use to enable a certification revocation list
-   * 			(CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an
-   * 			optional CNAME alias that you can use to hide the name of your bucket in the <b>CRL Distribution Points</b> extension of your CA certificate. For
-   * 			more information, see the <a>CrlConfiguration</a> structure. </p>
-   */
-  RevocationConfiguration?: RevocationConfiguration;
-
-  /**
    * <p>Key-value pairs that will be attached to the new private CA. You can associate up to
    * 			50 tags with a private CA. For information using tags with </p>
    * 		       <p>IAM to manage permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p>
@@ -407,13 +379,10 @@ export interface CreateCertificateAuthorityRequest {
 }
 
 export namespace CreateCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCertificateAuthorityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCertificateAuthorityRequest =>
-    __isa(o, "CreateCertificateAuthorityRequest");
+  export const isa = (o: any): o is CreateCertificateAuthorityRequest => __isa(o, "CreateCertificateAuthorityRequest");
 }
 
 export interface CreateCertificateAuthorityResponse {
@@ -430,10 +399,8 @@ export interface CreateCertificateAuthorityResponse {
 }
 
 export namespace CreateCertificateAuthorityResponse {
-  export const filterSensitiveLog = (
-    obj: CreateCertificateAuthorityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCertificateAuthorityResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateCertificateAuthorityResponse =>
     __isa(o, "CreateCertificateAuthorityResponse");
@@ -449,17 +416,6 @@ export interface CreatePermissionRequest {
   Actions: (ActionType | string)[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN
-   * 			by calling the <a>ListCertificateAuthorities</a> action. This must have the
-   * 			following form: </p>
-   * 		       <p>
-   * 			         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
-   *             </code>.
-   * 		</p>
-   */
-  CertificateAuthorityArn: string | undefined;
-
-  /**
    * <p>The AWS service or identity that receives the permission. At this time, the only
    * 			valid principal is <code>acm.amazonaws.com</code>.</p>
    */
@@ -469,14 +425,24 @@ export interface CreatePermissionRequest {
    * <p>The ID of the calling account.</p>
    */
   SourceAccount?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN
+   * 			by calling the <a>ListCertificateAuthorities</a> action. This must have the
+   * 			following form: </p>
+   * 		       <p>
+   * 			         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+   *             </code>.
+   * 		</p>
+   */
+  CertificateAuthorityArn: string | undefined;
 }
 
 export namespace CreatePermissionRequest {
   export const filterSensitiveLog = (obj: CreatePermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePermissionRequest =>
-    __isa(o, "CreatePermissionRequest");
+  export const isa = (o: any): o is CreatePermissionRequest => __isa(o, "CreatePermissionRequest");
 }
 
 /**
@@ -595,16 +561,16 @@ export interface CrlConfiguration {
   CustomCname?: string;
 
   /**
+   * <p>Number of days until a certificate expires.</p>
+   */
+  ExpirationInDays?: number;
+
+  /**
    * <p>Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You
    * 			can use this value to enable certificate revocation for a new CA when you call the <a>CreateCertificateAuthority</a> action or for an existing CA when you call
    * 			the <a>UpdateCertificateAuthority</a> action. </p>
    */
   Enabled: boolean | undefined;
-
-  /**
-   * <p>Number of days until a certificate expires.</p>
-   */
-  ExpirationInDays?: number;
 
   /**
    * <p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the
@@ -618,14 +584,19 @@ export interface CrlConfiguration {
 
 export namespace CrlConfiguration {
   export const filterSensitiveLog = (obj: CrlConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CrlConfiguration =>
-    __isa(o, "CrlConfiguration");
+  export const isa = (o: any): o is CrlConfiguration => __isa(o, "CrlConfiguration");
 }
 
 export interface DeleteCertificateAuthorityRequest {
   __type?: "DeleteCertificateAuthorityRequest";
+  /**
+   * <p>The number of days to make a CA restorable after it has been deleted. This can be
+   * 			anywhere from 7 to 30 days, with 30 being the default.</p>
+   */
+  PermanentDeletionTimeInDays?: number;
+
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must have the following form: </p>
    * 		       <p>
@@ -634,22 +605,13 @@ export interface DeleteCertificateAuthorityRequest {
    * 		</p>
    */
   CertificateAuthorityArn: string | undefined;
-
-  /**
-   * <p>The number of days to make a CA restorable after it has been deleted. This can be
-   * 			anywhere from 7 to 30 days, with 30 being the default.</p>
-   */
-  PermanentDeletionTimeInDays?: number;
 }
 
 export namespace DeleteCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteCertificateAuthorityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateAuthorityRequest =>
-    __isa(o, "DeleteCertificateAuthorityRequest");
+  export const isa = (o: any): o is DeleteCertificateAuthorityRequest => __isa(o, "DeleteCertificateAuthorityRequest");
 }
 
 export interface DeletePermissionRequest {
@@ -666,24 +628,23 @@ export interface DeletePermissionRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * <p>The AWS account that calls this action.</p>
+   */
+  SourceAccount?: string;
+
+  /**
    * <p>The AWS service or identity that will have its CA permissions revoked. At this time,
    * 			the only valid service principal is <code>acm.amazonaws.com</code>
    *          </p>
    */
   Principal: string | undefined;
-
-  /**
-   * <p>The AWS account that calls this action.</p>
-   */
-  SourceAccount?: string;
 }
 
 export namespace DeletePermissionRequest {
   export const filterSensitiveLog = (obj: DeletePermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePermissionRequest =>
-    __isa(o, "DeletePermissionRequest");
+  export const isa = (o: any): o is DeletePermissionRequest => __isa(o, "DeletePermissionRequest");
 }
 
 export interface DescribeCertificateAuthorityAuditReportRequest {
@@ -704,14 +665,10 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
 }
 
 export namespace DescribeCertificateAuthorityAuditReportRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificateAuthorityAuditReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityAuditReportRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeCertificateAuthorityAuditReportRequest =>
+  export const isa = (o: any): o is DescribeCertificateAuthorityAuditReportRequest =>
     __isa(o, "DescribeCertificateAuthorityAuditReportRequest");
 }
 
@@ -723,11 +680,6 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
   AuditReportStatus?: AuditReportStatus | string;
 
   /**
-   * <p>The date and time at which the report was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>Name of the S3 bucket that contains the report.</p>
    */
   S3BucketName?: string;
@@ -737,17 +689,18 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
    * 			your S3 bucket.</p>
    */
   S3Key?: string;
+
+  /**
+   * <p>The date and time at which the report was created.</p>
+   */
+  CreatedAt?: Date;
 }
 
 export namespace DescribeCertificateAuthorityAuditReportResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificateAuthorityAuditReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityAuditReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeCertificateAuthorityAuditReportResponse =>
+  export const isa = (o: any): o is DescribeCertificateAuthorityAuditReportResponse =>
     __isa(o, "DescribeCertificateAuthorityAuditReportResponse");
 }
 
@@ -764,10 +717,8 @@ export interface DescribeCertificateAuthorityRequest {
 }
 
 export namespace DescribeCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeCertificateAuthorityRequest =>
     __isa(o, "DescribeCertificateAuthorityRequest");
@@ -783,10 +734,8 @@ export interface DescribeCertificateAuthorityResponse {
 }
 
 export namespace DescribeCertificateAuthorityResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeCertificateAuthorityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeCertificateAuthorityResponse =>
     __isa(o, "DescribeCertificateAuthorityResponse");
@@ -795,7 +744,7 @@ export namespace DescribeCertificateAuthorityResponse {
 export enum FailureReason {
   OTHER = "OTHER",
   REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM"
+  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM",
 }
 
 export interface GetCertificateAuthorityCertificateRequest {
@@ -811,10 +760,8 @@ export interface GetCertificateAuthorityCertificateRequest {
 }
 
 export namespace GetCertificateAuthorityCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: GetCertificateAuthorityCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCertificateAuthorityCertificateRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetCertificateAuthorityCertificateRequest =>
     __isa(o, "GetCertificateAuthorityCertificateRequest");
@@ -823,28 +770,24 @@ export namespace GetCertificateAuthorityCertificateRequest {
 export interface GetCertificateAuthorityCertificateResponse {
   __type?: "GetCertificateAuthorityCertificateResponse";
   /**
-   * <p>Base64-encoded certificate authority (CA) certificate.</p>
-   */
-  Certificate?: string;
-
-  /**
    * <p>Base64-encoded certificate chain that includes any intermediate certificates and chains up
    * 			to root on-premises certificate that you used to sign your private CA certificate. The
    * 			chain does not include your private CA certificate. If this is a root CA, the value will
    * 			be null.</p>
    */
   CertificateChain?: string;
+
+  /**
+   * <p>Base64-encoded certificate authority (CA) certificate.</p>
+   */
+  Certificate?: string;
 }
 
 export namespace GetCertificateAuthorityCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: GetCertificateAuthorityCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCertificateAuthorityCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetCertificateAuthorityCertificateResponse =>
+  export const isa = (o: any): o is GetCertificateAuthorityCertificateResponse =>
     __isa(o, "GetCertificateAuthorityCertificateResponse");
 }
 
@@ -861,13 +804,10 @@ export interface GetCertificateAuthorityCsrRequest {
 }
 
 export namespace GetCertificateAuthorityCsrRequest {
-  export const filterSensitiveLog = (
-    obj: GetCertificateAuthorityCsrRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCertificateAuthorityCsrRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCertificateAuthorityCsrRequest =>
-    __isa(o, "GetCertificateAuthorityCsrRequest");
+  export const isa = (o: any): o is GetCertificateAuthorityCsrRequest => __isa(o, "GetCertificateAuthorityCsrRequest");
 }
 
 export interface GetCertificateAuthorityCsrResponse {
@@ -880,10 +820,8 @@ export interface GetCertificateAuthorityCsrResponse {
 }
 
 export namespace GetCertificateAuthorityCsrResponse {
-  export const filterSensitiveLog = (
-    obj: GetCertificateAuthorityCsrResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCertificateAuthorityCsrResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetCertificateAuthorityCsrResponse =>
     __isa(o, "GetCertificateAuthorityCsrResponse");
@@ -913,42 +851,44 @@ export interface GetCertificateRequest {
 
 export namespace GetCertificateRequest {
   export const filterSensitiveLog = (obj: GetCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCertificateRequest =>
-    __isa(o, "GetCertificateRequest");
+  export const isa = (o: any): o is GetCertificateRequest => __isa(o, "GetCertificateRequest");
 }
 
 export interface GetCertificateResponse {
   __type?: "GetCertificateResponse";
   /**
-   * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
-   * 			parameter.</p>
-   */
-  Certificate?: string;
-
-  /**
    * <p>The base64 PEM-encoded certificate chain that chains up to the on-premises root CA
    * 			certificate that you used to sign your private CA certificate. </p>
    */
   CertificateChain?: string;
+
+  /**
+   * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
+   * 			parameter.</p>
+   */
+  Certificate?: string;
 }
 
 export namespace GetCertificateResponse {
   export const filterSensitiveLog = (obj: GetCertificateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCertificateResponse =>
-    __isa(o, "GetCertificateResponse");
+  export const isa = (o: any): o is GetCertificateResponse => __isa(o, "GetCertificateResponse");
 }
 
 export interface ImportCertificateAuthorityCertificateRequest {
   __type?: "ImportCertificateAuthorityCertificateRequest";
   /**
-   * <p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the
-   * 			case of a root CA, or it may be signed by another CA that you control.</p>
+   * <p>A PEM-encoded file that contains all of your certificates, other than the certificate you're
+   * 			importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root
+   * 			certificate is the last in the chain, and each certificate in the chain signs the one
+   * 			preceding. </p>
+   * 		       <p>This parameter must be supplied when you import a subordinate CA. When you import a
+   * 			root CA, there is no chain.</p>
    */
-  Certificate: Uint8Array | undefined;
+  CertificateChain?: Uint8Array;
 
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -960,34 +900,24 @@ export interface ImportCertificateAuthorityCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * <p>A PEM-encoded file that contains all of your certificates, other than the certificate you're
-   * 			importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root
-   * 			certificate is the last in the chain, and each certificate in the chain signs the one
-   * 			preceding. </p>
-   * 		       <p>This parameter must be supplied when you import a subordinate CA. When you import a
-   * 			root CA, there is no chain.</p>
+   * <p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the
+   * 			case of a root CA, or it may be signed by another CA that you control.</p>
    */
-  CertificateChain?: Uint8Array;
+  Certificate: Uint8Array | undefined;
 }
 
 export namespace ImportCertificateAuthorityCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: ImportCertificateAuthorityCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportCertificateAuthorityCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ImportCertificateAuthorityCertificateRequest =>
+  export const isa = (o: any): o is ImportCertificateAuthorityCertificateRequest =>
     __isa(o, "ImportCertificateAuthorityCertificateRequest");
 }
 
 /**
  * <p>One or more of the specified arguments was not valid.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
@@ -995,19 +925,16 @@ export interface InvalidArgsException
 
 export namespace InvalidArgsException {
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  * 			resource.</p>
  */
-export interface InvalidArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -1015,19 +942,16 @@ export interface InvalidArnException
 
 export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException =>
-    __isa(o, "InvalidArnException");
+  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
  * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
  * 			returned from your previous call to <a>ListCertificateAuthorities</a>.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -1035,19 +959,16 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The S3 bucket policy is not valid. The policy must give ACM Private CA rights to read from
  * 			and write to the bucket and find the bucket location.</p>
  */
-export interface InvalidPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
@@ -1055,18 +976,15 @@ export interface InvalidPolicyException
 
 export namespace InvalidPolicyException {
   export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPolicyException =>
-    __isa(o, "InvalidPolicyException");
+  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
  * <p>The request action cannot be performed or is prohibited.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -1074,19 +992,16 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The private CA is in a state during which a report or certificate cannot be
  * 			generated.</p>
  */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -1094,19 +1009,16 @@ export interface InvalidStateException
 
 export namespace InvalidStateException {
   export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
+  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
  * <p>The tag associated with the CA is not valid. The invalid argument is contained in the
  * 			message field.</p>
  */
-export interface InvalidTagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -1114,10 +1026,9 @@ export interface InvalidTagException
 
 export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException =>
-    __isa(o, "InvalidTagException");
+  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 export interface IssueCertificateRequest {
@@ -1148,22 +1059,6 @@ export interface IssueCertificateRequest {
    *          </p>
    */
   Csr: Uint8Array | undefined;
-
-  /**
-   * <p>Custom string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens time out after one hour.
-   * 			Therefore, if you call <b>IssueCertificate</b> multiple times
-   * 			with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are
-   * 			requesting only one certificate and will issue only one. If you change the idempotency
-   * 			token for each call, PCA recognizes that you are requesting multiple
-   * 			certificates.</p>
-   */
-  IdempotencyToken?: string;
-
-  /**
-   * <p>The name of the algorithm that will be used to sign the certificate to be
-   * 			issued.</p>
-   */
-  SigningAlgorithm: SigningAlgorithm | string | undefined;
 
   /**
    * <p>Specifies a custom configuration template to use when issuing a certificate. If this
@@ -1199,14 +1094,29 @@ export interface IssueCertificateRequest {
    * <p>The type of the validity period.</p>
    */
   Validity: Validity | undefined;
+
+  /**
+   * <p>Custom string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens time out after one hour.
+   * 			Therefore, if you call <b>IssueCertificate</b> multiple times
+   * 			with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are
+   * 			requesting only one certificate and will issue only one. If you change the idempotency
+   * 			token for each call, PCA recognizes that you are requesting multiple
+   * 			certificates.</p>
+   */
+  IdempotencyToken?: string;
+
+  /**
+   * <p>The name of the algorithm that will be used to sign the certificate to be
+   * 			issued.</p>
+   */
+  SigningAlgorithm: SigningAlgorithm | string | undefined;
 }
 
 export namespace IssueCertificateRequest {
   export const filterSensitiveLog = (obj: IssueCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IssueCertificateRequest =>
-    __isa(o, "IssueCertificateRequest");
+  export const isa = (o: any): o is IssueCertificateRequest => __isa(o, "IssueCertificateRequest");
 }
 
 export interface IssueCertificateResponse {
@@ -1224,26 +1134,23 @@ export interface IssueCertificateResponse {
 
 export namespace IssueCertificateResponse {
   export const filterSensitiveLog = (obj: IssueCertificateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IssueCertificateResponse =>
-    __isa(o, "IssueCertificateResponse");
+  export const isa = (o: any): o is IssueCertificateResponse => __isa(o, "IssueCertificateResponse");
 }
 
 export enum KeyAlgorithm {
   EC_prime256v1 = "EC_prime256v1",
   EC_secp384r1 = "EC_secp384r1",
   RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096"
+  RSA_4096 = "RSA_4096",
 }
 
 /**
  * <p>An ACM Private CA limit has been exceeded. See the exception message returned to determine the
  * 			limit that was exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1251,10 +1158,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCertificateAuthoritiesRequest {
@@ -1277,34 +1183,29 @@ export interface ListCertificateAuthoritiesRequest {
 }
 
 export namespace ListCertificateAuthoritiesRequest {
-  export const filterSensitiveLog = (
-    obj: ListCertificateAuthoritiesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListCertificateAuthoritiesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListCertificateAuthoritiesRequest =>
-    __isa(o, "ListCertificateAuthoritiesRequest");
+  export const isa = (o: any): o is ListCertificateAuthoritiesRequest => __isa(o, "ListCertificateAuthoritiesRequest");
 }
 
 export interface ListCertificateAuthoritiesResponse {
   __type?: "ListCertificateAuthoritiesResponse";
   /**
-   * <p>Summary information about each certificate authority you have created.</p>
-   */
-  CertificateAuthorities?: CertificateAuthority[];
-
-  /**
    * <p>When the list is truncated, this value is present and should be used for the
    * 				<code>NextToken</code> parameter in a subsequent pagination request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Summary information about each certificate authority you have created.</p>
+   */
+  CertificateAuthorities?: CertificateAuthority[];
 }
 
 export namespace ListCertificateAuthoritiesResponse {
-  export const filterSensitiveLog = (
-    obj: ListCertificateAuthoritiesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListCertificateAuthoritiesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListCertificateAuthoritiesResponse =>
     __isa(o, "ListCertificateAuthoritiesResponse");
@@ -1313,13 +1214,10 @@ export namespace ListCertificateAuthoritiesResponse {
 export interface ListPermissionsRequest {
   __type?: "ListPermissionsRequest";
   /**
-   * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
-   * 			calling the <a>ListCertificateAuthorities</a> action. This must be of the
-   * 			form:
-   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
-   * 			You can get a private CA's ARN by running the <a>ListCertificateAuthorities</a> action.</p>
+   * <p>When paginating results, use this parameter in a subsequent request after you receive
+   * 			a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
    */
-  CertificateAuthorityArn: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>When paginating results, use this parameter to specify the maximum number of items to
@@ -1331,54 +1229,46 @@ export interface ListPermissionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>When paginating results, use this parameter in a subsequent request after you receive
-   * 			a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
+   * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
+   * 			calling the <a>ListCertificateAuthorities</a> action. This must be of the
+   * 			form:
+   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
+   * 			You can get a private CA's ARN by running the <a>ListCertificateAuthorities</a> action.</p>
    */
-  NextToken?: string;
+  CertificateAuthorityArn: string | undefined;
 }
 
 export namespace ListPermissionsRequest {
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
   __type?: "ListPermissionsResponse";
   /**
-   * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
-   * 		</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Summary information about each permission assigned by the specified private CA,
    * 			including the action enabled, the policy provided, and the time of creation.</p>
    */
   Permissions?: Permission[];
+
+  /**
+   * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
+   * 		</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListTagsRequest {
   __type?: "ListTagsRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) that was returned when you called the <a>CreateCertificateAuthority</a> action. This must be of the form: </p>
-   * 		       <p>
-   * 			         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
-   *             </code>
-   * 		       </p>
-   */
-  CertificateAuthorityArn: string | undefined;
-
   /**
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    * 			return in the response. If additional items exist beyond the number you specify, the
@@ -1393,14 +1283,22 @@ export interface ListTagsRequest {
    * 			response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that was returned when you called the <a>CreateCertificateAuthority</a> action. This must be of the form: </p>
+   * 		       <p>
+   * 			         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+   *             </code>
+   * 		       </p>
+   */
+  CertificateAuthorityArn: string | undefined;
 }
 
 export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -1419,39 +1317,31 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
  * <p>One or more fields in the certificate are invalid.</p>
  */
-export interface MalformedCertificateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedCertificateException extends __SmithyException, $MetadataBearer {
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedCertificateException {
-  export const filterSensitiveLog = (
-    obj: MalformedCertificateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedCertificateException =>
-    __isa(o, "MalformedCertificateException");
+  export const isa = (o: any): o is MalformedCertificateException => __isa(o, "MalformedCertificateException");
 }
 
 /**
  * <p>The certificate signing request is invalid.</p>
  */
-export interface MalformedCSRException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedCSRException extends __SmithyException, $MetadataBearer {
   name: "MalformedCSRException";
   $fault: "client";
   message?: string;
@@ -1459,10 +1349,9 @@ export interface MalformedCSRException
 
 export namespace MalformedCSRException {
   export const filterSensitiveLog = (obj: MalformedCSRException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedCSRException =>
-    __isa(o, "MalformedCSRException");
+  export const isa = (o: any): o is MalformedCSRException => __isa(o, "MalformedCSRException");
 }
 
 /**
@@ -1475,9 +1364,10 @@ export namespace MalformedCSRException {
 export interface Permission {
   __type?: "Permission";
   /**
-   * <p>The private CA actions that can be performed by the designated AWS service.</p>
+   * <p>The AWS service or entity that holds the permission. At this time, the only valid
+   * 			principal is <code>acm.amazonaws.com</code>.</p>
    */
-  Actions?: (ActionType | string)[];
+  Principal?: string;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA from which the permission was
@@ -1491,25 +1381,24 @@ export interface Permission {
   CreatedAt?: Date;
 
   /**
-   * <p>The name of the policy that is associated with the permission.</p>
-   */
-  Policy?: string;
-
-  /**
-   * <p>The AWS service or entity that holds the permission. At this time, the only valid
-   * 			principal is <code>acm.amazonaws.com</code>.</p>
-   */
-  Principal?: string;
-
-  /**
    * <p>The ID of the account that assigned the permission.</p>
    */
   SourceAccount?: string;
+
+  /**
+   * <p>The private CA actions that can be performed by the designated AWS service.</p>
+   */
+  Actions?: (ActionType | string)[];
+
+  /**
+   * <p>The name of the policy that is associated with the permission.</p>
+   */
+  Policy?: string;
 }
 
 export namespace Permission {
   export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Permission => __isa(o, "Permission");
 }
@@ -1517,51 +1406,39 @@ export namespace Permission {
 /**
  * <p>The designated permission has already been given to the user.</p>
  */
-export interface PermissionAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PermissionAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "PermissionAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PermissionAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: PermissionAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PermissionAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PermissionAlreadyExistsException =>
-    __isa(o, "PermissionAlreadyExistsException");
+  export const isa = (o: any): o is PermissionAlreadyExistsException => __isa(o, "PermissionAlreadyExistsException");
 }
 
 /**
  * <p>Your request has already been completed.</p>
  */
-export interface RequestAlreadyProcessedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestAlreadyProcessedException extends __SmithyException, $MetadataBearer {
   name: "RequestAlreadyProcessedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace RequestAlreadyProcessedException {
-  export const filterSensitiveLog = (
-    obj: RequestAlreadyProcessedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestAlreadyProcessedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RequestAlreadyProcessedException =>
-    __isa(o, "RequestAlreadyProcessedException");
+  export const isa = (o: any): o is RequestAlreadyProcessedException => __isa(o, "RequestAlreadyProcessedException");
 }
 
 /**
  * <p>The request has failed for an unspecified reason.</p>
  */
-export interface RequestFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestFailedException extends __SmithyException, $MetadataBearer {
   name: "RequestFailedException";
   $fault: "client";
   message?: string;
@@ -1569,18 +1446,15 @@ export interface RequestFailedException
 
 export namespace RequestFailedException {
   export const filterSensitiveLog = (obj: RequestFailedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestFailedException =>
-    __isa(o, "RequestFailedException");
+  export const isa = (o: any): o is RequestFailedException => __isa(o, "RequestFailedException");
 }
 
 /**
  * <p>Your request is already in progress.</p>
  */
-export interface RequestInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1588,19 +1462,16 @@ export interface RequestInProgressException
 
 export namespace RequestInProgressException {
   export const filterSensitiveLog = (obj: RequestInProgressException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestInProgressException =>
-    __isa(o, "RequestInProgressException");
+  export const isa = (o: any): o is RequestInProgressException => __isa(o, "RequestInProgressException");
 }
 
 /**
  * <p>A resource such as a private CA, S3 bucket, certificate, or audit report cannot be
  * 			found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1608,10 +1479,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestoreCertificateAuthorityRequest {
@@ -1627,10 +1497,8 @@ export interface RestoreCertificateAuthorityRequest {
 }
 
 export namespace RestoreCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: RestoreCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreCertificateAuthorityRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreCertificateAuthorityRequest =>
     __isa(o, "RestoreCertificateAuthorityRequest");
@@ -1654,10 +1522,9 @@ export interface RevocationConfiguration {
 
 export namespace RevocationConfiguration {
   export const filterSensitiveLog = (obj: RevocationConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RevocationConfiguration =>
-    __isa(o, "RevocationConfiguration");
+  export const isa = (o: any): o is RevocationConfiguration => __isa(o, "RevocationConfiguration");
 }
 
 export enum RevocationReason {
@@ -1668,7 +1535,7 @@ export enum RevocationReason {
   KEY_COMPROMISE = "KEY_COMPROMISE",
   PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
   SUPERSEDED = "SUPERSEDED",
-  UNSPECIFIED = "UNSPECIFIED"
+  UNSPECIFIED = "UNSPECIFIED",
 }
 
 export interface RevokeCertificateRequest {
@@ -1684,6 +1551,11 @@ export interface RevokeCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * <p>Specifies why you revoked the certificate.</p>
+   */
+  RevocationReason: RevocationReason | string | undefined;
+
+  /**
    * <p>Serial number of the certificate to be revoked. This must be in hexadecimal format. You can
    * 			retrieve the serial number by calling <a>GetCertificate</a> with the Amazon
    * 			Resource Name (ARN) of the certificate you want and the ARN of your private CA. The
@@ -1697,19 +1569,13 @@ export interface RevokeCertificateRequest {
    * 				Reference</i>. </p>
    */
   CertificateSerial: string | undefined;
-
-  /**
-   * <p>Specifies why you revoked the certificate.</p>
-   */
-  RevocationReason: RevocationReason | string | undefined;
 }
 
 export namespace RevokeCertificateRequest {
   export const filterSensitiveLog = (obj: RevokeCertificateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeCertificateRequest =>
-    __isa(o, "RevokeCertificateRequest");
+  export const isa = (o: any): o is RevokeCertificateRequest => __isa(o, "RevokeCertificateRequest");
 }
 
 export enum SigningAlgorithm {
@@ -1718,7 +1584,7 @@ export enum SigningAlgorithm {
   SHA384WITHECDSA = "SHA384WITHECDSA",
   SHA384WITHRSA = "SHA384WITHRSA",
   SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA"
+  SHA512WITHRSA = "SHA512WITHRSA",
 }
 
 /**
@@ -1741,7 +1607,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1764,22 +1630,17 @@ export interface TagCertificateAuthorityRequest {
 }
 
 export namespace TagCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: TagCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TagCertificateAuthorityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TagCertificateAuthorityRequest =>
-    __isa(o, "TagCertificateAuthorityRequest");
+  export const isa = (o: any): o is TagCertificateAuthorityRequest => __isa(o, "TagCertificateAuthorityRequest");
 }
 
 /**
  * <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -1787,10 +1648,9 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagCertificateAuthorityRequest {
@@ -1811,17 +1671,24 @@ export interface UntagCertificateAuthorityRequest {
 }
 
 export namespace UntagCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: UntagCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UntagCertificateAuthorityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UntagCertificateAuthorityRequest =>
-    __isa(o, "UntagCertificateAuthorityRequest");
+  export const isa = (o: any): o is UntagCertificateAuthorityRequest => __isa(o, "UntagCertificateAuthorityRequest");
 }
 
 export interface UpdateCertificateAuthorityRequest {
   __type?: "UpdateCertificateAuthorityRequest";
+  /**
+   * <p>Status of your private CA.</p>
+   */
+  Status?: CertificateAuthorityStatus | string;
+
+  /**
+   * <p>Revocation information for your private CA.</p>
+   */
+  RevocationConfiguration?: RevocationConfiguration;
+
   /**
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
    * 			revoked. This must be of the form:</p>
@@ -1831,26 +1698,13 @@ export interface UpdateCertificateAuthorityRequest {
    * 		       </p>
    */
   CertificateAuthorityArn: string | undefined;
-
-  /**
-   * <p>Revocation information for your private CA.</p>
-   */
-  RevocationConfiguration?: RevocationConfiguration;
-
-  /**
-   * <p>Status of your private CA.</p>
-   */
-  Status?: CertificateAuthorityStatus | string;
 }
 
 export namespace UpdateCertificateAuthorityRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateCertificateAuthorityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateCertificateAuthorityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCertificateAuthorityRequest =>
-    __isa(o, "UpdateCertificateAuthorityRequest");
+  export const isa = (o: any): o is UpdateCertificateAuthorityRequest => __isa(o, "UpdateCertificateAuthorityRequest");
 }
 
 /**
@@ -1874,7 +1728,7 @@ export interface Validity {
 
 export namespace Validity {
   export const filterSensitiveLog = (obj: Validity): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Validity => __isa(o, "Validity");
 }
@@ -1884,5 +1738,5 @@ export enum ValidityPeriodType {
   DAYS = "DAYS",
   END_DATE = "END_DATE",
   MONTHS = "MONTHS",
-  YEARS = "YEARS"
+  YEARS = "YEARS",
 }

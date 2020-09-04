@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient.ts";
-import {
-  GetBootstrapBrokersRequest,
-  GetBootstrapBrokersResponse
-} from "../models/index.ts";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
+import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBootstrapBrokersCommand,
-  serializeAws_restJson1GetBootstrapBrokersCommand
+  serializeAws_restJson1GetBootstrapBrokersCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBootstrapBrokersCommandInput = GetBootstrapBrokersRequest;
-export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse &
-  __MetadataBearer;
+export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse & __MetadataBearer;
 
 export class GetBootstrapBrokersCommand extends $Command<
   GetBootstrapBrokersCommandInput,
@@ -49,18 +38,16 @@ export class GetBootstrapBrokersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBootstrapBrokersCommandInput,
-    GetBootstrapBrokersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBootstrapBrokersCommandInput, GetBootstrapBrokersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBootstrapBrokersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBootstrapBrokersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetBootstrapBrokersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBootstrapBrokersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBootstrapBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBootstrapBrokersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBootstrapBrokersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBootstrapBrokersCommandOutput> {
     return deserializeAws_restJson1GetBootstrapBrokersCommand(output, context);
   }
 

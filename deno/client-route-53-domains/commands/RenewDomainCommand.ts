@@ -1,18 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
 import { RenewDomainRequest, RenewDomainResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RenewDomainCommand,
-  serializeAws_json1_1RenewDomainCommand
+  serializeAws_json1_1RenewDomainCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RenewDomainCommandInput = RenewDomainRequest;
@@ -46,14 +39,15 @@ export class RenewDomainCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RenewDomainCommandInput, RenewDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RenewDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RenewDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class RenewDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RenewDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RenewDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RenewDomainCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RenewDomainCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewDomainCommandOutput> {
     return deserializeAws_json1_1RenewDomainCommand(output, context);
   }
 

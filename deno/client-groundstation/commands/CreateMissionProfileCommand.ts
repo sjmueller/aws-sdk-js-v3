@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient.ts";
-import {
-  CreateMissionProfileRequest,
-  MissionProfileIdResponse
-} from "../models/index.ts";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
+import { CreateMissionProfileRequest, MissionProfileIdResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateMissionProfileCommand,
-  serializeAws_restJson1CreateMissionProfileCommand
+  serializeAws_restJson1CreateMissionProfileCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateMissionProfileCommandInput = CreateMissionProfileRequest;
-export type CreateMissionProfileCommandOutput = MissionProfileIdResponse &
-  __MetadataBearer;
+export type CreateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
 export class CreateMissionProfileCommand extends $Command<
   CreateMissionProfileCommandInput,
@@ -49,18 +38,16 @@ export class CreateMissionProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateMissionProfileCommandInput,
-    CreateMissionProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateMissionProfileCommandInput, CreateMissionProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateMissionProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MissionProfileIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateMissionProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateMissionProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateMissionProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMissionProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMissionProfileCommandOutput> {
     return deserializeAws_restJson1CreateMissionProfileCommand(output, context);
   }
 

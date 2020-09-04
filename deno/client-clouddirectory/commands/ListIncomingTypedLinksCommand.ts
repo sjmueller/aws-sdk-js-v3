@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  ListIncomingTypedLinksRequest,
-  ListIncomingTypedLinksResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListIncomingTypedLinksCommand,
-  serializeAws_restJson1ListIncomingTypedLinksCommand
+  serializeAws_restJson1ListIncomingTypedLinksCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListIncomingTypedLinksCommandInput = ListIncomingTypedLinksRequest;
-export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse &
-  __MetadataBearer;
+export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse & __MetadataBearer;
 
 export class ListIncomingTypedLinksCommand extends $Command<
   ListIncomingTypedLinksCommandInput,
@@ -49,18 +38,16 @@ export class ListIncomingTypedLinksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListIncomingTypedLinksCommandInput,
-    ListIncomingTypedLinksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListIncomingTypedLinksCommandInput, ListIncomingTypedLinksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListIncomingTypedLinksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListIncomingTypedLinksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListIncomingTypedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListIncomingTypedLinksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListIncomingTypedLinksCommandOutput> {
-    return deserializeAws_restJson1ListIncomingTypedLinksCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncomingTypedLinksCommandOutput> {
+    return deserializeAws_restJson1ListIncomingTypedLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

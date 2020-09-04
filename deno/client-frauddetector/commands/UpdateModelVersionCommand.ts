@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient.ts";
-import {
-  UpdateModelVersionRequest,
-  UpdateModelVersionResult
-} from "../models/index.ts";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
+import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateModelVersionCommand,
-  serializeAws_json1_1UpdateModelVersionCommand
+  serializeAws_json1_1UpdateModelVersionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateModelVersionCommandInput = UpdateModelVersionRequest;
-export type UpdateModelVersionCommandOutput = UpdateModelVersionResult &
-  __MetadataBearer;
+export type UpdateModelVersionCommandOutput = UpdateModelVersionResult & __MetadataBearer;
 
 export class UpdateModelVersionCommand extends $Command<
   UpdateModelVersionCommandInput,
@@ -50,14 +39,15 @@ export class UpdateModelVersionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateModelVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateModelVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateModelVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateModelVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateModelVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionCommandOutput> {
     return deserializeAws_json1_1UpdateModelVersionCommand(output, context);
   }
 

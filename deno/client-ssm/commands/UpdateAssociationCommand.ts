@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  UpdateAssociationRequest,
-  UpdateAssociationResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { UpdateAssociationRequest, UpdateAssociationResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateAssociationCommand,
-  serializeAws_json1_1UpdateAssociationCommand
+  serializeAws_json1_1UpdateAssociationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateAssociationCommandInput = UpdateAssociationRequest;
-export type UpdateAssociationCommandOutput = UpdateAssociationResult &
-  __MetadataBearer;
+export type UpdateAssociationCommandOutput = UpdateAssociationResult & __MetadataBearer;
 
 export class UpdateAssociationCommand extends $Command<
   UpdateAssociationCommandInput,
@@ -50,14 +39,15 @@ export class UpdateAssociationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAssociationCommandInput, UpdateAssociationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAssociationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAssociationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssociationCommandOutput> {
     return deserializeAws_json1_1UpdateAssociationCommand(output, context);
   }
 

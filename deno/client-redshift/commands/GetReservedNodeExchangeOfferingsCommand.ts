@@ -1,21 +1,14 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import {
   GetReservedNodeExchangeOfferingsInputMessage,
-  GetReservedNodeExchangeOfferingsOutputMessage
+  GetReservedNodeExchangeOfferingsOutputMessage,
 } from "../models/index.ts";
 import {
   deserializeAws_queryGetReservedNodeExchangeOfferingsCommand,
-  serializeAws_queryGetReservedNodeExchangeOfferingsCommand
+  serializeAws_queryGetReservedNodeExchangeOfferingsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetReservedNodeExchangeOfferingsCommandInput = GetReservedNodeExchangeOfferingsInputMessage;
@@ -49,18 +42,16 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetReservedNodeExchangeOfferingsCommandInput,
-    GetReservedNodeExchangeOfferingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetReservedNodeExchangeOfferingsCommandInput, GetReservedNodeExchangeOfferingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetReservedNodeExchangeOfferingsInputMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedNodeExchangeOfferingsOutputMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     input: GetReservedNodeExchangeOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> {
-    return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

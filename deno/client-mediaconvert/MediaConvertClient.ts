@@ -1,103 +1,37 @@
 import {
   AssociateCertificateCommandInput,
-  AssociateCertificateCommandOutput
+  AssociateCertificateCommandOutput,
 } from "./commands/AssociateCertificateCommand.ts";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand.ts";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand.ts";
-import {
-  CreateJobTemplateCommandInput,
-  CreateJobTemplateCommandOutput
-} from "./commands/CreateJobTemplateCommand.ts";
-import {
-  CreatePresetCommandInput,
-  CreatePresetCommandOutput
-} from "./commands/CreatePresetCommand.ts";
-import {
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput
-} from "./commands/CreateQueueCommand.ts";
-import {
-  DeleteJobTemplateCommandInput,
-  DeleteJobTemplateCommandOutput
-} from "./commands/DeleteJobTemplateCommand.ts";
-import {
-  DeletePresetCommandInput,
-  DeletePresetCommandOutput
-} from "./commands/DeletePresetCommand.ts";
-import {
-  DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
-} from "./commands/DeleteQueueCommand.ts";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "./commands/DescribeEndpointsCommand.ts";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
+import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand.ts";
+import { CreatePresetCommandInput, CreatePresetCommandOutput } from "./commands/CreatePresetCommand.ts";
+import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand.ts";
+import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand.ts";
+import { DeletePresetCommandInput, DeletePresetCommandOutput } from "./commands/DeletePresetCommand.ts";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand.ts";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand.ts";
 import {
   DisassociateCertificateCommandInput,
-  DisassociateCertificateCommandOutput
+  DisassociateCertificateCommandOutput,
 } from "./commands/DisassociateCertificateCommand.ts";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand.ts";
-import {
-  GetJobTemplateCommandInput,
-  GetJobTemplateCommandOutput
-} from "./commands/GetJobTemplateCommand.ts";
-import {
-  GetPresetCommandInput,
-  GetPresetCommandOutput
-} from "./commands/GetPresetCommand.ts";
-import {
-  GetQueueCommandInput,
-  GetQueueCommandOutput
-} from "./commands/GetQueueCommand.ts";
-import {
-  ListJobTemplatesCommandInput,
-  ListJobTemplatesCommandOutput
-} from "./commands/ListJobTemplatesCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
-import {
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput
-} from "./commands/ListPresetsCommand.ts";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand.ts";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
+import { GetJobTemplateCommandInput, GetJobTemplateCommandOutput } from "./commands/GetJobTemplateCommand.ts";
+import { GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand.ts";
+import { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand.ts";
+import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
+import { ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand.ts";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateJobTemplateCommandInput,
-  UpdateJobTemplateCommandOutput
-} from "./commands/UpdateJobTemplateCommand.ts";
-import {
-  UpdatePresetCommandInput,
-  UpdatePresetCommandOutput
-} from "./commands/UpdatePresetCommand.ts";
-import {
-  UpdateQueueCommandInput,
-  UpdateQueueCommandOutput
-} from "./commands/UpdateQueueCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "./commands/UpdateJobTemplateCommand.ts";
+import { UpdatePresetCommandInput, UpdatePresetCommandOutput } from "./commands/UpdatePresetCommand.ts";
+import { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -105,38 +39,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -145,9 +75,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -204,8 +135,7 @@ export type ServiceOutputTypes =
   | UpdatePresetCommandOutput
   | UpdateQueueCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -279,14 +209,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -294,9 +229,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaConvertClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaConvertClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -305,9 +238,7 @@ export type MediaConvertClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -330,7 +261,7 @@ export class MediaConvertClient extends __Client<
   constructor(configuration: MediaConvertClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -345,6 +276,7 @@ export class MediaConvertClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

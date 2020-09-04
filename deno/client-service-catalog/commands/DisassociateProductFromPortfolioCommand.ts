@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DisassociateProductFromPortfolioInput,
-  DisassociateProductFromPortfolioOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateProductFromPortfolioCommand,
-  serializeAws_json1_1DisassociateProductFromPortfolioCommand
+  serializeAws_json1_1DisassociateProductFromPortfolioCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateProductFromPortfolioCommandInput = DisassociateProductFromPortfolioInput;
-export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput &
-  __MetadataBearer;
+export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput & __MetadataBearer;
 
 export class DisassociateProductFromPortfolioCommand extends $Command<
   DisassociateProductFromPortfolioCommandInput,
@@ -49,18 +38,16 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateProductFromPortfolioCommandInput,
-    DisassociateProductFromPortfolioCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateProductFromPortfolioCommandInput, DisassociateProductFromPortfolioCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateProductFromPortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateProductFromPortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     input: DisassociateProductFromPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateProductFromPortfolioCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateProductFromPortfolioCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateProductFromPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisassociateProductFromPortfolioCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateProductFromPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

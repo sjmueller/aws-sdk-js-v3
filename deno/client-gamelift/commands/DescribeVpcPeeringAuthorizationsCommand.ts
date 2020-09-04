@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  DescribeVpcPeeringAuthorizationsInput,
-  DescribeVpcPeeringAuthorizationsOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { DescribeVpcPeeringAuthorizationsInput, DescribeVpcPeeringAuthorizationsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
-  serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand
+  serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeVpcPeeringAuthorizationsCommandInput = DescribeVpcPeeringAuthorizationsInput;
-export type DescribeVpcPeeringAuthorizationsCommandOutput = DescribeVpcPeeringAuthorizationsOutput &
-  __MetadataBearer;
+export type DescribeVpcPeeringAuthorizationsCommandOutput = DescribeVpcPeeringAuthorizationsOutput & __MetadataBearer;
 
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
   DescribeVpcPeeringAuthorizationsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpcPeeringAuthorizationsCommandInput,
-    DescribeVpcPeeringAuthorizationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpcPeeringAuthorizationsCommandInput, DescribeVpcPeeringAuthorizationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeVpcPeeringAuthorizationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcPeeringAuthorizationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     input: DescribeVpcPeeringAuthorizationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> {
-    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

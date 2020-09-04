@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient.ts";
-import {
-  UpdateVirtualNodeInput,
-  UpdateVirtualNodeOutput
-} from "../models/index.ts";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
+import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateVirtualNodeCommand,
-  serializeAws_restJson1UpdateVirtualNodeCommand
+  serializeAws_restJson1UpdateVirtualNodeCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
-export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput &
-  __MetadataBearer;
+export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput & __MetadataBearer;
 
 export class UpdateVirtualNodeCommand extends $Command<
   UpdateVirtualNodeCommandInput,
@@ -50,14 +39,15 @@ export class UpdateVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateVirtualNodeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVirtualNodeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVirtualNodeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVirtualNodeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualNodeCommandOutput> {
     return deserializeAws_restJson1UpdateVirtualNodeCommand(output, context);
   }
 

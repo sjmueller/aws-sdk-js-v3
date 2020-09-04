@@ -1,21 +1,14 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import {
   CreateSnapshotFromVolumeRecoveryPointInput,
-  CreateSnapshotFromVolumeRecoveryPointOutput
+  CreateSnapshotFromVolumeRecoveryPointOutput,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
-  serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand
+  serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSnapshotFromVolumeRecoveryPointCommandInput = CreateSnapshotFromVolumeRecoveryPointInput;
@@ -39,9 +32,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateSnapshotFromVolumeRecoveryPointCommandInput
-  ) {
+  constructor(readonly input: CreateSnapshotFromVolumeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    CreateSnapshotFromVolumeRecoveryPointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSnapshotFromVolumeRecoveryPointCommandInput, CreateSnapshotFromVolumeRecoveryPointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

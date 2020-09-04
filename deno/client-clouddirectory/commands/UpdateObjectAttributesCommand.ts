@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  UpdateObjectAttributesRequest,
-  UpdateObjectAttributesResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { UpdateObjectAttributesRequest, UpdateObjectAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateObjectAttributesCommand,
-  serializeAws_restJson1UpdateObjectAttributesCommand
+  serializeAws_restJson1UpdateObjectAttributesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateObjectAttributesCommandInput = UpdateObjectAttributesRequest;
-export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse &
-  __MetadataBearer;
+export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse & __MetadataBearer;
 
 export class UpdateObjectAttributesCommand extends $Command<
   UpdateObjectAttributesCommandInput,
@@ -49,18 +38,16 @@ export class UpdateObjectAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateObjectAttributesCommandInput,
-    UpdateObjectAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateObjectAttributesCommandInput, UpdateObjectAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateObjectAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateObjectAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class UpdateObjectAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateObjectAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateObjectAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1UpdateObjectAttributesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateObjectAttributesCommandOutput> {
+    return deserializeAws_restJson1UpdateObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

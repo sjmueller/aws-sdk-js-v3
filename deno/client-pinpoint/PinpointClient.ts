@@ -1,430 +1,261 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand.ts";
-import {
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput
-} from "./commands/CreateCampaignCommand.ts";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
+import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand.ts";
 import {
   CreateEmailTemplateCommandInput,
-  CreateEmailTemplateCommandOutput
+  CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand.ts";
-import {
-  CreateExportJobCommandInput,
-  CreateExportJobCommandOutput
-} from "./commands/CreateExportJobCommand.ts";
-import {
-  CreateImportJobCommandInput,
-  CreateImportJobCommandOutput
-} from "./commands/CreateImportJobCommand.ts";
-import {
-  CreateJourneyCommandInput,
-  CreateJourneyCommandOutput
-} from "./commands/CreateJourneyCommand.ts";
+import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "./commands/CreateExportJobCommand.ts";
+import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "./commands/CreateImportJobCommand.ts";
+import { CreateJourneyCommandInput, CreateJourneyCommandOutput } from "./commands/CreateJourneyCommand.ts";
 import {
   CreatePushTemplateCommandInput,
-  CreatePushTemplateCommandOutput
+  CreatePushTemplateCommandOutput,
 } from "./commands/CreatePushTemplateCommand.ts";
 import {
-  CreateSegmentCommandInput,
-  CreateSegmentCommandOutput
-} from "./commands/CreateSegmentCommand.ts";
-import {
-  CreateSmsTemplateCommandInput,
-  CreateSmsTemplateCommandOutput
-} from "./commands/CreateSmsTemplateCommand.ts";
+  CreateRecommenderConfigurationCommandInput,
+  CreateRecommenderConfigurationCommandOutput,
+} from "./commands/CreateRecommenderConfigurationCommand.ts";
+import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "./commands/CreateSegmentCommand.ts";
+import { CreateSmsTemplateCommandInput, CreateSmsTemplateCommandOutput } from "./commands/CreateSmsTemplateCommand.ts";
 import {
   CreateVoiceTemplateCommandInput,
-  CreateVoiceTemplateCommandOutput
+  CreateVoiceTemplateCommandOutput,
 } from "./commands/CreateVoiceTemplateCommand.ts";
-import {
-  DeleteAdmChannelCommandInput,
-  DeleteAdmChannelCommandOutput
-} from "./commands/DeleteAdmChannelCommand.ts";
-import {
-  DeleteApnsChannelCommandInput,
-  DeleteApnsChannelCommandOutput
-} from "./commands/DeleteApnsChannelCommand.ts";
+import { DeleteAdmChannelCommandInput, DeleteAdmChannelCommandOutput } from "./commands/DeleteAdmChannelCommand.ts";
+import { DeleteApnsChannelCommandInput, DeleteApnsChannelCommandOutput } from "./commands/DeleteApnsChannelCommand.ts";
 import {
   DeleteApnsSandboxChannelCommandInput,
-  DeleteApnsSandboxChannelCommandOutput
+  DeleteApnsSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsSandboxChannelCommand.ts";
 import {
   DeleteApnsVoipChannelCommandInput,
-  DeleteApnsVoipChannelCommandOutput
+  DeleteApnsVoipChannelCommandOutput,
 } from "./commands/DeleteApnsVoipChannelCommand.ts";
 import {
   DeleteApnsVoipSandboxChannelCommandInput,
-  DeleteApnsVoipSandboxChannelCommandOutput
+  DeleteApnsVoipSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsVoipSandboxChannelCommand.ts";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand.ts";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand.ts";
 import {
   DeleteBaiduChannelCommandInput,
-  DeleteBaiduChannelCommandOutput
+  DeleteBaiduChannelCommandOutput,
 } from "./commands/DeleteBaiduChannelCommand.ts";
-import {
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput
-} from "./commands/DeleteCampaignCommand.ts";
+import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand.ts";
 import {
   DeleteEmailChannelCommandInput,
-  DeleteEmailChannelCommandOutput
+  DeleteEmailChannelCommandOutput,
 } from "./commands/DeleteEmailChannelCommand.ts";
 import {
   DeleteEmailTemplateCommandInput,
-  DeleteEmailTemplateCommandOutput
+  DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand.ts";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand.ts";
-import {
-  DeleteEventStreamCommandInput,
-  DeleteEventStreamCommandOutput
-} from "./commands/DeleteEventStreamCommand.ts";
-import {
-  DeleteGcmChannelCommandInput,
-  DeleteGcmChannelCommandOutput
-} from "./commands/DeleteGcmChannelCommand.ts";
-import {
-  DeleteJourneyCommandInput,
-  DeleteJourneyCommandOutput
-} from "./commands/DeleteJourneyCommand.ts";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand.ts";
+import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand.ts";
+import { DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput } from "./commands/DeleteGcmChannelCommand.ts";
+import { DeleteJourneyCommandInput, DeleteJourneyCommandOutput } from "./commands/DeleteJourneyCommand.ts";
 import {
   DeletePushTemplateCommandInput,
-  DeletePushTemplateCommandOutput
+  DeletePushTemplateCommandOutput,
 } from "./commands/DeletePushTemplateCommand.ts";
 import {
-  DeleteSegmentCommandInput,
-  DeleteSegmentCommandOutput
-} from "./commands/DeleteSegmentCommand.ts";
-import {
-  DeleteSmsChannelCommandInput,
-  DeleteSmsChannelCommandOutput
-} from "./commands/DeleteSmsChannelCommand.ts";
-import {
-  DeleteSmsTemplateCommandInput,
-  DeleteSmsTemplateCommandOutput
-} from "./commands/DeleteSmsTemplateCommand.ts";
+  DeleteRecommenderConfigurationCommandInput,
+  DeleteRecommenderConfigurationCommandOutput,
+} from "./commands/DeleteRecommenderConfigurationCommand.ts";
+import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "./commands/DeleteSegmentCommand.ts";
+import { DeleteSmsChannelCommandInput, DeleteSmsChannelCommandOutput } from "./commands/DeleteSmsChannelCommand.ts";
+import { DeleteSmsTemplateCommandInput, DeleteSmsTemplateCommandOutput } from "./commands/DeleteSmsTemplateCommand.ts";
 import {
   DeleteUserEndpointsCommandInput,
-  DeleteUserEndpointsCommandOutput
+  DeleteUserEndpointsCommandOutput,
 } from "./commands/DeleteUserEndpointsCommand.ts";
 import {
   DeleteVoiceChannelCommandInput,
-  DeleteVoiceChannelCommandOutput
+  DeleteVoiceChannelCommandOutput,
 } from "./commands/DeleteVoiceChannelCommand.ts";
 import {
   DeleteVoiceTemplateCommandInput,
-  DeleteVoiceTemplateCommandOutput
+  DeleteVoiceTemplateCommandOutput,
 } from "./commands/DeleteVoiceTemplateCommand.ts";
-import {
-  GetAdmChannelCommandInput,
-  GetAdmChannelCommandOutput
-} from "./commands/GetAdmChannelCommand.ts";
-import {
-  GetApnsChannelCommandInput,
-  GetApnsChannelCommandOutput
-} from "./commands/GetApnsChannelCommand.ts";
+import { GetAdmChannelCommandInput, GetAdmChannelCommandOutput } from "./commands/GetAdmChannelCommand.ts";
+import { GetApnsChannelCommandInput, GetApnsChannelCommandOutput } from "./commands/GetApnsChannelCommand.ts";
 import {
   GetApnsSandboxChannelCommandInput,
-  GetApnsSandboxChannelCommandOutput
+  GetApnsSandboxChannelCommandOutput,
 } from "./commands/GetApnsSandboxChannelCommand.ts";
 import {
   GetApnsVoipChannelCommandInput,
-  GetApnsVoipChannelCommandOutput
+  GetApnsVoipChannelCommandOutput,
 } from "./commands/GetApnsVoipChannelCommand.ts";
 import {
   GetApnsVoipSandboxChannelCommandInput,
-  GetApnsVoipSandboxChannelCommandOutput
+  GetApnsVoipSandboxChannelCommandOutput,
 } from "./commands/GetApnsVoipSandboxChannelCommand.ts";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand.ts";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand.ts";
 import {
   GetApplicationDateRangeKpiCommandInput,
-  GetApplicationDateRangeKpiCommandOutput
+  GetApplicationDateRangeKpiCommandOutput,
 } from "./commands/GetApplicationDateRangeKpiCommand.ts";
 import {
   GetApplicationSettingsCommandInput,
-  GetApplicationSettingsCommandOutput
+  GetApplicationSettingsCommandOutput,
 } from "./commands/GetApplicationSettingsCommand.ts";
-import {
-  GetAppsCommandInput,
-  GetAppsCommandOutput
-} from "./commands/GetAppsCommand.ts";
-import {
-  GetBaiduChannelCommandInput,
-  GetBaiduChannelCommandOutput
-} from "./commands/GetBaiduChannelCommand.ts";
+import { GetAppsCommandInput, GetAppsCommandOutput } from "./commands/GetAppsCommand.ts";
+import { GetBaiduChannelCommandInput, GetBaiduChannelCommandOutput } from "./commands/GetBaiduChannelCommand.ts";
 import {
   GetCampaignActivitiesCommandInput,
-  GetCampaignActivitiesCommandOutput
+  GetCampaignActivitiesCommandOutput,
 } from "./commands/GetCampaignActivitiesCommand.ts";
-import {
-  GetCampaignCommandInput,
-  GetCampaignCommandOutput
-} from "./commands/GetCampaignCommand.ts";
+import { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand.ts";
 import {
   GetCampaignDateRangeKpiCommandInput,
-  GetCampaignDateRangeKpiCommandOutput
+  GetCampaignDateRangeKpiCommandOutput,
 } from "./commands/GetCampaignDateRangeKpiCommand.ts";
 import {
   GetCampaignVersionCommandInput,
-  GetCampaignVersionCommandOutput
+  GetCampaignVersionCommandOutput,
 } from "./commands/GetCampaignVersionCommand.ts";
 import {
   GetCampaignVersionsCommandInput,
-  GetCampaignVersionsCommandOutput
+  GetCampaignVersionsCommandOutput,
 } from "./commands/GetCampaignVersionsCommand.ts";
-import {
-  GetCampaignsCommandInput,
-  GetCampaignsCommandOutput
-} from "./commands/GetCampaignsCommand.ts";
-import {
-  GetChannelsCommandInput,
-  GetChannelsCommandOutput
-} from "./commands/GetChannelsCommand.ts";
-import {
-  GetEmailChannelCommandInput,
-  GetEmailChannelCommandOutput
-} from "./commands/GetEmailChannelCommand.ts";
-import {
-  GetEmailTemplateCommandInput,
-  GetEmailTemplateCommandOutput
-} from "./commands/GetEmailTemplateCommand.ts";
-import {
-  GetEndpointCommandInput,
-  GetEndpointCommandOutput
-} from "./commands/GetEndpointCommand.ts";
-import {
-  GetEventStreamCommandInput,
-  GetEventStreamCommandOutput
-} from "./commands/GetEventStreamCommand.ts";
-import {
-  GetExportJobCommandInput,
-  GetExportJobCommandOutput
-} from "./commands/GetExportJobCommand.ts";
-import {
-  GetExportJobsCommandInput,
-  GetExportJobsCommandOutput
-} from "./commands/GetExportJobsCommand.ts";
-import {
-  GetGcmChannelCommandInput,
-  GetGcmChannelCommandOutput
-} from "./commands/GetGcmChannelCommand.ts";
-import {
-  GetImportJobCommandInput,
-  GetImportJobCommandOutput
-} from "./commands/GetImportJobCommand.ts";
-import {
-  GetImportJobsCommandInput,
-  GetImportJobsCommandOutput
-} from "./commands/GetImportJobsCommand.ts";
-import {
-  GetJourneyCommandInput,
-  GetJourneyCommandOutput
-} from "./commands/GetJourneyCommand.ts";
+import { GetCampaignsCommandInput, GetCampaignsCommandOutput } from "./commands/GetCampaignsCommand.ts";
+import { GetChannelsCommandInput, GetChannelsCommandOutput } from "./commands/GetChannelsCommand.ts";
+import { GetEmailChannelCommandInput, GetEmailChannelCommandOutput } from "./commands/GetEmailChannelCommand.ts";
+import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "./commands/GetEmailTemplateCommand.ts";
+import { GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand.ts";
+import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand.ts";
+import { GetExportJobCommandInput, GetExportJobCommandOutput } from "./commands/GetExportJobCommand.ts";
+import { GetExportJobsCommandInput, GetExportJobsCommandOutput } from "./commands/GetExportJobsCommand.ts";
+import { GetGcmChannelCommandInput, GetGcmChannelCommandOutput } from "./commands/GetGcmChannelCommand.ts";
+import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand.ts";
+import { GetImportJobsCommandInput, GetImportJobsCommandOutput } from "./commands/GetImportJobsCommand.ts";
+import { GetJourneyCommandInput, GetJourneyCommandOutput } from "./commands/GetJourneyCommand.ts";
 import {
   GetJourneyDateRangeKpiCommandInput,
-  GetJourneyDateRangeKpiCommandOutput
+  GetJourneyDateRangeKpiCommandOutput,
 } from "./commands/GetJourneyDateRangeKpiCommand.ts";
 import {
   GetJourneyExecutionActivityMetricsCommandInput,
-  GetJourneyExecutionActivityMetricsCommandOutput
+  GetJourneyExecutionActivityMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionActivityMetricsCommand.ts";
 import {
   GetJourneyExecutionMetricsCommandInput,
-  GetJourneyExecutionMetricsCommandOutput
+  GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand.ts";
+import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "./commands/GetPushTemplateCommand.ts";
 import {
-  GetPushTemplateCommandInput,
-  GetPushTemplateCommandOutput
-} from "./commands/GetPushTemplateCommand.ts";
+  GetRecommenderConfigurationCommandInput,
+  GetRecommenderConfigurationCommandOutput,
+} from "./commands/GetRecommenderConfigurationCommand.ts";
 import {
-  GetSegmentCommandInput,
-  GetSegmentCommandOutput
-} from "./commands/GetSegmentCommand.ts";
+  GetRecommenderConfigurationsCommandInput,
+  GetRecommenderConfigurationsCommandOutput,
+} from "./commands/GetRecommenderConfigurationsCommand.ts";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand.ts";
 import {
   GetSegmentExportJobsCommandInput,
-  GetSegmentExportJobsCommandOutput
+  GetSegmentExportJobsCommandOutput,
 } from "./commands/GetSegmentExportJobsCommand.ts";
 import {
   GetSegmentImportJobsCommandInput,
-  GetSegmentImportJobsCommandOutput
+  GetSegmentImportJobsCommandOutput,
 } from "./commands/GetSegmentImportJobsCommand.ts";
-import {
-  GetSegmentVersionCommandInput,
-  GetSegmentVersionCommandOutput
-} from "./commands/GetSegmentVersionCommand.ts";
+import { GetSegmentVersionCommandInput, GetSegmentVersionCommandOutput } from "./commands/GetSegmentVersionCommand.ts";
 import {
   GetSegmentVersionsCommandInput,
-  GetSegmentVersionsCommandOutput
+  GetSegmentVersionsCommandOutput,
 } from "./commands/GetSegmentVersionsCommand.ts";
-import {
-  GetSegmentsCommandInput,
-  GetSegmentsCommandOutput
-} from "./commands/GetSegmentsCommand.ts";
-import {
-  GetSmsChannelCommandInput,
-  GetSmsChannelCommandOutput
-} from "./commands/GetSmsChannelCommand.ts";
-import {
-  GetSmsTemplateCommandInput,
-  GetSmsTemplateCommandOutput
-} from "./commands/GetSmsTemplateCommand.ts";
-import {
-  GetUserEndpointsCommandInput,
-  GetUserEndpointsCommandOutput
-} from "./commands/GetUserEndpointsCommand.ts";
-import {
-  GetVoiceChannelCommandInput,
-  GetVoiceChannelCommandOutput
-} from "./commands/GetVoiceChannelCommand.ts";
-import {
-  GetVoiceTemplateCommandInput,
-  GetVoiceTemplateCommandOutput
-} from "./commands/GetVoiceTemplateCommand.ts";
-import {
-  ListJourneysCommandInput,
-  ListJourneysCommandOutput
-} from "./commands/ListJourneysCommand.ts";
+import { GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand.ts";
+import { GetSmsChannelCommandInput, GetSmsChannelCommandOutput } from "./commands/GetSmsChannelCommand.ts";
+import { GetSmsTemplateCommandInput, GetSmsTemplateCommandOutput } from "./commands/GetSmsTemplateCommand.ts";
+import { GetUserEndpointsCommandInput, GetUserEndpointsCommandOutput } from "./commands/GetUserEndpointsCommand.ts";
+import { GetVoiceChannelCommandInput, GetVoiceChannelCommandOutput } from "./commands/GetVoiceChannelCommand.ts";
+import { GetVoiceTemplateCommandInput, GetVoiceTemplateCommandOutput } from "./commands/GetVoiceTemplateCommand.ts";
+import { ListJourneysCommandInput, ListJourneysCommandOutput } from "./commands/ListJourneysCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTemplateVersionsCommandInput,
-  ListTemplateVersionsCommandOutput
+  ListTemplateVersionsCommandOutput,
 } from "./commands/ListTemplateVersionsCommand.ts";
-import {
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
-} from "./commands/ListTemplatesCommand.ts";
+import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand.ts";
 import {
   PhoneNumberValidateCommandInput,
-  PhoneNumberValidateCommandOutput
+  PhoneNumberValidateCommandOutput,
 } from "./commands/PhoneNumberValidateCommand.ts";
-import {
-  PutEventStreamCommandInput,
-  PutEventStreamCommandOutput
-} from "./commands/PutEventStreamCommand.ts";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand.ts";
-import {
-  RemoveAttributesCommandInput,
-  RemoveAttributesCommandOutput
-} from "./commands/RemoveAttributesCommand.ts";
-import {
-  SendMessagesCommandInput,
-  SendMessagesCommandOutput
-} from "./commands/SendMessagesCommand.ts";
-import {
-  SendUsersMessagesCommandInput,
-  SendUsersMessagesCommandOutput
-} from "./commands/SendUsersMessagesCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAdmChannelCommandInput,
-  UpdateAdmChannelCommandOutput
-} from "./commands/UpdateAdmChannelCommand.ts";
-import {
-  UpdateApnsChannelCommandInput,
-  UpdateApnsChannelCommandOutput
-} from "./commands/UpdateApnsChannelCommand.ts";
+import { PutEventStreamCommandInput, PutEventStreamCommandOutput } from "./commands/PutEventStreamCommand.ts";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand.ts";
+import { RemoveAttributesCommandInput, RemoveAttributesCommandOutput } from "./commands/RemoveAttributesCommand.ts";
+import { SendMessagesCommandInput, SendMessagesCommandOutput } from "./commands/SendMessagesCommand.ts";
+import { SendUsersMessagesCommandInput, SendUsersMessagesCommandOutput } from "./commands/SendUsersMessagesCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAdmChannelCommandInput, UpdateAdmChannelCommandOutput } from "./commands/UpdateAdmChannelCommand.ts";
+import { UpdateApnsChannelCommandInput, UpdateApnsChannelCommandOutput } from "./commands/UpdateApnsChannelCommand.ts";
 import {
   UpdateApnsSandboxChannelCommandInput,
-  UpdateApnsSandboxChannelCommandOutput
+  UpdateApnsSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsSandboxChannelCommand.ts";
 import {
   UpdateApnsVoipChannelCommandInput,
-  UpdateApnsVoipChannelCommandOutput
+  UpdateApnsVoipChannelCommandOutput,
 } from "./commands/UpdateApnsVoipChannelCommand.ts";
 import {
   UpdateApnsVoipSandboxChannelCommandInput,
-  UpdateApnsVoipSandboxChannelCommandOutput
+  UpdateApnsVoipSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsVoipSandboxChannelCommand.ts";
 import {
   UpdateApplicationSettingsCommandInput,
-  UpdateApplicationSettingsCommandOutput
+  UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand.ts";
 import {
   UpdateBaiduChannelCommandInput,
-  UpdateBaiduChannelCommandOutput
+  UpdateBaiduChannelCommandOutput,
 } from "./commands/UpdateBaiduChannelCommand.ts";
-import {
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput
-} from "./commands/UpdateCampaignCommand.ts";
+import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand.ts";
 import {
   UpdateEmailChannelCommandInput,
-  UpdateEmailChannelCommandOutput
+  UpdateEmailChannelCommandOutput,
 } from "./commands/UpdateEmailChannelCommand.ts";
 import {
   UpdateEmailTemplateCommandInput,
-  UpdateEmailTemplateCommandOutput
+  UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand.ts";
-import {
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
-} from "./commands/UpdateEndpointCommand.ts";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand.ts";
 import {
   UpdateEndpointsBatchCommandInput,
-  UpdateEndpointsBatchCommandOutput
+  UpdateEndpointsBatchCommandOutput,
 } from "./commands/UpdateEndpointsBatchCommand.ts";
-import {
-  UpdateGcmChannelCommandInput,
-  UpdateGcmChannelCommandOutput
-} from "./commands/UpdateGcmChannelCommand.ts";
-import {
-  UpdateJourneyCommandInput,
-  UpdateJourneyCommandOutput
-} from "./commands/UpdateJourneyCommand.ts";
+import { UpdateGcmChannelCommandInput, UpdateGcmChannelCommandOutput } from "./commands/UpdateGcmChannelCommand.ts";
+import { UpdateJourneyCommandInput, UpdateJourneyCommandOutput } from "./commands/UpdateJourneyCommand.ts";
 import {
   UpdateJourneyStateCommandInput,
-  UpdateJourneyStateCommandOutput
+  UpdateJourneyStateCommandOutput,
 } from "./commands/UpdateJourneyStateCommand.ts";
 import {
   UpdatePushTemplateCommandInput,
-  UpdatePushTemplateCommandOutput
+  UpdatePushTemplateCommandOutput,
 } from "./commands/UpdatePushTemplateCommand.ts";
 import {
-  UpdateSegmentCommandInput,
-  UpdateSegmentCommandOutput
-} from "./commands/UpdateSegmentCommand.ts";
-import {
-  UpdateSmsChannelCommandInput,
-  UpdateSmsChannelCommandOutput
-} from "./commands/UpdateSmsChannelCommand.ts";
-import {
-  UpdateSmsTemplateCommandInput,
-  UpdateSmsTemplateCommandOutput
-} from "./commands/UpdateSmsTemplateCommand.ts";
+  UpdateRecommenderConfigurationCommandInput,
+  UpdateRecommenderConfigurationCommandOutput,
+} from "./commands/UpdateRecommenderConfigurationCommand.ts";
+import { UpdateSegmentCommandInput, UpdateSegmentCommandOutput } from "./commands/UpdateSegmentCommand.ts";
+import { UpdateSmsChannelCommandInput, UpdateSmsChannelCommandOutput } from "./commands/UpdateSmsChannelCommand.ts";
+import { UpdateSmsTemplateCommandInput, UpdateSmsTemplateCommandOutput } from "./commands/UpdateSmsTemplateCommand.ts";
 import {
   UpdateTemplateActiveVersionCommandInput,
-  UpdateTemplateActiveVersionCommandOutput
+  UpdateTemplateActiveVersionCommandOutput,
 } from "./commands/UpdateTemplateActiveVersionCommand.ts";
 import {
   UpdateVoiceChannelCommandInput,
-  UpdateVoiceChannelCommandOutput
+  UpdateVoiceChannelCommandOutput,
 } from "./commands/UpdateVoiceChannelCommand.ts";
 import {
   UpdateVoiceTemplateCommandInput,
-  UpdateVoiceTemplateCommandOutput
+  UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -433,38 +264,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -473,9 +300,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -486,6 +314,7 @@ export type ServiceInputTypes =
   | CreateImportJobCommandInput
   | CreateJourneyCommandInput
   | CreatePushTemplateCommandInput
+  | CreateRecommenderConfigurationCommandInput
   | CreateSegmentCommandInput
   | CreateSmsTemplateCommandInput
   | CreateVoiceTemplateCommandInput
@@ -504,6 +333,7 @@ export type ServiceInputTypes =
   | DeleteGcmChannelCommandInput
   | DeleteJourneyCommandInput
   | DeletePushTemplateCommandInput
+  | DeleteRecommenderConfigurationCommandInput
   | DeleteSegmentCommandInput
   | DeleteSmsChannelCommandInput
   | DeleteSmsTemplateCommandInput
@@ -541,6 +371,8 @@ export type ServiceInputTypes =
   | GetJourneyExecutionActivityMetricsCommandInput
   | GetJourneyExecutionMetricsCommandInput
   | GetPushTemplateCommandInput
+  | GetRecommenderConfigurationCommandInput
+  | GetRecommenderConfigurationsCommandInput
   | GetSegmentCommandInput
   | GetSegmentExportJobsCommandInput
   | GetSegmentImportJobsCommandInput
@@ -580,6 +412,7 @@ export type ServiceInputTypes =
   | UpdateJourneyCommandInput
   | UpdateJourneyStateCommandInput
   | UpdatePushTemplateCommandInput
+  | UpdateRecommenderConfigurationCommandInput
   | UpdateSegmentCommandInput
   | UpdateSmsChannelCommandInput
   | UpdateSmsTemplateCommandInput
@@ -595,6 +428,7 @@ export type ServiceOutputTypes =
   | CreateImportJobCommandOutput
   | CreateJourneyCommandOutput
   | CreatePushTemplateCommandOutput
+  | CreateRecommenderConfigurationCommandOutput
   | CreateSegmentCommandOutput
   | CreateSmsTemplateCommandOutput
   | CreateVoiceTemplateCommandOutput
@@ -613,6 +447,7 @@ export type ServiceOutputTypes =
   | DeleteGcmChannelCommandOutput
   | DeleteJourneyCommandOutput
   | DeletePushTemplateCommandOutput
+  | DeleteRecommenderConfigurationCommandOutput
   | DeleteSegmentCommandOutput
   | DeleteSmsChannelCommandOutput
   | DeleteSmsTemplateCommandOutput
@@ -650,6 +485,8 @@ export type ServiceOutputTypes =
   | GetJourneyExecutionActivityMetricsCommandOutput
   | GetJourneyExecutionMetricsCommandOutput
   | GetPushTemplateCommandOutput
+  | GetRecommenderConfigurationCommandOutput
+  | GetRecommenderConfigurationsCommandOutput
   | GetSegmentCommandOutput
   | GetSegmentExportJobsCommandOutput
   | GetSegmentImportJobsCommandOutput
@@ -689,6 +526,7 @@ export type ServiceOutputTypes =
   | UpdateJourneyCommandOutput
   | UpdateJourneyStateCommandOutput
   | UpdatePushTemplateCommandOutput
+  | UpdateRecommenderConfigurationCommandOutput
   | UpdateSegmentCommandOutput
   | UpdateSmsChannelCommandOutput
   | UpdateSmsTemplateCommandOutput
@@ -696,8 +534,7 @@ export type ServiceOutputTypes =
   | UpdateVoiceChannelCommandOutput
   | UpdateVoiceTemplateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -771,14 +608,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -786,9 +628,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PinpointClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PinpointClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -797,9 +637,7 @@ export type PinpointClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -822,7 +660,7 @@ export class PinpointClient extends __Client<
   constructor(configuration: PinpointClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -837,6 +675,7 @@ export class PinpointClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

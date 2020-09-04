@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  DeleteConferenceProviderRequest,
-  DeleteConferenceProviderResponse
-} from "../models/index.ts";
+import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteConferenceProviderCommand,
-  serializeAws_json1_1DeleteConferenceProviderCommand
+  serializeAws_json1_1DeleteConferenceProviderCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteConferenceProviderCommandInput = DeleteConferenceProviderRequest;
-export type DeleteConferenceProviderCommandOutput = DeleteConferenceProviderResponse &
-  __MetadataBearer;
+export type DeleteConferenceProviderCommandOutput = DeleteConferenceProviderResponse & __MetadataBearer;
 
 export class DeleteConferenceProviderCommand extends $Command<
   DeleteConferenceProviderCommandInput,
@@ -49,18 +42,16 @@ export class DeleteConferenceProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConferenceProviderCommandInput,
-    DeleteConferenceProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConferenceProviderCommandInput, DeleteConferenceProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteConferenceProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConferenceProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class DeleteConferenceProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConferenceProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConferenceProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteConferenceProviderCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConferenceProviderCommandOutput> {
+    return deserializeAws_json1_1DeleteConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

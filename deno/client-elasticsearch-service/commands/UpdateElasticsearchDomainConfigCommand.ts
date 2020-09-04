@@ -1,21 +1,15 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import {
-  UpdateElasticsearchDomainConfigRequest,
-  UpdateElasticsearchDomainConfigResponse
-} from "../models/index.ts";
+import { UpdateElasticsearchDomainConfigRequest, UpdateElasticsearchDomainConfigResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
-  serializeAws_restJson1UpdateElasticsearchDomainConfigCommand
+  serializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateElasticsearchDomainConfigCommandInput = UpdateElasticsearchDomainConfigRequest;
-export type UpdateElasticsearchDomainConfigCommandOutput = UpdateElasticsearchDomainConfigResponse &
-  __MetadataBearer;
+export type UpdateElasticsearchDomainConfigCommandOutput = UpdateElasticsearchDomainConfigResponse & __MetadataBearer;
 
 export class UpdateElasticsearchDomainConfigCommand extends $Command<
   UpdateElasticsearchDomainConfigCommandInput,
@@ -49,18 +42,16 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateElasticsearchDomainConfigCommandInput,
-    UpdateElasticsearchDomainConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateElasticsearchDomainConfigCommandInput, UpdateElasticsearchDomainConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateElasticsearchDomainConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateElasticsearchDomainConfigResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
     input: UpdateElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateElasticsearchDomainConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateElasticsearchDomainConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

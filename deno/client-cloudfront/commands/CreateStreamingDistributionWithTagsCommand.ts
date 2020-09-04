@@ -1,21 +1,14 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import {
   CreateStreamingDistributionWithTagsRequest,
-  CreateStreamingDistributionWithTagsResult
+  CreateStreamingDistributionWithTagsResult,
 } from "../models/index.ts";
 import {
   deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
-  serializeAws_restXmlCreateStreamingDistributionWithTagsCommand
+  serializeAws_restXmlCreateStreamingDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateStreamingDistributionWithTagsCommandInput = CreateStreamingDistributionWithTagsRequest;
@@ -49,18 +42,16 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateStreamingDistributionWithTagsCommandInput,
-    CreateStreamingDistributionWithTagsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateStreamingDistributionWithTagsCommandInput, CreateStreamingDistributionWithTagsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateStreamingDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamingDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command<
     input: CreateStreamingDistributionWithTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlCreateStreamingDistributionWithTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

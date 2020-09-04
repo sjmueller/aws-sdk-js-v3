@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  AdminListDevicesRequest,
-  AdminListDevicesResponse
-} from "../models/index.ts";
+import { AdminListDevicesRequest, AdminListDevicesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AdminListDevicesCommand,
-  serializeAws_json1_1AdminListDevicesCommand
+  serializeAws_json1_1AdminListDevicesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AdminListDevicesCommandInput = AdminListDevicesRequest;
-export type AdminListDevicesCommandOutput = AdminListDevicesResponse &
-  __MetadataBearer;
+export type AdminListDevicesCommandOutput = AdminListDevicesResponse & __MetadataBearer;
 
 export class AdminListDevicesCommand extends $Command<
   AdminListDevicesCommandInput,
@@ -50,14 +43,15 @@ export class AdminListDevicesCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminListDevicesCommandInput, AdminListDevicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AdminListDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminListDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class AdminListDevicesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminListDevicesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AdminListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminListDevicesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AdminListDevicesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListDevicesCommandOutput> {
     return deserializeAws_json1_1AdminListDevicesCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  GetFlowTemplateRequest,
-  GetFlowTemplateResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { GetFlowTemplateRequest, GetFlowTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetFlowTemplateCommand,
-  serializeAws_json1_1GetFlowTemplateCommand
+  serializeAws_json1_1GetFlowTemplateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetFlowTemplateCommandInput = GetFlowTemplateRequest;
-export type GetFlowTemplateCommandOutput = GetFlowTemplateResponse &
-  __MetadataBearer;
+export type GetFlowTemplateCommandOutput = GetFlowTemplateResponse & __MetadataBearer;
 
 export class GetFlowTemplateCommand extends $Command<
   GetFlowTemplateCommandInput,
@@ -50,14 +39,15 @@ export class GetFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetFlowTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetFlowTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetFlowTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetFlowTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFlowTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetFlowTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFlowTemplateCommandOutput> {
     return deserializeAws_json1_1GetFlowTemplateCommand(output, context);
   }
 

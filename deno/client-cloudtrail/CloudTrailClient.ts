@@ -1,75 +1,27 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand.ts";
-import {
-  CreateTrailCommandInput,
-  CreateTrailCommandOutput
-} from "./commands/CreateTrailCommand.ts";
-import {
-  DeleteTrailCommandInput,
-  DeleteTrailCommandOutput
-} from "./commands/DeleteTrailCommand.ts";
-import {
-  DescribeTrailsCommandInput,
-  DescribeTrailsCommandOutput
-} from "./commands/DescribeTrailsCommand.ts";
-import {
-  GetEventSelectorsCommandInput,
-  GetEventSelectorsCommandOutput
-} from "./commands/GetEventSelectorsCommand.ts";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
+import { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand.ts";
+import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand.ts";
+import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand.ts";
+import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand.ts";
 import {
   GetInsightSelectorsCommandInput,
-  GetInsightSelectorsCommandOutput
+  GetInsightSelectorsCommandOutput,
 } from "./commands/GetInsightSelectorsCommand.ts";
-import {
-  GetTrailCommandInput,
-  GetTrailCommandOutput
-} from "./commands/GetTrailCommand.ts";
-import {
-  GetTrailStatusCommandInput,
-  GetTrailStatusCommandOutput
-} from "./commands/GetTrailStatusCommand.ts";
-import {
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
-} from "./commands/ListPublicKeysCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
-import {
-  ListTrailsCommandInput,
-  ListTrailsCommandOutput
-} from "./commands/ListTrailsCommand.ts";
-import {
-  LookupEventsCommandInput,
-  LookupEventsCommandOutput
-} from "./commands/LookupEventsCommand.ts";
-import {
-  PutEventSelectorsCommandInput,
-  PutEventSelectorsCommandOutput
-} from "./commands/PutEventSelectorsCommand.ts";
+import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand.ts";
+import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand.ts";
+import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
+import { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand.ts";
+import { LookupEventsCommandInput, LookupEventsCommandOutput } from "./commands/LookupEventsCommand.ts";
+import { PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput } from "./commands/PutEventSelectorsCommand.ts";
 import {
   PutInsightSelectorsCommandInput,
-  PutInsightSelectorsCommandOutput
+  PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand.ts";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand.ts";
-import {
-  StartLoggingCommandInput,
-  StartLoggingCommandOutput
-} from "./commands/StartLoggingCommand.ts";
-import {
-  StopLoggingCommandInput,
-  StopLoggingCommandOutput
-} from "./commands/StopLoggingCommand.ts";
-import {
-  UpdateTrailCommandInput,
-  UpdateTrailCommandOutput
-} from "./commands/UpdateTrailCommand.ts";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand.ts";
+import { StartLoggingCommandInput, StartLoggingCommandOutput } from "./commands/StartLoggingCommand.ts";
+import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand.ts";
+import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -77,38 +29,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -117,9 +65,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -162,8 +111,7 @@ export type ServiceOutputTypes =
   | StopLoggingCommandOutput
   | UpdateTrailCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -237,14 +185,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -252,9 +205,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudTrailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudTrailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -263,9 +214,7 @@ export type CloudTrailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -302,7 +251,7 @@ export class CloudTrailClient extends __Client<
   constructor(configuration: CloudTrailClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -317,6 +266,7 @@ export class CloudTrailClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

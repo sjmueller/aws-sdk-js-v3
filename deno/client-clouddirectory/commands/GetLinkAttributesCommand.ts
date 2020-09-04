@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  GetLinkAttributesRequest,
-  GetLinkAttributesResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { GetLinkAttributesRequest, GetLinkAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetLinkAttributesCommand,
-  serializeAws_restJson1GetLinkAttributesCommand
+  serializeAws_restJson1GetLinkAttributesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLinkAttributesCommandInput = GetLinkAttributesRequest;
-export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse &
-  __MetadataBearer;
+export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse & __MetadataBearer;
 
 export class GetLinkAttributesCommand extends $Command<
   GetLinkAttributesCommandInput,
@@ -50,14 +39,15 @@ export class GetLinkAttributesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLinkAttributesCommandInput, GetLinkAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLinkAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLinkAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetLinkAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLinkAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLinkAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLinkAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAttributesCommandOutput> {
     return deserializeAws_restJson1GetLinkAttributesCommand(output, context);
   }
 

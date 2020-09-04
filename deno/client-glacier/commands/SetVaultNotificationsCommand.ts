@@ -1,18 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient.ts";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
 import { SetVaultNotificationsInput } from "../models/index.ts";
 import {
   deserializeAws_restJson1SetVaultNotificationsCommand,
-  serializeAws_restJson1SetVaultNotificationsCommand
+  serializeAws_restJson1SetVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SetVaultNotificationsCommandInput = SetVaultNotificationsInput;
@@ -45,18 +38,16 @@ export class SetVaultNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetVaultNotificationsCommandInput,
-    SetVaultNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetVaultNotificationsCommandInput, SetVaultNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SetVaultNotificationsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,21 +57,12 @@ export class SetVaultNotificationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetVaultNotificationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SetVaultNotificationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1SetVaultNotificationsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVaultNotificationsCommandOutput> {
+    return deserializeAws_restJson1SetVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

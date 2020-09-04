@@ -1,158 +1,173 @@
 import { AppMeshClient } from "./AppMeshClient.ts";
 import {
-  CreateMeshCommand,
-  CreateMeshCommandInput,
-  CreateMeshCommandOutput
-} from "./commands/CreateMeshCommand.ts";
+  CreateGatewayRouteCommand,
+  CreateGatewayRouteCommandInput,
+  CreateGatewayRouteCommandOutput,
+} from "./commands/CreateGatewayRouteCommand.ts";
+import { CreateMeshCommand, CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand.ts";
 import {
   CreateRouteCommand,
   CreateRouteCommandInput,
-  CreateRouteCommandOutput
+  CreateRouteCommandOutput,
 } from "./commands/CreateRouteCommand.ts";
+import {
+  CreateVirtualGatewayCommand,
+  CreateVirtualGatewayCommandInput,
+  CreateVirtualGatewayCommandOutput,
+} from "./commands/CreateVirtualGatewayCommand.ts";
 import {
   CreateVirtualNodeCommand,
   CreateVirtualNodeCommandInput,
-  CreateVirtualNodeCommandOutput
+  CreateVirtualNodeCommandOutput,
 } from "./commands/CreateVirtualNodeCommand.ts";
 import {
   CreateVirtualRouterCommand,
   CreateVirtualRouterCommandInput,
-  CreateVirtualRouterCommandOutput
+  CreateVirtualRouterCommandOutput,
 } from "./commands/CreateVirtualRouterCommand.ts";
 import {
   CreateVirtualServiceCommand,
   CreateVirtualServiceCommandInput,
-  CreateVirtualServiceCommandOutput
+  CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand.ts";
 import {
-  DeleteMeshCommand,
-  DeleteMeshCommandInput,
-  DeleteMeshCommandOutput
-} from "./commands/DeleteMeshCommand.ts";
-import {
-  DeleteMeshPolicyCommand,
-  DeleteMeshPolicyCommandInput,
-  DeleteMeshPolicyCommandOutput
-} from "./commands/DeleteMeshPolicyCommand.ts";
+  DeleteGatewayRouteCommand,
+  DeleteGatewayRouteCommandInput,
+  DeleteGatewayRouteCommandOutput,
+} from "./commands/DeleteGatewayRouteCommand.ts";
+import { DeleteMeshCommand, DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand.ts";
 import {
   DeleteRouteCommand,
   DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
+  DeleteRouteCommandOutput,
 } from "./commands/DeleteRouteCommand.ts";
+import {
+  DeleteVirtualGatewayCommand,
+  DeleteVirtualGatewayCommandInput,
+  DeleteVirtualGatewayCommandOutput,
+} from "./commands/DeleteVirtualGatewayCommand.ts";
 import {
   DeleteVirtualNodeCommand,
   DeleteVirtualNodeCommandInput,
-  DeleteVirtualNodeCommandOutput
+  DeleteVirtualNodeCommandOutput,
 } from "./commands/DeleteVirtualNodeCommand.ts";
 import {
   DeleteVirtualRouterCommand,
   DeleteVirtualRouterCommandInput,
-  DeleteVirtualRouterCommandOutput
+  DeleteVirtualRouterCommandOutput,
 } from "./commands/DeleteVirtualRouterCommand.ts";
 import {
   DeleteVirtualServiceCommand,
   DeleteVirtualServiceCommandInput,
-  DeleteVirtualServiceCommandOutput
+  DeleteVirtualServiceCommandOutput,
 } from "./commands/DeleteVirtualServiceCommand.ts";
+import {
+  DescribeGatewayRouteCommand,
+  DescribeGatewayRouteCommandInput,
+  DescribeGatewayRouteCommandOutput,
+} from "./commands/DescribeGatewayRouteCommand.ts";
 import {
   DescribeMeshCommand,
   DescribeMeshCommandInput,
-  DescribeMeshCommandOutput
+  DescribeMeshCommandOutput,
 } from "./commands/DescribeMeshCommand.ts";
 import {
   DescribeRouteCommand,
   DescribeRouteCommandInput,
-  DescribeRouteCommandOutput
+  DescribeRouteCommandOutput,
 } from "./commands/DescribeRouteCommand.ts";
+import {
+  DescribeVirtualGatewayCommand,
+  DescribeVirtualGatewayCommandInput,
+  DescribeVirtualGatewayCommandOutput,
+} from "./commands/DescribeVirtualGatewayCommand.ts";
 import {
   DescribeVirtualNodeCommand,
   DescribeVirtualNodeCommandInput,
-  DescribeVirtualNodeCommandOutput
+  DescribeVirtualNodeCommandOutput,
 } from "./commands/DescribeVirtualNodeCommand.ts";
 import {
   DescribeVirtualRouterCommand,
   DescribeVirtualRouterCommandInput,
-  DescribeVirtualRouterCommandOutput
+  DescribeVirtualRouterCommandOutput,
 } from "./commands/DescribeVirtualRouterCommand.ts";
 import {
   DescribeVirtualServiceCommand,
   DescribeVirtualServiceCommandInput,
-  DescribeVirtualServiceCommandOutput
+  DescribeVirtualServiceCommandOutput,
 } from "./commands/DescribeVirtualServiceCommand.ts";
 import {
-  GetMeshPolicyCommand,
-  GetMeshPolicyCommandInput,
-  GetMeshPolicyCommandOutput
-} from "./commands/GetMeshPolicyCommand.ts";
-import {
-  ListMeshesCommand,
-  ListMeshesCommandInput,
-  ListMeshesCommandOutput
-} from "./commands/ListMeshesCommand.ts";
-import {
-  ListRoutesCommand,
-  ListRoutesCommandInput,
-  ListRoutesCommandOutput
-} from "./commands/ListRoutesCommand.ts";
+  ListGatewayRoutesCommand,
+  ListGatewayRoutesCommandInput,
+  ListGatewayRoutesCommandOutput,
+} from "./commands/ListGatewayRoutesCommand.ts";
+import { ListMeshesCommand, ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand.ts";
+import { ListRoutesCommand, ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import {
+  ListVirtualGatewaysCommand,
+  ListVirtualGatewaysCommandInput,
+  ListVirtualGatewaysCommandOutput,
+} from "./commands/ListVirtualGatewaysCommand.ts";
 import {
   ListVirtualNodesCommand,
   ListVirtualNodesCommandInput,
-  ListVirtualNodesCommandOutput
+  ListVirtualNodesCommandOutput,
 } from "./commands/ListVirtualNodesCommand.ts";
 import {
   ListVirtualRoutersCommand,
   ListVirtualRoutersCommandInput,
-  ListVirtualRoutersCommandOutput
+  ListVirtualRoutersCommandOutput,
 } from "./commands/ListVirtualRoutersCommand.ts";
 import {
   ListVirtualServicesCommand,
   ListVirtualServicesCommandInput,
-  ListVirtualServicesCommandOutput
+  ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand.ts";
-import {
-  PutMeshPolicyCommand,
-  PutMeshPolicyCommandInput,
-  PutMeshPolicyCommandOutput
-} from "./commands/PutMeshPolicyCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
-  UpdateMeshCommand,
-  UpdateMeshCommandInput,
-  UpdateMeshCommandOutput
-} from "./commands/UpdateMeshCommand.ts";
+  UpdateGatewayRouteCommand,
+  UpdateGatewayRouteCommandInput,
+  UpdateGatewayRouteCommandOutput,
+} from "./commands/UpdateGatewayRouteCommand.ts";
+import { UpdateMeshCommand, UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand.ts";
 import {
   UpdateRouteCommand,
   UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
+  UpdateRouteCommandOutput,
 } from "./commands/UpdateRouteCommand.ts";
+import {
+  UpdateVirtualGatewayCommand,
+  UpdateVirtualGatewayCommandInput,
+  UpdateVirtualGatewayCommandOutput,
+} from "./commands/UpdateVirtualGatewayCommand.ts";
 import {
   UpdateVirtualNodeCommand,
   UpdateVirtualNodeCommandInput,
-  UpdateVirtualNodeCommandOutput
+  UpdateVirtualNodeCommandOutput,
 } from "./commands/UpdateVirtualNodeCommand.ts";
 import {
   UpdateVirtualRouterCommand,
   UpdateVirtualRouterCommandInput,
-  UpdateVirtualRouterCommandOutput
+  UpdateVirtualRouterCommandOutput,
 } from "./commands/UpdateVirtualRouterCommand.ts";
 import {
   UpdateVirtualServiceCommand,
   UpdateVirtualServiceCommandInput,
-  UpdateVirtualServiceCommandOutput
+  UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -173,6 +188,41 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  */
 export class AppMesh extends AppMeshClient {
   /**
+   * <p>Creates a gateway route.</p>
+   *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
+   *          virtual service. If a route matches a request, it can distribute traffic to a target virtual service.</p>
+   *          <p>For more information about gateway routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html">Gateway routes</a>.</p>
+   */
+  public createGatewayRoute(
+    args: CreateGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayRouteCommandOutput>;
+  public createGatewayRoute(
+    args: CreateGatewayRouteCommandInput,
+    cb: (err: any, data?: CreateGatewayRouteCommandOutput) => void
+  ): void;
+  public createGatewayRoute(
+    args: CreateGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGatewayRouteCommandOutput) => void
+  ): void;
+  public createGatewayRoute(
+    args: CreateGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: CreateGatewayRouteCommandOutput) => void
+  ): Promise<CreateGatewayRouteCommandOutput> | void {
+    const command = new CreateGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a service mesh.</p>
    *          <p> A service mesh is a logical boundary for network traffic between services that are
    *          represented by resources within the mesh. After you create your service mesh, you can
@@ -180,14 +230,8 @@ export class AppMesh extends AppMeshClient {
    *          between the applications in your mesh.</p>
    *          <p>For more information about service meshes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html">Service meshes</a>.</p>
    */
-  public createMesh(
-    args: CreateMeshCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMeshCommandOutput>;
-  public createMesh(
-    args: CreateMeshCommandInput,
-    cb: (err: any, data?: CreateMeshCommandOutput) => void
-  ): void;
+  public createMesh(args: CreateMeshCommandInput, options?: __HttpHandlerOptions): Promise<CreateMeshCommandOutput>;
+  public createMesh(args: CreateMeshCommandInput, cb: (err: any, data?: CreateMeshCommandOutput) => void): void;
   public createMesh(
     args: CreateMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -195,17 +239,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createMesh(
     args: CreateMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeshCommandOutput) => void),
     cb?: (err: any, data?: CreateMeshCommandOutput) => void
   ): Promise<CreateMeshCommandOutput> | void {
     const command = new CreateMeshCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -218,14 +259,8 @@ export class AppMesh extends AppMeshClient {
    *          Traffic can be routed to one or more virtual nodes.</p>
    *          <p>For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.</p>
    */
-  public createRoute(
-    args: CreateRouteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRouteCommandOutput>;
-  public createRoute(
-    args: CreateRouteCommandInput,
-    cb: (err: any, data?: CreateRouteCommandOutput) => void
-  ): void;
+  public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
+  public createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
   public createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -233,17 +268,51 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a virtual gateway.</p>
+   *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
+   *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS
+   *          task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which
+   *          represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.</p>
+   *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>.</p>
+   */
+  public createVirtualGateway(
+    args: CreateVirtualGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVirtualGatewayCommandOutput>;
+  public createVirtualGateway(
+    args: CreateVirtualGatewayCommandInput,
+    cb: (err: any, data?: CreateVirtualGatewayCommandOutput) => void
+  ): void;
+  public createVirtualGateway(
+    args: CreateVirtualGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVirtualGatewayCommandOutput) => void
+  ): void;
+  public createVirtualGateway(
+    args: CreateVirtualGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVirtualGatewayCommandOutput) => void),
+    cb?: (err: any, data?: CreateVirtualGatewayCommandOutput) => void
+  ): Promise<CreateVirtualGatewayCommandOutput> | void {
+    const command = new CreateVirtualGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -288,17 +357,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createVirtualNode(
     args: CreateVirtualNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVirtualNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVirtualNodeCommandOutput) => void),
     cb?: (err: any, data?: CreateVirtualNodeCommandOutput) => void
   ): Promise<CreateVirtualNodeCommandOutput> | void {
     const command = new CreateVirtualNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -329,17 +395,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createVirtualRouter(
     args: CreateVirtualRouterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVirtualRouterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVirtualRouterCommandOutput) => void),
     cb?: (err: any, data?: CreateVirtualRouterCommandOutput) => void
   ): Promise<CreateVirtualRouterCommandOutput> | void {
     const command = new CreateVirtualRouterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -370,17 +433,46 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createVirtualService(
     args: CreateVirtualServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVirtualServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVirtualServiceCommandOutput) => void),
     cb?: (err: any, data?: CreateVirtualServiceCommandOutput) => void
   ): Promise<CreateVirtualServiceCommandOutput> | void {
     const command = new CreateVirtualServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing gateway route.</p>
+   */
+  public deleteGatewayRoute(
+    args: DeleteGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayRouteCommandOutput>;
+  public deleteGatewayRoute(
+    args: DeleteGatewayRouteCommandInput,
+    cb: (err: any, data?: DeleteGatewayRouteCommandOutput) => void
+  ): void;
+  public deleteGatewayRoute(
+    args: DeleteGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGatewayRouteCommandOutput) => void
+  ): void;
+  public deleteGatewayRoute(
+    args: DeleteGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGatewayRouteCommandOutput) => void
+  ): Promise<DeleteGatewayRouteCommandOutput> | void {
+    const command = new DeleteGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,14 +484,8 @@ export class AppMesh extends AppMeshClient {
    *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
    *          nodes) in the service mesh before you can delete the mesh itself.</p>
    */
-  public deleteMesh(
-    args: DeleteMeshCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMeshCommandOutput>;
-  public deleteMesh(
-    args: DeleteMeshCommandInput,
-    cb: (err: any, data?: DeleteMeshCommandOutput) => void
-  ): void;
+  public deleteMesh(args: DeleteMeshCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMeshCommandOutput>;
+  public deleteMesh(args: DeleteMeshCommandInput, cb: (err: any, data?: DeleteMeshCommandOutput) => void): void;
   public deleteMesh(
     args: DeleteMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -407,49 +493,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteMesh(
     args: DeleteMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMeshCommandOutput) => void),
     cb?: (err: any, data?: DeleteMeshCommandOutput) => void
   ): Promise<DeleteMeshCommandOutput> | void {
     const command = new DeleteMeshCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public deleteMeshPolicy(
-    args: DeleteMeshPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMeshPolicyCommandOutput>;
-  public deleteMeshPolicy(
-    args: DeleteMeshPolicyCommandInput,
-    cb: (err: any, data?: DeleteMeshPolicyCommandOutput) => void
-  ): void;
-  public deleteMeshPolicy(
-    args: DeleteMeshPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMeshPolicyCommandOutput) => void
-  ): void;
-  public deleteMeshPolicy(
-    args: DeleteMeshPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMeshPolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMeshPolicyCommandOutput) => void
-  ): Promise<DeleteMeshPolicyCommandOutput> | void {
-    const command = new DeleteMeshPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -459,14 +510,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Deletes an existing route.</p>
    */
-  public deleteRoute(
-    args: DeleteRouteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRouteCommandOutput>;
-  public deleteRoute(
-    args: DeleteRouteCommandInput,
-    cb: (err: any, data?: DeleteRouteCommandOutput) => void
-  ): void;
+  public deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
+  public deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -474,17 +519,47 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
+   *          routes are associated to it.</p>
+   */
+  public deleteVirtualGateway(
+    args: DeleteVirtualGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVirtualGatewayCommandOutput>;
+  public deleteVirtualGateway(
+    args: DeleteVirtualGatewayCommandInput,
+    cb: (err: any, data?: DeleteVirtualGatewayCommandOutput) => void
+  ): void;
+  public deleteVirtualGateway(
+    args: DeleteVirtualGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVirtualGatewayCommandOutput) => void
+  ): void;
+  public deleteVirtualGateway(
+    args: DeleteVirtualGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualGatewayCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVirtualGatewayCommandOutput) => void
+  ): Promise<DeleteVirtualGatewayCommandOutput> | void {
+    const command = new DeleteVirtualGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -511,17 +586,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteVirtualNode(
     args: DeleteVirtualNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVirtualNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualNodeCommandOutput) => void),
     cb?: (err: any, data?: DeleteVirtualNodeCommandOutput) => void
   ): Promise<DeleteVirtualNodeCommandOutput> | void {
     const command = new DeleteVirtualNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -548,17 +620,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteVirtualRouter(
     args: DeleteVirtualRouterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVirtualRouterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualRouterCommandOutput) => void),
     cb?: (err: any, data?: DeleteVirtualRouterCommandOutput) => void
   ): Promise<DeleteVirtualRouterCommandOutput> | void {
     const command = new DeleteVirtualRouterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -583,17 +652,46 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteVirtualService(
     args: DeleteVirtualServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVirtualServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualServiceCommandOutput) => void),
     cb?: (err: any, data?: DeleteVirtualServiceCommandOutput) => void
   ): Promise<DeleteVirtualServiceCommandOutput> | void {
     const command = new DeleteVirtualServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an existing gateway route.</p>
+   */
+  public describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGatewayRouteCommandOutput>;
+  public describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    cb: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
+  ): void;
+  public describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
+  ): void;
+  public describeGatewayRoute(
+    args: DescribeGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
+  ): Promise<DescribeGatewayRouteCommandOutput> | void {
+    const command = new DescribeGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,10 +705,7 @@ export class AppMesh extends AppMeshClient {
     args: DescribeMeshCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeMeshCommandOutput>;
-  public describeMesh(
-    args: DescribeMeshCommandInput,
-    cb: (err: any, data?: DescribeMeshCommandOutput) => void
-  ): void;
+  public describeMesh(args: DescribeMeshCommandInput, cb: (err: any, data?: DescribeMeshCommandOutput) => void): void;
   public describeMesh(
     args: DescribeMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -618,17 +713,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeMesh(
     args: DescribeMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMeshCommandOutput) => void),
     cb?: (err: any, data?: DescribeMeshCommandOutput) => void
   ): Promise<DescribeMeshCommandOutput> | void {
     const command = new DescribeMeshCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -653,17 +745,46 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeRoute(
     args: DescribeRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRouteCommandOutput) => void),
     cb?: (err: any, data?: DescribeRouteCommandOutput) => void
   ): Promise<DescribeRouteCommandOutput> | void {
     const command = new DescribeRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an existing virtual gateway.</p>
+   */
+  public describeVirtualGateway(
+    args: DescribeVirtualGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVirtualGatewayCommandOutput>;
+  public describeVirtualGateway(
+    args: DescribeVirtualGatewayCommandInput,
+    cb: (err: any, data?: DescribeVirtualGatewayCommandOutput) => void
+  ): void;
+  public describeVirtualGateway(
+    args: DescribeVirtualGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVirtualGatewayCommandOutput) => void
+  ): void;
+  public describeVirtualGateway(
+    args: DescribeVirtualGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualGatewayCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVirtualGatewayCommandOutput) => void
+  ): Promise<DescribeVirtualGatewayCommandOutput> | void {
+    const command = new DescribeVirtualGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -688,17 +809,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeVirtualNode(
     args: DescribeVirtualNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVirtualNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualNodeCommandOutput) => void),
     cb?: (err: any, data?: DescribeVirtualNodeCommandOutput) => void
   ): Promise<DescribeVirtualNodeCommandOutput> | void {
     const command = new DescribeVirtualNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -723,17 +841,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeVirtualRouter(
     args: DescribeVirtualRouterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVirtualRouterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualRouterCommandOutput) => void),
     cb?: (err: any, data?: DescribeVirtualRouterCommandOutput) => void
   ): Promise<DescribeVirtualRouterCommandOutput> | void {
     const command = new DescribeVirtualRouterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -758,49 +873,47 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeVirtualService(
     args: DescribeVirtualServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVirtualServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualServiceCommandOutput) => void),
     cb?: (err: any, data?: DescribeVirtualServiceCommandOutput) => void
   ): Promise<DescribeVirtualServiceCommandOutput> | void {
     const command = new DescribeVirtualServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
 
-  public getMeshPolicy(
-    args: GetMeshPolicyCommandInput,
+  /**
+   * <p>Returns a list of existing gateway routes that are associated to a virtual
+   *          gateway.</p>
+   */
+  public listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetMeshPolicyCommandOutput>;
-  public getMeshPolicy(
-    args: GetMeshPolicyCommandInput,
-    cb: (err: any, data?: GetMeshPolicyCommandOutput) => void
+  ): Promise<ListGatewayRoutesCommandOutput>;
+  public listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    cb: (err: any, data?: ListGatewayRoutesCommandOutput) => void
   ): void;
-  public getMeshPolicy(
-    args: GetMeshPolicyCommandInput,
+  public listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMeshPolicyCommandOutput) => void
+    cb: (err: any, data?: ListGatewayRoutesCommandOutput) => void
   ): void;
-  public getMeshPolicy(
-    args: GetMeshPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMeshPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetMeshPolicyCommandOutput) => void
-  ): Promise<GetMeshPolicyCommandOutput> | void {
-    const command = new GetMeshPolicyCommand(args);
+  public listGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewayRoutesCommandOutput) => void),
+    cb?: (err: any, data?: ListGatewayRoutesCommandOutput) => void
+  ): Promise<ListGatewayRoutesCommandOutput> | void {
+    const command = new ListGatewayRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -810,14 +923,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Returns a list of existing service meshes.</p>
    */
-  public listMeshes(
-    args: ListMeshesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMeshesCommandOutput>;
-  public listMeshes(
-    args: ListMeshesCommandInput,
-    cb: (err: any, data?: ListMeshesCommandOutput) => void
-  ): void;
+  public listMeshes(args: ListMeshesCommandInput, options?: __HttpHandlerOptions): Promise<ListMeshesCommandOutput>;
+  public listMeshes(args: ListMeshesCommandInput, cb: (err: any, data?: ListMeshesCommandOutput) => void): void;
   public listMeshes(
     args: ListMeshesCommandInput,
     options: __HttpHandlerOptions,
@@ -825,17 +932,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listMeshes(
     args: ListMeshesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMeshesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeshesCommandOutput) => void),
     cb?: (err: any, data?: ListMeshesCommandOutput) => void
   ): Promise<ListMeshesCommandOutput> | void {
     const command = new ListMeshesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -845,14 +949,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Returns a list of existing routes in a service mesh.</p>
    */
-  public listRoutes(
-    args: ListRoutesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRoutesCommandOutput>;
-  public listRoutes(
-    args: ListRoutesCommandInput,
-    cb: (err: any, data?: ListRoutesCommandOutput) => void
-  ): void;
+  public listRoutes(args: ListRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListRoutesCommandOutput>;
+  public listRoutes(args: ListRoutesCommandInput, cb: (err: any, data?: ListRoutesCommandOutput) => void): void;
   public listRoutes(
     args: ListRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -860,17 +958,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listRoutes(
     args: ListRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoutesCommandOutput) => void),
     cb?: (err: any, data?: ListRoutesCommandOutput) => void
   ): Promise<ListRoutesCommandOutput> | void {
     const command = new ListRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -895,17 +990,46 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of existing virtual gateways in a service mesh.</p>
+   */
+  public listVirtualGateways(
+    args: ListVirtualGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVirtualGatewaysCommandOutput>;
+  public listVirtualGateways(
+    args: ListVirtualGatewaysCommandInput,
+    cb: (err: any, data?: ListVirtualGatewaysCommandOutput) => void
+  ): void;
+  public listVirtualGateways(
+    args: ListVirtualGatewaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVirtualGatewaysCommandOutput) => void
+  ): void;
+  public listVirtualGateways(
+    args: ListVirtualGatewaysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: ListVirtualGatewaysCommandOutput) => void
+  ): Promise<ListVirtualGatewaysCommandOutput> | void {
+    const command = new ListVirtualGatewaysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -930,17 +1054,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listVirtualNodes(
     args: ListVirtualNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVirtualNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualNodesCommandOutput) => void),
     cb?: (err: any, data?: ListVirtualNodesCommandOutput) => void
   ): Promise<ListVirtualNodesCommandOutput> | void {
     const command = new ListVirtualNodesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -965,17 +1086,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listVirtualRouters(
     args: ListVirtualRoutersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVirtualRoutersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualRoutersCommandOutput) => void),
     cb?: (err: any, data?: ListVirtualRoutersCommandOutput) => void
   ): Promise<ListVirtualRoutersCommandOutput> | void {
     const command = new ListVirtualRoutersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1000,49 +1118,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listVirtualServices(
     args: ListVirtualServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVirtualServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualServicesCommandOutput) => void),
     cb?: (err: any, data?: ListVirtualServicesCommandOutput) => void
   ): Promise<ListVirtualServicesCommandOutput> | void {
     const command = new ListVirtualServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public putMeshPolicy(
-    args: PutMeshPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutMeshPolicyCommandOutput>;
-  public putMeshPolicy(
-    args: PutMeshPolicyCommandInput,
-    cb: (err: any, data?: PutMeshPolicyCommandOutput) => void
-  ): void;
-  public putMeshPolicy(
-    args: PutMeshPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutMeshPolicyCommandOutput) => void
-  ): void;
-  public putMeshPolicy(
-    args: PutMeshPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMeshPolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutMeshPolicyCommandOutput) => void
-  ): Promise<PutMeshPolicyCommandOutput> | void {
-    const command = new PutMeshPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1055,14 +1138,8 @@ export class AppMesh extends AppMeshClient {
    *          changed. When a resource is deleted, the tags associated with that resource are also
    *          deleted.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1070,17 +1147,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1105,17 +1179,47 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
+   *          service mesh.</p>
+   */
+  public updateGatewayRoute(
+    args: UpdateGatewayRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayRouteCommandOutput>;
+  public updateGatewayRoute(
+    args: UpdateGatewayRouteCommandInput,
+    cb: (err: any, data?: UpdateGatewayRouteCommandOutput) => void
+  ): void;
+  public updateGatewayRoute(
+    args: UpdateGatewayRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewayRouteCommandOutput) => void
+  ): void;
+  public updateGatewayRoute(
+    args: UpdateGatewayRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayRouteCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGatewayRouteCommandOutput) => void
+  ): Promise<UpdateGatewayRouteCommandOutput> | void {
+    const command = new UpdateGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1125,14 +1229,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Updates an existing service mesh.</p>
    */
-  public updateMesh(
-    args: UpdateMeshCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateMeshCommandOutput>;
-  public updateMesh(
-    args: UpdateMeshCommandInput,
-    cb: (err: any, data?: UpdateMeshCommandOutput) => void
-  ): void;
+  public updateMesh(args: UpdateMeshCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMeshCommandOutput>;
+  public updateMesh(args: UpdateMeshCommandInput, cb: (err: any, data?: UpdateMeshCommandOutput) => void): void;
   public updateMesh(
     args: UpdateMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -1140,17 +1238,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateMesh(
     args: UpdateMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMeshCommandOutput) => void),
     cb?: (err: any, data?: UpdateMeshCommandOutput) => void
   ): Promise<UpdateMeshCommandOutput> | void {
     const command = new UpdateMeshCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1160,14 +1255,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Updates an existing route for a specified service mesh and virtual router.</p>
    */
-  public updateRoute(
-    args: UpdateRouteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRouteCommandOutput>;
-  public updateRoute(
-    args: UpdateRouteCommandInput,
-    cb: (err: any, data?: UpdateRouteCommandOutput) => void
-  ): void;
+  public updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
+  public updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
   public updateRoute(
     args: UpdateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -1175,17 +1264,46 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateRoute(
     args: UpdateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
     cb?: (err: any, data?: UpdateRouteCommandOutput) => void
   ): Promise<UpdateRouteCommandOutput> | void {
     const command = new UpdateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing virtual gateway in a specified service mesh.</p>
+   */
+  public updateVirtualGateway(
+    args: UpdateVirtualGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVirtualGatewayCommandOutput>;
+  public updateVirtualGateway(
+    args: UpdateVirtualGatewayCommandInput,
+    cb: (err: any, data?: UpdateVirtualGatewayCommandOutput) => void
+  ): void;
+  public updateVirtualGateway(
+    args: UpdateVirtualGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVirtualGatewayCommandOutput) => void
+  ): void;
+  public updateVirtualGateway(
+    args: UpdateVirtualGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVirtualGatewayCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVirtualGatewayCommandOutput) => void
+  ): Promise<UpdateVirtualGatewayCommandOutput> | void {
+    const command = new UpdateVirtualGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1210,17 +1328,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateVirtualNode(
     args: UpdateVirtualNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVirtualNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVirtualNodeCommandOutput) => void),
     cb?: (err: any, data?: UpdateVirtualNodeCommandOutput) => void
   ): Promise<UpdateVirtualNodeCommandOutput> | void {
     const command = new UpdateVirtualNodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1245,17 +1360,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateVirtualRouter(
     args: UpdateVirtualRouterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVirtualRouterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVirtualRouterCommandOutput) => void),
     cb?: (err: any, data?: UpdateVirtualRouterCommandOutput) => void
   ): Promise<UpdateVirtualRouterCommandOutput> | void {
     const command = new UpdateVirtualRouterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1280,17 +1392,14 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateVirtualService(
     args: UpdateVirtualServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVirtualServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVirtualServiceCommandOutput) => void),
     cb?: (err: any, data?: UpdateVirtualServiceCommandOutput) => void
   ): Promise<UpdateVirtualServiceCommandOutput> | void {
     const command = new UpdateVirtualServiceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -2,637 +2,652 @@ import { RDSClient } from "./RDSClient.ts";
 import {
   AddRoleToDBClusterCommand,
   AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput
+  AddRoleToDBClusterCommandOutput,
 } from "./commands/AddRoleToDBClusterCommand.ts";
 import {
   AddRoleToDBInstanceCommand,
   AddRoleToDBInstanceCommandInput,
-  AddRoleToDBInstanceCommandOutput
+  AddRoleToDBInstanceCommandOutput,
 } from "./commands/AddRoleToDBInstanceCommand.ts";
 import {
   AddSourceIdentifierToSubscriptionCommand,
   AddSourceIdentifierToSubscriptionCommandInput,
-  AddSourceIdentifierToSubscriptionCommandOutput
+  AddSourceIdentifierToSubscriptionCommandOutput,
 } from "./commands/AddSourceIdentifierToSubscriptionCommand.ts";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommand,
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand.ts";
 import {
   AuthorizeDBSecurityGroupIngressCommand,
   AuthorizeDBSecurityGroupIngressCommandInput,
-  AuthorizeDBSecurityGroupIngressCommandOutput
+  AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand.ts";
 import {
   BacktrackDBClusterCommand,
   BacktrackDBClusterCommandInput,
-  BacktrackDBClusterCommandOutput
+  BacktrackDBClusterCommandOutput,
 } from "./commands/BacktrackDBClusterCommand.ts";
+import {
+  CancelExportTaskCommand,
+  CancelExportTaskCommandInput,
+  CancelExportTaskCommandOutput,
+} from "./commands/CancelExportTaskCommand.ts";
 import {
   CopyDBClusterParameterGroupCommand,
   CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput
+  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand.ts";
 import {
   CopyDBClusterSnapshotCommand,
   CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput
+  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand.ts";
 import {
   CopyDBParameterGroupCommand,
   CopyDBParameterGroupCommandInput,
-  CopyDBParameterGroupCommandOutput
+  CopyDBParameterGroupCommandOutput,
 } from "./commands/CopyDBParameterGroupCommand.ts";
 import {
   CopyDBSnapshotCommand,
   CopyDBSnapshotCommandInput,
-  CopyDBSnapshotCommandOutput
+  CopyDBSnapshotCommandOutput,
 } from "./commands/CopyDBSnapshotCommand.ts";
 import {
   CopyOptionGroupCommand,
   CopyOptionGroupCommandInput,
-  CopyOptionGroupCommandOutput
+  CopyOptionGroupCommandOutput,
 } from "./commands/CopyOptionGroupCommand.ts";
 import {
   CreateCustomAvailabilityZoneCommand,
   CreateCustomAvailabilityZoneCommandInput,
-  CreateCustomAvailabilityZoneCommandOutput
+  CreateCustomAvailabilityZoneCommandOutput,
 } from "./commands/CreateCustomAvailabilityZoneCommand.ts";
 import {
   CreateDBClusterCommand,
   CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput
+  CreateDBClusterCommandOutput,
 } from "./commands/CreateDBClusterCommand.ts";
 import {
   CreateDBClusterEndpointCommand,
   CreateDBClusterEndpointCommandInput,
-  CreateDBClusterEndpointCommandOutput
+  CreateDBClusterEndpointCommandOutput,
 } from "./commands/CreateDBClusterEndpointCommand.ts";
 import {
   CreateDBClusterParameterGroupCommand,
   CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput
+  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand.ts";
 import {
   CreateDBClusterSnapshotCommand,
   CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput
+  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand.ts";
 import {
   CreateDBInstanceCommand,
   CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput
+  CreateDBInstanceCommandOutput,
 } from "./commands/CreateDBInstanceCommand.ts";
 import {
   CreateDBInstanceReadReplicaCommand,
   CreateDBInstanceReadReplicaCommandInput,
-  CreateDBInstanceReadReplicaCommandOutput
+  CreateDBInstanceReadReplicaCommandOutput,
 } from "./commands/CreateDBInstanceReadReplicaCommand.ts";
 import {
   CreateDBParameterGroupCommand,
   CreateDBParameterGroupCommandInput,
-  CreateDBParameterGroupCommandOutput
+  CreateDBParameterGroupCommandOutput,
 } from "./commands/CreateDBParameterGroupCommand.ts";
 import {
   CreateDBProxyCommand,
   CreateDBProxyCommandInput,
-  CreateDBProxyCommandOutput
+  CreateDBProxyCommandOutput,
 } from "./commands/CreateDBProxyCommand.ts";
 import {
   CreateDBSecurityGroupCommand,
   CreateDBSecurityGroupCommandInput,
-  CreateDBSecurityGroupCommandOutput
+  CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand.ts";
 import {
   CreateDBSnapshotCommand,
   CreateDBSnapshotCommandInput,
-  CreateDBSnapshotCommandOutput
+  CreateDBSnapshotCommandOutput,
 } from "./commands/CreateDBSnapshotCommand.ts";
 import {
   CreateDBSubnetGroupCommand,
   CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput
+  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand.ts";
 import {
   CreateEventSubscriptionCommand,
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand.ts";
 import {
   CreateGlobalClusterCommand,
   CreateGlobalClusterCommandInput,
-  CreateGlobalClusterCommandOutput
+  CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand.ts";
 import {
   CreateOptionGroupCommand,
   CreateOptionGroupCommandInput,
-  CreateOptionGroupCommandOutput
+  CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand.ts";
 import {
   DeleteCustomAvailabilityZoneCommand,
   DeleteCustomAvailabilityZoneCommandInput,
-  DeleteCustomAvailabilityZoneCommandOutput
+  DeleteCustomAvailabilityZoneCommandOutput,
 } from "./commands/DeleteCustomAvailabilityZoneCommand.ts";
 import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput
+  DeleteDBClusterCommandOutput,
 } from "./commands/DeleteDBClusterCommand.ts";
 import {
   DeleteDBClusterEndpointCommand,
   DeleteDBClusterEndpointCommandInput,
-  DeleteDBClusterEndpointCommandOutput
+  DeleteDBClusterEndpointCommandOutput,
 } from "./commands/DeleteDBClusterEndpointCommand.ts";
 import {
   DeleteDBClusterParameterGroupCommand,
   DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput
+  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand.ts";
 import {
   DeleteDBClusterSnapshotCommand,
   DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput
+  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand.ts";
 import {
   DeleteDBInstanceAutomatedBackupCommand,
   DeleteDBInstanceAutomatedBackupCommandInput,
-  DeleteDBInstanceAutomatedBackupCommandOutput
+  DeleteDBInstanceAutomatedBackupCommandOutput,
 } from "./commands/DeleteDBInstanceAutomatedBackupCommand.ts";
 import {
   DeleteDBInstanceCommand,
   DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput
+  DeleteDBInstanceCommandOutput,
 } from "./commands/DeleteDBInstanceCommand.ts";
 import {
   DeleteDBParameterGroupCommand,
   DeleteDBParameterGroupCommandInput,
-  DeleteDBParameterGroupCommandOutput
+  DeleteDBParameterGroupCommandOutput,
 } from "./commands/DeleteDBParameterGroupCommand.ts";
 import {
   DeleteDBProxyCommand,
   DeleteDBProxyCommandInput,
-  DeleteDBProxyCommandOutput
+  DeleteDBProxyCommandOutput,
 } from "./commands/DeleteDBProxyCommand.ts";
 import {
   DeleteDBSecurityGroupCommand,
   DeleteDBSecurityGroupCommandInput,
-  DeleteDBSecurityGroupCommandOutput
+  DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand.ts";
 import {
   DeleteDBSnapshotCommand,
   DeleteDBSnapshotCommandInput,
-  DeleteDBSnapshotCommandOutput
+  DeleteDBSnapshotCommandOutput,
 } from "./commands/DeleteDBSnapshotCommand.ts";
 import {
   DeleteDBSubnetGroupCommand,
   DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput
+  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand.ts";
 import {
   DeleteEventSubscriptionCommand,
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand.ts";
 import {
   DeleteGlobalClusterCommand,
   DeleteGlobalClusterCommandInput,
-  DeleteGlobalClusterCommandOutput
+  DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand.ts";
 import {
   DeleteInstallationMediaCommand,
   DeleteInstallationMediaCommandInput,
-  DeleteInstallationMediaCommandOutput
+  DeleteInstallationMediaCommandOutput,
 } from "./commands/DeleteInstallationMediaCommand.ts";
 import {
   DeleteOptionGroupCommand,
   DeleteOptionGroupCommandInput,
-  DeleteOptionGroupCommandOutput
+  DeleteOptionGroupCommandOutput,
 } from "./commands/DeleteOptionGroupCommand.ts";
 import {
   DeregisterDBProxyTargetsCommand,
   DeregisterDBProxyTargetsCommandInput,
-  DeregisterDBProxyTargetsCommandOutput
+  DeregisterDBProxyTargetsCommandOutput,
 } from "./commands/DeregisterDBProxyTargetsCommand.ts";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand.ts";
 import {
   DescribeCustomAvailabilityZonesCommand,
   DescribeCustomAvailabilityZonesCommandInput,
-  DescribeCustomAvailabilityZonesCommandOutput
+  DescribeCustomAvailabilityZonesCommandOutput,
 } from "./commands/DescribeCustomAvailabilityZonesCommand.ts";
 import {
   DescribeDBClusterBacktracksCommand,
   DescribeDBClusterBacktracksCommandInput,
-  DescribeDBClusterBacktracksCommandOutput
+  DescribeDBClusterBacktracksCommandOutput,
 } from "./commands/DescribeDBClusterBacktracksCommand.ts";
 import {
   DescribeDBClusterEndpointsCommand,
   DescribeDBClusterEndpointsCommandInput,
-  DescribeDBClusterEndpointsCommandOutput
+  DescribeDBClusterEndpointsCommandOutput,
 } from "./commands/DescribeDBClusterEndpointsCommand.ts";
 import {
   DescribeDBClusterParameterGroupsCommand,
   DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput
+  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand.ts";
 import {
   DescribeDBClusterParametersCommand,
   DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput
+  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand.ts";
 import {
   DescribeDBClusterSnapshotAttributesCommand,
   DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput
+  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand.ts";
 import {
   DescribeDBClusterSnapshotsCommand,
   DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput
+  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand.ts";
 import {
   DescribeDBClustersCommand,
   DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput
+  DescribeDBClustersCommandOutput,
 } from "./commands/DescribeDBClustersCommand.ts";
 import {
   DescribeDBEngineVersionsCommand,
   DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput
+  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand.ts";
 import {
   DescribeDBInstanceAutomatedBackupsCommand,
   DescribeDBInstanceAutomatedBackupsCommandInput,
-  DescribeDBInstanceAutomatedBackupsCommandOutput
+  DescribeDBInstanceAutomatedBackupsCommandOutput,
 } from "./commands/DescribeDBInstanceAutomatedBackupsCommand.ts";
 import {
   DescribeDBInstancesCommand,
   DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput
+  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand.ts";
 import {
   DescribeDBLogFilesCommand,
   DescribeDBLogFilesCommandInput,
-  DescribeDBLogFilesCommandOutput
+  DescribeDBLogFilesCommandOutput,
 } from "./commands/DescribeDBLogFilesCommand.ts";
 import {
   DescribeDBParameterGroupsCommand,
   DescribeDBParameterGroupsCommandInput,
-  DescribeDBParameterGroupsCommandOutput
+  DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand.ts";
 import {
   DescribeDBParametersCommand,
   DescribeDBParametersCommandInput,
-  DescribeDBParametersCommandOutput
+  DescribeDBParametersCommandOutput,
 } from "./commands/DescribeDBParametersCommand.ts";
 import {
   DescribeDBProxiesCommand,
   DescribeDBProxiesCommandInput,
-  DescribeDBProxiesCommandOutput
+  DescribeDBProxiesCommandOutput,
 } from "./commands/DescribeDBProxiesCommand.ts";
 import {
   DescribeDBProxyTargetGroupsCommand,
   DescribeDBProxyTargetGroupsCommandInput,
-  DescribeDBProxyTargetGroupsCommandOutput
+  DescribeDBProxyTargetGroupsCommandOutput,
 } from "./commands/DescribeDBProxyTargetGroupsCommand.ts";
 import {
   DescribeDBProxyTargetsCommand,
   DescribeDBProxyTargetsCommandInput,
-  DescribeDBProxyTargetsCommandOutput
+  DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand.ts";
 import {
   DescribeDBSecurityGroupsCommand,
   DescribeDBSecurityGroupsCommandInput,
-  DescribeDBSecurityGroupsCommandOutput
+  DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand.ts";
 import {
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotAttributesCommandInput,
-  DescribeDBSnapshotAttributesCommandOutput
+  DescribeDBSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBSnapshotAttributesCommand.ts";
 import {
   DescribeDBSnapshotsCommand,
   DescribeDBSnapshotsCommandInput,
-  DescribeDBSnapshotsCommandOutput
+  DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand.ts";
 import {
   DescribeDBSubnetGroupsCommand,
   DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput
+  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand.ts";
 import {
   DescribeEngineDefaultClusterParametersCommand,
   DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput
+  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand.ts";
 import {
   DescribeEngineDefaultParametersCommand,
   DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput
+  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand.ts";
 import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventSubscriptionsCommand,
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand.ts";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand.ts";
+import {
+  DescribeExportTasksCommand,
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput,
+} from "./commands/DescribeExportTasksCommand.ts";
 import {
   DescribeGlobalClustersCommand,
   DescribeGlobalClustersCommandInput,
-  DescribeGlobalClustersCommandOutput
+  DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand.ts";
 import {
   DescribeInstallationMediaCommand,
   DescribeInstallationMediaCommandInput,
-  DescribeInstallationMediaCommandOutput
+  DescribeInstallationMediaCommandOutput,
 } from "./commands/DescribeInstallationMediaCommand.ts";
 import {
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupOptionsCommandInput,
-  DescribeOptionGroupOptionsCommandOutput
+  DescribeOptionGroupOptionsCommandOutput,
 } from "./commands/DescribeOptionGroupOptionsCommand.ts";
 import {
   DescribeOptionGroupsCommand,
   DescribeOptionGroupsCommandInput,
-  DescribeOptionGroupsCommandOutput
+  DescribeOptionGroupsCommandOutput,
 } from "./commands/DescribeOptionGroupsCommand.ts";
 import {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput
+  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand.ts";
 import {
   DescribePendingMaintenanceActionsCommand,
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand.ts";
 import {
   DescribeReservedDBInstancesCommand,
   DescribeReservedDBInstancesCommandInput,
-  DescribeReservedDBInstancesCommandOutput
+  DescribeReservedDBInstancesCommandOutput,
 } from "./commands/DescribeReservedDBInstancesCommand.ts";
 import {
   DescribeReservedDBInstancesOfferingsCommand,
   DescribeReservedDBInstancesOfferingsCommandInput,
-  DescribeReservedDBInstancesOfferingsCommandOutput
+  DescribeReservedDBInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedDBInstancesOfferingsCommand.ts";
 import {
   DescribeSourceRegionsCommand,
   DescribeSourceRegionsCommandInput,
-  DescribeSourceRegionsCommandOutput
+  DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand.ts";
 import {
   DescribeValidDBInstanceModificationsCommand,
   DescribeValidDBInstanceModificationsCommandInput,
-  DescribeValidDBInstanceModificationsCommandOutput
+  DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand.ts";
 import {
   DownloadDBLogFilePortionCommand,
   DownloadDBLogFilePortionCommandInput,
-  DownloadDBLogFilePortionCommandOutput
+  DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand.ts";
 import {
   FailoverDBClusterCommand,
   FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput
+  FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand.ts";
 import {
   ImportInstallationMediaCommand,
   ImportInstallationMediaCommandInput,
-  ImportInstallationMediaCommandOutput
+  ImportInstallationMediaCommandOutput,
 } from "./commands/ImportInstallationMediaCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyCertificatesCommand,
   ModifyCertificatesCommandInput,
-  ModifyCertificatesCommandOutput
+  ModifyCertificatesCommandOutput,
 } from "./commands/ModifyCertificatesCommand.ts";
 import {
   ModifyCurrentDBClusterCapacityCommand,
   ModifyCurrentDBClusterCapacityCommandInput,
-  ModifyCurrentDBClusterCapacityCommandOutput
+  ModifyCurrentDBClusterCapacityCommandOutput,
 } from "./commands/ModifyCurrentDBClusterCapacityCommand.ts";
 import {
   ModifyDBClusterCommand,
   ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput
+  ModifyDBClusterCommandOutput,
 } from "./commands/ModifyDBClusterCommand.ts";
 import {
   ModifyDBClusterEndpointCommand,
   ModifyDBClusterEndpointCommandInput,
-  ModifyDBClusterEndpointCommandOutput
+  ModifyDBClusterEndpointCommandOutput,
 } from "./commands/ModifyDBClusterEndpointCommand.ts";
 import {
   ModifyDBClusterParameterGroupCommand,
   ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput
+  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand.ts";
 import {
   ModifyDBClusterSnapshotAttributeCommand,
   ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput
+  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand.ts";
 import {
   ModifyDBInstanceCommand,
   ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput
+  ModifyDBInstanceCommandOutput,
 } from "./commands/ModifyDBInstanceCommand.ts";
 import {
   ModifyDBParameterGroupCommand,
   ModifyDBParameterGroupCommandInput,
-  ModifyDBParameterGroupCommandOutput
+  ModifyDBParameterGroupCommandOutput,
 } from "./commands/ModifyDBParameterGroupCommand.ts";
 import {
   ModifyDBProxyCommand,
   ModifyDBProxyCommandInput,
-  ModifyDBProxyCommandOutput
+  ModifyDBProxyCommandOutput,
 } from "./commands/ModifyDBProxyCommand.ts";
 import {
   ModifyDBProxyTargetGroupCommand,
   ModifyDBProxyTargetGroupCommandInput,
-  ModifyDBProxyTargetGroupCommandOutput
+  ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand.ts";
 import {
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSnapshotAttributeCommandInput,
-  ModifyDBSnapshotAttributeCommandOutput
+  ModifyDBSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBSnapshotAttributeCommand.ts";
 import {
   ModifyDBSnapshotCommand,
   ModifyDBSnapshotCommandInput,
-  ModifyDBSnapshotCommandOutput
+  ModifyDBSnapshotCommandOutput,
 } from "./commands/ModifyDBSnapshotCommand.ts";
 import {
   ModifyDBSubnetGroupCommand,
   ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput
+  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand.ts";
 import {
   ModifyEventSubscriptionCommand,
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand.ts";
 import {
   ModifyGlobalClusterCommand,
   ModifyGlobalClusterCommandInput,
-  ModifyGlobalClusterCommandOutput
+  ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand.ts";
 import {
   ModifyOptionGroupCommand,
   ModifyOptionGroupCommandInput,
-  ModifyOptionGroupCommandOutput
+  ModifyOptionGroupCommandOutput,
 } from "./commands/ModifyOptionGroupCommand.ts";
 import {
   PromoteReadReplicaCommand,
   PromoteReadReplicaCommandInput,
-  PromoteReadReplicaCommandOutput
+  PromoteReadReplicaCommandOutput,
 } from "./commands/PromoteReadReplicaCommand.ts";
 import {
   PromoteReadReplicaDBClusterCommand,
   PromoteReadReplicaDBClusterCommandInput,
-  PromoteReadReplicaDBClusterCommandOutput
+  PromoteReadReplicaDBClusterCommandOutput,
 } from "./commands/PromoteReadReplicaDBClusterCommand.ts";
 import {
   PurchaseReservedDBInstancesOfferingCommand,
   PurchaseReservedDBInstancesOfferingCommandInput,
-  PurchaseReservedDBInstancesOfferingCommandOutput
+  PurchaseReservedDBInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand.ts";
 import {
   RebootDBInstanceCommand,
   RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput
+  RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand.ts";
 import {
   RegisterDBProxyTargetsCommand,
   RegisterDBProxyTargetsCommandInput,
-  RegisterDBProxyTargetsCommandOutput
+  RegisterDBProxyTargetsCommandOutput,
 } from "./commands/RegisterDBProxyTargetsCommand.ts";
 import {
   RemoveFromGlobalClusterCommand,
   RemoveFromGlobalClusterCommandInput,
-  RemoveFromGlobalClusterCommandOutput
+  RemoveFromGlobalClusterCommandOutput,
 } from "./commands/RemoveFromGlobalClusterCommand.ts";
 import {
   RemoveRoleFromDBClusterCommand,
   RemoveRoleFromDBClusterCommandInput,
-  RemoveRoleFromDBClusterCommandOutput
+  RemoveRoleFromDBClusterCommandOutput,
 } from "./commands/RemoveRoleFromDBClusterCommand.ts";
 import {
   RemoveRoleFromDBInstanceCommand,
   RemoveRoleFromDBInstanceCommandInput,
-  RemoveRoleFromDBInstanceCommandOutput
+  RemoveRoleFromDBInstanceCommandOutput,
 } from "./commands/RemoveRoleFromDBInstanceCommand.ts";
 import {
   RemoveSourceIdentifierFromSubscriptionCommand,
   RemoveSourceIdentifierFromSubscriptionCommandInput,
-  RemoveSourceIdentifierFromSubscriptionCommandOutput
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
 } from "./commands/RemoveSourceIdentifierFromSubscriptionCommand.ts";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetDBClusterParameterGroupCommand,
   ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput
+  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand.ts";
 import {
   ResetDBParameterGroupCommand,
   ResetDBParameterGroupCommandInput,
-  ResetDBParameterGroupCommandOutput
+  ResetDBParameterGroupCommandOutput,
 } from "./commands/ResetDBParameterGroupCommand.ts";
 import {
   RestoreDBClusterFromS3Command,
   RestoreDBClusterFromS3CommandInput,
-  RestoreDBClusterFromS3CommandOutput
+  RestoreDBClusterFromS3CommandOutput,
 } from "./commands/RestoreDBClusterFromS3Command.ts";
 import {
   RestoreDBClusterFromSnapshotCommand,
   RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput
+  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand.ts";
 import {
   RestoreDBClusterToPointInTimeCommand,
   RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput
+  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand.ts";
 import {
   RestoreDBInstanceFromDBSnapshotCommand,
   RestoreDBInstanceFromDBSnapshotCommandInput,
-  RestoreDBInstanceFromDBSnapshotCommandOutput
+  RestoreDBInstanceFromDBSnapshotCommandOutput,
 } from "./commands/RestoreDBInstanceFromDBSnapshotCommand.ts";
 import {
   RestoreDBInstanceFromS3Command,
   RestoreDBInstanceFromS3CommandInput,
-  RestoreDBInstanceFromS3CommandOutput
+  RestoreDBInstanceFromS3CommandOutput,
 } from "./commands/RestoreDBInstanceFromS3Command.ts";
 import {
   RestoreDBInstanceToPointInTimeCommand,
   RestoreDBInstanceToPointInTimeCommandInput,
-  RestoreDBInstanceToPointInTimeCommandOutput
+  RestoreDBInstanceToPointInTimeCommandOutput,
 } from "./commands/RestoreDBInstanceToPointInTimeCommand.ts";
 import {
   RevokeDBSecurityGroupIngressCommand,
   RevokeDBSecurityGroupIngressCommandInput,
-  RevokeDBSecurityGroupIngressCommandOutput
+  RevokeDBSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeDBSecurityGroupIngressCommand.ts";
 import {
   StartActivityStreamCommand,
   StartActivityStreamCommandInput,
-  StartActivityStreamCommandOutput
+  StartActivityStreamCommandOutput,
 } from "./commands/StartActivityStreamCommand.ts";
 import {
   StartDBClusterCommand,
   StartDBClusterCommandInput,
-  StartDBClusterCommandOutput
+  StartDBClusterCommandOutput,
 } from "./commands/StartDBClusterCommand.ts";
 import {
   StartDBInstanceCommand,
   StartDBInstanceCommandInput,
-  StartDBInstanceCommandOutput
+  StartDBInstanceCommandOutput,
 } from "./commands/StartDBInstanceCommand.ts";
+import {
+  StartExportTaskCommand,
+  StartExportTaskCommandInput,
+  StartExportTaskCommandOutput,
+} from "./commands/StartExportTaskCommand.ts";
 import {
   StopActivityStreamCommand,
   StopActivityStreamCommandInput,
-  StopActivityStreamCommandOutput
+  StopActivityStreamCommandOutput,
 } from "./commands/StopActivityStreamCommand.ts";
 import {
   StopDBClusterCommand,
   StopDBClusterCommandInput,
-  StopDBClusterCommandOutput
+  StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand.ts";
 import {
   StopDBInstanceCommand,
   StopDBInstanceCommandInput,
-  StopDBInstanceCommandOutput
+  StopDBInstanceCommandOutput,
 } from "./commands/StopDBInstanceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -651,7 +666,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *           application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for
  *           the resources you use.</p>
  *          <p>This interface reference for Amazon RDS contains documentation for a programming or command line interface
- *           you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might
+ *           you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
  *           require techniques such as polling or callback functions to determine when a command has been applied. In this
  *           reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
  *           or during the maintenance window. The reference structure is as follows, and we list following some related topics
@@ -719,17 +734,14 @@ export class RDS extends RDSClient {
   ): void;
   public addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddRoleToDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddRoleToDBClusterCommandOutput) => void),
     cb?: (err: any, data?: AddRoleToDBClusterCommandOutput) => void
   ): Promise<AddRoleToDBClusterCommandOutput> | void {
     const command = new AddRoleToDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -757,17 +769,14 @@ export class RDS extends RDSClient {
   ): void;
   public addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddRoleToDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddRoleToDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: AddRoleToDBInstanceCommandOutput) => void
   ): Promise<AddRoleToDBInstanceCommandOutput> | void {
     const command = new AddRoleToDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -783,38 +792,23 @@ export class RDS extends RDSClient {
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddSourceIdentifierToSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> | void {
     const command = new AddSourceIdentifierToSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -841,17 +835,14 @@ export class RDS extends RDSClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -876,17 +867,14 @@ export class RDS extends RDSClient {
   ): void;
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
     cb?: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> | void {
     const command = new ApplyPendingMaintenanceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -922,20 +910,14 @@ export class RDS extends RDSClient {
   ): void;
   public authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeDBSecurityGroupIngressCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeDBSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeDBSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeDBSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -950,7 +932,7 @@ export class RDS extends RDSClient {
    *             <i>Amazon Aurora User Guide.</i>
    *         </p>
    *         <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This action only applies to Aurora MySQL DB clusters.</p>
    *         </note>
    */
   public backtrackDBCluster(
@@ -968,17 +950,48 @@ export class RDS extends RDSClient {
   ): void;
   public backtrackDBCluster(
     args: BacktrackDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BacktrackDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BacktrackDBClusterCommandOutput) => void),
     cb?: (err: any, data?: BacktrackDBClusterCommandOutput) => void
   ): Promise<BacktrackDBClusterCommandOutput> | void {
     const command = new BacktrackDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+   *             Any data that has already been written to the S3 bucket isn't removed.
+   *         </p>
+   */
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelExportTaskCommandOutput>;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): void;
+  public cancelExportTask(
+    args: CancelExportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
+  ): Promise<CancelExportTaskCommandOutput> | void {
+    const command = new CancelExportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1006,17 +1019,14 @@ export class RDS extends RDSClient {
   ): void;
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void
   ): Promise<CopyDBClusterParameterGroupCommandOutput> | void {
     const command = new CopyDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1054,7 +1064,7 @@ export class RDS extends RDSClient {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot will be created in.</p>
+   *                         <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -1115,17 +1125,14 @@ export class RDS extends RDSClient {
   ): void;
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopyDBClusterSnapshotCommandOutput) => void
   ): Promise<CopyDBClusterSnapshotCommandOutput> | void {
     const command = new CopyDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1150,17 +1157,14 @@ export class RDS extends RDSClient {
   ): void;
   public copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CopyDBParameterGroupCommandOutput) => void
   ): Promise<CopyDBParameterGroupCommandOutput> | void {
     const command = new CopyDBParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1193,17 +1197,14 @@ export class RDS extends RDSClient {
   ): void;
   public copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopyDBSnapshotCommandOutput) => void
   ): Promise<CopyDBSnapshotCommandOutput> | void {
     const command = new CopyDBSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1228,17 +1229,14 @@ export class RDS extends RDSClient {
   ): void;
   public copyOptionGroup(
     args: CopyOptionGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyOptionGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyOptionGroupCommandOutput) => void),
     cb?: (err: any, data?: CopyOptionGroupCommandOutput) => void
   ): Promise<CopyOptionGroupCommandOutput> | void {
     const command = new CopyOptionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1269,17 +1267,14 @@ export class RDS extends RDSClient {
   ): void;
   public createCustomAvailabilityZone(
     args: CreateCustomAvailabilityZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void
   ): Promise<CreateCustomAvailabilityZoneCommandOutput> | void {
     const command = new CreateCustomAvailabilityZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1288,10 +1283,11 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Creates a new Amazon Aurora DB cluster.</p>
-   *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB cluster as a
-   *           Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For cross-region replication
-   *           where the DB cluster identified by <code>ReplicationSourceIdentifier</code> is encrypted,
-   *       you must also specify the <code>PreSignedUrl</code> parameter.</p>
+   *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
+   *             cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
+   *             cross-region replication where the DB cluster identified by
+   *                 <code>ReplicationSourceIdentifier</code> is encrypted, you must also specify the
+   *                 <code>PreSignedUrl</code> parameter.</p>
    *
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -1316,17 +1312,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBCluster(
     args: CreateDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): Promise<CreateDBClusterCommandOutput> | void {
     const command = new CreateDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1354,17 +1347,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
   ): Promise<CreateDBClusterEndpointCommandOutput> | void {
     const command = new CreateDBClusterEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1420,17 +1410,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void
   ): Promise<CreateDBClusterParameterGroupCommandOutput> | void {
     const command = new CreateDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1461,17 +1448,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterSnapshotCommandOutput) => void
   ): Promise<CreateDBClusterSnapshotCommandOutput> | void {
     const command = new CreateDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1496,17 +1480,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): Promise<CreateDBInstanceCommandOutput> | void {
     const command = new CreateDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1514,19 +1495,17 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
-   *           You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or PostgreSQL.
-   *           For more information, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
-   *       </p>
+   * <p>Creates a new DB instance that acts as a read replica for an existing source DB
+   *             instance. You can create a read replica for a DB instance running MySQL, MariaDB,
+   *             Oracle, PostgreSQL, or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with Read
+   *                 Replicas</a> in the <i>Amazon RDS User Guide</i>. </p>
    *
-   *          <p>Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code> action to create a DB instance for an Aurora DB cluster.
-   *       </p>
+   *          <p>Amazon Aurora doesn't support this action. Call the <code>CreateDBInstance</code>
+   *             action to create a DB instance for an Aurora DB cluster.</p>
    *
-   *          <p>All Read Replica DB instances are created with backups disabled.
-   *           All other DB instance attributes (including DB security groups and DB parameter groups)
-   *           are inherited from the source DB instance, except as specified following.
-   *       </p>
+   *          <p>All read replica DB instances are created with backups disabled. All other DB
+   *             instance attributes (including DB security groups and DB parameter groups) are inherited
+   *             from the source DB instance, except as specified.</p>
    *
    *          <important>
    *             <p>Your source DB instance must have backup retention enabled.
@@ -1548,17 +1527,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBInstanceReadReplicaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBInstanceReadReplicaCommandOutput) => void),
     cb?: (err: any, data?: CreateDBInstanceReadReplicaCommandOutput) => void
   ): Promise<CreateDBInstanceReadReplicaCommandOutput> | void {
     const command = new CreateDBInstanceReadReplicaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1603,17 +1579,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBParameterGroupCommandOutput) => void
   ): Promise<CreateDBParameterGroupCommandOutput> | void {
     const command = new CreateDBParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1621,11 +1594,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Creates a new DB proxy.</p>
+   * <p>Creates a new DB proxy.</p>
    */
   public createDBProxy(
     args: CreateDBProxyCommandInput,
@@ -1642,17 +1611,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBProxy(
     args: CreateDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBProxyCommandOutput) => void),
     cb?: (err: any, data?: CreateDBProxyCommandOutput) => void
   ): Promise<CreateDBProxyCommandOutput> | void {
     const command = new CreateDBProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1680,17 +1646,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBSecurityGroupCommandOutput) => void
   ): Promise<CreateDBSecurityGroupCommandOutput> | void {
     const command = new CreateDBSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1715,17 +1678,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDBSnapshotCommandOutput) => void
   ): Promise<CreateDBSnapshotCommandOutput> | void {
     const command = new CreateDBSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1750,17 +1710,14 @@ export class RDS extends RDSClient {
   ): void;
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBSubnetGroupCommandOutput) => void
   ): Promise<CreateDBSubnetGroupCommandOutput> | void {
     const command = new CreateDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1768,18 +1725,21 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates an RDS event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by
-   *           either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in
-   *           Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.</p>
+   * <p>Creates an RDS event notification subscription. This action requires a topic Amazon
+   *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
+   *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
+   *             topic. The ARN is displayed in the SNS console.</p>
    *          <p>You can specify the type of source (SourceType) you want to be notified of, provide a list of RDS sources
    *           (SourceIds) that triggers the events, and provide a list of event categories (EventCategories) for events you want to
    *           be notified of. For example, you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and
    *           EventCategories = Availability, Backup.</p>
-   *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance and SourceIdentifier = myDBInstance1,
-   *           you are notified of all the db-instance events for the specified source. If you specify a SourceType but do not specify
-   *           a SourceIdentifier, you receive notice of the events for that source type for all your RDS sources. If you do not specify
-   *           either the SourceType nor the SourceIdentifier, you are notified of events generated from all RDS sources belonging to
-   *           your customer account.</p>
+   *
+   *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance
+   *           and SourceIdentifier = myDBInstance1, you are notified of all the db-instance events for
+   *           the specified source. If you specify a SourceType but do not specify a SourceIdentifier,
+   *           you receive notice of the events for that source type for all your RDS sources. If you
+   *           don't specify either the SourceType or the SourceIdentifier, you are notified of events
+   *           generated from all RDS sources belonging to your customer account.</p>
    *          <note>
    *             <p>RDS event notification is only available for unencrypted SNS topics. If you specify an
    *               encrypted SNS topic, event notifications aren't sent for the topic.</p>
@@ -1800,17 +1760,14 @@ export class RDS extends RDSClient {
   ): void;
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): Promise<CreateEventSubscriptionCommandOutput> | void {
     const command = new CreateEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1819,8 +1776,6 @@ export class RDS extends RDSClient {
 
   /**
    * <p>
-   *       </p>
-   *          <p>
    *         Creates an Aurora global database
    *         spread across multiple regions. The global database
    *         contains a single primary cluster with read-write capability,
@@ -1853,17 +1808,14 @@ export class RDS extends RDSClient {
   ): void;
   public createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGlobalClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGlobalClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateGlobalClusterCommandOutput) => void
   ): Promise<CreateGlobalClusterCommandOutput> | void {
     const command = new CreateGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1888,17 +1840,14 @@ export class RDS extends RDSClient {
   ): void;
   public createOptionGroup(
     args: CreateOptionGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOptionGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOptionGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateOptionGroupCommandOutput) => void
   ): Promise<CreateOptionGroupCommandOutput> | void {
     const command = new CreateOptionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1929,17 +1878,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteCustomAvailabilityZone(
     args: DeleteCustomAvailabilityZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void
   ): Promise<DeleteCustomAvailabilityZoneCommandOutput> | void {
     const command = new DeleteCustomAvailabilityZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1974,17 +1920,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): Promise<DeleteDBClusterCommandOutput> | void {
     const command = new DeleteDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2012,17 +1955,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
   ): Promise<DeleteDBClusterEndpointCommandOutput> | void {
     const command = new DeleteDBClusterEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2054,17 +1994,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> | void {
     const command = new DeleteDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2100,17 +2037,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void
   ): Promise<DeleteDBClusterSnapshotCommandOutput> | void {
     const command = new DeleteDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2126,22 +2060,24 @@ export class RDS extends RDSClient {
    *         the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
    *         is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.
    *         </p>
-   *          <p>Note that when a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
+   *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
    *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
    *
    *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
    *       conditions are true:</p>
    *          <ul>
    *             <li>
-   *                <p>The DB cluster is a Read Replica of another Amazon Aurora DB cluster.</p>
+   *                <p>The DB cluster is a read replica of another Amazon Aurora DB cluster.</p>
    *             </li>
    *             <li>
    *                <p>The DB instance is the only instance in the DB cluster.</p>
    *             </li>
    *          </ul>
-   *          <p>To delete a DB instance in this case, first call the <code>PromoteReadReplicaDBCluster</code> API action to
-   *       promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the <code>DeleteDBInstance</code>
-   *       API action to delete the final instance in the DB cluster.</p>
+   *          <p>To delete a DB instance in this case, first call the
+   *                 <code>PromoteReadReplicaDBCluster</code> API action to promote the DB cluster so
+   *             it's no longer a read replica. After the promotion completes, then call the
+   *                 <code>DeleteDBInstance</code> API action to delete the final instance in the DB
+   *             cluster.</p>
    */
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -2158,17 +2094,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): Promise<DeleteDBInstanceCommandOutput> | void {
     const command = new DeleteDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2194,20 +2127,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDBInstanceAutomatedBackupCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBInstanceAutomatedBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceAutomatedBackupCommandOutput) => void
   ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> | void {
     const command = new DeleteDBInstanceAutomatedBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2232,17 +2159,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBParameterGroupCommandOutput) => void
   ): Promise<DeleteDBParameterGroupCommandOutput> | void {
     const command = new DeleteDBParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2250,11 +2174,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Deletes an existing proxy.</p>
+   * <p>Deletes an existing proxy.</p>
    */
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
@@ -2271,17 +2191,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBProxyCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBProxyCommandOutput) => void
   ): Promise<DeleteDBProxyCommandOutput> | void {
     const command = new DeleteDBProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2309,17 +2226,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBSecurityGroupCommandOutput) => void
   ): Promise<DeleteDBSecurityGroupCommandOutput> | void {
     const command = new DeleteDBSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2348,17 +2262,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBSnapshotCommandOutput) => void
   ): Promise<DeleteDBSnapshotCommandOutput> | void {
     const command = new DeleteDBSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2386,17 +2297,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBSubnetGroupCommandOutput) => void
   ): Promise<DeleteDBSubnetGroupCommandOutput> | void {
     const command = new DeleteDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2421,17 +2329,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2462,17 +2367,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGlobalClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGlobalClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
   ): Promise<DeleteGlobalClusterCommandOutput> | void {
     const command = new DeleteGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2498,17 +2400,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteInstallationMedia(
     args: DeleteInstallationMediaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstallationMediaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstallationMediaCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstallationMediaCommandOutput) => void
   ): Promise<DeleteInstallationMediaCommandOutput> | void {
     const command = new DeleteInstallationMediaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2533,17 +2432,14 @@ export class RDS extends RDSClient {
   ): void;
   public deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteOptionGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOptionGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteOptionGroupCommandOutput) => void
   ): Promise<DeleteOptionGroupCommandOutput> | void {
     const command = new DeleteOptionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2551,11 +2447,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
    */
   public deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
@@ -2572,17 +2464,14 @@ export class RDS extends RDSClient {
   ): void;
   public deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterDBProxyTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterDBProxyTargetsCommandOutput) => void),
     cb?: (err: any, data?: DeregisterDBProxyTargetsCommandOutput) => void
   ): Promise<DeregisterDBProxyTargetsCommandOutput> | void {
     const command = new DeregisterDBProxyTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2608,17 +2497,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2643,17 +2529,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): Promise<DescribeCertificatesCommandOutput> | void {
     const command = new DescribeCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2684,20 +2567,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeCustomAvailabilityZones(
     args: DescribeCustomAvailabilityZonesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCustomAvailabilityZonesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void
   ): Promise<DescribeCustomAvailabilityZonesCommandOutput> | void {
     const command = new DescribeCustomAvailabilityZonesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2711,7 +2588,7 @@ export class RDS extends RDSClient {
    *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *         </p>
    *         <note>
-   *             <p>This action only applies to Aurora DB clusters.</p>
+   *             <p>This action only applies to Aurora MySQL DB clusters.</p>
    *         </note>
    */
   public describeDBClusterBacktracks(
@@ -2729,17 +2606,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusterBacktracks(
     args: DescribeDBClusterBacktracksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterBacktracksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterBacktracksCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterBacktracksCommandOutput) => void
   ): Promise<DescribeDBClusterBacktracksCommandOutput> | void {
     const command = new DescribeDBClusterBacktracksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2767,17 +2641,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
   ): Promise<DescribeDBClusterEndpointsCommandOutput> | void {
     const command = new DescribeDBClusterEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2813,23 +2684,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterParameterGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterParameterGroupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeDBClusterParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2861,17 +2723,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterParametersCommandOutput) => void
   ): Promise<DescribeDBClusterParametersCommandOutput> | void {
     const command = new DescribeDBClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2903,17 +2762,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
   ): Promise<DescribeDBClustersCommandOutput> | void {
     const command = new DescribeDBClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2939,38 +2795,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterSnapshotAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3002,17 +2843,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3037,17 +2875,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBEngineVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBEngineVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBEngineVersionsCommandOutput) => void
   ): Promise<DescribeDBEngineVersionsCommandOutput> | void {
     const command = new DescribeDBEngineVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3069,38 +2904,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput>;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): void;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): void;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> | void {
     const command = new DescribeDBInstanceAutomatedBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3128,17 +2948,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBInstancesCommandOutput) => void
   ): Promise<DescribeDBInstancesCommandOutput> | void {
     const command = new DescribeDBInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3163,17 +2980,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBLogFilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBLogFilesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBLogFilesCommandOutput) => void
   ): Promise<DescribeDBLogFilesCommandOutput> | void {
     const command = new DescribeDBLogFilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3201,17 +3015,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBParameterGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBParameterGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBParameterGroupsCommandOutput) => void
   ): Promise<DescribeDBParameterGroupsCommandOutput> | void {
     const command = new DescribeDBParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3236,17 +3047,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBParameters(
     args: DescribeDBParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBParametersCommandOutput) => void
   ): Promise<DescribeDBParametersCommandOutput> | void {
     const command = new DescribeDBParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3254,11 +3062,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about DB proxies.</p>
+   * <p>Returns information about DB proxies.</p>
    */
   public describeDBProxies(
     args: DescribeDBProxiesCommandInput,
@@ -3275,17 +3079,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBProxies(
     args: DescribeDBProxiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBProxiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBProxiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBProxiesCommandOutput) => void
   ): Promise<DescribeDBProxiesCommandOutput> | void {
     const command = new DescribeDBProxiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3293,11 +3094,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+   * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
    */
   public describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
@@ -3314,17 +3111,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBProxyTargetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBProxyTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBProxyTargetGroupsCommandOutput) => void
   ): Promise<DescribeDBProxyTargetGroupsCommandOutput> | void {
     const command = new DescribeDBProxyTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3332,11 +3126,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
+   * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
    */
   public describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
@@ -3353,17 +3143,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBProxyTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBProxyTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBProxyTargetsCommandOutput) => void
   ): Promise<DescribeDBProxyTargetsCommandOutput> | void {
     const command = new DescribeDBProxyTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3391,17 +3178,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void
   ): Promise<DescribeDBSecurityGroupsCommandOutput> | void {
     const command = new DescribeDBSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3433,17 +3217,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBSnapshotAttributes(
     args: DescribeDBSnapshotAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBSnapshotAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBSnapshotAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBSnapshotAttributesCommandOutput) => void
   ): Promise<DescribeDBSnapshotAttributesCommandOutput> | void {
     const command = new DescribeDBSnapshotAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3468,17 +3249,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBSnapshotsCommandOutput) => void
   ): Promise<DescribeDBSnapshotsCommandOutput> | void {
     const command = new DescribeDBSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3506,17 +3284,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void
   ): Promise<DescribeDBSubnetGroupsCommandOutput> | void {
     const command = new DescribeDBSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3536,38 +3311,25 @@ export class RDS extends RDSClient {
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3592,20 +3354,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultParametersCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3634,17 +3390,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): Promise<DescribeEventCategoriesCommandOutput> | void {
     const command = new DescribeEventCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3669,17 +3422,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3705,17 +3455,47 @@ export class RDS extends RDSClient {
   ): void;
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
+   *             pagination. </p>
+   */
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportTasksCommandOutput>;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): void;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): void;
+  public describeExportTasks(
+    args: DescribeExportTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportTasksCommandOutput) => void
+  ): Promise<DescribeExportTasksCommandOutput> | void {
+    const command = new DescribeExportTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3749,17 +3529,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGlobalClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGlobalClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
   ): Promise<DescribeGlobalClustersCommandOutput> | void {
     const command = new DescribeGlobalClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3785,17 +3562,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeInstallationMedia(
     args: DescribeInstallationMediaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstallationMediaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstallationMediaCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstallationMediaCommandOutput) => void
   ): Promise<DescribeInstallationMediaCommandOutput> | void {
     const command = new DescribeInstallationMediaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3820,17 +3594,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOptionGroupOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOptionGroupOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOptionGroupOptionsCommandOutput) => void
   ): Promise<DescribeOptionGroupOptionsCommandOutput> | void {
     const command = new DescribeOptionGroupOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3855,17 +3626,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOptionGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOptionGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOptionGroupsCommandOutput) => void
   ): Promise<DescribeOptionGroupsCommandOutput> | void {
     const command = new DescribeOptionGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3881,38 +3649,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableDBInstanceOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> | void {
     const command = new DescribeOrderableDBInstanceOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3928,38 +3681,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3984,17 +3722,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservedDBInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedDBInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservedDBInstancesCommandOutput) => void
   ): Promise<DescribeReservedDBInstancesCommandOutput> | void {
     const command = new DescribeReservedDBInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4010,38 +3745,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput>;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedDBInstancesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> | void {
     const command = new DescribeReservedDBInstancesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4049,8 +3769,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica
-   *             or copy a DB snapshot from. This API action supports pagination.</p>
+   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a
+   *             read replica or copy a DB snapshot from. This API action supports pagination.</p>
    */
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
@@ -4067,17 +3787,14 @@ export class RDS extends RDSClient {
   ): void;
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSourceRegionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSourceRegionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSourceRegionsCommandOutput) => void
   ): Promise<DescribeSourceRegionsCommandOutput> | void {
     const command = new DescribeSourceRegionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4097,38 +3814,23 @@ export class RDS extends RDSClient {
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput>;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeValidDBInstanceModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> | void {
     const command = new DescribeValidDBInstanceModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4153,17 +3855,14 @@ export class RDS extends RDSClient {
   ): void;
   public downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DownloadDBLogFilePortionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DownloadDBLogFilePortionCommandOutput) => void),
     cb?: (err: any, data?: DownloadDBLogFilePortionCommandOutput) => void
   ): Promise<DownloadDBLogFilePortionCommandOutput> | void {
     const command = new DownloadDBLogFilePortionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4201,17 +3900,14 @@ export class RDS extends RDSClient {
   ): void;
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FailoverDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverDBClusterCommandOutput) => void),
     cb?: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): Promise<FailoverDBClusterCommandOutput> | void {
     const command = new FailoverDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4237,17 +3933,14 @@ export class RDS extends RDSClient {
   ): void;
   public importInstallationMedia(
     args: ImportInstallationMediaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportInstallationMediaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportInstallationMediaCommandOutput) => void),
     cb?: (err: any, data?: ImportInstallationMediaCommandOutput) => void
   ): Promise<ImportInstallationMediaCommandOutput> | void {
     const command = new ImportInstallationMediaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4275,17 +3968,14 @@ export class RDS extends RDSClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4294,7 +3984,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
-   *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
+   *           certificate for Amazon RDS for new DB instances temporarily, or remove the override.</p>
    *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
    *             instances that is different from the default certificate provided by RDS. You can also
    *             use this operation to remove the override, so that new DB instances use the default
@@ -4334,17 +4024,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyCertificates(
     args: ModifyCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ModifyCertificatesCommandOutput) => void
   ): Promise<ModifyCertificatesCommandOutput> | void {
     const command = new ModifyCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4386,20 +4073,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyCurrentDBClusterCapacity(
     args: ModifyCurrentDBClusterCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyCurrentDBClusterCapacityCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void),
     cb?: (err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> | void {
     const command = new ModifyCurrentDBClusterCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4433,17 +4114,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): Promise<ModifyDBClusterCommandOutput> | void {
     const command = new ModifyDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4471,17 +4149,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterEndpointCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
   ): Promise<ModifyDBClusterEndpointCommandOutput> | void {
     const command = new ModifyDBClusterEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4536,17 +4211,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> | void {
     const command = new ModifyDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4555,18 +4227,24 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
-   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify <code>restore</code>
-   *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
-   *             a list of IDs of the AWS accounts that are
+   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+   *                 <code>restore</code> as the <code>AttributeName</code> and use the
+   *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
    *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
    *             make the manual DB cluster snapshot public, which means that it can be copied or
-   *             restored by all AWS accounts. Do not add the <code>all</code> value for any
-   *             manual DB cluster snapshots that contain private information that you don't want available
-   *             to all AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only by specifying
-   *             a list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use
-   *             <code>all</code> as a value for that parameter in this case.</p>
-   *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a
-   *             manual DB cluster snapshot public or private, use the <code>DescribeDBClusterSnapshotAttributes</code> API action.</p>
+   *             restored by all AWS accounts.</p>
+   *         <note>
+   *             <p>Don't add the <code>all</code> value for any manual DB cluster snapshots
+   *                 that contain private information that you don't want available to all AWS
+   *                 accounts.</p>
+   *         </note>
+   *         <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
+   *             specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
+   *             parameter. You can't use <code>all</code> as a value for that parameter in this
+   *             case.</p>
+   *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster
+   *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
+   *             returned as values for the <code>restore</code> attribute.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
@@ -4586,23 +4264,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDBClusterSnapshotAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDBClusterSnapshotAttributeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> | void {
     const command = new ModifyDBClusterSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4632,17 +4301,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): Promise<ModifyDBInstanceCommandOutput> | void {
     const command = new ModifyDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4686,17 +4352,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBParameterGroupCommandOutput) => void
   ): Promise<ModifyDBParameterGroupCommandOutput> | void {
     const command = new ModifyDBParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4704,11 +4367,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Changes the settings for an existing DB proxy.</p>
+   * <p>Changes the settings for an existing DB proxy.</p>
    */
   public modifyDBProxy(
     args: ModifyDBProxyCommandInput,
@@ -4725,17 +4384,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBProxy(
     args: ModifyDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBProxyCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBProxyCommandOutput) => void
   ): Promise<ModifyDBProxyCommandOutput> | void {
     const command = new ModifyDBProxyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4743,11 +4399,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
    */
   public modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
@@ -4764,17 +4416,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBProxyTargetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBProxyTargetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBProxyTargetGroupCommandOutput) => void
   ): Promise<ModifyDBProxyTargetGroupCommandOutput> | void {
     const command = new ModifyDBProxyTargetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4782,9 +4431,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new engine version.
+   * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
+   *             or unencrypted, but not shared or public.
    *
-   *       </p>
+   *         </p>
    *
    *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
    *       </p>
@@ -4804,17 +4454,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBSnapshotCommandOutput) => void
   ): Promise<ModifyDBSnapshotCommandOutput> | void {
     const command = new ModifyDBSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4824,17 +4471,21 @@ export class RDS extends RDSClient {
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
    *          <p>To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
-   *       as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
-   *       a list of IDs of the AWS accounts that are
-   *       authorized to restore the manual DB snapshot. Uses the value <code>all</code> to
-   *       make the manual DB snapshot public, which means it can be copied or
-   *       restored by all AWS accounts. Do not add the <code>all</code> value for any
-   *       manual DB snapshots that contain private information that you don't want available
-   *       to all AWS accounts. If the manual DB snapshot is encrypted, it can be shared, but only by specifying
-   *       a list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use
-   *           <code>all</code> as a value for that parameter in this case.</p>
-   *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a
-   *       manual DB snapshot public or private, use the <code>DescribeDBSnapshotAttributes</code> API action.</p>
+   *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
+   *             a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot.
+   *             Uses the value <code>all</code> to make the manual DB snapshot public, which means it
+   *             can be copied or restored by all AWS accounts.</p>
+   *         <note>
+   *             <p>Don't add the <code>all</code> value for any manual DB snapshots that
+   *                 contain private information that you don't want available to all AWS
+   *                 accounts.</p>
+   *         </note>
+   *         <p>If the manual DB snapshot is encrypted, it can be shared, but only by specifying a
+   *             list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You
+   *             can't use <code>all</code> as a value for that parameter in this case.</p>
+   *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or
+   *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
+   *             values for the <code>restore</code> attribute.</p>
    */
   public modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
@@ -4851,17 +4502,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBSnapshotAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBSnapshotAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBSnapshotAttributeCommandOutput) => void
   ): Promise<ModifyDBSnapshotAttributeCommandOutput> | void {
     const command = new ModifyDBSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4886,17 +4534,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBSubnetGroupCommandOutput) => void
   ): Promise<ModifyDBSubnetGroupCommandOutput> | void {
     const command = new ModifyDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4904,7 +4549,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Modifies an existing RDS event notification subscription. Note that you can't modify the source identifiers using this call; to change
+   * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
    *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
    *          <p>You can see a list of the event categories for a given SourceType
    *           in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> topic  in the <i>Amazon RDS User Guide</i>
@@ -4925,17 +4570,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): Promise<ModifyEventSubscriptionCommandOutput> | void {
     const command = new ModifyEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4968,17 +4610,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyGlobalClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyGlobalClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
   ): Promise<ModifyGlobalClusterCommandOutput> | void {
     const command = new ModifyGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5003,17 +4642,14 @@ export class RDS extends RDSClient {
   ): void;
   public modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyOptionGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyOptionGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyOptionGroupCommandOutput) => void
   ): Promise<ModifyOptionGroupCommandOutput> | void {
     const command = new ModifyOptionGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5021,16 +4657,18 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Promotes a Read Replica DB instance to a standalone DB instance.</p>
+   * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Backup duration is a function of the amount of changes to the database since the previous backup.
-   *                   If you plan to promote a Read Replica to a standalone instance, we recommend that you enable backups
-   *                   and complete at least one backup prior to promotion. In addition, a Read Replica cannot be promoted
-   *                   to a standalone instance when it is in the <code>backing-up</code> status. If you have enabled backups
-   *                   on your Read Replica, configure the automated backup window so that daily backups do not
-   *                   interfere with Read Replica promotion.</p>
+   *                   <p>Backup duration is a function of the amount of changes to the database since the previous
+   *                         backup. If you plan to promote a read replica to a standalone instance, we
+   *                         recommend that you enable backups and complete at least one backup prior to
+   *                         promotion. In addition, a read replica cannot be promoted to a standalone
+   *                         instance when it is in the <code>backing-up</code> status. If you have
+   *                         enabled backups on your read replica, configure the automated backup window
+   *                         so that daily backups do not interfere with read replica
+   *                         promotion.</p>
    *                </li>
    *                <li>
    *                   <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p>
@@ -5054,17 +4692,14 @@ export class RDS extends RDSClient {
   ): void;
   public promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PromoteReadReplicaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PromoteReadReplicaCommandOutput) => void),
     cb?: (err: any, data?: PromoteReadReplicaCommandOutput) => void
   ): Promise<PromoteReadReplicaCommandOutput> | void {
     const command = new PromoteReadReplicaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5072,7 +4707,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Promotes a Read Replica DB cluster to a standalone DB cluster.</p>
+   * <p>Promotes a read replica DB cluster to a standalone DB cluster.</p>
    *          <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *          </note>
@@ -5092,17 +4727,14 @@ export class RDS extends RDSClient {
   ): void;
   public promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PromoteReadReplicaDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PromoteReadReplicaDBClusterCommandOutput) => void),
     cb?: (err: any, data?: PromoteReadReplicaDBClusterCommandOutput) => void
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> | void {
     const command = new PromoteReadReplicaDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5118,38 +4750,23 @@ export class RDS extends RDSClient {
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput>;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedDBInstancesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> | void {
     const command = new PurchaseReservedDBInstancesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5185,17 +4802,14 @@ export class RDS extends RDSClient {
   ): void;
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5203,11 +4817,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <note>
-   *             <p>This is prerelease documentation for the RDS Database Proxy feature in preview release. It is subject to change.</p>
-   *          </note>
-   *
-   *          <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
+   * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
    */
   public registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
@@ -5224,17 +4834,14 @@ export class RDS extends RDSClient {
   ): void;
   public registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDBProxyTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDBProxyTargetsCommandOutput) => void),
     cb?: (err: any, data?: RegisterDBProxyTargetsCommandOutput) => void
   ): Promise<RegisterDBProxyTargetsCommandOutput> | void {
     const command = new RegisterDBProxyTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5266,17 +4873,14 @@ export class RDS extends RDSClient {
   ): void;
   public removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveFromGlobalClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFromGlobalClusterCommandOutput) => void),
     cb?: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
   ): Promise<RemoveFromGlobalClusterCommandOutput> | void {
     const command = new RemoveFromGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5306,17 +4910,14 @@ export class RDS extends RDSClient {
   ): void;
   public removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveRoleFromDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveRoleFromDBClusterCommandOutput) => void),
     cb?: (err: any, data?: RemoveRoleFromDBClusterCommandOutput) => void
   ): Promise<RemoveRoleFromDBClusterCommandOutput> | void {
     const command = new RemoveRoleFromDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5341,17 +4942,14 @@ export class RDS extends RDSClient {
   ): void;
   public removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveRoleFromDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveRoleFromDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: RemoveRoleFromDBInstanceCommandOutput) => void
   ): Promise<RemoveRoleFromDBInstanceCommandOutput> | void {
     const command = new RemoveRoleFromDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5367,38 +4965,25 @@ export class RDS extends RDSClient {
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> | void {
     const command = new RemoveSourceIdentifierFromSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5427,17 +5012,14 @@ export class RDS extends RDSClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5481,17 +5063,14 @@ export class RDS extends RDSClient {
   ): void;
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void
   ): Promise<ResetDBClusterParameterGroupCommandOutput> | void {
     const command = new ResetDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5523,17 +5102,14 @@ export class RDS extends RDSClient {
   ): void;
   public resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetDBParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetDBParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ResetDBParameterGroupCommandOutput) => void
   ): Promise<ResetDBParameterGroupCommandOutput> | void {
     const command = new ResetDBParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5545,6 +5121,18 @@ export class RDS extends RDSClient {
    *         authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as
    *         described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
    *             Migrating Data to an Amazon Aurora MySQL DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         <note>
+   *               <p>This action only restores the DB cluster, not the DB instances for that DB
+   *                   cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+   *                   instances for the restored DB cluster, specifying the identifier of the restored DB
+   *                   cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+   *                   the <code>RestoreDBClusterFromS3</code> action has completed and the DB
+   *                   cluster is available.</p>
+   *         </note>
+   *         <p>For more information on Amazon Aurora, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+   *                 What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
+   *         </p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
@@ -5564,17 +5152,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBClusterFromS3(
     args: RestoreDBClusterFromS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBClusterFromS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBClusterFromS3CommandOutput) => void),
     cb?: (err: any, data?: RestoreDBClusterFromS3CommandOutput) => void
   ): Promise<RestoreDBClusterFromS3CommandOutput> | void {
     const command = new RestoreDBClusterFromS3Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5582,13 +5167,19 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
-   *         <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
-   *             snapshot with a default configuration and default security group.</p>
-   *          <p>If a DB cluster snapshot is specified, the target DB
-   *             cluster is created from the source DB cluster restore point with the same configuration
-   *             as the original source DB cluster. If you don't specify a security group, the new DB cluster
-   *             is associated with the default security group.</p>
+   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action
+   *             only applies to Aurora DB clusters.</p>
+   *         <p>The target DB cluster is created from the source snapshot with a default
+   *             configuration. If you don't specify a security group, the new DB cluster is
+   *             associated with the default security group.</p>
+   *          <note>
+   *             <p>This action only restores the DB cluster, not the DB instances for that DB
+   *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+   *                 instances for the restored DB cluster, specifying the identifier of the restored DB
+   *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
+   *                 the <code>RestoreDBClusterFromSnapshot</code> action has completed and the DB
+   *                 cluster is available.</p>
+   *          </note>
    *          <p>For more information on Amazon Aurora, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
@@ -5612,17 +5203,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> | void {
     const command = new RestoreDBClusterFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5666,17 +5254,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> | void {
     const command = new RestoreDBClusterToPointInTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5707,20 +5292,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreDBInstanceFromDBSnapshotCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBInstanceFromDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBInstanceFromDBSnapshotCommandOutput) => void
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> | void {
     const command = new RestoreDBInstanceFromDBSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5752,17 +5331,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBInstanceFromS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBInstanceFromS3CommandOutput) => void),
     cb?: (err: any, data?: RestoreDBInstanceFromS3CommandOutput) => void
   ): Promise<RestoreDBInstanceFromS3CommandOutput> | void {
     const command = new RestoreDBInstanceFromS3Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5796,20 +5372,14 @@ export class RDS extends RDSClient {
   ): void;
   public restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreDBInstanceToPointInTimeCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBInstanceToPointInTimeCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBInstanceToPointInTimeCommandOutput) => void
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> | void {
     const command = new RestoreDBInstanceToPointInTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5834,17 +5404,14 @@ export class RDS extends RDSClient {
   ): void;
   public revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeDBSecurityGroupIngressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeDBSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: RevokeDBSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeDBSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5871,17 +5438,14 @@ export class RDS extends RDSClient {
   ): void;
   public startActivityStream(
     args: StartActivityStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartActivityStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartActivityStreamCommandOutput) => void),
     cb?: (err: any, data?: StartActivityStreamCommandOutput) => void
   ): Promise<StartActivityStreamCommandOutput> | void {
     const command = new StartActivityStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5915,17 +5479,14 @@ export class RDS extends RDSClient {
   ): void;
   public startDBCluster(
     args: StartDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StartDBClusterCommandOutput) => void
   ): Promise<StartDBClusterCommandOutput> | void {
     const command = new StartDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5965,17 +5526,48 @@ export class RDS extends RDSClient {
   ): void;
   public startDBInstance(
     args: StartDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartDBInstanceCommandOutput) => void
   ): Promise<StartDBInstanceCommandOutput> | void {
     const command = new StartDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an export of a snapshot to Amazon S3.
+   *             The provided IAM role must have access to the S3 bucket.
+   *         </p>
+   */
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExportTaskCommandOutput>;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
+  public startExportTask(
+    args: StartExportTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): Promise<StartExportTaskCommandOutput> | void {
+    const command = new StartExportTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6004,17 +5596,14 @@ export class RDS extends RDSClient {
   ): void;
   public stopActivityStream(
     args: StopActivityStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopActivityStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopActivityStreamCommandOutput) => void),
     cb?: (err: any, data?: StopActivityStreamCommandOutput) => void
   ): Promise<StopActivityStreamCommandOutput> | void {
     const command = new StopActivityStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6051,17 +5640,14 @@ export class RDS extends RDSClient {
   ): void;
   public stopDBCluster(
     args: StopDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StopDBClusterCommandOutput) => void
   ): Promise<StopDBClusterCommandOutput> | void {
     const command = new StopDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6103,17 +5689,14 @@ export class RDS extends RDSClient {
   ): void;
   public stopDBInstance(
     args: StopDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopDBInstanceCommandOutput) => void
   ): Promise<StopDBInstanceCommandOutput> | void {
     const command = new StopDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

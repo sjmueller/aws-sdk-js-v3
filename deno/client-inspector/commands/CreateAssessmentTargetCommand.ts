@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient.ts";
-import {
-  CreateAssessmentTargetRequest,
-  CreateAssessmentTargetResponse
-} from "../models/index.ts";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
+import { CreateAssessmentTargetRequest, CreateAssessmentTargetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateAssessmentTargetCommand,
-  serializeAws_json1_1CreateAssessmentTargetCommand
+  serializeAws_json1_1CreateAssessmentTargetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateAssessmentTargetCommandInput = CreateAssessmentTargetRequest;
-export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse &
-  __MetadataBearer;
+export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse & __MetadataBearer;
 
 export class CreateAssessmentTargetCommand extends $Command<
   CreateAssessmentTargetCommandInput,
@@ -49,18 +38,16 @@ export class CreateAssessmentTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAssessmentTargetCommandInput,
-    CreateAssessmentTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAssessmentTargetCommandInput, CreateAssessmentTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateAssessmentTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssessmentTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateAssessmentTargetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateAssessmentTargetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateAssessmentTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAssessmentTargetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateAssessmentTargetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentTargetCommandOutput> {
     return deserializeAws_json1_1CreateAssessmentTargetCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  ListVolumeInitiatorsInput,
-  ListVolumeInitiatorsOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { ListVolumeInitiatorsInput, ListVolumeInitiatorsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListVolumeInitiatorsCommand,
-  serializeAws_json1_1ListVolumeInitiatorsCommand
+  serializeAws_json1_1ListVolumeInitiatorsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListVolumeInitiatorsCommandInput = ListVolumeInitiatorsInput;
-export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput &
-  __MetadataBearer;
+export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput & __MetadataBearer;
 
 export class ListVolumeInitiatorsCommand extends $Command<
   ListVolumeInitiatorsCommandInput,
@@ -49,18 +38,16 @@ export class ListVolumeInitiatorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVolumeInitiatorsCommandInput,
-    ListVolumeInitiatorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVolumeInitiatorsCommandInput, ListVolumeInitiatorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListVolumeInitiatorsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVolumeInitiatorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListVolumeInitiatorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListVolumeInitiatorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListVolumeInitiatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVolumeInitiatorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListVolumeInitiatorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumeInitiatorsCommandOutput> {
     return deserializeAws_json1_1ListVolumeInitiatorsCommand(output, context);
   }
 

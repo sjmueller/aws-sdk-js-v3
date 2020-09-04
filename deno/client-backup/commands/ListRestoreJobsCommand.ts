@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient.ts";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListRestoreJobsCommand,
-  serializeAws_restJson1ListRestoreJobsCommand
+  serializeAws_restJson1ListRestoreJobsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListRestoreJobsCommandInput = ListRestoreJobsInput;
-export type ListRestoreJobsCommandOutput = ListRestoreJobsOutput &
-  __MetadataBearer;
+export type ListRestoreJobsCommandOutput = ListRestoreJobsOutput & __MetadataBearer;
 
 export class ListRestoreJobsCommand extends $Command<
   ListRestoreJobsCommandInput,
@@ -47,14 +39,15 @@ export class ListRestoreJobsCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListRestoreJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRestoreJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListRestoreJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRestoreJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListRestoreJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRestoreJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
     return deserializeAws_restJson1ListRestoreJobsCommand(output, context);
   }
 

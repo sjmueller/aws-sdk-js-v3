@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DescribeEventSubscriptionsMessage,
-  EventSubscriptionsMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeEventSubscriptionsCommand,
-  serializeAws_queryDescribeEventSubscriptionsCommand
+  serializeAws_queryDescribeEventSubscriptionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventSubscriptionsCommandInput = DescribeEventSubscriptionsMessage;
-export type DescribeEventSubscriptionsCommandOutput = EventSubscriptionsMessage &
-  __MetadataBearer;
+export type DescribeEventSubscriptionsCommandOutput = EventSubscriptionsMessage & __MetadataBearer;
 
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventSubscriptionsCommandInput,
-    DescribeEventSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventSubscriptionsCommandInput, DescribeEventSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventSubscriptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EventSubscriptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventSubscriptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

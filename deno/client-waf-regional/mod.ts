@@ -12,6 +12,7 @@ export * from "./commands/CreateRuleGroupCommand.ts";
 export * from "./commands/CreateSizeConstraintSetCommand.ts";
 export * from "./commands/CreateSqlInjectionMatchSetCommand.ts";
 export * from "./commands/CreateWebACLCommand.ts";
+export * from "./commands/CreateWebACLMigrationStackCommand.ts";
 export * from "./commands/CreateXssMatchSetCommand.ts";
 export * from "./commands/DeleteByteMatchSetCommand.ts";
 export * from "./commands/DeleteGeoMatchSetCommand.ts";

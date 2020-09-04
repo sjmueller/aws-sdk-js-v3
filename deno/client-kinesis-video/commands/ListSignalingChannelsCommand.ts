@@ -1,21 +1,11 @@
-import {
-  KinesisVideoClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KinesisVideoClient.ts";
-import {
-  ListSignalingChannelsInput,
-  ListSignalingChannelsOutput
-} from "../models/index.ts";
+import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
+import { ListSignalingChannelsInput, ListSignalingChannelsOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListSignalingChannelsCommand,
-  serializeAws_restJson1ListSignalingChannelsCommand
+  serializeAws_restJson1ListSignalingChannelsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListSignalingChannelsCommandInput = ListSignalingChannelsInput;
-export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput &
-  __MetadataBearer;
+export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput & __MetadataBearer;
 
 export class ListSignalingChannelsCommand extends $Command<
   ListSignalingChannelsCommandInput,
@@ -49,18 +38,16 @@ export class ListSignalingChannelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSignalingChannelsCommandInput,
-    ListSignalingChannelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSignalingChannelsCommandInput, ListSignalingChannelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListSignalingChannelsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSignalingChannelsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListSignalingChannelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSignalingChannelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSignalingChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListSignalingChannelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSignalingChannelsCommandOutput> {
-    return deserializeAws_restJson1ListSignalingChannelsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalingChannelsCommandOutput> {
+    return deserializeAws_restJson1ListSignalingChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

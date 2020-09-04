@@ -1,187 +1,135 @@
-import {
-  CreateBackupPlanCommandInput,
-  CreateBackupPlanCommandOutput
-} from "./commands/CreateBackupPlanCommand.ts";
+import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand.ts";
 import {
   CreateBackupSelectionCommandInput,
-  CreateBackupSelectionCommandOutput
+  CreateBackupSelectionCommandOutput,
 } from "./commands/CreateBackupSelectionCommand.ts";
-import {
-  CreateBackupVaultCommandInput,
-  CreateBackupVaultCommandOutput
-} from "./commands/CreateBackupVaultCommand.ts";
-import {
-  DeleteBackupPlanCommandInput,
-  DeleteBackupPlanCommandOutput
-} from "./commands/DeleteBackupPlanCommand.ts";
+import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand.ts";
+import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand.ts";
 import {
   DeleteBackupSelectionCommandInput,
-  DeleteBackupSelectionCommandOutput
+  DeleteBackupSelectionCommandOutput,
 } from "./commands/DeleteBackupSelectionCommand.ts";
 import {
   DeleteBackupVaultAccessPolicyCommandInput,
-  DeleteBackupVaultAccessPolicyCommandOutput
+  DeleteBackupVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteBackupVaultAccessPolicyCommand.ts";
-import {
-  DeleteBackupVaultCommandInput,
-  DeleteBackupVaultCommandOutput
-} from "./commands/DeleteBackupVaultCommand.ts";
+import { DeleteBackupVaultCommandInput, DeleteBackupVaultCommandOutput } from "./commands/DeleteBackupVaultCommand.ts";
 import {
   DeleteBackupVaultNotificationsCommandInput,
-  DeleteBackupVaultNotificationsCommandOutput
+  DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand.ts";
 import {
   DeleteRecoveryPointCommandInput,
-  DeleteRecoveryPointCommandOutput
+  DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand.ts";
-import {
-  DescribeBackupJobCommandInput,
-  DescribeBackupJobCommandOutput
-} from "./commands/DescribeBackupJobCommand.ts";
+import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand.ts";
 import {
   DescribeBackupVaultCommandInput,
-  DescribeBackupVaultCommandOutput
+  DescribeBackupVaultCommandOutput,
 } from "./commands/DescribeBackupVaultCommand.ts";
-import {
-  DescribeCopyJobCommandInput,
-  DescribeCopyJobCommandOutput
-} from "./commands/DescribeCopyJobCommand.ts";
+import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand.ts";
 import {
   DescribeProtectedResourceCommandInput,
-  DescribeProtectedResourceCommandOutput
+  DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand.ts";
 import {
   DescribeRecoveryPointCommandInput,
-  DescribeRecoveryPointCommandOutput
+  DescribeRecoveryPointCommandOutput,
 } from "./commands/DescribeRecoveryPointCommand.ts";
 import {
+  DescribeRegionSettingsCommandInput,
+  DescribeRegionSettingsCommandOutput,
+} from "./commands/DescribeRegionSettingsCommand.ts";
+import {
   DescribeRestoreJobCommandInput,
-  DescribeRestoreJobCommandOutput
+  DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand.ts";
 import {
   ExportBackupPlanTemplateCommandInput,
-  ExportBackupPlanTemplateCommandOutput
+  ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand.ts";
-import {
-  GetBackupPlanCommandInput,
-  GetBackupPlanCommandOutput
-} from "./commands/GetBackupPlanCommand.ts";
+import { GetBackupPlanCommandInput, GetBackupPlanCommandOutput } from "./commands/GetBackupPlanCommand.ts";
 import {
   GetBackupPlanFromJSONCommandInput,
-  GetBackupPlanFromJSONCommandOutput
+  GetBackupPlanFromJSONCommandOutput,
 } from "./commands/GetBackupPlanFromJSONCommand.ts";
 import {
   GetBackupPlanFromTemplateCommandInput,
-  GetBackupPlanFromTemplateCommandOutput
+  GetBackupPlanFromTemplateCommandOutput,
 } from "./commands/GetBackupPlanFromTemplateCommand.ts";
 import {
   GetBackupSelectionCommandInput,
-  GetBackupSelectionCommandOutput
+  GetBackupSelectionCommandOutput,
 } from "./commands/GetBackupSelectionCommand.ts";
 import {
   GetBackupVaultAccessPolicyCommandInput,
-  GetBackupVaultAccessPolicyCommandOutput
+  GetBackupVaultAccessPolicyCommandOutput,
 } from "./commands/GetBackupVaultAccessPolicyCommand.ts";
 import {
   GetBackupVaultNotificationsCommandInput,
-  GetBackupVaultNotificationsCommandOutput
+  GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand.ts";
 import {
   GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput
+  GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand.ts";
 import {
   GetSupportedResourceTypesCommandInput,
-  GetSupportedResourceTypesCommandOutput
+  GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand.ts";
-import {
-  ListBackupJobsCommandInput,
-  ListBackupJobsCommandOutput
-} from "./commands/ListBackupJobsCommand.ts";
+import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand.ts";
 import {
   ListBackupPlanTemplatesCommandInput,
-  ListBackupPlanTemplatesCommandOutput
+  ListBackupPlanTemplatesCommandOutput,
 } from "./commands/ListBackupPlanTemplatesCommand.ts";
 import {
   ListBackupPlanVersionsCommandInput,
-  ListBackupPlanVersionsCommandOutput
+  ListBackupPlanVersionsCommandOutput,
 } from "./commands/ListBackupPlanVersionsCommand.ts";
-import {
-  ListBackupPlansCommandInput,
-  ListBackupPlansCommandOutput
-} from "./commands/ListBackupPlansCommand.ts";
+import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand.ts";
 import {
   ListBackupSelectionsCommandInput,
-  ListBackupSelectionsCommandOutput
+  ListBackupSelectionsCommandOutput,
 } from "./commands/ListBackupSelectionsCommand.ts";
-import {
-  ListBackupVaultsCommandInput,
-  ListBackupVaultsCommandOutput
-} from "./commands/ListBackupVaultsCommand.ts";
-import {
-  ListCopyJobsCommandInput,
-  ListCopyJobsCommandOutput
-} from "./commands/ListCopyJobsCommand.ts";
+import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand.ts";
+import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand.ts";
 import {
   ListProtectedResourcesCommandInput,
-  ListProtectedResourcesCommandOutput
+  ListProtectedResourcesCommandOutput,
 } from "./commands/ListProtectedResourcesCommand.ts";
 import {
   ListRecoveryPointsByBackupVaultCommandInput,
-  ListRecoveryPointsByBackupVaultCommandOutput
+  ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand.ts";
 import {
   ListRecoveryPointsByResourceCommandInput,
-  ListRecoveryPointsByResourceCommandOutput
+  ListRecoveryPointsByResourceCommandOutput,
 } from "./commands/ListRecoveryPointsByResourceCommand.ts";
-import {
-  ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput
-} from "./commands/ListRestoreJobsCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   PutBackupVaultAccessPolicyCommandInput,
-  PutBackupVaultAccessPolicyCommandOutput
+  PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand.ts";
 import {
   PutBackupVaultNotificationsCommandInput,
-  PutBackupVaultNotificationsCommandOutput
+  PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand.ts";
-import {
-  StartBackupJobCommandInput,
-  StartBackupJobCommandOutput
-} from "./commands/StartBackupJobCommand.ts";
-import {
-  StartCopyJobCommandInput,
-  StartCopyJobCommandOutput
-} from "./commands/StartCopyJobCommand.ts";
-import {
-  StartRestoreJobCommandInput,
-  StartRestoreJobCommandOutput
-} from "./commands/StartRestoreJobCommand.ts";
-import {
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput
-} from "./commands/StopBackupJobCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateBackupPlanCommandInput,
-  UpdateBackupPlanCommandOutput
-} from "./commands/UpdateBackupPlanCommand.ts";
+import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand.ts";
+import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand.ts";
+import { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand.ts";
+import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand.ts";
 import {
   UpdateRecoveryPointLifecycleCommandInput,
-  UpdateRecoveryPointLifecycleCommandOutput
+  UpdateRecoveryPointLifecycleCommandOutput,
 } from "./commands/UpdateRecoveryPointLifecycleCommand.ts";
+import {
+  UpdateRegionSettingsCommandInput,
+  UpdateRegionSettingsCommandOutput,
+} from "./commands/UpdateRegionSettingsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -189,38 +137,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -229,9 +173,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -249,6 +194,7 @@ export type ServiceInputTypes =
   | DescribeCopyJobCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
+  | DescribeRegionSettingsCommandInput
   | DescribeRestoreJobCommandInput
   | ExportBackupPlanTemplateCommandInput
   | GetBackupPlanCommandInput
@@ -280,7 +226,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
-  | UpdateRecoveryPointLifecycleCommandInput;
+  | UpdateRecoveryPointLifecycleCommandInput
+  | UpdateRegionSettingsCommandInput;
 
 export type ServiceOutputTypes =
   | CreateBackupPlanCommandOutput
@@ -297,6 +244,7 @@ export type ServiceOutputTypes =
   | DescribeCopyJobCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
+  | DescribeRegionSettingsCommandOutput
   | DescribeRestoreJobCommandOutput
   | ExportBackupPlanTemplateCommandOutput
   | GetBackupPlanCommandOutput
@@ -328,10 +276,10 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
-  | UpdateRecoveryPointLifecycleCommandOutput;
+  | UpdateRecoveryPointLifecycleCommandOutput
+  | UpdateRegionSettingsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -405,14 +353,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -420,9 +373,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type BackupClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type BackupClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -431,9 +382,7 @@ export type BackupClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type BackupClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type BackupClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -459,7 +408,7 @@ export class BackupClient extends __Client<
   constructor(configuration: BackupClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -474,6 +423,7 @@ export class BackupClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

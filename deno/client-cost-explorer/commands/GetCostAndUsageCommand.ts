@@ -1,21 +1,11 @@
-import {
-  CostExplorerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CostExplorerClient.ts";
-import {
-  GetCostAndUsageRequest,
-  GetCostAndUsageResponse
-} from "../models/index.ts";
+import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient.ts";
+import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetCostAndUsageCommand,
-  serializeAws_json1_1GetCostAndUsageCommand
+  serializeAws_json1_1GetCostAndUsageCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetCostAndUsageCommandInput = GetCostAndUsageRequest;
-export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse &
-  __MetadataBearer;
+export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse & __MetadataBearer;
 
 export class GetCostAndUsageCommand extends $Command<
   GetCostAndUsageCommandInput,
@@ -50,14 +39,15 @@ export class GetCostAndUsageCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetCostAndUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCostAndUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetCostAndUsageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCostAndUsageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCostAndUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostAndUsageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCostAndUsageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostAndUsageCommandOutput> {
     return deserializeAws_json1_1GetCostAndUsageCommand(output, context);
   }
 

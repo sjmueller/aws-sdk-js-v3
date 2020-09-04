@@ -1,21 +1,11 @@
-import {
-  MediaStoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaStoreClient.ts";
-import {
-  StartAccessLoggingInput,
-  StartAccessLoggingOutput
-} from "../models/index.ts";
+import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
+import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartAccessLoggingCommand,
-  serializeAws_json1_1StartAccessLoggingCommand
+  serializeAws_json1_1StartAccessLoggingCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
-export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput &
-  __MetadataBearer;
+export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput & __MetadataBearer;
 
 export class StartAccessLoggingCommand extends $Command<
   StartAccessLoggingCommandInput,
@@ -50,14 +39,15 @@ export class StartAccessLoggingCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartAccessLoggingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAccessLoggingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class StartAccessLoggingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartAccessLoggingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAccessLoggingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartAccessLoggingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAccessLoggingCommandOutput> {
     return deserializeAws_json1_1StartAccessLoggingCommand(output, context);
   }
 

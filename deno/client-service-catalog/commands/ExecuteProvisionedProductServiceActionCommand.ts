@@ -1,21 +1,14 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
 import {
   ExecuteProvisionedProductServiceActionInput,
-  ExecuteProvisionedProductServiceActionOutput
+  ExecuteProvisionedProductServiceActionOutput,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
-  serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
+  serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ExecuteProvisionedProductServiceActionCommandInput = ExecuteProvisionedProductServiceActionInput;
@@ -39,9 +32,7 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ExecuteProvisionedProductServiceActionCommandInput
-  ) {
+  constructor(readonly input: ExecuteProvisionedProductServiceActionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ExecuteProvisionedProductServiceActionCommandInput,
-    ExecuteProvisionedProductServiceActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ExecuteProvisionedProductServiceActionCommandInput, ExecuteProvisionedProductServiceActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     input: ExecuteProvisionedProductServiceActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> {
-    return deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

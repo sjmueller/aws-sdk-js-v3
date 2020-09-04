@@ -1,21 +1,15 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient.ts";
-import {
-  DeleteResolverRuleRequest,
-  DeleteResolverRuleResponse
-} from "../models/index.ts";
+import { DeleteResolverRuleRequest, DeleteResolverRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteResolverRuleCommand,
-  serializeAws_json1_1DeleteResolverRuleCommand
+  serializeAws_json1_1DeleteResolverRuleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteResolverRuleCommandInput = DeleteResolverRuleRequest;
-export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse &
-  __MetadataBearer;
+export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse & __MetadataBearer;
 
 export class DeleteResolverRuleCommand extends $Command<
   DeleteResolverRuleCommandInput,
@@ -50,14 +43,15 @@ export class DeleteResolverRuleCommand extends $Command<
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteResolverRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResolverRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DeleteResolverRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteResolverRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResolverRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteResolverRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverRuleCommandOutput> {
     return deserializeAws_json1_1DeleteResolverRuleCommand(output, context);
   }
 

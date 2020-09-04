@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -11,22 +7,21 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface AccessLogSettings {
   __type?: "AccessLogSettings";
   /**
-   * <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
-   */
-  destinationArn?: string;
-
-  /**
    * <p>A single line format of the access logs of data, as specified by selected <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference">$context variables</a>. The format must include at least <code>$context.requestId</code>.</p>
    */
   format?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with <code>amazon-apigateway-</code>.</p>
+   */
+  destinationArn?: string;
 }
 
 export namespace AccessLogSettings {
   export const filterSensitiveLog = (obj: AccessLogSettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessLogSettings =>
-    __isa(o, "AccessLogSettings");
+  export const isa = (o: any): o is AccessLogSettings => __isa(o, "AccessLogSettings");
 }
 
 /**
@@ -83,29 +78,29 @@ export namespace AccessLogSettings {
 export interface Account {
   __type?: "Account";
   /**
-   * <p>The version of the API keys used for the account.</p>
-   */
-  apiKeyVersion?: string;
-
-  /**
-   * <p>The ARN of an Amazon CloudWatch role for the current <a>Account</a>. </p>
-   */
-  cloudwatchRoleArn?: string;
-
-  /**
    * <p>A list of features supported for the account. When usage plans are enabled, the features list will include an entry of <code>"UsagePlans"</code>.</p>
    */
   features?: string[];
 
   /**
+   * <p>The version of the API keys used for the account.</p>
+   */
+  apiKeyVersion?: string;
+
+  /**
    * <p>Specifies the API request limits configured for the current <a>Account</a>.</p>
    */
   throttleSettings?: ThrottleSettings;
+
+  /**
+   * <p>The ARN of an Amazon CloudWatch role for the current <a>Account</a>. </p>
+   */
+  cloudwatchRoleArn?: string;
 }
 
 export namespace Account {
   export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Account => __isa(o, "Account");
 }
@@ -119,36 +114,6 @@ export namespace Account {
 export interface ApiKey {
   __type?: "ApiKey";
   /**
-   * <p>The timestamp when the API Key was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
-   */
-  customerId?: string;
-
-  /**
-   * <p>The description of the API Key.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Specifies whether the API Key can be used by callers.</p>
-   */
-  enabled?: boolean;
-
-  /**
-   * <p>The identifier of the API Key.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The timestamp when the API Key was last updated.</p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
    * <p>The name of the API Key.</p>
    */
   name?: string;
@@ -159,9 +124,39 @@ export interface ApiKey {
   stageKeys?: string[];
 
   /**
+   * <p>The timestamp when the API Key was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>The identifier of the API Key.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
+   */
+  customerId?: string;
+
+  /**
+   * <p>The timestamp when the API Key was last updated.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>Specifies whether the API Key can be used by callers.</p>
+   */
+  enabled?: boolean;
+
+  /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the API Key.</p>
+   */
+  description?: string;
 
   /**
    * <p>The value of the API Key.</p>
@@ -171,7 +166,7 @@ export interface ApiKey {
 
 export namespace ApiKey {
   export const filterSensitiveLog = (obj: ApiKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ApiKey => __isa(o, "ApiKey");
 }
@@ -194,7 +189,7 @@ export interface ApiKeyIds {
 
 export namespace ApiKeyIds {
   export const filterSensitiveLog = (obj: ApiKeyIds): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ApiKeyIds => __isa(o, "ApiKeyIds");
 }
@@ -208,6 +203,11 @@ export namespace ApiKeyIds {
 export interface ApiKeys {
   __type?: "ApiKeys";
   /**
+   * <p>A list of warning messages logged during the import of API keys when the <code>failOnWarnings</code> option is set to true.</p>
+   */
+  warnings?: string[];
+
+  /**
    * <p>The current page of elements from this collection.</p>
    */
   items?: ApiKey[];
@@ -216,27 +216,22 @@ export interface ApiKeys {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-
-  /**
-   * <p>A list of warning messages logged during the import of API keys when the <code>failOnWarnings</code> option is set to true.</p>
-   */
-  warnings?: string[];
 }
 
 export namespace ApiKeys {
   export const filterSensitiveLog = (obj: ApiKeys): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ApiKeys => __isa(o, "ApiKeys");
 }
 
 export enum ApiKeysFormat {
-  csv = "csv"
+  csv = "csv",
 }
 
 export enum ApiKeySourceType {
   AUTHORIZER = "AUTHORIZER",
-  HEADER = "HEADER"
+  HEADER = "HEADER",
 }
 
 /**
@@ -244,11 +239,6 @@ export enum ApiKeySourceType {
  */
 export interface ApiStage {
   __type?: "ApiStage";
-  /**
-   * <p>API Id of the associated API stage in a usage plan.</p>
-   */
-  apiId?: string;
-
   /**
    * <p>API stage name of the associated API stage in a usage plan.</p>
    */
@@ -258,11 +248,16 @@ export interface ApiStage {
    * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    */
   throttle?: { [key: string]: ThrottleSettings };
+
+  /**
+   * <p>API Id of the associated API stage in a usage plan.</p>
+   */
+  apiId?: string;
 }
 
 export namespace ApiStage {
   export const filterSensitiveLog = (obj: ApiStage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ApiStage => __isa(o, "ApiStage");
 }
@@ -277,9 +272,9 @@ export namespace ApiStage {
 export interface Authorizer {
   __type?: "Authorizer";
   /**
-   * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
+   * <p>[Required] The name of the authorizer.</p>
    */
-  authType?: string;
+  name?: string;
 
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
@@ -287,9 +282,14 @@ export interface Authorizer {
   authorizerCredentials?: string;
 
   /**
-   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
+   * <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
    */
-  authorizerResultTtlInSeconds?: number;
+  identitySource?: string;
+
+  /**
+   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
+   */
+  type?: AuthorizerType | string;
 
   /**
    * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
@@ -297,14 +297,14 @@ export interface Authorizer {
   authorizerUri?: string;
 
   /**
-   * <p>The identifier for the authorizer resource.</p>
+   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
-  id?: string;
+  providerARNs?: string[];
 
   /**
-   * <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
+   * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    */
-  identitySource?: string;
+  authType?: string;
 
   /**
    * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
@@ -312,24 +312,19 @@ export interface Authorizer {
   identityValidationExpression?: string;
 
   /**
-   * <p>[Required] The name of the authorizer.</p>
+   * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
    */
-  name?: string;
+  authorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
+   * <p>The identifier for the authorizer resource.</p>
    */
-  providerARNs?: string[];
-
-  /**
-   * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
-   */
-  type?: AuthorizerType | string;
+  id?: string;
 }
 
 export namespace Authorizer {
   export const filterSensitiveLog = (obj: Authorizer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Authorizer => __isa(o, "Authorizer");
 }
@@ -356,7 +351,7 @@ export interface Authorizers {
 
 export namespace Authorizers {
   export const filterSensitiveLog = (obj: Authorizers): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Authorizers => __isa(o, "Authorizers");
 }
@@ -364,15 +359,13 @@ export namespace Authorizers {
 export enum AuthorizerType {
   COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
   REQUEST = "REQUEST",
-  TOKEN = "TOKEN"
+  TOKEN = "TOKEN",
 }
 
 /**
  * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -380,10 +373,9 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -396,6 +388,11 @@ export namespace BadRequestException {
 export interface BasePathMapping {
   __type?: "BasePathMapping";
   /**
+   * <p>The name of the associated stage.</p>
+   */
+  stage?: string;
+
+  /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>
    */
   basePath?: string;
@@ -404,19 +401,13 @@ export interface BasePathMapping {
    * <p>The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId?: string;
-
-  /**
-   * <p>The name of the associated stage.</p>
-   */
-  stage?: string;
 }
 
 export namespace BasePathMapping {
   export const filterSensitiveLog = (obj: BasePathMapping): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BasePathMapping =>
-    __isa(o, "BasePathMapping");
+  export const isa = (o: any): o is BasePathMapping => __isa(o, "BasePathMapping");
 }
 
 /**
@@ -440,10 +431,9 @@ export interface BasePathMappings {
 
 export namespace BasePathMappings {
   export const filterSensitiveLog = (obj: BasePathMappings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BasePathMappings =>
-    __isa(o, "BasePathMappings");
+  export const isa = (o: any): o is BasePathMappings => __isa(o, "BasePathMappings");
 }
 
 export enum CacheClusterSize {
@@ -454,7 +444,7 @@ export enum CacheClusterSize {
   SIZE_237_GB = "237",
   SIZE_28_POINT_4_GB = "28.4",
   SIZE_58_POINT_2_GB = "58.2",
-  SIZE_6_POINT_1_GB = "6.1"
+  SIZE_6_POINT_1_GB = "6.1",
 }
 
 export enum CacheClusterStatus {
@@ -462,7 +452,7 @@ export enum CacheClusterStatus {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
   FLUSH_IN_PROGRESS = "FLUSH_IN_PROGRESS",
-  NOT_AVAILABLE = "NOT_AVAILABLE"
+  NOT_AVAILABLE = "NOT_AVAILABLE",
 }
 
 /**
@@ -470,16 +460,6 @@ export enum CacheClusterStatus {
  */
 export interface CanarySettings {
   __type?: "CanarySettings";
-  /**
-   * <p>The ID of the canary deployment.</p>
-   */
-  deploymentId?: string;
-
-  /**
-   * <p>The percent (0-100) of traffic diverted to a canary deployment.</p>
-   */
-  percentTraffic?: number;
-
   /**
    * <p>Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
@@ -489,14 +469,23 @@ export interface CanarySettings {
    * <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
+
+  /**
+   * <p>The percent (0-100) of traffic diverted to a canary deployment.</p>
+   */
+  percentTraffic?: number;
+
+  /**
+   * <p>The ID of the canary deployment.</p>
+   */
+  deploymentId?: string;
 }
 
 export namespace CanarySettings {
   export const filterSensitiveLog = (obj: CanarySettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CanarySettings =>
-    __isa(o, "CanarySettings");
+  export const isa = (o: any): o is CanarySettings => __isa(o, "CanarySettings");
 }
 
 /**
@@ -509,24 +498,9 @@ export namespace CanarySettings {
 export interface ClientCertificate {
   __type?: "ClientCertificate";
   /**
-   * <p>The identifier of the client certificate.</p>
-   */
-  clientCertificateId?: string;
-
-  /**
    * <p>The timestamp when the client certificate was created.</p>
    */
   createdDate?: Date;
-
-  /**
-   * <p>The description of the client certificate.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The timestamp when the client certificate will expire.</p>
-   */
-  expirationDate?: Date;
 
   /**
    * <p>The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .</p>
@@ -537,14 +511,28 @@ export interface ClientCertificate {
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The timestamp when the client certificate will expire.</p>
+   */
+  expirationDate?: Date;
+
+  /**
+   * <p>The description of the client certificate.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the client certificate.</p>
+   */
+  clientCertificateId?: string;
 }
 
 export namespace ClientCertificate {
   export const filterSensitiveLog = (obj: ClientCertificate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientCertificate =>
-    __isa(o, "ClientCertificate");
+  export const isa = (o: any): o is ClientCertificate => __isa(o, "ClientCertificate");
 }
 
 /**
@@ -568,10 +556,9 @@ export interface ClientCertificates {
 
 export namespace ClientCertificates {
   export const filterSensitiveLog = (obj: ClientCertificates): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientCertificates =>
-    __isa(o, "ClientCertificates");
+  export const isa = (o: any): o is ClientCertificates => __isa(o, "ClientCertificates");
 }
 
 /**
@@ -585,20 +572,19 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ConnectionType {
   INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK"
+  VPC_LINK = "VPC_LINK",
 }
 
 export enum ContentHandlingStrategy {
   CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
 }
 
 /**
@@ -606,26 +592,9 @@ export enum ContentHandlingStrategy {
  */
 export interface CreateApiKeyRequest {
   __type?: "CreateApiKeyRequest";
-  /**
-   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
-   */
-  customerId?: string;
-
-  /**
-   * <p>The description of the <a>ApiKey</a>.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
-   */
-  enabled?: boolean;
-
-  /**
-   * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value.</p>
-   */
-  generateDistinctId?: boolean;
-
+  templateSkipList?: string[];
+  template?: boolean;
+  title?: string;
   /**
    * <p>The name of the <a>ApiKey</a>.</p>
    */
@@ -637,25 +606,41 @@ export interface CreateApiKeyRequest {
   stageKeys?: StageKey[];
 
   /**
+   * <p>The description of the <a>ApiKey</a>.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>
+   */
+  customerId?: string;
+
+  /**
+   * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.</p>
+   */
+  generateDistinctId?: boolean;
+
+  /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>Specifies a value of the API key.</p> <!-- Why is this declared as the input to create an API key? As a form of copying an existing key value into a new API key? -->
    */
   value?: string;
+
+  /**
+   * <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
+   */
+  enabled?: boolean;
 }
 
 export namespace CreateApiKeyRequest {
   export const filterSensitiveLog = (obj: CreateApiKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApiKeyRequest =>
-    __isa(o, "CreateApiKeyRequest");
+  export const isa = (o: any): o is CreateApiKeyRequest => __isa(o, "CreateApiKeyRequest");
 }
 
 /**
@@ -663,15 +648,28 @@ export namespace CreateApiKeyRequest {
  */
 export interface CreateAuthorizerRequest {
   __type?: "CreateAuthorizerRequest";
+  template?: boolean;
+  /**
+   * <p>[Required] The name of the authorizer.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
+  /**
+   * <p>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
+   */
+  type: AuthorizerType | string | undefined;
+
   /**
    * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    */
   authType?: string;
-
-  /**
-   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
-   */
-  authorizerCredentials?: string;
 
   /**
    * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
@@ -679,9 +677,9 @@ export interface CreateAuthorizerRequest {
   authorizerResultTtlInSeconds?: number;
 
   /**
-   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
+   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
    */
-  authorizerUri?: string;
+  identityValidationExpression?: string;
 
   /**
    * <p>The identity source for which authorization is requested. <ul><li>For a <code>TOKEN</code> or <code>COGNITO_USER_POOLS</code> authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is <code>Auth</code>, the header mapping expression is  <code>method.request.header.Auth</code>.</li><li>For the <code>REQUEST</code> authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an <code>Auth</code> header, a <code>Name</code> query string parameter are defined as identity sources, this value is <code>method.request.header.Auth, method.request.querystring.Name</code>.  These parameters will be used to derive the authorization caching key and to perform runtime validation of the <code>REQUEST</code> authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.</li></ul></p>
@@ -689,40 +687,26 @@ export interface CreateAuthorizerRequest {
   identitySource?: string;
 
   /**
-   * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
+   * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:{region}:lambda:path/{service_api}</code>, where <code>{region}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    */
-  identityValidationExpression?: string;
+  authorizerUri?: string;
 
   /**
-   * <p>[Required] The name of the authorizer.</p>
+   * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
    */
-  name: string | undefined;
+  authorizerCredentials?: string;
 
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    */
   providerARNs?: string[];
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>[Required] The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
-   */
-  type: AuthorizerType | string | undefined;
 }
 
 export namespace CreateAuthorizerRequest {
   export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAuthorizerRequest =>
-    __isa(o, "CreateAuthorizerRequest");
+  export const isa = (o: any): o is CreateAuthorizerRequest => __isa(o, "CreateAuthorizerRequest");
 }
 
 /**
@@ -730,40 +714,36 @@ export namespace CreateAuthorizerRequest {
  */
 export interface CreateBasePathMappingRequest {
   __type?: "CreateBasePathMappingRequest";
-  /**
-   * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
-   */
-  basePath?: string;
-
+  name?: string;
   /**
    * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to create.</p>
    */
   domainName: string | undefined;
 
-  name?: string;
+  title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.</p>
+   */
+  stage?: string;
+
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   /**
-   * <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you do not want callers to explicitly specify the stage name after any base path name.</p>
+   * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
    */
-  stage?: string;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  basePath?: string;
 }
 
 export namespace CreateBasePathMappingRequest {
-  export const filterSensitiveLog = (
-    obj: CreateBasePathMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateBasePathMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBasePathMappingRequest =>
-    __isa(o, "CreateBasePathMappingRequest");
+  export const isa = (o: any): o is CreateBasePathMappingRequest => __isa(o, "CreateBasePathMappingRequest");
 }
 
 /**
@@ -771,15 +751,19 @@ export namespace CreateBasePathMappingRequest {
  */
 export interface CreateDeploymentRequest {
   __type?: "CreateDeploymentRequest";
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
+  name?: string;
   /**
-   * <p>Enables a cache cluster for the <a>Stage</a> resource specified in the input.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  cacheClusterEnabled?: boolean;
+  restApiId: string | undefined;
 
   /**
-   * <p>Specifies the cache cluster size for the <a>Stage</a> resource specified in the input, if a cache cluster is enabled.</p>
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  tracingEnabled?: boolean;
 
   /**
    * <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
@@ -787,15 +771,16 @@ export interface CreateDeploymentRequest {
   canarySettings?: DeploymentCanarySettings;
 
   /**
-   * <p>The description for the <a>Deployment</a> resource to create.</p>
+   * <p>A map that defines the stage variables for the <a>Stage</a> resource that is associated
+   *           with the new deployment. Variable names can have alphanumeric and underscore characters, and the values
+   *           must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    */
-  description?: string;
+  variables?: { [key: string]: string };
 
-  name?: string;
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>Specifies the cache cluster size for the <a>Stage</a> resource specified in the input, if a cache cluster is enabled.</p>
    */
-  restApiId: string | undefined;
+  cacheClusterSize?: CacheClusterSize | string;
 
   /**
    * <p>The description of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
@@ -803,32 +788,26 @@ export interface CreateDeploymentRequest {
   stageDescription?: string;
 
   /**
+   * <p>Enables a cache cluster for the <a>Stage</a> resource specified in the input.</p>
+   */
+  cacheClusterEnabled?: boolean;
+
+  /**
    * <p>The name of the <a>Stage</a> resource for the <a>Deployment</a> resource to create.</p>
    */
   stageName?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
-   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
+   * <p>The description for the <a>Deployment</a> resource to create.</p>
    */
-  tracingEnabled?: boolean;
-
-  /**
-   * <p>A map that defines the stage variables for the <a>Stage</a> resource that is associated
-   *           with the new deployment. Variable names can have alphanumeric and underscore characters, and the values
-   *           must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
-   */
-  variables?: { [key: string]: string };
+  description?: string;
 }
 
 export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentRequest =>
-    __isa(o, "CreateDeploymentRequest");
+  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 /**
@@ -836,17 +815,7 @@ export namespace CreateDeploymentRequest {
  */
 export interface CreateDocumentationPartRequest {
   __type?: "CreateDocumentationPartRequest";
-  /**
-   * <p>[Required] The location of the targeted API entity of the to-be-created documentation part.</p>
-   */
-  location: DocumentationPartLocation | undefined;
-
   name?: string;
-  /**
-   * <p>[Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</p>
-   */
-  properties: string | undefined;
-
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
@@ -855,16 +824,22 @@ export interface CreateDocumentationPartRequest {
   template?: boolean;
   templateSkipList?: string[];
   title?: string;
+  /**
+   * <p>[Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</p>
+   */
+  properties: string | undefined;
+
+  /**
+   * <p>[Required] The location of the targeted API entity of the to-be-created documentation part.</p>
+   */
+  location: DocumentationPartLocation | undefined;
 }
 
 export namespace CreateDocumentationPartRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDocumentationPartRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDocumentationPartRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDocumentationPartRequest =>
-    __isa(o, "CreateDocumentationPartRequest");
+  export const isa = (o: any): o is CreateDocumentationPartRequest => __isa(o, "CreateDocumentationPartRequest");
 }
 
 /**
@@ -872,40 +847,36 @@ export namespace CreateDocumentationPartRequest {
  */
 export interface CreateDocumentationVersionRequest {
   __type?: "CreateDocumentationVersionRequest";
-  /**
-   * <p>A description about the new documentation snapshot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>[Required] The version identifier of the new snapshot.</p>
-   */
-  documentationVersion: string | undefined;
-
+  title?: string;
   name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>The stage name to be associated with the new documentation snapshot.</p>
    */
   stageName?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>[Required] The version identifier of the new snapshot.</p>
+   */
+  documentationVersion: string | undefined;
+
+  /**
+   * <p>A description about the new documentation snapshot.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateDocumentationVersionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDocumentationVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDocumentationVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDocumentationVersionRequest =>
-    __isa(o, "CreateDocumentationVersionRequest");
+  export const isa = (o: any): o is CreateDocumentationVersionRequest => __isa(o, "CreateDocumentationVersionRequest");
 }
 
 /**
@@ -913,15 +884,14 @@ export namespace CreateDocumentationVersionRequest {
  */
 export interface CreateDomainNameRequest {
   __type?: "CreateDomainNameRequest";
+  template?: boolean;
+  title?: string;
+  name?: string;
+  templateSkipList?: string[];
   /**
-   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</p>
    */
-  certificateArn?: string;
-
-  /**
-   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
-   */
-  certificateBody?: string;
+  certificatePrivateKey?: string;
 
   /**
    * <p>[Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.</p>
@@ -929,14 +899,24 @@ export interface CreateDomainNameRequest {
   certificateChain?: string;
 
   /**
+   * <p>The user-friendly name of the certificate that will be used by regional endpoint for this domain name.</p>
+   */
+  regionalCertificateName?: string;
+
+  /**
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
+   */
+  certificateBody?: string;
+
+  /**
    * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
    */
   certificateName?: string;
-
-  /**
-   * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</p>
-   */
-  certificatePrivateKey?: string;
 
   /**
    * <p>[Required] The name of the <a>DomainName</a> resource.</p>
@@ -948,38 +928,27 @@ export interface CreateDomainNameRequest {
    */
   endpointConfiguration?: EndpointConfiguration;
 
-  name?: string;
-  /**
-   * <p>The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
-   */
-  regionalCertificateArn?: string;
-
-  /**
-   * <p>The user-friendly name of the certificate that will be used by regional endpoint for this domain name.</p>
-   */
-  regionalCertificateName?: string;
-
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
   securityPolicy?: SecurityPolicy | string;
 
   /**
-   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
    */
-  tags?: { [key: string]: string };
+  certificateArn?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   */
+  regionalCertificateArn?: string;
 }
 
 export namespace CreateDomainNameRequest {
   export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDomainNameRequest =>
-    __isa(o, "CreateDomainNameRequest");
+  export const isa = (o: any): o is CreateDomainNameRequest => __isa(o, "CreateDomainNameRequest");
 }
 
 /**
@@ -988,41 +957,39 @@ export namespace CreateDomainNameRequest {
 export interface CreateModelRequest {
   __type?: "CreateModelRequest";
   /**
-   * <p>[Required] The content-type for the model.</p>
+   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</p>
    */
-  contentType: string | undefined;
-
-  /**
-   * <p>The description of the model.</p>
-   */
-  description?: string;
+  restApiId: string | undefined;
 
   /**
    * <p>[Required] The name of the model. Must be alphanumeric.</p>
    */
   name: string | undefined;
 
+  templateSkipList?: string[];
+  title?: string;
+  template?: boolean;
   /**
-   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</p>
+   * <p>[Required] The content-type for the model.</p>
    */
-  restApiId: string | undefined;
+  contentType: string | undefined;
 
   /**
    * <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model.</p>
    */
   schema?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>The description of the model.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateModelRequest {
   export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateModelRequest =>
-    __isa(o, "CreateModelRequest");
+  export const isa = (o: any): o is CreateModelRequest => __isa(o, "CreateModelRequest");
 }
 
 /**
@@ -1030,19 +997,19 @@ export namespace CreateModelRequest {
  */
 export interface CreateRequestValidatorRequest {
   __type?: "CreateRequestValidatorRequest";
-  /**
-   * <p>The name of the to-be-created <a>RequestValidator</a>.</p>
-   */
-  name?: string;
-
+  template?: boolean;
+  title?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>The name of the to-be-created <a>RequestValidator</a>.</p>
+   */
+  name?: string;
+
   /**
    * <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
    */
@@ -1055,13 +1022,10 @@ export interface CreateRequestValidatorRequest {
 }
 
 export namespace CreateRequestValidatorRequest {
-  export const filterSensitiveLog = (
-    obj: CreateRequestValidatorRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateRequestValidatorRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRequestValidatorRequest =>
-    __isa(o, "CreateRequestValidatorRequest");
+  export const isa = (o: any): o is CreateRequestValidatorRequest => __isa(o, "CreateRequestValidatorRequest");
 }
 
 /**
@@ -1069,33 +1033,31 @@ export namespace CreateRequestValidatorRequest {
  */
 export interface CreateResourceRequest {
   __type?: "CreateResourceRequest";
-  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] The parent resource's identifier.</p>
    */
   parentId: string | undefined;
 
-  /**
-   * <p>The last path segment for this resource.</p>
-   */
-  pathPart: string | undefined;
-
+  name?: string;
+  title?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>The last path segment for this resource.</p>
+   */
+  pathPart: string | undefined;
 }
 
 export namespace CreateResourceRequest {
   export const filterSensitiveLog = (obj: CreateResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateResourceRequest =>
-    __isa(o, "CreateResourceRequest");
+  export const isa = (o: any): o is CreateResourceRequest => __isa(o, "CreateResourceRequest");
 }
 
 /**
@@ -1103,10 +1065,18 @@ export namespace CreateResourceRequest {
  */
 export interface CreateRestApiRequest {
   __type?: "CreateRestApiRequest";
+  templateSkipList?: string[];
   /**
-   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
+   * <p>[Required] The name of the <a>RestApi</a>.</p>
    */
-  apiKeySource?: ApiKeySourceType | string;
+  name: string | undefined;
+
+  title?: string;
+  template?: boolean;
+  /**
+   * <p>A version identifier for the API.</p>
+   */
+  version?: string;
 
   /**
    * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
@@ -1114,14 +1084,14 @@ export interface CreateRestApiRequest {
   binaryMediaTypes?: string[];
 
   /**
+   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
+   */
+  apiKeySource?: ApiKeySourceType | string;
+
+  /**
    * <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
    */
   cloneFrom?: string;
-
-  /**
-   * <p>The description of the <a>RestApi</a>.</p>
-   */
-  description?: string;
 
   /**
    * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
@@ -1134,9 +1104,9 @@ export interface CreateRestApiRequest {
   minimumCompressionSize?: number;
 
   /**
-   * <p>[Required] The name of the <a>RestApi</a>.</p>
+   * <p>The description of the <a>RestApi</a>.</p>
    */
-  name: string | undefined;
+  description?: string;
 
   /**
    * A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
@@ -1147,22 +1117,13 @@ export interface CreateRestApiRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>A version identifier for the API.</p>
-   */
-  version?: string;
 }
 
 export namespace CreateRestApiRequest {
   export const filterSensitiveLog = (obj: CreateRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRestApiRequest =>
-    __isa(o, "CreateRestApiRequest");
+  export const isa = (o: any): o is CreateRestApiRequest => __isa(o, "CreateRestApiRequest");
 }
 
 /**
@@ -1170,10 +1131,19 @@ export namespace CreateRestApiRequest {
  */
 export interface CreateStageRequest {
   __type?: "CreateStageRequest";
+  template?: boolean;
+  title?: string;
+  name?: string;
+  templateSkipList?: string[];
   /**
-   * <p>Whether cache clustering is enabled for the stage.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  cacheClusterEnabled?: boolean;
+  restApiId: string | undefined;
+
+  /**
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
+   */
+  tracingEnabled?: boolean;
 
   /**
    * <p>The stage's cache cluster size.</p>
@@ -1186,43 +1156,9 @@ export interface CreateStageRequest {
   canarySettings?: CanarySettings;
 
   /**
-   * <p>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</p>
+   * <p>Whether cache clustering is enabled for the stage.</p>
    */
-  deploymentId: string | undefined;
-
-  /**
-   * <p>The description of the <a>Stage</a> resource.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The version of the associated API documentation.</p>
-   */
-  documentationVersion?: string;
-
-  name?: string;
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  /**
-   * <p>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
-   */
-  stageName: string | undefined;
-
-  /**
-   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   */
-  tags?: { [key: string]: string };
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
-   */
-  tracingEnabled?: boolean;
+  cacheClusterEnabled?: boolean;
 
   /**
    * <p>A map that defines the stage variables for the new <a>Stage</a> resource. Variable names
@@ -1230,14 +1166,38 @@ export interface CreateStageRequest {
    *           <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    */
   variables?: { [key: string]: string };
+
+  /**
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the <a>Stage</a> resource.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
+   */
+  stageName: string | undefined;
+
+  /**
+   * <p>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</p>
+   */
+  deploymentId: string | undefined;
+
+  /**
+   * <p>The version of the associated API documentation.</p>
+   */
+  documentationVersion?: string;
 }
 
 export namespace CreateStageRequest {
   export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStageRequest =>
-    __isa(o, "CreateStageRequest");
+  export const isa = (o: any): o is CreateStageRequest => __isa(o, "CreateStageRequest");
 }
 
 /**
@@ -1245,32 +1205,31 @@ export namespace CreateStageRequest {
  */
 export interface CreateUsagePlanKeyRequest {
   __type?: "CreateUsagePlanKeyRequest";
-  /**
-   * <p>[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</p>
-   */
-  keyId: string | undefined;
-
-  /**
-   * <p>[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer.</p>
-   */
-  keyType: string | undefined;
-
-  name?: string;
   template?: boolean;
+  name?: string;
   templateSkipList?: string[];
   title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-created <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
+
+  /**
+   * <p>[Required] The type of a <a>UsagePlanKey</a> resource for a plan customer.</p>
+   */
+  keyType: string | undefined;
+
+  /**
+   * <p>[Required] The identifier of a <a>UsagePlanKey</a> resource for a plan customer.</p>
+   */
+  keyId: string | undefined;
 }
 
 export namespace CreateUsagePlanKeyRequest {
   export const filterSensitiveLog = (obj: CreateUsagePlanKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUsagePlanKeyRequest =>
-    __isa(o, "CreateUsagePlanKeyRequest");
+  export const isa = (o: any): o is CreateUsagePlanKeyRequest => __isa(o, "CreateUsagePlanKeyRequest");
 }
 
 /**
@@ -1278,6 +1237,24 @@ export namespace CreateUsagePlanKeyRequest {
  */
 export interface CreateUsagePlanRequest {
   __type?: "CreateUsagePlanRequest";
+  /**
+   * <p>[Required] The name of the usage plan.</p>
+   */
+  name: string | undefined;
+
+  title?: string;
+  template?: boolean;
+  templateSkipList?: string[];
+  /**
+   * <p>The throttling limits of the usage plan.</p>
+   */
+  throttle?: ThrottleSettings;
+
+  /**
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
+
   /**
    * <p>The associated API stages of the usage plan.</p>
    */
@@ -1289,36 +1266,16 @@ export interface CreateUsagePlanRequest {
   description?: string;
 
   /**
-   * <p>[Required] The name of the usage plan.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The quota of the usage plan.</p>
    */
   quota?: QuotaSettings;
-
-  /**
-   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
-   */
-  tags?: { [key: string]: string };
-
-  template?: boolean;
-  templateSkipList?: string[];
-  /**
-   * <p>The throttling limits of the usage plan.</p>
-   */
-  throttle?: ThrottleSettings;
-
-  title?: string;
 }
 
 export namespace CreateUsagePlanRequest {
   export const filterSensitiveLog = (obj: CreateUsagePlanRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUsagePlanRequest =>
-    __isa(o, "CreateUsagePlanRequest");
+  export const isa = (o: any): o is CreateUsagePlanRequest => __isa(o, "CreateUsagePlanRequest");
 }
 
 /**
@@ -1327,36 +1284,34 @@ export namespace CreateUsagePlanRequest {
 export interface CreateVpcLinkRequest {
   __type?: "CreateVpcLinkRequest";
   /**
+   * <p>[Required] The name used to label and identify the VPC link.</p>
+   */
+  name: string | undefined;
+
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>[Required] The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</p>
+   */
+  targetArns: string[] | undefined;
+
+  /**
    * <p>The description of the VPC link.</p>
    */
   description?: string;
 
   /**
-   * <p>[Required] The name used to label and identify the VPC link.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
-
-  /**
-   * <p>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
-   */
-  targetArns: string[] | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace CreateVpcLinkRequest {
   export const filterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVpcLinkRequest =>
-    __isa(o, "CreateVpcLinkRequest");
+  export const isa = (o: any): o is CreateVpcLinkRequest => __isa(o, "CreateVpcLinkRequest");
 }
 
 /**
@@ -1364,23 +1319,22 @@ export namespace CreateVpcLinkRequest {
  */
 export interface DeleteApiKeyRequest {
   __type?: "DeleteApiKeyRequest";
+  name?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>
    */
   apiKey: string | undefined;
 
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  template?: boolean;
 }
 
 export namespace DeleteApiKeyRequest {
   export const filterSensitiveLog = (obj: DeleteApiKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApiKeyRequest =>
-    __isa(o, "DeleteApiKeyRequest");
+  export const isa = (o: any): o is DeleteApiKeyRequest => __isa(o, "DeleteApiKeyRequest");
 }
 
 /**
@@ -1388,6 +1342,7 @@ export namespace DeleteApiKeyRequest {
  */
 export interface DeleteAuthorizerRequest {
   __type?: "DeleteAuthorizerRequest";
+  template?: boolean;
   /**
    * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
    */
@@ -1399,17 +1354,15 @@ export interface DeleteAuthorizerRequest {
    */
   restApiId: string | undefined;
 
-  template?: boolean;
   templateSkipList?: string[];
   title?: string;
 }
 
 export namespace DeleteAuthorizerRequest {
   export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAuthorizerRequest =>
-    __isa(o, "DeleteAuthorizerRequest");
+  export const isa = (o: any): o is DeleteAuthorizerRequest => __isa(o, "DeleteAuthorizerRequest");
 }
 
 /**
@@ -1417,31 +1370,28 @@ export namespace DeleteAuthorizerRequest {
  */
 export interface DeleteBasePathMappingRequest {
   __type?: "DeleteBasePathMappingRequest";
+  name?: string;
+  /**
+   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</p>
+   */
+  domainName: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</p>
    *         <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    */
   basePath: string | undefined;
 
-  /**
-   * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</p>
-   */
-  domainName: string | undefined;
-
-  name?: string;
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace DeleteBasePathMappingRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteBasePathMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteBasePathMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBasePathMappingRequest =>
-    __isa(o, "DeleteBasePathMappingRequest");
+  export const isa = (o: any): o is DeleteBasePathMappingRequest => __isa(o, "DeleteBasePathMappingRequest");
 }
 
 /**
@@ -1449,25 +1399,22 @@ export namespace DeleteBasePathMappingRequest {
  */
 export interface DeleteClientCertificateRequest {
   __type?: "DeleteClientCertificateRequest";
+  template?: boolean;
+  name?: string;
   /**
    * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be deleted.</p>
    */
   clientCertificateId: string | undefined;
 
-  name?: string;
-  template?: boolean;
   templateSkipList?: string[];
   title?: string;
 }
 
 export namespace DeleteClientCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteClientCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClientCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClientCertificateRequest =>
-    __isa(o, "DeleteClientCertificateRequest");
+  export const isa = (o: any): o is DeleteClientCertificateRequest => __isa(o, "DeleteClientCertificateRequest");
 }
 
 /**
@@ -1475,28 +1422,27 @@ export namespace DeleteClientCertificateRequest {
  */
 export interface DeleteDeploymentRequest {
   __type?: "DeleteDeploymentRequest";
+  templateSkipList?: string[];
+  title?: string;
+  name?: string;
   /**
    * <p>[Required] The identifier of the <a>Deployment</a> resource to delete.</p>
    */
   deploymentId: string | undefined;
 
-  name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace DeleteDeploymentRequest {
   export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentRequest =>
-    __isa(o, "DeleteDeploymentRequest");
+  export const isa = (o: any): o is DeleteDeploymentRequest => __isa(o, "DeleteDeploymentRequest");
 }
 
 /**
@@ -1505,12 +1451,6 @@ export namespace DeleteDeploymentRequest {
 export interface DeleteDocumentationPartRequest {
   __type?: "DeleteDocumentationPartRequest";
   /**
-   * <p>[Required] The identifier of the to-be-deleted documentation part.</p>
-   */
-  documentationPartId: string | undefined;
-
-  name?: string;
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
@@ -1518,16 +1458,18 @@ export interface DeleteDocumentationPartRequest {
   template?: boolean;
   templateSkipList?: string[];
   title?: string;
+  name?: string;
+  /**
+   * <p>[Required] The identifier of the to-be-deleted documentation part.</p>
+   */
+  documentationPartId: string | undefined;
 }
 
 export namespace DeleteDocumentationPartRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDocumentationPartRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDocumentationPartRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDocumentationPartRequest =>
-    __isa(o, "DeleteDocumentationPartRequest");
+  export const isa = (o: any): o is DeleteDocumentationPartRequest => __isa(o, "DeleteDocumentationPartRequest");
 }
 
 /**
@@ -1535,30 +1477,27 @@ export namespace DeleteDocumentationPartRequest {
  */
 export interface DeleteDocumentationVersionRequest {
   __type?: "DeleteDocumentationVersionRequest";
+  title?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The version identifier of a to-be-deleted documentation snapshot.</p>
    */
   documentationVersion: string | undefined;
 
-  name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
 }
 
 export namespace DeleteDocumentationVersionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDocumentationVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDocumentationVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDocumentationVersionRequest =>
-    __isa(o, "DeleteDocumentationVersionRequest");
+  export const isa = (o: any): o is DeleteDocumentationVersionRequest => __isa(o, "DeleteDocumentationVersionRequest");
 }
 
 /**
@@ -1566,23 +1505,21 @@ export namespace DeleteDocumentationVersionRequest {
  */
 export interface DeleteDomainNameRequest {
   __type?: "DeleteDomainNameRequest";
+  template?: boolean;
+  title?: string;
+  name?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The name of the <a>DomainName</a> resource to be deleted.</p>
    */
   domainName: string | undefined;
-
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace DeleteDomainNameRequest {
   export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainNameRequest =>
-    __isa(o, "DeleteDomainNameRequest");
+  export const isa = (o: any): o is DeleteDomainNameRequest => __isa(o, "DeleteDomainNameRequest");
 }
 
 /**
@@ -1590,30 +1527,27 @@ export namespace DeleteDomainNameRequest {
  */
 export interface DeleteGatewayResponseRequest {
   __type?: "DeleteGatewayResponseRequest";
-  name?: string;
-  /**
-   * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
-   */
-  responseType: GatewayResponseType | string | undefined;
-
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
+  /**
+   * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
+   */
+  responseType: GatewayResponseType | string | undefined;
+
   templateSkipList?: string[];
   title?: string;
+  name?: string;
 }
 
 export namespace DeleteGatewayResponseRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteGatewayResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteGatewayResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayResponseRequest =>
-    __isa(o, "DeleteGatewayResponseRequest");
+  export const isa = (o: any): o is DeleteGatewayResponseRequest => __isa(o, "DeleteGatewayResponseRequest");
 }
 
 /**
@@ -1621,33 +1555,32 @@ export namespace DeleteGatewayResponseRequest {
  */
 export interface DeleteIntegrationRequest {
   __type?: "DeleteIntegrationRequest";
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] Specifies a delete integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
-
-  name?: string;
-  /**
-   * <p>[Required] Specifies a delete integration request's resource identifier.</p>
-   */
-  resourceId: string | undefined;
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
+  /**
+   * <p>[Required] Specifies a delete integration request's resource identifier.</p>
+   */
+  resourceId: string | undefined;
+
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
 }
 
 export namespace DeleteIntegrationRequest {
   export const filterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteIntegrationRequest =>
-    __isa(o, "DeleteIntegrationRequest");
+  export const isa = (o: any): o is DeleteIntegrationRequest => __isa(o, "DeleteIntegrationRequest");
 }
 
 /**
@@ -1655,40 +1588,36 @@ export namespace DeleteIntegrationRequest {
  */
 export interface DeleteIntegrationResponseRequest {
   __type?: "DeleteIntegrationResponseRequest";
-  /**
-   * <p>[Required] Specifies a delete integration response request's HTTP method.</p>
-   */
-  httpMethod: string | undefined;
-
-  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] Specifies a delete integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
+  title?: string;
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>[Required] Specifies a delete integration response request's HTTP method.</p>
    */
-  restApiId: string | undefined;
+  httpMethod: string | undefined;
 
   /**
    * <p>[Required] Specifies a delete integration response request's status code.</p>
    */
   statusCode: string | undefined;
 
-  template?: boolean;
+  name?: string;
   templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
 }
 
 export namespace DeleteIntegrationResponseRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteIntegrationResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteIntegrationResponseRequest =>
-    __isa(o, "DeleteIntegrationResponseRequest");
+  export const isa = (o: any): o is DeleteIntegrationResponseRequest => __isa(o, "DeleteIntegrationResponseRequest");
 }
 
 /**
@@ -1696,33 +1625,31 @@ export namespace DeleteIntegrationResponseRequest {
  */
 export interface DeleteMethodRequest {
   __type?: "DeleteMethodRequest";
-  /**
-   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   */
-  httpMethod: string | undefined;
-
   name?: string;
-  /**
-   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
-   */
-  resourceId: string | undefined;
-
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
   templateSkipList?: string[];
+  /**
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
+   */
+  httpMethod: string | undefined;
+
   title?: string;
+  template?: boolean;
+  /**
+   * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
+   */
+  resourceId: string | undefined;
 }
 
 export namespace DeleteMethodRequest {
   export const filterSensitiveLog = (obj: DeleteMethodRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteMethodRequest =>
-    __isa(o, "DeleteMethodRequest");
+  export const isa = (o: any): o is DeleteMethodRequest => __isa(o, "DeleteMethodRequest");
 }
 
 /**
@@ -1730,40 +1657,37 @@ export namespace DeleteMethodRequest {
  */
 export interface DeleteMethodResponseRequest {
   __type?: "DeleteMethodResponseRequest";
+  title?: string;
   /**
    * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
-
-  name?: string;
-  /**
-   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
 
   /**
    * <p>[Required] The status code identifier for the <a>MethodResponse</a> resource.</p>
    */
   statusCode: string | undefined;
 
+  /**
+   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
+   */
+  resourceId: string | undefined;
+
   template?: boolean;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  name?: string;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace DeleteMethodResponseRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteMethodResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteMethodResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteMethodResponseRequest =>
-    __isa(o, "DeleteMethodResponseRequest");
+  export const isa = (o: any): o is DeleteMethodResponseRequest => __isa(o, "DeleteMethodResponseRequest");
 }
 
 /**
@@ -1772,27 +1696,26 @@ export namespace DeleteMethodResponseRequest {
 export interface DeleteModelRequest {
   __type?: "DeleteModelRequest";
   /**
-   * <p>[Required] The name of the model to delete.</p>
-   */
-  modelName: string | undefined;
-
-  name?: string;
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
+  /**
+   * <p>[Required] The name of the model to delete.</p>
+   */
+  modelName: string | undefined;
+
   templateSkipList?: string[];
   title?: string;
+  name?: string;
+  template?: boolean;
 }
 
 export namespace DeleteModelRequest {
   export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteModelRequest =>
-    __isa(o, "DeleteModelRequest");
+  export const isa = (o: any): o is DeleteModelRequest => __isa(o, "DeleteModelRequest");
 }
 
 /**
@@ -1800,30 +1723,26 @@ export namespace DeleteModelRequest {
  */
 export interface DeleteRequestValidatorRequest {
   __type?: "DeleteRequestValidatorRequest";
-  name?: string;
-  /**
-   * <p>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</p>
-   */
-  requestValidatorId: string | undefined;
-
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  name?: string;
+  /**
+   * <p>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</p>
+   */
+  requestValidatorId: string | undefined;
 }
 
 export namespace DeleteRequestValidatorRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRequestValidatorRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRequestValidatorRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRequestValidatorRequest =>
-    __isa(o, "DeleteRequestValidatorRequest");
+  export const isa = (o: any): o is DeleteRequestValidatorRequest => __isa(o, "DeleteRequestValidatorRequest");
 }
 
 /**
@@ -1831,28 +1750,26 @@ export namespace DeleteRequestValidatorRequest {
  */
 export interface DeleteResourceRequest {
   __type?: "DeleteResourceRequest";
-  name?: string;
-  /**
-   * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
-   */
-  resourceId: string | undefined;
-
+  title?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
+  name?: string;
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
+   */
+  resourceId: string | undefined;
 }
 
 export namespace DeleteResourceRequest {
   export const filterSensitiveLog = (obj: DeleteResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceRequest =>
-    __isa(o, "DeleteResourceRequest");
+  export const isa = (o: any): o is DeleteResourceRequest => __isa(o, "DeleteResourceRequest");
 }
 
 /**
@@ -1860,23 +1777,22 @@ export namespace DeleteResourceRequest {
  */
 export interface DeleteRestApiRequest {
   __type?: "DeleteRestApiRequest";
-  name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  templateSkipList?: string[];
+  name?: string;
 }
 
 export namespace DeleteRestApiRequest {
   export const filterSensitiveLog = (obj: DeleteRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRestApiRequest =>
-    __isa(o, "DeleteRestApiRequest");
+  export const isa = (o: any): o is DeleteRestApiRequest => __isa(o, "DeleteRestApiRequest");
 }
 
 /**
@@ -1884,28 +1800,27 @@ export namespace DeleteRestApiRequest {
  */
 export interface DeleteStageRequest {
   __type?: "DeleteStageRequest";
+  templateSkipList?: string[];
+  title?: string;
+  /**
+   * <p>[Required] The name of the <a>Stage</a> resource to delete.</p>
+   */
+  stageName: string | undefined;
+
   name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  /**
-   * <p>[Required] The name of the <a>Stage</a> resource to delete.</p>
-   */
-  stageName: string | undefined;
-
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace DeleteStageRequest {
   export const filterSensitiveLog = (obj: DeleteStageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStageRequest =>
-    __isa(o, "DeleteStageRequest");
+  export const isa = (o: any): o is DeleteStageRequest => __isa(o, "DeleteStageRequest");
 }
 
 /**
@@ -1919,21 +1834,21 @@ export interface DeleteUsagePlanKeyRequest {
   keyId: string | undefined;
 
   name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-deleted <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
+
+  template?: boolean;
 }
 
 export namespace DeleteUsagePlanKeyRequest {
   export const filterSensitiveLog = (obj: DeleteUsagePlanKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUsagePlanKeyRequest =>
-    __isa(o, "DeleteUsagePlanKeyRequest");
+  export const isa = (o: any): o is DeleteUsagePlanKeyRequest => __isa(o, "DeleteUsagePlanKeyRequest");
 }
 
 /**
@@ -1942,21 +1857,21 @@ export namespace DeleteUsagePlanKeyRequest {
 export interface DeleteUsagePlanRequest {
   __type?: "DeleteUsagePlanRequest";
   name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The Id of the to-be-deleted usage plan.</p>
    */
   usagePlanId: string | undefined;
+
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
 }
 
 export namespace DeleteUsagePlanRequest {
   export const filterSensitiveLog = (obj: DeleteUsagePlanRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUsagePlanRequest =>
-    __isa(o, "DeleteUsagePlanRequest");
+  export const isa = (o: any): o is DeleteUsagePlanRequest => __isa(o, "DeleteUsagePlanRequest");
 }
 
 /**
@@ -1964,10 +1879,10 @@ export namespace DeleteUsagePlanRequest {
  */
 export interface DeleteVpcLinkRequest {
   __type?: "DeleteVpcLinkRequest";
-  name?: string;
+  title?: string;
   template?: boolean;
   templateSkipList?: string[];
-  title?: string;
+  name?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
@@ -1976,10 +1891,9 @@ export interface DeleteVpcLinkRequest {
 
 export namespace DeleteVpcLinkRequest {
   export const filterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcLinkRequest =>
-    __isa(o, "DeleteVpcLinkRequest");
+  export const isa = (o: any): o is DeleteVpcLinkRequest => __isa(o, "DeleteVpcLinkRequest");
 }
 
 /**
@@ -1994,29 +1908,29 @@ export namespace DeleteVpcLinkRequest {
 export interface Deployment {
   __type?: "Deployment";
   /**
-   * <p>A summary of the <a>RestApi</a> at the date and time that the deployment resource was created.</p>
-   */
-  apiSummary?: { [key: string]: { [key: string]: MethodSnapshot } };
-
-  /**
    * <p>The date and time that the deployment resource was created.</p>
    */
   createdDate?: Date;
 
   /**
-   * <p>The description for the deployment resource.</p>
+   * <p>A summary of the <a>RestApi</a> at the date and time that the deployment resource was created.</p>
    */
-  description?: string;
+  apiSummary?: { [key: string]: { [key: string]: MethodSnapshot } };
 
   /**
    * <p>The identifier for the deployment resource.</p>
    */
   id?: string;
+
+  /**
+   * <p>The description for the deployment resource.</p>
+   */
+  description?: string;
 }
 
 export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
@@ -2027,11 +1941,6 @@ export namespace Deployment {
 export interface DeploymentCanarySettings {
   __type?: "DeploymentCanarySettings";
   /**
-   * <p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>
-   */
-  percentTraffic?: number;
-
-  /**
    * <p>A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    */
   stageVariableOverrides?: { [key: string]: string };
@@ -2040,14 +1949,18 @@ export interface DeploymentCanarySettings {
    * <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
+
+  /**
+   * <p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>
+   */
+  percentTraffic?: number;
 }
 
 export namespace DeploymentCanarySettings {
   export const filterSensitiveLog = (obj: DeploymentCanarySettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeploymentCanarySettings =>
-    __isa(o, "DeploymentCanarySettings");
+  export const isa = (o: any): o is DeploymentCanarySettings => __isa(o, "DeploymentCanarySettings");
 }
 
 /**
@@ -2075,7 +1988,7 @@ export interface Deployments {
 
 export namespace Deployments {
   export const filterSensitiveLog = (obj: Deployments): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
 }
@@ -2109,10 +2022,9 @@ export interface DocumentationPart {
 
 export namespace DocumentationPart {
   export const filterSensitiveLog = (obj: DocumentationPart): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationPart =>
-    __isa(o, "DocumentationPart");
+  export const isa = (o: any): o is DocumentationPart => __isa(o, "DocumentationPart");
 }
 
 /**
@@ -2137,10 +2049,9 @@ export interface DocumentationPartIds {
 
 export namespace DocumentationPartIds {
   export const filterSensitiveLog = (obj: DocumentationPartIds): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationPartIds =>
-    __isa(o, "DocumentationPartIds");
+  export const isa = (o: any): o is DocumentationPartIds => __isa(o, "DocumentationPartIds");
 }
 
 /**
@@ -2149,19 +2060,14 @@ export namespace DocumentationPartIds {
 export interface DocumentationPartLocation {
   __type?: "DocumentationPartLocation";
   /**
-   * <p>The HTTP verb of a method. It is a valid field for the API entity types of  <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any method.  When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>method</code> attribute must match that of the parent entity exactly.</p>
-   */
-  method?: string;
-
-  /**
-   * <p>The name of the targeted API entity. It is a valid and required field for the API entity types of <code>AUTHORIZER</code>, <code>MODEL</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code> and <code>RESPONSE_HEADER</code>. It is an invalid field for any other entity type.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The URL path of the target. It is a valid field for the API entity types of <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>/</code> for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>path</code> attribute must match that of the parent entity as a prefix.</p>
    */
   path?: string;
+
+  /**
+   * <p>[Required] The type of API entity to which the documentation content applies. Valid values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>,  <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type.</p>
+   */
+  type: DocumentationPartType | string | undefined;
 
   /**
    * <p>The HTTP status code of a response. It is a valid field for the API entity types of <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any status code. When an applicable child  entity inherits the content of an entity of the same type with more general specifications of the other <code>location</code> attributes, the child entity's <code>statusCode</code> attribute must match that of the parent entity exactly.</p>
@@ -2169,17 +2075,21 @@ export interface DocumentationPartLocation {
   statusCode?: string;
 
   /**
-   * <p>[Required] The type of API entity to which the documentation content applies. Valid values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>,  <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type.</p>
+   * <p>The name of the targeted API entity. It is a valid and required field for the API entity types of <code>AUTHORIZER</code>, <code>MODEL</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code> and <code>RESPONSE_HEADER</code>. It is an invalid field for any other entity type.</p>
    */
-  type: DocumentationPartType | string | undefined;
+  name?: string;
+
+  /**
+   * <p>The HTTP verb of a method. It is a valid field for the API entity types of  <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any method.  When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>method</code> attribute must match that of the parent entity exactly.</p>
+   */
+  method?: string;
 }
 
 export namespace DocumentationPartLocation {
   export const filterSensitiveLog = (obj: DocumentationPartLocation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationPartLocation =>
-    __isa(o, "DocumentationPartLocation");
+  export const isa = (o: any): o is DocumentationPartLocation => __isa(o, "DocumentationPartLocation");
 }
 
 /**
@@ -2204,10 +2114,9 @@ export interface DocumentationParts {
 
 export namespace DocumentationParts {
   export const filterSensitiveLog = (obj: DocumentationParts): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationParts =>
-    __isa(o, "DocumentationParts");
+  export const isa = (o: any): o is DocumentationParts => __isa(o, "DocumentationParts");
 }
 
 export enum DocumentationPartType {
@@ -2222,7 +2131,7 @@ export enum DocumentationPartType {
   RESOURCE = "RESOURCE",
   RESPONSE = "RESPONSE",
   RESPONSE_BODY = "RESPONSE_BODY",
-  RESPONSE_HEADER = "RESPONSE_HEADER"
+  RESPONSE_HEADER = "RESPONSE_HEADER",
 }
 
 /**
@@ -2235,14 +2144,14 @@ export enum DocumentationPartType {
 export interface DocumentationVersion {
   __type?: "DocumentationVersion";
   /**
-   * <p>The date when the API documentation snapshot is created.</p>
-   */
-  createdDate?: Date;
-
-  /**
    * <p>The description of the API documentation snapshot.</p>
    */
   description?: string;
+
+  /**
+   * <p>The date when the API documentation snapshot is created.</p>
+   */
+  createdDate?: Date;
 
   /**
    * <p>The version identifier of the API documentation snapshot.</p>
@@ -2252,10 +2161,9 @@ export interface DocumentationVersion {
 
 export namespace DocumentationVersion {
   export const filterSensitiveLog = (obj: DocumentationVersion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationVersion =>
-    __isa(o, "DocumentationVersion");
+  export const isa = (o: any): o is DocumentationVersion => __isa(o, "DocumentationVersion");
 }
 
 /**
@@ -2280,10 +2188,9 @@ export interface DocumentationVersions {
 
 export namespace DocumentationVersions {
   export const filterSensitiveLog = (obj: DocumentationVersions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DocumentationVersions =>
-    __isa(o, "DocumentationVersions");
+  export const isa = (o: any): o is DocumentationVersions => __isa(o, "DocumentationVersions");
 }
 
 /**
@@ -2299,24 +2206,14 @@ export namespace DocumentationVersions {
 export interface DomainName {
   __type?: "DomainName";
   /**
-   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   * <p>The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.</p>
    */
-  certificateArn?: string;
+  regionalDomainName?: string;
 
   /**
    * <p>The name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
    */
   certificateName?: string;
-
-  /**
-   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
-   */
-  certificateUploadDate?: Date;
-
-  /**
-   * <p>The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <a target="_blank" href="https://aws.amazon.com/documentation/cloudfront/">Amazon CloudFront documentation</a>.</p>
-   */
-  distributionDomainName?: string;
 
   /**
    * <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
@@ -2329,9 +2226,9 @@ export interface DomainName {
   domainName?: string;
 
   /**
-   * <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
+   * <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
-  domainNameStatus?: DomainNameStatus | string;
+  securityPolicy?: SecurityPolicy | string;
 
   /**
    * <p>An optional text message containing detailed information about status of the <a>DomainName</a> migration.</p>
@@ -2339,14 +2236,19 @@ export interface DomainName {
   domainNameStatusMessage?: string;
 
   /**
-   * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
-   */
-  endpointConfiguration?: EndpointConfiguration;
-
-  /**
    * <p>The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.</p>
    */
   regionalCertificateArn?: string;
+
+  /**
+   * <p>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
+   */
+  certificateUploadDate?: Date;
 
   /**
    * <p>The name of the certificate that will be used for validating the regional domain name.</p>
@@ -2354,9 +2256,9 @@ export interface DomainName {
   regionalCertificateName?: string;
 
   /**
-   * <p>The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.</p>
+   * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>
    */
-  regionalDomainName?: string;
+  endpointConfiguration?: EndpointConfiguration;
 
   /**
    * <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">Set up a Regional Custom Domain Name</a> and  <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region">AWS Regions and Endpoints for API Gateway</a>. </p>
@@ -2364,19 +2266,24 @@ export interface DomainName {
   regionalHostedZoneId?: string;
 
   /**
-   * <p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
+   * <p>The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <a target="_blank" href="https://aws.amazon.com/documentation/cloudfront/">Amazon CloudFront documentation</a>.</p>
    */
-  securityPolicy?: SecurityPolicy | string;
+  distributionDomainName?: string;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
+   */
+  domainNameStatus?: DomainNameStatus | string;
 }
 
 export namespace DomainName {
   export const filterSensitiveLog = (obj: DomainName): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainName => __isa(o, "DomainName");
 }
@@ -2402,7 +2309,7 @@ export interface DomainNames {
 
 export namespace DomainNames {
   export const filterSensitiveLog = (obj: DomainNames): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DomainNames => __isa(o, "DomainNames");
 }
@@ -2410,7 +2317,7 @@ export namespace DomainNames {
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING = "PENDING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -2431,10 +2338,9 @@ export interface EndpointConfiguration {
 
 export namespace EndpointConfiguration {
   export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointConfiguration =>
-    __isa(o, "EndpointConfiguration");
+  export const isa = (o: any): o is EndpointConfiguration => __isa(o, "EndpointConfiguration");
 }
 
 export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
@@ -2450,22 +2356,21 @@ export interface ExportResponse {
   body?: Uint8Array;
 
   /**
-   * <p>The content-disposition header value in the HTTP response.</p>
-   */
-  contentDisposition?: string;
-
-  /**
    * <p>The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.</p>
    */
   contentType?: string;
+
+  /**
+   * <p>The content-disposition header value in the HTTP response.</p>
+   */
+  contentDisposition?: string;
 }
 
 export namespace ExportResponse {
   export const filterSensitiveLog = (obj: ExportResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportResponse =>
-    __isa(o, "ExportResponse");
+  export const isa = (o: any): o is ExportResponse => __isa(o, "ExportResponse");
 }
 
 /**
@@ -2473,30 +2378,27 @@ export namespace ExportResponse {
  */
 export interface FlushStageAuthorizersCacheRequest {
   __type?: "FlushStageAuthorizersCacheRequest";
+  template?: boolean;
+  /**
+   * <p>The name of the stage to flush.</p>
+   */
+  stageName: string | undefined;
+
+  title?: string;
   name?: string;
   /**
    * <p>The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  /**
-   * <p>The name of the stage to flush.</p>
-   */
-  stageName: string | undefined;
-
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace FlushStageAuthorizersCacheRequest {
-  export const filterSensitiveLog = (
-    obj: FlushStageAuthorizersCacheRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FlushStageAuthorizersCacheRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FlushStageAuthorizersCacheRequest =>
-    __isa(o, "FlushStageAuthorizersCacheRequest");
+  export const isa = (o: any): o is FlushStageAuthorizersCacheRequest => __isa(o, "FlushStageAuthorizersCacheRequest");
 }
 
 /**
@@ -2504,28 +2406,26 @@ export namespace FlushStageAuthorizersCacheRequest {
  */
 export interface FlushStageCacheRequest {
   __type?: "FlushStageCacheRequest";
-  name?: string;
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
   /**
    * <p>[Required] The name of the stage to flush its cache.</p>
    */
   stageName: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
 }
 
 export namespace FlushStageCacheRequest {
   export const filterSensitiveLog = (obj: FlushStageCacheRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlushStageCacheRequest =>
-    __isa(o, "FlushStageCacheRequest");
+  export const isa = (o: any): o is FlushStageCacheRequest => __isa(o, "FlushStageCacheRequest");
 }
 
 /**
@@ -2593,6 +2493,11 @@ export namespace FlushStageCacheRequest {
 export interface GatewayResponse {
   __type?: "GatewayResponse";
   /**
+   * <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p>
+   */
+  responseType?: GatewayResponseType | string;
+
+  /**
    * <p>A Boolean flag to indicate whether this <a>GatewayResponse</a> is the default gateway response (<code>true</code>) or not (<code>false</code>). A default gateway response is one generated by API Gateway without any customization by an API developer. </p>
    */
   defaultResponse?: boolean;
@@ -2608,11 +2513,6 @@ export interface GatewayResponse {
   responseTemplates?: { [key: string]: string };
 
   /**
-   * <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p>
-   */
-  responseType?: GatewayResponseType | string;
-
-  /**
    * <p>The HTTP status code for this <a>GatewayResponse</a>.</p>
    */
   statusCode?: string;
@@ -2620,10 +2520,9 @@ export interface GatewayResponse {
 
 export namespace GatewayResponse {
   export const filterSensitiveLog = (obj: GatewayResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GatewayResponse =>
-    __isa(o, "GatewayResponse");
+  export const isa = (o: any): o is GatewayResponse => __isa(o, "GatewayResponse");
 }
 
 /**
@@ -3172,10 +3071,9 @@ export interface GatewayResponses {
 
 export namespace GatewayResponses {
   export const filterSensitiveLog = (obj: GatewayResponses): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GatewayResponses =>
-    __isa(o, "GatewayResponses");
+  export const isa = (o: any): o is GatewayResponses => __isa(o, "GatewayResponses");
 }
 
 export enum GatewayResponseType {
@@ -3198,7 +3096,7 @@ export enum GatewayResponseType {
   RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
   THROTTLED = "THROTTLED",
   UNAUTHORIZED = "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
+  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE",
 }
 
 /**
@@ -3206,30 +3104,26 @@ export enum GatewayResponseType {
  */
 export interface GenerateClientCertificateRequest {
   __type?: "GenerateClientCertificateRequest";
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
+  name?: string;
   /**
    * <p>The description of the <a>ClientCertificate</a>.</p>
    */
   description?: string;
 
-  name?: string;
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: { [key: string]: string };
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GenerateClientCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: GenerateClientCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateClientCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GenerateClientCertificateRequest =>
-    __isa(o, "GenerateClientCertificateRequest");
+  export const isa = (o: any): o is GenerateClientCertificateRequest => __isa(o, "GenerateClientCertificateRequest");
 }
 
 /**
@@ -3238,17 +3132,16 @@ export namespace GenerateClientCertificateRequest {
 export interface GetAccountRequest {
   __type?: "GetAccountRequest";
   name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
 }
 
 export namespace GetAccountRequest {
   export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountRequest =>
-    __isa(o, "GetAccountRequest");
+  export const isa = (o: any): o is GetAccountRequest => __isa(o, "GetAccountRequest");
 }
 
 /**
@@ -3261,23 +3154,22 @@ export interface GetApiKeyRequest {
    */
   apiKey: string | undefined;
 
+  templateSkipList?: string[];
+  title?: string;
+  name?: string;
   /**
    * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
    */
   includeValue?: boolean;
 
-  name?: string;
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetApiKeyRequest {
   export const filterSensitiveLog = (obj: GetApiKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetApiKeyRequest =>
-    __isa(o, "GetApiKeyRequest");
+  export const isa = (o: any): o is GetApiKeyRequest => __isa(o, "GetApiKeyRequest");
 }
 
 /**
@@ -3285,22 +3177,6 @@ export namespace GetApiKeyRequest {
  */
 export interface GetApiKeysRequest {
   __type?: "GetApiKeysRequest";
-  /**
-   * <p>The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.</p>
-   */
-  customerId?: string;
-
-  /**
-   * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
-   */
-  includeValues?: boolean;
-
-  /**
-   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   */
-  limit?: number;
-
-  name?: string;
   /**
    * <p>The name of queried API keys.</p>
    */
@@ -3311,17 +3187,32 @@ export interface GetApiKeysRequest {
    */
   position?: string;
 
-  template?: boolean;
+  /**
+   * <p>The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.</p>
+   */
+  customerId?: string;
+
   templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
+   */
+  includeValues?: boolean;
+
   title?: string;
+  /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   */
+  limit?: number;
+
+  name?: string;
 }
 
 export namespace GetApiKeysRequest {
   export const filterSensitiveLog = (obj: GetApiKeysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetApiKeysRequest =>
-    __isa(o, "GetApiKeysRequest");
+  export const isa = (o: any): o is GetApiKeysRequest => __isa(o, "GetApiKeysRequest");
 }
 
 /**
@@ -3329,28 +3220,27 @@ export namespace GetApiKeysRequest {
  */
 export interface GetAuthorizerRequest {
   __type?: "GetAuthorizerRequest";
+  title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
    */
   authorizerId: string | undefined;
 
-  name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
 }
 
 export namespace GetAuthorizerRequest {
   export const filterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizerRequest =>
-    __isa(o, "GetAuthorizerRequest");
+  export const isa = (o: any): o is GetAuthorizerRequest => __isa(o, "GetAuthorizerRequest");
 }
 
 /**
@@ -3358,6 +3248,9 @@ export namespace GetAuthorizerRequest {
  */
 export interface GetAuthorizersRequest {
   __type?: "GetAuthorizersRequest";
+  templateSkipList?: string[];
+  title?: string;
+  template?: boolean;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
@@ -3373,18 +3266,13 @@ export interface GetAuthorizersRequest {
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetAuthorizersRequest {
   export const filterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizersRequest =>
-    __isa(o, "GetAuthorizersRequest");
+  export const isa = (o: any): o is GetAuthorizersRequest => __isa(o, "GetAuthorizersRequest");
 }
 
 /**
@@ -3393,27 +3281,26 @@ export namespace GetAuthorizersRequest {
 export interface GetBasePathMappingRequest {
   __type?: "GetBasePathMappingRequest";
   /**
-   * <p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
-   */
-  basePath: string | undefined;
-
-  /**
    * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to be described.</p>
    */
   domainName: string | undefined;
 
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
+  /**
+   * <p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
+   */
+  basePath: string | undefined;
+
   title?: string;
+  name?: string;
+  templateSkipList?: string[];
+  template?: boolean;
 }
 
 export namespace GetBasePathMappingRequest {
   export const filterSensitiveLog = (obj: GetBasePathMappingRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBasePathMappingRequest =>
-    __isa(o, "GetBasePathMappingRequest");
+  export const isa = (o: any): o is GetBasePathMappingRequest => __isa(o, "GetBasePathMappingRequest");
 }
 
 /**
@@ -3422,32 +3309,30 @@ export namespace GetBasePathMappingRequest {
 export interface GetBasePathMappingsRequest {
   __type?: "GetBasePathMappingsRequest";
   /**
-   * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
-   */
-  domainName: string | undefined;
-
-  /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
   name?: string;
   /**
+   * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
+   */
+  domainName: string | undefined;
+
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
+  /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetBasePathMappingsRequest {
   export const filterSensitiveLog = (obj: GetBasePathMappingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBasePathMappingsRequest =>
-    __isa(o, "GetBasePathMappingsRequest");
+  export const isa = (o: any): o is GetBasePathMappingsRequest => __isa(o, "GetBasePathMappingsRequest");
 }
 
 /**
@@ -3455,25 +3340,22 @@ export namespace GetBasePathMappingsRequest {
  */
 export interface GetClientCertificateRequest {
   __type?: "GetClientCertificateRequest";
+  name?: string;
+  title?: string;
+  template?: boolean;
   /**
    * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be described.</p>
    */
   clientCertificateId: string | undefined;
 
-  name?: string;
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetClientCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: GetClientCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetClientCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetClientCertificateRequest =>
-    __isa(o, "GetClientCertificateRequest");
+  export const isa = (o: any): o is GetClientCertificateRequest => __isa(o, "GetClientCertificateRequest");
 }
 
 /**
@@ -3481,30 +3363,27 @@ export namespace GetClientCertificateRequest {
  */
 export interface GetClientCertificatesRequest {
   __type?: "GetClientCertificatesRequest";
+  title?: string;
+  template?: boolean;
+  name?: string;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
-  name?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetClientCertificatesRequest {
-  export const filterSensitiveLog = (
-    obj: GetClientCertificatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetClientCertificatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetClientCertificatesRequest =>
-    __isa(o, "GetClientCertificatesRequest");
+  export const isa = (o: any): o is GetClientCertificatesRequest => __isa(o, "GetClientCertificatesRequest");
 }
 
 /**
@@ -3512,33 +3391,32 @@ export namespace GetClientCertificatesRequest {
  */
 export interface GetDeploymentRequest {
   __type?: "GetDeploymentRequest";
-  /**
-   * <p>[Required] The identifier of the <a>Deployment</a> resource to get information about.</p>
-   */
-  deploymentId: string | undefined;
-
+  templateSkipList?: string[];
+  title?: string;
+  name?: string;
   /**
    * <p>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a> resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</p>
    */
   embed?: string[];
 
-  name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
+  /**
+   * <p>[Required] The identifier of the <a>Deployment</a> resource to get information about.</p>
+   */
+  deploymentId: string | undefined;
+
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetDeploymentRequest {
   export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentRequest =>
-    __isa(o, "GetDeploymentRequest");
+  export const isa = (o: any): o is GetDeploymentRequest => __isa(o, "GetDeploymentRequest");
 }
 
 /**
@@ -3547,32 +3425,31 @@ export namespace GetDeploymentRequest {
 export interface GetDeploymentsRequest {
   __type?: "GetDeploymentsRequest";
   /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
   name?: string;
+  title?: string;
+  template?: boolean;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetDeploymentsRequest {
   export const filterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentsRequest =>
-    __isa(o, "GetDeploymentsRequest");
+  export const isa = (o: any): o is GetDeploymentsRequest => __isa(o, "GetDeploymentsRequest");
 }
 
 /**
@@ -3585,25 +3462,22 @@ export interface GetDocumentationPartRequest {
    */
   documentationPartId: string | undefined;
 
-  name?: string;
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
 }
 
 export namespace GetDocumentationPartRequest {
-  export const filterSensitiveLog = (
-    obj: GetDocumentationPartRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDocumentationPartRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDocumentationPartRequest =>
-    __isa(o, "GetDocumentationPartRequest");
+  export const isa = (o: any): o is GetDocumentationPartRequest => __isa(o, "GetDocumentationPartRequest");
 }
 
 /**
@@ -3611,26 +3485,17 @@ export namespace GetDocumentationPartRequest {
  */
 export interface GetDocumentationPartsRequest {
   __type?: "GetDocumentationPartsRequest";
+  templateSkipList?: string[];
   /**
-   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
    */
-  limit?: number;
+  type?: DocumentationPartType | string;
 
-  /**
-   * <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving <a>DocumentationPart</a> resources with content and <code>UNDOCUMENTED</code> for <a>DocumentationPart</a> resources without content.</p>
-   */
-  locationStatus?: LocationStatusType | string;
-
-  name?: string;
+  title?: string;
   /**
    * <p>The name of API entities of the to-be-retrieved documentation parts.</p>
    */
   nameQuery?: string;
-
-  /**
-   * <p>The path of API entities of the to-be-retrieved documentation parts.</p>
-   */
-  path?: string;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -3638,27 +3503,33 @@ export interface GetDocumentationPartsRequest {
   position?: string;
 
   /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   */
+  limit?: number;
+
+  name?: string;
+  /**
+   * <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving <a>DocumentationPart</a> resources with content and <code>UNDOCUMENTED</code> for <a>DocumentationPart</a> resources without content.</p>
+   */
+  locationStatus?: LocationStatusType | string;
+
+  template?: boolean;
+  /**
+   * <p>The path of API entities of the to-be-retrieved documentation parts.</p>
+   */
+  path?: string;
+
+  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
-   */
-  type?: DocumentationPartType | string;
 }
 
 export namespace GetDocumentationPartsRequest {
-  export const filterSensitiveLog = (
-    obj: GetDocumentationPartsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDocumentationPartsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDocumentationPartsRequest =>
-    __isa(o, "GetDocumentationPartsRequest");
+  export const isa = (o: any): o is GetDocumentationPartsRequest => __isa(o, "GetDocumentationPartsRequest");
 }
 
 /**
@@ -3667,29 +3538,26 @@ export namespace GetDocumentationPartsRequest {
 export interface GetDocumentationVersionRequest {
   __type?: "GetDocumentationVersionRequest";
   /**
-   * <p>[Required] The version identifier of the to-be-retrieved documentation snapshot.</p>
-   */
-  documentationVersion: string | undefined;
-
-  name?: string;
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
+  /**
+   * <p>[Required] The version identifier of the to-be-retrieved documentation snapshot.</p>
+   */
+  documentationVersion: string | undefined;
+
   title?: string;
+  templateSkipList?: string[];
+  name?: string;
 }
 
 export namespace GetDocumentationVersionRequest {
-  export const filterSensitiveLog = (
-    obj: GetDocumentationVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDocumentationVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDocumentationVersionRequest =>
-    __isa(o, "GetDocumentationVersionRequest");
+  export const isa = (o: any): o is GetDocumentationVersionRequest => __isa(o, "GetDocumentationVersionRequest");
 }
 
 /**
@@ -3698,9 +3566,9 @@ export namespace GetDocumentationVersionRequest {
 export interface GetDocumentationVersionsRequest {
   __type?: "GetDocumentationVersionsRequest";
   /**
-   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  limit?: number;
+  restApiId: string | undefined;
 
   name?: string;
   /**
@@ -3709,23 +3577,20 @@ export interface GetDocumentationVersionsRequest {
   position?: string;
 
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
-  restApiId: string | undefined;
+  limit?: number;
 
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
 }
 
 export namespace GetDocumentationVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetDocumentationVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDocumentationVersionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDocumentationVersionsRequest =>
-    __isa(o, "GetDocumentationVersionsRequest");
+  export const isa = (o: any): o is GetDocumentationVersionsRequest => __isa(o, "GetDocumentationVersionsRequest");
 }
 
 /**
@@ -3733,23 +3598,21 @@ export namespace GetDocumentationVersionsRequest {
  */
 export interface GetDomainNameRequest {
   __type?: "GetDomainNameRequest";
+  templateSkipList?: string[];
+  title?: string;
+  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] The name of the <a>DomainName</a> resource.</p>
    */
   domainName: string | undefined;
-
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetDomainNameRequest {
   export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDomainNameRequest =>
-    __isa(o, "GetDomainNameRequest");
+  export const isa = (o: any): o is GetDomainNameRequest => __isa(o, "GetDomainNameRequest");
 }
 
 /**
@@ -3758,27 +3621,26 @@ export namespace GetDomainNameRequest {
 export interface GetDomainNamesRequest {
   __type?: "GetDomainNamesRequest";
   /**
+   * <p>The current pagination position in the paged result set.</p>
+   */
+  position?: string;
+
+  /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
   name?: string;
-  /**
-   * <p>The current pagination position in the paged result set.</p>
-   */
-  position?: string;
-
+  title?: string;
   template?: boolean;
   templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetDomainNamesRequest {
   export const filterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDomainNamesRequest =>
-    __isa(o, "GetDomainNamesRequest");
+  export const isa = (o: any): o is GetDomainNamesRequest => __isa(o, "GetDomainNamesRequest");
 }
 
 /**
@@ -3786,16 +3648,6 @@ export namespace GetDomainNamesRequest {
  */
 export interface GetExportRequest {
   __type?: "GetExportRequest";
-  /**
-   * <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
-   */
-  accepts?: string;
-
-  /**
-   * <p>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.</p>
-   */
-  exportType: string | undefined;
-
   /**
    * <p>A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code> <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
    */
@@ -3807,6 +3659,16 @@ export interface GetExportRequest {
   restApiId: string | undefined;
 
   /**
+   * <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
+   */
+  accepts?: string;
+
+  /**
+   * <p>[Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.</p>
+   */
+  exportType: string | undefined;
+
+  /**
    * <p>[Required] The name of the <a>Stage</a> that will be exported.</p>
    */
   stageName: string | undefined;
@@ -3814,10 +3676,9 @@ export interface GetExportRequest {
 
 export namespace GetExportRequest {
   export const filterSensitiveLog = (obj: GetExportRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetExportRequest =>
-    __isa(o, "GetExportRequest");
+  export const isa = (o: any): o is GetExportRequest => __isa(o, "GetExportRequest");
 }
 
 /**
@@ -3825,7 +3686,8 @@ export namespace GetExportRequest {
  */
 export interface GetGatewayResponseRequest {
   __type?: "GetGatewayResponseRequest";
-  name?: string;
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
    */
@@ -3836,17 +3698,15 @@ export interface GetGatewayResponseRequest {
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
 }
 
 export namespace GetGatewayResponseRequest {
   export const filterSensitiveLog = (obj: GetGatewayResponseRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGatewayResponseRequest =>
-    __isa(o, "GetGatewayResponseRequest");
+  export const isa = (o: any): o is GetGatewayResponseRequest => __isa(o, "GetGatewayResponseRequest");
 }
 
 /**
@@ -3859,28 +3719,27 @@ export interface GetGatewayResponsesRequest {
    */
   limit?: number;
 
-  name?: string;
-  /**
-   * <p>The current pagination position in the paged result set. The <a>GatewayResponse</a> collection does not support pagination and the position does not apply here.</p>
-   */
-  position?: string;
-
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
+  name?: string;
   templateSkipList?: string[];
   title?: string;
+  /**
+   * <p>The current pagination position in the paged result set. The <a>GatewayResponse</a> collection does not support pagination and the position does not apply here.</p>
+   */
+  position?: string;
+
+  template?: boolean;
 }
 
 export namespace GetGatewayResponsesRequest {
   export const filterSensitiveLog = (obj: GetGatewayResponsesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGatewayResponsesRequest =>
-    __isa(o, "GetGatewayResponsesRequest");
+  export const isa = (o: any): o is GetGatewayResponsesRequest => __isa(o, "GetGatewayResponsesRequest");
 }
 
 /**
@@ -3889,32 +3748,31 @@ export namespace GetGatewayResponsesRequest {
 export interface GetIntegrationRequest {
   __type?: "GetIntegrationRequest";
   /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  name?: string;
+  title?: string;
+  /**
    * <p>[Required] Specifies a get integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
-  name?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] Specifies a get integration request's resource identifier</p>
    */
   resourceId: string | undefined;
 
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetIntegrationRequest {
   export const filterSensitiveLog = (obj: GetIntegrationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationRequest =>
-    __isa(o, "GetIntegrationRequest");
+  export const isa = (o: any): o is GetIntegrationRequest => __isa(o, "GetIntegrationRequest");
 }
 
 /**
@@ -3923,39 +3781,36 @@ export namespace GetIntegrationRequest {
 export interface GetIntegrationResponseRequest {
   __type?: "GetIntegrationResponseRequest";
   /**
-   * <p>[Required] Specifies a get integration response request's HTTP method.</p>
+   * <p>[Required] Specifies a get integration response request's status code.</p>
    */
-  httpMethod: string | undefined;
+  statusCode: string | undefined;
 
-  name?: string;
   /**
    * <p>[Required] Specifies a get integration response request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
+  template?: boolean;
+  title?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  /**
-   * <p>[Required] Specifies a get integration response request's status code.</p>
-   */
-  statusCode: string | undefined;
-
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>[Required] Specifies a get integration response request's HTTP method.</p>
+   */
+  httpMethod: string | undefined;
+
+  name?: string;
 }
 
 export namespace GetIntegrationResponseRequest {
-  export const filterSensitiveLog = (
-    obj: GetIntegrationResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResponseRequest =>
-    __isa(o, "GetIntegrationResponseRequest");
+  export const isa = (o: any): o is GetIntegrationResponseRequest => __isa(o, "GetIntegrationResponseRequest");
 }
 
 /**
@@ -3963,33 +3818,31 @@ export namespace GetIntegrationResponseRequest {
  */
 export interface GetMethodRequest {
   __type?: "GetMethodRequest";
-  /**
-   * <p>[Required] Specifies the method request's HTTP method type.</p>
-   */
-  httpMethod: string | undefined;
-
-  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
+  title?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
+  /**
+   * <p>[Required] Specifies the method request's HTTP method type.</p>
+   */
+  httpMethod: string | undefined;
 }
 
 export namespace GetMethodRequest {
   export const filterSensitiveLog = (obj: GetMethodRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMethodRequest =>
-    __isa(o, "GetMethodRequest");
+  export const isa = (o: any): o is GetMethodRequest => __isa(o, "GetMethodRequest");
 }
 
 /**
@@ -3998,37 +3851,36 @@ export namespace GetMethodRequest {
 export interface GetMethodResponseRequest {
   __type?: "GetMethodResponseRequest";
   /**
-   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   */
-  httpMethod: string | undefined;
-
-  name?: string;
-  /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
    */
   resourceId: string | undefined;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
 
   /**
    * <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
    */
   statusCode: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  /**
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
+   */
+  httpMethod: string | undefined;
+
+  name?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  template?: boolean;
 }
 
 export namespace GetMethodResponseRequest {
   export const filterSensitiveLog = (obj: GetMethodResponseRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMethodResponseRequest =>
-    __isa(o, "GetMethodResponseRequest");
+  export const isa = (o: any): o is GetMethodResponseRequest => __isa(o, "GetMethodResponseRequest");
 }
 
 /**
@@ -4036,6 +3888,12 @@ export namespace GetMethodResponseRequest {
  */
 export interface GetModelRequest {
   __type?: "GetModelRequest";
+  /**
+   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</p>
+   */
+  restApiId: string | undefined;
+
+  templateSkipList?: string[];
   /**
    * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
    */
@@ -4046,23 +3904,16 @@ export interface GetModelRequest {
    */
   modelName: string | undefined;
 
-  name?: string;
-  /**
-   * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a> exists.</p>
-   */
-  restApiId: string | undefined;
-
   template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  name?: string;
 }
 
 export namespace GetModelRequest {
   export const filterSensitiveLog = (obj: GetModelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetModelRequest =>
-    __isa(o, "GetModelRequest");
+  export const isa = (o: any): o is GetModelRequest => __isa(o, "GetModelRequest");
 }
 
 /**
@@ -4076,27 +3927,25 @@ export interface GetModelsRequest {
   limit?: number;
 
   name?: string;
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetModelsRequest {
   export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetModelsRequest =>
-    __isa(o, "GetModelsRequest");
+  export const isa = (o: any): o is GetModelsRequest => __isa(o, "GetModelsRequest");
 }
 
 /**
@@ -4109,23 +3958,22 @@ export interface GetModelTemplateRequest {
    */
   modelName: string | undefined;
 
-  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
   templateSkipList?: string[];
   title?: string;
+  name?: string;
 }
 
 export namespace GetModelTemplateRequest {
   export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetModelTemplateRequest =>
-    __isa(o, "GetModelTemplateRequest");
+  export const isa = (o: any): o is GetModelTemplateRequest => __isa(o, "GetModelTemplateRequest");
 }
 
 /**
@@ -4133,28 +3981,26 @@ export namespace GetModelTemplateRequest {
  */
 export interface GetRequestValidatorRequest {
   __type?: "GetRequestValidatorRequest";
-  name?: string;
   /**
    * <p>[Required] The identifier of the <a>RequestValidator</a> to be retrieved.</p>
    */
   requestValidatorId: string | undefined;
 
+  template?: boolean;
+  name?: string;
+  title?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetRequestValidatorRequest {
   export const filterSensitiveLog = (obj: GetRequestValidatorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRequestValidatorRequest =>
-    __isa(o, "GetRequestValidatorRequest");
+  export const isa = (o: any): o is GetRequestValidatorRequest => __isa(o, "GetRequestValidatorRequest");
 }
 
 /**
@@ -4162,35 +4008,31 @@ export namespace GetRequestValidatorRequest {
  */
 export interface GetRequestValidatorsRequest {
   __type?: "GetRequestValidatorsRequest";
+  template?: boolean;
+  title?: string;
+  name?: string;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
-  name?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetRequestValidatorsRequest {
-  export const filterSensitiveLog = (
-    obj: GetRequestValidatorsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRequestValidatorsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetRequestValidatorsRequest =>
-    __isa(o, "GetRequestValidatorsRequest");
+  export const isa = (o: any): o is GetRequestValidatorsRequest => __isa(o, "GetRequestValidatorsRequest");
 }
 
 /**
@@ -4199,32 +4041,30 @@ export namespace GetRequestValidatorsRequest {
 export interface GetResourceRequest {
   __type?: "GetResourceRequest";
   /**
-   * <p>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a> representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
-   */
-  embed?: string[];
-
-  name?: string;
-  /**
-   * <p>[Required] The identifier for the <a>Resource</a> resource.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
+  /**
+   * <p>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a> representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
+   */
+  embed?: string[];
+
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>[Required] The identifier for the <a>Resource</a> resource.</p>
+   */
+  resourceId: string | undefined;
 }
 
 export namespace GetResourceRequest {
   export const filterSensitiveLog = (obj: GetResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceRequest =>
-    __isa(o, "GetResourceRequest");
+  export const isa = (o: any): o is GetResourceRequest => __isa(o, "GetResourceRequest");
 }
 
 /**
@@ -4232,10 +4072,23 @@ export namespace GetResourceRequest {
  */
 export interface GetResourcesRequest {
   __type?: "GetResourcesRequest";
+  template?: boolean;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>A query parameter used to retrieve the specified resources embedded in the returned <a>Resources</a> resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded <a>Method</a> resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.</p>
    */
   embed?: string[];
+
+  /**
+   * <p>The current pagination position in the paged result set.</p>
+   */
+  position?: string;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
@@ -4243,27 +4096,13 @@ export interface GetResourcesRequest {
   limit?: number;
 
   name?: string;
-  /**
-   * <p>The current pagination position in the paged result set.</p>
-   */
-  position?: string;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetResourcesRequest {
   export const filterSensitiveLog = (obj: GetResourcesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourcesRequest =>
-    __isa(o, "GetResourcesRequest");
+  export const isa = (o: any): o is GetResourcesRequest => __isa(o, "GetResourcesRequest");
 }
 
 /**
@@ -4272,22 +4111,20 @@ export namespace GetResourcesRequest {
 export interface GetRestApiRequest {
   __type?: "GetRestApiRequest";
   name?: string;
+  templateSkipList?: string[];
+  title?: string;
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetRestApiRequest {
   export const filterSensitiveLog = (obj: GetRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRestApiRequest =>
-    __isa(o, "GetRestApiRequest");
+  export const isa = (o: any): o is GetRestApiRequest => __isa(o, "GetRestApiRequest");
 }
 
 /**
@@ -4295,28 +4132,27 @@ export namespace GetRestApiRequest {
  */
 export interface GetRestApisRequest {
   __type?: "GetRestApisRequest";
+  name?: string;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
-  name?: string;
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace GetRestApisRequest {
   export const filterSensitiveLog = (obj: GetRestApisRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRestApisRequest =>
-    __isa(o, "GetRestApisRequest");
+  export const isa = (o: any): o is GetRestApisRequest => __isa(o, "GetRestApisRequest");
 }
 
 /**
@@ -4325,14 +4161,14 @@ export namespace GetRestApisRequest {
 export interface GetSdkRequest {
   __type?: "GetSdkRequest";
   /**
-   * <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
-   */
-  parameters?: { [key: string]: string };
-
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
+
+  /**
+   * <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
+   */
+  parameters?: { [key: string]: string };
 
   /**
    * <p>[Required] The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS), and <code>ruby</code>  are supported.</p>
@@ -4347,7 +4183,7 @@ export interface GetSdkRequest {
 
 export namespace GetSdkRequest {
   export const filterSensitiveLog = (obj: GetSdkRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetSdkRequest => __isa(o, "GetSdkRequest");
 }
@@ -4357,23 +4193,22 @@ export namespace GetSdkRequest {
  */
 export interface GetSdkTypeRequest {
   __type?: "GetSdkTypeRequest";
+  template?: boolean;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The identifier of the queried <a>SdkType</a> instance.</p>
    */
   id: string | undefined;
 
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  name?: string;
 }
 
 export namespace GetSdkTypeRequest {
   export const filterSensitiveLog = (obj: GetSdkTypeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSdkTypeRequest =>
-    __isa(o, "GetSdkTypeRequest");
+  export const isa = (o: any): o is GetSdkTypeRequest => __isa(o, "GetSdkTypeRequest");
 }
 
 /**
@@ -4381,28 +4216,27 @@ export namespace GetSdkTypeRequest {
  */
 export interface GetSdkTypesRequest {
   __type?: "GetSdkTypesRequest";
+  template?: boolean;
+  name?: string;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
-  name?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  template?: boolean;
   templateSkipList?: string[];
   title?: string;
 }
 
 export namespace GetSdkTypesRequest {
   export const filterSensitiveLog = (obj: GetSdkTypesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSdkTypesRequest =>
-    __isa(o, "GetSdkTypesRequest");
+  export const isa = (o: any): o is GetSdkTypesRequest => __isa(o, "GetSdkTypesRequest");
 }
 
 /**
@@ -4410,12 +4244,6 @@ export namespace GetSdkTypesRequest {
  */
 export interface GetStageRequest {
   __type?: "GetStageRequest";
-  name?: string;
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
   /**
    * <p>[Required] The name of the <a>Stage</a> resource to get information about.</p>
    */
@@ -4424,14 +4252,18 @@ export interface GetStageRequest {
   template?: boolean;
   templateSkipList?: string[];
   title?: string;
+  name?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
 }
 
 export namespace GetStageRequest {
   export const filterSensitiveLog = (obj: GetStageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetStageRequest =>
-    __isa(o, "GetStageRequest");
+  export const isa = (o: any): o is GetStageRequest => __isa(o, "GetStageRequest");
 }
 
 /**
@@ -4444,23 +4276,22 @@ export interface GetStagesRequest {
    */
   deploymentId?: string;
 
-  name?: string;
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  name?: string;
 }
 
 export namespace GetStagesRequest {
   export const filterSensitiveLog = (obj: GetStagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetStagesRequest =>
-    __isa(o, "GetStagesRequest");
+  export const isa = (o: any): o is GetStagesRequest => __isa(o, "GetStagesRequest");
 }
 
 /**
@@ -4468,6 +4299,9 @@ export namespace GetStagesRequest {
  */
 export interface GetTagsRequest {
   __type?: "GetTagsRequest";
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
   /**
    * <p>(Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
@@ -4475,26 +4309,21 @@ export interface GetTagsRequest {
 
   name?: string;
   /**
-   * <p>(Not currently supported) The current pagination position in the paged result set.</p>
-   */
-  position?: string;
-
-  /**
-   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
+   * <p>[Required] The ARN of a resource that can be tagged.</p>
    */
   resourceArn: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>(Not currently supported) The current pagination position in the paged result set.</p>
+   */
+  position?: string;
 }
 
 export namespace GetTagsRequest {
   export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTagsRequest =>
-    __isa(o, "GetTagsRequest");
+  export const isa = (o: any): o is GetTagsRequest => __isa(o, "GetTagsRequest");
 }
 
 /**
@@ -4502,13 +4331,13 @@ export namespace GetTagsRequest {
  */
 export interface GetUsagePlanKeyRequest {
   __type?: "GetUsagePlanKeyRequest";
+  template?: boolean;
+  name?: string;
   /**
    * <p>[Required] The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   keyId: string | undefined;
 
-  name?: string;
-  template?: boolean;
   templateSkipList?: string[];
   title?: string;
   /**
@@ -4519,10 +4348,9 @@ export interface GetUsagePlanKeyRequest {
 
 export namespace GetUsagePlanKeyRequest {
   export const filterSensitiveLog = (obj: GetUsagePlanKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUsagePlanKeyRequest =>
-    __isa(o, "GetUsagePlanKeyRequest");
+  export const isa = (o: any): o is GetUsagePlanKeyRequest => __isa(o, "GetUsagePlanKeyRequest");
 }
 
 /**
@@ -4530,37 +4358,37 @@ export namespace GetUsagePlanKeyRequest {
  */
 export interface GetUsagePlanKeysRequest {
   __type?: "GetUsagePlanKeysRequest";
+  name?: string;
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
 
-  name?: string;
   /**
    * <p>A query parameter specifying the name of the to-be-returned usage plan keys.</p>
    */
   nameQuery?: string;
 
+  title?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  template?: boolean;
   templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</p>
    */
   usagePlanId: string | undefined;
+
+  template?: boolean;
 }
 
 export namespace GetUsagePlanKeysRequest {
   export const filterSensitiveLog = (obj: GetUsagePlanKeysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUsagePlanKeysRequest =>
-    __isa(o, "GetUsagePlanKeysRequest");
+  export const isa = (o: any): o is GetUsagePlanKeysRequest => __isa(o, "GetUsagePlanKeysRequest");
 }
 
 /**
@@ -4568,22 +4396,22 @@ export namespace GetUsagePlanKeysRequest {
  */
 export interface GetUsagePlanRequest {
   __type?: "GetUsagePlanRequest";
-  name?: string;
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The identifier of the <a>UsagePlan</a> resource to be retrieved.</p>
    */
   usagePlanId: string | undefined;
+
+  template?: boolean;
+  name?: string;
+  title?: string;
+  templateSkipList?: string[];
 }
 
 export namespace GetUsagePlanRequest {
   export const filterSensitiveLog = (obj: GetUsagePlanRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUsagePlanRequest =>
-    __isa(o, "GetUsagePlanRequest");
+  export const isa = (o: any): o is GetUsagePlanRequest => __isa(o, "GetUsagePlanRequest");
 }
 
 /**
@@ -4591,33 +4419,31 @@ export namespace GetUsagePlanRequest {
  */
 export interface GetUsagePlansRequest {
   __type?: "GetUsagePlansRequest";
-  /**
-   * <p>The identifier of the API key associated with the usage plans.</p>
-   */
-  keyId?: string;
-
-  /**
-   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   */
-  limit?: number;
-
-  name?: string;
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>The identifier of the API key associated with the usage plans.</p>
+   */
+  keyId?: string;
+
+  name?: string;
+  /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   */
+  limit?: number;
 }
 
 export namespace GetUsagePlansRequest {
   export const filterSensitiveLog = (obj: GetUsagePlansRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUsagePlansRequest =>
-    __isa(o, "GetUsagePlansRequest");
+  export const isa = (o: any): o is GetUsagePlansRequest => __isa(o, "GetUsagePlansRequest");
 }
 
 /**
@@ -4626,10 +4452,28 @@ export namespace GetUsagePlansRequest {
 export interface GetUsageRequest {
   __type?: "GetUsageRequest";
   /**
+   * <p>The current pagination position in the paged result set.</p>
+   */
+  position?: string;
+
+  template?: boolean;
+  /**
    * <p>[Required] The ending date (e.g., 2016-12-31) of the usage data.</p>
    */
   endDate: string | undefined;
 
+  /**
+   * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
+   */
+  startDate: string | undefined;
+
+  /**
+   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
+   */
+  usagePlanId: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>The Id of the API key associated with the resultant usage data.</p>
    */
@@ -4641,31 +4485,13 @@ export interface GetUsageRequest {
   limit?: number;
 
   name?: string;
-  /**
-   * <p>The current pagination position in the paged result set.</p>
-   */
-  position?: string;
-
-  /**
-   * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
-   */
-  startDate: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
-   */
-  usagePlanId: string | undefined;
 }
 
 export namespace GetUsageRequest {
   export const filterSensitiveLog = (obj: GetUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUsageRequest =>
-    __isa(o, "GetUsageRequest");
+  export const isa = (o: any): o is GetUsageRequest => __isa(o, "GetUsageRequest");
 }
 
 /**
@@ -4673,22 +4499,22 @@ export namespace GetUsageRequest {
  */
 export interface GetVpcLinkRequest {
   __type?: "GetVpcLinkRequest";
-  name?: string;
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   vpcLinkId: string | undefined;
+
+  name?: string;
+  templateSkipList?: string[];
+  title?: string;
 }
 
 export namespace GetVpcLinkRequest {
   export const filterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinkRequest =>
-    __isa(o, "GetVpcLinkRequest");
+  export const isa = (o: any): o is GetVpcLinkRequest => __isa(o, "GetVpcLinkRequest");
 }
 
 /**
@@ -4696,28 +4522,26 @@ export namespace GetVpcLinkRequest {
  */
 export interface GetVpcLinksRequest {
   __type?: "GetVpcLinksRequest";
-  /**
-   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
-   */
-  limit?: number;
-
-  name?: string;
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
+  /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
+   */
+  limit?: number;
 }
 
 export namespace GetVpcLinksRequest {
   export const filterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinksRequest =>
-    __isa(o, "GetVpcLinksRequest");
+  export const isa = (o: any): o is GetVpcLinksRequest => __isa(o, "GetVpcLinksRequest");
 }
 
 /**
@@ -4725,28 +4549,27 @@ export namespace GetVpcLinksRequest {
  */
 export interface ImportApiKeysRequest {
   __type?: "ImportApiKeysRequest";
-  /**
-   * <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
-   */
-  failOnWarnings?: boolean;
-
+  name?: string;
   /**
    * <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
    */
   format: ApiKeysFormat | string | undefined;
 
-  name?: string;
   template?: boolean;
   templateSkipList?: string[];
+  /**
+   * <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
+   */
+  failOnWarnings?: boolean;
+
   title?: string;
 }
 
 export namespace ImportApiKeysRequest {
   export const filterSensitiveLog = (obj: ImportApiKeysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportApiKeysRequest =>
-    __isa(o, "ImportApiKeysRequest");
+  export const isa = (o: any): o is ImportApiKeysRequest => __isa(o, "ImportApiKeysRequest");
 }
 
 /**
@@ -4754,35 +4577,31 @@ export namespace ImportApiKeysRequest {
  */
 export interface ImportDocumentationPartsRequest {
   __type?: "ImportDocumentationPartsRequest";
-  /**
-   * <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
-   */
-  failOnWarnings?: boolean;
-
-  /**
-   * <p>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing <a>DocumentationParts</a> definition or to merge (<code>MERGE</code>) the new definition into the existing one. The default value is <code>MERGE</code>.</p>
-   */
-  mode?: PutMode | string;
-
   name?: string;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  /**
+   * <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
+   */
+  failOnWarnings?: boolean;
+
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing <a>DocumentationParts</a> definition or to merge (<code>MERGE</code>) the new definition into the existing one. The default value is <code>MERGE</code>.</p>
+   */
+  mode?: PutMode | string;
 }
 
 export namespace ImportDocumentationPartsRequest {
-  export const filterSensitiveLog = (
-    obj: ImportDocumentationPartsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportDocumentationPartsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImportDocumentationPartsRequest =>
-    __isa(o, "ImportDocumentationPartsRequest");
+  export const isa = (o: any): o is ImportDocumentationPartsRequest => __isa(o, "ImportDocumentationPartsRequest");
 }
 
 /**
@@ -4796,7 +4615,7 @@ export interface ImportRestApiRequest {
    */
   failOnWarnings?: boolean;
 
-  name?: string;
+  template?: boolean;
   /**
    * <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p>
    *         <p> To exclude <a>DocumentationParts</a> from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p>
@@ -4809,17 +4628,16 @@ export interface ImportRestApiRequest {
    */
   parameters?: { [key: string]: string };
 
-  template?: boolean;
+  name?: string;
   templateSkipList?: string[];
   title?: string;
 }
 
 export namespace ImportRestApiRequest {
   export const filterSensitiveLog = (obj: ImportRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportRestApiRequest =>
-    __isa(o, "ImportRestApiRequest");
+  export const isa = (o: any): o is ImportRestApiRequest => __isa(o, "ImportRestApiRequest");
 }
 
 /**
@@ -4832,14 +4650,62 @@ export namespace ImportRestApiRequest {
 export interface Integration {
   __type?: "Integration";
   /**
+   * <p>Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code> across resources to return the same cached data for requests to different resources.</p>
+   */
+  cacheNamespace?: string;
+
+  /**
+   * <p>Specifies the integration's HTTP method type.</p>
+   */
+  httpMethod?: string;
+
+  /**
+   * <p>Specifies an API method integration type. The valid value is one of the following:</p>
+   *         <ul>
+   *             <li><code>AWS</code>: for integrating the API method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.</li>
+   *             <li><code>AWS_PROXY</code>: for integrating the API method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as the Lambda proxy integration.</li>
+   *             <li><code>HTTP</code>: for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.</li>
+   *             <li><code>HTTP_PROXY</code>: for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.</li>
+   *             <li><code>MOCK</code>: for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.</li>
+   *         </ul>
+   *         <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a <a>VpcLink</a> to connect API Gateway to a network load balancer of a VPC.</p>
+   */
+  type?: IntegrationType | string;
+
+  /**
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
+   */
+  timeoutInMillis?: number;
+
+  /**
+   * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
+   * <ul>
+   * <li><p> For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <a target="_blank" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">RFC-3986 specification</a>, for either standard integration, where <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration, the URI is not used for routing. </p>
+   * </li>
+   * <li><p> For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>. Here, <code>{Region}</code> is the API Gateway region (e.g., <code>us-east-1</code>); <code>{service}</code> is the name of the integrated AWS service (e.g., <code>s3</code>); and <code>{subdomain}</code> is a designated subdomain supported by certain AWS service for fast host-name lookup. <code>action</code> can be used for an AWS service action-based API, using an <code>Action={name}&{p1}={v1}&p2={v2}...</code> query string. The ensuing <code>{service_api}</code> refers to a supported action <code>{name}</code> plus any required input parameters. Alternatively, <code>path</code> can be used for an AWS service path-based API. The ensuing  <code>service_api</code> refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of <code><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html">GetObject</a></code>, the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or  <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code></p>
+   * </li></ul>
+   */
+  uri?: string;
+
+  /**
+   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
+   */
+  connectionType?: ConnectionType | string;
+
+  /**
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
+   */
+  requestParameters?: { [key: string]: string };
+
+  /**
+   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
+   */
+  requestTemplates?: { [key: string]: string };
+
+  /**
    * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
    */
   cacheKeyParameters?: string[];
-
-  /**
-   * <p>An API-specific tag group of related cached parameters. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
-   */
-  cacheNamespace?: string;
 
   /**
    * <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
@@ -4847,9 +4713,42 @@ export interface Integration {
   connectionId?: string;
 
   /**
-   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
+   * <div>
+   *         <p>
+   *             Specifies how the method request body of an unmapped content type will be passed through the integration request
+   *             to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration
+   *             or the content type does not match any of the mapped content types, as specified in <code>requestTemplates</code>.
+   *             The valid value is one of the following:
+   *         </p>
+   *         <ul>
+   *           <li>
+   *             <code>WHEN_NO_MATCH</code>: passes the method request body through the integration request to the back end without transformation
+   *             when the method request content type does not match any content type associated with the mapping templates defined in the integration request.
+   *           </li>
+   *           <li>
+   *             <code>WHEN_NO_TEMPLATES</code>: passes the method request body through the integration request to the back end without transformation
+   *             when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request
+   *             of an unmapped content-type will be rejected with an HTTP <code>415 Unsupported Media Type</code> response.
+   *           </li>
+   *           <li>
+   *             <code>NEVER</code>: rejects the method request with an HTTP <code>415 Unsupported Media Type</code> response when either the method
+   *             request content type does not match any content type associated with the mapping templates defined in the integration request or
+   *             no mapping template is defined in the integration request.
+   *           </li>
+   *         </ul>
+   *       </div>
    */
-  connectionType?: ConnectionType | string;
+  passthroughBehavior?: string;
+
+  /**
+   * <p>Specifies the TLS configuration for an integration.</p>
+   */
+  tlsConfig?: TlsConfig;
+
+  /**
+   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported AWS services, specify null.</p>
+   */
+  credentials?: string;
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
@@ -4860,16 +4759,6 @@ export interface Integration {
    *       <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
-
-  /**
-   * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported AWS services, specify null.</p>
-   */
-  credentials?: string;
-
-  /**
-   * <p>Specifies the integration's HTTP method type.</p>
-   */
-  httpMethod?: string;
 
   /**
    * <p>Specifies the integration's responses.</p>
@@ -4919,77 +4808,11 @@ export interface Integration {
    *         </div>
    */
   integrationResponses?: { [key: string]: IntegrationResponse };
-
-  /**
-   * <div>
-   *         <p>
-   *             Specifies how the method request body of an unmapped content type will be passed through the integration request
-   *             to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration
-   *             or the content type does not match any of the mapped content types, as specified in <code>requestTemplates</code>.
-   *             The valid value is one of the following:
-   *         </p>
-   *         <ul>
-   *           <li>
-   *             <code>WHEN_NO_MATCH</code>: passes the method request body through the integration request to the back end without transformation
-   *             when the method request content type does not match any content type associated with the mapping templates defined in the integration request.
-   *           </li>
-   *           <li>
-   *             <code>WHEN_NO_TEMPLATES</code>: passes the method request body through the integration request to the back end without transformation
-   *             when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request
-   *             of an unmapped content-type will be rejected with an HTTP <code>415 Unsupported Media Type</code> response.
-   *           </li>
-   *           <li>
-   *             <code>NEVER</code>: rejects the method request with an HTTP <code>415 Unsupported Media Type</code> response when either the method
-   *             request content type does not match any content type associated with the mapping templates defined in the integration request or
-   *             no mapping template is defined in the integration request.
-   *           </li>
-   *         </ul>
-   *       </div>
-   */
-  passthroughBehavior?: string;
-
-  /**
-   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
-   */
-  requestParameters?: { [key: string]: string };
-
-  /**
-   * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
-   */
-  requestTemplates?: { [key: string]: string };
-
-  /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
-   */
-  timeoutInMillis?: number;
-
-  /**
-   * <p>Specifies an API method integration type. The valid value is one of the following:</p>
-   *         <ul>
-   *             <li><code>AWS</code>: for integrating the API method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration.</li>
-   *             <li><code>AWS_PROXY</code>: for integrating the API method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as the Lambda proxy integration.</li>
-   *             <li><code>HTTP</code>: for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC. This integration is also referred to as the HTTP custom integration.</li>
-   *             <li><code>HTTP_PROXY</code>: for integrating the API method request with an HTTP endpoint, including a private HTTP endpoint within a VPC, with the client request passed through as-is. This is also referred to as the HTTP proxy integration.</li>
-   *             <li><code>MOCK</code>: for integrating the API method request with API Gateway as a "loop-back" endpoint without invoking any backend.</li>
-   *         </ul>
-   *         <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a <a>VpcLink</a> to connect API Gateway to a network load balancer of a VPC.</p>
-   */
-  type?: IntegrationType | string;
-
-  /**
-   * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
-   * <ul>
-   * <li><p> For <code>HTTP</code> or <code>HTTP_PROXY</code> integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <a target="_blank" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">RFC-3986 specification</a>, for either standard integration, where <code>connectionType</code> is not <code>VPC_LINK</code>, or private integration, where <code>connectionType</code> is <code>VPC_LINK</code>. For a private HTTP integration, the URI is not used for routing. </p>
-   * </li>
-   * <li><p> For <code>AWS</code> or <code>AWS_PROXY</code> integrations, the URI is of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}</code>. Here, <code>{Region}</code> is the API Gateway region (e.g., <code>us-east-1</code>); <code>{service}</code> is the name of the integrated AWS service (e.g., <code>s3</code>); and <code>{subdomain}</code> is a designated subdomain supported by certain AWS service for fast host-name lookup. <code>action</code> can be used for an AWS service action-based API, using an <code>Action={name}&{p1}={v1}&p2={v2}...</code> query string. The ensuing <code>{service_api}</code> refers to a supported action <code>{name}</code> plus any required input parameters. Alternatively, <code>path</code> can be used for an AWS service path-based API. The ensuing  <code>service_api</code> refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of <code><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html">GetObject</a></code>, the <code>uri</code> can be either <code>arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}</code> or  <code>arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}</code></p>
-   * </li></ul>
-   */
-  uri?: string;
 }
 
 export namespace Integration {
   export const filterSensitiveLog = (obj: Integration): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Integration => __isa(o, "Integration");
 }
@@ -5003,16 +4826,6 @@ export namespace Integration {
 export interface IntegrationResponse {
   __type?: "IntegrationResponse";
   /**
-   * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *     <ul>
-   *       <li><p><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p></li>
-   *       <li><p><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a Base64-encoded string.</p></li>
-   *     </ul>
-   *     <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
-   */
-  contentHandling?: ContentHandlingStrategy | string;
-
-  /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
    */
@@ -5024,22 +4837,31 @@ export interface IntegrationResponse {
   responseTemplates?: { [key: string]: string };
 
   /**
+   * <p>Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
+   */
+  statusCode?: string;
+
+  /**
    * <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.</p>
    */
   selectionPattern?: string;
 
   /**
-   * <p>Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
+   * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
+   *     <ul>
+   *       <li><p><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p></li>
+   *       <li><p><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a Base64-encoded string.</p></li>
+   *     </ul>
+   *     <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  statusCode?: string;
+  contentHandling?: ContentHandlingStrategy | string;
 }
 
 export namespace IntegrationResponse {
   export const filterSensitiveLog = (obj: IntegrationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IntegrationResponse =>
-    __isa(o, "IntegrationResponse");
+  export const isa = (o: any): o is IntegrationResponse => __isa(o, "IntegrationResponse");
 }
 
 export enum IntegrationType {
@@ -5047,15 +4869,13 @@ export enum IntegrationType {
   AWS_PROXY = "AWS_PROXY",
   HTTP = "HTTP",
   HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK"
+  MOCK = "MOCK",
 }
 
 /**
  * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -5064,15 +4884,14 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum LocationStatusType {
   DOCUMENTED = "DOCUMENTED",
-  UNDOCUMENTED = "UNDOCUMENTED"
+  UNDOCUMENTED = "UNDOCUMENTED",
 }
 
 /**
@@ -5244,14 +5063,9 @@ export enum LocationStatusType {
 export interface Method {
   __type?: "Method";
   /**
-   * <p>A boolean flag specifying whether a valid <a>ApiKey</a> is required to invoke this method.</p>
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or templates.</p>
    */
-  apiKeyRequired?: boolean;
-
-  /**
-   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
-   */
-  authorizationScopes?: string[];
+  requestParameters?: { [key: string]: boolean };
 
   /**
    * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
@@ -5259,14 +5073,70 @@ export interface Method {
   authorizationType?: string;
 
   /**
-   * <p>The identifier of an <a>Authorizer</a> to use on this method. The <code>authorizationType</code> must be <code>CUSTOM</code>.</p>
-   */
-  authorizerId?: string;
-
-  /**
    * <p>The method's HTTP verb.</p>
    */
   httpMethod?: string;
+
+  /**
+   * <p>Gets a method response associated with a given HTTP status code. </p>
+   *       <div class="remarks">
+   *         <p>The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a <a>MethodResponse</a> resource that specifies the response returned to the caller from the back end through the integration response.</p>
+   *         <h4>Example: Get a 200 OK response of a GET method</h4>
+   *         <h5>Request</h5>
+   *         <p></p>
+   *         <pre><code>GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200 HTTP/1.1
+   * Content-Type: application/json
+   * Host: apigateway.us-east-1.amazonaws.com
+   * Content-Length: 117
+   * X-Amz-Date: 20160613T215008Z
+   * Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre>
+   *         <h5>Response</h5>
+   *         <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p>
+   *         <pre><code>{
+   *   "_links": {
+   *     "curies": {
+   *       "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html",
+   *       "name": "methodresponse",
+   *       "templated": true
+   *     },
+   *     "self": {
+   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200",
+   *       "title": "200"
+   *     },
+   *     "methodresponse:delete": {
+   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200"
+   *     },
+   *     "methodresponse:update": {
+   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200"
+   *     }
+   *   },
+   *   "responseModels": {
+   *     "application/json": "Empty"
+   *   },
+   *   "responseParameters": {
+   *     "method.response.header.operator": false,
+   *     "method.response.header.operand_2": false,
+   *     "method.response.header.operand_1": false
+   *   },
+   *   "statusCode": "200"
+   * }</code></pre>
+   *         <p></p>
+   *       </div>
+   *       <div class="seeAlso">
+   *         <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html">AWS CLI</a>
+   *       </div>
+   */
+  methodResponses?: { [key: string]: MethodResponse };
+
+  /**
+   * <p>The identifier of a <a>RequestValidator</a> for request validation.</p>
+   */
+  requestValidatorId?: string;
+
+  /**
+   * <p>The identifier of an <a>Authorizer</a> to use on this method. The <code>authorizationType</code> must be <code>CUSTOM</code>.</p>
+   */
+  authorizerId?: string;
 
   /**
    * <p>Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.</p>
@@ -5363,80 +5233,29 @@ export interface Method {
   methodIntegration?: Integration;
 
   /**
-   * <p>Gets a method response associated with a given HTTP status code. </p>
-   *       <div class="remarks">
-   *         <p>The collection of method responses are encapsulated in a key-value map, where the key is a response's HTTP status code and the value is a <a>MethodResponse</a> resource that specifies the response returned to the caller from the back end through the integration response.</p>
-   *         <h4>Example: Get a 200 OK response of a GET method</h4>
-   *         <h5>Request</h5>
-   *         <p></p>
-   *         <pre><code>GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200 HTTP/1.1
-   * Content-Type: application/json
-   * Host: apigateway.us-east-1.amazonaws.com
-   * Content-Length: 117
-   * X-Amz-Date: 20160613T215008Z
-   * Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre>
-   *         <h5>Response</h5>
-   *         <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p>
-   *         <pre><code>{
-   *   "_links": {
-   *     "curies": {
-   *       "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html",
-   *       "name": "methodresponse",
-   *       "templated": true
-   *     },
-   *     "self": {
-   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200",
-   *       "title": "200"
-   *     },
-   *     "methodresponse:delete": {
-   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200"
-   *     },
-   *     "methodresponse:update": {
-   *       "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200"
-   *     }
-   *   },
-   *   "responseModels": {
-   *     "application/json": "Empty"
-   *   },
-   *   "responseParameters": {
-   *     "method.response.header.operator": false,
-   *     "method.response.header.operand_2": false,
-   *     "method.response.header.operand_1": false
-   *   },
-   *   "statusCode": "200"
-   * }</code></pre>
-   *         <p></p>
-   *       </div>
-   *       <div class="seeAlso">
-   *         <a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html">AWS CLI</a>
-   *       </div>
-   */
-  methodResponses?: { [key: string]: MethodResponse };
-
-  /**
    * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
    */
   operationName?: string;
 
   /**
+   * <p>A boolean flag specifying whether a valid <a>ApiKey</a> is required to invoke this method.</p>
+   */
+  apiKeyRequired?: boolean;
+
+  /**
+   * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
+   */
+  authorizationScopes?: string[];
+
+  /**
    * <p>A key-value map specifying data schemas, represented by <a>Model</a> resources, (as the mapped value) of the request payloads of given content types (as the mapping key).</p>
    */
   requestModels?: { [key: string]: string };
-
-  /**
-   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or templates.</p>
-   */
-  requestParameters?: { [key: string]: boolean };
-
-  /**
-   * <p>The identifier of a <a>RequestValidator</a> for request validation.</p>
-   */
-  requestValidatorId?: string;
 }
 
 export namespace Method {
   export const filterSensitiveLog = (obj: Method): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Method => __isa(o, "Method");
 }
@@ -5496,22 +5315,21 @@ export interface MethodResponse {
   responseModels?: { [key: string]: string };
 
   /**
-   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's <a>IntegrationResponse</a>. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
-   */
-  responseParameters?: { [key: string]: boolean };
-
-  /**
    * <p>The method response's status code.</p>
    */
   statusCode?: string;
+
+  /**
+   * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's <a>IntegrationResponse</a>. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
+   */
+  responseParameters?: { [key: string]: boolean };
 }
 
 export namespace MethodResponse {
   export const filterSensitiveLog = (obj: MethodResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MethodResponse =>
-    __isa(o, "MethodResponse");
+  export const isa = (o: any): o is MethodResponse => __isa(o, "MethodResponse");
 }
 
 /**
@@ -5520,19 +5338,14 @@ export namespace MethodResponse {
 export interface MethodSetting {
   __type?: "MethodSetting";
   /**
-   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/{method_setting_key}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
+   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/{method_setting_key}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
    */
-  cacheDataEncrypted?: boolean;
+  requireAuthorizationForCacheControl?: boolean;
 
   /**
-   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/ttlInSeconds</code>, and the value is an integer.</p>
+   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
    */
-  cacheTtlInSeconds?: number;
-
-  /**
-   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/enabled</code>, and the value is a Boolean.</p>
-   */
-  cachingEnabled?: boolean;
+  loggingLevel?: string;
 
   /**
    * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/dataTrace</code>, and the value is a Boolean.</p>
@@ -5540,9 +5353,14 @@ export interface MethodSetting {
   dataTraceEnabled?: boolean;
 
   /**
-   * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is <code>/{method_setting_key}/logging/loglevel</code>, and the available levels are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>.</p>
+   * <p>Specifies whether the cached responses are encrypted. The PATCH path for this setting is <code>/{method_setting_key}/caching/dataEncrypted</code>, and the value is a Boolean.</p>
    */
-  loggingLevel?: string;
+  cacheDataEncrypted?: boolean;
+
+  /**
+   * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/enabled</code>, and the value is a Boolean.</p>
+   */
+  cachingEnabled?: boolean;
 
   /**
    * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is <code>/{method_setting_key}/metrics/enabled</code>, and the value is a Boolean.</p>
@@ -5550,14 +5368,14 @@ export interface MethodSetting {
   metricsEnabled?: boolean;
 
   /**
-   * <p>Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is <code>/{method_setting_key}/caching/requireAuthorizationForCacheControl</code>, and the value is a Boolean.</p>
-   */
-  requireAuthorizationForCacheControl?: boolean;
-
-  /**
    * <p>Specifies the throttling burst limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/burstLimit</code>, and the value is an integer.</p>
    */
   throttlingBurstLimit?: number;
+
+  /**
+   * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached. The PATCH path for this setting is <code>/{method_setting_key}/caching/ttlInSeconds</code>, and the value is an integer.</p>
+   */
+  cacheTtlInSeconds?: number;
 
   /**
    * <p>Specifies the throttling rate limit. The PATCH path for this setting is <code>/{method_setting_key}/throttling/rateLimit</code>, and the value is a double.</p>
@@ -5567,14 +5385,12 @@ export interface MethodSetting {
   /**
    * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    */
-  unauthorizedCacheControlHeaderStrategy?:
-    | UnauthorizedCacheControlHeaderStrategy
-    | string;
+  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
 }
 
 export namespace MethodSetting {
   export const filterSensitiveLog = (obj: MethodSetting): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MethodSetting => __isa(o, "MethodSetting");
 }
@@ -5585,22 +5401,21 @@ export namespace MethodSetting {
 export interface MethodSnapshot {
   __type?: "MethodSnapshot";
   /**
-   * <p>Specifies whether the method requires a valid <a>ApiKey</a>.</p>
-   */
-  apiKeyRequired?: boolean;
-
-  /**
    * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    */
   authorizationType?: string;
+
+  /**
+   * <p>Specifies whether the method requires a valid <a>ApiKey</a>.</p>
+   */
+  apiKeyRequired?: boolean;
 }
 
 export namespace MethodSnapshot {
   export const filterSensitiveLog = (obj: MethodSnapshot): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MethodSnapshot =>
-    __isa(o, "MethodSnapshot");
+  export const isa = (o: any): o is MethodSnapshot => __isa(o, "MethodSnapshot");
 }
 
 /**
@@ -5616,16 +5431,6 @@ export namespace MethodSnapshot {
 export interface Model {
   __type?: "Model";
   /**
-   * <p>The content-type for the model.</p>
-   */
-  contentType?: string;
-
-  /**
-   * <p>The description of the model.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The identifier for the model resource.</p>
    */
   id?: string;
@@ -5636,6 +5441,16 @@ export interface Model {
   name?: string;
 
   /**
+   * <p>The content-type for the model.</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>The description of the model.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The schema for the model. For <code>application/json</code> models, this should be <a target="_blank" href="https://tools.ietf.org/html/draft-zyp-json-schema-04">JSON schema draft 4</a> model. Do not include "\*\/" characters in the description of any properties because such "\*\/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.</p>
    */
   schema?: string;
@@ -5643,7 +5458,7 @@ export interface Model {
 
 export namespace Model {
   export const filterSensitiveLog = (obj: Model): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Model => __isa(o, "Model");
 }
@@ -5669,7 +5484,7 @@ export interface Models {
 
 export namespace Models {
   export const filterSensitiveLog = (obj: Models): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Models => __isa(o, "Models");
 }
@@ -5685,10 +5500,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
@@ -5700,9 +5514,9 @@ export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
 export interface PatchOperation {
   __type?: "PatchOperation";
   /**
-   * <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
+   * <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
    */
-  from?: string;
+  value?: string;
 
   /**
    * <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
@@ -5710,22 +5524,21 @@ export interface PatchOperation {
   op?: Op | string;
 
   /**
+   * <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
+   */
+  from?: string;
+
+  /**
    * <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
    */
   path?: string;
-
-  /**
-   * <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
-   */
-  value?: string;
 }
 
 export namespace PatchOperation {
   export const filterSensitiveLog = (obj: PatchOperation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PatchOperation =>
-    __isa(o, "PatchOperation");
+  export const isa = (o: any): o is PatchOperation => __isa(o, "PatchOperation");
 }
 
 /**
@@ -5733,43 +5546,41 @@ export namespace PatchOperation {
  */
 export interface PutGatewayResponseRequest {
   __type?: "PutGatewayResponseRequest";
-  name?: string;
   /**
-   * <p><p>Response parameters (paths, query strings and headers) of the <a>GatewayResponse</a> as a string-to-string map of key-value  pairs.</p></p>
+   * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
    */
-  responseParameters?: { [key: string]: string };
+  responseType: GatewayResponseType | string | undefined;
 
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  name?: string;
+  title?: string;
   /**
    * <p><p>Response templates of the <a>GatewayResponse</a> as a string-to-string map of key-value pairs.</p></p>
    */
   responseTemplates?: { [key: string]: string };
 
   /**
-   * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
-   */
-  responseType: GatewayResponseType | string | undefined;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  /**
    * The HTTP status code of the <a>GatewayResponse</a>.
    */
   statusCode?: string;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p><p>Response parameters (paths, query strings and headers) of the <a>GatewayResponse</a> as a string-to-string map of key-value  pairs.</p></p>
+   */
+  responseParameters?: { [key: string]: string };
 }
 
 export namespace PutGatewayResponseRequest {
   export const filterSensitiveLog = (obj: PutGatewayResponseRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutGatewayResponseRequest =>
-    __isa(o, "PutGatewayResponseRequest");
+  export const isa = (o: any): o is PutGatewayResponseRequest => __isa(o, "PutGatewayResponseRequest");
 }
 
 /**
@@ -5778,24 +5589,28 @@ export namespace PutGatewayResponseRequest {
 export interface PutIntegrationRequest {
   __type?: "PutIntegrationRequest";
   /**
-   * <p>An API-specific tag group of related cached parameters.</p>
+   * <p>[Required] Specifies a put integration request's resource ID.</p>
    */
-  cacheKeyParameters?: string[];
+  resourceId: string | undefined;
+
+  template?: boolean;
+  name?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
 
   /**
-   * <p>A list of request parameters whose values are to be cached.</p>
+   * <p>[Required] Specifies a put integration request's HTTP method.</p>
    */
-  cacheNamespace?: string;
+  httpMethod: string | undefined;
 
+  templateSkipList?: string[];
+  title?: string;
   /**
-   * <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
    */
-  connectionId?: string;
-
-  /**
-   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
-   */
-  connectionType?: ConnectionType | string;
+  timeoutInMillis?: number;
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
@@ -5808,21 +5623,15 @@ export interface PutIntegrationRequest {
   contentHandling?: ContentHandlingStrategy | string;
 
   /**
+   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
+   */
+  requestParameters?: { [key: string]: string };
+
+  /**
    * <p>Specifies whether credentials are required for a put integration.</p>
    */
   credentials?: string;
 
-  /**
-   * <p>[Required] Specifies a put integration request's HTTP method.</p>
-   */
-  httpMethod: string | undefined;
-
-  /**
-   * <p>Specifies a put integration HTTP method. When the integration type is HTTP or AWS, this field is required.</p>
-   */
-  integrationHttpMethod?: string;
-
-  name?: string;
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the <code>requestTemplates</code> property on the Integration resource. There are three valid values:  <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>.
    *         </p>
@@ -5835,38 +5644,26 @@ export interface PutIntegrationRequest {
   passthroughBehavior?: string;
 
   /**
-   * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
-   */
-  requestParameters?: { [key: string]: string };
-
-  /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    */
   requestTemplates?: { [key: string]: string };
 
   /**
-   * <p>[Required] Specifies a put integration request's resource ID.</p>
+   * <p>The (<a href="https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id"><code>id</code></a>) of the <a>VpcLink</a> used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
    */
-  resourceId: string | undefined;
+  connectionId?: string;
 
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>
    */
-  restApiId: string | undefined;
+  cacheKeyParameters?: string[];
 
-  template?: boolean;
-  templateSkipList?: string[];
-  /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
-   */
-  timeoutInMillis?: number;
-
-  title?: string;
   /**
    * <p>[Required] Specifies a put integration input's type.</p>
    */
   type: IntegrationType | string | undefined;
 
+  tlsConfig?: TlsConfig;
   /**
    * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
    * <ul>
@@ -5876,14 +5673,28 @@ export interface PutIntegrationRequest {
    * </li></ul>
    */
   uri?: string;
+
+  /**
+   * <p>Specifies a put integration HTTP method. When the integration type is HTTP or AWS, this field is required.</p>
+   */
+  integrationHttpMethod?: string;
+
+  /**
+   * <p>Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code> across resources to return the same cached data for requests to different resources.</p>
+   */
+  cacheNamespace?: string;
+
+  /**
+   * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
+   */
+  connectionType?: ConnectionType | string;
 }
 
 export namespace PutIntegrationRequest {
   export const filterSensitiveLog = (obj: PutIntegrationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutIntegrationRequest =>
-    __isa(o, "PutIntegrationRequest");
+  export const isa = (o: any): o is PutIntegrationRequest => __isa(o, "PutIntegrationRequest");
 }
 
 /**
@@ -5892,26 +5703,29 @@ export namespace PutIntegrationRequest {
 export interface PutIntegrationResponseRequest {
   __type?: "PutIntegrationResponseRequest";
   /**
-   * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
-   *     <ul>
-   *       <li><p><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p></li>
-   *       <li><p><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a Base64-encoded string.</p></li>
-   *     </ul>
-   *     <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
+   * <p>[Required] Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  statusCode: string | undefined;
 
+  /**
+   * <p>[Required] Specifies a put integration response request's resource identifier.</p>
+   */
+  resourceId: string | undefined;
+
+  template?: boolean;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] Specifies a put integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
 
   name?: string;
-  /**
-   * <p>[Required] Specifies a put integration response request's resource identifier.</p>
-   */
-  resourceId: string | undefined;
-
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.{name}</code> or <code>integration.response.body.{JSON-expression}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
@@ -5924,33 +5738,26 @@ export interface PutIntegrationResponseRequest {
   responseTemplates?: { [key: string]: string };
 
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  /**
    * <p>Specifies the selection pattern of a put integration response.</p>
    */
   selectionPattern?: string;
 
   /**
-   * <p>[Required] Specifies the status code that is used to map the integration response to an existing <a>MethodResponse</a>.</p>
+   * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
+   *     <ul>
+   *       <li><p><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p></li>
+   *       <li><p><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a Base64-encoded string.</p></li>
+   *     </ul>
+   *     <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  statusCode: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  contentHandling?: ContentHandlingStrategy | string;
 }
 
 export namespace PutIntegrationResponseRequest {
-  export const filterSensitiveLog = (
-    obj: PutIntegrationResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutIntegrationResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutIntegrationResponseRequest =>
-    __isa(o, "PutIntegrationResponseRequest");
+  export const isa = (o: any): o is PutIntegrationResponseRequest => __isa(o, "PutIntegrationResponseRequest");
 }
 
 /**
@@ -5959,9 +5766,33 @@ export namespace PutIntegrationResponseRequest {
 export interface PutMethodRequest {
   __type?: "PutMethodRequest";
   /**
-   * <p>Specifies whether the method required a valid <a>ApiKey</a>.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  apiKeyRequired?: boolean;
+  restApiId: string | undefined;
+
+  name?: string;
+  /**
+   * <p>[Required] The <a>Resource</a> identifier for the new <a>Method</a> resource.</p>
+   */
+  resourceId: string | undefined;
+
+  template?: boolean;
+  /**
+   * <p>[Required] Specifies the method request's HTTP method type.</p>
+   */
+  httpMethod: string | undefined;
+
+  title?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>Specifies the <a>Model</a> resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
+   */
+  requestModels?: { [key: string]: string };
+
+  /**
+   * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
+   */
+  operationName?: string;
 
   /**
    * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
@@ -5974,30 +5805,14 @@ export interface PutMethodRequest {
   authorizationType: string | undefined;
 
   /**
+   * <p>Specifies whether the method required a valid <a>ApiKey</a>.</p>
+   */
+  apiKeyRequired?: boolean;
+
+  /**
    * <p>Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type is CUSTOM or COGNITO_USER_POOLS. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
    */
   authorizerId?: string;
-
-  /**
-   * <p>[Required] Specifies the method request's HTTP method type.</p>
-   */
-  httpMethod: string | undefined;
-
-  name?: string;
-  /**
-   * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
-   */
-  operationName?: string;
-
-  /**
-   * <p>Specifies the <a>Model</a> resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
-   */
-  requestModels?: { [key: string]: string };
-
-  /**
-   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or body-mapping templates.</p>
-   */
-  requestParameters?: { [key: string]: boolean };
 
   /**
    * <p>The identifier of a <a>RequestValidator</a> for validating the method request.</p>
@@ -6005,26 +5820,16 @@ export interface PutMethodRequest {
   requestValidatorId?: string;
 
   /**
-   * <p>[Required] The <a>Resource</a> identifier for the new <a>Method</a> resource.</p>
+   * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.{location}.{name}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in <a>Integration</a> to be mapped to integration request parameters or body-mapping templates.</p>
    */
-  resourceId: string | undefined;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  requestParameters?: { [key: string]: boolean };
 }
 
 export namespace PutMethodRequest {
   export const filterSensitiveLog = (obj: PutMethodRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutMethodRequest =>
-    __isa(o, "PutMethodRequest");
+  export const isa = (o: any): o is PutMethodRequest => __isa(o, "PutMethodRequest");
 }
 
 /**
@@ -6032,21 +5837,29 @@ export namespace PutMethodRequest {
  */
 export interface PutMethodResponseRequest {
   __type?: "PutMethodResponseRequest";
-  /**
-   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
-   */
-  httpMethod: string | undefined;
-
   name?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
   /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
+  template?: boolean;
   /**
-   * <p>Specifies the <a>Model</a> resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
+   * <p>[Required] The method response's status code.</p>
    */
-  responseModels?: { [key: string]: string };
+  statusCode: string | undefined;
+
+  title?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
+   */
+  httpMethod: string | undefined;
 
   /**
    * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.{name}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.{JSON-expression}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
@@ -6054,31 +5867,21 @@ export interface PutMethodResponseRequest {
   responseParameters?: { [key: string]: boolean };
 
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>Specifies the <a>Model</a> resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a <a>Model</a> name as the value.</p>
    */
-  restApiId: string | undefined;
-
-  /**
-   * <p>[Required] The method response's status code.</p>
-   */
-  statusCode: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  responseModels?: { [key: string]: string };
 }
 
 export namespace PutMethodResponseRequest {
   export const filterSensitiveLog = (obj: PutMethodResponseRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutMethodResponseRequest =>
-    __isa(o, "PutMethodResponseRequest");
+  export const isa = (o: any): o is PutMethodResponseRequest => __isa(o, "PutMethodResponseRequest");
 }
 
 export enum PutMode {
   Merge = "merge",
-  Overwrite = "overwrite"
+  Overwrite = "overwrite",
 }
 
 /**
@@ -6086,6 +5889,20 @@ export enum PutMode {
  */
 export interface PutRestApiRequest {
   __type?: "PutRestApiRequest";
+  title?: string;
+  /**
+   * <p>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a> from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
+   */
+  parameters?: { [key: string]: string };
+
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
+   *         the update mode is "merge".</p>
+   */
+  mode?: PutMode | string;
+
   /**
    * <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
    *             when a warning is encountered. The default value is <code>false</code>.</p>
@@ -6093,39 +5910,24 @@ export interface PutRestApiRequest {
   failOnWarnings?: boolean;
 
   /**
-   * <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
-   *         the update mode is "merge".</p>
-   */
-  mode?: PutMode | string;
-
-  name?: string;
-  /**
-   * <p>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a> from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
-   */
-  parameters?: { [key: string]: string };
-
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
 }
 
 export namespace PutRestApiRequest {
   export const filterSensitiveLog = (obj: PutRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRestApiRequest =>
-    __isa(o, "PutRestApiRequest");
+  export const isa = (o: any): o is PutRestApiRequest => __isa(o, "PutRestApiRequest");
 }
 
 export enum QuotaPeriodType {
   DAY = "DAY",
   MONTH = "MONTH",
-  WEEK = "WEEK"
+  WEEK = "WEEK",
 }
 
 /**
@@ -6133,6 +5935,11 @@ export enum QuotaPeriodType {
  */
 export interface QuotaSettings {
   __type?: "QuotaSettings";
+  /**
+   * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
+   */
+  period?: QuotaPeriodType | string;
+
   /**
    * <p>The maximum number of requests that can be made in a given time period.</p>
    */
@@ -6142,16 +5949,11 @@ export interface QuotaSettings {
    * <p>The number of requests subtracted from the given limit in the initial time period.</p>
    */
   offset?: number;
-
-  /**
-   * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
-   */
-  period?: QuotaPeriodType | string;
 }
 
 export namespace QuotaSettings {
   export const filterSensitiveLog = (obj: QuotaSettings): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is QuotaSettings => __isa(o, "QuotaSettings");
 }
@@ -6171,11 +5973,6 @@ export interface RequestValidator {
   id?: string;
 
   /**
-   * <p>The name of this <a>RequestValidator</a></p>
-   */
-  name?: string;
-
-  /**
    * <p>A Boolean flag to indicate whether to validate a request body according to the configured <a>Model</a> schema.</p>
    */
   validateRequestBody?: boolean;
@@ -6184,14 +5981,18 @@ export interface RequestValidator {
    * <p>A Boolean flag to indicate whether to validate request parameters (<code>true</code>) or not (<code>false</code>).</p>
    */
   validateRequestParameters?: boolean;
+
+  /**
+   * <p>The name of this <a>RequestValidator</a></p>
+   */
+  name?: string;
 }
 
 export namespace RequestValidator {
   export const filterSensitiveLog = (obj: RequestValidator): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestValidator =>
-    __isa(o, "RequestValidator");
+  export const isa = (o: any): o is RequestValidator => __isa(o, "RequestValidator");
 }
 
 /**
@@ -6216,10 +6017,9 @@ export interface RequestValidators {
 
 export namespace RequestValidators {
   export const filterSensitiveLog = (obj: RequestValidators): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestValidators =>
-    __isa(o, "RequestValidators");
+  export const isa = (o: any): o is RequestValidators => __isa(o, "RequestValidators");
 }
 
 /**
@@ -6234,21 +6034,6 @@ export interface Resource {
    * <p>The resource's identifier.</p>
    */
   id?: string;
-
-  /**
-   * <p>The parent resource's identifier.</p>
-   */
-  parentId?: string;
-
-  /**
-   * <p>The full path for this resource.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The last path segment for this resource.</p>
-   */
-  pathPart?: string;
 
   /**
    * <p>Gets an API resource's method of a given HTTP verb.</p>
@@ -6406,11 +6191,26 @@ export interface Resource {
    *       </div>
    */
   resourceMethods?: { [key: string]: Method };
+
+  /**
+   * <p>The parent resource's identifier.</p>
+   */
+  parentId?: string;
+
+  /**
+   * <p>The full path for this resource.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The last path segment for this resource.</p>
+   */
+  pathPart?: string;
 }
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -6436,7 +6236,7 @@ export interface Resources {
 
 export namespace Resources {
   export const filterSensitiveLog = (obj: Resources): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resources => __isa(o, "Resources");
 }
@@ -6450,44 +6250,9 @@ export namespace Resources {
 export interface RestApi {
   __type?: "RestApi";
   /**
-   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
-   */
-  apiKeySource?: ApiKeySourceType | string;
-
-  /**
-   * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
-   */
-  binaryMediaTypes?: string[];
-
-  /**
-   * <p>The timestamp when the API was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
    * <p>The API's description.</p>
    */
   description?: string;
-
-  /**
-   * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
-   */
-  endpointConfiguration?: EndpointConfiguration;
-
-  /**
-   * <p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.</p>
-   */
-  minimumCompressionSize?: number;
-
-  /**
-   * <p>The API's name.</p>
-   */
-  name?: string;
 
   /**
    * A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration.
@@ -6495,9 +6260,19 @@ export interface RestApi {
   policy?: string;
 
   /**
-   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types of the API. </p>
    */
-  tags?: { [key: string]: string };
+  endpointConfiguration?: EndpointConfiguration;
+
+  /**
+   * <p>The source of the API key for metering requests according to a usage plan. Valid values are: <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul> </p>
+   */
+  apiKeySource?: ApiKeySourceType | string;
+
+  /**
+   * <p>The API's name.</p>
+   */
+  name?: string;
 
   /**
    * <p>A version identifier for the API.</p>
@@ -6505,14 +6280,39 @@ export interface RestApi {
   version?: string;
 
   /**
+   * <p>The collection of tags. Each tag element is associated with a given resource.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The warning messages reported when <code>failonwarnings</code> is turned on during API import.</p>
    */
   warnings?: string[];
+
+  /**
+   * <p>The timestamp when the API was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
+   */
+  binaryMediaTypes?: string[];
+
+  /**
+   * <p>A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.</p>
+   */
+  minimumCompressionSize?: number;
 }
 
 export namespace RestApi {
   export const filterSensitiveLog = (obj: RestApi): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RestApi => __isa(o, "RestApi");
 }
@@ -6538,7 +6338,7 @@ export interface RestApis {
 
 export namespace RestApis {
   export const filterSensitiveLog = (obj: RestApis): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RestApis => __isa(o, "RestApis");
 }
@@ -6559,9 +6359,9 @@ export interface SdkConfigurationProperty {
   description?: string;
 
   /**
-   * <p>The user-friendly name of an <a>SdkType</a> configuration property.</p>
+   * <p>A boolean flag of an <a>SdkType</a> configuration property to indicate if the associated SDK configuration property is required (<code>true</code>) or not (<code>false</code>).</p>
    */
-  friendlyName?: string;
+  required?: boolean;
 
   /**
    * <p>The name of a an <a>SdkType</a> configuration property.</p>
@@ -6569,17 +6369,16 @@ export interface SdkConfigurationProperty {
   name?: string;
 
   /**
-   * <p>A boolean flag of an <a>SdkType</a> configuration property to indicate if the associated SDK configuration property is required (<code>true</code>) or not (<code>false</code>).</p>
+   * <p>The user-friendly name of an <a>SdkType</a> configuration property.</p>
    */
-  required?: boolean;
+  friendlyName?: string;
 }
 
 export namespace SdkConfigurationProperty {
   export const filterSensitiveLog = (obj: SdkConfigurationProperty): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SdkConfigurationProperty =>
-    __isa(o, "SdkConfigurationProperty");
+  export const isa = (o: any): o is SdkConfigurationProperty => __isa(o, "SdkConfigurationProperty");
 }
 
 /**
@@ -6587,11 +6386,6 @@ export namespace SdkConfigurationProperty {
  */
 export interface SdkResponse {
   __type?: "SdkResponse";
-  /**
-   * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
-   */
-  body?: Uint8Array;
-
   /**
    * <p>The content-disposition header value in the HTTP response.</p>
    */
@@ -6601,11 +6395,16 @@ export interface SdkResponse {
    * <p>The content-type header value in the HTTP response.</p>
    */
   contentType?: string;
+
+  /**
+   * <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
+   */
+  body?: Uint8Array;
 }
 
 export namespace SdkResponse {
   export const filterSensitiveLog = (obj: SdkResponse): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SdkResponse => __isa(o, "SdkResponse");
 }
@@ -6616,9 +6415,9 @@ export namespace SdkResponse {
 export interface SdkType {
   __type?: "SdkType";
   /**
-   * <p>A list of configuration properties of an <a>SdkType</a>.</p>
+   * <p>The user-friendly name of an <a>SdkType</a> instance.</p>
    */
-  configurationProperties?: SdkConfigurationProperty[];
+  friendlyName?: string;
 
   /**
    * <p>The description of an <a>SdkType</a>.</p>
@@ -6626,9 +6425,9 @@ export interface SdkType {
   description?: string;
 
   /**
-   * <p>The user-friendly name of an <a>SdkType</a> instance.</p>
+   * <p>A list of configuration properties of an <a>SdkType</a>.</p>
    */
-  friendlyName?: string;
+  configurationProperties?: SdkConfigurationProperty[];
 
   /**
    * <p>The identifier of an <a>SdkType</a> instance.</p>
@@ -6638,7 +6437,7 @@ export interface SdkType {
 
 export namespace SdkType {
   export const filterSensitiveLog = (obj: SdkType): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SdkType => __isa(o, "SdkType");
 }
@@ -6656,7 +6455,7 @@ export interface SdkTypes {
 
 export namespace SdkTypes {
   export const filterSensitiveLog = (obj: SdkTypes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SdkTypes => __isa(o, "SdkTypes");
 }
@@ -6666,23 +6465,18 @@ export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
 /**
  * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
-  message?: string;
   retryAfterSeconds?: string;
+  message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -6694,41 +6488,6 @@ export namespace ServiceUnavailableException {
 export interface Stage {
   __type?: "Stage";
   /**
-   * <p>Settings for logging access in this stage.</p>
-   */
-  accessLogSettings?: AccessLogSettings;
-
-  /**
-   * <p>Specifies whether a cache cluster is enabled for the stage.</p>
-   */
-  cacheClusterEnabled?: boolean;
-
-  /**
-   * <p>The size of the cache cluster for the stage, if enabled.</p>
-   */
-  cacheClusterSize?: CacheClusterSize | string;
-
-  /**
-   * <p>The status of the cache cluster for the stage, if enabled.</p>
-   */
-  cacheClusterStatus?: CacheClusterStatus | string;
-
-  /**
-   * <p>Settings for the canary deployment in this stage.</p>
-   */
-  canarySettings?: CanarySettings;
-
-  /**
-   * <p>The identifier of a client certificate for an API stage.</p>
-   */
-  clientCertificateId?: string;
-
-  /**
-   * <p>The timestamp when the stage was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
    * <p>The identifier of the <a>Deployment</a> that the stage points to.</p>
    */
   deploymentId?: string;
@@ -6737,21 +6496,6 @@ export interface Stage {
    * <p>The stage's description.</p>
    */
   description?: string;
-
-  /**
-   * <p>The version of the associated API documentation.</p>
-   */
-  documentationVersion?: string;
-
-  /**
-   * <p>The timestamp when the stage last updated.</p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>A map that defines the method settings for a <a>Stage</a> resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  <!-- Any forward slash ("/") characters in the <code>resource_path</code> part must be encoded as "~1" as in, for example, <code>~1resource~1sub-resource/GET</code>.--></p>
-   */
-  methodSettings?: { [key: string]: MethodSetting };
 
   /**
    * <p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
@@ -6764,9 +6508,24 @@ export interface Stage {
   tags?: { [key: string]: string };
 
   /**
-   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
+   * <p>The status of the cache cluster for the stage, if enabled.</p>
    */
-  tracingEnabled?: boolean;
+  cacheClusterStatus?: CacheClusterStatus | string;
+
+  /**
+   * <p>The identifier of a client certificate for an API stage.</p>
+   */
+  clientCertificateId?: string;
+
+  /**
+   * <p>Specifies whether a cache cluster is enabled for the stage.</p>
+   */
+  cacheClusterEnabled?: boolean;
+
+  /**
+   * <p>Settings for the canary deployment in this stage.</p>
+   */
+  canarySettings?: CanarySettings;
 
   /**
    * <p>A map that defines the stage variables for a <a>Stage</a> resource. Variable names can
@@ -6775,14 +6534,49 @@ export interface Stage {
   variables?: { [key: string]: string };
 
   /**
+   * <p>The size of the cache cluster for the stage, if enabled.</p>
+   */
+  cacheClusterSize?: CacheClusterSize | string;
+
+  /**
+   * <p>Settings for logging access in this stage.</p>
+   */
+  accessLogSettings?: AccessLogSettings;
+
+  /**
+   * <p>The version of the associated API documentation.</p>
+   */
+  documentationVersion?: string;
+
+  /**
+   * <p>The timestamp when the stage last updated.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The timestamp when the stage was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>Specifies whether active tracing with X-ray is enabled for the <a>Stage</a>.</p>
+   */
+  tracingEnabled?: boolean;
+
+  /**
    * <p>The ARN of the WebAcl associated with the <a>Stage</a>.</p>
    */
   webAclArn?: string;
+
+  /**
+   * <p>A map that defines the method settings for a <a>Stage</a> resource. Keys (designated as <code>/{method_setting_key</code> below) are method paths defined as <code>{resource_path}/{http_method}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  <!-- Any forward slash ("/") characters in the <code>resource_path</code> part must be encoded as "~1" as in, for example, <code>~1resource~1sub-resource/GET</code>.--></p>
+   */
+  methodSettings?: { [key: string]: MethodSetting };
 }
 
 export namespace Stage {
   export const filterSensitiveLog = (obj: Stage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Stage => __isa(o, "Stage");
 }
@@ -6793,19 +6587,19 @@ export namespace Stage {
 export interface StageKey {
   __type?: "StageKey";
   /**
-   * <p>The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId?: string;
-
-  /**
    * <p>The stage name associated with the stage key.</p>
    */
   stageName?: string;
+
+  /**
+   * <p>The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId?: string;
 }
 
 export namespace StageKey {
   export const filterSensitiveLog = (obj: StageKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StageKey => __isa(o, "StageKey");
 }
@@ -6824,7 +6618,7 @@ export interface Stages {
 
 export namespace Stages {
   export const filterSensitiveLog = (obj: Stages): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Stages => __isa(o, "Stages");
 }
@@ -6834,28 +6628,26 @@ export namespace Stages {
  */
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
-  name?: string;
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
   /**
-   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
+   * <p>[Required] The ARN of a resource that can be tagged.</p>
    */
   resourceArn: string | undefined;
 
+  name?: string;
   /**
    * <p>[Required] The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags: { [key: string]: string } | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -6871,7 +6663,7 @@ export interface Tags {
 
 export namespace Tags {
   export const filterSensitiveLog = (obj: Tags): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tags => __isa(o, "Tags");
 }
@@ -6885,14 +6677,14 @@ export namespace Tags {
 export interface Template {
   __type?: "Template";
   /**
-   * <p>The Apache <a target="_blank" href="https://velocity.apache.org/engine/devel/vtl-reference-guide.html">Velocity Template Language (VTL)</a> template content used for the template resource.</p>
+   * <p>The Apache <a target="_blank" href="https://velocity.apache.org/engine/devel/vtl-reference.html">Velocity Template Language (VTL)</a> template content used for the template resource.</p>
    */
   value?: string;
 }
 
 export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Template => __isa(o, "Template");
 }
@@ -6908,14 +6700,9 @@ export interface TestInvokeAuthorizerRequest {
   additionalContext?: { [key: string]: string };
 
   /**
-   * <p>[Required] Specifies a test invoke authorizer request's <a>Authorizer</a> ID.</p>
+   * <p>[Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
    */
-  authorizerId: string | undefined;
-
-  /**
-   * <p>[Optional] The simulated request body of an incoming invocation request.</p>
-   */
-  body?: string;
+  pathWithQueryString?: string;
 
   /**
    * <p>[Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.</p>
@@ -6923,14 +6710,14 @@ export interface TestInvokeAuthorizerRequest {
   headers?: { [key: string]: string };
 
   /**
-   * <p>[Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
+   * <p>[Optional] The simulated request body of an incoming invocation request.</p>
    */
-  multiValueHeaders?: { [key: string]: string[] };
+  body?: string;
 
   /**
-   * <p>[Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
+   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
    */
-  pathWithQueryString?: string;
+  stageVariables?: { [key: string]: string };
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -6938,19 +6725,21 @@ export interface TestInvokeAuthorizerRequest {
   restApiId: string | undefined;
 
   /**
-   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
+   * <p>[Required] Specifies a test invoke authorizer request's <a>Authorizer</a> ID.</p>
    */
-  stageVariables?: { [key: string]: string };
+  authorizerId: string | undefined;
+
+  /**
+   * <p>[Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
+   */
+  multiValueHeaders?: { [key: string]: string[] };
 }
 
 export namespace TestInvokeAuthorizerRequest {
-  export const filterSensitiveLog = (
-    obj: TestInvokeAuthorizerRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TestInvokeAuthorizerRequest =>
-    __isa(o, "TestInvokeAuthorizerRequest");
+  export const isa = (o: any): o is TestInvokeAuthorizerRequest => __isa(o, "TestInvokeAuthorizerRequest");
 }
 
 /**
@@ -6958,26 +6747,16 @@ export namespace TestInvokeAuthorizerRequest {
  */
 export interface TestInvokeAuthorizerResponse {
   __type?: "TestInvokeAuthorizerResponse";
-  authorization?: { [key: string]: string[] };
-  /**
-   * <p>The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
-   */
-  claims?: { [key: string]: string };
-
-  /**
-   * <p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>
-   */
-  clientStatus?: number;
-
-  /**
-   * <p>The execution latency of the test authorizer request.</p>
-   */
-  latency?: number;
-
   /**
    * <p>The API Gateway execution log for the test authorizer request.</p>
    */
   log?: string;
+
+  authorization?: { [key: string]: string[] };
+  /**
+   * <p>The principal identity returned by the <a>Authorizer</a></p>
+   */
+  principalId?: string;
 
   /**
    * <p>The JSON policy document returned by the <a>Authorizer</a></p>
@@ -6985,19 +6764,26 @@ export interface TestInvokeAuthorizerResponse {
   policy?: string;
 
   /**
-   * <p>The principal identity returned by the <a>Authorizer</a></p>
+   * <p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>
    */
-  principalId?: string;
+  clientStatus?: number;
+
+  /**
+   * <p>The <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">open identity claims</a>, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
+   */
+  claims?: { [key: string]: string };
+
+  /**
+   * <p>The execution latency of the test authorizer request.</p>
+   */
+  latency?: number;
 }
 
 export namespace TestInvokeAuthorizerResponse {
-  export const filterSensitiveLog = (
-    obj: TestInvokeAuthorizerResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TestInvokeAuthorizerResponse =>
-    __isa(o, "TestInvokeAuthorizerResponse");
+  export const isa = (o: any): o is TestInvokeAuthorizerResponse => __isa(o, "TestInvokeAuthorizerResponse");
 }
 
 /**
@@ -7005,6 +6791,26 @@ export namespace TestInvokeAuthorizerResponse {
  */
 export interface TestInvokeMethodRequest {
   __type?: "TestInvokeMethodRequest";
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  /**
+   * <p>[Required] Specifies a test invoke method request's resource ID.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
+   */
+  multiValueHeaders?: { [key: string]: string[] };
+
+  /**
+   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
+   */
+  stageVariables?: { [key: string]: string };
+
   /**
    * <p>The simulated request body of an incoming invocation request.</p>
    */
@@ -7016,19 +6822,9 @@ export interface TestInvokeMethodRequest {
   clientCertificateId?: string;
 
   /**
-   * <p>A key-value map of headers to simulate an incoming invocation request.</p>
-   */
-  headers?: { [key: string]: string };
-
-  /**
    * <p>[Required] Specifies a test invoke method request's HTTP method.</p>
    */
   httpMethod: string | undefined;
-
-  /**
-   * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
-   */
-  multiValueHeaders?: { [key: string]: string[] };
 
   /**
    * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
@@ -7036,27 +6832,16 @@ export interface TestInvokeMethodRequest {
   pathWithQueryString?: string;
 
   /**
-   * <p>[Required] Specifies a test invoke method request's resource ID.</p>
+   * <p>A key-value map of headers to simulate an incoming invocation request.</p>
    */
-  resourceId: string | undefined;
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
-  /**
-   * <p>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</p>
-   */
-  stageVariables?: { [key: string]: string };
+  headers?: { [key: string]: string };
 }
 
 export namespace TestInvokeMethodRequest {
   export const filterSensitiveLog = (obj: TestInvokeMethodRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestInvokeMethodRequest =>
-    __isa(o, "TestInvokeMethodRequest");
+  export const isa = (o: any): o is TestInvokeMethodRequest => __isa(o, "TestInvokeMethodRequest");
 }
 
 /**
@@ -7068,19 +6853,9 @@ export namespace TestInvokeMethodRequest {
 export interface TestInvokeMethodResponse {
   __type?: "TestInvokeMethodResponse";
   /**
-   * <p>The body of the HTTP response.</p>
-   */
-  body?: string;
-
-  /**
    * <p>The headers of the HTTP response.</p>
    */
   headers?: { [key: string]: string };
-
-  /**
-   * <p>The execution latency of the test invoke request.</p>
-   */
-  latency?: number;
 
   /**
    * <p>The API Gateway execution log for the test invoke request.</p>
@@ -7088,22 +6863,31 @@ export interface TestInvokeMethodResponse {
   log?: string;
 
   /**
+   * <p>The HTTP status code.</p>
+   */
+  status?: number;
+
+  /**
+   * <p>The body of the HTTP response.</p>
+   */
+  body?: string;
+
+  /**
    * <p>The headers of the HTTP response as a map from string to list of values.</p>
    */
   multiValueHeaders?: { [key: string]: string[] };
 
   /**
-   * <p>The HTTP status code.</p>
+   * <p>The execution latency of the test invoke request.</p>
    */
-  status?: number;
+  latency?: number;
 }
 
 export namespace TestInvokeMethodResponse {
   export const filterSensitiveLog = (obj: TestInvokeMethodResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestInvokeMethodResponse =>
-    __isa(o, "TestInvokeMethodResponse");
+  export const isa = (o: any): o is TestInvokeMethodResponse => __isa(o, "TestInvokeMethodResponse");
 }
 
 /**
@@ -7124,18 +6908,36 @@ export interface ThrottleSettings {
 
 export namespace ThrottleSettings {
   export const filterSensitiveLog = (obj: ThrottleSettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottleSettings =>
-    __isa(o, "ThrottleSettings");
+  export const isa = (o: any): o is ThrottleSettings => __isa(o, "ThrottleSettings");
+}
+
+export interface TlsConfig {
+  __type?: "TlsConfig";
+  /**
+   * <p>Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is
+   *             issued by a <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html">supported certificate authority</a>. This isn’t recommended, but it enables you to
+   *             use certificates that are signed by private certificate authorities, or certificates
+   *             that are self-signed. If enabled, API Gateway still performs basic certificate
+   *             validation, which includes checking the certificate's expiration date, hostname, and
+   *             presence of a root certificate authority. Supported only for <code>HTTP</code> and
+   *             <code>HTTP_PROXY</code> integrations.</p>
+   */
+  insecureSkipVerification?: boolean;
+}
+
+export namespace TlsConfig {
+  export const filterSensitiveLog = (obj: TlsConfig): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TlsConfig => __isa(o, "TlsConfig");
 }
 
 /**
  * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -7144,24 +6946,21 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export enum UnauthorizedCacheControlHeaderStrategy {
   FAIL_WITH_403 = "FAIL_WITH_403",
   SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
-  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER"
+  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER",
 }
 
 /**
  * <p>The request is denied because the caller has insufficient permissions.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
@@ -7169,10 +6968,9 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -7180,28 +6978,26 @@ export namespace UnauthorizedException {
  */
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
-  name?: string;
-  /**
-   * <p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>
-   */
-  resourceArn: string | undefined;
-
+  template?: boolean;
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] The Tag keys to delete.</p>
    */
   tagKeys: string[] | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
+  /**
+   * <p>[Required] The ARN of a resource that can be tagged.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -7209,23 +7005,21 @@ export namespace UntagResourceRequest {
  */
 export interface UpdateAccountRequest {
   __type?: "UpdateAccountRequest";
+  templateSkipList?: string[];
+  title?: string;
   name?: string;
+  template?: boolean;
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace UpdateAccountRequest {
   export const filterSensitiveLog = (obj: UpdateAccountRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountRequest =>
-    __isa(o, "UpdateAccountRequest");
+  export const isa = (o: any): o is UpdateAccountRequest => __isa(o, "UpdateAccountRequest");
 }
 
 /**
@@ -7233,28 +7027,26 @@ export namespace UpdateAccountRequest {
  */
 export interface UpdateApiKeyRequest {
   __type?: "UpdateApiKeyRequest";
+  title?: string;
+  name?: string;
   /**
    * <p>[Required] The identifier of the <a>ApiKey</a> resource to be updated.</p>
    */
   apiKey: string | undefined;
 
-  name?: string;
+  template?: boolean;
+  templateSkipList?: string[];
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace UpdateApiKeyRequest {
   export const filterSensitiveLog = (obj: UpdateApiKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApiKeyRequest =>
-    __isa(o, "UpdateApiKeyRequest");
+  export const isa = (o: any): o is UpdateApiKeyRequest => __isa(o, "UpdateApiKeyRequest");
 }
 
 /**
@@ -7263,32 +7055,30 @@ export namespace UpdateApiKeyRequest {
 export interface UpdateAuthorizerRequest {
   __type?: "UpdateAuthorizerRequest";
   /**
-   * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
-   */
-  authorizerId: string | undefined;
-
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
-  /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
   templateSkipList?: string[];
+  name?: string;
+  /**
+   * <p>[Required] The identifier of the <a>Authorizer</a> resource.</p>
+   */
+  authorizerId: string | undefined;
+
   title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateAuthorizerRequest {
   export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthorizerRequest =>
-    __isa(o, "UpdateAuthorizerRequest");
+  export const isa = (o: any): o is UpdateAuthorizerRequest => __isa(o, "UpdateAuthorizerRequest");
 }
 
 /**
@@ -7302,30 +7092,26 @@ export interface UpdateBasePathMappingRequest {
    */
   basePath: string | undefined;
 
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] The domain name of the <a>BasePathMapping</a> resource to change.</p>
    */
   domainName: string | undefined;
 
+  template?: boolean;
   name?: string;
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace UpdateBasePathMappingRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateBasePathMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateBasePathMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBasePathMappingRequest =>
-    __isa(o, "UpdateBasePathMappingRequest");
+  export const isa = (o: any): o is UpdateBasePathMappingRequest => __isa(o, "UpdateBasePathMappingRequest");
 }
 
 /**
@@ -7333,30 +7119,26 @@ export namespace UpdateBasePathMappingRequest {
  */
 export interface UpdateClientCertificateRequest {
   __type?: "UpdateClientCertificateRequest";
+  templateSkipList?: string[];
   /**
    * <p>[Required] The identifier of the <a>ClientCertificate</a> resource to be updated.</p>
    */
   clientCertificateId: string | undefined;
 
   name?: string;
+  title?: string;
+  template?: boolean;
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace UpdateClientCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateClientCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateClientCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateClientCertificateRequest =>
-    __isa(o, "UpdateClientCertificateRequest");
+  export const isa = (o: any): o is UpdateClientCertificateRequest => __isa(o, "UpdateClientCertificateRequest");
 }
 
 /**
@@ -7369,28 +7151,26 @@ export interface UpdateDeploymentRequest {
    */
   deploymentId: string | undefined;
 
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateDeploymentRequest {
   export const filterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentRequest =>
-    __isa(o, "UpdateDeploymentRequest");
+  export const isa = (o: any): o is UpdateDeploymentRequest => __isa(o, "UpdateDeploymentRequest");
 }
 
 /**
@@ -7398,35 +7178,31 @@ export namespace UpdateDeploymentRequest {
  */
 export interface UpdateDocumentationPartRequest {
   __type?: "UpdateDocumentationPartRequest";
+  templateSkipList?: string[];
   /**
    * <p>[Required] The identifier of the to-be-updated documentation part.</p>
    */
   documentationPartId: string | undefined;
 
+  title?: string;
   name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateDocumentationPartRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDocumentationPartRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDocumentationPartRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDocumentationPartRequest =>
-    __isa(o, "UpdateDocumentationPartRequest");
+  export const isa = (o: any): o is UpdateDocumentationPartRequest => __isa(o, "UpdateDocumentationPartRequest");
 }
 
 /**
@@ -7434,35 +7210,31 @@ export namespace UpdateDocumentationPartRequest {
  */
 export interface UpdateDocumentationVersionRequest {
   __type?: "UpdateDocumentationVersionRequest";
+  templateSkipList?: string[];
+  title?: string;
+  template?: boolean;
   /**
    * <p>[Required] The version identifier of the to-be-updated documentation version.</p>
    */
   documentationVersion: string | undefined;
-
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>..</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateDocumentationVersionRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDocumentationVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDocumentationVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDocumentationVersionRequest =>
-    __isa(o, "UpdateDocumentationVersionRequest");
+  export const isa = (o: any): o is UpdateDocumentationVersionRequest => __isa(o, "UpdateDocumentationVersionRequest");
 }
 
 /**
@@ -7470,28 +7242,26 @@ export namespace UpdateDocumentationVersionRequest {
  */
 export interface UpdateDomainNameRequest {
   __type?: "UpdateDomainNameRequest";
+  name?: string;
+  title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
    */
   domainName: string | undefined;
 
-  name?: string;
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
 }
 
 export namespace UpdateDomainNameRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainNameRequest =>
-    __isa(o, "UpdateDomainNameRequest");
+  export const isa = (o: any): o is UpdateDomainNameRequest => __isa(o, "UpdateDomainNameRequest");
 }
 
 /**
@@ -7499,35 +7269,31 @@ export namespace UpdateDomainNameRequest {
  */
 export interface UpdateGatewayResponseRequest {
   __type?: "UpdateGatewayResponseRequest";
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
+  templateSkipList?: string[];
+  title?: string;
   /**
    * <p>[Required] <p>The response type of the associated <a>GatewayResponse</a>. Valid values are <ul><li>ACCESS_DENIED</li><li>API_CONFIGURATION_ERROR</li><li>AUTHORIZER_FAILURE</li><li> AUTHORIZER_CONFIGURATION_ERROR</li><li>BAD_REQUEST_PARAMETERS</li><li>BAD_REQUEST_BODY</li><li>DEFAULT_4XX</li><li>DEFAULT_5XX</li><li>EXPIRED_TOKEN</li><li>INVALID_SIGNATURE</li><li>INTEGRATION_FAILURE</li><li>INTEGRATION_TIMEOUT</li><li>INVALID_API_KEY</li><li>MISSING_AUTHENTICATION_TOKEN</li><li> QUOTA_EXCEEDED</li><li>REQUEST_TOO_LARGE</li><li>RESOURCE_NOT_FOUND</li><li>THROTTLED</li><li>UNAUTHORIZED</li><li>UNSUPPORTED_MEDIA_TYPE</li></ul> </p></p>
    */
   responseType: GatewayResponseType | string | undefined;
 
+  name?: string;
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateGatewayResponseRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateGatewayResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateGatewayResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayResponseRequest =>
-    __isa(o, "UpdateGatewayResponseRequest");
+  export const isa = (o: any): o is UpdateGatewayResponseRequest => __isa(o, "UpdateGatewayResponseRequest");
 }
 
 /**
@@ -7542,31 +7308,29 @@ export interface UpdateIntegrationRequest {
 
   name?: string;
   /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  patchOperations?: PatchOperation[];
+  restApiId: string | undefined;
 
+  title?: string;
+  templateSkipList?: string[];
+  template?: boolean;
   /**
    * <p>[Required] Represents an update integration request's resource identifier.</p>
    */
   resourceId: string | undefined;
 
   /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  restApiId: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateIntegrationRequest {
   export const filterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationRequest =>
-    __isa(o, "UpdateIntegrationRequest");
+  export const isa = (o: any): o is UpdateIntegrationRequest => __isa(o, "UpdateIntegrationRequest");
 }
 
 /**
@@ -7574,16 +7338,16 @@ export namespace UpdateIntegrationRequest {
  */
 export interface UpdateIntegrationResponseRequest {
   __type?: "UpdateIntegrationResponseRequest";
+  template?: boolean;
+  /**
+   * <p>[Required] Specifies an update integration response request's status code.</p>
+   */
+  statusCode: string | undefined;
+
   /**
    * <p>[Required] Specifies an update integration response request's HTTP method.</p>
    */
   httpMethod: string | undefined;
-
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
 
   /**
    * <p>[Required] Specifies an update integration response request's resource identifier.</p>
@@ -7595,24 +7359,20 @@ export interface UpdateIntegrationResponseRequest {
    */
   restApiId: string | undefined;
 
-  /**
-   * <p>[Required] Specifies an update integration response request's status code.</p>
-   */
-  statusCode: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
+  name?: string;
   title?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateIntegrationResponseRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateIntegrationResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationResponseRequest =>
-    __isa(o, "UpdateIntegrationResponseRequest");
+  export const isa = (o: any): o is UpdateIntegrationResponseRequest => __isa(o, "UpdateIntegrationResponseRequest");
 }
 
 /**
@@ -7620,38 +7380,36 @@ export namespace UpdateIntegrationResponseRequest {
  */
 export interface UpdateMethodRequest {
   __type?: "UpdateMethodRequest";
+  templateSkipList?: string[];
   /**
    * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
   httpMethod: string | undefined;
 
+  title?: string;
   name?: string;
   /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
-  patchOperations?: PatchOperation[];
+  restApiId: string | undefined;
 
   /**
    * <p>[Required] The <a>Resource</a> identifier for the <a>Method</a> resource.</p>
    */
   resourceId: string | undefined;
 
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateMethodRequest {
   export const filterSensitiveLog = (obj: UpdateMethodRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateMethodRequest =>
-    __isa(o, "UpdateMethodRequest");
+  export const isa = (o: any): o is UpdateMethodRequest => __isa(o, "UpdateMethodRequest");
 }
 
 /**
@@ -7659,6 +7417,14 @@ export namespace UpdateMethodRequest {
  */
 export interface UpdateMethodResponseRequest {
   __type?: "UpdateMethodResponseRequest";
+  template?: boolean;
+  title?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
+   */
+  resourceId: string | undefined;
+
   /**
    * <p>[Required] The HTTP verb of the <a>Method</a> resource.</p>
    */
@@ -7666,14 +7432,9 @@ export interface UpdateMethodResponseRequest {
 
   name?: string;
   /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   * <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
    */
-  patchOperations?: PatchOperation[];
-
-  /**
-   * <p>[Required] The <a>Resource</a> identifier for the <a>MethodResponse</a> resource.</p>
-   */
-  resourceId: string | undefined;
+  statusCode: string | undefined;
 
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -7681,23 +7442,16 @@ export interface UpdateMethodResponseRequest {
   restApiId: string | undefined;
 
   /**
-   * <p>[Required] The status code for the <a>MethodResponse</a> resource.</p>
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
-  statusCode: string | undefined;
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateMethodResponseRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateMethodResponseRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateMethodResponseRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateMethodResponseRequest =>
-    __isa(o, "UpdateMethodResponseRequest");
+  export const isa = (o: any): o is UpdateMethodResponseRequest => __isa(o, "UpdateMethodResponseRequest");
 }
 
 /**
@@ -7710,28 +7464,26 @@ export interface UpdateModelRequest {
    */
   modelName: string | undefined;
 
+  title?: string;
   name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateModelRequest {
   export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateModelRequest =>
-    __isa(o, "UpdateModelRequest");
+  export const isa = (o: any): o is UpdateModelRequest => __isa(o, "UpdateModelRequest");
 }
 
 /**
@@ -7740,34 +7492,30 @@ export namespace UpdateModelRequest {
 export interface UpdateRequestValidatorRequest {
   __type?: "UpdateRequestValidatorRequest";
   name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
-  /**
-   * <p>[Required] The identifier of <a>RequestValidator</a> to be updated.</p>
-   */
-  requestValidatorId: string | undefined;
-
+  templateSkipList?: string[];
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
   title?: string;
+  /**
+   * <p>[Required] The identifier of <a>RequestValidator</a> to be updated.</p>
+   */
+  requestValidatorId: string | undefined;
+
+  template?: boolean;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateRequestValidatorRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateRequestValidatorRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRequestValidatorRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRequestValidatorRequest =>
-    __isa(o, "UpdateRequestValidatorRequest");
+  export const isa = (o: any): o is UpdateRequestValidatorRequest => __isa(o, "UpdateRequestValidatorRequest");
 }
 
 /**
@@ -7775,12 +7523,9 @@ export namespace UpdateRequestValidatorRequest {
  */
 export interface UpdateResourceRequest {
   __type?: "UpdateResourceRequest";
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
+  templateSkipList?: string[];
+  template?: boolean;
+  title?: string;
   /**
    * <p>[Required] The identifier of the <a>Resource</a> resource.</p>
    */
@@ -7791,17 +7536,18 @@ export interface UpdateResourceRequest {
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  name?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateResourceRequest {
   export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceRequest =>
-    __isa(o, "UpdateResourceRequest");
+  export const isa = (o: any): o is UpdateResourceRequest => __isa(o, "UpdateResourceRequest");
 }
 
 /**
@@ -7809,28 +7555,26 @@ export namespace UpdateResourceRequest {
  */
 export interface UpdateRestApiRequest {
   __type?: "UpdateRestApiRequest";
+  title?: string;
+  templateSkipList?: string[];
   name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
+  template?: boolean;
   /**
    * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
    */
   restApiId: string | undefined;
 
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateRestApiRequest {
   export const filterSensitiveLog = (obj: UpdateRestApiRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRestApiRequest =>
-    __isa(o, "UpdateRestApiRequest");
+  export const isa = (o: any): o is UpdateRestApiRequest => __isa(o, "UpdateRestApiRequest");
 }
 
 /**
@@ -7838,33 +7582,31 @@ export namespace UpdateRestApiRequest {
  */
 export interface UpdateStageRequest {
   __type?: "UpdateStageRequest";
+  title?: string;
+  templateSkipList?: string[];
   name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
-  /**
-   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
-   */
-  restApiId: string | undefined;
-
   /**
    * <p>[Required] The name of the <a>Stage</a> resource to change information about.</p>
    */
   stageName: string | undefined;
 
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
+  /**
+   * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+   */
+  restApiId: string | undefined;
+
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateStageRequest {
   export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateStageRequest =>
-    __isa(o, "UpdateStageRequest");
+  export const isa = (o: any): o is UpdateStageRequest => __isa(o, "UpdateStageRequest");
 }
 
 /**
@@ -7872,27 +7614,26 @@ export namespace UpdateStageRequest {
  */
 export interface UpdateUsagePlanRequest {
   __type?: "UpdateUsagePlanRequest";
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The Id of the to-be-updated usage plan.</p>
    */
   usagePlanId: string | undefined;
+
+  title?: string;
+  templateSkipList?: string[];
+  name?: string;
+  template?: boolean;
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateUsagePlanRequest {
   export const filterSensitiveLog = (obj: UpdateUsagePlanRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateUsagePlanRequest =>
-    __isa(o, "UpdateUsagePlanRequest");
+  export const isa = (o: any): o is UpdateUsagePlanRequest => __isa(o, "UpdateUsagePlanRequest");
 }
 
 /**
@@ -7901,31 +7642,30 @@ export namespace UpdateUsagePlanRequest {
 export interface UpdateUsageRequest {
   __type?: "UpdateUsageRequest";
   /**
+   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
+   */
+  usagePlanId: string | undefined;
+
+  templateSkipList?: string[];
+  title?: string;
+  /**
    * <p>[Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.</p>
    */
   keyId: string | undefined;
 
   name?: string;
+  template?: boolean;
   /**
    * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
    */
   patchOperations?: PatchOperation[];
-
-  template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
-  /**
-   * <p>[Required] The Id of the usage plan associated with the usage data.</p>
-   */
-  usagePlanId: string | undefined;
 }
 
 export namespace UpdateUsageRequest {
   export const filterSensitiveLog = (obj: UpdateUsageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateUsageRequest =>
-    __isa(o, "UpdateUsageRequest");
+  export const isa = (o: any): o is UpdateUsageRequest => __isa(o, "UpdateUsageRequest");
 }
 
 /**
@@ -7933,27 +7673,26 @@ export namespace UpdateUsageRequest {
  */
 export interface UpdateVpcLinkRequest {
   __type?: "UpdateVpcLinkRequest";
-  name?: string;
-  /**
-   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
-   */
-  patchOperations?: PatchOperation[];
-
   template?: boolean;
-  templateSkipList?: string[];
-  title?: string;
   /**
    * <p>[Required] The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
   vpcLinkId: string | undefined;
+
+  title?: string;
+  name?: string;
+  templateSkipList?: string[];
+  /**
+   * <p>A list of update operations to be applied to the specified resource and in the order specified in this list.</p>
+   */
+  patchOperations?: PatchOperation[];
 }
 
 export namespace UpdateVpcLinkRequest {
   export const filterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateVpcLinkRequest =>
-    __isa(o, "UpdateVpcLinkRequest");
+  export const isa = (o: any): o is UpdateVpcLinkRequest => __isa(o, "UpdateVpcLinkRequest");
 }
 
 /**
@@ -7972,6 +7711,16 @@ export interface Usage {
   endDate?: string;
 
   /**
+   * <p>The plan Id associated with this usage data.</p>
+   */
+  usagePlanId?: string;
+
+  /**
+   * <p>The starting date of the usage data.</p>
+   */
+  startDate?: string;
+
+  /**
    * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}</code>, where <code>{api_key}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    */
   items?: { [key: string]: number[][] };
@@ -7980,21 +7729,11 @@ export interface Usage {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-
-  /**
-   * <p>The starting date of the usage data.</p>
-   */
-  startDate?: string;
-
-  /**
-   * <p>The plan Id associated with this usage data.</p>
-   */
-  usagePlanId?: string;
 }
 
 export namespace Usage {
   export const filterSensitiveLog = (obj: Usage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Usage => __isa(o, "Usage");
 }
@@ -8011,24 +7750,24 @@ export namespace Usage {
 export interface UsagePlan {
   __type?: "UsagePlan";
   /**
-   * <p>The associated API stages of a usage plan.</p>
-   */
-  apiStages?: ApiStage[];
-
-  /**
-   * <p>The description of a usage plan.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The identifier of a <a>UsagePlan</a> resource.</p>
    */
   id?: string;
 
   /**
+   * <p>The request throttle limits of a usage plan.</p>
+   */
+  throttle?: ThrottleSettings;
+
+  /**
    * <p>The name of a usage plan.</p>
    */
   name?: string;
+
+  /**
+   * <p>The associated API stages of a usage plan.</p>
+   */
+  apiStages?: ApiStage[];
 
   /**
    * <p>The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.</p>
@@ -8046,14 +7785,14 @@ export interface UsagePlan {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The request throttle limits of a usage plan.</p>
+   * <p>The description of a usage plan.</p>
    */
-  throttle?: ThrottleSettings;
+  description?: string;
 }
 
 export namespace UsagePlan {
   export const filterSensitiveLog = (obj: UsagePlan): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UsagePlan => __isa(o, "UsagePlan");
 }
@@ -8070,29 +7809,29 @@ export namespace UsagePlan {
 export interface UsagePlanKey {
   __type?: "UsagePlanKey";
   /**
-   * <p>The Id of a usage plan key.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The name of a usage plan key.</p>
    */
   name?: string;
 
   /**
-   * <p>The type of a usage plan key. Currently, the valid key type is <code>API_KEY</code>.</p>
-   */
-  type?: string;
-
-  /**
    * <p>The value of a usage plan key.</p>
    */
   value?: string;
+
+  /**
+   * <p>The Id of a usage plan key.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The type of a usage plan key. Currently, the valid key type is <code>API_KEY</code>.</p>
+   */
+  type?: string;
 }
 
 export namespace UsagePlanKey {
   export const filterSensitiveLog = (obj: UsagePlanKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UsagePlanKey => __isa(o, "UsagePlanKey");
 }
@@ -8118,7 +7857,7 @@ export interface UsagePlanKeys {
 
 export namespace UsagePlanKeys {
   export const filterSensitiveLog = (obj: UsagePlanKeys): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UsagePlanKeys => __isa(o, "UsagePlanKeys");
 }
@@ -8144,13 +7883,13 @@ export interface UsagePlans {
 
 export namespace UsagePlans {
   export const filterSensitiveLog = (obj: UsagePlans): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UsagePlans => __isa(o, "UsagePlans");
 }
 
 /**
- * <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p>
+ * <p>An API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p>
  *         <div class="remarks">
  *           <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p>
  *
@@ -8159,11 +7898,6 @@ export namespace UsagePlans {
  */
 export interface VpcLink {
   __type?: "VpcLink";
-  /**
-   * <p>The description of the VPC link.</p>
-   */
-  description?: string;
-
   /**
    * <p>The identifier of the  <a>VpcLink</a>. It is used in an <a>Integration</a> to reference this <a>VpcLink</a>.</p>
    */
@@ -8175,9 +7909,9 @@ export interface VpcLink {
   name?: string;
 
   /**
-   * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
+   * <p>The description of the VPC link.</p>
    */
-  status?: VpcLinkStatus | string;
+  description?: string;
 
   /**
    * <p>A description about the VPC link status.</p>
@@ -8185,19 +7919,24 @@ export interface VpcLink {
   statusMessage?: string;
 
   /**
+   * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.</p>
+   */
+  targetArns?: string[];
+
+  /**
+   * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
+   */
+  status?: VpcLinkStatus | string;
+
+  /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: { [key: string]: string };
-
-  /**
-   * <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>
-   */
-  targetArns?: string[];
 }
 
 export namespace VpcLink {
   export const filterSensitiveLog = (obj: VpcLink): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcLink => __isa(o, "VpcLink");
 }
@@ -8226,7 +7965,7 @@ export interface VpcLinks {
 
 export namespace VpcLinks {
   export const filterSensitiveLog = (obj: VpcLinks): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcLinks => __isa(o, "VpcLinks");
 }
@@ -8235,5 +7974,5 @@ export enum VpcLinkStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }

@@ -1,21 +1,11 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient.ts";
-import {
-  GetComplianceDetailRequest,
-  GetComplianceDetailResponse
-} from "../models/index.ts";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetComplianceDetailCommand,
-  serializeAws_json1_1GetComplianceDetailCommand
+  serializeAws_json1_1GetComplianceDetailCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetComplianceDetailCommandInput = GetComplianceDetailRequest;
-export type GetComplianceDetailCommandOutput = GetComplianceDetailResponse &
-  __MetadataBearer;
+export type GetComplianceDetailCommandOutput = GetComplianceDetailResponse & __MetadataBearer;
 
 export class GetComplianceDetailCommand extends $Command<
   GetComplianceDetailCommandInput,
@@ -49,18 +38,16 @@ export class GetComplianceDetailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetComplianceDetailCommandInput,
-    GetComplianceDetailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetComplianceDetailCommandInput, GetComplianceDetailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetComplianceDetailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceDetailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetComplianceDetailCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetComplianceDetailCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetComplianceDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetComplianceDetailCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetComplianceDetailCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceDetailCommandOutput> {
     return deserializeAws_json1_1GetComplianceDetailCommand(output, context);
   }
 

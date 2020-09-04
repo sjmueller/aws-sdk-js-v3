@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  AttachTypedLinkRequest,
-  AttachTypedLinkResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AttachTypedLinkCommand,
-  serializeAws_restJson1AttachTypedLinkCommand
+  serializeAws_restJson1AttachTypedLinkCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
-export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse &
-  __MetadataBearer;
+export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse & __MetadataBearer;
 
 export class AttachTypedLinkCommand extends $Command<
   AttachTypedLinkCommandInput,
@@ -50,14 +39,15 @@ export class AttachTypedLinkCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachTypedLinkCommandInput, AttachTypedLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AttachTypedLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachTypedLinkResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class AttachTypedLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachTypedLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AttachTypedLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AttachTypedLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTypedLinkCommandOutput> {
     return deserializeAws_restJson1AttachTypedLinkCommand(output, context);
   }
 

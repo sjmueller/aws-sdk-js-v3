@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  DescribeTagsMessage,
-  TaggedResourceListMessage
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeTagsCommand,
-  serializeAws_queryDescribeTagsCommand
+  serializeAws_queryDescribeTagsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTagsCommandInput = DescribeTagsMessage;
-export type DescribeTagsCommandOutput = TaggedResourceListMessage &
-  __MetadataBearer;
+export type DescribeTagsCommandOutput = TaggedResourceListMessage & __MetadataBearer;
 
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
@@ -50,14 +39,15 @@ export class DescribeTagsCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTagsCommandInput, DescribeTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTagsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: TaggedResourceListMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTagsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTagsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_queryDescribeTagsCommand(output, context);
   }
 

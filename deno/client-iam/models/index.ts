@@ -1,9 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+
+export enum AccessAdvisorUsageGranularityType {
+  ACTION_LEVEL = "ACTION_LEVEL",
+  SERVICE_LEVEL = "SERVICE_LEVEL",
+}
 
 /**
  * <p>An object that contains details about when a principal in the reported AWS Organizations entity
@@ -14,6 +15,11 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface AccessDetail {
   __type?: "AccessDetail";
   /**
+   * <p>The name of the service in which access was attempted.</p>
+   */
+  ServiceName: string | undefined;
+
+  /**
    * <p>The path of the Organizations entity (root, organizational unit, or account) from which an
    *          authenticated principal last attempted to access the service. AWS does not report
    *          unauthenticated requests.</p>
@@ -23,13 +29,10 @@ export interface AccessDetail {
   EntityPath?: string;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when an authenticated principal most recently attempted to access the
-   *          service. AWS does not report unauthenticated requests.</p>
-   *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
-   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   * <p>The number of accounts with authenticated principals (root users, IAM users, and IAM
+   *          roles) that attempted to access the service in the reporting period.</p>
    */
-  LastAuthenticatedTime?: Date;
+  TotalAuthenticatedEntities?: number;
 
   /**
    * <p>The Region where the last service access attempt occurred.</p>
@@ -39,9 +42,13 @@ export interface AccessDetail {
   Region?: string;
 
   /**
-   * <p>The name of the service in which access was attempted.</p>
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when an authenticated principal most recently attempted to access the
+   *          service. AWS does not report unauthenticated requests.</p>
+   *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
+   *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
    */
-  ServiceName: string | undefined;
+  LastAuthenticatedTime?: Date;
 
   /**
    * <p>The namespace of the service in which access was attempted.</p>
@@ -54,17 +61,11 @@ export interface AccessDetail {
    *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   ServiceNamespace: string | undefined;
-
-  /**
-   * <p>The number of accounts with authenticated principals (root users, IAM users, and IAM
-   *          roles) that attempted to access the service in the reporting period.</p>
-   */
-  TotalAuthenticatedEntities?: number;
 }
 
 export namespace AccessDetail {
   export const filterSensitiveLog = (obj: AccessDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AccessDetail => __isa(o, "AccessDetail");
 }
@@ -87,9 +88,10 @@ export interface AccessKey {
   AccessKeyId: string | undefined;
 
   /**
-   * <p>The date when the access key was created.</p>
+   * <p>The status of the access key. <code>Active</code> means that the key is valid for API
+   *          calls, while <code>Inactive</code> means it is not. </p>
    */
-  CreateDate?: Date;
+  Status: StatusType | string | undefined;
 
   /**
    * <p>The secret key used to sign requests.</p>
@@ -97,21 +99,20 @@ export interface AccessKey {
   SecretAccessKey: string | undefined;
 
   /**
-   * <p>The status of the access key. <code>Active</code> means that the key is valid for API
-   *          calls, while <code>Inactive</code> means it is not. </p>
-   */
-  Status: StatusType | string | undefined;
-
-  /**
    * <p>The name of the IAM user that the access key is associated with.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The date when the access key was created.</p>
+   */
+  CreateDate?: Date;
 }
 
 export namespace AccessKey {
   export const filterSensitiveLog = (obj: AccessKey): any => ({
     ...obj,
-    ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING })
+    ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is AccessKey => __isa(o, "AccessKey");
 }
@@ -123,6 +124,24 @@ export namespace AccessKey {
  */
 export interface AccessKeyLastUsed {
   __type?: "AccessKeyLastUsed";
+  /**
+   * <p>The name of the AWS service with which this access key was most recently used. The value
+   *          of this field is "N/A" in the following situations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The user does not have an access key.</p>
+   *             </li>
+   *             <li>
+   *                <p>An access key exists but has not been used since IAM started tracking this
+   *                information.</p>
+   *             </li>
+   *             <li>
+   *                <p>There is no sign-in data associated with the user.</p>
+   *             </li>
+   *          </ul>
+   */
+  ServiceName: string | undefined;
+
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the access key was most recently used. This field is null in the
@@ -161,32 +180,13 @@ export interface AccessKeyLastUsed {
    *          General Reference.</p>
    */
   Region: string | undefined;
-
-  /**
-   * <p>The name of the AWS service with which this access key was most recently used. The value
-   *          of this field is "N/A" in the following situations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The user does not have an access key.</p>
-   *             </li>
-   *             <li>
-   *                <p>An access key exists but has not been used since IAM started tracking this
-   *                information.</p>
-   *             </li>
-   *             <li>
-   *                <p>There is no sign-in data associated with the user.</p>
-   *             </li>
-   *          </ul>
-   */
-  ServiceName: string | undefined;
 }
 
 export namespace AccessKeyLastUsed {
   export const filterSensitiveLog = (obj: AccessKeyLastUsed): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessKeyLastUsed =>
-    __isa(o, "AccessKeyLastUsed");
+  export const isa = (o: any): o is AccessKeyLastUsed => __isa(o, "AccessKeyLastUsed");
 }
 
 /**
@@ -202,9 +202,9 @@ export interface AccessKeyMetadata {
   AccessKeyId?: string;
 
   /**
-   * <p>The date when the access key was created.</p>
+   * <p>The name of the IAM user that the key is associated with.</p>
    */
-  CreateDate?: Date;
+  UserName?: string;
 
   /**
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
@@ -213,17 +213,16 @@ export interface AccessKeyMetadata {
   Status?: StatusType | string;
 
   /**
-   * <p>The name of the IAM user that the key is associated with.</p>
+   * <p>The date when the access key was created.</p>
    */
-  UserName?: string;
+  CreateDate?: Date;
 }
 
 export namespace AccessKeyMetadata {
   export const filterSensitiveLog = (obj: AccessKeyMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessKeyMetadata =>
-    __isa(o, "AccessKeyMetadata");
+  export const isa = (o: any): o is AccessKeyMetadata => __isa(o, "AccessKeyMetadata");
 }
 
 export interface AddClientIDToOpenIDConnectProviderRequest {
@@ -242,10 +241,8 @@ export interface AddClientIDToOpenIDConnectProviderRequest {
 }
 
 export namespace AddClientIDToOpenIDConnectProviderRequest {
-  export const filterSensitiveLog = (
-    obj: AddClientIDToOpenIDConnectProviderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddClientIDToOpenIDConnectProviderRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AddClientIDToOpenIDConnectProviderRequest =>
     __isa(o, "AddClientIDToOpenIDConnectProviderRequest");
@@ -254,53 +251,49 @@ export namespace AddClientIDToOpenIDConnectProviderRequest {
 export interface AddRoleToInstanceProfileRequest {
   __type?: "AddRoleToInstanceProfileRequest";
   /**
-   * <p>The name of the instance profile to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  InstanceProfileName: string | undefined;
-
-  /**
    * <p>The name of the role to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   RoleName: string | undefined;
+
+  /**
+   * <p>The name of the instance profile to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  InstanceProfileName: string | undefined;
 }
 
 export namespace AddRoleToInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: AddRoleToInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddRoleToInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddRoleToInstanceProfileRequest =>
-    __isa(o, "AddRoleToInstanceProfileRequest");
+  export const isa = (o: any): o is AddRoleToInstanceProfileRequest => __isa(o, "AddRoleToInstanceProfileRequest");
 }
 
 export interface AddUserToGroupRequest {
   __type?: "AddUserToGroupRequest";
-  /**
-   * <p>The name of the group to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  GroupName: string | undefined;
-
   /**
    * <p>The name of the user to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The name of the group to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace AddUserToGroupRequest {
   export const filterSensitiveLog = (obj: AddUserToGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddUserToGroupRequest =>
-    __isa(o, "AddUserToGroupRequest");
+  export const isa = (o: any): o is AddUserToGroupRequest => __isa(o, "AddUserToGroupRequest");
 }
 
 export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
@@ -328,13 +321,10 @@ export interface AttachedPermissionsBoundary {
 }
 
 export namespace AttachedPermissionsBoundary {
-  export const filterSensitiveLog = (
-    obj: AttachedPermissionsBoundary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AttachedPermissionsBoundary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AttachedPermissionsBoundary =>
-    __isa(o, "AttachedPermissionsBoundary");
+  export const isa = (o: any): o is AttachedPermissionsBoundary => __isa(o, "AttachedPermissionsBoundary");
 }
 
 /**
@@ -347,49 +337,47 @@ export namespace AttachedPermissionsBoundary {
 export interface AttachedPolicy {
   __type?: "AttachedPolicy";
   /**
+   * <p>The friendly name of the attached policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
    *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
    */
   PolicyArn?: string;
-
-  /**
-   * <p>The friendly name of the attached policy.</p>
-   */
-  PolicyName?: string;
 }
 
 export namespace AttachedPolicy {
   export const filterSensitiveLog = (obj: AttachedPolicy): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachedPolicy =>
-    __isa(o, "AttachedPolicy");
+  export const isa = (o: any): o is AttachedPolicy => __isa(o, "AttachedPolicy");
 }
 
 export interface AttachGroupPolicyRequest {
   __type?: "AttachGroupPolicyRequest";
-  /**
-   * <p>The name (friendly name, not ARN) of the group to attach the policy to.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  GroupName: string | undefined;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
    *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PolicyArn: string | undefined;
+
+  /**
+   * <p>The name (friendly name, not ARN) of the group to attach the policy to.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace AttachGroupPolicyRequest {
   export const filterSensitiveLog = (obj: AttachGroupPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachGroupPolicyRequest =>
-    __isa(o, "AttachGroupPolicyRequest");
+  export const isa = (o: any): o is AttachGroupPolicyRequest => __isa(o, "AttachGroupPolicyRequest");
 }
 
 export interface AttachRolePolicyRequest {
@@ -411,87 +399,79 @@ export interface AttachRolePolicyRequest {
 
 export namespace AttachRolePolicyRequest {
   export const filterSensitiveLog = (obj: AttachRolePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachRolePolicyRequest =>
-    __isa(o, "AttachRolePolicyRequest");
+  export const isa = (o: any): o is AttachRolePolicyRequest => __isa(o, "AttachRolePolicyRequest");
 }
 
 export interface AttachUserPolicyRequest {
   __type?: "AttachUserPolicyRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
-
   /**
    * <p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace AttachUserPolicyRequest {
   export const filterSensitiveLog = (obj: AttachUserPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttachUserPolicyRequest =>
-    __isa(o, "AttachUserPolicyRequest");
+  export const isa = (o: any): o is AttachUserPolicyRequest => __isa(o, "AttachUserPolicyRequest");
 }
 
 export interface ChangePasswordRequest {
   __type?: "ChangePasswordRequest";
   /**
+   * <p>The IAM user's current password.</p>
+   */
+  OldPassword: string | undefined;
+
+  /**
    * <p>The new password. The new password must conform to the AWS account's password policy,
    *          if one exists.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of characters. That string can include almost any printable
-   *     ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF).
-   *     You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D)
+   *     ASCII character from the space (<code>\u0020</code>) through the end of the ASCII character range (<code>\u00FF</code>).
+   *     You can also include the tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)
    *     characters. Any of these characters are valid in a password. However, many tools, such
    *     as the AWS Management Console, might restrict the ability to type certain characters because they have
    *     special meaning within that tool.</p>
    */
   NewPassword: string | undefined;
-
-  /**
-   * <p>The IAM user's current password.</p>
-   */
-  OldPassword: string | undefined;
 }
 
 export namespace ChangePasswordRequest {
   export const filterSensitiveLog = (obj: ChangePasswordRequest): any => ({
     ...obj,
+    ...(obj.OldPassword && { OldPassword: SENSITIVE_STRING }),
     ...(obj.NewPassword && { NewPassword: SENSITIVE_STRING }),
-    ...(obj.OldPassword && { OldPassword: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is ChangePasswordRequest =>
-    __isa(o, "ChangePasswordRequest");
+  export const isa = (o: any): o is ChangePasswordRequest => __isa(o, "ChangePasswordRequest");
 }
 
 /**
  * <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -499,20 +479,10 @@ export namespace ConcurrentModificationException {
  *          specifies the value (or values, if the context key supports multiple values) to use in the
  *          simulation. This information is used when evaluating the <code>Condition</code> elements of
  *          the input policies.</p>
- *          <p>This data type is used as an input parameter to <code>
- *                <a>SimulateCustomPolicy</a>
- *             </code> and <code>
- *                <a>SimulatePrincipalPolicy</a>
- *             </code>.</p>
+ *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a> and <a>SimulatePrincipalPolicy</a>.</p>
  */
 export interface ContextEntry {
   __type?: "ContextEntry";
-  /**
-   * <p>The full name of a condition context key, including the service prefix. For example,
-   *             <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
-   */
-  ContextKeyName?: string;
-
   /**
    * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
    *          parameter.</p>
@@ -525,11 +495,17 @@ export interface ContextEntry {
    *          input policy.</p>
    */
   ContextKeyValues?: string[];
+
+  /**
+   * <p>The full name of a condition context key, including the service prefix. For example,
+   *             <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
+   */
+  ContextKeyName?: string;
 }
 
 export namespace ContextEntry {
   export const filterSensitiveLog = (obj: ContextEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ContextEntry => __isa(o, "ContextEntry");
 }
@@ -546,7 +522,7 @@ export enum ContextKeyTypeEnum {
   NUMERIC = "numeric",
   NUMERIC_LIST = "numericList",
   STRING = "string",
-  STRING_LIST = "stringList"
+  STRING_LIST = "stringList",
 }
 
 export interface CreateAccessKeyRequest {
@@ -561,10 +537,9 @@ export interface CreateAccessKeyRequest {
 
 export namespace CreateAccessKeyRequest {
   export const filterSensitiveLog = (obj: CreateAccessKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAccessKeyRequest =>
-    __isa(o, "CreateAccessKeyRequest");
+  export const isa = (o: any): o is CreateAccessKeyRequest => __isa(o, "CreateAccessKeyRequest");
 }
 
 /**
@@ -582,12 +557,9 @@ export interface CreateAccessKeyResponse {
 export namespace CreateAccessKeyResponse {
   export const filterSensitiveLog = (obj: CreateAccessKeyResponse): any => ({
     ...obj,
-    ...(obj.AccessKey && {
-      AccessKey: AccessKey.filterSensitiveLog(obj.AccessKey)
-    })
+    ...(obj.AccessKey && { AccessKey: AccessKey.filterSensitiveLog(obj.AccessKey) }),
   });
-  export const isa = (o: any): o is CreateAccessKeyResponse =>
-    __isa(o, "CreateAccessKeyResponse");
+  export const isa = (o: any): o is CreateAccessKeyResponse => __isa(o, "CreateAccessKeyResponse");
 }
 
 export interface CreateAccountAliasRequest {
@@ -603,10 +575,9 @@ export interface CreateAccountAliasRequest {
 
 export namespace CreateAccountAliasRequest {
   export const filterSensitiveLog = (obj: CreateAccountAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAccountAliasRequest =>
-    __isa(o, "CreateAccountAliasRequest");
+  export const isa = (o: any): o is CreateAccountAliasRequest => __isa(o, "CreateAccountAliasRequest");
 }
 
 export interface CreateGroupRequest {
@@ -625,7 +596,7 @@ export interface CreateGroupRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   Path?: string;
@@ -633,10 +604,9 @@ export interface CreateGroupRequest {
 
 export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest =>
-    __isa(o, "CreateGroupRequest");
+  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 /**
@@ -652,10 +622,9 @@ export interface CreateGroupResponse {
 
 export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse =>
-    __isa(o, "CreateGroupResponse");
+  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateInstanceProfileRequest {
@@ -673,20 +642,17 @@ export interface CreateInstanceProfileRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   Path?: string;
 }
 
 export namespace CreateInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileRequest =>
-    __isa(o, "CreateInstanceProfileRequest");
+  export const isa = (o: any): o is CreateInstanceProfileRequest => __isa(o, "CreateInstanceProfileRequest");
 }
 
 /**
@@ -702,23 +668,27 @@ export interface CreateInstanceProfileResponse {
 }
 
 export namespace CreateInstanceProfileResponse {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceProfileResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceProfileResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileResponse =>
-    __isa(o, "CreateInstanceProfileResponse");
+  export const isa = (o: any): o is CreateInstanceProfileResponse => __isa(o, "CreateInstanceProfileResponse");
 }
 
 export interface CreateLoginProfileRequest {
   __type?: "CreateLoginProfileRequest";
   /**
+   * <p>The name of the IAM user to create a password for. The user must already exist.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+
+  /**
    * <p>The new password for the user.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of characters. That string can include almost any printable
-   *     ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF).
-   *     You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D)
+   *     ASCII character from the space (<code>\u0020</code>) through the end of the ASCII character range (<code>\u00FF</code>).
+   *     You can also include the tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)
    *     characters. Any of these characters are valid in a password. However, many tools, such
    *     as the AWS Management Console, might restrict the ability to type certain characters because they have
    *     special meaning within that tool.</p>
@@ -729,22 +699,14 @@ export interface CreateLoginProfileRequest {
    * <p>Specifies whether the user is required to set a new password on next sign-in.</p>
    */
   PasswordResetRequired?: boolean;
-
-  /**
-   * <p>The name of the IAM user to create a password for. The user must already exist.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
 }
 
 export namespace CreateLoginProfileRequest {
   export const filterSensitiveLog = (obj: CreateLoginProfileRequest): any => ({
     ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING })
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateLoginProfileRequest =>
-    __isa(o, "CreateLoginProfileRequest");
+  export const isa = (o: any): o is CreateLoginProfileRequest => __isa(o, "CreateLoginProfileRequest");
 }
 
 /**
@@ -761,26 +723,24 @@ export interface CreateLoginProfileResponse {
 
 export namespace CreateLoginProfileResponse {
   export const filterSensitiveLog = (obj: CreateLoginProfileResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateLoginProfileResponse =>
-    __isa(o, "CreateLoginProfileResponse");
+  export const isa = (o: any): o is CreateLoginProfileResponse => __isa(o, "CreateLoginProfileResponse");
 }
 
 export interface CreateOpenIDConnectProviderRequest {
   __type?: "CreateOpenIDConnectProviderRequest";
   /**
-   * <p>A list of client IDs (also known as audiences). When a mobile or web app registers with
-   *          an OpenID Connect provider, they establish a value that identifies the application. (This
-   *          is the value that's sent as the <code>client_id</code> parameter on OAuth requests.)</p>
-   *          <p>You can register multiple client IDs with the same provider. For example, you might have
-   *          multiple applications that use the same OIDC provider. You cannot register more than 100
-   *          client IDs with a single IAM OIDC provider.</p>
-   *          <p>There is no defined format for a client ID. The
-   *             <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to 255
-   *          characters long.</p>
+   * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
+   *          should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens.
+   *          Per the OIDC standard, path components are allowed but query parameters are not. Typically
+   *          the URL consists of only a hostname, like <code>https://server.example.org</code> or
+   *             <code>https://example.com</code>.</p>
+   *          <p>You cannot register the same provider multiple times in a single AWS account. If you
+   *          try to submit a URL that has already been used for an OpenID Connect provider in the AWS
+   *          account, you will get an error.</p>
    */
-  ClientIDList?: string[];
+  Url: string | undefined;
 
   /**
    * <p>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity
@@ -801,23 +761,22 @@ export interface CreateOpenIDConnectProviderRequest {
   ThumbprintList: string[] | undefined;
 
   /**
-   * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
-   *          should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens.
-   *          Per the OIDC standard, path components are allowed but query parameters are not. Typically
-   *          the URL consists of only a hostname, like <code>https://server.example.org</code> or
-   *             <code>https://example.com</code>.</p>
-   *          <p>You cannot register the same provider multiple times in a single AWS account. If you
-   *          try to submit a URL that has already been used for an OpenID Connect provider in the AWS
-   *          account, you will get an error.</p>
+   * <p>A list of client IDs (also known as audiences). When a mobile or web app registers with
+   *          an OpenID Connect provider, they establish a value that identifies the application. (This
+   *          is the value that's sent as the <code>client_id</code> parameter on OAuth requests.)</p>
+   *          <p>You can register multiple client IDs with the same provider. For example, you might have
+   *          multiple applications that use the same OIDC provider. You cannot register more than 100
+   *          client IDs with a single IAM OIDC provider.</p>
+   *          <p>There is no defined format for a client ID. The
+   *             <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to 255
+   *          characters long.</p>
    */
-  Url: string | undefined;
+  ClientIDList?: string[];
 }
 
 export namespace CreateOpenIDConnectProviderRequest {
-  export const filterSensitiveLog = (
-    obj: CreateOpenIDConnectProviderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateOpenIDConnectProviderRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateOpenIDConnectProviderRequest =>
     __isa(o, "CreateOpenIDConnectProviderRequest");
@@ -837,10 +796,8 @@ export interface CreateOpenIDConnectProviderResponse {
 }
 
 export namespace CreateOpenIDConnectProviderResponse {
-  export const filterSensitiveLog = (
-    obj: CreateOpenIDConnectProviderResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateOpenIDConnectProviderResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateOpenIDConnectProviderResponse =>
     __isa(o, "CreateOpenIDConnectProviderResponse");
@@ -849,13 +806,12 @@ export namespace CreateOpenIDConnectProviderResponse {
 export interface CreatePolicyRequest {
   __type?: "CreatePolicyRequest";
   /**
-   * <p>A friendly description of the policy.</p>
-   *          <p>Typically used to store information about the permissions defined in the policy. For
-   *          example, "Grants access to production DynamoDB tables."</p>
-   *          <p>The policy description is immutable. After a value is assigned, it cannot be
-   *          changed.</p>
+   * <p>The friendly name of the policy.</p>
+   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
+   *          not distinguished by case. For example, you cannot create resources named both "MyResource"
+   *          and "myresource".</p>
    */
-  Description?: string;
+  PolicyName: string | undefined;
 
   /**
    * <p>The path for the policy.</p>
@@ -864,7 +820,7 @@ export interface CreatePolicyRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   Path?: string;
@@ -880,35 +836,35 @@ export interface CreatePolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   PolicyDocument: string | undefined;
 
   /**
-   * <p>The friendly name of the policy.</p>
-   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
-   *          not distinguished by case. For example, you cannot create resources named both "MyResource"
-   *          and "myresource".</p>
+   * <p>A friendly description of the policy.</p>
+   *          <p>Typically used to store information about the permissions defined in the policy. For
+   *          example, "Grants access to production DynamoDB tables."</p>
+   *          <p>The policy description is immutable. After a value is assigned, it cannot be
+   *          changed.</p>
    */
-  PolicyName: string | undefined;
+  Description?: string;
 }
 
 export namespace CreatePolicyRequest {
   export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyRequest =>
-    __isa(o, "CreatePolicyRequest");
+  export const isa = (o: any): o is CreatePolicyRequest => __isa(o, "CreatePolicyRequest");
 }
 
 /**
@@ -925,22 +881,13 @@ export interface CreatePolicyResponse {
 
 export namespace CreatePolicyResponse {
   export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyResponse =>
-    __isa(o, "CreatePolicyResponse");
+  export const isa = (o: any): o is CreatePolicyResponse => __isa(o, "CreatePolicyResponse");
 }
 
 export interface CreatePolicyVersionRequest {
   __type?: "CreatePolicyVersionRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new
-   *          version.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
-
   /**
    * <p>The JSON policy document that you want to use as the content for this new version of the
    *          policy.</p>
@@ -953,15 +900,15 @@ export interface CreatePolicyVersionRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -976,14 +923,21 @@ export interface CreatePolicyVersionRequest {
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
   SetAsDefault?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new
+   *          version.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace CreatePolicyVersionRequest {
   export const filterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionRequest =>
-    __isa(o, "CreatePolicyVersionRequest");
+  export const isa = (o: any): o is CreatePolicyVersionRequest => __isa(o, "CreatePolicyVersionRequest");
 }
 
 /**
@@ -999,50 +953,35 @@ export interface CreatePolicyVersionResponse {
 }
 
 export namespace CreatePolicyVersionResponse {
-  export const filterSensitiveLog = (
-    obj: CreatePolicyVersionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePolicyVersionResponse =>
-    __isa(o, "CreatePolicyVersionResponse");
+  export const isa = (o: any): o is CreatePolicyVersionResponse => __isa(o, "CreatePolicyVersionResponse");
 }
 
 export interface CreateRoleRequest {
   __type?: "CreateRoleRequest";
   /**
-   * <p>The trust relationship policy document that grants an entity permission to assume the
-   *          role.</p>
-   *
-   *          <p>In IAM, you must provide a JSON policy that has been converted to a string. However,
-   *          for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or
-   *          YAML format. AWS CloudFormation always converts a YAML policy to JSON format before
-   *          submitting it to IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   *          <p> Upon success, the response includes
-   *          the same trust policy in JSON format.</p>
+   * <p>A list of tags that you want to attach to the newly created role. Each tag consists of
+   *       a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
+   *         <i>IAM User Guide</i>.</p>
+   *          <note>
+   *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags per
+   *         role, then the entire request fails and the role is not created.</p>
+   *          </note>
    */
-  AssumeRolePolicyDocument: string | undefined;
+  Tags?: Tag[];
 
   /**
-   * <p>A description of the role.</p>
+   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
-  Description?: string;
+  Path?: string;
 
   /**
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.
@@ -1062,22 +1001,6 @@ export interface CreateRoleRequest {
   MaxSessionDuration?: number;
 
   /**
-   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The ARN of the policy that is used to set the permissions boundary for the role.</p>
-   */
-  PermissionsBoundary?: string;
-
-  /**
    * <p>The name of the role to create.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *          not distinguished by case. For example, you cannot create resources named both "MyResource"
@@ -1086,23 +1009,50 @@ export interface CreateRoleRequest {
   RoleName: string | undefined;
 
   /**
-   * <p>A list of tags that you want to attach to the newly created role. Each tag consists of
-   *       a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
-   *         <i>IAM User Guide</i>.</p>
-   *          <note>
-   *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags per
-   *         role, then the entire request fails and the role is not created.</p>
-   *          </note>
+   * <p>A description of the role.</p>
    */
-  Tags?: Tag[];
+  Description?: string;
+
+  /**
+   * <p>The trust relationship policy document that grants an entity permission to assume the
+   *          role.</p>
+   *
+   *          <p>In IAM, you must provide a JSON policy that has been converted to a string. However,
+   *          for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or
+   *          YAML format. AWS CloudFormation always converts a YAML policy to JSON format before
+   *          submitting it to IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   *          <p> Upon success, the response includes
+   *          the same trust policy in JSON format.</p>
+   */
+  AssumeRolePolicyDocument: string | undefined;
+
+  /**
+   * <p>The ARN of the policy that is used to set the permissions boundary for the role.</p>
+   */
+  PermissionsBoundary?: string;
 }
 
 export namespace CreateRoleRequest {
   export const filterSensitiveLog = (obj: CreateRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRoleRequest =>
-    __isa(o, "CreateRoleRequest");
+  export const isa = (o: any): o is CreateRoleRequest => __isa(o, "CreateRoleRequest");
 }
 
 /**
@@ -1118,21 +1068,13 @@ export interface CreateRoleResponse {
 
 export namespace CreateRoleResponse {
   export const filterSensitiveLog = (obj: CreateRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRoleResponse =>
-    __isa(o, "CreateRoleResponse");
+  export const isa = (o: any): o is CreateRoleResponse => __isa(o, "CreateRoleResponse");
 }
 
 export interface CreateSAMLProviderRequest {
   __type?: "CreateSAMLProviderRequest";
-  /**
-   * <p>The name of the provider to create.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The
    *          document includes the issuer's name, expiration information, and keys that can be used to
@@ -1144,14 +1086,20 @@ export interface CreateSAMLProviderRequest {
    *          </p>
    */
   SAMLMetadataDocument: string | undefined;
+
+  /**
+   * <p>The name of the provider to create.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateSAMLProviderRequest {
   export const filterSensitiveLog = (obj: CreateSAMLProviderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSAMLProviderRequest =>
-    __isa(o, "CreateSAMLProviderRequest");
+  export const isa = (o: any): o is CreateSAMLProviderRequest => __isa(o, "CreateSAMLProviderRequest");
 }
 
 /**
@@ -1168,10 +1116,9 @@ export interface CreateSAMLProviderResponse {
 
 export namespace CreateSAMLProviderResponse {
   export const filterSensitiveLog = (obj: CreateSAMLProviderResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSAMLProviderResponse =>
-    __isa(o, "CreateSAMLProviderResponse");
+  export const isa = (o: any): o is CreateSAMLProviderResponse => __isa(o, "CreateSAMLProviderResponse");
 }
 
 export interface CreateServiceLinkedRoleRequest {
@@ -1189,6 +1136,11 @@ export interface CreateServiceLinkedRoleRequest {
   AWSServiceName: string | undefined;
 
   /**
+   * <p>The description of the role.</p>
+   */
+  Description?: string;
+
+  /**
    * <p></p>
    *          <p>A string that you provide, which is combined with the service-provided prefix to form
    *          the complete role name. If you make multiple requests for the same service, then you must
@@ -1199,21 +1151,13 @@ export interface CreateServiceLinkedRoleRequest {
    *          optional suffix and the operation fails, try the operation again without the suffix.</p>
    */
   CustomSuffix?: string;
-
-  /**
-   * <p>The description of the role.</p>
-   */
-  Description?: string;
 }
 
 export namespace CreateServiceLinkedRoleRequest {
-  export const filterSensitiveLog = (
-    obj: CreateServiceLinkedRoleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateServiceLinkedRoleRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateServiceLinkedRoleRequest =>
-    __isa(o, "CreateServiceLinkedRoleRequest");
+  export const isa = (o: any): o is CreateServiceLinkedRoleRequest => __isa(o, "CreateServiceLinkedRoleRequest");
 }
 
 export interface CreateServiceLinkedRoleResponse {
@@ -1226,13 +1170,10 @@ export interface CreateServiceLinkedRoleResponse {
 }
 
 export namespace CreateServiceLinkedRoleResponse {
-  export const filterSensitiveLog = (
-    obj: CreateServiceLinkedRoleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateServiceLinkedRoleResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateServiceLinkedRoleResponse =>
-    __isa(o, "CreateServiceLinkedRoleResponse");
+  export const isa = (o: any): o is CreateServiceLinkedRoleResponse => __isa(o, "CreateServiceLinkedRoleResponse");
 }
 
 export interface CreateServiceSpecificCredentialRequest {
@@ -1254,10 +1195,8 @@ export interface CreateServiceSpecificCredentialRequest {
 }
 
 export namespace CreateServiceSpecificCredentialRequest {
-  export const filterSensitiveLog = (
-    obj: CreateServiceSpecificCredentialRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateServiceSpecificCredentialRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateServiceSpecificCredentialRequest =>
     __isa(o, "CreateServiceSpecificCredentialRequest");
@@ -1277,15 +1216,11 @@ export interface CreateServiceSpecificCredentialResponse {
 }
 
 export namespace CreateServiceSpecificCredentialResponse {
-  export const filterSensitiveLog = (
-    obj: CreateServiceSpecificCredentialResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: CreateServiceSpecificCredentialResponse): any => ({
     ...obj,
     ...(obj.ServiceSpecificCredential && {
-      ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(
-        obj.ServiceSpecificCredential
-      )
-    })
+      ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(obj.ServiceSpecificCredential),
+    }),
   });
   export const isa = (o: any): o is CreateServiceSpecificCredentialResponse =>
     __isa(o, "CreateServiceSpecificCredentialResponse");
@@ -1299,15 +1234,18 @@ export interface CreateUserRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   Path?: string;
 
   /**
-   * <p>The ARN of the policy that is used to set the permissions boundary for the user.</p>
+   * <p>The name of the user to create.</p>
+   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
+   *          not distinguished by case. For example, you cannot create resources named both "MyResource"
+   *          and "myresource".</p>
    */
-  PermissionsBoundary?: string;
+  UserName: string | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the newly created user. Each tag consists of
@@ -1321,20 +1259,16 @@ export interface CreateUserRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The name of the user to create.</p>
-   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
-   *          not distinguished by case. For example, you cannot create resources named both "MyResource"
-   *          and "myresource".</p>
+   * <p>The ARN of the policy that is used to set the permissions boundary for the user.</p>
    */
-  UserName: string | undefined;
+  PermissionsBoundary?: string;
 }
 
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest =>
-    __isa(o, "CreateUserRequest");
+  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 /**
@@ -1350,25 +1284,13 @@ export interface CreateUserResponse {
 
 export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse =>
-    __isa(o, "CreateUserResponse");
+  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface CreateVirtualMFADeviceRequest {
   __type?: "CreateVirtualMFADeviceRequest";
-  /**
-   * <p> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  Path?: string;
-
   /**
    * <p>The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA
    *          device.</p>
@@ -1376,16 +1298,24 @@ export interface CreateVirtualMFADeviceRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   VirtualMFADeviceName: string | undefined;
+
+  /**
+   * <p> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  Path?: string;
 }
 
 export namespace CreateVirtualMFADeviceRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVirtualMFADeviceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVirtualMFADeviceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVirtualMFADeviceRequest =>
-    __isa(o, "CreateVirtualMFADeviceRequest");
+  export const isa = (o: any): o is CreateVirtualMFADeviceRequest => __isa(o, "CreateVirtualMFADeviceRequest");
 }
 
 /**
@@ -1401,18 +1331,11 @@ export interface CreateVirtualMFADeviceResponse {
 }
 
 export namespace CreateVirtualMFADeviceResponse {
-  export const filterSensitiveLog = (
-    obj: CreateVirtualMFADeviceResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: CreateVirtualMFADeviceResponse): any => ({
     ...obj,
-    ...(obj.VirtualMFADevice && {
-      VirtualMFADevice: VirtualMFADevice.filterSensitiveLog(
-        obj.VirtualMFADevice
-      )
-    })
+    ...(obj.VirtualMFADevice && { VirtualMFADevice: VirtualMFADevice.filterSensitiveLog(obj.VirtualMFADevice) }),
   });
-  export const isa = (o: any): o is CreateVirtualMFADeviceResponse =>
-    __isa(o, "CreateVirtualMFADeviceResponse");
+  export const isa = (o: any): o is CreateVirtualMFADeviceResponse => __isa(o, "CreateVirtualMFADeviceResponse");
 }
 
 /**
@@ -1421,41 +1344,32 @@ export namespace CreateVirtualMFADeviceResponse {
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the
  *         <i>IAM User Guide</i>.</p>
  */
-export interface CredentialReportExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CredentialReportExpiredException extends __SmithyException, $MetadataBearer {
   name: "CredentialReportExpiredException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CredentialReportExpiredException {
-  export const filterSensitiveLog = (
-    obj: CredentialReportExpiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CredentialReportExpiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CredentialReportExpiredException =>
-    __isa(o, "CredentialReportExpiredException");
+  export const isa = (o: any): o is CredentialReportExpiredException => __isa(o, "CredentialReportExpiredException");
 }
 
 /**
  * <p>The request was rejected because the credential report does not exist. To generate a
  *       credential report, use <a>GenerateCredentialReport</a>.</p>
  */
-export interface CredentialReportNotPresentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CredentialReportNotPresentException extends __SmithyException, $MetadataBearer {
   name: "CredentialReportNotPresentException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CredentialReportNotPresentException {
-  export const filterSensitiveLog = (
-    obj: CredentialReportNotPresentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CredentialReportNotPresentException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CredentialReportNotPresentException =>
     __isa(o, "CredentialReportNotPresentException");
@@ -1465,26 +1379,28 @@ export namespace CredentialReportNotPresentException {
  * <p>The request was rejected because the credential report is still being
  *       generated.</p>
  */
-export interface CredentialReportNotReadyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CredentialReportNotReadyException extends __SmithyException, $MetadataBearer {
   name: "CredentialReportNotReadyException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CredentialReportNotReadyException {
-  export const filterSensitiveLog = (
-    obj: CredentialReportNotReadyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CredentialReportNotReadyException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CredentialReportNotReadyException =>
-    __isa(o, "CredentialReportNotReadyException");
+  export const isa = (o: any): o is CredentialReportNotReadyException => __isa(o, "CredentialReportNotReadyException");
 }
 
 export interface DeactivateMFADeviceRequest {
   __type?: "DeactivateMFADeviceRequest";
+  /**
+   * <p>The name of the user whose MFA device you want to deactivate.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+
   /**
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
    *          serial number is the device ARN.</p>
@@ -1493,46 +1409,37 @@ export interface DeactivateMFADeviceRequest {
    *     following characters: =,.@:/-</p>
    */
   SerialNumber: string | undefined;
-
-  /**
-   * <p>The name of the user whose MFA device you want to deactivate.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
 }
 
 export namespace DeactivateMFADeviceRequest {
   export const filterSensitiveLog = (obj: DeactivateMFADeviceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeactivateMFADeviceRequest =>
-    __isa(o, "DeactivateMFADeviceRequest");
+  export const isa = (o: any): o is DeactivateMFADeviceRequest => __isa(o, "DeactivateMFADeviceRequest");
 }
 
 export interface DeleteAccessKeyRequest {
   __type?: "DeleteAccessKeyRequest";
-  /**
-   * <p>The access key ID for the access key ID and secret access key you want to delete.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  AccessKeyId: string | undefined;
-
   /**
    * <p>The name of the user whose access key pair you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName?: string;
+
+  /**
+   * <p>The access key ID for the access key ID and secret access key you want to delete.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  AccessKeyId: string | undefined;
 }
 
 export namespace DeleteAccessKeyRequest {
   export const filterSensitiveLog = (obj: DeleteAccessKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessKeyRequest =>
-    __isa(o, "DeleteAccessKeyRequest");
+  export const isa = (o: any): o is DeleteAccessKeyRequest => __isa(o, "DeleteAccessKeyRequest");
 }
 
 export interface DeleteAccountAliasRequest {
@@ -1548,19 +1455,16 @@ export interface DeleteAccountAliasRequest {
 
 export namespace DeleteAccountAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAccountAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountAliasRequest =>
-    __isa(o, "DeleteAccountAliasRequest");
+  export const isa = (o: any): o is DeleteAccountAliasRequest => __isa(o, "DeleteAccountAliasRequest");
 }
 
 /**
  * <p>The request was rejected because it attempted to delete a resource that has attached
  *       subordinate entities. The error message describes these entities.</p>
  */
-export interface DeleteConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeleteConflictException extends __SmithyException, $MetadataBearer {
   name: "DeleteConflictException";
   $fault: "client";
   message?: string;
@@ -1568,14 +1472,20 @@ export interface DeleteConflictException
 
 export namespace DeleteConflictException {
   export const filterSensitiveLog = (obj: DeleteConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConflictException =>
-    __isa(o, "DeleteConflictException");
+  export const isa = (o: any): o is DeleteConflictException => __isa(o, "DeleteConflictException");
 }
 
 export interface DeleteGroupPolicyRequest {
   __type?: "DeleteGroupPolicyRequest";
+  /**
+   * <p>The name identifying the policy document to delete.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  PolicyName: string | undefined;
+
   /**
    * <p>The name (friendly name, not ARN) identifying the group that the policy is embedded
    *          in.</p>
@@ -1583,21 +1493,13 @@ export interface DeleteGroupPolicyRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   GroupName: string | undefined;
-
-  /**
-   * <p>The name identifying the policy document to delete.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  PolicyName: string | undefined;
 }
 
 export namespace DeleteGroupPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteGroupPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupPolicyRequest =>
-    __isa(o, "DeleteGroupPolicyRequest");
+  export const isa = (o: any): o is DeleteGroupPolicyRequest => __isa(o, "DeleteGroupPolicyRequest");
 }
 
 export interface DeleteGroupRequest {
@@ -1612,10 +1514,9 @@ export interface DeleteGroupRequest {
 
 export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest =>
-    __isa(o, "DeleteGroupRequest");
+  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteInstanceProfileRequest {
@@ -1629,13 +1530,10 @@ export interface DeleteInstanceProfileRequest {
 }
 
 export namespace DeleteInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileRequest =>
-    __isa(o, "DeleteInstanceProfileRequest");
+  export const isa = (o: any): o is DeleteInstanceProfileRequest => __isa(o, "DeleteInstanceProfileRequest");
 }
 
 export interface DeleteLoginProfileRequest {
@@ -1650,10 +1548,9 @@ export interface DeleteLoginProfileRequest {
 
 export namespace DeleteLoginProfileRequest {
   export const filterSensitiveLog = (obj: DeleteLoginProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLoginProfileRequest =>
-    __isa(o, "DeleteLoginProfileRequest");
+  export const isa = (o: any): o is DeleteLoginProfileRequest => __isa(o, "DeleteLoginProfileRequest");
 }
 
 export interface DeleteOpenIDConnectProviderRequest {
@@ -1666,10 +1563,8 @@ export interface DeleteOpenIDConnectProviderRequest {
 }
 
 export namespace DeleteOpenIDConnectProviderRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteOpenIDConnectProviderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteOpenIDConnectProviderRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteOpenIDConnectProviderRequest =>
     __isa(o, "DeleteOpenIDConnectProviderRequest");
@@ -1687,22 +1582,13 @@ export interface DeletePolicyRequest {
 
 export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest =>
-    __isa(o, "DeletePolicyRequest");
+  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export interface DeletePolicyVersionRequest {
   __type?: "DeletePolicyVersionRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a
-   *          version.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
-
   /**
    * <p>The policy version to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
@@ -1712,14 +1598,21 @@ export interface DeletePolicyVersionRequest {
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
   VersionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a
+   *          version.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace DeletePolicyVersionRequest {
   export const filterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyVersionRequest =>
-    __isa(o, "DeletePolicyVersionRequest");
+  export const isa = (o: any): o is DeletePolicyVersionRequest => __isa(o, "DeletePolicyVersionRequest");
 }
 
 export interface DeleteRolePermissionsBoundaryRequest {
@@ -1732,10 +1625,8 @@ export interface DeleteRolePermissionsBoundaryRequest {
 }
 
 export namespace DeleteRolePermissionsBoundaryRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRolePermissionsBoundaryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRolePermissionsBoundaryRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRolePermissionsBoundaryRequest =>
     __isa(o, "DeleteRolePermissionsBoundaryRequest");
@@ -1761,10 +1652,9 @@ export interface DeleteRolePolicyRequest {
 
 export namespace DeleteRolePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteRolePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRolePolicyRequest =>
-    __isa(o, "DeleteRolePolicyRequest");
+  export const isa = (o: any): o is DeleteRolePolicyRequest => __isa(o, "DeleteRolePolicyRequest");
 }
 
 export interface DeleteRoleRequest {
@@ -1779,10 +1669,9 @@ export interface DeleteRoleRequest {
 
 export namespace DeleteRoleRequest {
   export const filterSensitiveLog = (obj: DeleteRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRoleRequest =>
-    __isa(o, "DeleteRoleRequest");
+  export const isa = (o: any): o is DeleteRoleRequest => __isa(o, "DeleteRoleRequest");
 }
 
 export interface DeleteSAMLProviderRequest {
@@ -1795,10 +1684,9 @@ export interface DeleteSAMLProviderRequest {
 
 export namespace DeleteSAMLProviderRequest {
   export const filterSensitiveLog = (obj: DeleteSAMLProviderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSAMLProviderRequest =>
-    __isa(o, "DeleteSAMLProviderRequest");
+  export const isa = (o: any): o is DeleteSAMLProviderRequest => __isa(o, "DeleteSAMLProviderRequest");
 }
 
 export interface DeleteServerCertificateRequest {
@@ -1812,13 +1700,10 @@ export interface DeleteServerCertificateRequest {
 }
 
 export namespace DeleteServerCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteServerCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServerCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteServerCertificateRequest =>
-    __isa(o, "DeleteServerCertificateRequest");
+  export const isa = (o: any): o is DeleteServerCertificateRequest => __isa(o, "DeleteServerCertificateRequest");
 }
 
 export interface DeleteServiceLinkedRoleRequest {
@@ -1830,13 +1715,10 @@ export interface DeleteServiceLinkedRoleRequest {
 }
 
 export namespace DeleteServiceLinkedRoleRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteServiceLinkedRoleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServiceLinkedRoleRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceLinkedRoleRequest =>
-    __isa(o, "DeleteServiceLinkedRoleRequest");
+  export const isa = (o: any): o is DeleteServiceLinkedRoleRequest => __isa(o, "DeleteServiceLinkedRoleRequest");
 }
 
 export interface DeleteServiceLinkedRoleResponse {
@@ -1850,25 +1732,14 @@ export interface DeleteServiceLinkedRoleResponse {
 }
 
 export namespace DeleteServiceLinkedRoleResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteServiceLinkedRoleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServiceLinkedRoleResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceLinkedRoleResponse =>
-    __isa(o, "DeleteServiceLinkedRoleResponse");
+  export const isa = (o: any): o is DeleteServiceLinkedRoleResponse => __isa(o, "DeleteServiceLinkedRoleResponse");
 }
 
 export interface DeleteServiceSpecificCredentialRequest {
   __type?: "DeleteServiceSpecificCredentialRequest";
-  /**
-   * <p>The unique identifier of the service-specific credential. You can get this value by
-   *          calling <a>ListServiceSpecificCredentials</a>.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  ServiceSpecificCredentialId: string | undefined;
-
   /**
    * <p>The name of the IAM user associated with the service-specific credential. If this
    *          value is not specified, then the operation assumes the user whose credentials are used to
@@ -1877,13 +1748,19 @@ export interface DeleteServiceSpecificCredentialRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName?: string;
+
+  /**
+   * <p>The unique identifier of the service-specific credential. You can get this value by
+   *          calling <a>ListServiceSpecificCredentials</a>.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  ServiceSpecificCredentialId: string | undefined;
 }
 
 export namespace DeleteServiceSpecificCredentialRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteServiceSpecificCredentialRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteServiceSpecificCredentialRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteServiceSpecificCredentialRequest =>
     __isa(o, "DeleteServiceSpecificCredentialRequest");
@@ -1892,28 +1769,25 @@ export namespace DeleteServiceSpecificCredentialRequest {
 export interface DeleteSigningCertificateRequest {
   __type?: "DeleteSigningCertificateRequest";
   /**
-   * <p>The ID of the signing certificate to delete.</p>
-   *          <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters
-   *          that can be upper- or lower-cased letters or digits.</p>
-   */
-  CertificateId: string | undefined;
-
-  /**
    * <p>The name of the user the signing certificate belongs to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName?: string;
+
+  /**
+   * <p>The ID of the signing certificate to delete.</p>
+   *          <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters
+   *          that can be upper- or lower-cased letters or digits.</p>
+   */
+  CertificateId: string | undefined;
 }
 
 export namespace DeleteSigningCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteSigningCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSigningCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSigningCertificateRequest =>
-    __isa(o, "DeleteSigningCertificateRequest");
+  export const isa = (o: any): o is DeleteSigningCertificateRequest => __isa(o, "DeleteSigningCertificateRequest");
 }
 
 export interface DeleteSSHPublicKeyRequest {
@@ -1935,10 +1809,9 @@ export interface DeleteSSHPublicKeyRequest {
 
 export namespace DeleteSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: DeleteSSHPublicKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSSHPublicKeyRequest =>
-    __isa(o, "DeleteSSHPublicKeyRequest");
+  export const isa = (o: any): o is DeleteSSHPublicKeyRequest => __isa(o, "DeleteSSHPublicKeyRequest");
 }
 
 export interface DeleteUserPermissionsBoundaryRequest {
@@ -1951,10 +1824,8 @@ export interface DeleteUserPermissionsBoundaryRequest {
 }
 
 export namespace DeleteUserPermissionsBoundaryRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteUserPermissionsBoundaryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteUserPermissionsBoundaryRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteUserPermissionsBoundaryRequest =>
     __isa(o, "DeleteUserPermissionsBoundaryRequest");
@@ -1963,27 +1834,26 @@ export namespace DeleteUserPermissionsBoundaryRequest {
 export interface DeleteUserPolicyRequest {
   __type?: "DeleteUserPolicyRequest";
   /**
-   * <p>The name identifying the policy document to delete.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>The name (friendly name, not ARN) identifying the user that the policy is embedded
    *          in.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The name identifying the policy document to delete.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  PolicyName: string | undefined;
 }
 
 export namespace DeleteUserPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteUserPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUserPolicyRequest =>
-    __isa(o, "DeleteUserPolicyRequest");
+  export const isa = (o: any): o is DeleteUserPolicyRequest => __isa(o, "DeleteUserPolicyRequest");
 }
 
 export interface DeleteUserRequest {
@@ -1998,10 +1868,9 @@ export interface DeleteUserRequest {
 
 export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest =>
-    __isa(o, "DeleteUserRequest");
+  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DeleteVirtualMFADeviceRequest {
@@ -2017,13 +1886,10 @@ export interface DeleteVirtualMFADeviceRequest {
 }
 
 export namespace DeleteVirtualMFADeviceRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVirtualMFADeviceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVirtualMFADeviceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualMFADeviceRequest =>
-    __isa(o, "DeleteVirtualMFADeviceRequest");
+  export const isa = (o: any): o is DeleteVirtualMFADeviceRequest => __isa(o, "DeleteVirtualMFADeviceRequest");
 }
 
 /**
@@ -2049,70 +1915,65 @@ export interface DeletionTaskFailureReasonType {
 }
 
 export namespace DeletionTaskFailureReasonType {
-  export const filterSensitiveLog = (
-    obj: DeletionTaskFailureReasonType
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletionTaskFailureReasonType): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeletionTaskFailureReasonType =>
-    __isa(o, "DeletionTaskFailureReasonType");
+  export const isa = (o: any): o is DeletionTaskFailureReasonType => __isa(o, "DeletionTaskFailureReasonType");
 }
 
 export enum DeletionTaskStatusType {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export interface DetachGroupPolicyRequest {
   __type?: "DetachGroupPolicyRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
+
   /**
    * <p>The name (friendly name, not ARN) of the IAM group to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   GroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
 }
 
 export namespace DetachGroupPolicyRequest {
   export const filterSensitiveLog = (obj: DetachGroupPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachGroupPolicyRequest =>
-    __isa(o, "DetachGroupPolicyRequest");
+  export const isa = (o: any): o is DetachGroupPolicyRequest => __isa(o, "DetachGroupPolicyRequest");
 }
 
 export interface DetachRolePolicyRequest {
   __type?: "DetachRolePolicyRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
-
   /**
    * <p>The name (friendly name, not ARN) of the IAM role to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   RoleName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace DetachRolePolicyRequest {
   export const filterSensitiveLog = (obj: DetachRolePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachRolePolicyRequest =>
-    __isa(o, "DetachRolePolicyRequest");
+  export const isa = (o: any): o is DetachRolePolicyRequest => __isa(o, "DetachRolePolicyRequest");
 }
 
 export interface DetachUserPolicyRequest {
@@ -2134,58 +1995,56 @@ export interface DetachUserPolicyRequest {
 
 export namespace DetachUserPolicyRequest {
   export const filterSensitiveLog = (obj: DetachUserPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DetachUserPolicyRequest =>
-    __isa(o, "DetachUserPolicyRequest");
+  export const isa = (o: any): o is DetachUserPolicyRequest => __isa(o, "DetachUserPolicyRequest");
 }
 
 /**
  * <p>The request was rejected because the same certificate is associated with an IAM user in
  *       the account.</p>
  */
-export interface DuplicateCertificateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateCertificateException extends __SmithyException, $MetadataBearer {
   name: "DuplicateCertificateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace DuplicateCertificateException {
-  export const filterSensitiveLog = (
-    obj: DuplicateCertificateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DuplicateCertificateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateCertificateException =>
-    __isa(o, "DuplicateCertificateException");
+  export const isa = (o: any): o is DuplicateCertificateException => __isa(o, "DuplicateCertificateException");
 }
 
 /**
  * <p>The request was rejected because the SSH public key is already associated with the
  *       specified IAM user.</p>
  */
-export interface DuplicateSSHPublicKeyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateSSHPublicKeyException extends __SmithyException, $MetadataBearer {
   name: "DuplicateSSHPublicKeyException";
   $fault: "client";
   message?: string;
 }
 
 export namespace DuplicateSSHPublicKeyException {
-  export const filterSensitiveLog = (
-    obj: DuplicateSSHPublicKeyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DuplicateSSHPublicKeyException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateSSHPublicKeyException =>
-    __isa(o, "DuplicateSSHPublicKeyException");
+  export const isa = (o: any): o is DuplicateSSHPublicKeyException => __isa(o, "DuplicateSSHPublicKeyException");
 }
 
 export interface EnableMFADeviceRequest {
   __type?: "EnableMFADeviceRequest";
+  /**
+   * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
+   *          serial number is the device ARN.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of upper and lowercase alphanumeric characters with no spaces. You can also include any of the
+   *     following characters: =,.@:/-</p>
+   */
+  SerialNumber: string | undefined;
+
   /**
    * <p>An authentication code emitted by the device. </p>
    *          <p>The format for this parameter is a string of six digits.</p>
@@ -2213,15 +2072,6 @@ export interface EnableMFADeviceRequest {
   AuthenticationCode2: string | undefined;
 
   /**
-   * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
-   *          serial number is the device ARN.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of upper and lowercase alphanumeric characters with no spaces. You can also include any of the
-   *     following characters: =,.@:/-</p>
-   */
-  SerialNumber: string | undefined;
-
-  /**
    * <p>The name of the IAM user for whom you want to enable the MFA device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
@@ -2231,10 +2081,9 @@ export interface EnableMFADeviceRequest {
 
 export namespace EnableMFADeviceRequest {
   export const filterSensitiveLog = (obj: EnableMFADeviceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableMFADeviceRequest =>
-    __isa(o, "EnableMFADeviceRequest");
+  export const isa = (o: any): o is EnableMFADeviceRequest => __isa(o, "EnableMFADeviceRequest");
 }
 
 export type EncodingType = "PEM" | "SSH";
@@ -2243,22 +2092,17 @@ export type EncodingType = "PEM" | "SSH";
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
  */
-export interface EntityAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EntityAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace EntityAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: EntityAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EntityAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EntityAlreadyExistsException =>
-    __isa(o, "EntityAlreadyExistsException");
+  export const isa = (o: any): o is EntityAlreadyExistsException => __isa(o, "EntityAlreadyExistsException");
 }
 
 /**
@@ -2286,7 +2130,7 @@ export interface EntityDetails {
 
 export namespace EntityDetails {
   export const filterSensitiveLog = (obj: EntityDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EntityDetails => __isa(o, "EntityDetails");
 }
@@ -2298,11 +2142,9 @@ export namespace EntityDetails {
 export interface EntityInfo {
   __type?: "EntityInfo";
   /**
-   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
-   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   * <p>The name of the entity (user or role).</p>
    */
-  Arn: string | undefined;
+  Name: string | undefined;
 
   /**
    * <p>The identifier of the entity (user or role).</p>
@@ -2310,15 +2152,17 @@ export interface EntityInfo {
   Id: string | undefined;
 
   /**
-   * <p>The name of the entity (user or role).</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The path to the entity (user or role). For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             Identifiers</a> in the <i>IAM User Guide</i>. </p>
    */
   Path?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
+   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   */
+  Arn: string | undefined;
 
   /**
    * <p>The type of entity (user or role).</p>
@@ -2328,7 +2172,7 @@ export interface EntityInfo {
 
 export namespace EntityInfo {
   export const filterSensitiveLog = (obj: EntityInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EntityInfo => __isa(o, "EntityInfo");
 }
@@ -2339,19 +2183,15 @@ export namespace EntityInfo {
  *       that the request is likely to succeed if you try again after waiting several minutes. The
  *       error message describes the entity.</p>
  */
-export interface EntityTemporarilyUnmodifiableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityTemporarilyUnmodifiableException extends __SmithyException, $MetadataBearer {
   name: "EntityTemporarilyUnmodifiableException";
   $fault: "client";
   message?: string;
 }
 
 export namespace EntityTemporarilyUnmodifiableException {
-  export const filterSensitiveLog = (
-    obj: EntityTemporarilyUnmodifiableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EntityTemporarilyUnmodifiableException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EntityTemporarilyUnmodifiableException =>
     __isa(o, "EntityTemporarilyUnmodifiableException");
@@ -2362,7 +2202,7 @@ export enum EntityType {
   Group = "Group",
   LocalManagedPolicy = "LocalManagedPolicy",
   Role = "Role",
-  User = "User"
+  User = "User",
 }
 
 /**
@@ -2384,7 +2224,7 @@ export interface ErrorDetails {
 
 export namespace ErrorDetails {
   export const filterSensitiveLog = (obj: ErrorDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
 }
@@ -2400,27 +2240,38 @@ export namespace ErrorDetails {
 export interface EvaluationResult {
   __type?: "EvaluationResult";
   /**
-   * <p>The name of the API operation tested on the indicated resource.</p>
-   */
-  EvalActionName: string | undefined;
-
-  /**
    * <p>The result of the simulation.</p>
    */
   EvalDecision: PolicyEvaluationDecisionType | string | undefined;
 
   /**
-   * <p>Additional details about the results of the evaluation decision. When there are both
-   *          IAM policies and resource policies, this parameter explains how each set of policies
-   *          contributes to the final evaluation decision. When simulating cross-account access to a
-   *          resource, both the resource-based policy and the caller's IAM policy must grant access.
-   *          See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html">How IAM Roles Differ from
-   *             Resource-based Policies</a>
-   *          </p>
+   * <p>The name of the API operation tested on the indicated resource.</p>
    */
-  EvalDecisionDetails?: {
-    [key: string]: PolicyEvaluationDecisionType | string;
-  };
+  EvalActionName: string | undefined;
+
+  /**
+   * <p>Additional details about the results of the cross-account evaluation decision. This
+   *          parameter is populated for only cross-account simulations. It contains a brief summary of
+   *          how each policy type contributes to the final evaluation decision.</p>
+   *          <p>If the simulation evaluates policies within the same account and includes a resource
+   *          ARN, then the parameter is present but the response is empty. If the simulation evaluates
+   *          policies within the same account and specifies all resources (<code>*</code>), then the
+   *          parameter is not returned.</p>
+   *          <p>When you make a cross-account request, AWS evaluates the request in the trusting
+   *          account and the trusted account. The request is allowed only if both evaluations return
+   *             <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating Policies Within a Single Account</a>.</p>
+   *          <p>If an AWS Organizations SCP included in the evaluation denies access, the simulation ends. In
+   *          this case, policy evaluation does not proceed any further and this parameter is not
+   *          returned.</p>
+   */
+  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
+
+  /**
+   * <p>A structure that details how Organizations and its service control policies affect the results of
+   *          the simulation. Only applies if the simulated user's account is part of an
+   *          organization.</p>
+   */
+  OrganizationsDecisionDetail?: OrganizationsDecisionDetail;
 
   /**
    * <p>The ARN of the resource that the indicated API operation was tested on.</p>
@@ -2446,11 +2297,10 @@ export interface EvaluationResult {
   MissingContextValues?: string[];
 
   /**
-   * <p>A structure that details how Organizations and its service control policies affect the results of
-   *          the simulation. Only applies if the simulated user's account is part of an
-   *          organization.</p>
+   * <p>Contains information about the effect that a permissions boundary has on a policy
+   *          simulation when the boundary is applied to an IAM entity.</p>
    */
-  OrganizationsDecisionDetail?: OrganizationsDecisionDetail;
+  PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
 
   /**
    * <p>The individual results of the simulation of the API operation specified in
@@ -2461,10 +2311,9 @@ export interface EvaluationResult {
 
 export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -2474,28 +2323,33 @@ export namespace EvaluationResult {
 export interface GenerateCredentialReportResponse {
   __type?: "GenerateCredentialReportResponse";
   /**
-   * <p>Information about the credential report.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>Information about the state of the credential report.</p>
    */
   State?: ReportStateType | string;
+
+  /**
+   * <p>Information about the credential report.</p>
+   */
+  Description?: string;
 }
 
 export namespace GenerateCredentialReportResponse {
-  export const filterSensitiveLog = (
-    obj: GenerateCredentialReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateCredentialReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GenerateCredentialReportResponse =>
-    __isa(o, "GenerateCredentialReportResponse");
+  export const isa = (o: any): o is GenerateCredentialReportResponse => __isa(o, "GenerateCredentialReportResponse");
 }
 
 export interface GenerateOrganizationsAccessReportRequest {
   __type?: "GenerateOrganizationsAccessReportRequest";
+  /**
+   * <p>The identifier of the AWS Organizations service control policy (SCP). This parameter is
+   *          optional.</p>
+   *          <p>This ID is used to generate information about when an account principal that is limited
+   *          by the SCP attempted to access an AWS service.</p>
+   */
+  OrganizationsPolicyId?: string;
+
   /**
    * <p>The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using
    *          the known structure of your organization. For example, assume that your account ID is
@@ -2505,21 +2359,11 @@ export interface GenerateOrganizationsAccessReportRequest {
    *             <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012</code>.</p>
    */
   EntityPath: string | undefined;
-
-  /**
-   * <p>The identifier of the AWS Organizations service control policy (SCP). This parameter is
-   *          optional.</p>
-   *          <p>This ID is used to generate information about when an account principal that is limited
-   *          by the SCP attempted to access an AWS service.</p>
-   */
-  OrganizationsPolicyId?: string;
 }
 
 export namespace GenerateOrganizationsAccessReportRequest {
-  export const filterSensitiveLog = (
-    obj: GenerateOrganizationsAccessReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateOrganizationsAccessReportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GenerateOrganizationsAccessReportRequest =>
     __isa(o, "GenerateOrganizationsAccessReportRequest");
@@ -2534,10 +2378,8 @@ export interface GenerateOrganizationsAccessReportResponse {
 }
 
 export namespace GenerateOrganizationsAccessReportResponse {
-  export const filterSensitiveLog = (
-    obj: GenerateOrganizationsAccessReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateOrganizationsAccessReportResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GenerateOrganizationsAccessReportResponse =>
     __isa(o, "GenerateOrganizationsAccessReportResponse");
@@ -2551,13 +2393,20 @@ export interface GenerateServiceLastAccessedDetailsRequest {
    *          service.</p>
    */
   Arn: string | undefined;
+
+  /**
+   * <p>The level of detail that you want to generate. You can specify whether you want to
+   *          generate information about the last attempt to access services or actions. If you specify
+   *          service-level granularity, this operation generates only service data. If you specify
+   *          action-level granularity, it generates service and action data. If you don't include this
+   *          optional parameter, the operation generates service data.</p>
+   */
+  Granularity?: AccessAdvisorUsageGranularityType | string;
 }
 
 export namespace GenerateServiceLastAccessedDetailsRequest {
-  export const filterSensitiveLog = (
-    obj: GenerateServiceLastAccessedDetailsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateServiceLastAccessedDetailsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GenerateServiceLastAccessedDetailsRequest =>
     __isa(o, "GenerateServiceLastAccessedDetailsRequest");
@@ -2566,21 +2415,19 @@ export namespace GenerateServiceLastAccessedDetailsRequest {
 export interface GenerateServiceLastAccessedDetailsResponse {
   __type?: "GenerateServiceLastAccessedDetailsResponse";
   /**
-   * <p>The job ID that you can use in the <a>GetServiceLastAccessedDetails</a> or
-   *             <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+   * <p>The <code>JobId</code> that you can use in the <a>GetServiceLastAccessedDetails</a> or <a>GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code>
+   *          returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
+   *          within a session, or by the same user when used to call
+   *             <code>GetServiceLastAccessedDetail</code>.</p>
    */
   JobId?: string;
 }
 
 export namespace GenerateServiceLastAccessedDetailsResponse {
-  export const filterSensitiveLog = (
-    obj: GenerateServiceLastAccessedDetailsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GenerateServiceLastAccessedDetailsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GenerateServiceLastAccessedDetailsResponse =>
+  export const isa = (o: any): o is GenerateServiceLastAccessedDetailsResponse =>
     __isa(o, "GenerateServiceLastAccessedDetailsResponse");
 }
 
@@ -2595,13 +2442,10 @@ export interface GetAccessKeyLastUsedRequest {
 }
 
 export namespace GetAccessKeyLastUsedRequest {
-  export const filterSensitiveLog = (
-    obj: GetAccessKeyLastUsedRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAccessKeyLastUsedRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyLastUsedRequest =>
-    __isa(o, "GetAccessKeyLastUsedRequest");
+  export const isa = (o: any): o is GetAccessKeyLastUsedRequest => __isa(o, "GetAccessKeyLastUsedRequest");
 }
 
 /**
@@ -2624,13 +2468,10 @@ export interface GetAccessKeyLastUsedResponse {
 }
 
 export namespace GetAccessKeyLastUsedResponse {
-  export const filterSensitiveLog = (
-    obj: GetAccessKeyLastUsedResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAccessKeyLastUsedResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyLastUsedResponse =>
-    __isa(o, "GetAccessKeyLastUsedResponse");
+  export const isa = (o: any): o is GetAccessKeyLastUsedResponse => __isa(o, "GetAccessKeyLastUsedResponse");
 }
 
 export interface GetAccountAuthorizationDetailsRequest {
@@ -2666,10 +2507,8 @@ export interface GetAccountAuthorizationDetailsRequest {
 }
 
 export namespace GetAccountAuthorizationDetailsRequest {
-  export const filterSensitiveLog = (
-    obj: GetAccountAuthorizationDetailsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAccountAuthorizationDetailsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetAccountAuthorizationDetailsRequest =>
     __isa(o, "GetAccountAuthorizationDetailsRequest");
@@ -2682,9 +2521,9 @@ export namespace GetAccountAuthorizationDetailsRequest {
 export interface GetAccountAuthorizationDetailsResponse {
   __type?: "GetAccountAuthorizationDetailsResponse";
   /**
-   * <p>A list containing information about IAM groups.</p>
+   * <p>A list containing information about IAM roles.</p>
    */
-  GroupDetailList?: GroupDetail[];
+  RoleDetailList?: RoleDetail[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -2695,6 +2534,11 @@ export interface GetAccountAuthorizationDetailsResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
+
+  /**
+   * <p>A list containing information about IAM users.</p>
+   */
+  UserDetailList?: UserDetail[];
 
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
@@ -2709,21 +2553,14 @@ export interface GetAccountAuthorizationDetailsResponse {
   Policies?: ManagedPolicyDetail[];
 
   /**
-   * <p>A list containing information about IAM roles.</p>
+   * <p>A list containing information about IAM groups.</p>
    */
-  RoleDetailList?: RoleDetail[];
-
-  /**
-   * <p>A list containing information about IAM users.</p>
-   */
-  UserDetailList?: UserDetail[];
+  GroupDetailList?: GroupDetail[];
 }
 
 export namespace GetAccountAuthorizationDetailsResponse {
-  export const filterSensitiveLog = (
-    obj: GetAccountAuthorizationDetailsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAccountAuthorizationDetailsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetAccountAuthorizationDetailsResponse =>
     __isa(o, "GetAccountAuthorizationDetailsResponse");
@@ -2742,13 +2579,10 @@ export interface GetAccountPasswordPolicyResponse {
 }
 
 export namespace GetAccountPasswordPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: GetAccountPasswordPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAccountPasswordPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountPasswordPolicyResponse =>
-    __isa(o, "GetAccountPasswordPolicyResponse");
+  export const isa = (o: any): o is GetAccountPasswordPolicyResponse => __isa(o, "GetAccountPasswordPolicyResponse");
 }
 
 /**
@@ -2766,10 +2600,9 @@ export interface GetAccountSummaryResponse {
 
 export namespace GetAccountSummaryResponse {
   export const filterSensitiveLog = (obj: GetAccountSummaryResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountSummaryResponse =>
-    __isa(o, "GetAccountSummaryResponse");
+  export const isa = (o: any): o is GetAccountSummaryResponse => __isa(o, "GetAccountSummaryResponse");
 }
 
 export interface GetContextKeysForCustomPolicyRequest {
@@ -2783,15 +2616,15 @@ export interface GetContextKeysForCustomPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -2799,10 +2632,8 @@ export interface GetContextKeysForCustomPolicyRequest {
 }
 
 export namespace GetContextKeysForCustomPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: GetContextKeysForCustomPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetContextKeysForCustomPolicyRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetContextKeysForCustomPolicyRequest =>
     __isa(o, "GetContextKeysForCustomPolicyRequest");
@@ -2820,39 +2651,14 @@ export interface GetContextKeysForPolicyResponse {
 }
 
 export namespace GetContextKeysForPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: GetContextKeysForPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetContextKeysForPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetContextKeysForPolicyResponse =>
-    __isa(o, "GetContextKeysForPolicyResponse");
+  export const isa = (o: any): o is GetContextKeysForPolicyResponse => __isa(o, "GetContextKeysForPolicyResponse");
 }
 
 export interface GetContextKeysForPrincipalPolicyRequest {
   __type?: "GetContextKeysForPrincipalPolicyRequest";
-  /**
-   * <p>An optional list of additional policies for which you want the list of context keys that
-   *          are referenced.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  PolicyInputList?: string[];
-
   /**
    * <p>The ARN of a user, group, or role whose policies contain the context keys that you want
    *          listed. If you specify a user, the list includes context keys that are found in all
@@ -2865,13 +2671,33 @@ export interface GetContextKeysForPrincipalPolicyRequest {
    *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   PolicySourceArn: string | undefined;
+
+  /**
+   * <p>An optional list of additional policies for which you want the list of context keys that
+   *          are referenced.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyInputList?: string[];
 }
 
 export namespace GetContextKeysForPrincipalPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: GetContextKeysForPrincipalPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetContextKeysForPrincipalPolicyRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetContextKeysForPrincipalPolicyRequest =>
     __isa(o, "GetContextKeysForPrincipalPolicyRequest");
@@ -2889,49 +2715,45 @@ export interface GetCredentialReportResponse {
   Content?: Uint8Array;
 
   /**
-   * <p> The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
-   */
-  GeneratedTime?: Date;
-
-  /**
    * <p>The format (MIME type) of the credential report.</p>
    */
   ReportFormat?: ReportFormatType | string;
+
+  /**
+   * <p> The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
+   */
+  GeneratedTime?: Date;
 }
 
 export namespace GetCredentialReportResponse {
-  export const filterSensitiveLog = (
-    obj: GetCredentialReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCredentialReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCredentialReportResponse =>
-    __isa(o, "GetCredentialReportResponse");
+  export const isa = (o: any): o is GetCredentialReportResponse => __isa(o, "GetCredentialReportResponse");
 }
 
 export interface GetGroupPolicyRequest {
   __type?: "GetGroupPolicyRequest";
-  /**
-   * <p>The name of the group the policy is associated with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  GroupName: string | undefined;
-
   /**
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   PolicyName: string | undefined;
+
+  /**
+   * <p>The name of the group the policy is associated with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace GetGroupPolicyRequest {
   export const filterSensitiveLog = (obj: GetGroupPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupPolicyRequest =>
-    __isa(o, "GetGroupPolicyRequest");
+  export const isa = (o: any): o is GetGroupPolicyRequest => __isa(o, "GetGroupPolicyRequest");
 }
 
 /**
@@ -2940,11 +2762,6 @@ export namespace GetGroupPolicyRequest {
  */
 export interface GetGroupPolicyResponse {
   __type?: "GetGroupPolicyResponse";
-  /**
-   * <p>The group the policy is associated with.</p>
-   */
-  GroupName: string | undefined;
-
   /**
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using AWS
@@ -2957,18 +2774,34 @@ export interface GetGroupPolicyResponse {
    * <p>The name of the policy.</p>
    */
   PolicyName: string | undefined;
+
+  /**
+   * <p>The group the policy is associated with.</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace GetGroupPolicyResponse {
   export const filterSensitiveLog = (obj: GetGroupPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupPolicyResponse =>
-    __isa(o, "GetGroupPolicyResponse");
+  export const isa = (o: any): o is GetGroupPolicyResponse => __isa(o, "GetGroupPolicyResponse");
 }
 
 export interface GetGroupRequest {
   __type?: "GetGroupRequest";
+  /**
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   */
+  MaxItems?: number;
+
   /**
    * <p>The name of the group.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -2983,26 +2816,13 @@ export interface GetGroupRequest {
    *     should start.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>Use this only when paginating results to indicate the
-   *     maximum number of items you want in the response. If additional items exist beyond the maximum
-   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
-   *     IAM might return fewer results, even when there are more results available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
 }
 
 export namespace GetGroupRequest {
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupRequest =>
-    __isa(o, "GetGroupRequest");
+  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 /**
@@ -3016,16 +2836,6 @@ export interface GetGroupResponse {
   Group: Group | undefined;
 
   /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
@@ -3036,14 +2846,23 @@ export interface GetGroupResponse {
    * <p>A list of users in the group.</p>
    */
   Users: User[] | undefined;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
+   */
+  IsTruncated?: boolean;
 }
 
 export namespace GetGroupResponse {
   export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupResponse =>
-    __isa(o, "GetGroupResponse");
+  export const isa = (o: any): o is GetGroupResponse => __isa(o, "GetGroupResponse");
 }
 
 export interface GetInstanceProfileRequest {
@@ -3058,10 +2877,9 @@ export interface GetInstanceProfileRequest {
 
 export namespace GetInstanceProfileRequest {
   export const filterSensitiveLog = (obj: GetInstanceProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileRequest =>
-    __isa(o, "GetInstanceProfileRequest");
+  export const isa = (o: any): o is GetInstanceProfileRequest => __isa(o, "GetInstanceProfileRequest");
 }
 
 /**
@@ -3078,10 +2896,9 @@ export interface GetInstanceProfileResponse {
 
 export namespace GetInstanceProfileResponse {
   export const filterSensitiveLog = (obj: GetInstanceProfileResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileResponse =>
-    __isa(o, "GetInstanceProfileResponse");
+  export const isa = (o: any): o is GetInstanceProfileResponse => __isa(o, "GetInstanceProfileResponse");
 }
 
 export interface GetLoginProfileRequest {
@@ -3096,10 +2913,9 @@ export interface GetLoginProfileRequest {
 
 export namespace GetLoginProfileRequest {
   export const filterSensitiveLog = (obj: GetLoginProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLoginProfileRequest =>
-    __isa(o, "GetLoginProfileRequest");
+  export const isa = (o: any): o is GetLoginProfileRequest => __isa(o, "GetLoginProfileRequest");
 }
 
 /**
@@ -3116,10 +2932,9 @@ export interface GetLoginProfileResponse {
 
 export namespace GetLoginProfileResponse {
   export const filterSensitiveLog = (obj: GetLoginProfileResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLoginProfileResponse =>
-    __isa(o, "GetLoginProfileResponse");
+  export const isa = (o: any): o is GetLoginProfileResponse => __isa(o, "GetLoginProfileResponse");
 }
 
 export interface GetOpenIDConnectProviderRequest {
@@ -3134,13 +2949,10 @@ export interface GetOpenIDConnectProviderRequest {
 }
 
 export namespace GetOpenIDConnectProviderRequest {
-  export const filterSensitiveLog = (
-    obj: GetOpenIDConnectProviderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOpenIDConnectProviderRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOpenIDConnectProviderRequest =>
-    __isa(o, "GetOpenIDConnectProviderRequest");
+  export const isa = (o: any): o is GetOpenIDConnectProviderRequest => __isa(o, "GetOpenIDConnectProviderRequest");
 }
 
 /**
@@ -3149,18 +2961,6 @@ export namespace GetOpenIDConnectProviderRequest {
  */
 export interface GetOpenIDConnectProviderResponse {
   __type?: "GetOpenIDConnectProviderResponse";
-  /**
-   * <p>A list of client IDs (also known as audiences) that are associated with the specified
-   *          IAM OIDC provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>.</p>
-   */
-  ClientIDList?: string[];
-
-  /**
-   * <p>The date and time when the IAM OIDC provider resource object was created in the AWS
-   *          account.</p>
-   */
-  CreateDate?: Date;
-
   /**
    * <p>A list of certificate thumbprints that are associated with the specified IAM OIDC
    *          provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
@@ -3172,25 +2972,29 @@ export interface GetOpenIDConnectProviderResponse {
    *          information, see <a>CreateOpenIDConnectProvider</a>.</p>
    */
   Url?: string;
+
+  /**
+   * <p>The date and time when the IAM OIDC provider resource object was created in the AWS
+   *          account.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>A list of client IDs (also known as audiences) that are associated with the specified
+   *          IAM OIDC provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>.</p>
+   */
+  ClientIDList?: string[];
 }
 
 export namespace GetOpenIDConnectProviderResponse {
-  export const filterSensitiveLog = (
-    obj: GetOpenIDConnectProviderResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOpenIDConnectProviderResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOpenIDConnectProviderResponse =>
-    __isa(o, "GetOpenIDConnectProviderResponse");
+  export const isa = (o: any): o is GetOpenIDConnectProviderResponse => __isa(o, "GetOpenIDConnectProviderResponse");
 }
 
 export interface GetOrganizationsAccessReportRequest {
   __type?: "GetOrganizationsAccessReportRequest";
-  /**
-   * <p>The identifier of the request generated by the <a>GenerateOrganizationsAccessReport</a> operation.</p>
-   */
-  JobId: string | undefined;
-
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -3198,6 +3002,18 @@ export interface GetOrganizationsAccessReportRequest {
    *     should start.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The key that is used to sort the results. If you choose the namespace key, the results
+   *          are returned in alphabetical order. If you choose the time key, the results are sorted
+   *          numerically by the date and time.</p>
+   */
+  SortKey?: SortKeyType | string;
+
+  /**
+   * <p>The identifier of the request generated by the <a>GenerateOrganizationsAccessReport</a> operation.</p>
+   */
+  JobId: string | undefined;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -3210,20 +3026,11 @@ export interface GetOrganizationsAccessReportRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The key that is used to sort the results. If you choose the namespace key, the results
-   *          are returned in alphabetical order. If you choose the time key, the results are sorted
-   *          numerically by the date and time.</p>
-   */
-  SortKey?: SortKeyType | string;
 }
 
 export namespace GetOrganizationsAccessReportRequest {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationsAccessReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationsAccessReportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetOrganizationsAccessReportRequest =>
     __isa(o, "GetOrganizationsAccessReportRequest");
@@ -3231,36 +3038,6 @@ export namespace GetOrganizationsAccessReportRequest {
 
 export interface GetOrganizationsAccessReportResponse {
   __type?: "GetOrganizationsAccessReportResponse";
-  /**
-   * <p>An object that contains details about the most recent attempt to access the
-   *          service.</p>
-   */
-  AccessDetails?: AccessDetail[];
-
-  /**
-   * <p>Contains information about the reason that the operation failed.</p>
-   *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-   */
-  ErrorDetails?: ErrorDetails;
-
-  /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the generated report job was completed or failed.</p>
-   *          <p>This field is null if the job is still in progress, as indicated by a job status value
-   *          of <code>IN_PROGRESS</code>.</p>
-   */
-  JobCompletionDate?: Date;
-
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the report job was created.</p>
@@ -3273,11 +3050,14 @@ export interface GetOrganizationsAccessReportResponse {
   JobStatus: JobStatusType | string | undefined;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
    */
-  Marker?: string;
+  IsTruncated?: boolean;
 
   /**
    * <p>The number of services that the applicable SCPs allow account principals to
@@ -3286,17 +3066,42 @@ export interface GetOrganizationsAccessReportResponse {
   NumberOfServicesAccessible?: number;
 
   /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Contains information about the reason that the operation failed.</p>
+   *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+   */
+  ErrorDetails?: ErrorDetails;
+
+  /**
    * <p>The number of services that account principals are allowed but did not attempt to
    *          access.</p>
    */
   NumberOfServicesNotAccessed?: number;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the generated report job was completed or failed.</p>
+   *          <p>This field is null if the job is still in progress, as indicated by a job status value
+   *          of <code>IN_PROGRESS</code>.</p>
+   */
+  JobCompletionDate?: Date;
+
+  /**
+   * <p>An object that contains details about the most recent attempt to access the
+   *          service.</p>
+   */
+  AccessDetails?: AccessDetail[];
 }
 
 export namespace GetOrganizationsAccessReportResponse {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationsAccessReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationsAccessReportResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetOrganizationsAccessReportResponse =>
     __isa(o, "GetOrganizationsAccessReportResponse");
@@ -3315,10 +3120,9 @@ export interface GetPolicyRequest {
 
 export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest =>
-    __isa(o, "GetPolicyRequest");
+  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 /**
@@ -3334,22 +3138,13 @@ export interface GetPolicyResponse {
 
 export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse =>
-    __isa(o, "GetPolicyResponse");
+  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetPolicyVersionRequest {
   __type?: "GetPolicyVersionRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
-   *          about.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
-
   /**
    * <p>Identifies the policy version to retrieve.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
@@ -3357,14 +3152,21 @@ export interface GetPolicyVersionRequest {
    *     followed by a period '.' and a string of letters and digits.</p>
    */
   VersionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
+   *          about.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace GetPolicyVersionRequest {
   export const filterSensitiveLog = (obj: GetPolicyVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionRequest =>
-    __isa(o, "GetPolicyVersionRequest");
+  export const isa = (o: any): o is GetPolicyVersionRequest => __isa(o, "GetPolicyVersionRequest");
 }
 
 /**
@@ -3381,10 +3183,9 @@ export interface GetPolicyVersionResponse {
 
 export namespace GetPolicyVersionResponse {
   export const filterSensitiveLog = (obj: GetPolicyVersionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyVersionResponse =>
-    __isa(o, "GetPolicyVersionResponse");
+  export const isa = (o: any): o is GetPolicyVersionResponse => __isa(o, "GetPolicyVersionResponse");
 }
 
 export interface GetRolePolicyRequest {
@@ -3406,10 +3207,9 @@ export interface GetRolePolicyRequest {
 
 export namespace GetRolePolicyRequest {
   export const filterSensitiveLog = (obj: GetRolePolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRolePolicyRequest =>
-    __isa(o, "GetRolePolicyRequest");
+  export const isa = (o: any): o is GetRolePolicyRequest => __isa(o, "GetRolePolicyRequest");
 }
 
 /**
@@ -3419,17 +3219,17 @@ export namespace GetRolePolicyRequest {
 export interface GetRolePolicyResponse {
   __type?: "GetRolePolicyResponse";
   /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using AWS
    *          CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a
    *          YAML policy to JSON format before submitting it to IAM.</p>
    */
   PolicyDocument: string | undefined;
-
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName: string | undefined;
 
   /**
    * <p>The role the policy is associated with.</p>
@@ -3439,10 +3239,9 @@ export interface GetRolePolicyResponse {
 
 export namespace GetRolePolicyResponse {
   export const filterSensitiveLog = (obj: GetRolePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRolePolicyResponse =>
-    __isa(o, "GetRolePolicyResponse");
+  export const isa = (o: any): o is GetRolePolicyResponse => __isa(o, "GetRolePolicyResponse");
 }
 
 export interface GetRoleRequest {
@@ -3457,10 +3256,9 @@ export interface GetRoleRequest {
 
 export namespace GetRoleRequest {
   export const filterSensitiveLog = (obj: GetRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRoleRequest =>
-    __isa(o, "GetRoleRequest");
+  export const isa = (o: any): o is GetRoleRequest => __isa(o, "GetRoleRequest");
 }
 
 /**
@@ -3476,10 +3274,9 @@ export interface GetRoleResponse {
 
 export namespace GetRoleResponse {
   export const filterSensitiveLog = (obj: GetRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRoleResponse =>
-    __isa(o, "GetRoleResponse");
+  export const isa = (o: any): o is GetRoleResponse => __isa(o, "GetRoleResponse");
 }
 
 export interface GetSAMLProviderRequest {
@@ -3495,10 +3292,9 @@ export interface GetSAMLProviderRequest {
 
 export namespace GetSAMLProviderRequest {
   export const filterSensitiveLog = (obj: GetSAMLProviderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSAMLProviderRequest =>
-    __isa(o, "GetSAMLProviderRequest");
+  export const isa = (o: any): o is GetSAMLProviderRequest => __isa(o, "GetSAMLProviderRequest");
 }
 
 /**
@@ -3508,9 +3304,9 @@ export namespace GetSAMLProviderRequest {
 export interface GetSAMLProviderResponse {
   __type?: "GetSAMLProviderResponse";
   /**
-   * <p>The date and time when the SAML provider was created.</p>
+   * <p>The expiration date and time for the SAML provider.</p>
    */
-  CreateDate?: Date;
+  ValidUntil?: Date;
 
   /**
    * <p>The XML metadata document that includes information about an identity provider.</p>
@@ -3518,17 +3314,16 @@ export interface GetSAMLProviderResponse {
   SAMLMetadataDocument?: string;
 
   /**
-   * <p>The expiration date and time for the SAML provider.</p>
+   * <p>The date and time when the SAML provider was created.</p>
    */
-  ValidUntil?: Date;
+  CreateDate?: Date;
 }
 
 export namespace GetSAMLProviderResponse {
   export const filterSensitiveLog = (obj: GetSAMLProviderResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSAMLProviderResponse =>
-    __isa(o, "GetSAMLProviderResponse");
+  export const isa = (o: any): o is GetSAMLProviderResponse => __isa(o, "GetSAMLProviderResponse");
 }
 
 export interface GetServerCertificateRequest {
@@ -3542,13 +3337,10 @@ export interface GetServerCertificateRequest {
 }
 
 export namespace GetServerCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: GetServerCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServerCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetServerCertificateRequest =>
-    __isa(o, "GetServerCertificateRequest");
+  export const isa = (o: any): o is GetServerCertificateRequest => __isa(o, "GetServerCertificateRequest");
 }
 
 /**
@@ -3564,29 +3356,21 @@ export interface GetServerCertificateResponse {
 }
 
 export namespace GetServerCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: GetServerCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServerCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetServerCertificateResponse =>
-    __isa(o, "GetServerCertificateResponse");
+  export const isa = (o: any): o is GetServerCertificateResponse => __isa(o, "GetServerCertificateResponse");
 }
 
 export interface GetServiceLastAccessedDetailsRequest {
   __type?: "GetServiceLastAccessedDetailsRequest";
   /**
-   * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation.</p>
+   * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
+   *          returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
+   *          within a session, or by the same user when used to call
+   *             <code>GetServiceLastAccessedDetail</code>.</p>
    */
   JobId: string | undefined;
-
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -3599,13 +3383,19 @@ export interface GetServiceLastAccessedDetailsRequest {
    *     from.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace GetServiceLastAccessedDetailsRequest {
-  export const filterSensitiveLog = (
-    obj: GetServiceLastAccessedDetailsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetServiceLastAccessedDetailsRequest =>
     __isa(o, "GetServiceLastAccessedDetailsRequest");
@@ -3614,13 +3404,24 @@ export namespace GetServiceLastAccessedDetailsRequest {
 export interface GetServiceLastAccessedDetailsResponse {
   __type?: "GetServiceLastAccessedDetailsResponse";
   /**
-   * <p>An object that contains details about the reason the operation failed.</p>
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the report job was created.</p>
    */
-  Error?: ErrorDetails;
+  JobCreationDate: Date | undefined;
 
   /**
-   * <p></p>
-   *          <p>A flag that indicates whether there are more items to return. If your
+   * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
+   *          attempt to access the service.</p>
+   */
+  ServicesLastAccessed: ServiceLastAccessed[] | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   */
+  JobStatus: JobStatusType | string | undefined;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
@@ -3628,6 +3429,20 @@ export interface GetServiceLastAccessedDetailsResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
+
+  /**
+   * <p>The type of job. Service jobs return information about when each service was last
+   *          accessed. Action jobs also include information about when tracked actions within the
+   *          service were last accessed.</p>
+   */
+  JobType?: AccessAdvisorUsageGranularityType | string;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -3638,35 +3453,14 @@ export interface GetServiceLastAccessedDetailsResponse {
   JobCompletionDate: Date | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the report job was created.</p>
+   * <p>An object that contains details about the reason the operation failed.</p>
    */
-  JobCreationDate: Date | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   */
-  JobStatus: JobStatusType | string | undefined;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
-   *          attempt to access the service.</p>
-   */
-  ServicesLastAccessed: ServiceLastAccessed[] | undefined;
+  Error?: ErrorDetails;
 }
 
 export namespace GetServiceLastAccessedDetailsResponse {
-  export const filterSensitiveLog = (
-    obj: GetServiceLastAccessedDetailsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetServiceLastAccessedDetailsResponse =>
     __isa(o, "GetServiceLastAccessedDetailsResponse");
@@ -3681,12 +3475,17 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
   JobId: string | undefined;
 
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The service namespace for an AWS service. Provide the service namespace to learn when
+   *          the IAM entity last attempted to access the specified service.</p>
+   *          <p>To learn the service namespace for a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
+   *             Resources, and Condition Keys for AWS Services</a> in the
+   *             <i>IAM User Guide</i>. Choose the name of the service to view details
+   *          for that service. In the first paragraph, find the service prefix. For example,
+   *             <code>(service prefix: a4b)</code>. For more information about service namespaces, see
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
+   *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
-  Marker?: string;
+  ServiceNamespace: string | undefined;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -3701,45 +3500,24 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
   MaxItems?: number;
 
   /**
-   * <p>The service namespace for an AWS service. Provide the service namespace to learn when
-   *          the IAM entity last attempted to access the specified service.</p>
-   *          <p>To learn the service namespace for a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
-   *             Resources, and Condition Keys for AWS Services</a> in the
-   *             <i>IAM User Guide</i>. Choose the name of the service to view details
-   *          for that service. In the first paragraph, find the service prefix. For example,
-   *             <code>(service prefix: a4b)</code>. For more information about service namespaces, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-   *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  ServiceNamespace: string | undefined;
+  Marker?: string;
 }
 
 export namespace GetServiceLastAccessedDetailsWithEntitiesRequest {
-  export const filterSensitiveLog = (
-    obj: GetServiceLastAccessedDetailsWithEntitiesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsWithEntitiesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetServiceLastAccessedDetailsWithEntitiesRequest =>
+  export const isa = (o: any): o is GetServiceLastAccessedDetailsWithEntitiesRequest =>
     __isa(o, "GetServiceLastAccessedDetailsWithEntitiesRequest");
 }
 
 export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   __type?: "GetServiceLastAccessedDetailsWithEntitiesResponse";
-  /**
-   * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
-   *          entity (user or role) used group or policy permissions in an attempt to access the
-   *          specified AWS service.</p>
-   */
-  EntityDetailsList: EntityDetails[] | undefined;
-
-  /**
-   * <p>An object that contains details about the reason the operation failed.</p>
-   */
-  Error?: ErrorDetails;
-
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -3751,12 +3529,24 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   IsTruncated?: boolean;
 
   /**
+   * <p>An object that contains details about the reason the operation failed.</p>
+   */
+  Error?: ErrorDetails;
+
+  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *          of <code>IN_PROGRESS</code>.</p>
    */
   JobCompletionDate: Date | undefined;
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -3770,22 +3560,18 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   JobStatus: JobStatusType | string | undefined;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
+   * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
+   *          entity (user or role) used group or policy permissions in an attempt to access the
+   *          specified AWS service.</p>
    */
-  Marker?: string;
+  EntityDetailsList: EntityDetails[] | undefined;
 }
 
 export namespace GetServiceLastAccessedDetailsWithEntitiesResponse {
-  export const filterSensitiveLog = (
-    obj: GetServiceLastAccessedDetailsWithEntitiesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLastAccessedDetailsWithEntitiesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetServiceLastAccessedDetailsWithEntitiesResponse =>
+  export const isa = (o: any): o is GetServiceLastAccessedDetailsWithEntitiesResponse =>
     __isa(o, "GetServiceLastAccessedDetailsWithEntitiesResponse");
 }
 
@@ -3799,10 +3585,8 @@ export interface GetServiceLinkedRoleDeletionStatusRequest {
 }
 
 export namespace GetServiceLinkedRoleDeletionStatusRequest {
-  export const filterSensitiveLog = (
-    obj: GetServiceLinkedRoleDeletionStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLinkedRoleDeletionStatusRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetServiceLinkedRoleDeletionStatusRequest =>
     __isa(o, "GetServiceLinkedRoleDeletionStatusRequest");
@@ -3822,25 +3606,21 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
 }
 
 export namespace GetServiceLinkedRoleDeletionStatusResponse {
-  export const filterSensitiveLog = (
-    obj: GetServiceLinkedRoleDeletionStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetServiceLinkedRoleDeletionStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetServiceLinkedRoleDeletionStatusResponse =>
+  export const isa = (o: any): o is GetServiceLinkedRoleDeletionStatusResponse =>
     __isa(o, "GetServiceLinkedRoleDeletionStatusResponse");
 }
 
 export interface GetSSHPublicKeyRequest {
   __type?: "GetSSHPublicKeyRequest";
   /**
-   * <p>Specifies the public key encoding format to use in the response. To retrieve the public
-   *          key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use
-   *             <code>PEM</code>.</p>
+   * <p>The name of the IAM user associated with the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  Encoding: EncodingType | string | undefined;
+  UserName: string | undefined;
 
   /**
    * <p>The unique identifier for the SSH public key.</p>
@@ -3850,19 +3630,18 @@ export interface GetSSHPublicKeyRequest {
   SSHPublicKeyId: string | undefined;
 
   /**
-   * <p>The name of the IAM user associated with the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>Specifies the public key encoding format to use in the response. To retrieve the public
+   *          key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use
+   *             <code>PEM</code>.</p>
    */
-  UserName: string | undefined;
+  Encoding: EncodingType | string | undefined;
 }
 
 export namespace GetSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: GetSSHPublicKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSSHPublicKeyRequest =>
-    __isa(o, "GetSSHPublicKeyRequest");
+  export const isa = (o: any): o is GetSSHPublicKeyRequest => __isa(o, "GetSSHPublicKeyRequest");
 }
 
 /**
@@ -3879,10 +3658,9 @@ export interface GetSSHPublicKeyResponse {
 
 export namespace GetSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: GetSSHPublicKeyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSSHPublicKeyResponse =>
-    __isa(o, "GetSSHPublicKeyResponse");
+  export const isa = (o: any): o is GetSSHPublicKeyResponse => __isa(o, "GetSSHPublicKeyResponse");
 }
 
 export interface GetUserPolicyRequest {
@@ -3904,10 +3682,9 @@ export interface GetUserPolicyRequest {
 
 export namespace GetUserPolicyRequest {
   export const filterSensitiveLog = (obj: GetUserPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUserPolicyRequest =>
-    __isa(o, "GetUserPolicyRequest");
+  export const isa = (o: any): o is GetUserPolicyRequest => __isa(o, "GetUserPolicyRequest");
 }
 
 /**
@@ -3937,10 +3714,9 @@ export interface GetUserPolicyResponse {
 
 export namespace GetUserPolicyResponse {
   export const filterSensitiveLog = (obj: GetUserPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUserPolicyResponse =>
-    __isa(o, "GetUserPolicyResponse");
+  export const isa = (o: any): o is GetUserPolicyResponse => __isa(o, "GetUserPolicyResponse");
 }
 
 export interface GetUserRequest {
@@ -3956,10 +3732,9 @@ export interface GetUserRequest {
 
 export namespace GetUserRequest {
   export const filterSensitiveLog = (obj: GetUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUserRequest =>
-    __isa(o, "GetUserRequest");
+  export const isa = (o: any): o is GetUserRequest => __isa(o, "GetUserRequest");
 }
 
 /**
@@ -3990,15 +3765,14 @@ export interface GetUserResponse {
 
 export namespace GetUserResponse {
   export const filterSensitiveLog = (obj: GetUserResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUserResponse =>
-    __isa(o, "GetUserResponse");
+  export const isa = (o: any): o is GetUserResponse => __isa(o, "GetUserResponse");
 }
 
 export enum GlobalEndpointTokenVersion {
   v1Token = "v1Token",
-  v2Token = "v2Token"
+  v2Token = "v2Token",
 }
 
 /**
@@ -4025,13 +3799,6 @@ export enum GlobalEndpointTokenVersion {
 export interface Group {
   __type?: "Group";
   /**
-   * <p> The Amazon Resource Name (ARN) specifying the group. For more information about ARNs
-   *          and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>. </p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the group was created.</p>
    */
@@ -4050,6 +3817,13 @@ export interface Group {
   GroupName: string | undefined;
 
   /**
+   * <p> The Amazon Resource Name (ARN) specifying the group. For more information about ARNs
+   *          and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>. </p>
+   */
+  Arn: string | undefined;
+
+  /**
    * <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
    */
@@ -4058,7 +3832,7 @@ export interface Group {
 
 export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
@@ -4077,29 +3851,6 @@ export interface GroupDetail {
   Arn?: string;
 
   /**
-   * <p>A list of the managed policies attached to the group.</p>
-   */
-  AttachedManagedPolicies?: AttachedPolicy[];
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the group was created.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>The stable and unique string identifying the group. For more information about IDs, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The friendly name that identifies the group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>A list of the inline policies embedded in the group.</p>
    */
   GroupPolicyList?: PolicyDetail[];
@@ -4109,11 +3860,34 @@ export interface GroupDetail {
    *             <i>IAM User Guide</i>.</p>
    */
   Path?: string;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the group was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>A list of the managed policies attached to the group.</p>
+   */
+  AttachedManagedPolicies?: AttachedPolicy[];
+
+  /**
+   * <p>The friendly name that identifies the group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The stable and unique string identifying the group. For more information about IDs, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   */
+  GroupId?: string;
 }
 
 export namespace GroupDetail {
   export const filterSensitiveLog = (obj: GroupDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GroupDetail => __isa(o, "GroupDetail");
 }
@@ -4154,17 +3928,6 @@ export interface InstanceProfile {
   Arn: string | undefined;
 
   /**
-   * <p>The date when the instance profile was created.</p>
-   */
-  CreateDate: Date | undefined;
-
-  /**
-   * <p> The stable and unique string identifying the instance profile. For more information
-   *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
-   */
-  InstanceProfileId: string | undefined;
-
-  /**
    * <p>The name identifying the instance profile.</p>
    */
   InstanceProfileName: string | undefined;
@@ -4176,6 +3939,17 @@ export interface InstanceProfile {
   Path: string | undefined;
 
   /**
+   * <p> The stable and unique string identifying the instance profile. For more information
+   *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
+   */
+  InstanceProfileId: string | undefined;
+
+  /**
+   * <p>The date when the instance profile was created.</p>
+   */
+  CreateDate: Date | undefined;
+
+  /**
    * <p>The role associated with the instance profile.</p>
    */
   Roles: Role[] | undefined;
@@ -4183,29 +3957,24 @@ export interface InstanceProfile {
 
 export namespace InstanceProfile {
   export const filterSensitiveLog = (obj: InstanceProfile): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceProfile =>
-    __isa(o, "InstanceProfile");
+  export const isa = (o: any): o is InstanceProfile => __isa(o, "InstanceProfile");
 }
 
 /**
  * <p>The request was rejected because the authentication code was not recognized. The error
  *       message describes the specific error.</p>
  */
-export interface InvalidAuthenticationCodeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthenticationCodeException extends __SmithyException, $MetadataBearer {
   name: "InvalidAuthenticationCodeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidAuthenticationCodeException {
-  export const filterSensitiveLog = (
-    obj: InvalidAuthenticationCodeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidAuthenticationCodeException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidAuthenticationCodeException =>
     __isa(o, "InvalidAuthenticationCodeException");
@@ -4214,31 +3983,24 @@ export namespace InvalidAuthenticationCodeException {
 /**
  * <p>The request was rejected because the certificate is invalid.</p>
  */
-export interface InvalidCertificateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCertificateException extends __SmithyException, $MetadataBearer {
   name: "InvalidCertificateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidCertificateException {
-  export const filterSensitiveLog = (
-    obj: InvalidCertificateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidCertificateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCertificateException =>
-    __isa(o, "InvalidCertificateException");
+  export const isa = (o: any): o is InvalidCertificateException => __isa(o, "InvalidCertificateException");
 }
 
 /**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -4246,19 +4008,16 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The request was rejected because the public key is malformed or otherwise
  *       invalid.</p>
  */
-export interface InvalidPublicKeyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPublicKeyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPublicKeyException";
   $fault: "client";
   message?: string;
@@ -4266,19 +4025,16 @@ export interface InvalidPublicKeyException
 
 export namespace InvalidPublicKeyException {
   export const filterSensitiveLog = (obj: InvalidPublicKeyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPublicKeyException =>
-    __isa(o, "InvalidPublicKeyException");
+  export const isa = (o: any): o is InvalidPublicKeyException => __isa(o, "InvalidPublicKeyException");
 }
 
 /**
  * <p>The request was rejected because the type of user for the transaction was
  *       incorrect.</p>
  */
-export interface InvalidUserTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidUserTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidUserTypeException";
   $fault: "client";
   message?: string;
@@ -4286,10 +4042,9 @@ export interface InvalidUserTypeException
 
 export namespace InvalidUserTypeException {
   export const filterSensitiveLog = (obj: InvalidUserTypeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidUserTypeException =>
-    __isa(o, "InvalidUserTypeException");
+  export const isa = (o: any): o is InvalidUserTypeException => __isa(o, "InvalidUserTypeException");
 }
 
 export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
@@ -4298,9 +4053,7 @@ export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
  * <p>The request was rejected because the public key certificate and the private key do not
  *       match.</p>
  */
-export interface KeyPairMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KeyPairMismatchException extends __SmithyException, $MetadataBearer {
   name: "KeyPairMismatchException";
   $fault: "client";
   message?: string;
@@ -4308,19 +4061,16 @@ export interface KeyPairMismatchException
 
 export namespace KeyPairMismatchException {
   export const filterSensitiveLog = (obj: KeyPairMismatchException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KeyPairMismatchException =>
-    __isa(o, "KeyPairMismatchException");
+  export const isa = (o: any): o is KeyPairMismatchException => __isa(o, "KeyPairMismatchException");
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
- *       AWS account limits. The error message describes the limit exceeded.</p>
+ *       AWS account limitations. The error message describes the limit exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -4328,22 +4078,13 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAccessKeysRequest {
   __type?: "ListAccessKeysRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4357,6 +4098,14 @@ export interface ListAccessKeysRequest {
   MaxItems?: number;
 
   /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The name of the user.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
@@ -4366,10 +4115,9 @@ export interface ListAccessKeysRequest {
 
 export namespace ListAccessKeysRequest {
   export const filterSensitiveLog = (obj: ListAccessKeysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccessKeysRequest =>
-    __isa(o, "ListAccessKeysRequest");
+  export const isa = (o: any): o is ListAccessKeysRequest => __isa(o, "ListAccessKeysRequest");
 }
 
 /**
@@ -4384,6 +4132,13 @@ export interface ListAccessKeysResponse {
   AccessKeyMetadata: AccessKeyMetadata[] | undefined;
 
   /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
@@ -4392,33 +4147,17 @@ export interface ListAccessKeysResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListAccessKeysResponse {
   export const filterSensitiveLog = (obj: ListAccessKeysResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccessKeysResponse =>
-    __isa(o, "ListAccessKeysResponse");
+  export const isa = (o: any): o is ListAccessKeysResponse => __isa(o, "ListAccessKeysResponse");
 }
 
 export interface ListAccountAliasesRequest {
   __type?: "ListAccountAliasesRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4430,14 +4169,21 @@ export interface ListAccountAliasesRequest {
    *     from.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListAccountAliasesRequest {
   export const filterSensitiveLog = (obj: ListAccountAliasesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccountAliasesRequest =>
-    __isa(o, "ListAccountAliasesRequest");
+  export const isa = (o: any): o is ListAccountAliasesRequest => __isa(o, "ListAccountAliasesRequest");
 }
 
 /**
@@ -4446,12 +4192,6 @@ export namespace ListAccountAliasesRequest {
  */
 export interface ListAccountAliasesResponse {
   __type?: "ListAccountAliasesResponse";
-  /**
-   * <p>A list of aliases associated with the account. AWS supports only one alias per
-   *          account.</p>
-   */
-  AccountAliases: string[] | undefined;
-
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -4463,6 +4203,12 @@ export interface ListAccountAliasesResponse {
   IsTruncated?: boolean;
 
   /**
+   * <p>A list of aliases associated with the account. AWS supports only one alias per
+   *          account.</p>
+   */
+  AccountAliases: string[] | undefined;
+
+  /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
@@ -4472,10 +4218,9 @@ export interface ListAccountAliasesResponse {
 
 export namespace ListAccountAliasesResponse {
   export const filterSensitiveLog = (obj: ListAccountAliasesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAccountAliasesResponse =>
-    __isa(o, "ListAccountAliasesResponse");
+  export const isa = (o: any): o is ListAccountAliasesResponse => __isa(o, "ListAccountAliasesResponse");
 }
 
 export interface ListAttachedGroupPoliciesRequest {
@@ -4488,12 +4233,14 @@ export interface ListAttachedGroupPoliciesRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
+   *          included, it defaults to a slash (/), listing all policies.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
-  Marker?: string;
+  PathPrefix?: string;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -4508,24 +4255,19 @@ export interface ListAttachedGroupPoliciesRequest {
   MaxItems?: number;
 
   /**
-   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
-   *          included, it defaults to a slash (/), listing all policies.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  PathPrefix?: string;
+  Marker?: string;
 }
 
 export namespace ListAttachedGroupPoliciesRequest {
-  export const filterSensitiveLog = (
-    obj: ListAttachedGroupPoliciesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedGroupPoliciesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedGroupPoliciesRequest =>
-    __isa(o, "ListAttachedGroupPoliciesRequest");
+  export const isa = (o: any): o is ListAttachedGroupPoliciesRequest => __isa(o, "ListAttachedGroupPoliciesRequest");
 }
 
 /**
@@ -4535,9 +4277,11 @@ export namespace ListAttachedGroupPoliciesRequest {
 export interface ListAttachedGroupPoliciesResponse {
   __type?: "ListAttachedGroupPoliciesResponse";
   /**
-   * <p>A list of the attached policies.</p>
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
    */
-  AttachedPolicies?: AttachedPolicy[];
+  Marker?: string;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4550,25 +4294,37 @@ export interface ListAttachedGroupPoliciesResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
+   * <p>A list of the attached policies.</p>
    */
-  Marker?: string;
+  AttachedPolicies?: AttachedPolicy[];
 }
 
 export namespace ListAttachedGroupPoliciesResponse {
-  export const filterSensitiveLog = (
-    obj: ListAttachedGroupPoliciesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedGroupPoliciesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedGroupPoliciesResponse =>
-    __isa(o, "ListAttachedGroupPoliciesResponse");
+  export const isa = (o: any): o is ListAttachedGroupPoliciesResponse => __isa(o, "ListAttachedGroupPoliciesResponse");
 }
 
 export interface ListAttachedRolePoliciesRequest {
   __type?: "ListAttachedRolePoliciesRequest";
+  /**
+   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
+   *          included, it defaults to a slash (/), listing all policies.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  PathPrefix?: string;
+
+  /**
+   * <p>The name (friendly name, not ARN) of the role to list attached policies for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  RoleName: string | undefined;
+
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -4588,33 +4344,13 @@ export interface ListAttachedRolePoliciesRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
-   *          included, it defaults to a slash (/), listing all policies.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  PathPrefix?: string;
-
-  /**
-   * <p>The name (friendly name, not ARN) of the role to list attached policies for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  RoleName: string | undefined;
 }
 
 export namespace ListAttachedRolePoliciesRequest {
-  export const filterSensitiveLog = (
-    obj: ListAttachedRolePoliciesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedRolePoliciesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedRolePoliciesRequest =>
-    __isa(o, "ListAttachedRolePoliciesRequest");
+  export const isa = (o: any): o is ListAttachedRolePoliciesRequest => __isa(o, "ListAttachedRolePoliciesRequest");
 }
 
 /**
@@ -4647,13 +4383,10 @@ export interface ListAttachedRolePoliciesResponse {
 }
 
 export namespace ListAttachedRolePoliciesResponse {
-  export const filterSensitiveLog = (
-    obj: ListAttachedRolePoliciesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedRolePoliciesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedRolePoliciesResponse =>
-    __isa(o, "ListAttachedRolePoliciesResponse");
+  export const isa = (o: any): o is ListAttachedRolePoliciesResponse => __isa(o, "ListAttachedRolePoliciesResponse");
 }
 
 export interface ListAttachedUserPoliciesRequest {
@@ -4665,6 +4398,16 @@ export interface ListAttachedUserPoliciesRequest {
    *     should start.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
+   *          included, it defaults to a slash (/), listing all policies.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  PathPrefix?: string;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -4679,16 +4422,6 @@ export interface ListAttachedUserPoliciesRequest {
   MaxItems?: number;
 
   /**
-   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
-   *          included, it defaults to a slash (/), listing all policies.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  PathPrefix?: string;
-
-  /**
    * <p>The name (friendly name, not ARN) of the user to list attached policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
@@ -4697,13 +4430,10 @@ export interface ListAttachedUserPoliciesRequest {
 }
 
 export namespace ListAttachedUserPoliciesRequest {
-  export const filterSensitiveLog = (
-    obj: ListAttachedUserPoliciesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedUserPoliciesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedUserPoliciesRequest =>
-    __isa(o, "ListAttachedUserPoliciesRequest");
+  export const isa = (o: any): o is ListAttachedUserPoliciesRequest => __isa(o, "ListAttachedUserPoliciesRequest");
 }
 
 /**
@@ -4712,6 +4442,13 @@ export namespace ListAttachedUserPoliciesRequest {
  */
 export interface ListAttachedUserPoliciesResponse {
   __type?: "ListAttachedUserPoliciesResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>A list of the attached policies.</p>
    */
@@ -4726,73 +4463,26 @@ export interface ListAttachedUserPoliciesResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListAttachedUserPoliciesResponse {
-  export const filterSensitiveLog = (
-    obj: ListAttachedUserPoliciesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAttachedUserPoliciesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttachedUserPoliciesResponse =>
-    __isa(o, "ListAttachedUserPoliciesResponse");
+  export const isa = (o: any): o is ListAttachedUserPoliciesResponse => __isa(o, "ListAttachedUserPoliciesResponse");
 }
 
 export interface ListEntitiesForPolicyRequest {
   __type?: "ListEntitiesForPolicyRequest";
   /**
-   * <p>The entity type to use for filtering the results.</p>
-   *          <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
-   *          are attached to the specified policy are returned. This parameter is optional. If it is not
-   *          included, all attached entities (users, groups, and roles) are returned. The argument for
-   *          this parameter must be one of the valid values listed below.</p>
-   */
-  EntityFilter?: EntityType | string;
-
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Use this only when paginating results to indicate the
-   *     maximum number of items you want in the response. If additional items exist beyond the maximum
-   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
-   *     IAM might return fewer results, even when there are more results available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
-
-  /**
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *          included, it defaults to a slash (/), listing all entities.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   PathPrefix?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
-   *          versions.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicyArn: string | undefined;
 
   /**
    * <p>The policy usage method to use for filtering the results.</p>
@@ -4803,16 +4493,50 @@ export interface ListEntitiesForPolicyRequest {
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
   PolicyUsageFilter?: PolicyUsageType | string;
+
+  /**
+   * <p>The entity type to use for filtering the results.</p>
+   *          <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
+   *          are attached to the specified policy are returned. This parameter is optional. If it is not
+   *          included, all attached entities (users, groups, and roles) are returned. The argument for
+   *          this parameter must be one of the valid values listed below.</p>
+   */
+  EntityFilter?: EntityType | string;
+
+  /**
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
+   *          versions.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  PolicyArn: string | undefined;
 }
 
 export namespace ListEntitiesForPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: ListEntitiesForPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEntitiesForPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesForPolicyRequest =>
-    __isa(o, "ListEntitiesForPolicyRequest");
+  export const isa = (o: any): o is ListEntitiesForPolicyRequest => __isa(o, "ListEntitiesForPolicyRequest");
 }
 
 /**
@@ -4821,6 +4545,18 @@ export namespace ListEntitiesForPolicyRequest {
  */
 export interface ListEntitiesForPolicyResponse {
   __type?: "ListEntitiesForPolicyResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of IAM users that the policy is attached to.</p>
+   */
+  PolicyUsers?: PolicyUser[];
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -4832,47 +4568,25 @@ export interface ListEntitiesForPolicyResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of IAM groups that the policy is attached to.</p>
-   */
-  PolicyGroups?: PolicyGroup[];
-
-  /**
    * <p>A list of IAM roles that the policy is attached to.</p>
    */
   PolicyRoles?: PolicyRole[];
 
   /**
-   * <p>A list of IAM users that the policy is attached to.</p>
+   * <p>A list of IAM groups that the policy is attached to.</p>
    */
-  PolicyUsers?: PolicyUser[];
+  PolicyGroups?: PolicyGroup[];
 }
 
 export namespace ListEntitiesForPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: ListEntitiesForPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEntitiesForPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesForPolicyResponse =>
-    __isa(o, "ListEntitiesForPolicyResponse");
+  export const isa = (o: any): o is ListEntitiesForPolicyResponse => __isa(o, "ListEntitiesForPolicyResponse");
 }
 
 export interface ListGroupPoliciesRequest {
   __type?: "ListGroupPoliciesRequest";
-  /**
-   * <p>The name of the group to list policies for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  GroupName: string | undefined;
-
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -4892,14 +4606,20 @@ export interface ListGroupPoliciesRequest {
    *     from.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The name of the group to list policies for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace ListGroupPoliciesRequest {
   export const filterSensitiveLog = (obj: ListGroupPoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupPoliciesRequest =>
-    __isa(o, "ListGroupPoliciesRequest");
+  export const isa = (o: any): o is ListGroupPoliciesRequest => __isa(o, "ListGroupPoliciesRequest");
 }
 
 /**
@@ -4909,14 +4629,11 @@ export namespace ListGroupPoliciesRequest {
 export interface ListGroupPoliciesResponse {
   __type?: "ListGroupPoliciesResponse";
   /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
+   * <p>A list of policy names.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  IsTruncated?: boolean;
+  PolicyNames: string[] | undefined;
 
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
@@ -4926,31 +4643,25 @@ export interface ListGroupPoliciesResponse {
   Marker?: string;
 
   /**
-   * <p>A list of policy names.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
    */
-  PolicyNames: string[] | undefined;
+  IsTruncated?: boolean;
 }
 
 export namespace ListGroupPoliciesResponse {
   export const filterSensitiveLog = (obj: ListGroupPoliciesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupPoliciesResponse =>
-    __isa(o, "ListGroupPoliciesResponse");
+  export const isa = (o: any): o is ListGroupPoliciesResponse => __isa(o, "ListGroupPoliciesResponse");
 }
 
 export interface ListGroupsForUserRequest {
   __type?: "ListGroupsForUserRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -4969,14 +4680,21 @@ export interface ListGroupsForUserRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListGroupsForUserRequest {
   export const filterSensitiveLog = (obj: ListGroupsForUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsForUserRequest =>
-    __isa(o, "ListGroupsForUserRequest");
+  export const isa = (o: any): o is ListGroupsForUserRequest => __isa(o, "ListGroupsForUserRequest");
 }
 
 /**
@@ -4985,11 +4703,6 @@ export namespace ListGroupsForUserRequest {
  */
 export interface ListGroupsForUserResponse {
   __type?: "ListGroupsForUserResponse";
-  /**
-   * <p>A list of groups.</p>
-   */
-  Groups: Group[] | undefined;
-
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5001,6 +4714,11 @@ export interface ListGroupsForUserResponse {
   IsTruncated?: boolean;
 
   /**
+   * <p>A list of groups.</p>
+   */
+  Groups: Group[] | undefined;
+
+  /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
@@ -5010,22 +4728,13 @@ export interface ListGroupsForUserResponse {
 
 export namespace ListGroupsForUserResponse {
   export const filterSensitiveLog = (obj: ListGroupsForUserResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsForUserResponse =>
-    __isa(o, "ListGroupsForUserResponse");
+  export const isa = (o: any): o is ListGroupsForUserResponse => __isa(o, "ListGroupsForUserResponse");
 }
 
 export interface ListGroupsRequest {
   __type?: "ListGroupsRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5045,18 +4754,25 @@ export interface ListGroupsRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
    *          all groups. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   PathPrefix?: string;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest =>
-    __isa(o, "ListGroupsRequest");
+  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 /**
@@ -5065,9 +4781,11 @@ export namespace ListGroupsRequest {
 export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
-   * <p>A list of groups.</p>
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
    */
-  Groups: Group[] | undefined;
+  Marker?: string;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5080,23 +4798,27 @@ export interface ListGroupsResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
+   * <p>A list of groups.</p>
    */
-  Marker?: string;
+  Groups: Group[] | undefined;
 }
 
 export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse =>
-    __isa(o, "ListGroupsResponse");
+  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListInstanceProfilesForRoleRequest {
   __type?: "ListInstanceProfilesForRoleRequest";
+  /**
+   * <p>The name of the role to list instance profiles for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  RoleName: string | undefined;
+
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -5116,20 +4838,11 @@ export interface ListInstanceProfilesForRoleRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The name of the role to list instance profiles for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  RoleName: string | undefined;
 }
 
 export namespace ListInstanceProfilesForRoleRequest {
-  export const filterSensitiveLog = (
-    obj: ListInstanceProfilesForRoleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListInstanceProfilesForRoleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListInstanceProfilesForRoleRequest =>
     __isa(o, "ListInstanceProfilesForRoleRequest");
@@ -5147,6 +4860,13 @@ export interface ListInstanceProfilesForRoleResponse {
   InstanceProfiles: InstanceProfile[] | undefined;
 
   /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
@@ -5155,20 +4875,11 @@ export interface ListInstanceProfilesForRoleResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListInstanceProfilesForRoleResponse {
-  export const filterSensitiveLog = (
-    obj: ListInstanceProfilesForRoleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListInstanceProfilesForRoleResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListInstanceProfilesForRoleResponse =>
     __isa(o, "ListInstanceProfilesForRoleResponse");
@@ -5185,6 +4896,18 @@ export interface ListInstanceProfilesRequest {
   Marker?: string;
 
   /**
+   * <p> The path prefix for filtering the results. For example, the prefix
+   *             <code>/application_abc/component_xyz/</code> gets all instance profiles whose path
+   *          starts with <code>/application_abc/component_xyz/</code>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
+   *          all instance profiles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  PathPrefix?: string;
+
+  /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5195,28 +4918,13 @@ export interface ListInstanceProfilesRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p> The path prefix for filtering the results. For example, the prefix
-   *             <code>/application_abc/component_xyz/</code> gets all instance profiles whose path
-   *          starts with <code>/application_abc/component_xyz/</code>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
-   *          all instance profiles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  PathPrefix?: string;
 }
 
 export namespace ListInstanceProfilesRequest {
-  export const filterSensitiveLog = (
-    obj: ListInstanceProfilesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListInstanceProfilesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesRequest =>
-    __isa(o, "ListInstanceProfilesRequest");
+  export const isa = (o: any): o is ListInstanceProfilesRequest => __isa(o, "ListInstanceProfilesRequest");
 }
 
 /**
@@ -5225,6 +4933,13 @@ export namespace ListInstanceProfilesRequest {
  */
 export interface ListInstanceProfilesResponse {
   __type?: "ListInstanceProfilesResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>A list of instance profiles.</p>
    */
@@ -5239,27 +4954,24 @@ export interface ListInstanceProfilesResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListInstanceProfilesResponse {
-  export const filterSensitiveLog = (
-    obj: ListInstanceProfilesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListInstanceProfilesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesResponse =>
-    __isa(o, "ListInstanceProfilesResponse");
+  export const isa = (o: any): o is ListInstanceProfilesResponse => __isa(o, "ListInstanceProfilesResponse");
 }
 
 export interface ListMFADevicesRequest {
   __type?: "ListMFADevicesRequest";
+  /**
+   * <p>The name of the user whose MFA devices you want to list.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName?: string;
+
   /**
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
@@ -5279,21 +4991,13 @@ export interface ListMFADevicesRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The name of the user whose MFA devices you want to list.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName?: string;
 }
 
 export namespace ListMFADevicesRequest {
   export const filterSensitiveLog = (obj: ListMFADevicesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMFADevicesRequest =>
-    __isa(o, "ListMFADevicesRequest");
+  export const isa = (o: any): o is ListMFADevicesRequest => __isa(o, "ListMFADevicesRequest");
 }
 
 /**
@@ -5302,16 +5006,6 @@ export namespace ListMFADevicesRequest {
  */
 export interface ListMFADevicesResponse {
   __type?: "ListMFADevicesResponse";
-  /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
-   */
-  IsTruncated?: boolean;
-
   /**
    * <p>A list of MFA devices.</p>
    */
@@ -5323,14 +5017,23 @@ export interface ListMFADevicesResponse {
    *     pagination request.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
+   */
+  IsTruncated?: boolean;
 }
 
 export namespace ListMFADevicesResponse {
   export const filterSensitiveLog = (obj: ListMFADevicesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListMFADevicesResponse =>
-    __isa(o, "ListMFADevicesResponse");
+  export const isa = (o: any): o is ListMFADevicesResponse => __isa(o, "ListMFADevicesResponse");
 }
 
 export interface ListOpenIDConnectProvidersRequest {
@@ -5338,13 +5041,10 @@ export interface ListOpenIDConnectProvidersRequest {
 }
 
 export namespace ListOpenIDConnectProvidersRequest {
-  export const filterSensitiveLog = (
-    obj: ListOpenIDConnectProvidersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOpenIDConnectProvidersRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOpenIDConnectProvidersRequest =>
-    __isa(o, "ListOpenIDConnectProvidersRequest");
+  export const isa = (o: any): o is ListOpenIDConnectProvidersRequest => __isa(o, "ListOpenIDConnectProvidersRequest");
 }
 
 /**
@@ -5360,10 +5060,8 @@ export interface ListOpenIDConnectProvidersResponse {
 }
 
 export namespace ListOpenIDConnectProvidersResponse {
-  export const filterSensitiveLog = (
-    obj: ListOpenIDConnectProvidersResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOpenIDConnectProvidersResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListOpenIDConnectProvidersResponse =>
     __isa(o, "ListOpenIDConnectProvidersResponse");
@@ -5377,12 +5075,6 @@ export namespace ListOpenIDConnectProvidersResponse {
 export interface ListPoliciesGrantingServiceAccessEntry {
   __type?: "ListPoliciesGrantingServiceAccessEntry";
   /**
-   * <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the
-   *          policy.</p>
-   */
-  Policies?: PolicyGrantingServiceAccess[];
-
-  /**
    * <p>The namespace of the service that was accessed.</p>
    *          <p>To learn the service namespace of a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
    *             Resources, and Condition Keys for AWS Services</a> in the
@@ -5393,13 +5085,17 @@ export interface ListPoliciesGrantingServiceAccessEntry {
    *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   ServiceNamespace?: string;
+
+  /**
+   * <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the
+   *          policy.</p>
+   */
+  Policies?: PolicyGrantingServiceAccess[];
 }
 
 export namespace ListPoliciesGrantingServiceAccessEntry {
-  export const filterSensitiveLog = (
-    obj: ListPoliciesGrantingServiceAccessEntry
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessEntry): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPoliciesGrantingServiceAccessEntry =>
     __isa(o, "ListPoliciesGrantingServiceAccessEntry");
@@ -5414,14 +5110,6 @@ export interface ListPoliciesGrantingServiceAccessRequest {
   Arn: string | undefined;
 
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The service namespace for the AWS services whose policies you want to list.</p>
    *          <p>To learn the service namespace for a service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html">Actions,
    *             Resources, and Condition Keys for AWS Services</a> in the
@@ -5432,13 +5120,19 @@ export interface ListPoliciesGrantingServiceAccessRequest {
    *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
   ServiceNamespaces: string[] | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListPoliciesGrantingServiceAccessRequest {
-  export const filterSensitiveLog = (
-    obj: ListPoliciesGrantingServiceAccessRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPoliciesGrantingServiceAccessRequest =>
     __isa(o, "ListPoliciesGrantingServiceAccessRequest");
@@ -5446,6 +5140,12 @@ export namespace ListPoliciesGrantingServiceAccessRequest {
 
 export interface ListPoliciesGrantingServiceAccessResponse {
   __type?: "ListPoliciesGrantingServiceAccessResponse";
+  /**
+   * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the
+   *          permissions policies attached to the specified identity (user, group, or role).</p>
+   */
+  PoliciesGrantingServiceAccess: ListPoliciesGrantingServiceAccessEntry[] | undefined;
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your results were
    *          truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5461,21 +5161,11 @@ export interface ListPoliciesGrantingServiceAccessResponse {
    *     pagination request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the
-   *          permissions policies attached to the specified identity (user, group, or role).</p>
-   */
-  PoliciesGrantingServiceAccess:
-    | ListPoliciesGrantingServiceAccessEntry[]
-    | undefined;
 }
 
 export namespace ListPoliciesGrantingServiceAccessResponse {
-  export const filterSensitiveLog = (
-    obj: ListPoliciesGrantingServiceAccessResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPoliciesGrantingServiceAccessResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPoliciesGrantingServiceAccessResponse =>
     __isa(o, "ListPoliciesGrantingServiceAccessResponse");
@@ -5483,14 +5173,6 @@ export namespace ListPoliciesGrantingServiceAccessResponse {
 
 export interface ListPoliciesRequest {
   __type?: "ListPoliciesRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5504,22 +5186,12 @@ export interface ListPoliciesRequest {
   MaxItems?: number;
 
   /**
-   * <p>A flag to filter the results to only the attached policies.</p>
-   *          <p>When <code>OnlyAttached</code> is <code>true</code>, the returned list contains only the
-   *          policies that are attached to an IAM user, group, or role. When <code>OnlyAttached</code>
-   *          is <code>false</code>, or when the parameter is not included, all policies are
-   *          returned.</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  OnlyAttached?: boolean;
-
-  /**
-   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
-   *          included, it defaults to a slash (/), listing all policies. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  PathPrefix?: string;
+  Marker?: string;
 
   /**
    * <p>The policy usage method to use for filtering the results.</p>
@@ -5530,6 +5202,24 @@ export interface ListPoliciesRequest {
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
   PolicyUsageFilter?: PolicyUsageType | string;
+
+  /**
+   * <p>The path prefix for filtering the results. This parameter is optional. If it is not
+   *          included, it defaults to a slash (/), listing all policies. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  PathPrefix?: string;
+
+  /**
+   * <p>A flag to filter the results to only the attached policies.</p>
+   *          <p>When <code>OnlyAttached</code> is <code>true</code>, the returned list contains only the
+   *          policies that are attached to an IAM user, group, or role. When <code>OnlyAttached</code>
+   *          is <code>false</code>, or when the parameter is not included, all policies are
+   *          returned.</p>
+   */
+  OnlyAttached?: boolean;
 
   /**
    * <p>The scope to use for filtering the results.</p>
@@ -5544,10 +5234,9 @@ export interface ListPoliciesRequest {
 
 export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest =>
-    __isa(o, "ListPoliciesRequest");
+  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 /**
@@ -5556,6 +5245,13 @@ export namespace ListPoliciesRequest {
  */
 export interface ListPoliciesResponse {
   __type?: "ListPoliciesResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5567,13 +5263,6 @@ export interface ListPoliciesResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of policies.</p>
    */
   Policies?: Policy[];
@@ -5581,10 +5270,9 @@ export interface ListPoliciesResponse {
 
 export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse =>
-    __isa(o, "ListPoliciesResponse");
+  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListPolicyVersionsRequest {
@@ -5620,10 +5308,9 @@ export interface ListPolicyVersionsRequest {
 
 export namespace ListPolicyVersionsRequest {
   export const filterSensitiveLog = (obj: ListPolicyVersionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsRequest =>
-    __isa(o, "ListPolicyVersionsRequest");
+  export const isa = (o: any): o is ListPolicyVersionsRequest => __isa(o, "ListPolicyVersionsRequest");
 }
 
 /**
@@ -5643,26 +5330,25 @@ export interface ListPolicyVersionsResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of policy versions.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
   Versions?: PolicyVersion[];
+
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListPolicyVersionsResponse {
   export const filterSensitiveLog = (obj: ListPolicyVersionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPolicyVersionsResponse =>
-    __isa(o, "ListPolicyVersionsResponse");
+  export const isa = (o: any): o is ListPolicyVersionsResponse => __isa(o, "ListPolicyVersionsResponse");
 }
 
 export interface ListRolePoliciesRequest {
@@ -5676,6 +5362,13 @@ export interface ListRolePoliciesRequest {
   Marker?: string;
 
   /**
+   * <p>The name of the role to list policies for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  RoleName: string | undefined;
+
+  /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5686,21 +5379,13 @@ export interface ListRolePoliciesRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The name of the role to list policies for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  RoleName: string | undefined;
 }
 
 export namespace ListRolePoliciesRequest {
   export const filterSensitiveLog = (obj: ListRolePoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRolePoliciesRequest =>
-    __isa(o, "ListRolePoliciesRequest");
+  export const isa = (o: any): o is ListRolePoliciesRequest => __isa(o, "ListRolePoliciesRequest");
 }
 
 /**
@@ -5710,14 +5395,9 @@ export namespace ListRolePoliciesRequest {
 export interface ListRolePoliciesResponse {
   __type?: "ListRolePoliciesResponse";
   /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
+   * <p>A list of policy names.</p>
    */
-  IsTruncated?: boolean;
+  PolicyNames: string[] | undefined;
 
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
@@ -5727,29 +5407,25 @@ export interface ListRolePoliciesResponse {
   Marker?: string;
 
   /**
-   * <p>A list of policy names.</p>
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
    */
-  PolicyNames: string[] | undefined;
+  IsTruncated?: boolean;
 }
 
 export namespace ListRolePoliciesResponse {
   export const filterSensitiveLog = (obj: ListRolePoliciesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRolePoliciesResponse =>
-    __isa(o, "ListRolePoliciesResponse");
+  export const isa = (o: any): o is ListRolePoliciesResponse => __isa(o, "ListRolePoliciesResponse");
 }
 
 export interface ListRolesRequest {
   __type?: "ListRolesRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -5769,18 +5445,25 @@ export interface ListRolesRequest {
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
    *          all roles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   PathPrefix?: string;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListRolesRequest {
   export const filterSensitiveLog = (obj: ListRolesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRolesRequest =>
-    __isa(o, "ListRolesRequest");
+  export const isa = (o: any): o is ListRolesRequest => __isa(o, "ListRolesRequest");
 }
 
 /**
@@ -5788,6 +5471,13 @@ export namespace ListRolesRequest {
  */
 export interface ListRolesResponse {
   __type?: "ListRolesResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5799,13 +5489,6 @@ export interface ListRolesResponse {
   IsTruncated?: boolean;
 
   /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of roles.</p>
    */
   Roles: Role[] | undefined;
@@ -5813,21 +5496,19 @@ export interface ListRolesResponse {
 
 export namespace ListRolesResponse {
   export const filterSensitiveLog = (obj: ListRolesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRolesResponse =>
-    __isa(o, "ListRolesResponse");
+  export const isa = (o: any): o is ListRolesResponse => __isa(o, "ListRolesResponse");
 }
 
 export interface ListRoleTagsRequest {
   __type?: "ListRoleTagsRequest";
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The name of the IAM role for which you want to see the list of tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  Marker?: string;
+  RoleName: string | undefined;
 
   /**
    * <p>(Optional) Use this only when paginating results to indicate the
@@ -5841,19 +5522,19 @@ export interface ListRoleTagsRequest {
   MaxItems?: number;
 
   /**
-   * <p>The name of the IAM role for which you want to see the list of tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  RoleName: string | undefined;
+  Marker?: string;
 }
 
 export namespace ListRoleTagsRequest {
   export const filterSensitiveLog = (obj: ListRoleTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRoleTagsRequest =>
-    __isa(o, "ListRoleTagsRequest");
+  export const isa = (o: any): o is ListRoleTagsRequest => __isa(o, "ListRoleTagsRequest");
 }
 
 export interface ListRoleTagsResponse {
@@ -5883,10 +5564,9 @@ export interface ListRoleTagsResponse {
 
 export namespace ListRoleTagsResponse {
   export const filterSensitiveLog = (obj: ListRoleTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRoleTagsResponse =>
-    __isa(o, "ListRoleTagsResponse");
+  export const isa = (o: any): o is ListRoleTagsResponse => __isa(o, "ListRoleTagsResponse");
 }
 
 export interface ListSAMLProvidersRequest {
@@ -5895,10 +5575,9 @@ export interface ListSAMLProvidersRequest {
 
 export namespace ListSAMLProvidersRequest {
   export const filterSensitiveLog = (obj: ListSAMLProvidersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSAMLProvidersRequest =>
-    __isa(o, "ListSAMLProvidersRequest");
+  export const isa = (o: any): o is ListSAMLProvidersRequest => __isa(o, "ListSAMLProvidersRequest");
 }
 
 /**
@@ -5916,10 +5595,9 @@ export interface ListSAMLProvidersResponse {
 
 export namespace ListSAMLProvidersResponse {
   export const filterSensitiveLog = (obj: ListSAMLProvidersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSAMLProvidersResponse =>
-    __isa(o, "ListSAMLProvidersResponse");
+  export const isa = (o: any): o is ListSAMLProvidersResponse => __isa(o, "ListSAMLProvidersResponse");
 }
 
 export interface ListServerCertificatesRequest {
@@ -5933,6 +5611,18 @@ export interface ListServerCertificatesRequest {
   Marker?: string;
 
   /**
+   * <p> The path prefix for filtering the results. For example:
+   *             <code>/company/servercerts</code> would get all server certificates for which the path
+   *          starts with <code>/company/servercerts</code>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
+   *          all server certificates. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  PathPrefix?: string;
+
+  /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5943,28 +5633,13 @@ export interface ListServerCertificatesRequest {
    *     from.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p> The path prefix for filtering the results. For example:
-   *             <code>/company/servercerts</code> would get all server certificates for which the path
-   *          starts with <code>/company/servercerts</code>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
-   *          all server certificates. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  PathPrefix?: string;
 }
 
 export namespace ListServerCertificatesRequest {
-  export const filterSensitiveLog = (
-    obj: ListServerCertificatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServerCertificatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListServerCertificatesRequest =>
-    __isa(o, "ListServerCertificatesRequest");
+  export const isa = (o: any): o is ListServerCertificatesRequest => __isa(o, "ListServerCertificatesRequest");
 }
 
 /**
@@ -5973,6 +5648,11 @@ export namespace ListServerCertificatesRequest {
  */
 export interface ListServerCertificatesResponse {
   __type?: "ListServerCertificatesResponse";
+  /**
+   * <p>A list of server certificates.</p>
+   */
+  ServerCertificateMetadataList: ServerCertificateMetadata[] | undefined;
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -5989,31 +5669,17 @@ export interface ListServerCertificatesResponse {
    *     pagination request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of server certificates.</p>
-   */
-  ServerCertificateMetadataList: ServerCertificateMetadata[] | undefined;
 }
 
 export namespace ListServerCertificatesResponse {
-  export const filterSensitiveLog = (
-    obj: ListServerCertificatesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServerCertificatesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListServerCertificatesResponse =>
-    __isa(o, "ListServerCertificatesResponse");
+  export const isa = (o: any): o is ListServerCertificatesResponse => __isa(o, "ListServerCertificatesResponse");
 }
 
 export interface ListServiceSpecificCredentialsRequest {
   __type?: "ListServiceSpecificCredentialsRequest";
-  /**
-   * <p>Filters the returned results to only those for the specified AWS service. If not
-   *          specified, then AWS returns service-specific credentials for all services.</p>
-   */
-  ServiceName?: string;
-
   /**
    * <p>The name of the user whose service-specific credentials you want information about. If
    *          this value is not specified, then the operation assumes the user whose credentials are used
@@ -6022,13 +5688,17 @@ export interface ListServiceSpecificCredentialsRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName?: string;
+
+  /**
+   * <p>Filters the returned results to only those for the specified AWS service. If not
+   *          specified, then AWS returns service-specific credentials for all services.</p>
+   */
+  ServiceName?: string;
 }
 
 export namespace ListServiceSpecificCredentialsRequest {
-  export const filterSensitiveLog = (
-    obj: ListServiceSpecificCredentialsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServiceSpecificCredentialsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListServiceSpecificCredentialsRequest =>
     __isa(o, "ListServiceSpecificCredentialsRequest");
@@ -6044,10 +5714,8 @@ export interface ListServiceSpecificCredentialsResponse {
 }
 
 export namespace ListServiceSpecificCredentialsResponse {
-  export const filterSensitiveLog = (
-    obj: ListServiceSpecificCredentialsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServiceSpecificCredentialsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListServiceSpecificCredentialsResponse =>
     __isa(o, "ListServiceSpecificCredentialsResponse");
@@ -6056,12 +5724,11 @@ export namespace ListServiceSpecificCredentialsResponse {
 export interface ListSigningCertificatesRequest {
   __type?: "ListSigningCertificatesRequest";
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The name of the IAM user whose signing certificates you want to examine.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  Marker?: string;
+  UserName?: string;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -6076,21 +5743,19 @@ export interface ListSigningCertificatesRequest {
   MaxItems?: number;
 
   /**
-   * <p>The name of the IAM user whose signing certificates you want to examine.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  UserName?: string;
+  Marker?: string;
 }
 
 export namespace ListSigningCertificatesRequest {
-  export const filterSensitiveLog = (
-    obj: ListSigningCertificatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSigningCertificatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningCertificatesRequest =>
-    __isa(o, "ListSigningCertificatesRequest");
+  export const isa = (o: any): o is ListSigningCertificatesRequest => __isa(o, "ListSigningCertificatesRequest");
 }
 
 /**
@@ -6099,6 +5764,13 @@ export namespace ListSigningCertificatesRequest {
  */
 export interface ListSigningCertificatesResponse {
   __type?: "ListSigningCertificatesResponse";
+  /**
+   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
+   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
+   *     pagination request.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>A list of the user's signing certificate information.</p>
    */
@@ -6113,35 +5785,17 @@ export interface ListSigningCertificatesResponse {
    *     results.</p>
    */
   IsTruncated?: boolean;
-
-  /**
-   * <p>When <code>IsTruncated</code> is <code>true</code>, this element
-   *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
-   *     pagination request.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListSigningCertificatesResponse {
-  export const filterSensitiveLog = (
-    obj: ListSigningCertificatesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSigningCertificatesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningCertificatesResponse =>
-    __isa(o, "ListSigningCertificatesResponse");
+  export const isa = (o: any): o is ListSigningCertificatesResponse => __isa(o, "ListSigningCertificatesResponse");
 }
 
 export interface ListSSHPublicKeysRequest {
   __type?: "ListSSHPublicKeysRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -6155,6 +5809,14 @@ export interface ListSSHPublicKeysRequest {
   MaxItems?: number;
 
   /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The name of the IAM user to list SSH public keys for. If none is specified, the
    *             <code>UserName</code> field is determined implicitly based on the AWS access key used
    *          to sign the request.</p>
@@ -6166,10 +5828,9 @@ export interface ListSSHPublicKeysRequest {
 
 export namespace ListSSHPublicKeysRequest {
   export const filterSensitiveLog = (obj: ListSSHPublicKeysRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSSHPublicKeysRequest =>
-    __isa(o, "ListSSHPublicKeysRequest");
+  export const isa = (o: any): o is ListSSHPublicKeysRequest => __isa(o, "ListSSHPublicKeysRequest");
 }
 
 /**
@@ -6203,21 +5864,19 @@ export interface ListSSHPublicKeysResponse {
 
 export namespace ListSSHPublicKeysResponse {
   export const filterSensitiveLog = (obj: ListSSHPublicKeysResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSSHPublicKeysResponse =>
-    __isa(o, "ListSSHPublicKeysResponse");
+  export const isa = (o: any): o is ListSSHPublicKeysResponse => __isa(o, "ListSSHPublicKeysResponse");
 }
 
 export interface ListUserPoliciesRequest {
   __type?: "ListUserPoliciesRequest";
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The name of the user to list policies for.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  Marker?: string;
+  UserName: string | undefined;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -6232,19 +5891,19 @@ export interface ListUserPoliciesRequest {
   MaxItems?: number;
 
   /**
-   * <p>The name of the user to list policies for.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  UserName: string | undefined;
+  Marker?: string;
 }
 
 export namespace ListUserPoliciesRequest {
   export const filterSensitiveLog = (obj: ListUserPoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUserPoliciesRequest =>
-    __isa(o, "ListUserPoliciesRequest");
+  export const isa = (o: any): o is ListUserPoliciesRequest => __isa(o, "ListUserPoliciesRequest");
 }
 
 /**
@@ -6254,6 +5913,11 @@ export namespace ListUserPoliciesRequest {
 export interface ListUserPoliciesResponse {
   __type?: "ListUserPoliciesResponse";
   /**
+   * <p>A list of policy names.</p>
+   */
+  PolicyNames: string[] | undefined;
+
+  /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
@@ -6269,31 +5933,17 @@ export interface ListUserPoliciesResponse {
    *     pagination request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of policy names.</p>
-   */
-  PolicyNames: string[] | undefined;
 }
 
 export namespace ListUserPoliciesResponse {
   export const filterSensitiveLog = (obj: ListUserPoliciesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUserPoliciesResponse =>
-    __isa(o, "ListUserPoliciesResponse");
+  export const isa = (o: any): o is ListUserPoliciesResponse => __isa(o, "ListUserPoliciesResponse");
 }
 
 export interface ListUsersRequest {
   __type?: "ListUsersRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
@@ -6307,13 +5957,21 @@ export interface ListUsersRequest {
   MaxItems?: number;
 
   /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p> The path prefix for filtering the results. For example:
    *             <code>/division_abc/subdivision_xyz/</code>, which would get all user names whose path
    *          starts with <code>/division_abc/subdivision_xyz/</code>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing
    *          all user names. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   PathPrefix?: string;
@@ -6321,10 +5979,9 @@ export interface ListUsersRequest {
 
 export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest =>
-    __isa(o, "ListUsersRequest");
+  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 /**
@@ -6333,14 +5990,9 @@ export namespace ListUsersRequest {
 export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
-   * <p>A flag that indicates whether there are more items to return. If your
-   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
-   *     request parameter to retrieve more items. Note that IAM might return fewer than the
-   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
-   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
-   *     results.</p>
+   * <p>A list of users.</p>
    */
-  IsTruncated?: boolean;
+  Users: User[] | undefined;
 
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
@@ -6350,29 +6002,25 @@ export interface ListUsersResponse {
   Marker?: string;
 
   /**
-   * <p>A list of users.</p>
+   * <p>A flag that indicates whether there are more items to return. If your
+   *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
+   *     request parameter to retrieve more items. Note that IAM might return fewer than the
+   *     <code>MaxItems</code> number of results even when there are more results available. We recommend
+   *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
+   *     results.</p>
    */
-  Users: User[] | undefined;
+  IsTruncated?: boolean;
 }
 
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse =>
-    __isa(o, "ListUsersResponse");
+  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 export interface ListUserTagsRequest {
   __type?: "ListUserTagsRequest";
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
   /**
    * <p>(Optional) Use this only when paginating results to indicate the
    *     maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6390,18 +6038,32 @@ export interface ListUserTagsRequest {
    *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListUserTagsRequest {
   export const filterSensitiveLog = (obj: ListUserTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUserTagsRequest =>
-    __isa(o, "ListUserTagsRequest");
+  export const isa = (o: any): o is ListUserTagsRequest => __isa(o, "ListUserTagsRequest");
 }
 
 export interface ListUserTagsResponse {
   __type?: "ListUserTagsResponse";
+  /**
+   * <p>The list of tags that are currently attached to the user. Each tag consists of a key
+   *       name and an associated value. If no tags are attached to the specified user, the response
+   *       contains an empty list.</p>
+   */
+  Tags: Tag[] | undefined;
+
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can use the <code>Marker</code> request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the
@@ -6416,21 +6078,13 @@ export interface ListUserTagsResponse {
    *     pagination request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The list of tags that are currently attached to the user. Each tag consists of a key
-   *       name and an associated value. If no tags are attached to the specified user, the response
-   *       contains an empty list.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace ListUserTagsResponse {
   export const filterSensitiveLog = (obj: ListUserTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUserTagsResponse =>
-    __isa(o, "ListUserTagsResponse");
+  export const isa = (o: any): o is ListUserTagsResponse => __isa(o, "ListUserTagsResponse");
 }
 
 export interface ListVirtualMFADevicesRequest {
@@ -6443,14 +6097,6 @@ export interface ListVirtualMFADevicesRequest {
   AssignmentStatus?: AssignmentStatusType | string;
 
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6461,16 +6107,21 @@ export interface ListVirtualMFADevicesRequest {
    *     from.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListVirtualMFADevicesRequest {
-  export const filterSensitiveLog = (
-    obj: ListVirtualMFADevicesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListVirtualMFADevicesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListVirtualMFADevicesRequest =>
-    __isa(o, "ListVirtualMFADevicesRequest");
+  export const isa = (o: any): o is ListVirtualMFADevicesRequest => __isa(o, "ListVirtualMFADevicesRequest");
 }
 
 /**
@@ -6490,32 +6141,27 @@ export interface ListVirtualMFADevicesResponse {
   IsTruncated?: boolean;
 
   /**
+   * <p> The list of virtual MFA devices in the current account that match the
+   *             <code>AssignmentStatus</code> value that was passed in the request.</p>
+   */
+  VirtualMFADevices: VirtualMFADevice[] | undefined;
+
+  /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    *          the value to use for the <code>Marker</code> parameter in a subsequent pagination
    *          request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p> The list of virtual MFA devices in the current account that match the
-   *             <code>AssignmentStatus</code> value that was passed in the request.</p>
-   */
-  VirtualMFADevices: VirtualMFADevice[] | undefined;
 }
 
 export namespace ListVirtualMFADevicesResponse {
-  export const filterSensitiveLog = (
-    obj: ListVirtualMFADevicesResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: ListVirtualMFADevicesResponse): any => ({
     ...obj,
     ...(obj.VirtualMFADevices && {
-      VirtualMFADevices: obj.VirtualMFADevices.map(item =>
-        VirtualMFADevice.filterSensitiveLog(item)
-      )
-    })
+      VirtualMFADevices: obj.VirtualMFADevices.map((item) => VirtualMFADevice.filterSensitiveLog(item)),
+    }),
   });
-  export const isa = (o: any): o is ListVirtualMFADevicesResponse =>
-    __isa(o, "ListVirtualMFADevicesResponse");
+  export const isa = (o: any): o is ListVirtualMFADevicesResponse => __isa(o, "ListVirtualMFADevicesResponse");
 }
 
 /**
@@ -6543,7 +6189,7 @@ export interface LoginProfile {
 
 export namespace LoginProfile {
   export const filterSensitiveLog = (obj: LoginProfile): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LoginProfile => __isa(o, "LoginProfile");
 }
@@ -6552,44 +6198,34 @@ export namespace LoginProfile {
  * <p>The request was rejected because the certificate was malformed or expired. The error
  *       message describes the specific error.</p>
  */
-export interface MalformedCertificateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedCertificateException extends __SmithyException, $MetadataBearer {
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedCertificateException {
-  export const filterSensitiveLog = (
-    obj: MalformedCertificateException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedCertificateException =>
-    __isa(o, "MalformedCertificateException");
+  export const isa = (o: any): o is MalformedCertificateException => __isa(o, "MalformedCertificateException");
 }
 
 /**
  * <p>The request was rejected because the policy document was malformed. The error message
  *       describes the specific error.</p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedPolicyDocumentException {
-  export const filterSensitiveLog = (
-    obj: MalformedPolicyDocumentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException =>
-    __isa(o, "MalformedPolicyDocumentException");
+  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -6603,36 +6239,15 @@ export namespace MalformedPolicyDocumentException {
 export interface ManagedPolicyDetail {
   __type?: "ManagedPolicyDetail";
   /**
-   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
-   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   * <p>The friendly name (not ARN) identifying the policy.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The number of principal entities (users, groups, and roles) that the policy is attached
-   *          to.</p>
-   */
-  AttachmentCount?: number;
+  PolicyName?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy was created.</p>
    */
   CreateDate?: Date;
-
-  /**
-   * <p>The identifier for the version of the policy that is set as the default (operative)
-   *          version.</p>
-   *          <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
-   *             Policies</a> in the <i>IAM User Guide</i>. </p>
-   */
-  DefaultVersionId?: string;
-
-  /**
-   * <p>A friendly description of the policy.</p>
-   */
-  Description?: string;
 
   /**
    * <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
@@ -6647,6 +6262,11 @@ export interface ManagedPolicyDetail {
   Path?: string;
 
   /**
+   * <p>A friendly description of the policy.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The number of entities (users and roles) for which the policy is used as the permissions
    *          boundary. </p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
@@ -6655,21 +6275,24 @@ export interface ManagedPolicyDetail {
   PermissionsBoundaryUsageCount?: number;
 
   /**
-   * <p>The stable and unique string identifying the policy.</p>
-   *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   */
-  PolicyId?: string;
-
-  /**
-   * <p>The friendly name (not ARN) identifying the policy.</p>
-   */
-  PolicyName?: string;
-
-  /**
    * <p>A list containing information about the versions of the policy.</p>
    */
   PolicyVersionList?: PolicyVersion[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
+   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier for the version of the policy that is set as the default (operative)
+   *          version.</p>
+   *          <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
+   *             Policies</a> in the <i>IAM User Guide</i>. </p>
+   */
+  DefaultVersionId?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6679,14 +6302,26 @@ export interface ManagedPolicyDetail {
    *          and time when the most recent policy version was created.</p>
    */
   UpdateDate?: Date;
+
+  /**
+   * <p>The stable and unique string identifying the policy.</p>
+   *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>The number of principal entities (users, groups, and roles) that the policy is attached
+   *          to.</p>
+   */
+  AttachmentCount?: number;
 }
 
 export namespace ManagedPolicyDetail {
   export const filterSensitiveLog = (obj: ManagedPolicyDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ManagedPolicyDetail =>
-    __isa(o, "ManagedPolicyDetail");
+  export const isa = (o: any): o is ManagedPolicyDetail => __isa(o, "ManagedPolicyDetail");
 }
 
 /**
@@ -6697,9 +6332,9 @@ export namespace ManagedPolicyDetail {
 export interface MFADevice {
   __type?: "MFADevice";
   /**
-   * <p>The date when the MFA device was enabled for the user.</p>
+   * <p>The user with whom the MFA device is associated.</p>
    */
-  EnableDate: Date | undefined;
+  UserName: string | undefined;
 
   /**
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
@@ -6708,14 +6343,14 @@ export interface MFADevice {
   SerialNumber: string | undefined;
 
   /**
-   * <p>The user with whom the MFA device is associated.</p>
+   * <p>The date when the MFA device was enabled for the user.</p>
    */
-  UserName: string | undefined;
+  EnableDate: Date | undefined;
 }
 
 export namespace MFADevice {
   export const filterSensitiveLog = (obj: MFADevice): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MFADevice => __isa(o, "MFADevice");
 }
@@ -6724,9 +6359,7 @@ export namespace MFADevice {
  * <p>The request was rejected because it referenced a resource entity that does not exist. The error
  *       message describes the resource.</p>
  */
-export interface NoSuchEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchEntityException extends __SmithyException, $MetadataBearer {
   name: "NoSuchEntityException";
   $fault: "client";
   message?: string;
@@ -6734,10 +6367,9 @@ export interface NoSuchEntityException
 
 export namespace NoSuchEntityException {
   export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchEntityException =>
-    __isa(o, "NoSuchEntityException");
+  export const isa = (o: any): o is NoSuchEntityException => __isa(o, "NoSuchEntityException");
 }
 
 /**
@@ -6754,13 +6386,10 @@ export interface OpenIDConnectProviderListEntry {
 }
 
 export namespace OpenIDConnectProviderListEntry {
-  export const filterSensitiveLog = (
-    obj: OpenIDConnectProviderListEntry
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OpenIDConnectProviderListEntry): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OpenIDConnectProviderListEntry =>
-    __isa(o, "OpenIDConnectProviderListEntry");
+  export const isa = (o: any): o is OpenIDConnectProviderListEntry => __isa(o, "OpenIDConnectProviderListEntry");
 }
 
 /**
@@ -6776,13 +6405,10 @@ export interface OrganizationsDecisionDetail {
 }
 
 export namespace OrganizationsDecisionDetail {
-  export const filterSensitiveLog = (
-    obj: OrganizationsDecisionDetail
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationsDecisionDetail): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationsDecisionDetail =>
-    __isa(o, "OrganizationsDecisionDetail");
+  export const isa = (o: any): o is OrganizationsDecisionDetail => __isa(o, "OrganizationsDecisionDetail");
 }
 
 /**
@@ -6792,9 +6418,19 @@ export namespace OrganizationsDecisionDetail {
 export interface PasswordPolicy {
   __type?: "PasswordPolicy";
   /**
-   * <p>Specifies whether IAM users are allowed to change their own password.</p>
+   * <p>Specifies whether to require lowercase characters for IAM user passwords.</p>
    */
-  AllowUsersToChangePassword?: boolean;
+  RequireLowercaseCharacters?: boolean;
+
+  /**
+   * <p>Minimum length to require for IAM user passwords.</p>
+   */
+  MinimumPasswordLength?: number;
+
+  /**
+   * <p>Specifies whether to require numbers for IAM user passwords.</p>
+   */
+  RequireNumbers?: boolean;
 
   /**
    * <p>Indicates whether passwords in the account expire. Returns true if
@@ -6802,6 +6438,12 @@ export interface PasswordPolicy {
    *          MaxPasswordAge is 0 or not present.</p>
    */
   ExpirePasswords?: boolean;
+
+  /**
+   * <p>Specifies the number of previous passwords that IAM users are prevented from
+   *          reusing.</p>
+   */
+  PasswordReusePrevention?: number;
 
   /**
    * <p>Specifies whether IAM users are prevented from setting a new password after their
@@ -6815,69 +6457,73 @@ export interface PasswordPolicy {
   MaxPasswordAge?: number;
 
   /**
-   * <p>Minimum length to require for IAM user passwords.</p>
+   * <p>Specifies whether to require uppercase characters for IAM user passwords.</p>
    */
-  MinimumPasswordLength?: number;
+  RequireUppercaseCharacters?: boolean;
 
   /**
-   * <p>Specifies the number of previous passwords that IAM users are prevented from
-   *          reusing.</p>
+   * <p>Specifies whether IAM users are allowed to change their own password.</p>
    */
-  PasswordReusePrevention?: number;
-
-  /**
-   * <p>Specifies whether to require lowercase characters for IAM user passwords.</p>
-   */
-  RequireLowercaseCharacters?: boolean;
-
-  /**
-   * <p>Specifies whether to require numbers for IAM user passwords.</p>
-   */
-  RequireNumbers?: boolean;
+  AllowUsersToChangePassword?: boolean;
 
   /**
    * <p>Specifies whether to require symbols for IAM user passwords.</p>
    */
   RequireSymbols?: boolean;
-
-  /**
-   * <p>Specifies whether to require uppercase characters for IAM user passwords.</p>
-   */
-  RequireUppercaseCharacters?: boolean;
 }
 
 export namespace PasswordPolicy {
   export const filterSensitiveLog = (obj: PasswordPolicy): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PasswordPolicy =>
-    __isa(o, "PasswordPolicy");
+  export const isa = (o: any): o is PasswordPolicy => __isa(o, "PasswordPolicy");
 }
 
 /**
  * <p>The request was rejected because the provided password did not meet the requirements
  *       imposed by the account password policy.</p>
  */
-export interface PasswordPolicyViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PasswordPolicyViolationException extends __SmithyException, $MetadataBearer {
   name: "PasswordPolicyViolationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PasswordPolicyViolationException {
-  export const filterSensitiveLog = (
-    obj: PasswordPolicyViolationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PasswordPolicyViolationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PasswordPolicyViolationException =>
-    __isa(o, "PasswordPolicyViolationException");
+  export const isa = (o: any): o is PasswordPolicyViolationException => __isa(o, "PasswordPolicyViolationException");
 }
 
 export enum PermissionsBoundaryAttachmentType {
-  Policy = "PermissionsBoundaryPolicy"
+  Policy = "PermissionsBoundaryPolicy",
+}
+
+/**
+ * <p>Contains information about the effect that a permissions boundary has on a policy
+ *          simulation when the boundary is applied to an IAM entity.</p>
+ */
+export interface PermissionsBoundaryDecisionDetail {
+  __type?: "PermissionsBoundaryDecisionDetail";
+  /**
+   * <p>Specifies whether an action is allowed by a permissions boundary that is applied to an
+   *          IAM entity (user or role). A value of <code>true</code> means that the permissions
+   *          boundary does not deny the action. This means that the policy includes an
+   *             <code>Allow</code> statement that matches the request. In this case, if an
+   *          identity-based policy also allows the action, the request is allowed. A value of
+   *             <code>false</code> means that either the requested action is not allowed (implicitly
+   *          denied) or that the action is explicitly denied by the permissions boundary. In both of
+   *          these cases, the action is not allowed, regardless of the identity-based policy.</p>
+   */
+  AllowedByPermissionsBoundary?: boolean;
+}
+
+export namespace PermissionsBoundaryDecisionDetail {
+  export const filterSensitiveLog = (obj: PermissionsBoundaryDecisionDetail): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PermissionsBoundaryDecisionDetail => __isa(o, "PermissionsBoundaryDecisionDetail");
 }
 
 /**
@@ -6897,9 +6543,11 @@ export interface Policy {
   Arn?: string;
 
   /**
-   * <p>The number of entities (users, groups, and roles) that the policy is attached to.</p>
+   * <p>The stable and unique string identifying the policy.</p>
+   *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
-  AttachmentCount?: number;
+  PolicyId?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6908,21 +6556,19 @@ export interface Policy {
   CreateDate?: Date;
 
   /**
-   * <p>The identifier for the version of the policy that is set as the default version.</p>
+   * <p>The number of entities (users, groups, and roles) that the policy is attached to.</p>
    */
-  DefaultVersionId?: string;
-
-  /**
-   * <p>A friendly description of the policy.</p>
-   *          <p>This element is included in the response to the <a>GetPolicy</a> operation.
-   *          It is not included in the response to the <a>ListPolicies</a> operation. </p>
-   */
-  Description?: string;
+  AttachmentCount?: number;
 
   /**
    * <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
    */
   IsAttachable?: boolean;
+
+  /**
+   * <p>The friendly name (not ARN) identifying the policy.</p>
+   */
+  PolicyName?: string;
 
   /**
    * <p>The path to the policy.</p>
@@ -6932,24 +6578,9 @@ export interface Policy {
   Path?: string;
 
   /**
-   * <p>The number of entities (users and roles) for which the policy is used to set the
-   *          permissions boundary. </p>
-   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
-   *             Identities </a> in the <i>IAM User Guide</i>.</p>
+   * <p>The identifier for the version of the policy that is set as the default version.</p>
    */
-  PermissionsBoundaryUsageCount?: number;
-
-  /**
-   * <p>The stable and unique string identifying the policy.</p>
-   *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   */
-  PolicyId?: string;
-
-  /**
-   * <p>The friendly name (not ARN) identifying the policy.</p>
-   */
-  PolicyName?: string;
+  DefaultVersionId?: string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6959,11 +6590,26 @@ export interface Policy {
    *          and time when the most recent policy version was created.</p>
    */
   UpdateDate?: Date;
+
+  /**
+   * <p>A friendly description of the policy.</p>
+   *          <p>This element is included in the response to the <a>GetPolicy</a> operation.
+   *          It is not included in the response to the <a>ListPolicies</a> operation. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The number of entities (users and roles) for which the policy is used to set the
+   *          permissions boundary. </p>
+   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+   *             Identities </a> in the <i>IAM User Guide</i>.</p>
+   */
+  PermissionsBoundaryUsageCount?: number;
 }
 
 export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
@@ -6987,7 +6633,7 @@ export interface PolicyDetail {
 
 export namespace PolicyDetail {
   export const filterSensitiveLog = (obj: PolicyDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicyDetail => __isa(o, "PolicyDetail");
 }
@@ -6995,16 +6641,14 @@ export namespace PolicyDetail {
 export enum PolicyEvaluationDecisionType {
   ALLOWED = "allowed",
   EXPLICIT_DENY = "explicitDeny",
-  IMPLICIT_DENY = "implicitDeny"
+  IMPLICIT_DENY = "implicitDeny",
 }
 
 /**
  * <p>The request failed because a provided policy could not be successfully evaluated. An
  *       additional detailed message indicates the source of the failure.</p>
  */
-export interface PolicyEvaluationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyEvaluationException extends __SmithyException, $MetadataBearer {
   name: "PolicyEvaluationException";
   $fault: "server";
   message?: string;
@@ -7012,10 +6656,9 @@ export interface PolicyEvaluationException
 
 export namespace PolicyEvaluationException {
   export const filterSensitiveLog = (obj: PolicyEvaluationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyEvaluationException =>
-    __isa(o, "PolicyEvaluationException");
+  export const isa = (o: any): o is PolicyEvaluationException => __isa(o, "PolicyEvaluationException");
 }
 
 /**
@@ -7026,21 +6669,24 @@ export namespace PolicyEvaluationException {
 export interface PolicyGrantingServiceAccess {
   __type?: "PolicyGrantingServiceAccess";
   /**
+   * <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed
+   *             Policies and Inline Policies</a> in the
+   *          <i>IAM User Guide</i>.</p>
+   */
+  PolicyType: PolicyType | string | undefined;
+
+  /**
+   * <p>The policy name.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
    * <p>The name of the entity (user or role) to which the inline policy is attached.</p>
    *          <p>This field is null for managed policies. For more information about these policy types,
    *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed Policies and Inline Policies</a> in the
    *             <i>IAM User Guide</i>.</p>
    */
   EntityName?: string;
-
-  /**
-   * <p>The type of entity (user or role) that used the policy to access the service to which
-   *          the inline policy is attached.</p>
-   *          <p>This field is null for managed policies. For more information about these policy types,
-   *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed Policies and Inline Policies</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   */
-  EntityType?: PolicyOwnerEntityType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
@@ -7050,26 +6696,20 @@ export interface PolicyGrantingServiceAccess {
   PolicyArn?: string;
 
   /**
-   * <p>The policy name.</p>
+   * <p>The type of entity (user or role) that used the policy to access the service to which
+   *          the inline policy is attached.</p>
+   *          <p>This field is null for managed policies. For more information about these policy types,
+   *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed Policies and Inline Policies</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
-  PolicyName: string | undefined;
-
-  /**
-   * <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed
-   *             Policies and Inline Policies</a> in the
-   *          <i>IAM User Guide</i>.</p>
-   */
-  PolicyType: PolicyType | string | undefined;
+  EntityType?: PolicyOwnerEntityType | string;
 }
 
 export namespace PolicyGrantingServiceAccess {
-  export const filterSensitiveLog = (
-    obj: PolicyGrantingServiceAccess
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PolicyGrantingServiceAccess): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyGrantingServiceAccess =>
-    __isa(o, "PolicyGrantingServiceAccess");
+  export const isa = (o: any): o is PolicyGrantingServiceAccess => __isa(o, "PolicyGrantingServiceAccess");
 }
 
 /**
@@ -7095,7 +6735,7 @@ export interface PolicyGroup {
 
 export namespace PolicyGroup {
   export const filterSensitiveLog = (obj: PolicyGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicyGroup => __isa(o, "PolicyGroup");
 }
@@ -7104,28 +6744,23 @@ export namespace PolicyGroup {
  * <p>The request failed because AWS service role policies can only be attached to the
  *       service-linked role for that service.</p>
  */
-export interface PolicyNotAttachableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyNotAttachableException extends __SmithyException, $MetadataBearer {
   name: "PolicyNotAttachableException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PolicyNotAttachableException {
-  export const filterSensitiveLog = (
-    obj: PolicyNotAttachableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PolicyNotAttachableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyNotAttachableException =>
-    __isa(o, "PolicyNotAttachableException");
+  export const isa = (o: any): o is PolicyNotAttachableException => __isa(o, "PolicyNotAttachableException");
 }
 
 export enum PolicyOwnerEntityType {
   GROUP = "GROUP",
   ROLE = "ROLE",
-  USER = "USER"
+  USER = "USER",
 }
 
 /**
@@ -7137,21 +6772,21 @@ export enum PolicyOwnerEntityType {
 export interface PolicyRole {
   __type?: "PolicyRole";
   /**
+   * <p>The name (friendly name, not ARN) identifying the role.</p>
+   */
+  RoleName?: string;
+
+  /**
    * <p>The stable and unique string identifying the role. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
    */
   RoleId?: string;
-
-  /**
-   * <p>The name (friendly name, not ARN) identifying the role.</p>
-   */
-  RoleName?: string;
 }
 
 export namespace PolicyRole {
   export const filterSensitiveLog = (obj: PolicyRole): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicyRole => __isa(o, "PolicyRole");
 }
@@ -7159,7 +6794,7 @@ export namespace PolicyRole {
 export enum PolicyScopeType {
   AWS = "AWS",
   All = "All",
-  Local = "Local"
+  Local = "Local",
 }
 
 export enum PolicySourceType {
@@ -7169,12 +6804,12 @@ export enum PolicySourceType {
   RESOURCE = "resource",
   ROLE = "role",
   USER = "user",
-  USER_MANAGED = "user-managed"
+  USER_MANAGED = "user-managed",
 }
 
 export enum PolicyType {
   INLINE = "INLINE",
-  MANAGED = "MANAGED"
+  MANAGED = "MANAGED",
 }
 
 export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
@@ -7188,21 +6823,21 @@ export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
 export interface PolicyUser {
   __type?: "PolicyUser";
   /**
+   * <p>The name (friendly name, not ARN) identifying the user.</p>
+   */
+  UserName?: string;
+
+  /**
    * <p>The stable and unique string identifying the user. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
    */
   UserId?: string;
-
-  /**
-   * <p>The name (friendly name, not ARN) identifying the user.</p>
-   */
-  UserName?: string;
 }
 
 export namespace PolicyUser {
   export const filterSensitiveLog = (obj: PolicyUser): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicyUser => __isa(o, "PolicyUser");
 }
@@ -7216,10 +6851,9 @@ export namespace PolicyUser {
 export interface PolicyVersion {
   __type?: "PolicyVersion";
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the policy version was created.</p>
+   * <p>Specifies whether the policy version is set as the policy's default version.</p>
    */
-  CreateDate?: Date;
+  IsDefaultVersion?: boolean;
 
   /**
    * <p>The policy document.</p>
@@ -7233,9 +6867,10 @@ export interface PolicyVersion {
   Document?: string;
 
   /**
-   * <p>Specifies whether the policy version is set as the policy's default version.</p>
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the policy version was created.</p>
    */
-  IsDefaultVersion?: boolean;
+  CreateDate?: Date;
 
   /**
    * <p>The identifier for the policy version.</p>
@@ -7247,7 +6882,7 @@ export interface PolicyVersion {
 
 export namespace PolicyVersion {
   export const filterSensitiveLog = (obj: PolicyVersion): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PolicyVersion => __isa(o, "PolicyVersion");
 }
@@ -7274,13 +6909,20 @@ export interface Position {
 
 export namespace Position {
   export const filterSensitiveLog = (obj: Position): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Position => __isa(o, "Position");
 }
 
 export interface PutGroupPolicyRequest {
   __type?: "PutGroupPolicyRequest";
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  PolicyName: string | undefined;
+
   /**
    * <p>The name of the group to associate the policy with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7299,34 +6941,26 @@ export interface PutGroupPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   PolicyDocument: string | undefined;
-
-  /**
-   * <p>The name of the policy document.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  PolicyName: string | undefined;
 }
 
 export namespace PutGroupPolicyRequest {
   export const filterSensitiveLog = (obj: PutGroupPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutGroupPolicyRequest =>
-    __isa(o, "PutGroupPolicyRequest");
+  export const isa = (o: any): o is PutGroupPolicyRequest => __isa(o, "PutGroupPolicyRequest");
 }
 
 export interface PutRolePermissionsBoundaryRequest {
@@ -7344,42 +6978,14 @@ export interface PutRolePermissionsBoundaryRequest {
 }
 
 export namespace PutRolePermissionsBoundaryRequest {
-  export const filterSensitiveLog = (
-    obj: PutRolePermissionsBoundaryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRolePermissionsBoundaryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRolePermissionsBoundaryRequest =>
-    __isa(o, "PutRolePermissionsBoundaryRequest");
+  export const isa = (o: any): o is PutRolePermissionsBoundaryRequest => __isa(o, "PutRolePermissionsBoundaryRequest");
 }
 
 export interface PutRolePolicyRequest {
   __type?: "PutRolePolicyRequest";
-  /**
-   * <p>The policy document.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
-   *          templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS
-   *          CloudFormation always converts a YAML policy to JSON format before submitting it to
-   *          IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  PolicyDocument: string | undefined;
-
   /**
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
@@ -7393,42 +6999,7 @@ export interface PutRolePolicyRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   RoleName: string | undefined;
-}
 
-export namespace PutRolePolicyRequest {
-  export const filterSensitiveLog = (obj: PutRolePolicyRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PutRolePolicyRequest =>
-    __isa(o, "PutRolePolicyRequest");
-}
-
-export interface PutUserPermissionsBoundaryRequest {
-  __type?: "PutUserPermissionsBoundaryRequest";
-  /**
-   * <p>The ARN of the policy that is used to set the permissions boundary for the user.</p>
-   */
-  PermissionsBoundary: string | undefined;
-
-  /**
-   * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
-   *          permissions boundary.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace PutUserPermissionsBoundaryRequest {
-  export const filterSensitiveLog = (
-    obj: PutUserPermissionsBoundaryRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is PutUserPermissionsBoundaryRequest =>
-    __isa(o, "PutUserPermissionsBoundaryRequest");
-}
-
-export interface PutUserPolicyRequest {
-  __type?: "PutUserPolicyRequest";
   /**
    * <p>The policy document.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
@@ -7440,19 +7011,57 @@ export interface PutUserPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   PolicyDocument: string | undefined;
+}
+
+export namespace PutRolePolicyRequest {
+  export const filterSensitiveLog = (obj: PutRolePolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutRolePolicyRequest => __isa(o, "PutRolePolicyRequest");
+}
+
+export interface PutUserPermissionsBoundaryRequest {
+  __type?: "PutUserPermissionsBoundaryRequest";
+  /**
+   * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
+   *          permissions boundary.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ARN of the policy that is used to set the permissions boundary for the user.</p>
+   */
+  PermissionsBoundary: string | undefined;
+}
+
+export namespace PutUserPermissionsBoundaryRequest {
+  export const filterSensitiveLog = (obj: PutUserPermissionsBoundaryRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutUserPermissionsBoundaryRequest => __isa(o, "PutUserPermissionsBoundaryRequest");
+}
+
+export interface PutUserPolicyRequest {
+  __type?: "PutUserPolicyRequest";
+  /**
+   * <p>The name of the user to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
 
   /**
    * <p>The name of the policy document.</p>
@@ -7462,19 +7071,36 @@ export interface PutUserPolicyRequest {
   PolicyName: string | undefined;
 
   /**
-   * <p>The name of the user to associate the policy with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
+   *          templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS
+   *          CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *          IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
    */
-  UserName: string | undefined;
+  PolicyDocument: string | undefined;
 }
 
 export namespace PutUserPolicyRequest {
   export const filterSensitiveLog = (obj: PutUserPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutUserPolicyRequest =>
-    __isa(o, "PutUserPolicyRequest");
+  export const isa = (o: any): o is PutUserPolicyRequest => __isa(o, "PutUserPolicyRequest");
 }
 
 export interface RemoveClientIDFromOpenIDConnectProviderRequest {
@@ -7495,14 +7121,10 @@ export interface RemoveClientIDFromOpenIDConnectProviderRequest {
 }
 
 export namespace RemoveClientIDFromOpenIDConnectProviderRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveClientIDFromOpenIDConnectProviderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveClientIDFromOpenIDConnectProviderRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is RemoveClientIDFromOpenIDConnectProviderRequest =>
+  export const isa = (o: any): o is RemoveClientIDFromOpenIDConnectProviderRequest =>
     __isa(o, "RemoveClientIDFromOpenIDConnectProviderRequest");
 }
 
@@ -7524,10 +7146,8 @@ export interface RemoveRoleFromInstanceProfileRequest {
 }
 
 export namespace RemoveRoleFromInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveRoleFromInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveRoleFromInstanceProfileRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RemoveRoleFromInstanceProfileRequest =>
     __isa(o, "RemoveRoleFromInstanceProfileRequest");
@@ -7536,26 +7156,25 @@ export namespace RemoveRoleFromInstanceProfileRequest {
 export interface RemoveUserFromGroupRequest {
   __type?: "RemoveUserFromGroupRequest";
   /**
-   * <p>The name of the group to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  GroupName: string | undefined;
-
-  /**
    * <p>The name of the user to remove.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The name of the group to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace RemoveUserFromGroupRequest {
   export const filterSensitiveLog = (obj: RemoveUserFromGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveUserFromGroupRequest =>
-    __isa(o, "RemoveUserFromGroupRequest");
+  export const isa = (o: any): o is RemoveUserFromGroupRequest => __isa(o, "RemoveUserFromGroupRequest");
 }
 
 export type ReportFormatType = "text/csv";
@@ -7564,19 +7183,15 @@ export type ReportFormatType = "text/csv";
  * <p>The request failed because the maximum number of concurrent requests for this
  *     account are already running.</p>
  */
-export interface ReportGenerationLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReportGenerationLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ReportGenerationLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReportGenerationLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ReportGenerationLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReportGenerationLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ReportGenerationLimitExceededException =>
     __isa(o, "ReportGenerationLimitExceededException");
@@ -7585,7 +7200,7 @@ export namespace ReportGenerationLimitExceededException {
 export enum ReportStateType {
   COMPLETE = "COMPLETE",
   INPROGRESS = "INPROGRESS",
-  STARTED = "STARTED"
+  STARTED = "STARTED",
 }
 
 export interface ResetServiceSpecificCredentialRequest {
@@ -7608,10 +7223,8 @@ export interface ResetServiceSpecificCredentialRequest {
 }
 
 export namespace ResetServiceSpecificCredentialRequest {
-  export const filterSensitiveLog = (
-    obj: ResetServiceSpecificCredentialRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetServiceSpecificCredentialRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ResetServiceSpecificCredentialRequest =>
     __isa(o, "ResetServiceSpecificCredentialRequest");
@@ -7631,15 +7244,11 @@ export interface ResetServiceSpecificCredentialResponse {
 }
 
 export namespace ResetServiceSpecificCredentialResponse {
-  export const filterSensitiveLog = (
-    obj: ResetServiceSpecificCredentialResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: ResetServiceSpecificCredentialResponse): any => ({
     ...obj,
     ...(obj.ServiceSpecificCredential && {
-      ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(
-        obj.ServiceSpecificCredential
-      )
-    })
+      ServiceSpecificCredential: ServiceSpecificCredential.filterSensitiveLog(obj.ServiceSpecificCredential),
+    }),
   });
   export const isa = (o: any): o is ResetServiceSpecificCredentialResponse =>
     __isa(o, "ResetServiceSpecificCredentialResponse");
@@ -7654,21 +7263,29 @@ export namespace ResetServiceSpecificCredentialResponse {
 export interface ResourceSpecificResult {
   __type?: "ResourceSpecificResult";
   /**
-   * <p>Additional details about the results of the evaluation decision. When there are both
-   *          IAM policies and resource policies, this parameter explains how each set of policies
-   *          contributes to the final evaluation decision. When simulating cross-account access to a
-   *          resource, both the resource-based policy and the caller's IAM policy must grant
-   *          access.</p>
+   * <p>Contains information about the effect that a permissions boundary has on a policy
+   *          simulation when that boundary is applied to an IAM entity.</p>
    */
-  EvalDecisionDetails?: {
-    [key: string]: PolicyEvaluationDecisionType | string;
-  };
+  PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
 
   /**
-   * <p>The result of the simulation of the simulated API operation on the resource specified in
-   *             <code>EvalResourceName</code>.</p>
+   * <p>A list of context keys that are required by the included input policies but that were
+   *          not provided by one of the input parameters. This list is used when a list of ARNs is
+   *          included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify
+   *          individual resources, by setting <code>ResourceArns</code> to "*" or by not including the
+   *             <code>ResourceArns</code> parameter, then any missing context values are instead
+   *          included under the <code>EvaluationResults</code> section. To discover the context keys
+   *          used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or
+   *             <a>GetContextKeysForPrincipalPolicy</a>.</p>
    */
-  EvalResourceDecision: PolicyEvaluationDecisionType | string | undefined;
+  MissingContextValues?: string[];
+
+  /**
+   * <p>Additional details about the results of the evaluation decision on a single resource.
+   *          This parameter is returned only for cross-account simulations. This parameter explains how
+   *          each policy type contributes to the resource-specific evaluation decision.</p>
+   */
+  EvalDecisionDetails?: { [key: string]: PolicyEvaluationDecisionType | string };
 
   /**
    * <p>The name of the simulated resource, in Amazon Resource Name (ARN) format.</p>
@@ -7685,28 +7302,35 @@ export interface ResourceSpecificResult {
   MatchedStatements?: Statement[];
 
   /**
-   * <p>A list of context keys that are required by the included input policies but that were
-   *          not provided by one of the input parameters. This list is used when a list of ARNs is
-   *          included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify
-   *          individual resources, by setting <code>ResourceArns</code> to "*" or by not including the
-   *             <code>ResourceArns</code> parameter, then any missing context values are instead
-   *          included under the <code>EvaluationResults</code> section. To discover the context keys
-   *          used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or
-   *             <a>GetContextKeysForPrincipalPolicy</a>.</p>
+   * <p>The result of the simulation of the simulated API operation on the resource specified in
+   *             <code>EvalResourceName</code>.</p>
    */
-  MissingContextValues?: string[];
+  EvalResourceDecision: PolicyEvaluationDecisionType | string | undefined;
 }
 
 export namespace ResourceSpecificResult {
   export const filterSensitiveLog = (obj: ResourceSpecificResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceSpecificResult =>
-    __isa(o, "ResourceSpecificResult");
+  export const isa = (o: any): o is ResourceSpecificResult => __isa(o, "ResourceSpecificResult");
 }
 
 export interface ResyncMFADeviceRequest {
   __type?: "ResyncMFADeviceRequest";
+  /**
+   * <p>The name of the user whose MFA device you want to resynchronize.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>Serial number that uniquely identifies the MFA device.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  SerialNumber: string | undefined;
+
   /**
    * <p>An authentication code emitted by the device.</p>
    *          <p>The format for this parameter is a sequence of six digits.</p>
@@ -7718,28 +7342,13 @@ export interface ResyncMFADeviceRequest {
    *          <p>The format for this parameter is a sequence of six digits.</p>
    */
   AuthenticationCode2: string | undefined;
-
-  /**
-   * <p>Serial number that uniquely identifies the MFA device.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  SerialNumber: string | undefined;
-
-  /**
-   * <p>The name of the user whose MFA device you want to resynchronize.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
 }
 
 export namespace ResyncMFADeviceRequest {
   export const filterSensitiveLog = (obj: ResyncMFADeviceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResyncMFADeviceRequest =>
-    __isa(o, "ResyncMFADeviceRequest");
+  export const isa = (o: any): o is ResyncMFADeviceRequest => __isa(o, "ResyncMFADeviceRequest");
 }
 
 /**
@@ -7749,55 +7358,22 @@ export namespace ResyncMFADeviceRequest {
 export interface Role {
   __type?: "Role";
   /**
-   * <p> The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and
-   *          how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i> guide. </p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
-
-  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the role was created.</p>
    */
   CreateDate: Date | undefined;
 
   /**
-   * <p>A description of the role that you provide.</p>
+   * <p>A list of tags that are attached to the specified role. For more information about
+   *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
+   *         Identities</a> in the <i>IAM User Guide</i>.</p>
    */
-  Description?: string;
+  Tags?: Tag[];
 
   /**
-   * <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the
-   *          AWS CLI, or API to assume the role can specify the duration using the optional
-   *             <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI
-   *          parameter.</p>
+   * <p>The policy that grants an entity permission to assume the role.</p>
    */
-  MaxSessionDuration?: number;
-
-  /**
-   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>. </p>
-   */
-  Path: string | undefined;
-
-  /**
-   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
-   *             Identities </a> in the <i>IAM User Guide</i>.</p>
-   */
-  PermissionsBoundary?: AttachedPermissionsBoundary;
-
-  /**
-   * <p> The stable and unique string identifying the role. For more information about IDs, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>. </p>
-   */
-  RoleId: string | undefined;
+  AssumeRolePolicyDocument?: string;
 
   /**
    * <p>Contains information about the last time that an IAM role was used. This includes the
@@ -7815,16 +7391,49 @@ export interface Role {
   RoleName: string | undefined;
 
   /**
-   * <p>A list of tags that are attached to the specified role. For more information about
-   *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
-   *         Identities</a> in the <i>IAM User Guide</i>.</p>
+   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
+   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+   *             Identities </a> in the <i>IAM User Guide</i>.</p>
    */
-  Tags?: Tag[];
+  PermissionsBoundary?: AttachedPermissionsBoundary;
+
+  /**
+   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>. </p>
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>A description of the role that you provide.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and
+   *          how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i> guide. </p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p> The stable and unique string identifying the role. For more information about IDs, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>. </p>
+   */
+  RoleId: string | undefined;
+
+  /**
+   * <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the
+   *          AWS CLI, or API to assume the role can specify the duration using the optional
+   *             <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI
+   *          parameter.</p>
+   */
+  MaxSessionDuration?: number;
 }
 
 export namespace Role {
   export const filterSensitiveLog = (obj: Role): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Role => __isa(o, "Role");
 }
@@ -7836,33 +7445,23 @@ export namespace Role {
 export interface RoleDetail {
   __type?: "RoleDetail";
   /**
+   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
+   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+   *             Identities </a> in the <i>IAM User Guide</i>.</p>
+   */
+  PermissionsBoundary?: AttachedPermissionsBoundary;
+
+  /**
+   * <p>The friendly name that identifies the role.</p>
+   */
+  RoleName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
    *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
    */
   Arn?: string;
-
-  /**
-   * <p>The trust policy that grants permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
-
-  /**
-   * <p>A list of managed policies attached to the role. These policies are the role's access
-   *          (permissions) policies.</p>
-   */
-  AttachedManagedPolicies?: AttachedPolicy[];
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the role was created.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>A list of instance profiles that contain this role.</p>
-   */
-  InstanceProfileList?: InstanceProfile[];
 
   /**
    * <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
@@ -7871,11 +7470,27 @@ export interface RoleDetail {
   Path?: string;
 
   /**
-   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
-   *             Identities </a> in the <i>IAM User Guide</i>.</p>
+   * <p>The trust policy that grants permission to assume the role.</p>
    */
-  PermissionsBoundary?: AttachedPermissionsBoundary;
+  AssumeRolePolicyDocument?: string;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the role was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>A list of inline policies embedded in the role. These policies are the role's access
+   *          (permissions) policies.</p>
+   */
+  RolePolicyList?: PolicyDetail[];
+
+  /**
+   * <p>A list of managed policies attached to the role. These policies are the role's access
+   *          (permissions) policies.</p>
+   */
+  AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
    * <p>The stable and unique string identifying the role. For more information about IDs, see
@@ -7883,6 +7498,11 @@ export interface RoleDetail {
    *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
    */
   RoleId?: string;
+
+  /**
+   * <p>A list of instance profiles that contain this role.</p>
+   */
+  InstanceProfileList?: InstanceProfile[];
 
   /**
    * <p>Contains information about the last time that an IAM role was used. This includes the
@@ -7895,17 +7515,6 @@ export interface RoleDetail {
   RoleLastUsed?: RoleLastUsed;
 
   /**
-   * <p>The friendly name that identifies the role.</p>
-   */
-  RoleName?: string;
-
-  /**
-   * <p>A list of inline policies embedded in the role. These policies are the role's access
-   *          (permissions) policies.</p>
-   */
-  RolePolicyList?: PolicyDetail[];
-
-  /**
    * <p>A list of tags that are attached to the specified role. For more information about
    *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
    *         Identities</a> in the <i>IAM User Guide</i>.</p>
@@ -7915,7 +7524,7 @@ export interface RoleDetail {
 
 export namespace RoleDetail {
   export const filterSensitiveLog = (obj: RoleDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RoleDetail => __isa(o, "RoleDetail");
 }
@@ -7933,6 +7542,11 @@ export namespace RoleDetail {
 export interface RoleLastUsed {
   __type?: "RoleLastUsed";
   /**
+   * <p>The name of the AWS Region in which the role was last used.</p>
+   */
+  Region?: string;
+
+  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a> that the role was last used.</p>
    *          <p>This field is null if the role has not been used within the IAM tracking period. For
@@ -7940,16 +7554,11 @@ export interface RoleLastUsed {
    *       </p>
    */
   LastUsedDate?: Date;
-
-  /**
-   * <p>The name of the AWS Region in which the role was last used.</p>
-   */
-  Region?: string;
 }
 
 export namespace RoleLastUsed {
   export const filterSensitiveLog = (obj: RoleLastUsed): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RoleLastUsed => __isa(o, "RoleLastUsed");
 }
@@ -7962,19 +7571,19 @@ export namespace RoleLastUsed {
 export interface RoleUsageType {
   __type?: "RoleUsageType";
   /**
-   * <p>The name of the Region where the service-linked role is being used.</p>
-   */
-  Region?: string;
-
-  /**
    * <p>The name of the resource that is using the service-linked role.</p>
    */
   Resources?: string[];
+
+  /**
+   * <p>The name of the Region where the service-linked role is being used.</p>
+   */
+  Region?: string;
 }
 
 export namespace RoleUsageType {
   export const filterSensitiveLog = (obj: RoleUsageType): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RoleUsageType => __isa(o, "RoleUsageType");
 }
@@ -8002,10 +7611,9 @@ export interface SAMLProviderListEntry {
 
 export namespace SAMLProviderListEntry {
   export const filterSensitiveLog = (obj: SAMLProviderListEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SAMLProviderListEntry =>
-    __isa(o, "SAMLProviderListEntry");
+  export const isa = (o: any): o is SAMLProviderListEntry => __isa(o, "SAMLProviderListEntry");
 }
 
 /**
@@ -8015,9 +7623,10 @@ export namespace SAMLProviderListEntry {
 export interface ServerCertificate {
   __type?: "ServerCertificate";
   /**
-   * <p>The contents of the public key certificate.</p>
+   * <p>The meta information of the server certificate, such as its name, path, ID, and
+   *          ARN.</p>
    */
-  CertificateBody: string | undefined;
+  ServerCertificateMetadata: ServerCertificateMetadata | undefined;
 
   /**
    * <p>The contents of the public key certificate chain.</p>
@@ -8025,18 +7634,16 @@ export interface ServerCertificate {
   CertificateChain?: string;
 
   /**
-   * <p>The meta information of the server certificate, such as its name, path, ID, and
-   *          ARN.</p>
+   * <p>The contents of the public key certificate.</p>
    */
-  ServerCertificateMetadata: ServerCertificateMetadata | undefined;
+  CertificateBody: string | undefined;
 }
 
 export namespace ServerCertificate {
   export const filterSensitiveLog = (obj: ServerCertificate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServerCertificate =>
-    __isa(o, "ServerCertificate");
+  export const isa = (o: any): o is ServerCertificate => __isa(o, "ServerCertificate");
 }
 
 /**
@@ -8048,11 +7655,15 @@ export namespace ServerCertificate {
 export interface ServerCertificateMetadata {
   __type?: "ServerCertificateMetadata";
   /**
-   * <p> The Amazon Resource Name (ARN) specifying the server certificate. For more information
-   *          about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>. </p>
+   * <p> The stable and unique string identifying the server certificate. For more information
+   *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
    */
-  Arn: string | undefined;
+  ServerCertificateId: string | undefined;
+
+  /**
+   * <p>The name that identifies the server certificate.</p>
+   */
+  ServerCertificateName: string | undefined;
 
   /**
    * <p>The date on which the certificate is set to expire.</p>
@@ -8066,37 +7677,30 @@ export interface ServerCertificateMetadata {
   Path: string | undefined;
 
   /**
-   * <p> The stable and unique string identifying the server certificate. For more information
-   *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>. </p>
-   */
-  ServerCertificateId: string | undefined;
-
-  /**
-   * <p>The name that identifies the server certificate.</p>
-   */
-  ServerCertificateName: string | undefined;
-
-  /**
    * <p>The date when the server certificate was uploaded.</p>
    */
   UploadDate?: Date;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) specifying the server certificate. For more information
+   *          about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>. </p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace ServerCertificateMetadata {
   export const filterSensitiveLog = (obj: ServerCertificateMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServerCertificateMetadata =>
-    __isa(o, "ServerCertificateMetadata");
+  export const isa = (o: any): o is ServerCertificateMetadata => __isa(o, "ServerCertificateMetadata");
 }
 
 /**
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  */
-export interface ServiceFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
   name: "ServiceFailureException";
   $fault: "server";
   message?: string;
@@ -8104,10 +7708,9 @@ export interface ServiceFailureException
 
 export namespace ServiceFailureException {
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceFailureException =>
-    __isa(o, "ServiceFailureException");
+  export const isa = (o: any): o is ServiceFailureException => __isa(o, "ServiceFailureException");
 }
 
 /**
@@ -8116,6 +7719,21 @@ export namespace ServiceFailureException {
  */
 export interface ServiceLastAccessed {
   __type?: "ServiceLastAccessed";
+  /**
+   * <p>An object that contains details about the most recent attempt to access a tracked action
+   *          within the service.</p>
+   *          <p>This field is null if there no tracked actions or if the principal did not use the
+   *          tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>. This field is also null if the report was generated at the
+   *          service level and not the action level. For more information, see the
+   *             <code>Granularity</code> field in <a>GenerateServiceLastAccessedDetails</a>.</p>
+   */
+  TrackedActionsLastAccessed?: TrackedActionLastAccessed[];
+
+  /**
+   * <p>The name of the service in which access was attempted.</p>
+   */
+  ServiceName: string | undefined;
+
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when an authenticated entity most recently attempted to access the
@@ -8126,17 +7744,12 @@ export interface ServiceLastAccessed {
   LastAuthenticated?: Date;
 
   /**
-   * <p>The ARN of the authenticated entity (user or role) that last attempted to access the
-   *          service. AWS does not report unauthenticated requests.</p>
+   * <p>The Region from which the authenticated entity (user or role) last attempted to access
+   *          the service. AWS does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
    */
-  LastAuthenticatedEntity?: string;
-
-  /**
-   * <p>The name of the service in which access was attempted.</p>
-   */
-  ServiceName: string | undefined;
+  LastAuthenticatedRegion?: string;
 
   /**
    * <p>The namespace of the service in which access was attempted.</p>
@@ -8151,6 +7764,14 @@ export interface ServiceLastAccessed {
   ServiceNamespace: string | undefined;
 
   /**
+   * <p>The ARN of the authenticated entity (user or role) that last attempted to access the
+   *          service. AWS does not report unauthenticated requests.</p>
+   *          <p>This field is null if no IAM entities attempted to access the service within the
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   */
+  LastAuthenticatedEntity?: string;
+
+  /**
    * <p>The total number of authenticated principals (root user, IAM users, or IAM roles)
    *          that have attempted to access the service.</p>
    *          <p>This field is null if no principals attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
@@ -8160,31 +7781,25 @@ export interface ServiceLastAccessed {
 
 export namespace ServiceLastAccessed {
   export const filterSensitiveLog = (obj: ServiceLastAccessed): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceLastAccessed =>
-    __isa(o, "ServiceLastAccessed");
+  export const isa = (o: any): o is ServiceLastAccessed => __isa(o, "ServiceLastAccessed");
 }
 
 /**
  * <p>The specified service does not support service-specific credentials.</p>
  */
-export interface ServiceNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ServiceNotSupportedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ServiceNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: ServiceNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceNotSupportedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceNotSupportedException =>
-    __isa(o, "ServiceNotSupportedException");
+  export const isa = (o: any): o is ServiceNotSupportedException => __isa(o, "ServiceNotSupportedException");
 }
 
 /**
@@ -8193,25 +7808,15 @@ export namespace ServiceNotSupportedException {
 export interface ServiceSpecificCredential {
   __type?: "ServiceSpecificCredential";
   /**
+   * <p>The name of the IAM user associated with the service-specific credential.</p>
+   */
+  UserName: string | undefined;
+
+  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the service-specific credential were created.</p>
    */
   CreateDate: Date | undefined;
-
-  /**
-   * <p>The name of the service associated with the service-specific credential.</p>
-   */
-  ServiceName: string | undefined;
-
-  /**
-   * <p>The generated password for the service-specific credential.</p>
-   */
-  ServicePassword: string | undefined;
-
-  /**
-   * <p>The unique identifier for the service-specific credential.</p>
-   */
-  ServiceSpecificCredentialId: string | undefined;
 
   /**
    * <p>The generated user name for the service-specific credential. This value is generated by
@@ -8228,18 +7833,27 @@ export interface ServiceSpecificCredential {
   Status: StatusType | string | undefined;
 
   /**
-   * <p>The name of the IAM user associated with the service-specific credential.</p>
+   * <p>The name of the service associated with the service-specific credential.</p>
    */
-  UserName: string | undefined;
+  ServiceName: string | undefined;
+
+  /**
+   * <p>The generated password for the service-specific credential.</p>
+   */
+  ServicePassword: string | undefined;
+
+  /**
+   * <p>The unique identifier for the service-specific credential.</p>
+   */
+  ServiceSpecificCredentialId: string | undefined;
 }
 
 export namespace ServiceSpecificCredential {
   export const filterSensitiveLog = (obj: ServiceSpecificCredential): any => ({
     ...obj,
-    ...(obj.ServicePassword && { ServicePassword: SENSITIVE_STRING })
+    ...(obj.ServicePassword && { ServicePassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ServiceSpecificCredential =>
-    __isa(o, "ServiceSpecificCredential");
+  export const isa = (o: any): o is ServiceSpecificCredential => __isa(o, "ServiceSpecificCredential");
 }
 
 /**
@@ -8247,17 +7861,6 @@ export namespace ServiceSpecificCredential {
  */
 export interface ServiceSpecificCredentialMetadata {
   __type?: "ServiceSpecificCredentialMetadata";
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the service-specific credential were created.</p>
-   */
-  CreateDate: Date | undefined;
-
-  /**
-   * <p>The name of the service associated with the service-specific credential.</p>
-   */
-  ServiceName: string | undefined;
-
   /**
    * <p>The unique identifier for the service-specific credential.</p>
    */
@@ -8267,6 +7870,17 @@ export interface ServiceSpecificCredentialMetadata {
    * <p>The generated user name for the service-specific credential.</p>
    */
   ServiceUserName: string | undefined;
+
+  /**
+   * <p>The name of the service associated with the service-specific credential.</p>
+   */
+  ServiceName: string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the service-specific credential were created.</p>
+   */
+  CreateDate: Date | undefined;
 
   /**
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
@@ -8281,13 +7895,10 @@ export interface ServiceSpecificCredentialMetadata {
 }
 
 export namespace ServiceSpecificCredentialMetadata {
-  export const filterSensitiveLog = (
-    obj: ServiceSpecificCredentialMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceSpecificCredentialMetadata): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceSpecificCredentialMetadata =>
-    __isa(o, "ServiceSpecificCredentialMetadata");
+  export const isa = (o: any): o is ServiceSpecificCredentialMetadata => __isa(o, "ServiceSpecificCredentialMetadata");
 }
 
 export interface SetDefaultPolicyVersionRequest {
@@ -8309,13 +7920,10 @@ export interface SetDefaultPolicyVersionRequest {
 }
 
 export namespace SetDefaultPolicyVersionRequest {
-  export const filterSensitiveLog = (
-    obj: SetDefaultPolicyVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SetDefaultPolicyVersionRequest =>
-    __isa(o, "SetDefaultPolicyVersionRequest");
+  export const isa = (o: any): o is SetDefaultPolicyVersionRequest => __isa(o, "SetDefaultPolicyVersionRequest");
 }
 
 export interface SetSecurityTokenServicePreferencesRequest {
@@ -8333,10 +7941,8 @@ export interface SetSecurityTokenServicePreferencesRequest {
 }
 
 export namespace SetSecurityTokenServicePreferencesRequest {
-  export const filterSensitiveLog = (
-    obj: SetSecurityTokenServicePreferencesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SetSecurityTokenServicePreferencesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SetSecurityTokenServicePreferencesRequest =>
     __isa(o, "SetSecurityTokenServicePreferencesRequest");
@@ -8366,26 +7972,32 @@ export interface SigningCertificate {
   Status: StatusType | string | undefined;
 
   /**
-   * <p>The date when the signing certificate was uploaded.</p>
-   */
-  UploadDate?: Date;
-
-  /**
    * <p>The name of the user the signing certificate is associated with.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The date when the signing certificate was uploaded.</p>
+   */
+  UploadDate?: Date;
 }
 
 export namespace SigningCertificate {
   export const filterSensitiveLog = (obj: SigningCertificate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningCertificate =>
-    __isa(o, "SigningCertificate");
+  export const isa = (o: any): o is SigningCertificate => __isa(o, "SigningCertificate");
 }
 
 export interface SimulateCustomPolicyRequest {
   __type?: "SimulateCustomPolicyRequest";
+  /**
+   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
+   *          context key is evaluated in one of the simulated IAM permissions policies, the
+   *          corresponding value is supplied.</p>
+   */
+  ContextEntries?: ContextEntry[];
+
   /**
    * <p>A list of names of API operations to evaluate in the simulation. Each operation is
    *          evaluated against each resource. Each operation must include the service identifier, such
@@ -8395,85 +8007,21 @@ export interface SimulateCustomPolicyRequest {
   ActionNames: string[] | undefined;
 
   /**
-   * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
-   *          operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code>
-   *          so that the policy's <code>Principal</code> element has a value to use in evaluating the
-   *          policy.</p>
-   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
-   *          role, federated user, or a service principal.</p>
+   * <p>An ARN representing the AWS account ID that specifies the owner of any simulated
+   *          resource that does not identify its owner in the resource ARN. Examples of resource ARNs
+   *          include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used
+   *          as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
+   *             <code>ResourceOwner</code> parameter is not specified, then the owner of the resources
+   *          and the resource policy defaults to the account of the identity provided in
+   *             <code>CallerArn</code>. This parameter is required only if you specify a resource-based
+   *          policy and account that owns the resource is different from the account that owns the
+   *          simulated calling user <code>CallerArn</code>.</p>
+   *          <p>The ARN for an account uses the following syntax:
+   *                <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example, to
+   *          represent the account with the 112233445566 ID, use the following ARN:
+   *             <code>arn:aws:iam::112233445566-ID:root</code>. </p>
    */
-  CallerArn?: string;
-
-  /**
-   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
-   *          context key is evaluated in one of the simulated IAM permissions policies, the
-   *          corresponding value is supplied.</p>
-   */
-  ContextEntries?: ContextEntry[];
-
-  /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Use this only when paginating results to indicate the
-   *     maximum number of items you want in the response. If additional items exist beyond the maximum
-   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
-   *     IAM might return fewer results, even when there are more results available. In that case, the
-   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
-   *     contains a value to include in the subsequent call that tells the service where to continue
-   *     from.</p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>A list of policy documents to include in the simulation. Each document is specified as a
-   *          string containing the complete, valid JSON text of an IAM policy. Do not include any
-   *          resource-based policies in this parameter. Any resource-based policy must be submitted with
-   *          the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies,
-   *          such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
-   *          API operations. In other words, do not use policies designed to restrict what a user can do
-   *          while using the temporary credentials.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  PolicyInputList: string[] | undefined;
-
-  /**
-   * <p>A list of ARNs of AWS resources to include in the simulation. If this parameter is not
-   *          provided, then the value defaults to <code>*</code> (all resources). Each API in the
-   *             <code>ActionNames</code> parameter is evaluated for each resource in this list. The
-   *          simulation determines the access result (allowed or denied) of each combination and reports
-   *          it in the response.</p>
-   *          <p>The simulation does not automatically retrieve policies for the specified resources. If
-   *          you want to include a resource policy in the simulation, then you must include the policy
-   *          as a string in the <code>ResourcePolicy</code> parameter.</p>
-   *          <p>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of the
-   *          resources included in the simulation or you receive an invalid input error.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  ResourceArns?: string[];
+  ResourceOwner?: string;
 
   /**
    * <p>Specifies the type of simulation to run. Different API operations that support
@@ -8531,21 +8079,16 @@ export interface SimulateCustomPolicyRequest {
   ResourceHandlingOption?: string;
 
   /**
-   * <p>An ARN representing the AWS account ID that specifies the owner of any simulated
-   *          resource that does not identify its owner in the resource ARN. Examples of resource ARNs
-   *          include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used
-   *          as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the
-   *             <code>ResourceOwner</code> parameter is not specified, then the owner of the resources
-   *          and the resource policy defaults to the account of the identity provided in
-   *             <code>CallerArn</code>. This parameter is required only if you specify a resource-based
-   *          policy and account that owns the resource is different from the account that owns the
-   *          simulated calling user <code>CallerArn</code>.</p>
-   *          <p>The ARN for an account uses the following syntax:
-   *                <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example, to
-   *          represent the account with the 112233445566 ID, use the following ARN:
-   *             <code>arn:aws:iam::112233445566-ID:root</code>. </p>
+   * <p>Use this only when paginating results to indicate the
+   *     maximum number of items you want in the response. If additional items exist beyond the maximum
+   *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *     IAM might return fewer results, even when there are more results available. In that case, the
+   *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
+   *     contains a value to include in the subsequent call that tells the service where to continue
+   *     from.</p>
    */
-  ResourceOwner?: string;
+  MaxItems?: number;
 
   /**
    * <p>A resource-based policy to include in the simulation provided as a string. Each resource
@@ -8556,29 +8099,115 @@ export interface SimulateCustomPolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   ResourcePolicy?: string;
+
+  /**
+   * <p>A list of policy documents to include in the simulation. Each document is specified as a
+   *          string containing the complete, valid JSON text of an IAM policy. Do not include any
+   *          resource-based policies in this parameter. Any resource-based policy must be submitted with
+   *          the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies,
+   *          such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
+   *          API operations. In other words, do not use policies designed to restrict what a user can do
+   *          while using the temporary credentials.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyInputList: string[] | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
+   *          operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code>
+   *          so that the policy's <code>Principal</code> element has a value to use in evaluating the
+   *          policy.</p>
+   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
+   *          role, federated user, or a service principal.</p>
+   */
+  CallerArn?: string;
+
+  /**
+   * <p>A list of ARNs of AWS resources to include in the simulation. If this parameter is not
+   *          provided, then the value defaults to <code>*</code> (all resources). Each API in the
+   *             <code>ActionNames</code> parameter is evaluated for each resource in this list. The
+   *          simulation determines the access result (allowed or denied) of each combination and reports
+   *          it in the response.</p>
+   *          <p>The simulation does not automatically retrieve policies for the specified resources. If
+   *          you want to include a resource policy in the simulation, then you must include the policy
+   *          as a string in the <code>ResourcePolicy</code> parameter.</p>
+   *          <p>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of the
+   *          resources included in the simulation or you receive an invalid input error.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  ResourceArns?: string[];
+
+  /**
+   * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
+   *          maximum permissions that an IAM entity can have. You can input only one permissions
+   *          boundary when you pass a policy to this operation. For more information about permissions
+   *          boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+   *             Entities</a> in the <i>IAM User Guide</i>. The policy input is
+   *          specified as a string that contains the complete, valid JSON text of a permissions boundary
+   *          policy.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PermissionsBoundaryPolicyInputList?: string[];
 }
 
 export namespace SimulateCustomPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: SimulateCustomPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SimulateCustomPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SimulateCustomPolicyRequest =>
-    __isa(o, "SimulateCustomPolicyRequest");
+  export const isa = (o: any): o is SimulateCustomPolicyRequest => __isa(o, "SimulateCustomPolicyRequest");
 }
 
 /**
@@ -8587,11 +8216,6 @@ export namespace SimulateCustomPolicyRequest {
  */
 export interface SimulatePolicyResponse {
   __type?: "SimulatePolicyResponse";
-  /**
-   * <p>The results of the simulation.</p>
-   */
-  EvaluationResults?: EvaluationResult[];
-
   /**
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
@@ -8608,24 +8232,72 @@ export interface SimulatePolicyResponse {
    *     pagination request.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The results of the simulation.</p>
+   */
+  EvaluationResults?: EvaluationResult[];
 }
 
 export namespace SimulatePolicyResponse {
   export const filterSensitiveLog = (obj: SimulatePolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SimulatePolicyResponse =>
-    __isa(o, "SimulatePolicyResponse");
+  export const isa = (o: any): o is SimulatePolicyResponse => __isa(o, "SimulatePolicyResponse");
 }
 
 export interface SimulatePrincipalPolicyRequest {
   __type?: "SimulatePrincipalPolicyRequest";
   /**
-   * <p>A list of names of API operations to evaluate in the simulation. Each operation is
-   *          evaluated for each resource. Each operation must include the service identifier, such as
-   *             <code>iam:CreateUser</code>.</p>
+   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
+   *          context key is evaluated in one of the simulated IAM permissions policies, the
+   *          corresponding value is supplied.</p>
    */
-  ActionNames: string[] | undefined;
+  ContextEntries?: ContextEntry[];
+
+  /**
+   * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
+   *          maximum permissions that the entity can have. You can input only one permissions boundary
+   *          when you pass a policy to this operation. An IAM entity can only have one permissions
+   *          boundary in effect at a time. For example, if a permissions boundary is attached to an
+   *          entity and you pass in a different permissions boundary policy using this parameter, then
+   *          the new permissions boundary policy is used for the simulation. For more information about
+   *          permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+   *             Entities</a> in the <i>IAM User Guide</i>. The policy input is
+   *          specified as a string containing the complete, valid JSON text of a permissions boundary
+   *          policy.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PermissionsBoundaryPolicyInputList?: string[];
+
+  /**
+   * <p>A list of ARNs of AWS resources to include in the simulation. If this parameter is not
+   *          provided, then the value defaults to <code>*</code> (all resources). Each API in the
+   *             <code>ActionNames</code> parameter is evaluated for each resource in this list. The
+   *          simulation determines the access result (allowed or denied) of each combination and reports
+   *          it in the response.</p>
+   *          <p>The simulation does not automatically retrieve policies for the specified resources. If
+   *          you want to include a resource policy in the simulation, then you must include the policy
+   *          as a string in the <code>ResourcePolicy</code> parameter.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   */
+  ResourceArns?: string[];
 
   /**
    * <p>The ARN of the IAM user that you want to specify as the simulated caller of the API
@@ -8648,19 +8320,37 @@ export interface SimulatePrincipalPolicyRequest {
   CallerArn?: string;
 
   /**
-   * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
-   *          context key is evaluated in one of the simulated IAM permissions policies, the
-   *          corresponding value is supplied.</p>
+   * <p>A resource-based policy to include in the simulation provided as a string. Each resource
+   *          in the simulation is treated as if it had this policy attached. You can include only one
+   *          resource-based policy in a simulation.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
    */
-  ContextEntries?: ContextEntry[];
+  ResourcePolicy?: string;
 
   /**
-   * <p>Use this parameter only when paginating results and only after
-   *     you receive a response indicating that the results are truncated. Set it to the value of the
-   *     <code>Marker</code> element in the response that you received to indicate where the next call
-   *     should start.</p>
+   * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
+   *          include in the simulation. If you specify a user, group, or role, the simulation includes
+   *          all policies that are associated with that entity. If you specify a user, the simulation
+   *          also includes all policies that are attached to any groups the user belongs to.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
+   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
-  Marker?: string;
+  PolicySourceArn: string | undefined;
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -8675,51 +8365,12 @@ export interface SimulatePrincipalPolicyRequest {
   MaxItems?: number;
 
   /**
-   * <p>An optional list of additional policy documents to include in the simulation. Each
-   *          document is specified as a string containing the complete, valid JSON text of an IAM
-   *          policy.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
+   * <p>Use this parameter only when paginating results and only after
+   *     you receive a response indicating that the results are truncated. Set it to the value of the
+   *     <code>Marker</code> element in the response that you received to indicate where the next call
+   *     should start.</p>
    */
-  PolicyInputList?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
-   *          include in the simulation. If you specify a user, group, or role, the simulation includes
-   *          all policies that are associated with that entity. If you specify a user, the simulation
-   *          also includes all policies that are attached to any groups the user belongs to.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  PolicySourceArn: string | undefined;
-
-  /**
-   * <p>A list of ARNs of AWS resources to include in the simulation. If this parameter is not
-   *          provided, then the value defaults to <code>*</code> (all resources). Each API in the
-   *             <code>ActionNames</code> parameter is evaluated for each resource in this list. The
-   *          simulation determines the access result (allowed or denied) of each combination and reports
-   *          it in the response.</p>
-   *          <p>The simulation does not automatically retrieve policies for the specified resources. If
-   *          you want to include a resource policy in the simulation, then you must include the policy
-   *          as a string in the <code>ResourcePolicy</code> parameter.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
-   *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
-   */
-  ResourceArns?: string[];
+  Marker?: string;
 
   /**
    * <p>Specifies the type of simulation to run. Different API operations that support
@@ -8777,6 +8428,36 @@ export interface SimulatePrincipalPolicyRequest {
   ResourceHandlingOption?: string;
 
   /**
+   * <p>A list of names of API operations to evaluate in the simulation. Each operation is
+   *          evaluated for each resource. Each operation must include the service identifier, such as
+   *             <code>iam:CreateUser</code>.</p>
+   */
+  ActionNames: string[] | undefined;
+
+  /**
+   * <p>An optional list of additional policy documents to include in the simulation. Each
+   *          document is specified as a string containing the complete, valid JSON text of an IAM
+   *          policy.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyInputList?: string[];
+
+  /**
    * <p>An AWS account ID that specifies the owner of any simulated resource that does not
    *          identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or
    *          object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of
@@ -8788,46 +8469,20 @@ export interface SimulatePrincipalPolicyRequest {
    *          simulated calling user <code>CallerArn</code>.</p>
    */
   ResourceOwner?: string;
-
-  /**
-   * <p>A resource-based policy to include in the simulation provided as a string. Each resource
-   *          in the simulation is treated as if it had this policy attached. You can include only one
-   *          resource-based policy in a simulation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  ResourcePolicy?: string;
 }
 
 export namespace SimulatePrincipalPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: SimulatePrincipalPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SimulatePrincipalPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SimulatePrincipalPolicyRequest =>
-    __isa(o, "SimulatePrincipalPolicyRequest");
+  export const isa = (o: any): o is SimulatePrincipalPolicyRequest => __isa(o, "SimulatePrincipalPolicyRequest");
 }
 
 export enum SortKeyType {
   LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
   LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
   SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
+  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING",
 }
 
 /**
@@ -8838,28 +8493,6 @@ export enum SortKeyType {
 export interface SSHPublicKey {
   __type?: "SSHPublicKey";
   /**
-   * <p>The MD5 message digest of the SSH public key.</p>
-   */
-  Fingerprint: string | undefined;
-
-  /**
-   * <p>The SSH public key.</p>
-   */
-  SSHPublicKeyBody: string | undefined;
-
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
-  /**
-   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
-   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
-   *          cannot be used.</p>
-   */
-  Status: StatusType | string | undefined;
-
-  /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the SSH public key was uploaded.</p>
    */
@@ -8869,11 +8502,33 @@ export interface SSHPublicKey {
    * <p>The name of the IAM user associated with the SSH public key.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
+   *          authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the key
+   *          cannot be used.</p>
+   */
+  Status: StatusType | string | undefined;
+
+  /**
+   * <p>The SSH public key.</p>
+   */
+  SSHPublicKeyBody: string | undefined;
+
+  /**
+   * <p>The MD5 message digest of the SSH public key.</p>
+   */
+  Fingerprint: string | undefined;
+
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   */
+  SSHPublicKeyId: string | undefined;
 }
 
 export namespace SSHPublicKey {
   export const filterSensitiveLog = (obj: SSHPublicKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SSHPublicKey => __isa(o, "SSHPublicKey");
 }
@@ -8887,9 +8542,10 @@ export namespace SSHPublicKey {
 export interface SSHPublicKeyMetadata {
   __type?: "SSHPublicKeyMetadata";
   /**
-   * <p>The unique identifier for the SSH public key.</p>
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the SSH public key was uploaded.</p>
    */
-  SSHPublicKeyId: string | undefined;
+  UploadDate: Date | undefined;
 
   /**
    * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
@@ -8899,23 +8555,21 @@ export interface SSHPublicKeyMetadata {
   Status: StatusType | string | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the SSH public key was uploaded.</p>
-   */
-  UploadDate: Date | undefined;
-
-  /**
    * <p>The name of the IAM user associated with the SSH public key.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   */
+  SSHPublicKeyId: string | undefined;
 }
 
 export namespace SSHPublicKeyMetadata {
   export const filterSensitiveLog = (obj: SSHPublicKeyMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SSHPublicKeyMetadata =>
-    __isa(o, "SSHPublicKeyMetadata");
+  export const isa = (o: any): o is SSHPublicKeyMetadata => __isa(o, "SSHPublicKeyMetadata");
 }
 
 /**
@@ -8928,14 +8582,14 @@ export namespace SSHPublicKeyMetadata {
 export interface Statement {
   __type?: "Statement";
   /**
-   * <p>The row and column of the end of a <code>Statement</code> in an IAM policy.</p>
-   */
-  EndPosition?: Position;
-
-  /**
    * <p>The identifier of the policy that was provided as an input.</p>
    */
   SourcePolicyId?: string;
+
+  /**
+   * <p>The row and column of the end of a <code>Statement</code> in an IAM policy.</p>
+   */
+  EndPosition?: Position;
 
   /**
    * <p>The type of the policy.</p>
@@ -8951,7 +8605,7 @@ export interface Statement {
 
 export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
@@ -9017,7 +8671,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -9025,25 +8679,24 @@ export namespace Tag {
 export interface TagRoleRequest {
   __type?: "TagRoleRequest";
   /**
+   * <p>The list of tags that you want to attach to the role. Each tag consists of a key name
+   *       and an associated value. You can specify this with a JSON string.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
    * <p>The name of the role that you want to add tags to.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   RoleName: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the role. Each tag consists of a key name
-   *       and an associated value. You can specify this with a JSON string.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace TagRoleRequest {
   export const filterSensitiveLog = (obj: TagRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagRoleRequest =>
-    __isa(o, "TagRoleRequest");
+  export const isa = (o: any): o is TagRoleRequest => __isa(o, "TagRoleRequest");
 }
 
 export interface TagUserRequest {
@@ -9064,10 +8717,53 @@ export interface TagUserRequest {
 
 export namespace TagUserRequest {
   export const filterSensitiveLog = (obj: TagUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagUserRequest =>
-    __isa(o, "TagUserRequest");
+  export const isa = (o: any): o is TagUserRequest => __isa(o, "TagUserRequest");
+}
+
+/**
+ * <p>Contains details about the most recent attempt to access an action within the service.</p>
+ *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+ */
+export interface TrackedActionLastAccessed {
+  __type?: "TrackedActionLastAccessed";
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when an authenticated entity most recently attempted to access the
+   *          tracked service. AWS does not report unauthenticated requests.</p>
+   *          <p>This field is null if no IAM entities attempted to access the service within the
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   */
+  LastAccessedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p>
+   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+   */
+  LastAccessedEntity?: string;
+
+  /**
+   * <p>The Region from which the authenticated entity (user or role) last attempted to access
+   *          the tracked action. AWS does not report unauthenticated requests.</p>
+   *          <p>This field is null if no IAM entities attempted to access the service within the
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   */
+  LastAccessedRegion?: string;
+
+  /**
+   * <p>The name of the tracked action to which access was attempted. Tracked actions are
+   *          actions that report activity to IAM.</p>
+   */
+  ActionName?: string;
+}
+
+export namespace TrackedActionLastAccessed {
+  export const filterSensitiveLog = (obj: TrackedActionLastAccessed): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TrackedActionLastAccessed => __isa(o, "TrackedActionLastAccessed");
 }
 
 /**
@@ -9076,41 +8772,32 @@ export namespace TagUserRequest {
  *       service that depends on this service-linked role. You must request the change through that
  *       service.</p>
  */
-export interface UnmodifiableEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnmodifiableEntityException extends __SmithyException, $MetadataBearer {
   name: "UnmodifiableEntityException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnmodifiableEntityException {
-  export const filterSensitiveLog = (
-    obj: UnmodifiableEntityException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnmodifiableEntityException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnmodifiableEntityException =>
-    __isa(o, "UnmodifiableEntityException");
+  export const isa = (o: any): o is UnmodifiableEntityException => __isa(o, "UnmodifiableEntityException");
 }
 
 /**
  * <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
  */
-export interface UnrecognizedPublicKeyEncodingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnrecognizedPublicKeyEncodingException extends __SmithyException, $MetadataBearer {
   name: "UnrecognizedPublicKeyEncodingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnrecognizedPublicKeyEncodingException {
-  export const filterSensitiveLog = (
-    obj: UnrecognizedPublicKeyEncodingException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnrecognizedPublicKeyEncodingException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UnrecognizedPublicKeyEncodingException =>
     __isa(o, "UnrecognizedPublicKeyEncodingException");
@@ -9134,44 +8821,42 @@ export interface UntagRoleRequest {
 
 export namespace UntagRoleRequest {
   export const filterSensitiveLog = (obj: UntagRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagRoleRequest =>
-    __isa(o, "UntagRoleRequest");
+  export const isa = (o: any): o is UntagRoleRequest => __isa(o, "UntagRoleRequest");
 }
 
 export interface UntagUserRequest {
   __type?: "UntagUserRequest";
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified user.</p>
-   */
-  TagKeys: string[] | undefined;
-
   /**
    * <p>The name of the IAM user from which you want to remove tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: =,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified user.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagUserRequest {
   export const filterSensitiveLog = (obj: UntagUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagUserRequest =>
-    __isa(o, "UntagUserRequest");
+  export const isa = (o: any): o is UntagUserRequest => __isa(o, "UntagUserRequest");
 }
 
 export interface UpdateAccessKeyRequest {
   __type?: "UpdateAccessKeyRequest";
   /**
-   * <p>The access key ID of the secret access key you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
+   * <p>The name of the user whose key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  AccessKeyId: string | undefined;
+  UserName?: string;
 
   /**
    * <p> The status you want to assign to the secret access key. <code>Active</code> means that
@@ -9181,33 +8866,22 @@ export interface UpdateAccessKeyRequest {
   Status: StatusType | string | undefined;
 
   /**
-   * <p>The name of the user whose key you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>The access key ID of the secret access key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
    */
-  UserName?: string;
+  AccessKeyId: string | undefined;
 }
 
 export namespace UpdateAccessKeyRequest {
   export const filterSensitiveLog = (obj: UpdateAccessKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAccessKeyRequest =>
-    __isa(o, "UpdateAccessKeyRequest");
+  export const isa = (o: any): o is UpdateAccessKeyRequest => __isa(o, "UpdateAccessKeyRequest");
 }
 
 export interface UpdateAccountPasswordPolicyRequest {
   __type?: "UpdateAccountPasswordPolicyRequest";
-  /**
-   * <p> Allows all IAM users in your account to use the AWS Management Console to change their own
-   *          passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting IAM Users Change Their Own
-   *             Passwords</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *          value of <code>false</code>. The result is that IAM users in the account do not
-   *          automatically have permissions to change their own password.</p>
-   */
-  AllowUsersToChangePassword?: boolean;
-
   /**
    * <p>Prevents IAM users from setting a new password after their password has expired. The
    *          IAM user cannot be accessed until an administrator resets the password.</p>
@@ -9218,36 +8892,13 @@ export interface UpdateAccountPasswordPolicyRequest {
   HardExpiry?: boolean;
 
   /**
-   * <p>The number of days that an IAM user password is valid.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *          value of <code>0</code>. The result is that IAM user passwords never expire.</p>
-   */
-  MaxPasswordAge?: number;
-
-  /**
-   * <p>The minimum number of characters allowed in an IAM user password.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *          value of <code>6</code>.</p>
-   */
-  MinimumPasswordLength?: number;
-
-  /**
-   * <p>Specifies the number of previous passwords that IAM users are prevented from
-   *          reusing.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *          value of <code>0</code>. The result is that IAM users are not prevented from reusing
-   *          previous passwords.</p>
-   */
-  PasswordReusePrevention?: number;
-
-  /**
-   * <p>Specifies whether IAM user passwords must contain at least one lowercase character
-   *          from the ISO basic Latin alphabet (a to z).</p>
+   * <p>Specifies whether IAM user passwords must contain at least one uppercase character
+   *          from the ISO basic Latin alphabet (A to Z).</p>
    *          <p>If you do not specify a value for this parameter, then the operation uses the default
    *          value of <code>false</code>. The result is that passwords do not require at least one
-   *          lowercase character.</p>
+   *          uppercase character.</p>
    */
-  RequireLowercaseCharacters?: boolean;
+  RequireUppercaseCharacters?: boolean;
 
   /**
    * <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to
@@ -9269,20 +8920,51 @@ export interface UpdateAccountPasswordPolicyRequest {
   RequireSymbols?: boolean;
 
   /**
-   * <p>Specifies whether IAM user passwords must contain at least one uppercase character
-   *          from the ISO basic Latin alphabet (A to Z).</p>
+   * <p>The minimum number of characters allowed in an IAM user password.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *          value of <code>6</code>.</p>
+   */
+  MinimumPasswordLength?: number;
+
+  /**
+   * <p>Specifies the number of previous passwords that IAM users are prevented from
+   *          reusing.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *          value of <code>0</code>. The result is that IAM users are not prevented from reusing
+   *          previous passwords.</p>
+   */
+  PasswordReusePrevention?: number;
+
+  /**
+   * <p> Allows all IAM users in your account to use the AWS Management Console to change their own
+   *          passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting IAM Users Change Their Own
+   *             Passwords</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *          value of <code>false</code>. The result is that IAM users in the account do not
+   *          automatically have permissions to change their own password.</p>
+   */
+  AllowUsersToChangePassword?: boolean;
+
+  /**
+   * <p>The number of days that an IAM user password is valid.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *          value of <code>0</code>. The result is that IAM user passwords never expire.</p>
+   */
+  MaxPasswordAge?: number;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one lowercase character
+   *          from the ISO basic Latin alphabet (a to z).</p>
    *          <p>If you do not specify a value for this parameter, then the operation uses the default
    *          value of <code>false</code>. The result is that passwords do not require at least one
-   *          uppercase character.</p>
+   *          lowercase character.</p>
    */
-  RequireUppercaseCharacters?: boolean;
+  RequireLowercaseCharacters?: boolean;
 }
 
 export namespace UpdateAccountPasswordPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateAccountPasswordPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAccountPasswordPolicyRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateAccountPasswordPolicyRequest =>
     __isa(o, "UpdateAccountPasswordPolicyRequest");
@@ -9301,15 +8983,15 @@ export interface UpdateAssumeRolePolicyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -9324,17 +9006,23 @@ export interface UpdateAssumeRolePolicyRequest {
 }
 
 export namespace UpdateAssumeRolePolicyRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateAssumeRolePolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAssumeRolePolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAssumeRolePolicyRequest =>
-    __isa(o, "UpdateAssumeRolePolicyRequest");
+  export const isa = (o: any): o is UpdateAssumeRolePolicyRequest => __isa(o, "UpdateAssumeRolePolicyRequest");
 }
 
 export interface UpdateGroupRequest {
   __type?: "UpdateGroupRequest";
+  /**
+   * <p>New path for the IAM group. Only include this if changing the group's path.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  NewPath?: string;
+
   /**
    * <p>Name of the IAM group to update. If you're changing the name of the group, this is the
    *          original name.</p>
@@ -9350,23 +9038,13 @@ export interface UpdateGroupRequest {
    *          and "myresource".</p>
    */
   NewGroupName?: string;
-
-  /**
-   * <p>New path for the IAM group. Only include this if changing the group's path.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  NewPath?: string;
 }
 
 export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest =>
-    __isa(o, "UpdateGroupRequest");
+  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateLoginProfileRequest {
@@ -9378,15 +9056,15 @@ export interface UpdateLoginProfileRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    *          <p>However,
@@ -9412,10 +9090,9 @@ export interface UpdateLoginProfileRequest {
 export namespace UpdateLoginProfileRequest {
   export const filterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
     ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING })
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateLoginProfileRequest =>
-    __isa(o, "UpdateLoginProfileRequest");
+  export const isa = (o: any): o is UpdateLoginProfileRequest => __isa(o, "UpdateLoginProfileRequest");
 }
 
 export interface UpdateOpenIDConnectProviderThumbprintRequest {
@@ -9437,38 +9114,31 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
 }
 
 export namespace UpdateOpenIDConnectProviderThumbprintRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateOpenIDConnectProviderThumbprintRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateOpenIDConnectProviderThumbprintRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateOpenIDConnectProviderThumbprintRequest =>
+  export const isa = (o: any): o is UpdateOpenIDConnectProviderThumbprintRequest =>
     __isa(o, "UpdateOpenIDConnectProviderThumbprintRequest");
 }
 
 export interface UpdateRoleDescriptionRequest {
   __type?: "UpdateRoleDescriptionRequest";
   /**
-   * <p>The new description that you want to apply to the specified role.</p>
-   */
-  Description: string | undefined;
-
-  /**
    * <p>The name of the role that you want to modify.</p>
    */
   RoleName: string | undefined;
+
+  /**
+   * <p>The new description that you want to apply to the specified role.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace UpdateRoleDescriptionRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateRoleDescriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRoleDescriptionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleDescriptionRequest =>
-    __isa(o, "UpdateRoleDescriptionRequest");
+  export const isa = (o: any): o is UpdateRoleDescriptionRequest => __isa(o, "UpdateRoleDescriptionRequest");
 }
 
 export interface UpdateRoleDescriptionResponse {
@@ -9480,13 +9150,10 @@ export interface UpdateRoleDescriptionResponse {
 }
 
 export namespace UpdateRoleDescriptionResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateRoleDescriptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRoleDescriptionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleDescriptionResponse =>
-    __isa(o, "UpdateRoleDescriptionResponse");
+  export const isa = (o: any): o is UpdateRoleDescriptionResponse => __isa(o, "UpdateRoleDescriptionResponse");
 }
 
 export interface UpdateRoleRequest {
@@ -9521,10 +9188,9 @@ export interface UpdateRoleRequest {
 
 export namespace UpdateRoleRequest {
   export const filterSensitiveLog = (obj: UpdateRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleRequest =>
-    __isa(o, "UpdateRoleRequest");
+  export const isa = (o: any): o is UpdateRoleRequest => __isa(o, "UpdateRoleRequest");
 }
 
 export interface UpdateRoleResponse {
@@ -9533,10 +9199,9 @@ export interface UpdateRoleResponse {
 
 export namespace UpdateRoleResponse {
   export const filterSensitiveLog = (obj: UpdateRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRoleResponse =>
-    __isa(o, "UpdateRoleResponse");
+  export const isa = (o: any): o is UpdateRoleResponse => __isa(o, "UpdateRoleResponse");
 }
 
 export interface UpdateSAMLProviderRequest {
@@ -9560,10 +9225,9 @@ export interface UpdateSAMLProviderRequest {
 
 export namespace UpdateSAMLProviderRequest {
   export const filterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSAMLProviderRequest =>
-    __isa(o, "UpdateSAMLProviderRequest");
+  export const isa = (o: any): o is UpdateSAMLProviderRequest => __isa(o, "UpdateSAMLProviderRequest");
 }
 
 /**
@@ -9580,24 +9244,13 @@ export interface UpdateSAMLProviderResponse {
 
 export namespace UpdateSAMLProviderResponse {
   export const filterSensitiveLog = (obj: UpdateSAMLProviderResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSAMLProviderResponse =>
-    __isa(o, "UpdateSAMLProviderResponse");
+  export const isa = (o: any): o is UpdateSAMLProviderResponse => __isa(o, "UpdateSAMLProviderResponse");
 }
 
 export interface UpdateServerCertificateRequest {
   __type?: "UpdateServerCertificateRequest";
-  /**
-   * <p>The new path for the server certificate. Include this only if you are updating the
-   *          server certificate's path.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   */
-  NewPath?: string;
-
   /**
    * <p>The new name for the server certificate. Include this only if you are updating the
    *          server certificate's name. The name of the certificate cannot contain any spaces.</p>
@@ -9605,6 +9258,16 @@ export interface UpdateServerCertificateRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   NewServerCertificateName?: string;
+
+  /**
+   * <p>The new path for the server certificate. Include this only if you are updating the
+   *          server certificate's path.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   */
+  NewPath?: string;
 
   /**
    * <p>The name of the server certificate that you want to update.</p>
@@ -9615,24 +9278,14 @@ export interface UpdateServerCertificateRequest {
 }
 
 export namespace UpdateServerCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateServerCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateServerCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateServerCertificateRequest =>
-    __isa(o, "UpdateServerCertificateRequest");
+  export const isa = (o: any): o is UpdateServerCertificateRequest => __isa(o, "UpdateServerCertificateRequest");
 }
 
 export interface UpdateServiceSpecificCredentialRequest {
   __type?: "UpdateServiceSpecificCredentialRequest";
-  /**
-   * <p>The unique identifier of the service-specific credential.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  ServiceSpecificCredentialId: string | undefined;
-
   /**
    * <p>The status to be assigned to the service-specific credential.</p>
    */
@@ -9646,13 +9299,18 @@ export interface UpdateServiceSpecificCredentialRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName?: string;
+
+  /**
+   * <p>The unique identifier of the service-specific credential.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  ServiceSpecificCredentialId: string | undefined;
 }
 
 export namespace UpdateServiceSpecificCredentialRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateServiceSpecificCredentialRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateServiceSpecificCredentialRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateServiceSpecificCredentialRequest =>
     __isa(o, "UpdateServiceSpecificCredentialRequest");
@@ -9661,11 +9319,11 @@ export namespace UpdateServiceSpecificCredentialRequest {
 export interface UpdateSigningCertificateRequest {
   __type?: "UpdateSigningCertificateRequest";
   /**
-   * <p>The ID of the signing certificate you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
+   * <p>The name of the IAM user the signing certificate belongs to.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  CertificateId: string | undefined;
+  UserName?: string;
 
   /**
    * <p> The status you want to assign to the certificate. <code>Active</code> means that the
@@ -9675,32 +9333,22 @@ export interface UpdateSigningCertificateRequest {
   Status: StatusType | string | undefined;
 
   /**
-   * <p>The name of the IAM user the signing certificate belongs to.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * <p>The ID of the signing certificate you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
    */
-  UserName?: string;
+  CertificateId: string | undefined;
 }
 
 export namespace UpdateSigningCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSigningCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSigningCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSigningCertificateRequest =>
-    __isa(o, "UpdateSigningCertificateRequest");
+  export const isa = (o: any): o is UpdateSigningCertificateRequest => __isa(o, "UpdateSigningCertificateRequest");
 }
 
 export interface UpdateSSHPublicKeyRequest {
   __type?: "UpdateSSHPublicKeyRequest";
-  /**
-   * <p>The unique identifier for the SSH public key.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   */
-  SSHPublicKeyId: string | undefined;
-
   /**
    * <p>The status to assign to the SSH public key. <code>Active</code> means that the key can
    *          be used for authentication with an AWS CodeCommit repository. <code>Inactive</code> means that the
@@ -9714,14 +9362,20 @@ export interface UpdateSSHPublicKeyRequest {
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the SSH public key.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   */
+  SSHPublicKeyId: string | undefined;
 }
 
 export namespace UpdateSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSSHPublicKeyRequest =>
-    __isa(o, "UpdateSSHPublicKeyRequest");
+  export const isa = (o: any): o is UpdateSSHPublicKeyRequest => __isa(o, "UpdateSSHPublicKeyRequest");
 }
 
 export interface UpdateUserRequest {
@@ -9731,10 +9385,18 @@ export interface UpdateUserRequest {
    *          path.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    */
   NewPath?: string;
+
+  /**
+   * <p>Name of the user to update. If you're changing the name of the user, this is the
+   *          original user name.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
 
   /**
    * <p>New name for the user. Include this parameter only if you're changing the user's
@@ -9744,26 +9406,55 @@ export interface UpdateUserRequest {
    *          and "myresource".</p>
    */
   NewUserName?: string;
-
-  /**
-   * <p>Name of the user to update. If you're changing the name of the user, this is the
-   *          original user name.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
 }
 
 export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRequest =>
-    __isa(o, "UpdateUserRequest");
+  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 export interface UploadServerCertificateRequest {
   __type?: "UploadServerCertificateRequest";
+  /**
+   * <p>The contents of the private key in PEM-encoded format.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  PrivateKey: string | undefined;
+
+  /**
+   * <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).
+   *          This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
+   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
+   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
+   *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   *          <note>
+   *             <p> If you are uploading a server certificate specifically for use with Amazon
+   *             CloudFront distributions, you must specify a path using the <code>path</code> parameter.
+   *             The path must begin with <code>/cloudfront</code> and must include a trailing slash (for
+   *             example, <code>/cloudfront/test/</code>).</p>
+   *          </note>
+   */
+  Path?: string;
+
   /**
    * <p>The contents of the public key certificate in PEM-encoded format.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -9771,15 +9462,15 @@ export interface UploadServerCertificateRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -9793,57 +9484,19 @@ export interface UploadServerCertificateRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   CertificateChain?: string;
-
-  /**
-   * <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).
-   *          This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   *          <note>
-   *             <p> If you are uploading a server certificate specifically for use with Amazon
-   *             CloudFront distributions, you must specify a path using the <code>path</code> parameter.
-   *             The path must begin with <code>/cloudfront</code> and must include a trailing slash (for
-   *             example, <code>/cloudfront/test/</code>).</p>
-   *          </note>
-   */
-  Path?: string;
-
-  /**
-   * <p>The contents of the private key in PEM-encoded format.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
-   *             </li>
-   *          </ul>
-   */
-  PrivateKey: string | undefined;
 
   /**
    * <p>The name for the server certificate. Do not include the path in this value. The name of
@@ -9855,14 +9508,11 @@ export interface UploadServerCertificateRequest {
 }
 
 export namespace UploadServerCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: UploadServerCertificateRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: UploadServerCertificateRequest): any => ({
     ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING })
+    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadServerCertificateRequest =>
-    __isa(o, "UploadServerCertificateRequest");
+  export const isa = (o: any): o is UploadServerCertificateRequest => __isa(o, "UploadServerCertificateRequest");
 }
 
 /**
@@ -9879,13 +9529,10 @@ export interface UploadServerCertificateResponse {
 }
 
 export namespace UploadServerCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: UploadServerCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UploadServerCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UploadServerCertificateResponse =>
-    __isa(o, "UploadServerCertificateResponse");
+  export const isa = (o: any): o is UploadServerCertificateResponse => __isa(o, "UploadServerCertificateResponse");
 }
 
 export interface UploadSigningCertificateRequest {
@@ -9897,15 +9544,15 @@ export interface UploadSigningCertificateRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
@@ -9920,13 +9567,10 @@ export interface UploadSigningCertificateRequest {
 }
 
 export namespace UploadSigningCertificateRequest {
-  export const filterSensitiveLog = (
-    obj: UploadSigningCertificateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UploadSigningCertificateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UploadSigningCertificateRequest =>
-    __isa(o, "UploadSigningCertificateRequest");
+  export const isa = (o: any): o is UploadSigningCertificateRequest => __isa(o, "UploadSigningCertificateRequest");
 }
 
 /**
@@ -9942,17 +9586,21 @@ export interface UploadSigningCertificateResponse {
 }
 
 export namespace UploadSigningCertificateResponse {
-  export const filterSensitiveLog = (
-    obj: UploadSigningCertificateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UploadSigningCertificateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UploadSigningCertificateResponse =>
-    __isa(o, "UploadSigningCertificateResponse");
+  export const isa = (o: any): o is UploadSigningCertificateResponse => __isa(o, "UploadSigningCertificateResponse");
 }
 
 export interface UploadSSHPublicKeyRequest {
   __type?: "UploadSSHPublicKeyRequest";
+  /**
+   * <p>The name of the IAM user to associate the SSH public key with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   */
+  UserName: string | undefined;
+
   /**
    * <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The
    *          minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit
@@ -9962,34 +9610,26 @@ export interface UploadSSHPublicKeyRequest {
    *          <ul>
    *             <li>
    *                <p>Any printable ASCII
-   *     character ranging from the space character (\u0020) through the end of the ASCII character range</p>
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
    *             </li>
    *             <li>
    *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through \u00FF)</p>
+   *     (through <code>\u00FF</code>)</p>
    *             </li>
    *             <li>
-   *                <p>The special characters tab (\u0009), line feed (\u000A), and
-   *     carriage return (\u000D)</p>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
    */
   SSHPublicKeyBody: string | undefined;
-
-  /**
-   * <p>The name of the IAM user to associate the SSH public key with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   */
-  UserName: string | undefined;
 }
 
 export namespace UploadSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UploadSSHPublicKeyRequest =>
-    __isa(o, "UploadSSHPublicKeyRequest");
+  export const isa = (o: any): o is UploadSSHPublicKeyRequest => __isa(o, "UploadSSHPublicKeyRequest");
 }
 
 /**
@@ -10006,10 +9646,9 @@ export interface UploadSSHPublicKeyResponse {
 
 export namespace UploadSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UploadSSHPublicKeyResponse =>
-    __isa(o, "UploadSSHPublicKeyResponse");
+  export const isa = (o: any): o is UploadSSHPublicKeyResponse => __isa(o, "UploadSSHPublicKeyResponse");
 }
 
 /**
@@ -10036,17 +9675,16 @@ export namespace UploadSSHPublicKeyResponse {
 export interface User {
   __type?: "User";
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs
-   *          and how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>. </p>
+   * <p>The stable and unique string identifying the user. For more information about IDs, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
    */
-  Arn: string | undefined;
+  UserId: string | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the user was created.</p>
+   * <p>The friendly name identifying the user.</p>
    */
-  CreateDate: Date | undefined;
+  UserName: string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -10073,17 +9711,24 @@ export interface User {
   PasswordLastUsed?: Date;
 
   /**
-   * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   */
-  Path: string | undefined;
-
-  /**
    * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
    *             Identities </a> in the <i>IAM User Guide</i>.</p>
    */
   PermissionsBoundary?: AttachedPermissionsBoundary;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs
+   *          and how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>. </p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   */
+  Path: string | undefined;
 
   /**
    * <p>A list of tags that are associated with the specified user. For more information about
@@ -10093,21 +9738,15 @@ export interface User {
   Tags?: Tag[];
 
   /**
-   * <p>The stable and unique string identifying the user. For more information about IDs, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the user was created.</p>
    */
-  UserId: string | undefined;
-
-  /**
-   * <p>The friendly name identifying the user.</p>
-   */
-  UserName: string | undefined;
+  CreateDate: Date | undefined;
 }
 
 export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is User => __isa(o, "User");
 }
@@ -10127,28 +9766,6 @@ export interface UserDetail {
   Arn?: string;
 
   /**
-   * <p>A list of the managed policies attached to the user.</p>
-   */
-  AttachedManagedPolicies?: AttachedPolicy[];
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the user was created.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>A list of IAM groups that the user is in.</p>
-   */
-  GroupList?: string[];
-
-  /**
-   * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   */
-  Path?: string;
-
-  /**
    * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
    *             Identities </a> in the <i>IAM User Guide</i>.</p>
@@ -10163,11 +9780,25 @@ export interface UserDetail {
   Tags?: Tag[];
 
   /**
-   * <p>The stable and unique string identifying the user. For more information about IDs, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * <p>A list of IAM groups that the user is in.</p>
    */
-  UserId?: string;
+  GroupList?: string[];
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the user was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>A list of the inline policies embedded in the user.</p>
+   */
+  UserPolicyList?: PolicyDetail[];
+
+  /**
+   * <p>A list of the managed policies attached to the user.</p>
+   */
+  AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
    * <p>The friendly name identifying the user.</p>
@@ -10175,14 +9806,22 @@ export interface UserDetail {
   UserName?: string;
 
   /**
-   * <p>A list of the inline policies embedded in the user.</p>
+   * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
-  UserPolicyList?: PolicyDetail[];
+  Path?: string;
+
+  /**
+   * <p>The stable and unique string identifying the user. For more information about IDs, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             Identifiers</a> in the <i>IAM User Guide</i>.</p>
+   */
+  UserId?: string;
 }
 
 export namespace UserDetail {
   export const filterSensitiveLog = (obj: UserDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UserDetail => __isa(o, "UserDetail");
 }
@@ -10192,16 +9831,6 @@ export namespace UserDetail {
  */
 export interface VirtualMFADevice {
   __type?: "VirtualMFADevice";
-  /**
-   * <p> The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base64-encoded. </p>
-   */
-  Base32StringSeed?: Uint8Array;
-
-  /**
-   * <p>The date and time on which the virtual MFA device was enabled.</p>
-   */
-  EnableDate?: Date;
-
   /**
    * <p> A QR code PNG image that encodes
    *             <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code>
@@ -10213,9 +9842,19 @@ export interface VirtualMFADevice {
   QRCodePNG?: Uint8Array;
 
   /**
+   * <p>The date and time on which the virtual MFA device was enabled.</p>
+   */
+  EnableDate?: Date;
+
+  /**
    * <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
    */
   SerialNumber: string | undefined;
+
+  /**
+   * <p> The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base64-encoded. </p>
+   */
+  Base32StringSeed?: Uint8Array;
 
   /**
    * <p>The IAM user associated with this virtual MFA device.</p>
@@ -10226,9 +9865,8 @@ export interface VirtualMFADevice {
 export namespace VirtualMFADevice {
   export const filterSensitiveLog = (obj: VirtualMFADevice): any => ({
     ...obj,
+    ...(obj.QRCodePNG && { QRCodePNG: SENSITIVE_STRING }),
     ...(obj.Base32StringSeed && { Base32StringSeed: SENSITIVE_STRING }),
-    ...(obj.QRCodePNG && { QRCodePNG: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is VirtualMFADevice =>
-    __isa(o, "VirtualMFADevice");
+  export const isa = (o: any): o is VirtualMFADevice => __isa(o, "VirtualMFADevice");
 }

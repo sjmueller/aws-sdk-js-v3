@@ -1,135 +1,75 @@
 import {
   AssociateDelegateToResourceCommandInput,
-  AssociateDelegateToResourceCommandOutput
+  AssociateDelegateToResourceCommandOutput,
 } from "./commands/AssociateDelegateToResourceCommand.ts";
 import {
   AssociateMemberToGroupCommandInput,
-  AssociateMemberToGroupCommandOutput
+  AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand.ts";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand.ts";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand.ts";
-import {
-  CreateResourceCommandInput,
-  CreateResourceCommandOutput
-} from "./commands/CreateResourceCommand.ts";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand.ts";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand.ts";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
+import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteMailboxPermissionsCommandInput,
-  DeleteMailboxPermissionsCommandOutput
+  DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand.ts";
-import {
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput
-} from "./commands/DeleteResourceCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeregisterFromWorkMailCommandInput,
-  DeregisterFromWorkMailCommandOutput
+  DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand.ts";
-import {
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
-} from "./commands/DescribeGroupCommand.ts";
+import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand.ts";
 import {
   DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput
+  DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand.ts";
-import {
-  DescribeResourceCommandInput,
-  DescribeResourceCommandOutput
-} from "./commands/DescribeResourceCommand.ts";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand.ts";
+import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand.ts";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand.ts";
 import {
   DisassociateDelegateFromResourceCommandInput,
-  DisassociateDelegateFromResourceCommandOutput
+  DisassociateDelegateFromResourceCommandOutput,
 } from "./commands/DisassociateDelegateFromResourceCommand.ts";
 import {
   DisassociateMemberFromGroupCommandInput,
-  DisassociateMemberFromGroupCommandOutput
+  DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand.ts";
-import {
-  GetMailboxDetailsCommandInput,
-  GetMailboxDetailsCommandOutput
-} from "./commands/GetMailboxDetailsCommand.ts";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand.ts";
-import {
-  ListGroupMembersCommandInput,
-  ListGroupMembersCommandOutput
-} from "./commands/ListGroupMembersCommand.ts";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand.ts";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
+import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand.ts";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListMailboxPermissionsCommandInput,
-  ListMailboxPermissionsCommandOutput
+  ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand.ts";
-import {
-  ListOrganizationsCommandInput,
-  ListOrganizationsCommandOutput
-} from "./commands/ListOrganizationsCommand.ts";
+import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "./commands/ListOrganizationsCommand.ts";
 import {
   ListResourceDelegatesCommandInput,
-  ListResourceDelegatesCommandOutput
+  ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand.ts";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand.ts";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand.ts";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   PutMailboxPermissionsCommandInput,
-  PutMailboxPermissionsCommandOutput
+  PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand.ts";
 import {
   RegisterToWorkMailCommandInput,
-  RegisterToWorkMailCommandOutput
+  RegisterToWorkMailCommandOutput,
 } from "./commands/RegisterToWorkMailCommand.ts";
-import {
-  ResetPasswordCommandInput,
-  ResetPasswordCommandOutput
-} from "./commands/ResetPasswordCommand.ts";
+import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand.ts";
 import {
   UpdateMailboxQuotaCommandInput,
-  UpdateMailboxQuotaCommandOutput
+  UpdateMailboxQuotaCommandOutput,
 } from "./commands/UpdateMailboxQuotaCommand.ts";
 import {
   UpdatePrimaryEmailAddressCommandInput,
-  UpdatePrimaryEmailAddressCommandOutput
+  UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand.ts";
-import {
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
-} from "./commands/UpdateResourceCommand.ts";
+import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -137,38 +77,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -177,9 +113,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -252,8 +189,7 @@ export type ServiceOutputTypes =
   | UpdatePrimaryEmailAddressCommandOutput
   | UpdateResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -327,14 +263,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -342,9 +283,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkMailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkMailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -353,9 +292,7 @@ export type WorkMailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -412,7 +349,7 @@ export class WorkMailClient extends __Client<
   constructor(configuration: WorkMailClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -427,6 +364,7 @@ export class WorkMailClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

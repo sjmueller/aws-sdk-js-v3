@@ -1,18 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient.ts";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
 import { ListInstancesInput, ListInstancesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListInstancesCommand,
-  serializeAws_json1_1ListInstancesCommand
+  serializeAws_json1_1ListInstancesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListInstancesCommandInput = ListInstancesInput;
@@ -46,14 +39,15 @@ export class ListInstancesCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInstancesCommandInput, ListInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListInstancesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInstancesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
     return deserializeAws_json1_1ListInstancesCommand(output, context);
   }
 

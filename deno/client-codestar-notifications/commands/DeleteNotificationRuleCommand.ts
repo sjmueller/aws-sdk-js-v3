@@ -1,21 +1,15 @@
 import {
+  CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
-} from "../codestarnotificationsClient.ts";
-import {
-  DeleteNotificationRuleRequest,
-  DeleteNotificationRuleResult
-} from "../models/index.ts";
+} from "../CodestarNotificationsClient.ts";
+import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteNotificationRuleCommand,
-  serializeAws_restJson1DeleteNotificationRuleCommand
+  serializeAws_restJson1DeleteNotificationRuleCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteNotificationRuleCommandInput = DeleteNotificationRuleRequest;
-export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult &
-  __MetadataBearer;
+export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult & __MetadataBearer;
 
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,
   DeleteNotificationRuleCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DeleteNotificationRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNotificationRuleCommandInput,
-    DeleteNotificationRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNotificationRuleCommandInput, DeleteNotificationRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteNotificationRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class DeleteNotificationRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteNotificationRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteNotificationRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteNotificationRuleCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationRuleCommandOutput> {
+    return deserializeAws_restJson1DeleteNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

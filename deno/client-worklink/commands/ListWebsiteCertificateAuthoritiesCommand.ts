@@ -1,21 +1,14 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
 import {
   ListWebsiteCertificateAuthoritiesRequest,
-  ListWebsiteCertificateAuthoritiesResponse
+  ListWebsiteCertificateAuthoritiesResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
-  serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand
+  serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListWebsiteCertificateAuthoritiesCommandInput = ListWebsiteCertificateAuthoritiesRequest;
@@ -49,18 +42,16 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListWebsiteCertificateAuthoritiesCommandInput,
-    ListWebsiteCertificateAuthoritiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListWebsiteCertificateAuthoritiesCommandInput, ListWebsiteCertificateAuthoritiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     input: ListWebsiteCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

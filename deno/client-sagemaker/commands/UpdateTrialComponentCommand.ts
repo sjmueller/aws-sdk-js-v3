@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  UpdateTrialComponentRequest,
-  UpdateTrialComponentResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateTrialComponentCommand,
-  serializeAws_json1_1UpdateTrialComponentCommand
+  serializeAws_json1_1UpdateTrialComponentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateTrialComponentCommandInput = UpdateTrialComponentRequest;
-export type UpdateTrialComponentCommandOutput = UpdateTrialComponentResponse &
-  __MetadataBearer;
+export type UpdateTrialComponentCommandOutput = UpdateTrialComponentResponse & __MetadataBearer;
 
 export class UpdateTrialComponentCommand extends $Command<
   UpdateTrialComponentCommandInput,
@@ -49,18 +38,16 @@ export class UpdateTrialComponentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTrialComponentCommandInput,
-    UpdateTrialComponentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTrialComponentCommandInput, UpdateTrialComponentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateTrialComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTrialComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrialComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTrialComponentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrialComponentCommandOutput> {
     return deserializeAws_json1_1UpdateTrialComponentCommand(output, context);
   }
 

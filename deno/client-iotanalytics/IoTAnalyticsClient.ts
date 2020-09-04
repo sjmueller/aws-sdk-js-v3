@@ -1,139 +1,61 @@
-import {
-  BatchPutMessageCommandInput,
-  BatchPutMessageCommandOutput
-} from "./commands/BatchPutMessageCommand.ts";
+import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "./commands/BatchPutMessageCommand.ts";
 import {
   CancelPipelineReprocessingCommandInput,
-  CancelPipelineReprocessingCommandOutput
+  CancelPipelineReprocessingCommandOutput,
 } from "./commands/CancelPipelineReprocessingCommand.ts";
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "./commands/CreateChannelCommand.ts";
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "./commands/CreateDatasetCommand.ts";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand.ts";
 import {
   CreateDatasetContentCommandInput,
-  CreateDatasetContentCommandOutput
+  CreateDatasetContentCommandOutput,
 } from "./commands/CreateDatasetContentCommand.ts";
-import {
-  CreateDatastoreCommandInput,
-  CreateDatastoreCommandOutput
-} from "./commands/CreateDatastoreCommand.ts";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "./commands/CreatePipelineCommand.ts";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "./commands/DeleteChannelCommand.ts";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand.ts";
+import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "./commands/CreateDatastoreCommand.ts";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand.ts";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand.ts";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand.ts";
 import {
   DeleteDatasetContentCommandInput,
-  DeleteDatasetContentCommandOutput
+  DeleteDatasetContentCommandOutput,
 } from "./commands/DeleteDatasetContentCommand.ts";
-import {
-  DeleteDatastoreCommandInput,
-  DeleteDatastoreCommandOutput
-} from "./commands/DeleteDatastoreCommand.ts";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "./commands/DeletePipelineCommand.ts";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "./commands/DescribeChannelCommand.ts";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand.ts";
-import {
-  DescribeDatastoreCommandInput,
-  DescribeDatastoreCommandOutput
-} from "./commands/DescribeDatastoreCommand.ts";
+import { DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput } from "./commands/DeleteDatastoreCommand.ts";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand.ts";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand.ts";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand.ts";
+import { DescribeDatastoreCommandInput, DescribeDatastoreCommandOutput } from "./commands/DescribeDatastoreCommand.ts";
 import {
   DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput
+  DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand.ts";
-import {
-  DescribePipelineCommandInput,
-  DescribePipelineCommandOutput
-} from "./commands/DescribePipelineCommand.ts";
-import {
-  GetDatasetContentCommandInput,
-  GetDatasetContentCommandOutput
-} from "./commands/GetDatasetContentCommand.ts";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "./commands/ListChannelsCommand.ts";
+import { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "./commands/DescribePipelineCommand.ts";
+import { GetDatasetContentCommandInput, GetDatasetContentCommandOutput } from "./commands/GetDatasetContentCommand.ts";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand.ts";
 import {
   ListDatasetContentsCommandInput,
-  ListDatasetContentsCommandOutput
+  ListDatasetContentsCommandOutput,
 } from "./commands/ListDatasetContentsCommand.ts";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand.ts";
-import {
-  ListDatastoresCommandInput,
-  ListDatastoresCommandOutput
-} from "./commands/ListDatastoresCommand.ts";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "./commands/ListPipelinesCommand.ts";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand.ts";
+import { ListDatastoresCommandInput, ListDatastoresCommandOutput } from "./commands/ListDatastoresCommand.ts";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "./commands/PutLoggingOptionsCommand.ts";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand.ts";
 import {
   RunPipelineActivityCommandInput,
-  RunPipelineActivityCommandOutput
+  RunPipelineActivityCommandOutput,
 } from "./commands/RunPipelineActivityCommand.ts";
-import {
-  SampleChannelDataCommandInput,
-  SampleChannelDataCommandOutput
-} from "./commands/SampleChannelDataCommand.ts";
+import { SampleChannelDataCommandInput, SampleChannelDataCommandOutput } from "./commands/SampleChannelDataCommand.ts";
 import {
   StartPipelineReprocessingCommandInput,
-  StartPipelineReprocessingCommandOutput
+  StartPipelineReprocessingCommandOutput,
 } from "./commands/StartPipelineReprocessingCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "./commands/UpdateChannelCommand.ts";
-import {
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput
-} from "./commands/UpdateDatasetCommand.ts";
-import {
-  UpdateDatastoreCommandInput,
-  UpdateDatastoreCommandOutput
-} from "./commands/UpdateDatastoreCommand.ts";
-import {
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
-} from "./commands/UpdatePipelineCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand.ts";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand.ts";
+import { UpdateDatastoreCommandInput, UpdateDatastoreCommandOutput } from "./commands/UpdateDatastoreCommand.ts";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -141,38 +63,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -181,9 +99,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -258,8 +177,7 @@ export type ServiceOutputTypes =
   | UpdateDatastoreCommandOutput
   | UpdatePipelineCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -333,14 +251,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -348,9 +271,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTAnalyticsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -359,9 +280,7 @@ export type IoTAnalyticsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -402,7 +321,7 @@ export class IoTAnalyticsClient extends __Client<
   constructor(configuration: IoTAnalyticsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -417,6 +336,7 @@ export class IoTAnalyticsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

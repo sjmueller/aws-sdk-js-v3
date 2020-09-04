@@ -1,21 +1,15 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import {
-  ListElasticsearchInstanceTypesRequest,
-  ListElasticsearchInstanceTypesResponse
-} from "../models/index.ts";
+import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
-  serializeAws_restJson1ListElasticsearchInstanceTypesCommand
+  serializeAws_restJson1ListElasticsearchInstanceTypesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListElasticsearchInstanceTypesCommandInput = ListElasticsearchInstanceTypesRequest;
-export type ListElasticsearchInstanceTypesCommandOutput = ListElasticsearchInstanceTypesResponse &
-  __MetadataBearer;
+export type ListElasticsearchInstanceTypesCommandOutput = ListElasticsearchInstanceTypesResponse & __MetadataBearer;
 
 export class ListElasticsearchInstanceTypesCommand extends $Command<
   ListElasticsearchInstanceTypesCommandInput,
@@ -49,18 +42,16 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListElasticsearchInstanceTypesCommandInput,
-    ListElasticsearchInstanceTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListElasticsearchInstanceTypesCommandInput, ListElasticsearchInstanceTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListElasticsearchInstanceTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListElasticsearchInstanceTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1ListElasticsearchInstanceTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListElasticsearchInstanceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

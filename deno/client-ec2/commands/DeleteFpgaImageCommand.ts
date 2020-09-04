@@ -1,18 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteFpgaImageCommand,
-  serializeAws_ec2DeleteFpgaImageCommand
+  serializeAws_ec2DeleteFpgaImageCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
-export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult &
-  __MetadataBearer;
+export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult & __MetadataBearer;
 
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,
@@ -47,14 +39,15 @@ export class DeleteFpgaImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteFpgaImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFpgaImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DeleteFpgaImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteFpgaImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteFpgaImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteFpgaImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFpgaImageCommandOutput> {
     return deserializeAws_ec2DeleteFpgaImageCommand(output, context);
   }
 

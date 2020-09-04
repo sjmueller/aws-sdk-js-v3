@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  DBEngineVersionMessage,
-  DescribeDBEngineVersionsMessage
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDBEngineVersionsCommand,
-  serializeAws_queryDescribeDBEngineVersionsCommand
+  serializeAws_queryDescribeDBEngineVersionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDBEngineVersionsCommandInput = DescribeDBEngineVersionsMessage;
-export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage &
-  __MetadataBearer;
+export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage & __MetadataBearer;
 
 export class DescribeDBEngineVersionsCommand extends $Command<
   DescribeDBEngineVersionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBEngineVersionsCommandInput,
-    DescribeDBEngineVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBEngineVersionsCommandInput, DescribeDBEngineVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDBEngineVersionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBEngineVersionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBEngineVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBEngineVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDBEngineVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBEngineVersionsCommandOutput> {
     return deserializeAws_queryDescribeDBEngineVersionsCommand(output, context);
   }
 

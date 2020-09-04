@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient.ts";
-import {
-  ListRecoveryPointsByResourceInput,
-  ListRecoveryPointsByResourceOutput
-} from "../models/index.ts";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
+import { ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListRecoveryPointsByResourceCommand,
-  serializeAws_restJson1ListRecoveryPointsByResourceCommand
+  serializeAws_restJson1ListRecoveryPointsByResourceCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListRecoveryPointsByResourceCommandInput = ListRecoveryPointsByResourceInput;
-export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput &
-  __MetadataBearer;
+export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput & __MetadataBearer;
 
 export class ListRecoveryPointsByResourceCommand extends $Command<
   ListRecoveryPointsByResourceCommandInput,
@@ -49,18 +38,16 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRecoveryPointsByResourceCommandInput,
-    ListRecoveryPointsByResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRecoveryPointsByResourceCommandInput, ListRecoveryPointsByResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListRecoveryPointsByResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRecoveryPointsByResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRecoveryPointsByResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByResourceCommand(
-      input,
-      context
-    );
+  private serialize(input: ListRecoveryPointsByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListRecoveryPointsByResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByResourceCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListRecoveryPointsByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

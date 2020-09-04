@@ -1,158 +1,110 @@
 import {
   AcceptQualificationRequestCommandInput,
-  AcceptQualificationRequestCommandOutput
+  AcceptQualificationRequestCommandOutput,
 } from "./commands/AcceptQualificationRequestCommand.ts";
-import {
-  ApproveAssignmentCommandInput,
-  ApproveAssignmentCommandOutput
-} from "./commands/ApproveAssignmentCommand.ts";
+import { ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput } from "./commands/ApproveAssignmentCommand.ts";
 import {
   AssociateQualificationWithWorkerCommandInput,
-  AssociateQualificationWithWorkerCommandOutput
+  AssociateQualificationWithWorkerCommandOutput,
 } from "./commands/AssociateQualificationWithWorkerCommand.ts";
 import {
   CreateAdditionalAssignmentsForHITCommandInput,
-  CreateAdditionalAssignmentsForHITCommandOutput
+  CreateAdditionalAssignmentsForHITCommandOutput,
 } from "./commands/CreateAdditionalAssignmentsForHITCommand.ts";
-import {
-  CreateHITCommandInput,
-  CreateHITCommandOutput
-} from "./commands/CreateHITCommand.ts";
-import {
-  CreateHITTypeCommandInput,
-  CreateHITTypeCommandOutput
-} from "./commands/CreateHITTypeCommand.ts";
+import { CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand.ts";
+import { CreateHITTypeCommandInput, CreateHITTypeCommandOutput } from "./commands/CreateHITTypeCommand.ts";
 import {
   CreateHITWithHITTypeCommandInput,
-  CreateHITWithHITTypeCommandOutput
+  CreateHITWithHITTypeCommandOutput,
 } from "./commands/CreateHITWithHITTypeCommand.ts";
 import {
   CreateQualificationTypeCommandInput,
-  CreateQualificationTypeCommandOutput
+  CreateQualificationTypeCommandOutput,
 } from "./commands/CreateQualificationTypeCommand.ts";
-import {
-  CreateWorkerBlockCommandInput,
-  CreateWorkerBlockCommandOutput
-} from "./commands/CreateWorkerBlockCommand.ts";
-import {
-  DeleteHITCommandInput,
-  DeleteHITCommandOutput
-} from "./commands/DeleteHITCommand.ts";
+import { CreateWorkerBlockCommandInput, CreateWorkerBlockCommandOutput } from "./commands/CreateWorkerBlockCommand.ts";
+import { DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand.ts";
 import {
   DeleteQualificationTypeCommandInput,
-  DeleteQualificationTypeCommandOutput
+  DeleteQualificationTypeCommandOutput,
 } from "./commands/DeleteQualificationTypeCommand.ts";
-import {
-  DeleteWorkerBlockCommandInput,
-  DeleteWorkerBlockCommandOutput
-} from "./commands/DeleteWorkerBlockCommand.ts";
+import { DeleteWorkerBlockCommandInput, DeleteWorkerBlockCommandOutput } from "./commands/DeleteWorkerBlockCommand.ts";
 import {
   DisassociateQualificationFromWorkerCommandInput,
-  DisassociateQualificationFromWorkerCommandOutput
+  DisassociateQualificationFromWorkerCommandOutput,
 } from "./commands/DisassociateQualificationFromWorkerCommand.ts";
-import {
-  GetAccountBalanceCommandInput,
-  GetAccountBalanceCommandOutput
-} from "./commands/GetAccountBalanceCommand.ts";
-import {
-  GetAssignmentCommandInput,
-  GetAssignmentCommandOutput
-} from "./commands/GetAssignmentCommand.ts";
-import {
-  GetFileUploadURLCommandInput,
-  GetFileUploadURLCommandOutput
-} from "./commands/GetFileUploadURLCommand.ts";
-import {
-  GetHITCommandInput,
-  GetHITCommandOutput
-} from "./commands/GetHITCommand.ts";
+import { GetAccountBalanceCommandInput, GetAccountBalanceCommandOutput } from "./commands/GetAccountBalanceCommand.ts";
+import { GetAssignmentCommandInput, GetAssignmentCommandOutput } from "./commands/GetAssignmentCommand.ts";
+import { GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput } from "./commands/GetFileUploadURLCommand.ts";
+import { GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand.ts";
 import {
   GetQualificationScoreCommandInput,
-  GetQualificationScoreCommandOutput
+  GetQualificationScoreCommandOutput,
 } from "./commands/GetQualificationScoreCommand.ts";
 import {
   GetQualificationTypeCommandInput,
-  GetQualificationTypeCommandOutput
+  GetQualificationTypeCommandOutput,
 } from "./commands/GetQualificationTypeCommand.ts";
 import {
   ListAssignmentsForHITCommandInput,
-  ListAssignmentsForHITCommandOutput
+  ListAssignmentsForHITCommandOutput,
 } from "./commands/ListAssignmentsForHITCommand.ts";
-import {
-  ListBonusPaymentsCommandInput,
-  ListBonusPaymentsCommandOutput
-} from "./commands/ListBonusPaymentsCommand.ts";
-import {
-  ListHITsCommandInput,
-  ListHITsCommandOutput
-} from "./commands/ListHITsCommand.ts";
+import { ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput } from "./commands/ListBonusPaymentsCommand.ts";
+import { ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand.ts";
 import {
   ListHITsForQualificationTypeCommandInput,
-  ListHITsForQualificationTypeCommandOutput
+  ListHITsForQualificationTypeCommandOutput,
 } from "./commands/ListHITsForQualificationTypeCommand.ts";
 import {
   ListQualificationRequestsCommandInput,
-  ListQualificationRequestsCommandOutput
+  ListQualificationRequestsCommandOutput,
 } from "./commands/ListQualificationRequestsCommand.ts";
 import {
   ListQualificationTypesCommandInput,
-  ListQualificationTypesCommandOutput
+  ListQualificationTypesCommandOutput,
 } from "./commands/ListQualificationTypesCommand.ts";
 import {
   ListReviewPolicyResultsForHITCommandInput,
-  ListReviewPolicyResultsForHITCommandOutput
+  ListReviewPolicyResultsForHITCommandOutput,
 } from "./commands/ListReviewPolicyResultsForHITCommand.ts";
 import {
   ListReviewableHITsCommandInput,
-  ListReviewableHITsCommandOutput
+  ListReviewableHITsCommandOutput,
 } from "./commands/ListReviewableHITsCommand.ts";
-import {
-  ListWorkerBlocksCommandInput,
-  ListWorkerBlocksCommandOutput
-} from "./commands/ListWorkerBlocksCommand.ts";
+import { ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput } from "./commands/ListWorkerBlocksCommand.ts";
 import {
   ListWorkersWithQualificationTypeCommandInput,
-  ListWorkersWithQualificationTypeCommandOutput
+  ListWorkersWithQualificationTypeCommandOutput,
 } from "./commands/ListWorkersWithQualificationTypeCommand.ts";
-import {
-  NotifyWorkersCommandInput,
-  NotifyWorkersCommandOutput
-} from "./commands/NotifyWorkersCommand.ts";
-import {
-  RejectAssignmentCommandInput,
-  RejectAssignmentCommandOutput
-} from "./commands/RejectAssignmentCommand.ts";
+import { NotifyWorkersCommandInput, NotifyWorkersCommandOutput } from "./commands/NotifyWorkersCommand.ts";
+import { RejectAssignmentCommandInput, RejectAssignmentCommandOutput } from "./commands/RejectAssignmentCommand.ts";
 import {
   RejectQualificationRequestCommandInput,
-  RejectQualificationRequestCommandOutput
+  RejectQualificationRequestCommandOutput,
 } from "./commands/RejectQualificationRequestCommand.ts";
-import {
-  SendBonusCommandInput,
-  SendBonusCommandOutput
-} from "./commands/SendBonusCommand.ts";
+import { SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand.ts";
 import {
   SendTestEventNotificationCommandInput,
-  SendTestEventNotificationCommandOutput
+  SendTestEventNotificationCommandOutput,
 } from "./commands/SendTestEventNotificationCommand.ts";
 import {
   UpdateExpirationForHITCommandInput,
-  UpdateExpirationForHITCommandOutput
+  UpdateExpirationForHITCommandOutput,
 } from "./commands/UpdateExpirationForHITCommand.ts";
 import {
   UpdateHITReviewStatusCommandInput,
-  UpdateHITReviewStatusCommandOutput
+  UpdateHITReviewStatusCommandOutput,
 } from "./commands/UpdateHITReviewStatusCommand.ts";
 import {
   UpdateHITTypeOfHITCommandInput,
-  UpdateHITTypeOfHITCommandOutput
+  UpdateHITTypeOfHITCommandOutput,
 } from "./commands/UpdateHITTypeOfHITCommand.ts";
 import {
   UpdateNotificationSettingsCommandInput,
-  UpdateNotificationSettingsCommandOutput
+  UpdateNotificationSettingsCommandOutput,
 } from "./commands/UpdateNotificationSettingsCommand.ts";
 import {
   UpdateQualificationTypeCommandInput,
-  UpdateQualificationTypeCommandOutput
+  UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -161,38 +113,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -201,9 +149,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -288,8 +237,7 @@ export type ServiceOutputTypes =
   | UpdateNotificationSettingsCommandOutput
   | UpdateQualificationTypeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -363,14 +311,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -378,9 +331,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MTurkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MTurkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -389,9 +340,7 @@ export type MTurkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -414,7 +363,7 @@ export class MTurkClient extends __Client<
   constructor(configuration: MTurkClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -429,6 +378,7 @@ export class MTurkClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

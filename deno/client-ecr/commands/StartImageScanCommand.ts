@@ -1,18 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient.ts";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
 import { StartImageScanRequest, StartImageScanResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartImageScanCommand,
-  serializeAws_json1_1StartImageScanCommand
+  serializeAws_json1_1StartImageScanCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartImageScanCommandInput = StartImageScanRequest;
-export type StartImageScanCommandOutput = StartImageScanResponse &
-  __MetadataBearer;
+export type StartImageScanCommandOutput = StartImageScanResponse & __MetadataBearer;
 
 export class StartImageScanCommand extends $Command<
   StartImageScanCommandInput,
@@ -47,14 +39,15 @@ export class StartImageScanCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartImageScanCommandInput, StartImageScanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartImageScanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartImageScanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class StartImageScanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartImageScanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartImageScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartImageScanCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartImageScanCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImageScanCommandOutput> {
     return deserializeAws_json1_1StartImageScanCommand(output, context);
   }
 

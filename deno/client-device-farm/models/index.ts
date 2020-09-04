@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -11,29 +7,20 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface AccountSettings {
   __type?: "AccountSettings";
   /**
-   * <p>The AWS account number specified in the <code>AccountSettings</code>
-   *             container.</p>
+   * <p>Information about an AWS account's usage of free trial device minutes.</p>
    */
-  awsAccountNumber?: string;
+  trialMinutes?: TrialMinutes;
 
   /**
-   * <p>The default number of minutes (at the account level) a test run executes before it times out. The
-   *             default value is 150 minutes.</p>
+   * <p>Returns the unmetered remote access devices you have purchased or want to
+   *             purchase.</p>
    */
-  defaultJobTimeoutMinutes?: number;
+  unmeteredRemoteAccessDevices?: { [key: string]: number };
 
   /**
-   * <p>The maximum number of minutes a test run executes before it times out.</p>
+   * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
    */
-  maxJobTimeoutMinutes?: number;
-
-  /**
-   * <p>The maximum number of device slots that the AWS account can purchase. Each maximum
-   *             is expressed as an <code>offering-id:number</code> pair, where the
-   *                 <code>offering-id</code> represents one of the IDs returned by the
-   *                 <code>ListOfferings</code> command.</p>
-   */
-  maxSlots?: { [key: string]: number };
+  unmeteredDevices?: { [key: string]: number };
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -44,28 +31,36 @@ export interface AccountSettings {
   skipAppResign?: boolean;
 
   /**
-   * <p>Information about an AWS account's usage of free trial device minutes.</p>
+   * <p>The maximum number of minutes a test run executes before it times out.</p>
    */
-  trialMinutes?: TrialMinutes;
+  maxJobTimeoutMinutes?: number;
 
   /**
-   * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
+   * <p>The default number of minutes (at the account level) a test run executes before it times out. The
+   *             default value is 150 minutes.</p>
    */
-  unmeteredDevices?: { [key: string]: number };
+  defaultJobTimeoutMinutes?: number;
 
   /**
-   * <p>Returns the unmetered remote access devices you have purchased or want to
-   *             purchase.</p>
+   * <p>The AWS account number specified in the <code>AccountSettings</code>
+   *             container.</p>
    */
-  unmeteredRemoteAccessDevices?: { [key: string]: number };
+  awsAccountNumber?: string;
+
+  /**
+   * <p>The maximum number of device slots that the AWS account can purchase. Each maximum
+   *             is expressed as an <code>offering-id:number</code> pair, where the
+   *                 <code>offering-id</code> represents one of the IDs returned by the
+   *                 <code>ListOfferings</code> command.</p>
+   */
+  maxSlots?: { [key: string]: number };
 }
 
 export namespace AccountSettings {
   export const filterSensitiveLog = (obj: AccountSettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountSettings =>
-    __isa(o, "AccountSettings");
+  export const isa = (o: any): o is AccountSettings => __isa(o, "AccountSettings");
 }
 
 /**
@@ -82,10 +77,9 @@ export interface ArgumentException extends __SmithyException, $MetadataBearer {
 
 export namespace ArgumentException {
   export const filterSensitiveLog = (obj: ArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ArgumentException =>
-    __isa(o, "ArgumentException");
+  export const isa = (o: any): o is ArgumentException => __isa(o, "ArgumentException");
 }
 
 /**
@@ -94,16 +88,6 @@ export namespace ArgumentException {
  */
 export interface Artifact {
   __type?: "Artifact";
-  /**
-   * <p>The artifact's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The artifact's file extension.</p>
-   */
-  extension?: string;
-
   /**
    * <p>The artifact's name.</p>
    */
@@ -202,15 +186,25 @@ export interface Artifact {
   type?: ArtifactType | string;
 
   /**
+   * <p>The artifact's file extension.</p>
+   */
+  extension?: string;
+
+  /**
    * <p>The presigned Amazon S3 URL that can be used with a GET request to download the artifact's
    *             file.</p>
    */
   url?: string;
+
+  /**
+   * <p>The artifact's ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace Artifact {
   export const filterSensitiveLog = (obj: Artifact): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
 }
@@ -218,7 +212,7 @@ export namespace Artifact {
 export enum ArtifactCategory {
   FILE = "FILE",
   LOG = "LOG",
-  SCREENSHOT = "SCREENSHOT"
+  SCREENSHOT = "SCREENSHOT",
 }
 
 export enum ArtifactType {
@@ -249,20 +243,18 @@ export enum ArtifactType {
   VIDEO = "VIDEO",
   VIDEO_LOG = "VIDEO_LOG",
   WEBKIT_LOG = "WEBKIT_LOG",
-  XCTEST_LOG = "XCTEST_LOG"
+  XCTEST_LOG = "XCTEST_LOG",
 }
 
 export enum BillingMethod {
   METERED = "METERED",
-  UNMETERED = "UNMETERED"
+  UNMETERED = "UNMETERED",
 }
 
 /**
  * <p>The requested object could not be deleted.</p>
  */
-export interface CannotDeleteException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
   name: "CannotDeleteException";
   $fault: "client";
   message?: string;
@@ -270,10 +262,9 @@ export interface CannotDeleteException
 
 export namespace CannotDeleteException {
   export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CannotDeleteException =>
-    __isa(o, "CannotDeleteException");
+  export const isa = (o: any): o is CannotDeleteException => __isa(o, "CannotDeleteException");
 }
 
 /**
@@ -282,14 +273,14 @@ export namespace CannotDeleteException {
 export interface Counters {
   __type?: "Counters";
   /**
-   * <p>The number of errored entities.</p>
-   */
-  errored?: number;
-
-  /**
    * <p>The number of failed entities.</p>
    */
   failed?: number;
+
+  /**
+   * <p>The number of warned entities.</p>
+   */
+  warned?: number;
 
   /**
    * <p>The number of passed entities.</p>
@@ -297,29 +288,29 @@ export interface Counters {
   passed?: number;
 
   /**
-   * <p>The number of skipped entities.</p>
-   */
-  skipped?: number;
-
-  /**
    * <p>The number of stopped entities.</p>
    */
   stopped?: number;
 
   /**
+   * <p>The number of errored entities.</p>
+   */
+  errored?: number;
+
+  /**
+   * <p>The number of skipped entities.</p>
+   */
+  skipped?: number;
+
+  /**
    * <p>The total number of entities.</p>
    */
   total?: number;
-
-  /**
-   * <p>The number of warned entities.</p>
-   */
-  warned?: number;
 }
 
 export namespace Counters {
   export const filterSensitiveLog = (obj: Counters): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Counters => __isa(o, "Counters");
 }
@@ -349,7 +340,7 @@ export interface CPU {
 
 export namespace CPU {
   export const filterSensitiveLog = (obj: CPU): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CPU => __isa(o, "CPU");
 }
@@ -360,9 +351,9 @@ export namespace CPU {
 export interface CreateDevicePoolRequest {
   __type?: "CreateDevicePoolRequest";
   /**
-   * <p>The device pool's description.</p>
+   * <p>The device pool's name.</p>
    */
-  description?: string;
+  name: string | undefined;
 
   /**
    * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
@@ -375,14 +366,14 @@ export interface CreateDevicePoolRequest {
   maxDevices?: number;
 
   /**
-   * <p>The device pool's name.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The ARN of the project for the device pool.</p>
    */
   projectArn: string | undefined;
+
+  /**
+   * <p>The device pool's description.</p>
+   */
+  description?: string;
 
   /**
    * <p>The device pool's rules.</p>
@@ -392,10 +383,9 @@ export interface CreateDevicePoolRequest {
 
 export namespace CreateDevicePoolRequest {
   export const filterSensitiveLog = (obj: CreateDevicePoolRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDevicePoolRequest =>
-    __isa(o, "CreateDevicePoolRequest");
+  export const isa = (o: any): o is CreateDevicePoolRequest => __isa(o, "CreateDevicePoolRequest");
 }
 
 /**
@@ -411,31 +401,23 @@ export interface CreateDevicePoolResult {
 
 export namespace CreateDevicePoolResult {
   export const filterSensitiveLog = (obj: CreateDevicePoolResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDevicePoolResult =>
-    __isa(o, "CreateDevicePoolResult");
+  export const isa = (o: any): o is CreateDevicePoolResult => __isa(o, "CreateDevicePoolResult");
 }
 
 export interface CreateInstanceProfileRequest {
   __type?: "CreateInstanceProfileRequest";
   /**
+   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
+   *                 <code>true</code>.</p>
+   */
+  rebootAfterUse?: boolean;
+
+  /**
    * <p>The description of your instance profile.</p>
    */
   description?: string;
-
-  /**
-   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
-   *             after a test run.</p>
-   *         <p>The list of packages is considered only if you set <code>packageCleanup</code> to
-   *             <code>true</code>.</p>
-   */
-  excludeAppPackagesFromCleanup?: string[];
-
-  /**
-   * <p>The name of your instance profile.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
@@ -444,20 +426,24 @@ export interface CreateInstanceProfileRequest {
   packageCleanup?: boolean;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
+   * <p>The name of your instance profile.</p>
    */
-  rebootAfterUse?: boolean;
+  name: string | undefined;
+
+  /**
+   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
+   *             after a test run.</p>
+   *         <p>The list of packages is considered only if you set <code>packageCleanup</code> to
+   *             <code>true</code>.</p>
+   */
+  excludeAppPackagesFromCleanup?: string[];
 }
 
 export namespace CreateInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileRequest =>
-    __isa(o, "CreateInstanceProfileRequest");
+  export const isa = (o: any): o is CreateInstanceProfileRequest => __isa(o, "CreateInstanceProfileRequest");
 }
 
 export interface CreateInstanceProfileResult {
@@ -469,66 +455,18 @@ export interface CreateInstanceProfileResult {
 }
 
 export namespace CreateInstanceProfileResult {
-  export const filterSensitiveLog = (
-    obj: CreateInstanceProfileResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateInstanceProfileResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceProfileResult =>
-    __isa(o, "CreateInstanceProfileResult");
+  export const isa = (o: any): o is CreateInstanceProfileResult => __isa(o, "CreateInstanceProfileResult");
 }
 
 export interface CreateNetworkProfileRequest {
   __type?: "CreateNetworkProfileRequest";
   /**
-   * <p>The description of the network profile.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  downlinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  downlinkDelayMs?: number;
-
-  /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
-   */
-  downlinkJitterMs?: number;
-
-  /**
    * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
    */
   downlinkLossPercent?: number;
-
-  /**
-   * <p>The name for the new network profile.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
-   *             network profile.</p>
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>The type of network profile to create. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  uplinkBandwidthBits?: number;
 
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
@@ -537,26 +475,68 @@ export interface CreateNetworkProfileRequest {
   uplinkDelayMs?: number;
 
   /**
+   * <p>The name for the new network profile.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  uplinkBandwidthBits?: number;
+
+  /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    */
   uplinkJitterMs?: number;
 
   /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  downlinkDelayMs?: number;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  downlinkBandwidthBits?: number;
+
+  /**
+   * <p>The type of network profile to create. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
+
+  /**
    * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
    *             percent.</p>
    */
   uplinkLossPercent?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
+   *             network profile.</p>
+   */
+  projectArn: string | undefined;
+
+  /**
+   * <p>The description of the network profile.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Time variation in the delay of received packets in milliseconds as an integer from
+   *             0 to 2000.</p>
+   */
+  downlinkJitterMs?: number;
 }
 
 export namespace CreateNetworkProfileRequest {
-  export const filterSensitiveLog = (
-    obj: CreateNetworkProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkProfileRequest =>
-    __isa(o, "CreateNetworkProfileRequest");
+  export const isa = (o: any): o is CreateNetworkProfileRequest => __isa(o, "CreateNetworkProfileRequest");
 }
 
 export interface CreateNetworkProfileResult {
@@ -570,10 +550,9 @@ export interface CreateNetworkProfileResult {
 
 export namespace CreateNetworkProfileResult {
   export const filterSensitiveLog = (obj: CreateNetworkProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkProfileResult =>
-    __isa(o, "CreateNetworkProfileResult");
+  export const isa = (o: any): o is CreateNetworkProfileResult => __isa(o, "CreateNetworkProfileResult");
 }
 
 /**
@@ -595,10 +574,9 @@ export interface CreateProjectRequest {
 
 export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest =>
-    __isa(o, "CreateProjectRequest");
+  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 /**
@@ -614,10 +592,9 @@ export interface CreateProjectResult {
 
 export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult =>
-    __isa(o, "CreateProjectResult");
+  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 /**
@@ -627,21 +604,19 @@ export namespace CreateProjectResult {
 export interface CreateRemoteAccessSessionConfiguration {
   __type?: "CreateRemoteAccessSessionConfiguration";
   /**
-   * <p>The billing method for the remote access session.</p>
-   */
-  billingMethod?: BillingMethod | string;
-
-  /**
    * <p>An array of ARNs included in the VPC endpoint configuration.</p>
    */
   vpceConfigurationArns?: string[];
+
+  /**
+   * <p>The billing method for the remote access session.</p>
+   */
+  billingMethod?: BillingMethod | string;
 }
 
 export namespace CreateRemoteAccessSessionConfiguration {
-  export const filterSensitiveLog = (
-    obj: CreateRemoteAccessSessionConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateRemoteAccessSessionConfiguration): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateRemoteAccessSessionConfiguration =>
     __isa(o, "CreateRemoteAccessSessionConfiguration");
@@ -653,29 +628,10 @@ export namespace CreateRemoteAccessSessionConfiguration {
 export interface CreateRemoteAccessSessionRequest {
   __type?: "CreateRemoteAccessSessionRequest";
   /**
-   * <p>Unique identifier for the client. If you want access to multiple devices on the same client, you should
-   *             pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This
-   *             identifier is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
+   *             access session.</p>
    */
-  clientId?: string;
-
-  /**
-   * <p>The configuration information for the remote access session request.</p>
-   */
-  configuration?: CreateRemoteAccessSessionConfiguration;
-
-  /**
-   * <p>The ARN of the device for which you want to create a remote access session.</p>
-   */
-  deviceArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
-   *             remote access session.</p>
-   */
-  instanceArn?: string;
+  projectArn: string | undefined;
 
   /**
    * <p>The interaction mode of the remote access session. Valid values are:</p>
@@ -699,35 +655,38 @@ export interface CreateRemoteAccessSessionRequest {
   interactionMode?: InteractionMode | string;
 
   /**
-   * <p>The name of the remote access session to create.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
-   *             access session.</p>
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
-   *             your remote access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  remoteDebugEnabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the app to be recorded in the remote access
-   *             session.</p>
-   */
-  remoteRecordAppArn?: string;
-
-  /**
    * <p>Set to <code>true</code> to enable remote recording for the remote access
    *             session.</p>
    */
   remoteRecordEnabled?: boolean;
+
+  /**
+   * <p>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting to remote
+   *             devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code> is
+   *             set to <code>true</code>.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  sshPublicKey?: string;
+
+  /**
+   * <p>Unique identifier for the client. If you want access to multiple devices on the same client, you should
+   *             pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>. This
+   *             identifier is required only if <code>remoteDebugEnabled</code> is set to <code>true</code>.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  clientId?: string;
+
+  /**
+   * <p>The configuration information for the remote access session request.</p>
+   */
+  configuration?: CreateRemoteAccessSessionConfiguration;
+
+  /**
+   * <p>The ARN of the device for which you want to create a remote access session.</p>
+   */
+  deviceArn: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -738,23 +697,36 @@ export interface CreateRemoteAccessSessionRequest {
   skipAppResign?: boolean;
 
   /**
-   * <p>Ignored. The public key of the <code>ssh</code> key pair you want to use for connecting to remote
-   *             devices in your remote debugging session. This key is required only if <code>remoteDebugEnabled</code> is
-   *             set to <code>true</code>.</p>
+   * <p>The name of the remote access session to create.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
+   *             remote access session.</p>
+   */
+  instanceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the app to be recorded in the remote access
+   *             session.</p>
+   */
+  remoteRecordAppArn?: string;
+
+  /**
+   * <p>Set to <code>true</code> if you want to access devices remotely for debugging in
+   *             your remote access session.</p>
    *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
    *                 longer supported</a>.</p>
    */
-  sshPublicKey?: string;
+  remoteDebugEnabled?: boolean;
 }
 
 export namespace CreateRemoteAccessSessionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateRemoteAccessSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateRemoteAccessSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRemoteAccessSessionRequest =>
-    __isa(o, "CreateRemoteAccessSessionRequest");
+  export const isa = (o: any): o is CreateRemoteAccessSessionRequest => __isa(o, "CreateRemoteAccessSessionRequest");
 }
 
 /**
@@ -771,36 +743,30 @@ export interface CreateRemoteAccessSessionResult {
 }
 
 export namespace CreateRemoteAccessSessionResult {
-  export const filterSensitiveLog = (
-    obj: CreateRemoteAccessSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateRemoteAccessSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRemoteAccessSessionResult =>
-    __isa(o, "CreateRemoteAccessSessionResult");
+  export const isa = (o: any): o is CreateRemoteAccessSessionResult => __isa(o, "CreateRemoteAccessSessionResult");
 }
 
 export interface CreateTestGridProjectRequest {
   __type?: "CreateTestGridProjectRequest";
   /**
-   * <p>Human-readable description of the project.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Human-readable name of the Selenium testing project.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>Human-readable description of the project.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateTestGridProjectRequest {
-  export const filterSensitiveLog = (
-    obj: CreateTestGridProjectRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTestGridProjectRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridProjectRequest =>
-    __isa(o, "CreateTestGridProjectRequest");
+  export const isa = (o: any): o is CreateTestGridProjectRequest => __isa(o, "CreateTestGridProjectRequest");
 }
 
 export interface CreateTestGridProjectResult {
@@ -812,35 +778,31 @@ export interface CreateTestGridProjectResult {
 }
 
 export namespace CreateTestGridProjectResult {
-  export const filterSensitiveLog = (
-    obj: CreateTestGridProjectResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateTestGridProjectResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridProjectResult =>
-    __isa(o, "CreateTestGridProjectResult");
+  export const isa = (o: any): o is CreateTestGridProjectResult => __isa(o, "CreateTestGridProjectResult");
 }
 
 export interface CreateTestGridUrlRequest {
   __type?: "CreateTestGridUrlRequest";
   /**
-   * <p>Lifetime, in seconds, of the URL.</p>
-   */
-  expiresInSeconds: number | undefined;
-
-  /**
    * <p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate
    *          with the short-term URL. </p>
    */
   projectArn: string | undefined;
+
+  /**
+   * <p>Lifetime, in seconds, of the URL.</p>
+   */
+  expiresInSeconds: number | undefined;
 }
 
 export namespace CreateTestGridUrlRequest {
   export const filterSensitiveLog = (obj: CreateTestGridUrlRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridUrlRequest =>
-    __isa(o, "CreateTestGridUrlRequest");
+  export const isa = (o: any): o is CreateTestGridUrlRequest => __isa(o, "CreateTestGridUrlRequest");
 }
 
 export interface CreateTestGridUrlResult {
@@ -859,10 +821,9 @@ export interface CreateTestGridUrlResult {
 
 export namespace CreateTestGridUrlResult {
   export const filterSensitiveLog = (obj: CreateTestGridUrlResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTestGridUrlResult =>
-    __isa(o, "CreateTestGridUrlResult");
+  export const isa = (o: any): o is CreateTestGridUrlResult => __isa(o, "CreateTestGridUrlResult");
 }
 
 /**
@@ -870,19 +831,6 @@ export namespace CreateTestGridUrlResult {
  */
 export interface CreateUploadRequest {
   __type?: "CreateUploadRequest";
-  /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
-   */
-  contentType?: string;
-
-  /**
-   * <p>The upload's file name. The name should not contain any forward slashes (<code>/</code>). If you are
-   *             uploading an iOS app, the file name must end with the <code>.ipa</code> extension. If you are uploading an
-   *             Android app, the file name must end with the <code>.apk</code> extension. For all others, the file name must
-   *             end with the <code>.zip</code> file extension.</p>
-   */
-  name: string | undefined;
-
   /**
    * <p>The ARN of the project for the upload.</p>
    */
@@ -993,14 +941,26 @@ export interface CreateUploadRequest {
    *             Device Farm throws an <code>ArgumentException</code> error.</p>
    */
   type: UploadType | string | undefined;
+
+  /**
+   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>The upload's file name. The name should not contain any forward slashes (<code>/</code>). If you are
+   *             uploading an iOS app, the file name must end with the <code>.ipa</code> extension. If you are uploading an
+   *             Android app, the file name must end with the <code>.apk</code> extension. For all others, the file name must
+   *             end with the <code>.zip</code> file extension.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateUploadRequest {
   export const filterSensitiveLog = (obj: CreateUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUploadRequest =>
-    __isa(o, "CreateUploadRequest");
+  export const isa = (o: any): o is CreateUploadRequest => __isa(o, "CreateUploadRequest");
 }
 
 /**
@@ -1016,14 +976,23 @@ export interface CreateUploadResult {
 
 export namespace CreateUploadResult {
   export const filterSensitiveLog = (obj: CreateUploadResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUploadResult =>
-    __isa(o, "CreateUploadResult");
+  export const isa = (o: any): o is CreateUploadResult => __isa(o, "CreateUploadResult");
 }
 
 export interface CreateVPCEConfigurationRequest {
   __type?: "CreateVPCEConfigurationRequest";
+  /**
+   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   */
+  vpceConfigurationDescription?: string;
+
+  /**
+   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   */
+  vpceServiceName: string | undefined;
+
   /**
    * <p>The DNS name of the service running in your VPC that you want Device Farm to
    *             test.</p>
@@ -1031,30 +1000,17 @@ export interface CreateVPCEConfigurationRequest {
   serviceDnsName: string | undefined;
 
   /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
-   */
-  vpceConfigurationDescription?: string;
-
-  /**
    * <p>The friendly name you give to your VPC endpoint configuration, to manage your
    *             configurations more easily.</p>
    */
   vpceConfigurationName: string | undefined;
-
-  /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
-   */
-  vpceServiceName: string | undefined;
 }
 
 export namespace CreateVPCEConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateVPCEConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVPCEConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVPCEConfigurationRequest =>
-    __isa(o, "CreateVPCEConfigurationRequest");
+  export const isa = (o: any): o is CreateVPCEConfigurationRequest => __isa(o, "CreateVPCEConfigurationRequest");
 }
 
 export interface CreateVPCEConfigurationResult {
@@ -1066,17 +1022,14 @@ export interface CreateVPCEConfigurationResult {
 }
 
 export namespace CreateVPCEConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: CreateVPCEConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateVPCEConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateVPCEConfigurationResult =>
-    __isa(o, "CreateVPCEConfigurationResult");
+  export const isa = (o: any): o is CreateVPCEConfigurationResult => __isa(o, "CreateVPCEConfigurationResult");
 }
 
 export enum CurrencyCode {
-  USD = "USD"
+  USD = "USD",
 }
 
 /**
@@ -1110,10 +1063,9 @@ export interface CustomerArtifactPaths {
 
 export namespace CustomerArtifactPaths {
   export const filterSensitiveLog = (obj: CustomerArtifactPaths): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerArtifactPaths =>
-    __isa(o, "CustomerArtifactPaths");
+  export const isa = (o: any): o is CustomerArtifactPaths => __isa(o, "CustomerArtifactPaths");
 }
 
 /**
@@ -1129,10 +1081,9 @@ export interface DeleteDevicePoolRequest {
 
 export namespace DeleteDevicePoolRequest {
   export const filterSensitiveLog = (obj: DeleteDevicePoolRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDevicePoolRequest =>
-    __isa(o, "DeleteDevicePoolRequest");
+  export const isa = (o: any): o is DeleteDevicePoolRequest => __isa(o, "DeleteDevicePoolRequest");
 }
 
 /**
@@ -1144,10 +1095,9 @@ export interface DeleteDevicePoolResult {
 
 export namespace DeleteDevicePoolResult {
   export const filterSensitiveLog = (obj: DeleteDevicePoolResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDevicePoolResult =>
-    __isa(o, "DeleteDevicePoolResult");
+  export const isa = (o: any): o is DeleteDevicePoolResult => __isa(o, "DeleteDevicePoolResult");
 }
 
 export interface DeleteInstanceProfileRequest {
@@ -1160,13 +1110,10 @@ export interface DeleteInstanceProfileRequest {
 }
 
 export namespace DeleteInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileRequest =>
-    __isa(o, "DeleteInstanceProfileRequest");
+  export const isa = (o: any): o is DeleteInstanceProfileRequest => __isa(o, "DeleteInstanceProfileRequest");
 }
 
 export interface DeleteInstanceProfileResult {
@@ -1174,13 +1121,10 @@ export interface DeleteInstanceProfileResult {
 }
 
 export namespace DeleteInstanceProfileResult {
-  export const filterSensitiveLog = (
-    obj: DeleteInstanceProfileResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteInstanceProfileResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceProfileResult =>
-    __isa(o, "DeleteInstanceProfileResult");
+  export const isa = (o: any): o is DeleteInstanceProfileResult => __isa(o, "DeleteInstanceProfileResult");
 }
 
 export interface DeleteNetworkProfileRequest {
@@ -1192,13 +1136,10 @@ export interface DeleteNetworkProfileRequest {
 }
 
 export namespace DeleteNetworkProfileRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNetworkProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileRequest =>
-    __isa(o, "DeleteNetworkProfileRequest");
+  export const isa = (o: any): o is DeleteNetworkProfileRequest => __isa(o, "DeleteNetworkProfileRequest");
 }
 
 export interface DeleteNetworkProfileResult {
@@ -1207,10 +1148,9 @@ export interface DeleteNetworkProfileResult {
 
 export namespace DeleteNetworkProfileResult {
   export const filterSensitiveLog = (obj: DeleteNetworkProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNetworkProfileResult =>
-    __isa(o, "DeleteNetworkProfileResult");
+  export const isa = (o: any): o is DeleteNetworkProfileResult => __isa(o, "DeleteNetworkProfileResult");
 }
 
 /**
@@ -1226,10 +1166,9 @@ export interface DeleteProjectRequest {
 
 export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest =>
-    __isa(o, "DeleteProjectRequest");
+  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 /**
@@ -1241,10 +1180,9 @@ export interface DeleteProjectResult {
 
 export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult =>
-    __isa(o, "DeleteProjectResult");
+  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 /**
@@ -1260,13 +1198,10 @@ export interface DeleteRemoteAccessSessionRequest {
 }
 
 export namespace DeleteRemoteAccessSessionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRemoteAccessSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemoteAccessSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRemoteAccessSessionRequest =>
-    __isa(o, "DeleteRemoteAccessSessionRequest");
+  export const isa = (o: any): o is DeleteRemoteAccessSessionRequest => __isa(o, "DeleteRemoteAccessSessionRequest");
 }
 
 /**
@@ -1278,13 +1213,10 @@ export interface DeleteRemoteAccessSessionResult {
 }
 
 export namespace DeleteRemoteAccessSessionResult {
-  export const filterSensitiveLog = (
-    obj: DeleteRemoteAccessSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemoteAccessSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRemoteAccessSessionResult =>
-    __isa(o, "DeleteRemoteAccessSessionResult");
+  export const isa = (o: any): o is DeleteRemoteAccessSessionResult => __isa(o, "DeleteRemoteAccessSessionResult");
 }
 
 /**
@@ -1300,10 +1232,9 @@ export interface DeleteRunRequest {
 
 export namespace DeleteRunRequest {
   export const filterSensitiveLog = (obj: DeleteRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRunRequest =>
-    __isa(o, "DeleteRunRequest");
+  export const isa = (o: any): o is DeleteRunRequest => __isa(o, "DeleteRunRequest");
 }
 
 /**
@@ -1315,10 +1246,9 @@ export interface DeleteRunResult {
 
 export namespace DeleteRunResult {
   export const filterSensitiveLog = (obj: DeleteRunResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRunResult =>
-    __isa(o, "DeleteRunResult");
+  export const isa = (o: any): o is DeleteRunResult => __isa(o, "DeleteRunResult");
 }
 
 export interface DeleteTestGridProjectRequest {
@@ -1330,13 +1260,10 @@ export interface DeleteTestGridProjectRequest {
 }
 
 export namespace DeleteTestGridProjectRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteTestGridProjectRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTestGridProjectRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTestGridProjectRequest =>
-    __isa(o, "DeleteTestGridProjectRequest");
+  export const isa = (o: any): o is DeleteTestGridProjectRequest => __isa(o, "DeleteTestGridProjectRequest");
 }
 
 export interface DeleteTestGridProjectResult {
@@ -1344,13 +1271,10 @@ export interface DeleteTestGridProjectResult {
 }
 
 export namespace DeleteTestGridProjectResult {
-  export const filterSensitiveLog = (
-    obj: DeleteTestGridProjectResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteTestGridProjectResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTestGridProjectResult =>
-    __isa(o, "DeleteTestGridProjectResult");
+  export const isa = (o: any): o is DeleteTestGridProjectResult => __isa(o, "DeleteTestGridProjectResult");
 }
 
 /**
@@ -1366,10 +1290,9 @@ export interface DeleteUploadRequest {
 
 export namespace DeleteUploadRequest {
   export const filterSensitiveLog = (obj: DeleteUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUploadRequest =>
-    __isa(o, "DeleteUploadRequest");
+  export const isa = (o: any): o is DeleteUploadRequest => __isa(o, "DeleteUploadRequest");
 }
 
 /**
@@ -1381,10 +1304,9 @@ export interface DeleteUploadResult {
 
 export namespace DeleteUploadResult {
   export const filterSensitiveLog = (obj: DeleteUploadResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUploadResult =>
-    __isa(o, "DeleteUploadResult");
+  export const isa = (o: any): o is DeleteUploadResult => __isa(o, "DeleteUploadResult");
 }
 
 export interface DeleteVPCEConfigurationRequest {
@@ -1397,13 +1319,10 @@ export interface DeleteVPCEConfigurationRequest {
 }
 
 export namespace DeleteVPCEConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteVPCEConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVPCEConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCEConfigurationRequest =>
-    __isa(o, "DeleteVPCEConfigurationRequest");
+  export const isa = (o: any): o is DeleteVPCEConfigurationRequest => __isa(o, "DeleteVPCEConfigurationRequest");
 }
 
 export interface DeleteVPCEConfigurationResult {
@@ -1411,13 +1330,10 @@ export interface DeleteVPCEConfigurationResult {
 }
 
 export namespace DeleteVPCEConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: DeleteVPCEConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteVPCEConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCEConfigurationResult =>
-    __isa(o, "DeleteVPCEConfigurationResult");
+  export const isa = (o: any): o is DeleteVPCEConfigurationResult => __isa(o, "DeleteVPCEConfigurationResult");
 }
 
 /**
@@ -1426,14 +1342,34 @@ export namespace DeleteVPCEConfigurationResult {
 export interface Device {
   __type?: "Device";
   /**
+   * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
+   */
+  availability?: DeviceAvailability | string;
+
+  /**
+   * <p>The device's display name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The device's model name.</p>
+   */
+  model?: string;
+
+  /**
    * <p>The device's ARN.</p>
    */
   arn?: string;
 
   /**
-   * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
+   * <p>The device's operating system type.</p>
    */
-  availability?: DeviceAvailability | string;
+  os?: string;
+
+  /**
+   * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
+   */
+  fleetType?: string;
 
   /**
    * <p>The device's carrier.</p>
@@ -1441,19 +1377,29 @@ export interface Device {
   carrier?: string;
 
   /**
-   * <p>Information about the device's CPU.</p>
-   */
-  cpu?: CPU;
-
-  /**
    * <p>The name of the fleet to which this device belongs.</p>
    */
   fleetName?: string;
 
   /**
-   * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
+   * <p>The device's total memory size, expressed in bytes.</p>
    */
-  fleetType?: string;
+  memory?: number;
+
+  /**
+   * <p>The device's model ID.</p>
+   */
+  modelId?: string;
+
+  /**
+   * <p>The device's image name.</p>
+   */
+  image?: string;
+
+  /**
+   * <p>The instances that belong to this device.</p>
+   */
+  instances?: DeviceInstance[];
 
   /**
    * <p>The device's form factor.</p>
@@ -1470,19 +1416,32 @@ export interface Device {
   formFactor?: DeviceFormFactor | string;
 
   /**
+   * <p>Information about the device's CPU.</p>
+   */
+  cpu?: CPU;
+
+  /**
+   * <p>The device's radio.</p>
+   */
+  radio?: string;
+
+  /**
    * <p>The device's heap size, expressed in bytes.</p>
    */
   heapSize?: number;
 
   /**
-   * <p>The device's image name.</p>
+   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
+   *             device.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
    */
-  image?: string;
+  remoteDebugEnabled?: boolean;
 
   /**
-   * <p>The instances that belong to this device.</p>
+   * <p>The resolution of the device.</p>
    */
-  instances?: DeviceInstance[];
+  resolution?: Resolution;
 
   /**
    * <p>The device's manufacturer name.</p>
@@ -1490,29 +1449,10 @@ export interface Device {
   manufacturer?: string;
 
   /**
-   * <p>The device's total memory size, expressed in bytes.</p>
+   * <p>Specifies whether remote access has been enabled for the specified
+   *             device.</p>
    */
-  memory?: number;
-
-  /**
-   * <p>The device's model name.</p>
-   */
-  model?: string;
-
-  /**
-   * <p>The device's model ID.</p>
-   */
-  modelId?: string;
-
-  /**
-   * <p>The device's display name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The device's operating system type.</p>
-   */
-  os?: string;
+  remoteAccessEnabled?: boolean;
 
   /**
    * <p>The device's platform.</p>
@@ -1527,35 +1467,11 @@ export interface Device {
    *          </ul>
    */
   platform?: DevicePlatform | string;
-
-  /**
-   * <p>The device's radio.</p>
-   */
-  radio?: string;
-
-  /**
-   * <p>Specifies whether remote access has been enabled for the specified
-   *             device.</p>
-   */
-  remoteAccessEnabled?: boolean;
-
-  /**
-   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
-   *             device.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  remoteDebugEnabled?: boolean;
-
-  /**
-   * <p>The resolution of the device.</p>
-   */
-  resolution?: Resolution;
 }
 
 export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Device => __isa(o, "Device");
 }
@@ -1573,14 +1489,14 @@ export enum DeviceAttribute {
   OS_VERSION = "OS_VERSION",
   PLATFORM = "PLATFORM",
   REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED"
+  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
 }
 
 export enum DeviceAvailability {
   AVAILABLE = "AVAILABLE",
   BUSY = "BUSY",
   HIGHLY_AVAILABLE = "HIGHLY_AVAILABLE",
-  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE"
+  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE",
 }
 
 /**
@@ -1593,6 +1509,47 @@ export enum DeviceAvailability {
  */
 export interface DeviceFilter {
   __type?: "DeviceFilter";
+  /**
+   * <p>An array of one or more filter values used in a device filter.</p>
+   *         <p class="title">
+   *             <b>Operator Values</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                 <p>The IN and NOT_IN operators can take a values array that has more than one
+   *                     element.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The other operators require an array with a single element.</p>
+   *             </li>
+   *          </ul>
+   *         <p class="title">
+   *             <b>Attribute Values</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                 <p>The PLATFORM attribute can be set to ANDROID or IOS.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
+   *                     TEMPORARY_NOT_AVAILABLE.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
+   *             </li>
+   *          </ul>
+   */
+  values?: string[];
+
+  /**
+   * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
+   *             descriptions.</p>
+   */
+  operator?: RuleOperator | string;
+
   /**
    * <p>The aspect of a device such as platform or model used as the selection criteria in a
    *             device filter.</p>
@@ -1684,52 +1641,11 @@ export interface DeviceFilter {
    *          </dl>
    */
   attribute?: DeviceFilterAttribute | string;
-
-  /**
-   * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
-   *             descriptions.</p>
-   */
-  operator?: RuleOperator | string;
-
-  /**
-   * <p>An array of one or more filter values used in a device filter.</p>
-   *         <p class="title">
-   *             <b>Operator Values</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                 <p>The IN and NOT_IN operators can take a values array that has more than one
-   *                     element.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The other operators require an array with a single element.</p>
-   *             </li>
-   *          </ul>
-   *         <p class="title">
-   *             <b>Attribute Values</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                 <p>The PLATFORM attribute can be set to ANDROID or IOS.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
-   *                     TEMPORARY_NOT_AVAILABLE.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
-   *             </li>
-   *             <li>
-   *                 <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
-   *             </li>
-   *          </ul>
-   */
-  values?: string[];
 }
 
 export namespace DeviceFilter {
   export const filterSensitiveLog = (obj: DeviceFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DeviceFilter => __isa(o, "DeviceFilter");
 }
@@ -1746,12 +1662,12 @@ export enum DeviceFilterAttribute {
   OS_VERSION = "OS_VERSION",
   PLATFORM = "PLATFORM",
   REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED"
+  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
 }
 
 export enum DeviceFormFactor {
   PHONE = "PHONE",
-  TABLET = "TABLET"
+  TABLET = "TABLET",
 }
 
 /**
@@ -1760,9 +1676,24 @@ export enum DeviceFormFactor {
 export interface DeviceInstance {
   __type?: "DeviceInstance";
   /**
+   * <p>An array of strings that describe the device instance.</p>
+   */
+  labels?: string[];
+
+  /**
+   * <p>Unique device identifier for the device instance.</p>
+   */
+  udid?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the device instance.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The status of the device instance. Valid values are listed here.</p>
+   */
+  status?: InstanceStatus | string;
 
   /**
    * <p>The ARN of the device.</p>
@@ -1773,29 +1704,13 @@ export interface DeviceInstance {
    * <p>A object that contains information about the instance profile.</p>
    */
   instanceProfile?: InstanceProfile;
-
-  /**
-   * <p>An array of strings that describe the device instance.</p>
-   */
-  labels?: string[];
-
-  /**
-   * <p>The status of the device instance. Valid values are listed here.</p>
-   */
-  status?: InstanceStatus | string;
-
-  /**
-   * <p>Unique device identifier for the device instance.</p>
-   */
-  udid?: string;
 }
 
 export namespace DeviceInstance {
   export const filterSensitiveLog = (obj: DeviceInstance): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeviceInstance =>
-    __isa(o, "DeviceInstance");
+  export const isa = (o: any): o is DeviceInstance => __isa(o, "DeviceInstance");
 }
 
 /**
@@ -1804,12 +1719,6 @@ export namespace DeviceInstance {
  */
 export interface DeviceMinutes {
   __type?: "DeviceMinutes";
-  /**
-   * <p>When specified, represents only the sum of metered minutes used by the resource to
-   *             run tests.</p>
-   */
-  metered?: number;
-
   /**
    * <p>When specified, represents the total minutes used by the resource to run
    *             tests.</p>
@@ -1821,18 +1730,24 @@ export interface DeviceMinutes {
    *             to run tests.</p>
    */
   unmetered?: number;
+
+  /**
+   * <p>When specified, represents only the sum of metered minutes used by the resource to
+   *             run tests.</p>
+   */
+  metered?: number;
 }
 
 export namespace DeviceMinutes {
   export const filterSensitiveLog = (obj: DeviceMinutes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DeviceMinutes => __isa(o, "DeviceMinutes");
 }
 
 export enum DevicePlatform {
   ANDROID = "ANDROID",
-  IOS = "IOS"
+  IOS = "IOS",
 }
 
 /**
@@ -1841,34 +1756,14 @@ export enum DevicePlatform {
 export interface DevicePool {
   __type?: "DevicePool";
   /**
-   * <p>The device pool's ARN.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The device pool's description.</p>
    */
   description?: string;
 
   /**
-   * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
-   *             available and meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many
-   *             devices meet these constraints, your device pool might contain fewer devices than the value for this
-   *             parameter.</p>
-   *         <p>By specifying the maximum number of devices, you can control the costs that you incur
-   *             by running tests.</p>
+   * <p>The device pool's ARN.</p>
    */
-  maxDevices?: number;
-
-  /**
-   * <p>The device pool's name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Information about the device pool's rules.</p>
-   */
-  rules?: Rule[];
+  arn?: string;
 
   /**
    * <p>The device pool's type.</p>
@@ -1885,11 +1780,31 @@ export interface DevicePool {
    *          </ul>
    */
   type?: DevicePoolType | string;
+
+  /**
+   * <p>The device pool's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Information about the device pool's rules.</p>
+   */
+  rules?: Rule[];
+
+  /**
+   * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
+   *             available and meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many
+   *             devices meet these constraints, your device pool might contain fewer devices than the value for this
+   *             parameter.</p>
+   *         <p>By specifying the maximum number of devices, you can control the costs that you incur
+   *             by running tests.</p>
+   */
+  maxDevices?: number;
 }
 
 export namespace DevicePool {
   export const filterSensitiveLog = (obj: DevicePool): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DevicePool => __isa(o, "DevicePool");
 }
@@ -1900,11 +1815,6 @@ export namespace DevicePool {
 export interface DevicePoolCompatibilityResult {
   __type?: "DevicePoolCompatibilityResult";
   /**
-   * <p>Whether the result was compatible with the device pool.</p>
-   */
-  compatible?: boolean;
-
-  /**
    * <p>The device (phone or tablet) to return information about.</p>
    */
   device?: Device;
@@ -1913,21 +1823,23 @@ export interface DevicePoolCompatibilityResult {
    * <p>Information about the compatibility.</p>
    */
   incompatibilityMessages?: IncompatibilityMessage[];
+
+  /**
+   * <p>Whether the result was compatible with the device pool.</p>
+   */
+  compatible?: boolean;
 }
 
 export namespace DevicePoolCompatibilityResult {
-  export const filterSensitiveLog = (
-    obj: DevicePoolCompatibilityResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DevicePoolCompatibilityResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DevicePoolCompatibilityResult =>
-    __isa(o, "DevicePoolCompatibilityResult");
+  export const isa = (o: any): o is DevicePoolCompatibilityResult => __isa(o, "DevicePoolCompatibilityResult");
 }
 
 export enum DevicePoolType {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 /**
@@ -1936,6 +1848,11 @@ export enum DevicePoolType {
  */
 export interface DeviceSelectionConfiguration {
   __type?: "DeviceSelectionConfiguration";
+  /**
+   * <p>The maximum number of devices to be included in a test run.</p>
+   */
+  maxDevices: number | undefined;
+
   /**
    * <p>Used to dynamically select a set of devices for a test run. A filter is made up of an
    *             attribute, an operator, and one or more values.</p>
@@ -2061,21 +1978,13 @@ export interface DeviceSelectionConfiguration {
    *          </ul>
    */
   filters: DeviceFilter[] | undefined;
-
-  /**
-   * <p>The maximum number of devices to be included in a test run.</p>
-   */
-  maxDevices: number | undefined;
 }
 
 export namespace DeviceSelectionConfiguration {
-  export const filterSensitiveLog = (
-    obj: DeviceSelectionConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeviceSelectionConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeviceSelectionConfiguration =>
-    __isa(o, "DeviceSelectionConfiguration");
+  export const isa = (o: any): o is DeviceSelectionConfiguration => __isa(o, "DeviceSelectionConfiguration");
 }
 
 /**
@@ -2084,11 +1993,6 @@ export namespace DeviceSelectionConfiguration {
  */
 export interface DeviceSelectionResult {
   __type?: "DeviceSelectionResult";
-  /**
-   * <p>The filters in a device selection result.</p>
-   */
-  filters?: DeviceFilter[];
-
   /**
    * <p>The number of devices that matched the device filter selection criteria.</p>
    */
@@ -2099,14 +2003,18 @@ export interface DeviceSelectionResult {
    *             run.</p>
    */
   maxDevices?: number;
+
+  /**
+   * <p>The filters in a device selection result.</p>
+   */
+  filters?: DeviceFilter[];
 }
 
 export namespace DeviceSelectionResult {
   export const filterSensitiveLog = (obj: DeviceSelectionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeviceSelectionResult =>
-    __isa(o, "DeviceSelectionResult");
+  export const isa = (o: any): o is DeviceSelectionResult => __isa(o, "DeviceSelectionResult");
 }
 
 /**
@@ -2116,19 +2024,19 @@ export namespace DeviceSelectionResult {
 export interface ExecutionConfiguration {
   __type?: "ExecutionConfiguration";
   /**
-   * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
+   * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
    */
-  accountsCleanup?: boolean;
-
-  /**
-   * <p>True if app package cleanup is enabled at the beginning of the test. Otherwise, false.</p>
-   */
-  appPackagesCleanup?: boolean;
+  videoCapture?: boolean;
 
   /**
    * <p>The number of minutes a test run executes before it times out.</p>
    */
   jobTimeoutMinutes?: number;
+
+  /**
+   * <p>True if app package cleanup is enabled at the beginning of the test. Otherwise, false.</p>
+   */
+  appPackagesCleanup?: boolean;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -2139,17 +2047,16 @@ export interface ExecutionConfiguration {
   skipAppResign?: boolean;
 
   /**
-   * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
+   * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
    */
-  videoCapture?: boolean;
+  accountsCleanup?: boolean;
 }
 
 export namespace ExecutionConfiguration {
   export const filterSensitiveLog = (obj: ExecutionConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionConfiguration =>
-    __isa(o, "ExecutionConfiguration");
+  export const isa = (o: any): o is ExecutionConfiguration => __isa(o, "ExecutionConfiguration");
 }
 
 export enum ExecutionResult {
@@ -2159,12 +2066,12 @@ export enum ExecutionResult {
   PENDING = "PENDING",
   SKIPPED = "SKIPPED",
   STOPPED = "STOPPED",
-  WARNED = "WARNED"
+  WARNED = "WARNED",
 }
 
 export enum ExecutionResultCode {
   PARSING_FAILED = "PARSING_FAILED",
-  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED"
+  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED",
 }
 
 export enum ExecutionStatus {
@@ -2176,7 +2083,7 @@ export enum ExecutionStatus {
   PROCESSING = "PROCESSING",
   RUNNING = "RUNNING",
   SCHEDULING = "SCHEDULING",
-  STOPPING = "STOPPING"
+  STOPPING = "STOPPING",
 }
 
 /**
@@ -2188,10 +2095,9 @@ export interface GetAccountSettingsRequest {
 
 export namespace GetAccountSettingsRequest {
   export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsRequest =>
-    __isa(o, "GetAccountSettingsRequest");
+  export const isa = (o: any): o is GetAccountSettingsRequest => __isa(o, "GetAccountSettingsRequest");
 }
 
 /**
@@ -2208,10 +2114,9 @@ export interface GetAccountSettingsResult {
 
 export namespace GetAccountSettingsResult {
   export const filterSensitiveLog = (obj: GetAccountSettingsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsResult =>
-    __isa(o, "GetAccountSettingsResult");
+  export const isa = (o: any): o is GetAccountSettingsResult => __isa(o, "GetAccountSettingsResult");
 }
 
 export interface GetDeviceInstanceRequest {
@@ -2225,10 +2130,9 @@ export interface GetDeviceInstanceRequest {
 
 export namespace GetDeviceInstanceRequest {
   export const filterSensitiveLog = (obj: GetDeviceInstanceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeviceInstanceRequest =>
-    __isa(o, "GetDeviceInstanceRequest");
+  export const isa = (o: any): o is GetDeviceInstanceRequest => __isa(o, "GetDeviceInstanceRequest");
 }
 
 export interface GetDeviceInstanceResult {
@@ -2241,10 +2145,9 @@ export interface GetDeviceInstanceResult {
 
 export namespace GetDeviceInstanceResult {
   export const filterSensitiveLog = (obj: GetDeviceInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeviceInstanceResult =>
-    __isa(o, "GetDeviceInstanceResult");
+  export const isa = (o: any): o is GetDeviceInstanceResult => __isa(o, "GetDeviceInstanceResult");
 }
 
 /**
@@ -2253,14 +2156,9 @@ export namespace GetDeviceInstanceResult {
 export interface GetDevicePoolCompatibilityRequest {
   __type?: "GetDevicePoolCompatibilityRequest";
   /**
-   * <p>The ARN of the app that is associated with the specified device pool.</p>
+   * <p>Information about the uploaded test to be run against the device pool.</p>
    */
-  appArn?: string;
-
-  /**
-   * <p>An object that contains information about the settings for a run.</p>
-   */
-  configuration?: ScheduleRunConfiguration;
+  test?: ScheduleRunTest;
 
   /**
    * <p>The device pool's ARN.</p>
@@ -2268,9 +2166,14 @@ export interface GetDevicePoolCompatibilityRequest {
   devicePoolArn: string | undefined;
 
   /**
-   * <p>Information about the uploaded test to be run against the device pool.</p>
+   * <p>An object that contains information about the settings for a run.</p>
    */
-  test?: ScheduleRunTest;
+  configuration?: ScheduleRunConfiguration;
+
+  /**
+   * <p>The ARN of the app that is associated with the specified device pool.</p>
+   */
+  appArn?: string;
 
   /**
    * <p>The test type for the specified device pool.</p>
@@ -2337,13 +2240,10 @@ export interface GetDevicePoolCompatibilityRequest {
 }
 
 export namespace GetDevicePoolCompatibilityRequest {
-  export const filterSensitiveLog = (
-    obj: GetDevicePoolCompatibilityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDevicePoolCompatibilityRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolCompatibilityRequest =>
-    __isa(o, "GetDevicePoolCompatibilityRequest");
+  export const isa = (o: any): o is GetDevicePoolCompatibilityRequest => __isa(o, "GetDevicePoolCompatibilityRequest");
 }
 
 /**
@@ -2352,24 +2252,21 @@ export namespace GetDevicePoolCompatibilityRequest {
 export interface GetDevicePoolCompatibilityResult {
   __type?: "GetDevicePoolCompatibilityResult";
   /**
-   * <p>Information about compatible devices.</p>
-   */
-  compatibleDevices?: DevicePoolCompatibilityResult[];
-
-  /**
    * <p>Information about incompatible devices.</p>
    */
   incompatibleDevices?: DevicePoolCompatibilityResult[];
+
+  /**
+   * <p>Information about compatible devices.</p>
+   */
+  compatibleDevices?: DevicePoolCompatibilityResult[];
 }
 
 export namespace GetDevicePoolCompatibilityResult {
-  export const filterSensitiveLog = (
-    obj: GetDevicePoolCompatibilityResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDevicePoolCompatibilityResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolCompatibilityResult =>
-    __isa(o, "GetDevicePoolCompatibilityResult");
+  export const isa = (o: any): o is GetDevicePoolCompatibilityResult => __isa(o, "GetDevicePoolCompatibilityResult");
 }
 
 /**
@@ -2385,10 +2282,9 @@ export interface GetDevicePoolRequest {
 
 export namespace GetDevicePoolRequest {
   export const filterSensitiveLog = (obj: GetDevicePoolRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolRequest =>
-    __isa(o, "GetDevicePoolRequest");
+  export const isa = (o: any): o is GetDevicePoolRequest => __isa(o, "GetDevicePoolRequest");
 }
 
 /**
@@ -2404,10 +2300,9 @@ export interface GetDevicePoolResult {
 
 export namespace GetDevicePoolResult {
   export const filterSensitiveLog = (obj: GetDevicePoolResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDevicePoolResult =>
-    __isa(o, "GetDevicePoolResult");
+  export const isa = (o: any): o is GetDevicePoolResult => __isa(o, "GetDevicePoolResult");
 }
 
 /**
@@ -2423,10 +2318,9 @@ export interface GetDeviceRequest {
 
 export namespace GetDeviceRequest {
   export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeviceRequest =>
-    __isa(o, "GetDeviceRequest");
+  export const isa = (o: any): o is GetDeviceRequest => __isa(o, "GetDeviceRequest");
 }
 
 /**
@@ -2442,10 +2336,9 @@ export interface GetDeviceResult {
 
 export namespace GetDeviceResult {
   export const filterSensitiveLog = (obj: GetDeviceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDeviceResult =>
-    __isa(o, "GetDeviceResult");
+  export const isa = (o: any): o is GetDeviceResult => __isa(o, "GetDeviceResult");
 }
 
 export interface GetInstanceProfileRequest {
@@ -2458,10 +2351,9 @@ export interface GetInstanceProfileRequest {
 
 export namespace GetInstanceProfileRequest {
   export const filterSensitiveLog = (obj: GetInstanceProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileRequest =>
-    __isa(o, "GetInstanceProfileRequest");
+  export const isa = (o: any): o is GetInstanceProfileRequest => __isa(o, "GetInstanceProfileRequest");
 }
 
 export interface GetInstanceProfileResult {
@@ -2474,10 +2366,9 @@ export interface GetInstanceProfileResult {
 
 export namespace GetInstanceProfileResult {
   export const filterSensitiveLog = (obj: GetInstanceProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetInstanceProfileResult =>
-    __isa(o, "GetInstanceProfileResult");
+  export const isa = (o: any): o is GetInstanceProfileResult => __isa(o, "GetInstanceProfileResult");
 }
 
 /**
@@ -2493,7 +2384,7 @@ export interface GetJobRequest {
 
 export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
@@ -2511,7 +2402,7 @@ export interface GetJobResult {
 
 export namespace GetJobResult {
   export const filterSensitiveLog = (obj: GetJobResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetJobResult => __isa(o, "GetJobResult");
 }
@@ -2526,10 +2417,9 @@ export interface GetNetworkProfileRequest {
 
 export namespace GetNetworkProfileRequest {
   export const filterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetNetworkProfileRequest =>
-    __isa(o, "GetNetworkProfileRequest");
+  export const isa = (o: any): o is GetNetworkProfileRequest => __isa(o, "GetNetworkProfileRequest");
 }
 
 export interface GetNetworkProfileResult {
@@ -2542,10 +2432,9 @@ export interface GetNetworkProfileResult {
 
 export namespace GetNetworkProfileResult {
   export const filterSensitiveLog = (obj: GetNetworkProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetNetworkProfileResult =>
-    __isa(o, "GetNetworkProfileResult");
+  export const isa = (o: any): o is GetNetworkProfileResult => __isa(o, "GetNetworkProfileResult");
 }
 
 /**
@@ -2563,10 +2452,9 @@ export interface GetOfferingStatusRequest {
 
 export namespace GetOfferingStatusRequest {
   export const filterSensitiveLog = (obj: GetOfferingStatusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOfferingStatusRequest =>
-    __isa(o, "GetOfferingStatusRequest");
+  export const isa = (o: any): o is GetOfferingStatusRequest => __isa(o, "GetOfferingStatusRequest");
 }
 
 /**
@@ -2580,23 +2468,22 @@ export interface GetOfferingStatusResult {
   current?: { [key: string]: OfferingStatus };
 
   /**
-   * <p>When specified, gets the offering status for the next period.</p>
-   */
-  nextPeriod?: { [key: string]: OfferingStatus };
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>When specified, gets the offering status for the next period.</p>
+   */
+  nextPeriod?: { [key: string]: OfferingStatus };
 }
 
 export namespace GetOfferingStatusResult {
   export const filterSensitiveLog = (obj: GetOfferingStatusResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOfferingStatusResult =>
-    __isa(o, "GetOfferingStatusResult");
+  export const isa = (o: any): o is GetOfferingStatusResult => __isa(o, "GetOfferingStatusResult");
 }
 
 /**
@@ -2612,10 +2499,9 @@ export interface GetProjectRequest {
 
 export namespace GetProjectRequest {
   export const filterSensitiveLog = (obj: GetProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProjectRequest =>
-    __isa(o, "GetProjectRequest");
+  export const isa = (o: any): o is GetProjectRequest => __isa(o, "GetProjectRequest");
 }
 
 /**
@@ -2631,10 +2517,9 @@ export interface GetProjectResult {
 
 export namespace GetProjectResult {
   export const filterSensitiveLog = (obj: GetProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProjectResult =>
-    __isa(o, "GetProjectResult");
+  export const isa = (o: any): o is GetProjectResult => __isa(o, "GetProjectResult");
 }
 
 /**
@@ -2651,13 +2536,10 @@ export interface GetRemoteAccessSessionRequest {
 }
 
 export namespace GetRemoteAccessSessionRequest {
-  export const filterSensitiveLog = (
-    obj: GetRemoteAccessSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRemoteAccessSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetRemoteAccessSessionRequest =>
-    __isa(o, "GetRemoteAccessSessionRequest");
+  export const isa = (o: any): o is GetRemoteAccessSessionRequest => __isa(o, "GetRemoteAccessSessionRequest");
 }
 
 /**
@@ -2674,13 +2556,10 @@ export interface GetRemoteAccessSessionResult {
 }
 
 export namespace GetRemoteAccessSessionResult {
-  export const filterSensitiveLog = (
-    obj: GetRemoteAccessSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRemoteAccessSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetRemoteAccessSessionResult =>
-    __isa(o, "GetRemoteAccessSessionResult");
+  export const isa = (o: any): o is GetRemoteAccessSessionResult => __isa(o, "GetRemoteAccessSessionResult");
 }
 
 /**
@@ -2696,7 +2575,7 @@ export interface GetRunRequest {
 
 export namespace GetRunRequest {
   export const filterSensitiveLog = (obj: GetRunRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetRunRequest => __isa(o, "GetRunRequest");
 }
@@ -2714,7 +2593,7 @@ export interface GetRunResult {
 
 export namespace GetRunResult {
   export const filterSensitiveLog = (obj: GetRunResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetRunResult => __isa(o, "GetRunResult");
 }
@@ -2732,10 +2611,9 @@ export interface GetSuiteRequest {
 
 export namespace GetSuiteRequest {
   export const filterSensitiveLog = (obj: GetSuiteRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSuiteRequest =>
-    __isa(o, "GetSuiteRequest");
+  export const isa = (o: any): o is GetSuiteRequest => __isa(o, "GetSuiteRequest");
 }
 
 /**
@@ -2751,10 +2629,9 @@ export interface GetSuiteResult {
 
 export namespace GetSuiteResult {
   export const filterSensitiveLog = (obj: GetSuiteResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSuiteResult =>
-    __isa(o, "GetSuiteResult");
+  export const isa = (o: any): o is GetSuiteResult => __isa(o, "GetSuiteResult");
 }
 
 export interface GetTestGridProjectRequest {
@@ -2767,10 +2644,9 @@ export interface GetTestGridProjectRequest {
 
 export namespace GetTestGridProjectRequest {
   export const filterSensitiveLog = (obj: GetTestGridProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTestGridProjectRequest =>
-    __isa(o, "GetTestGridProjectRequest");
+  export const isa = (o: any): o is GetTestGridProjectRequest => __isa(o, "GetTestGridProjectRequest");
 }
 
 export interface GetTestGridProjectResult {
@@ -2783,23 +2659,22 @@ export interface GetTestGridProjectResult {
 
 export namespace GetTestGridProjectResult {
   export const filterSensitiveLog = (obj: GetTestGridProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTestGridProjectResult =>
-    __isa(o, "GetTestGridProjectResult");
+  export const isa = (o: any): o is GetTestGridProjectResult => __isa(o, "GetTestGridProjectResult");
 }
 
 export interface GetTestGridSessionRequest {
   __type?: "GetTestGridSessionRequest";
   /**
-   * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
-   */
-  projectArn?: string;
-
-  /**
    * <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
    */
   sessionArn?: string;
+
+  /**
+   * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
+   */
+  projectArn?: string;
 
   /**
    * <p>An ID associated with this session.</p>
@@ -2809,10 +2684,9 @@ export interface GetTestGridSessionRequest {
 
 export namespace GetTestGridSessionRequest {
   export const filterSensitiveLog = (obj: GetTestGridSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTestGridSessionRequest =>
-    __isa(o, "GetTestGridSessionRequest");
+  export const isa = (o: any): o is GetTestGridSessionRequest => __isa(o, "GetTestGridSessionRequest");
 }
 
 export interface GetTestGridSessionResult {
@@ -2825,10 +2699,9 @@ export interface GetTestGridSessionResult {
 
 export namespace GetTestGridSessionResult {
   export const filterSensitiveLog = (obj: GetTestGridSessionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTestGridSessionResult =>
-    __isa(o, "GetTestGridSessionResult");
+  export const isa = (o: any): o is GetTestGridSessionResult => __isa(o, "GetTestGridSessionResult");
 }
 
 /**
@@ -2844,10 +2717,9 @@ export interface GetTestRequest {
 
 export namespace GetTestRequest {
   export const filterSensitiveLog = (obj: GetTestRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTestRequest =>
-    __isa(o, "GetTestRequest");
+  export const isa = (o: any): o is GetTestRequest => __isa(o, "GetTestRequest");
 }
 
 /**
@@ -2863,7 +2735,7 @@ export interface GetTestResult {
 
 export namespace GetTestResult {
   export const filterSensitiveLog = (obj: GetTestResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetTestResult => __isa(o, "GetTestResult");
 }
@@ -2881,10 +2753,9 @@ export interface GetUploadRequest {
 
 export namespace GetUploadRequest {
   export const filterSensitiveLog = (obj: GetUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUploadRequest =>
-    __isa(o, "GetUploadRequest");
+  export const isa = (o: any): o is GetUploadRequest => __isa(o, "GetUploadRequest");
 }
 
 /**
@@ -2901,10 +2772,9 @@ export interface GetUploadResult {
 
 export namespace GetUploadResult {
   export const filterSensitiveLog = (obj: GetUploadResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUploadResult =>
-    __isa(o, "GetUploadResult");
+  export const isa = (o: any): o is GetUploadResult => __isa(o, "GetUploadResult");
 }
 
 export interface GetVPCEConfigurationRequest {
@@ -2917,13 +2787,10 @@ export interface GetVPCEConfigurationRequest {
 }
 
 export namespace GetVPCEConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: GetVPCEConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetVPCEConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetVPCEConfigurationRequest =>
-    __isa(o, "GetVPCEConfigurationRequest");
+  export const isa = (o: any): o is GetVPCEConfigurationRequest => __isa(o, "GetVPCEConfigurationRequest");
 }
 
 export interface GetVPCEConfigurationResult {
@@ -2936,18 +2803,15 @@ export interface GetVPCEConfigurationResult {
 
 export namespace GetVPCEConfigurationResult {
   export const filterSensitiveLog = (obj: GetVPCEConfigurationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetVPCEConfigurationResult =>
-    __isa(o, "GetVPCEConfigurationResult");
+  export const isa = (o: any): o is GetVPCEConfigurationResult => __isa(o, "GetVPCEConfigurationResult");
 }
 
 /**
  * <p>An entity with the same name already exists.</p>
  */
-export interface IdempotencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotencyException extends __SmithyException, $MetadataBearer {
   name: "IdempotencyException";
   $fault: "client";
   /**
@@ -2958,10 +2822,9 @@ export interface IdempotencyException
 
 export namespace IdempotencyException {
   export const filterSensitiveLog = (obj: IdempotencyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IdempotencyException =>
-    __isa(o, "IdempotencyException");
+  export const isa = (o: any): o is IdempotencyException => __isa(o, "IdempotencyException");
 }
 
 /**
@@ -3003,10 +2866,9 @@ export interface IncompatibilityMessage {
 
 export namespace IncompatibilityMessage {
   export const filterSensitiveLog = (obj: IncompatibilityMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IncompatibilityMessage =>
-    __isa(o, "IncompatibilityMessage");
+  export const isa = (o: any): o is IncompatibilityMessage => __isa(o, "IncompatibilityMessage");
 }
 
 /**
@@ -3028,10 +2890,8 @@ export interface InstallToRemoteAccessSessionRequest {
 }
 
 export namespace InstallToRemoteAccessSessionRequest {
-  export const filterSensitiveLog = (
-    obj: InstallToRemoteAccessSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstallToRemoteAccessSessionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstallToRemoteAccessSessionRequest =>
     __isa(o, "InstallToRemoteAccessSessionRequest");
@@ -3050,10 +2910,8 @@ export interface InstallToRemoteAccessSessionResult {
 }
 
 export namespace InstallToRemoteAccessSessionResult {
-  export const filterSensitiveLog = (
-    obj: InstallToRemoteAccessSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InstallToRemoteAccessSessionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InstallToRemoteAccessSessionResult =>
     __isa(o, "InstallToRemoteAccessSessionResult");
@@ -3065,14 +2923,10 @@ export namespace InstallToRemoteAccessSessionResult {
 export interface InstanceProfile {
   __type?: "InstanceProfile";
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
+   *                 <code>true</code>.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The description of the instance profile.</p>
-   */
-  description?: string;
+  rebootAfterUse?: boolean;
 
   /**
    * <p>An array of strings containing the list of app packages that should not be cleaned up from the device
@@ -3088,46 +2942,47 @@ export interface InstanceProfile {
   name?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The description of the instance profile.</p>
+   */
+  description?: string;
+
+  /**
    * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
    *                 <code>false</code> for private devices.</p>
    */
   packageCleanup?: boolean;
-
-  /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
-   */
-  rebootAfterUse?: boolean;
 }
 
 export namespace InstanceProfile {
   export const filterSensitiveLog = (obj: InstanceProfile): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceProfile =>
-    __isa(o, "InstanceProfile");
+  export const isa = (o: any): o is InstanceProfile => __isa(o, "InstanceProfile");
 }
 
 export enum InstanceStatus {
   AVAILABLE = "AVAILABLE",
   IN_USE = "IN_USE",
   NOT_AVAILABLE = "NOT_AVAILABLE",
-  PREPARING = "PREPARING"
+  PREPARING = "PREPARING",
 }
 
 export enum InteractionMode {
   INTERACTIVE = "INTERACTIVE",
   NO_VIDEO = "NO_VIDEO",
-  VIDEO_ONLY = "VIDEO_ONLY"
+  VIDEO_ONLY = "VIDEO_ONLY",
 }
 
 /**
  * <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
  *          error. </p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   message?: string;
@@ -3135,19 +2990,16 @@ export interface InternalServiceException
 
 export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
+  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
  * <p>There was an error with the update request, or you do not have sufficient permissions
  *             to update this VPC endpoint configuration.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -3155,10 +3007,9 @@ export interface InvalidOperationException
 
 export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
+  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
@@ -3172,29 +3023,9 @@ export interface Job {
   arn?: string;
 
   /**
-   * <p>The job's result counters.</p>
-   */
-  counters?: Counters;
-
-  /**
-   * <p>When the job was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>The device (phone or tablet).</p>
-   */
-  device?: Device;
-
-  /**
    * <p>Represents the total (metered or unmetered) minutes used by the job.</p>
    */
   deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>The ARN of the instance.</p>
-   */
-  instanceArn?: string;
 
   /**
    * <p>A message about the job's result.</p>
@@ -3202,9 +3033,24 @@ export interface Job {
   message?: string;
 
   /**
+   * <p>The job's stop time.</p>
+   */
+  stopped?: Date;
+
+  /**
    * <p>The job's name.</p>
    */
   name?: string;
+
+  /**
+   * <p>The job's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The job's start time.</p>
+   */
+  started?: Date;
 
   /**
    * <p>The job's result.</p>
@@ -3236,9 +3082,14 @@ export interface Job {
   result?: ExecutionResult | string;
 
   /**
-   * <p>The job's start time.</p>
+   * <p>The device (phone or tablet).</p>
    */
-  started?: Date;
+  device?: Device;
+
+  /**
+   * <p>The endpoint for streaming device video.</p>
+   */
+  videoEndpoint?: string;
 
   /**
    * <p>The job's status.</p>
@@ -3274,11 +3125,6 @@ export interface Job {
    *          </ul>
    */
   status?: ExecutionStatus | string;
-
-  /**
-   * <p>The job's stop time.</p>
-   */
-  stopped?: Date;
 
   /**
    * <p>The job's type.</p>
@@ -3344,19 +3190,24 @@ export interface Job {
   type?: TestType | string;
 
   /**
+   * <p>The ARN of the instance.</p>
+   */
+  instanceArn?: string;
+
+  /**
    * <p>This value is set to true if video capture is enabled. Otherwise, it is set to false.</p>
    */
   videoCapture?: boolean;
 
   /**
-   * <p>The endpoint for streaming device video.</p>
+   * <p>When the job was created.</p>
    */
-  videoEndpoint?: string;
+  created?: Date;
 }
 
 export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Job => __isa(o, "Job");
 }
@@ -3364,9 +3215,7 @@ export namespace Job {
 /**
  * <p>A limit was exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -3377,10 +3226,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -3419,10 +3267,9 @@ export interface ListArtifactsRequest {
 
 export namespace ListArtifactsRequest {
   export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsRequest =>
-    __isa(o, "ListArtifactsRequest");
+  export const isa = (o: any): o is ListArtifactsRequest => __isa(o, "ListArtifactsRequest");
 }
 
 /**
@@ -3445,32 +3292,30 @@ export interface ListArtifactsResult {
 
 export namespace ListArtifactsResult {
   export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListArtifactsResult =>
-    __isa(o, "ListArtifactsResult");
+  export const isa = (o: any): o is ListArtifactsResult => __isa(o, "ListArtifactsResult");
 }
 
 export interface ListDeviceInstancesRequest {
   __type?: "ListDeviceInstancesRequest";
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDeviceInstancesRequest {
   export const filterSensitiveLog = (obj: ListDeviceInstancesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDeviceInstancesRequest =>
-    __isa(o, "ListDeviceInstancesRequest");
+  export const isa = (o: any): o is ListDeviceInstancesRequest => __isa(o, "ListDeviceInstancesRequest");
 }
 
 export interface ListDeviceInstancesResult {
@@ -3489,10 +3334,9 @@ export interface ListDeviceInstancesResult {
 
 export namespace ListDeviceInstancesResult {
   export const filterSensitiveLog = (obj: ListDeviceInstancesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDeviceInstancesResult =>
-    __isa(o, "ListDeviceInstancesResult");
+  export const isa = (o: any): o is ListDeviceInstancesResult => __isa(o, "ListDeviceInstancesResult");
 }
 
 /**
@@ -3500,17 +3344,6 @@ export namespace ListDeviceInstancesResult {
  */
 export interface ListDevicePoolsRequest {
   __type?: "ListDevicePoolsRequest";
-  /**
-   * <p>The project ARN.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The device pools' type.</p>
    *         <p>Allowed values include:</p>
@@ -3526,14 +3359,24 @@ export interface ListDevicePoolsRequest {
    *          </ul>
    */
   type?: DevicePoolType | string;
+
+  /**
+   * <p>The project ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListDevicePoolsRequest {
   export const filterSensitiveLog = (obj: ListDevicePoolsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDevicePoolsRequest =>
-    __isa(o, "ListDevicePoolsRequest");
+  export const isa = (o: any): o is ListDevicePoolsRequest => __isa(o, "ListDevicePoolsRequest");
 }
 
 /**
@@ -3556,10 +3399,9 @@ export interface ListDevicePoolsResult {
 
 export namespace ListDevicePoolsResult {
   export const filterSensitiveLog = (obj: ListDevicePoolsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDevicePoolsResult =>
-    __isa(o, "ListDevicePoolsResult");
+  export const isa = (o: any): o is ListDevicePoolsResult => __isa(o, "ListDevicePoolsResult");
 }
 
 /**
@@ -3567,6 +3409,12 @@ export namespace ListDevicePoolsResult {
  */
 export interface ListDevicesRequest {
   __type?: "ListDevicesRequest";
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
@@ -3666,20 +3514,13 @@ export interface ListDevicesRequest {
    *          </ul>
    */
   filters?: DeviceFilter[];
-
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDevicesRequest {
   export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDevicesRequest =>
-    __isa(o, "ListDevicesRequest");
+  export const isa = (o: any): o is ListDevicesRequest => __isa(o, "ListDevicesRequest");
 }
 
 /**
@@ -3688,24 +3529,23 @@ export namespace ListDevicesRequest {
 export interface ListDevicesResult {
   __type?: "ListDevicesResult";
   /**
-   * <p>Information about the devices.</p>
-   */
-  devices?: Device[];
-
-  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the devices.</p>
+   */
+  devices?: Device[];
 }
 
 export namespace ListDevicesResult {
   export const filterSensitiveLog = (obj: ListDevicesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDevicesResult =>
-    __isa(o, "ListDevicesResult");
+  export const isa = (o: any): o is ListDevicesResult => __isa(o, "ListDevicesResult");
 }
 
 export interface ListInstanceProfilesRequest {
@@ -3723,13 +3563,10 @@ export interface ListInstanceProfilesRequest {
 }
 
 export namespace ListInstanceProfilesRequest {
-  export const filterSensitiveLog = (
-    obj: ListInstanceProfilesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListInstanceProfilesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesRequest =>
-    __isa(o, "ListInstanceProfilesRequest");
+  export const isa = (o: any): o is ListInstanceProfilesRequest => __isa(o, "ListInstanceProfilesRequest");
 }
 
 export interface ListInstanceProfilesResult {
@@ -3748,10 +3585,9 @@ export interface ListInstanceProfilesResult {
 
 export namespace ListInstanceProfilesResult {
   export const filterSensitiveLog = (obj: ListInstanceProfilesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListInstanceProfilesResult =>
-    __isa(o, "ListInstanceProfilesResult");
+  export const isa = (o: any): o is ListInstanceProfilesResult => __isa(o, "ListInstanceProfilesResult");
 }
 
 /**
@@ -3760,23 +3596,22 @@ export namespace ListInstanceProfilesResult {
 export interface ListJobsRequest {
   __type?: "ListJobsRequest";
   /**
-   * <p>The run's Amazon Resource Name (ARN).</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The run's Amazon Resource Name (ARN).</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest =>
-    __isa(o, "ListJobsRequest");
+  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 /**
@@ -3785,33 +3620,31 @@ export namespace ListJobsRequest {
 export interface ListJobsResult {
   __type?: "ListJobsResult";
   /**
-   * <p>Information about the jobs.</p>
-   */
-  jobs?: Job[];
-
-  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the jobs.</p>
+   */
+  jobs?: Job[];
 }
 
 export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsResult =>
-    __isa(o, "ListJobsResult");
+  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 export interface ListNetworkProfilesRequest {
   __type?: "ListNetworkProfilesRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list network
-   *             profiles.</p>
+   * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
-  arn: string | undefined;
+  type?: NetworkProfileType | string;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -3820,17 +3653,17 @@ export interface ListNetworkProfilesRequest {
   nextToken?: string;
 
   /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to list network
+   *             profiles.</p>
    */
-  type?: NetworkProfileType | string;
+  arn: string | undefined;
 }
 
 export namespace ListNetworkProfilesRequest {
   export const filterSensitiveLog = (obj: ListNetworkProfilesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListNetworkProfilesRequest =>
-    __isa(o, "ListNetworkProfilesRequest");
+  export const isa = (o: any): o is ListNetworkProfilesRequest => __isa(o, "ListNetworkProfilesRequest");
 }
 
 export interface ListNetworkProfilesResult {
@@ -3849,10 +3682,9 @@ export interface ListNetworkProfilesResult {
 
 export namespace ListNetworkProfilesResult {
   export const filterSensitiveLog = (obj: ListNetworkProfilesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListNetworkProfilesResult =>
-    __isa(o, "ListNetworkProfilesResult");
+  export const isa = (o: any): o is ListNetworkProfilesResult => __isa(o, "ListNetworkProfilesResult");
 }
 
 export interface ListOfferingPromotionsRequest {
@@ -3865,37 +3697,31 @@ export interface ListOfferingPromotionsRequest {
 }
 
 export namespace ListOfferingPromotionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListOfferingPromotionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOfferingPromotionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingPromotionsRequest =>
-    __isa(o, "ListOfferingPromotionsRequest");
+  export const isa = (o: any): o is ListOfferingPromotionsRequest => __isa(o, "ListOfferingPromotionsRequest");
 }
 
 export interface ListOfferingPromotionsResult {
   __type?: "ListOfferingPromotionsResult";
   /**
+   * <p>Information about the offering promotions.</p>
+   */
+  offeringPromotions?: OfferingPromotion[];
+
+  /**
    * <p>An identifier to be used in the next call to this operation, to return the next set
    *             of items in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the offering promotions.</p>
-   */
-  offeringPromotions?: OfferingPromotion[];
 }
 
 export namespace ListOfferingPromotionsResult {
-  export const filterSensitiveLog = (
-    obj: ListOfferingPromotionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOfferingPromotionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingPromotionsResult =>
-    __isa(o, "ListOfferingPromotionsResult");
+  export const isa = (o: any): o is ListOfferingPromotionsResult => __isa(o, "ListOfferingPromotionsResult");
 }
 
 /**
@@ -3912,10 +3738,9 @@ export interface ListOfferingsRequest {
 
 export namespace ListOfferingsRequest {
   export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingsRequest =>
-    __isa(o, "ListOfferingsRequest");
+  export const isa = (o: any): o is ListOfferingsRequest => __isa(o, "ListOfferingsRequest");
 }
 
 /**
@@ -3924,23 +3749,22 @@ export namespace ListOfferingsRequest {
 export interface ListOfferingsResult {
   __type?: "ListOfferingsResult";
   /**
+   * <p>A value that represents the list offering results.</p>
+   */
+  offerings?: Offering[];
+
+  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A value that represents the list offering results.</p>
-   */
-  offerings?: Offering[];
 }
 
 export namespace ListOfferingsResult {
   export const filterSensitiveLog = (obj: ListOfferingsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingsResult =>
-    __isa(o, "ListOfferingsResult");
+  export const isa = (o: any): o is ListOfferingsResult => __isa(o, "ListOfferingsResult");
 }
 
 /**
@@ -3956,13 +3780,10 @@ export interface ListOfferingTransactionsRequest {
 }
 
 export namespace ListOfferingTransactionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListOfferingTransactionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOfferingTransactionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingTransactionsRequest =>
-    __isa(o, "ListOfferingTransactionsRequest");
+  export const isa = (o: any): o is ListOfferingTransactionsRequest => __isa(o, "ListOfferingTransactionsRequest");
 }
 
 /**
@@ -3984,13 +3805,10 @@ export interface ListOfferingTransactionsResult {
 }
 
 export namespace ListOfferingTransactionsResult {
-  export const filterSensitiveLog = (
-    obj: ListOfferingTransactionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListOfferingTransactionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListOfferingTransactionsResult =>
-    __isa(o, "ListOfferingTransactionsResult");
+  export const isa = (o: any): o is ListOfferingTransactionsResult => __isa(o, "ListOfferingTransactionsResult");
 }
 
 /**
@@ -3999,25 +3817,24 @@ export namespace ListOfferingTransactionsResult {
 export interface ListProjectsRequest {
   __type?: "ListProjectsRequest";
   /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm
    *             returns a list of all projects for the AWS account. You can also specify a project
    *             ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest =>
-    __isa(o, "ListProjectsRequest");
+  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 /**
@@ -4026,24 +3843,23 @@ export namespace ListProjectsRequest {
 export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
+   * <p>Information about the projects.</p>
+   */
+  projects?: Project[];
+
+  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the projects.</p>
-   */
-  projects?: Project[];
 }
 
 export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult =>
-    __isa(o, "ListProjectsResult");
+  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 /**
@@ -4053,26 +3869,23 @@ export namespace ListProjectsResult {
 export interface ListRemoteAccessSessionsRequest {
   __type?: "ListRemoteAccessSessionsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the project about which you are requesting
-   *             information.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project about which you are requesting
+   *             information.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListRemoteAccessSessionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListRemoteAccessSessionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRemoteAccessSessionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListRemoteAccessSessionsRequest =>
-    __isa(o, "ListRemoteAccessSessionsRequest");
+  export const isa = (o: any): o is ListRemoteAccessSessionsRequest => __isa(o, "ListRemoteAccessSessionsRequest");
 }
 
 /**
@@ -4082,26 +3895,23 @@ export namespace ListRemoteAccessSessionsRequest {
 export interface ListRemoteAccessSessionsResult {
   __type?: "ListRemoteAccessSessionsResult";
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A container that represents the metadata from the service about each remote access session you are
    *             requesting.</p>
    */
   remoteAccessSessions?: RemoteAccessSession[];
+
+  /**
+   * <p>An identifier that was returned from the previous call to this operation, which can
+   *             be used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListRemoteAccessSessionsResult {
-  export const filterSensitiveLog = (
-    obj: ListRemoteAccessSessionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRemoteAccessSessionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListRemoteAccessSessionsResult =>
-    __isa(o, "ListRemoteAccessSessionsResult");
+  export const isa = (o: any): o is ListRemoteAccessSessionsResult => __isa(o, "ListRemoteAccessSessionsResult");
 }
 
 /**
@@ -4124,10 +3934,9 @@ export interface ListRunsRequest {
 
 export namespace ListRunsRequest {
   export const filterSensitiveLog = (obj: ListRunsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRunsRequest =>
-    __isa(o, "ListRunsRequest");
+  export const isa = (o: any): o is ListRunsRequest => __isa(o, "ListRunsRequest");
 }
 
 /**
@@ -4150,10 +3959,9 @@ export interface ListRunsResult {
 
 export namespace ListRunsResult {
   export const filterSensitiveLog = (obj: ListRunsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRunsResult =>
-    __isa(o, "ListRunsResult");
+  export const isa = (o: any): o is ListRunsResult => __isa(o, "ListRunsResult");
 }
 
 /**
@@ -4162,23 +3970,22 @@ export namespace ListRunsResult {
 export interface ListSamplesRequest {
   __type?: "ListSamplesRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the job used to list samples.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job used to list samples.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListSamplesRequest {
   export const filterSensitiveLog = (obj: ListSamplesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSamplesRequest =>
-    __isa(o, "ListSamplesRequest");
+  export const isa = (o: any): o is ListSamplesRequest => __isa(o, "ListSamplesRequest");
 }
 
 /**
@@ -4201,10 +4008,9 @@ export interface ListSamplesResult {
 
 export namespace ListSamplesResult {
   export const filterSensitiveLog = (obj: ListSamplesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSamplesResult =>
-    __isa(o, "ListSamplesResult");
+  export const isa = (o: any): o is ListSamplesResult => __isa(o, "ListSamplesResult");
 }
 
 /**
@@ -4226,10 +4032,9 @@ export interface ListSuitesRequest {
 
 export namespace ListSuitesRequest {
   export const filterSensitiveLog = (obj: ListSuitesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSuitesRequest =>
-    __isa(o, "ListSuitesRequest");
+  export const isa = (o: any): o is ListSuitesRequest => __isa(o, "ListSuitesRequest");
 }
 
 /**
@@ -4252,10 +4057,9 @@ export interface ListSuitesResult {
 
 export namespace ListSuitesResult {
   export const filterSensitiveLog = (obj: ListSuitesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSuitesResult =>
-    __isa(o, "ListSuitesResult");
+  export const isa = (o: any): o is ListSuitesResult => __isa(o, "ListSuitesResult");
 }
 
 export interface ListTagsForResourceRequest {
@@ -4272,10 +4076,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -4288,58 +4091,51 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTestGridProjectsRequest {
   __type?: "ListTestGridProjectsRequest";
   /**
-   * <p>Return no more than this number of results.</p>
-   */
-  maxResult?: number;
-
-  /**
    * <p>From a response, used to continue a paginated listing. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Return no more than this number of results.</p>
+   */
+  maxResult?: number;
 }
 
 export namespace ListTestGridProjectsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTestGridProjectsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridProjectsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridProjectsRequest =>
-    __isa(o, "ListTestGridProjectsRequest");
+  export const isa = (o: any): o is ListTestGridProjectsRequest => __isa(o, "ListTestGridProjectsRequest");
 }
 
 export interface ListTestGridProjectsResult {
   __type?: "ListTestGridProjectsResult";
   /**
+   * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
+   */
+  testGridProjects?: TestGridProject[];
+
+  /**
    * <p>Used for pagination. Pass into <a>ListTestGridProjects</a> to get more results in a paginated
    *          request.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
-   */
-  testGridProjects?: TestGridProject[];
 }
 
 export namespace ListTestGridProjectsResult {
   export const filterSensitiveLog = (obj: ListTestGridProjectsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridProjectsResult =>
-    __isa(o, "ListTestGridProjectsResult");
+  export const isa = (o: any): o is ListTestGridProjectsResult => __isa(o, "ListTestGridProjectsResult");
 }
 
 export interface ListTestGridSessionActionsRequest {
@@ -4350,24 +4146,21 @@ export interface ListTestGridSessionActionsRequest {
   maxResult?: number;
 
   /**
-   * <p>Pagination token.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The ARN of the session to retrieve.</p>
    */
   sessionArn: string | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListTestGridSessionActionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTestGridSessionActionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridSessionActionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionActionsRequest =>
-    __isa(o, "ListTestGridSessionActionsRequest");
+  export const isa = (o: any): o is ListTestGridSessionActionsRequest => __isa(o, "ListTestGridSessionActionsRequest");
 }
 
 export interface ListTestGridSessionActionsResult {
@@ -4384,21 +4177,18 @@ export interface ListTestGridSessionActionsResult {
 }
 
 export namespace ListTestGridSessionActionsResult {
-  export const filterSensitiveLog = (
-    obj: ListTestGridSessionActionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridSessionActionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionActionsResult =>
-    __isa(o, "ListTestGridSessionActionsResult");
+  export const isa = (o: any): o is ListTestGridSessionActionsResult => __isa(o, "ListTestGridSessionActionsResult");
 }
 
 export interface ListTestGridSessionArtifactsRequest {
   __type?: "ListTestGridSessionArtifactsRequest";
   /**
-   * <p>The maximum number of results to be returned by a request.</p>
+   * <p>The ARN of a <a>TestGridSession</a>. </p>
    */
-  maxResult?: number;
+  sessionArn: string | undefined;
 
   /**
    * <p>Pagination token.</p>
@@ -4406,21 +4196,19 @@ export interface ListTestGridSessionArtifactsRequest {
   nextToken?: string;
 
   /**
-   * <p>The ARN of a <a>TestGridSession</a>. </p>
-   */
-  sessionArn: string | undefined;
-
-  /**
    * <p>Limit results to a specified type of artifact.</p>
    */
   type?: TestGridSessionArtifactCategory | string;
+
+  /**
+   * <p>The maximum number of results to be returned by a request.</p>
+   */
+  maxResult?: number;
 }
 
 export namespace ListTestGridSessionArtifactsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTestGridSessionArtifactsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridSessionArtifactsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListTestGridSessionArtifactsRequest =>
     __isa(o, "ListTestGridSessionArtifactsRequest");
@@ -4429,21 +4217,19 @@ export namespace ListTestGridSessionArtifactsRequest {
 export interface ListTestGridSessionArtifactsResult {
   __type?: "ListTestGridSessionArtifactsResult";
   /**
-   * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
-   */
-  artifacts?: TestGridSessionArtifact[];
-
-  /**
    * <p>Pagination token.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
+   */
+  artifacts?: TestGridSessionArtifact[];
 }
 
 export namespace ListTestGridSessionArtifactsResult {
-  export const filterSensitiveLog = (
-    obj: ListTestGridSessionArtifactsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridSessionArtifactsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListTestGridSessionArtifactsResult =>
     __isa(o, "ListTestGridSessionArtifactsResult");
@@ -4451,11 +4237,6 @@ export namespace ListTestGridSessionArtifactsResult {
 
 export interface ListTestGridSessionsRequest {
   __type?: "ListTestGridSessionsRequest";
-  /**
-   * <p>Return only sessions created after this time.</p>
-   */
-  creationTimeAfter?: Date;
-
   /**
    * <p>Return only  sessions created before this time.</p>
    */
@@ -4467,6 +4248,26 @@ export interface ListTestGridSessionsRequest {
   endTimeAfter?: Date;
 
   /**
+   * <p>Return only sessions in this state.</p>
+   */
+  status?: TestGridSessionStatus | string;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Return only sessions created after this time.</p>
+   */
+  creationTimeAfter?: Date;
+
+  /**
+   * <p>ARN of a <a>TestGridProject</a>.</p>
+   */
+  projectArn: string | undefined;
+
+  /**
    * <p>Return only sessions that ended before this time.</p>
    */
   endTimeBefore?: Date;
@@ -4475,31 +4276,13 @@ export interface ListTestGridSessionsRequest {
    * <p>Return only this many results at a time.</p>
    */
   maxResult?: number;
-
-  /**
-   * <p>Pagination token.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>ARN of a <a>TestGridProject</a>.</p>
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>Return only sessions in this state.</p>
-   */
-  status?: TestGridSessionStatus | string;
 }
 
 export namespace ListTestGridSessionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTestGridSessionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTestGridSessionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionsRequest =>
-    __isa(o, "ListTestGridSessionsRequest");
+  export const isa = (o: any): o is ListTestGridSessionsRequest => __isa(o, "ListTestGridSessionsRequest");
 }
 
 export interface ListTestGridSessionsResult {
@@ -4517,10 +4300,9 @@ export interface ListTestGridSessionsResult {
 
 export namespace ListTestGridSessionsResult {
   export const filterSensitiveLog = (obj: ListTestGridSessionsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestGridSessionsResult =>
-    __isa(o, "ListTestGridSessionsResult");
+  export const isa = (o: any): o is ListTestGridSessionsResult => __isa(o, "ListTestGridSessionsResult");
 }
 
 /**
@@ -4529,23 +4311,22 @@ export namespace ListTestGridSessionsResult {
 export interface ListTestsRequest {
   __type?: "ListTestsRequest";
   /**
-   * <p>The test suite's Amazon Resource Name (ARN).</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The test suite's Amazon Resource Name (ARN).</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListTestsRequest {
   export const filterSensitiveLog = (obj: ListTestsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestsRequest =>
-    __isa(o, "ListTestsRequest");
+  export const isa = (o: any): o is ListTestsRequest => __isa(o, "ListTestsRequest");
 }
 
 /**
@@ -4568,10 +4349,9 @@ export interface ListTestsResult {
 
 export namespace ListTestsResult {
   export const filterSensitiveLog = (obj: ListTestsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTestsResult =>
-    __isa(o, "ListTestsResult");
+  export const isa = (o: any): o is ListTestsResult => __isa(o, "ListTestsResult");
 }
 
 /**
@@ -4580,23 +4360,22 @@ export namespace ListTestsResult {
 export interface ListUniqueProblemsRequest {
   __type?: "ListUniqueProblemsRequest";
   /**
-   * <p>The unique problems' ARNs.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The unique problems' ARNs.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListUniqueProblemsRequest {
   export const filterSensitiveLog = (obj: ListUniqueProblemsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUniqueProblemsRequest =>
-    __isa(o, "ListUniqueProblemsRequest");
+  export const isa = (o: any): o is ListUniqueProblemsRequest => __isa(o, "ListUniqueProblemsRequest");
 }
 
 /**
@@ -4604,13 +4383,6 @@ export namespace ListUniqueProblemsRequest {
  */
 export interface ListUniqueProblemsResult {
   __type?: "ListUniqueProblemsResult";
-  /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>Information about the unique problems.</p>
    *         <p>Allowed values include:</p>
@@ -4639,14 +4411,20 @@ export interface ListUniqueProblemsResult {
    *          </ul>
    */
   uniqueProblems?: { [key: string]: UniqueProblem[] };
+
+  /**
+   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
+   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
+   *             list.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListUniqueProblemsResult {
   export const filterSensitiveLog = (obj: ListUniqueProblemsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUniqueProblemsResult =>
-    __isa(o, "ListUniqueProblemsResult");
+  export const isa = (o: any): o is ListUniqueProblemsResult => __isa(o, "ListUniqueProblemsResult");
 }
 
 /**
@@ -4654,12 +4432,6 @@ export namespace ListUniqueProblemsResult {
  */
 export interface ListUploadsRequest {
   __type?: "ListUploadsRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
-   *             uploads.</p>
-   */
-  arn: string | undefined;
-
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
    *             be used to return the next set of items in the list.</p>
@@ -4769,14 +4541,19 @@ export interface ListUploadsRequest {
    *          </ul>
    */
   type?: UploadType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
+   *             uploads.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace ListUploadsRequest {
   export const filterSensitiveLog = (obj: ListUploadsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUploadsRequest =>
-    __isa(o, "ListUploadsRequest");
+  export const isa = (o: any): o is ListUploadsRequest => __isa(o, "ListUploadsRequest");
 }
 
 /**
@@ -4785,48 +4562,44 @@ export namespace ListUploadsRequest {
 export interface ListUploadsResult {
   __type?: "ListUploadsResult";
   /**
+   * <p>Information about the uploads.</p>
+   */
+  uploads?: Upload[];
+
+  /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
    *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
    *             list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Information about the uploads.</p>
-   */
-  uploads?: Upload[];
 }
 
 export namespace ListUploadsResult {
   export const filterSensitiveLog = (obj: ListUploadsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListUploadsResult =>
-    __isa(o, "ListUploadsResult");
+  export const isa = (o: any): o is ListUploadsResult => __isa(o, "ListUploadsResult");
 }
 
 export interface ListVPCEConfigurationsRequest {
   __type?: "ListVPCEConfigurationsRequest";
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListVPCEConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: ListVPCEConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListVPCEConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListVPCEConfigurationsRequest =>
-    __isa(o, "ListVPCEConfigurationsRequest");
+  export const isa = (o: any): o is ListVPCEConfigurationsRequest => __isa(o, "ListVPCEConfigurationsRequest");
 }
 
 export interface ListVPCEConfigurationsResult {
@@ -4845,13 +4618,10 @@ export interface ListVPCEConfigurationsResult {
 }
 
 export namespace ListVPCEConfigurationsResult {
-  export const filterSensitiveLog = (
-    obj: ListVPCEConfigurationsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListVPCEConfigurationsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListVPCEConfigurationsResult =>
-    __isa(o, "ListVPCEConfigurationsResult");
+  export const isa = (o: any): o is ListVPCEConfigurationsResult => __isa(o, "ListVPCEConfigurationsResult");
 }
 
 /**
@@ -4862,19 +4632,19 @@ export namespace ListVPCEConfigurationsResult {
 export interface Location {
   __type?: "Location";
   /**
-   * <p>The latitude.</p>
-   */
-  latitude: number | undefined;
-
-  /**
    * <p>The longitude.</p>
    */
   longitude: number | undefined;
+
+  /**
+   * <p>The latitude.</p>
+   */
+  latitude: number | undefined;
 }
 
 export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Location => __isa(o, "Location");
 }
@@ -4885,22 +4655,21 @@ export namespace Location {
 export interface MonetaryAmount {
   __type?: "MonetaryAmount";
   /**
-   * <p>The numerical amount of an offering or transaction.</p>
-   */
-  amount?: number;
-
-  /**
    * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
    */
   currencyCode?: CurrencyCode | string;
+
+  /**
+   * <p>The numerical amount of an offering or transaction.</p>
+   */
+  amount?: number;
 }
 
 export namespace MonetaryAmount {
   export const filterSensitiveLog = (obj: MonetaryAmount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MonetaryAmount =>
-    __isa(o, "MonetaryAmount");
+  export const isa = (o: any): o is MonetaryAmount => __isa(o, "MonetaryAmount");
 }
 
 /**
@@ -4908,55 +4677,6 @@ export namespace MonetaryAmount {
  */
 export interface NetworkProfile {
   __type?: "NetworkProfile";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the network profile.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The description of the network profile.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  downlinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  downlinkDelayMs?: number;
-
-  /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
-   */
-  downlinkJitterMs?: number;
-
-  /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
-   */
-  downlinkLossPercent?: number;
-
-  /**
-   * <p>The name of the network profile.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of network profile. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
-
-  /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  uplinkBandwidthBits?: number;
-
   /**
    * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
    *             2000.</p>
@@ -4967,35 +4687,81 @@ export interface NetworkProfile {
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    */
+  downlinkJitterMs?: number;
+
+  /**
+   * <p>The description of the network profile.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   */
+  downlinkLossPercent?: number;
+
+  /**
+   * <p>Time variation in the delay of received packets in milliseconds as an integer from
+   *             0 to 2000.</p>
+   */
   uplinkJitterMs?: number;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  downlinkBandwidthBits?: number;
+
+  /**
+   * <p>The type of network profile. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
 
   /**
    * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
    *             percent.</p>
    */
   uplinkLossPercent?: number;
+
+  /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  downlinkDelayMs?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network profile.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the network profile.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  uplinkBandwidthBits?: number;
 }
 
 export namespace NetworkProfile {
   export const filterSensitiveLog = (obj: NetworkProfile): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkProfile =>
-    __isa(o, "NetworkProfile");
+  export const isa = (o: any): o is NetworkProfile => __isa(o, "NetworkProfile");
 }
 
 export enum NetworkProfileType {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 /**
  * <p>Exception gets thrown when a user is not eligible to perform the specified
  *             transaction.</p>
  */
-export interface NotEligibleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotEligibleException extends __SmithyException, $MetadataBearer {
   name: "NotEligibleException";
   $fault: "client";
   /**
@@ -5006,10 +4772,9 @@ export interface NotEligibleException
 
 export namespace NotEligibleException {
   export const filterSensitiveLog = (obj: NotEligibleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotEligibleException =>
-    __isa(o, "NotEligibleException");
+  export const isa = (o: any): o is NotEligibleException => __isa(o, "NotEligibleException");
 }
 
 /**
@@ -5026,10 +4791,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -5038,9 +4802,9 @@ export namespace NotFoundException {
 export interface Offering {
   __type?: "Offering";
   /**
-   * <p>A string that describes the offering.</p>
+   * <p>Specifies whether there are recurring charges for the offering.</p>
    */
-  description?: string;
+  recurringCharges?: RecurringCharge[];
 
   /**
    * <p>The ID that corresponds to a device offering.</p>
@@ -5053,9 +4817,9 @@ export interface Offering {
   platform?: DevicePlatform | string;
 
   /**
-   * <p>Specifies whether there are recurring charges for the offering.</p>
+   * <p>A string that describes the offering.</p>
    */
-  recurringCharges?: RecurringCharge[];
+  description?: string;
 
   /**
    * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
@@ -5065,7 +4829,7 @@ export interface Offering {
 
 export namespace Offering {
   export const filterSensitiveLog = (obj: Offering): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Offering => __isa(o, "Offering");
 }
@@ -5088,10 +4852,9 @@ export interface OfferingPromotion {
 
 export namespace OfferingPromotion {
   export const filterSensitiveLog = (obj: OfferingPromotion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OfferingPromotion =>
-    __isa(o, "OfferingPromotion");
+  export const isa = (o: any): o is OfferingPromotion => __isa(o, "OfferingPromotion");
 }
 
 /**
@@ -5105,6 +4868,11 @@ export interface OfferingStatus {
   effectiveOn?: Date;
 
   /**
+   * <p>The type specified for the offering status.</p>
+   */
+  type?: OfferingTransactionType | string;
+
+  /**
    * <p>Represents the metadata of an offering status.</p>
    */
   offering?: Offering;
@@ -5113,19 +4881,13 @@ export interface OfferingStatus {
    * <p>The number of available devices in the offering.</p>
    */
   quantity?: number;
-
-  /**
-   * <p>The type specified for the offering status.</p>
-   */
-  type?: OfferingTransactionType | string;
 }
 
 export namespace OfferingStatus {
   export const filterSensitiveLog = (obj: OfferingStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OfferingStatus =>
-    __isa(o, "OfferingStatus");
+  export const isa = (o: any): o is OfferingStatus => __isa(o, "OfferingStatus");
 }
 
 /**
@@ -5134,14 +4896,14 @@ export namespace OfferingStatus {
 export interface OfferingTransaction {
   __type?: "OfferingTransaction";
   /**
+   * <p>The status of an offering transaction.</p>
+   */
+  offeringStatus?: OfferingStatus;
+
+  /**
    * <p>The cost of an offering transaction.</p>
    */
   cost?: MonetaryAmount;
-
-  /**
-   * <p>The date on which an offering transaction was created.</p>
-   */
-  createdOn?: Date;
 
   /**
    * <p>The ID that corresponds to a device offering promotion.</p>
@@ -5149,32 +4911,31 @@ export interface OfferingTransaction {
   offeringPromotionId?: string;
 
   /**
-   * <p>The status of an offering transaction.</p>
-   */
-  offeringStatus?: OfferingStatus;
-
-  /**
    * <p>The transaction ID of the offering transaction.</p>
    */
   transactionId?: string;
+
+  /**
+   * <p>The date on which an offering transaction was created.</p>
+   */
+  createdOn?: Date;
 }
 
 export namespace OfferingTransaction {
   export const filterSensitiveLog = (obj: OfferingTransaction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OfferingTransaction =>
-    __isa(o, "OfferingTransaction");
+  export const isa = (o: any): o is OfferingTransaction => __isa(o, "OfferingTransaction");
 }
 
 export enum OfferingTransactionType {
   PURCHASE = "PURCHASE",
   RENEW = "RENEW",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 export enum OfferingType {
-  RECURRING = "RECURRING"
+  RECURRING = "RECURRING",
 }
 
 /**
@@ -5182,21 +4943,6 @@ export enum OfferingType {
  */
 export interface Problem {
   __type?: "Problem";
-  /**
-   * <p>Information about the associated device.</p>
-   */
-  device?: Device;
-
-  /**
-   * <p>Information about the associated job.</p>
-   */
-  job?: ProblemDetail;
-
-  /**
-   * <p>A message about the problem's result.</p>
-   */
-  message?: string;
-
   /**
    * <p>The problem's result.</p>
    *         <p>Allowed values include:</p>
@@ -5227,11 +4973,6 @@ export interface Problem {
   result?: ExecutionResult | string;
 
   /**
-   * <p>Information about the associated run.</p>
-   */
-  run?: ProblemDetail;
-
-  /**
    * <p>Information about the associated suite.</p>
    */
   suite?: ProblemDetail;
@@ -5240,11 +4981,31 @@ export interface Problem {
    * <p>Information about the associated test.</p>
    */
   test?: ProblemDetail;
+
+  /**
+   * <p>Information about the associated run.</p>
+   */
+  run?: ProblemDetail;
+
+  /**
+   * <p>Information about the associated device.</p>
+   */
+  device?: Device;
+
+  /**
+   * <p>A message about the problem's result.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Information about the associated job.</p>
+   */
+  job?: ProblemDetail;
 }
 
 export namespace Problem {
   export const filterSensitiveLog = (obj: Problem): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Problem => __isa(o, "Problem");
 }
@@ -5255,19 +5016,19 @@ export namespace Problem {
 export interface ProblemDetail {
   __type?: "ProblemDetail";
   /**
-   * <p>The problem detail's ARN.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The problem detail's name.</p>
    */
   name?: string;
+
+  /**
+   * <p>The problem detail's ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace ProblemDetail {
   export const filterSensitiveLog = (obj: ProblemDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ProblemDetail => __isa(o, "ProblemDetail");
 }
@@ -5279,9 +5040,9 @@ export namespace ProblemDetail {
 export interface Project {
   __type?: "Project";
   /**
-   * <p>The project's ARN.</p>
+   * <p>The project's name.</p>
    */
-  arn?: string;
+  name?: string;
 
   /**
    * <p>When the project was created.</p>
@@ -5295,14 +5056,14 @@ export interface Project {
   defaultJobTimeoutMinutes?: number;
 
   /**
-   * <p>The project's name.</p>
+   * <p>The project's ARN.</p>
    */
-  name?: string;
+  arn?: string;
 }
 
 export namespace Project {
   export const filterSensitiveLog = (obj: Project): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Project => __isa(o, "Project");
 }
@@ -5313,6 +5074,11 @@ export namespace Project {
 export interface PurchaseOfferingRequest {
   __type?: "PurchaseOfferingRequest";
   /**
+   * <p>The number of device slots to purchase in an offering request.</p>
+   */
+  quantity?: number;
+
+  /**
    * <p>The ID of the offering.</p>
    */
   offeringId?: string;
@@ -5321,19 +5087,13 @@ export interface PurchaseOfferingRequest {
    * <p>The ID of the offering promotion to be applied to the purchase.</p>
    */
   offeringPromotionId?: string;
-
-  /**
-   * <p>The number of device slots to purchase in an offering request.</p>
-   */
-  quantity?: number;
 }
 
 export namespace PurchaseOfferingRequest {
   export const filterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseOfferingRequest =>
-    __isa(o, "PurchaseOfferingRequest");
+  export const isa = (o: any): o is PurchaseOfferingRequest => __isa(o, "PurchaseOfferingRequest");
 }
 
 /**
@@ -5349,10 +5109,9 @@ export interface PurchaseOfferingResult {
 
 export namespace PurchaseOfferingResult {
   export const filterSensitiveLog = (obj: PurchaseOfferingResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PurchaseOfferingResult =>
-    __isa(o, "PurchaseOfferingResult");
+  export const isa = (o: any): o is PurchaseOfferingResult => __isa(o, "PurchaseOfferingResult");
 }
 
 /**
@@ -5361,11 +5120,6 @@ export namespace PurchaseOfferingResult {
  */
 export interface Radios {
   __type?: "Radios";
-  /**
-   * <p>True if Bluetooth is enabled at the beginning of the test. Otherwise, false.</p>
-   */
-  bluetooth?: boolean;
-
   /**
    * <p>True if GPS is enabled at the beginning of the test. Otherwise, false.</p>
    */
@@ -5380,11 +5134,16 @@ export interface Radios {
    * <p>True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</p>
    */
   wifi?: boolean;
+
+  /**
+   * <p>True if Bluetooth is enabled at the beginning of the test. Otherwise, false.</p>
+   */
+  bluetooth?: boolean;
 }
 
 export namespace Radios {
   export const filterSensitiveLog = (obj: Radios): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Radios => __isa(o, "Radios");
 }
@@ -5407,14 +5166,13 @@ export interface RecurringCharge {
 
 export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 export enum RecurringChargeFrequency {
-  MONTHLY = "MONTHLY"
+  MONTHLY = "MONTHLY",
 }
 
 /**
@@ -5423,40 +5181,9 @@ export enum RecurringChargeFrequency {
 export interface RemoteAccessSession {
   __type?: "RemoteAccessSession";
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
+   * <p>The ARN of the instance.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
-   *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
-   *                 terminology</a>.</p>
-   */
-  billingMethod?: BillingMethod | string;
-
-  /**
-   * <p>Unique identifier of your client for the remote access session. Only returned if
-   *             remote debugging is enabled for the remote access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  clientId?: string;
-
-  /**
-   * <p>The date and time the remote access session was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>The device (phone or tablet) used in the remote access session.</p>
-   */
-  device?: Device;
-
-  /**
-   * <p>The number of minutes a device is used in a remote access session (including setup
-   *             and teardown minutes).</p>
-   */
-  deviceMinutes?: DeviceMinutes;
+  instanceArn?: string;
 
   /**
    * <p>Unique device identifier for the remote device. Only returned if remote debugging
@@ -5465,74 +5192,6 @@ export interface RemoteAccessSession {
    *                 longer supported</a>.</p>
    */
   deviceUdid?: string;
-
-  /**
-   * <p>The endpoint for the remote access sesssion.</p>
-   */
-  endpoint?: string;
-
-  /**
-   * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
-   *             Only returned if remote debugging is enabled for the remote access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  hostAddress?: string;
-
-  /**
-   * <p>The ARN of the instance.</p>
-   */
-  instanceArn?: string;
-
-  /**
-   * <p>The interaction mode of the remote access session. Valid values are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and
-   *                     rotating the screen. You cannot run XCUITest framework-based tests in this
-   *                     mode.</p>
-   *             </li>
-   *             <li>
-   *                 <p>NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This
-   *                     mode has the fastest test execution speed. You can run XCUITest framework-based tests in this
-   *                     mode.</p>
-   *             </li>
-   *             <li>
-   *                 <p>VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest
-   *                     framework-based tests and watch the screen in this mode.</p>
-   *             </li>
-   *          </ul>
-   */
-  interactionMode?: InteractionMode | string;
-
-  /**
-   * <p>A message about the remote access session.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The name of the remote access session.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
-   *             access session.</p>
-   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                 longer supported</a>.</p>
-   */
-  remoteDebugEnabled?: boolean;
-
-  /**
-   * <p>The ARN for the app to be recorded in the remote access session.</p>
-   */
-  remoteRecordAppArn?: string;
-
-  /**
-   * <p>This flag is set to <code>true</code> if remote recording is enabled for the remote
-   *             access session.</p>
-   */
-  remoteRecordEnabled?: boolean;
 
   /**
    * <p>The result of the remote access session. Can be any of the following:</p>
@@ -5571,9 +5230,51 @@ export interface RemoteAccessSession {
   skipAppResign?: boolean;
 
   /**
+   * <p>The endpoint for the remote access sesssion.</p>
+   */
+  endpoint?: string;
+
+  /**
    * <p>The date and time the remote access session was started.</p>
    */
   started?: Date;
+
+  /**
+   * <p>The date and time the remote access session was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the remote
+   *             access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  remoteDebugEnabled?: boolean;
+
+  /**
+   * <p>The number of minutes a device is used in a remote access session (including setup
+   *             and teardown minutes).</p>
+   */
+  deviceMinutes?: DeviceMinutes;
+
+  /**
+   * <p>The ARN for the app to be recorded in the remote access session.</p>
+   */
+  remoteRecordAppArn?: string;
+
+  /**
+   * <p>A message about the remote access session.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Unique identifier of your client for the remote access session. Only returned if
+   *             remote debugging is enabled for the remote access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  clientId?: string;
 
   /**
    * <p>The status of the remote access session. Can be any of the following:</p>
@@ -5610,17 +5311,73 @@ export interface RemoteAccessSession {
   status?: ExecutionStatus | string;
 
   /**
+   * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
+   *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
+   *                 terminology</a>.</p>
+   */
+  billingMethod?: BillingMethod | string;
+
+  /**
    * <p>The date and time the remote access session was stopped.</p>
    */
   stopped?: Date;
+
+  /**
+   * <p>The interaction mode of the remote access session. Valid values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>INTERACTIVE: You can interact with the iOS device by viewing, touching, and
+   *                     rotating the screen. You cannot run XCUITest framework-based tests in this
+   *                     mode.</p>
+   *             </li>
+   *             <li>
+   *                 <p>NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This
+   *                     mode has the fastest test execution speed. You can run XCUITest framework-based tests in this
+   *                     mode.</p>
+   *             </li>
+   *             <li>
+   *                 <p>VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest
+   *                     framework-based tests and watch the screen in this mode.</p>
+   *             </li>
+   *          </ul>
+   */
+  interactionMode?: InteractionMode | string;
+
+  /**
+   * <p>The device (phone or tablet) used in the remote access session.</p>
+   */
+  device?: Device;
+
+  /**
+   * <p>The name of the remote access session.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>IP address of the EC2 host where you need to connect to remotely debug devices.
+   *             Only returned if remote debugging is enabled for the remote access session.</p>
+   *         <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
+   *                 longer supported</a>.</p>
+   */
+  hostAddress?: string;
+
+  /**
+   * <p>This flag is set to <code>true</code> if remote recording is enabled for the remote
+   *             access session.</p>
+   */
+  remoteRecordEnabled?: boolean;
 }
 
 export namespace RemoteAccessSession {
   export const filterSensitiveLog = (obj: RemoteAccessSession): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoteAccessSession =>
-    __isa(o, "RemoteAccessSession");
+  export const isa = (o: any): o is RemoteAccessSession => __isa(o, "RemoteAccessSession");
 }
 
 /**
@@ -5641,10 +5398,9 @@ export interface RenewOfferingRequest {
 
 export namespace RenewOfferingRequest {
   export const filterSensitiveLog = (obj: RenewOfferingRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RenewOfferingRequest =>
-    __isa(o, "RenewOfferingRequest");
+  export const isa = (o: any): o is RenewOfferingRequest => __isa(o, "RenewOfferingRequest");
 }
 
 /**
@@ -5660,10 +5416,9 @@ export interface RenewOfferingResult {
 
 export namespace RenewOfferingResult {
   export const filterSensitiveLog = (obj: RenewOfferingResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RenewOfferingResult =>
-    __isa(o, "RenewOfferingResult");
+  export const isa = (o: any): o is RenewOfferingResult => __isa(o, "RenewOfferingResult");
 }
 
 /**
@@ -5685,7 +5440,7 @@ export interface Resolution {
 
 export namespace Resolution {
   export const filterSensitiveLog = (obj: Resolution): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resolution => __isa(o, "Resolution");
 }
@@ -5695,6 +5450,18 @@ export namespace Resolution {
  */
 export interface Rule {
   __type?: "Rule";
+  /**
+   * <p>The rule's value.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
+   *             operators that are supported by each attribute, see the attribute
+   *             descriptions.</p>
+   */
+  operator?: RuleOperator | string;
+
   /**
    * <p>The rule's stringified attribute. For example, specify the value as
    *                 <code>"\"abc\""</code>.</p>
@@ -5797,23 +5564,11 @@ export interface Rule {
    *          </dl>
    */
   attribute?: DeviceAttribute | string;
-
-  /**
-   * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
-   *             operators that are supported by each attribute, see the attribute
-   *             descriptions.</p>
-   */
-  operator?: RuleOperator | string;
-
-  /**
-   * <p>The rule's value.</p>
-   */
-  value?: string;
 }
 
 export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
@@ -5826,7 +5581,7 @@ export enum RuleOperator {
   IN = "IN",
   LESS_THAN = "LESS_THAN",
   LESS_THAN_OR_EQUALS = "LESS_THAN_OR_EQUALS",
-  NOT_IN = "NOT_IN"
+  NOT_IN = "NOT_IN",
 }
 
 /**
@@ -5835,105 +5590,6 @@ export enum RuleOperator {
  */
 export interface Run {
   __type?: "Run";
-  /**
-   * <p>An app to upload or that has been uploaded.</p>
-   */
-  appUpload?: string;
-
-  /**
-   * <p>The run's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>Specifies the billing method for a test run: <code>metered</code> or
-   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
-   *                 <code>metered</code>.</p>
-   *         <note>
-   *             <p>If you have unmetered device slots, you must set this to <code>unmetered</code> to use them.
-   *                 Otherwise, the run is counted toward metered device minutes.</p>
-   *         </note>
-   */
-  billingMethod?: BillingMethod | string;
-
-  /**
-   * <p>The total number of completed jobs.</p>
-   */
-  completedJobs?: number;
-
-  /**
-   * <p>The run's result counters.</p>
-   */
-  counters?: Counters;
-
-  /**
-   * <p>When the run was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>Output <code>CustomerArtifactPaths</code> object for the test run.</p>
-   */
-  customerArtifactPaths?: CustomerArtifactPaths;
-
-  /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
-   */
-  deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>The ARN of the device pool for the run.</p>
-   */
-  devicePoolArn?: string;
-
-  /**
-   * <p>The results of a device filter used to select the devices for a test run.</p>
-   */
-  deviceSelectionResult?: DeviceSelectionResult;
-
-  /**
-   * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
-   *             test should perform.</p>
-   */
-  eventCount?: number;
-
-  /**
-   * <p>The number of minutes the job executes before it times out.</p>
-   */
-  jobTimeoutMinutes?: number;
-
-  /**
-   * <p>Information about the locale that is used for the run.</p>
-   */
-  locale?: string;
-
-  /**
-   * <p>Information about the location that is used for the run.</p>
-   */
-  location?: Location;
-
-  /**
-   * <p>A message about the run's result.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The run's name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The network profile being used for a test run.</p>
-   */
-  networkProfile?: NetworkProfile;
-
-  /**
-   * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
-   *             If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points
-   *             to.</p>
-   */
-  parsingResultUrl?: string;
-
   /**
    * <p>The run's platform.</p>
    *         <p>Allowed values include:</p>
@@ -5949,113 +5605,26 @@ export interface Run {
   platform?: DevicePlatform | string;
 
   /**
-   * <p>Information about the radio states for the run.</p>
+   * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
+   *             test should perform.</p>
    */
-  radios?: Radios;
+  eventCount?: number;
 
   /**
-   * <p>The run's result.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * <p>An app to upload or that has been uploaded.</p>
    */
-  result?: ExecutionResult | string;
+  appUpload?: string;
 
   /**
-   * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
-   *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
+   * <p>Specifies the billing method for a test run: <code>metered</code> or
+   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
+   *                 <code>metered</code>.</p>
+   *         <note>
+   *             <p>If you have unmetered device slots, you must set this to <code>unmetered</code> to use them.
+   *                 Otherwise, the run is counted toward metered device minutes.</p>
+   *         </note>
    */
-  resultCode?: ExecutionResultCode | string;
-
-  /**
-   * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
-   *             seed value between tests ensures identical event sequences.</p>
-   */
-  seed?: number;
-
-  /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
-   */
-  skipAppResign?: boolean;
-
-  /**
-   * <p>The run's start time.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>The run's status.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                 <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                 <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPING</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: ExecutionStatus | string;
-
-  /**
-   * <p>The run's stop time.</p>
-   */
-  stopped?: Date;
-
-  /**
-   * <p>The ARN of the YAML-formatted test specification for the run.</p>
-   */
-  testSpecArn?: string;
-
-  /**
-   * <p>The total number of jobs for the run.</p>
-   */
-  totalJobs?: number;
+  billingMethod?: BillingMethod | string;
 
   /**
    * <p>The run's type.</p>
@@ -6124,6 +5693,192 @@ export interface Run {
   type?: TestType | string;
 
   /**
+   * <p>The run's ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The ARN of the device pool for the run.</p>
+   */
+  devicePoolArn?: string;
+
+  /**
+   * <p>A message about the run's result.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Output <code>CustomerArtifactPaths</code> object for the test run.</p>
+   */
+  customerArtifactPaths?: CustomerArtifactPaths;
+
+  /**
+   * <p>Information about the locale that is used for the run.</p>
+   */
+  locale?: string;
+
+  /**
+   * <p>The run's start time.</p>
+   */
+  started?: Date;
+
+  /**
+   * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
+   *             seed value between tests ensures identical event sequences.</p>
+   */
+  seed?: number;
+
+  /**
+   * <p>The number of minutes the job executes before it times out.</p>
+   */
+  jobTimeoutMinutes?: number;
+
+  /**
+   * <p>Information about the radio states for the run.</p>
+   */
+  radios?: Radios;
+
+  /**
+   * <p>The run's result.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
+
+  /**
+   * <p>The ARN of the YAML-formatted test specification for the run.</p>
+   */
+  testSpecArn?: string;
+
+  /**
+   * <p>The results of a device filter used to select the devices for a test run.</p>
+   */
+  deviceSelectionResult?: DeviceSelectionResult;
+
+  /**
+   * <p>The total number of completed jobs.</p>
+   */
+  completedJobs?: number;
+
+  /**
+   * <p>The run's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The network profile being used for a test run.</p>
+   */
+  networkProfile?: NetworkProfile;
+
+  /**
+   * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
+   */
+  deviceMinutes?: DeviceMinutes;
+
+  /**
+   * <p>When the run was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The run's stop time.</p>
+   */
+  stopped?: Date;
+
+  /**
+   * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
+   *             If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points
+   *             to.</p>
+   */
+  parsingResultUrl?: string;
+
+  /**
+   * <p>The run's status.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_CONCURRENCY</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_DEVICE</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SCHEDULING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PREPARING</p>
+   *             </li>
+   *             <li>
+   *                 <p>RUNNING</p>
+   *             </li>
+   *             <li>
+   *                 <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPING</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ExecutionStatus | string;
+
+  /**
+   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
+   *             devices, Device Farm always signs your apps again.</p>
+   *         <p>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do you modify my app?</a> in the <i>AWS Device
+   *                 Farm FAQs</i>.</p>
+   */
+  skipAppResign?: boolean;
+
+  /**
+   * <p>The total number of jobs for the run.</p>
+   */
+  totalJobs?: number;
+
+  /**
+   * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
+   *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
+   */
+  resultCode?: ExecutionResultCode | string;
+
+  /**
+   * <p>Information about the location that is used for the run.</p>
+   */
+  location?: Location;
+
+  /**
+   * <p>The run's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
    * <p>The Device Farm console URL for the recording of the run.</p>
    */
   webUrl?: string;
@@ -6131,7 +5886,7 @@ export interface Run {
 
 export namespace Run {
   export const filterSensitiveLog = (obj: Run): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Run => __isa(o, "Run");
 }
@@ -6141,6 +5896,12 @@ export namespace Run {
  */
 export interface Sample {
   __type?: "Sample";
+  /**
+   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
+   *             file.</p>
+   */
+  url?: string;
+
   /**
    * <p>The sample's ARN.</p>
    */
@@ -6209,17 +5970,11 @@ export interface Sample {
    *          </ul>
    */
   type?: SampleType | string;
-
-  /**
-   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
-   *             file.</p>
-   */
-  url?: string;
 }
 
 export namespace Sample {
   export const filterSensitiveLog = (obj: Sample): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Sample => __isa(o, "Sample");
 }
@@ -6241,7 +5996,7 @@ export enum SampleType {
   RX_RATE = "RX_RATE",
   THREADS = "THREADS",
   TX = "TX",
-  TX_RATE = "TX_RATE"
+  TX_RATE = "TX_RATE",
 }
 
 /**
@@ -6250,11 +6005,6 @@ export enum SampleType {
  */
 export interface ScheduleRunConfiguration {
   __type?: "ScheduleRunConfiguration";
-  /**
-   * <p>A list of upload ARNs for app packages to be installed with your app.</p>
-   */
-  auxiliaryApps?: string[];
-
   /**
    * <p>Specifies the billing method for a test run: <code>metered</code> or
    *                 <code>unmetered</code>. If the parameter is not specified, the default value is
@@ -6273,15 +6023,15 @@ export interface ScheduleRunConfiguration {
   customerArtifactPaths?: CustomerArtifactPaths;
 
   /**
+   * <p>Information about the locale that is used for the run.</p>
+   */
+  locale?: string;
+
+  /**
    * <p>The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to
    *             external data for Android or the app's sandbox for iOS.</p>
    */
   extraDataPackageArn?: string;
-
-  /**
-   * <p>Information about the locale that is used for the run.</p>
-   */
-  locale?: string;
 
   /**
    * <p>Information about the location that is used for the run.</p>
@@ -6289,9 +6039,14 @@ export interface ScheduleRunConfiguration {
   location?: Location;
 
   /**
-   * <p>Reserved for internal use.</p>
+   * <p>A list of upload ARNs for app packages to be installed with your app.</p>
    */
-  networkProfileArn?: string;
+  auxiliaryApps?: string[];
+
+  /**
+   * <p>An array of ARNs for your VPC endpoint configurations.</p>
+   */
+  vpceConfigurationArns?: string[];
 
   /**
    * <p>Information about the radio states for the run.</p>
@@ -6299,17 +6054,16 @@ export interface ScheduleRunConfiguration {
   radios?: Radios;
 
   /**
-   * <p>An array of ARNs for your VPC endpoint configurations.</p>
+   * <p>Reserved for internal use.</p>
    */
-  vpceConfigurationArns?: string[];
+  networkProfileArn?: string;
 }
 
 export namespace ScheduleRunConfiguration {
   export const filterSensitiveLog = (obj: ScheduleRunConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunConfiguration =>
-    __isa(o, "ScheduleRunConfiguration");
+  export const isa = (o: any): o is ScheduleRunConfiguration => __isa(o, "ScheduleRunConfiguration");
 }
 
 /**
@@ -6318,10 +6072,9 @@ export namespace ScheduleRunConfiguration {
 export interface ScheduleRunRequest {
   __type?: "ScheduleRunRequest";
   /**
-   * <p>The ARN of an application package to run tests against, created with <a>CreateUpload</a>.
-   *             See <a>ListUploads</a>.</p>
+   * <p>The ARN of the project for the run to be scheduled.</p>
    */
-  appArn?: string;
+  projectArn: string | undefined;
 
   /**
    * <p>Information about the settings for the run to be scheduled.</p>
@@ -6332,6 +6085,17 @@ export interface ScheduleRunRequest {
    * <p>The ARN of the device pool for the run to be scheduled.</p>
    */
   devicePoolArn?: string;
+
+  /**
+   * <p>The name for the run to be scheduled.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Specifies configuration information about a test run, such as the execution timeout
+   *             (in minutes).</p>
+   */
+  executionConfiguration?: ExecutionConfiguration;
 
   /**
    * <p>The filter criteria used to dynamically select a set of devices for a test run and the maximum number of
@@ -6346,20 +6110,10 @@ export interface ScheduleRunRequest {
   deviceSelectionConfiguration?: DeviceSelectionConfiguration;
 
   /**
-   * <p>Specifies configuration information about a test run, such as the execution timeout
-   *             (in minutes).</p>
+   * <p>The ARN of an application package to run tests against, created with <a>CreateUpload</a>.
+   *             See <a>ListUploads</a>.</p>
    */
-  executionConfiguration?: ExecutionConfiguration;
-
-  /**
-   * <p>The name for the run to be scheduled.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ARN of the project for the run to be scheduled.</p>
-   */
-  projectArn: string | undefined;
+  appArn?: string;
 
   /**
    * <p>Information about the test for the run to be scheduled.</p>
@@ -6369,10 +6123,9 @@ export interface ScheduleRunRequest {
 
 export namespace ScheduleRunRequest {
   export const filterSensitiveLog = (obj: ScheduleRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunRequest =>
-    __isa(o, "ScheduleRunRequest");
+  export const isa = (o: any): o is ScheduleRunRequest => __isa(o, "ScheduleRunRequest");
 }
 
 /**
@@ -6388,10 +6141,9 @@ export interface ScheduleRunResult {
 
 export namespace ScheduleRunResult {
   export const filterSensitiveLog = (obj: ScheduleRunResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunResult =>
-    __isa(o, "ScheduleRunResult");
+  export const isa = (o: any): o is ScheduleRunResult => __isa(o, "ScheduleRunResult");
 }
 
 /**
@@ -6400,11 +6152,6 @@ export namespace ScheduleRunResult {
  */
 export interface ScheduleRunTest {
   __type?: "ScheduleRunTest";
-  /**
-   * <p>The test's filter.</p>
-   */
-  filter?: string;
-
   /**
    * <p>The test's parameters, such as test framework parameters and fixture settings.
    *             Parameters are represented by name-value pairs of strings.</p>
@@ -6545,16 +6292,6 @@ export interface ScheduleRunTest {
   parameters?: { [key: string]: string };
 
   /**
-   * <p>The ARN of the uploaded test to be run.</p>
-   */
-  testPackageArn?: string;
-
-  /**
-   * <p>The ARN of the YAML-formatted test specification.</p>
-   */
-  testSpecArn?: string;
-
-  /**
    * <p>The test's type.</p>
    *         <p>Must be one of the following values:</p>
    *         <ul>
@@ -6617,22 +6354,34 @@ export interface ScheduleRunTest {
    *          </ul>
    */
   type: TestType | string | undefined;
+
+  /**
+   * <p>The ARN of the uploaded test to be run.</p>
+   */
+  testPackageArn?: string;
+
+  /**
+   * <p>The ARN of the YAML-formatted test specification.</p>
+   */
+  testSpecArn?: string;
+
+  /**
+   * <p>The test's filter.</p>
+   */
+  filter?: string;
 }
 
 export namespace ScheduleRunTest {
   export const filterSensitiveLog = (obj: ScheduleRunTest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduleRunTest =>
-    __isa(o, "ScheduleRunTest");
+  export const isa = (o: any): o is ScheduleRunTest => __isa(o, "ScheduleRunTest");
 }
 
 /**
  * <p>There was a problem with the service account.</p>
  */
-export interface ServiceAccountException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceAccountException extends __SmithyException, $MetadataBearer {
   name: "ServiceAccountException";
   $fault: "client";
   /**
@@ -6643,10 +6392,9 @@ export interface ServiceAccountException
 
 export namespace ServiceAccountException {
   export const filterSensitiveLog = (obj: ServiceAccountException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceAccountException =>
-    __isa(o, "ServiceAccountException");
+  export const isa = (o: any): o is ServiceAccountException => __isa(o, "ServiceAccountException");
 }
 
 export interface StopJobRequest {
@@ -6659,10 +6407,9 @@ export interface StopJobRequest {
 
 export namespace StopJobRequest {
   export const filterSensitiveLog = (obj: StopJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopJobRequest =>
-    __isa(o, "StopJobRequest");
+  export const isa = (o: any): o is StopJobRequest => __isa(o, "StopJobRequest");
 }
 
 export interface StopJobResult {
@@ -6675,7 +6422,7 @@ export interface StopJobResult {
 
 export namespace StopJobResult {
   export const filterSensitiveLog = (obj: StopJobResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StopJobResult => __isa(o, "StopJobResult");
 }
@@ -6692,13 +6439,10 @@ export interface StopRemoteAccessSessionRequest {
 }
 
 export namespace StopRemoteAccessSessionRequest {
-  export const filterSensitiveLog = (
-    obj: StopRemoteAccessSessionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopRemoteAccessSessionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopRemoteAccessSessionRequest =>
-    __isa(o, "StopRemoteAccessSessionRequest");
+  export const isa = (o: any): o is StopRemoteAccessSessionRequest => __isa(o, "StopRemoteAccessSessionRequest");
 }
 
 /**
@@ -6715,13 +6459,10 @@ export interface StopRemoteAccessSessionResult {
 }
 
 export namespace StopRemoteAccessSessionResult {
-  export const filterSensitiveLog = (
-    obj: StopRemoteAccessSessionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopRemoteAccessSessionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopRemoteAccessSessionResult =>
-    __isa(o, "StopRemoteAccessSessionResult");
+  export const isa = (o: any): o is StopRemoteAccessSessionResult => __isa(o, "StopRemoteAccessSessionResult");
 }
 
 /**
@@ -6737,10 +6478,9 @@ export interface StopRunRequest {
 
 export namespace StopRunRequest {
   export const filterSensitiveLog = (obj: StopRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopRunRequest =>
-    __isa(o, "StopRunRequest");
+  export const isa = (o: any): o is StopRunRequest => __isa(o, "StopRunRequest");
 }
 
 /**
@@ -6756,7 +6496,7 @@ export interface StopRunResult {
 
 export namespace StopRunResult {
   export const filterSensitiveLog = (obj: StopRunResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StopRunResult => __isa(o, "StopRunResult");
 }
@@ -6767,19 +6507,14 @@ export namespace StopRunResult {
 export interface Suite {
   __type?: "Suite";
   /**
+   * <p>A message about the suite's result.</p>
+   */
+  message?: string;
+
+  /**
    * <p>The suite's ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The suite's result counters.</p>
-   */
-  counters?: Counters;
-
-  /**
-   * <p>When the suite was created.</p>
-   */
-  created?: Date;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the test
@@ -6788,14 +6523,14 @@ export interface Suite {
   deviceMinutes?: DeviceMinutes;
 
   /**
-   * <p>A message about the suite's result.</p>
+   * <p>When the suite was created.</p>
    */
-  message?: string;
+  created?: Date;
 
   /**
-   * <p>The suite's name.</p>
+   * <p>The suite's stop time.</p>
    */
-  name?: string;
+  stopped?: Date;
 
   /**
    * <p>The suite's result.</p>
@@ -6825,51 +6560,6 @@ export interface Suite {
    *          </ul>
    */
   result?: ExecutionResult | string;
-
-  /**
-   * <p>The suite's start time.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>The suite's status.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                 <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                 <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                 <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                 <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                 <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPING</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: ExecutionStatus | string;
-
-  /**
-   * <p>The suite's stop time.</p>
-   */
-  stopped?: Date;
 
   /**
    * <p>The suite's type.</p>
@@ -6936,11 +6626,61 @@ export interface Suite {
    *          </ul>
    */
   type?: TestType | string;
+
+  /**
+   * <p>The suite's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The suite's status.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_CONCURRENCY</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_DEVICE</p>
+   *             </li>
+   *             <li>
+   *                 <p>PROCESSING</p>
+   *             </li>
+   *             <li>
+   *                 <p>SCHEDULING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PREPARING</p>
+   *             </li>
+   *             <li>
+   *                 <p>RUNNING</p>
+   *             </li>
+   *             <li>
+   *                 <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPING</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ExecutionStatus | string;
+
+  /**
+   * <p>The suite's start time.</p>
+   */
+  started?: Date;
+
+  /**
+   * <p>The suite's name.</p>
+   */
+  name?: string;
 }
 
 export namespace Suite {
   export const filterSensitiveLog = (obj: Suite): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Suite => __isa(o, "Suite");
 }
@@ -6967,7 +6707,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -6975,9 +6715,7 @@ export namespace Tag {
 /**
  * <p>The operation was not successful. Try again.</p>
  */
-export interface TagOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagOperationException extends __SmithyException, $MetadataBearer {
   name: "TagOperationException";
   $fault: "client";
   message?: string;
@@ -6986,10 +6724,9 @@ export interface TagOperationException
 
 export namespace TagOperationException {
   export const filterSensitiveLog = (obj: TagOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagOperationException =>
-    __isa(o, "TagOperationException");
+  export const isa = (o: any): o is TagOperationException => __isa(o, "TagOperationException");
 }
 
 /**
@@ -7005,14 +6742,19 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 
 export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
+  /**
+   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
+   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
+   */
+  Tags: Tag[] | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
    *             with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
@@ -7021,20 +6763,13 @@ export interface TagResourceRequest {
    *             <code>VPCE_CONFIGURATION</code>.</p>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
-   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -7043,10 +6778,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -7054,65 +6788,6 @@ export namespace TagResourceResponse {
  */
 export interface Test {
   __type?: "Test";
-  /**
-   * <p>The test's ARN.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The test's result counters.</p>
-   */
-  counters?: Counters;
-
-  /**
-   * <p>When the test was created.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
-   */
-  deviceMinutes?: DeviceMinutes;
-
-  /**
-   * <p>A message about the test's result.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The test's name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The test's result.</p>
-   *         <p>Allowed values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                 <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                 <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                 <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                 <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                 <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                 <p>STOPPED</p>
-   *             </li>
-   *          </ul>
-   */
-  result?: ExecutionResult | string;
-
   /**
    * <p>The test's start time.</p>
    */
@@ -7154,9 +6829,63 @@ export interface Test {
   status?: ExecutionStatus | string;
 
   /**
+   * <p>The test's name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>When the test was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The test's result counters.</p>
+   */
+  counters?: Counters;
+
+  /**
+   * <p>The test's result.</p>
+   *         <p>Allowed values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                 <p>PASSED</p>
+   *             </li>
+   *             <li>
+   *                 <p>WARNED</p>
+   *             </li>
+   *             <li>
+   *                 <p>FAILED</p>
+   *             </li>
+   *             <li>
+   *                 <p>SKIPPED</p>
+   *             </li>
+   *             <li>
+   *                 <p>ERRORED</p>
+   *             </li>
+   *             <li>
+   *                 <p>STOPPED</p>
+   *             </li>
+   *          </ul>
+   */
+  result?: ExecutionResult | string;
+
+  /**
    * <p>The test's stop time.</p>
    */
   stopped?: Date;
+
+  /**
+   * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
+   */
+  deviceMinutes?: DeviceMinutes;
+
+  /**
+   * <p>The test's ARN.</p>
+   */
+  arn?: string;
 
   /**
    * <p>The test's type.</p>
@@ -7223,11 +6952,16 @@ export interface Test {
    *          </ul>
    */
   type?: TestType | string;
+
+  /**
+   * <p>A message about the test's result.</p>
+   */
+  message?: string;
 }
 
 export namespace Test {
   export const filterSensitiveLog = (obj: Test): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Test => __isa(o, "Test");
 }
@@ -7238,16 +6972,6 @@ export namespace Test {
 export interface TestGridProject {
   __type?: "TestGridProject";
   /**
-   * <p>The ARN for the project.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>When the project was created.</p>
-   */
-  created?: Date;
-
-  /**
    * <p>A human-readable description for the project.</p>
    */
   description?: string;
@@ -7256,14 +6980,23 @@ export interface TestGridProject {
    * <p>A human-readable name for the project.</p>
    */
   name?: string;
+
+  /**
+   * <p>When the project was created.</p>
+   */
+  created?: Date;
+
+  /**
+   * <p>The ARN for the project.</p>
+   */
+  arn?: string;
 }
 
 export namespace TestGridProject {
   export const filterSensitiveLog = (obj: TestGridProject): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestGridProject =>
-    __isa(o, "TestGridProject");
+  export const isa = (o: any): o is TestGridProject => __isa(o, "TestGridProject");
 }
 
 /**
@@ -7272,16 +7005,6 @@ export namespace TestGridProject {
  */
 export interface TestGridSession {
   __type?: "TestGridSession";
-  /**
-   * <p>The ARN of the session.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The number of billed minutes that were used for this session. </p>
-   */
-  billingMinutes?: number;
-
   /**
    * <p>The time that the session was started.</p>
    */
@@ -7293,22 +7016,31 @@ export interface TestGridSession {
   ended?: Date;
 
   /**
-   * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
+   * <p>The ARN of the session.</p>
    */
-  seleniumProperties?: string;
+  arn?: string;
 
   /**
    * <p>The state of the session.</p>
    */
   status?: TestGridSessionStatus | string;
+
+  /**
+   * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
+   */
+  seleniumProperties?: string;
+
+  /**
+   * <p>The number of billed minutes that were used for this session. </p>
+   */
+  billingMinutes?: number;
 }
 
 export namespace TestGridSession {
   export const filterSensitiveLog = (obj: TestGridSession): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestGridSession =>
-    __isa(o, "TestGridSession");
+  export const isa = (o: any): o is TestGridSession => __isa(o, "TestGridSession");
 }
 
 /**
@@ -7317,9 +7049,19 @@ export namespace TestGridSession {
 export interface TestGridSessionAction {
   __type?: "TestGridSessionAction";
   /**
+   * <p>HTTP status code returned to the browser when the action was taken.</p>
+   */
+  statusCode?: string;
+
+  /**
    * <p>The action taken by the session.</p>
    */
   action?: string;
+
+  /**
+   * <p>The time that the session invoked the action.</p>
+   */
+  started?: Date;
 
   /**
    * <p>The time, in milliseconds, that the action took to complete in the browser.</p>
@@ -7330,24 +7072,13 @@ export interface TestGridSessionAction {
    * <p>HTTP method that the browser used to make the request.</p>
    */
   requestMethod?: string;
-
-  /**
-   * <p>The time that the session invoked the action.</p>
-   */
-  started?: Date;
-
-  /**
-   * <p>HTTP status code returned to the browser when the action was taken.</p>
-   */
-  statusCode?: string;
 }
 
 export namespace TestGridSessionAction {
   export const filterSensitiveLog = (obj: TestGridSessionAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestGridSessionAction =>
-    __isa(o, "TestGridSessionAction");
+  export const isa = (o: any): o is TestGridSessionAction => __isa(o, "TestGridSessionAction");
 }
 
 /**
@@ -7360,14 +7091,14 @@ export namespace TestGridSessionAction {
 export interface TestGridSessionArtifact {
   __type?: "TestGridSessionArtifact";
   /**
-   * <p>The file name of the artifact.</p>
-   */
-  filename?: string;
-
-  /**
    * <p>The kind of artifact.</p>
    */
   type?: TestGridSessionArtifactType | string;
+
+  /**
+   * <p>The file name of the artifact.</p>
+   */
+  filename?: string;
 
   /**
    * <p>A semi-stable URL to the content of the object.</p>
@@ -7377,27 +7108,26 @@ export interface TestGridSessionArtifact {
 
 export namespace TestGridSessionArtifact {
   export const filterSensitiveLog = (obj: TestGridSessionArtifact): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestGridSessionArtifact =>
-    __isa(o, "TestGridSessionArtifact");
+  export const isa = (o: any): o is TestGridSessionArtifact => __isa(o, "TestGridSessionArtifact");
 }
 
 export enum TestGridSessionArtifactCategory {
   LOG = "LOG",
-  VIDEO = "VIDEO"
+  VIDEO = "VIDEO",
 }
 
 export enum TestGridSessionArtifactType {
   SELENIUM_LOG = "SELENIUM_LOG",
   UNKNOWN = "UNKNOWN",
-  VIDEO = "VIDEO"
+  VIDEO = "VIDEO",
 }
 
 export enum TestGridSessionStatus {
   ACTIVE = "ACTIVE",
   CLOSED = "CLOSED",
-  ERRORED = "ERRORED"
+  ERRORED = "ERRORED",
 }
 
 export enum TestType {
@@ -7421,16 +7151,14 @@ export enum TestType {
   UIAUTOMATOR = "UIAUTOMATOR",
   WEB_PERFORMANCE_PROFILE = "WEB_PERFORMANCE_PROFILE",
   XCTEST = "XCTEST",
-  XCTEST_UI = "XCTEST_UI"
+  XCTEST_UI = "XCTEST_UI",
 }
 
 /**
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50. </p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -7439,10 +7167,9 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -7452,19 +7179,19 @@ export namespace TooManyTagsException {
 export interface TrialMinutes {
   __type?: "TrialMinutes";
   /**
-   * <p>The number of free trial minutes remaining in the account.</p>
-   */
-  remaining?: number;
-
-  /**
    * <p>The total number of free trial minutes that the account started with.</p>
    */
   total?: number;
+
+  /**
+   * <p>The number of free trial minutes remaining in the account.</p>
+   */
+  remaining?: number;
 }
 
 export namespace TrialMinutes {
   export const filterSensitiveLog = (obj: TrialMinutes): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TrialMinutes => __isa(o, "TrialMinutes");
 }
@@ -7487,7 +7214,7 @@ export interface UniqueProblem {
 
 export namespace UniqueProblem {
   export const filterSensitiveLog = (obj: UniqueProblem): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UniqueProblem => __isa(o, "UniqueProblem");
 }
@@ -7511,10 +7238,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -7523,18 +7249,17 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDeviceInstanceRequest {
   __type?: "UpdateDeviceInstanceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
+   * <p>The ARN of the profile that you want to associate with the device instance.</p>
    */
-  arn: string | undefined;
+  profileArn?: string;
 
   /**
    * <p>An array of strings that you want to associate with the device instance.</p>
@@ -7542,19 +7267,16 @@ export interface UpdateDeviceInstanceRequest {
   labels?: string[];
 
   /**
-   * <p>The ARN of the profile that you want to associate with the device instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
    */
-  profileArn?: string;
+  arn: string | undefined;
 }
 
 export namespace UpdateDeviceInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDeviceInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateDeviceInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceInstanceRequest =>
-    __isa(o, "UpdateDeviceInstanceRequest");
+  export const isa = (o: any): o is UpdateDeviceInstanceRequest => __isa(o, "UpdateDeviceInstanceRequest");
 }
 
 export interface UpdateDeviceInstanceResult {
@@ -7567,10 +7289,9 @@ export interface UpdateDeviceInstanceResult {
 
 export namespace UpdateDeviceInstanceResult {
   export const filterSensitiveLog = (obj: UpdateDeviceInstanceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceInstanceResult =>
-    __isa(o, "UpdateDeviceInstanceResult");
+  export const isa = (o: any): o is UpdateDeviceInstanceResult => __isa(o, "UpdateDeviceInstanceResult");
 }
 
 /**
@@ -7578,26 +7299,6 @@ export namespace UpdateDeviceInstanceResult {
  */
 export interface UpdateDevicePoolRequest {
   __type?: "UpdateDevicePoolRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
-   *             to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit
-   *             the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices
-   *             that meet the criteria specified in the <code>rules</code> parameter.</p>
-   *         <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
-   *             parameter in the same request.</p>
-   */
-  clearMaxDevices?: boolean;
-
-  /**
-   * <p>A description of the device pool to update.</p>
-   */
-  description?: string;
-
   /**
    * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds
    *             devices that are available and that meet the criteria that you assign for the
@@ -7611,23 +7312,42 @@ export interface UpdateDevicePoolRequest {
   maxDevices?: number;
 
   /**
-   * <p>A string that represents the name of the device pool to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</p>
    */
-  name?: string;
+  arn: string | undefined;
 
   /**
    * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
    *             your request, the update replaces the existing rules.</p>
    */
   rules?: Rule[];
+
+  /**
+   * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
+   *             to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit
+   *             the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices
+   *             that meet the criteria specified in the <code>rules</code> parameter.</p>
+   *         <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
+   *             parameter in the same request.</p>
+   */
+  clearMaxDevices?: boolean;
+
+  /**
+   * <p>A string that represents the name of the device pool to update.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A description of the device pool to update.</p>
+   */
+  description?: string;
 }
 
 export namespace UpdateDevicePoolRequest {
   export const filterSensitiveLog = (obj: UpdateDevicePoolRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDevicePoolRequest =>
-    __isa(o, "UpdateDevicePoolRequest");
+  export const isa = (o: any): o is UpdateDevicePoolRequest => __isa(o, "UpdateDevicePoolRequest");
 }
 
 /**
@@ -7643,24 +7363,13 @@ export interface UpdateDevicePoolResult {
 
 export namespace UpdateDevicePoolResult {
   export const filterSensitiveLog = (obj: UpdateDevicePoolResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDevicePoolResult =>
-    __isa(o, "UpdateDevicePoolResult");
+  export const isa = (o: any): o is UpdateDevicePoolResult => __isa(o, "UpdateDevicePoolResult");
 }
 
 export interface UpdateInstanceProfileRequest {
   __type?: "UpdateInstanceProfileRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The updated description for your instance profile.</p>
-   */
-  description?: string;
-
   /**
    * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
    *             after a test run is over.</p>
@@ -7668,6 +7377,17 @@ export interface UpdateInstanceProfileRequest {
    *                 <code>true</code>.</p>
    */
   excludeAppPackagesFromCleanup?: string[];
+
+  /**
+   * <p>The updated choice for whether you want to reboot the device after use. The default
+   *             value is <code>true</code>.</p>
+   */
+  rebootAfterUse?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   */
+  arn: string | undefined;
 
   /**
    * <p>The updated name for your instance profile.</p>
@@ -7681,20 +7401,16 @@ export interface UpdateInstanceProfileRequest {
   packageCleanup?: boolean;
 
   /**
-   * <p>The updated choice for whether you want to reboot the device after use. The default
-   *             value is <code>true</code>.</p>
+   * <p>The updated description for your instance profile.</p>
    */
-  rebootAfterUse?: boolean;
+  description?: string;
 }
 
 export namespace UpdateInstanceProfileRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateInstanceProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateInstanceProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceProfileRequest =>
-    __isa(o, "UpdateInstanceProfileRequest");
+  export const isa = (o: any): o is UpdateInstanceProfileRequest => __isa(o, "UpdateInstanceProfileRequest");
 }
 
 export interface UpdateInstanceProfileResult {
@@ -7706,22 +7422,30 @@ export interface UpdateInstanceProfileResult {
 }
 
 export namespace UpdateInstanceProfileResult {
-  export const filterSensitiveLog = (
-    obj: UpdateInstanceProfileResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateInstanceProfileResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceProfileResult =>
-    __isa(o, "UpdateInstanceProfileResult");
+  export const isa = (o: any): o is UpdateInstanceProfileResult => __isa(o, "UpdateInstanceProfileResult");
 }
 
 export interface UpdateNetworkProfileRequest {
   __type?: "UpdateNetworkProfileRequest";
   /**
+   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   */
+  downlinkLossPercent?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the project for which you want to update network
    *             profile settings.</p>
    */
   arn: string | undefined;
+
+  /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  uplinkDelayMs?: number;
 
   /**
    * <p>The description of the network profile about which you are returning
@@ -7730,50 +7454,16 @@ export interface UpdateNetworkProfileRequest {
   description?: string;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
-   */
-  downlinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  downlinkDelayMs?: number;
-
-  /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
    *             0 to 2000.</p>
    */
   downlinkJitterMs?: number;
 
   /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
-   */
-  downlinkLossPercent?: number;
-
-  /**
-   * <p>The name of the network profile about which you are returning
-   *             information.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
-   */
-  type?: NetworkProfileType | string;
-
-  /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
    *             104857600.</p>
    */
-  uplinkBandwidthBits?: number;
-
-  /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
-   */
-  uplinkDelayMs?: number;
+  downlinkBandwidthBits?: number;
 
   /**
    * <p>Time variation in the delay of received packets in milliseconds as an integer from
@@ -7786,16 +7476,36 @@ export interface UpdateNetworkProfileRequest {
    *             percent.</p>
    */
   uplinkLossPercent?: number;
+
+  /**
+   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   */
+  type?: NetworkProfileType | string;
+
+  /**
+   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
+   *             2000.</p>
+   */
+  downlinkDelayMs?: number;
+
+  /**
+   * <p>The name of the network profile about which you are returning
+   *             information.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The data throughput rate in bits per second, as an integer from 0 to
+   *             104857600.</p>
+   */
+  uplinkBandwidthBits?: number;
 }
 
 export namespace UpdateNetworkProfileRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateNetworkProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNetworkProfileRequest =>
-    __isa(o, "UpdateNetworkProfileRequest");
+  export const isa = (o: any): o is UpdateNetworkProfileRequest => __isa(o, "UpdateNetworkProfileRequest");
 }
 
 export interface UpdateNetworkProfileResult {
@@ -7808,10 +7518,9 @@ export interface UpdateNetworkProfileResult {
 
 export namespace UpdateNetworkProfileResult {
   export const filterSensitiveLog = (obj: UpdateNetworkProfileResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNetworkProfileResult =>
-    __isa(o, "UpdateNetworkProfileResult");
+  export const isa = (o: any): o is UpdateNetworkProfileResult => __isa(o, "UpdateNetworkProfileResult");
 }
 
 /**
@@ -7819,11 +7528,6 @@ export namespace UpdateNetworkProfileResult {
  */
 export interface UpdateProjectRequest {
   __type?: "UpdateProjectRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project whose name to update.</p>
-   */
-  arn: string | undefined;
-
   /**
    * <p>The number of minutes a test run in the project executes before it times out.</p>
    */
@@ -7833,14 +7537,18 @@ export interface UpdateProjectRequest {
    * <p>A string that represents the new name of the project that you are updating.</p>
    */
   name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project whose name to update.</p>
+   */
+  arn: string | undefined;
 }
 
 export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectRequest =>
-    __isa(o, "UpdateProjectRequest");
+  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 /**
@@ -7856,14 +7564,18 @@ export interface UpdateProjectResult {
 
 export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult =>
-    __isa(o, "UpdateProjectResult");
+  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }
 
 export interface UpdateTestGridProjectRequest {
   __type?: "UpdateTestGridProjectRequest";
+  /**
+   * <p>ARN of the project to update.</p>
+   */
+  projectArn: string | undefined;
+
   /**
    * <p>Human-readable description for the project.</p>
    */
@@ -7873,21 +7585,13 @@ export interface UpdateTestGridProjectRequest {
    * <p>Human-readable name for the project.</p>
    */
   name?: string;
-
-  /**
-   * <p>ARN of the project to update.</p>
-   */
-  projectArn: string | undefined;
 }
 
 export namespace UpdateTestGridProjectRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateTestGridProjectRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateTestGridProjectRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateTestGridProjectRequest =>
-    __isa(o, "UpdateTestGridProjectRequest");
+  export const isa = (o: any): o is UpdateTestGridProjectRequest => __isa(o, "UpdateTestGridProjectRequest");
 }
 
 export interface UpdateTestGridProjectResult {
@@ -7899,27 +7603,14 @@ export interface UpdateTestGridProjectResult {
 }
 
 export namespace UpdateTestGridProjectResult {
-  export const filterSensitiveLog = (
-    obj: UpdateTestGridProjectResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateTestGridProjectResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateTestGridProjectResult =>
-    __isa(o, "UpdateTestGridProjectResult");
+  export const isa = (o: any): o is UpdateTestGridProjectResult => __isa(o, "UpdateTestGridProjectResult");
 }
 
 export interface UpdateUploadRequest {
   __type?: "UpdateUploadRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
-   */
-  contentType?: string;
-
   /**
    * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
    */
@@ -7930,14 +7621,23 @@ export interface UpdateUploadRequest {
    *             name must end with the <code>.yaml</code> or <code>.yml</code> file extension.</p>
    */
   name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
+   */
+  contentType?: string;
 }
 
 export namespace UpdateUploadRequest {
   export const filterSensitiveLog = (obj: UpdateUploadRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateUploadRequest =>
-    __isa(o, "UpdateUploadRequest");
+  export const isa = (o: any): o is UpdateUploadRequest => __isa(o, "UpdateUploadRequest");
 }
 
 export interface UpdateUploadResult {
@@ -7950,19 +7650,29 @@ export interface UpdateUploadResult {
 
 export namespace UpdateUploadResult {
   export const filterSensitiveLog = (obj: UpdateUploadResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateUploadResult =>
-    __isa(o, "UpdateUploadResult");
+  export const isa = (o: any): o is UpdateUploadResult => __isa(o, "UpdateUploadResult");
 }
 
 export interface UpdateVPCEConfigurationRequest {
   __type?: "UpdateVPCEConfigurationRequest";
   /**
+   * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
+   *             easily.</p>
+   */
+  vpceConfigurationName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
    *             update.</p>
    */
   arn: string | undefined;
+
+  /**
+   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   */
+  vpceServiceName?: string;
 
   /**
    * <p>The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already
@@ -7974,27 +7684,13 @@ export interface UpdateVPCEConfigurationRequest {
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
    */
   vpceConfigurationDescription?: string;
-
-  /**
-   * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
-   *             easily.</p>
-   */
-  vpceConfigurationName?: string;
-
-  /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
-   */
-  vpceServiceName?: string;
 }
 
 export namespace UpdateVPCEConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateVPCEConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateVPCEConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateVPCEConfigurationRequest =>
-    __isa(o, "UpdateVPCEConfigurationRequest");
+  export const isa = (o: any): o is UpdateVPCEConfigurationRequest => __isa(o, "UpdateVPCEConfigurationRequest");
 }
 
 export interface UpdateVPCEConfigurationResult {
@@ -8006,13 +7702,10 @@ export interface UpdateVPCEConfigurationResult {
 }
 
 export namespace UpdateVPCEConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: UpdateVPCEConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateVPCEConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateVPCEConfigurationResult =>
-    __isa(o, "UpdateVPCEConfigurationResult");
+  export const isa = (o: any): o is UpdateVPCEConfigurationResult => __isa(o, "UpdateVPCEConfigurationResult");
 }
 
 /**
@@ -8022,9 +7715,14 @@ export namespace UpdateVPCEConfigurationResult {
 export interface Upload {
   __type?: "Upload";
   /**
-   * <p>The upload's ARN.</p>
+   * <p>A message about the upload's result.</p>
    */
-  arn?: string;
+  message?: string;
+
+  /**
+   * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
+   */
+  url?: string;
 
   /**
    * <p>The upload's category. Allowed values include:</p>
@@ -8040,31 +7738,14 @@ export interface Upload {
   category?: UploadCategory | string;
 
   /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
-   */
-  contentType?: string;
-
-  /**
    * <p>When the upload was created.</p>
    */
   created?: Date;
 
   /**
-   * <p>A message about the upload's result.</p>
+   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
    */
-  message?: string;
-
-  /**
-   * <p>The upload's metadata. For example, for Android, this contains information that is
-   *             parsed from the manifest and is displayed in the AWS Device Farm console after the
-   *             associated app is uploaded.</p>
-   */
-  metadata?: string;
-
-  /**
-   * <p>The upload's file name.</p>
-   */
-  name?: string;
+  contentType?: string;
 
   /**
    * <p>The upload's status.</p>
@@ -8191,28 +7872,40 @@ export interface Upload {
   type?: UploadType | string;
 
   /**
-   * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
+   * <p>The upload's metadata. For example, for Android, this contains information that is
+   *             parsed from the manifest and is displayed in the AWS Device Farm console after the
+   *             associated app is uploaded.</p>
    */
-  url?: string;
+  metadata?: string;
+
+  /**
+   * <p>The upload's ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The upload's file name.</p>
+   */
+  name?: string;
 }
 
 export namespace Upload {
   export const filterSensitiveLog = (obj: Upload): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Upload => __isa(o, "Upload");
 }
 
 export enum UploadCategory {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 export enum UploadStatus {
   FAILED = "FAILED",
   INITIALIZED = "INITIALIZED",
   PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export enum UploadType {
@@ -8247,7 +7940,7 @@ export enum UploadType {
   WEB_APP = "WEB_APP",
   XCTEST_TEST_PACKAGE = "XCTEST_TEST_PACKAGE",
   XCTEST_UI_TEST_PACKAGE = "XCTEST_UI_TEST_PACKAGE",
-  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC"
+  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC",
 }
 
 /**
@@ -8256,15 +7949,15 @@ export enum UploadType {
 export interface VPCEConfiguration {
   __type?: "VPCEConfiguration";
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The DNS name that maps to the private IP address of the service you want to
    *             access.</p>
    */
   serviceDnsName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
+   */
+  arn?: string;
 
   /**
    * <p>An optional description that provides details about your VPC endpoint configuration.</p>
@@ -8285,8 +7978,7 @@ export interface VPCEConfiguration {
 
 export namespace VPCEConfiguration {
   export const filterSensitiveLog = (obj: VPCEConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VPCEConfiguration =>
-    __isa(o, "VPCEConfiguration");
+  export const isa = (o: any): o is VPCEConfiguration => __isa(o, "VPCEConfiguration");
 }

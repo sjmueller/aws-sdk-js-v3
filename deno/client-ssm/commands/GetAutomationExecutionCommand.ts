@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  GetAutomationExecutionRequest,
-  GetAutomationExecutionResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAutomationExecutionCommand,
-  serializeAws_json1_1GetAutomationExecutionCommand
+  serializeAws_json1_1GetAutomationExecutionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAutomationExecutionCommandInput = GetAutomationExecutionRequest;
-export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult &
-  __MetadataBearer;
+export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult & __MetadataBearer;
 
 export class GetAutomationExecutionCommand extends $Command<
   GetAutomationExecutionCommandInput,
@@ -49,18 +38,16 @@ export class GetAutomationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAutomationExecutionCommandInput,
-    GetAutomationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAutomationExecutionCommandInput, GetAutomationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAutomationExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAutomationExecutionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetAutomationExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAutomationExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAutomationExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAutomationExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutomationExecutionCommandOutput> {
     return deserializeAws_json1_1GetAutomationExecutionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  AssociateSubnetCidrBlockRequest,
-  AssociateSubnetCidrBlockResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/index.ts";
 import {
   deserializeAws_ec2AssociateSubnetCidrBlockCommand,
-  serializeAws_ec2AssociateSubnetCidrBlockCommand
+  serializeAws_ec2AssociateSubnetCidrBlockCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateSubnetCidrBlockCommandInput = AssociateSubnetCidrBlockRequest;
-export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult &
-  __MetadataBearer;
+export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult & __MetadataBearer;
 
 export class AssociateSubnetCidrBlockCommand extends $Command<
   AssociateSubnetCidrBlockCommandInput,
@@ -49,18 +38,16 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSubnetCidrBlockCommandInput,
-    AssociateSubnetCidrBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSubnetCidrBlockCommandInput, AssociateSubnetCidrBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateSubnetCidrBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSubnetCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateSubnetCidrBlockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateSubnetCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateSubnetCidrBlockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateSubnetCidrBlockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSubnetCidrBlockCommandOutput> {
     return deserializeAws_ec2AssociateSubnetCidrBlockCommand(output, context);
   }
 

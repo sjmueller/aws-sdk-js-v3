@@ -1,55 +1,44 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand.ts";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
 import {
   CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput
+  CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand.ts";
 import {
   CreateCloudFormationChangeSetCommandInput,
-  CreateCloudFormationChangeSetCommandOutput
+  CreateCloudFormationChangeSetCommandOutput,
 } from "./commands/CreateCloudFormationChangeSetCommand.ts";
 import {
   CreateCloudFormationTemplateCommandInput,
-  CreateCloudFormationTemplateCommandOutput
+  CreateCloudFormationTemplateCommandOutput,
 } from "./commands/CreateCloudFormationTemplateCommand.ts";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand.ts";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand.ts";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand.ts";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand.ts";
 import {
   GetApplicationPolicyCommandInput,
-  GetApplicationPolicyCommandOutput
+  GetApplicationPolicyCommandOutput,
 } from "./commands/GetApplicationPolicyCommand.ts";
 import {
   GetCloudFormationTemplateCommandInput,
-  GetCloudFormationTemplateCommandOutput
+  GetCloudFormationTemplateCommandOutput,
 } from "./commands/GetCloudFormationTemplateCommand.ts";
 import {
   ListApplicationDependenciesCommandInput,
-  ListApplicationDependenciesCommandOutput
+  ListApplicationDependenciesCommandOutput,
 } from "./commands/ListApplicationDependenciesCommand.ts";
 import {
   ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput
+  ListApplicationVersionsCommandOutput,
 } from "./commands/ListApplicationVersionsCommand.ts";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand.ts";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand.ts";
 import {
   PutApplicationPolicyCommandInput,
-  PutApplicationPolicyCommandOutput
+  PutApplicationPolicyCommandOutput,
 } from "./commands/PutApplicationPolicyCommand.ts";
 import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand.ts";
+  UnshareApplicationCommandInput,
+  UnshareApplicationCommandOutput,
+} from "./commands/UnshareApplicationCommand.ts";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -57,38 +46,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -97,9 +82,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -115,6 +101,7 @@ export type ServiceInputTypes =
   | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
   | PutApplicationPolicyCommandInput
+  | UnshareApplicationCommandInput
   | UpdateApplicationCommandInput;
 
 export type ServiceOutputTypes =
@@ -130,10 +117,10 @@ export type ServiceOutputTypes =
   | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput
   | PutApplicationPolicyCommandOutput
+  | UnshareApplicationCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -207,14 +194,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -222,9 +214,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServerlessApplicationRepositoryClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServerlessApplicationRepositoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -233,9 +223,7 @@ export type ServerlessApplicationRepositoryClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,7 +265,7 @@ export class ServerlessApplicationRepositoryClient extends __Client<
   constructor(configuration: ServerlessApplicationRepositoryClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -292,6 +280,7 @@ export class ServerlessApplicationRepositoryClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

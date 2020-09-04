@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient.ts";
-import {
-  CreateGeoMatchSetRequest,
-  CreateGeoMatchSetResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
+import { CreateGeoMatchSetRequest, CreateGeoMatchSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateGeoMatchSetCommand,
-  serializeAws_json1_1CreateGeoMatchSetCommand
+  serializeAws_json1_1CreateGeoMatchSetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateGeoMatchSetCommandInput = CreateGeoMatchSetRequest;
-export type CreateGeoMatchSetCommandOutput = CreateGeoMatchSetResponse &
-  __MetadataBearer;
+export type CreateGeoMatchSetCommandOutput = CreateGeoMatchSetResponse & __MetadataBearer;
 
 export class CreateGeoMatchSetCommand extends $Command<
   CreateGeoMatchSetCommandInput,
@@ -50,14 +39,15 @@ export class CreateGeoMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGeoMatchSetCommandInput, CreateGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateGeoMatchSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateGeoMatchSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGeoMatchSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateGeoMatchSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1CreateGeoMatchSetCommand(output, context);
   }
 

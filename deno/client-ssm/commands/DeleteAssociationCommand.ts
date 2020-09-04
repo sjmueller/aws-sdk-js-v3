@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  DeleteAssociationRequest,
-  DeleteAssociationResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteAssociationCommand,
-  serializeAws_json1_1DeleteAssociationCommand
+  serializeAws_json1_1DeleteAssociationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteAssociationCommandInput = DeleteAssociationRequest;
-export type DeleteAssociationCommandOutput = DeleteAssociationResult &
-  __MetadataBearer;
+export type DeleteAssociationCommandOutput = DeleteAssociationResult & __MetadataBearer;
 
 export class DeleteAssociationCommand extends $Command<
   DeleteAssociationCommandInput,
@@ -50,14 +39,15 @@ export class DeleteAssociationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAssociationCommandInput, DeleteAssociationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAssociationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteAssociationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssociationCommandOutput> {
     return deserializeAws_json1_1DeleteAssociationCommand(output, context);
   }
 

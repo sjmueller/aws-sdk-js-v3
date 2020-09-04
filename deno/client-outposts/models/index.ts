@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>You do not have permission to perform this operation.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,46 +12,46 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CreateOutpostInput {
   __type?: "CreateOutpostInput";
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The Outpost description.</p>
-   */
-  Description?: string;
-
   /**
    * <p>The name of the Outpost.</p>
    */
   Name?: string;
 
   /**
+   * <p>The Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
    * <p>The ID of the site.</p>
    */
   SiteId: string | undefined;
+
+  /**
+   * <p>The Outpost description.</p>
+   */
+  Description?: string;
 }
 
 export namespace CreateOutpostInput {
   export const filterSensitiveLog = (obj: CreateOutpostInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostInput =>
-    __isa(o, "CreateOutpostInput");
+  export const isa = (o: any): o is CreateOutpostInput => __isa(o, "CreateOutpostInput");
 }
 
 export interface CreateOutpostOutput {
@@ -70,10 +64,61 @@ export interface CreateOutpostOutput {
 
 export namespace CreateOutpostOutput {
   export const filterSensitiveLog = (obj: CreateOutpostOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostOutput =>
-    __isa(o, "CreateOutpostOutput");
+  export const isa = (o: any): o is CreateOutpostOutput => __isa(o, "CreateOutpostOutput");
+}
+
+export interface DeleteOutpostInput {
+  __type?: "DeleteOutpostInput";
+  /**
+   * <p>The ID of the Outpost.</p>
+   */
+  OutpostId: string | undefined;
+}
+
+export namespace DeleteOutpostInput {
+  export const filterSensitiveLog = (obj: DeleteOutpostInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteOutpostInput => __isa(o, "DeleteOutpostInput");
+}
+
+export interface DeleteOutpostOutput {
+  __type?: "DeleteOutpostOutput";
+}
+
+export namespace DeleteOutpostOutput {
+  export const filterSensitiveLog = (obj: DeleteOutpostOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteOutpostOutput => __isa(o, "DeleteOutpostOutput");
+}
+
+export interface DeleteSiteInput {
+  __type?: "DeleteSiteInput";
+  /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId: string | undefined;
+}
+
+export namespace DeleteSiteInput {
+  export const filterSensitiveLog = (obj: DeleteSiteInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteSiteInput => __isa(o, "DeleteSiteInput");
+}
+
+export interface DeleteSiteOutput {
+  __type?: "DeleteSiteOutput";
+}
+
+export namespace DeleteSiteOutput {
+  export const filterSensitiveLog = (obj: DeleteSiteOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteSiteOutput => __isa(o, "DeleteSiteOutput");
 }
 
 export interface GetOutpostInput {
@@ -86,19 +131,13 @@ export interface GetOutpostInput {
 
 export namespace GetOutpostInput {
   export const filterSensitiveLog = (obj: GetOutpostInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInput =>
-    __isa(o, "GetOutpostInput");
+  export const isa = (o: any): o is GetOutpostInput => __isa(o, "GetOutpostInput");
 }
 
 export interface GetOutpostInstanceTypesInput {
   __type?: "GetOutpostInstanceTypesInput";
-  /**
-   * <p>The maximum page size.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The pagination token.</p>
    */
@@ -108,30 +147,22 @@ export interface GetOutpostInstanceTypesInput {
    * <p>The ID of the Outpost.</p>
    */
   OutpostId: string | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetOutpostInstanceTypesInput {
-  export const filterSensitiveLog = (
-    obj: GetOutpostInstanceTypesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesInput =>
-    __isa(o, "GetOutpostInstanceTypesInput");
+  export const isa = (o: any): o is GetOutpostInstanceTypesInput => __isa(o, "GetOutpostInstanceTypesInput");
 }
 
 export interface GetOutpostInstanceTypesOutput {
   __type?: "GetOutpostInstanceTypesOutput";
-  /**
-   * <p>Information about the instance types.</p>
-   */
-  InstanceTypes?: InstanceTypeItem[];
-
-  /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
@@ -141,16 +172,23 @@ export interface GetOutpostInstanceTypesOutput {
    * <p>The ID of the Outpost.</p>
    */
   OutpostId?: string;
+
+  /**
+   * <p>Information about the instance types.</p>
+   */
+  InstanceTypes?: InstanceTypeItem[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetOutpostInstanceTypesOutput {
-  export const filterSensitiveLog = (
-    obj: GetOutpostInstanceTypesOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesOutput =>
-    __isa(o, "GetOutpostInstanceTypesOutput");
+  export const isa = (o: any): o is GetOutpostInstanceTypesOutput => __isa(o, "GetOutpostInstanceTypesOutput");
 }
 
 export interface GetOutpostOutput {
@@ -163,10 +201,9 @@ export interface GetOutpostOutput {
 
 export namespace GetOutpostOutput {
   export const filterSensitiveLog = (obj: GetOutpostOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetOutpostOutput =>
-    __isa(o, "GetOutpostOutput");
+  export const isa = (o: any): o is GetOutpostOutput => __isa(o, "GetOutpostOutput");
 }
 
 /**
@@ -182,18 +219,15 @@ export interface InstanceTypeItem {
 
 export namespace InstanceTypeItem {
   export const filterSensitiveLog = (obj: InstanceTypeItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeItem =>
-    __isa(o, "InstanceTypeItem");
+  export const isa = (o: any): o is InstanceTypeItem => __isa(o, "InstanceTypeItem");
 }
 
 /**
  * <p>An internal error has occurred.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -201,94 +235,89 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListOutpostsInput {
   __type?: "ListOutpostsInput";
   /**
-   * <p>The maximum page size.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListOutpostsInput {
   export const filterSensitiveLog = (obj: ListOutpostsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsInput =>
-    __isa(o, "ListOutpostsInput");
+  export const isa = (o: any): o is ListOutpostsInput => __isa(o, "ListOutpostsInput");
 }
 
 export interface ListOutpostsOutput {
   __type?: "ListOutpostsOutput";
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the Outposts.</p>
    */
   Outposts?: Outpost[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListOutpostsOutput {
   export const filterSensitiveLog = (obj: ListOutpostsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsOutput =>
-    __isa(o, "ListOutpostsOutput");
+  export const isa = (o: any): o is ListOutpostsOutput => __isa(o, "ListOutpostsOutput");
 }
 
 export interface ListSitesInput {
   __type?: "ListSitesInput";
   /**
-   * <p>The maximum page size.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListSitesInput {
   export const filterSensitiveLog = (obj: ListSitesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSitesInput =>
-    __isa(o, "ListSitesInput");
+  export const isa = (o: any): o is ListSitesInput => __isa(o, "ListSitesInput");
 }
 
 export interface ListSitesOutput {
   __type?: "ListSitesOutput";
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the sites.</p>
    */
   Sites?: Site[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListSitesOutput {
   export const filterSensitiveLog = (obj: ListSitesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSitesOutput =>
-    __isa(o, "ListSitesOutput");
+  export const isa = (o: any): o is ListSitesOutput => __isa(o, "ListSitesOutput");
 }
 
 /**
@@ -302,10 +331,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -314,19 +342,16 @@ export namespace NotFoundException {
 export interface Outpost {
   __type?: "Outpost";
   /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
    * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
 
   /**
-   * <p>The Outpost description.</p>
+   * <p>The Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
-  Description?: string;
+  AvailabilityZone?: string;
 
   /**
    * <p>The life cycle status.</p>
@@ -334,14 +359,19 @@ export interface Outpost {
   LifeCycleStatus?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
    * <p>The name of the Outpost.</p>
    */
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * <p>The ID of the site.</p>
    */
-  OutpostArn?: string;
+  SiteId?: string;
 
   /**
    * <p>The ID of the Outpost.</p>
@@ -354,14 +384,14 @@ export interface Outpost {
   OwnerId?: string;
 
   /**
-   * <p>The ID of the site.</p>
+   * <p>The Outpost description.</p>
    */
-  SiteId?: string;
+  Description?: string;
 }
 
 export namespace Outpost {
   export const filterSensitiveLog = (obj: Outpost): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
@@ -369,22 +399,17 @@ export namespace Outpost {
 /**
  * <p>You have exceeded a service quota.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (
-    obj: ServiceQuotaExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -398,11 +423,6 @@ export interface Site {
   AccountId?: string;
 
   /**
-   * <p>The description of the site.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the site.</p>
    */
   Name?: string;
@@ -411,11 +431,16 @@ export interface Site {
    * <p>The ID of the site.</p>
    */
   SiteId?: string;
+
+  /**
+   * <p>The description of the site.</p>
+   */
+  Description?: string;
 }
 
 export namespace Site {
   export const filterSensitiveLog = (obj: Site): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Site => __isa(o, "Site");
 }
@@ -423,9 +448,7 @@ export namespace Site {
 /**
  * <p>A parameter is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -433,8 +456,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

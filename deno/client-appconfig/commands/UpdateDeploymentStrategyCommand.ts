@@ -1,21 +1,11 @@
-import {
-  AppConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppConfigClient.ts";
-import {
-  DeploymentStrategy,
-  UpdateDeploymentStrategyRequest
-} from "../models/index.ts";
+import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
+import { DeploymentStrategy, UpdateDeploymentStrategyRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDeploymentStrategyCommand,
-  serializeAws_restJson1UpdateDeploymentStrategyCommand
+  serializeAws_restJson1UpdateDeploymentStrategyCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDeploymentStrategyCommandInput = UpdateDeploymentStrategyRequest;
-export type UpdateDeploymentStrategyCommandOutput = DeploymentStrategy &
-  __MetadataBearer;
+export type UpdateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
 export class UpdateDeploymentStrategyCommand extends $Command<
   UpdateDeploymentStrategyCommandInput,
@@ -49,18 +38,16 @@ export class UpdateDeploymentStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDeploymentStrategyCommandInput,
-    UpdateDeploymentStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDeploymentStrategyCommandInput, UpdateDeploymentStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDeploymentStrategyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeploymentStrategy.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,12 @@ export class UpdateDeploymentStrategyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDeploymentStrategyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeploymentStrategyCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateDeploymentStrategyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1UpdateDeploymentStrategyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentStrategyCommandOutput> {
+    return deserializeAws_restJson1UpdateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

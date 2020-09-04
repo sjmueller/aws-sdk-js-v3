@@ -1,21 +1,15 @@
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import {
-  CreateLogPatternRequest,
-  CreateLogPatternResponse
-} from "../models/index.ts";
+import { CreateLogPatternRequest, CreateLogPatternResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateLogPatternCommand,
-  serializeAws_json1_1CreateLogPatternCommand
+  serializeAws_json1_1CreateLogPatternCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateLogPatternCommandInput = CreateLogPatternRequest;
-export type CreateLogPatternCommandOutput = CreateLogPatternResponse &
-  __MetadataBearer;
+export type CreateLogPatternCommandOutput = CreateLogPatternResponse & __MetadataBearer;
 
 export class CreateLogPatternCommand extends $Command<
   CreateLogPatternCommandInput,
@@ -50,14 +43,15 @@ export class CreateLogPatternCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLogPatternCommandInput, CreateLogPatternCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateLogPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLogPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class CreateLogPatternCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLogPatternCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLogPatternCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLogPatternCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogPatternCommandOutput> {
     return deserializeAws_json1_1CreateLogPatternCommand(output, context);
   }
 

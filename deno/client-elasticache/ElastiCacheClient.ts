@@ -1,195 +1,204 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand.ts";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand.ts";
 import {
   AuthorizeCacheSecurityGroupIngressCommandInput,
-  AuthorizeCacheSecurityGroupIngressCommandOutput
+  AuthorizeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeCacheSecurityGroupIngressCommand.ts";
 import {
   BatchApplyUpdateActionCommandInput,
-  BatchApplyUpdateActionCommandOutput
+  BatchApplyUpdateActionCommandOutput,
 } from "./commands/BatchApplyUpdateActionCommand.ts";
 import {
   BatchStopUpdateActionCommandInput,
-  BatchStopUpdateActionCommandOutput
+  BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand.ts";
-import {
-  CompleteMigrationCommandInput,
-  CompleteMigrationCommandOutput
-} from "./commands/CompleteMigrationCommand.ts";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand.ts";
+import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "./commands/CompleteMigrationCommand.ts";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand.ts";
 import {
   CreateCacheClusterCommandInput,
-  CreateCacheClusterCommandOutput
+  CreateCacheClusterCommandOutput,
 } from "./commands/CreateCacheClusterCommand.ts";
 import {
   CreateCacheParameterGroupCommandInput,
-  CreateCacheParameterGroupCommandOutput
+  CreateCacheParameterGroupCommandOutput,
 } from "./commands/CreateCacheParameterGroupCommand.ts";
 import {
   CreateCacheSecurityGroupCommandInput,
-  CreateCacheSecurityGroupCommandOutput
+  CreateCacheSecurityGroupCommandOutput,
 } from "./commands/CreateCacheSecurityGroupCommand.ts";
 import {
   CreateCacheSubnetGroupCommandInput,
-  CreateCacheSubnetGroupCommandOutput
+  CreateCacheSubnetGroupCommandOutput,
 } from "./commands/CreateCacheSubnetGroupCommand.ts";
 import {
-  CreateReplicationGroupCommandInput,
-  CreateReplicationGroupCommandOutput
-} from "./commands/CreateReplicationGroupCommand.ts";
+  CreateGlobalReplicationGroupCommandInput,
+  CreateGlobalReplicationGroupCommandOutput,
+} from "./commands/CreateGlobalReplicationGroupCommand.ts";
 import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand.ts";
+  CreateReplicationGroupCommandInput,
+  CreateReplicationGroupCommandOutput,
+} from "./commands/CreateReplicationGroupCommand.ts";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand.ts";
+import {
+  DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
+} from "./commands/DecreaseNodeGroupsInGlobalReplicationGroupCommand.ts";
 import {
   DecreaseReplicaCountCommandInput,
-  DecreaseReplicaCountCommandOutput
+  DecreaseReplicaCountCommandOutput,
 } from "./commands/DecreaseReplicaCountCommand.ts";
 import {
   DeleteCacheClusterCommandInput,
-  DeleteCacheClusterCommandOutput
+  DeleteCacheClusterCommandOutput,
 } from "./commands/DeleteCacheClusterCommand.ts";
 import {
   DeleteCacheParameterGroupCommandInput,
-  DeleteCacheParameterGroupCommandOutput
+  DeleteCacheParameterGroupCommandOutput,
 } from "./commands/DeleteCacheParameterGroupCommand.ts";
 import {
   DeleteCacheSecurityGroupCommandInput,
-  DeleteCacheSecurityGroupCommandOutput
+  DeleteCacheSecurityGroupCommandOutput,
 } from "./commands/DeleteCacheSecurityGroupCommand.ts";
 import {
   DeleteCacheSubnetGroupCommandInput,
-  DeleteCacheSubnetGroupCommandOutput
+  DeleteCacheSubnetGroupCommandOutput,
 } from "./commands/DeleteCacheSubnetGroupCommand.ts";
 import {
-  DeleteReplicationGroupCommandInput,
-  DeleteReplicationGroupCommandOutput
-} from "./commands/DeleteReplicationGroupCommand.ts";
+  DeleteGlobalReplicationGroupCommandInput,
+  DeleteGlobalReplicationGroupCommandOutput,
+} from "./commands/DeleteGlobalReplicationGroupCommand.ts";
 import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand.ts";
+  DeleteReplicationGroupCommandInput,
+  DeleteReplicationGroupCommandOutput,
+} from "./commands/DeleteReplicationGroupCommand.ts";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand.ts";
 import {
   DescribeCacheClustersCommandInput,
-  DescribeCacheClustersCommandOutput
+  DescribeCacheClustersCommandOutput,
 } from "./commands/DescribeCacheClustersCommand.ts";
 import {
   DescribeCacheEngineVersionsCommandInput,
-  DescribeCacheEngineVersionsCommandOutput
+  DescribeCacheEngineVersionsCommandOutput,
 } from "./commands/DescribeCacheEngineVersionsCommand.ts";
 import {
   DescribeCacheParameterGroupsCommandInput,
-  DescribeCacheParameterGroupsCommandOutput
+  DescribeCacheParameterGroupsCommandOutput,
 } from "./commands/DescribeCacheParameterGroupsCommand.ts";
 import {
   DescribeCacheParametersCommandInput,
-  DescribeCacheParametersCommandOutput
+  DescribeCacheParametersCommandOutput,
 } from "./commands/DescribeCacheParametersCommand.ts";
 import {
   DescribeCacheSecurityGroupsCommandInput,
-  DescribeCacheSecurityGroupsCommandOutput
+  DescribeCacheSecurityGroupsCommandOutput,
 } from "./commands/DescribeCacheSecurityGroupsCommand.ts";
 import {
   DescribeCacheSubnetGroupsCommandInput,
-  DescribeCacheSubnetGroupsCommandOutput
+  DescribeCacheSubnetGroupsCommandOutput,
 } from "./commands/DescribeCacheSubnetGroupsCommand.ts";
 import {
   DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput
+  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand.ts";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand.ts";
 import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand.ts";
+  DescribeGlobalReplicationGroupsCommandInput,
+  DescribeGlobalReplicationGroupsCommandOutput,
+} from "./commands/DescribeGlobalReplicationGroupsCommand.ts";
 import {
   DescribeReplicationGroupsCommandInput,
-  DescribeReplicationGroupsCommandOutput
+  DescribeReplicationGroupsCommandOutput,
 } from "./commands/DescribeReplicationGroupsCommand.ts";
 import {
   DescribeReservedCacheNodesCommandInput,
-  DescribeReservedCacheNodesCommandOutput
+  DescribeReservedCacheNodesCommandOutput,
 } from "./commands/DescribeReservedCacheNodesCommand.ts";
 import {
   DescribeReservedCacheNodesOfferingsCommandInput,
-  DescribeReservedCacheNodesOfferingsCommandOutput
+  DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand.ts";
 import {
   DescribeServiceUpdatesCommandInput,
-  DescribeServiceUpdatesCommandOutput
+  DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand.ts";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand.ts";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand.ts";
 import {
   DescribeUpdateActionsCommandInput,
-  DescribeUpdateActionsCommandOutput
+  DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand.ts";
 import {
+  DisassociateGlobalReplicationGroupCommandInput,
+  DisassociateGlobalReplicationGroupCommandOutput,
+} from "./commands/DisassociateGlobalReplicationGroupCommand.ts";
+import {
+  FailoverGlobalReplicationGroupCommandInput,
+  FailoverGlobalReplicationGroupCommandOutput,
+} from "./commands/FailoverGlobalReplicationGroupCommand.ts";
+import {
+  IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
+  IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
+} from "./commands/IncreaseNodeGroupsInGlobalReplicationGroupCommand.ts";
+import {
   IncreaseReplicaCountCommandInput,
-  IncreaseReplicaCountCommandOutput
+  IncreaseReplicaCountCommandOutput,
 } from "./commands/IncreaseReplicaCountCommand.ts";
 import {
   ListAllowedNodeTypeModificationsCommandInput,
-  ListAllowedNodeTypeModificationsCommandOutput
+  ListAllowedNodeTypeModificationsCommandOutput,
 } from "./commands/ListAllowedNodeTypeModificationsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyCacheClusterCommandInput,
-  ModifyCacheClusterCommandOutput
+  ModifyCacheClusterCommandOutput,
 } from "./commands/ModifyCacheClusterCommand.ts";
 import {
   ModifyCacheParameterGroupCommandInput,
-  ModifyCacheParameterGroupCommandOutput
+  ModifyCacheParameterGroupCommandOutput,
 } from "./commands/ModifyCacheParameterGroupCommand.ts";
 import {
   ModifyCacheSubnetGroupCommandInput,
-  ModifyCacheSubnetGroupCommandOutput
+  ModifyCacheSubnetGroupCommandOutput,
 } from "./commands/ModifyCacheSubnetGroupCommand.ts";
 import {
+  ModifyGlobalReplicationGroupCommandInput,
+  ModifyGlobalReplicationGroupCommandOutput,
+} from "./commands/ModifyGlobalReplicationGroupCommand.ts";
+import {
   ModifyReplicationGroupCommandInput,
-  ModifyReplicationGroupCommandOutput
+  ModifyReplicationGroupCommandOutput,
 } from "./commands/ModifyReplicationGroupCommand.ts";
 import {
   ModifyReplicationGroupShardConfigurationCommandInput,
-  ModifyReplicationGroupShardConfigurationCommandOutput
+  ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand.ts";
 import {
   PurchaseReservedCacheNodesOfferingCommandInput,
-  PurchaseReservedCacheNodesOfferingCommandOutput
+  PurchaseReservedCacheNodesOfferingCommandOutput,
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand.ts";
 import {
+  RebalanceSlotsInGlobalReplicationGroupCommandInput,
+  RebalanceSlotsInGlobalReplicationGroupCommandOutput,
+} from "./commands/RebalanceSlotsInGlobalReplicationGroupCommand.ts";
+import {
   RebootCacheClusterCommandInput,
-  RebootCacheClusterCommandOutput
+  RebootCacheClusterCommandOutput,
 } from "./commands/RebootCacheClusterCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetCacheParameterGroupCommandInput,
-  ResetCacheParameterGroupCommandOutput
+  ResetCacheParameterGroupCommandOutput,
 } from "./commands/ResetCacheParameterGroupCommand.ts";
 import {
   RevokeCacheSecurityGroupIngressCommandInput,
-  RevokeCacheSecurityGroupIngressCommandOutput
+  RevokeCacheSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeCacheSecurityGroupIngressCommand.ts";
-import {
-  StartMigrationCommandInput,
-  StartMigrationCommandOutput
-} from "./commands/StartMigrationCommand.ts";
-import {
-  TestFailoverCommandInput,
-  TestFailoverCommandOutput
-} from "./commands/TestFailoverCommand.ts";
+import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand.ts";
+import { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -197,38 +206,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -237,9 +242,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -253,13 +259,16 @@ export type ServiceInputTypes =
   | CreateCacheParameterGroupCommandInput
   | CreateCacheSecurityGroupCommandInput
   | CreateCacheSubnetGroupCommandInput
+  | CreateGlobalReplicationGroupCommandInput
   | CreateReplicationGroupCommandInput
   | CreateSnapshotCommandInput
+  | DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
   | DecreaseReplicaCountCommandInput
   | DeleteCacheClusterCommandInput
   | DeleteCacheParameterGroupCommandInput
   | DeleteCacheSecurityGroupCommandInput
   | DeleteCacheSubnetGroupCommandInput
+  | DeleteGlobalReplicationGroupCommandInput
   | DeleteReplicationGroupCommandInput
   | DeleteSnapshotCommandInput
   | DescribeCacheClustersCommandInput
@@ -270,21 +279,27 @@ export type ServiceInputTypes =
   | DescribeCacheSubnetGroupsCommandInput
   | DescribeEngineDefaultParametersCommandInput
   | DescribeEventsCommandInput
+  | DescribeGlobalReplicationGroupsCommandInput
   | DescribeReplicationGroupsCommandInput
   | DescribeReservedCacheNodesCommandInput
   | DescribeReservedCacheNodesOfferingsCommandInput
   | DescribeServiceUpdatesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeUpdateActionsCommandInput
+  | DisassociateGlobalReplicationGroupCommandInput
+  | FailoverGlobalReplicationGroupCommandInput
+  | IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
   | IncreaseReplicaCountCommandInput
   | ListAllowedNodeTypeModificationsCommandInput
   | ListTagsForResourceCommandInput
   | ModifyCacheClusterCommandInput
   | ModifyCacheParameterGroupCommandInput
   | ModifyCacheSubnetGroupCommandInput
+  | ModifyGlobalReplicationGroupCommandInput
   | ModifyReplicationGroupCommandInput
   | ModifyReplicationGroupShardConfigurationCommandInput
   | PurchaseReservedCacheNodesOfferingCommandInput
+  | RebalanceSlotsInGlobalReplicationGroupCommandInput
   | RebootCacheClusterCommandInput
   | RemoveTagsFromResourceCommandInput
   | ResetCacheParameterGroupCommandInput
@@ -303,13 +318,16 @@ export type ServiceOutputTypes =
   | CreateCacheParameterGroupCommandOutput
   | CreateCacheSecurityGroupCommandOutput
   | CreateCacheSubnetGroupCommandOutput
+  | CreateGlobalReplicationGroupCommandOutput
   | CreateReplicationGroupCommandOutput
   | CreateSnapshotCommandOutput
+  | DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   | DecreaseReplicaCountCommandOutput
   | DeleteCacheClusterCommandOutput
   | DeleteCacheParameterGroupCommandOutput
   | DeleteCacheSecurityGroupCommandOutput
   | DeleteCacheSubnetGroupCommandOutput
+  | DeleteGlobalReplicationGroupCommandOutput
   | DeleteReplicationGroupCommandOutput
   | DeleteSnapshotCommandOutput
   | DescribeCacheClustersCommandOutput
@@ -320,21 +338,27 @@ export type ServiceOutputTypes =
   | DescribeCacheSubnetGroupsCommandOutput
   | DescribeEngineDefaultParametersCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeGlobalReplicationGroupsCommandOutput
   | DescribeReplicationGroupsCommandOutput
   | DescribeReservedCacheNodesCommandOutput
   | DescribeReservedCacheNodesOfferingsCommandOutput
   | DescribeServiceUpdatesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeUpdateActionsCommandOutput
+  | DisassociateGlobalReplicationGroupCommandOutput
+  | FailoverGlobalReplicationGroupCommandOutput
+  | IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   | IncreaseReplicaCountCommandOutput
   | ListAllowedNodeTypeModificationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyCacheClusterCommandOutput
   | ModifyCacheParameterGroupCommandOutput
   | ModifyCacheSubnetGroupCommandOutput
+  | ModifyGlobalReplicationGroupCommandOutput
   | ModifyReplicationGroupCommandOutput
   | ModifyReplicationGroupShardConfigurationCommandOutput
   | PurchaseReservedCacheNodesOfferingCommandOutput
+  | RebalanceSlotsInGlobalReplicationGroupCommandOutput
   | RebootCacheClusterCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | ResetCacheParameterGroupCommandOutput
@@ -342,8 +366,7 @@ export type ServiceOutputTypes =
   | StartMigrationCommandOutput
   | TestFailoverCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -417,14 +440,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -432,9 +460,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElastiCacheClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElastiCacheClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -443,9 +469,7 @@ export type ElastiCacheClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -477,7 +501,7 @@ export class ElastiCacheClient extends __Client<
   constructor(configuration: ElastiCacheClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -492,6 +516,7 @@ export class ElastiCacheClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

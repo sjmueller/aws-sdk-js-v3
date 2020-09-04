@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  RestoreDBClusterFromS3Message,
-  RestoreDBClusterFromS3Result
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/index.ts";
 import {
   deserializeAws_queryRestoreDBClusterFromS3Command,
-  serializeAws_queryRestoreDBClusterFromS3Command
+  serializeAws_queryRestoreDBClusterFromS3Command,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RestoreDBClusterFromS3CommandInput = RestoreDBClusterFromS3Message;
-export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result &
-  __MetadataBearer;
+export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result & __MetadataBearer;
 
 export class RestoreDBClusterFromS3Command extends $Command<
   RestoreDBClusterFromS3CommandInput,
@@ -49,18 +38,16 @@ export class RestoreDBClusterFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBClusterFromS3CommandInput,
-    RestoreDBClusterFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBClusterFromS3CommandInput, RestoreDBClusterFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RestoreDBClusterFromS3Message.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBClusterFromS3Result.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RestoreDBClusterFromS3Command extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreDBClusterFromS3CommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestoreDBClusterFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterFromS3Command(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBClusterFromS3CommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBClusterFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBClusterFromS3Command(output, context);
   }
 

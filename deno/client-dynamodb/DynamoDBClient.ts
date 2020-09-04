@@ -1,161 +1,89 @@
-import {
-  BatchGetItemCommandInput,
-  BatchGetItemCommandOutput
-} from "./commands/BatchGetItemCommand.ts";
-import {
-  BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput
-} from "./commands/BatchWriteItemCommand.ts";
-import {
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput
-} from "./commands/CreateBackupCommand.ts";
-import {
-  CreateGlobalTableCommandInput,
-  CreateGlobalTableCommandOutput
-} from "./commands/CreateGlobalTableCommand.ts";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand.ts";
-import {
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
-} from "./commands/DeleteBackupCommand.ts";
-import {
-  DeleteItemCommandInput,
-  DeleteItemCommandOutput
-} from "./commands/DeleteItemCommand.ts";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand.ts";
-import {
-  DescribeBackupCommandInput,
-  DescribeBackupCommandOutput
-} from "./commands/DescribeBackupCommand.ts";
+import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "./commands/BatchGetItemCommand.ts";
+import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "./commands/BatchWriteItemCommand.ts";
+import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand.ts";
+import { CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput } from "./commands/CreateGlobalTableCommand.ts";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand.ts";
+import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand.ts";
+import { DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand.ts";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand.ts";
+import { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "./commands/DescribeBackupCommand.ts";
 import {
   DescribeContinuousBackupsCommandInput,
-  DescribeContinuousBackupsCommandOutput
+  DescribeContinuousBackupsCommandOutput,
 } from "./commands/DescribeContinuousBackupsCommand.ts";
 import {
   DescribeContributorInsightsCommandInput,
-  DescribeContributorInsightsCommandOutput
+  DescribeContributorInsightsCommandOutput,
 } from "./commands/DescribeContributorInsightsCommand.ts";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "./commands/DescribeEndpointsCommand.ts";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand.ts";
 import {
   DescribeGlobalTableCommandInput,
-  DescribeGlobalTableCommandOutput
+  DescribeGlobalTableCommandOutput,
 } from "./commands/DescribeGlobalTableCommand.ts";
 import {
   DescribeGlobalTableSettingsCommandInput,
-  DescribeGlobalTableSettingsCommandOutput
+  DescribeGlobalTableSettingsCommandOutput,
 } from "./commands/DescribeGlobalTableSettingsCommand.ts";
-import {
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
-} from "./commands/DescribeLimitsCommand.ts";
-import {
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput
-} from "./commands/DescribeTableCommand.ts";
+import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand.ts";
+import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand.ts";
 import {
   DescribeTableReplicaAutoScalingCommandInput,
-  DescribeTableReplicaAutoScalingCommandOutput
+  DescribeTableReplicaAutoScalingCommandOutput,
 } from "./commands/DescribeTableReplicaAutoScalingCommand.ts";
 import {
   DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput
+  DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand.ts";
-import {
-  GetItemCommandInput,
-  GetItemCommandOutput
-} from "./commands/GetItemCommand.ts";
-import {
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput
-} from "./commands/ListBackupsCommand.ts";
+import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand.ts";
+import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand.ts";
 import {
   ListContributorInsightsCommandInput,
-  ListContributorInsightsCommandOutput
+  ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand.ts";
-import {
-  ListGlobalTablesCommandInput,
-  ListGlobalTablesCommandOutput
-} from "./commands/ListGlobalTablesCommand.ts";
-import {
-  ListTablesCommandInput,
-  ListTablesCommandOutput
-} from "./commands/ListTablesCommand.ts";
+import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "./commands/ListGlobalTablesCommand.ts";
+import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand.ts";
 import {
   ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput
+  ListTagsOfResourceCommandOutput,
 } from "./commands/ListTagsOfResourceCommand.ts";
-import {
-  PutItemCommandInput,
-  PutItemCommandOutput
-} from "./commands/PutItemCommand.ts";
+import { PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand.ts";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand.ts";
 import {
   RestoreTableFromBackupCommandInput,
-  RestoreTableFromBackupCommandOutput
+  RestoreTableFromBackupCommandOutput,
 } from "./commands/RestoreTableFromBackupCommand.ts";
 import {
   RestoreTableToPointInTimeCommandInput,
-  RestoreTableToPointInTimeCommandOutput
+  RestoreTableToPointInTimeCommandOutput,
 } from "./commands/RestoreTableToPointInTimeCommand.ts";
 import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput
-} from "./commands/TransactGetItemsCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "./commands/TransactGetItemsCommand.ts";
 import {
   TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput
+  TransactWriteItemsCommandOutput,
 } from "./commands/TransactWriteItemsCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateContinuousBackupsCommandInput,
-  UpdateContinuousBackupsCommandOutput
+  UpdateContinuousBackupsCommandOutput,
 } from "./commands/UpdateContinuousBackupsCommand.ts";
 import {
   UpdateContributorInsightsCommandInput,
-  UpdateContributorInsightsCommandOutput
+  UpdateContributorInsightsCommandOutput,
 } from "./commands/UpdateContributorInsightsCommand.ts";
-import {
-  UpdateGlobalTableCommandInput,
-  UpdateGlobalTableCommandOutput
-} from "./commands/UpdateGlobalTableCommand.ts";
+import { UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput } from "./commands/UpdateGlobalTableCommand.ts";
 import {
   UpdateGlobalTableSettingsCommandInput,
-  UpdateGlobalTableSettingsCommandOutput
+  UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand.ts";
-import {
-  UpdateItemCommandInput,
-  UpdateItemCommandOutput
-} from "./commands/UpdateItemCommand.ts";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand.ts";
+import { UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand.ts";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand.ts";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
-  UpdateTableReplicaAutoScalingCommandOutput
+  UpdateTableReplicaAutoScalingCommandOutput,
 } from "./commands/UpdateTableReplicaAutoScalingCommand.ts";
-import {
-  UpdateTimeToLiveCommandInput,
-  UpdateTimeToLiveCommandOutput
-} from "./commands/UpdateTimeToLiveCommand.ts";
+import { UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput } from "./commands/UpdateTimeToLiveCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -163,38 +91,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -203,9 +127,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -294,8 +219,7 @@ export type ServiceOutputTypes =
   | UpdateTableReplicaAutoScalingCommandOutput
   | UpdateTimeToLiveCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -369,14 +293,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -384,9 +313,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DynamoDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DynamoDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -395,9 +322,7 @@ export type DynamoDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -438,7 +363,7 @@ export class DynamoDBClient extends __Client<
   constructor(configuration: DynamoDBClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -453,6 +378,7 @@ export class DynamoDBClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

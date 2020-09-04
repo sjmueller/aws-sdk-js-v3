@@ -2,52 +2,52 @@ import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient.ts"
 import {
   DeleteScalingPolicyCommand,
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand.ts";
 import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand.ts";
 import {
   DeregisterScalableTargetCommand,
   DeregisterScalableTargetCommandInput,
-  DeregisterScalableTargetCommandOutput
+  DeregisterScalableTargetCommandOutput,
 } from "./commands/DeregisterScalableTargetCommand.ts";
 import {
   DescribeScalableTargetsCommand,
   DescribeScalableTargetsCommandInput,
-  DescribeScalableTargetsCommandOutput
+  DescribeScalableTargetsCommandOutput,
 } from "./commands/DescribeScalableTargetsCommand.ts";
 import {
   DescribeScalingActivitiesCommand,
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand.ts";
 import {
   DescribeScalingPoliciesCommand,
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand.ts";
 import {
   DescribeScheduledActionsCommand,
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand.ts";
 import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand.ts";
 import {
   PutScheduledActionCommand,
   PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput
+  PutScheduledActionCommandOutput,
 } from "./commands/PutScheduledActionCommand.ts";
 import {
   RegisterScalableTargetCommand,
   RegisterScalableTargetCommandInput,
-  RegisterScalableTargetCommandOutput
+  RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -85,6 +85,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             <li>
  *                <p>AWS Lambda function provisioned concurrency</p>
  *             </li>
+ *             <li>
+ *                <p>Amazon Keyspaces (for Apache Cassandra) tables</p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <b>API Summary</b>
@@ -103,10 +106,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             </li>
  *             <li>
  *                <p>Suspend and resume scaling - Temporarily suspend and later resume automatic
- *                scaling by calling the <a>RegisterScalableTarget</a> action for any
- *                Application Auto Scaling scalable target. You can suspend and resume, individually or in combination,
- *                scale-out activities triggered by a scaling policy, scale-in activities triggered by
- *                a scaling policy, and scheduled scaling. </p>
+ *                scaling by calling the <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html">RegisterScalableTarget</a> API action for any Application Auto Scaling scalable target. You
+ *                can suspend and resume (individually or in combination) scale-out activities that are
+ *                triggered by a scaling policy, scale-in activities that are triggered by a scaling
+ *                policy, and scheduled scaling.</p>
  *             </li>
  *          </ul>
  *
@@ -121,9 +124,8 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
    *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
    *          action.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy">Delete a Step Scaling Policy</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy">Delete a Target Tracking Scaling Policy</a> in the <i>Application Auto Scaling User
-   *             Guide</i>.</p>
-   *          <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy">Delete a Step Scaling Policy</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy">Delete a Target Tracking Scaling Policy</a> in the
+   *             <i>Application Auto Scaling User Guide</i>.</p>
    */
   public deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
@@ -140,17 +142,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteScalingPolicyCommandOutput) => void
   ): Promise<DeleteScalingPolicyCommandOutput> | void {
     const command = new DeleteScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -159,8 +158,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
 
   /**
    * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action">Delete a Scheduled Action</a> in the <i>Application Auto Scaling User
-   *          Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action">Delete a Scheduled Action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -177,17 +175,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): Promise<DeleteScheduledActionCommandOutput> | void {
     const command = new DeleteScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -195,10 +190,12 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Deregisters an Application Auto Scaling scalable target.</p>
-   *          <p>Deregistering a scalable target deletes the scaling policies that are associated with
-   *          it.</p>
-   *          <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>. </p>
+   * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
+   *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
+   *          <note>
+   *             <p>Deregistering a scalable target deletes the scaling policies and the scheduled
+   *             actions that are associated with it.</p>
+   *          </note>
    */
   public deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
@@ -215,17 +212,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterScalableTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterScalableTargetCommandOutput) => void),
     cb?: (err: any, data?: DeregisterScalableTargetCommandOutput) => void
   ): Promise<DeregisterScalableTargetCommandOutput> | void {
     const command = new DeregisterScalableTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -236,8 +230,6 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    * <p>Gets information about the scalable targets in the specified namespace.</p>
    *          <p>You can filter the results using <code>ResourceIds</code> and
    *             <code>ScalableDimension</code>.</p>
-   *          <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>. If you are no longer using a scalable target, you
-   *          can deregister it using <a>DeregisterScalableTarget</a>.</p>
    */
   public describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
@@ -254,17 +246,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalableTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalableTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalableTargetsCommandOutput) => void
   ): Promise<DescribeScalableTargetsCommandOutput> | void {
     const command = new DescribeScalableTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -276,9 +265,6 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          from the previous six weeks.</p>
    *          <p>You can filter the results using <code>ResourceId</code> and
    *             <code>ScalableDimension</code>.</p>
-   *          <p>Scaling activities are triggered by CloudWatch alarms that are associated with scaling
-   *          policies. To view the scaling policies for a service namespace, see <a>DescribeScalingPolicies</a>. To create a scaling policy or update an existing
-   *          one, see <a>PutScalingPolicy</a>.</p>
    */
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
@@ -295,17 +281,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingActivitiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingActivitiesCommandOutput) => void
   ): Promise<DescribeScalingActivitiesCommandOutput> | void {
     const command = new DescribeScalingActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -316,8 +299,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
    *          <p>You can filter the results using <code>ResourceId</code>,
    *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
-   *          <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>. If you are no longer using a scaling policy, you can
-   *          delete it using <a>DeleteScalingPolicy</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
@@ -334,17 +316,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPoliciesCommandOutput) => void
   ): Promise<DescribeScalingPoliciesCommandOutput> | void {
     const command = new DescribeScalingPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -355,8 +334,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
    *          <p>You can filter the results using the <code>ResourceId</code>,
    *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
-   *          <p>To create a scheduled action or update an existing one, see <a>PutScheduledAction</a>. If you are no longer using a scheduled action, you can
-   *          delete it using <a>DeleteScheduledAction</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
@@ -373,17 +351,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduledActionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): Promise<DescribeScheduledActionsCommandOutput> | void {
     const command = new DescribeScheduledActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -391,15 +366,11 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Creates or updates a policy for an Application Auto Scaling scalable target.</p>
+   * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scaling policy applies to the scalable target identified by those three
    *          attributes. You cannot create a scaling policy until you have registered the resource as a
-   *          scalable target using <a>RegisterScalableTarget</a>.</p>
-   *          <p>To update a policy, specify its policy name and the parameters that you want to change.
-   *          Any parameters that you don't specify are not changed by this update request.</p>
-   *          <p>You can view the scaling policies for a service namespace using <a>DescribeScalingPolicies</a>. If you are no longer using a scaling policy, you
-   *          can delete it using <a>DeleteScalingPolicy</a>.</p>
+   *          scalable target.</p>
    *          <p>Multiple scaling policies can be in force at the same time for the same scalable target.
    *          You can have one or more target tracking scaling policies, one or more step scaling
    *          policies, or both. However, there is a chance that multiple policies could conflict,
@@ -408,8 +379,18 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          in. For example, if one policy increases capacity by 3, another policy increases capacity
    *          by 200 percent, and the current capacity is 10, Application Auto Scaling uses the policy with the highest
    *          calculated capacity (200% of 10 = 20) and scales out to 30. </p>
-   *          <p>Learn more about how to work with scaling policies in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling
-   *             User Guide</a>.</p>
+   *          <p>We recommend caution, however, when using target tracking scaling policies with step
+   *          scaling policies because conflicts between these policies can cause undesirable behavior.
+   *          For example, if the step scaling policy initiates a scale-in activity before the target
+   *          tracking policy is ready to scale in, the scale-in activity will not be blocked. After the
+   *          scale-in activity completes, the target tracking policy could instruct the scalable target
+   *          to scale out again. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <note>
+   *             <p>If a scalable target is deregistered, the scalable target is no longer available to
+   *             execute scaling policies. Any scaling policies that were specified for the scalable
+   *             target are deleted.</p>
+   *          </note>
    */
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
@@ -426,17 +407,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -448,14 +426,17 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scheduled action applies to the scalable target identified by those three
    *          attributes. You cannot create a scheduled action until you have registered the resource as
-   *          a scalable target using <a>RegisterScalableTarget</a>. </p>
-   *          <p>To update an action, specify its name and the parameters that you want to change. If you
-   *          don't specify start and end times, the old values are deleted. Any other parameters that
-   *          you don't specify are not changed by this update request.</p>
-   *          <p>You can view the scheduled actions using <a>DescribeScheduledActions</a>. If
-   *          you are no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.</p>
-   *          <p>Learn more about how to work with scheduled actions in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling
-   *             User Guide</a>.</p>
+   *          a scalable target.</p>
+   *          <p>When start and end times are specified with a recurring schedule using a cron expression
+   *          or rates, they form the boundaries of when the recurring action starts and stops.</p>
+   *          <p>To update a scheduled action, specify the parameters that you want to change. If you
+   *          don't specify start and end times, the old values are deleted.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <note>
+   *             <p>If a scalable target is deregistered, the scalable target is no longer available to
+   *             run scheduled actions. Any scheduled actions that were specified for the scalable target
+   *             are deleted.</p>
+   *          </note>
    */
   public putScheduledAction(
     args: PutScheduledActionCommandInput,
@@ -472,17 +453,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public putScheduledAction(
     args: PutScheduledActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScheduledActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScheduledActionCommandOutput) => void),
     cb?: (err: any, data?: PutScheduledActionCommandOutput) => void
   ): Promise<PutScheduledActionCommandOutput> | void {
     const command = new PutScheduledActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -490,19 +468,20 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Registers or updates a scalable target. A scalable target is a resource that Application Auto Scaling
-   *          can scale out and scale in. Scalable targets are uniquely identified by the combination of
-   *          resource ID, scalable dimension, and namespace. </p>
+   * <p>Registers or updates a scalable target. </p>
+   *          <p>A scalable target is a resource that Application Auto Scaling can scale out and scale in. Scalable
+   *          targets are uniquely identified by the combination of resource ID, scalable dimension, and
+   *          namespace. </p>
    *          <p>When you register a new scalable target, you must specify values for minimum and maximum
-   *          capacity. Application Auto Scaling will not scale capacity to values that are outside of this range. </p>
-   *          <p>To update a scalable target, specify the parameter that you want to change as well as
-   *          the following parameters that identify the scalable target: resource ID, scalable
-   *          dimension, and namespace. Any parameters that you don't specify are not changed by this
-   *          update request. </p>
+   *          capacity. Application Auto Scaling scaling policies will not scale capacity to values that are outside of
+   *          this range.</p>
    *          <p>After you register a scalable target, you do not need to register it again to use other
-   *          Application Auto Scaling operations. To see which resources have been registered, use <a>DescribeScalableTargets</a>. You can also view the scaling policies for a
-   *          service namespace by using <a>DescribeScalableTargets</a>. </p>
-   *          <p>If you no longer need a scalable target, you can deregister it by using <a>DeregisterScalableTarget</a>.</p>
+   *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
+   *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can
+   *          deregister it by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html">DeregisterScalableTarget</a>.</p>
+   *          <p>To update a scalable target, specify the parameters that you want to change. Include the
+   *          parameters that identify the scalable target: resource ID, scalable dimension, and
+   *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
    */
   public registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
@@ -519,17 +498,14 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   ): void;
   public registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterScalableTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterScalableTargetCommandOutput) => void),
     cb?: (err: any, data?: RegisterScalableTargetCommandOutput) => void
   ): Promise<RegisterScalableTargetCommandOutput> | void {
     const command = new RegisterScalableTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

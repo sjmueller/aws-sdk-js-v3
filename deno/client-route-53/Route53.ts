@@ -2,282 +2,283 @@ import { Route53Client } from "./Route53Client.ts";
 import {
   AssociateVPCWithHostedZoneCommand,
   AssociateVPCWithHostedZoneCommandInput,
-  AssociateVPCWithHostedZoneCommandOutput
+  AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand.ts";
 import {
   ChangeResourceRecordSetsCommand,
   ChangeResourceRecordSetsCommandInput,
-  ChangeResourceRecordSetsCommandOutput
+  ChangeResourceRecordSetsCommandOutput,
 } from "./commands/ChangeResourceRecordSetsCommand.ts";
 import {
   ChangeTagsForResourceCommand,
   ChangeTagsForResourceCommandInput,
-  ChangeTagsForResourceCommandOutput
+  ChangeTagsForResourceCommandOutput,
 } from "./commands/ChangeTagsForResourceCommand.ts";
 import {
   CreateHealthCheckCommand,
   CreateHealthCheckCommandInput,
-  CreateHealthCheckCommandOutput
+  CreateHealthCheckCommandOutput,
 } from "./commands/CreateHealthCheckCommand.ts";
 import {
   CreateHostedZoneCommand,
   CreateHostedZoneCommandInput,
-  CreateHostedZoneCommandOutput
+  CreateHostedZoneCommandOutput,
 } from "./commands/CreateHostedZoneCommand.ts";
 import {
   CreateQueryLoggingConfigCommand,
   CreateQueryLoggingConfigCommandInput,
-  CreateQueryLoggingConfigCommandOutput
+  CreateQueryLoggingConfigCommandOutput,
 } from "./commands/CreateQueryLoggingConfigCommand.ts";
 import {
   CreateReusableDelegationSetCommand,
   CreateReusableDelegationSetCommandInput,
-  CreateReusableDelegationSetCommandOutput
+  CreateReusableDelegationSetCommandOutput,
 } from "./commands/CreateReusableDelegationSetCommand.ts";
 import {
   CreateTrafficPolicyCommand,
   CreateTrafficPolicyCommandInput,
-  CreateTrafficPolicyCommandOutput
+  CreateTrafficPolicyCommandOutput,
 } from "./commands/CreateTrafficPolicyCommand.ts";
 import {
   CreateTrafficPolicyInstanceCommand,
   CreateTrafficPolicyInstanceCommandInput,
-  CreateTrafficPolicyInstanceCommandOutput
+  CreateTrafficPolicyInstanceCommandOutput,
 } from "./commands/CreateTrafficPolicyInstanceCommand.ts";
 import {
   CreateTrafficPolicyVersionCommand,
   CreateTrafficPolicyVersionCommandInput,
-  CreateTrafficPolicyVersionCommandOutput
+  CreateTrafficPolicyVersionCommandOutput,
 } from "./commands/CreateTrafficPolicyVersionCommand.ts";
 import {
   CreateVPCAssociationAuthorizationCommand,
   CreateVPCAssociationAuthorizationCommandInput,
-  CreateVPCAssociationAuthorizationCommandOutput
+  CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand.ts";
 import {
   DeleteHealthCheckCommand,
   DeleteHealthCheckCommandInput,
-  DeleteHealthCheckCommandOutput
+  DeleteHealthCheckCommandOutput,
 } from "./commands/DeleteHealthCheckCommand.ts";
 import {
   DeleteHostedZoneCommand,
   DeleteHostedZoneCommandInput,
-  DeleteHostedZoneCommandOutput
+  DeleteHostedZoneCommandOutput,
 } from "./commands/DeleteHostedZoneCommand.ts";
 import {
   DeleteQueryLoggingConfigCommand,
   DeleteQueryLoggingConfigCommandInput,
-  DeleteQueryLoggingConfigCommandOutput
+  DeleteQueryLoggingConfigCommandOutput,
 } from "./commands/DeleteQueryLoggingConfigCommand.ts";
 import {
   DeleteReusableDelegationSetCommand,
   DeleteReusableDelegationSetCommandInput,
-  DeleteReusableDelegationSetCommandOutput
+  DeleteReusableDelegationSetCommandOutput,
 } from "./commands/DeleteReusableDelegationSetCommand.ts";
 import {
   DeleteTrafficPolicyCommand,
   DeleteTrafficPolicyCommandInput,
-  DeleteTrafficPolicyCommandOutput
+  DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand.ts";
 import {
   DeleteTrafficPolicyInstanceCommand,
   DeleteTrafficPolicyInstanceCommandInput,
-  DeleteTrafficPolicyInstanceCommandOutput
+  DeleteTrafficPolicyInstanceCommandOutput,
 } from "./commands/DeleteTrafficPolicyInstanceCommand.ts";
 import {
   DeleteVPCAssociationAuthorizationCommand,
   DeleteVPCAssociationAuthorizationCommandInput,
-  DeleteVPCAssociationAuthorizationCommandOutput
+  DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand.ts";
 import {
   DisassociateVPCFromHostedZoneCommand,
   DisassociateVPCFromHostedZoneCommandInput,
-  DisassociateVPCFromHostedZoneCommandOutput
+  DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand.ts";
 import {
   GetAccountLimitCommand,
   GetAccountLimitCommandInput,
-  GetAccountLimitCommandOutput
+  GetAccountLimitCommandOutput,
 } from "./commands/GetAccountLimitCommand.ts";
-import {
-  GetChangeCommand,
-  GetChangeCommandInput,
-  GetChangeCommandOutput
-} from "./commands/GetChangeCommand.ts";
+import { GetChangeCommand, GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand.ts";
 import {
   GetCheckerIpRangesCommand,
   GetCheckerIpRangesCommandInput,
-  GetCheckerIpRangesCommandOutput
+  GetCheckerIpRangesCommandOutput,
 } from "./commands/GetCheckerIpRangesCommand.ts";
 import {
   GetGeoLocationCommand,
   GetGeoLocationCommandInput,
-  GetGeoLocationCommandOutput
+  GetGeoLocationCommandOutput,
 } from "./commands/GetGeoLocationCommand.ts";
 import {
   GetHealthCheckCommand,
   GetHealthCheckCommandInput,
-  GetHealthCheckCommandOutput
+  GetHealthCheckCommandOutput,
 } from "./commands/GetHealthCheckCommand.ts";
 import {
   GetHealthCheckCountCommand,
   GetHealthCheckCountCommandInput,
-  GetHealthCheckCountCommandOutput
+  GetHealthCheckCountCommandOutput,
 } from "./commands/GetHealthCheckCountCommand.ts";
 import {
   GetHealthCheckLastFailureReasonCommand,
   GetHealthCheckLastFailureReasonCommandInput,
-  GetHealthCheckLastFailureReasonCommandOutput
+  GetHealthCheckLastFailureReasonCommandOutput,
 } from "./commands/GetHealthCheckLastFailureReasonCommand.ts";
 import {
   GetHealthCheckStatusCommand,
   GetHealthCheckStatusCommandInput,
-  GetHealthCheckStatusCommandOutput
+  GetHealthCheckStatusCommandOutput,
 } from "./commands/GetHealthCheckStatusCommand.ts";
 import {
   GetHostedZoneCommand,
   GetHostedZoneCommandInput,
-  GetHostedZoneCommandOutput
+  GetHostedZoneCommandOutput,
 } from "./commands/GetHostedZoneCommand.ts";
 import {
   GetHostedZoneCountCommand,
   GetHostedZoneCountCommandInput,
-  GetHostedZoneCountCommandOutput
+  GetHostedZoneCountCommandOutput,
 } from "./commands/GetHostedZoneCountCommand.ts";
 import {
   GetHostedZoneLimitCommand,
   GetHostedZoneLimitCommandInput,
-  GetHostedZoneLimitCommandOutput
+  GetHostedZoneLimitCommandOutput,
 } from "./commands/GetHostedZoneLimitCommand.ts";
 import {
   GetQueryLoggingConfigCommand,
   GetQueryLoggingConfigCommandInput,
-  GetQueryLoggingConfigCommandOutput
+  GetQueryLoggingConfigCommandOutput,
 } from "./commands/GetQueryLoggingConfigCommand.ts";
 import {
   GetReusableDelegationSetCommand,
   GetReusableDelegationSetCommandInput,
-  GetReusableDelegationSetCommandOutput
+  GetReusableDelegationSetCommandOutput,
 } from "./commands/GetReusableDelegationSetCommand.ts";
 import {
   GetReusableDelegationSetLimitCommand,
   GetReusableDelegationSetLimitCommandInput,
-  GetReusableDelegationSetLimitCommandOutput
+  GetReusableDelegationSetLimitCommandOutput,
 } from "./commands/GetReusableDelegationSetLimitCommand.ts";
 import {
   GetTrafficPolicyCommand,
   GetTrafficPolicyCommandInput,
-  GetTrafficPolicyCommandOutput
+  GetTrafficPolicyCommandOutput,
 } from "./commands/GetTrafficPolicyCommand.ts";
 import {
   GetTrafficPolicyInstanceCommand,
   GetTrafficPolicyInstanceCommandInput,
-  GetTrafficPolicyInstanceCommandOutput
+  GetTrafficPolicyInstanceCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCommand.ts";
 import {
   GetTrafficPolicyInstanceCountCommand,
   GetTrafficPolicyInstanceCountCommandInput,
-  GetTrafficPolicyInstanceCountCommandOutput
+  GetTrafficPolicyInstanceCountCommandOutput,
 } from "./commands/GetTrafficPolicyInstanceCountCommand.ts";
 import {
   ListGeoLocationsCommand,
   ListGeoLocationsCommandInput,
-  ListGeoLocationsCommandOutput
+  ListGeoLocationsCommandOutput,
 } from "./commands/ListGeoLocationsCommand.ts";
 import {
   ListHealthChecksCommand,
   ListHealthChecksCommandInput,
-  ListHealthChecksCommandOutput
+  ListHealthChecksCommandOutput,
 } from "./commands/ListHealthChecksCommand.ts";
 import {
   ListHostedZonesByNameCommand,
   ListHostedZonesByNameCommandInput,
-  ListHostedZonesByNameCommandOutput
+  ListHostedZonesByNameCommandOutput,
 } from "./commands/ListHostedZonesByNameCommand.ts";
+import {
+  ListHostedZonesByVPCCommand,
+  ListHostedZonesByVPCCommandInput,
+  ListHostedZonesByVPCCommandOutput,
+} from "./commands/ListHostedZonesByVPCCommand.ts";
 import {
   ListHostedZonesCommand,
   ListHostedZonesCommandInput,
-  ListHostedZonesCommandOutput
+  ListHostedZonesCommandOutput,
 } from "./commands/ListHostedZonesCommand.ts";
 import {
   ListQueryLoggingConfigsCommand,
   ListQueryLoggingConfigsCommandInput,
-  ListQueryLoggingConfigsCommandOutput
+  ListQueryLoggingConfigsCommandOutput,
 } from "./commands/ListQueryLoggingConfigsCommand.ts";
 import {
   ListResourceRecordSetsCommand,
   ListResourceRecordSetsCommandInput,
-  ListResourceRecordSetsCommandOutput
+  ListResourceRecordSetsCommandOutput,
 } from "./commands/ListResourceRecordSetsCommand.ts";
 import {
   ListReusableDelegationSetsCommand,
   ListReusableDelegationSetsCommandInput,
-  ListReusableDelegationSetsCommandOutput
+  ListReusableDelegationSetsCommandOutput,
 } from "./commands/ListReusableDelegationSetsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTagsForResourcesCommand,
   ListTagsForResourcesCommandInput,
-  ListTagsForResourcesCommandOutput
+  ListTagsForResourcesCommandOutput,
 } from "./commands/ListTagsForResourcesCommand.ts";
 import {
   ListTrafficPoliciesCommand,
   ListTrafficPoliciesCommandInput,
-  ListTrafficPoliciesCommandOutput
+  ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand.ts";
 import {
   ListTrafficPolicyInstancesByHostedZoneCommand,
   ListTrafficPolicyInstancesByHostedZoneCommandInput,
-  ListTrafficPolicyInstancesByHostedZoneCommandOutput
+  ListTrafficPolicyInstancesByHostedZoneCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByHostedZoneCommand.ts";
 import {
   ListTrafficPolicyInstancesByPolicyCommand,
   ListTrafficPolicyInstancesByPolicyCommandInput,
-  ListTrafficPolicyInstancesByPolicyCommandOutput
+  ListTrafficPolicyInstancesByPolicyCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesByPolicyCommand.ts";
 import {
   ListTrafficPolicyInstancesCommand,
   ListTrafficPolicyInstancesCommandInput,
-  ListTrafficPolicyInstancesCommandOutput
+  ListTrafficPolicyInstancesCommandOutput,
 } from "./commands/ListTrafficPolicyInstancesCommand.ts";
 import {
   ListTrafficPolicyVersionsCommand,
   ListTrafficPolicyVersionsCommandInput,
-  ListTrafficPolicyVersionsCommandOutput
+  ListTrafficPolicyVersionsCommandOutput,
 } from "./commands/ListTrafficPolicyVersionsCommand.ts";
 import {
   ListVPCAssociationAuthorizationsCommand,
   ListVPCAssociationAuthorizationsCommandInput,
-  ListVPCAssociationAuthorizationsCommandOutput
+  ListVPCAssociationAuthorizationsCommandOutput,
 } from "./commands/ListVPCAssociationAuthorizationsCommand.ts";
 import {
   TestDNSAnswerCommand,
   TestDNSAnswerCommandInput,
-  TestDNSAnswerCommandOutput
+  TestDNSAnswerCommandOutput,
 } from "./commands/TestDNSAnswerCommand.ts";
 import {
   UpdateHealthCheckCommand,
   UpdateHealthCheckCommandInput,
-  UpdateHealthCheckCommandOutput
+  UpdateHealthCheckCommandOutput,
 } from "./commands/UpdateHealthCheckCommand.ts";
 import {
   UpdateHostedZoneCommentCommand,
   UpdateHostedZoneCommentCommandInput,
-  UpdateHostedZoneCommentCommandOutput
+  UpdateHostedZoneCommentCommandOutput,
 } from "./commands/UpdateHostedZoneCommentCommand.ts";
 import {
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyCommentCommandInput,
-  UpdateTrafficPolicyCommentCommandOutput
+  UpdateTrafficPolicyCommentCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommentCommand.ts";
 import {
   UpdateTrafficPolicyInstanceCommand,
   UpdateTrafficPolicyInstanceCommandInput,
-  UpdateTrafficPolicyInstanceCommandOutput
+  UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -287,16 +288,26 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 export class Route53 extends Route53Client {
   /**
    * <p>Associates an Amazon VPC with a private hosted zone. </p>
-   * 		       <important>
-   *             <p>To perform the association, the VPC and the private hosted zone must already exist.
-   * 			You can't convert a public hosted zone into a private hosted zone.</p>
-   *          </important>
+   *
    * 		       <note>
-   *             <p>If you want to associate a VPC that was created by using one AWS account with a private hosted zone that was created
-   * 			by using a different account, the AWS account that created the private hosted zone must first submit a
-   * 			<code>CreateVPCAssociationAuthorization</code> request. Then the account that created the VPC must submit an
-   * 			<code>AssociateVPCWithHostedZone</code> request.</p>
-   *          </note>
+   *             <p>To perform the association, the VPC and the private hosted zone must already exist.
+   * 			Also, you can't convert a public hosted zone into a private hosted zone.</p>
+   * 		       </note>
+   *
+   * 		       <p>If you want to associate a VPC that was created by one AWS account with a private hosted zone that was created
+   * 			by a different account, do one of the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>Use the AWS account that created the private hosted zone to submit a
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.html">CreateVPCAssociationAuthorization</a>
+   * 				request. Then use the account that created the VPC to submit an <code>AssociateVPCWithHostedZone</code> request.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a subnet in the VPC was shared with another account, you can use the account that the subnet was shared with
+   * 				to submit an <code>AssociateVPCWithHostedZone</code> request. For more information about sharing subnets, see
+   * 				<a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">Working with Shared VPCs</a>.</p>
+   *             </li>
+   *          </ul>
    */
   public associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
@@ -313,17 +324,14 @@ export class Route53 extends Route53Client {
   ): void;
   public associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> | void {
     const command = new AssociateVPCWithHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -336,21 +344,24 @@ export class Route53 extends Route53Client {
    * 			routes traffic for test.example.com to a web server that has an IP address of 192.0.2.44.</p>
    *
    * 		       <p>
+   *             <b>Deleting Resource Record Sets</b>
+   *          </p>
+   * 		       <p>To delete a resource record set, you must specify all the same values that you specified when you created it.</p>
+   *
+   * 		       <p>
    *             <b>Change Batches and Transactional Changes</b>
    *          </p>
    * 		       <p>The request body must include a document with a <code>ChangeResourceRecordSetsRequest</code> element.
    * 			The request body contains a list of change items, known as a change batch. Change batches are considered transactional changes.
-   * 			When using the Amazon Route 53 API to change resource record sets, Route 53 either makes all or none of the changes in a change batch request.
-   * 			This ensures that Route 53 never partially implements the intended changes to the resource record sets in a hosted zone. </p>
-   * 		       <p>For example, a change batch request that deletes the <code>CNAME</code> record for www.example.com and creates an
-   * 			alias resource record set for www.example.com. Route 53 deletes the first resource record set and creates the second resource record set
-   * 			in a single operation. If either the <code>DELETE</code> or the <code>CREATE</code> action fails, then both changes
-   * 			(plus any other changes in the batch) fail, and the original <code>CNAME</code> record continues to exist.</p>
-   * 		       <important>
-   * 			         <p>Due to the nature of transactional changes, you can't delete the same resource record set more than once in a
-   * 				single change batch. If you attempt to delete the same change batch more than once, Route 53 returns an
-   * 				<code>InvalidChangeBatch</code> error.</p>
-   * 		       </important>
+   * 			Route 53 validates the changes in the request and then either makes all or none of the changes in the change batch request.
+   * 			This ensures that DNS routing isn't adversely affected by partial changes to the resource record sets in a hosted zone. </p>
+   * 		       <p>For example, suppose a change batch request contains two changes: it deletes the <code>CNAME</code> resource record set for www.example.com and
+   * 			creates an alias resource record set for www.example.com. If validation for both records succeeds, Route 53 deletes the first resource record set and
+   * 			creates the second resource record set in a single operation. If validation for either the <code>DELETE</code> or the <code>CREATE</code> action fails,
+   * 			then the request is canceled, and the original <code>CNAME</code> record continues to exist.</p>
+   * 		       <note>
+   * 			         <p>If you try to delete the same resource record set more than once in a single change batch, Route 53 returns an <code>InvalidChangeBatch</code> error.</p>
+   * 		       </note>
    *
    * 		       <p>
    *             <b>Traffic Flow</b>
@@ -359,7 +370,7 @@ export class Route53 extends Route53Client {
    * 			Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy,
    * 			then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com),
    * 			in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn't performing
-   * 			as expected. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html">Using Traffic Flow to Route DNS Traffic</a>
+   * 			as expected. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html">Using Traffic Flow to Route DNS Traffic</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
    *
    * 		       <p>
@@ -426,17 +437,14 @@ export class Route53 extends Route53Client {
   ): void;
   public changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeResourceRecordSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeResourceRecordSetsCommandOutput) => void),
     cb?: (err: any, data?: ChangeResourceRecordSetsCommandOutput) => void
   ): Promise<ChangeResourceRecordSetsCommandOutput> | void {
     const command = new ChangeResourceRecordSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -464,17 +472,14 @@ export class Route53 extends Route53Client {
   ): void;
   public changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangeTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ChangeTagsForResourceCommandOutput) => void
   ): Promise<ChangeTagsForResourceCommandOutput> | void {
     const command = new ChangeTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -512,7 +517,8 @@ export class Route53 extends Route53Client {
    * 				           <p>You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the
    * 					state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 <code>StatusCheckFailed</code> metric,
    * 					add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating
-   * 					CloudWatch metrics and alarms by using the CloudWatch console, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
+   * 					CloudWatch metrics and alarms by using the CloudWatch console, see the
+   * 					<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
    * 			         </li>
    *          </ul>
    */
@@ -531,17 +537,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createHealthCheck(
     args: CreateHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: CreateHealthCheckCommandOutput) => void
   ): Promise<CreateHealthCheckCommandOutput> | void {
     const command = new CreateHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -564,9 +567,9 @@ export class Route53 extends Route53Client {
    * 				           <p>You can't create a hosted zone for a top-level domain (TLD) such as .com.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>For public hosted zones, Amazon Route 53 automatically creates a default SOA record and four NS records for the zone.
+   * 				           <p>For public hosted zones, Route 53 automatically creates a default SOA record and four NS records for the zone.
    * 					For more information about SOA and NS records, see
-   * 					<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Route 53 Creates for a Hosted Zone</a> in the
+   * 					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Route 53 Creates for a Hosted Zone</a> in the
    * 					<i>Amazon Route 53 Developer Guide</i>.</p>
    * 				           <p>If you want to use the same name servers for multiple public hosted zones, you can optionally associate a reusable delegation set
    * 					with the hosted zone. See the <code>DelegationSetId</code> element.</p>
@@ -574,7 +577,7 @@ export class Route53 extends Route53Client {
    *             <li>
    * 				           <p>If your domain is registered with a registrar other than Route 53, you must update the name servers with your registrar to make
    * 					Route 53 the DNS service for the domain. For more information, see
-   * 					<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating DNS Service for an Existing Domain to Amazon Route 53</a> in the
+   * 					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating DNS Service for an Existing Domain to Amazon Route 53</a> in the
    * 					<i>Amazon Route 53 Developer Guide</i>. </p>
    * 			         </li>
    *          </ul>
@@ -597,17 +600,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createHostedZone(
     args: CreateHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: CreateHostedZoneCommandOutput) => void
   ): Promise<CreateHostedZoneCommandOutput> | void {
     const command = new CreateHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,17 +748,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateQueryLoggingConfigCommandOutput) => void
   ): Promise<CreateQueryLoggingConfigCommandOutput> | void {
     const command = new CreateQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -766,13 +763,15 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones. If a hosted zoned ID is
-   * 			specified, <code>CreateReusableDelegationSet</code> marks the delegation set associated with that zone as reusable.</p>
+   * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones that were created by
+   * 			the same AWS account. </p>
+   * 		       <p>You can also create a reusable delegation set that uses the four name servers that are associated
+   * 			with an existing hosted zone. Specify the hosted zone ID in the <code>CreateReusableDelegationSet</code> request.</p>
    * 		       <note>
    * 			         <p>You can't associate a reusable delegation set with a private hosted zone.</p>
    * 		       </note>
-   * 		       <p>For information about using a reusable delegation set to configure white label name servers,
-   * 			see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring White Label Name Servers</a>.</p>
+   * 		       <p>For information about using a reusable delegation set to configure white label name servers, see
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring White Label Name Servers</a>.</p>
    *
    * 		       <p>The process for migrating existing hosted zones to use a reusable delegation set is comparable to the process for
    * 			configuring white label name servers. You need to perform the following steps:</p>
@@ -831,17 +830,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: CreateReusableDelegationSetCommandOutput) => void
   ): Promise<CreateReusableDelegationSetCommandOutput> | void {
     const command = new CreateReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -867,17 +863,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyCommandOutput) => void
   ): Promise<CreateTrafficPolicyCommandOutput> | void {
     const command = new CreateTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -905,17 +898,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void
   ): Promise<CreateTrafficPolicyInstanceCommandOutput> | void {
     const command = new CreateTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -944,17 +934,14 @@ export class Route53 extends Route53Client {
   ): void;
   public createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void
   ): Promise<CreateTrafficPolicyVersionCommandOutput> | void {
     const command = new CreateTrafficPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -978,38 +965,23 @@ export class Route53 extends Route53Client {
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput>;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput> | void {
     const command = new CreateVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1023,9 +995,14 @@ export class Route53 extends Route53Client {
    * 				resource record sets. If you delete a health check and you don't update the associated resource record sets, the future status
    * 				of the health check can't be predicted and may change. This will affect the routing of DNS queries for your DNS failover
    * 				configuration. For more information, see
-   * 				<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing and Deleting Health Checks</a>
+   * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing and Deleting Health Checks</a>
    * 				in the <i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       </important>
+   *
+   * 		       <p>If you're using AWS Cloud Map and you configured Cloud Map to create a Route 53 health check when you register an instance,
+   * 			you can't use the Route 53 <code>DeleteHealthCheck</code> command to delete the health check. The health check is deleted
+   * 			automatically when you deregister the instance; there can be a delay of several hours before the health check is deleted
+   * 			from Route 53. </p>
    */
   public deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
@@ -1042,17 +1019,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: DeleteHealthCheckCommandOutput) => void
   ): Promise<DeleteHealthCheckCommandOutput> | void {
     const command = new DeleteHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1115,17 +1089,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: DeleteHostedZoneCommandOutput) => void
   ): Promise<DeleteHostedZoneCommandOutput> | void {
     const command = new DeleteHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1154,17 +1125,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void
   ): Promise<DeleteQueryLoggingConfigCommandOutput> | void {
     const command = new DeleteQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1195,17 +1163,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteReusableDelegationSetCommandOutput) => void
   ): Promise<DeleteReusableDelegationSetCommandOutput> | void {
     const command = new DeleteReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1230,17 +1195,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficPolicyCommandOutput) => void
   ): Promise<DeleteTrafficPolicyCommandOutput> | void {
     const command = new DeleteTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1268,17 +1230,14 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput> | void {
     const command = new DeleteTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1302,38 +1261,23 @@ export class Route53 extends Route53Client {
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput>;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> | void {
     const command = new DeleteVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1341,18 +1285,26 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   * <p>Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:</p>
+   * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53 private hosted zone. Note the following:</p>
    * 		       <ul>
    *             <li>
-   *                <p>You can't disassociate the last VPC from a private hosted zone.</p>
+   *                <p>You can't disassociate the last Amazon VPC from a private hosted zone.</p>
    *             </li>
    *             <li>
    *                <p>You can't convert a private hosted zone into a public hosted zone.</p>
    *             </li>
    *             <li>
    *                <p>You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the account
-   * 				that created the hosted zone or the account that created the VPC.</p>
+   * 				that created the hosted zone or the account that created the Amazon VPC.</p>
    *             </li>
+   *             <li>
+   *                <p>Some services, such as AWS Cloud Map and Amazon Elastic File System (Amazon EFS) automatically create hosted zones and associate
+   * 				VPCs with the hosted zones. A service can create a hosted zone using your account or using its own account.
+   * 				You can disassociate a VPC from a hosted zone only if the service created the hosted zone using your account.</p>
+   * 				           <p>When you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">DisassociateVPCFromHostedZone</a>,
+   * 					if the hosted zone has a value for <code>OwningAccount</code>, you can use <code>DisassociateVPCFromHostedZone</code>.
+   * 					If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.</p>
+   * 			         </li>
    *          </ul>
    */
   public disassociateVPCFromHostedZone(
@@ -1370,17 +1322,14 @@ export class Route53 extends Route53Client {
   ): void;
   public disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> | void {
     const command = new DisassociateVPCFromHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1414,17 +1363,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getAccountLimit(
     args: GetAccountLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountLimitCommandOutput) => void),
     cb?: (err: any, data?: GetAccountLimitCommandOutput) => void
   ): Promise<GetAccountLimitCommandOutput> | void {
     const command = new GetAccountLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1446,14 +1392,8 @@ export class Route53 extends Route53Client {
    * 			         </li>
    *          </ul>
    */
-  public getChange(
-    args: GetChangeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChangeCommandOutput>;
-  public getChange(
-    args: GetChangeCommandInput,
-    cb: (err: any, data?: GetChangeCommandOutput) => void
-  ): void;
+  public getChange(args: GetChangeCommandInput, options?: __HttpHandlerOptions): Promise<GetChangeCommandOutput>;
+  public getChange(args: GetChangeCommandInput, cb: (err: any, data?: GetChangeCommandOutput) => void): void;
   public getChange(
     args: GetChangeCommandInput,
     options: __HttpHandlerOptions,
@@ -1461,17 +1401,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getChange(
     args: GetChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeCommandOutput) => void),
     cb?: (err: any, data?: GetChangeCommandOutput) => void
   ): Promise<GetChangeCommandOutput> | void {
     const command = new GetChangeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1483,7 +1420,7 @@ export class Route53 extends Route53Client {
    * 			         <p>
    *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
    * 			ip-ranges.json, which includes IP address ranges for all AWS services. For more information, see
-   * 			<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of Amazon Route 53 Servers</a>
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of Amazon Route 53 Servers</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       </important>
    */
@@ -1502,17 +1439,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCheckerIpRangesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCheckerIpRangesCommandOutput) => void),
     cb?: (err: any, data?: GetCheckerIpRangesCommandOutput) => void
   ): Promise<GetCheckerIpRangesCommandOutput> | void {
     const command = new GetCheckerIpRangesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1556,17 +1490,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getGeoLocation(
     args: GetGeoLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoLocationCommandOutput) => void),
     cb?: (err: any, data?: GetGeoLocationCommandOutput) => void
   ): Promise<GetGeoLocationCommandOutput> | void {
     const command = new GetGeoLocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1591,17 +1522,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheck(
     args: GetHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckCommandOutput) => void
   ): Promise<GetHealthCheckCommandOutput> | void {
     const command = new GetHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1626,17 +1554,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckCountCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckCountCommandOutput) => void
   ): Promise<GetHealthCheckCountCommandOutput> | void {
     const command = new GetHealthCheckCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1661,20 +1586,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetHealthCheckLastFailureReasonCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> | void {
     const command = new GetHealthCheckLastFailureReasonCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1699,17 +1618,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckStatusCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckStatusCommandOutput) => void
   ): Promise<GetHealthCheckStatusCommandOutput> | void {
     const command = new GetHealthCheckStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1734,17 +1650,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZone(
     args: GetHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneCommandOutput) => void
   ): Promise<GetHostedZoneCommandOutput> | void {
     const command = new GetHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1769,17 +1682,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneCountCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneCountCommandOutput) => void
   ): Promise<GetHostedZoneCountCommandOutput> | void {
     const command = new GetHostedZoneCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1808,17 +1718,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneLimitCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneLimitCommandOutput) => void
   ): Promise<GetHostedZoneLimitCommandOutput> | void {
     const command = new GetHostedZoneLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1848,17 +1755,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryLoggingConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryLoggingConfigCommandOutput) => void),
     cb?: (err: any, data?: GetQueryLoggingConfigCommandOutput) => void
   ): Promise<GetQueryLoggingConfigCommandOutput> | void {
     const command = new GetQueryLoggingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1884,17 +1788,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReusableDelegationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReusableDelegationSetCommandOutput) => void),
     cb?: (err: any, data?: GetReusableDelegationSetCommandOutput) => void
   ): Promise<GetReusableDelegationSetCommandOutput> | void {
     const command = new GetReusableDelegationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1922,17 +1823,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void),
     cb?: (err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void
   ): Promise<GetReusableDelegationSetLimitCommandOutput> | void {
     const command = new GetReusableDelegationSetLimitCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1957,17 +1855,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyCommandOutput) => void
   ): Promise<GetTrafficPolicyCommandOutput> | void {
     const command = new GetTrafficPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2000,17 +1895,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void
   ): Promise<GetTrafficPolicyInstanceCommandOutput> | void {
     const command = new GetTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2035,17 +1927,14 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput> | void {
     const command = new GetTrafficPolicyInstanceCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2056,6 +1945,8 @@ export class Route53 extends Route53Client {
    * <p>Retrieves a list of supported geographic locations.</p>
    * 		       <p>Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces),
    * 			the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.</p>
+   * 		       <p>For a list of supported geolocation codes, see the
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data type.</p>
    */
   public listGeoLocations(
     args: ListGeoLocationsCommandInput,
@@ -2072,17 +1963,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listGeoLocations(
     args: ListGeoLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoLocationsCommandOutput) => void
   ): Promise<ListGeoLocationsCommandOutput> | void {
     const command = new ListGeoLocationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2107,17 +1995,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listHealthChecks(
     args: ListHealthChecksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHealthChecksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHealthChecksCommandOutput) => void),
     cb?: (err: any, data?: ListHealthChecksCommandOutput) => void
   ): Promise<ListHealthChecksCommandOutput> | void {
     const command = new ListHealthChecksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2145,17 +2030,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listHostedZones(
     args: ListHostedZonesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHostedZonesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesCommandOutput) => void),
     cb?: (err: any, data?: ListHostedZonesCommandOutput) => void
   ): Promise<ListHostedZonesCommandOutput> | void {
     const command = new ListHostedZonesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2182,7 +2064,7 @@ export class Route53 extends Route53Client {
    *          </p>
    *
    * 		       <p>The labels are reversed and alphabetized using the escaped value. For more information about valid domain name formats,
-   * 			including internationalized domain names, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS Domain Name Format</a> in the
+   * 			including internationalized domain names, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS Domain Name Format</a> in the
    * 			<i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       <p>Route 53 returns up to 100 items in each response. If you have a lot of hosted zones, use the <code>MaxItems</code> parameter to list
    * 			them in groups of up to 100. The response includes values that help navigate from one group of <code>MaxItems</code> hosted zones to the next:</p>
@@ -2224,17 +2106,58 @@ export class Route53 extends Route53Client {
   ): void;
   public listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHostedZonesByNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesByNameCommandOutput) => void),
     cb?: (err: any, data?: ListHostedZonesByNameCommandOutput) => void
   ): Promise<ListHostedZonesByNameCommandOutput> | void {
     const command = new ListHostedZonesByNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account or AWS service owns the
+   * 			hosted zones. The <code>HostedZoneOwner</code> structure in the response contains one of the following values:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>An <code>OwningAccount</code> element, which contains the account number of either the current AWS account or
+   * 				another AWS account. Some services, such as AWS Cloud Map, create hosted zones using the current account. </p>
+   * 			         </li>
+   *             <li>
+   *                <p>An <code>OwningService</code> element, which identifies the AWS service that created and owns the hosted zone.
+   * 				For example, if a hosted zone was created by Amazon Elastic File System (Amazon EFS), the value of <code>Owner</code> is
+   * 				<code>efs.amazonaws.com</code>. </p>
+   * 			         </li>
+   *          </ul>
+   */
+  public listHostedZonesByVPC(
+    args: ListHostedZonesByVPCCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostedZonesByVPCCommandOutput>;
+  public listHostedZonesByVPC(
+    args: ListHostedZonesByVPCCommandInput,
+    cb: (err: any, data?: ListHostedZonesByVPCCommandOutput) => void
+  ): void;
+  public listHostedZonesByVPC(
+    args: ListHostedZonesByVPCCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHostedZonesByVPCCommandOutput) => void
+  ): void;
+  public listHostedZonesByVPC(
+    args: ListHostedZonesByVPCCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesByVPCCommandOutput) => void),
+    cb?: (err: any, data?: ListHostedZonesByVPCCommandOutput) => void
+  ): Promise<ListHostedZonesByVPCCommandOutput> | void {
+    const command = new ListHostedZonesByVPCCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2266,17 +2189,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueryLoggingConfigsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueryLoggingConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListQueryLoggingConfigsCommandOutput) => void
   ): Promise<ListQueryLoggingConfigsCommandOutput> | void {
     const command = new ListQueryLoggingConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2364,17 +2284,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceRecordSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceRecordSetsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceRecordSetsCommandOutput) => void
   ): Promise<ListResourceRecordSetsCommandOutput> | void {
     const command = new ListResourceRecordSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2399,17 +2316,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReusableDelegationSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReusableDelegationSetsCommandOutput) => void),
     cb?: (err: any, data?: ListReusableDelegationSetsCommandOutput) => void
   ): Promise<ListReusableDelegationSetsCommandOutput> | void {
     const command = new ListReusableDelegationSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2437,17 +2351,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2475,17 +2386,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTagsForResources(
     args: ListTagsForResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourcesCommandOutput) => void
   ): Promise<ListTagsForResourcesCommandOutput> | void {
     const command = new ListTagsForResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2511,17 +2419,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPoliciesCommandOutput) => void
   ): Promise<ListTrafficPoliciesCommandOutput> | void {
     const command = new ListTrafficPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2552,17 +2457,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2585,38 +2487,25 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput>;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+      | ((err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2639,38 +2528,23 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput>;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2696,17 +2570,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void
   ): Promise<ListTrafficPolicyVersionsCommandOutput> | void {
     const command = new ListTrafficPolicyVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2734,23 +2605,14 @@ export class Route53 extends Route53Client {
   ): void;
   public listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListVPCAssociationAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListVPCAssociationAuthorizationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> | void {
     const command = new ListVPCAssociationAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2776,17 +2638,14 @@ export class Route53 extends Route53Client {
   ): void;
   public testDNSAnswer(
     args: TestDNSAnswerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
     cb?: (err: any, data?: TestDNSAnswerCommandOutput) => void
   ): Promise<TestDNSAnswerCommandOutput> | void {
     const command = new TestDNSAnswerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2796,7 +2655,7 @@ export class Route53 extends Route53Client {
   /**
    * <p>Updates an existing health check. Note that some values can't be updated. </p>
    * 		       <p>For more information about updating health checks, see
-   * 			<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating, Updating, and Deleting Health Checks</a>
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating, Updating, and Deleting Health Checks</a>
    * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
    */
   public updateHealthCheck(
@@ -2814,17 +2673,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: UpdateHealthCheckCommandOutput) => void
   ): Promise<UpdateHealthCheckCommandOutput> | void {
     const command = new UpdateHealthCheckCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2849,17 +2705,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHostedZoneCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHostedZoneCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateHostedZoneCommentCommandOutput) => void
   ): Promise<UpdateHostedZoneCommentCommandOutput> | void {
     const command = new UpdateHostedZoneCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2884,17 +2737,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void
   ): Promise<UpdateTrafficPolicyCommentCommandOutput> | void {
     const command = new UpdateTrafficPolicyCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2934,17 +2784,14 @@ export class Route53 extends Route53Client {
   ): void;
   public updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void
   ): Promise<UpdateTrafficPolicyInstanceCommandOutput> | void {
     const command = new UpdateTrafficPolicyInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

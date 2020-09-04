@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client.ts";
-import {
-  UpdateDomainNameRequest,
-  UpdateDomainNameResponse
-} from "../models/index.ts";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
+import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDomainNameCommand,
-  serializeAws_restJson1UpdateDomainNameCommand
+  serializeAws_restJson1UpdateDomainNameCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDomainNameCommandInput = UpdateDomainNameRequest;
-export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse &
-  __MetadataBearer;
+export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse & __MetadataBearer;
 
 export class UpdateDomainNameCommand extends $Command<
   UpdateDomainNameCommandInput,
@@ -50,14 +39,15 @@ export class UpdateDomainNameCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDomainNameRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainNameResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateDomainNameCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDomainNameCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDomainNameCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDomainNameCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameCommandOutput> {
     return deserializeAws_restJson1UpdateDomainNameCommand(output, context);
   }
 

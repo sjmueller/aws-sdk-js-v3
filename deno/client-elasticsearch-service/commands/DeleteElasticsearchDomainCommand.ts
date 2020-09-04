@@ -1,21 +1,15 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import {
-  DeleteElasticsearchDomainRequest,
-  DeleteElasticsearchDomainResponse
-} from "../models/index.ts";
+import { DeleteElasticsearchDomainRequest, DeleteElasticsearchDomainResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteElasticsearchDomainCommand,
-  serializeAws_restJson1DeleteElasticsearchDomainCommand
+  serializeAws_restJson1DeleteElasticsearchDomainCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteElasticsearchDomainCommandInput = DeleteElasticsearchDomainRequest;
-export type DeleteElasticsearchDomainCommandOutput = DeleteElasticsearchDomainResponse &
-  __MetadataBearer;
+export type DeleteElasticsearchDomainCommandOutput = DeleteElasticsearchDomainResponse & __MetadataBearer;
 
 export class DeleteElasticsearchDomainCommand extends $Command<
   DeleteElasticsearchDomainCommandInput,
@@ -49,18 +42,16 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteElasticsearchDomainCommandInput,
-    DeleteElasticsearchDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteElasticsearchDomainCommandInput, DeleteElasticsearchDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteElasticsearchDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteElasticsearchDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteElasticsearchDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteElasticsearchDomainCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteElasticsearchDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1DeleteElasticsearchDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient.ts";
-import {
-  StartChatContactRequest,
-  StartChatContactResponse
-} from "../models/index.ts";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartChatContactCommand,
-  serializeAws_restJson1StartChatContactCommand
+  serializeAws_restJson1StartChatContactCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartChatContactCommandInput = StartChatContactRequest;
-export type StartChatContactCommandOutput = StartChatContactResponse &
-  __MetadataBearer;
+export type StartChatContactCommandOutput = StartChatContactResponse & __MetadataBearer;
 
 export class StartChatContactCommand extends $Command<
   StartChatContactCommandInput,
@@ -50,14 +39,15 @@ export class StartChatContactCommand extends $Command<
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartChatContactCommandInput, StartChatContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartChatContactRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartChatContactResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class StartChatContactCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartChatContactCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartChatContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartChatContactCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartChatContactCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChatContactCommandOutput> {
     return deserializeAws_restJson1StartChatContactCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeVpcClassicLinkRequest,
-  DescribeVpcClassicLinkResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeVpcClassicLinkCommand,
-  serializeAws_ec2DescribeVpcClassicLinkCommand
+  serializeAws_ec2DescribeVpcClassicLinkCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeVpcClassicLinkCommandInput = DescribeVpcClassicLinkRequest;
-export type DescribeVpcClassicLinkCommandOutput = DescribeVpcClassicLinkResult &
-  __MetadataBearer;
+export type DescribeVpcClassicLinkCommandOutput = DescribeVpcClassicLinkResult & __MetadataBearer;
 
 export class DescribeVpcClassicLinkCommand extends $Command<
   DescribeVpcClassicLinkCommandInput,
@@ -49,18 +38,16 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpcClassicLinkCommandInput,
-    DescribeVpcClassicLinkCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpcClassicLinkCommandInput, DescribeVpcClassicLinkCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeVpcClassicLinkRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcClassicLinkResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVpcClassicLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcClassicLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeVpcClassicLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcClassicLinkCommandOutput> {
     return deserializeAws_ec2DescribeVpcClassicLinkCommand(output, context);
   }
 

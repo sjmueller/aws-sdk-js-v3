@@ -1,18 +1,15 @@
 import {
   DynamoDBStreamsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DynamoDBStreamsClient.ts";
 import { GetRecordsInput, GetRecordsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0GetRecordsCommand,
-  serializeAws_json1_0GetRecordsCommand
+  serializeAws_json1_0GetRecordsCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRecordsCommandInput = GetRecordsInput;
@@ -46,14 +43,15 @@ export class GetRecordsCommand extends $Command<
     configuration: DynamoDBStreamsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRecordsCommandInput, GetRecordsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRecordsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRecordsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class GetRecordsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRecordsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetRecordsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRecordsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
     return deserializeAws_json1_0GetRecordsCommand(output, context);
   }
 

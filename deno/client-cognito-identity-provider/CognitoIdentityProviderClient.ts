@@ -1,402 +1,288 @@
 import {
   AddCustomAttributesCommandInput,
-  AddCustomAttributesCommandOutput
+  AddCustomAttributesCommandOutput,
 } from "./commands/AddCustomAttributesCommand.ts";
 import {
   AdminAddUserToGroupCommandInput,
-  AdminAddUserToGroupCommandOutput
+  AdminAddUserToGroupCommandOutput,
 } from "./commands/AdminAddUserToGroupCommand.ts";
 import {
   AdminConfirmSignUpCommandInput,
-  AdminConfirmSignUpCommandOutput
+  AdminConfirmSignUpCommandOutput,
 } from "./commands/AdminConfirmSignUpCommand.ts";
-import {
-  AdminCreateUserCommandInput,
-  AdminCreateUserCommandOutput
-} from "./commands/AdminCreateUserCommand.ts";
+import { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "./commands/AdminCreateUserCommand.ts";
 import {
   AdminDeleteUserAttributesCommandInput,
-  AdminDeleteUserAttributesCommandOutput
+  AdminDeleteUserAttributesCommandOutput,
 } from "./commands/AdminDeleteUserAttributesCommand.ts";
-import {
-  AdminDeleteUserCommandInput,
-  AdminDeleteUserCommandOutput
-} from "./commands/AdminDeleteUserCommand.ts";
+import { AdminDeleteUserCommandInput, AdminDeleteUserCommandOutput } from "./commands/AdminDeleteUserCommand.ts";
 import {
   AdminDisableProviderForUserCommandInput,
-  AdminDisableProviderForUserCommandOutput
+  AdminDisableProviderForUserCommandOutput,
 } from "./commands/AdminDisableProviderForUserCommand.ts";
-import {
-  AdminDisableUserCommandInput,
-  AdminDisableUserCommandOutput
-} from "./commands/AdminDisableUserCommand.ts";
-import {
-  AdminEnableUserCommandInput,
-  AdminEnableUserCommandOutput
-} from "./commands/AdminEnableUserCommand.ts";
-import {
-  AdminForgetDeviceCommandInput,
-  AdminForgetDeviceCommandOutput
-} from "./commands/AdminForgetDeviceCommand.ts";
-import {
-  AdminGetDeviceCommandInput,
-  AdminGetDeviceCommandOutput
-} from "./commands/AdminGetDeviceCommand.ts";
-import {
-  AdminGetUserCommandInput,
-  AdminGetUserCommandOutput
-} from "./commands/AdminGetUserCommand.ts";
-import {
-  AdminInitiateAuthCommandInput,
-  AdminInitiateAuthCommandOutput
-} from "./commands/AdminInitiateAuthCommand.ts";
+import { AdminDisableUserCommandInput, AdminDisableUserCommandOutput } from "./commands/AdminDisableUserCommand.ts";
+import { AdminEnableUserCommandInput, AdminEnableUserCommandOutput } from "./commands/AdminEnableUserCommand.ts";
+import { AdminForgetDeviceCommandInput, AdminForgetDeviceCommandOutput } from "./commands/AdminForgetDeviceCommand.ts";
+import { AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput } from "./commands/AdminGetDeviceCommand.ts";
+import { AdminGetUserCommandInput, AdminGetUserCommandOutput } from "./commands/AdminGetUserCommand.ts";
+import { AdminInitiateAuthCommandInput, AdminInitiateAuthCommandOutput } from "./commands/AdminInitiateAuthCommand.ts";
 import {
   AdminLinkProviderForUserCommandInput,
-  AdminLinkProviderForUserCommandOutput
+  AdminLinkProviderForUserCommandOutput,
 } from "./commands/AdminLinkProviderForUserCommand.ts";
-import {
-  AdminListDevicesCommandInput,
-  AdminListDevicesCommandOutput
-} from "./commands/AdminListDevicesCommand.ts";
+import { AdminListDevicesCommandInput, AdminListDevicesCommandOutput } from "./commands/AdminListDevicesCommand.ts";
 import {
   AdminListGroupsForUserCommandInput,
-  AdminListGroupsForUserCommandOutput
+  AdminListGroupsForUserCommandOutput,
 } from "./commands/AdminListGroupsForUserCommand.ts";
 import {
   AdminListUserAuthEventsCommandInput,
-  AdminListUserAuthEventsCommandOutput
+  AdminListUserAuthEventsCommandOutput,
 } from "./commands/AdminListUserAuthEventsCommand.ts";
 import {
   AdminRemoveUserFromGroupCommandInput,
-  AdminRemoveUserFromGroupCommandOutput
+  AdminRemoveUserFromGroupCommandOutput,
 } from "./commands/AdminRemoveUserFromGroupCommand.ts";
 import {
   AdminResetUserPasswordCommandInput,
-  AdminResetUserPasswordCommandOutput
+  AdminResetUserPasswordCommandOutput,
 } from "./commands/AdminResetUserPasswordCommand.ts";
 import {
   AdminRespondToAuthChallengeCommandInput,
-  AdminRespondToAuthChallengeCommandOutput
+  AdminRespondToAuthChallengeCommandOutput,
 } from "./commands/AdminRespondToAuthChallengeCommand.ts";
 import {
   AdminSetUserMFAPreferenceCommandInput,
-  AdminSetUserMFAPreferenceCommandOutput
+  AdminSetUserMFAPreferenceCommandOutput,
 } from "./commands/AdminSetUserMFAPreferenceCommand.ts";
 import {
   AdminSetUserPasswordCommandInput,
-  AdminSetUserPasswordCommandOutput
+  AdminSetUserPasswordCommandOutput,
 } from "./commands/AdminSetUserPasswordCommand.ts";
 import {
   AdminSetUserSettingsCommandInput,
-  AdminSetUserSettingsCommandOutput
+  AdminSetUserSettingsCommandOutput,
 } from "./commands/AdminSetUserSettingsCommand.ts";
 import {
   AdminUpdateAuthEventFeedbackCommandInput,
-  AdminUpdateAuthEventFeedbackCommandOutput
+  AdminUpdateAuthEventFeedbackCommandOutput,
 } from "./commands/AdminUpdateAuthEventFeedbackCommand.ts";
 import {
   AdminUpdateDeviceStatusCommandInput,
-  AdminUpdateDeviceStatusCommandOutput
+  AdminUpdateDeviceStatusCommandOutput,
 } from "./commands/AdminUpdateDeviceStatusCommand.ts";
 import {
   AdminUpdateUserAttributesCommandInput,
-  AdminUpdateUserAttributesCommandOutput
+  AdminUpdateUserAttributesCommandOutput,
 } from "./commands/AdminUpdateUserAttributesCommand.ts";
 import {
   AdminUserGlobalSignOutCommandInput,
-  AdminUserGlobalSignOutCommandOutput
+  AdminUserGlobalSignOutCommandOutput,
 } from "./commands/AdminUserGlobalSignOutCommand.ts";
 import {
   AssociateSoftwareTokenCommandInput,
-  AssociateSoftwareTokenCommandOutput
+  AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand.ts";
-import {
-  ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
-} from "./commands/ChangePasswordCommand.ts";
-import {
-  ConfirmDeviceCommandInput,
-  ConfirmDeviceCommandOutput
-} from "./commands/ConfirmDeviceCommand.ts";
+import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand.ts";
+import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand.ts";
 import {
   ConfirmForgotPasswordCommandInput,
-  ConfirmForgotPasswordCommandOutput
+  ConfirmForgotPasswordCommandOutput,
 } from "./commands/ConfirmForgotPasswordCommand.ts";
-import {
-  ConfirmSignUpCommandInput,
-  ConfirmSignUpCommandOutput
-} from "./commands/ConfirmSignUpCommand.ts";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand.ts";
+import { ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput } from "./commands/ConfirmSignUpCommand.ts";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateIdentityProviderCommandInput,
-  CreateIdentityProviderCommandOutput
+  CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand.ts";
 import {
   CreateResourceServerCommandInput,
-  CreateResourceServerCommandOutput
+  CreateResourceServerCommandOutput,
 } from "./commands/CreateResourceServerCommand.ts";
 import {
   CreateUserImportJobCommandInput,
-  CreateUserImportJobCommandOutput
+  CreateUserImportJobCommandOutput,
 } from "./commands/CreateUserImportJobCommand.ts";
 import {
   CreateUserPoolClientCommandInput,
-  CreateUserPoolClientCommandOutput
+  CreateUserPoolClientCommandOutput,
 } from "./commands/CreateUserPoolClientCommand.ts";
-import {
-  CreateUserPoolCommandInput,
-  CreateUserPoolCommandOutput
-} from "./commands/CreateUserPoolCommand.ts";
+import { CreateUserPoolCommandInput, CreateUserPoolCommandOutput } from "./commands/CreateUserPoolCommand.ts";
 import {
   CreateUserPoolDomainCommandInput,
-  CreateUserPoolDomainCommandOutput
+  CreateUserPoolDomainCommandOutput,
 } from "./commands/CreateUserPoolDomainCommand.ts";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteIdentityProviderCommandInput,
-  DeleteIdentityProviderCommandOutput
+  DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand.ts";
 import {
   DeleteResourceServerCommandInput,
-  DeleteResourceServerCommandOutput
+  DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand.ts";
 import {
   DeleteUserAttributesCommandInput,
-  DeleteUserAttributesCommandOutput
+  DeleteUserAttributesCommandOutput,
 } from "./commands/DeleteUserAttributesCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeleteUserPoolClientCommandInput,
-  DeleteUserPoolClientCommandOutput
+  DeleteUserPoolClientCommandOutput,
 } from "./commands/DeleteUserPoolClientCommand.ts";
-import {
-  DeleteUserPoolCommandInput,
-  DeleteUserPoolCommandOutput
-} from "./commands/DeleteUserPoolCommand.ts";
+import { DeleteUserPoolCommandInput, DeleteUserPoolCommandOutput } from "./commands/DeleteUserPoolCommand.ts";
 import {
   DeleteUserPoolDomainCommandInput,
-  DeleteUserPoolDomainCommandOutput
+  DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand.ts";
 import {
   DescribeIdentityProviderCommandInput,
-  DescribeIdentityProviderCommandOutput
+  DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand.ts";
 import {
   DescribeResourceServerCommandInput,
-  DescribeResourceServerCommandOutput
+  DescribeResourceServerCommandOutput,
 } from "./commands/DescribeResourceServerCommand.ts";
 import {
   DescribeRiskConfigurationCommandInput,
-  DescribeRiskConfigurationCommandOutput
+  DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand.ts";
 import {
   DescribeUserImportJobCommandInput,
-  DescribeUserImportJobCommandOutput
+  DescribeUserImportJobCommandOutput,
 } from "./commands/DescribeUserImportJobCommand.ts";
 import {
   DescribeUserPoolClientCommandInput,
-  DescribeUserPoolClientCommandOutput
+  DescribeUserPoolClientCommandOutput,
 } from "./commands/DescribeUserPoolClientCommand.ts";
-import {
-  DescribeUserPoolCommandInput,
-  DescribeUserPoolCommandOutput
-} from "./commands/DescribeUserPoolCommand.ts";
+import { DescribeUserPoolCommandInput, DescribeUserPoolCommandOutput } from "./commands/DescribeUserPoolCommand.ts";
 import {
   DescribeUserPoolDomainCommandInput,
-  DescribeUserPoolDomainCommandOutput
+  DescribeUserPoolDomainCommandOutput,
 } from "./commands/DescribeUserPoolDomainCommand.ts";
-import {
-  ForgetDeviceCommandInput,
-  ForgetDeviceCommandOutput
-} from "./commands/ForgetDeviceCommand.ts";
-import {
-  ForgotPasswordCommandInput,
-  ForgotPasswordCommandOutput
-} from "./commands/ForgotPasswordCommand.ts";
-import {
-  GetCSVHeaderCommandInput,
-  GetCSVHeaderCommandOutput
-} from "./commands/GetCSVHeaderCommand.ts";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand.ts";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
+import { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./commands/ForgetDeviceCommand.ts";
+import { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand.ts";
+import { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand.ts";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import {
   GetIdentityProviderByIdentifierCommandInput,
-  GetIdentityProviderByIdentifierCommandOutput
+  GetIdentityProviderByIdentifierCommandOutput,
 } from "./commands/GetIdentityProviderByIdentifierCommand.ts";
 import {
   GetSigningCertificateCommandInput,
-  GetSigningCertificateCommandOutput
+  GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand.ts";
 import {
   GetUICustomizationCommandInput,
-  GetUICustomizationCommandOutput
+  GetUICustomizationCommandOutput,
 } from "./commands/GetUICustomizationCommand.ts";
 import {
   GetUserAttributeVerificationCodeCommandInput,
-  GetUserAttributeVerificationCodeCommandOutput
+  GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand.ts";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand.ts";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand.ts";
 import {
   GetUserPoolMfaConfigCommandInput,
-  GetUserPoolMfaConfigCommandOutput
+  GetUserPoolMfaConfigCommandOutput,
 } from "./commands/GetUserPoolMfaConfigCommand.ts";
-import {
-  GlobalSignOutCommandInput,
-  GlobalSignOutCommandOutput
-} from "./commands/GlobalSignOutCommand.ts";
-import {
-  InitiateAuthCommandInput,
-  InitiateAuthCommandOutput
-} from "./commands/InitiateAuthCommand.ts";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand.ts";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand.ts";
+import { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand.ts";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListIdentityProvidersCommandInput,
-  ListIdentityProvidersCommandOutput
+  ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand.ts";
 import {
   ListResourceServersCommandInput,
-  ListResourceServersCommandOutput
+  ListResourceServersCommandOutput,
 } from "./commands/ListResourceServersCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput
+  ListUserImportJobsCommandOutput,
 } from "./commands/ListUserImportJobsCommand.ts";
 import {
   ListUserPoolClientsCommandInput,
-  ListUserPoolClientsCommandOutput
+  ListUserPoolClientsCommandOutput,
 } from "./commands/ListUserPoolClientsCommand.ts";
-import {
-  ListUserPoolsCommandInput,
-  ListUserPoolsCommandOutput
-} from "./commands/ListUserPoolsCommand.ts";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
-import {
-  ListUsersInGroupCommandInput,
-  ListUsersInGroupCommandOutput
-} from "./commands/ListUsersInGroupCommand.ts";
+import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand.ts";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
+import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand.ts";
 import {
   ResendConfirmationCodeCommandInput,
-  ResendConfirmationCodeCommandOutput
+  ResendConfirmationCodeCommandOutput,
 } from "./commands/ResendConfirmationCodeCommand.ts";
 import {
   RespondToAuthChallengeCommandInput,
-  RespondToAuthChallengeCommandOutput
+  RespondToAuthChallengeCommandOutput,
 } from "./commands/RespondToAuthChallengeCommand.ts";
 import {
   SetRiskConfigurationCommandInput,
-  SetRiskConfigurationCommandOutput
+  SetRiskConfigurationCommandOutput,
 } from "./commands/SetRiskConfigurationCommand.ts";
 import {
   SetUICustomizationCommandInput,
-  SetUICustomizationCommandOutput
+  SetUICustomizationCommandOutput,
 } from "./commands/SetUICustomizationCommand.ts";
 import {
   SetUserMFAPreferenceCommandInput,
-  SetUserMFAPreferenceCommandOutput
+  SetUserMFAPreferenceCommandOutput,
 } from "./commands/SetUserMFAPreferenceCommand.ts";
 import {
   SetUserPoolMfaConfigCommandInput,
-  SetUserPoolMfaConfigCommandOutput
+  SetUserPoolMfaConfigCommandOutput,
 } from "./commands/SetUserPoolMfaConfigCommand.ts";
-import {
-  SetUserSettingsCommandInput,
-  SetUserSettingsCommandOutput
-} from "./commands/SetUserSettingsCommand.ts";
-import {
-  SignUpCommandInput,
-  SignUpCommandOutput
-} from "./commands/SignUpCommand.ts";
+import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand.ts";
+import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand.ts";
 import {
   StartUserImportJobCommandInput,
-  StartUserImportJobCommandOutput
+  StartUserImportJobCommandOutput,
 } from "./commands/StartUserImportJobCommand.ts";
-import {
-  StopUserImportJobCommandInput,
-  StopUserImportJobCommandOutput
-} from "./commands/StopUserImportJobCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "./commands/StopUserImportJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAuthEventFeedbackCommandInput,
-  UpdateAuthEventFeedbackCommandOutput
+  UpdateAuthEventFeedbackCommandOutput,
 } from "./commands/UpdateAuthEventFeedbackCommand.ts";
 import {
   UpdateDeviceStatusCommandInput,
-  UpdateDeviceStatusCommandOutput
+  UpdateDeviceStatusCommandOutput,
 } from "./commands/UpdateDeviceStatusCommand.ts";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateIdentityProviderCommandInput,
-  UpdateIdentityProviderCommandOutput
+  UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand.ts";
 import {
   UpdateResourceServerCommandInput,
-  UpdateResourceServerCommandOutput
+  UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand.ts";
 import {
   UpdateUserAttributesCommandInput,
-  UpdateUserAttributesCommandOutput
+  UpdateUserAttributesCommandOutput,
 } from "./commands/UpdateUserAttributesCommand.ts";
 import {
   UpdateUserPoolClientCommandInput,
-  UpdateUserPoolClientCommandOutput
+  UpdateUserPoolClientCommandOutput,
 } from "./commands/UpdateUserPoolClientCommand.ts";
-import {
-  UpdateUserPoolCommandInput,
-  UpdateUserPoolCommandOutput
-} from "./commands/UpdateUserPoolCommand.ts";
+import { UpdateUserPoolCommandInput, UpdateUserPoolCommandOutput } from "./commands/UpdateUserPoolCommand.ts";
 import {
   UpdateUserPoolDomainCommandInput,
-  UpdateUserPoolDomainCommandOutput
+  UpdateUserPoolDomainCommandOutput,
 } from "./commands/UpdateUserPoolDomainCommand.ts";
 import {
   VerifySoftwareTokenCommandInput,
-  VerifySoftwareTokenCommandOutput
+  VerifySoftwareTokenCommandOutput,
 } from "./commands/VerifySoftwareTokenCommand.ts";
 import {
   VerifyUserAttributeCommandInput,
-  VerifyUserAttributeCommandOutput
+  VerifyUserAttributeCommandOutput,
 } from "./commands/VerifyUserAttributeCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -405,38 +291,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -445,9 +327,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -654,8 +537,7 @@ export type ServiceOutputTypes =
   | VerifySoftwareTokenCommandOutput
   | VerifyUserAttributeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -729,14 +611,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -744,9 +631,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoIdentityProviderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoIdentityProviderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -755,9 +640,7 @@ export type CognitoIdentityProviderClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -785,7 +668,7 @@ export class CognitoIdentityProviderClient extends __Client<
   constructor(configuration: CognitoIdentityProviderClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -800,6 +683,7 @@ export class CognitoIdentityProviderClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

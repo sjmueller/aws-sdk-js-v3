@@ -1,21 +1,11 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient.ts";
-import {
-  CreateNotificationRequest,
-  CreateNotificationResponse
-} from "../models/index.ts";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
+import { CreateNotificationRequest, CreateNotificationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateNotificationCommand,
-  serializeAws_json1_1CreateNotificationCommand
+  serializeAws_json1_1CreateNotificationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateNotificationCommandInput = CreateNotificationRequest;
-export type CreateNotificationCommandOutput = CreateNotificationResponse &
-  __MetadataBearer;
+export type CreateNotificationCommandOutput = CreateNotificationResponse & __MetadataBearer;
 
 export class CreateNotificationCommand extends $Command<
   CreateNotificationCommandInput,
@@ -50,14 +39,15 @@ export class CreateNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNotificationCommandInput, CreateNotificationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateNotificationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateNotificationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNotificationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateNotificationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotificationCommandOutput> {
     return deserializeAws_json1_1CreateNotificationCommand(output, context);
   }
 

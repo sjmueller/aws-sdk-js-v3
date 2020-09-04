@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  GetMergeConflictsInput,
-  GetMergeConflictsOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetMergeConflictsCommand,
-  serializeAws_json1_1GetMergeConflictsCommand
+  serializeAws_json1_1GetMergeConflictsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetMergeConflictsCommandInput = GetMergeConflictsInput;
-export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput &
-  __MetadataBearer;
+export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput & __MetadataBearer;
 
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,
@@ -50,14 +39,15 @@ export class GetMergeConflictsCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMergeConflictsCommandInput, GetMergeConflictsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetMergeConflictsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMergeConflictsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetMergeConflictsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMergeConflictsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeConflictsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMergeConflictsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeConflictsCommandOutput> {
     return deserializeAws_json1_1GetMergeConflictsCommand(output, context);
   }
 

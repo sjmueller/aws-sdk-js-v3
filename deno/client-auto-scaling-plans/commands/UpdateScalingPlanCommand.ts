@@ -1,21 +1,15 @@
 import {
   AutoScalingPlansClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AutoScalingPlansClient.ts";
-import {
-  UpdateScalingPlanRequest,
-  UpdateScalingPlanResponse
-} from "../models/index.ts";
+import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateScalingPlanCommand,
-  serializeAws_json1_1UpdateScalingPlanCommand
+  serializeAws_json1_1UpdateScalingPlanCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateScalingPlanCommandInput = UpdateScalingPlanRequest;
-export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse &
-  __MetadataBearer;
+export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse & __MetadataBearer;
 
 export class UpdateScalingPlanCommand extends $Command<
   UpdateScalingPlanCommandInput,
@@ -50,14 +43,15 @@ export class UpdateScalingPlanCommand extends $Command<
     configuration: AutoScalingPlansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateScalingPlanCommandInput, UpdateScalingPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateScalingPlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScalingPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class UpdateScalingPlanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateScalingPlanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateScalingPlanCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateScalingPlanCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScalingPlanCommandOutput> {
     return deserializeAws_json1_1UpdateScalingPlanCommand(output, context);
   }
 

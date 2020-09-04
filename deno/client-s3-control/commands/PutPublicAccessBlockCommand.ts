@@ -1,18 +1,11 @@
-import {
-  S3ControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3ControlClient.ts";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
 import { PutPublicAccessBlockRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlPutPublicAccessBlockCommand,
-  serializeAws_restXmlPutPublicAccessBlockCommand
+  serializeAws_restXmlPutPublicAccessBlockCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutPublicAccessBlockCommandInput = PutPublicAccessBlockRequest;
@@ -45,18 +38,16 @@ export class PutPublicAccessBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutPublicAccessBlockCommandInput,
-    PutPublicAccessBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutPublicAccessBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +57,11 @@ export class PutPublicAccessBlockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutPublicAccessBlockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutPublicAccessBlockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutPublicAccessBlockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlPutPublicAccessBlockCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
-} from "../WAFRegionalClient.ts";
-import {
-  GetRateBasedRuleRequest,
-  GetRateBasedRuleResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
+import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetRateBasedRuleCommand,
-  serializeAws_json1_1GetRateBasedRuleCommand
+  serializeAws_json1_1GetRateBasedRuleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRateBasedRuleCommandInput = GetRateBasedRuleRequest;
-export type GetRateBasedRuleCommandOutput = GetRateBasedRuleResponse &
-  __MetadataBearer;
+export type GetRateBasedRuleCommandOutput = GetRateBasedRuleResponse & __MetadataBearer;
 
 export class GetRateBasedRuleCommand extends $Command<
   GetRateBasedRuleCommandInput,
@@ -50,14 +39,15 @@ export class GetRateBasedRuleCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRateBasedRuleCommandInput, GetRateBasedRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRateBasedRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRateBasedRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetRateBasedRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRateBasedRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRateBasedRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRateBasedRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1GetRateBasedRuleCommand(output, context);
   }
 

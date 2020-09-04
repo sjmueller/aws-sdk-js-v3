@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  AssociateSkillWithSkillGroupRequest,
-  AssociateSkillWithSkillGroupResponse
-} from "../models/index.ts";
+import { AssociateSkillWithSkillGroupRequest, AssociateSkillWithSkillGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateSkillWithSkillGroupCommand,
-  serializeAws_json1_1AssociateSkillWithSkillGroupCommand
+  serializeAws_json1_1AssociateSkillWithSkillGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateSkillWithSkillGroupCommandInput = AssociateSkillWithSkillGroupRequest;
-export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse &
-  __MetadataBearer;
+export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse & __MetadataBearer;
 
 export class AssociateSkillWithSkillGroupCommand extends $Command<
   AssociateSkillWithSkillGroupCommandInput,
@@ -49,18 +42,16 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSkillWithSkillGroupCommandInput,
-    AssociateSkillWithSkillGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSkillWithSkillGroupCommandInput, AssociateSkillWithSkillGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateSkillWithSkillGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillWithSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateSkillWithSkillGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: AssociateSkillWithSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillWithSkillGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

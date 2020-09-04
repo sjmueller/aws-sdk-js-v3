@@ -1,14 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export enum AdditionalArtifact {
   ATHENA = "ATHENA",
   QUICKSIGHT = "QUICKSIGHT",
-  REDSHIFT = "REDSHIFT"
+  REDSHIFT = "REDSHIFT",
 }
 
 export enum AWSRegion {
@@ -22,13 +18,13 @@ export enum AWSRegion {
   STOCKHOLM = "eu-north-1",
   SYDNEY = "ap-southeast-2",
   TOKYO = "ap-northeast-1",
-  US_STANDARD = "us-east-1"
+  US_STANDARD = "us-east-1",
 }
 
 export enum CompressionFormat {
   GZIP = "GZIP",
   Parquet = "Parquet",
-  ZIP = "ZIP"
+  ZIP = "ZIP",
 }
 
 /**
@@ -44,13 +40,10 @@ export interface DeleteReportDefinitionRequest {
 }
 
 export namespace DeleteReportDefinitionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteReportDefinitionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteReportDefinitionRequest =>
-    __isa(o, "DeleteReportDefinitionRequest");
+  export const isa = (o: any): o is DeleteReportDefinitionRequest => __isa(o, "DeleteReportDefinitionRequest");
 }
 
 /**
@@ -65,13 +58,10 @@ export interface DeleteReportDefinitionResponse {
 }
 
 export namespace DeleteReportDefinitionResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteReportDefinitionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteReportDefinitionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteReportDefinitionResponse =>
-    __isa(o, "DeleteReportDefinitionResponse");
+  export const isa = (o: any): o is DeleteReportDefinitionResponse => __isa(o, "DeleteReportDefinitionResponse");
 }
 
 /**
@@ -80,24 +70,21 @@ export namespace DeleteReportDefinitionResponse {
 export interface DescribeReportDefinitionsRequest {
   __type?: "DescribeReportDefinitionsRequest";
   /**
-   * <p>The maximum number of results that AWS returns for the operation.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A generic string.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results that AWS returns for the operation.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeReportDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeReportDefinitionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReportDefinitionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeReportDefinitionsRequest =>
-    __isa(o, "DescribeReportDefinitionsRequest");
+  export const isa = (o: any): o is DescribeReportDefinitionsRequest => __isa(o, "DescribeReportDefinitionsRequest");
 }
 
 /**
@@ -117,21 +104,16 @@ export interface DescribeReportDefinitionsResponse {
 }
 
 export namespace DescribeReportDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeReportDefinitionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReportDefinitionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeReportDefinitionsResponse =>
-    __isa(o, "DescribeReportDefinitionsResponse");
+  export const isa = (o: any): o is DescribeReportDefinitionsResponse => __isa(o, "DescribeReportDefinitionsResponse");
 }
 
 /**
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
-export interface DuplicateReportNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateReportNameException extends __SmithyException, $MetadataBearer {
   name: "DuplicateReportNameException";
   $fault: "client";
   /**
@@ -141,21 +123,16 @@ export interface DuplicateReportNameException
 }
 
 export namespace DuplicateReportNameException {
-  export const filterSensitiveLog = (
-    obj: DuplicateReportNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DuplicateReportNameException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DuplicateReportNameException =>
-    __isa(o, "DuplicateReportNameException");
+  export const isa = (o: any): o is DuplicateReportNameException => __isa(o, "DuplicateReportNameException");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -166,14 +143,19 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 export interface ModifyReportDefinitionRequest {
   __type?: "ModifyReportDefinitionRequest";
+  /**
+   * <p>The name of the report that you want to create. The name must be unique,
+   *         is case sensitive, and can't include spaces. </p>
+   */
+  ReportName: string | undefined;
+
   /**
    * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
    *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
@@ -181,22 +163,13 @@ export interface ModifyReportDefinitionRequest {
    *     </p>
    */
   ReportDefinition: ReportDefinition | undefined;
-
-  /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
-   */
-  ReportName: string | undefined;
 }
 
 export namespace ModifyReportDefinitionRequest {
-  export const filterSensitiveLog = (
-    obj: ModifyReportDefinitionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyReportDefinitionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyReportDefinitionRequest =>
-    __isa(o, "ModifyReportDefinitionRequest");
+  export const isa = (o: any): o is ModifyReportDefinitionRequest => __isa(o, "ModifyReportDefinitionRequest");
 }
 
 export interface ModifyReportDefinitionResponse {
@@ -204,13 +177,10 @@ export interface ModifyReportDefinitionResponse {
 }
 
 export namespace ModifyReportDefinitionResponse {
-  export const filterSensitiveLog = (
-    obj: ModifyReportDefinitionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyReportDefinitionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyReportDefinitionResponse =>
-    __isa(o, "ModifyReportDefinitionResponse");
+  export const isa = (o: any): o is ModifyReportDefinitionResponse => __isa(o, "ModifyReportDefinitionResponse");
 }
 
 /**
@@ -227,10 +197,9 @@ export interface PutReportDefinitionRequest {
 
 export namespace PutReportDefinitionRequest {
   export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutReportDefinitionRequest =>
-    __isa(o, "PutReportDefinitionRequest");
+  export const isa = (o: any): o is PutReportDefinitionRequest => __isa(o, "PutReportDefinitionRequest");
 }
 
 /**
@@ -241,13 +210,10 @@ export interface PutReportDefinitionResponse {
 }
 
 export namespace PutReportDefinitionResponse {
-  export const filterSensitiveLog = (
-    obj: PutReportDefinitionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutReportDefinitionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutReportDefinitionResponse =>
-    __isa(o, "PutReportDefinitionResponse");
+  export const isa = (o: any): o is PutReportDefinitionResponse => __isa(o, "PutReportDefinitionResponse");
 }
 
 /**
@@ -259,14 +225,21 @@ export namespace PutReportDefinitionResponse {
 export interface ReportDefinition {
   __type?: "ReportDefinition";
   /**
-   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
+   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
+   *          to deliver the report in addition to the previous versions.</p>
    */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
+  ReportVersioning?: ReportVersioning | string;
 
   /**
-   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
+   * <p>The length of time covered by the report. </p>
    */
-  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
+  TimeUnit: TimeUnit | string | undefined;
+
+  /**
+   * <p>The name of the report that you want to create. The name must be unique,
+   *         is case sensitive, and can't include spaces. </p>
+   */
+  ReportName: string | undefined;
 
   /**
    * <p>The compression format that AWS uses for the report.</p>
@@ -279,22 +252,21 @@ export interface ReportDefinition {
   Format: ReportFormat | string | undefined;
 
   /**
+   * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
+   *         can't include spaces.</p>
+   */
+  S3Prefix: string | undefined;
+
+  /**
+   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
+   */
+  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
+
+  /**
    * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
    *       previous months. These charges can include refunds, credits, or support fees.</p>
    */
   RefreshClosedReports?: boolean;
-
-  /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
-   */
-  ReportName: string | undefined;
-
-  /**
-   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
-   *          to deliver the report in addition to the previous versions.</p>
-   */
-  ReportVersioning?: ReportVersioning | string;
 
   /**
    * <p>The S3 bucket where AWS delivers the report.</p>
@@ -302,41 +274,32 @@ export interface ReportDefinition {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
-   *         can't include spaces.</p>
-   */
-  S3Prefix: string | undefined;
-
-  /**
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
    */
   S3Region: AWSRegion | string | undefined;
 
   /**
-   * <p>The length of time covered by the report. </p>
+   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  AdditionalArtifacts?: (AdditionalArtifact | string)[];
 }
 
 export namespace ReportDefinition {
   export const filterSensitiveLog = (obj: ReportDefinition): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReportDefinition =>
-    __isa(o, "ReportDefinition");
+  export const isa = (o: any): o is ReportDefinition => __isa(o, "ReportDefinition");
 }
 
 export enum ReportFormat {
   CSV = "textORcsv",
-  Parquet = "Parquet"
+  Parquet = "Parquet",
 }
 
 /**
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
-export interface ReportLimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReportLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "ReportLimitReachedException";
   $fault: "client";
   /**
@@ -346,35 +309,30 @@ export interface ReportLimitReachedException
 }
 
 export namespace ReportLimitReachedException {
-  export const filterSensitiveLog = (
-    obj: ReportLimitReachedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReportLimitReachedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReportLimitReachedException =>
-    __isa(o, "ReportLimitReachedException");
+  export const isa = (o: any): o is ReportLimitReachedException => __isa(o, "ReportLimitReachedException");
 }
 
 export enum ReportVersioning {
   CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT = "OVERWRITE_REPORT"
+  OVERWRITE_REPORT = "OVERWRITE_REPORT",
 }
 
 export enum SchemaElement {
-  RESOURCES = "RESOURCES"
+  RESOURCES = "RESOURCES",
 }
 
 export enum TimeUnit {
   DAILY = "DAILY",
-  HOURLY = "HOURLY"
+  HOURLY = "HOURLY",
 }
 
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -385,8 +343,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

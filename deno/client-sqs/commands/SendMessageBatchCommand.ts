@@ -1,22 +1,12 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient.ts";
-import {
-  SendMessageBatchRequest,
-  SendMessageBatchResult
-} from "../models/index.ts";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
+import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/index.ts";
 import {
   deserializeAws_querySendMessageBatchCommand,
-  serializeAws_querySendMessageBatchCommand
+  serializeAws_querySendMessageBatchCommand,
 } from "../protocols/Aws_query.ts";
 import { getSendMessageBatchPlugin } from "../../middleware-sdk-sqs/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendMessageBatchCommandInput = SendMessageBatchRequest;
-export type SendMessageBatchCommandOutput = SendMessageBatchResult &
-  __MetadataBearer;
+export type SendMessageBatchCommandOutput = SendMessageBatchResult & __MetadataBearer;
 
 export class SendMessageBatchCommand extends $Command<
   SendMessageBatchCommandInput,
@@ -51,15 +40,16 @@ export class SendMessageBatchCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendMessageBatchCommandInput, SendMessageBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSendMessageBatchPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendMessageBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,17 +59,11 @@ export class SendMessageBatchCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendMessageBatchCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendMessageBatchCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendMessageBatchCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageBatchCommandOutput> {
     return deserializeAws_querySendMessageBatchCommand(output, context);
   }
 

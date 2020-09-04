@@ -1,21 +1,11 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient.ts";
-import {
-  CreateCertificateAuthorityRequest,
-  CreateCertificateAuthorityResponse
-} from "../models/index.ts";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
+import { CreateCertificateAuthorityRequest, CreateCertificateAuthorityResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateCertificateAuthorityCommand,
-  serializeAws_json1_1CreateCertificateAuthorityCommand
+  serializeAws_json1_1CreateCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateCertificateAuthorityCommandInput = CreateCertificateAuthorityRequest;
-export type CreateCertificateAuthorityCommandOutput = CreateCertificateAuthorityResponse &
-  __MetadataBearer;
+export type CreateCertificateAuthorityCommandOutput = CreateCertificateAuthorityResponse & __MetadataBearer;
 
 export class CreateCertificateAuthorityCommand extends $Command<
   CreateCertificateAuthorityCommandInput,
@@ -49,18 +38,16 @@ export class CreateCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCertificateAuthorityCommandInput,
-    CreateCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCertificateAuthorityCommandInput, CreateCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateCertificateAuthorityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCertificateAuthorityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateCertificateAuthorityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCertificateAuthorityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCertificateAuthorityCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1CreateCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

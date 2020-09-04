@@ -1,18 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient.ts";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
 import { PutDestinationRequest, PutDestinationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutDestinationCommand,
-  serializeAws_json1_1PutDestinationCommand
+  serializeAws_json1_1PutDestinationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutDestinationCommandInput = PutDestinationRequest;
-export type PutDestinationCommandOutput = PutDestinationResponse &
-  __MetadataBearer;
+export type PutDestinationCommandOutput = PutDestinationResponse & __MetadataBearer;
 
 export class PutDestinationCommand extends $Command<
   PutDestinationCommandInput,
@@ -47,14 +39,15 @@ export class PutDestinationCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutDestinationCommandInput, PutDestinationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class PutDestinationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutDestinationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutDestinationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutDestinationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDestinationCommandOutput> {
     return deserializeAws_json1_1PutDestinationCommand(output, context);
   }
 

@@ -1,18 +1,15 @@
 import {
   IoTSecureTunnelingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient.ts";
 import { CloseTunnelRequest, CloseTunnelResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CloseTunnelCommand,
-  serializeAws_json1_1CloseTunnelCommand
+  serializeAws_json1_1CloseTunnelCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CloseTunnelCommandInput = CloseTunnelRequest;
@@ -46,14 +43,15 @@ export class CloseTunnelCommand extends $Command<
     configuration: IoTSecureTunnelingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CloseTunnelCommandInput, CloseTunnelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CloseTunnelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CloseTunnelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class CloseTunnelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CloseTunnelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CloseTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseTunnelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CloseTunnelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
     return deserializeAws_json1_1CloseTunnelCommand(output, context);
   }
 

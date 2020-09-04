@@ -1,21 +1,11 @@
-import {
-  EBSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EBSClient.ts";
-import {
-  ListChangedBlocksRequest,
-  ListChangedBlocksResponse
-} from "../models/index.ts";
+import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient.ts";
+import { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListChangedBlocksCommand,
-  serializeAws_restJson1ListChangedBlocksCommand
+  serializeAws_restJson1ListChangedBlocksCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListChangedBlocksCommandInput = ListChangedBlocksRequest;
-export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse &
-  __MetadataBearer;
+export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse & __MetadataBearer;
 
 export class ListChangedBlocksCommand extends $Command<
   ListChangedBlocksCommandInput,
@@ -50,14 +39,15 @@ export class ListChangedBlocksCommand extends $Command<
     configuration: EBSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListChangedBlocksCommandInput, ListChangedBlocksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListChangedBlocksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListChangedBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListChangedBlocksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListChangedBlocksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListChangedBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListChangedBlocksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListChangedBlocksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangedBlocksCommandOutput> {
     return deserializeAws_restJson1ListChangedBlocksCommand(output, context);
   }
 

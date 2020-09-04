@@ -1,11 +1,12 @@
+import { GetIdCommand } from "../client-cognito-identity/mod.ts";
+import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialProvider } from "../types/mod.ts";
+
 import { CognitoProviderParameters } from "./CognitoProviderParameters.ts";
 import { fromCognitoIdentity } from "./fromCognitoIdentity.ts";
 import { localStorage } from "./localStorage.ts";
 import { resolveLogins } from "./resolveLogins.ts";
 import { Storage } from "./Storage.ts";
-import { ProviderError } from "../property-provider/mod.ts";
-import { GetIdCommand } from "../client-cognito-identity/mod.ts";
-import { CredentialProvider } from "../types/mod.ts";
 
 /**
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`
@@ -22,13 +23,9 @@ export function fromCognitoIdentityPool({
   customRoleArn,
   identityPoolId,
   logins,
-  userIdentifier = !logins || Object.keys(logins).length === 0
-    ? "ANONYMOUS"
-    : undefined
+  userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
 }: FromCognitoIdentityPoolParameters): CredentialProvider {
-  const cacheKey = userIdentifier
-    ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
-    : undefined;
+  const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
 
   let provider: CredentialProvider = async () => {
     let identityId = cacheKey && (await cache.getItem(cacheKey));
@@ -37,7 +34,7 @@ export function fromCognitoIdentityPool({
         new GetIdCommand({
           AccountId: accountId,
           IdentityPoolId: identityPoolId,
-          Logins: logins ? await resolveLogins(logins) : undefined
+          Logins: logins ? await resolveLogins(logins) : undefined,
         })
       );
       identityId = IdentityId;
@@ -50,14 +47,14 @@ export function fromCognitoIdentityPool({
       client,
       customRoleArn,
       logins,
-      identityId
+      identityId,
     });
 
     return provider();
   };
 
   return () =>
-    provider().catch(async err => {
+    provider().catch(async (err) => {
       if (cacheKey) {
         Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
       }
@@ -66,8 +63,7 @@ export function fromCognitoIdentityPool({
     });
 }
 
-export interface FromCognitoIdentityPoolParameters
-  extends CognitoProviderParameters {
+export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
   /**
    * A standard AWS account ID (9+ digits).
    */
@@ -104,7 +100,5 @@ export interface FromCognitoIdentityPoolParameters
 }
 
 function throwOnMissingId(): never {
-  throw new ProviderError(
-    "Response from Amazon Cognito contained no identity ID"
-  );
+  throw new ProviderError("Response from Amazon Cognito contained no identity ID");
 }

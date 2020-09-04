@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  AssociateTrialComponentRequest,
-  AssociateTrialComponentResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { AssociateTrialComponentRequest, AssociateTrialComponentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateTrialComponentCommand,
-  serializeAws_json1_1AssociateTrialComponentCommand
+  serializeAws_json1_1AssociateTrialComponentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateTrialComponentCommandInput = AssociateTrialComponentRequest;
-export type AssociateTrialComponentCommandOutput = AssociateTrialComponentResponse &
-  __MetadataBearer;
+export type AssociateTrialComponentCommandOutput = AssociateTrialComponentResponse & __MetadataBearer;
 
 export class AssociateTrialComponentCommand extends $Command<
   AssociateTrialComponentCommandInput,
@@ -49,18 +38,16 @@ export class AssociateTrialComponentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateTrialComponentCommandInput,
-    AssociateTrialComponentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateTrialComponentCommandInput, AssociateTrialComponentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class AssociateTrialComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateTrialComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateTrialComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateTrialComponentCommandOutput> {
-    return deserializeAws_json1_1AssociateTrialComponentCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrialComponentCommandOutput> {
+    return deserializeAws_json1_1AssociateTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

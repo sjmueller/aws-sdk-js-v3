@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  GetSSHPublicKeyRequest,
-  GetSSHPublicKeyResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { GetSSHPublicKeyRequest, GetSSHPublicKeyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetSSHPublicKeyCommand,
-  serializeAws_queryGetSSHPublicKeyCommand
+  serializeAws_queryGetSSHPublicKeyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetSSHPublicKeyCommandInput = GetSSHPublicKeyRequest;
-export type GetSSHPublicKeyCommandOutput = GetSSHPublicKeyResponse &
-  __MetadataBearer;
+export type GetSSHPublicKeyCommandOutput = GetSSHPublicKeyResponse & __MetadataBearer;
 
 export class GetSSHPublicKeyCommand extends $Command<
   GetSSHPublicKeyCommandInput,
@@ -50,14 +39,15 @@ export class GetSSHPublicKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetSSHPublicKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSSHPublicKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetSSHPublicKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSSHPublicKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSSHPublicKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSSHPublicKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSSHPublicKeyCommandOutput> {
     return deserializeAws_queryGetSSHPublicKeyCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand
+  serializeAws_queryModifyGlobalClusterCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyGlobalClusterCommandInput = ModifyGlobalClusterMessage;
-export type ModifyGlobalClusterCommandOutput = ModifyGlobalClusterResult &
-  __MetadataBearer;
+export type ModifyGlobalClusterCommandOutput = ModifyGlobalClusterResult & __MetadataBearer;
 
 export class ModifyGlobalClusterCommand extends $Command<
   ModifyGlobalClusterCommandInput,
@@ -49,18 +38,16 @@ export class ModifyGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyGlobalClusterCommandInput,
-    ModifyGlobalClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyGlobalClusterCommandInput, ModifyGlobalClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyGlobalClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyGlobalClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyGlobalClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyGlobalClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyGlobalClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
     return deserializeAws_queryModifyGlobalClusterCommand(output, context);
   }
 

@@ -1,207 +1,168 @@
 import {
   BatchDetectDominantLanguageCommandInput,
-  BatchDetectDominantLanguageCommandOutput
+  BatchDetectDominantLanguageCommandOutput,
 } from "./commands/BatchDetectDominantLanguageCommand.ts";
 import {
   BatchDetectEntitiesCommandInput,
-  BatchDetectEntitiesCommandOutput
+  BatchDetectEntitiesCommandOutput,
 } from "./commands/BatchDetectEntitiesCommand.ts";
 import {
   BatchDetectKeyPhrasesCommandInput,
-  BatchDetectKeyPhrasesCommandOutput
+  BatchDetectKeyPhrasesCommandOutput,
 } from "./commands/BatchDetectKeyPhrasesCommand.ts";
 import {
   BatchDetectSentimentCommandInput,
-  BatchDetectSentimentCommandOutput
+  BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand.ts";
-import {
-  BatchDetectSyntaxCommandInput,
-  BatchDetectSyntaxCommandOutput
-} from "./commands/BatchDetectSyntaxCommand.ts";
-import {
-  ClassifyDocumentCommandInput,
-  ClassifyDocumentCommandOutput
-} from "./commands/ClassifyDocumentCommand.ts";
+import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand.ts";
+import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand.ts";
 import {
   CreateDocumentClassifierCommandInput,
-  CreateDocumentClassifierCommandOutput
+  CreateDocumentClassifierCommandOutput,
 } from "./commands/CreateDocumentClassifierCommand.ts";
-import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand.ts";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand.ts";
 import {
   CreateEntityRecognizerCommandInput,
-  CreateEntityRecognizerCommandOutput
+  CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand.ts";
 import {
   DeleteDocumentClassifierCommandInput,
-  DeleteDocumentClassifierCommandOutput
+  DeleteDocumentClassifierCommandOutput,
 } from "./commands/DeleteDocumentClassifierCommand.ts";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand.ts";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand.ts";
 import {
   DeleteEntityRecognizerCommandInput,
-  DeleteEntityRecognizerCommandOutput
+  DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand.ts";
 import {
   DescribeDocumentClassificationJobCommandInput,
-  DescribeDocumentClassificationJobCommandOutput
+  DescribeDocumentClassificationJobCommandOutput,
 } from "./commands/DescribeDocumentClassificationJobCommand.ts";
 import {
   DescribeDocumentClassifierCommandInput,
-  DescribeDocumentClassifierCommandOutput
+  DescribeDocumentClassifierCommandOutput,
 } from "./commands/DescribeDocumentClassifierCommand.ts";
 import {
   DescribeDominantLanguageDetectionJobCommandInput,
-  DescribeDominantLanguageDetectionJobCommandOutput
+  DescribeDominantLanguageDetectionJobCommandOutput,
 } from "./commands/DescribeDominantLanguageDetectionJobCommand.ts";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand.ts";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand.ts";
 import {
   DescribeEntitiesDetectionJobCommandInput,
-  DescribeEntitiesDetectionJobCommandOutput
+  DescribeEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionJobCommand.ts";
 import {
   DescribeEntityRecognizerCommandInput,
-  DescribeEntityRecognizerCommandOutput
+  DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand.ts";
 import {
   DescribeKeyPhrasesDetectionJobCommandInput,
-  DescribeKeyPhrasesDetectionJobCommandOutput
+  DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand.ts";
 import {
   DescribeSentimentDetectionJobCommandInput,
-  DescribeSentimentDetectionJobCommandOutput
+  DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand.ts";
 import {
   DescribeTopicsDetectionJobCommandInput,
-  DescribeTopicsDetectionJobCommandOutput
+  DescribeTopicsDetectionJobCommandOutput,
 } from "./commands/DescribeTopicsDetectionJobCommand.ts";
 import {
   DetectDominantLanguageCommandInput,
-  DetectDominantLanguageCommandOutput
+  DetectDominantLanguageCommandOutput,
 } from "./commands/DetectDominantLanguageCommand.ts";
-import {
-  DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput
-} from "./commands/DetectEntitiesCommand.ts";
-import {
-  DetectKeyPhrasesCommandInput,
-  DetectKeyPhrasesCommandOutput
-} from "./commands/DetectKeyPhrasesCommand.ts";
-import {
-  DetectSentimentCommandInput,
-  DetectSentimentCommandOutput
-} from "./commands/DetectSentimentCommand.ts";
-import {
-  DetectSyntaxCommandInput,
-  DetectSyntaxCommandOutput
-} from "./commands/DetectSyntaxCommand.ts";
+import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand.ts";
+import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./commands/DetectKeyPhrasesCommand.ts";
+import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand.ts";
+import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand.ts";
 import {
   ListDocumentClassificationJobsCommandInput,
-  ListDocumentClassificationJobsCommandOutput
+  ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand.ts";
 import {
   ListDocumentClassifiersCommandInput,
-  ListDocumentClassifiersCommandOutput
+  ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand.ts";
 import {
   ListDominantLanguageDetectionJobsCommandInput,
-  ListDominantLanguageDetectionJobsCommandOutput
+  ListDominantLanguageDetectionJobsCommandOutput,
 } from "./commands/ListDominantLanguageDetectionJobsCommand.ts";
-import {
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput
-} from "./commands/ListEndpointsCommand.ts";
+import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand.ts";
 import {
   ListEntitiesDetectionJobsCommandInput,
-  ListEntitiesDetectionJobsCommandOutput
+  ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand.ts";
 import {
   ListEntityRecognizersCommandInput,
-  ListEntityRecognizersCommandOutput
+  ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand.ts";
 import {
   ListKeyPhrasesDetectionJobsCommandInput,
-  ListKeyPhrasesDetectionJobsCommandOutput
+  ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand.ts";
 import {
   ListSentimentDetectionJobsCommandInput,
-  ListSentimentDetectionJobsCommandOutput
+  ListSentimentDetectionJobsCommandOutput,
 } from "./commands/ListSentimentDetectionJobsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTopicsDetectionJobsCommandInput,
-  ListTopicsDetectionJobsCommandOutput
+  ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand.ts";
 import {
   StartDocumentClassificationJobCommandInput,
-  StartDocumentClassificationJobCommandOutput
+  StartDocumentClassificationJobCommandOutput,
 } from "./commands/StartDocumentClassificationJobCommand.ts";
 import {
   StartDominantLanguageDetectionJobCommandInput,
-  StartDominantLanguageDetectionJobCommandOutput
+  StartDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StartDominantLanguageDetectionJobCommand.ts";
 import {
   StartEntitiesDetectionJobCommandInput,
-  StartEntitiesDetectionJobCommandOutput
+  StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand.ts";
 import {
   StartKeyPhrasesDetectionJobCommandInput,
-  StartKeyPhrasesDetectionJobCommandOutput
+  StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand.ts";
 import {
   StartSentimentDetectionJobCommandInput,
-  StartSentimentDetectionJobCommandOutput
+  StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand.ts";
 import {
   StartTopicsDetectionJobCommandInput,
-  StartTopicsDetectionJobCommandOutput
+  StartTopicsDetectionJobCommandOutput,
 } from "./commands/StartTopicsDetectionJobCommand.ts";
 import {
   StopDominantLanguageDetectionJobCommandInput,
-  StopDominantLanguageDetectionJobCommandOutput
+  StopDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StopDominantLanguageDetectionJobCommand.ts";
 import {
   StopEntitiesDetectionJobCommandInput,
-  StopEntitiesDetectionJobCommandOutput
+  StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand.ts";
 import {
   StopKeyPhrasesDetectionJobCommandInput,
-  StopKeyPhrasesDetectionJobCommandOutput
+  StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand.ts";
 import {
   StopSentimentDetectionJobCommandInput,
-  StopSentimentDetectionJobCommandOutput
+  StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand.ts";
 import {
   StopTrainingDocumentClassifierCommandInput,
-  StopTrainingDocumentClassifierCommandOutput
+  StopTrainingDocumentClassifierCommandOutput,
 } from "./commands/StopTrainingDocumentClassifierCommand.ts";
 import {
   StopTrainingEntityRecognizerCommandInput,
-  StopTrainingEntityRecognizerCommandOutput
+  StopTrainingEntityRecognizerCommandOutput,
 } from "./commands/StopTrainingEntityRecognizerCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
-} from "./commands/UpdateEndpointCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -209,38 +170,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -249,9 +206,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -360,8 +318,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateEndpointCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -435,14 +392,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -450,9 +412,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ComprehendClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ComprehendClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -461,9 +421,7 @@ export type ComprehendClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -488,7 +446,7 @@ export class ComprehendClient extends __Client<
   constructor(configuration: ComprehendClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -503,6 +461,7 @@ export class ComprehendClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

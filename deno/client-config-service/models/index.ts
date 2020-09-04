@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -10,12 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
  */
 export interface AccountAggregationSource {
   __type?: "AccountAggregationSource";
-  /**
-   * <p>The 12-digit account ID of the account being aggregated.
-   * 		</p>
-   */
-  AccountIds: string[] | undefined;
-
   /**
    * <p>If true, aggregate existing AWS Config regions and future
    * 			regions.</p>
@@ -26,14 +16,19 @@ export interface AccountAggregationSource {
    * <p>The source regions being aggregated.</p>
    */
   AwsRegions?: string[];
+
+  /**
+   * <p>The 12-digit account ID of the account being aggregated.
+   * 		</p>
+   */
+  AccountIds: string[] | undefined;
 }
 
 export namespace AccountAggregationSource {
   export const filterSensitiveLog = (obj: AccountAggregationSource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountAggregationSource =>
-    __isa(o, "AccountAggregationSource");
+  export const isa = (o: any): o is AccountAggregationSource => __isa(o, "AccountAggregationSource");
 }
 
 /**
@@ -46,9 +41,11 @@ export namespace AccountAggregationSource {
 export interface AggregateComplianceByConfigRule {
   __type?: "AggregateComplianceByConfigRule";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * <p>Indicates whether an AWS resource or AWS Config rule is
+   * 			compliant and provides the number of contributors that affect the
+   * 			compliance.</p>
    */
-  AccountId?: string;
+  Compliance?: Compliance;
 
   /**
    * <p>The source region from where the data is aggregated.</p>
@@ -56,11 +53,9 @@ export interface AggregateComplianceByConfigRule {
   AwsRegion?: string;
 
   /**
-   * <p>Indicates whether an AWS resource or AWS Config rule is
-   * 			compliant and provides the number of contributors that affect the
-   * 			compliance.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  Compliance?: Compliance;
+  AccountId?: string;
 
   /**
    * <p>The name of the AWS Config rule.</p>
@@ -69,13 +64,10 @@ export interface AggregateComplianceByConfigRule {
 }
 
 export namespace AggregateComplianceByConfigRule {
-  export const filterSensitiveLog = (
-    obj: AggregateComplianceByConfigRule
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AggregateComplianceByConfigRule): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AggregateComplianceByConfigRule =>
-    __isa(o, "AggregateComplianceByConfigRule");
+  export const isa = (o: any): o is AggregateComplianceByConfigRule => __isa(o, "AggregateComplianceByConfigRule");
 }
 
 /**
@@ -85,24 +77,23 @@ export namespace AggregateComplianceByConfigRule {
 export interface AggregateComplianceCount {
   __type?: "AggregateComplianceCount";
   /**
-   * <p>The number of compliant and noncompliant AWS Config
-   * 			rules.</p>
-   */
-  ComplianceSummary?: ComplianceSummary;
-
-  /**
    * <p>The 12-digit account ID or region based on the GroupByKey
    * 			value.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The number of compliant and noncompliant AWS Config
+   * 			rules.</p>
+   */
+  ComplianceSummary?: ComplianceSummary;
 }
 
 export namespace AggregateComplianceCount {
   export const filterSensitiveLog = (obj: AggregateComplianceCount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AggregateComplianceCount =>
-    __isa(o, "AggregateComplianceCount");
+  export const isa = (o: any): o is AggregateComplianceCount => __isa(o, "AggregateComplianceCount");
 }
 
 /**
@@ -112,21 +103,14 @@ export namespace AggregateComplianceCount {
 export interface AggregatedSourceStatus {
   __type?: "AggregatedSourceStatus";
   /**
-   * <p>The region authorized to collect aggregated data.</p>
+   * <p>The source account ID or an organization.</p>
    */
-  AwsRegion?: string;
+  SourceId?: string;
 
   /**
-   * <p>The error code that AWS Config returned when the source account
-   * 			aggregation last failed.</p>
+   * <p>The time of the last update.</p>
    */
-  LastErrorCode?: string;
-
-  /**
-   * <p>The message indicating that the source account aggregation
-   * 			failed due to an error.</p>
-   */
-  LastErrorMessage?: string;
+  LastUpdateTime?: Date;
 
   /**
    * <p>Filters the last updated status type.</p>
@@ -148,38 +132,44 @@ export interface AggregatedSourceStatus {
   LastUpdateStatus?: AggregatedSourceStatusType | string;
 
   /**
-   * <p>The time of the last update.</p>
+   * <p>The message indicating that the source account aggregation
+   * 			failed due to an error.</p>
    */
-  LastUpdateTime?: Date;
+  LastErrorMessage?: string;
 
   /**
-   * <p>The source account ID or an organization.</p>
+   * <p>The error code that AWS Config returned when the source account
+   * 			aggregation last failed.</p>
    */
-  SourceId?: string;
+  LastErrorCode?: string;
 
   /**
    * <p>The source account or an organization.</p>
    */
   SourceType?: AggregatedSourceType | string;
+
+  /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AwsRegion?: string;
 }
 
 export namespace AggregatedSourceStatus {
   export const filterSensitiveLog = (obj: AggregatedSourceStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AggregatedSourceStatus =>
-    __isa(o, "AggregatedSourceStatus");
+  export const isa = (o: any): o is AggregatedSourceStatus => __isa(o, "AggregatedSourceStatus");
 }
 
 export enum AggregatedSourceStatusType {
   FAILED = "FAILED",
   OUTDATED = "OUTDATED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export enum AggregatedSourceType {
   ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION"
+  ORGANIZATION = "ORGANIZATION",
 }
 
 /**
@@ -191,9 +181,14 @@ export enum AggregatedSourceType {
 export interface AggregateEvaluationResult {
   __type?: "AggregateEvaluationResult";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
+   * <p>The resource compliance status.</p>
+   * 		       <p>For the <code>AggregationEvaluationResult</code> data type, AWS
+   * 			Config supports only the <code>COMPLIANT</code> and
+   * 				<code>NON_COMPLIANT</code>. AWS Config does not support the
+   * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
+   * 			value.</p>
    */
-  AccountId?: string;
+  ComplianceType?: ComplianceType | string;
 
   /**
    * <p>Supplementary information about how the agrregate evaluation
@@ -207,25 +202,20 @@ export interface AggregateEvaluationResult {
   AwsRegion?: string;
 
   /**
-   * <p>The resource compliance status.</p>
-   * 		       <p>For the <code>AggregationEvaluationResult</code> data type, AWS
-   * 			Config supports only the <code>COMPLIANT</code> and
-   * 				<code>NON_COMPLIANT</code>. AWS Config does not support the
-   * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
-   * 			value.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  AccountId?: string;
+
+  /**
+   * <p>Uniquely identifies the evaluation result.</p>
+   */
+  EvaluationResultIdentifier?: EvaluationResultIdentifier;
 
   /**
    * <p>The time when the AWS Config rule evaluated the AWS
    * 			resource.</p>
    */
   ConfigRuleInvokedTime?: Date;
-
-  /**
-   * <p>Uniquely identifies the evaluation result.</p>
-   */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
 
   /**
    * <p>The time when AWS Config recorded the aggregate evaluation
@@ -236,10 +226,9 @@ export interface AggregateEvaluationResult {
 
 export namespace AggregateEvaluationResult {
   export const filterSensitiveLog = (obj: AggregateEvaluationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AggregateEvaluationResult =>
-    __isa(o, "AggregateEvaluationResult");
+  export const isa = (o: any): o is AggregateEvaluationResult => __isa(o, "AggregateEvaluationResult");
 }
 
 /**
@@ -248,19 +237,9 @@ export namespace AggregateEvaluationResult {
 export interface AggregateResourceIdentifier {
   __type?: "AggregateResourceIdentifier";
   /**
-   * <p>The ID of the AWS resource.</p>
+   * <p>The source region where data is aggregated.</p>
    */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The name of the AWS resource.</p>
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The type of the AWS resource.</p>
-   */
-  ResourceType: ResourceType | string | undefined;
+  SourceRegion: string | undefined;
 
   /**
    * <p>The 12-digit account ID of the source account.</p>
@@ -268,19 +247,26 @@ export interface AggregateResourceIdentifier {
   SourceAccountId: string | undefined;
 
   /**
-   * <p>The source region where data is aggregated.</p>
+   * <p>The name of the AWS resource.</p>
    */
-  SourceRegion: string | undefined;
+  ResourceName?: string;
+
+  /**
+   * <p>The ID of the AWS resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of the AWS resource.</p>
+   */
+  ResourceType: ResourceType | string | undefined;
 }
 
 export namespace AggregateResourceIdentifier {
-  export const filterSensitiveLog = (
-    obj: AggregateResourceIdentifier
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AggregateResourceIdentifier): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AggregateResourceIdentifier =>
-    __isa(o, "AggregateResourceIdentifier");
+  export const isa = (o: any): o is AggregateResourceIdentifier => __isa(o, "AggregateResourceIdentifier");
 }
 
 /**
@@ -290,10 +276,10 @@ export namespace AggregateResourceIdentifier {
 export interface AggregationAuthorization {
   __type?: "AggregationAuthorization";
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregation
-   * 			object.</p>
+   * <p>The time stamp when the aggregation authorization was
+   * 			created.</p>
    */
-  AggregationAuthorizationArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate
@@ -302,23 +288,22 @@ export interface AggregationAuthorization {
   AuthorizedAccountId?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the aggregation
+   * 			object.</p>
+   */
+  AggregationAuthorizationArn?: string;
+
+  /**
    * <p>The region authorized to collect aggregated data.</p>
    */
   AuthorizedAwsRegion?: string;
-
-  /**
-   * <p>The time stamp when the aggregation authorization was
-   * 			created.</p>
-   */
-  CreationTime?: Date;
 }
 
 export namespace AggregationAuthorization {
   export const filterSensitiveLog = (obj: AggregationAuthorization): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AggregationAuthorization =>
-    __isa(o, "AggregationAuthorization");
+  export const isa = (o: any): o is AggregationAuthorization => __isa(o, "AggregationAuthorization");
 }
 
 /**
@@ -327,60 +312,15 @@ export namespace AggregationAuthorization {
 export interface BaseConfigurationItem {
   __type?: "BaseConfigurationItem";
   /**
-   * <p>The 12-digit AWS account ID associated with the resource.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The Availability Zone associated with the resource.</p>
-   */
-  availabilityZone?: string;
-
-  /**
-   * <p>The region where the resource resides.</p>
-   */
-  awsRegion?: string;
-
-  /**
-   * <p>The description of the resource configuration.</p>
-   */
-  configuration?: string;
-
-  /**
-   * <p>The time when the configuration recording was initiated.</p>
-   */
-  configurationItemCaptureTime?: Date;
-
-  /**
-   * <p>The configuration item status.</p>
-   */
-  configurationItemStatus?: ConfigurationItemStatus | string;
-
-  /**
    * <p>An identifier that indicates the ordering of the configuration
    * 			items of a resource.</p>
    */
   configurationStateId?: string;
 
   /**
-   * <p>The time stamp when the resource was created.</p>
+   * <p>The 12-digit AWS account ID associated with the resource.</p>
    */
-  resourceCreationTime?: Date;
-
-  /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The custom name of the resource, if available.</p>
-   */
-  resourceName?: string;
+  accountId?: string;
 
   /**
    * <p>The type of AWS resource.</p>
@@ -395,37 +335,100 @@ export interface BaseConfigurationItem {
   supplementaryConfiguration?: { [key: string]: string };
 
   /**
+   * <p>The custom name of the resource, if available.</p>
+   */
+  resourceName?: string;
+
+  /**
    * <p>The version number of the resource configuration.</p>
    */
   version?: string;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   */
+  configuration?: string;
+
+  /**
+   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The region where the resource resides.</p>
+   */
+  awsRegion?: string;
+
+  /**
+   * <p>The Availability Zone associated with the resource.</p>
+   */
+  availabilityZone?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The time when the configuration recording was initiated.</p>
+   */
+  configurationItemCaptureTime?: Date;
+
+  /**
+   * <p>The configuration item status. The valid values are:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>OK – The resource configuration has been updated</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeleted – The resource was deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *          </ul>
+   * 		       <note>
+   *             <p>The CIs do not incur any cost.</p>
+   *          </note>
+   */
+  configurationItemStatus?: ConfigurationItemStatus | string;
+
+  /**
+   * <p>The time stamp when the resource was created.</p>
+   */
+  resourceCreationTime?: Date;
 }
 
 export namespace BaseConfigurationItem {
   export const filterSensitiveLog = (obj: BaseConfigurationItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BaseConfigurationItem =>
-    __isa(o, "BaseConfigurationItem");
+  export const isa = (o: any): o is BaseConfigurationItem => __isa(o, "BaseConfigurationItem");
 }
 
 export interface BatchGetAggregateResourceConfigRequest {
   __type?: "BatchGetAggregateResourceConfigRequest";
   /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
    * <p>A list of aggregate ResourceIdentifiers objects. </p>
    */
   ResourceIdentifiers: AggregateResourceIdentifier[] | undefined;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace BatchGetAggregateResourceConfigRequest {
-  export const filterSensitiveLog = (
-    obj: BatchGetAggregateResourceConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchGetAggregateResourceConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchGetAggregateResourceConfigRequest =>
     __isa(o, "BatchGetAggregateResourceConfigRequest");
@@ -434,21 +437,19 @@ export namespace BatchGetAggregateResourceConfigRequest {
 export interface BatchGetAggregateResourceConfigResponse {
   __type?: "BatchGetAggregateResourceConfigResponse";
   /**
-   * <p>A list that contains the current configuration of one or more resources.</p>
-   */
-  BaseConfigurationItems?: BaseConfigurationItem[];
-
-  /**
    * <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
    */
   UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[];
+
+  /**
+   * <p>A list that contains the current configuration of one or more resources.</p>
+   */
+  BaseConfigurationItems?: BaseConfigurationItem[];
 }
 
 export namespace BatchGetAggregateResourceConfigResponse {
-  export const filterSensitiveLog = (
-    obj: BatchGetAggregateResourceConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchGetAggregateResourceConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchGetAggregateResourceConfigResponse =>
     __isa(o, "BatchGetAggregateResourceConfigResponse");
@@ -465,13 +466,10 @@ export interface BatchGetResourceConfigRequest {
 }
 
 export namespace BatchGetResourceConfigRequest {
-  export const filterSensitiveLog = (
-    obj: BatchGetResourceConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchGetResourceConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetResourceConfigRequest =>
-    __isa(o, "BatchGetResourceConfigRequest");
+  export const isa = (o: any): o is BatchGetResourceConfigRequest => __isa(o, "BatchGetResourceConfigRequest");
 }
 
 export interface BatchGetResourceConfigResponse {
@@ -495,18 +493,15 @@ export interface BatchGetResourceConfigResponse {
 }
 
 export namespace BatchGetResourceConfigResponse {
-  export const filterSensitiveLog = (
-    obj: BatchGetResourceConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchGetResourceConfigResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetResourceConfigResponse =>
-    __isa(o, "BatchGetResourceConfigResponse");
+  export const isa = (o: any): o is BatchGetResourceConfigResponse => __isa(o, "BatchGetResourceConfigResponse");
 }
 
 export enum ChronologicalOrder {
   Forward = "Forward",
-  Reverse = "Reverse"
+  Reverse = "Reverse",
 }
 
 /**
@@ -546,7 +541,7 @@ export interface Compliance {
 
 export namespace Compliance {
   export const filterSensitiveLog = (obj: Compliance): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Compliance => __isa(o, "Compliance");
 }
@@ -572,10 +567,9 @@ export interface ComplianceByConfigRule {
 
 export namespace ComplianceByConfigRule {
   export const filterSensitiveLog = (obj: ComplianceByConfigRule): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceByConfigRule =>
-    __isa(o, "ComplianceByConfigRule");
+  export const isa = (o: any): o is ComplianceByConfigRule => __isa(o, "ComplianceByConfigRule");
 }
 
 /**
@@ -588,12 +582,6 @@ export namespace ComplianceByConfigRule {
 export interface ComplianceByResource {
   __type?: "ComplianceByResource";
   /**
-   * <p>Indicates whether the AWS resource complies with all of the AWS
-   * 			Config rules that evaluated it.</p>
-   */
-  Compliance?: Compliance;
-
-  /**
    * <p>The ID of the AWS resource that was evaluated.</p>
    */
   ResourceId?: string;
@@ -602,14 +590,19 @@ export interface ComplianceByResource {
    * <p>The type of the AWS resource that was evaluated.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>Indicates whether the AWS resource complies with all of the AWS
+   * 			Config rules that evaluated it.</p>
+   */
+  Compliance?: Compliance;
 }
 
 export namespace ComplianceByResource {
   export const filterSensitiveLog = (obj: ComplianceByResource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceByResource =>
-    __isa(o, "ComplianceByResource");
+  export const isa = (o: any): o is ComplianceByResource => __isa(o, "ComplianceByResource");
 }
 
 /**
@@ -633,10 +626,9 @@ export interface ComplianceContributorCount {
 
 export namespace ComplianceContributorCount {
   export const filterSensitiveLog = (obj: ComplianceContributorCount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceContributorCount =>
-    __isa(o, "ComplianceContributorCount");
+  export const isa = (o: any): o is ComplianceContributorCount => __isa(o, "ComplianceContributorCount");
 }
 
 /**
@@ -645,6 +637,13 @@ export namespace ComplianceContributorCount {
  */
 export interface ComplianceSummary {
   __type?: "ComplianceSummary";
+  /**
+   * <p>The number of AWS Config rules or AWS resources that are
+   * 			noncompliant, up to a maximum of 25 for rules and 100 for
+   * 			resources.</p>
+   */
+  NonCompliantResourceCount?: ComplianceContributorCount;
+
   /**
    * <p>The time that AWS Config created the compliance
    * 			summary.</p>
@@ -657,21 +656,13 @@ export interface ComplianceSummary {
    * 			resources.</p>
    */
   CompliantResourceCount?: ComplianceContributorCount;
-
-  /**
-   * <p>The number of AWS Config rules or AWS resources that are
-   * 			noncompliant, up to a maximum of 25 for rules and 100 for
-   * 			resources.</p>
-   */
-  NonCompliantResourceCount?: ComplianceContributorCount;
 }
 
 export namespace ComplianceSummary {
   export const filterSensitiveLog = (obj: ComplianceSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceSummary =>
-    __isa(o, "ComplianceSummary");
+  export const isa = (o: any): o is ComplianceSummary => __isa(o, "ComplianceSummary");
 }
 
 /**
@@ -694,20 +685,17 @@ export interface ComplianceSummaryByResourceType {
 }
 
 export namespace ComplianceSummaryByResourceType {
-  export const filterSensitiveLog = (
-    obj: ComplianceSummaryByResourceType
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ComplianceSummaryByResourceType): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ComplianceSummaryByResourceType =>
-    __isa(o, "ComplianceSummaryByResourceType");
+  export const isa = (o: any): o is ComplianceSummaryByResourceType => __isa(o, "ComplianceSummaryByResourceType");
 }
 
 export enum ComplianceType {
   Compliant = "COMPLIANT",
   Insufficient_Data = "INSUFFICIENT_DATA",
   Non_Compliant = "NON_COMPLIANT",
-  Not_Applicable = "NOT_APPLICABLE"
+  Not_Applicable = "NOT_APPLICABLE",
 }
 
 /**
@@ -719,24 +707,14 @@ export enum ComplianceType {
 export interface ConfigExportDeliveryInfo {
   __type?: "ConfigExportDeliveryInfo";
   /**
-   * <p>The time of the last attempted delivery.</p>
-   */
-  lastAttemptTime?: Date;
-
-  /**
-   * <p>The error code from the last attempted delivery.</p>
-   */
-  lastErrorCode?: string;
-
-  /**
-   * <p>The error message from the last attempted delivery.</p>
-   */
-  lastErrorMessage?: string;
-
-  /**
    * <p>Status of the last attempted delivery.</p>
    */
   lastStatus?: DeliveryStatus | string;
+
+  /**
+   * <p>The time of the last attempted delivery.</p>
+   */
+  lastAttemptTime?: Date;
 
   /**
    * <p>The time of the last successful delivery.</p>
@@ -747,14 +725,23 @@ export interface ConfigExportDeliveryInfo {
    * <p>The time that the next delivery occurs.</p>
    */
   nextDeliveryTime?: Date;
+
+  /**
+   * <p>The error code from the last attempted delivery.</p>
+   */
+  lastErrorCode?: string;
+
+  /**
+   * <p>The error message from the last attempted delivery.</p>
+   */
+  lastErrorMessage?: string;
 }
 
 export namespace ConfigExportDeliveryInfo {
   export const filterSensitiveLog = (obj: ConfigExportDeliveryInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigExportDeliveryInfo =>
-    __isa(o, "ConfigExportDeliveryInfo");
+  export const isa = (o: any): o is ConfigExportDeliveryInfo => __isa(o, "ConfigExportDeliveryInfo");
 }
 
 /**
@@ -779,23 +766,6 @@ export namespace ConfigExportDeliveryInfo {
 export interface ConfigRule {
   __type?: "ConfigRule";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Config
-   * 			rule.</p>
-   */
-  ConfigRuleArn?: string;
-
-  /**
-   * <p>The ID of the AWS Config rule.</p>
-   */
-  ConfigRuleId?: string;
-
-  /**
-   * <p>The name that you assign to the AWS Config rule. The name is
-   * 			required if you are adding a new rule.</p>
-   */
-  ConfigRuleName?: string;
-
-  /**
    * <p>Indicates whether the AWS Config rule is active or is currently
    * 			being deleted by AWS Config. It can also indicate the evaluation
    * 			status for the AWS Config rule.</p>
@@ -819,6 +789,33 @@ export interface ConfigRule {
   ConfigRuleState?: ConfigRuleState | string;
 
   /**
+   * <p>Provides the rule owner (AWS or customer), the rule identifier,
+   * 			and the notifications that cause the function to evaluate your AWS
+   * 			resources.</p>
+   */
+  Source: Source | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Config
+   * 			rule.</p>
+   */
+  ConfigRuleArn?: string;
+
+  /**
+   * <p>Defines which resources can trigger an evaluation for the rule.
+   * 			The scope can include one or more resource types, a combination of
+   * 			one resource type and one resource ID, or a combination of a tag key
+   * 			and value. Specify a scope to constrain the resources that can
+   * 			trigger an evaluation for the rule. If you do not specify a scope,
+   * 			evaluations are triggered when any resource in the recording group
+   * 			changes.</p>
+   * 		       <note>
+   *             <p>The scope can be empty. </p>
+   *          </note>
+   */
+  Scope?: Scope;
+
+  /**
    * <p>Service principal name of the service that created the
    * 			rule.</p>
    * 		       <note>
@@ -828,18 +825,6 @@ export interface ConfigRule {
    * 		       </note>
    */
   CreatedBy?: string;
-
-  /**
-   * <p>The description that you provide for the AWS Config
-   * 			rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A string, in JSON format, that is passed to the AWS Config rule
-   * 			Lambda function.</p>
-   */
-  InputParameters?: string;
 
   /**
    * <p>The maximum frequency with which AWS Config runs evaluations
@@ -868,27 +853,32 @@ export interface ConfigRule {
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
   /**
-   * <p>Defines which resources can trigger an evaluation for the rule.
-   * 			The scope can include one or more resource types, a combination of
-   * 			one resource type and one resource ID, or a combination of a tag key
-   * 			and value. Specify a scope to constrain the resources that can
-   * 			trigger an evaluation for the rule. If you do not specify a scope,
-   * 			evaluations are triggered when any resource in the recording group
-   * 			changes.</p>
+   * <p>The ID of the AWS Config rule.</p>
    */
-  Scope?: Scope;
+  ConfigRuleId?: string;
 
   /**
-   * <p>Provides the rule owner (AWS or customer), the rule identifier,
-   * 			and the notifications that cause the function to evaluate your AWS
-   * 			resources.</p>
+   * <p>A string, in JSON format, that is passed to the AWS Config rule
+   * 			Lambda function.</p>
    */
-  Source: Source | undefined;
+  InputParameters?: string;
+
+  /**
+   * <p>The description that you provide for the AWS Config
+   * 			rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name that you assign to the AWS Config rule. The name is
+   * 			required if you are adding a new rule.</p>
+   */
+  ConfigRuleName?: string;
 }
 
 export namespace ConfigRule {
   export const filterSensitiveLog = (obj: ConfigRule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ConfigRule => __isa(o, "ConfigRule");
 }
@@ -900,16 +890,21 @@ export namespace ConfigRule {
 export interface ConfigRuleComplianceFilters {
   __type?: "ConfigRuleComplianceFilters";
   /**
-   * <p>The 12-digit account ID of the source account.
-   * 			</p>
+   * <p>The name of the AWS Config rule.</p>
    */
-  AccountId?: string;
+  ConfigRuleName?: string;
 
   /**
    * <p>The source region where the data is aggregated.
    * 			</p>
    */
   AwsRegion?: string;
+
+  /**
+   * <p>The 12-digit account ID of the source account.
+   * 			</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The rule compliance status.</p>
@@ -920,21 +915,13 @@ export interface ConfigRuleComplianceFilters {
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
    */
   ComplianceType?: ComplianceType | string;
-
-  /**
-   * <p>The name of the AWS Config rule.</p>
-   */
-  ConfigRuleName?: string;
 }
 
 export namespace ConfigRuleComplianceFilters {
-  export const filterSensitiveLog = (
-    obj: ConfigRuleComplianceFilters
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfigRuleComplianceFilters): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigRuleComplianceFilters =>
-    __isa(o, "ConfigRuleComplianceFilters");
+  export const isa = (o: any): o is ConfigRuleComplianceFilters => __isa(o, "ConfigRuleComplianceFilters");
 }
 
 /**
@@ -944,21 +931,19 @@ export namespace ConfigRuleComplianceFilters {
 export interface ConfigRuleComplianceSummaryFilters {
   __type?: "ConfigRuleComplianceSummaryFilters";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The source region where the data is aggregated.</p>
    */
   AwsRegion?: string;
+
+  /**
+   * <p>The 12-digit account ID of the source account.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace ConfigRuleComplianceSummaryFilters {
-  export const filterSensitiveLog = (
-    obj: ConfigRuleComplianceSummaryFilters
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfigRuleComplianceSummaryFilters): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ConfigRuleComplianceSummaryFilters =>
     __isa(o, "ConfigRuleComplianceSummaryFilters");
@@ -966,7 +951,7 @@ export namespace ConfigRuleComplianceSummaryFilters {
 
 export enum ConfigRuleComplianceSummaryGroupKey {
   ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION"
+  AWS_REGION = "AWS_REGION",
 }
 
 /**
@@ -980,26 +965,22 @@ export enum ConfigRuleComplianceSummaryGroupKey {
 export interface ConfigRuleEvaluationStatus {
   __type?: "ConfigRuleEvaluationStatus";
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Config
-   * 			rule.</p>
+   * <p>The error code that AWS Config returned when the rule last
+   * 			failed.</p>
    */
-  ConfigRuleArn?: string;
+  LastErrorCode?: string;
 
   /**
-   * <p>The ID of the AWS Config rule.</p>
+   * <p>The time that AWS Config last failed to invoke the AWS Config
+   * 			rule to evaluate your AWS resources.</p>
    */
-  ConfigRuleId?: string;
+  LastFailedInvocationTime?: Date;
 
   /**
-   * <p>The name of the AWS Config rule.</p>
+   * <p>The time that AWS Config last failed to evaluate your AWS
+   * 			resources against the rule.</p>
    */
-  ConfigRuleName?: string;
-
-  /**
-   * <p>The time that you first activated the AWS Config
-   * 			rule.</p>
-   */
-  FirstActivatedTime?: Date;
+  LastFailedEvaluationTime?: Date;
 
   /**
    * <p>Indicates whether AWS Config has evaluated your resources
@@ -1020,55 +1001,63 @@ export interface ConfigRuleEvaluationStatus {
   FirstEvaluationStarted?: boolean;
 
   /**
-   * <p>The error code that AWS Config returned when the rule last
-   * 			failed.</p>
-   */
-  LastErrorCode?: string;
-
-  /**
-   * <p>The error message that AWS Config returned when the rule last
-   * 			failed.</p>
-   */
-  LastErrorMessage?: string;
-
-  /**
-   * <p>The time that AWS Config last failed to evaluate your AWS
-   * 			resources against the rule.</p>
-   */
-  LastFailedEvaluationTime?: Date;
-
-  /**
-   * <p>The time that AWS Config last failed to invoke the AWS Config
-   * 			rule to evaluate your AWS resources.</p>
-   */
-  LastFailedInvocationTime?: Date;
-
-  /**
    * <p>The time that AWS Config last successfully evaluated your AWS
    * 			resources against the rule.</p>
    */
   LastSuccessfulEvaluationTime?: Date;
 
   /**
+   * <p>The ID of the AWS Config rule.</p>
+   */
+  ConfigRuleId?: string;
+
+  /**
+   * <p>The time that you last turned off the AWS Config rule.</p>
+   */
+  LastDeactivatedTime?: Date;
+
+  /**
+   * <p>The time that you first activated the AWS Config
+   * 			rule.</p>
+   */
+  FirstActivatedTime?: Date;
+
+  /**
    * <p>The time that AWS Config last successfully invoked the AWS
    * 			Config rule to evaluate your AWS resources.</p>
    */
   LastSuccessfulInvocationTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Config
+   * 			rule.</p>
+   */
+  ConfigRuleArn?: string;
+
+  /**
+   * <p>The name of the AWS Config rule.</p>
+   */
+  ConfigRuleName?: string;
+
+  /**
+   * <p>The error message that AWS Config returned when the rule last
+   * 			failed.</p>
+   */
+  LastErrorMessage?: string;
 }
 
 export namespace ConfigRuleEvaluationStatus {
   export const filterSensitiveLog = (obj: ConfigRuleEvaluationStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigRuleEvaluationStatus =>
-    __isa(o, "ConfigRuleEvaluationStatus");
+  export const isa = (o: any): o is ConfigRuleEvaluationStatus => __isa(o, "ConfigRuleEvaluationStatus");
 }
 
 export enum ConfigRuleState {
   ACTIVE = "ACTIVE",
   DELETING = "DELETING",
   DELETING_RESULTS = "DELETING_RESULTS",
-  EVALUATING = "EVALUATING"
+  EVALUATING = "EVALUATING",
 }
 
 /**
@@ -1146,13 +1135,10 @@ export interface ConfigSnapshotDeliveryProperties {
 }
 
 export namespace ConfigSnapshotDeliveryProperties {
-  export const filterSensitiveLog = (
-    obj: ConfigSnapshotDeliveryProperties
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfigSnapshotDeliveryProperties): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigSnapshotDeliveryProperties =>
-    __isa(o, "ConfigSnapshotDeliveryProperties");
+  export const isa = (o: any): o is ConfigSnapshotDeliveryProperties => __isa(o, "ConfigSnapshotDeliveryProperties");
 }
 
 /**
@@ -1161,16 +1147,6 @@ export namespace ConfigSnapshotDeliveryProperties {
  */
 export interface ConfigStreamDeliveryInfo {
   __type?: "ConfigStreamDeliveryInfo";
-  /**
-   * <p>The error code from the last attempted delivery.</p>
-   */
-  lastErrorCode?: string;
-
-  /**
-   * <p>The error message from the last attempted delivery.</p>
-   */
-  lastErrorMessage?: string;
-
   /**
    * <p>Status of the last attempted delivery.</p>
    * 		       <p>
@@ -1184,14 +1160,23 @@ export interface ConfigStreamDeliveryInfo {
    * <p>The time from the last status change.</p>
    */
   lastStatusChangeTime?: Date;
+
+  /**
+   * <p>The error code from the last attempted delivery.</p>
+   */
+  lastErrorCode?: string;
+
+  /**
+   * <p>The error message from the last attempted delivery.</p>
+   */
+  lastErrorMessage?: string;
 }
 
 export namespace ConfigStreamDeliveryInfo {
   export const filterSensitiveLog = (obj: ConfigStreamDeliveryInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigStreamDeliveryInfo =>
-    __isa(o, "ConfigStreamDeliveryInfo");
+  export const isa = (o: any): o is ConfigStreamDeliveryInfo => __isa(o, "ConfigStreamDeliveryInfo");
 }
 
 /**
@@ -1202,15 +1187,26 @@ export namespace ConfigStreamDeliveryInfo {
 export interface ConfigurationAggregator {
   __type?: "ConfigurationAggregator";
   /**
+   * <p>AWS service that created the configuration aggregator.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
+   */
+  ConfigurationAggregatorArn?: string;
+
+  /**
    * <p>Provides a list of source accounts and regions to be
    * 			aggregated.</p>
    */
   AccountAggregationSources?: AccountAggregationSource[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
+   * <p>Provides an organization and list of regions to be
+   * 			aggregated.</p>
    */
-  ConfigurationAggregatorArn?: string;
+  OrganizationAggregationSource?: OrganizationAggregationSource;
 
   /**
    * <p>The name of the aggregator.</p>
@@ -1227,20 +1223,13 @@ export interface ConfigurationAggregator {
    * <p>The time of the last update.</p>
    */
   LastUpdatedTime?: Date;
-
-  /**
-   * <p>Provides an organization and list of regions to be
-   * 			aggregated.</p>
-   */
-  OrganizationAggregationSource?: OrganizationAggregationSource;
 }
 
 export namespace ConfigurationAggregator {
   export const filterSensitiveLog = (obj: ConfigurationAggregator): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationAggregator =>
-    __isa(o, "ConfigurationAggregator");
+  export const isa = (o: any): o is ConfigurationAggregator => __isa(o, "ConfigurationAggregator");
 }
 
 /**
@@ -1250,36 +1239,9 @@ export namespace ConfigurationAggregator {
 export interface ConfigurationItem {
   __type?: "ConfigurationItem";
   /**
-   * <p>The 12-digit AWS account ID associated with the
-   * 			resource.</p>
-   */
-  accountId?: string;
-
-  /**
-   * <p>accoun</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The Availability Zone associated with the resource.</p>
-   */
-  availabilityZone?: string;
-
-  /**
    * <p>The region where the resource resides.</p>
    */
   awsRegion?: string;
-
-  /**
-   * <p>The description of the resource configuration.</p>
-   */
-  configuration?: string;
-
-  /**
-   * <p>The time when the configuration recording was
-   * 			initiated.</p>
-   */
-  configurationItemCaptureTime?: Date;
 
   /**
    * <p>Unique MD5 hash that represents the configuration item's
@@ -1291,15 +1253,15 @@ export interface ConfigurationItem {
   configurationItemMD5Hash?: string;
 
   /**
-   * <p>The configuration item status.</p>
+   * <p>The ID of the resource (for example,
+   * 			<code>sg-xxxxxx</code>).</p>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  resourceId?: string;
 
   /**
-   * <p>An identifier that indicates the ordering of the configuration
-   * 			items of a resource.</p>
+   * <p>The type of AWS resource.</p>
    */
-  configurationStateId?: string;
+  resourceType?: ResourceType | string;
 
   /**
    * <p>A list of CloudTrail event IDs.</p>
@@ -1318,25 +1280,26 @@ export interface ConfigurationItem {
   relationships?: Relationship[];
 
   /**
+   * <p>The 12-digit AWS account ID associated with the
+   * 			resource.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>An identifier that indicates the ordering of the configuration
+   * 			items of a resource.</p>
+   */
+  configurationStateId?: string;
+
+  /**
+   * <p>accoun</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The time stamp when the resource was created.</p>
    */
   resourceCreationTime?: Date;
-
-  /**
-   * <p>The ID of the resource (for example,
-   * 			<code>sg-xxxxxx</code>).</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The custom name of the resource, if available.</p>
-   */
-  resourceName?: string;
-
-  /**
-   * <p>The type of AWS resource.</p>
-   */
-  resourceType?: ResourceType | string;
 
   /**
    * <p>Configuration attributes that AWS Config returns for certain
@@ -1344,6 +1307,53 @@ export interface ConfigurationItem {
    * 				<code>configuration</code> parameter.</p>
    */
   supplementaryConfiguration?: { [key: string]: string };
+
+  /**
+   * <p>The configuration item status. The valid values are:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>OK – The resource configuration has been updated</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeleted – The resource was deleted</p>
+   *             </li>
+   *             <li>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *             </li>
+   *          </ul>
+   * 		       <note>
+   *             <p>The CIs do not incur any cost.</p>
+   *          </note>
+   */
+  configurationItemStatus?: ConfigurationItemStatus | string;
+
+  /**
+   * <p>The time when the configuration recording was
+   * 			initiated.</p>
+   */
+  configurationItemCaptureTime?: Date;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   */
+  configuration?: string;
+
+  /**
+   * <p>The custom name of the resource, if available.</p>
+   */
+  resourceName?: string;
+
+  /**
+   * <p>The Availability Zone associated with the resource.</p>
+   */
+  availabilityZone?: string;
 
   /**
    * <p>A mapping of key value tags associated with the
@@ -1359,10 +1369,9 @@ export interface ConfigurationItem {
 
 export namespace ConfigurationItem {
   export const filterSensitiveLog = (obj: ConfigurationItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationItem =>
-    __isa(o, "ConfigurationItem");
+  export const isa = (o: any): o is ConfigurationItem => __isa(o, "ConfigurationItem");
 }
 
 export enum ConfigurationItemStatus {
@@ -1370,7 +1379,7 @@ export enum ConfigurationItemStatus {
   ResourceDeleted = "ResourceDeleted",
   ResourceDeletedNotRecorded = "ResourceDeletedNotRecorded",
   ResourceDiscovered = "ResourceDiscovered",
-  ResourceNotRecorded = "ResourceNotRecorded"
+  ResourceNotRecorded = "ResourceNotRecorded",
 }
 
 /**
@@ -1379,13 +1388,6 @@ export enum ConfigurationItemStatus {
  */
 export interface ConfigurationRecorder {
   __type?: "ConfigurationRecorder";
-  /**
-   * <p>The name of the recorder. By default, AWS Config automatically
-   * 			assigns the name "default" when creating the configuration recorder.
-   * 			You cannot change the assigned name.</p>
-   */
-  name?: string;
-
   /**
    * <p>Specifies the types of AWS resources for which AWS Config
    * 			records configuration changes.</p>
@@ -1397,14 +1399,20 @@ export interface ConfigurationRecorder {
    * 			AWS resources associated with the account.</p>
    */
   roleARN?: string;
+
+  /**
+   * <p>The name of the recorder. By default, AWS Config automatically
+   * 			assigns the name "default" when creating the configuration recorder.
+   * 			You cannot change the assigned name.</p>
+   */
+  name?: string;
 }
 
 export namespace ConfigurationRecorder {
   export const filterSensitiveLog = (obj: ConfigurationRecorder): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationRecorder =>
-    __isa(o, "ConfigurationRecorder");
+  export const isa = (o: any): o is ConfigurationRecorder => __isa(o, "ConfigurationRecorder");
 }
 
 /**
@@ -1413,9 +1421,20 @@ export namespace ConfigurationRecorder {
 export interface ConfigurationRecorderStatus {
   __type?: "ConfigurationRecorderStatus";
   /**
+   * <p>Specifies whether or not the recorder is currently
+   * 			recording.</p>
+   */
+  recording?: boolean;
+
+  /**
    * <p>The error code indicating that the recording failed.</p>
    */
   lastErrorCode?: string;
+
+  /**
+   * <p>The time when the status was last changed.</p>
+   */
+  lastStatusChangeTime?: Date;
 
   /**
    * <p>The message indicating that the recording failed due to an
@@ -1434,35 +1453,21 @@ export interface ConfigurationRecorderStatus {
   lastStatus?: RecorderStatus | string;
 
   /**
-   * <p>The time when the status was last changed.</p>
-   */
-  lastStatusChangeTime?: Date;
-
-  /**
-   * <p>The time the recorder was last stopped.</p>
-   */
-  lastStopTime?: Date;
-
-  /**
    * <p>The name of the configuration recorder.</p>
    */
   name?: string;
 
   /**
-   * <p>Specifies whether or not the recorder is currently
-   * 			recording.</p>
+   * <p>The time the recorder was last stopped.</p>
    */
-  recording?: boolean;
+  lastStopTime?: Date;
 }
 
 export namespace ConfigurationRecorderStatus {
-  export const filterSensitiveLog = (
-    obj: ConfigurationRecorderStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfigurationRecorderStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationRecorderStatus =>
-    __isa(o, "ConfigurationRecorderStatus");
+  export const isa = (o: any): o is ConfigurationRecorderStatus => __isa(o, "ConfigurationRecorderStatus");
 }
 
 /**
@@ -1483,13 +1488,10 @@ export interface ConformancePackComplianceFilters {
 }
 
 export namespace ConformancePackComplianceFilters {
-  export const filterSensitiveLog = (
-    obj: ConformancePackComplianceFilters
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackComplianceFilters): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackComplianceFilters =>
-    __isa(o, "ConformancePackComplianceFilters");
+  export const isa = (o: any): o is ConformancePackComplianceFilters => __isa(o, "ConformancePackComplianceFilters");
 }
 
 /**
@@ -1500,10 +1502,7 @@ export interface ConformancePackComplianceSummary {
   /**
    * <p>The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT. </p>
    */
-  ConformancePackComplianceStatus:
-    | ConformancePackComplianceType
-    | string
-    | undefined;
+  ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
 
   /**
    * <p>The name of the conformance pack name.</p>
@@ -1512,18 +1511,15 @@ export interface ConformancePackComplianceSummary {
 }
 
 export namespace ConformancePackComplianceSummary {
-  export const filterSensitiveLog = (
-    obj: ConformancePackComplianceSummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackComplianceSummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackComplianceSummary =>
-    __isa(o, "ConformancePackComplianceSummary");
+  export const isa = (o: any): o is ConformancePackComplianceSummary => __isa(o, "ConformancePackComplianceSummary");
 }
 
 export enum ConformancePackComplianceType {
   COMPLIANT = "COMPLIANT",
-  NON_COMPLIANT = "NON_COMPLIANT"
+  NON_COMPLIANT = "NON_COMPLIANT",
 }
 
 /**
@@ -1532,24 +1528,14 @@ export enum ConformancePackComplianceType {
 export interface ConformancePackDetail {
   __type?: "ConformancePackDetail";
   /**
+   * <p>Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".</p>
+   */
+  DeliveryS3Bucket: string | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the conformance pack.</p>
    */
   ConformancePackArn: string | undefined;
-
-  /**
-   * <p>ID of the conformance pack.</p>
-   */
-  ConformancePackId: string | undefined;
-
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
 
   /**
    * <p>AWS service that created the conformance pack.</p>
@@ -1557,27 +1543,36 @@ export interface ConformancePackDetail {
   CreatedBy?: string;
 
   /**
-   * <p>Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".</p>
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    */
-  DeliveryS3Bucket: string | undefined;
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
+   * <p>ID of the conformance pack.</p>
    */
-  DeliveryS3KeyPrefix?: string;
+  ConformancePackId: string | undefined;
 
   /**
    * <p>Last time when conformation pack update was requested. </p>
    */
   LastUpdateRequestedTime?: Date;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   */
+  DeliveryS3KeyPrefix?: string;
 }
 
 export namespace ConformancePackDetail {
   export const filterSensitiveLog = (obj: ConformancePackDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackDetail =>
-    __isa(o, "ConformancePackDetail");
+  export const isa = (o: any): o is ConformancePackDetail => __isa(o, "ConformancePackDetail");
 }
 
 /**
@@ -1586,10 +1581,9 @@ export namespace ConformancePackDetail {
 export interface ConformancePackEvaluationFilters {
   __type?: "ConformancePackEvaluationFilters";
   /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
+   * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ResourceType?: string;
 
   /**
    * <p>Filters the results by AWS Config rule names.</p>
@@ -1605,19 +1599,17 @@ export interface ConformancePackEvaluationFilters {
   ResourceIds?: string[];
 
   /**
-   * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
    */
-  ResourceType?: string;
+  ComplianceType?: ConformancePackComplianceType | string;
 }
 
 export namespace ConformancePackEvaluationFilters {
-  export const filterSensitiveLog = (
-    obj: ConformancePackEvaluationFilters
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackEvaluationFilters): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackEvaluationFilters =>
-    __isa(o, "ConformancePackEvaluationFilters");
+  export const isa = (o: any): o is ConformancePackEvaluationFilters => __isa(o, "ConformancePackEvaluationFilters");
 }
 
 /**
@@ -1626,19 +1618,9 @@ export namespace ConformancePackEvaluationFilters {
 export interface ConformancePackEvaluationResult {
   __type?: "ConformancePackEvaluationResult";
   /**
-   * <p>Supplementary information about how the evaluation determined the compliance. </p>
-   */
-  Annotation?: string;
-
-  /**
    * <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. </p>
    */
   ComplianceType: ConformancePackComplianceType | string | undefined;
-
-  /**
-   * <p>The time when AWS Config rule evaluated AWS resource.</p>
-   */
-  ConfigRuleInvokedTime: Date | undefined;
 
   /**
    * <p>Uniquely identifies an evaluation result.</p>
@@ -1646,46 +1628,50 @@ export interface ConformancePackEvaluationResult {
   EvaluationResultIdentifier: EvaluationResultIdentifier | undefined;
 
   /**
+   * <p>The time when AWS Config rule evaluated AWS resource.</p>
+   */
+  ConfigRuleInvokedTime: Date | undefined;
+
+  /**
    * <p>The time when AWS Config recorded the evaluation result. </p>
    */
   ResultRecordedTime: Date | undefined;
+
+  /**
+   * <p>Supplementary information about how the evaluation determined the compliance. </p>
+   */
+  Annotation?: string;
 }
 
 export namespace ConformancePackEvaluationResult {
-  export const filterSensitiveLog = (
-    obj: ConformancePackEvaluationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackEvaluationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackEvaluationResult =>
-    __isa(o, "ConformancePackEvaluationResult");
+  export const isa = (o: any): o is ConformancePackEvaluationResult => __isa(o, "ConformancePackEvaluationResult");
 }
 
 /**
  * <p>Input parameters in the form of key-value pairs for the conformance pack, both of which you define.
- * 			Keys can have a maximum character length of 128 characters, and values can have a maximum length of 256 characters.</p>
+ * 			Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
  */
 export interface ConformancePackInputParameter {
   __type?: "ConformancePackInputParameter";
   /**
-   * <p>One part of a key-value pair.</p>
-   */
-  ParameterName: string | undefined;
-
-  /**
    * <p>Another part of the key-value pair. </p>
    */
   ParameterValue: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair.</p>
+   */
+  ParameterName: string | undefined;
 }
 
 export namespace ConformancePackInputParameter {
-  export const filterSensitiveLog = (
-    obj: ConformancePackInputParameter
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackInputParameter): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackInputParameter =>
-    __isa(o, "ConformancePackInputParameter");
+  export const isa = (o: any): o is ConformancePackInputParameter => __isa(o, "ConformancePackInputParameter");
 }
 
 /**
@@ -1706,13 +1692,10 @@ export interface ConformancePackRuleCompliance {
 }
 
 export namespace ConformancePackRuleCompliance {
-  export const filterSensitiveLog = (
-    obj: ConformancePackRuleCompliance
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackRuleCompliance): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackRuleCompliance =>
-    __isa(o, "ConformancePackRuleCompliance");
+  export const isa = (o: any): o is ConformancePackRuleCompliance => __isa(o, "ConformancePackRuleCompliance");
 }
 
 export enum ConformancePackState {
@@ -1720,7 +1703,7 @@ export enum ConformancePackState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
 }
 
 /**
@@ -1729,14 +1712,14 @@ export enum ConformancePackState {
 export interface ConformancePackStatusDetail {
   __type?: "ConformancePackStatusDetail";
   /**
-   * <p>Amazon Resource Name (ARN) of comformance pack.</p>
-   */
-  ConformancePackArn: string | undefined;
-
-  /**
    * <p>ID of the conformance pack.</p>
    */
   ConformancePackId: string | undefined;
+
+  /**
+   * <p>Last time when conformation pack creation and update was requested.</p>
+   */
+  LastUpdateRequestedTime: Date | undefined;
 
   /**
    * <p>Name of the conformance pack.</p>
@@ -1777,32 +1760,27 @@ export interface ConformancePackStatusDetail {
   LastUpdateCompletedTime?: Date;
 
   /**
-   * <p>Last time when conformation pack creation and update was requested.</p>
-   */
-  LastUpdateRequestedTime: Date | undefined;
-
-  /**
    * <p>Amazon Resource Name (ARN) of AWS CloudFormation stack. </p>
    */
   StackArn: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of comformance pack.</p>
+   */
+  ConformancePackArn: string | undefined;
 }
 
 export namespace ConformancePackStatusDetail {
-  export const filterSensitiveLog = (
-    obj: ConformancePackStatusDetail
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackStatusDetail): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConformancePackStatusDetail =>
-    __isa(o, "ConformancePackStatusDetail");
+  export const isa = (o: any): o is ConformancePackStatusDetail => __isa(o, "ConformancePackStatusDetail");
 }
 
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
-export interface ConformancePackTemplateValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConformancePackTemplateValidationException extends __SmithyException, $MetadataBearer {
   name: "ConformancePackTemplateValidationException";
   $fault: "client";
   /**
@@ -1812,36 +1790,30 @@ export interface ConformancePackTemplateValidationException
 }
 
 export namespace ConformancePackTemplateValidationException {
-  export const filterSensitiveLog = (
-    obj: ConformancePackTemplateValidationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConformancePackTemplateValidationException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ConformancePackTemplateValidationException =>
+  export const isa = (o: any): o is ConformancePackTemplateValidationException =>
     __isa(o, "ConformancePackTemplateValidationException");
 }
 
 export interface DeleteAggregationAuthorizationRequest {
   __type?: "DeleteAggregationAuthorizationRequest";
   /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AuthorizedAwsRegion: string | undefined;
+
+  /**
    * <p>The 12-digit account ID of the account authorized to aggregate
    * 			data.</p>
    */
   AuthorizedAccountId: string | undefined;
-
-  /**
-   * <p>The region authorized to collect aggregated data.</p>
-   */
-  AuthorizedAwsRegion: string | undefined;
 }
 
 export namespace DeleteAggregationAuthorizationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteAggregationAuthorizationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteAggregationAuthorizationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteAggregationAuthorizationRequest =>
     __isa(o, "DeleteAggregationAuthorizationRequest");
@@ -1861,10 +1833,9 @@ export interface DeleteConfigRuleRequest {
 
 export namespace DeleteConfigRuleRequest {
   export const filterSensitiveLog = (obj: DeleteConfigRuleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigRuleRequest =>
-    __isa(o, "DeleteConfigRuleRequest");
+  export const isa = (o: any): o is DeleteConfigRuleRequest => __isa(o, "DeleteConfigRuleRequest");
 }
 
 export interface DeleteConfigurationAggregatorRequest {
@@ -1876,10 +1847,8 @@ export interface DeleteConfigurationAggregatorRequest {
 }
 
 export namespace DeleteConfigurationAggregatorRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationAggregatorRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationAggregatorRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteConfigurationAggregatorRequest =>
     __isa(o, "DeleteConfigurationAggregatorRequest");
@@ -1900,10 +1869,8 @@ export interface DeleteConfigurationRecorderRequest {
 }
 
 export namespace DeleteConfigurationRecorderRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationRecorderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationRecorderRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteConfigurationRecorderRequest =>
     __isa(o, "DeleteConfigurationRecorderRequest");
@@ -1918,13 +1885,10 @@ export interface DeleteConformancePackRequest {
 }
 
 export namespace DeleteConformancePackRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConformancePackRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConformancePackRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConformancePackRequest =>
-    __isa(o, "DeleteConformancePackRequest");
+  export const isa = (o: any): o is DeleteConformancePackRequest => __isa(o, "DeleteConformancePackRequest");
 }
 
 /**
@@ -1941,13 +1905,10 @@ export interface DeleteDeliveryChannelRequest {
 }
 
 export namespace DeleteDeliveryChannelRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDeliveryChannelRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDeliveryChannelRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDeliveryChannelRequest =>
-    __isa(o, "DeleteDeliveryChannelRequest");
+  export const isa = (o: any): o is DeleteDeliveryChannelRequest => __isa(o, "DeleteDeliveryChannelRequest");
 }
 
 /**
@@ -1963,13 +1924,10 @@ export interface DeleteEvaluationResultsRequest {
 }
 
 export namespace DeleteEvaluationResultsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteEvaluationResultsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEvaluationResultsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEvaluationResultsRequest =>
-    __isa(o, "DeleteEvaluationResultsRequest");
+  export const isa = (o: any): o is DeleteEvaluationResultsRequest => __isa(o, "DeleteEvaluationResultsRequest");
 }
 
 /**
@@ -1981,13 +1939,10 @@ export interface DeleteEvaluationResultsResponse {
 }
 
 export namespace DeleteEvaluationResultsResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteEvaluationResultsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEvaluationResultsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEvaluationResultsResponse =>
-    __isa(o, "DeleteEvaluationResultsResponse");
+  export const isa = (o: any): o is DeleteEvaluationResultsResponse => __isa(o, "DeleteEvaluationResultsResponse");
 }
 
 export interface DeleteOrganizationConfigRuleRequest {
@@ -1999,10 +1954,8 @@ export interface DeleteOrganizationConfigRuleRequest {
 }
 
 export namespace DeleteOrganizationConfigRuleRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteOrganizationConfigRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteOrganizationConfigRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteOrganizationConfigRuleRequest =>
     __isa(o, "DeleteOrganizationConfigRuleRequest");
@@ -2017,10 +1970,8 @@ export interface DeleteOrganizationConformancePackRequest {
 }
 
 export namespace DeleteOrganizationConformancePackRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteOrganizationConformancePackRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteOrganizationConformancePackRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteOrganizationConformancePackRequest =>
     __isa(o, "DeleteOrganizationConformancePackRequest");
@@ -2041,10 +1992,8 @@ export interface DeletePendingAggregationRequestRequest {
 }
 
 export namespace DeletePendingAggregationRequestRequest {
-  export const filterSensitiveLog = (
-    obj: DeletePendingAggregationRequestRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePendingAggregationRequestRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeletePendingAggregationRequestRequest =>
     __isa(o, "DeletePendingAggregationRequestRequest");
@@ -2053,21 +2002,19 @@ export namespace DeletePendingAggregationRequestRequest {
 export interface DeleteRemediationConfigurationRequest {
   __type?: "DeleteRemediationConfigurationRequest";
   /**
-   * <p>The name of the AWS Config rule for which you want to delete remediation configuration.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The type of a resource.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want to delete remediation configuration.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DeleteRemediationConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRemediationConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemediationConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRemediationConfigurationRequest =>
     __isa(o, "DeleteRemediationConfigurationRequest");
@@ -2078,10 +2025,8 @@ export interface DeleteRemediationConfigurationResponse {
 }
 
 export namespace DeleteRemediationConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteRemediationConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemediationConfigurationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRemediationConfigurationResponse =>
     __isa(o, "DeleteRemediationConfigurationResponse");
@@ -2090,21 +2035,19 @@ export namespace DeleteRemediationConfigurationResponse {
 export interface DeleteRemediationExceptionsRequest {
   __type?: "DeleteRemediationExceptionsRequest";
   /**
-   * <p>The name of the AWS Config rule for which you want to delete remediation exception configuration.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want to delete remediation exception configuration.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DeleteRemediationExceptionsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRemediationExceptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemediationExceptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRemediationExceptionsRequest =>
     __isa(o, "DeleteRemediationExceptionsRequest");
@@ -2119,10 +2062,8 @@ export interface DeleteRemediationExceptionsResponse {
 }
 
 export namespace DeleteRemediationExceptionsResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteRemediationExceptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRemediationExceptionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRemediationExceptionsResponse =>
     __isa(o, "DeleteRemediationExceptionsResponse");
@@ -2131,24 +2072,21 @@ export namespace DeleteRemediationExceptionsResponse {
 export interface DeleteResourceConfigRequest {
   __type?: "DeleteResourceConfigRequest";
   /**
-   * <p>Unique identifier of the resource.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
    * <p>The type of the resource.</p>
    */
   ResourceType: string | undefined;
+
+  /**
+   * <p>Unique identifier of the resource.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace DeleteResourceConfigRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteResourceConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteResourceConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceConfigRequest =>
-    __isa(o, "DeleteResourceConfigRequest");
+  export const isa = (o: any): o is DeleteResourceConfigRequest => __isa(o, "DeleteResourceConfigRequest");
 }
 
 export interface DeleteRetentionConfigurationRequest {
@@ -2160,10 +2098,8 @@ export interface DeleteRetentionConfigurationRequest {
 }
 
 export namespace DeleteRetentionConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRetentionConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRetentionConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteRetentionConfigurationRequest =>
     __isa(o, "DeleteRetentionConfigurationRequest");
@@ -2183,13 +2119,10 @@ export interface DeliverConfigSnapshotRequest {
 }
 
 export namespace DeliverConfigSnapshotRequest {
-  export const filterSensitiveLog = (
-    obj: DeliverConfigSnapshotRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeliverConfigSnapshotRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeliverConfigSnapshotRequest =>
-    __isa(o, "DeliverConfigSnapshotRequest");
+  export const isa = (o: any): o is DeliverConfigSnapshotRequest => __isa(o, "DeliverConfigSnapshotRequest");
 }
 
 /**
@@ -2205,13 +2138,10 @@ export interface DeliverConfigSnapshotResponse {
 }
 
 export namespace DeliverConfigSnapshotResponse {
-  export const filterSensitiveLog = (
-    obj: DeliverConfigSnapshotResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeliverConfigSnapshotResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeliverConfigSnapshotResponse =>
-    __isa(o, "DeliverConfigSnapshotResponse");
+  export const isa = (o: any): o is DeliverConfigSnapshotResponse => __isa(o, "DeliverConfigSnapshotResponse");
 }
 
 /**
@@ -2220,22 +2150,6 @@ export namespace DeliverConfigSnapshotResponse {
  */
 export interface DeliveryChannel {
   __type?: "DeliveryChannel";
-  /**
-   * <p>The options for how often AWS Config delivers configuration
-   * 			snapshots to the Amazon S3 bucket.</p>
-   */
-  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
-
-  /**
-   * <p>The name of the delivery channel. By default, AWS Config
-   * 			assigns the name "default" when creating the delivery channel. To
-   * 			change the delivery channel name, you must use the
-   * 			DeleteDeliveryChannel action to delete your current delivery
-   * 			channel, and then you must use the PutDeliveryChannel command to
-   * 			create a delivery channel that has the desired name.</p>
-   */
-  name?: string;
-
   /**
    * <p>The name of the Amazon S3 bucket to which AWS Config delivers
    * 			configuration snapshots and configuration history files.</p>
@@ -2252,6 +2166,22 @@ export interface DeliveryChannel {
   s3KeyPrefix?: string;
 
   /**
+   * <p>The name of the delivery channel. By default, AWS Config
+   * 			assigns the name "default" when creating the delivery channel. To
+   * 			change the delivery channel name, you must use the
+   * 			DeleteDeliveryChannel action to delete your current delivery
+   * 			channel, and then you must use the PutDeliveryChannel command to
+   * 			create a delivery channel that has the desired name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The options for how often AWS Config delivers configuration
+   * 			snapshots to the Amazon S3 bucket.</p>
+   */
+  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which
    * 			AWS Config sends notifications about configuration
    * 			changes.</p>
@@ -2265,10 +2195,9 @@ export interface DeliveryChannel {
 
 export namespace DeliveryChannel {
   export const filterSensitiveLog = (obj: DeliveryChannel): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeliveryChannel =>
-    __isa(o, "DeliveryChannel");
+  export const isa = (o: any): o is DeliveryChannel => __isa(o, "DeliveryChannel");
 }
 
 /**
@@ -2285,12 +2214,6 @@ export interface DeliveryChannelStatus {
   configHistoryDeliveryInfo?: ConfigExportDeliveryInfo;
 
   /**
-   * <p>A list containing the status of the delivery of the snapshot to
-   * 			the specified Amazon S3 bucket.</p>
-   */
-  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
-
-  /**
    * <p>A list containing the status of the delivery of the
    * 			configuration stream notification to the specified Amazon SNS
    * 			topic.</p>
@@ -2301,34 +2224,39 @@ export interface DeliveryChannelStatus {
    * <p>The name of the delivery channel.</p>
    */
   name?: string;
+
+  /**
+   * <p>A list containing the status of the delivery of the snapshot to
+   * 			the specified Amazon S3 bucket.</p>
+   */
+  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
 }
 
 export namespace DeliveryChannelStatus {
   export const filterSensitiveLog = (obj: DeliveryChannelStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeliveryChannelStatus =>
-    __isa(o, "DeliveryChannelStatus");
+  export const isa = (o: any): o is DeliveryChannelStatus => __isa(o, "DeliveryChannelStatus");
 }
 
 export enum DeliveryStatus {
   Failure = "Failure",
   Not_Applicable = "Not_Applicable",
-  Success = "Success"
+  Success = "Success",
 }
 
 export interface DescribeAggregateComplianceByConfigRulesRequest {
   __type?: "DescribeAggregateComplianceByConfigRulesRequest";
   /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
    * <p>Filters the results by ConfigRuleComplianceFilters object.
    * 		</p>
    */
   Filters?: ConfigRuleComplianceFilters;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -2346,41 +2274,33 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
 }
 
 export namespace DescribeAggregateComplianceByConfigRulesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregateComplianceByConfigRulesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConfigRulesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeAggregateComplianceByConfigRulesRequest =>
+  export const isa = (o: any): o is DescribeAggregateComplianceByConfigRulesRequest =>
     __isa(o, "DescribeAggregateComplianceByConfigRulesRequest");
 }
 
 export interface DescribeAggregateComplianceByConfigRulesResponse {
   __type?: "DescribeAggregateComplianceByConfigRulesResponse";
   /**
-   * <p>Returns a list of AggregateComplianceByConfigRule
-   * 			object.</p>
-   */
-  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns a list of AggregateComplianceByConfigRule
+   * 			object.</p>
+   */
+  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[];
 }
 
 export namespace DescribeAggregateComplianceByConfigRulesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregateComplianceByConfigRulesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConfigRulesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeAggregateComplianceByConfigRulesResponse =>
+  export const isa = (o: any): o is DescribeAggregateComplianceByConfigRulesResponse =>
     __isa(o, "DescribeAggregateComplianceByConfigRulesResponse");
 }
 
@@ -2401,10 +2321,8 @@ export interface DescribeAggregationAuthorizationsRequest {
 }
 
 export namespace DescribeAggregationAuthorizationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregationAuthorizationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregationAuthorizationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAggregationAuthorizationsRequest =>
     __isa(o, "DescribeAggregationAuthorizationsRequest");
@@ -2426,10 +2344,8 @@ export interface DescribeAggregationAuthorizationsResponse {
 }
 
 export namespace DescribeAggregationAuthorizationsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAggregationAuthorizationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAggregationAuthorizationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAggregationAuthorizationsResponse =>
     __isa(o, "DescribeAggregationAuthorizationsResponse");
@@ -2461,10 +2377,8 @@ export interface DescribeComplianceByConfigRuleRequest {
 }
 
 export namespace DescribeComplianceByConfigRuleRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeComplianceByConfigRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeComplianceByConfigRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeComplianceByConfigRuleRequest =>
     __isa(o, "DescribeComplianceByConfigRuleRequest");
@@ -2489,10 +2403,8 @@ export interface DescribeComplianceByConfigRuleResponse {
 }
 
 export namespace DescribeComplianceByConfigRuleResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeComplianceByConfigRuleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeComplianceByConfigRuleResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeComplianceByConfigRuleResponse =>
     __isa(o, "DescribeComplianceByConfigRuleResponse");
@@ -2510,6 +2422,14 @@ export interface DescribeComplianceByResourceRequest {
   ComplianceTypes?: (ComplianceType | string)[];
 
   /**
+   * <p>The ID of the AWS resource for which you want compliance
+   * 			information. You can specify only one resource ID. If you specify a
+   * 			resource ID, you must also specify a type for
+   * 				<code>ResourceType</code>.</p>
+   */
+  ResourceId?: string;
+
+  /**
    * <p>The maximum number of evaluation results returned on each page.
    * 			The default is 10. You cannot specify a number greater than 100. If
    * 			you specify 0, AWS Config uses the default.</p>
@@ -2524,14 +2444,6 @@ export interface DescribeComplianceByResourceRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID of the AWS resource for which you want compliance
-   * 			information. You can specify only one resource ID. If you specify a
-   * 			resource ID, you must also specify a type for
-   * 				<code>ResourceType</code>.</p>
-   */
-  ResourceId?: string;
-
-  /**
    * <p>The types of AWS resources for which you want compliance
    * 			information (for example, <code>AWS::EC2::Instance</code>). For this
    * 			action, you can specify that the resource type is an AWS account by
@@ -2541,10 +2453,8 @@ export interface DescribeComplianceByResourceRequest {
 }
 
 export namespace DescribeComplianceByResourceRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeComplianceByResourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeComplianceByResourceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeComplianceByResourceRequest =>
     __isa(o, "DescribeComplianceByResourceRequest");
@@ -2556,23 +2466,21 @@ export namespace DescribeComplianceByResourceRequest {
 export interface DescribeComplianceByResourceResponse {
   __type?: "DescribeComplianceByResourceResponse";
   /**
-   * <p>Indicates whether the specified AWS resource complies with all
-   * 			of the AWS Config rules that evaluate it.</p>
-   */
-  ComplianceByResources?: ComplianceByResource[];
-
-  /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Indicates whether the specified AWS resource complies with all
+   * 			of the AWS Config rules that evaluate it.</p>
+   */
+  ComplianceByResources?: ComplianceByResource[];
 }
 
 export namespace DescribeComplianceByResourceResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeComplianceByResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeComplianceByResourceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeComplianceByResourceResponse =>
     __isa(o, "DescribeComplianceByResourceResponse");
@@ -2583,14 +2491,6 @@ export namespace DescribeComplianceByResourceResponse {
  */
 export interface DescribeConfigRuleEvaluationStatusRequest {
   __type?: "DescribeConfigRuleEvaluationStatusRequest";
-  /**
-   * <p>The name of the AWS managed Config rules for which you want
-   * 			status information. If you do not specify any names, AWS Config
-   * 			returns status information for all AWS managed Config rules that you
-   * 			use.</p>
-   */
-  ConfigRuleNames?: string[];
-
   /**
    * <p>The number of rule evaluation results that you want
    * 			returned.</p>
@@ -2609,13 +2509,19 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the AWS managed Config rules for which you want
+   * 			status information. If you do not specify any names, AWS Config
+   * 			returns status information for all AWS managed Config rules that you
+   * 			use.</p>
+   */
+  ConfigRuleNames?: string[];
 }
 
 export namespace DescribeConfigRuleEvaluationStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigRuleEvaluationStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigRuleEvaluationStatusRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigRuleEvaluationStatusRequest =>
     __isa(o, "DescribeConfigRuleEvaluationStatusRequest");
@@ -2640,14 +2546,10 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
 }
 
 export namespace DescribeConfigRuleEvaluationStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigRuleEvaluationStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigRuleEvaluationStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeConfigRuleEvaluationStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigRuleEvaluationStatusResponse =>
     __isa(o, "DescribeConfigRuleEvaluationStatusResponse");
 }
 
@@ -2657,26 +2559,25 @@ export namespace DescribeConfigRuleEvaluationStatusResponse {
 export interface DescribeConfigRulesRequest {
   __type?: "DescribeConfigRulesRequest";
   /**
-   * <p>The names of the AWS Config rules for which you want details.
-   * 			If you do not specify any names, AWS Config returns details for all
-   * 			your rules.</p>
-   */
-  ConfigRuleNames?: string[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page
    * 			that you use to get the next page of results in a paginated
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the AWS Config rules for which you want details.
+   * 			If you do not specify any names, AWS Config returns details for all
+   * 			your rules.</p>
+   */
+  ConfigRuleNames?: string[];
 }
 
 export namespace DescribeConfigRulesRequest {
   export const filterSensitiveLog = (obj: DescribeConfigRulesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigRulesRequest =>
-    __isa(o, "DescribeConfigRulesRequest");
+  export const isa = (o: any): o is DescribeConfigRulesRequest => __isa(o, "DescribeConfigRulesRequest");
 }
 
 /**
@@ -2697,35 +2598,14 @@ export interface DescribeConfigRulesResponse {
 }
 
 export namespace DescribeConfigRulesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigRulesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigRulesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigRulesResponse =>
-    __isa(o, "DescribeConfigRulesResponse");
+  export const isa = (o: any): o is DescribeConfigRulesResponse => __isa(o, "DescribeConfigRulesResponse");
 }
 
 export interface DescribeConfigurationAggregatorSourcesStatusRequest {
   __type?: "DescribeConfigurationAggregatorSourcesStatusRequest";
-  /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
-   * <p>The maximum number of AggregatorSourceStatus returned on each
-   * 			page. The default is maximum. If you specify 0, AWS Config uses the
-   * 			default.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Filters the status type.</p>
    * 		       <ul>
@@ -2744,17 +2624,31 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    *          </ul>
    */
   UpdateStatus?: (AggregatedSourceStatusType | string)[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The maximum number of AggregatorSourceStatus returned on each
+   * 			page. The default is maximum. If you specify 0, AWS Config uses the
+   * 			default.</p>
+   */
+  Limit?: number;
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationAggregatorSourcesStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorSourcesStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationAggregatorSourcesStatusRequest =>
+  export const isa = (o: any): o is DescribeConfigurationAggregatorSourcesStatusRequest =>
     __isa(o, "DescribeConfigurationAggregatorSourcesStatusRequest");
 }
 
@@ -2774,14 +2668,10 @@ export interface DescribeConfigurationAggregatorSourcesStatusResponse {
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationAggregatorSourcesStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorSourcesStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationAggregatorSourcesStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigurationAggregatorSourcesStatusResponse =>
     __isa(o, "DescribeConfigurationAggregatorSourcesStatusResponse");
 }
 
@@ -2793,24 +2683,22 @@ export interface DescribeConfigurationAggregatorsRequest {
   ConfigurationAggregatorNames?: string[];
 
   /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of configuration aggregators returned on
    * 			each page. The default is maximum. If you specify 0, AWS Config uses
    * 			the default.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeConfigurationAggregatorsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationAggregatorsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationAggregatorsRequest =>
     __isa(o, "DescribeConfigurationAggregatorsRequest");
@@ -2831,10 +2719,8 @@ export interface DescribeConfigurationAggregatorsResponse {
 }
 
 export namespace DescribeConfigurationAggregatorsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationAggregatorsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationAggregatorsResponse =>
     __isa(o, "DescribeConfigurationAggregatorsResponse");
@@ -2852,10 +2738,8 @@ export interface DescribeConfigurationRecordersRequest {
 }
 
 export namespace DescribeConfigurationRecordersRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecordersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRecordersRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationRecordersRequest =>
     __isa(o, "DescribeConfigurationRecordersRequest");
@@ -2874,10 +2758,8 @@ export interface DescribeConfigurationRecordersResponse {
 }
 
 export namespace DescribeConfigurationRecordersResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecordersResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRecordersResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationRecordersResponse =>
     __isa(o, "DescribeConfigurationRecordersResponse");
@@ -2898,14 +2780,10 @@ export interface DescribeConfigurationRecorderStatusRequest {
 }
 
 export namespace DescribeConfigurationRecorderStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecorderStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRecorderStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationRecorderStatusRequest =>
+  export const isa = (o: any): o is DescribeConfigurationRecorderStatusRequest =>
     __isa(o, "DescribeConfigurationRecorderStatusRequest");
 }
 
@@ -2923,28 +2801,24 @@ export interface DescribeConfigurationRecorderStatusResponse {
 }
 
 export namespace DescribeConfigurationRecorderStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRecorderStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRecorderStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationRecorderStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigurationRecorderStatusResponse =>
     __isa(o, "DescribeConfigurationRecorderStatusResponse");
 }
 
 export interface DescribeConformancePackComplianceRequest {
   __type?: "DescribeConformancePackComplianceRequest";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
    * <p>A <code>ConformancePackComplianceFilters</code> object.</p>
    */
   Filters?: ConformancePackComplianceFilters;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
 
   /**
    * <p>The maximum number of AWS Config rules within a conformance pack are returned on each page.</p>
@@ -2958,10 +2832,8 @@ export interface DescribeConformancePackComplianceRequest {
 }
 
 export namespace DescribeConformancePackComplianceRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackComplianceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePackComplianceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConformancePackComplianceRequest =>
     __isa(o, "DescribeConformancePackComplianceRequest");
@@ -2970,28 +2842,24 @@ export namespace DescribeConformancePackComplianceRequest {
 export interface DescribeConformancePackComplianceResponse {
   __type?: "DescribeConformancePackComplianceResponse";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
    * <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
    */
-  ConformancePackRuleComplianceList:
-    | ConformancePackRuleCompliance[]
-    | undefined;
+  ConformancePackRuleComplianceList: ConformancePackRuleCompliance[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
 }
 
 export namespace DescribeConformancePackComplianceResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackComplianceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePackComplianceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConformancePackComplianceResponse =>
     __isa(o, "DescribeConformancePackComplianceResponse");
@@ -3016,49 +2884,43 @@ export interface DescribeConformancePacksRequest {
 }
 
 export namespace DescribeConformancePacksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePacksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePacksRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConformancePacksRequest =>
-    __isa(o, "DescribeConformancePacksRequest");
+  export const isa = (o: any): o is DescribeConformancePacksRequest => __isa(o, "DescribeConformancePacksRequest");
 }
 
 export interface DescribeConformancePacksResponse {
   __type?: "DescribeConformancePacksResponse";
   /**
-   * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
-   */
-  ConformancePackDetails?: ConformancePackDetail[];
-
-  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
+   */
+  ConformancePackDetails?: ConformancePackDetail[];
 }
 
 export namespace DescribeConformancePacksResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePacksResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePacksResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConformancePacksResponse =>
-    __isa(o, "DescribeConformancePacksResponse");
+  export const isa = (o: any): o is DescribeConformancePacksResponse => __isa(o, "DescribeConformancePacksResponse");
 }
 
 export interface DescribeConformancePackStatusRequest {
   __type?: "DescribeConformancePackStatusRequest";
   /**
-   * <p>Comma-separated list of conformance pack names.</p>
-   */
-  ConformancePackNames?: string[];
-
-  /**
    * <p>The maximum number of conformance packs status returned on each page.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Comma-separated list of conformance pack names.</p>
+   */
+  ConformancePackNames?: string[];
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -3067,10 +2929,8 @@ export interface DescribeConformancePackStatusRequest {
 }
 
 export namespace DescribeConformancePackStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePackStatusRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConformancePackStatusRequest =>
     __isa(o, "DescribeConformancePackStatusRequest");
@@ -3090,10 +2950,8 @@ export interface DescribeConformancePackStatusResponse {
 }
 
 export namespace DescribeConformancePackStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConformancePackStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConformancePackStatusResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConformancePackStatusResponse =>
     __isa(o, "DescribeConformancePackStatusResponse");
@@ -3112,13 +2970,10 @@ export interface DescribeDeliveryChannelsRequest {
 }
 
 export namespace DescribeDeliveryChannelsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDeliveryChannelsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDeliveryChannelsRequest =>
-    __isa(o, "DescribeDeliveryChannelsRequest");
+  export const isa = (o: any): o is DescribeDeliveryChannelsRequest => __isa(o, "DescribeDeliveryChannelsRequest");
 }
 
 /**
@@ -3135,13 +2990,10 @@ export interface DescribeDeliveryChannelsResponse {
 }
 
 export namespace DescribeDeliveryChannelsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDeliveryChannelsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDeliveryChannelsResponse =>
-    __isa(o, "DescribeDeliveryChannelsResponse");
+  export const isa = (o: any): o is DescribeDeliveryChannelsResponse => __isa(o, "DescribeDeliveryChannelsResponse");
 }
 
 /**
@@ -3157,10 +3009,8 @@ export interface DescribeDeliveryChannelStatusRequest {
 }
 
 export namespace DescribeDeliveryChannelStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDeliveryChannelStatusRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDeliveryChannelStatusRequest =>
     __isa(o, "DescribeDeliveryChannelStatusRequest");
@@ -3179,10 +3029,8 @@ export interface DescribeDeliveryChannelStatusResponse {
 }
 
 export namespace DescribeDeliveryChannelStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDeliveryChannelStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDeliveryChannelStatusResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDeliveryChannelStatusResponse =>
     __isa(o, "DescribeDeliveryChannelStatusResponse");
@@ -3190,6 +3038,11 @@ export namespace DescribeDeliveryChannelStatusResponse {
 
 export interface DescribeOrganizationConfigRulesRequest {
   __type?: "DescribeOrganizationConfigRulesRequest";
+  /**
+   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
+   */
+  OrganizationConfigRuleNames?: string[];
+
   /**
    * <p>The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
@@ -3199,18 +3052,11 @@ export interface DescribeOrganizationConfigRulesRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.</p>
-   */
-  OrganizationConfigRuleNames?: string[];
 }
 
 export namespace DescribeOrganizationConfigRulesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRulesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRulesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeOrganizationConfigRulesRequest =>
     __isa(o, "DescribeOrganizationConfigRulesRequest");
@@ -3219,21 +3065,19 @@ export namespace DescribeOrganizationConfigRulesRequest {
 export interface DescribeOrganizationConfigRulesResponse {
   __type?: "DescribeOrganizationConfigRulesResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
    */
   OrganizationConfigRules?: OrganizationConfigRule[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConfigRulesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRulesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRulesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeOrganizationConfigRulesResponse =>
     __isa(o, "DescribeOrganizationConfigRulesResponse");
@@ -3242,9 +3086,9 @@ export namespace DescribeOrganizationConfigRulesResponse {
 export interface DescribeOrganizationConfigRuleStatusesRequest {
   __type?: "DescribeOrganizationConfigRuleStatusesRequest";
   /**
-   * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
+   * <p>The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.</p>
    */
-  Limit?: number;
+  OrganizationConfigRuleNames?: string[];
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -3252,20 +3096,16 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
   NextToken?: string;
 
   /**
-   * <p>The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.</p>
+   * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
-  OrganizationConfigRuleNames?: string[];
+  Limit?: number;
 }
 
 export namespace DescribeOrganizationConfigRuleStatusesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRuleStatusesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRuleStatusesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConfigRuleStatusesRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConfigRuleStatusesRequest =>
     __isa(o, "DescribeOrganizationConfigRuleStatusesRequest");
 }
 
@@ -3283,24 +3123,19 @@ export interface DescribeOrganizationConfigRuleStatusesResponse {
 }
 
 export namespace DescribeOrganizationConfigRuleStatusesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConfigRuleStatusesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRuleStatusesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConfigRuleStatusesResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConfigRuleStatusesResponse =>
     __isa(o, "DescribeOrganizationConfigRuleStatusesResponse");
 }
 
 export interface DescribeOrganizationConformancePacksRequest {
   __type?: "DescribeOrganizationConformancePacksRequest";
   /**
-   * <p>The maximum number of organization config packs returned on each page. If you do no specify a
-   * 			number, AWS Config uses the default. The default is 100.</p>
+   * <p>The name that you assign to an organization conformance pack.</p>
    */
-  Limit?: number;
+  OrganizationConformancePackNames?: string[];
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
@@ -3309,46 +3144,39 @@ export interface DescribeOrganizationConformancePacksRequest {
   NextToken?: string;
 
   /**
-   * <p>The name that you assign to an organization conformance pack.</p>
+   * <p>The maximum number of organization config packs returned on each page. If you do no specify a
+   * 			number, AWS Config uses the default. The default is 100.</p>
    */
-  OrganizationConformancePackNames?: string[];
+  Limit?: number;
 }
 
 export namespace DescribeOrganizationConformancePacksRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePacksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePacksRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePacksRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePacksRequest =>
     __isa(o, "DescribeOrganizationConformancePacksRequest");
 }
 
 export interface DescribeOrganizationConformancePacksResponse {
   __type?: "DescribeOrganizationConformancePacksResponse";
   /**
+   * <p>Returns a list of OrganizationConformancePacks objects.</p>
+   */
+  OrganizationConformancePacks?: OrganizationConformancePack[];
+
+  /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
    * 			paginated response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Returns a list of OrganizationConformancePacks objects.</p>
-   */
-  OrganizationConformancePacks?: OrganizationConformancePack[];
 }
 
 export namespace DescribeOrganizationConformancePacksResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePacksResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePacksResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePacksResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePacksResponse =>
     __isa(o, "DescribeOrganizationConformancePacksResponse");
 }
 
@@ -3361,51 +3189,43 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
   Limit?: number;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The names of organization conformance packs for which you want status details.
    * 			If you do not specify any names, AWS Config returns details for all your organization conformance packs. </p>
    */
   OrganizationConformancePackNames?: string[];
+
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConformancePackStatusesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePackStatusesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePackStatusesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePackStatusesRequest =>
     __isa(o, "DescribeOrganizationConformancePackStatusesRequest");
 }
 
 export interface DescribeOrganizationConformancePackStatusesResponse {
   __type?: "DescribeOrganizationConformancePackStatusesResponse";
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
    */
   OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[];
+
+  /**
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeOrganizationConformancePackStatusesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeOrganizationConformancePackStatusesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePackStatusesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePackStatusesResponse =>
     __isa(o, "DescribeOrganizationConformancePackStatusesResponse");
 }
 
@@ -3426,10 +3246,8 @@ export interface DescribePendingAggregationRequestsRequest {
 }
 
 export namespace DescribePendingAggregationRequestsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribePendingAggregationRequestsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePendingAggregationRequestsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribePendingAggregationRequestsRequest =>
     __isa(o, "DescribePendingAggregationRequestsRequest");
@@ -3450,14 +3268,10 @@ export interface DescribePendingAggregationRequestsResponse {
 }
 
 export namespace DescribePendingAggregationRequestsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribePendingAggregationRequestsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribePendingAggregationRequestsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribePendingAggregationRequestsResponse =>
+  export const isa = (o: any): o is DescribePendingAggregationRequestsResponse =>
     __isa(o, "DescribePendingAggregationRequestsResponse");
 }
 
@@ -3470,10 +3284,8 @@ export interface DescribeRemediationConfigurationsRequest {
 }
 
 export namespace DescribeRemediationConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationConfigurationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRemediationConfigurationsRequest =>
     __isa(o, "DescribeRemediationConfigurationsRequest");
@@ -3488,10 +3300,8 @@ export interface DescribeRemediationConfigurationsResponse {
 }
 
 export namespace DescribeRemediationConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationConfigurationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRemediationConfigurationsResponse =>
     __isa(o, "DescribeRemediationConfigurationsResponse");
@@ -3499,11 +3309,6 @@ export namespace DescribeRemediationConfigurationsResponse {
 
 export interface DescribeRemediationExceptionsRequest {
   __type?: "DescribeRemediationExceptionsRequest";
-  /**
-   * <p>The name of the AWS Config rule.</p>
-   */
-  ConfigRuleName: string | undefined;
-
   /**
    * <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.</p>
    */
@@ -3518,13 +3323,16 @@ export interface DescribeRemediationExceptionsRequest {
    * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
    */
   ResourceKeys?: RemediationExceptionResourceKey[];
+
+  /**
+   * <p>The name of the AWS Config rule.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DescribeRemediationExceptionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationExceptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationExceptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRemediationExceptionsRequest =>
     __isa(o, "DescribeRemediationExceptionsRequest");
@@ -3533,21 +3341,19 @@ export namespace DescribeRemediationExceptionsRequest {
 export interface DescribeRemediationExceptionsResponse {
   __type?: "DescribeRemediationExceptionsResponse";
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of remediation exception objects.</p>
    */
   RemediationExceptions?: RemediationException[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeRemediationExceptionsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationExceptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationExceptionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRemediationExceptionsResponse =>
     __isa(o, "DescribeRemediationExceptionsResponse");
@@ -3556,14 +3362,9 @@ export namespace DescribeRemediationExceptionsResponse {
 export interface DescribeRemediationExecutionStatusRequest {
   __type?: "DescribeRemediationExecutionStatusRequest";
   /**
-   * <p>A list of AWS Config rule names.</p>
+   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
    */
-  ConfigRuleName: string | undefined;
-
-  /**
-   * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
-   */
-  Limit?: number;
+  ResourceKeys?: ResourceKey[];
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -3571,16 +3372,19 @@ export interface DescribeRemediationExecutionStatusRequest {
   NextToken?: string;
 
   /**
-   * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default. </p>
    */
-  ResourceKeys?: ResourceKey[];
+  Limit?: number;
+
+  /**
+   * <p>A list of AWS Config rule names.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace DescribeRemediationExecutionStatusRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationExecutionStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationExecutionStatusRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRemediationExecutionStatusRequest =>
     __isa(o, "DescribeRemediationExecutionStatusRequest");
@@ -3589,25 +3393,21 @@ export namespace DescribeRemediationExecutionStatusRequest {
 export interface DescribeRemediationExecutionStatusResponse {
   __type?: "DescribeRemediationExecutionStatusResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns a list of remediation execution statuses objects.</p>
    */
   RemediationExecutionStatuses?: RemediationExecutionStatus[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeRemediationExecutionStatusResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRemediationExecutionStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRemediationExecutionStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DescribeRemediationExecutionStatusResponse =>
+  export const isa = (o: any): o is DescribeRemediationExecutionStatusResponse =>
     __isa(o, "DescribeRemediationExecutionStatusResponse");
 }
 
@@ -3633,10 +3433,8 @@ export interface DescribeRetentionConfigurationsRequest {
 }
 
 export namespace DescribeRetentionConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRetentionConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRetentionConfigurationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRetentionConfigurationsRequest =>
     __isa(o, "DescribeRetentionConfigurationsRequest");
@@ -3658,10 +3456,8 @@ export interface DescribeRetentionConfigurationsResponse {
 }
 
 export namespace DescribeRetentionConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRetentionConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRetentionConfigurationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeRetentionConfigurationsResponse =>
     __isa(o, "DescribeRetentionConfigurationsResponse");
@@ -3674,20 +3470,14 @@ export namespace DescribeRetentionConfigurationsResponse {
 export interface Evaluation {
   __type?: "Evaluation";
   /**
-   * <p>Supplementary information about how the evaluation determined
-   * 			the compliance.</p>
+   * <p>The type of AWS resource that was evaluated.</p>
    */
-  Annotation?: string;
+  ComplianceResourceType: string | undefined;
 
   /**
    * <p>The ID of the AWS resource that was evaluated.</p>
    */
   ComplianceResourceId: string | undefined;
-
-  /**
-   * <p>The type of AWS resource that was evaluated.</p>
-   */
-  ComplianceResourceType: string | undefined;
 
   /**
    * <p>Indicates whether the AWS resource complies with the AWS Config
@@ -3707,6 +3497,12 @@ export interface Evaluation {
   ComplianceType: ComplianceType | string | undefined;
 
   /**
+   * <p>Supplementary information about how the evaluation determined
+   * 			the compliance.</p>
+   */
+  Annotation?: string;
+
+  /**
    * <p>The time of the event in AWS Config that triggered the
    * 			evaluation. For event-based evaluations, the time indicates when AWS
    * 			Config created the configuration item that triggered the evaluation.
@@ -3719,7 +3515,7 @@ export interface Evaluation {
 
 export namespace Evaluation {
   export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
@@ -3738,6 +3534,23 @@ export interface EvaluationResult {
   Annotation?: string;
 
   /**
+   * <p>The time when the AWS Config rule evaluated the AWS
+   * 			resource.</p>
+   */
+  ConfigRuleInvokedTime?: Date;
+
+  /**
+   * <p>The time when AWS Config recorded the evaluation
+   * 			result.</p>
+   */
+  ResultRecordedTime?: Date;
+
+  /**
+   * <p>Uniquely identifies the evaluation result.</p>
+   */
+  EvaluationResultIdentifier?: EvaluationResultIdentifier;
+
+  /**
    * <p>Indicates whether the AWS resource complies with the AWS Config
    * 			rule that evaluated it.</p>
    * 		       <p>For the <code>EvaluationResult</code> data type, AWS Config
@@ -3749,23 +3562,6 @@ export interface EvaluationResult {
   ComplianceType?: ComplianceType | string;
 
   /**
-   * <p>The time when the AWS Config rule evaluated the AWS
-   * 			resource.</p>
-   */
-  ConfigRuleInvokedTime?: Date;
-
-  /**
-   * <p>Uniquely identifies the evaluation result.</p>
-   */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
-
-  /**
-   * <p>The time when AWS Config recorded the evaluation
-   * 			result.</p>
-   */
-  ResultRecordedTime?: Date;
-
-  /**
    * <p>An encrypted token that associates an evaluation with an AWS
    * 			Config rule. The token identifies the rule, the AWS resource being
    * 			evaluated, and the event that triggered the evaluation.</p>
@@ -3775,10 +3571,9 @@ export interface EvaluationResult {
 
 export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -3787,12 +3582,6 @@ export namespace EvaluationResult {
 export interface EvaluationResultIdentifier {
   __type?: "EvaluationResultIdentifier";
   /**
-   * <p>Identifies an AWS Config rule used to evaluate an AWS resource,
-   * 			and provides the type and ID of the evaluated resource.</p>
-   */
-  EvaluationResultQualifier?: EvaluationResultQualifier;
-
-  /**
    * <p>The time of the event that triggered the evaluation of your AWS
    * 			resources. The time can indicate when AWS Config delivered a
    * 			configuration item change notification, or it can indicate when AWS
@@ -3800,14 +3589,19 @@ export interface EvaluationResultIdentifier {
    * 			event triggered the evaluation.</p>
    */
   OrderingTimestamp?: Date;
+
+  /**
+   * <p>Identifies an AWS Config rule used to evaluate an AWS resource,
+   * 			and provides the type and ID of the evaluated resource.</p>
+   */
+  EvaluationResultQualifier?: EvaluationResultQualifier;
 }
 
 export namespace EvaluationResultIdentifier {
   export const filterSensitiveLog = (obj: EvaluationResultIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResultIdentifier =>
-    __isa(o, "EvaluationResultIdentifier");
+  export const isa = (o: any): o is EvaluationResultIdentifier => __isa(o, "EvaluationResultIdentifier");
 }
 
 /**
@@ -3836,14 +3630,13 @@ export interface EvaluationResultQualifier {
 
 export namespace EvaluationResultQualifier {
   export const filterSensitiveLog = (obj: EvaluationResultQualifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResultQualifier =>
-    __isa(o, "EvaluationResultQualifier");
+  export const isa = (o: any): o is EvaluationResultQualifier => __isa(o, "EvaluationResultQualifier");
 }
 
 export enum EventSource {
-  Aws_Config = "aws.config"
+  Aws_Config = "aws.config",
 }
 
 /**
@@ -3859,10 +3652,9 @@ export interface ExecutionControls {
 
 export namespace ExecutionControls {
   export const filterSensitiveLog = (obj: ExecutionControls): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExecutionControls =>
-    __isa(o, "ExecutionControls");
+  export const isa = (o: any): o is ExecutionControls => __isa(o, "ExecutionControls");
 }
 
 /**
@@ -3882,10 +3674,8 @@ export interface FailedDeleteRemediationExceptionsBatch {
 }
 
 export namespace FailedDeleteRemediationExceptionsBatch {
-  export const filterSensitiveLog = (
-    obj: FailedDeleteRemediationExceptionsBatch
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FailedDeleteRemediationExceptionsBatch): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FailedDeleteRemediationExceptionsBatch =>
     __isa(o, "FailedDeleteRemediationExceptionsBatch");
@@ -3897,22 +3687,21 @@ export namespace FailedDeleteRemediationExceptionsBatch {
 export interface FailedRemediationBatch {
   __type?: "FailedRemediationBatch";
   /**
-   * <p>Returns remediation configurations of the failed items.</p>
-   */
-  FailedItems?: RemediationConfiguration[];
-
-  /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>Returns remediation configurations of the failed items.</p>
+   */
+  FailedItems?: RemediationConfiguration[];
 }
 
 export namespace FailedRemediationBatch {
   export const filterSensitiveLog = (obj: FailedRemediationBatch): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FailedRemediationBatch =>
-    __isa(o, "FailedRemediationBatch");
+  export const isa = (o: any): o is FailedRemediationBatch => __isa(o, "FailedRemediationBatch");
 }
 
 /**
@@ -3921,24 +3710,21 @@ export namespace FailedRemediationBatch {
 export interface FailedRemediationExceptionBatch {
   __type?: "FailedRemediationExceptionBatch";
   /**
-   * <p>Returns remediation exception resource key object of the failed items.</p>
-   */
-  FailedItems?: RemediationException[];
-
-  /**
    * <p>Returns a failure message. For example, the auto-remediation has failed.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>Returns remediation exception resource key object of the failed items.</p>
+   */
+  FailedItems?: RemediationException[];
 }
 
 export namespace FailedRemediationExceptionBatch {
-  export const filterSensitiveLog = (
-    obj: FailedRemediationExceptionBatch
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FailedRemediationExceptionBatch): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is FailedRemediationExceptionBatch =>
-    __isa(o, "FailedRemediationExceptionBatch");
+  export const isa = (o: any): o is FailedRemediationExceptionBatch => __isa(o, "FailedRemediationExceptionBatch");
 }
 
 /**
@@ -3954,7 +3740,7 @@ export interface FieldInfo {
 
 export namespace FieldInfo {
   export const filterSensitiveLog = (obj: FieldInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FieldInfo => __isa(o, "FieldInfo");
 }
@@ -3962,14 +3748,28 @@ export namespace FieldInfo {
 export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   __type?: "GetAggregateComplianceDetailsByConfigRuleRequest";
   /**
-   * <p>The 12-digit account ID of the source account.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
    * <p>The source region from where the data is aggregated.</p>
    */
   AwsRegion: string | undefined;
+
+  /**
+   * <p>The maximum number of evaluation results returned on each page.
+   * 			The default is 50. You cannot specify a number greater than 100. If
+   * 			you specify 0, AWS Config uses the default.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want compliance
+   * 			information.</p>
+   */
+  ConfigRuleName: string | undefined;
 
   /**
    * <p>The resource compliance status.</p>
@@ -3985,65 +3785,43 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   ComplianceType?: ComplianceType | string;
 
   /**
-   * <p>The name of the AWS Config rule for which you want compliance
-   * 			information.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>The name of the configuration aggregator.</p>
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * <p>The maximum number of evaluation results returned on each page.
-   * 			The default is 50. You cannot specify a number greater than 100. If
-   * 			you specify 0, AWS Config uses the default.</p>
+   * <p>The 12-digit account ID of the source account.</p>
    */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
+  AccountId: string | undefined;
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
-  export const filterSensitiveLog = (
-    obj: GetAggregateComplianceDetailsByConfigRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateComplianceDetailsByConfigRuleRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateComplianceDetailsByConfigRuleRequest =>
+  export const isa = (o: any): o is GetAggregateComplianceDetailsByConfigRuleRequest =>
     __isa(o, "GetAggregateComplianceDetailsByConfigRuleRequest");
 }
 
 export interface GetAggregateComplianceDetailsByConfigRuleResponse {
   __type?: "GetAggregateComplianceDetailsByConfigRuleResponse";
   /**
-   * <p>Returns an AggregateEvaluationResults object.</p>
-   */
-  AggregateEvaluationResults?: AggregateEvaluationResult[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns an AggregateEvaluationResults object.</p>
+   */
+  AggregateEvaluationResults?: AggregateEvaluationResult[];
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleResponse {
-  export const filterSensitiveLog = (
-    obj: GetAggregateComplianceDetailsByConfigRuleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateComplianceDetailsByConfigRuleResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateComplianceDetailsByConfigRuleResponse =>
+  export const isa = (o: any): o is GetAggregateComplianceDetailsByConfigRuleResponse =>
     __isa(o, "GetAggregateComplianceDetailsByConfigRuleResponse");
 }
 
@@ -4055,15 +3833,21 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
   ConfigurationAggregatorName: string | undefined;
 
   /**
+   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   */
+  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+
+  /**
    * <p>Filters the results based on the
    * 			ConfigRuleComplianceSummaryFilters object.</p>
    */
   Filters?: ConfigRuleComplianceSummaryFilters;
 
   /**
-   * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
    */
-  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -4071,28 +3855,24 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * 			If you specify 0, AWS Config uses the default.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryRequest {
-  export const filterSensitiveLog = (
-    obj: GetAggregateConfigRuleComplianceSummaryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateConfigRuleComplianceSummaryRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateConfigRuleComplianceSummaryRequest =>
+  export const isa = (o: any): o is GetAggregateConfigRuleComplianceSummaryRequest =>
     __isa(o, "GetAggregateConfigRuleComplianceSummaryRequest");
 }
 
 export interface GetAggregateConfigRuleComplianceSummaryResponse {
   __type?: "GetAggregateConfigRuleComplianceSummaryResponse";
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use
+   * 			to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>Returns a list of AggregateComplianceCounts object.</p>
    */
@@ -4102,32 +3882,32 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    */
   GroupByKey?: string;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use
-   * 			to get the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryResponse {
-  export const filterSensitiveLog = (
-    obj: GetAggregateConfigRuleComplianceSummaryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateConfigRuleComplianceSummaryResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateConfigRuleComplianceSummaryResponse =>
+  export const isa = (o: any): o is GetAggregateConfigRuleComplianceSummaryResponse =>
     __isa(o, "GetAggregateConfigRuleComplianceSummaryResponse");
 }
 
 export interface GetAggregateDiscoveredResourceCountsRequest {
   __type?: "GetAggregateDiscoveredResourceCountsRequest";
   /**
+   * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The name of the configuration aggregator.</p>
    */
   ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
@@ -4138,62 +3918,44 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
    * <p>The key to group the resource counts.</p>
    */
   GroupByKey?: ResourceCountGroupKey | string;
-
-  /**
-   * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAggregateDiscoveredResourceCountsRequest {
-  export const filterSensitiveLog = (
-    obj: GetAggregateDiscoveredResourceCountsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateDiscoveredResourceCountsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateDiscoveredResourceCountsRequest =>
+  export const isa = (o: any): o is GetAggregateDiscoveredResourceCountsRequest =>
     __isa(o, "GetAggregateDiscoveredResourceCountsRequest");
 }
 
 export interface GetAggregateDiscoveredResourceCountsResponse {
   __type?: "GetAggregateDiscoveredResourceCountsResponse";
   /**
-   * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
-   */
-  GroupByKey?: string;
-
-  /**
-   * <p>Returns a list of GroupedResourceCount objects.</p>
-   */
-  GroupedResourceCounts?: GroupedResourceCount[];
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
 
   /**
+   * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
+   */
+  GroupByKey?: string;
+
+  /**
    * <p>The total number of resources that are present in an aggregator with the filters that you provide.</p>
    */
   TotalDiscoveredResources: number | undefined;
+
+  /**
+   * <p>Returns a list of GroupedResourceCount objects.</p>
+   */
+  GroupedResourceCounts?: GroupedResourceCount[];
 }
 
 export namespace GetAggregateDiscoveredResourceCountsResponse {
-  export const filterSensitiveLog = (
-    obj: GetAggregateDiscoveredResourceCountsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateDiscoveredResourceCountsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetAggregateDiscoveredResourceCountsResponse =>
+  export const isa = (o: any): o is GetAggregateDiscoveredResourceCountsResponse =>
     __isa(o, "GetAggregateDiscoveredResourceCountsResponse");
 }
 
@@ -4211,13 +3973,10 @@ export interface GetAggregateResourceConfigRequest {
 }
 
 export namespace GetAggregateResourceConfigRequest {
-  export const filterSensitiveLog = (
-    obj: GetAggregateResourceConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateResourceConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAggregateResourceConfigRequest =>
-    __isa(o, "GetAggregateResourceConfigRequest");
+  export const isa = (o: any): o is GetAggregateResourceConfigRequest => __isa(o, "GetAggregateResourceConfigRequest");
 }
 
 export interface GetAggregateResourceConfigResponse {
@@ -4229,10 +3988,8 @@ export interface GetAggregateResourceConfigResponse {
 }
 
 export namespace GetAggregateResourceConfigResponse {
-  export const filterSensitiveLog = (
-    obj: GetAggregateResourceConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAggregateResourceConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetAggregateResourceConfigResponse =>
     __isa(o, "GetAggregateResourceConfigResponse");
@@ -4243,20 +4000,6 @@ export namespace GetAggregateResourceConfigResponse {
  */
 export interface GetComplianceDetailsByConfigRuleRequest {
   __type?: "GetComplianceDetailsByConfigRuleRequest";
-  /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
-   */
-  ComplianceTypes?: (ComplianceType | string)[];
-
-  /**
-   * <p>The name of the AWS Config rule for which you want compliance
-   * 			information.</p>
-   */
-  ConfigRuleName: string | undefined;
-
   /**
    * <p>The maximum number of evaluation results returned on each page.
    * 			The default is 10. You cannot specify a number greater than 100. If
@@ -4270,13 +4013,25 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the AWS Config rule for which you want compliance
+   * 			information.</p>
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code>,
+   * 				<code>NON_COMPLIANT</code>, and
+   * 			<code>NOT_APPLICABLE</code>.</p>
+   */
+  ComplianceTypes?: (ComplianceType | string)[];
 }
 
 export namespace GetComplianceDetailsByConfigRuleRequest {
-  export const filterSensitiveLog = (
-    obj: GetComplianceDetailsByConfigRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceDetailsByConfigRuleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceDetailsByConfigRuleRequest =>
     __isa(o, "GetComplianceDetailsByConfigRuleRequest");
@@ -4301,10 +4056,8 @@ export interface GetComplianceDetailsByConfigRuleResponse {
 }
 
 export namespace GetComplianceDetailsByConfigRuleResponse {
-  export const filterSensitiveLog = (
-    obj: GetComplianceDetailsByConfigRuleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceDetailsByConfigRuleResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceDetailsByConfigRuleResponse =>
     __isa(o, "GetComplianceDetailsByConfigRuleResponse");
@@ -4316,12 +4069,10 @@ export namespace GetComplianceDetailsByConfigRuleResponse {
 export interface GetComplianceDetailsByResourceRequest {
   __type?: "GetComplianceDetailsByResourceRequest";
   /**
-   * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
+   * <p>The ID of the AWS resource for which you want compliance
+   * 			information.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ResourceId: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4331,10 +4082,12 @@ export interface GetComplianceDetailsByResourceRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID of the AWS resource for which you want compliance
-   * 			information.</p>
+   * <p>Filters the results by compliance.</p>
+   * 		       <p>The allowed values are <code>COMPLIANT</code>,
+   * 				<code>NON_COMPLIANT</code>, and
+   * 			<code>NOT_APPLICABLE</code>.</p>
    */
-  ResourceId: string | undefined;
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>The type of the AWS resource for which you want compliance
@@ -4344,10 +4097,8 @@ export interface GetComplianceDetailsByResourceRequest {
 }
 
 export namespace GetComplianceDetailsByResourceRequest {
-  export const filterSensitiveLog = (
-    obj: GetComplianceDetailsByResourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceDetailsByResourceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceDetailsByResourceRequest =>
     __isa(o, "GetComplianceDetailsByResourceRequest");
@@ -4372,10 +4123,8 @@ export interface GetComplianceDetailsByResourceResponse {
 }
 
 export namespace GetComplianceDetailsByResourceResponse {
-  export const filterSensitiveLog = (
-    obj: GetComplianceDetailsByResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceDetailsByResourceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceDetailsByResourceResponse =>
     __isa(o, "GetComplianceDetailsByResourceResponse");
@@ -4395,10 +4144,8 @@ export interface GetComplianceSummaryByConfigRuleResponse {
 }
 
 export namespace GetComplianceSummaryByConfigRuleResponse {
-  export const filterSensitiveLog = (
-    obj: GetComplianceSummaryByConfigRuleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceSummaryByConfigRuleResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceSummaryByConfigRuleResponse =>
     __isa(o, "GetComplianceSummaryByConfigRuleResponse");
@@ -4422,10 +4169,8 @@ export interface GetComplianceSummaryByResourceTypeRequest {
 }
 
 export namespace GetComplianceSummaryByResourceTypeRequest {
-  export const filterSensitiveLog = (
-    obj: GetComplianceSummaryByResourceTypeRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceSummaryByResourceTypeRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetComplianceSummaryByResourceTypeRequest =>
     __isa(o, "GetComplianceSummaryByResourceTypeRequest");
@@ -4446,54 +4191,51 @@ export interface GetComplianceSummaryByResourceTypeResponse {
 }
 
 export namespace GetComplianceSummaryByResourceTypeResponse {
-  export const filterSensitiveLog = (
-    obj: GetComplianceSummaryByResourceTypeResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetComplianceSummaryByResourceTypeResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetComplianceSummaryByResourceTypeResponse =>
+  export const isa = (o: any): o is GetComplianceSummaryByResourceTypeResponse =>
     __isa(o, "GetComplianceSummaryByResourceTypeResponse");
 }
 
 export interface GetConformancePackComplianceDetailsRequest {
   __type?: "GetConformancePackComplianceDetailsRequest";
   /**
-   * <p>Name of the conformance pack.</p>
-   */
-  ConformancePackName: string | undefined;
-
-  /**
-   * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
-   */
-  Filters?: ConformancePackEvaluationFilters;
-
-  /**
    * <p>The maximum number of evaluation results returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.</p>
    */
   Limit?: number;
 
   /**
+   * <p>Name of the conformance pack.</p>
+   */
+  ConformancePackName: string | undefined;
+
+  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
+   */
+  Filters?: ConformancePackEvaluationFilters;
 }
 
 export namespace GetConformancePackComplianceDetailsRequest {
-  export const filterSensitiveLog = (
-    obj: GetConformancePackComplianceDetailsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConformancePackComplianceDetailsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceDetailsRequest =>
+  export const isa = (o: any): o is GetConformancePackComplianceDetailsRequest =>
     __isa(o, "GetConformancePackComplianceDetailsRequest");
 }
 
 export interface GetConformancePackComplianceDetailsResponse {
   __type?: "GetConformancePackComplianceDetailsResponse";
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>Name of the conformance pack.</p>
    */
@@ -4503,31 +4245,22 @@ export interface GetConformancePackComplianceDetailsResponse {
    * <p>Returns a list of <code>ConformancePackEvaluationResult</code> objects.</p>
    */
   ConformancePackRuleEvaluationResults?: ConformancePackEvaluationResult[];
-
-  /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetConformancePackComplianceDetailsResponse {
-  export const filterSensitiveLog = (
-    obj: GetConformancePackComplianceDetailsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConformancePackComplianceDetailsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceDetailsResponse =>
+  export const isa = (o: any): o is GetConformancePackComplianceDetailsResponse =>
     __isa(o, "GetConformancePackComplianceDetailsResponse");
 }
 
 export interface GetConformancePackComplianceSummaryRequest {
   __type?: "GetConformancePackComplianceSummaryRequest";
   /**
-   * <p>Names of conformance packs.</p>
+   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
-  ConformancePackNames: string[] | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of conformance packs returned on each page.</p>
@@ -4535,65 +4268,42 @@ export interface GetConformancePackComplianceSummaryRequest {
   Limit?: number;
 
   /**
-   * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * <p>Names of conformance packs.</p>
    */
-  NextToken?: string;
+  ConformancePackNames: string[] | undefined;
 }
 
 export namespace GetConformancePackComplianceSummaryRequest {
-  export const filterSensitiveLog = (
-    obj: GetConformancePackComplianceSummaryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConformancePackComplianceSummaryRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceSummaryRequest =>
+  export const isa = (o: any): o is GetConformancePackComplianceSummaryRequest =>
     __isa(o, "GetConformancePackComplianceSummaryRequest");
 }
 
 export interface GetConformancePackComplianceSummaryResponse {
   __type?: "GetConformancePackComplianceSummaryResponse";
   /**
-   * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
-   */
-  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[];
-
-  /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
+   */
+  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[];
 }
 
 export namespace GetConformancePackComplianceSummaryResponse {
-  export const filterSensitiveLog = (
-    obj: GetConformancePackComplianceSummaryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConformancePackComplianceSummaryResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceSummaryResponse =>
+  export const isa = (o: any): o is GetConformancePackComplianceSummaryResponse =>
     __isa(o, "GetConformancePackComplianceSummaryResponse");
 }
 
 export interface GetDiscoveredResourceCountsRequest {
   __type?: "GetDiscoveredResourceCountsRequest";
-  /**
-   * <p>The maximum number of <a>ResourceCount</a> objects
-   * 			returned on each page. The default is 100. You cannot specify a
-   * 			number greater than 100. If you specify 0, AWS Config uses the
-   * 			default.</p>
-   */
-  limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The comma-separated list that specifies the resource types that
    * 			you want AWS Config to return (for example,
@@ -4612,13 +4322,26 @@ export interface GetDiscoveredResourceCountsRequest {
    * 		       </note>
    */
   resourceTypes?: string[];
+
+  /**
+   * <p>The maximum number of <a>ResourceCount</a> objects
+   * 			returned on each page. The default is 100. You cannot specify a
+   * 			number greater than 100. If you specify 0, AWS Config uses the
+   * 			default.</p>
+   */
+  limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetDiscoveredResourceCountsRequest {
-  export const filterSensitiveLog = (
-    obj: GetDiscoveredResourceCountsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDiscoveredResourceCountsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDiscoveredResourceCountsRequest =>
     __isa(o, "GetDiscoveredResourceCountsRequest");
@@ -4626,12 +4349,6 @@ export namespace GetDiscoveredResourceCountsRequest {
 
 export interface GetDiscoveredResourceCountsResponse {
   __type?: "GetDiscoveredResourceCountsResponse";
-  /**
-   * <p>The string that you use in a subsequent request to get the next
-   * 			page of results in a paginated response.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The list of <code>ResourceCount</code> objects. Each object is
    * 			listed in descending order by the number of resources.</p>
@@ -4669,13 +4386,17 @@ export interface GetDiscoveredResourceCountsResponse {
    *          </ol>
    */
   totalDiscoveredResources?: number;
+
+  /**
+   * <p>The string that you use in a subsequent request to get the next
+   * 			page of results in a paginated response.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetDiscoveredResourceCountsResponse {
-  export const filterSensitiveLog = (
-    obj: GetDiscoveredResourceCountsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDiscoveredResourceCountsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDiscoveredResourceCountsResponse =>
     __isa(o, "GetDiscoveredResourceCountsResponse");
@@ -4689,6 +4410,11 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
   Filters?: StatusDetailFilters;
 
   /**
+   * <p>The name of organization config rule for which you want status details for member accounts.</p>
+   */
+  OrganizationConfigRuleName: string | undefined;
+
+  /**
    * <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.</p>
    */
   Limit?: number;
@@ -4697,22 +4423,13 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of organization config rule for which you want status details for member accounts.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
 }
 
 export namespace GetOrganizationConfigRuleDetailedStatusRequest {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationConfigRuleDetailedStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationConfigRuleDetailedStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConfigRuleDetailedStatusRequest =>
+  export const isa = (o: any): o is GetOrganizationConfigRuleDetailedStatusRequest =>
     __isa(o, "GetOrganizationConfigRuleDetailedStatusRequest");
 }
 
@@ -4730,14 +4447,10 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
 }
 
 export namespace GetOrganizationConfigRuleDetailedStatusResponse {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationConfigRuleDetailedStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationConfigRuleDetailedStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConfigRuleDetailedStatusResponse =>
+  export const isa = (o: any): o is GetOrganizationConfigRuleDetailedStatusResponse =>
     __isa(o, "GetOrganizationConfigRuleDetailedStatusResponse");
 }
 
@@ -4749,10 +4462,9 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
   Filters?: OrganizationResourceDetailedStatusFilters;
 
   /**
-   * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
-   * 			If you do not specify a number, AWS Config uses the default. The default is 100. </p>
+   * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
    */
-  Limit?: number;
+  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
@@ -4760,20 +4472,17 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
   NextToken?: string;
 
   /**
-   * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
+   * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
+   * 			If you do not specify a number, AWS Config uses the default. The default is 100. </p>
    */
-  OrganizationConformancePackName: string | undefined;
+  Limit?: number;
 }
 
 export namespace GetOrganizationConformancePackDetailedStatusRequest {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationConformancePackDetailedStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationConformancePackDetailedStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConformancePackDetailedStatusRequest =>
+  export const isa = (o: any): o is GetOrganizationConformancePackDetailedStatusRequest =>
     __isa(o, "GetOrganizationConformancePackDetailedStatusRequest");
 }
 
@@ -4791,14 +4500,10 @@ export interface GetOrganizationConformancePackDetailedStatusResponse {
 }
 
 export namespace GetOrganizationConformancePackDetailedStatusResponse {
-  export const filterSensitiveLog = (
-    obj: GetOrganizationConformancePackDetailedStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetOrganizationConformancePackDetailedStatusResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConformancePackDetailedStatusResponse =>
+  export const isa = (o: any): o is GetOrganizationConformancePackDetailedStatusResponse =>
     __isa(o, "GetOrganizationConformancePackDetailedStatusResponse");
 }
 
@@ -4809,11 +4514,23 @@ export namespace GetOrganizationConformancePackDetailedStatusResponse {
 export interface GetResourceConfigHistoryRequest {
   __type?: "GetResourceConfigHistoryRequest";
   /**
-   * <p>The chronological order for configuration items listed. By
-   * 			default, the results are listed in reverse chronological
-   * 			order.</p>
+   * <p>The time stamp that indicates a later time. If not specified,
+   * 			current time is taken.</p>
    */
-  chronologicalOrder?: ChronologicalOrder | string;
+  laterTime?: Date;
+
+  /**
+   * <p>The ID of the resource (for example.,
+   * 			<code>sg-xxxxxx</code>).</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The time stamp that indicates an earlier time. If not
@@ -4824,10 +4541,16 @@ export interface GetResourceConfigHistoryRequest {
   earlierTime?: Date;
 
   /**
-   * <p>The time stamp that indicates a later time. If not specified,
-   * 			current time is taken.</p>
+   * <p>The resource type.</p>
    */
-  laterTime?: Date;
+  resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>The chronological order for configuration items listed. By
+   * 			default, the results are listed in reverse chronological
+   * 			order.</p>
+   */
+  chronologicalOrder?: ChronologicalOrder | string;
 
   /**
    * <p>The maximum number of configuration items returned on each
@@ -4835,34 +4558,13 @@ export interface GetResourceConfigHistoryRequest {
    * 			100. If you specify 0, AWS Config uses the default.</p>
    */
   limit?: number;
-
-  /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The ID of the resource (for example.,
-   * 			<code>sg-xxxxxx</code>).</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  resourceType: ResourceType | string | undefined;
 }
 
 export namespace GetResourceConfigHistoryRequest {
-  export const filterSensitiveLog = (
-    obj: GetResourceConfigHistoryRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceConfigHistoryRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceConfigHistoryRequest =>
-    __isa(o, "GetResourceConfigHistoryRequest");
+  export const isa = (o: any): o is GetResourceConfigHistoryRequest => __isa(o, "GetResourceConfigHistoryRequest");
 }
 
 /**
@@ -4872,26 +4574,23 @@ export namespace GetResourceConfigHistoryRequest {
 export interface GetResourceConfigHistoryResponse {
   __type?: "GetResourceConfigHistoryResponse";
   /**
-   * <p>A list that contains the configuration history of one or more
-   * 			resources.</p>
-   */
-  configurationItems?: ConfigurationItem[];
-
-  /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list that contains the configuration history of one or more
+   * 			resources.</p>
+   */
+  configurationItems?: ConfigurationItem[];
 }
 
 export namespace GetResourceConfigHistoryResponse {
-  export const filterSensitiveLog = (
-    obj: GetResourceConfigHistoryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceConfigHistoryResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceConfigHistoryResponse =>
-    __isa(o, "GetResourceConfigHistoryResponse");
+  export const isa = (o: any): o is GetResourceConfigHistoryResponse => __isa(o, "GetResourceConfigHistoryResponse");
 }
 
 /**
@@ -4900,31 +4599,28 @@ export namespace GetResourceConfigHistoryResponse {
 export interface GroupedResourceCount {
   __type?: "GroupedResourceCount";
   /**
-   * <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
    * <p>The number of resources in the group.</p>
    */
   ResourceCount: number | undefined;
+
+  /**
+   * <p>The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as <code>GroupByKey</code>.</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace GroupedResourceCount {
   export const filterSensitiveLog = (obj: GroupedResourceCount): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GroupedResourceCount =>
-    __isa(o, "GroupedResourceCount");
+  export const isa = (o: any): o is GroupedResourceCount => __isa(o, "GroupedResourceCount");
 }
 
 /**
  * <p>Your Amazon S3 bucket policy does not permit AWS Config to
  * 			write to it.</p>
  */
-export interface InsufficientDeliveryPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDeliveryPolicyException extends __SmithyException, $MetadataBearer {
   name: "InsufficientDeliveryPolicyException";
   $fault: "client";
   /**
@@ -4934,10 +4630,8 @@ export interface InsufficientDeliveryPolicyException
 }
 
 export namespace InsufficientDeliveryPolicyException {
-  export const filterSensitiveLog = (
-    obj: InsufficientDeliveryPolicyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientDeliveryPolicyException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InsufficientDeliveryPolicyException =>
     __isa(o, "InsufficientDeliveryPolicyException");
@@ -4968,9 +4662,7 @@ export namespace InsufficientDeliveryPolicyException {
  * 			         </li>
  *          </ul>
  */
-export interface InsufficientPermissionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientPermissionsException extends __SmithyException, $MetadataBearer {
   name: "InsufficientPermissionsException";
   $fault: "client";
   /**
@@ -4980,22 +4672,17 @@ export interface InsufficientPermissionsException
 }
 
 export namespace InsufficientPermissionsException {
-  export const filterSensitiveLog = (
-    obj: InsufficientPermissionsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientPermissionsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InsufficientPermissionsException =>
-    __isa(o, "InsufficientPermissionsException");
+  export const isa = (o: any): o is InsufficientPermissionsException => __isa(o, "InsufficientPermissionsException");
 }
 
 /**
  * <p>You have provided a configuration recorder name that is not
  * 			valid.</p>
  */
-export interface InvalidConfigurationRecorderNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConfigurationRecorderNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidConfigurationRecorderNameException";
   $fault: "client";
   /**
@@ -5005,10 +4692,8 @@ export interface InvalidConfigurationRecorderNameException
 }
 
 export namespace InvalidConfigurationRecorderNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidConfigurationRecorderNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidConfigurationRecorderNameException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidConfigurationRecorderNameException =>
     __isa(o, "InvalidConfigurationRecorderNameException");
@@ -5017,9 +4702,7 @@ export namespace InvalidConfigurationRecorderNameException {
 /**
  * <p>The specified delivery channel name is not valid.</p>
  */
-export interface InvalidDeliveryChannelNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeliveryChannelNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeliveryChannelNameException";
   $fault: "client";
   /**
@@ -5029,10 +4712,8 @@ export interface InvalidDeliveryChannelNameException
 }
 
 export namespace InvalidDeliveryChannelNameException {
-  export const filterSensitiveLog = (
-    obj: InvalidDeliveryChannelNameException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidDeliveryChannelNameException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidDeliveryChannelNameException =>
     __isa(o, "InvalidDeliveryChannelNameException");
@@ -5041,9 +4722,7 @@ export namespace InvalidDeliveryChannelNameException {
 /**
  * <p>The syntax of the query is incorrect.</p>
  */
-export interface InvalidExpressionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidExpressionException extends __SmithyException, $MetadataBearer {
   name: "InvalidExpressionException";
   $fault: "client";
   /**
@@ -5054,18 +4733,15 @@ export interface InvalidExpressionException
 
 export namespace InvalidExpressionException {
   export const filterSensitiveLog = (obj: InvalidExpressionException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidExpressionException =>
-    __isa(o, "InvalidExpressionException");
+  export const isa = (o: any): o is InvalidExpressionException => __isa(o, "InvalidExpressionException");
 }
 
 /**
  * <p>The specified limit is outside the allowable range.</p>
  */
-export interface InvalidLimitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLimitException extends __SmithyException, $MetadataBearer {
   name: "InvalidLimitException";
   $fault: "client";
   /**
@@ -5076,10 +4752,9 @@ export interface InvalidLimitException
 
 export namespace InvalidLimitException {
   export const filterSensitiveLog = (obj: InvalidLimitException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidLimitException =>
-    __isa(o, "InvalidLimitException");
+  export const isa = (o: any): o is InvalidLimitException => __isa(o, "InvalidLimitException");
 }
 
 /**
@@ -5087,9 +4762,7 @@ export namespace InvalidLimitException {
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -5100,19 +4773,16 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>One or more of the specified parameters are invalid. Verify
  * 			that your parameters are valid and try again.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -5122,21 +4792,16 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
  */
-export interface InvalidRecordingGroupException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRecordingGroupException extends __SmithyException, $MetadataBearer {
   name: "InvalidRecordingGroupException";
   $fault: "client";
   /**
@@ -5146,21 +4811,16 @@ export interface InvalidRecordingGroupException
 }
 
 export namespace InvalidRecordingGroupException {
-  export const filterSensitiveLog = (
-    obj: InvalidRecordingGroupException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRecordingGroupException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRecordingGroupException =>
-    __isa(o, "InvalidRecordingGroupException");
+  export const isa = (o: any): o is InvalidRecordingGroupException => __isa(o, "InvalidRecordingGroupException");
 }
 
 /**
  * <p>The specified <code>ResultToken</code> is invalid.</p>
  */
-export interface InvalidResultTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResultTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidResultTokenException";
   $fault: "client";
   /**
@@ -5170,21 +4830,16 @@ export interface InvalidResultTokenException
 }
 
 export namespace InvalidResultTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidResultTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidResultTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidResultTokenException =>
-    __isa(o, "InvalidResultTokenException");
+  export const isa = (o: any): o is InvalidResultTokenException => __isa(o, "InvalidResultTokenException");
 }
 
 /**
  * <p>You have provided a null or empty role ARN.</p>
  */
-export interface InvalidRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidRoleException";
   $fault: "client";
   /**
@@ -5195,18 +4850,15 @@ export interface InvalidRoleException
 
 export namespace InvalidRoleException {
   export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRoleException =>
-    __isa(o, "InvalidRoleException");
+  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
  * <p>The specified Amazon S3 key prefix is not valid.</p>
  */
-export interface InvalidS3KeyPrefixException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3KeyPrefixException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3KeyPrefixException";
   $fault: "client";
   /**
@@ -5216,21 +4868,16 @@ export interface InvalidS3KeyPrefixException
 }
 
 export namespace InvalidS3KeyPrefixException {
-  export const filterSensitiveLog = (
-    obj: InvalidS3KeyPrefixException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidS3KeyPrefixException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidS3KeyPrefixException =>
-    __isa(o, "InvalidS3KeyPrefixException");
+  export const isa = (o: any): o is InvalidS3KeyPrefixException => __isa(o, "InvalidS3KeyPrefixException");
 }
 
 /**
  * <p>The specified Amazon SNS topic does not exist.</p>
  */
-export interface InvalidSNSTopicARNException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSNSTopicARNException extends __SmithyException, $MetadataBearer {
   name: "InvalidSNSTopicARNException";
   $fault: "client";
   /**
@@ -5240,22 +4887,17 @@ export interface InvalidSNSTopicARNException
 }
 
 export namespace InvalidSNSTopicARNException {
-  export const filterSensitiveLog = (
-    obj: InvalidSNSTopicARNException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSNSTopicARNException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSNSTopicARNException =>
-    __isa(o, "InvalidSNSTopicARNException");
+  export const isa = (o: any): o is InvalidSNSTopicARNException => __isa(o, "InvalidSNSTopicARNException");
 }
 
 /**
  * <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  */
-export interface InvalidTimeRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -5266,19 +4908,16 @@ export interface InvalidTimeRangeException
 
 export namespace InvalidTimeRangeException {
   export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTimeRangeException =>
-    __isa(o, "InvalidTimeRangeException");
+  export const isa = (o: any): o is InvalidTimeRangeException => __isa(o, "InvalidTimeRangeException");
 }
 
 /**
  * <p>You cannot delete the delivery channel you specified because
  * 			the configuration recorder is running.</p>
  */
-export interface LastDeliveryChannelDeleteFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LastDeliveryChannelDeleteFailedException extends __SmithyException, $MetadataBearer {
   name: "LastDeliveryChannelDeleteFailedException";
   $fault: "client";
   /**
@@ -5288,10 +4927,8 @@ export interface LastDeliveryChannelDeleteFailedException
 }
 
 export namespace LastDeliveryChannelDeleteFailedException {
-  export const filterSensitiveLog = (
-    obj: LastDeliveryChannelDeleteFailedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LastDeliveryChannelDeleteFailedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LastDeliveryChannelDeleteFailedException =>
     __isa(o, "LastDeliveryChannelDeleteFailedException");
@@ -5305,9 +4942,7 @@ export namespace LastDeliveryChannelDeleteFailedException {
  * 			is thrown if the number of accounts and aggregators exceeds the
  * 			limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -5318,28 +4953,22 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAggregateDiscoveredResourcesRequest {
   __type?: "ListAggregateDiscoveredResourcesRequest";
-  /**
-   * <p>The name of the configuration aggregator. </p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
   /**
    * <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
    */
   Filters?: ResourceFilters;
 
   /**
-   * <p>The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
+   * <p>The type of resources that you want AWS Config to list in the response.</p>
    */
-  Limit?: number;
+  ResourceType: ResourceType | string | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -5347,16 +4976,19 @@ export interface ListAggregateDiscoveredResourcesRequest {
   NextToken?: string;
 
   /**
-   * <p>The type of resources that you want AWS Config to list in the response.</p>
+   * <p>The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  Limit?: number;
+
+  /**
+   * <p>The name of the configuration aggregator. </p>
+   */
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace ListAggregateDiscoveredResourcesRequest {
-  export const filterSensitiveLog = (
-    obj: ListAggregateDiscoveredResourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAggregateDiscoveredResourcesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAggregateDiscoveredResourcesRequest =>
     __isa(o, "ListAggregateDiscoveredResourcesRequest");
@@ -5376,10 +5008,8 @@ export interface ListAggregateDiscoveredResourcesResponse {
 }
 
 export namespace ListAggregateDiscoveredResourcesResponse {
-  export const filterSensitiveLog = (
-    obj: ListAggregateDiscoveredResourcesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAggregateDiscoveredResourcesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAggregateDiscoveredResourcesResponse =>
     __isa(o, "ListAggregateDiscoveredResourcesResponse");
@@ -5391,12 +5021,6 @@ export namespace ListAggregateDiscoveredResourcesResponse {
 export interface ListDiscoveredResourcesRequest {
   __type?: "ListDiscoveredResourcesRequest";
   /**
-   * <p>Specifies whether AWS Config includes deleted resources in the
-   * 			results. By default, deleted resources are not included.</p>
-   */
-  includeDeletedResources?: boolean;
-
-  /**
    * <p>The maximum number of resource identifiers returned on each
    * 			page. The default is 100. You cannot specify a number greater than
    * 			100. If you specify 0, AWS Config uses the default.</p>
@@ -5404,11 +5028,23 @@ export interface ListDiscoveredResourcesRequest {
   limit?: number;
 
   /**
+   * <p>Specifies whether AWS Config includes deleted resources in the
+   * 			results. By default, deleted resources are not included.</p>
+   */
+  includeDeletedResources?: boolean;
+
+  /**
    * <p>The <code>nextToken</code> string returned on a previous page
    * 			that you use to get the next page of results in a paginated
    * 			response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The type of resources that you want AWS Config to list in the
+   * 			response.</p>
+   */
+  resourceType: ResourceType | string | undefined;
 
   /**
    * <p>The IDs of only those resources that you want AWS Config to
@@ -5425,22 +5061,13 @@ export interface ListDiscoveredResourcesRequest {
    * 			it has discovered.</p>
    */
   resourceName?: string;
-
-  /**
-   * <p>The type of resources that you want AWS Config to list in the
-   * 			response.</p>
-   */
-  resourceType: ResourceType | string | undefined;
 }
 
 export namespace ListDiscoveredResourcesRequest {
-  export const filterSensitiveLog = (
-    obj: ListDiscoveredResourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDiscoveredResourcesRequest =>
-    __isa(o, "ListDiscoveredResourcesRequest");
+  export const isa = (o: any): o is ListDiscoveredResourcesRequest => __isa(o, "ListDiscoveredResourcesRequest");
 }
 
 /**
@@ -5463,26 +5090,23 @@ export interface ListDiscoveredResourcesResponse {
 }
 
 export namespace ListDiscoveredResourcesResponse {
-  export const filterSensitiveLog = (
-    obj: ListDiscoveredResourcesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDiscoveredResourcesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDiscoveredResourcesResponse =>
-    __isa(o, "ListDiscoveredResourcesResponse");
+  export const isa = (o: any): o is ListDiscoveredResourcesResponse => __isa(o, "ListDiscoveredResourcesResponse");
 }
 
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default. </p>
-   */
-  Limit?: number;
-
-  /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default. </p>
+   */
+  Limit?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
@@ -5492,42 +5116,36 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The tags for the resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>You have reached the limit (100,000) of active custom resource types in your account.
  * 			Delete unused resources using <code>DeleteResourceConfig</code>.</p>
  */
-export interface MaxActiveResourcesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxActiveResourcesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxActiveResourcesExceededException";
   $fault: "client";
   /**
@@ -5537,10 +5155,8 @@ export interface MaxActiveResourcesExceededException
 }
 
 export namespace MaxActiveResourcesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxActiveResourcesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxActiveResourcesExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaxActiveResourcesExceededException =>
     __isa(o, "MaxActiveResourcesExceededException");
@@ -5551,7 +5167,7 @@ export enum MaximumExecutionFrequency {
   Six_Hours = "Six_Hours",
   Three_Hours = "Three_Hours",
   Twelve_Hours = "Twelve_Hours",
-  TwentyFour_Hours = "TwentyFour_Hours"
+  TwentyFour_Hours = "TwentyFour_Hours",
 }
 
 /**
@@ -5559,9 +5175,7 @@ export enum MaximumExecutionFrequency {
  * 			contains the maximum number of 150 rules. Consider deleting any
  * 			deactivated rules before you add new rules.</p>
  */
-export interface MaxNumberOfConfigRulesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfConfigRulesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfConfigRulesExceededException";
   $fault: "client";
   /**
@@ -5571,10 +5185,8 @@ export interface MaxNumberOfConfigRulesExceededException
 }
 
 export namespace MaxNumberOfConfigRulesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfConfigRulesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfConfigRulesExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MaxNumberOfConfigRulesExceededException =>
     __isa(o, "MaxNumberOfConfigRulesExceededException");
@@ -5584,9 +5196,7 @@ export namespace MaxNumberOfConfigRulesExceededException {
  * <p>You have reached the limit of the number of recorders you can
  * 			create.</p>
  */
-export interface MaxNumberOfConfigurationRecordersExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfConfigurationRecordersExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfConfigurationRecordersExceededException";
   $fault: "client";
   /**
@@ -5596,23 +5206,17 @@ export interface MaxNumberOfConfigurationRecordersExceededException
 }
 
 export namespace MaxNumberOfConfigurationRecordersExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfConfigurationRecordersExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfConfigurationRecordersExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfConfigurationRecordersExceededException =>
+  export const isa = (o: any): o is MaxNumberOfConfigurationRecordersExceededException =>
     __isa(o, "MaxNumberOfConfigurationRecordersExceededException");
 }
 
 /**
  * <p>You have reached the limit (6) of the number of conformance packs in an account (6 conformance pack with 25 AWS Config rules per pack).</p>
  */
-export interface MaxNumberOfConformancePacksExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfConformancePacksExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfConformancePacksExceededException";
   $fault: "client";
   /**
@@ -5622,14 +5226,10 @@ export interface MaxNumberOfConformancePacksExceededException
 }
 
 export namespace MaxNumberOfConformancePacksExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfConformancePacksExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfConformancePacksExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfConformancePacksExceededException =>
+  export const isa = (o: any): o is MaxNumberOfConformancePacksExceededException =>
     __isa(o, "MaxNumberOfConformancePacksExceededException");
 }
 
@@ -5637,9 +5237,7 @@ export namespace MaxNumberOfConformancePacksExceededException {
  * <p>You have reached the limit of the number of delivery channels
  * 			you can create.</p>
  */
-export interface MaxNumberOfDeliveryChannelsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfDeliveryChannelsExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfDeliveryChannelsExceededException";
   $fault: "client";
   /**
@@ -5649,23 +5247,17 @@ export interface MaxNumberOfDeliveryChannelsExceededException
 }
 
 export namespace MaxNumberOfDeliveryChannelsExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfDeliveryChannelsExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfDeliveryChannelsExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfDeliveryChannelsExceededException =>
+  export const isa = (o: any): o is MaxNumberOfDeliveryChannelsExceededException =>
     __isa(o, "MaxNumberOfDeliveryChannelsExceededException");
 }
 
 /**
  * <p>You have reached the limit of the number of organization config rules you can create.</p>
  */
-export interface MaxNumberOfOrganizationConfigRulesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfOrganizationConfigRulesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfOrganizationConfigRulesExceededException";
   $fault: "client";
   /**
@@ -5675,23 +5267,17 @@ export interface MaxNumberOfOrganizationConfigRulesExceededException
 }
 
 export namespace MaxNumberOfOrganizationConfigRulesExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfOrganizationConfigRulesExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfOrganizationConfigRulesExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfOrganizationConfigRulesExceededException =>
+  export const isa = (o: any): o is MaxNumberOfOrganizationConfigRulesExceededException =>
     __isa(o, "MaxNumberOfOrganizationConfigRulesExceededException");
 }
 
 /**
  * <p>You have reached the limit (6) of the number of organization conformance packs in an account (6 conformance pack with 25 AWS Config rules per pack per account).</p>
  */
-export interface MaxNumberOfOrganizationConformancePacksExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfOrganizationConformancePacksExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfOrganizationConformancePacksExceededException";
   $fault: "client";
   /**
@@ -5701,23 +5287,17 @@ export interface MaxNumberOfOrganizationConformancePacksExceededException
 }
 
 export namespace MaxNumberOfOrganizationConformancePacksExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfOrganizationConformancePacksExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfOrganizationConformancePacksExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfOrganizationConformancePacksExceededException =>
+  export const isa = (o: any): o is MaxNumberOfOrganizationConformancePacksExceededException =>
     __isa(o, "MaxNumberOfOrganizationConformancePacksExceededException");
 }
 
 /**
  * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  */
-export interface MaxNumberOfRetentionConfigurationsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxNumberOfRetentionConfigurationsExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxNumberOfRetentionConfigurationsExceededException";
   $fault: "client";
   /**
@@ -5727,14 +5307,10 @@ export interface MaxNumberOfRetentionConfigurationsExceededException
 }
 
 export namespace MaxNumberOfRetentionConfigurationsExceededException {
-  export const filterSensitiveLog = (
-    obj: MaxNumberOfRetentionConfigurationsExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MaxNumberOfRetentionConfigurationsExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfRetentionConfigurationsExceededException =>
+  export const isa = (o: any): o is MaxNumberOfRetentionConfigurationsExceededException =>
     __isa(o, "MaxNumberOfRetentionConfigurationsExceededException");
 }
 
@@ -5747,7 +5323,7 @@ export enum MemberAccountRuleStatus {
   DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
   UPDATE_FAILED = "UPDATE_FAILED",
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 /**
@@ -5756,24 +5332,14 @@ export enum MemberAccountRuleStatus {
 export interface MemberAccountStatus {
   __type?: "MemberAccountStatus";
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
    */
-  AccountId: string | undefined;
+  ErrorMessage?: string;
 
   /**
    * <p>The name of config rule deployed in the member account.</p>
    */
   ConfigRuleName: string | undefined;
-
-  /**
-   * <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
-   */
-  ErrorMessage?: string;
 
   /**
    * <p>The timestamp of the last status update.</p>
@@ -5827,21 +5393,30 @@ export interface MemberAccountStatus {
    *          </ul>
    */
   MemberAccountRuleStatus: MemberAccountRuleStatus | string | undefined;
+
+  /**
+   * <p>The 12-digit account ID of a member account.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace MemberAccountStatus {
   export const filterSensitiveLog = (obj: MemberAccountStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MemberAccountStatus =>
-    __isa(o, "MemberAccountStatus");
+  export const isa = (o: any): o is MemberAccountStatus => __isa(o, "MemberAccountStatus");
 }
 
 export enum MessageType {
   ConfigurationItemChangeNotification = "ConfigurationItemChangeNotification",
   ConfigurationSnapshotDeliveryCompleted = "ConfigurationSnapshotDeliveryCompleted",
   OversizedConfigurationItemChangeNotification = "OversizedConfigurationItemChangeNotification",
-  ScheduledNotification = "ScheduledNotification"
+  ScheduledNotification = "ScheduledNotification",
 }
 
 /**
@@ -5849,9 +5424,7 @@ export enum MessageType {
  * 			role needed to describe your resources. Create a configuration
  * 			recorder.</p>
  */
-export interface NoAvailableConfigurationRecorderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableConfigurationRecorderException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableConfigurationRecorderException";
   $fault: "client";
   /**
@@ -5861,10 +5434,8 @@ export interface NoAvailableConfigurationRecorderException
 }
 
 export namespace NoAvailableConfigurationRecorderException {
-  export const filterSensitiveLog = (
-    obj: NoAvailableConfigurationRecorderException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoAvailableConfigurationRecorderException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoAvailableConfigurationRecorderException =>
     __isa(o, "NoAvailableConfigurationRecorderException");
@@ -5874,9 +5445,7 @@ export namespace NoAvailableConfigurationRecorderException {
  * <p>There is no delivery channel available to record
  * 			configurations.</p>
  */
-export interface NoAvailableDeliveryChannelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableDeliveryChannelException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableDeliveryChannelException";
   $fault: "client";
   /**
@@ -5886,10 +5455,8 @@ export interface NoAvailableDeliveryChannelException
 }
 
 export namespace NoAvailableDeliveryChannelException {
-  export const filterSensitiveLog = (
-    obj: NoAvailableDeliveryChannelException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoAvailableDeliveryChannelException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoAvailableDeliveryChannelException =>
     __isa(o, "NoAvailableDeliveryChannelException");
@@ -5898,9 +5465,7 @@ export namespace NoAvailableDeliveryChannelException {
 /**
  * <p>Organization is no longer available.</p>
  */
-export interface NoAvailableOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableOrganizationException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableOrganizationException";
   $fault: "client";
   /**
@@ -5910,21 +5475,16 @@ export interface NoAvailableOrganizationException
 }
 
 export namespace NoAvailableOrganizationException {
-  export const filterSensitiveLog = (
-    obj: NoAvailableOrganizationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoAvailableOrganizationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NoAvailableOrganizationException =>
-    __isa(o, "NoAvailableOrganizationException");
+  export const isa = (o: any): o is NoAvailableOrganizationException => __isa(o, "NoAvailableOrganizationException");
 }
 
 /**
  * <p>There is no configuration recorder running.</p>
  */
-export interface NoRunningConfigurationRecorderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoRunningConfigurationRecorderException extends __SmithyException, $MetadataBearer {
   name: "NoRunningConfigurationRecorderException";
   $fault: "client";
   /**
@@ -5934,10 +5494,8 @@ export interface NoRunningConfigurationRecorderException
 }
 
 export namespace NoRunningConfigurationRecorderException {
-  export const filterSensitiveLog = (
-    obj: NoRunningConfigurationRecorderException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoRunningConfigurationRecorderException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoRunningConfigurationRecorderException =>
     __isa(o, "NoRunningConfigurationRecorderException");
@@ -5946,9 +5504,7 @@ export namespace NoRunningConfigurationRecorderException {
 /**
  * <p>The specified Amazon S3 bucket does not exist.</p>
  */
-export interface NoSuchBucketException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchBucketException extends __SmithyException, $MetadataBearer {
   name: "NoSuchBucketException";
   $fault: "client";
   /**
@@ -5959,19 +5515,16 @@ export interface NoSuchBucketException
 
 export namespace NoSuchBucketException {
   export const filterSensitiveLog = (obj: NoSuchBucketException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchBucketException =>
-    __isa(o, "NoSuchBucketException");
+  export const isa = (o: any): o is NoSuchBucketException => __isa(o, "NoSuchBucketException");
 }
 
 /**
  * <p>One or more AWS Config rules in the request are invalid. Verify
  * 			that the rule names are correct and try again.</p>
  */
-export interface NoSuchConfigRuleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigRuleException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigRuleException";
   $fault: "client";
   /**
@@ -5982,18 +5535,15 @@ export interface NoSuchConfigRuleException
 
 export namespace NoSuchConfigRuleException {
   export const filterSensitiveLog = (obj: NoSuchConfigRuleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchConfigRuleException =>
-    __isa(o, "NoSuchConfigRuleException");
+  export const isa = (o: any): o is NoSuchConfigRuleException => __isa(o, "NoSuchConfigRuleException");
 }
 
 /**
  * <p>AWS Config rule that you passed in the filter does not exist.</p>
  */
-export interface NoSuchConfigRuleInConformancePackException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigRuleInConformancePackException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigRuleInConformancePackException";
   $fault: "client";
   /**
@@ -6003,23 +5553,17 @@ export interface NoSuchConfigRuleInConformancePackException
 }
 
 export namespace NoSuchConfigRuleInConformancePackException {
-  export const filterSensitiveLog = (
-    obj: NoSuchConfigRuleInConformancePackException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchConfigRuleInConformancePackException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is NoSuchConfigRuleInConformancePackException =>
+  export const isa = (o: any): o is NoSuchConfigRuleInConformancePackException =>
     __isa(o, "NoSuchConfigRuleInConformancePackException");
 }
 
 /**
  * <p>You have specified a configuration aggregator that does not exist.</p>
  */
-export interface NoSuchConfigurationAggregatorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigurationAggregatorException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigurationAggregatorException";
   $fault: "client";
   /**
@@ -6029,10 +5573,8 @@ export interface NoSuchConfigurationAggregatorException
 }
 
 export namespace NoSuchConfigurationAggregatorException {
-  export const filterSensitiveLog = (
-    obj: NoSuchConfigurationAggregatorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchConfigurationAggregatorException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchConfigurationAggregatorException =>
     __isa(o, "NoSuchConfigurationAggregatorException");
@@ -6042,9 +5584,7 @@ export namespace NoSuchConfigurationAggregatorException {
  * <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  */
-export interface NoSuchConfigurationRecorderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigurationRecorderException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigurationRecorderException";
   $fault: "client";
   /**
@@ -6054,10 +5594,8 @@ export interface NoSuchConfigurationRecorderException
 }
 
 export namespace NoSuchConfigurationRecorderException {
-  export const filterSensitiveLog = (
-    obj: NoSuchConfigurationRecorderException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchConfigurationRecorderException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchConfigurationRecorderException =>
     __isa(o, "NoSuchConfigurationRecorderException");
@@ -6066,9 +5604,7 @@ export namespace NoSuchConfigurationRecorderException {
 /**
  * <p>You specified one or more conformance packs that do not exist.</p>
  */
-export interface NoSuchConformancePackException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConformancePackException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConformancePackException";
   $fault: "client";
   /**
@@ -6078,22 +5614,17 @@ export interface NoSuchConformancePackException
 }
 
 export namespace NoSuchConformancePackException {
-  export const filterSensitiveLog = (
-    obj: NoSuchConformancePackException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchConformancePackException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchConformancePackException =>
-    __isa(o, "NoSuchConformancePackException");
+  export const isa = (o: any): o is NoSuchConformancePackException => __isa(o, "NoSuchConformancePackException");
 }
 
 /**
  * <p>You have specified a delivery channel that does not
  * 			exist.</p>
  */
-export interface NoSuchDeliveryChannelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchDeliveryChannelException extends __SmithyException, $MetadataBearer {
   name: "NoSuchDeliveryChannelException";
   $fault: "client";
   /**
@@ -6103,21 +5634,16 @@ export interface NoSuchDeliveryChannelException
 }
 
 export namespace NoSuchDeliveryChannelException {
-  export const filterSensitiveLog = (
-    obj: NoSuchDeliveryChannelException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchDeliveryChannelException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchDeliveryChannelException =>
-    __isa(o, "NoSuchDeliveryChannelException");
+  export const isa = (o: any): o is NoSuchDeliveryChannelException => __isa(o, "NoSuchDeliveryChannelException");
 }
 
 /**
  * <p>You specified one or more organization config rules that do not exist.</p>
  */
-export interface NoSuchOrganizationConfigRuleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchOrganizationConfigRuleException extends __SmithyException, $MetadataBearer {
   name: "NoSuchOrganizationConfigRuleException";
   $fault: "client";
   /**
@@ -6127,10 +5653,8 @@ export interface NoSuchOrganizationConfigRuleException
 }
 
 export namespace NoSuchOrganizationConfigRuleException {
-  export const filterSensitiveLog = (
-    obj: NoSuchOrganizationConfigRuleException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchOrganizationConfigRuleException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchOrganizationConfigRuleException =>
     __isa(o, "NoSuchOrganizationConfigRuleException");
@@ -6140,9 +5664,7 @@ export namespace NoSuchOrganizationConfigRuleException {
  * <p>AWS Config organization conformance pack that you passed in the filter does not exist.</p>
  * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
  */
-export interface NoSuchOrganizationConformancePackException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchOrganizationConformancePackException extends __SmithyException, $MetadataBearer {
   name: "NoSuchOrganizationConformancePackException";
   $fault: "client";
   /**
@@ -6152,23 +5674,17 @@ export interface NoSuchOrganizationConformancePackException
 }
 
 export namespace NoSuchOrganizationConformancePackException {
-  export const filterSensitiveLog = (
-    obj: NoSuchOrganizationConformancePackException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchOrganizationConformancePackException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is NoSuchOrganizationConformancePackException =>
+  export const isa = (o: any): o is NoSuchOrganizationConformancePackException =>
     __isa(o, "NoSuchOrganizationConformancePackException");
 }
 
 /**
  * <p>You specified an AWS Config rule without a remediation configuration.</p>
  */
-export interface NoSuchRemediationConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchRemediationConfigurationException extends __SmithyException, $MetadataBearer {
   name: "NoSuchRemediationConfigurationException";
   $fault: "client";
   /**
@@ -6178,10 +5694,8 @@ export interface NoSuchRemediationConfigurationException
 }
 
 export namespace NoSuchRemediationConfigurationException {
-  export const filterSensitiveLog = (
-    obj: NoSuchRemediationConfigurationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchRemediationConfigurationException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchRemediationConfigurationException =>
     __isa(o, "NoSuchRemediationConfigurationException");
@@ -6190,9 +5704,7 @@ export namespace NoSuchRemediationConfigurationException {
 /**
  * <p>You tried to delete a remediation exception that does not exist.</p>
  */
-export interface NoSuchRemediationExceptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchRemediationExceptionException extends __SmithyException, $MetadataBearer {
   name: "NoSuchRemediationExceptionException";
   $fault: "client";
   /**
@@ -6202,10 +5714,8 @@ export interface NoSuchRemediationExceptionException
 }
 
 export namespace NoSuchRemediationExceptionException {
-  export const filterSensitiveLog = (
-    obj: NoSuchRemediationExceptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchRemediationExceptionException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchRemediationExceptionException =>
     __isa(o, "NoSuchRemediationExceptionException");
@@ -6214,9 +5724,7 @@ export namespace NoSuchRemediationExceptionException {
 /**
  * <p>You have specified a retention configuration that does not exist.</p>
  */
-export interface NoSuchRetentionConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchRetentionConfigurationException extends __SmithyException, $MetadataBearer {
   name: "NoSuchRetentionConfigurationException";
   $fault: "client";
   /**
@@ -6226,10 +5734,8 @@ export interface NoSuchRetentionConfigurationException
 }
 
 export namespace NoSuchRetentionConfigurationException {
-  export const filterSensitiveLog = (
-    obj: NoSuchRetentionConfigurationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NoSuchRetentionConfigurationException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NoSuchRetentionConfigurationException =>
     __isa(o, "NoSuchRetentionConfigurationException");
@@ -6239,9 +5745,7 @@ export namespace NoSuchRetentionConfigurationException {
  * <p>For PutConfigAggregator API, no permission to call EnableAWSServiceAccess API.</p>
  * 		       <p>For all OrganizationConfigRule and OrganizationConformancePack APIs, AWS Config throws an exception if APIs are called from member accounts. All APIs must be called from organization master account.</p>
  */
-export interface OrganizationAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "OrganizationAccessDeniedException";
   $fault: "client";
   /**
@@ -6251,13 +5755,10 @@ export interface OrganizationAccessDeniedException
 }
 
 export namespace OrganizationAccessDeniedException {
-  export const filterSensitiveLog = (
-    obj: OrganizationAccessDeniedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationAccessDeniedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationAccessDeniedException =>
-    __isa(o, "OrganizationAccessDeniedException");
+  export const isa = (o: any): o is OrganizationAccessDeniedException => __isa(o, "OrganizationAccessDeniedException");
 }
 
 /**
@@ -6267,15 +5768,15 @@ export namespace OrganizationAccessDeniedException {
 export interface OrganizationAggregationSource {
   __type?: "OrganizationAggregationSource";
   /**
+   * <p>The source regions being aggregated.</p>
+   */
+  AwsRegions?: string[];
+
+  /**
    * <p>If true, aggregate existing AWS Config regions and future
    * 			regions.</p>
    */
   AllAwsRegions?: boolean;
-
-  /**
-   * <p>The source regions being aggregated.</p>
-   */
-  AwsRegions?: string[];
 
   /**
    * <p>ARN of the IAM role used to retrieve AWS Organization details
@@ -6285,21 +5786,16 @@ export interface OrganizationAggregationSource {
 }
 
 export namespace OrganizationAggregationSource {
-  export const filterSensitiveLog = (
-    obj: OrganizationAggregationSource
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationAggregationSource): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationAggregationSource =>
-    __isa(o, "OrganizationAggregationSource");
+  export const isa = (o: any): o is OrganizationAggregationSource => __isa(o, "OrganizationAggregationSource");
 }
 
 /**
  * <p>AWS Config resource cannot be created because your organization does not have all features enabled.</p>
  */
-export interface OrganizationAllFeaturesNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationAllFeaturesNotEnabledException extends __SmithyException, $MetadataBearer {
   name: "OrganizationAllFeaturesNotEnabledException";
   $fault: "client";
   /**
@@ -6309,14 +5805,10 @@ export interface OrganizationAllFeaturesNotEnabledException
 }
 
 export namespace OrganizationAllFeaturesNotEnabledException {
-  export const filterSensitiveLog = (
-    obj: OrganizationAllFeaturesNotEnabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationAllFeaturesNotEnabledException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is OrganizationAllFeaturesNotEnabledException =>
+  export const isa = (o: any): o is OrganizationAllFeaturesNotEnabledException =>
     __isa(o, "OrganizationAllFeaturesNotEnabledException");
 }
 
@@ -6326,9 +5818,14 @@ export namespace OrganizationAllFeaturesNotEnabledException {
 export interface OrganizationConfigRule {
   __type?: "OrganizationConfigRule";
   /**
-   * <p>A comma-separated list of accounts excluded from organization config rule.</p>
+   * <p>Amazon Resource Name (ARN) of organization config rule.</p>
    */
-  ExcludedAccounts?: string[];
+  OrganizationConfigRuleArn: string | undefined;
+
+  /**
+   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
+   */
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
    * <p>The timestamp of the last update.</p>
@@ -6336,19 +5833,14 @@ export interface OrganizationConfigRule {
   LastUpdateTime?: Date;
 
   /**
-   * <p>Amazon Resource Name (ARN) of organization config rule.</p>
+   * <p>A comma-separated list of accounts excluded from organization config rule.</p>
    */
-  OrganizationConfigRuleArn: string | undefined;
+  ExcludedAccounts?: string[];
 
   /**
    * <p>The name that you assign to organization config rule.</p>
    */
   OrganizationConfigRuleName: string | undefined;
-
-  /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-   */
-  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
    * <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
@@ -6358,10 +5850,9 @@ export interface OrganizationConfigRule {
 
 export namespace OrganizationConfigRule {
   export const filterSensitiveLog = (obj: OrganizationConfigRule): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationConfigRule =>
-    __isa(o, "OrganizationConfigRule");
+  export const isa = (o: any): o is OrganizationConfigRule => __isa(o, "OrganizationConfigRule");
 }
 
 /**
@@ -6370,24 +5861,14 @@ export namespace OrganizationConfigRule {
 export interface OrganizationConfigRuleStatus {
   __type?: "OrganizationConfigRuleStatus";
   /**
-   * <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
+   * <p>The name that you assign to organization config rule.</p>
    */
-  ErrorCode?: string;
+  OrganizationConfigRuleName: string | undefined;
 
   /**
    * <p>An error message indicating that organization config rule creation or deletion failed due to an error.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The timestamp of the last update.</p>
-   */
-  LastUpdateTime?: Date;
-
-  /**
-   * <p>The name that you assign to organization config rule.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
 
   /**
    * <p>Indicates deployment status of an organization config rule.
@@ -6435,22 +5916,29 @@ export interface OrganizationConfigRuleStatus {
    *          </ul>
    */
   OrganizationRuleStatus: OrganizationRuleStatus | string | undefined;
+
+  /**
+   * <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The timestamp of the last update.</p>
+   */
+  LastUpdateTime?: Date;
 }
 
 export namespace OrganizationConfigRuleStatus {
-  export const filterSensitiveLog = (
-    obj: OrganizationConfigRuleStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationConfigRuleStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationConfigRuleStatus =>
-    __isa(o, "OrganizationConfigRuleStatus");
+  export const isa = (o: any): o is OrganizationConfigRuleStatus => __isa(o, "OrganizationConfigRuleStatus");
 }
 
 export enum OrganizationConfigRuleTriggerType {
   CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
   OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
-  SCHEDULED_NOTIFICATION = "ScheduledNotification"
+  SCHEDULED_NOTIFICATION = "ScheduledNotification",
 }
 
 /**
@@ -6458,11 +5946,6 @@ export enum OrganizationConfigRuleTriggerType {
  */
 export interface OrganizationConformancePack {
   __type?: "OrganizationConformancePack";
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
   /**
    * <p>Location of an Amazon S3 bucket where AWS Config can
    * 			deliver evaluation results and conformance pack template that is used to create a pack. </p>
@@ -6475,9 +5958,14 @@ export interface OrganizationConformancePack {
   DeliveryS3KeyPrefix?: string;
 
   /**
-   * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
+   * <p>The name you assign to an organization conformance pack.</p>
    */
-  ExcludedAccounts?: string[];
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
    * <p>Last time when organization conformation pack was updated.</p>
@@ -6490,19 +5978,16 @@ export interface OrganizationConformancePack {
   OrganizationConformancePackArn: string | undefined;
 
   /**
-   * <p>The name you assign to an organization conformance pack.</p>
+   * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
    */
-  OrganizationConformancePackName: string | undefined;
+  ExcludedAccounts?: string[];
 }
 
 export namespace OrganizationConformancePack {
-  export const filterSensitiveLog = (
-    obj: OrganizationConformancePack
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationConformancePack): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationConformancePack =>
-    __isa(o, "OrganizationConformancePack");
+  export const isa = (o: any): o is OrganizationConformancePack => __isa(o, "OrganizationConformancePack");
 }
 
 /**
@@ -6513,9 +5998,10 @@ export namespace OrganizationConformancePack {
 export interface OrganizationConformancePackDetailedStatus {
   __type?: "OrganizationConformancePackDetailedStatus";
   /**
-   * <p>The 12-digit account ID of a member account.</p>
+   * <p>An error message indicating that conformance pack account creation or deletion
+   * 			has failed due to an error in the member account. </p>
    */
-  AccountId: string | undefined;
+  ErrorMessage?: string;
 
   /**
    * <p>The name of conformance pack deployed in the member account.</p>
@@ -6529,15 +6015,9 @@ export interface OrganizationConformancePackDetailedStatus {
   ErrorCode?: string;
 
   /**
-   * <p>An error message indicating that conformance pack account creation or deletion
-   * 			has failed due to an error in the member account. </p>
+   * <p>The 12-digit account ID of a member account.</p>
    */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The timestamp of the last status update.</p>
-   */
-  LastUpdateTime?: Date;
+  AccountId: string | undefined;
 
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
@@ -6586,13 +6066,16 @@ export interface OrganizationConformancePackDetailedStatus {
    *          </ul>
    */
   Status: OrganizationResourceDetailedStatus | string | undefined;
+
+  /**
+   * <p>The timestamp of the last status update.</p>
+   */
+  LastUpdateTime?: Date;
 }
 
 export namespace OrganizationConformancePackDetailedStatus {
-  export const filterSensitiveLog = (
-    obj: OrganizationConformancePackDetailedStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationConformancePackDetailedStatus): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is OrganizationConformancePackDetailedStatus =>
     __isa(o, "OrganizationConformancePackDetailedStatus");
@@ -6604,24 +6087,9 @@ export namespace OrganizationConformancePackDetailedStatus {
 export interface OrganizationConformancePackStatus {
   __type?: "OrganizationConformancePackStatus";
   /**
-   * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The timestamp of the last update.</p>
    */
   LastUpdateTime?: Date;
-
-  /**
-   * <p>The name that you assign to organization conformance pack.</p>
-   */
-  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>Indicates deployment status of an organization conformance pack.
@@ -6675,24 +6143,34 @@ export interface OrganizationConformancePackStatus {
    *          </ul>
    */
   Status: OrganizationResourceStatus | string | undefined;
+
+  /**
+   * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The name that you assign to organization conformance pack.</p>
+   */
+  OrganizationConformancePackName: string | undefined;
 }
 
 export namespace OrganizationConformancePackStatus {
-  export const filterSensitiveLog = (
-    obj: OrganizationConformancePackStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationConformancePackStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationConformancePackStatus =>
-    __isa(o, "OrganizationConformancePackStatus");
+  export const isa = (o: any): o is OrganizationConformancePackStatus => __isa(o, "OrganizationConformancePackStatus");
 }
 
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
-export interface OrganizationConformancePackTemplateValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationConformancePackTemplateValidationException extends __SmithyException, $MetadataBearer {
   name: "OrganizationConformancePackTemplateValidationException";
   $fault: "client";
   /**
@@ -6702,14 +6180,10 @@ export interface OrganizationConformancePackTemplateValidationException
 }
 
 export namespace OrganizationConformancePackTemplateValidationException {
-  export const filterSensitiveLog = (
-    obj: OrganizationConformancePackTemplateValidationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationConformancePackTemplateValidationException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is OrganizationConformancePackTemplateValidationException =>
+  export const isa = (o: any): o is OrganizationConformancePackTemplateValidationException =>
     __isa(o, "OrganizationConformancePackTemplateValidationException");
 }
 
@@ -6721,29 +6195,20 @@ export namespace OrganizationConformancePackTemplateValidationException {
 export interface OrganizationCustomRuleMetadata {
   __type?: "OrganizationCustomRuleMetadata";
   /**
-   * <p>The description that you provide for organization config rule.</p>
+   * <p>One part of a key-value pair that make up a tag.
+   * 			A key is a general label that acts like a category for more specific tag values. </p>
    */
-  Description?: string;
+  TagKeyScope?: string;
+
+  /**
+   * <p>The type of the AWS resource that was evaluated.</p>
+   */
+  ResourceTypesScope?: string[];
 
   /**
    * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
    */
   InputParameters?: string;
-
-  /**
-   * <p>The lambda function ARN.</p>
-   */
-  LambdaFunctionArn: string | undefined;
-
-  /**
-   * <p>The maximum frequency with which AWS Config runs evaluations for a rule.
-   * 			Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   * 		       <note>
-   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
-   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
-   *          </note>
-   */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
   /**
    * <p>The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:</p>
@@ -6764,15 +6229,53 @@ export interface OrganizationCustomRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes:
-    | (OrganizationConfigRuleTriggerType | string)[]
-    | undefined;
+  OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
+
+  /**
+   * <p>The maximum frequency with which AWS Config runs evaluations for a rule.
+   * 			Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * 		       <note>
+   *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
+   * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
+   *          </note>
+   */
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The lambda function ARN.</p>
+   */
+  LambdaFunctionArn: string | undefined;
+
+  /**
+   * <p>The description that you provide for organization config rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag.
+   * 			A value acts as a descriptor within a tag category (key). </p>
+   */
+  TagValueScope?: string;
 
   /**
    * <p>The ID of the AWS resource that was evaluated.</p>
    */
   ResourceIdScope?: string;
+}
 
+export namespace OrganizationCustomRuleMetadata {
+  export const filterSensitiveLog = (obj: OrganizationCustomRuleMetadata): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is OrganizationCustomRuleMetadata => __isa(o, "OrganizationCustomRuleMetadata");
+}
+
+/**
+ * <p>An object that specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier.
+ * 			It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.</p>
+ */
+export interface OrganizationManagedRuleMetadata {
+  __type?: "OrganizationManagedRuleMetadata";
   /**
    * <p>The type of the AWS resource that was evaluated.</p>
    */
@@ -6783,34 +6286,6 @@ export interface OrganizationCustomRuleMetadata {
    * 			A key is a general label that acts like a category for more specific tag values. </p>
    */
   TagKeyScope?: string;
-
-  /**
-   * <p>The optional part of a key-value pair that make up a tag.
-   * 			A value acts as a descriptor within a tag category (key). </p>
-   */
-  TagValueScope?: string;
-}
-
-export namespace OrganizationCustomRuleMetadata {
-  export const filterSensitiveLog = (
-    obj: OrganizationCustomRuleMetadata
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is OrganizationCustomRuleMetadata =>
-    __isa(o, "OrganizationCustomRuleMetadata");
-}
-
-/**
- * <p>An object that specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier.
- * 			It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.</p>
- */
-export interface OrganizationManagedRuleMetadata {
-  __type?: "OrganizationManagedRuleMetadata";
-  /**
-   * <p>The description that you provide for organization config rule.</p>
-   */
-  Description?: string;
 
   /**
    * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
@@ -6832,9 +6307,15 @@ export interface OrganizationManagedRuleMetadata {
   ResourceIdScope?: string;
 
   /**
-   * <p>The type of the AWS resource that was evaluated.</p>
+   * <p>The description that you provide for organization config rule.</p>
    */
-  ResourceTypesScope?: string[];
+  Description?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag.
+   * 			A value acts as a descriptor within a tag category (key).</p>
+   */
+  TagValueScope?: string;
 
   /**
    * <p>For organization config managed rules, a predefined identifier from a
@@ -6842,28 +6323,13 @@ export interface OrganizationManagedRuleMetadata {
    * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using AWS Managed Config Rules</a>.</p>
    */
   RuleIdentifier: string | undefined;
-
-  /**
-   * <p>One part of a key-value pair that make up a tag.
-   * 			A key is a general label that acts like a category for more specific tag values. </p>
-   */
-  TagKeyScope?: string;
-
-  /**
-   * <p>The optional part of a key-value pair that make up a tag.
-   * 			A value acts as a descriptor within a tag category (key).</p>
-   */
-  TagValueScope?: string;
 }
 
 export namespace OrganizationManagedRuleMetadata {
-  export const filterSensitiveLog = (
-    obj: OrganizationManagedRuleMetadata
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationManagedRuleMetadata): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrganizationManagedRuleMetadata =>
-    __isa(o, "OrganizationManagedRuleMetadata");
+  export const isa = (o: any): o is OrganizationManagedRuleMetadata => __isa(o, "OrganizationManagedRuleMetadata");
 }
 
 export enum OrganizationResourceDetailedStatus {
@@ -6875,7 +6341,7 @@ export enum OrganizationResourceDetailedStatus {
   DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
   UPDATE_FAILED = "UPDATE_FAILED",
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 /**
@@ -6883,11 +6349,6 @@ export enum OrganizationResourceDetailedStatus {
  */
 export interface OrganizationResourceDetailedStatusFilters {
   __type?: "OrganizationResourceDetailedStatusFilters";
-  /**
-   * <p>The 12-digit account ID of the member account within an organization.</p>
-   */
-  AccountId?: string;
-
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
    * 			When master account calls <code>PutOrganizationConformancePack</code> action for the first time, conformance pack status is created in the member account.
@@ -6935,13 +6396,16 @@ export interface OrganizationResourceDetailedStatusFilters {
    *          </ul>
    */
   Status?: OrganizationResourceDetailedStatus | string;
+
+  /**
+   * <p>The 12-digit account ID of the member account within an organization.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace OrganizationResourceDetailedStatusFilters {
-  export const filterSensitiveLog = (
-    obj: OrganizationResourceDetailedStatusFilters
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrganizationResourceDetailedStatusFilters): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is OrganizationResourceDetailedStatusFilters =>
     __isa(o, "OrganizationResourceDetailedStatusFilters");
@@ -6956,7 +6420,7 @@ export enum OrganizationResourceStatus {
   DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
   UPDATE_FAILED = "UPDATE_FAILED",
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 export enum OrganizationRuleStatus {
@@ -6968,15 +6432,13 @@ export enum OrganizationRuleStatus {
   DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
   UPDATE_FAILED = "UPDATE_FAILED",
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 /**
  * <p>The configuration item size is outside the allowable range.</p>
  */
-export interface OversizedConfigurationItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OversizedConfigurationItemException extends __SmithyException, $MetadataBearer {
   name: "OversizedConfigurationItemException";
   $fault: "client";
   /**
@@ -6986,10 +6448,8 @@ export interface OversizedConfigurationItemException
 }
 
 export namespace OversizedConfigurationItemException {
-  export const filterSensitiveLog = (
-    obj: OversizedConfigurationItemException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OversizedConfigurationItemException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is OversizedConfigurationItemException =>
     __isa(o, "OversizedConfigurationItemException");
@@ -6997,7 +6457,7 @@ export namespace OversizedConfigurationItemException {
 
 export enum Owner {
   Aws = "AWS",
-  Custom_Lambda = "CUSTOM_LAMBDA"
+  Custom_Lambda = "CUSTOM_LAMBDA",
 }
 
 /**
@@ -7008,23 +6468,22 @@ export enum Owner {
 export interface PendingAggregationRequest {
   __type?: "PendingAggregationRequest";
   /**
+   * <p>The region requesting to aggregate data. </p>
+   */
+  RequesterAwsRegion?: string;
+
+  /**
    * <p>The 12-digit account ID of the account requesting to aggregate
    * 			data.</p>
    */
   RequesterAccountId?: string;
-
-  /**
-   * <p>The region requesting to aggregate data. </p>
-   */
-  RequesterAwsRegion?: string;
 }
 
 export namespace PendingAggregationRequest {
   export const filterSensitiveLog = (obj: PendingAggregationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PendingAggregationRequest =>
-    __isa(o, "PendingAggregationRequest");
+  export const isa = (o: any): o is PendingAggregationRequest => __isa(o, "PendingAggregationRequest");
 }
 
 export interface PutAggregationAuthorizationRequest {
@@ -7046,10 +6505,8 @@ export interface PutAggregationAuthorizationRequest {
 }
 
 export namespace PutAggregationAuthorizationRequest {
-  export const filterSensitiveLog = (
-    obj: PutAggregationAuthorizationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutAggregationAuthorizationRequest =>
     __isa(o, "PutAggregationAuthorizationRequest");
@@ -7066,10 +6523,8 @@ export interface PutAggregationAuthorizationResponse {
 }
 
 export namespace PutAggregationAuthorizationResponse {
-  export const filterSensitiveLog = (
-    obj: PutAggregationAuthorizationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAggregationAuthorizationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutAggregationAuthorizationResponse =>
     __isa(o, "PutAggregationAuthorizationResponse");
@@ -7078,22 +6533,21 @@ export namespace PutAggregationAuthorizationResponse {
 export interface PutConfigRuleRequest {
   __type?: "PutConfigRuleRequest";
   /**
-   * <p>The rule that you want to add to your account.</p>
-   */
-  ConfigRule: ConfigRule | undefined;
-
-  /**
    * <p>An array of tag object.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The rule that you want to add to your account.</p>
+   */
+  ConfigRule: ConfigRule | undefined;
 }
 
 export namespace PutConfigRuleRequest {
   export const filterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutConfigRuleRequest =>
-    __isa(o, "PutConfigRuleRequest");
+  export const isa = (o: any): o is PutConfigRuleRequest => __isa(o, "PutConfigRuleRequest");
 }
 
 export interface PutConfigurationAggregatorRequest {
@@ -7106,9 +6560,9 @@ export interface PutConfigurationAggregatorRequest {
   AccountAggregationSources?: AccountAggregationSource[];
 
   /**
-   * <p>The name of the configuration aggregator.</p>
+   * <p>An array of tag object.</p>
    */
-  ConfigurationAggregatorName: string | undefined;
+  Tags?: Tag[];
 
   /**
    * <p>An OrganizationAggregationSource object.</p>
@@ -7116,19 +6570,16 @@ export interface PutConfigurationAggregatorRequest {
   OrganizationAggregationSource?: OrganizationAggregationSource;
 
   /**
-   * <p>An array of tag object.</p>
+   * <p>The name of the configuration aggregator.</p>
    */
-  Tags?: Tag[];
+  ConfigurationAggregatorName: string | undefined;
 }
 
 export namespace PutConfigurationAggregatorRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationAggregatorRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationAggregatorRequest =>
-    __isa(o, "PutConfigurationAggregatorRequest");
+  export const isa = (o: any): o is PutConfigurationAggregatorRequest => __isa(o, "PutConfigurationAggregatorRequest");
 }
 
 export interface PutConfigurationAggregatorResponse {
@@ -7140,10 +6591,8 @@ export interface PutConfigurationAggregatorResponse {
 }
 
 export namespace PutConfigurationAggregatorResponse {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationAggregatorResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutConfigurationAggregatorResponse =>
     __isa(o, "PutConfigurationAggregatorResponse");
@@ -7163,44 +6612,23 @@ export interface PutConfigurationRecorderRequest {
 }
 
 export namespace PutConfigurationRecorderRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationRecorderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationRecorderRequest =>
-    __isa(o, "PutConfigurationRecorderRequest");
+  export const isa = (o: any): o is PutConfigurationRecorderRequest => __isa(o, "PutConfigurationRecorderRequest");
 }
 
 export interface PutConformancePackRequest {
   __type?: "PutConformancePackRequest";
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
-   * <p>Name of the conformance pack you want to create.</p>
-   */
-  ConformancePackName: string | undefined;
-
   /**
    * <p>AWS Config stores intermediate files while processing conformance pack template.</p>
    */
   DeliveryS3Bucket: string | undefined;
 
   /**
-   * <p>The prefix for the Amazon S3 bucket. </p>
+   * <p>Name of the conformance pack you want to create.</p>
    */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   * 		       <note>
-   *             <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p>
-   *          </note>
-   */
-  TemplateBody?: string;
+  ConformancePackName: string | undefined;
 
   /**
    * <p>Location of file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack. </p>
@@ -7209,14 +6637,31 @@ export interface PutConformancePackRequest {
    *          </note>
    */
   TemplateS3Uri?: string;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket. </p>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * 		       <note>
+   *             <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p>
+   *          </note>
+   */
+  TemplateBody?: string;
 }
 
 export namespace PutConformancePackRequest {
   export const filterSensitiveLog = (obj: PutConformancePackRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutConformancePackRequest =>
-    __isa(o, "PutConformancePackRequest");
+  export const isa = (o: any): o is PutConformancePackRequest => __isa(o, "PutConformancePackRequest");
 }
 
 export interface PutConformancePackResponse {
@@ -7229,10 +6674,9 @@ export interface PutConformancePackResponse {
 
 export namespace PutConformancePackResponse {
   export const filterSensitiveLog = (obj: PutConformancePackResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutConformancePackResponse =>
-    __isa(o, "PutConformancePackResponse");
+  export const isa = (o: any): o is PutConformancePackResponse => __isa(o, "PutConformancePackResponse");
 }
 
 /**
@@ -7251,10 +6695,9 @@ export interface PutDeliveryChannelRequest {
 
 export namespace PutDeliveryChannelRequest {
   export const filterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutDeliveryChannelRequest =>
-    __isa(o, "PutDeliveryChannelRequest");
+  export const isa = (o: any): o is PutDeliveryChannelRequest => __isa(o, "PutDeliveryChannelRequest");
 }
 
 /**
@@ -7296,10 +6739,9 @@ export interface PutEvaluationsRequest {
 
 export namespace PutEvaluationsRequest {
   export const filterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutEvaluationsRequest =>
-    __isa(o, "PutEvaluationsRequest");
+  export const isa = (o: any): o is PutEvaluationsRequest => __isa(o, "PutEvaluationsRequest");
 }
 
 /**
@@ -7316,43 +6758,39 @@ export interface PutEvaluationsResponse {
 
 export namespace PutEvaluationsResponse {
   export const filterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutEvaluationsResponse =>
-    __isa(o, "PutEvaluationsResponse");
+  export const isa = (o: any): o is PutEvaluationsResponse => __isa(o, "PutEvaluationsResponse");
 }
 
 export interface PutOrganizationConfigRuleRequest {
   __type?: "PutOrganizationConfigRuleRequest";
-  /**
-   * <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
-   */
-  ExcludedAccounts?: string[];
-
-  /**
-   * <p>The name that you assign to an organization config rule.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
-
   /**
    * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
+   * <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
+   */
+  ExcludedAccounts?: string[];
+
+  /**
    * <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
+
+  /**
+   * <p>The name that you assign to an organization config rule.</p>
+   */
+  OrganizationConfigRuleName: string | undefined;
 }
 
 export namespace PutOrganizationConfigRuleRequest {
-  export const filterSensitiveLog = (
-    obj: PutOrganizationConfigRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutOrganizationConfigRuleRequest =>
-    __isa(o, "PutOrganizationConfigRuleRequest");
+  export const isa = (o: any): o is PutOrganizationConfigRuleRequest => __isa(o, "PutOrganizationConfigRuleRequest");
 }
 
 export interface PutOrganizationConfigRuleResponse {
@@ -7364,22 +6802,14 @@ export interface PutOrganizationConfigRuleResponse {
 }
 
 export namespace PutOrganizationConfigRuleResponse {
-  export const filterSensitiveLog = (
-    obj: PutOrganizationConfigRuleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutOrganizationConfigRuleResponse =>
-    __isa(o, "PutOrganizationConfigRuleResponse");
+  export const isa = (o: any): o is PutOrganizationConfigRuleResponse => __isa(o, "PutOrganizationConfigRuleResponse");
 }
 
 export interface PutOrganizationConformancePackRequest {
   __type?: "PutOrganizationConformancePackRequest";
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
   /**
    * <p>Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config
    * 			stores intermediate files while processing conformance pack template. </p>
@@ -7387,21 +6817,6 @@ export interface PutOrganizationConformancePackRequest {
    * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html">Permissions for cross account bucket access</a>.</p>
    */
   DeliveryS3Bucket: string | undefined;
-
-  /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
-   */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
-   */
-  ExcludedAccounts?: string[];
-
-  /**
-   * <p>Name of the organization conformance pack you want to create.</p>
-   */
-  OrganizationConformancePackName: string | undefined;
 
   /**
    * <p>A string containing full conformance pack template body. Structure containing the template body
@@ -7417,13 +6832,31 @@ export interface PutOrganizationConformancePackRequest {
    *          </note>
    */
   TemplateS3Uri?: string;
+
+  /**
+   * <p>Name of the organization conformance pack you want to create.</p>
+   */
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   */
+  ExcludedAccounts?: string[];
 }
 
 export namespace PutOrganizationConformancePackRequest {
-  export const filterSensitiveLog = (
-    obj: PutOrganizationConformancePackRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutOrganizationConformancePackRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutOrganizationConformancePackRequest =>
     __isa(o, "PutOrganizationConformancePackRequest");
@@ -7438,10 +6871,8 @@ export interface PutOrganizationConformancePackResponse {
 }
 
 export namespace PutOrganizationConformancePackResponse {
-  export const filterSensitiveLog = (
-    obj: PutOrganizationConformancePackResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutOrganizationConformancePackResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutOrganizationConformancePackResponse =>
     __isa(o, "PutOrganizationConformancePackResponse");
@@ -7456,10 +6887,8 @@ export interface PutRemediationConfigurationsRequest {
 }
 
 export namespace PutRemediationConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: PutRemediationConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRemediationConfigurationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutRemediationConfigurationsRequest =>
     __isa(o, "PutRemediationConfigurationsRequest");
@@ -7474,10 +6903,8 @@ export interface PutRemediationConfigurationsResponse {
 }
 
 export namespace PutRemediationConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: PutRemediationConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRemediationConfigurationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutRemediationConfigurationsResponse =>
     __isa(o, "PutRemediationConfigurationsResponse");
@@ -7491,6 +6918,11 @@ export interface PutRemediationExceptionsRequest {
   ConfigRuleName: string | undefined;
 
   /**
+   * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
+   */
+  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
    * <p>The exception is automatically deleted after the expiration date.</p>
    */
   ExpirationTime?: Date;
@@ -7499,21 +6931,13 @@ export interface PutRemediationExceptionsRequest {
    * <p>The message contains an explanation of the exception.</p>
    */
   Message?: string;
-
-  /**
-   * <p>An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys. </p>
-   */
-  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
 }
 
 export namespace PutRemediationExceptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PutRemediationExceptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRemediationExceptionsRequest =>
-    __isa(o, "PutRemediationExceptionsRequest");
+  export const isa = (o: any): o is PutRemediationExceptionsRequest => __isa(o, "PutRemediationExceptionsRequest");
 }
 
 export interface PutRemediationExceptionsResponse {
@@ -7525,17 +6949,29 @@ export interface PutRemediationExceptionsResponse {
 }
 
 export namespace PutRemediationExceptionsResponse {
-  export const filterSensitiveLog = (
-    obj: PutRemediationExceptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRemediationExceptionsResponse =>
-    __isa(o, "PutRemediationExceptionsResponse");
+  export const isa = (o: any): o is PutRemediationExceptionsResponse => __isa(o, "PutRemediationExceptionsResponse");
 }
 
 export interface PutResourceConfigRequest {
   __type?: "PutResourceConfigRequest";
+  /**
+   * <p>Unique identifier of the resource.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
+   */
+  SchemaVersionId: string | undefined;
+
+  /**
+   * <p>Tags associated with the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
   /**
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.</p>
    * 		       <note>
@@ -7543,11 +6979,6 @@ export interface PutResourceConfigRequest {
    *          </note>
    */
   Configuration: string | undefined;
-
-  /**
-   * <p>Unique identifier of the resource.</p>
-   */
-  ResourceId: string | undefined;
 
   /**
    * <p>Name of the resource.</p>
@@ -7561,24 +6992,13 @@ export interface PutResourceConfigRequest {
    *          </note>
    */
   ResourceType: string | undefined;
-
-  /**
-   * <p>Version of the schema registered for the ResourceType in AWS CloudFormation.</p>
-   */
-  SchemaVersionId: string | undefined;
-
-  /**
-   * <p>Tags associated with the resource.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace PutResourceConfigRequest {
   export const filterSensitiveLog = (obj: PutResourceConfigRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutResourceConfigRequest =>
-    __isa(o, "PutResourceConfigRequest");
+  export const isa = (o: any): o is PutResourceConfigRequest => __isa(o, "PutResourceConfigRequest");
 }
 
 export interface PutRetentionConfigurationRequest {
@@ -7595,13 +7015,10 @@ export interface PutRetentionConfigurationRequest {
 }
 
 export namespace PutRetentionConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: PutRetentionConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRetentionConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRetentionConfigurationRequest =>
-    __isa(o, "PutRetentionConfigurationRequest");
+  export const isa = (o: any): o is PutRetentionConfigurationRequest => __isa(o, "PutRetentionConfigurationRequest");
 }
 
 export interface PutRetentionConfigurationResponse {
@@ -7613,13 +7030,10 @@ export interface PutRetentionConfigurationResponse {
 }
 
 export namespace PutRetentionConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: PutRetentionConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutRetentionConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutRetentionConfigurationResponse =>
-    __isa(o, "PutRetentionConfigurationResponse");
+  export const isa = (o: any): o is PutRetentionConfigurationResponse => __isa(o, "PutRetentionConfigurationResponse");
 }
 
 /**
@@ -7635,7 +7049,7 @@ export interface QueryInfo {
 
 export namespace QueryInfo {
   export const filterSensitiveLog = (obj: QueryInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is QueryInfo => __isa(o, "QueryInfo");
 }
@@ -7643,7 +7057,7 @@ export namespace QueryInfo {
 export enum RecorderStatus {
   Failure = "Failure",
   Pending = "Pending",
-  Success = "Success"
+  Success = "Success",
 }
 
 /**
@@ -7681,6 +7095,24 @@ export enum RecorderStatus {
 export interface RecordingGroup {
   __type?: "RecordingGroup";
   /**
+   * <p>A comma-separated list that specifies the types of AWS
+   * 			resources for which AWS Config records configuration changes (for
+   * 			example, <code>AWS::EC2::Instance</code> or
+   * 				<code>AWS::CloudTrail::Trail</code>).</p>
+   * 		       <p>Before you can set this option to <code>true</code>, you must
+   * 			set the <code>allSupported</code> option to
+   * 			<code>false</code>.</p>
+   * 		       <p>If you set this option to <code>true</code>, when AWS Config
+   * 			adds support for a new type of resource, it will not record
+   * 			resources of that type unless you manually add that type to your
+   * 			recording group.</p>
+   * 		       <p>For a list of valid <code>resourceTypes</code> values, see the
+   * 				<b>resourceType Value</b> column in
+   * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resource Types</a>.</p>
+   */
+  resourceTypes?: (ResourceType | string)[];
+
+  /**
    * <p>Specifies whether AWS Config records configuration changes for
    * 			every supported type of regional resource.</p>
    * 		       <p>If you set this option to <code>true</code>, when AWS Config
@@ -7707,32 +7139,13 @@ export interface RecordingGroup {
    * 			resources.</p>
    */
   includeGlobalResourceTypes?: boolean;
-
-  /**
-   * <p>A comma-separated list that specifies the types of AWS
-   * 			resources for which AWS Config records configuration changes (for
-   * 			example, <code>AWS::EC2::Instance</code> or
-   * 				<code>AWS::CloudTrail::Trail</code>).</p>
-   * 		       <p>Before you can set this option to <code>true</code>, you must
-   * 			set the <code>allSupported</code> option to
-   * 			<code>false</code>.</p>
-   * 		       <p>If you set this option to <code>true</code>, when AWS Config
-   * 			adds support for a new type of resource, it will not record
-   * 			resources of that type unless you manually add that type to your
-   * 			recording group.</p>
-   * 		       <p>For a list of valid <code>resourceTypes</code> values, see the
-   * 				<b>resourceType Value</b> column in
-   * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resource Types</a>.</p>
-   */
-  resourceTypes?: (ResourceType | string)[];
 }
 
 export namespace RecordingGroup {
   export const filterSensitiveLog = (obj: RecordingGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RecordingGroup =>
-    __isa(o, "RecordingGroup");
+  export const isa = (o: any): o is RecordingGroup => __isa(o, "RecordingGroup");
 }
 
 /**
@@ -7741,6 +7154,12 @@ export namespace RecordingGroup {
  */
 export interface Relationship {
   __type?: "Relationship";
+  /**
+   * <p>The custom name of the related resource, if
+   * 			available.</p>
+   */
+  resourceName?: string;
+
   /**
    * <p>The type of relationship with the related resource.</p>
    */
@@ -7753,12 +7172,6 @@ export interface Relationship {
   resourceId?: string;
 
   /**
-   * <p>The custom name of the related resource, if
-   * 			available.</p>
-   */
-  resourceName?: string;
-
-  /**
    * <p>The resource type of the related resource.</p>
    */
   resourceType?: ResourceType | string;
@@ -7766,7 +7179,7 @@ export interface Relationship {
 
 export namespace Relationship {
   export const filterSensitiveLog = (obj: Relationship): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Relationship => __isa(o, "Relationship");
 }
@@ -7782,9 +7195,38 @@ export interface RemediationConfiguration {
   Arn?: string;
 
   /**
+   * <p>Version of the target. For example, version of the SSM document.</p>
+   * 		       <note>
+   *             <p>If you make backward incompatible changes to the SSM document,
+   * 			you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
+   *          </note>
+   */
+  TargetVersion?: string;
+
+  /**
+   * <p>Target ID is the name of the public document.</p>
+   */
+  TargetId: string | undefined;
+
+  /**
+   * <p>An object of the RemediationParameterValue.</p>
+   */
+  Parameters?: { [key: string]: RemediationParameterValue };
+
+  /**
+   * <p>Name of the service that owns the service linked rule, if applicable.</p>
+   */
+  CreatedByService?: string;
+
+  /**
    * <p>The remediation is triggered automatically.</p>
    */
   Automatic?: boolean;
+
+  /**
+   * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
+   */
+  TargetType: RemediationTargetType | string | undefined;
 
   /**
    * <p>The name of the AWS Config rule.</p>
@@ -7792,9 +7234,9 @@ export interface RemediationConfiguration {
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>Name of the service that owns the service linked rule, if applicable.</p>
+   * <p>The type of a resource. </p>
    */
-  CreatedByService?: string;
+  ResourceType?: string;
 
   /**
    * <p>An ExecutionControls object.</p>
@@ -7803,48 +7245,25 @@ export interface RemediationConfiguration {
 
   /**
    * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
-   * 		       <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config throws an exception after the 5th failed attempt within 50 seconds.</p>
+   * 		       <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds,
+   *
+   * 			AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
    */
   MaximumAutomaticAttempts?: number;
 
   /**
-   * <p>An object of the RemediationParameterValue.</p>
-   */
-  Parameters?: { [key: string]: RemediationParameterValue };
-
-  /**
-   * <p>The type of a resource. </p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p>
-   * 		       <p>For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception. </p>
+   * 		       <p>For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
+   * 		AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
    */
   RetryAttemptSeconds?: number;
-
-  /**
-   * <p>Target ID is the name of the public document.</p>
-   */
-  TargetId: string | undefined;
-
-  /**
-   * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
-   */
-  TargetType: RemediationTargetType | string | undefined;
-
-  /**
-   * <p>Version of the target. For example, version of the SSM document.</p>
-   */
-  TargetVersion?: string;
 }
 
 export namespace RemediationConfiguration {
   export const filterSensitiveLog = (obj: RemediationConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationConfiguration =>
-    __isa(o, "RemediationConfiguration");
+  export const isa = (o: any): o is RemediationConfiguration => __isa(o, "RemediationConfiguration");
 }
 
 /**
@@ -7853,9 +7272,9 @@ export namespace RemediationConfiguration {
 export interface RemediationException {
   __type?: "RemediationException";
   /**
-   * <p>The name of the AWS Config rule.</p>
+   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
    */
-  ConfigRuleName: string | undefined;
+  ResourceId: string | undefined;
 
   /**
    * <p>The time when the remediation exception will be deleted.</p>
@@ -7868,9 +7287,9 @@ export interface RemediationException {
   Message?: string;
 
   /**
-   * <p>The ID of the resource (for example., sg-xxxxxx).</p>
+   * <p>The name of the AWS Config rule.</p>
    */
-  ResourceId: string | undefined;
+  ConfigRuleName: string | undefined;
 
   /**
    * <p>The type of a resource.</p>
@@ -7880,10 +7299,9 @@ export interface RemediationException {
 
 export namespace RemediationException {
   export const filterSensitiveLog = (obj: RemediationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationException =>
-    __isa(o, "RemediationException");
+  export const isa = (o: any): o is RemediationException => __isa(o, "RemediationException");
 }
 
 /**
@@ -7903,20 +7321,17 @@ export interface RemediationExceptionResourceKey {
 }
 
 export namespace RemediationExceptionResourceKey {
-  export const filterSensitiveLog = (
-    obj: RemediationExceptionResourceKey
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemediationExceptionResourceKey): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationExceptionResourceKey =>
-    __isa(o, "RemediationExceptionResourceKey");
+  export const isa = (o: any): o is RemediationExceptionResourceKey => __isa(o, "RemediationExceptionResourceKey");
 }
 
 export enum RemediationExecutionState {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   QUEUED = "QUEUED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -7924,11 +7339,6 @@ export enum RemediationExecutionState {
  */
 export interface RemediationExecutionStatus {
   __type?: "RemediationExecutionStatus";
-  /**
-   * <p>Start time when the remediation was executed.</p>
-   */
-  InvocationTime?: Date;
-
   /**
    * <p>The time when the remediation execution was last updated.</p>
    */
@@ -7941,22 +7351,26 @@ export interface RemediationExecutionStatus {
   ResourceKey?: ResourceKey;
 
   /**
-   * <p>ENUM of the values.</p>
+   * <p>Start time when the remediation was executed.</p>
    */
-  State?: RemediationExecutionState | string;
+  InvocationTime?: Date;
 
   /**
    * <p>Details of every step.</p>
    */
   StepDetails?: RemediationExecutionStep[];
+
+  /**
+   * <p>ENUM of the values.</p>
+   */
+  State?: RemediationExecutionState | string;
 }
 
 export namespace RemediationExecutionStatus {
   export const filterSensitiveLog = (obj: RemediationExecutionStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationExecutionStatus =>
-    __isa(o, "RemediationExecutionStatus");
+  export const isa = (o: any): o is RemediationExecutionStatus => __isa(o, "RemediationExecutionStatus");
 }
 
 /**
@@ -7970,9 +7384,9 @@ export interface RemediationExecutionStep {
   ErrorMessage?: string;
 
   /**
-   * <p>The details of the step.</p>
+   * <p>The valid status of the step.</p>
    */
-  Name?: string;
+  State?: RemediationExecutionStepState | string;
 
   /**
    * <p>The time when the step started.</p>
@@ -7980,9 +7394,9 @@ export interface RemediationExecutionStep {
   StartTime?: Date;
 
   /**
-   * <p>The valid status of the step.</p>
+   * <p>The details of the step.</p>
    */
-  State?: RemediationExecutionStepState | string;
+  Name?: string;
 
   /**
    * <p>The time when the step stopped.</p>
@@ -7992,24 +7406,21 @@ export interface RemediationExecutionStep {
 
 export namespace RemediationExecutionStep {
   export const filterSensitiveLog = (obj: RemediationExecutionStep): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationExecutionStep =>
-    __isa(o, "RemediationExecutionStep");
+  export const isa = (o: any): o is RemediationExecutionStep => __isa(o, "RemediationExecutionStep");
 }
 
 export enum RemediationExecutionStepState {
   FAILED = "FAILED",
   PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
  * <p>Remediation action is in progress. You can either cancel execution in AWS Systems Manager or wait and try again later. </p>
  */
-export interface RemediationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RemediationInProgressException extends __SmithyException, $MetadataBearer {
   name: "RemediationInProgressException";
   $fault: "client";
   /**
@@ -8019,13 +7430,10 @@ export interface RemediationInProgressException
 }
 
 export namespace RemediationInProgressException {
-  export const filterSensitiveLog = (
-    obj: RemediationInProgressException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemediationInProgressException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationInProgressException =>
-    __isa(o, "RemediationInProgressException");
+  export const isa = (o: any): o is RemediationInProgressException => __isa(o, "RemediationInProgressException");
 }
 
 /**
@@ -8046,14 +7454,13 @@ export interface RemediationParameterValue {
 
 export namespace RemediationParameterValue {
   export const filterSensitiveLog = (obj: RemediationParameterValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemediationParameterValue =>
-    __isa(o, "RemediationParameterValue");
+  export const isa = (o: any): o is RemediationParameterValue => __isa(o, "RemediationParameterValue");
 }
 
 export enum RemediationTargetType {
-  SSM_DOCUMENT = "SSM_DOCUMENT"
+  SSM_DOCUMENT = "SSM_DOCUMENT",
 }
 
 /**
@@ -8076,7 +7483,7 @@ export interface ResourceCount {
 
 export namespace ResourceCount {
   export const filterSensitiveLog = (obj: ResourceCount): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceCount => __isa(o, "ResourceCount");
 }
@@ -8087,9 +7494,9 @@ export namespace ResourceCount {
 export interface ResourceCountFilters {
   __type?: "ResourceCountFilters";
   /**
-   * <p>The 12-digit ID of the account.</p>
+   * <p>The type of the AWS resource.</p>
    */
-  AccountId?: string;
+  ResourceType?: ResourceType | string;
 
   /**
    * <p>The region where the account is located.</p>
@@ -8097,23 +7504,22 @@ export interface ResourceCountFilters {
   Region?: string;
 
   /**
-   * <p>The type of the AWS resource.</p>
+   * <p>The 12-digit ID of the account.</p>
    */
-  ResourceType?: ResourceType | string;
+  AccountId?: string;
 }
 
 export namespace ResourceCountFilters {
   export const filterSensitiveLog = (obj: ResourceCountFilters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceCountFilters =>
-    __isa(o, "ResourceCountFilters");
+  export const isa = (o: any): o is ResourceCountFilters => __isa(o, "ResourceCountFilters");
 }
 
 export enum ResourceCountGroupKey {
   ACCOUNT_ID = "ACCOUNT_ID",
   AWS_REGION = "AWS_REGION",
-  RESOURCE_TYPE = "RESOURCE_TYPE"
+  RESOURCE_TYPE = "RESOURCE_TYPE",
 }
 
 /**
@@ -8121,11 +7527,6 @@ export enum ResourceCountGroupKey {
  */
 export interface ResourceFilters {
   __type?: "ResourceFilters";
-  /**
-   * <p>The 12-digit source account ID.</p>
-   */
-  AccountId?: string;
-
   /**
    * <p>The source region.</p>
    */
@@ -8137,6 +7538,11 @@ export interface ResourceFilters {
   ResourceId?: string;
 
   /**
+   * <p>The 12-digit source account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
@@ -8144,10 +7550,9 @@ export interface ResourceFilters {
 
 export namespace ResourceFilters {
   export const filterSensitiveLog = (obj: ResourceFilters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceFilters =>
-    __isa(o, "ResourceFilters");
+  export const isa = (o: any): o is ResourceFilters => __isa(o, "ResourceFilters");
 }
 
 /**
@@ -8157,6 +7562,11 @@ export namespace ResourceFilters {
  */
 export interface ResourceIdentifier {
   __type?: "ResourceIdentifier";
+  /**
+   * <p>The type of resource.</p>
+   */
+  resourceType?: ResourceType | string;
+
   /**
    * <p>The time that the resource was deleted.</p>
    */
@@ -8172,19 +7582,13 @@ export interface ResourceIdentifier {
    * <p>The custom name of the resource (if available).</p>
    */
   resourceName?: string;
-
-  /**
-   * <p>The type of resource.</p>
-   */
-  resourceType?: ResourceType | string;
 }
 
 export namespace ResourceIdentifier {
   export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceIdentifier =>
-    __isa(o, "ResourceIdentifier");
+  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
@@ -8213,9 +7617,7 @@ export namespace ResourceIdentifier {
  *             </li>
  *          </ul>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -8226,10 +7628,9 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -8251,7 +7652,7 @@ export interface ResourceKey {
 
 export namespace ResourceKey {
   export const filterSensitiveLog = (obj: ResourceKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceKey => __isa(o, "ResourceKey");
 }
@@ -8260,9 +7661,7 @@ export namespace ResourceKey {
  * <p>You have specified a resource that is either unknown or has not
  * 			been discovered.</p>
  */
-export interface ResourceNotDiscoveredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotDiscoveredException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotDiscoveredException";
   $fault: "client";
   /**
@@ -8272,21 +7671,16 @@ export interface ResourceNotDiscoveredException
 }
 
 export namespace ResourceNotDiscoveredException {
-  export const filterSensitiveLog = (
-    obj: ResourceNotDiscoveredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceNotDiscoveredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotDiscoveredException =>
-    __isa(o, "ResourceNotDiscoveredException");
+  export const isa = (o: any): o is ResourceNotDiscoveredException => __isa(o, "ResourceNotDiscoveredException");
 }
 
 /**
  * <p>You have specified a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -8297,16 +7691,14 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceType {
   AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
   Alarm = "AWS::CloudWatch::Alarm",
-  Alias = "AWS::Lambda::Alias",
   Api = "AWS::ApiGatewayV2::Api",
   Application = "AWS::ElasticBeanstalk::Application",
   ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
@@ -8323,35 +7715,32 @@ export enum ResourceType {
   ClusterSubnetGroup = "AWS::Redshift::ClusterSubnetGroup",
   CustomerGateway = "AWS::EC2::CustomerGateway",
   DBCluster = "AWS::RDS::DBCluster",
-  DBClusterParameterGroup = "AWS::RDS::DBClusterParameterGroup",
   DBClusterSnapshot = "AWS::RDS::DBClusterSnapshot",
   DBInstance = "AWS::RDS::DBInstance",
-  DBOptionGroup = "AWS::RDS::DBOptionGroup",
-  DBParameterGroup = "AWS::RDS::DBParameterGroup",
   DBSecurityGroup = "AWS::RDS::DBSecurityGroup",
   DBSnapshot = "AWS::RDS::DBSnapshot",
   DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
   Distribution = "AWS::CloudFront::Distribution",
-  DomainName = "AWS::ApiGateway::DomainName",
-  DomainNameV2 = "AWS::ApiGatewayV2::DomainName",
+  Domain = "AWS::Elasticsearch::Domain",
   EIP = "AWS::EC2::EIP",
   EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
   EncryptionConfig = "AWS::XRay::EncryptionConfig",
   Environment = "AWS::ElasticBeanstalk::Environment",
   EventSubscription = "AWS::RDS::EventSubscription",
+  FileData = "AWS::SSM::FileData",
   FlowLog = "AWS::EC2::FlowLog",
   Function = "AWS::Lambda::Function",
   Group = "AWS::IAM::Group",
   Host = "AWS::EC2::Host",
+  IPSetV2 = "AWS::WAFv2::IPSet",
   Instance = "AWS::EC2::Instance",
   InternetGateway = "AWS::EC2::InternetGateway",
+  Key = "AWS::KMS::Key",
   LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
-  LicenseConfiguration = "AWS::LicenseManager::LicenseConfiguration",
   LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
   LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
   ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
-  Method = "AWS::ApiGateway::Method",
-  MobileHubProject = "AWS::MobileHub::Project",
+  ManagedRuleSetV2 = "AWS::WAFv2::ManagedRuleSet",
   NatGateway = "AWS::EC2::NatGateway",
   NetworkAcl = "AWS::EC2::NetworkAcl",
   NetworkInterface = "AWS::EC2::NetworkInterface",
@@ -8361,8 +7750,11 @@ export enum ResourceType {
   Portfolio = "AWS::ServiceCatalog::Portfolio",
   Project = "AWS::CodeBuild::Project",
   Protection = "AWS::Shield::Protection",
+  QLDBLedger = "AWS::QLDB::Ledger",
+  Queue = "AWS::SQS::Queue",
   RateBasedRule = "AWS::WAF::RateBasedRule",
   RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
+  RegexPatternSetV2 = "AWS::WAFv2::RegexPatternSet",
   RegionalProtection = "AWS::ShieldRegional::Protection",
   RegionalRateBasedRule = "AWS::WAFRegional::RateBasedRule",
   RegionalRule = "AWS::WAFRegional::Rule",
@@ -8375,8 +7767,10 @@ export enum ResourceType {
   RouteTable = "AWS::EC2::RouteTable",
   Rule = "AWS::WAF::Rule",
   RuleGroup = "AWS::WAF::RuleGroup",
+  RuleGroupV2 = "AWS::WAFv2::RuleGroup",
   ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
   ScheduledAction = "AWS::AutoScaling::ScheduledAction",
+  Secret = "AWS::SecretsManager::Secret",
   SecurityGroup = "AWS::EC2::SecurityGroup",
   Stack = "AWS::CloudFormation::Stack",
   Stage = "AWS::ApiGateway::Stage",
@@ -8384,6 +7778,7 @@ export enum ResourceType {
   StreamingDistribution = "AWS::CloudFront::StreamingDistribution",
   Subnet = "AWS::EC2::Subnet",
   Table = "AWS::DynamoDB::Table",
+  Topic = "AWS::SNS::Topic",
   Trail = "AWS::CloudTrail::Trail",
   User = "AWS::IAM::User",
   VPC = "AWS::EC2::VPC",
@@ -8393,7 +7788,8 @@ export enum ResourceType {
   VPNConnection = "AWS::EC2::VPNConnection",
   VPNGateway = "AWS::EC2::VPNGateway",
   Volume = "AWS::EC2::Volume",
-  WebACL = "AWS::WAF::WebACL"
+  WebACL = "AWS::WAF::WebACL",
+  WebACLV2 = "AWS::WAFv2::WebACL",
 }
 
 /**
@@ -8409,13 +7805,13 @@ export interface ResourceValue {
 
 export namespace ResourceValue {
   export const filterSensitiveLog = (obj: ResourceValue): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceValue => __isa(o, "ResourceValue");
 }
 
 export enum ResourceValueType {
-  RESOURCE_ID = "RESOURCE_ID"
+  RESOURCE_ID = "RESOURCE_ID",
 }
 
 /**
@@ -8424,25 +7820,24 @@ export enum ResourceValueType {
 export interface RetentionConfiguration {
   __type?: "RetentionConfiguration";
   /**
-   * <p>The name of the retention configuration object.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Number of days AWS Config stores your historical information.</p>
    * 		       <note>
    *             <p>Currently, only applicable to the configuration item history.</p>
    *          </note>
    */
   RetentionPeriodInDays: number | undefined;
+
+  /**
+   * <p>The name of the retention configuration object.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace RetentionConfiguration {
   export const filterSensitiveLog = (obj: RetentionConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RetentionConfiguration =>
-    __isa(o, "RetentionConfiguration");
+  export const isa = (o: any): o is RetentionConfiguration => __isa(o, "RetentionConfiguration");
 }
 
 /**
@@ -8456,14 +7851,6 @@ export namespace RetentionConfiguration {
  */
 export interface Scope {
   __type?: "Scope";
-  /**
-   * <p>The ID of the only AWS resource that you want to trigger an
-   * 			evaluation for the rule. If you specify a resource ID, you must
-   * 			specify one resource type for
-   * 			<code>ComplianceResourceTypes</code>.</p>
-   */
-  ComplianceResourceId?: string;
-
   /**
    * <p>The resource types of only those AWS resources that you want to
    * 			trigger an evaluation for the rule. You can only specify one type if
@@ -8479,6 +7866,14 @@ export interface Scope {
   TagKey?: string;
 
   /**
+   * <p>The ID of the only AWS resource that you want to trigger an
+   * 			evaluation for the rule. If you specify a resource ID, you must
+   * 			specify one resource type for
+   * 			<code>ComplianceResourceTypes</code>.</p>
+   */
+  ComplianceResourceId?: string;
+
+  /**
    * <p>The tag value applied to only those AWS resources that you want
    * 			to trigger an evaluation for the rule. If you specify a value for
    * 				<code>TagValue</code>, you must also specify a value for
@@ -8489,17 +7884,17 @@ export interface Scope {
 
 export namespace Scope {
   export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Scope => __isa(o, "Scope");
 }
 
-export interface SelectResourceConfigRequest {
-  __type?: "SelectResourceConfigRequest";
+export interface SelectAggregateResourceConfigRequest {
+  __type?: "SelectAggregateResourceConfigRequest";
   /**
-   * <p>The SQL query <code>SELECT</code> command.</p>
+   * <p>The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.</p>
    */
-  Expression: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The maximum number of query results returned on each page. </p>
@@ -8507,32 +7902,91 @@ export interface SelectResourceConfigRequest {
   Limit?: number;
 
   /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The SQL query SELECT command. </p>
+   */
+  Expression: string | undefined;
+}
+
+export namespace SelectAggregateResourceConfigRequest {
+  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SelectAggregateResourceConfigRequest =>
+    __isa(o, "SelectAggregateResourceConfigRequest");
+}
+
+export interface SelectAggregateResourceConfigResponse {
+  __type?: "SelectAggregateResourceConfigResponse";
+  /**
+   * <p>Returns the results for the SQL query.</p>
+   */
+  Results?: string[];
+
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Details about the query.</p>
+   */
+  QueryInfo?: QueryInfo;
+}
+
+export namespace SelectAggregateResourceConfigResponse {
+  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SelectAggregateResourceConfigResponse =>
+    __isa(o, "SelectAggregateResourceConfigResponse");
+}
+
+export interface SelectResourceConfigRequest {
+  __type?: "SelectResourceConfigRequest";
+  /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of query results returned on each page. </p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The SQL query <code>SELECT</code> command.</p>
+   */
+  Expression: string | undefined;
 }
 
 export namespace SelectResourceConfigRequest {
-  export const filterSensitiveLog = (
-    obj: SelectResourceConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SelectResourceConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SelectResourceConfigRequest =>
-    __isa(o, "SelectResourceConfigRequest");
+  export const isa = (o: any): o is SelectResourceConfigRequest => __isa(o, "SelectResourceConfigRequest");
 }
 
 export interface SelectResourceConfigResponse {
   __type?: "SelectResourceConfigResponse";
   /**
-   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Returns the <code>QueryInfo</code> object.</p>
    */
   QueryInfo?: QueryInfo;
+
+  /**
+   * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -8541,13 +7995,10 @@ export interface SelectResourceConfigResponse {
 }
 
 export namespace SelectResourceConfigResponse {
-  export const filterSensitiveLog = (
-    obj: SelectResourceConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SelectResourceConfigResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SelectResourceConfigResponse =>
-    __isa(o, "SelectResourceConfigResponse");
+  export const isa = (o: any): o is SelectResourceConfigResponse => __isa(o, "SelectResourceConfigResponse");
 }
 
 /**
@@ -8582,7 +8033,7 @@ export interface Source {
 
 export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Source => __isa(o, "Source");
 }
@@ -8597,12 +8048,6 @@ export namespace Source {
  */
 export interface SourceDetail {
   __type?: "SourceDetail";
-  /**
-   * <p>The source of the event, such as an AWS service, that triggers
-   * 			AWS Config to evaluate your AWS resources.</p>
-   */
-  EventSource?: EventSource | string;
-
   /**
    * <p>The frequency at which you want AWS Config to run evaluations
    * 			for a custom rule with a periodic trigger. If you specify a value
@@ -8627,6 +8072,12 @@ export interface SourceDetail {
    * 		       </note>
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The source of the event, such as an AWS service, that triggers
+   * 			AWS Config to evaluate your AWS resources.</p>
+   */
+  EventSource?: EventSource | string;
 
   /**
    * <p>The type of notification that triggers AWS Config to run an
@@ -8674,7 +8125,7 @@ export interface SourceDetail {
 
 export namespace SourceDetail {
   export const filterSensitiveLog = (obj: SourceDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SourceDetail => __isa(o, "SourceDetail");
 }
@@ -8685,21 +8136,21 @@ export namespace SourceDetail {
 export interface SsmControls {
   __type?: "SsmControls";
   /**
-   * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
-   */
-  ConcurrentExecutionRatePercentage?: number;
-
-  /**
    * <p>The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule.
    * 			You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%.
    * 			For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received. </p>
    */
   ErrorPercentage?: number;
+
+  /**
+   * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
+   */
+  ConcurrentExecutionRatePercentage?: number;
 }
 
 export namespace SsmControls {
   export const filterSensitiveLog = (obj: SsmControls): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SsmControls => __isa(o, "SsmControls");
 }
@@ -8717,13 +8168,10 @@ export interface StartConfigRulesEvaluationRequest {
 }
 
 export namespace StartConfigRulesEvaluationRequest {
-  export const filterSensitiveLog = (
-    obj: StartConfigRulesEvaluationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartConfigRulesEvaluationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartConfigRulesEvaluationRequest =>
-    __isa(o, "StartConfigRulesEvaluationRequest");
+  export const isa = (o: any): o is StartConfigRulesEvaluationRequest => __isa(o, "StartConfigRulesEvaluationRequest");
 }
 
 /**
@@ -8735,10 +8183,8 @@ export interface StartConfigRulesEvaluationResponse {
 }
 
 export namespace StartConfigRulesEvaluationResponse {
-  export const filterSensitiveLog = (
-    obj: StartConfigRulesEvaluationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartConfigRulesEvaluationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartConfigRulesEvaluationResponse =>
     __isa(o, "StartConfigRulesEvaluationResponse");
@@ -8758,59 +8204,50 @@ export interface StartConfigurationRecorderRequest {
 }
 
 export namespace StartConfigurationRecorderRequest {
-  export const filterSensitiveLog = (
-    obj: StartConfigurationRecorderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartConfigurationRecorderRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartConfigurationRecorderRequest =>
-    __isa(o, "StartConfigurationRecorderRequest");
+  export const isa = (o: any): o is StartConfigurationRecorderRequest => __isa(o, "StartConfigurationRecorderRequest");
 }
 
 export interface StartRemediationExecutionRequest {
   __type?: "StartRemediationExecutionRequest";
   /**
-   * <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
    * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
    */
   ResourceKeys: ResourceKey[] | undefined;
+
+  /**
+   * <p>The list of names of AWS Config rules that you want to run remediation execution for.</p>
+   */
+  ConfigRuleName: string | undefined;
 }
 
 export namespace StartRemediationExecutionRequest {
-  export const filterSensitiveLog = (
-    obj: StartRemediationExecutionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartRemediationExecutionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartRemediationExecutionRequest =>
-    __isa(o, "StartRemediationExecutionRequest");
+  export const isa = (o: any): o is StartRemediationExecutionRequest => __isa(o, "StartRemediationExecutionRequest");
 }
 
 export interface StartRemediationExecutionResponse {
   __type?: "StartRemediationExecutionResponse";
   /**
-   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
-   */
-  FailedItems?: ResourceKey[];
-
-  /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    */
   FailureMessage?: string;
+
+  /**
+   * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
+   */
+  FailedItems?: ResourceKey[];
 }
 
 export namespace StartRemediationExecutionResponse {
-  export const filterSensitiveLog = (
-    obj: StartRemediationExecutionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartRemediationExecutionResponse =>
-    __isa(o, "StartRemediationExecutionResponse");
+  export const isa = (o: any): o is StartRemediationExecutionResponse => __isa(o, "StartRemediationExecutionResponse");
 }
 
 /**
@@ -8826,7 +8263,7 @@ export interface StaticValue {
 
 export namespace StaticValue {
   export const filterSensitiveLog = (obj: StaticValue): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StaticValue => __isa(o, "StaticValue");
 }
@@ -8892,10 +8329,9 @@ export interface StatusDetailFilters {
 
 export namespace StatusDetailFilters {
   export const filterSensitiveLog = (obj: StatusDetailFilters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StatusDetailFilters =>
-    __isa(o, "StatusDetailFilters");
+  export const isa = (o: any): o is StatusDetailFilters => __isa(o, "StatusDetailFilters");
 }
 
 /**
@@ -8910,13 +8346,10 @@ export interface StopConfigurationRecorderRequest {
 }
 
 export namespace StopConfigurationRecorderRequest {
-  export const filterSensitiveLog = (
-    obj: StopConfigurationRecorderRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopConfigurationRecorderRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopConfigurationRecorderRequest =>
-    __isa(o, "StopConfigurationRecorderRequest");
+  export const isa = (o: any): o is StopConfigurationRecorderRequest => __isa(o, "StopConfigurationRecorderRequest");
 }
 
 /**
@@ -8939,7 +8372,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -8959,18 +8392,15 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>You have reached the limit of the number of tags you can use. You have more than 50 tags.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   /**
@@ -8981,39 +8411,35 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The keys of the tags to be removed.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>The requested action is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -9024,8 +8450,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

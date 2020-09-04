@@ -1,21 +1,14 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
 import {
   DescribeEngineDefaultClusterParametersMessage,
-  DescribeEngineDefaultClusterParametersResult
+  DescribeEngineDefaultClusterParametersResult,
 } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
-  serializeAws_queryDescribeEngineDefaultClusterParametersCommand
+  serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEngineDefaultClusterParametersCommandInput = DescribeEngineDefaultClusterParametersMessage;
@@ -39,9 +32,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeEngineDefaultClusterParametersCommandInput
-  ) {
+  constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEngineDefaultClusterParametersCommandInput,
-    DescribeEngineDefaultClusterParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEngineDefaultClusterParametersCommandInput, DescribeEngineDefaultClusterParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
-import {
-  DescribeTopicsDetectionJobRequest,
-  DescribeTopicsDetectionJobResponse
-} from "../models/index.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
+import { DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTopicsDetectionJobCommand,
-  serializeAws_json1_1DescribeTopicsDetectionJobCommand
+  serializeAws_json1_1DescribeTopicsDetectionJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTopicsDetectionJobCommandInput = DescribeTopicsDetectionJobRequest;
-export type DescribeTopicsDetectionJobCommandOutput = DescribeTopicsDetectionJobResponse &
-  __MetadataBearer;
+export type DescribeTopicsDetectionJobCommandOutput = DescribeTopicsDetectionJobResponse & __MetadataBearer;
 
 export class DescribeTopicsDetectionJobCommand extends $Command<
   DescribeTopicsDetectionJobCommandInput,
@@ -49,18 +38,16 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTopicsDetectionJobCommandInput,
-    DescribeTopicsDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTopicsDetectionJobCommandInput, DescribeTopicsDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTopicsDetectionJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

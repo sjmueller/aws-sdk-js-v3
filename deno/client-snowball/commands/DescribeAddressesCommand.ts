@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowballClientResolvedConfig
-} from "../SnowballClient.ts";
-import {
-  DescribeAddressesRequest,
-  DescribeAddressesResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAddressesCommand,
-  serializeAws_json1_1DescribeAddressesCommand
+  serializeAws_json1_1DescribeAddressesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAddressesCommandInput = DescribeAddressesRequest;
-export type DescribeAddressesCommandOutput = DescribeAddressesResult &
-  __MetadataBearer;
+export type DescribeAddressesCommandOutput = DescribeAddressesResult & __MetadataBearer;
 
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,
@@ -50,14 +39,15 @@ export class DescribeAddressesCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAddressesCommandInput, DescribeAddressesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeAddressesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAddressesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAddressesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAddressesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressesCommandOutput> {
     return deserializeAws_json1_1DescribeAddressesCommand(output, context);
   }
 

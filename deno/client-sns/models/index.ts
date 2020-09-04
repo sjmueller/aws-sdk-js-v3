@@ -1,12 +1,19 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AddPermissionInput {
   __type?: "AddPermissionInput";
+  /**
+   * <p>The action you want to allow for the specified principal(s).</p>
+   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
+   */
+  ActionName: string[] | undefined;
+
+  /**
+   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
+   */
+  TopicArn: string | undefined;
+
   /**
    * <p>The AWS account IDs of the users (principals) who will be given access to the
    *             specified actions. The users must have AWS accounts, but do not need to be signed up for
@@ -15,49 +22,32 @@ export interface AddPermissionInput {
   AWSAccountId: string[] | undefined;
 
   /**
-   * <p>The action you want to allow for the specified principal(s).</p>
-   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-   */
-  ActionName: string[] | undefined;
-
-  /**
    * <p>A unique identifier for the new policy statement.</p>
    */
   Label: string | undefined;
-
-  /**
-   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
-   */
-  TopicArn: string | undefined;
 }
 
 export namespace AddPermissionInput {
   export const filterSensitiveLog = (obj: AddPermissionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddPermissionInput =>
-    __isa(o, "AddPermissionInput");
+  export const isa = (o: any): o is AddPermissionInput => __isa(o, "AddPermissionInput");
 }
 
 /**
  * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
-export interface AuthorizationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationErrorException {
-  export const filterSensitiveLog = (
-    obj: AuthorizationErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationErrorException =>
-    __isa(o, "AuthorizationErrorException");
+  export const isa = (o: any): o is AuthorizationErrorException => __isa(o, "AuthorizationErrorException");
 }
 
 /**
@@ -72,13 +62,10 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
 }
 
 export namespace CheckIfPhoneNumberIsOptedOutInput {
-  export const filterSensitiveLog = (
-    obj: CheckIfPhoneNumberIsOptedOutInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CheckIfPhoneNumberIsOptedOutInput =>
-    __isa(o, "CheckIfPhoneNumberIsOptedOutInput");
+  export const isa = (o: any): o is CheckIfPhoneNumberIsOptedOutInput => __isa(o, "CheckIfPhoneNumberIsOptedOutInput");
 }
 
 /**
@@ -105,10 +92,8 @@ export interface CheckIfPhoneNumberIsOptedOutResponse {
 }
 
 export namespace CheckIfPhoneNumberIsOptedOutResponse {
-  export const filterSensitiveLog = (
-    obj: CheckIfPhoneNumberIsOptedOutResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CheckIfPhoneNumberIsOptedOutResponse =>
     __isa(o, "CheckIfPhoneNumberIsOptedOutResponse");
@@ -118,9 +103,7 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
  */
-export interface ConcurrentAccessException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentAccessException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentAccessException";
   $fault: "client";
   message?: string;
@@ -128,10 +111,9 @@ export interface ConcurrentAccessException
 
 export namespace ConcurrentAccessException {
   export const filterSensitiveLog = (obj: ConcurrentAccessException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentAccessException =>
-    __isa(o, "ConcurrentAccessException");
+  export const isa = (o: any): o is ConcurrentAccessException => __isa(o, "ConcurrentAccessException");
 }
 
 /**
@@ -139,6 +121,11 @@ export namespace ConcurrentAccessException {
  */
 export interface ConfirmSubscriptionInput {
   __type?: "ConfirmSubscriptionInput";
+  /**
+   * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
+   */
+  Token: string | undefined;
+
   /**
    * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
    *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
@@ -148,11 +135,6 @@ export interface ConfirmSubscriptionInput {
   AuthenticateOnUnsubscribe?: string;
 
   /**
-   * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
-   */
-  Token: string | undefined;
-
-  /**
    * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
    */
   TopicArn: string | undefined;
@@ -160,10 +142,9 @@ export interface ConfirmSubscriptionInput {
 
 export namespace ConfirmSubscriptionInput {
   export const filterSensitiveLog = (obj: ConfirmSubscriptionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmSubscriptionInput =>
-    __isa(o, "ConfirmSubscriptionInput");
+  export const isa = (o: any): o is ConfirmSubscriptionInput => __isa(o, "ConfirmSubscriptionInput");
 }
 
 /**
@@ -178,13 +159,10 @@ export interface ConfirmSubscriptionResponse {
 }
 
 export namespace ConfirmSubscriptionResponse {
-  export const filterSensitiveLog = (
-    obj: ConfirmSubscriptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConfirmSubscriptionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConfirmSubscriptionResponse =>
-    __isa(o, "ConfirmSubscriptionResponse");
+  export const isa = (o: any): o is ConfirmSubscriptionResponse => __isa(o, "ConfirmSubscriptionResponse");
 }
 
 /**
@@ -200,10 +178,9 @@ export interface CreateEndpointResponse {
 
 export namespace CreateEndpointResponse {
   export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointResponse =>
-    __isa(o, "CreateEndpointResponse");
+  export const isa = (o: any): o is CreateEndpointResponse => __isa(o, "CreateEndpointResponse");
 }
 
 /**
@@ -218,27 +195,24 @@ export interface CreatePlatformApplicationInput {
   Attributes: { [key: string]: string } | undefined;
 
   /**
+   * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
+   *             Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
+   */
+  Platform: string | undefined;
+
+  /**
    * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
    *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
    *             long.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
-   *             Notification Service), APNS_SANDBOX, and FCM (Firebase Cloud Messaging).</p>
-   */
-  Platform: string | undefined;
 }
 
 export namespace CreatePlatformApplicationInput {
-  export const filterSensitiveLog = (
-    obj: CreatePlatformApplicationInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePlatformApplicationInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePlatformApplicationInput =>
-    __isa(o, "CreatePlatformApplicationInput");
+  export const isa = (o: any): o is CreatePlatformApplicationInput => __isa(o, "CreatePlatformApplicationInput");
 }
 
 /**
@@ -253,13 +227,10 @@ export interface CreatePlatformApplicationResponse {
 }
 
 export namespace CreatePlatformApplicationResponse {
-  export const filterSensitiveLog = (
-    obj: CreatePlatformApplicationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePlatformApplicationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePlatformApplicationResponse =>
-    __isa(o, "CreatePlatformApplicationResponse");
+  export const isa = (o: any): o is CreatePlatformApplicationResponse => __isa(o, "CreatePlatformApplicationResponse");
 }
 
 /**
@@ -273,35 +244,32 @@ export interface CreatePlatformEndpointInput {
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
-   *             data must be in UTF-8 format and less than 2KB.</p>
-   */
-  CustomUserData?: string;
-
-  /**
    * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
    */
   PlatformApplicationArn: string | undefined;
 
   /**
+   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
+   *             data must be in UTF-8 format and less than 2KB.</p>
+   */
+  CustomUserData?: string;
+
+  /**
    * <p>Unique identifier created by the notification service for an app on a device. The
    *             specific name for Token will vary, depending on which notification service is being
    *             used. For example, when using APNS as the notification service, you need the device
-   *             token. Alternatively, when using FCM or ADM, the device token equivalent is called the
-   *             registration ID.</p>
+   *             token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token
+   *             equivalent is called the registration ID.</p>
    */
   Token: string | undefined;
 }
 
 export namespace CreatePlatformEndpointInput {
-  export const filterSensitiveLog = (
-    obj: CreatePlatformEndpointInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreatePlatformEndpointInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePlatformEndpointInput =>
-    __isa(o, "CreatePlatformEndpointInput");
+  export const isa = (o: any): o is CreatePlatformEndpointInput => __isa(o, "CreatePlatformEndpointInput");
 }
 
 /**
@@ -309,6 +277,14 @@ export namespace CreatePlatformEndpointInput {
  */
 export interface CreateTopicInput {
   __type?: "CreateTopicInput";
+  /**
+   * <p>The list of tags to add to a new topic.</p>
+   *         <note>
+   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
+   *         </note>
+   */
+  Tags?: Tag[];
+
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
@@ -326,6 +302,10 @@ export interface CreateTopicInput {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>FifoTopic</code> – Set to true to create a FIFO topic.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>Policy</code> – The policy that defines who can access your
    *                     topic. By default, only the topic owner can publish or subscribe to the
    *                     topic.</p>
@@ -336,10 +316,34 @@ export interface CreateTopicInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
    *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
+   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
+   *                     attributes of the message). </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
+   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
+   *                     delivered.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+   *                     overrides the generated one.
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -350,24 +354,16 @@ export interface CreateTopicInput {
    *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
    *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
    *             long.</p>
+   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The list of tags to add to a new topic.</p>
-   *         <note>
-   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
-   *         </note>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateTopicInput {
   export const filterSensitiveLog = (obj: CreateTopicInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTopicInput =>
-    __isa(o, "CreateTopicInput");
+  export const isa = (o: any): o is CreateTopicInput => __isa(o, "CreateTopicInput");
 }
 
 /**
@@ -383,10 +379,9 @@ export interface CreateTopicResponse {
 
 export namespace CreateTopicResponse {
   export const filterSensitiveLog = (obj: CreateTopicResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTopicResponse =>
-    __isa(o, "CreateTopicResponse");
+  export const isa = (o: any): o is CreateTopicResponse => __isa(o, "CreateTopicResponse");
 }
 
 /**
@@ -402,10 +397,9 @@ export interface DeleteEndpointInput {
 
 export namespace DeleteEndpointInput {
   export const filterSensitiveLog = (obj: DeleteEndpointInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointInput =>
-    __isa(o, "DeleteEndpointInput");
+  export const isa = (o: any): o is DeleteEndpointInput => __isa(o, "DeleteEndpointInput");
 }
 
 /**
@@ -420,13 +414,10 @@ export interface DeletePlatformApplicationInput {
 }
 
 export namespace DeletePlatformApplicationInput {
-  export const filterSensitiveLog = (
-    obj: DeletePlatformApplicationInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePlatformApplicationInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePlatformApplicationInput =>
-    __isa(o, "DeletePlatformApplicationInput");
+  export const isa = (o: any): o is DeletePlatformApplicationInput => __isa(o, "DeletePlatformApplicationInput");
 }
 
 export interface DeleteTopicInput {
@@ -439,10 +430,9 @@ export interface DeleteTopicInput {
 
 export namespace DeleteTopicInput {
   export const filterSensitiveLog = (obj: DeleteTopicInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTopicInput =>
-    __isa(o, "DeleteTopicInput");
+  export const isa = (o: any): o is DeleteTopicInput => __isa(o, "DeleteTopicInput");
 }
 
 /**
@@ -463,7 +453,7 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
@@ -471,9 +461,7 @@ export namespace Endpoint {
 /**
  * <p>Exception error indicating endpoint disabled.</p>
  */
-export interface EndpointDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointDisabledException extends __SmithyException, $MetadataBearer {
   name: "EndpointDisabledException";
   $fault: "client";
   /**
@@ -484,10 +472,9 @@ export interface EndpointDisabledException
 
 export namespace EndpointDisabledException {
   export const filterSensitiveLog = (obj: EndpointDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EndpointDisabledException =>
-    __isa(o, "EndpointDisabledException");
+  export const isa = (o: any): o is EndpointDisabledException => __isa(o, "EndpointDisabledException");
 }
 
 /**
@@ -495,19 +482,15 @@ export namespace EndpointDisabledException {
  *             add more filter polices, submit an SNS Limit Increase case in the AWS Support
  *             Center.</p>
  */
-export interface FilterPolicyLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FilterPolicyLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FilterPolicyLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace FilterPolicyLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: FilterPolicyLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: FilterPolicyLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is FilterPolicyLimitExceededException =>
     __isa(o, "FilterPolicyLimitExceededException");
@@ -526,10 +509,9 @@ export interface GetEndpointAttributesInput {
 
 export namespace GetEndpointAttributesInput {
   export const filterSensitiveLog = (obj: GetEndpointAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEndpointAttributesInput =>
-    __isa(o, "GetEndpointAttributesInput");
+  export const isa = (o: any): o is GetEndpointAttributesInput => __isa(o, "GetEndpointAttributesInput");
 }
 
 /**
@@ -569,13 +551,10 @@ export interface GetEndpointAttributesResponse {
 }
 
 export namespace GetEndpointAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: GetEndpointAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEndpointAttributesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEndpointAttributesResponse =>
-    __isa(o, "GetEndpointAttributesResponse");
+  export const isa = (o: any): o is GetEndpointAttributesResponse => __isa(o, "GetEndpointAttributesResponse");
 }
 
 /**
@@ -590,10 +569,8 @@ export interface GetPlatformApplicationAttributesInput {
 }
 
 export namespace GetPlatformApplicationAttributesInput {
-  export const filterSensitiveLog = (
-    obj: GetPlatformApplicationAttributesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetPlatformApplicationAttributesInput =>
     __isa(o, "GetPlatformApplicationAttributesInput");
@@ -634,10 +611,8 @@ export interface GetPlatformApplicationAttributesResponse {
 }
 
 export namespace GetPlatformApplicationAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: GetPlatformApplicationAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetPlatformApplicationAttributesResponse =>
     __isa(o, "GetPlatformApplicationAttributesResponse");
@@ -659,10 +634,9 @@ export interface GetSMSAttributesInput {
 
 export namespace GetSMSAttributesInput {
   export const filterSensitiveLog = (obj: GetSMSAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSMSAttributesInput =>
-    __isa(o, "GetSMSAttributesInput");
+  export const isa = (o: any): o is GetSMSAttributesInput => __isa(o, "GetSMSAttributesInput");
 }
 
 /**
@@ -678,10 +652,9 @@ export interface GetSMSAttributesResponse {
 
 export namespace GetSMSAttributesResponse {
   export const filterSensitiveLog = (obj: GetSMSAttributesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSMSAttributesResponse =>
-    __isa(o, "GetSMSAttributesResponse");
+  export const isa = (o: any): o is GetSMSAttributesResponse => __isa(o, "GetSMSAttributesResponse");
 }
 
 /**
@@ -696,13 +669,10 @@ export interface GetSubscriptionAttributesInput {
 }
 
 export namespace GetSubscriptionAttributesInput {
-  export const filterSensitiveLog = (
-    obj: GetSubscriptionAttributesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSubscriptionAttributesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionAttributesInput =>
-    __isa(o, "GetSubscriptionAttributesInput");
+  export const isa = (o: any): o is GetSubscriptionAttributesInput => __isa(o, "GetSubscriptionAttributesInput");
 }
 
 /**
@@ -733,7 +703,8 @@ export interface GetSubscriptionAttributesResponse {
    *             <li>
    *                 <p>
    *                     <code>FilterPolicy</code> – The filter policy JSON that is assigned to
-   *                     the subscription.</p>
+   *                     the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message Filtering</a>
+   *                     in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -774,13 +745,10 @@ export interface GetSubscriptionAttributesResponse {
 }
 
 export namespace GetSubscriptionAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: GetSubscriptionAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSubscriptionAttributesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionAttributesResponse =>
-    __isa(o, "GetSubscriptionAttributesResponse");
+  export const isa = (o: any): o is GetSubscriptionAttributesResponse => __isa(o, "GetSubscriptionAttributesResponse");
 }
 
 /**
@@ -796,10 +764,9 @@ export interface GetTopicAttributesInput {
 
 export namespace GetTopicAttributesInput {
   export const filterSensitiveLog = (obj: GetTopicAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTopicAttributesInput =>
-    __isa(o, "GetTopicAttributesInput");
+  export const isa = (o: any): o is GetTopicAttributesInput => __isa(o, "GetTopicAttributesInput");
 }
 
 /**
@@ -851,7 +818,7 @@ export interface GetTopicAttributesResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>EffectiveDeliveryPolicy</code> – Yhe JSON serialization of the
+   *                   <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
    *                     effective delivery policy, taking system defaults into account.</p>
    *             </li>
    *          </ul>
@@ -871,18 +838,15 @@ export interface GetTopicAttributesResponse {
 
 export namespace GetTopicAttributesResponse {
   export const filterSensitiveLog = (obj: GetTopicAttributesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTopicAttributesResponse =>
-    __isa(o, "GetTopicAttributesResponse");
+  export const isa = (o: any): o is GetTopicAttributesResponse => __isa(o, "GetTopicAttributesResponse");
 }
 
 /**
  * <p>Indicates an internal service error.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
@@ -890,19 +854,16 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -910,19 +871,16 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -932,22 +890,17 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
  *             request using Signature Version 4.</p>
  */
-export interface InvalidSecurityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityException";
   $fault: "client";
   message?: string;
@@ -955,19 +908,16 @@ export interface InvalidSecurityException
 
 export namespace InvalidSecurityException {
   export const filterSensitiveLog = (obj: InvalidSecurityException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSecurityException =>
-    __isa(o, "InvalidSecurityException");
+  export const isa = (o: any): o is InvalidSecurityException => __isa(o, "InvalidSecurityException");
 }
 
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "client";
   message?: string;
@@ -975,19 +925,16 @@ export interface KMSAccessDeniedException
 
 export namespace KMSAccessDeniedException {
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSAccessDeniedException =>
-    __isa(o, "KMSAccessDeniedException");
+  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "client";
   message?: string;
@@ -995,10 +942,9 @@ export interface KMSDisabledException
 
 export namespace KMSDisabledException {
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
@@ -1007,9 +953,7 @@ export namespace KMSDisabledException {
  *                 Customer Master Key</a> in the <i>AWS Key Management Service Developer
  *                 Guide</i>.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "client";
   message?: string;
@@ -1017,19 +961,16 @@ export interface KMSInvalidStateException
 
 export namespace KMSInvalidStateException {
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
+  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "client";
   message?: string;
@@ -1037,10 +978,9 @@ export interface KMSNotFoundException
 
 export namespace KMSNotFoundException {
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 /**
@@ -1054,10 +994,9 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 
 export namespace KMSOptInRequired {
   export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSOptInRequired =>
-    __isa(o, "KMSOptInRequired");
+  export const isa = (o: any): o is KMSOptInRequired => __isa(o, "KMSOptInRequired");
 }
 
 /**
@@ -1066,9 +1005,7 @@ export namespace KMSOptInRequired {
  *             the <i>AWS Key Management Service Developer Guide.</i>
  *          </p>
  */
-export interface KMSThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingException";
   $fault: "client";
   message?: string;
@@ -1076,10 +1013,9 @@ export interface KMSThrottlingException
 
 export namespace KMSThrottlingException {
   export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSThrottlingException =>
-    __isa(o, "KMSThrottlingException");
+  export const isa = (o: any): o is KMSThrottlingException => __isa(o, "KMSThrottlingException");
 }
 
 /**
@@ -1088,22 +1024,20 @@ export namespace KMSThrottlingException {
 export interface ListEndpointsByPlatformApplicationInput {
   __type?: "ListEndpointsByPlatformApplicationInput";
   /**
+   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
+   */
+  PlatformApplicationArn: string | undefined;
+
+  /**
    * <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
    *             retrieve additional records that are available after the first page results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
-   */
-  PlatformApplicationArn: string | undefined;
 }
 
 export namespace ListEndpointsByPlatformApplicationInput {
-  export const filterSensitiveLog = (
-    obj: ListEndpointsByPlatformApplicationInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListEndpointsByPlatformApplicationInput =>
     __isa(o, "ListEndpointsByPlatformApplicationInput");
@@ -1115,26 +1049,22 @@ export namespace ListEndpointsByPlatformApplicationInput {
 export interface ListEndpointsByPlatformApplicationResponse {
   __type?: "ListEndpointsByPlatformApplicationResponse";
   /**
-   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
-   */
-  Endpoints?: Endpoint[];
-
-  /**
    * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
    *             additional records are available after the first page results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+   */
+  Endpoints?: Endpoint[];
 }
 
 export namespace ListEndpointsByPlatformApplicationResponse {
-  export const filterSensitiveLog = (
-    obj: ListEndpointsByPlatformApplicationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ListEndpointsByPlatformApplicationResponse =>
+  export const isa = (o: any): o is ListEndpointsByPlatformApplicationResponse =>
     __isa(o, "ListEndpointsByPlatformApplicationResponse");
 }
 
@@ -1152,13 +1082,10 @@ export interface ListPhoneNumbersOptedOutInput {
 }
 
 export namespace ListPhoneNumbersOptedOutInput {
-  export const filterSensitiveLog = (
-    obj: ListPhoneNumbersOptedOutInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumbersOptedOutInput =>
-    __isa(o, "ListPhoneNumbersOptedOutInput");
+  export const isa = (o: any): o is ListPhoneNumbersOptedOutInput => __isa(o, "ListPhoneNumbersOptedOutInput");
 }
 
 /**
@@ -1181,13 +1108,10 @@ export interface ListPhoneNumbersOptedOutResponse {
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
-  export const filterSensitiveLog = (
-    obj: ListPhoneNumbersOptedOutResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumbersOptedOutResponse =>
-    __isa(o, "ListPhoneNumbersOptedOutResponse");
+  export const isa = (o: any): o is ListPhoneNumbersOptedOutResponse => __isa(o, "ListPhoneNumbersOptedOutResponse");
 }
 
 /**
@@ -1203,13 +1127,10 @@ export interface ListPlatformApplicationsInput {
 }
 
 export namespace ListPlatformApplicationsInput {
-  export const filterSensitiveLog = (
-    obj: ListPlatformApplicationsInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPlatformApplicationsInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPlatformApplicationsInput =>
-    __isa(o, "ListPlatformApplicationsInput");
+  export const isa = (o: any): o is ListPlatformApplicationsInput => __isa(o, "ListPlatformApplicationsInput");
 }
 
 /**
@@ -1230,13 +1151,10 @@ export interface ListPlatformApplicationsResponse {
 }
 
 export namespace ListPlatformApplicationsResponse {
-  export const filterSensitiveLog = (
-    obj: ListPlatformApplicationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPlatformApplicationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPlatformApplicationsResponse =>
-    __isa(o, "ListPlatformApplicationsResponse");
+  export const isa = (o: any): o is ListPlatformApplicationsResponse => __isa(o, "ListPlatformApplicationsResponse");
 }
 
 /**
@@ -1256,13 +1174,10 @@ export interface ListSubscriptionsByTopicInput {
 }
 
 export namespace ListSubscriptionsByTopicInput {
-  export const filterSensitiveLog = (
-    obj: ListSubscriptionsByTopicInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSubscriptionsByTopicInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionsByTopicInput =>
-    __isa(o, "ListSubscriptionsByTopicInput");
+  export const isa = (o: any): o is ListSubscriptionsByTopicInput => __isa(o, "ListSubscriptionsByTopicInput");
 }
 
 /**
@@ -1283,13 +1198,10 @@ export interface ListSubscriptionsByTopicResponse {
 }
 
 export namespace ListSubscriptionsByTopicResponse {
-  export const filterSensitiveLog = (
-    obj: ListSubscriptionsByTopicResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSubscriptionsByTopicResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionsByTopicResponse =>
-    __isa(o, "ListSubscriptionsByTopicResponse");
+  export const isa = (o: any): o is ListSubscriptionsByTopicResponse => __isa(o, "ListSubscriptionsByTopicResponse");
 }
 
 /**
@@ -1305,10 +1217,9 @@ export interface ListSubscriptionsInput {
 
 export namespace ListSubscriptionsInput {
   export const filterSensitiveLog = (obj: ListSubscriptionsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionsInput =>
-    __isa(o, "ListSubscriptionsInput");
+  export const isa = (o: any): o is ListSubscriptionsInput => __isa(o, "ListSubscriptionsInput");
 }
 
 /**
@@ -1330,10 +1241,9 @@ export interface ListSubscriptionsResponse {
 
 export namespace ListSubscriptionsResponse {
   export const filterSensitiveLog = (obj: ListSubscriptionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSubscriptionsResponse =>
-    __isa(o, "ListSubscriptionsResponse");
+  export const isa = (o: any): o is ListSubscriptionsResponse => __isa(o, "ListSubscriptionsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1346,10 +1256,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1361,13 +1270,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTopicsInput {
@@ -1380,10 +1286,9 @@ export interface ListTopicsInput {
 
 export namespace ListTopicsInput {
   export const filterSensitiveLog = (obj: ListTopicsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTopicsInput =>
-    __isa(o, "ListTopicsInput");
+  export const isa = (o: any): o is ListTopicsInput => __isa(o, "ListTopicsInput");
 }
 
 /**
@@ -1392,23 +1297,22 @@ export namespace ListTopicsInput {
 export interface ListTopicsResponse {
   __type?: "ListTopicsResponse";
   /**
+   * <p>A list of topic ARNs.</p>
+   */
+  Topics?: Topic[];
+
+  /**
    * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
    *             returned if there are additional topics to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of topic ARNs.</p>
-   */
-  Topics?: Topic[];
 }
 
 export namespace ListTopicsResponse {
   export const filterSensitiveLog = (obj: ListTopicsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTopicsResponse =>
-    __isa(o, "ListTopicsResponse");
+  export const isa = (o: any): o is ListTopicsResponse => __isa(o, "ListTopicsResponse");
 }
 
 /**
@@ -1424,10 +1328,10 @@ export namespace ListTopicsResponse {
 export interface MessageAttributeValue {
   __type?: "MessageAttributeValue";
   /**
-   * <p>Binary type attributes can store any binary data, for example, compressed data,
-   *             encrypted data, or images.</p>
+   * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
+   *                 Characters</a>.</p>
    */
-  BinaryValue?: Uint8Array;
+  StringValue?: string;
 
   /**
    * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
@@ -1437,18 +1341,17 @@ export interface MessageAttributeValue {
   DataType: string | undefined;
 
   /**
-   * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
-   *                 Characters</a>.</p>
+   * <p>Binary type attributes can store any binary data, for example, compressed data,
+   *             encrypted data, or images.</p>
    */
-  StringValue?: string;
+  BinaryValue?: Uint8Array;
 }
 
 export namespace MessageAttributeValue {
   export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MessageAttributeValue =>
-    __isa(o, "MessageAttributeValue");
+  export const isa = (o: any): o is MessageAttributeValue => __isa(o, "MessageAttributeValue");
 }
 
 /**
@@ -1462,10 +1365,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1481,10 +1383,9 @@ export interface OptInPhoneNumberInput {
 
 export namespace OptInPhoneNumberInput {
   export const filterSensitiveLog = (obj: OptInPhoneNumberInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OptInPhoneNumberInput =>
-    __isa(o, "OptInPhoneNumberInput");
+  export const isa = (o: any): o is OptInPhoneNumberInput => __isa(o, "OptInPhoneNumberInput");
 }
 
 /**
@@ -1496,10 +1397,9 @@ export interface OptInPhoneNumberResponse {
 
 export namespace OptInPhoneNumberResponse {
   export const filterSensitiveLog = (obj: OptInPhoneNumberResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OptInPhoneNumberResponse =>
-    __isa(o, "OptInPhoneNumberResponse");
+  export const isa = (o: any): o is OptInPhoneNumberResponse => __isa(o, "OptInPhoneNumberResponse");
 }
 
 /**
@@ -1520,18 +1420,15 @@ export interface PlatformApplication {
 
 export namespace PlatformApplication {
   export const filterSensitiveLog = (obj: PlatformApplication): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlatformApplication =>
-    __isa(o, "PlatformApplication");
+  export const isa = (o: any): o is PlatformApplication => __isa(o, "PlatformApplication");
 }
 
 /**
  * <p>Exception error indicating platform application disabled.</p>
  */
-export interface PlatformApplicationDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PlatformApplicationDisabledException extends __SmithyException, $MetadataBearer {
   name: "PlatformApplicationDisabledException";
   $fault: "client";
   /**
@@ -1541,10 +1438,8 @@ export interface PlatformApplicationDisabledException
 }
 
 export namespace PlatformApplicationDisabledException {
-  export const filterSensitiveLog = (
-    obj: PlatformApplicationDisabledException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PlatformApplicationDisabledException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PlatformApplicationDisabledException =>
     __isa(o, "PlatformApplicationDisabledException");
@@ -1621,9 +1516,34 @@ export interface PublishInput {
   Message: string | undefined;
 
   /**
+   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
+   *             email endpoints. This field will also be included, if present, in the standard JSON
+   *             messages delivered to other endpoints.</p>
+   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
+   *             punctuation mark; must not include line breaks or control characters; and must be less
+   *             than 100 characters long.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
+   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  TargetArn?: string;
+
+  /**
    * <p>Message attributes for Publish action.</p>
    */
   MessageAttributes?: { [key: string]: MessageAttributeValue };
+
+  /**
+   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
+   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
+   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  PhoneNumber?: string;
 
   /**
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
@@ -1648,31 +1568,6 @@ export interface PublishInput {
   MessageStructure?: string;
 
   /**
-   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
-   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
-   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
-   *             email endpoints. This field will also be included, if present, in the standard JSON
-   *             messages delivered to other endpoints.</p>
-   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
-   *             punctuation mark; must not include line breaks or control characters; and must be less
-   *             than 100 characters long.</p>
-   */
-  Subject?: string;
-
-  /**
-   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
-   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  TargetArn?: string;
-
-  /**
    * <p>The topic you want to publish to.</p>
    *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
    *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
@@ -1682,7 +1577,7 @@ export interface PublishInput {
 
 export namespace PublishInput {
   export const filterSensitiveLog = (obj: PublishInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PublishInput => __isa(o, "PublishInput");
 }
@@ -1701,10 +1596,9 @@ export interface PublishResponse {
 
 export namespace PublishResponse {
   export const filterSensitiveLog = (obj: PublishResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PublishResponse =>
-    __isa(o, "PublishResponse");
+  export const isa = (o: any): o is PublishResponse => __isa(o, "PublishResponse");
 }
 
 /**
@@ -1713,30 +1607,27 @@ export namespace PublishResponse {
 export interface RemovePermissionInput {
   __type?: "RemovePermissionInput";
   /**
-   * <p>The unique label of the statement you want to remove.</p>
-   */
-  Label: string | undefined;
-
-  /**
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
+
+  /**
+   * <p>The unique label of the statement you want to remove.</p>
+   */
+  Label: string | undefined;
 }
 
 export namespace RemovePermissionInput {
   export const filterSensitiveLog = (obj: RemovePermissionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemovePermissionInput =>
-    __isa(o, "RemovePermissionInput");
+  export const isa = (o: any): o is RemovePermissionInput => __isa(o, "RemovePermissionInput");
 }
 
 /**
  * <p>Can't tag resource. Verify that the topic exists.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1744,10 +1635,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1755,6 +1645,11 @@ export namespace ResourceNotFoundException {
  */
 export interface SetEndpointAttributesInput {
   __type?: "SetEndpointAttributesInput";
+  /**
+   * <p>EndpointArn used for SetEndpointAttributes action.</p>
+   */
+  EndpointArn: string | undefined;
+
   /**
    * <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
    *         <ul>
@@ -1781,19 +1676,13 @@ export interface SetEndpointAttributesInput {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>EndpointArn used for SetEndpointAttributes action.</p>
-   */
-  EndpointArn: string | undefined;
 }
 
 export namespace SetEndpointAttributesInput {
   export const filterSensitiveLog = (obj: SetEndpointAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetEndpointAttributesInput =>
-    __isa(o, "SetEndpointAttributesInput");
+  export const isa = (o: any): o is SetEndpointAttributesInput => __isa(o, "SetEndpointAttributesInput");
 }
 
 /**
@@ -1802,43 +1691,53 @@ export namespace SetEndpointAttributesInput {
 export interface SetPlatformApplicationAttributesInput {
   __type?: "SetPlatformApplicationAttributesInput";
   /**
+   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
+   */
+  PlatformApplicationArn: string | undefined;
+
+  /**
    * <p>A map of the platform application attributes. Attributes in this map include the
    *             following:</p>
    *         <ul>
    *             <li>
    *                 <p>
    *                     <code>PlatformCredential</code> – The credential received from the
-   *                     notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key.
-   *                     For FCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client
-   *                     secret".</p>
+   *                     notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>,
+   *                         <code>PlatformCredential</code> is <code>private key</code>. For
+   *                         <code>GCM</code> (Firebase Cloud Messaging), <code>PlatformCredential</code>
+   *                     is <code>API key</code>. For <code>ADM</code>, <code>PlatformCredential</code>
+   *                     is <code>client secret</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>PlatformPrincipal</code> – The principal received from the
-   *                     notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL
-   *                     certificate. For FCM, PlatformPrincipal is not applicable. For ADM,
-   *                     PlatformPrincipal is "client id".</p>
+   *                     notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>,
+   *                         <code>PlatformPrincipal</code> is <code>SSL certificate</code>. For
+   *                         <code>GCM</code> (Firebase Cloud Messaging), there is no
+   *                         <code>PlatformPrincipal</code>. For <code>ADM</code>,
+   *                         <code>PlatformPrincipal</code> is <code>client id</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated
-   *                     event notifications should be sent.</p>
+   *                     <code>EventEndpointCreated</code> – Topic ARN to which
+   *                         <code>EndpointCreated</code> event notifications are sent.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted
-   *                     event notifications should be sent.</p>
+   *                     <code>EventEndpointDeleted</code> – Topic ARN to which
+   *                         <code>EndpointDeleted</code> event notifications are sent.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate
-   *                     event notifications should be sent.</p>
+   *                     <code>EventEndpointUpdated</code> – Topic ARN to which
+   *                         <code>EndpointUpdate</code> event notifications are sent.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure
-   *                     event notifications should be sent upon Direct Publish delivery failure
-   *                     (permanent) to one of the application's endpoints.</p>
+   *                     <code>EventDeliveryFailure</code> – Topic ARN to which
+   *                         <code>DeliveryFailure</code> event notifications are sent upon Direct
+   *                     Publish delivery failure (permanent) to one of the application's
+   *                     endpoints.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1858,18 +1757,11 @@ export interface SetPlatformApplicationAttributesInput {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
-
-  /**
-   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
-   */
-  PlatformApplicationArn: string | undefined;
 }
 
 export namespace SetPlatformApplicationAttributesInput {
-  export const filterSensitiveLog = (
-    obj: SetPlatformApplicationAttributesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SetPlatformApplicationAttributesInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SetPlatformApplicationAttributesInput =>
     __isa(o, "SetPlatformApplicationAttributesInput");
@@ -1973,10 +1865,9 @@ export interface SetSMSAttributesInput {
 
 export namespace SetSMSAttributesInput {
   export const filterSensitiveLog = (obj: SetSMSAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetSMSAttributesInput =>
-    __isa(o, "SetSMSAttributesInput");
+  export const isa = (o: any): o is SetSMSAttributesInput => __isa(o, "SetSMSAttributesInput");
 }
 
 /**
@@ -1988,10 +1879,9 @@ export interface SetSMSAttributesResponse {
 
 export namespace SetSMSAttributesResponse {
   export const filterSensitiveLog = (obj: SetSMSAttributesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetSMSAttributesResponse =>
-    __isa(o, "SetSMSAttributesResponse");
+  export const isa = (o: any): o is SetSMSAttributesResponse => __isa(o, "SetSMSAttributesResponse");
 }
 
 /**
@@ -1999,6 +1889,11 @@ export namespace SetSMSAttributesResponse {
  */
 export interface SetSubscriptionAttributesInput {
   __type?: "SetSubscriptionAttributesInput";
+  /**
+   * <p>The ARN of the subscription to modify.</p>
+   */
+  SubscriptionArn: string | undefined;
+
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
@@ -2037,21 +1932,13 @@ export interface SetSubscriptionAttributesInput {
    * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
-
-  /**
-   * <p>The ARN of the subscription to modify.</p>
-   */
-  SubscriptionArn: string | undefined;
 }
 
 export namespace SetSubscriptionAttributesInput {
-  export const filterSensitiveLog = (
-    obj: SetSubscriptionAttributesInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SetSubscriptionAttributesInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SetSubscriptionAttributesInput =>
-    __isa(o, "SetSubscriptionAttributesInput");
+  export const isa = (o: any): o is SetSubscriptionAttributesInput => __isa(o, "SetSubscriptionAttributesInput");
 }
 
 /**
@@ -2059,6 +1946,16 @@ export namespace SetSubscriptionAttributesInput {
  */
 export interface SetTopicAttributesInput {
   __type?: "SetTopicAttributesInput";
+  /**
+   * <p>The ARN of the topic to modify.</p>
+   */
+  TopicArn: string | undefined;
+
+  /**
+   * <p>The new value for the attribute.</p>
+   */
+  AttributeValue?: string;
+
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
@@ -2086,32 +1983,45 @@ export interface SetTopicAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
    *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
    *          </ul>
+   *
+   *
+   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
+   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
+   *                     attributes of the message). </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
+   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
+   *                     delivered.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+   *                     overrides the generated one.
+   *                 </p>
+   *             </li>
+   *          </ul>
    */
   AttributeName: string | undefined;
-
-  /**
-   * <p>The new value for the attribute.</p>
-   */
-  AttributeValue?: string;
-
-  /**
-   * <p>The ARN of the topic to modify.</p>
-   */
-  TopicArn: string | undefined;
 }
 
 export namespace SetTopicAttributesInput {
   export const filterSensitiveLog = (obj: SetTopicAttributesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetTopicAttributesInput =>
-    __isa(o, "SetTopicAttributesInput");
+  export const isa = (o: any): o is SetTopicAttributesInput => __isa(o, "SetTopicAttributesInput");
 }
 
 /**
@@ -2126,10 +2036,9 @@ export interface StaleTagException extends __SmithyException, $MetadataBearer {
 
 export namespace StaleTagException {
   export const filterSensitiveLog = (obj: StaleTagException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StaleTagException =>
-    __isa(o, "StaleTagException");
+  export const isa = (o: any): o is StaleTagException => __isa(o, "StaleTagException");
 }
 
 /**
@@ -2138,79 +2047,9 @@ export namespace StaleTagException {
 export interface SubscribeInput {
   __type?: "SubscribeInput";
   /**
-   * <p>A map of attributes with their corresponding values.</p>
-   *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
-   *                     failed deliveries to HTTP/S endpoints.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
-   *                     subscriber receive only a subset of messages, rather than receiving every
-   *                     message published to the topic.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
-   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
-   *                     need for the endpoints to process JSON formatting, which is otherwise created
-   *                     for Amazon SNS metadata.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
-   *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
-   *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
-   *     in the dead-letter queue for further analysis or reprocessing.</p>
-   *             </li>
-   *          </ul>
+   * <p>The ARN of the topic you want to subscribe to.</p>
    */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>The endpoint that you want to receive notifications. Endpoints vary by
-   *             protocol:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For the <code>http</code> protocol, the endpoint is an URL beginning with
-   *                         <code>http://</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>https</code> protocol, the endpoint is a URL beginning with
-   *                         <code>https://</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>email</code> protocol, the endpoint is an email address</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
-   *                     address</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
-   *                     SMS-enabled device</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
-   *                     queue</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
-   *                     a mobile app and device.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
-   *                     function.</p>
-   *             </li>
-   *          </ul>
-   */
-  Endpoint?: string;
+  TopicArn: string | undefined;
 
   /**
    * <p>The protocol you want to use. Supported protocols include:</p>
@@ -2257,38 +2096,103 @@ export interface SubscribeInput {
   Protocol: string | undefined;
 
   /**
+   * <p>The endpoint that you want to receive notifications. Endpoints vary by
+   *             protocol:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>http://</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>https://</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>email</code> protocol, the endpoint is an email address</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
+   *                     address</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
+   *                     SMS-enabled device</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
+   *                     queue</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
+   *                     a mobile app and device.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
+   *                     function.</p>
+   *             </li>
+   *          </ul>
+   */
+  Endpoint?: string;
+
+  /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
    *         <ul>
    *             <li>
-   *                 <p>If you have the subscription ARN returned, the response includes the ARN in
-   *                     all cases, even if the subscription is not yet confirmed.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If you don't have the subscription ARN returned, in addition to the ARN for
-   *                     confirmed subscriptions, the response also includes the <code>pending
-   *                         subscription</code> ARN value for subscriptions that aren't yet confirmed. A
-   *                     subscription becomes confirmed when the subscriber calls the
-   *                         <code>ConfirmSubscription</code> action with a confirmation token.</p>
+   *                 <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
+   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
+   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
+   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
+   *           confirmation token.</p>
    *             </li>
    *          </ul>
-   *         <p>If you set this parameter to <code>true</code>, .</p>
+   *         <p></p>
    *         <p>The default value is <code>false</code>.</p>
    */
   ReturnSubscriptionArn?: boolean;
 
   /**
-   * <p>The ARN of the topic you want to subscribe to.</p>
+   * <p>A map of attributes with their corresponding values.</p>
+   *         <p>The following lists the names, descriptions, and values of the special request
+   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
+   *                     failed deliveries to HTTP/S endpoints.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
+   *                     subscriber receive only a subset of messages, rather than receiving every
+   *                     message published to the topic.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
+   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
+   *                     need for the endpoints to process JSON formatting, which is otherwise created
+   *                     for Amazon SNS metadata.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
+   *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
+   *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
+   *     in the dead-letter queue for further analysis or reprocessing.</p>
+   *             </li>
+   *          </ul>
    */
-  TopicArn: string | undefined;
+  Attributes?: { [key: string]: string };
 }
 
 export namespace SubscribeInput {
   export const filterSensitiveLog = (obj: SubscribeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeInput =>
-    __isa(o, "SubscribeInput");
+  export const isa = (o: any): o is SubscribeInput => __isa(o, "SubscribeInput");
 }
 
 /**
@@ -2307,10 +2211,9 @@ export interface SubscribeResponse {
 
 export namespace SubscribeResponse {
   export const filterSensitiveLog = (obj: SubscribeResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeResponse =>
-    __isa(o, "SubscribeResponse");
+  export const isa = (o: any): o is SubscribeResponse => __isa(o, "SubscribeResponse");
 }
 
 /**
@@ -2319,9 +2222,9 @@ export namespace SubscribeResponse {
 export interface Subscription {
   __type?: "Subscription";
   /**
-   * <p>The subscription's endpoint (format depends on the protocol).</p>
+   * <p>The subscription's protocol.</p>
    */
-  Endpoint?: string;
+  Protocol?: string;
 
   /**
    * <p>The subscription's owner.</p>
@@ -2329,14 +2232,14 @@ export interface Subscription {
   Owner?: string;
 
   /**
-   * <p>The subscription's protocol.</p>
-   */
-  Protocol?: string;
-
-  /**
    * <p>The subscription's ARN.</p>
    */
   SubscriptionArn?: string;
+
+  /**
+   * <p>The subscription's endpoint (format depends on the protocol).</p>
+   */
+  Endpoint?: string;
 
   /**
    * <p>The ARN of the subscription's topic.</p>
@@ -2346,7 +2249,7 @@ export interface Subscription {
 
 export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
@@ -2355,19 +2258,15 @@ export namespace Subscription {
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  */
-export interface SubscriptionLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "SubscriptionLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubscriptionLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: SubscriptionLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubscriptionLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SubscriptionLimitExceededException =>
     __isa(o, "SubscriptionLimitExceededException");
@@ -2391,7 +2290,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2399,9 +2298,7 @@ export namespace Tag {
 /**
  * <p>Can't add more than 50 tags to a topic.</p>
  */
-export interface TagLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
@@ -2409,10 +2306,9 @@ export interface TagLimitExceededException
 
 export namespace TagLimitExceededException {
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededException =>
-    __isa(o, "TagLimitExceededException");
+  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
@@ -2427,32 +2323,30 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 
 export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The ARN of the topic to which to add tags.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tags to be added to the specified topic. A tag consists of a required key
    *             and an optional value.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The ARN of the topic to which to add tags.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2461,10 +2355,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2482,10 +2375,9 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 
 export namespace ThrottledException {
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottledException =>
-    __isa(o, "ThrottledException");
+  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 /**
@@ -2502,7 +2394,7 @@ export interface Topic {
 
 export namespace Topic {
   export const filterSensitiveLog = (obj: Topic): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Topic => __isa(o, "Topic");
 }
@@ -2510,22 +2402,17 @@ export namespace Topic {
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
-export interface TopicLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TopicLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TopicLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TopicLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: TopicLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TopicLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TopicLimitExceededException =>
-    __isa(o, "TopicLimitExceededException");
+  export const isa = (o: any): o is TopicLimitExceededException => __isa(o, "TopicLimitExceededException");
 }
 
 /**
@@ -2541,31 +2428,29 @@ export interface UnsubscribeInput {
 
 export namespace UnsubscribeInput {
   export const filterSensitiveLog = (obj: UnsubscribeInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeInput =>
-    __isa(o, "UnsubscribeInput");
+  export const isa = (o: any): o is UnsubscribeInput => __isa(o, "UnsubscribeInput");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The ARN of the topic from which to remove tags.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The list of tag keys to remove from the specified topic.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the topic from which to remove tags.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2574,8 +2459,7 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

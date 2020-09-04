@@ -1,21 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient.ts";
-import {
-  DeleteRemediationExceptionsRequest,
-  DeleteRemediationExceptionsResponse
-} from "../models/index.ts";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
+import { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteRemediationExceptionsCommand,
-  serializeAws_json1_1DeleteRemediationExceptionsCommand
+  serializeAws_json1_1DeleteRemediationExceptionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteRemediationExceptionsCommandInput = DeleteRemediationExceptionsRequest;
-export type DeleteRemediationExceptionsCommandOutput = DeleteRemediationExceptionsResponse &
-  __MetadataBearer;
+export type DeleteRemediationExceptionsCommandOutput = DeleteRemediationExceptionsResponse & __MetadataBearer;
 
 export class DeleteRemediationExceptionsCommand extends $Command<
   DeleteRemediationExceptionsCommandInput,
@@ -49,18 +38,16 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRemediationExceptionsCommandInput,
-    DeleteRemediationExceptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRemediationExceptionsCommandInput, DeleteRemediationExceptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteRemediationExceptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRemediationExceptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRemediationExceptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationExceptionsCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteRemediationExceptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  ModifyClusterSnapshotMessage,
-  ModifyClusterSnapshotResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { ModifyClusterSnapshotMessage, ModifyClusterSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyClusterSnapshotCommand,
-  serializeAws_queryModifyClusterSnapshotCommand
+  serializeAws_queryModifyClusterSnapshotCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyClusterSnapshotCommandInput = ModifyClusterSnapshotMessage;
-export type ModifyClusterSnapshotCommandOutput = ModifyClusterSnapshotResult &
-  __MetadataBearer;
+export type ModifyClusterSnapshotCommandOutput = ModifyClusterSnapshotResult & __MetadataBearer;
 
 export class ModifyClusterSnapshotCommand extends $Command<
   ModifyClusterSnapshotCommandInput,
@@ -49,18 +38,16 @@ export class ModifyClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterSnapshotCommandInput,
-    ModifyClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterSnapshotCommandInput, ModifyClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyClusterSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyClusterSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyClusterSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSnapshotCommandOutput> {
     return deserializeAws_queryModifyClusterSnapshotCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeClientResolvedConfig
-} from "../TranscribeClient.ts";
-import {
-  CreateVocabularyFilterRequest,
-  CreateVocabularyFilterResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient.ts";
+import { CreateVocabularyFilterRequest, CreateVocabularyFilterResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateVocabularyFilterCommand,
-  serializeAws_json1_1CreateVocabularyFilterCommand
+  serializeAws_json1_1CreateVocabularyFilterCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateVocabularyFilterCommandInput = CreateVocabularyFilterRequest;
-export type CreateVocabularyFilterCommandOutput = CreateVocabularyFilterResponse &
-  __MetadataBearer;
+export type CreateVocabularyFilterCommandOutput = CreateVocabularyFilterResponse & __MetadataBearer;
 
 export class CreateVocabularyFilterCommand extends $Command<
   CreateVocabularyFilterCommandInput,
@@ -49,18 +38,16 @@ export class CreateVocabularyFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVocabularyFilterCommandInput,
-    CreateVocabularyFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVocabularyFilterCommandInput, CreateVocabularyFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateVocabularyFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateVocabularyFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateVocabularyFilterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateVocabularyFilterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateVocabularyFilterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateVocabularyFilterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyFilterCommandOutput> {
     return deserializeAws_json1_1CreateVocabularyFilterCommand(output, context);
   }
 

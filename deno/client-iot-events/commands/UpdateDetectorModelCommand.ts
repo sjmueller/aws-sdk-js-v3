@@ -1,21 +1,11 @@
-import {
-  IoTEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsClient.ts";
-import {
-  UpdateDetectorModelRequest,
-  UpdateDetectorModelResponse
-} from "../models/index.ts";
+import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient.ts";
+import { UpdateDetectorModelRequest, UpdateDetectorModelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDetectorModelCommand,
-  serializeAws_restJson1UpdateDetectorModelCommand
+  serializeAws_restJson1UpdateDetectorModelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDetectorModelCommandInput = UpdateDetectorModelRequest;
-export type UpdateDetectorModelCommandOutput = UpdateDetectorModelResponse &
-  __MetadataBearer;
+export type UpdateDetectorModelCommandOutput = UpdateDetectorModelResponse & __MetadataBearer;
 
 export class UpdateDetectorModelCommand extends $Command<
   UpdateDetectorModelCommandInput,
@@ -49,18 +38,16 @@ export class UpdateDetectorModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDetectorModelCommandInput,
-    UpdateDetectorModelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDetectorModelCommandInput, UpdateDetectorModelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDetectorModelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorModelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateDetectorModelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDetectorModelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDetectorModelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDetectorModelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDetectorModelCommandOutput> {
     return deserializeAws_restJson1UpdateDetectorModelCommand(output, context);
   }
 

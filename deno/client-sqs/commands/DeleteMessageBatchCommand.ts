@@ -1,21 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient.ts";
-import {
-  DeleteMessageBatchRequest,
-  DeleteMessageBatchResult
-} from "../models/index.ts";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
+import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteMessageBatchCommand,
-  serializeAws_queryDeleteMessageBatchCommand
+  serializeAws_queryDeleteMessageBatchCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
-export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult &
-  __MetadataBearer;
+export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult & __MetadataBearer;
 
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,
@@ -50,14 +39,15 @@ export class DeleteMessageBatchCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteMessageBatchRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMessageBatchResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteMessageBatchCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMessageBatchCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMessageBatchCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMessageBatchCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageBatchCommandOutput> {
     return deserializeAws_queryDeleteMessageBatchCommand(output, context);
   }
 

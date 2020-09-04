@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
 import { RemoveAllResourcePermissionsRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1RemoveAllResourcePermissionsCommand,
-  serializeAws_restJson1RemoveAllResourcePermissionsCommand
+  serializeAws_restJson1RemoveAllResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveAllResourcePermissionsCommandInput = RemoveAllResourcePermissionsRequest;
@@ -45,18 +38,16 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveAllResourcePermissionsCommandInput,
-    RemoveAllResourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveAllResourcePermissionsCommandInput, RemoveAllResourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveAllResourcePermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveAllResourcePermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAllResourcePermissionsCommand(
-      input,
-      context
-    );
+  private serialize(input: RemoveAllResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1RemoveAllResourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAllResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1RemoveAllResourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RemoveAllResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

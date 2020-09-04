@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  RemoveThingFromThingGroupRequest,
-  RemoveThingFromThingGroupResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { RemoveThingFromThingGroupRequest, RemoveThingFromThingGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1RemoveThingFromThingGroupCommand,
-  serializeAws_restJson1RemoveThingFromThingGroupCommand
+  serializeAws_restJson1RemoveThingFromThingGroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveThingFromThingGroupCommandInput = RemoveThingFromThingGroupRequest;
-export type RemoveThingFromThingGroupCommandOutput = RemoveThingFromThingGroupResponse &
-  __MetadataBearer;
+export type RemoveThingFromThingGroupCommandOutput = RemoveThingFromThingGroupResponse & __MetadataBearer;
 
 export class RemoveThingFromThingGroupCommand extends $Command<
   RemoveThingFromThingGroupCommandInput,
@@ -49,18 +38,16 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveThingFromThingGroupCommandInput,
-    RemoveThingFromThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveThingFromThingGroupCommandInput, RemoveThingFromThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveThingFromThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RemoveThingFromThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveThingFromThingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveThingFromThingGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: RemoveThingFromThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1RemoveThingFromThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveThingFromThingGroupCommandOutput> {
-    return deserializeAws_restJson1RemoveThingFromThingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1RemoveThingFromThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

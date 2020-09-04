@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient.ts";
-import {
-  CreateRuleGroupRequest,
-  CreateRuleGroupResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
+import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateRuleGroupCommand,
-  serializeAws_json1_1CreateRuleGroupCommand
+  serializeAws_json1_1CreateRuleGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
-export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse &
-  __MetadataBearer;
+export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
@@ -50,14 +39,15 @@ export class CreateRuleGroupCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateRuleGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRuleGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRuleGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRuleGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
     return deserializeAws_json1_1CreateRuleGroupCommand(output, context);
   }
 

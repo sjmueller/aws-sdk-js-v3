@@ -1,122 +1,101 @@
-import {
-  AssociateDomainCommandInput,
-  AssociateDomainCommandOutput
-} from "./commands/AssociateDomainCommand.ts";
+import { AssociateDomainCommandInput, AssociateDomainCommandOutput } from "./commands/AssociateDomainCommand.ts";
 import {
   AssociateWebsiteAuthorizationProviderCommandInput,
-  AssociateWebsiteAuthorizationProviderCommandOutput
+  AssociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/AssociateWebsiteAuthorizationProviderCommand.ts";
 import {
   AssociateWebsiteCertificateAuthorityCommandInput,
-  AssociateWebsiteCertificateAuthorityCommandOutput
+  AssociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand.ts";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand.ts";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand.ts";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DescribeAuditStreamConfigurationCommandInput,
-  DescribeAuditStreamConfigurationCommandOutput
+  DescribeAuditStreamConfigurationCommandOutput,
 } from "./commands/DescribeAuditStreamConfigurationCommand.ts";
 import {
   DescribeCompanyNetworkConfigurationCommandInput,
-  DescribeCompanyNetworkConfigurationCommandOutput
+  DescribeCompanyNetworkConfigurationCommandOutput,
 } from "./commands/DescribeCompanyNetworkConfigurationCommand.ts";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "./commands/DescribeDeviceCommand.ts";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand.ts";
 import {
   DescribeDevicePolicyConfigurationCommandInput,
-  DescribeDevicePolicyConfigurationCommandOutput
+  DescribeDevicePolicyConfigurationCommandOutput,
 } from "./commands/DescribeDevicePolicyConfigurationCommand.ts";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand.ts";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand.ts";
 import {
   DescribeFleetMetadataCommandInput,
-  DescribeFleetMetadataCommandOutput
+  DescribeFleetMetadataCommandOutput,
 } from "./commands/DescribeFleetMetadataCommand.ts";
 import {
   DescribeIdentityProviderConfigurationCommandInput,
-  DescribeIdentityProviderConfigurationCommandOutput
+  DescribeIdentityProviderConfigurationCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigurationCommand.ts";
 import {
   DescribeWebsiteCertificateAuthorityCommandInput,
-  DescribeWebsiteCertificateAuthorityCommandOutput
+  DescribeWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DescribeWebsiteCertificateAuthorityCommand.ts";
 import {
   DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput
+  DisassociateDomainCommandOutput,
 } from "./commands/DisassociateDomainCommand.ts";
 import {
   DisassociateWebsiteAuthorizationProviderCommandInput,
-  DisassociateWebsiteAuthorizationProviderCommandOutput
+  DisassociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/DisassociateWebsiteAuthorizationProviderCommand.ts";
 import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
-  DisassociateWebsiteCertificateAuthorityCommandOutput
+  DisassociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand.ts";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand.ts";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand.ts";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand.ts";
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
-  ListWebsiteAuthorizationProvidersCommandOutput
+  ListWebsiteAuthorizationProvidersCommandOutput,
 } from "./commands/ListWebsiteAuthorizationProvidersCommand.ts";
 import {
   ListWebsiteCertificateAuthoritiesCommandInput,
-  ListWebsiteCertificateAuthoritiesCommandOutput
+  ListWebsiteCertificateAuthoritiesCommandOutput,
 } from "./commands/ListWebsiteCertificateAuthoritiesCommand.ts";
 import {
   RestoreDomainAccessCommandInput,
-  RestoreDomainAccessCommandOutput
+  RestoreDomainAccessCommandOutput,
 } from "./commands/RestoreDomainAccessCommand.ts";
 import {
   RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput
+  RevokeDomainAccessCommandOutput,
 } from "./commands/RevokeDomainAccessCommand.ts";
-import {
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput
-} from "./commands/SignOutUserCommand.ts";
+import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAuditStreamConfigurationCommandInput,
-  UpdateAuditStreamConfigurationCommandOutput
+  UpdateAuditStreamConfigurationCommandOutput,
 } from "./commands/UpdateAuditStreamConfigurationCommand.ts";
 import {
   UpdateCompanyNetworkConfigurationCommandInput,
-  UpdateCompanyNetworkConfigurationCommandOutput
+  UpdateCompanyNetworkConfigurationCommandOutput,
 } from "./commands/UpdateCompanyNetworkConfigurationCommand.ts";
 import {
   UpdateDevicePolicyConfigurationCommandInput,
-  UpdateDevicePolicyConfigurationCommandOutput
+  UpdateDevicePolicyConfigurationCommandOutput,
 } from "./commands/UpdateDevicePolicyConfigurationCommand.ts";
 import {
   UpdateDomainMetadataCommandInput,
-  UpdateDomainMetadataCommandOutput
+  UpdateDomainMetadataCommandOutput,
 } from "./commands/UpdateDomainMetadataCommand.ts";
 import {
   UpdateFleetMetadataCommandInput,
-  UpdateFleetMetadataCommandOutput
+  UpdateFleetMetadataCommandOutput,
 } from "./commands/UpdateFleetMetadataCommand.ts";
 import {
   UpdateIdentityProviderConfigurationCommandInput,
-  UpdateIdentityProviderConfigurationCommandOutput
+  UpdateIdentityProviderConfigurationCommandOutput,
 } from "./commands/UpdateIdentityProviderConfigurationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -125,38 +104,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -165,9 +140,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -190,11 +166,14 @@ export type ServiceInputTypes =
   | ListDevicesCommandInput
   | ListDomainsCommandInput
   | ListFleetsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWebsiteAuthorizationProvidersCommandInput
   | ListWebsiteCertificateAuthoritiesCommandInput
   | RestoreDomainAccessCommandInput
   | RevokeDomainAccessCommandInput
   | SignOutUserCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAuditStreamConfigurationCommandInput
   | UpdateCompanyNetworkConfigurationCommandInput
   | UpdateDevicePolicyConfigurationCommandInput
@@ -222,11 +201,14 @@ export type ServiceOutputTypes =
   | ListDevicesCommandOutput
   | ListDomainsCommandOutput
   | ListFleetsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWebsiteAuthorizationProvidersCommandOutput
   | ListWebsiteCertificateAuthoritiesCommandOutput
   | RestoreDomainAccessCommandOutput
   | RevokeDomainAccessCommandOutput
   | SignOutUserCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAuditStreamConfigurationCommandOutput
   | UpdateCompanyNetworkConfigurationCommandOutput
   | UpdateDevicePolicyConfigurationCommandOutput
@@ -234,8 +216,7 @@ export type ServiceOutputTypes =
   | UpdateFleetMetadataCommandOutput
   | UpdateIdentityProviderConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -309,14 +290,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -324,9 +310,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkLinkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -335,9 +319,7 @@ export type WorkLinkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -348,7 +330,7 @@ export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
- *             to internal websites and web apps from iOS phones. In a single step, your users, such as
+ *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
  *             They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink
  *             authenticates the user's access and securely renders authorized internal web content in a secure
@@ -366,7 +348,7 @@ export class WorkLinkClient extends __Client<
   constructor(configuration: WorkLinkClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -381,6 +363,7 @@ export class WorkLinkClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

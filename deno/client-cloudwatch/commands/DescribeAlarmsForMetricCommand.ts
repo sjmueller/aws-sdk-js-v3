@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  DescribeAlarmsForMetricInput,
-  DescribeAlarmsForMetricOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeAlarmsForMetricCommand,
-  serializeAws_queryDescribeAlarmsForMetricCommand
+  serializeAws_queryDescribeAlarmsForMetricCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAlarmsForMetricCommandInput = DescribeAlarmsForMetricInput;
-export type DescribeAlarmsForMetricCommandOutput = DescribeAlarmsForMetricOutput &
-  __MetadataBearer;
+export type DescribeAlarmsForMetricCommandOutput = DescribeAlarmsForMetricOutput & __MetadataBearer;
 
 export class DescribeAlarmsForMetricCommand extends $Command<
   DescribeAlarmsForMetricCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAlarmsForMetricCommandInput,
-    DescribeAlarmsForMetricCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAlarmsForMetricCommandInput, DescribeAlarmsForMetricCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAlarmsForMetricInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlarmsForMetricOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAlarmsForMetricCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAlarmsForMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmsForMetricCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAlarmsForMetricCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmsForMetricCommandOutput> {
     return deserializeAws_queryDescribeAlarmsForMetricCommand(output, context);
   }
 

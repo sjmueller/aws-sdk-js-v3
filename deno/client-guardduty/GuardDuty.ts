@@ -2,269 +2,297 @@ import { GuardDutyClient } from "./GuardDutyClient.ts";
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
+  AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand.ts";
 import {
   ArchiveFindingsCommand,
   ArchiveFindingsCommandInput,
-  ArchiveFindingsCommandOutput
+  ArchiveFindingsCommandOutput,
 } from "./commands/ArchiveFindingsCommand.ts";
 import {
   CreateDetectorCommand,
   CreateDetectorCommandInput,
-  CreateDetectorCommandOutput
+  CreateDetectorCommandOutput,
 } from "./commands/CreateDetectorCommand.ts";
 import {
   CreateFilterCommand,
   CreateFilterCommandInput,
-  CreateFilterCommandOutput
+  CreateFilterCommandOutput,
 } from "./commands/CreateFilterCommand.ts";
 import {
   CreateIPSetCommand,
   CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
+  CreateIPSetCommandOutput,
 } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateMembersCommand,
   CreateMembersCommandInput,
-  CreateMembersCommandOutput
+  CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand.ts";
 import {
   CreatePublishingDestinationCommand,
   CreatePublishingDestinationCommandInput,
-  CreatePublishingDestinationCommandOutput
+  CreatePublishingDestinationCommandOutput,
 } from "./commands/CreatePublishingDestinationCommand.ts";
 import {
   CreateSampleFindingsCommand,
   CreateSampleFindingsCommandInput,
-  CreateSampleFindingsCommandOutput
+  CreateSampleFindingsCommandOutput,
 } from "./commands/CreateSampleFindingsCommand.ts";
 import {
   CreateThreatIntelSetCommand,
   CreateThreatIntelSetCommandInput,
-  CreateThreatIntelSetCommandOutput
+  CreateThreatIntelSetCommandOutput,
 } from "./commands/CreateThreatIntelSetCommand.ts";
 import {
   DeclineInvitationsCommand,
   DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput
+  DeclineInvitationsCommandOutput,
 } from "./commands/DeclineInvitationsCommand.ts";
 import {
   DeleteDetectorCommand,
   DeleteDetectorCommandInput,
-  DeleteDetectorCommandOutput
+  DeleteDetectorCommandOutput,
 } from "./commands/DeleteDetectorCommand.ts";
 import {
   DeleteFilterCommand,
   DeleteFilterCommandInput,
-  DeleteFilterCommandOutput
+  DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand.ts";
 import {
   DeleteIPSetCommand,
   DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
+  DeleteIPSetCommandOutput,
 } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteInvitationsCommand,
   DeleteInvitationsCommandInput,
-  DeleteInvitationsCommandOutput
+  DeleteInvitationsCommandOutput,
 } from "./commands/DeleteInvitationsCommand.ts";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
+  DeleteMembersCommandOutput,
 } from "./commands/DeleteMembersCommand.ts";
 import {
   DeletePublishingDestinationCommand,
   DeletePublishingDestinationCommandInput,
-  DeletePublishingDestinationCommandOutput
+  DeletePublishingDestinationCommandOutput,
 } from "./commands/DeletePublishingDestinationCommand.ts";
 import {
   DeleteThreatIntelSetCommand,
   DeleteThreatIntelSetCommandInput,
-  DeleteThreatIntelSetCommandOutput
+  DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand.ts";
+import {
+  DescribeOrganizationConfigurationCommand,
+  DescribeOrganizationConfigurationCommandInput,
+  DescribeOrganizationConfigurationCommandOutput,
+} from "./commands/DescribeOrganizationConfigurationCommand.ts";
 import {
   DescribePublishingDestinationCommand,
   DescribePublishingDestinationCommandInput,
-  DescribePublishingDestinationCommandOutput
+  DescribePublishingDestinationCommandOutput,
 } from "./commands/DescribePublishingDestinationCommand.ts";
+import {
+  DisableOrganizationAdminAccountCommand,
+  DisableOrganizationAdminAccountCommandInput,
+  DisableOrganizationAdminAccountCommandOutput,
+} from "./commands/DisableOrganizationAdminAccountCommand.ts";
 import {
   DisassociateFromMasterAccountCommand,
   DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput
+  DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand.ts";
 import {
   DisassociateMembersCommand,
   DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput
+  DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand.ts";
+import {
+  EnableOrganizationAdminAccountCommand,
+  EnableOrganizationAdminAccountCommandInput,
+  EnableOrganizationAdminAccountCommandOutput,
+} from "./commands/EnableOrganizationAdminAccountCommand.ts";
 import {
   GetDetectorCommand,
   GetDetectorCommandInput,
-  GetDetectorCommandOutput
+  GetDetectorCommandOutput,
 } from "./commands/GetDetectorCommand.ts";
-import {
-  GetFilterCommand,
-  GetFilterCommandInput,
-  GetFilterCommandOutput
-} from "./commands/GetFilterCommand.ts";
+import { GetFilterCommand, GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand.ts";
 import {
   GetFindingsCommand,
   GetFindingsCommandInput,
-  GetFindingsCommandOutput
+  GetFindingsCommandOutput,
 } from "./commands/GetFindingsCommand.ts";
 import {
   GetFindingsStatisticsCommand,
   GetFindingsStatisticsCommandInput,
-  GetFindingsStatisticsCommandOutput
+  GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand.ts";
-import {
-  GetIPSetCommand,
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand.ts";
+import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand.ts";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
-  GetInvitationsCountCommandOutput
+  GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand.ts";
 import {
   GetMasterAccountCommand,
   GetMasterAccountCommandInput,
-  GetMasterAccountCommandOutput
+  GetMasterAccountCommandOutput,
 } from "./commands/GetMasterAccountCommand.ts";
 import {
-  GetMembersCommand,
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand.ts";
+  GetMemberDetectorsCommand,
+  GetMemberDetectorsCommandInput,
+  GetMemberDetectorsCommandOutput,
+} from "./commands/GetMemberDetectorsCommand.ts";
+import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand.ts";
 import {
   GetThreatIntelSetCommand,
   GetThreatIntelSetCommandInput,
-  GetThreatIntelSetCommandOutput
+  GetThreatIntelSetCommandOutput,
 } from "./commands/GetThreatIntelSetCommand.ts";
+import {
+  GetUsageStatisticsCommand,
+  GetUsageStatisticsCommandInput,
+  GetUsageStatisticsCommandOutput,
+} from "./commands/GetUsageStatisticsCommand.ts";
 import {
   InviteMembersCommand,
   InviteMembersCommandInput,
-  InviteMembersCommandOutput
+  InviteMembersCommandOutput,
 } from "./commands/InviteMembersCommand.ts";
 import {
   ListDetectorsCommand,
   ListDetectorsCommandInput,
-  ListDetectorsCommandOutput
+  ListDetectorsCommandOutput,
 } from "./commands/ListDetectorsCommand.ts";
 import {
   ListFiltersCommand,
   ListFiltersCommandInput,
-  ListFiltersCommandOutput
+  ListFiltersCommandOutput,
 } from "./commands/ListFiltersCommand.ts";
 import {
   ListFindingsCommand,
   ListFindingsCommandInput,
-  ListFindingsCommandOutput
+  ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand.ts";
-import {
-  ListIPSetsCommand,
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand.ts";
+import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand.ts";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
+  ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand.ts";
 import {
   ListMembersCommand,
   ListMembersCommandInput,
-  ListMembersCommandOutput
+  ListMembersCommandOutput,
 } from "./commands/ListMembersCommand.ts";
+import {
+  ListOrganizationAdminAccountsCommand,
+  ListOrganizationAdminAccountsCommandInput,
+  ListOrganizationAdminAccountsCommandOutput,
+} from "./commands/ListOrganizationAdminAccountsCommand.ts";
 import {
   ListPublishingDestinationsCommand,
   ListPublishingDestinationsCommandInput,
-  ListPublishingDestinationsCommandOutput
+  ListPublishingDestinationsCommandOutput,
 } from "./commands/ListPublishingDestinationsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListThreatIntelSetsCommand,
   ListThreatIntelSetsCommandInput,
-  ListThreatIntelSetsCommandOutput
+  ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand.ts";
 import {
   StartMonitoringMembersCommand,
   StartMonitoringMembersCommandInput,
-  StartMonitoringMembersCommandOutput
+  StartMonitoringMembersCommandOutput,
 } from "./commands/StartMonitoringMembersCommand.ts";
 import {
   StopMonitoringMembersCommand,
   StopMonitoringMembersCommandInput,
-  StopMonitoringMembersCommandOutput
+  StopMonitoringMembersCommandOutput,
 } from "./commands/StopMonitoringMembersCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UnarchiveFindingsCommand,
   UnarchiveFindingsCommandInput,
-  UnarchiveFindingsCommandOutput
+  UnarchiveFindingsCommandOutput,
 } from "./commands/UnarchiveFindingsCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateDetectorCommand,
   UpdateDetectorCommandInput,
-  UpdateDetectorCommandOutput
+  UpdateDetectorCommandOutput,
 } from "./commands/UpdateDetectorCommand.ts";
 import {
   UpdateFilterCommand,
   UpdateFilterCommandInput,
-  UpdateFilterCommandOutput
+  UpdateFilterCommandOutput,
 } from "./commands/UpdateFilterCommand.ts";
 import {
   UpdateFindingsFeedbackCommand,
   UpdateFindingsFeedbackCommandInput,
-  UpdateFindingsFeedbackCommandOutput
+  UpdateFindingsFeedbackCommandOutput,
 } from "./commands/UpdateFindingsFeedbackCommand.ts";
 import {
   UpdateIPSetCommand,
   UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
+  UpdateIPSetCommandOutput,
 } from "./commands/UpdateIPSetCommand.ts";
+import {
+  UpdateMemberDetectorsCommand,
+  UpdateMemberDetectorsCommandInput,
+  UpdateMemberDetectorsCommandOutput,
+} from "./commands/UpdateMemberDetectorsCommand.ts";
+import {
+  UpdateOrganizationConfigurationCommand,
+  UpdateOrganizationConfigurationCommandInput,
+  UpdateOrganizationConfigurationCommandOutput,
+} from "./commands/UpdateOrganizationConfigurationCommand.ts";
 import {
   UpdatePublishingDestinationCommand,
   UpdatePublishingDestinationCommandInput,
-  UpdatePublishingDestinationCommandOutput
+  UpdatePublishingDestinationCommandOutput,
 } from "./commands/UpdatePublishingDestinationCommand.ts";
 import {
   UpdateThreatIntelSetCommand,
   UpdateThreatIntelSetCommandInput,
-  UpdateThreatIntelSetCommandOutput
+  UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses
- *       threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to
- *       identify unexpected and potentially unauthorized and malicious activity within your AWS
+ *       threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
+ *       identify unexpected, potentially unauthorized, and malicious activity within your AWS
  *       environment. This can include issues like escalations of privileges, uses of exposed
  *       credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
- *       detect compromised EC2 instances serving malware or mining bitcoin. It also monitors AWS
- *       account access behavior for signs of compromise, such as unauthorized infrastructure
- *       deployments, like instances deployed in a region that has never been used, or unusual API
- *       calls, like a password policy change to reduce password strength. GuardDuty informs you of the
- *       status of your AWS environment by producing security findings that you can view in the
- *       GuardDuty console or through Amazon CloudWatch events. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
- *         GuardDuty User Guide</a>. </p>
+ *       detect compromised EC2 instances that serve malware or mine bitcoin. </p>
+ *          <p>GuardDuty also monitors AWS account access behavior for signs of compromise. Some examples
+ *       of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
+ *       that has never been used, or unusual API calls like a password policy change to reduce
+ *       password strength. </p>
+ *          <p>GuardDuty informs you of the status of your AWS environment by producing security findings
+ *       that you can view in the GuardDuty console or through Amazon CloudWatch events. For more
+ *       information, see the <i>
+ *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
+ *           GuardDuty User Guide</a>
+ *             </i>. </p>
  */
 export class GuardDuty extends GuardDutyClient {
   /**
@@ -285,17 +313,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -303,9 +328,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Archives GuardDuty findings specified by the list of finding IDs.</p>
+   * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
    *          <note>
-   *             <p>Only the master account can archive findings. Member accounts do not have permission to
+   *             <p>Only the master account can archive findings. Member accounts don't have permission to
    *         archive findings from their accounts.</p>
    *          </note>
    */
@@ -324,17 +349,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public archiveFindings(
     args: ArchiveFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ArchiveFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ArchiveFindingsCommandOutput) => void),
     cb?: (err: any, data?: ArchiveFindingsCommandOutput) => void
   ): Promise<ArchiveFindingsCommandOutput> | void {
     const command = new ArchiveFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -343,8 +365,9 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
-   *       GuardDuty service. To start using GuardDuty, you must create a detector in each region that
-   *       you enable the service. You can have only one detector per account per region.</p>
+   *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
+   *       you enable the service. You can have only one detector per account per Region. All data
+   *       sources are enabled in a new detector by default.</p>
    */
   public createDetector(
     args: CreateDetectorCommandInput,
@@ -361,17 +384,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createDetector(
     args: CreateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDetectorCommandOutput) => void),
     cb?: (err: any, data?: CreateDetectorCommandOutput) => void
   ): Promise<CreateDetectorCommandOutput> | void {
     const command = new CreateDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -385,10 +405,7 @@ export class GuardDuty extends GuardDutyClient {
     args: CreateFilterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFilterCommandOutput>;
-  public createFilter(
-    args: CreateFilterCommandInput,
-    cb: (err: any, data?: CreateFilterCommandOutput) => void
-  ): void;
+  public createFilter(args: CreateFilterCommandInput, cb: (err: any, data?: CreateFilterCommandOutput) => void): void;
   public createFilter(
     args: CreateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -396,17 +413,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createFilter(
     args: CreateFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFilterCommandOutput) => void),
     cb?: (err: any, data?: CreateFilterCommandOutput) => void
   ): Promise<CreateFilterCommandOutput> | void {
     const command = new CreateFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -414,19 +428,13 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Creates a new IPSet, called Trusted IP list in the consoler user interface. An IPSet is a
-   *       list IP addresses trusted for secure communication with AWS infrastructure and applications.
-   *       GuardDuty does not generate findings for IP addresses included in IPSets. Only users from the
-   *       master account can use this operation.</p>
+   * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
+   *       IPSet is a list of IP addresses that are trusted for secure communication with AWS
+   *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
+   *       included in IPSets. Only users from the master account can use this operation.</p>
    */
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateIPSetCommandOutput>;
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    cb: (err: any, data?: CreateIPSetCommandOutput) => void
-  ): void;
+  public createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
+  public createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -434,17 +442,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -453,8 +458,17 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Creates member accounts of the current AWS account by specifying a list of AWS account
-   *       IDs. The current AWS account can then invite these members to manage GuardDuty in their
-   *       accounts.</p>
+   *       IDs. This step is a prerequisite for managing the associated member accounts either by
+   *       invitation or through an organization.</p>
+   *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
+   *       action will enable GuardDuty in the added member accounts, with the exception of the
+   *       organization master account, which must enable GuardDuty prior to being added as a
+   *       member.</p>
+   *          <p>If you are adding accounts by invitation use this action after GuardDuty has been enabled
+   *       in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
+   *                <code>Invite
+   *         Members</code>
+   *             </a>.</p>
    */
   public createMembers(
     args: CreateMembersCommandInput,
@@ -471,17 +485,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -489,7 +500,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Creates a publishing destination to send findings to. The resource to send findings to must exist before you use this operation.</p>
+   * <p>Creates a publishing destination to export findings to. The resource to export findings to
+   *       must exist before you use this operation.</p>
    */
   public createPublishingDestination(
     args: CreatePublishingDestinationCommandInput,
@@ -506,17 +518,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createPublishingDestination(
     args: CreatePublishingDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublishingDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublishingDestinationCommandOutput) => void),
     cb?: (err: any, data?: CreatePublishingDestinationCommandOutput) => void
   ): Promise<CreatePublishingDestinationCommandOutput> | void {
     const command = new CreatePublishingDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -543,17 +552,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createSampleFindings(
     args: CreateSampleFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSampleFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSampleFindingsCommandOutput) => void),
     cb?: (err: any, data?: CreateSampleFindingsCommandOutput) => void
   ): Promise<CreateSampleFindingsCommandOutput> | void {
     const command = new CreateSampleFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -561,7 +567,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
+   * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
    *       GuardDuty generates findings based on ThreatIntelSets. Only users of the master account can
    *       use this operation.</p>
    */
@@ -580,17 +586,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createThreatIntelSet(
     args: CreateThreatIntelSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThreatIntelSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThreatIntelSetCommandOutput) => void),
     cb?: (err: any, data?: CreateThreatIntelSetCommandOutput) => void
   ): Promise<CreateThreatIntelSetCommandOutput> | void {
     const command = new CreateThreatIntelSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -598,7 +601,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Declines invitations sent to the current member account by AWS account specified by their
+   * <p>Declines invitations sent to the current member account by AWS accounts specified by their
    *       account IDs.</p>
    */
   public declineInvitations(
@@ -616,17 +619,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeclineInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeclineInvitationsCommandOutput) => void),
     cb?: (err: any, data?: DeclineInvitationsCommandOutput) => void
   ): Promise<DeclineInvitationsCommandOutput> | void {
     const command = new DeclineInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -634,7 +634,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes a Amazon GuardDuty detector specified by the detector ID.</p>
+   * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
    */
   public deleteDetector(
     args: DeleteDetectorCommandInput,
@@ -651,17 +651,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteDetector(
     args: DeleteDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorCommandOutput) => void),
     cb?: (err: any, data?: DeleteDetectorCommandOutput) => void
   ): Promise<DeleteDetectorCommandOutput> | void {
     const command = new DeleteDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -675,10 +672,7 @@ export class GuardDuty extends GuardDutyClient {
     args: DeleteFilterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFilterCommandOutput>;
-  public deleteFilter(
-    args: DeleteFilterCommandInput,
-    cb: (err: any, data?: DeleteFilterCommandOutput) => void
-  ): void;
+  public deleteFilter(args: DeleteFilterCommandInput, cb: (err: any, data?: DeleteFilterCommandOutput) => void): void;
   public deleteFilter(
     args: DeleteFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -686,17 +680,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteFilter(
     args: DeleteFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteFilterCommandOutput) => void
   ): Promise<DeleteFilterCommandOutput> | void {
     const command = new DeleteFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -722,17 +713,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInvitationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteInvitationsCommandOutput) => void
   ): Promise<DeleteInvitationsCommandOutput> | void {
     const command = new DeleteInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -740,16 +728,11 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted IP lists in the console user interface.</p>
+   * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
+   *       lists in the console user interface.</p>
    */
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteIPSetCommandOutput>;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): void;
+  public deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
+  public deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -757,17 +740,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -793,17 +773,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -828,17 +805,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deletePublishingDestination(
     args: DeletePublishingDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublishingDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublishingDestinationCommandOutput) => void),
     cb?: (err: any, data?: DeletePublishingDestinationCommandOutput) => void
   ): Promise<DeletePublishingDestinationCommandOutput> | void {
     const command = new DeletePublishingDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -846,7 +820,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes ThreatIntelSet specified by the ThreatIntelSet ID.</p>
+   * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
    */
   public deleteThreatIntelSet(
     args: DeleteThreatIntelSetCommandInput,
@@ -863,17 +837,47 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteThreatIntelSet(
     args: DeleteThreatIntelSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThreatIntelSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThreatIntelSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteThreatIntelSetCommandOutput) => void
   ): Promise<DeleteThreatIntelSetCommandOutput> | void {
     const command = new DeleteThreatIntelSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the account selected as the delegated administrator for
+   *       GuardDuty.</p>
+   */
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOrganizationConfigurationCommandOutput>;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public describeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
+  ): Promise<DescribeOrganizationConfigurationCommandOutput> | void {
+    const command = new DescribeOrganizationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -882,7 +886,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Returns information about the publishing destination specified by the provided
-   *       <code>destinationId</code>.</p>
+   *         <code>destinationId</code>.</p>
    */
   public describePublishingDestination(
     args: DescribePublishingDestinationCommandInput,
@@ -899,17 +903,47 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public describePublishingDestination(
     args: DescribePublishingDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePublishingDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePublishingDestinationCommandOutput) => void),
     cb?: (err: any, data?: DescribePublishingDestinationCommandOutput) => void
   ): Promise<DescribePublishingDestinationCommandOutput> | void {
     const command = new DescribePublishingDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables an AWS account within the Organization as the GuardDuty delegated
+   *       administrator.</p>
+   */
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableOrganizationAdminAccountCommandOutput>;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public disableOrganizationAdminAccount(
+    args: DisableOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
+  ): Promise<DisableOrganizationAdminAccountCommandOutput> | void {
+    const command = new DisableOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -934,17 +968,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateFromMasterAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFromMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: DisassociateFromMasterAccountCommandOutput) => void
   ): Promise<DisassociateFromMasterAccountCommandOutput> | void {
     const command = new DisassociateFromMasterAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -970,17 +1001,47 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMembersCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMembersCommandOutput) => void
   ): Promise<DisassociateMembersCommandOutput> | void {
     const command = new DisassociateMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables an AWS account within the organization as the GuardDuty delegated
+   *       administrator.</p>
+   */
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableOrganizationAdminAccountCommandOutput>;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): void;
+  public enableOrganizationAdminAccount(
+    args: EnableOrganizationAdminAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void),
+    cb?: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
+  ): Promise<EnableOrganizationAdminAccountCommandOutput> | void {
+    const command = new EnableOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -990,14 +1051,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
    */
-  public getDetector(
-    args: GetDetectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDetectorCommandOutput>;
-  public getDetector(
-    args: GetDetectorCommandInput,
-    cb: (err: any, data?: GetDetectorCommandOutput) => void
-  ): void;
+  public getDetector(args: GetDetectorCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorCommandOutput>;
+  public getDetector(args: GetDetectorCommandInput, cb: (err: any, data?: GetDetectorCommandOutput) => void): void;
   public getDetector(
     args: GetDetectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,17 +1060,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getDetector(
     args: GetDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorCommandOutput) => void),
     cb?: (err: any, data?: GetDetectorCommandOutput) => void
   ): Promise<GetDetectorCommandOutput> | void {
     const command = new GetDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1025,14 +1077,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Returns the details of the filter specified by the filter name.</p>
    */
-  public getFilter(
-    args: GetFilterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFilterCommandOutput>;
-  public getFilter(
-    args: GetFilterCommandInput,
-    cb: (err: any, data?: GetFilterCommandOutput) => void
-  ): void;
+  public getFilter(args: GetFilterCommandInput, options?: __HttpHandlerOptions): Promise<GetFilterCommandOutput>;
+  public getFilter(args: GetFilterCommandInput, cb: (err: any, data?: GetFilterCommandOutput) => void): void;
   public getFilter(
     args: GetFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -1040,17 +1086,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getFilter(
     args: GetFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFilterCommandOutput) => void),
     cb?: (err: any, data?: GetFilterCommandOutput) => void
   ): Promise<GetFilterCommandOutput> | void {
     const command = new GetFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1060,14 +1103,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
    */
-  public getFindings(
-    args: GetFindingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFindingsCommandOutput>;
-  public getFindings(
-    args: GetFindingsCommandInput,
-    cb: (err: any, data?: GetFindingsCommandOutput) => void
-  ): void;
+  public getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
+  public getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
   public getFindings(
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1075,17 +1112,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getFindings(
     args: GetFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsCommandOutput) => void),
     cb?: (err: any, data?: GetFindingsCommandOutput) => void
   ): Promise<GetFindingsCommandOutput> | void {
     const command = new GetFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1093,7 +1127,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists Amazon GuardDuty findings' statistics for the specified detector ID.</p>
+   * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
    */
   public getFindingsStatistics(
     args: GetFindingsStatisticsCommandInput,
@@ -1110,17 +1144,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getFindingsStatistics(
     args: GetFindingsStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFindingsStatisticsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsStatisticsCommandOutput) => void),
     cb?: (err: any, data?: GetFindingsStatisticsCommandOutput) => void
   ): Promise<GetFindingsStatisticsCommandOutput> | void {
     const command = new GetFindingsStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1146,17 +1177,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInvitationsCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInvitationsCountCommandOutput) => void),
     cb?: (err: any, data?: GetInvitationsCountCommandOutput) => void
   ): Promise<GetInvitationsCountCommandOutput> | void {
     const command = new GetInvitationsCountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1166,14 +1194,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
    */
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIPSetCommandOutput>;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    cb: (err: any, data?: GetIPSetCommandOutput) => void
-  ): void;
+  public getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
+  public getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
   public getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1181,17 +1203,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1217,17 +1236,46 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMasterAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: GetMasterAccountCommandOutput) => void
   ): Promise<GetMasterAccountCommandOutput> | void {
     const command = new GetMasterAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes which data sources are enabled for the member account's detector.</p>
+   */
+  public getMemberDetectors(
+    args: GetMemberDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemberDetectorsCommandOutput>;
+  public getMemberDetectors(
+    args: GetMemberDetectorsCommandInput,
+    cb: (err: any, data?: GetMemberDetectorsCommandOutput) => void
+  ): void;
+  public getMemberDetectors(
+    args: GetMemberDetectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMemberDetectorsCommandOutput) => void
+  ): void;
+  public getMemberDetectors(
+    args: GetMemberDetectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMemberDetectorsCommandOutput) => void),
+    cb?: (err: any, data?: GetMemberDetectorsCommandOutput) => void
+  ): Promise<GetMemberDetectorsCommandOutput> | void {
+    const command = new GetMemberDetectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1238,14 +1286,8 @@ export class GuardDuty extends GuardDutyClient {
    * <p>Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by
    *       the account IDs.</p>
    */
-  public getMembers(
-    args: GetMembersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMembersCommandOutput>;
-  public getMembers(
-    args: GetMembersCommandInput,
-    cb: (err: any, data?: GetMembersCommandOutput) => void
-  ): void;
+  public getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
+  public getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
   public getMembers(
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1253,17 +1295,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1288,17 +1327,49 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getThreatIntelSet(
     args: GetThreatIntelSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetThreatIntelSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetThreatIntelSetCommandOutput) => void),
     cb?: (err: any, data?: GetThreatIntelSetCommandOutput) => void
   ): Promise<GetThreatIntelSetCommandOutput> | void {
     const command = new GetThreatIntelSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
+   *       ID. For newly enabled detectors or data sources the cost returned will include only the usage
+   *       so far under 30 days, this may differ from the cost metrics in the console, which projects
+   *       usage over 30 days to provide a monthly cost estimate. For more information see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
+   */
+  public getUsageStatistics(
+    args: GetUsageStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUsageStatisticsCommandOutput>;
+  public getUsageStatistics(
+    args: GetUsageStatisticsCommandInput,
+    cb: (err: any, data?: GetUsageStatisticsCommandOutput) => void
+  ): void;
+  public getUsageStatistics(
+    args: GetUsageStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUsageStatisticsCommandOutput) => void
+  ): void;
+  public getUsageStatistics(
+    args: GetUsageStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsageStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: GetUsageStatisticsCommandOutput) => void
+  ): Promise<GetUsageStatisticsCommandOutput> | void {
+    const command = new GetUsageStatisticsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1307,7 +1378,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Invites other AWS accounts (created as members of the current AWS account by
-   *       CreateMembers) to enable GuardDuty and allow the current AWS account to view and manage these
+   *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
    *       accounts' GuardDuty findings on their behalf as the master account.</p>
    */
   public inviteMembers(
@@ -1325,17 +1396,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public inviteMembers(
     args: InviteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InviteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteMembersCommandOutput) => void),
     cb?: (err: any, data?: InviteMembersCommandOutput) => void
   ): Promise<InviteMembersCommandOutput> | void {
     const command = new InviteMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1360,17 +1428,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listDetectors(
     args: ListDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorsCommandOutput) => void
   ): Promise<ListDetectorsCommandOutput> | void {
     const command = new ListDetectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1380,14 +1445,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Returns a paginated list of the current filters.</p>
    */
-  public listFilters(
-    args: ListFiltersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFiltersCommandOutput>;
-  public listFilters(
-    args: ListFiltersCommandInput,
-    cb: (err: any, data?: ListFiltersCommandOutput) => void
-  ): void;
+  public listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
+  public listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
   public listFilters(
     args: ListFiltersCommandInput,
     options: __HttpHandlerOptions,
@@ -1395,17 +1454,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listFilters(
     args: ListFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFiltersCommandOutput) => void),
     cb?: (err: any, data?: ListFiltersCommandOutput) => void
   ): Promise<ListFiltersCommandOutput> | void {
     const command = new ListFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1419,10 +1475,7 @@ export class GuardDuty extends GuardDutyClient {
     args: ListFindingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFindingsCommandOutput>;
-  public listFindings(
-    args: ListFindingsCommandInput,
-    cb: (err: any, data?: ListFindingsCommandOutput) => void
-  ): void;
+  public listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
   public listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1430,17 +1483,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listFindings(
     args: ListFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingsCommandOutput) => void),
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1466,17 +1516,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1484,17 +1531,12 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this operation
-   *       from a member account, the IPSets returned are the IPSets from the associated master account.</p>
+   * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
+   *       operation from a member account, the IPSets returned are the IPSets from the associated master
+   *       account.</p>
    */
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIPSetsCommandOutput>;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    cb: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): void;
+  public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
+  public listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1502,17 +1544,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1522,14 +1561,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Lists details about all member accounts for the current GuardDuty master account.</p>
    */
-  public listMembers(
-    args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMembersCommandOutput>;
-  public listMembers(
-    args: ListMembersCommandInput,
-    cb: (err: any, data?: ListMembersCommandOutput) => void
-  ): void;
+  public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
+  public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
   public listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1537,17 +1570,46 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the accounts configured as GuardDuty delegated administrators.</p>
+   */
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOrganizationAdminAccountsCommandOutput>;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): void;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): void;
+  public listOrganizationAdminAccounts(
+    args: ListOrganizationAdminAccountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void),
+    cb?: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
+  ): Promise<ListOrganizationAdminAccountsCommandOutput> | void {
+    const command = new ListOrganizationAdminAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1556,7 +1618,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Returns a list of publishing destinations associated with the specified
-   *       <code>dectectorId</code>.</p>
+   *         <code>dectectorId</code>.</p>
    */
   public listPublishingDestinations(
     args: ListPublishingDestinationsCommandInput,
@@ -1573,17 +1635,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listPublishingDestinations(
     args: ListPublishingDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublishingDestinationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublishingDestinationsCommandOutput) => void),
     cb?: (err: any, data?: ListPublishingDestinationsCommandOutput) => void
   ): Promise<ListPublishingDestinationsCommandOutput> | void {
     const command = new ListPublishingDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1592,8 +1651,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
-   *       IP sets, and Threat Intel sets, with a limit of 50 tags per resource. When invoked, this
-   *       operation returns all assigned tags for a given resource..</p>
+   *       IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked, this
+   *       operation returns all assigned tags for a given resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1610,17 +1669,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1628,8 +1684,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you use this operation from a member account, the ThreatIntelSets associated with the
-   *       master account are returned.</p>
+   * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
+   *       use this operation from a member account, the ThreatIntelSets associated with the master
+   *       account are returned.</p>
    */
   public listThreatIntelSets(
     args: ListThreatIntelSetsCommandInput,
@@ -1646,17 +1703,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listThreatIntelSets(
     args: ListThreatIntelSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListThreatIntelSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThreatIntelSetsCommandOutput) => void),
     cb?: (err: any, data?: ListThreatIntelSetsCommandOutput) => void
   ): Promise<ListThreatIntelSetsCommandOutput> | void {
     const command = new ListThreatIntelSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1664,8 +1718,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to restart monitoring of accounts that you stopped monitoring with the
-   *       <code>StopMonitoringMembers</code> operation.</p>
+   * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
+   *       restart monitoring of accounts that you stopped monitoring with the
+   *         <code>StopMonitoringMembers</code> operation.</p>
    */
   public startMonitoringMembers(
     args: StartMonitoringMembersCommandInput,
@@ -1682,17 +1737,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public startMonitoringMembers(
     args: StartMonitoringMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMonitoringMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMonitoringMembersCommandOutput) => void),
     cb?: (err: any, data?: StartMonitoringMembersCommandOutput) => void
   ): Promise<StartMonitoringMembersCommandOutput> | void {
     const command = new StartMonitoringMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1700,7 +1752,9 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Stops GuardDuty monitoring for the specified member accounnts. Use the <code>StartMonitoringMembers</code> to restart monitoring for those accounts.</p>
+   * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
+   *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
+   *       accounts.</p>
    */
   public stopMonitoringMembers(
     args: StopMonitoringMembersCommandInput,
@@ -1717,17 +1771,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public stopMonitoringMembers(
     args: StopMonitoringMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMonitoringMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMonitoringMembersCommandOutput) => void),
     cb?: (err: any, data?: StopMonitoringMembersCommandOutput) => void
   ): Promise<StopMonitoringMembersCommandOutput> | void {
     const command = new StopMonitoringMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1737,14 +1788,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Adds tags to a resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1752,17 +1797,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1787,17 +1829,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public unarchiveFindings(
     args: UnarchiveFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnarchiveFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnarchiveFindingsCommandOutput) => void),
     cb?: (err: any, data?: UnarchiveFindingsCommandOutput) => void
   ): Promise<UnarchiveFindingsCommandOutput> | void {
     const command = new UnarchiveFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1822,17 +1861,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1857,17 +1893,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateDetector(
     args: UpdateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorCommandOutput) => void
   ): Promise<UpdateDetectorCommandOutput> | void {
     const command = new UpdateDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1881,10 +1914,7 @@ export class GuardDuty extends GuardDutyClient {
     args: UpdateFilterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFilterCommandOutput>;
-  public updateFilter(
-    args: UpdateFilterCommandInput,
-    cb: (err: any, data?: UpdateFilterCommandOutput) => void
-  ): void;
+  public updateFilter(args: UpdateFilterCommandInput, cb: (err: any, data?: UpdateFilterCommandOutput) => void): void;
   public updateFilter(
     args: UpdateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -1892,17 +1922,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateFilter(
     args: UpdateFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFilterCommandOutput) => void),
     cb?: (err: any, data?: UpdateFilterCommandOutput) => void
   ): Promise<UpdateFilterCommandOutput> | void {
     const command = new UpdateFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1927,17 +1954,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateFindingsFeedback(
     args: UpdateFindingsFeedbackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFindingsFeedbackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFindingsFeedbackCommandOutput) => void),
     cb?: (err: any, data?: UpdateFindingsFeedbackCommandOutput) => void
   ): Promise<UpdateFindingsFeedbackCommandOutput> | void {
     const command = new UpdateFindingsFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1947,14 +1971,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * <p>Updates the IPSet specified by the IPSet ID.</p>
    */
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateIPSetCommandOutput>;
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
-  ): void;
+  public updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
+  public updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1962,17 +1980,78 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Contains information on member accounts to be updated.</p>
+   */
+  public updateMemberDetectors(
+    args: UpdateMemberDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMemberDetectorsCommandOutput>;
+  public updateMemberDetectors(
+    args: UpdateMemberDetectorsCommandInput,
+    cb: (err: any, data?: UpdateMemberDetectorsCommandOutput) => void
+  ): void;
+  public updateMemberDetectors(
+    args: UpdateMemberDetectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMemberDetectorsCommandOutput) => void
+  ): void;
+  public updateMemberDetectors(
+    args: UpdateMemberDetectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMemberDetectorsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMemberDetectorsCommandOutput) => void
+  ): Promise<UpdateMemberDetectorsCommandOutput> | void {
+    const command = new UpdateMemberDetectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the delegated administrator account with the values provided.</p>
+   */
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOrganizationConfigurationCommandOutput>;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+  public updateOrganizationConfiguration(
+    args: UpdateOrganizationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): Promise<UpdateOrganizationConfigurationCommandOutput> | void {
+    const command = new UpdateOrganizationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1981,7 +2060,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Updates information about the publishing destination specified by the
-   *       <code>destinationId</code>.</p>
+   *         <code>destinationId</code>.</p>
    */
   public updatePublishingDestination(
     args: UpdatePublishingDestinationCommandInput,
@@ -1998,17 +2077,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updatePublishingDestination(
     args: UpdatePublishingDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePublishingDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePublishingDestinationCommandOutput) => void),
     cb?: (err: any, data?: UpdatePublishingDestinationCommandOutput) => void
   ): Promise<UpdatePublishingDestinationCommandOutput> | void {
     const command = new UpdatePublishingDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2016,7 +2092,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Updates the ThreatIntelSet specified by ThreatIntelSet ID.</p>
+   * <p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
    */
   public updateThreatIntelSet(
     args: UpdateThreatIntelSetCommandInput,
@@ -2033,17 +2109,14 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateThreatIntelSet(
     args: UpdateThreatIntelSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateThreatIntelSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThreatIntelSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateThreatIntelSetCommandOutput) => void
   ): Promise<UpdateThreatIntelSetCommandOutput> | void {
     const command = new UpdateThreatIntelSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

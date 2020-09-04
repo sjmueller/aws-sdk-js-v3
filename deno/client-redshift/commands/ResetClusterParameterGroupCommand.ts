@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  ClusterParameterGroupNameMessage,
-  ResetClusterParameterGroupMessage
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { ClusterParameterGroupNameMessage, ResetClusterParameterGroupMessage } from "../models/index.ts";
 import {
   deserializeAws_queryResetClusterParameterGroupCommand,
-  serializeAws_queryResetClusterParameterGroupCommand
+  serializeAws_queryResetClusterParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ResetClusterParameterGroupCommandInput = ResetClusterParameterGroupMessage;
-export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage &
-  __MetadataBearer;
+export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage & __MetadataBearer;
 
 export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandInput,
@@ -49,18 +38,16 @@ export class ResetClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetClusterParameterGroupCommandInput,
-    ResetClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetClusterParameterGroupCommandInput, ResetClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ResetClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetClusterParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResetClusterParameterGroupCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryResetClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

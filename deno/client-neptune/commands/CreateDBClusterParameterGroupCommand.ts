@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient.ts";
-import {
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupResult
-} from "../models/index.ts";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
+import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/index.ts";
 import {
   deserializeAws_queryCreateDBClusterParameterGroupCommand,
-  serializeAws_queryCreateDBClusterParameterGroupCommand
+  serializeAws_queryCreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDBClusterParameterGroupCommandInput = CreateDBClusterParameterGroupMessage;
-export type CreateDBClusterParameterGroupCommandOutput = CreateDBClusterParameterGroupResult &
-  __MetadataBearer;
+export type CreateDBClusterParameterGroupCommandOutput = CreateDBClusterParameterGroupResult & __MetadataBearer;
 
 export class CreateDBClusterParameterGroupCommand extends $Command<
   CreateDBClusterParameterGroupCommandInput,
@@ -49,18 +38,16 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBClusterParameterGroupCommandInput,
-    CreateDBClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBClusterParameterGroupCommandInput, CreateDBClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBClusterParameterGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDBClusterParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

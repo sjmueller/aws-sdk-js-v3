@@ -1,31 +1,56 @@
-import { bucketHostname } from "./bucketHostname.ts";
-import { BucketEndpointResolvedConfig } from "./configurations.ts";
+import { HttpRequest } from "../protocol-http/mod.ts";
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
+  HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
-  RelativeLocation
+  RelativeMiddlewareOptions,
 } from "../types/mod.ts";
-import { HttpRequest } from "../protocol-http/mod.ts";
+import { parse as parseArn, validate as validateArn } from "../util-arn-parser/mod.ts";
 
-export function bucketEndpointMiddleware(
-  options: BucketEndpointResolvedConfig
-): BuildMiddleware<any, any> {
+import { bucketHostname } from "./bucketHostname.ts";
+import { getPseudoRegion } from "./bucketHostnameUtils.ts";
+import { BucketEndpointResolvedConfig } from "./configurations.ts";
+
+export function bucketEndpointMiddleware(options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
-    args: BuildHandlerArguments<any>
-  ): Promise<BuildHandlerOutput<Output>> => {
-    const { Bucket: bucketName } = args.input;
+    next: BuildHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+    const { Bucket: bucketName } = args.input as { Bucket: string };
     let replaceBucketInPath = options.bucketEndpoint;
-    let request = args.request;
+    const request = args.request;
     if (HttpRequest.isInstance(request)) {
       if (options.bucketEndpoint) {
         request.hostname = bucketName;
+      } else if (validateArn(bucketName)) {
+        const bucketArn = parseArn(bucketName);
+        const clientRegion = getPseudoRegion(await options.region());
+        const { partition, signingRegion } = (await options.regionInfoProvider(clientRegion)) || {};
+        const useArnRegion = await options.useArnRegion();
+        const { hostname, bucketEndpoint } = bucketHostname({
+          bucketName: bucketArn,
+          baseHostname: request.hostname,
+          accelerateEndpoint: options.useAccelerateEndpoint,
+          dualstackEndpoint: options.useDualstackEndpoint,
+          pathStyleEndpoint: options.forcePathStyle,
+          tlsCompatible: request.protocol === "https:",
+          useArnRegion,
+          clientPartition: partition,
+          clientSigningRegion: signingRegion,
+        });
+
+        // If the request needs to use a region inferred from ARN that different from client region, we need to set
+        // them in the handler context so the signer will use them
+        if (useArnRegion && clientRegion !== bucketArn.region) {
+          context["signing_region"] = bucketArn.region;
+        }
+
+        request.hostname = hostname;
+        replaceBucketInPath = bucketEndpoint;
       } else {
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName,
@@ -33,7 +58,7 @@ export function bucketEndpointMiddleware(
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: options.useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
-          tlsCompatible: request.protocol === "https:"
+          tlsCompatible: request.protocol === "https:",
         });
 
         request.hostname = hostname;
@@ -52,22 +77,15 @@ export function bucketEndpointMiddleware(
   };
 }
 
-export const bucketEndpointMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
-  step: "build",
+export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
   relation: "before",
-  toMiddleware: "hostHeaderMiddleware"
+  toMiddleware: "hostHeaderMiddleware",
 };
 
-export const getBucketEndpointPlugin = (
-  options: BucketEndpointResolvedConfig
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      bucketEndpointMiddleware(options),
-      bucketEndpointMiddlewareOptions
-    );
-  }
+export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);
+  },
 });

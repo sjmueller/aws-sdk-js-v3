@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 type Readable = any;
 
@@ -11,17 +7,6 @@ type Readable = any;
  */
 export interface AccountLimit {
   __type?: "AccountLimit";
-  /**
-   * <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
-   */
-  CodeSizeUnzipped?: number;
-
-  /**
-   * <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger
-   *       files.</p>
-   */
-  CodeSizeZipped?: number;
-
   /**
    * <p>The maximum number of simultaneous function executions.</p>
    */
@@ -33,15 +18,26 @@ export interface AccountLimit {
   TotalCodeSize?: number;
 
   /**
+   * <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger
+   *       files.</p>
+   */
+  CodeSizeZipped?: number;
+
+  /**
    * <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual
    *       functions with <a>PutFunctionConcurrency</a>.</p>
    */
   UnreservedConcurrentExecutions?: number;
+
+  /**
+   * <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
+   */
+  CodeSizeUnzipped?: number;
 }
 
 export namespace AccountLimit {
   export const filterSensitiveLog = (obj: AccountLimit): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AccountLimit => __isa(o, "AccountLimit");
 }
@@ -64,7 +60,7 @@ export interface AccountUsage {
 
 export namespace AccountUsage {
   export const filterSensitiveLog = (obj: AccountUsage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AccountUsage => __isa(o, "AccountUsage");
 }
@@ -77,15 +73,9 @@ export interface AddLayerVersionPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * <p>An identifier that distinguishes the policy from others on the same layer version.</p>
    */
-  LayerName: string | undefined;
-
-  /**
-   * <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified
-   *       organization.</p>
-   */
-  OrganizationId?: string;
+  StatementId: string | undefined;
 
   /**
    * <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
@@ -99,24 +89,27 @@ export interface AddLayerVersionPermissionRequest {
   RevisionId?: string;
 
   /**
-   * <p>An identifier that distinguishes the policy from others on the same layer version.</p>
-   */
-  StatementId: string | undefined;
-
-  /**
    * <p>The version number.</p>
    */
   VersionNumber: number | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
+
+  /**
+   * <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified
+   *       organization.</p>
+   */
+  OrganizationId?: string;
 }
 
 export namespace AddLayerVersionPermissionRequest {
-  export const filterSensitiveLog = (
-    obj: AddLayerVersionPermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddLayerVersionPermissionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddLayerVersionPermissionRequest =>
-    __isa(o, "AddLayerVersionPermissionRequest");
+  export const isa = (o: any): o is AddLayerVersionPermissionRequest => __isa(o, "AddLayerVersionPermissionRequest");
 }
 
 export interface AddLayerVersionPermissionResponse {
@@ -133,13 +126,10 @@ export interface AddLayerVersionPermissionResponse {
 }
 
 export namespace AddLayerVersionPermissionResponse {
-  export const filterSensitiveLog = (
-    obj: AddLayerVersionPermissionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddLayerVersionPermissionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddLayerVersionPermissionResponse =>
-    __isa(o, "AddLayerVersionPermissionResponse");
+  export const isa = (o: any): o is AddLayerVersionPermissionResponse => __isa(o, "AddLayerVersionPermissionResponse");
 }
 
 export interface AddPermissionRequest {
@@ -151,9 +141,22 @@ export interface AddPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
+   * <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
+   *       Amazon SNS topic.</p>
    */
-  EventSourceToken?: string;
+  SourceArn?: string;
+
+  /**
+   * <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to
+   *       ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted
+   *       by its owner and recreated by another account.</p>
+   */
+  SourceAccount?: string;
+
+  /**
+   * <p>A statement identifier that differentiates the statement from others in the same policy.</p>
+   */
+  StatementId: string | undefined;
 
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -180,10 +183,9 @@ export interface AddPermissionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
-   *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+   * <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
    */
-  Principal: string | undefined;
+  EventSourceToken?: string;
 
   /**
    * <p>Specify a version or alias to add permissions to a published version of the function.</p>
@@ -191,37 +193,23 @@ export interface AddPermissionRequest {
   Qualifier?: string;
 
   /**
+   * <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
+   *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+   */
+  Principal: string | undefined;
+
+  /**
    * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
-
-  /**
-   * <p>For AWS services, the ID of the account that owns the resource. Use this instead of <code>SourceArn</code> to
-   *       grant permission to resources that are owned by another account (for example, all of an account's Amazon S3
-   *       buckets). Or use it together with <code>SourceArn</code> to ensure that the resource is owned by the specified
-   *       account. For example, an Amazon S3 bucket could be deleted by its owner and recreated by another account.</p>
-   */
-  SourceAccount?: string;
-
-  /**
-   * <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
-   *       Amazon SNS topic.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>A statement identifier that differentiates the statement from others in the same policy.</p>
-   */
-  StatementId: string | undefined;
 }
 
 export namespace AddPermissionRequest {
   export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddPermissionRequest =>
-    __isa(o, "AddPermissionRequest");
+  export const isa = (o: any): o is AddPermissionRequest => __isa(o, "AddPermissionRequest");
 }
 
 export interface AddPermissionResponse {
@@ -234,10 +222,9 @@ export interface AddPermissionResponse {
 
 export namespace AddPermissionResponse {
   export const filterSensitiveLog = (obj: AddPermissionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddPermissionResponse =>
-    __isa(o, "AddPermissionResponse");
+  export const isa = (o: any): o is AddPermissionResponse => __isa(o, "AddPermissionResponse");
 }
 
 /**
@@ -246,19 +233,10 @@ export namespace AddPermissionResponse {
 export interface AliasConfiguration {
   __type?: "AliasConfiguration";
   /**
-   * <p>The Amazon Resource Name (ARN) of the alias.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
+   *         configuration</a> of the alias.</p>
    */
-  AliasArn?: string;
-
-  /**
-   * <p>A description of the alias.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The function version that the alias invokes.</p>
-   */
-  FunctionVersion?: string;
+  RoutingConfig?: AliasRoutingConfiguration;
 
   /**
    * <p>The name of the alias.</p>
@@ -266,23 +244,31 @@ export interface AliasConfiguration {
   Name?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the alias.</p>
+   */
+  AliasArn?: string;
+
+  /**
    * <p>A unique identifier that changes when you update the alias.</p>
    */
   RevisionId?: string;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-   *         configuration</a> of the alias.</p>
+   * <p>The function version that the alias invokes.</p>
    */
-  RoutingConfig?: AliasRoutingConfiguration;
+  FunctionVersion?: string;
+
+  /**
+   * <p>A description of the alias.</p>
+   */
+  Description?: string;
 }
 
 export namespace AliasConfiguration {
   export const filterSensitiveLog = (obj: AliasConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AliasConfiguration =>
-    __isa(o, "AliasConfiguration");
+  export const isa = (o: any): o is AliasConfiguration => __isa(o, "AliasConfiguration");
 }
 
 /**
@@ -291,44 +277,37 @@ export namespace AliasConfiguration {
 export interface AliasRoutingConfiguration {
   __type?: "AliasRoutingConfiguration";
   /**
-   * <p>The name of the second alias, and the percentage of traffic that's routed to it.</p>
+   * <p>The second version, and the percentage of traffic that's routed to it.</p>
    */
   AdditionalVersionWeights?: { [key: string]: number };
 }
 
 export namespace AliasRoutingConfiguration {
   export const filterSensitiveLog = (obj: AliasRoutingConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AliasRoutingConfiguration =>
-    __isa(o, "AliasRoutingConfiguration");
+  export const isa = (o: any): o is AliasRoutingConfiguration => __isa(o, "AliasRoutingConfiguration");
 }
 
 /**
  * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface CodeStorageExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CodeStorageExceededException extends __SmithyException, $MetadataBearer {
   name: "CodeStorageExceededException";
   $fault: "client";
+  message?: string;
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
-
-  message?: string;
 }
 
 export namespace CodeStorageExceededException {
-  export const filterSensitiveLog = (
-    obj: CodeStorageExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CodeStorageExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CodeStorageExceededException =>
-    __isa(o, "CodeStorageExceededException");
+  export const isa = (o: any): o is CodeStorageExceededException => __isa(o, "CodeStorageExceededException");
 }
 
 export interface Concurrency {
@@ -341,7 +320,7 @@ export interface Concurrency {
 
 export namespace Concurrency {
   export const filterSensitiveLog = (obj: Concurrency): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Concurrency => __isa(o, "Concurrency");
 }
@@ -349,9 +328,10 @@ export namespace Concurrency {
 export interface CreateAliasRequest {
   __type?: "CreateAliasRequest";
   /**
-   * <p>A description of the alias.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
+   *         configuration</a> of the alias.</p>
    */
-  Description?: string;
+  RoutingConfig?: AliasRoutingConfiguration;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -378,6 +358,11 @@ export interface CreateAliasRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>A description of the alias.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The function version that the alias invokes.</p>
    */
   FunctionVersion: string | undefined;
@@ -386,24 +371,43 @@ export interface CreateAliasRequest {
    * <p>The name of the alias.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-   *         configuration</a> of the alias.</p>
-   */
-  RoutingConfig?: AliasRoutingConfiguration;
 }
 
 export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAliasRequest =>
-    __isa(o, "CreateAliasRequest");
+  export const isa = (o: any): o is CreateAliasRequest => __isa(o, "CreateAliasRequest");
 }
 
 export interface CreateEventSourceMappingRequest {
   __type?: "CreateEventSourceMappingRequest";
+  /**
+   * <p>Disables the event source mapping to pause polling and invocation.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   */
+  DestinationConfig?: DestinationConfig;
+
+  /**
+   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   */
+  BisectBatchOnFunctionError?: boolean;
+
+  /**
+   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
+   *       reading.</p>
+   */
+  StartingPositionTimestamp?: Date;
+
+  /**
+   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   */
+  ParallelizationFactor?: number;
+
   /**
    * <p>The maximum number of items to retrieve in a single batch.</p>
    *          <ul>
@@ -424,38 +428,9 @@ export interface CreateEventSourceMappingRequest {
   BatchSize?: number;
 
   /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
    */
-  BisectBatchOnFunctionError?: boolean;
-
-  /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-   */
-  DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>Disables the event source mapping to pause polling and invocation.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
-   *             </li>
-   *          </ul>
-   */
-  EventSourceArn: string | undefined;
+  MaximumRetryAttempts?: number;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -486,24 +461,9 @@ export interface CreateEventSourceMappingRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
-   */
-  MaximumBatchingWindowInSeconds?: number;
-
-  /**
    * <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
    */
   MaximumRecordAgeInSeconds?: number;
-
-  /**
-   * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
-   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
-   */
-  ParallelizationFactor?: number;
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams
@@ -512,34 +472,45 @@ export interface CreateEventSourceMappingRequest {
   StartingPosition?: EventSourcePosition | string;
 
   /**
-   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
-   *       reading.</p>
+   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
    */
-  StartingPositionTimestamp?: Date;
+  MaximumBatchingWindowInSeconds?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the event source.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *             </li>
+   *          </ul>
+   */
+  EventSourceArn: string | undefined;
 }
 
 export namespace CreateEventSourceMappingRequest {
-  export const filterSensitiveLog = (
-    obj: CreateEventSourceMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEventSourceMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEventSourceMappingRequest =>
-    __isa(o, "CreateEventSourceMappingRequest");
+  export const isa = (o: any): o is CreateEventSourceMappingRequest => __isa(o, "CreateEventSourceMappingRequest");
 }
 
 export interface CreateFunctionRequest {
   __type?: "CreateFunctionRequest";
   /**
-   * <p>The code for the function.</p>
+   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
+   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    */
-  Code: FunctionCode | undefined;
-
-  /**
-   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
-   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>A description of the function.</p>
@@ -547,9 +518,77 @@ export interface CreateFunctionRequest {
   Description?: string;
 
   /**
+   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
+   */
+  KMSKeyArn?: string;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
+   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
+   */
+  Layers?: string[];
+
+  /**
+   * <p>Set to true to publish the first version of the function during creation.</p>
+   */
+  Publish?: boolean;
+
+  /**
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
+   *       X-Ray.</p>
+   */
+  TracingConfig?: TracingConfig;
+
+  /**
+   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   */
+  Handler: string | undefined;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   *       maximum allowed value is 900 seconds.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The code for the function.</p>
+   */
+  Code: FunctionCode | undefined;
+
+  /**
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+   */
+  Runtime: Runtime | string | undefined;
+
+  /**
+   * <p>Connection settings for an Amazon EFS file system.</p>
+   */
+  FileSystemConfigs?: FileSystemConfig[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
+   */
+  Role: string | undefined;
+
+  /**
    * <p>Environment variables that are accessible from function code during execution.</p>
    */
   Environment?: Environment;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
+   *       function.</p>
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -576,81 +615,19 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
-   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
-   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
+   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
    */
-  Handler: string | undefined;
-
-  /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
-   */
-  KMSKeyArn?: string;
-
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
-   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-   */
-  Layers?: string[];
-
-  /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>Set to true to publish the first version of the function during creation.</p>
-   */
-  Publish?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
-   */
-  Runtime: Runtime | string | undefined;
-
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
-   *       function.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
-   */
-  TracingConfig?: TracingConfig;
-
-  /**
-   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
-   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
-   */
-  VpcConfig?: VpcConfig;
+  DeadLetterConfig?: DeadLetterConfig;
 }
 
 export namespace CreateFunctionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
     ...obj,
     ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
-    ...(obj.Environment && {
-      Environment: Environment.filterSensitiveLog(obj.Environment)
-    })
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
-  export const isa = (o: any): o is CreateFunctionRequest =>
-    __isa(o, "CreateFunctionRequest");
+  export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
 
 /**
@@ -667,14 +644,18 @@ export interface DeadLetterConfig {
 
 export namespace DeadLetterConfig {
   export const filterSensitiveLog = (obj: DeadLetterConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeadLetterConfig =>
-    __isa(o, "DeadLetterConfig");
+  export const isa = (o: any): o is DeadLetterConfig => __isa(o, "DeadLetterConfig");
 }
 
 export interface DeleteAliasRequest {
   __type?: "DeleteAliasRequest";
+  /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -698,19 +679,13 @@ export interface DeleteAliasRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace DeleteAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasRequest =>
-    __isa(o, "DeleteAliasRequest");
+  export const isa = (o: any): o is DeleteAliasRequest => __isa(o, "DeleteAliasRequest");
 }
 
 export interface DeleteEventSourceMappingRequest {
@@ -722,13 +697,10 @@ export interface DeleteEventSourceMappingRequest {
 }
 
 export namespace DeleteEventSourceMappingRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteEventSourceMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEventSourceMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSourceMappingRequest =>
-    __isa(o, "DeleteEventSourceMappingRequest");
+  export const isa = (o: any): o is DeleteEventSourceMappingRequest => __isa(o, "DeleteEventSourceMappingRequest");
 }
 
 export interface DeleteFunctionConcurrencyRequest {
@@ -759,17 +731,19 @@ export interface DeleteFunctionConcurrencyRequest {
 }
 
 export namespace DeleteFunctionConcurrencyRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteFunctionConcurrencyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteFunctionConcurrencyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionConcurrencyRequest =>
-    __isa(o, "DeleteFunctionConcurrencyRequest");
+  export const isa = (o: any): o is DeleteFunctionConcurrencyRequest => __isa(o, "DeleteFunctionConcurrencyRequest");
 }
 
 export interface DeleteFunctionEventInvokeConfigRequest {
   __type?: "DeleteFunctionEventInvokeConfigRequest";
+  /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -793,18 +767,11 @@ export interface DeleteFunctionEventInvokeConfigRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace DeleteFunctionEventInvokeConfigRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteFunctionEventInvokeConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteFunctionEventInvokeConfigRequest =>
     __isa(o, "DeleteFunctionEventInvokeConfigRequest");
@@ -844,10 +811,9 @@ export interface DeleteFunctionRequest {
 
 export namespace DeleteFunctionRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionRequest =>
-    __isa(o, "DeleteFunctionRequest");
+  export const isa = (o: any): o is DeleteFunctionRequest => __isa(o, "DeleteFunctionRequest");
 }
 
 export interface DeleteLayerVersionRequest {
@@ -865,10 +831,9 @@ export interface DeleteLayerVersionRequest {
 
 export namespace DeleteLayerVersionRequest {
   export const filterSensitiveLog = (obj: DeleteLayerVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLayerVersionRequest =>
-    __isa(o, "DeleteLayerVersionRequest");
+  export const isa = (o: any): o is DeleteLayerVersionRequest => __isa(o, "DeleteLayerVersionRequest");
 }
 
 export interface DeleteProvisionedConcurrencyConfigRequest {
@@ -904,10 +869,8 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
 }
 
 export namespace DeleteProvisionedConcurrencyConfigRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteProvisionedConcurrencyConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteProvisionedConcurrencyConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteProvisionedConcurrencyConfigRequest =>
     __isa(o, "DeleteProvisionedConcurrencyConfigRequest");
@@ -919,93 +882,150 @@ export namespace DeleteProvisionedConcurrencyConfigRequest {
 export interface DestinationConfig {
   __type?: "DestinationConfig";
   /**
-   * <p>The destination configuration for failed invocations.</p>
-   */
-  OnFailure?: OnFailure;
-
-  /**
    * <p>The destination configuration for successful invocations.</p>
    */
   OnSuccess?: OnSuccess;
+
+  /**
+   * <p>The destination configuration for failed invocations.</p>
+   */
+  OnFailure?: OnFailure;
 }
 
 export namespace DestinationConfig {
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DestinationConfig =>
-    __isa(o, "DestinationConfig");
+  export const isa = (o: any): o is DestinationConfig => __isa(o, "DestinationConfig");
 }
 
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
-export interface EC2AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "EC2AccessDeniedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EC2AccessDeniedException {
   export const filterSensitiveLog = (obj: EC2AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EC2AccessDeniedException =>
-    __isa(o, "EC2AccessDeniedException");
+  export const isa = (o: any): o is EC2AccessDeniedException => __isa(o, "EC2AccessDeniedException");
 }
 
 /**
  * <p>AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
  *       for the Lambda function.</p>
  */
-export interface EC2ThrottledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2ThrottledException extends __SmithyException, $MetadataBearer {
   name: "EC2ThrottledException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EC2ThrottledException {
   export const filterSensitiveLog = (obj: EC2ThrottledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EC2ThrottledException =>
-    __isa(o, "EC2ThrottledException");
+  export const isa = (o: any): o is EC2ThrottledException => __isa(o, "EC2ThrottledException");
 }
 
 /**
  * <p>AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  */
-export interface EC2UnexpectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2UnexpectedException extends __SmithyException, $MetadataBearer {
   name: "EC2UnexpectedException";
   $fault: "server";
+  Type?: string;
   EC2ErrorCode?: string;
   Message?: string;
-  Type?: string;
 }
 
 export namespace EC2UnexpectedException {
   export const filterSensitiveLog = (obj: EC2UnexpectedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EC2UnexpectedException =>
-    __isa(o, "EC2UnexpectedException");
+  export const isa = (o: any): o is EC2UnexpectedException => __isa(o, "EC2UnexpectedException");
+}
+
+/**
+ * <p>An error occured when reading from or writing to a connected file system.</p>
+ */
+export interface EFSIOException extends __SmithyException, $MetadataBearer {
+  name: "EFSIOException";
+  $fault: "client";
+  Message?: string;
+  Type?: string;
+}
+
+export namespace EFSIOException {
+  export const filterSensitiveLog = (obj: EFSIOException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EFSIOException => __isa(o, "EFSIOException");
+}
+
+/**
+ * <p>The function couldn't make a network connection to the configured file system.</p>
+ */
+export interface EFSMountConnectivityException extends __SmithyException, $MetadataBearer {
+  name: "EFSMountConnectivityException";
+  $fault: "client";
+  Type?: string;
+  Message?: string;
+}
+
+export namespace EFSMountConnectivityException {
+  export const filterSensitiveLog = (obj: EFSMountConnectivityException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EFSMountConnectivityException => __isa(o, "EFSMountConnectivityException");
+}
+
+/**
+ * <p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>
+ */
+export interface EFSMountFailureException extends __SmithyException, $MetadataBearer {
+  name: "EFSMountFailureException";
+  $fault: "client";
+  Message?: string;
+  Type?: string;
+}
+
+export namespace EFSMountFailureException {
+  export const filterSensitiveLog = (obj: EFSMountFailureException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EFSMountFailureException => __isa(o, "EFSMountFailureException");
+}
+
+/**
+ * <p>The function was able to make a network connection to the configured file system, but the mount operation
+ *       timed out.</p>
+ */
+export interface EFSMountTimeoutException extends __SmithyException, $MetadataBearer {
+  name: "EFSMountTimeoutException";
+  $fault: "client";
+  Type?: string;
+  Message?: string;
+}
+
+export namespace EFSMountTimeoutException {
+  export const filterSensitiveLog = (obj: EFSMountTimeoutException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EFSMountTimeoutException => __isa(o, "EFSMountTimeoutException");
 }
 
 /**
  * <p>AWS Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
  *       function configuration, because the limit for network interfaces has been reached.</p>
  */
-export interface ENILimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ENILimitReachedException extends __SmithyException, $MetadataBearer {
   name: "ENILimitReachedException";
   $fault: "server";
   Message?: string;
@@ -1014,10 +1034,9 @@ export interface ENILimitReachedException
 
 export namespace ENILimitReachedException {
   export const filterSensitiveLog = (obj: ENILimitReachedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ENILimitReachedException =>
-    __isa(o, "ENILimitReachedException");
+  export const isa = (o: any): o is ENILimitReachedException => __isa(o, "ENILimitReachedException");
 }
 
 /**
@@ -1034,7 +1053,7 @@ export interface Environment {
 export namespace Environment {
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
-    ...(obj.Variables && { Variables: SENSITIVE_STRING })
+    ...(obj.Variables && { Variables: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
@@ -1045,23 +1064,22 @@ export namespace Environment {
 export interface EnvironmentError {
   __type?: "EnvironmentError";
   /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The error message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace EnvironmentError {
   export const filterSensitiveLog = (obj: EnvironmentError): any => ({
     ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING })
+    ...(obj.Message && { Message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EnvironmentError =>
-    __isa(o, "EnvironmentError");
+  export const isa = (o: any): o is EnvironmentError => __isa(o, "EnvironmentError");
 }
 
 /**
@@ -1071,24 +1089,23 @@ export namespace EnvironmentError {
 export interface EnvironmentResponse {
   __type?: "EnvironmentResponse";
   /**
-   * <p>Error messages for environment variables that couldn't be applied.</p>
-   */
-  Error?: EnvironmentError;
-
-  /**
    * <p>Environment variable key-value pairs.</p>
    */
   Variables?: { [key: string]: string };
+
+  /**
+   * <p>Error messages for environment variables that couldn't be applied.</p>
+   */
+  Error?: EnvironmentError;
 }
 
 export namespace EnvironmentResponse {
   export const filterSensitiveLog = (obj: EnvironmentResponse): any => ({
     ...obj,
+    ...(obj.Variables && { Variables: SENSITIVE_STRING }),
     ...(obj.Error && { Error: EnvironmentError.filterSensitiveLog(obj.Error) }),
-    ...(obj.Variables && { Variables: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is EnvironmentResponse =>
-    __isa(o, "EnvironmentResponse");
+  export const isa = (o: any): o is EnvironmentResponse => __isa(o, "EnvironmentResponse");
 }
 
 /**
@@ -1098,14 +1115,11 @@ export namespace EnvironmentResponse {
 export interface EventSourceMappingConfiguration {
   __type?: "EventSourceMappingConfiguration";
   /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
+   * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>,
+   *         <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>,
+   *         <code>Updating</code>, or <code>Deleting</code>.</p>
    */
-  BatchSize?: number;
-
-  /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-   */
-  BisectBatchOnFunctionError?: boolean;
+  State?: string;
 
   /**
    * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
@@ -1113,34 +1127,9 @@ export interface EventSourceMappingConfiguration {
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p>
-   */
-  EventSourceArn?: string;
-
-  /**
-   * <p>The ARN of the Lambda function.</p>
-   */
-  FunctionArn?: string;
-
-  /**
-   * <p>The date that the event source mapping was last updated, or its state changed.</p>
-   */
-  LastModified?: Date;
-
-  /**
-   * <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
-   */
-  LastProcessingResult?: string;
-
-  /**
-   * <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
-
-  /**
-   * <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
-   */
-  MaximumRecordAgeInSeconds?: number;
 
   /**
    * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
@@ -1148,16 +1137,24 @@ export interface EventSourceMappingConfiguration {
   MaximumRetryAttempts?: number;
 
   /**
+   * <p>The maximum number of items to retrieve in a single batch.</p>
+   */
+  BatchSize?: number;
+
+  /**
+   * <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
+   */
+  LastProcessingResult?: string;
+
+  /**
    * <p>(Streams) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
   /**
-   * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>,
-   *         <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>,
-   *         <code>Updating</code>, or <code>Deleting</code>.</p>
+   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
    */
-  State?: string;
+  BisectBatchOnFunctionError?: boolean;
 
   /**
    * <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda
@@ -1166,25 +1163,65 @@ export interface EventSourceMappingConfiguration {
   StateTransitionReason?: string;
 
   /**
+   * <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+   */
+  MaximumRecordAgeInSeconds?: number;
+
+  /**
+   * <p>The date that the event source mapping was last updated, or its state changed.</p>
+   */
+  LastModified?: Date;
+
+  /**
+   * <p>The ARN of the Lambda function.</p>
+   */
+  FunctionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the event source.</p>
+   */
+  EventSourceArn?: string;
+
+  /**
    * <p>The identifier of the event source mapping.</p>
    */
   UUID?: string;
 }
 
 export namespace EventSourceMappingConfiguration {
-  export const filterSensitiveLog = (
-    obj: EventSourceMappingConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EventSourceMappingConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EventSourceMappingConfiguration =>
-    __isa(o, "EventSourceMappingConfiguration");
+  export const isa = (o: any): o is EventSourceMappingConfiguration => __isa(o, "EventSourceMappingConfiguration");
 }
 
 export enum EventSourcePosition {
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
+  TRIM_HORIZON = "TRIM_HORIZON",
+}
+
+/**
+ * <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+ */
+export interface FileSystemConfig {
+  __type?: "FileSystemConfig";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
+   */
+  LocalMountPath: string | undefined;
+}
+
+export namespace FileSystemConfig {
+  export const filterSensitiveLog = (obj: FileSystemConfig): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FileSystemConfig => __isa(o, "FileSystemConfig");
 }
 
 /**
@@ -1193,6 +1230,11 @@ export enum EventSourcePosition {
  */
 export interface FunctionCode {
   __type?: "FunctionCode";
+  /**
+   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   */
+  S3ObjectVersion?: string;
+
   /**
    * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
    */
@@ -1204,11 +1246,6 @@ export interface FunctionCode {
   S3Key?: string;
 
   /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
-   */
-  S3ObjectVersion?: string;
-
-  /**
    * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
    *   you.</p>
    */
@@ -1218,7 +1255,7 @@ export interface FunctionCode {
 export namespace FunctionCode {
   export const filterSensitiveLog = (obj: FunctionCode): any => ({
     ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING })
+    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is FunctionCode => __isa(o, "FunctionCode");
 }
@@ -1241,10 +1278,9 @@ export interface FunctionCodeLocation {
 
 export namespace FunctionCodeLocation {
   export const filterSensitiveLog = (obj: FunctionCodeLocation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FunctionCodeLocation =>
-    __isa(o, "FunctionCodeLocation");
+  export const isa = (o: any): o is FunctionCodeLocation => __isa(o, "FunctionCodeLocation");
 }
 
 /**
@@ -1253,55 +1289,19 @@ export namespace FunctionCodeLocation {
 export interface FunctionConfiguration {
   __type?: "FunctionConfiguration";
   /**
-   * <p>The SHA256 hash of the function's deployment package.</p>
-   */
-  CodeSha256?: string;
-
-  /**
-   * <p>The size of the function's deployment package, in bytes.</p>
-   */
-  CodeSize?: number;
-
-  /**
-   * <p>The function's dead letter queue.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
-
-  /**
-   * <p>The function's description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The function's environment variables.</p>
-   */
-  Environment?: EnvironmentResponse;
-
-  /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
-   */
-  FunctionArn?: string;
-
-  /**
    * <p>The name of the function.</p>
    */
   FunctionName?: string;
 
   /**
-   * <p>The function that Lambda calls to begin executing your function.</p>
+   * <p>The latest updated revision of the function or alias.</p>
    */
-  Handler?: string;
+  RevisionId?: string;
 
   /**
-   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've
-   *       configured a customer managed CMK.</p>
+   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
    */
-  KMSKeyArn?: string;
-
-  /**
-   * <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   */
-  LastModified?: string;
+  MasterArn?: string;
 
   /**
    * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
@@ -1310,40 +1310,20 @@ export interface FunctionConfiguration {
   LastUpdateStatus?: LastUpdateStatus | string;
 
   /**
-   * <p>The reason for the last update that was performed on the function.</p>
-   */
-  LastUpdateStatusReason?: string;
-
-  /**
-   * <p>The reason code for the last update that was performed on the function.</p>
-   */
-  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
-
-  /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *       layers</a>.</p>
    */
   Layers?: Layer[];
 
   /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
+   * <p>Connection settings for an Amazon EFS file system.</p>
    */
-  MasterArn?: string;
+  FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>The memory that's allocated to the function.</p>
+   * <p>The function's networking configuration.</p>
    */
-  MemorySize?: number;
-
-  /**
-   * <p>The latest updated revision of the function or alias.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The function's execution role.</p>
-   */
-  Role?: string;
+  VpcConfig?: VpcConfigResponse;
 
   /**
    * <p>The runtime environment for the Lambda function.</p>
@@ -1351,15 +1331,59 @@ export interface FunctionConfiguration {
   Runtime?: Runtime | string;
 
   /**
-   * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
-   *       invoking it.</p>
+   * <p>The SHA256 hash of the function's deployment package.</p>
    */
-  State?: State | string;
+  CodeSha256?: string;
 
   /**
-   * <p>The reason for the function's current state.</p>
+   * <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
-  StateReason?: string;
+  LastModified?: string;
+
+  /**
+   * <p>The memory that's allocated to the function.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>The version of the Lambda function.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The size of the function's deployment package, in bytes.</p>
+   */
+  CodeSize?: number;
+
+  /**
+   * <p>The function's Amazon Resource Name (ARN).</p>
+   */
+  FunctionArn?: string;
+
+  /**
+   * <p>The function's environment variables.</p>
+   */
+  Environment?: EnvironmentResponse;
+
+  /**
+   * <p>The reason for the last update that was performed on the function.</p>
+   */
+  LastUpdateStatusReason?: string;
+
+  /**
+   * <p>The function that Lambda calls to begin executing your function.</p>
+   */
+  Handler?: string;
+
+  /**
+   * <p>The function's AWS X-Ray tracing configuration.</p>
+   */
+  TracingConfig?: TracingConfigResponse;
 
   /**
    * <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
@@ -1368,39 +1392,58 @@ export interface FunctionConfiguration {
   StateReasonCode?: StateReasonCode | string;
 
   /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+   * <p>The reason code for the last update that was performed on the function.</p>
    */
-  Timeout?: number;
+  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
 
   /**
-   * <p>The function's AWS X-Ray tracing configuration.</p>
+   * <p>The function's description.</p>
    */
-  TracingConfig?: TracingConfigResponse;
+  Description?: string;
 
   /**
-   * <p>The version of the Lambda function.</p>
+   * <p>The function's execution role.</p>
    */
-  Version?: string;
+  Role?: string;
 
   /**
-   * <p>The function's networking configuration.</p>
+   * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've
+   *       configured a customer managed CMK.</p>
    */
-  VpcConfig?: VpcConfigResponse;
+  KMSKeyArn?: string;
+
+  /**
+   * <p>The function's dead letter queue.</p>
+   */
+  DeadLetterConfig?: DeadLetterConfig;
+
+  /**
+   * <p>The reason for the function's current state.</p>
+   */
+  StateReason?: string;
+
+  /**
+   * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
+   *       invoking it.</p>
+   */
+  State?: State | string;
 }
 
 export namespace FunctionConfiguration {
   export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
-    ...(obj.Environment && {
-      Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment)
-    })
+    ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
   });
-  export const isa = (o: any): o is FunctionConfiguration =>
-    __isa(o, "FunctionConfiguration");
+  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 export interface FunctionEventInvokeConfig {
   __type?: "FunctionEventInvokeConfig";
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   */
+  MaximumEventAgeInSeconds?: number;
+
   /**
    * <p>A destination for events after they have been sent to a function for processing.</p>
    *          <p class="title">
@@ -1428,36 +1471,30 @@ export interface FunctionEventInvokeConfig {
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
-   */
-  FunctionArn?: string;
-
-  /**
    * <p>The date and time that the configuration was last updated.</p>
    */
   LastModified?: Date;
 
   /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   */
-  MaximumEventAgeInSeconds?: number;
-
-  /**
    * <p>The maximum number of times to retry when the function returns an error.</p>
    */
   MaximumRetryAttempts?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   */
+  FunctionArn?: string;
 }
 
 export namespace FunctionEventInvokeConfig {
   export const filterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FunctionEventInvokeConfig =>
-    __isa(o, "FunctionEventInvokeConfig");
+  export const isa = (o: any): o is FunctionEventInvokeConfig => __isa(o, "FunctionEventInvokeConfig");
 }
 
 export enum FunctionVersion {
-  ALL = "ALL"
+  ALL = "ALL",
 }
 
 export interface GetAccountSettingsRequest {
@@ -1466,10 +1503,9 @@ export interface GetAccountSettingsRequest {
 
 export namespace GetAccountSettingsRequest {
   export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsRequest =>
-    __isa(o, "GetAccountSettingsRequest");
+  export const isa = (o: any): o is GetAccountSettingsRequest => __isa(o, "GetAccountSettingsRequest");
 }
 
 export interface GetAccountSettingsResponse {
@@ -1487,10 +1523,9 @@ export interface GetAccountSettingsResponse {
 
 export namespace GetAccountSettingsResponse {
   export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsResponse =>
-    __isa(o, "GetAccountSettingsResponse");
+  export const isa = (o: any): o is GetAccountSettingsResponse => __isa(o, "GetAccountSettingsResponse");
 }
 
 export interface GetAliasRequest {
@@ -1527,10 +1562,9 @@ export interface GetAliasRequest {
 
 export namespace GetAliasRequest {
   export const filterSensitiveLog = (obj: GetAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAliasRequest =>
-    __isa(o, "GetAliasRequest");
+  export const isa = (o: any): o is GetAliasRequest => __isa(o, "GetAliasRequest");
 }
 
 export interface GetEventSourceMappingRequest {
@@ -1542,13 +1576,10 @@ export interface GetEventSourceMappingRequest {
 }
 
 export namespace GetEventSourceMappingRequest {
-  export const filterSensitiveLog = (
-    obj: GetEventSourceMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetEventSourceMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetEventSourceMappingRequest =>
-    __isa(o, "GetEventSourceMappingRequest");
+  export const isa = (o: any): o is GetEventSourceMappingRequest => __isa(o, "GetEventSourceMappingRequest");
 }
 
 export interface GetFunctionConcurrencyRequest {
@@ -1579,13 +1610,10 @@ export interface GetFunctionConcurrencyRequest {
 }
 
 export namespace GetFunctionConcurrencyRequest {
-  export const filterSensitiveLog = (
-    obj: GetFunctionConcurrencyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFunctionConcurrencyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConcurrencyRequest =>
-    __isa(o, "GetFunctionConcurrencyRequest");
+  export const isa = (o: any): o is GetFunctionConcurrencyRequest => __isa(o, "GetFunctionConcurrencyRequest");
 }
 
 export interface GetFunctionConcurrencyResponse {
@@ -1597,13 +1625,10 @@ export interface GetFunctionConcurrencyResponse {
 }
 
 export namespace GetFunctionConcurrencyResponse {
-  export const filterSensitiveLog = (
-    obj: GetFunctionConcurrencyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFunctionConcurrencyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConcurrencyResponse =>
-    __isa(o, "GetFunctionConcurrencyResponse");
+  export const isa = (o: any): o is GetFunctionConcurrencyResponse => __isa(o, "GetFunctionConcurrencyResponse");
 }
 
 export interface GetFunctionConfigurationRequest {
@@ -1639,17 +1664,19 @@ export interface GetFunctionConfigurationRequest {
 }
 
 export namespace GetFunctionConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: GetFunctionConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFunctionConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConfigurationRequest =>
-    __isa(o, "GetFunctionConfigurationRequest");
+  export const isa = (o: any): o is GetFunctionConfigurationRequest => __isa(o, "GetFunctionConfigurationRequest");
 }
 
 export interface GetFunctionEventInvokeConfigRequest {
   __type?: "GetFunctionEventInvokeConfigRequest";
+  /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -1673,18 +1700,11 @@ export interface GetFunctionEventInvokeConfigRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace GetFunctionEventInvokeConfigRequest {
-  export const filterSensitiveLog = (
-    obj: GetFunctionEventInvokeConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetFunctionEventInvokeConfigRequest =>
     __isa(o, "GetFunctionEventInvokeConfigRequest");
@@ -1693,6 +1713,11 @@ export namespace GetFunctionEventInvokeConfigRequest {
 export interface GetFunctionRequest {
   __type?: "GetFunctionRequest";
   /**
+   * <p>Specify a version or alias to get details about a published version of the function.</p>
+   */
+  Qualifier?: string;
+
+  /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -1715,23 +1740,22 @@ export interface GetFunctionRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>Specify a version or alias to get details about a published version of the function.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace GetFunctionRequest {
   export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFunctionRequest =>
-    __isa(o, "GetFunctionRequest");
+  export const isa = (o: any): o is GetFunctionRequest => __isa(o, "GetFunctionRequest");
 }
 
 export interface GetFunctionResponse {
   __type?: "GetFunctionResponse";
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
+   */
+  Tags?: { [key: string]: string };
+
   /**
    * <p>The deployment package of the function or version.</p>
    */
@@ -1747,22 +1771,14 @@ export interface GetFunctionResponse {
    * <p>The configuration of the function or version.</p>
    */
   Configuration?: FunctionConfiguration;
-
-  /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace GetFunctionResponse {
   export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
     ...obj,
-    ...(obj.Configuration && {
-      Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration)
-    })
+    ...(obj.Configuration && { Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration) }),
   });
-  export const isa = (o: any): o is GetFunctionResponse =>
-    __isa(o, "GetFunctionResponse");
+  export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
 
 export interface GetLayerVersionByArnRequest {
@@ -1774,36 +1790,30 @@ export interface GetLayerVersionByArnRequest {
 }
 
 export namespace GetLayerVersionByArnRequest {
-  export const filterSensitiveLog = (
-    obj: GetLayerVersionByArnRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLayerVersionByArnRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionByArnRequest =>
-    __isa(o, "GetLayerVersionByArnRequest");
+  export const isa = (o: any): o is GetLayerVersionByArnRequest => __isa(o, "GetLayerVersionByArnRequest");
 }
 
 export interface GetLayerVersionPolicyRequest {
   __type?: "GetLayerVersionPolicyRequest";
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-   */
-  LayerName: string | undefined;
-
-  /**
    * <p>The version number.</p>
    */
   VersionNumber: number | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
 }
 
 export namespace GetLayerVersionPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: GetLayerVersionPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLayerVersionPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionPolicyRequest =>
-    __isa(o, "GetLayerVersionPolicyRequest");
+  export const isa = (o: any): o is GetLayerVersionPolicyRequest => __isa(o, "GetLayerVersionPolicyRequest");
 }
 
 export interface GetLayerVersionPolicyResponse {
@@ -1820,13 +1830,10 @@ export interface GetLayerVersionPolicyResponse {
 }
 
 export namespace GetLayerVersionPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: GetLayerVersionPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLayerVersionPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionPolicyResponse =>
-    __isa(o, "GetLayerVersionPolicyResponse");
+  export const isa = (o: any): o is GetLayerVersionPolicyResponse => __isa(o, "GetLayerVersionPolicyResponse");
 }
 
 export interface GetLayerVersionRequest {
@@ -1844,18 +1851,37 @@ export interface GetLayerVersionRequest {
 
 export namespace GetLayerVersionRequest {
   export const filterSensitiveLog = (obj: GetLayerVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionRequest =>
-    __isa(o, "GetLayerVersionRequest");
+  export const isa = (o: any): o is GetLayerVersionRequest => __isa(o, "GetLayerVersionRequest");
 }
 
 export interface GetLayerVersionResponse {
   __type?: "GetLayerVersionResponse";
   /**
+   * <p>The layer's software license.</p>
+   */
+  LicenseInfo?: string;
+
+  /**
    * <p>The layer's compatible runtimes.</p>
    */
   CompatibleRuntimes?: (Runtime | string)[];
+
+  /**
+   * <p>The description of the version.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the layer version.</p>
+   */
+  LayerVersionArn?: string;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version?: number;
 
   /**
    * <p>Details about the layer version.</p>
@@ -1868,37 +1894,16 @@ export interface GetLayerVersionResponse {
   CreatedDate?: string;
 
   /**
-   * <p>The description of the version.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ARN of the layer.</p>
    */
   LayerArn?: string;
-
-  /**
-   * <p>The ARN of the layer version.</p>
-   */
-  LayerVersionArn?: string;
-
-  /**
-   * <p>The layer's software license.</p>
-   */
-  LicenseInfo?: string;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
 }
 
 export namespace GetLayerVersionResponse {
   export const filterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionResponse =>
-    __isa(o, "GetLayerVersionResponse");
+  export const isa = (o: any): o is GetLayerVersionResponse => __isa(o, "GetLayerVersionResponse");
 }
 
 export interface GetPolicyRequest {
@@ -1935,10 +1940,9 @@ export interface GetPolicyRequest {
 
 export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest =>
-    __isa(o, "GetPolicyRequest");
+  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
@@ -1956,14 +1960,18 @@ export interface GetPolicyResponse {
 
 export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse =>
-    __isa(o, "GetPolicyResponse");
+  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProvisionedConcurrencyConfigRequest {
   __type?: "GetProvisionedConcurrencyConfigRequest";
+  /**
+   * <p>The version number or alias name.</p>
+   */
+  Qualifier: string | undefined;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -1987,18 +1995,11 @@ export interface GetProvisionedConcurrencyConfigRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The version number or alias name.</p>
-   */
-  Qualifier: string | undefined;
 }
 
 export namespace GetProvisionedConcurrencyConfigRequest {
-  export const filterSensitiveLog = (
-    obj: GetProvisionedConcurrencyConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetProvisionedConcurrencyConfigRequest =>
     __isa(o, "GetProvisionedConcurrencyConfigRequest");
@@ -2007,9 +2008,9 @@ export namespace GetProvisionedConcurrencyConfigRequest {
 export interface GetProvisionedConcurrencyConfigResponse {
   __type?: "GetProvisionedConcurrencyConfigResponse";
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
+   * <p>The amount of provisioned concurrency requested.</p>
    */
-  AllocatedProvisionedConcurrentExecutions?: number;
+  RequestedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The amount of provisioned concurrency available.</p>
@@ -2017,14 +2018,14 @@ export interface GetProvisionedConcurrencyConfigResponse {
   AvailableProvisionedConcurrentExecutions?: number;
 
   /**
+   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   */
+  StatusReason?: string;
+
+  /**
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
    */
   LastModified?: string;
-
-  /**
-   * <p>The amount of provisioned concurrency requested.</p>
-   */
-  RequestedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The status of the allocation process.</p>
@@ -2032,16 +2033,14 @@ export interface GetProvisionedConcurrencyConfigResponse {
   Status?: ProvisionedConcurrencyStatusEnum | string;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   * <p>The amount of provisioned concurrency allocated.</p>
    */
-  StatusReason?: string;
+  AllocatedProvisionedConcurrentExecutions?: number;
 }
 
 export namespace GetProvisionedConcurrencyConfigResponse {
-  export const filterSensitiveLog = (
-    obj: GetProvisionedConcurrencyConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetProvisionedConcurrencyConfigResponse =>
     __isa(o, "GetProvisionedConcurrencyConfigResponse");
@@ -2050,67 +2049,55 @@ export namespace GetProvisionedConcurrencyConfigResponse {
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
-  /**
-   * <p>The exception type.</p>
-   */
-  Type?: string;
-
   /**
    * <p>The exception message.</p>
    */
   message?: string;
+
+  /**
+   * <p>The exception type.</p>
+   */
+  Type?: string;
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>The request body could not be parsed as JSON.</p>
  */
-export interface InvalidRequestContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestContentException";
   $fault: "client";
-  /**
-   * <p>The exception type.</p>
-   */
-  Type?: string;
-
   /**
    * <p>The exception message.</p>
    */
   message?: string;
+
+  /**
+   * <p>The exception type.</p>
+   */
+  Type?: string;
 }
 
 export namespace InvalidRequestContentException {
-  export const filterSensitiveLog = (
-    obj: InvalidRequestContentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRequestContentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestContentException =>
-    __isa(o, "InvalidRequestContentException");
+  export const isa = (o: any): o is InvalidRequestContentException => __isa(o, "InvalidRequestContentException");
 }
 
 /**
  * <p>The runtime or runtime version specified is not supported.</p>
  */
-export interface InvalidRuntimeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRuntimeException extends __SmithyException, $MetadataBearer {
   name: "InvalidRuntimeException";
   $fault: "server";
   Message?: string;
@@ -2119,18 +2106,15 @@ export interface InvalidRuntimeException
 
 export namespace InvalidRuntimeException {
   export const filterSensitiveLog = (obj: InvalidRuntimeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRuntimeException =>
-    __isa(o, "InvalidRuntimeException");
+  export const isa = (o: any): o is InvalidRuntimeException => __isa(o, "InvalidRuntimeException");
 }
 
 /**
  * <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSecurityGroupIDException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityGroupIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityGroupIDException";
   $fault: "server";
   Message?: string;
@@ -2138,41 +2122,33 @@ export interface InvalidSecurityGroupIDException
 }
 
 export namespace InvalidSecurityGroupIDException {
-  export const filterSensitiveLog = (
-    obj: InvalidSecurityGroupIDException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSecurityGroupIDException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSecurityGroupIDException =>
-    __isa(o, "InvalidSecurityGroupIDException");
+  export const isa = (o: any): o is InvalidSecurityGroupIDException => __isa(o, "InvalidSecurityGroupIDException");
 }
 
 /**
  * <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSubnetIDException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnetIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnetIDException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace InvalidSubnetIDException {
   export const filterSensitiveLog = (obj: InvalidSubnetIDException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnetIDException =>
-    __isa(o, "InvalidSubnetIDException");
+  export const isa = (o: any): o is InvalidSubnetIDException => __isa(o, "InvalidSubnetIDException");
 }
 
 /**
  * <p>AWS Lambda could not unzip the deployment package.</p>
  */
-export interface InvalidZipFileException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidZipFileException extends __SmithyException, $MetadataBearer {
   name: "InvalidZipFileException";
   $fault: "server";
   Message?: string;
@@ -2181,44 +2157,13 @@ export interface InvalidZipFileException
 
 export namespace InvalidZipFileException {
   export const filterSensitiveLog = (obj: InvalidZipFileException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidZipFileException =>
-    __isa(o, "InvalidZipFileException");
+  export const isa = (o: any): o is InvalidZipFileException => __isa(o, "InvalidZipFileException");
 }
 
 export interface InvocationRequest {
   __type?: "InvocationRequest";
-  /**
-   * <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
-   *       object.</p>
-   */
-  ClientContext?: string;
-
-  /**
-   * <p>The name of the Lambda function, version, or alias.</p>
-   *          <p class="title">
-   *             <b>Name formats</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
-   *       If you specify only the function name, it is limited to 64 characters in length.</p>
-   */
-  FunctionName: string | undefined;
-
   /**
    * <p>Choose from the following options.</p>
    *          <ul>
@@ -2256,19 +2201,58 @@ export interface InvocationRequest {
    * <p>Specify a version or alias to invoke a published version of the function.</p>
    */
   Qualifier?: string;
+
+  /**
+   * <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+   *       object.</p>
+   */
+  ClientContext?: string;
+
+  /**
+   * <p>The name of the Lambda function, version, or alias.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
+   *       If you specify only the function name, it is limited to 64 characters in length.</p>
+   */
+  FunctionName: string | undefined;
 }
 
 export namespace InvocationRequest {
   export const filterSensitiveLog = (obj: InvocationRequest): any => ({
     ...obj,
-    ...(obj.Payload && { Payload: SENSITIVE_STRING })
+    ...(obj.Payload && { Payload: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvocationRequest =>
-    __isa(o, "InvocationRequest");
+  export const isa = (o: any): o is InvocationRequest => __isa(o, "InvocationRequest");
 }
 
 export interface InvocationResponse {
   __type?: "InvocationResponse";
+  /**
+   * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
+   */
+  LogResult?: string;
+
+  /**
+   * <p>The response from the function, or an error object.</p>
+   */
+  Payload?: Uint8Array;
+
   /**
    * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which
    *       version the alias resolved to.</p>
@@ -2280,35 +2264,29 @@ export interface InvocationResponse {
    *       in the response payload.</p>
    */
   FunctionError?: string;
-
-  /**
-   * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
-   */
-  LogResult?: string;
-
-  /**
-   * <p>The response from the function, or an error object.</p>
-   */
-  Payload?: Uint8Array;
 }
 
 export namespace InvocationResponse {
   export const filterSensitiveLog = (obj: InvocationResponse): any => ({
     ...obj,
-    ...(obj.Payload && { Payload: SENSITIVE_STRING })
+    ...(obj.Payload && { Payload: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvocationResponse =>
-    __isa(o, "InvocationResponse");
+  export const isa = (o: any): o is InvocationResponse => __isa(o, "InvocationResponse");
 }
 
 export enum InvocationType {
   DryRun = "DryRun",
   Event = "Event",
-  RequestResponse = "RequestResponse"
+  RequestResponse = "RequestResponse",
 }
 
 export interface InvokeAsyncRequest {
   __type?: "InvokeAsyncRequest";
+  /**
+   * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   */
+  InvokeArgs: Readable | ReadableStream | Blob | undefined;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -2332,19 +2310,13 @@ export interface InvokeAsyncRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The JSON that you want to provide to your Lambda function as input.</p>
-   */
-  InvokeArgs: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace InvokeAsyncRequest {
   export const filterSensitiveLog = (obj: InvokeAsyncRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvokeAsyncRequest =>
-    __isa(o, "InvokeAsyncRequest");
+  export const isa = (o: any): o is InvokeAsyncRequest => __isa(o, "InvokeAsyncRequest");
 }
 
 /**
@@ -2356,19 +2328,16 @@ export interface InvokeAsyncResponse {
 
 export namespace InvokeAsyncResponse {
   export const filterSensitiveLog = (obj: InvokeAsyncResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvokeAsyncResponse =>
-    __isa(o, "InvokeAsyncResponse");
+  export const isa = (o: any): o is InvokeAsyncResponse => __isa(o, "InvokeAsyncResponse");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda
  *       function's KMS permissions.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -2377,79 +2346,69 @@ export interface KMSAccessDeniedException
 
 export namespace KMSAccessDeniedException {
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSAccessDeniedException =>
-    __isa(o, "KMSAccessDeniedException");
+  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
  *       function's KMS key settings.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSDisabledException {
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for
  *       Decrypt. Check the function's KMS key settings.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSInvalidStateException {
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
+  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
  *       KMS key settings. </p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSNotFoundException {
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 export enum LastUpdateStatus {
   Failed = "Failed",
   InProgress = "InProgress",
-  Successful = "Successful"
+  Successful = "Successful",
 }
 
 export enum LastUpdateStatusReasonCode {
@@ -2459,7 +2418,7 @@ export enum LastUpdateStatusReasonCode {
   InvalidConfiguration = "InvalidConfiguration",
   InvalidSecurityGroup = "InvalidSecurityGroup",
   InvalidSubnet = "InvalidSubnet",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
+  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
 }
 
 /**
@@ -2481,7 +2440,7 @@ export interface Layer {
 
 export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
@@ -2493,11 +2452,6 @@ export namespace Layer {
 export interface LayersListItem {
   __type?: "LayersListItem";
   /**
-   * <p>The newest version of the layer.</p>
-   */
-  LatestMatchingVersion?: LayerVersionsListItem;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the function layer.</p>
    */
   LayerArn?: string;
@@ -2506,14 +2460,18 @@ export interface LayersListItem {
    * <p>The name of the layer.</p>
    */
   LayerName?: string;
+
+  /**
+   * <p>The newest version of the layer.</p>
+   */
+  LatestMatchingVersion?: LayerVersionsListItem;
 }
 
 export namespace LayersListItem {
   export const filterSensitiveLog = (obj: LayersListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayersListItem =>
-    __isa(o, "LayersListItem");
+  export const isa = (o: any): o is LayersListItem => __isa(o, "LayersListItem");
 }
 
 /**
@@ -2529,14 +2487,14 @@ export interface LayerVersionContentInput {
   S3Bucket?: string;
 
   /**
-   * <p>The Amazon S3 key of the layer archive.</p>
-   */
-  S3Key?: string;
-
-  /**
    * <p>For versioned objects, the version of the layer archive object to use.</p>
    */
   S3ObjectVersion?: string;
+
+  /**
+   * <p>The Amazon S3 key of the layer archive.</p>
+   */
+  S3Key?: string;
 
   /**
    * <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for
@@ -2548,10 +2506,9 @@ export interface LayerVersionContentInput {
 export namespace LayerVersionContentInput {
   export const filterSensitiveLog = (obj: LayerVersionContentInput): any => ({
     ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING })
+    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LayerVersionContentInput =>
-    __isa(o, "LayerVersionContentInput");
+  export const isa = (o: any): o is LayerVersionContentInput => __isa(o, "LayerVersionContentInput");
 }
 
 /**
@@ -2578,10 +2535,9 @@ export interface LayerVersionContentOutput {
 
 export namespace LayerVersionContentOutput {
   export const filterSensitiveLog = (obj: LayerVersionContentOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayerVersionContentOutput =>
-    __isa(o, "LayerVersionContentOutput");
+  export const isa = (o: any): o is LayerVersionContentOutput => __isa(o, "LayerVersionContentOutput");
 }
 
 /**
@@ -2591,14 +2547,24 @@ export namespace LayerVersionContentOutput {
 export interface LayerVersionsListItem {
   __type?: "LayerVersionsListItem";
   /**
-   * <p>The layer's compatible runtimes.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
-  /**
    * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
    */
   CreatedDate?: string;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The layer's open-source license.</p>
+   */
+  LicenseInfo?: string;
+
+  /**
+   * <p>The layer's compatible runtimes.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The description of the version.</p>
@@ -2609,28 +2575,27 @@ export interface LayerVersionsListItem {
    * <p>The ARN of the layer version.</p>
    */
   LayerVersionArn?: string;
-
-  /**
-   * <p>The layer's open-source license.</p>
-   */
-  LicenseInfo?: string;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
 }
 
 export namespace LayerVersionsListItem {
   export const filterSensitiveLog = (obj: LayerVersionsListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LayerVersionsListItem =>
-    __isa(o, "LayerVersionsListItem");
+  export const isa = (o: any): o is LayerVersionsListItem => __isa(o, "LayerVersionsListItem");
 }
 
 export interface ListAliasesRequest {
   __type?: "ListAliasesRequest";
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Limit the number of aliases returned.</p>
+   */
+  MaxItems?: number;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -2659,24 +2624,13 @@ export interface ListAliasesRequest {
    * <p>Specify a function version to only list aliases that invoke that version.</p>
    */
   FunctionVersion?: string;
-
-  /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Limit the number of aliases returned.</p>
-   */
-  MaxItems?: number;
 }
 
 export namespace ListAliasesRequest {
   export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAliasesRequest =>
-    __isa(o, "ListAliasesRequest");
+  export const isa = (o: any): o is ListAliasesRequest => __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
@@ -2694,32 +2648,22 @@ export interface ListAliasesResponse {
 
 export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAliasesResponse =>
-    __isa(o, "ListAliasesResponse");
+  export const isa = (o: any): o is ListAliasesResponse => __isa(o, "ListAliasesResponse");
 }
 
 export interface ListEventSourceMappingsRequest {
   __type?: "ListEventSourceMappingsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
-   *             </li>
-   *          </ul>
+   * <p>A pagination token returned by a previous call.</p>
    */
-  EventSourceArn?: string;
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of event source mappings to return.</p>
+   */
+  MaxItems?: number;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -2750,47 +2694,50 @@ export interface ListEventSourceMappingsRequest {
   FunctionName?: string;
 
   /**
-   * <p>A pagination token returned by a previous call.</p>
+   * <p>The Amazon Resource Name (ARN) of the event source.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p>
+   *             </li>
+   *          </ul>
    */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of event source mappings to return.</p>
-   */
-  MaxItems?: number;
+  EventSourceArn?: string;
 }
 
 export namespace ListEventSourceMappingsRequest {
-  export const filterSensitiveLog = (
-    obj: ListEventSourceMappingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEventSourceMappingsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventSourceMappingsRequest =>
-    __isa(o, "ListEventSourceMappingsRequest");
+  export const isa = (o: any): o is ListEventSourceMappingsRequest => __isa(o, "ListEventSourceMappingsRequest");
 }
 
 export interface ListEventSourceMappingsResponse {
   __type?: "ListEventSourceMappingsResponse";
   /**
-   * <p>A list of event source mappings.</p>
-   */
-  EventSourceMappings?: EventSourceMappingConfiguration[];
-
-  /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of event source mappings.</p>
+   */
+  EventSourceMappings?: EventSourceMappingConfiguration[];
 }
 
 export namespace ListEventSourceMappingsResponse {
-  export const filterSensitiveLog = (
-    obj: ListEventSourceMappingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEventSourceMappingsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventSourceMappingsResponse =>
-    __isa(o, "ListEventSourceMappingsResponse");
+  export const isa = (o: any): o is ListEventSourceMappingsResponse => __isa(o, "ListEventSourceMappingsResponse");
 }
 
 export interface ListFunctionEventInvokeConfigsRequest {
@@ -2820,21 +2767,19 @@ export interface ListFunctionEventInvokeConfigsRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of configurations to return.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListFunctionEventInvokeConfigsRequest {
-  export const filterSensitiveLog = (
-    obj: ListFunctionEventInvokeConfigsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListFunctionEventInvokeConfigsRequest =>
     __isa(o, "ListFunctionEventInvokeConfigsRequest");
@@ -2843,21 +2788,19 @@ export namespace ListFunctionEventInvokeConfigsRequest {
 export interface ListFunctionEventInvokeConfigsResponse {
   __type?: "ListFunctionEventInvokeConfigsResponse";
   /**
-   * <p>A list of configurations.</p>
-   */
-  FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[];
-
-  /**
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of configurations.</p>
+   */
+  FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[];
 }
 
 export namespace ListFunctionEventInvokeConfigsResponse {
-  export const filterSensitiveLog = (
-    obj: ListFunctionEventInvokeConfigsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListFunctionEventInvokeConfigsResponse =>
     __isa(o, "ListFunctionEventInvokeConfigsResponse");
@@ -2871,9 +2814,9 @@ export interface ListFunctionsRequest {
   FunctionVersion?: FunctionVersion | string;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * <p>The maximum number of functions to return.</p>
    */
-  Marker?: string;
+  MaxItems?: number;
 
   /**
    * <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters
@@ -2883,17 +2826,16 @@ export interface ListFunctionsRequest {
   MasterRegion?: string;
 
   /**
-   * <p>Specify a value between 1 and 50 to limit the number of functions in the response.</p>
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
-  MaxItems?: number;
+  Marker?: string;
 }
 
 export namespace ListFunctionsRequest {
   export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListFunctionsRequest =>
-    __isa(o, "ListFunctionsRequest");
+  export const isa = (o: any): o is ListFunctionsRequest => __isa(o, "ListFunctionsRequest");
 }
 
 /**
@@ -2915,18 +2857,18 @@ export interface ListFunctionsResponse {
 export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
     ...obj,
-    ...(obj.Functions && {
-      Functions: obj.Functions.map(item =>
-        FunctionConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListFunctionsResponse =>
-    __isa(o, "ListFunctionsResponse");
+  export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
 
 export interface ListLayersRequest {
   __type?: "ListLayersRequest";
+  /**
+   * <p>The maximum number of layers to return.</p>
+   */
+  MaxItems?: number;
+
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    */
@@ -2936,40 +2878,33 @@ export interface ListLayersRequest {
    * <p>A pagination token returned by a previous call.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of layers to return.</p>
-   */
-  MaxItems?: number;
 }
 
 export namespace ListLayersRequest {
   export const filterSensitiveLog = (obj: ListLayersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLayersRequest =>
-    __isa(o, "ListLayersRequest");
+  export const isa = (o: any): o is ListLayersRequest => __isa(o, "ListLayersRequest");
 }
 
 export interface ListLayersResponse {
   __type?: "ListLayersResponse";
   /**
-   * <p>A list of function layers.</p>
-   */
-  Layers?: LayersListItem[];
-
-  /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of function layers.</p>
+   */
+  Layers?: LayersListItem[];
 }
 
 export namespace ListLayersResponse {
   export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLayersResponse =>
-    __isa(o, "ListLayersResponse");
+  export const isa = (o: any): o is ListLayersResponse => __isa(o, "ListLayersResponse");
 }
 
 export interface ListLayerVersionsRequest {
@@ -2980,14 +2915,14 @@ export interface ListLayerVersionsRequest {
   CompatibleRuntime?: Runtime | string;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-   */
-  LayerName: string | undefined;
-
-  /**
    * <p>A pagination token returned by a previous call.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
 
   /**
    * <p>The maximum number of versions to return.</p>
@@ -2997,35 +2932,43 @@ export interface ListLayerVersionsRequest {
 
 export namespace ListLayerVersionsRequest {
   export const filterSensitiveLog = (obj: ListLayerVersionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLayerVersionsRequest =>
-    __isa(o, "ListLayerVersionsRequest");
+  export const isa = (o: any): o is ListLayerVersionsRequest => __isa(o, "ListLayerVersionsRequest");
 }
 
 export interface ListLayerVersionsResponse {
   __type?: "ListLayerVersionsResponse";
   /**
-   * <p>A list of versions.</p>
-   */
-  LayerVersions?: LayerVersionsListItem[];
-
-  /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of versions.</p>
+   */
+  LayerVersions?: LayerVersionsListItem[];
 }
 
 export namespace ListLayerVersionsResponse {
   export const filterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListLayerVersionsResponse =>
-    __isa(o, "ListLayerVersionsResponse");
+  export const isa = (o: any): o is ListLayerVersionsResponse => __isa(o, "ListLayerVersionsResponse");
 }
 
 export interface ListProvisionedConcurrencyConfigsRequest {
   __type?: "ListProvisionedConcurrencyConfigsRequest";
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Specify a number to limit the number of configurations returned.</p>
+   */
+  MaxItems?: number;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3049,23 +2992,11 @@ export interface ListProvisionedConcurrencyConfigsRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Specify a number to limit the number of configurations returned.</p>
-   */
-  MaxItems?: number;
 }
 
 export namespace ListProvisionedConcurrencyConfigsRequest {
-  export const filterSensitiveLog = (
-    obj: ListProvisionedConcurrencyConfigsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListProvisionedConcurrencyConfigsRequest =>
     __isa(o, "ListProvisionedConcurrencyConfigsRequest");
@@ -3074,21 +3005,19 @@ export namespace ListProvisionedConcurrencyConfigsRequest {
 export interface ListProvisionedConcurrencyConfigsResponse {
   __type?: "ListProvisionedConcurrencyConfigsResponse";
   /**
-   * <p>The pagination token that's included if more results are available.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A list of provisioned concurrency configurations.</p>
    */
   ProvisionedConcurrencyConfigs?: ProvisionedConcurrencyConfigListItem[];
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListProvisionedConcurrencyConfigsResponse {
-  export const filterSensitiveLog = (
-    obj: ListProvisionedConcurrencyConfigsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListProvisionedConcurrencyConfigsResponse =>
     __isa(o, "ListProvisionedConcurrencyConfigsResponse");
@@ -3104,10 +3033,9 @@ export interface ListTagsRequest {
 
 export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -3120,14 +3048,18 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListVersionsByFunctionRequest {
   __type?: "ListVersionsByFunctionRequest";
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3153,57 +3085,42 @@ export interface ListVersionsByFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Limit the number of versions that are returned.</p>
+   * <p>The maximum number of versions to return.</p>
    */
   MaxItems?: number;
 }
 
 export namespace ListVersionsByFunctionRequest {
-  export const filterSensitiveLog = (
-    obj: ListVersionsByFunctionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListVersionsByFunctionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListVersionsByFunctionRequest =>
-    __isa(o, "ListVersionsByFunctionRequest");
+  export const isa = (o: any): o is ListVersionsByFunctionRequest => __isa(o, "ListVersionsByFunctionRequest");
 }
 
 export interface ListVersionsByFunctionResponse {
   __type?: "ListVersionsByFunctionResponse";
   /**
-   * <p>The pagination token that's included if more results are available.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A list of Lambda function versions.</p>
    */
   Versions?: FunctionConfiguration[];
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListVersionsByFunctionResponse {
-  export const filterSensitiveLog = (
-    obj: ListVersionsByFunctionResponse
-  ): any => ({
+  export const filterSensitiveLog = (obj: ListVersionsByFunctionResponse): any => ({
     ...obj,
-    ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        FunctionConfiguration.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.Versions && { Versions: obj.Versions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListVersionsByFunctionResponse =>
-    __isa(o, "ListVersionsByFunctionResponse");
+  export const isa = (o: any): o is ListVersionsByFunctionResponse => __isa(o, "ListVersionsByFunctionResponse");
 }
 
 export enum LogType {
   None = "None",
-  Tail = "Tail"
+  Tail = "Tail",
 }
 
 /**
@@ -3219,7 +3136,7 @@ export interface OnFailure {
 
 export namespace OnFailure {
   export const filterSensitiveLog = (obj: OnFailure): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OnFailure => __isa(o, "OnFailure");
 }
@@ -3237,7 +3154,7 @@ export interface OnSuccess {
 
 export namespace OnSuccess {
   export const filterSensitiveLog = (obj: OnSuccess): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OnSuccess => __isa(o, "OnSuccess");
 }
@@ -3246,23 +3163,18 @@ export namespace OnSuccess {
  * <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface PolicyLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "PolicyLengthExceededException";
   $fault: "client";
-  Type?: string;
   message?: string;
+  Type?: string;
 }
 
 export namespace PolicyLengthExceededException {
-  export const filterSensitiveLog = (
-    obj: PolicyLengthExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PolicyLengthExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyLengthExceededException =>
-    __isa(o, "PolicyLengthExceededException");
+  export const isa = (o: any): o is PolicyLengthExceededException => __isa(o, "PolicyLengthExceededException");
 }
 
 /**
@@ -3270,9 +3182,7 @@ export namespace PolicyLengthExceededException {
  *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
  *       resource.</p>
  */
-export interface PreconditionFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
   name: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -3287,13 +3197,10 @@ export interface PreconditionFailedException
 }
 
 export namespace PreconditionFailedException {
-  export const filterSensitiveLog = (
-    obj: PreconditionFailedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PreconditionFailedException =>
-    __isa(o, "PreconditionFailedException");
+  export const isa = (o: any): o is PreconditionFailedException => __isa(o, "PreconditionFailedException");
 }
 
 /**
@@ -3302,29 +3209,14 @@ export namespace PreconditionFailedException {
 export interface ProvisionedConcurrencyConfigListItem {
   __type?: "ProvisionedConcurrencyConfigListItem";
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
-   */
-  AllocatedProvisionedConcurrentExecutions?: number;
-
-  /**
-   * <p>The amount of provisioned concurrency available.</p>
-   */
-  AvailableProvisionedConcurrentExecutions?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the alias or version.</p>
-   */
-  FunctionArn?: string;
-
-  /**
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
    */
   LastModified?: string;
 
   /**
-   * <p>The amount of provisioned concurrency requested.</p>
+   * <p>The amount of provisioned concurrency allocated.</p>
    */
-  RequestedProvisionedConcurrentExecutions?: number;
+  AllocatedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The status of the allocation process.</p>
@@ -3332,16 +3224,29 @@ export interface ProvisionedConcurrencyConfigListItem {
   Status?: ProvisionedConcurrencyStatusEnum | string;
 
   /**
+   * <p>The amount of provisioned concurrency available.</p>
+   */
+  AvailableProvisionedConcurrentExecutions?: number;
+
+  /**
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
    */
   StatusReason?: string;
+
+  /**
+   * <p>The amount of provisioned concurrency requested.</p>
+   */
+  RequestedProvisionedConcurrentExecutions?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alias or version.</p>
+   */
+  FunctionArn?: string;
 }
 
 export namespace ProvisionedConcurrencyConfigListItem {
-  export const filterSensitiveLog = (
-    obj: ProvisionedConcurrencyConfigListItem
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigListItem): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ProvisionedConcurrencyConfigListItem =>
     __isa(o, "ProvisionedConcurrencyConfigListItem");
@@ -3350,41 +3255,29 @@ export namespace ProvisionedConcurrencyConfigListItem {
 /**
  * <p>The specified configuration does not exist.</p>
  */
-export interface ProvisionedConcurrencyConfigNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedConcurrencyConfigNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedConcurrencyConfigNotFoundException";
   $fault: "client";
-  Type?: string;
   message?: string;
+  Type?: string;
 }
 
 export namespace ProvisionedConcurrencyConfigNotFoundException {
-  export const filterSensitiveLog = (
-    obj: ProvisionedConcurrencyConfigNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ProvisionedConcurrencyConfigNotFoundException =>
+  export const isa = (o: any): o is ProvisionedConcurrencyConfigNotFoundException =>
     __isa(o, "ProvisionedConcurrencyConfigNotFoundException");
 }
 
 export enum ProvisionedConcurrencyStatusEnum {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY"
+  READY = "READY",
 }
 
 export interface PublishLayerVersionRequest {
   __type?: "PublishLayerVersionRequest";
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
-   *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
   /**
    * <p>The function layer archive.</p>
    */
@@ -3399,6 +3292,12 @@ export interface PublishLayerVersionRequest {
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
+
+  /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
+   *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The layer's software license. It can be any of the following:</p>
@@ -3422,40 +3321,17 @@ export interface PublishLayerVersionRequest {
 export namespace PublishLayerVersionRequest {
   export const filterSensitiveLog = (obj: PublishLayerVersionRequest): any => ({
     ...obj,
-    ...(obj.Content && {
-      Content: LayerVersionContentInput.filterSensitiveLog(obj.Content)
-    })
+    ...(obj.Content && { Content: LayerVersionContentInput.filterSensitiveLog(obj.Content) }),
   });
-  export const isa = (o: any): o is PublishLayerVersionRequest =>
-    __isa(o, "PublishLayerVersionRequest");
+  export const isa = (o: any): o is PublishLayerVersionRequest => __isa(o, "PublishLayerVersionRequest");
 }
 
 export interface PublishLayerVersionResponse {
   __type?: "PublishLayerVersionResponse";
   /**
-   * <p>The layer's compatible runtimes.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
-  /**
-   * <p>Details about the layer version.</p>
-   */
-  Content?: LayerVersionContentOutput;
-
-  /**
-   * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   */
-  CreatedDate?: string;
-
-  /**
    * <p>The description of the version.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The ARN of the layer.</p>
-   */
-  LayerArn?: string;
 
   /**
    * <p>The ARN of the layer version.</p>
@@ -3463,39 +3339,62 @@ export interface PublishLayerVersionResponse {
   LayerVersionArn?: string;
 
   /**
-   * <p>The layer's software license.</p>
-   */
-  LicenseInfo?: string;
-
-  /**
    * <p>The version number.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  CreatedDate?: string;
+
+  /**
+   * <p>The ARN of the layer.</p>
+   */
+  LayerArn?: string;
+
+  /**
+   * <p>Details about the layer version.</p>
+   */
+  Content?: LayerVersionContentOutput;
+
+  /**
+   * <p>The layer's compatible runtimes.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
+
+  /**
+   * <p>The layer's software license.</p>
+   */
+  LicenseInfo?: string;
 }
 
 export namespace PublishLayerVersionResponse {
-  export const filterSensitiveLog = (
-    obj: PublishLayerVersionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PublishLayerVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PublishLayerVersionResponse =>
-    __isa(o, "PublishLayerVersionResponse");
+  export const isa = (o: any): o is PublishLayerVersionResponse => __isa(o, "PublishLayerVersionResponse");
 }
 
 export interface PublishVersionRequest {
   __type?: "PublishVersionRequest";
+  /**
+   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid
+   *       publishing a version if the function configuration has changed since you last updated it.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>A description for the version to override the description in the function configuration.</p>
+   */
+  Description?: string;
+
   /**
    * <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid
    *       publishing a version if the function code has changed since you last updated it. You can get the hash for the
    *       version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
    */
   CodeSha256?: string;
-
-  /**
-   * <p>A description for the version to override the description in the function configuration.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -3520,24 +3419,22 @@ export interface PublishVersionRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid
-   *       publishing a version if the function configuration has changed since you last updated it.</p>
-   */
-  RevisionId?: string;
 }
 
 export namespace PublishVersionRequest {
   export const filterSensitiveLog = (obj: PublishVersionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PublishVersionRequest =>
-    __isa(o, "PublishVersionRequest");
+  export const isa = (o: any): o is PublishVersionRequest => __isa(o, "PublishVersionRequest");
 }
 
 export interface PutFunctionConcurrencyRequest {
   __type?: "PutFunctionConcurrencyRequest";
+  /**
+   * <p>The number of simultaneous executions to reserve for the function.</p>
+   */
+  ReservedConcurrentExecutions: number | undefined;
+
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3561,25 +3458,27 @@ export interface PutFunctionConcurrencyRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The number of simultaneous executions to reserve for the function.</p>
-   */
-  ReservedConcurrentExecutions: number | undefined;
 }
 
 export namespace PutFunctionConcurrencyRequest {
-  export const filterSensitiveLog = (
-    obj: PutFunctionConcurrencyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutFunctionConcurrencyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutFunctionConcurrencyRequest =>
-    __isa(o, "PutFunctionConcurrencyRequest");
+  export const isa = (o: any): o is PutFunctionConcurrencyRequest => __isa(o, "PutFunctionConcurrencyRequest");
 }
 
 export interface PutFunctionEventInvokeConfigRequest {
   __type?: "PutFunctionEventInvokeConfigRequest";
+  /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   */
+  MaximumRetryAttempts?: number;
+
   /**
    * <p>A destination for events after they have been sent to a function for processing.</p>
    *          <p class="title">
@@ -3607,6 +3506,11 @@ export interface PutFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 
   /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   */
+  MaximumEventAgeInSeconds?: number;
+
+  /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -3629,28 +3533,11 @@ export interface PutFunctionEventInvokeConfigRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   */
-  MaximumEventAgeInSeconds?: number;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
-   * <p>A version number or alias name.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace PutFunctionEventInvokeConfigRequest {
-  export const filterSensitiveLog = (
-    obj: PutFunctionEventInvokeConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutFunctionEventInvokeConfigRequest =>
     __isa(o, "PutFunctionEventInvokeConfigRequest");
@@ -3694,10 +3581,8 @@ export interface PutProvisionedConcurrencyConfigRequest {
 }
 
 export namespace PutProvisionedConcurrencyConfigRequest {
-  export const filterSensitiveLog = (
-    obj: PutProvisionedConcurrencyConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutProvisionedConcurrencyConfigRequest =>
     __isa(o, "PutProvisionedConcurrencyConfigRequest");
@@ -3706,24 +3591,9 @@ export namespace PutProvisionedConcurrencyConfigRequest {
 export interface PutProvisionedConcurrencyConfigResponse {
   __type?: "PutProvisionedConcurrencyConfigResponse";
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
-   */
-  AllocatedProvisionedConcurrentExecutions?: number;
-
-  /**
    * <p>The amount of provisioned concurrency available.</p>
    */
   AvailableProvisionedConcurrentExecutions?: number;
-
-  /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-   */
-  LastModified?: string;
-
-  /**
-   * <p>The amount of provisioned concurrency requested.</p>
-   */
-  RequestedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The status of the allocation process.</p>
@@ -3734,13 +3604,26 @@ export interface PutProvisionedConcurrencyConfigResponse {
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
    */
   StatusReason?: string;
+
+  /**
+   * <p>The amount of provisioned concurrency requested.</p>
+   */
+  RequestedProvisionedConcurrentExecutions?: number;
+
+  /**
+   * <p>The amount of provisioned concurrency allocated.</p>
+   */
+  AllocatedProvisionedConcurrentExecutions?: number;
+
+  /**
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   */
+  LastModified?: string;
 }
 
 export namespace PutProvisionedConcurrencyConfigResponse {
-  export const filterSensitiveLog = (
-    obj: PutProvisionedConcurrencyConfigResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutProvisionedConcurrencyConfigResponse =>
     __isa(o, "PutProvisionedConcurrencyConfigResponse");
@@ -3749,15 +3632,14 @@ export namespace PutProvisionedConcurrencyConfigResponse {
 export interface RemoveLayerVersionPermissionRequest {
   __type?: "RemoveLayerVersionPermissionRequest";
   /**
+   * <p>The version number.</p>
+   */
+  VersionNumber: number | undefined;
+
+  /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
-
-  /**
-   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
-   *       policy that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
 
   /**
    * <p>The identifier that was specified when the statement was added.</p>
@@ -3765,16 +3647,15 @@ export interface RemoveLayerVersionPermissionRequest {
   StatementId: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
+   *       policy that has changed since you last read it.</p>
    */
-  VersionNumber: number | undefined;
+  RevisionId?: string;
 }
 
 export namespace RemoveLayerVersionPermissionRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveLayerVersionPermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveLayerVersionPermissionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RemoveLayerVersionPermissionRequest =>
     __isa(o, "RemoveLayerVersionPermissionRequest");
@@ -3807,6 +3688,11 @@ export interface RemovePermissionRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>Statement ID of the permission to remove.</p>
+   */
+  StatementId: string | undefined;
+
+  /**
    * <p>Specify a version or alias to remove permissions from a published version of the function.</p>
    */
   Qualifier?: string;
@@ -3816,28 +3702,20 @@ export interface RemovePermissionRequest {
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
-
-  /**
-   * <p>Statement ID of the permission to remove.</p>
-   */
-  StatementId: string | undefined;
 }
 
 export namespace RemovePermissionRequest {
   export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemovePermissionRequest =>
-    __isa(o, "RemovePermissionRequest");
+  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 /**
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
  */
-export interface RequestTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestTooLargeException extends __SmithyException, $MetadataBearer {
   name: "RequestTooLargeException";
   $fault: "client";
   Type?: string;
@@ -3846,18 +3724,15 @@ export interface RequestTooLargeException
 
 export namespace RequestTooLargeException {
   export const filterSensitiveLog = (obj: RequestTooLargeException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestTooLargeException =>
-    __isa(o, "RequestTooLargeException");
+  export const isa = (o: any): o is RequestTooLargeException => __isa(o, "RequestTooLargeException");
 }
 
 /**
  * <p>The resource already exists, or another operation is in progress.</p>
  */
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -3873,85 +3748,76 @@ export interface ResourceConflictException
 
 export namespace ResourceConflictException {
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceConflictException =>
-    __isa(o, "ResourceConflictException");
+  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
  * <p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource
- *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state. </p>
+ *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The resource specified in the request does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
  *       reestablish and try again.</p>
  */
-export interface ResourceNotReadyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotReadyException";
   $fault: "server";
-  /**
-   * <p>The exception type.</p>
-   */
-  Type?: string;
-
   /**
    * <p>The exception message.</p>
    */
   message?: string;
+
+  /**
+   * <p>The exception type.</p>
+   */
+  Type?: string;
 }
 
 export namespace ResourceNotReadyException {
   export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotReadyException =>
-    __isa(o, "ResourceNotReadyException");
+  export const isa = (o: any): o is ResourceNotReadyException => __isa(o, "ResourceNotReadyException");
 }
 
 export enum Runtime {
   dotnetcore10 = "dotnetcore1.0",
   dotnetcore20 = "dotnetcore2.0",
   dotnetcore21 = "dotnetcore2.1",
+  dotnetcore31 = "dotnetcore3.1",
   go1x = "go1.x",
   java11 = "java11",
   java8 = "java8",
@@ -3967,7 +3833,8 @@ export enum Runtime {
   python36 = "python3.6",
   python37 = "python3.7",
   python38 = "python3.8",
-  ruby25 = "ruby2.5"
+  ruby25 = "ruby2.5",
+  ruby27 = "ruby2.7",
 }
 
 /**
@@ -3982,17 +3849,16 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 
 export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 export enum State {
   Active = "Active",
   Failed = "Failed",
   Inactive = "Inactive",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export enum StateReasonCode {
@@ -4005,27 +3871,23 @@ export enum StateReasonCode {
   InvalidSecurityGroup = "InvalidSecurityGroup",
   InvalidSubnet = "InvalidSubnet",
   Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
+  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
 }
 
 /**
  * <p>AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
  *       has no available IP addresses.</p>
  */
-export interface SubnetIPAddressLimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetIPAddressLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "SubnetIPAddressLimitReachedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace SubnetIPAddressLimitReachedException {
-  export const filterSensitiveLog = (
-    obj: SubnetIPAddressLimitReachedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubnetIPAddressLimitReachedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SubnetIPAddressLimitReachedException =>
     __isa(o, "SubnetIPAddressLimitReachedException");
@@ -4034,22 +3896,21 @@ export namespace SubnetIPAddressLimitReachedException {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
-   */
-  Resource: string | undefined;
-
-  /**
    * <p>A list of tags to apply to the function.</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The function's Amazon Resource Name (ARN).</p>
+   */
+  Resource: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export enum ThrottleReason {
@@ -4057,32 +3918,30 @@ export enum ThrottleReason {
   ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
   FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
   ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded"
+  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
 }
 
 /**
  * <p>The request throughput limit was exceeded.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
-  Reason?: ThrottleReason | string;
-  Type?: string;
   message?: string;
   /**
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   retryAfterSeconds?: string;
+
+  Type?: string;
+  Reason?: ThrottleReason | string;
 }
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -4099,7 +3958,7 @@ export interface TracingConfig {
 
 export namespace TracingConfig {
   export const filterSensitiveLog = (obj: TracingConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TracingConfig => __isa(o, "TracingConfig");
 }
@@ -4117,62 +3976,77 @@ export interface TracingConfigResponse {
 
 export namespace TracingConfigResponse {
   export const filterSensitiveLog = (obj: TracingConfigResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TracingConfigResponse =>
-    __isa(o, "TracingConfigResponse");
+  export const isa = (o: any): o is TracingConfigResponse => __isa(o, "TracingConfigResponse");
 }
 
 export enum TracingMode {
   Active = "Active",
-  PassThrough = "PassThrough"
+  PassThrough = "PassThrough",
 }
 
 /**
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
-export interface UnsupportedMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
-  Type?: string;
   message?: string;
+  Type?: string;
 }
 
 export namespace UnsupportedMediaTypeException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedMediaTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedMediaTypeException =>
-    __isa(o, "UnsupportedMediaTypeException");
+  export const isa = (o: any): o is UnsupportedMediaTypeException => __isa(o, "UnsupportedMediaTypeException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
-   */
-  Resource: string | undefined;
-
-  /**
    * <p>A list of tag keys to remove from the function.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The function's Amazon Resource Name (ARN).</p>
+   */
+  Resource: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAliasRequest {
   __type?: "UpdateAliasRequest";
+  /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The function version that the alias invokes.</p>
+   */
+  FunctionVersion?: string;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
+   *         configuration</a> of the alias.</p>
+   */
+  RoutingConfig?: AliasRoutingConfiguration;
+
+  /**
+   * <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying
+   *       an alias that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
+
   /**
    * <p>A description of the alias.</p>
    */
@@ -4201,40 +4075,37 @@ export interface UpdateAliasRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-
-  /**
-   * <p>The function version that the alias invokes.</p>
-   */
-  FunctionVersion?: string;
-
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying
-   *       an alias that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
-   *         configuration</a> of the alias.</p>
-   */
-  RoutingConfig?: AliasRoutingConfiguration;
 }
 
 export namespace UpdateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAliasRequest =>
-    __isa(o, "UpdateAliasRequest");
+  export const isa = (o: any): o is UpdateAliasRequest => __isa(o, "UpdateAliasRequest");
 }
 
 export interface UpdateEventSourceMappingRequest {
   __type?: "UpdateEventSourceMappingRequest";
+  /**
+   * <p>Disables the event source mapping to pause polling and invocation.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   */
+  MaximumBatchingWindowInSeconds?: number;
+
+  /**
+   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   */
+  DestinationConfig?: DestinationConfig;
+
+  /**
+   * <p>The identifier of the event source mapping.</p>
+   */
+  UUID: string | undefined;
+
   /**
    * <p>The maximum number of items to retrieve in a single batch.</p>
    *          <ul>
@@ -4253,21 +4124,6 @@ export interface UpdateEventSourceMappingRequest {
    *          </ul>
    */
   BatchSize?: number;
-
-  /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-   */
-  BisectBatchOnFunctionError?: boolean;
-
-  /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-   */
-  DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>Disables the event source mapping to pause polling and invocation.</p>
-   */
-  Enabled?: boolean;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -4298,19 +4154,9 @@ export interface UpdateEventSourceMappingRequest {
   FunctionName?: string;
 
   /**
-   * <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
-   */
-  MaximumBatchingWindowInSeconds?: number;
-
-  /**
    * <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
    */
   MaximumRecordAgeInSeconds?: number;
-
-  /**
-   * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
 
   /**
    * <p>(Streams) The number of batches to process from each shard concurrently.</p>
@@ -4318,23 +4164,46 @@ export interface UpdateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
    */
-  UUID: string | undefined;
+  MaximumRetryAttempts?: number;
+
+  /**
+   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   */
+  BisectBatchOnFunctionError?: boolean;
 }
 
 export namespace UpdateEventSourceMappingRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateEventSourceMappingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateEventSourceMappingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateEventSourceMappingRequest =>
-    __isa(o, "UpdateEventSourceMappingRequest");
+  export const isa = (o: any): o is UpdateEventSourceMappingRequest => __isa(o, "UpdateEventSourceMappingRequest");
 }
 
 export interface UpdateFunctionCodeRequest {
   __type?: "UpdateFunctionCodeRequest";
+  /**
+   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The Amazon S3 key of the deployment package.</p>
+   */
+  S3Key?: string;
+
+  /**
+   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   */
+  S3ObjectVersion?: string;
+
+  /**
+   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
+   *       you.</p>
+   */
+  ZipFile?: Uint8Array;
+
   /**
    * <p>Set to true to validate the request parameters and access permissions without modifying the function
    *       code.</p>
@@ -4366,11 +4235,28 @@ export interface UpdateFunctionCodeRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   *       function that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
+
+  /**
    * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as
    *       calling <a>PublishVersion</a> separately.</p>
    */
   Publish?: boolean;
+}
 
+export namespace UpdateFunctionCodeRequest {
+  export const filterSensitiveLog = (obj: UpdateFunctionCodeRequest): any => ({
+    ...obj,
+    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is UpdateFunctionCodeRequest => __isa(o, "UpdateFunctionCodeRequest");
+}
+
+export interface UpdateFunctionConfigurationRequest {
+  __type?: "UpdateFunctionConfigurationRequest";
   /**
    * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       function that has changed since you last read it.</p>
@@ -4378,43 +4264,16 @@ export interface UpdateFunctionCodeRequest {
   RevisionId?: string;
 
   /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
    */
-  S3Bucket?: string;
+  KMSKeyArn?: string;
 
   /**
-   * <p>The Amazon S3 key of the deployment package.</p>
+   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
    */
-  S3Key?: string;
-
-  /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
-   */
-  S3ObjectVersion?: string;
-
-  /**
-   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
-   *       you.</p>
-   */
-  ZipFile?: Uint8Array;
-}
-
-export namespace UpdateFunctionCodeRequest {
-  export const filterSensitiveLog = (obj: UpdateFunctionCodeRequest): any => ({
-    ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING })
-  });
-  export const isa = (o: any): o is UpdateFunctionCodeRequest =>
-    __isa(o, "UpdateFunctionCodeRequest");
-}
-
-export interface UpdateFunctionConfigurationRequest {
-  __type?: "UpdateFunctionConfigurationRequest";
-  /**
-   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
-   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
+  MemorySize?: number;
 
   /**
    * <p>A description of the function.</p>
@@ -4422,9 +4281,39 @@ export interface UpdateFunctionConfigurationRequest {
   Description?: string;
 
   /**
-   * <p>Environment variables that are accessible from function code during execution.</p>
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
+   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
    */
-  Environment?: Environment;
+  Layers?: string[];
+
+  /**
+   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   */
+  Handler?: string;
+
+  /**
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
+   *       X-Ray.</p>
+   */
+  TracingConfig?: TracingConfig;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   *       maximum allowed value is 900 seconds.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>Connection settings for an Amazon EFS file system.</p>
+   */
+  FileSystemConfigs?: FileSystemConfig[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
+   */
+  Role?: string;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -4451,57 +4340,20 @@ export interface UpdateFunctionConfigurationRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
-   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
-   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
-   */
-  Handler?: string;
-
-  /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
-   */
-  KMSKeyArn?: string;
-
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
-   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-   */
-  Layers?: string[];
-
-  /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
-   *       function that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
-   */
-  Role?: string;
-
-  /**
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
    */
   Runtime?: Runtime | string;
 
   /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
+   * <p>Environment variables that are accessible from function code during execution.</p>
    */
-  Timeout?: number;
+  Environment?: Environment;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
+   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
+   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
    */
-  TracingConfig?: TracingConfig;
+  DeadLetterConfig?: DeadLetterConfig;
 
   /**
    * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
@@ -4512,13 +4364,9 @@ export interface UpdateFunctionConfigurationRequest {
 }
 
 export namespace UpdateFunctionConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateFunctionConfigurationRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: UpdateFunctionConfigurationRequest): any => ({
     ...obj,
-    ...(obj.Environment && {
-      Environment: Environment.filterSensitiveLog(obj.Environment)
-    })
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
   export const isa = (o: any): o is UpdateFunctionConfigurationRequest =>
     __isa(o, "UpdateFunctionConfigurationRequest");
@@ -4526,32 +4374,6 @@ export namespace UpdateFunctionConfigurationRequest {
 
 export interface UpdateFunctionEventInvokeConfigRequest {
   __type?: "UpdateFunctionEventInvokeConfigRequest";
-  /**
-   * <p>A destination for events after they have been sent to a function for processing.</p>
-   *          <p class="title">
-   *             <b>Destinations</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>
-   *             </li>
-   *          </ul>
-   */
-  DestinationConfig?: DestinationConfig;
-
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -4582,21 +4404,45 @@ export interface UpdateFunctionEventInvokeConfigRequest {
   MaximumEventAgeInSeconds?: number;
 
   /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
    * <p>The maximum number of times to retry when the function returns an error.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>A version number or alias name.</p>
+   * <p>A destination for events after they have been sent to a function for processing.</p>
+   *          <p class="title">
+   *             <b>Destinations</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>
+   *             </li>
+   *          </ul>
    */
-  Qualifier?: string;
+  DestinationConfig?: DestinationConfig;
 }
 
 export namespace UpdateFunctionEventInvokeConfigRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateFunctionEventInvokeConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateFunctionEventInvokeConfigRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateFunctionEventInvokeConfigRequest =>
     __isa(o, "UpdateFunctionEventInvokeConfigRequest");
@@ -4608,19 +4454,19 @@ export namespace UpdateFunctionEventInvokeConfigRequest {
 export interface VpcConfig {
   __type?: "VpcConfig";
   /**
-   * <p>A list of VPC security groups IDs.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>A list of VPC subnet IDs.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>A list of VPC security groups IDs.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }
@@ -4631,14 +4477,14 @@ export namespace VpcConfig {
 export interface VpcConfigResponse {
   __type?: "VpcConfigResponse";
   /**
-   * <p>A list of VPC security groups IDs.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>A list of VPC subnet IDs.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>A list of VPC security groups IDs.</p>
+   */
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -4648,8 +4494,7 @@ export interface VpcConfigResponse {
 
 export namespace VpcConfigResponse {
   export const filterSensitiveLog = (obj: VpcConfigResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcConfigResponse =>
-    __isa(o, "VpcConfigResponse");
+  export const isa = (o: any): o is VpcConfigResponse => __isa(o, "VpcConfigResponse");
 }

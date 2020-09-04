@@ -1,21 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
-import {
-  DescribePlatformVersionRequest,
-  DescribePlatformVersionResult
-} from "../models/index.ts";
+import { DescribePlatformVersionRequest, DescribePlatformVersionResult } from "../models/index.ts";
 import {
   deserializeAws_queryDescribePlatformVersionCommand,
-  serializeAws_queryDescribePlatformVersionCommand
+  serializeAws_queryDescribePlatformVersionCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribePlatformVersionCommandInput = DescribePlatformVersionRequest;
-export type DescribePlatformVersionCommandOutput = DescribePlatformVersionResult &
-  __MetadataBearer;
+export type DescribePlatformVersionCommandOutput = DescribePlatformVersionResult & __MetadataBearer;
 
 export class DescribePlatformVersionCommand extends $Command<
   DescribePlatformVersionCommandInput,
@@ -49,18 +42,16 @@ export class DescribePlatformVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePlatformVersionCommandInput,
-    DescribePlatformVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePlatformVersionCommandInput, DescribePlatformVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribePlatformVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePlatformVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DescribePlatformVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePlatformVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribePlatformVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePlatformVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlatformVersionCommandOutput> {
     return deserializeAws_queryDescribePlatformVersionCommand(output, context);
   }
 

@@ -1,490 +1,382 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand.ts";
-import {
-  CancelCommandCommandInput,
-  CancelCommandCommandOutput
-} from "./commands/CancelCommandCommand.ts";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand.ts";
+import { CancelCommandCommandInput, CancelCommandCommandOutput } from "./commands/CancelCommandCommand.ts";
 import {
   CancelMaintenanceWindowExecutionCommandInput,
-  CancelMaintenanceWindowExecutionCommandOutput
+  CancelMaintenanceWindowExecutionCommandOutput,
 } from "./commands/CancelMaintenanceWindowExecutionCommand.ts";
-import {
-  CreateActivationCommandInput,
-  CreateActivationCommandOutput
-} from "./commands/CreateActivationCommand.ts";
+import { CreateActivationCommandInput, CreateActivationCommandOutput } from "./commands/CreateActivationCommand.ts";
 import {
   CreateAssociationBatchCommandInput,
-  CreateAssociationBatchCommandOutput
+  CreateAssociationBatchCommandOutput,
 } from "./commands/CreateAssociationBatchCommand.ts";
-import {
-  CreateAssociationCommandInput,
-  CreateAssociationCommandOutput
-} from "./commands/CreateAssociationCommand.ts";
-import {
-  CreateDocumentCommandInput,
-  CreateDocumentCommandOutput
-} from "./commands/CreateDocumentCommand.ts";
+import { CreateAssociationCommandInput, CreateAssociationCommandOutput } from "./commands/CreateAssociationCommand.ts";
+import { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "./commands/CreateDocumentCommand.ts";
 import {
   CreateMaintenanceWindowCommandInput,
-  CreateMaintenanceWindowCommandOutput
+  CreateMaintenanceWindowCommandOutput,
 } from "./commands/CreateMaintenanceWindowCommand.ts";
-import {
-  CreateOpsItemCommandInput,
-  CreateOpsItemCommandOutput
-} from "./commands/CreateOpsItemCommand.ts";
+import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "./commands/CreateOpsItemCommand.ts";
 import {
   CreatePatchBaselineCommandInput,
-  CreatePatchBaselineCommandOutput
+  CreatePatchBaselineCommandOutput,
 } from "./commands/CreatePatchBaselineCommand.ts";
 import {
   CreateResourceDataSyncCommandInput,
-  CreateResourceDataSyncCommandOutput
+  CreateResourceDataSyncCommandOutput,
 } from "./commands/CreateResourceDataSyncCommand.ts";
-import {
-  DeleteActivationCommandInput,
-  DeleteActivationCommandOutput
-} from "./commands/DeleteActivationCommand.ts";
-import {
-  DeleteAssociationCommandInput,
-  DeleteAssociationCommandOutput
-} from "./commands/DeleteAssociationCommand.ts";
-import {
-  DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput
-} from "./commands/DeleteDocumentCommand.ts";
-import {
-  DeleteInventoryCommandInput,
-  DeleteInventoryCommandOutput
-} from "./commands/DeleteInventoryCommand.ts";
+import { DeleteActivationCommandInput, DeleteActivationCommandOutput } from "./commands/DeleteActivationCommand.ts";
+import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "./commands/DeleteAssociationCommand.ts";
+import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand.ts";
+import { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "./commands/DeleteInventoryCommand.ts";
 import {
   DeleteMaintenanceWindowCommandInput,
-  DeleteMaintenanceWindowCommandOutput
+  DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand.ts";
-import {
-  DeleteParameterCommandInput,
-  DeleteParameterCommandOutput
-} from "./commands/DeleteParameterCommand.ts";
-import {
-  DeleteParametersCommandInput,
-  DeleteParametersCommandOutput
-} from "./commands/DeleteParametersCommand.ts";
+import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand.ts";
+import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand.ts";
 import {
   DeletePatchBaselineCommandInput,
-  DeletePatchBaselineCommandOutput
+  DeletePatchBaselineCommandOutput,
 } from "./commands/DeletePatchBaselineCommand.ts";
 import {
   DeleteResourceDataSyncCommandInput,
-  DeleteResourceDataSyncCommandOutput
+  DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand.ts";
 import {
   DeregisterManagedInstanceCommandInput,
-  DeregisterManagedInstanceCommandOutput
+  DeregisterManagedInstanceCommandOutput,
 } from "./commands/DeregisterManagedInstanceCommand.ts";
 import {
   DeregisterPatchBaselineForPatchGroupCommandInput,
-  DeregisterPatchBaselineForPatchGroupCommandOutput
+  DeregisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/DeregisterPatchBaselineForPatchGroupCommand.ts";
 import {
   DeregisterTargetFromMaintenanceWindowCommandInput,
-  DeregisterTargetFromMaintenanceWindowCommandOutput
+  DeregisterTargetFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTargetFromMaintenanceWindowCommand.ts";
 import {
   DeregisterTaskFromMaintenanceWindowCommandInput,
-  DeregisterTaskFromMaintenanceWindowCommandOutput
+  DeregisterTaskFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTaskFromMaintenanceWindowCommand.ts";
 import {
   DescribeActivationsCommandInput,
-  DescribeActivationsCommandOutput
+  DescribeActivationsCommandOutput,
 } from "./commands/DescribeActivationsCommand.ts";
 import {
   DescribeAssociationCommandInput,
-  DescribeAssociationCommandOutput
+  DescribeAssociationCommandOutput,
 } from "./commands/DescribeAssociationCommand.ts";
 import {
   DescribeAssociationExecutionTargetsCommandInput,
-  DescribeAssociationExecutionTargetsCommandOutput
+  DescribeAssociationExecutionTargetsCommandOutput,
 } from "./commands/DescribeAssociationExecutionTargetsCommand.ts";
 import {
   DescribeAssociationExecutionsCommandInput,
-  DescribeAssociationExecutionsCommandOutput
+  DescribeAssociationExecutionsCommandOutput,
 } from "./commands/DescribeAssociationExecutionsCommand.ts";
 import {
   DescribeAutomationExecutionsCommandInput,
-  DescribeAutomationExecutionsCommandOutput
+  DescribeAutomationExecutionsCommandOutput,
 } from "./commands/DescribeAutomationExecutionsCommand.ts";
 import {
   DescribeAutomationStepExecutionsCommandInput,
-  DescribeAutomationStepExecutionsCommandOutput
+  DescribeAutomationStepExecutionsCommandOutput,
 } from "./commands/DescribeAutomationStepExecutionsCommand.ts";
 import {
   DescribeAvailablePatchesCommandInput,
-  DescribeAvailablePatchesCommandOutput
+  DescribeAvailablePatchesCommandOutput,
 } from "./commands/DescribeAvailablePatchesCommand.ts";
-import {
-  DescribeDocumentCommandInput,
-  DescribeDocumentCommandOutput
-} from "./commands/DescribeDocumentCommand.ts";
+import { DescribeDocumentCommandInput, DescribeDocumentCommandOutput } from "./commands/DescribeDocumentCommand.ts";
 import {
   DescribeDocumentPermissionCommandInput,
-  DescribeDocumentPermissionCommandOutput
+  DescribeDocumentPermissionCommandOutput,
 } from "./commands/DescribeDocumentPermissionCommand.ts";
 import {
   DescribeEffectiveInstanceAssociationsCommandInput,
-  DescribeEffectiveInstanceAssociationsCommandOutput
+  DescribeEffectiveInstanceAssociationsCommandOutput,
 } from "./commands/DescribeEffectiveInstanceAssociationsCommand.ts";
 import {
   DescribeEffectivePatchesForPatchBaselineCommandInput,
-  DescribeEffectivePatchesForPatchBaselineCommandOutput
+  DescribeEffectivePatchesForPatchBaselineCommandOutput,
 } from "./commands/DescribeEffectivePatchesForPatchBaselineCommand.ts";
 import {
   DescribeInstanceAssociationsStatusCommandInput,
-  DescribeInstanceAssociationsStatusCommandOutput
+  DescribeInstanceAssociationsStatusCommandOutput,
 } from "./commands/DescribeInstanceAssociationsStatusCommand.ts";
 import {
   DescribeInstanceInformationCommandInput,
-  DescribeInstanceInformationCommandOutput
+  DescribeInstanceInformationCommandOutput,
 } from "./commands/DescribeInstanceInformationCommand.ts";
 import {
   DescribeInstancePatchStatesCommandInput,
-  DescribeInstancePatchStatesCommandOutput
+  DescribeInstancePatchStatesCommandOutput,
 } from "./commands/DescribeInstancePatchStatesCommand.ts";
 import {
   DescribeInstancePatchStatesForPatchGroupCommandInput,
-  DescribeInstancePatchStatesForPatchGroupCommandOutput
+  DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand.ts";
 import {
   DescribeInstancePatchesCommandInput,
-  DescribeInstancePatchesCommandOutput
+  DescribeInstancePatchesCommandOutput,
 } from "./commands/DescribeInstancePatchesCommand.ts";
 import {
   DescribeInventoryDeletionsCommandInput,
-  DescribeInventoryDeletionsCommandOutput
+  DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionTasksCommandInput,
-  DescribeMaintenanceWindowExecutionTasksCommandOutput
+  DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTasksCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionsCommandInput,
-  DescribeMaintenanceWindowExecutionsCommandOutput
+  DescribeMaintenanceWindowExecutionsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionsCommand.ts";
 import {
   DescribeMaintenanceWindowScheduleCommandInput,
-  DescribeMaintenanceWindowScheduleCommandOutput
+  DescribeMaintenanceWindowScheduleCommandOutput,
 } from "./commands/DescribeMaintenanceWindowScheduleCommand.ts";
 import {
   DescribeMaintenanceWindowTargetsCommandInput,
-  DescribeMaintenanceWindowTargetsCommandOutput
+  DescribeMaintenanceWindowTargetsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTargetsCommand.ts";
 import {
   DescribeMaintenanceWindowTasksCommandInput,
-  DescribeMaintenanceWindowTasksCommandOutput
+  DescribeMaintenanceWindowTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTasksCommand.ts";
 import {
   DescribeMaintenanceWindowsCommandInput,
-  DescribeMaintenanceWindowsCommandOutput
+  DescribeMaintenanceWindowsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsCommand.ts";
 import {
   DescribeMaintenanceWindowsForTargetCommandInput,
-  DescribeMaintenanceWindowsForTargetCommandOutput
+  DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand.ts";
-import {
-  DescribeOpsItemsCommandInput,
-  DescribeOpsItemsCommandOutput
-} from "./commands/DescribeOpsItemsCommand.ts";
+import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "./commands/DescribeOpsItemsCommand.ts";
 import {
   DescribeParametersCommandInput,
-  DescribeParametersCommandOutput
+  DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand.ts";
 import {
   DescribePatchBaselinesCommandInput,
-  DescribePatchBaselinesCommandOutput
+  DescribePatchBaselinesCommandOutput,
 } from "./commands/DescribePatchBaselinesCommand.ts";
 import {
   DescribePatchGroupStateCommandInput,
-  DescribePatchGroupStateCommandOutput
+  DescribePatchGroupStateCommandOutput,
 } from "./commands/DescribePatchGroupStateCommand.ts";
 import {
   DescribePatchGroupsCommandInput,
-  DescribePatchGroupsCommandOutput
+  DescribePatchGroupsCommandOutput,
 } from "./commands/DescribePatchGroupsCommand.ts";
 import {
   DescribePatchPropertiesCommandInput,
-  DescribePatchPropertiesCommandOutput
+  DescribePatchPropertiesCommandOutput,
 } from "./commands/DescribePatchPropertiesCommand.ts";
-import {
-  DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
-} from "./commands/DescribeSessionsCommand.ts";
+import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand.ts";
 import {
   GetAutomationExecutionCommandInput,
-  GetAutomationExecutionCommandOutput
+  GetAutomationExecutionCommandOutput,
 } from "./commands/GetAutomationExecutionCommand.ts";
-import {
-  GetCalendarStateCommandInput,
-  GetCalendarStateCommandOutput
-} from "./commands/GetCalendarStateCommand.ts";
+import { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "./commands/GetCalendarStateCommand.ts";
 import {
   GetCommandInvocationCommandInput,
-  GetCommandInvocationCommandOutput
+  GetCommandInvocationCommandOutput,
 } from "./commands/GetCommandInvocationCommand.ts";
 import {
   GetConnectionStatusCommandInput,
-  GetConnectionStatusCommandOutput
+  GetConnectionStatusCommandOutput,
 } from "./commands/GetConnectionStatusCommand.ts";
 import {
   GetDefaultPatchBaselineCommandInput,
-  GetDefaultPatchBaselineCommandOutput
+  GetDefaultPatchBaselineCommandOutput,
 } from "./commands/GetDefaultPatchBaselineCommand.ts";
 import {
   GetDeployablePatchSnapshotForInstanceCommandInput,
-  GetDeployablePatchSnapshotForInstanceCommandOutput
+  GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand.ts";
-import {
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput
-} from "./commands/GetDocumentCommand.ts";
-import {
-  GetInventoryCommandInput,
-  GetInventoryCommandOutput
-} from "./commands/GetInventoryCommand.ts";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand.ts";
+import { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand.ts";
 import {
   GetInventorySchemaCommandInput,
-  GetInventorySchemaCommandOutput
+  GetInventorySchemaCommandOutput,
 } from "./commands/GetInventorySchemaCommand.ts";
 import {
   GetMaintenanceWindowCommandInput,
-  GetMaintenanceWindowCommandOutput
+  GetMaintenanceWindowCommandOutput,
 } from "./commands/GetMaintenanceWindowCommand.ts";
 import {
   GetMaintenanceWindowExecutionCommandInput,
-  GetMaintenanceWindowExecutionCommandOutput
+  GetMaintenanceWindowExecutionCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionCommand.ts";
 import {
   GetMaintenanceWindowExecutionTaskCommandInput,
-  GetMaintenanceWindowExecutionTaskCommandOutput
+  GetMaintenanceWindowExecutionTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskCommand.ts";
 import {
   GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-  GetMaintenanceWindowExecutionTaskInvocationCommandOutput
+  GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskInvocationCommand.ts";
 import {
   GetMaintenanceWindowTaskCommandInput,
-  GetMaintenanceWindowTaskCommandOutput
+  GetMaintenanceWindowTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowTaskCommand.ts";
-import {
-  GetOpsItemCommandInput,
-  GetOpsItemCommandOutput
-} from "./commands/GetOpsItemCommand.ts";
-import {
-  GetOpsSummaryCommandInput,
-  GetOpsSummaryCommandOutput
-} from "./commands/GetOpsSummaryCommand.ts";
-import {
-  GetParameterCommandInput,
-  GetParameterCommandOutput
-} from "./commands/GetParameterCommand.ts";
+import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand.ts";
+import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "./commands/GetOpsSummaryCommand.ts";
+import { GetParameterCommandInput, GetParameterCommandOutput } from "./commands/GetParameterCommand.ts";
 import {
   GetParameterHistoryCommandInput,
-  GetParameterHistoryCommandOutput
+  GetParameterHistoryCommandOutput,
 } from "./commands/GetParameterHistoryCommand.ts";
 import {
   GetParametersByPathCommandInput,
-  GetParametersByPathCommandOutput
+  GetParametersByPathCommandOutput,
 } from "./commands/GetParametersByPathCommand.ts";
-import {
-  GetParametersCommandInput,
-  GetParametersCommandOutput
-} from "./commands/GetParametersCommand.ts";
-import {
-  GetPatchBaselineCommandInput,
-  GetPatchBaselineCommandOutput
-} from "./commands/GetPatchBaselineCommand.ts";
+import { GetParametersCommandInput, GetParametersCommandOutput } from "./commands/GetParametersCommand.ts";
+import { GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput } from "./commands/GetPatchBaselineCommand.ts";
 import {
   GetPatchBaselineForPatchGroupCommandInput,
-  GetPatchBaselineForPatchGroupCommandOutput
+  GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand.ts";
-import {
-  GetServiceSettingCommandInput,
-  GetServiceSettingCommandOutput
-} from "./commands/GetServiceSettingCommand.ts";
+import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "./commands/GetServiceSettingCommand.ts";
 import {
   LabelParameterVersionCommandInput,
-  LabelParameterVersionCommandOutput
+  LabelParameterVersionCommandOutput,
 } from "./commands/LabelParameterVersionCommand.ts";
 import {
   ListAssociationVersionsCommandInput,
-  ListAssociationVersionsCommandOutput
+  ListAssociationVersionsCommandOutput,
 } from "./commands/ListAssociationVersionsCommand.ts";
-import {
-  ListAssociationsCommandInput,
-  ListAssociationsCommandOutput
-} from "./commands/ListAssociationsCommand.ts";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand.ts";
 import {
   ListCommandInvocationsCommandInput,
-  ListCommandInvocationsCommandOutput
+  ListCommandInvocationsCommandOutput,
 } from "./commands/ListCommandInvocationsCommand.ts";
-import {
-  ListCommandsCommandInput,
-  ListCommandsCommandOutput
-} from "./commands/ListCommandsCommand.ts";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand.ts";
 import {
   ListComplianceItemsCommandInput,
-  ListComplianceItemsCommandOutput
+  ListComplianceItemsCommandOutput,
 } from "./commands/ListComplianceItemsCommand.ts";
 import {
   ListComplianceSummariesCommandInput,
-  ListComplianceSummariesCommandOutput
+  ListComplianceSummariesCommandOutput,
 } from "./commands/ListComplianceSummariesCommand.ts";
 import {
   ListDocumentVersionsCommandInput,
-  ListDocumentVersionsCommandOutput
+  ListDocumentVersionsCommandOutput,
 } from "./commands/ListDocumentVersionsCommand.ts";
-import {
-  ListDocumentsCommandInput,
-  ListDocumentsCommandOutput
-} from "./commands/ListDocumentsCommand.ts";
+import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand.ts";
 import {
   ListInventoryEntriesCommandInput,
-  ListInventoryEntriesCommandOutput
+  ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand.ts";
 import {
   ListResourceComplianceSummariesCommandInput,
-  ListResourceComplianceSummariesCommandOutput
+  ListResourceComplianceSummariesCommandOutput,
 } from "./commands/ListResourceComplianceSummariesCommand.ts";
 import {
   ListResourceDataSyncCommandInput,
-  ListResourceDataSyncCommandOutput
+  ListResourceDataSyncCommandOutput,
 } from "./commands/ListResourceDataSyncCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyDocumentPermissionCommandInput,
-  ModifyDocumentPermissionCommandOutput
+  ModifyDocumentPermissionCommandOutput,
 } from "./commands/ModifyDocumentPermissionCommand.ts";
 import {
   PutComplianceItemsCommandInput,
-  PutComplianceItemsCommandOutput
+  PutComplianceItemsCommandOutput,
 } from "./commands/PutComplianceItemsCommand.ts";
-import {
-  PutInventoryCommandInput,
-  PutInventoryCommandOutput
-} from "./commands/PutInventoryCommand.ts";
-import {
-  PutParameterCommandInput,
-  PutParameterCommandOutput
-} from "./commands/PutParameterCommand.ts";
+import { PutInventoryCommandInput, PutInventoryCommandOutput } from "./commands/PutInventoryCommand.ts";
+import { PutParameterCommandInput, PutParameterCommandOutput } from "./commands/PutParameterCommand.ts";
 import {
   RegisterDefaultPatchBaselineCommandInput,
-  RegisterDefaultPatchBaselineCommandOutput
+  RegisterDefaultPatchBaselineCommandOutput,
 } from "./commands/RegisterDefaultPatchBaselineCommand.ts";
 import {
   RegisterPatchBaselineForPatchGroupCommandInput,
-  RegisterPatchBaselineForPatchGroupCommandOutput
+  RegisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/RegisterPatchBaselineForPatchGroupCommand.ts";
 import {
   RegisterTargetWithMaintenanceWindowCommandInput,
-  RegisterTargetWithMaintenanceWindowCommandOutput
+  RegisterTargetWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTargetWithMaintenanceWindowCommand.ts";
 import {
   RegisterTaskWithMaintenanceWindowCommandInput,
-  RegisterTaskWithMaintenanceWindowCommandOutput
+  RegisterTaskWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTaskWithMaintenanceWindowCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetServiceSettingCommandInput,
-  ResetServiceSettingCommandOutput
+  ResetServiceSettingCommandOutput,
 } from "./commands/ResetServiceSettingCommand.ts";
-import {
-  ResumeSessionCommandInput,
-  ResumeSessionCommandOutput
-} from "./commands/ResumeSessionCommand.ts";
+import { ResumeSessionCommandInput, ResumeSessionCommandOutput } from "./commands/ResumeSessionCommand.ts";
 import {
   SendAutomationSignalCommandInput,
-  SendAutomationSignalCommandOutput
+  SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand.ts";
-import {
-  SendCommandCommandInput,
-  SendCommandCommandOutput
-} from "./commands/SendCommandCommand.ts";
+import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand.ts";
 import {
   StartAssociationsOnceCommandInput,
-  StartAssociationsOnceCommandOutput
+  StartAssociationsOnceCommandOutput,
 } from "./commands/StartAssociationsOnceCommand.ts";
 import {
   StartAutomationExecutionCommandInput,
-  StartAutomationExecutionCommandOutput
+  StartAutomationExecutionCommandOutput,
 } from "./commands/StartAutomationExecutionCommand.ts";
-import {
-  StartSessionCommandInput,
-  StartSessionCommandOutput
-} from "./commands/StartSessionCommand.ts";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand.ts";
 import {
   StopAutomationExecutionCommandInput,
-  StopAutomationExecutionCommandOutput
+  StopAutomationExecutionCommandOutput,
 } from "./commands/StopAutomationExecutionCommand.ts";
-import {
-  TerminateSessionCommandInput,
-  TerminateSessionCommandOutput
-} from "./commands/TerminateSessionCommand.ts";
-import {
-  UpdateAssociationCommandInput,
-  UpdateAssociationCommandOutput
-} from "./commands/UpdateAssociationCommand.ts";
+import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand.ts";
+import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "./commands/UpdateAssociationCommand.ts";
 import {
   UpdateAssociationStatusCommandInput,
-  UpdateAssociationStatusCommandOutput
+  UpdateAssociationStatusCommandOutput,
 } from "./commands/UpdateAssociationStatusCommand.ts";
-import {
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput
-} from "./commands/UpdateDocumentCommand.ts";
+import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand.ts";
 import {
   UpdateDocumentDefaultVersionCommandInput,
-  UpdateDocumentDefaultVersionCommandOutput
+  UpdateDocumentDefaultVersionCommandOutput,
 } from "./commands/UpdateDocumentDefaultVersionCommand.ts";
 import {
   UpdateMaintenanceWindowCommandInput,
-  UpdateMaintenanceWindowCommandOutput
+  UpdateMaintenanceWindowCommandOutput,
 } from "./commands/UpdateMaintenanceWindowCommand.ts";
 import {
   UpdateMaintenanceWindowTargetCommandInput,
-  UpdateMaintenanceWindowTargetCommandOutput
+  UpdateMaintenanceWindowTargetCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTargetCommand.ts";
 import {
   UpdateMaintenanceWindowTaskCommandInput,
-  UpdateMaintenanceWindowTaskCommandOutput
+  UpdateMaintenanceWindowTaskCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTaskCommand.ts";
 import {
   UpdateManagedInstanceRoleCommandInput,
-  UpdateManagedInstanceRoleCommandOutput
+  UpdateManagedInstanceRoleCommandOutput,
 } from "./commands/UpdateManagedInstanceRoleCommand.ts";
-import {
-  UpdateOpsItemCommandInput,
-  UpdateOpsItemCommandOutput
-} from "./commands/UpdateOpsItemCommand.ts";
+import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "./commands/UpdateOpsItemCommand.ts";
 import {
   UpdatePatchBaselineCommandInput,
-  UpdatePatchBaselineCommandOutput
+  UpdatePatchBaselineCommandOutput,
 } from "./commands/UpdatePatchBaselineCommand.ts";
 import {
   UpdateResourceDataSyncCommandInput,
-  UpdateResourceDataSyncCommandOutput
+  UpdateResourceDataSyncCommandOutput,
 } from "./commands/UpdateResourceDataSyncCommand.ts";
 import {
   UpdateServiceSettingCommandInput,
-  UpdateServiceSettingCommandOutput
+  UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -493,38 +385,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -533,9 +421,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -786,8 +675,7 @@ export type ServiceOutputTypes =
   | UpdateResourceDataSyncCommandOutput
   | UpdateServiceSettingCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -861,14 +749,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -876,9 +769,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -887,9 +778,7 @@ export type SSMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -904,14 +793,15 @@ export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<
  *    collecting system inventory, applying operating system (OS) patches, automating the creation of
  *    Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale.
  *    Systems Manager lets you remotely and securely manage the configuration of your managed instances. A
- *     <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your
- *    hybrid environment that has been configured for Systems Manager.</p>
- *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
+ *     <i>managed instance</i> is any Amazon Elastic Compute Cloud instance (EC2 instance), or any
+ *    on-premises server or virtual machine (VM) in your hybrid environment that has been configured
+ *    for Systems Manager.</p>
+ *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
  *          <p>To get started, verify prerequisites and configure managed instances. For more information,
- *    see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting Up AWS Systems Manager</a> in
- *    the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see
- *     <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
+ *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
+ *     AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information
+ *    about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
  */
 export class SSMClient extends __Client<
   __HttpHandlerOptions,
@@ -924,7 +814,7 @@ export class SSMClient extends __Client<
   constructor(configuration: SSMClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -939,6 +829,7 @@ export class SSMClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

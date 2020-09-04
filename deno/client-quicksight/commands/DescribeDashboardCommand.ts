@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient.ts";
-import {
-  DescribeDashboardRequest,
-  DescribeDashboardResponse
-} from "../models/index.ts";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
+import { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeDashboardCommand,
-  serializeAws_restJson1DescribeDashboardCommand
+  serializeAws_restJson1DescribeDashboardCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDashboardCommandInput = DescribeDashboardRequest;
-export type DescribeDashboardCommandOutput = DescribeDashboardResponse &
-  __MetadataBearer;
+export type DescribeDashboardCommandOutput = DescribeDashboardResponse & __MetadataBearer;
 
 export class DescribeDashboardCommand extends $Command<
   DescribeDashboardCommandInput,
@@ -50,14 +39,15 @@ export class DescribeDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDashboardCommandInput, DescribeDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDashboardRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDashboardResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeDashboardCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDashboardCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDashboardCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDashboardCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDashboardCommandOutput> {
     return deserializeAws_restJson1DescribeDashboardCommand(output, context);
   }
 

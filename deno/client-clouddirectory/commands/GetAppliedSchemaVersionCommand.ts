@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  GetAppliedSchemaVersionRequest,
-  GetAppliedSchemaVersionResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetAppliedSchemaVersionCommand,
-  serializeAws_restJson1GetAppliedSchemaVersionCommand
+  serializeAws_restJson1GetAppliedSchemaVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAppliedSchemaVersionCommandInput = GetAppliedSchemaVersionRequest;
-export type GetAppliedSchemaVersionCommandOutput = GetAppliedSchemaVersionResponse &
-  __MetadataBearer;
+export type GetAppliedSchemaVersionCommandOutput = GetAppliedSchemaVersionResponse & __MetadataBearer;
 
 export class GetAppliedSchemaVersionCommand extends $Command<
   GetAppliedSchemaVersionCommandInput,
@@ -49,18 +38,16 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAppliedSchemaVersionCommandInput,
-    GetAppliedSchemaVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAppliedSchemaVersionCommandInput, GetAppliedSchemaVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAppliedSchemaVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAppliedSchemaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetAppliedSchemaVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAppliedSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1GetAppliedSchemaVersionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppliedSchemaVersionCommandOutput> {
+    return deserializeAws_restJson1GetAppliedSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

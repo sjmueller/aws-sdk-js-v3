@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAccountSettingsCommand,
-  serializeAws_json1_1GetAccountSettingsCommand
+  serializeAws_json1_1GetAccountSettingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResult &
-  __MetadataBearer;
+export type GetAccountSettingsCommandOutput = GetAccountSettingsResult & __MetadataBearer;
 
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,
@@ -50,14 +39,15 @@ export class GetAccountSettingsCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAccountSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountSettingsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccountSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccountSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccountSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
     return deserializeAws_json1_1GetAccountSettingsCommand(output, context);
   }
 

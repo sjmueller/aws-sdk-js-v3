@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  ListVirtualMFADevicesRequest,
-  ListVirtualMFADevicesResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/index.ts";
 import {
   deserializeAws_queryListVirtualMFADevicesCommand,
-  serializeAws_queryListVirtualMFADevicesCommand
+  serializeAws_queryListVirtualMFADevicesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListVirtualMFADevicesCommandInput = ListVirtualMFADevicesRequest;
-export type ListVirtualMFADevicesCommandOutput = ListVirtualMFADevicesResponse &
-  __MetadataBearer;
+export type ListVirtualMFADevicesCommandOutput = ListVirtualMFADevicesResponse & __MetadataBearer;
 
 export class ListVirtualMFADevicesCommand extends $Command<
   ListVirtualMFADevicesCommandInput,
@@ -49,18 +38,16 @@ export class ListVirtualMFADevicesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVirtualMFADevicesCommandInput,
-    ListVirtualMFADevicesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVirtualMFADevicesCommandInput, ListVirtualMFADevicesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListVirtualMFADevicesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListVirtualMFADevicesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListVirtualMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListVirtualMFADevicesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListVirtualMFADevicesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMFADevicesCommandOutput> {
     return deserializeAws_queryListVirtualMFADevicesCommand(output, context);
   }
 

@@ -1,17 +1,11 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
-export interface AccountSuspendedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountSuspendedException extends __SmithyException, $MetadataBearer {
   name: "AccountSuspendedException";
   $fault: "client";
   message?: string;
@@ -19,18 +13,15 @@ export interface AccountSuspendedException
 
 export namespace AccountSuspendedException {
   export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountSuspendedException =>
-    __isa(o, "AccountSuspendedException");
+  export const isa = (o: any): o is AccountSuspendedException => __isa(o, "AccountSuspendedException");
 }
 
 /**
  * <p>The resource specified in your request already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -38,18 +29,15 @@ export interface AlreadyExistsException
 
 export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>The input you provided is invalid.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -57,15 +45,14 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BehaviorOnMxFailure {
   REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE"
+  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
 }
 
 /**
@@ -93,10 +80,9 @@ export interface BlacklistEntry {
 
 export namespace BlacklistEntry {
   export const filterSensitiveLog = (obj: BlacklistEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BlacklistEntry =>
-    __isa(o, "BlacklistEntry");
+  export const isa = (o: any): o is BlacklistEntry => __isa(o, "BlacklistEntry");
 }
 
 /**
@@ -121,7 +107,7 @@ export interface Body {
 
 export namespace Body {
   export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Body => __isa(o, "Body");
 }
@@ -141,10 +127,9 @@ export interface CloudWatchDestination {
 
 export namespace CloudWatchDestination {
   export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDestination =>
-    __isa(o, "CloudWatchDestination");
+  export const isa = (o: any): o is CloudWatchDestination => __isa(o, "CloudWatchDestination");
 }
 
 /**
@@ -195,34 +180,26 @@ export interface CloudWatchDimensionConfiguration {
 }
 
 export namespace CloudWatchDimensionConfiguration {
-  export const filterSensitiveLog = (
-    obj: CloudWatchDimensionConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDimensionConfiguration =>
-    __isa(o, "CloudWatchDimensionConfiguration");
+  export const isa = (o: any): o is CloudWatchDimensionConfiguration => __isa(o, "CloudWatchDimensionConfiguration");
 }
 
 /**
  * <p>The resource is being modified by another operation or thread.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -232,22 +209,22 @@ export namespace ConcurrentModificationException {
 export interface Content {
   __type?: "Content";
   /**
+   * <p>The content of the message itself.</p>
+   */
+  Data: string | undefined;
+
+  /**
    * <p>The character set for the content. Because of the constraints of the SMTP protocol,
    *             Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside of the ASCII
    *             range, you have to specify a character set. For example, you could specify
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    */
   Charset?: string;
-
-  /**
-   * <p>The content of the message itself.</p>
-   */
-  Data: string | undefined;
 }
 
 export namespace Content {
   export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Content => __isa(o, "Content");
 }
@@ -274,14 +251,10 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationSetEventDestinationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
     __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
@@ -294,14 +267,10 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationSetEventDestinationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
     __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
@@ -311,9 +280,10 @@ export namespace CreateConfigurationSetEventDestinationResponse {
 export interface CreateConfigurationSetRequest {
   __type?: "CreateConfigurationSetRequest";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
+   *             configuration set.</p>
    */
-  ConfigurationSetName: string | undefined;
+  SendingOptions?: SendingOptions;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
@@ -322,22 +292,21 @@ export interface CreateConfigurationSetRequest {
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * <p>An array of objects that define the tags (keys and values) that you want to associate
+   *             with the configuration set.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    */
   ReputationOptions?: ReputationOptions;
 
   /**
-   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
-   *             configuration set.</p>
+   * <p>The name of the configuration set.</p>
    */
-  SendingOptions?: SendingOptions;
-
-  /**
-   * <p>An array of objects that define the tags (keys and values) that you want to associate
-   *             with the configuration set.</p>
-   */
-  Tags?: Tag[];
+  ConfigurationSetName: string | undefined;
 
   /**
    * <p>An object that defines the open and click tracking options for emails that you send
@@ -347,13 +316,10 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationSetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetRequest =>
-    __isa(o, "CreateConfigurationSetRequest");
+  export const isa = (o: any): o is CreateConfigurationSetRequest => __isa(o, "CreateConfigurationSetRequest");
 }
 
 /**
@@ -365,13 +331,10 @@ export interface CreateConfigurationSetResponse {
 }
 
 export namespace CreateConfigurationSetResponse {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetResponse =>
-    __isa(o, "CreateConfigurationSetResponse");
+  export const isa = (o: any): o is CreateConfigurationSetResponse => __isa(o, "CreateConfigurationSetResponse");
 }
 
 /**
@@ -392,13 +355,10 @@ export interface CreateDedicatedIpPoolRequest {
 }
 
 export namespace CreateDedicatedIpPoolRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDedicatedIpPoolRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDedicatedIpPoolRequest =>
-    __isa(o, "CreateDedicatedIpPoolRequest");
+  export const isa = (o: any): o is CreateDedicatedIpPoolRequest => __isa(o, "CreateDedicatedIpPoolRequest");
 }
 
 /**
@@ -410,13 +370,10 @@ export interface CreateDedicatedIpPoolResponse {
 }
 
 export namespace CreateDedicatedIpPoolResponse {
-  export const filterSensitiveLog = (
-    obj: CreateDedicatedIpPoolResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDedicatedIpPoolResponse =>
-    __isa(o, "CreateDedicatedIpPoolResponse");
+  export const isa = (o: any): o is CreateDedicatedIpPoolResponse => __isa(o, "CreateDedicatedIpPoolResponse");
 }
 
 /**
@@ -436,11 +393,6 @@ export interface CreateDeliverabilityTestReportRequest {
   Content: EmailContent | undefined;
 
   /**
-   * <p>The email address that the predictive inbox placement test email was sent from.</p>
-   */
-  FromEmailAddress: string | undefined;
-
-  /**
    * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
    *             results.</p>
    */
@@ -451,13 +403,16 @@ export interface CreateDeliverabilityTestReportRequest {
    *             with the predictive inbox placement test.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The email address that the predictive inbox placement test email was sent from.</p>
+   */
+  FromEmailAddress: string | undefined;
 }
 
 export namespace CreateDeliverabilityTestReportRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDeliverabilityTestReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateDeliverabilityTestReportRequest =>
     __isa(o, "CreateDeliverabilityTestReportRequest");
@@ -483,10 +438,8 @@ export interface CreateDeliverabilityTestReportResponse {
 }
 
 export namespace CreateDeliverabilityTestReportResponse {
-  export const filterSensitiveLog = (
-    obj: CreateDeliverabilityTestReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateDeliverabilityTestReportResponse =>
     __isa(o, "CreateDeliverabilityTestReportResponse");
@@ -512,10 +465,9 @@ export interface CreateEmailIdentityRequest {
 
 export namespace CreateEmailIdentityRequest {
   export const filterSensitiveLog = (obj: CreateEmailIdentityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEmailIdentityRequest =>
-    __isa(o, "CreateEmailIdentityRequest");
+  export const isa = (o: any): o is CreateEmailIdentityRequest => __isa(o, "CreateEmailIdentityRequest");
 }
 
 /**
@@ -527,6 +479,13 @@ export namespace CreateEmailIdentityRequest {
 export interface CreateEmailIdentityResponse {
   __type?: "CreateEmailIdentityResponse";
   /**
+   * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
+   *             from verified email addresses or domains. For more information about verifying
+   *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   */
+  VerifiedForSendingStatus?: boolean;
+
+  /**
    * <p>An object that contains information about the DKIM attributes for the identity. This
    *             object includes the tokens that you use to create the CNAME records that are required to
    *             complete the DKIM verification process.</p>
@@ -537,23 +496,13 @@ export interface CreateEmailIdentityResponse {
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
-   *             from verified email addresses or domains. For more information about verifying
-   *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
-   */
-  VerifiedForSendingStatus?: boolean;
 }
 
 export namespace CreateEmailIdentityResponse {
-  export const filterSensitiveLog = (
-    obj: CreateEmailIdentityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEmailIdentityResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEmailIdentityResponse =>
-    __isa(o, "CreateEmailIdentityResponse");
+  export const isa = (o: any): o is CreateEmailIdentityResponse => __isa(o, "CreateEmailIdentityResponse");
 }
 
 /**
@@ -582,7 +531,7 @@ export interface DailyVolume {
 
 export namespace DailyVolume {
   export const filterSensitiveLog = (obj: DailyVolume): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DailyVolume => __isa(o, "DailyVolume");
 }
@@ -594,22 +543,6 @@ export namespace DailyVolume {
  */
 export interface DedicatedIp {
   __type?: "DedicatedIp";
-  /**
-   * <p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
-   */
-  PoolName?: string;
-
-  /**
-   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
-   *             the address has completed the warm-up process and is ready for use.</p>
-   */
-  WarmupPercentage: number | undefined;
-
   /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
@@ -627,11 +560,27 @@ export interface DedicatedIp {
    *          </ul>
    */
   WarmupStatus: WarmupStatus | string | undefined;
+
+  /**
+   * <p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
+   *             the address has completed the warm-up process and is ready for use.</p>
+   */
+  WarmupPercentage: number | undefined;
 }
 
 export namespace DedicatedIp {
   export const filterSensitiveLog = (obj: DedicatedIp): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DedicatedIp => __isa(o, "DedicatedIp");
 }
@@ -654,14 +603,10 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationSetEventDestinationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
     __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
@@ -674,14 +619,10 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationSetEventDestinationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
     __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
@@ -697,13 +638,10 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationSetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetRequest =>
-    __isa(o, "DeleteConfigurationSetRequest");
+  export const isa = (o: any): o is DeleteConfigurationSetRequest => __isa(o, "DeleteConfigurationSetRequest");
 }
 
 /**
@@ -715,13 +653,10 @@ export interface DeleteConfigurationSetResponse {
 }
 
 export namespace DeleteConfigurationSetResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteConfigurationSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetResponse =>
-    __isa(o, "DeleteConfigurationSetResponse");
+  export const isa = (o: any): o is DeleteConfigurationSetResponse => __isa(o, "DeleteConfigurationSetResponse");
 }
 
 /**
@@ -736,13 +671,10 @@ export interface DeleteDedicatedIpPoolRequest {
 }
 
 export namespace DeleteDedicatedIpPoolRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDedicatedIpPoolRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDedicatedIpPoolRequest =>
-    __isa(o, "DeleteDedicatedIpPoolRequest");
+  export const isa = (o: any): o is DeleteDedicatedIpPoolRequest => __isa(o, "DeleteDedicatedIpPoolRequest");
 }
 
 /**
@@ -754,13 +686,10 @@ export interface DeleteDedicatedIpPoolResponse {
 }
 
 export namespace DeleteDedicatedIpPoolResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteDedicatedIpPoolResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDedicatedIpPoolResponse =>
-    __isa(o, "DeleteDedicatedIpPoolResponse");
+  export const isa = (o: any): o is DeleteDedicatedIpPoolResponse => __isa(o, "DeleteDedicatedIpPoolResponse");
 }
 
 /**
@@ -779,10 +708,9 @@ export interface DeleteEmailIdentityRequest {
 
 export namespace DeleteEmailIdentityRequest {
   export const filterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityRequest =>
-    __isa(o, "DeleteEmailIdentityRequest");
+  export const isa = (o: any): o is DeleteEmailIdentityRequest => __isa(o, "DeleteEmailIdentityRequest");
 }
 
 /**
@@ -794,19 +722,16 @@ export interface DeleteEmailIdentityResponse {
 }
 
 export namespace DeleteEmailIdentityResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteEmailIdentityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEmailIdentityResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityResponse =>
-    __isa(o, "DeleteEmailIdentityResponse");
+  export const isa = (o: any): o is DeleteEmailIdentityResponse => __isa(o, "DeleteEmailIdentityResponse");
 }
 
 export enum DeliverabilityDashboardAccountStatus {
   ACTIVE = "ACTIVE",
   DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION"
+  PENDING_EXPIRATION = "PENDING_EXPIRATION",
 }
 
 /**
@@ -814,11 +739,6 @@ export enum DeliverabilityDashboardAccountStatus {
  */
 export interface DeliverabilityTestReport {
   __type?: "DeliverabilityTestReport";
-  /**
-   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
-   */
-  CreateDate?: Date;
-
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
@@ -833,11 +753,6 @@ export interface DeliverabilityTestReport {
   FromEmailAddress?: string;
 
   /**
-   * <p>A unique string that identifies the predictive inbox placement test.</p>
-   */
-  ReportId?: string;
-
-  /**
    * <p>A name that helps you identify a predictive inbox placement test report.</p>
    */
   ReportName?: string;
@@ -846,19 +761,28 @@ export interface DeliverabilityTestReport {
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>A unique string that identifies the predictive inbox placement test.</p>
+   */
+  ReportId?: string;
+
+  /**
+   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
+   */
+  CreateDate?: Date;
 }
 
 export namespace DeliverabilityTestReport {
   export const filterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeliverabilityTestReport =>
-    __isa(o, "DeliverabilityTestReport");
+  export const isa = (o: any): o is DeliverabilityTestReport => __isa(o, "DeliverabilityTestReport");
 }
 
 export enum DeliverabilityTestStatus {
   COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
@@ -883,10 +807,9 @@ export interface DeliveryOptions {
 
 export namespace DeliveryOptions {
   export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeliveryOptions =>
-    __isa(o, "DeliveryOptions");
+  export const isa = (o: any): o is DeliveryOptions => __isa(o, "DeliveryOptions");
 }
 
 /**
@@ -894,6 +817,12 @@ export namespace DeliveryOptions {
  */
 export interface Destination {
   __type?: "Destination";
+  /**
+   * <p>An array that contains the email addresses of the "To" recipients for the
+   *             email.</p>
+   */
+  ToAddresses?: string[];
+
   /**
    * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
    *             for the email.</p>
@@ -905,17 +834,11 @@ export interface Destination {
    *             the email.</p>
    */
   CcAddresses?: string[];
-
-  /**
-   * <p>An array that contains the email addresses of the "To" recipients for the
-   *             email.</p>
-   */
-  ToAddresses?: string[];
 }
 
 export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
@@ -923,7 +846,7 @@ export namespace Destination {
 export enum DimensionValueSource {
   EMAIL_HEADER = "EMAIL_HEADER",
   LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG"
+  MESSAGE_TAG = "MESSAGE_TAG",
 }
 
 /**
@@ -933,11 +856,13 @@ export enum DimensionValueSource {
 export interface DkimAttributes {
   __type?: "DkimAttributes";
   /**
-   * <p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the
-   *             identity are DKIM-signed. If the value is <code>false</code>, then the messages that
-   *             Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
+   * <p>A set of unique strings that you use to create a set of CNAME records that you add to
+   *             the DNS configuration for your domain. When Amazon Pinpoint detects these records in the DNS
+   *             configuration for your domain, the DKIM authentication process is complete. Amazon Pinpoint
+   *             usually detects these records within about 72 hours of adding them to the DNS
+   *             configuration for your domain.</p>
    */
-  SigningEnabled?: boolean;
+  Tokens?: string[];
 
   /**
    * <p>Describes whether or not Amazon Pinpoint has successfully located the DKIM records in the DNS
@@ -975,21 +900,18 @@ export interface DkimAttributes {
   Status?: DkimStatus | string;
 
   /**
-   * <p>A set of unique strings that you use to create a set of CNAME records that you add to
-   *             the DNS configuration for your domain. When Amazon Pinpoint detects these records in the DNS
-   *             configuration for your domain, the DKIM authentication process is complete. Amazon Pinpoint
-   *             usually detects these records within about 72 hours of adding them to the DNS
-   *             configuration for your domain.</p>
+   * <p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the
+   *             identity are DKIM-signed. If the value is <code>false</code>, then the messages that
+   *             Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
    */
-  Tokens?: string[];
+  SigningEnabled?: boolean;
 }
 
 export namespace DkimAttributes {
   export const filterSensitiveLog = (obj: DkimAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DkimAttributes =>
-    __isa(o, "DkimAttributes");
+  export const isa = (o: any): o is DkimAttributes => __isa(o, "DkimAttributes");
 }
 
 export enum DkimStatus {
@@ -997,7 +919,7 @@ export enum DkimStatus {
   NOT_STARTED = "NOT_STARTED",
   PENDING = "PENDING",
   SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
 }
 
 /**
@@ -1009,59 +931,15 @@ export enum DkimStatus {
 export interface DomainDeliverabilityCampaign {
   __type?: "DomainDeliverabilityCampaign";
   /**
-   * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
-   *             identifier to a campaign. This value is not the same as the campaign identifier that
-   *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
-   *             Amazon Pinpoint console.</p>
+   * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    */
-  CampaignId?: string;
-
-  /**
-   * <p>The percentage of email messages that were deleted by recipients, without being opened
-   *             first. Due to technical limitations, this value only includes recipients who opened the
-   *             message by using an email client that supports images.</p>
-   */
-  DeleteRate?: number;
-
-  /**
-   * <p>The major email providers who handled the email message.</p>
-   */
-  Esps?: string[];
-
-  /**
-   * <p>The first time, in Unix time format, when the email message was delivered to any
-   *             recipient's inbox. This value can help you determine how long it took for a campaign to
-   *             deliver an email message.</p>
-   */
-  FirstSeenDateTime?: Date;
-
-  /**
-   * <p>The verified email address that the email message was sent from.</p>
-   */
-  FromAddress?: string;
+  InboxCount?: number;
 
   /**
    * <p>The URL of an image that contains a snapshot of the email message that was
    *             sent.</p>
    */
   ImageUrl?: string;
-
-  /**
-   * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
-   */
-  InboxCount?: number;
-
-  /**
-   * <p>The last time, in Unix time format, when the email message was delivered to any
-   *             recipient's inbox. This value can help you determine how long it took for a campaign to
-   *             deliver an email message.</p>
-   */
-  LastSeenDateTime?: Date;
-
-  /**
-   * <p>The projected number of recipients that the email message was sent to.</p>
-   */
-  ProjectedVolume?: number;
 
   /**
    * <p>The percentage of email messages that were opened and then deleted by recipients. Due
@@ -1071,11 +949,9 @@ export interface DomainDeliverabilityCampaign {
   ReadDeleteRate?: number;
 
   /**
-   * <p>The percentage of email messages that were opened by recipients. Due to technical
-   *             limitations, this value only includes recipients who opened the message by using an
-   *             email client that supports images.</p>
+   * <p>The projected number of recipients that the email message was sent to.</p>
    */
-  ReadRate?: number;
+  ProjectedVolume?: number;
 
   /**
    * <p>The IP addresses that were used to send the email message.</p>
@@ -1089,19 +965,62 @@ export interface DomainDeliverabilityCampaign {
   SpamCount?: number;
 
   /**
+   * <p>The percentage of email messages that were opened by recipients. Due to technical
+   *             limitations, this value only includes recipients who opened the message by using an
+   *             email client that supports images.</p>
+   */
+  ReadRate?: number;
+
+  /**
+   * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
+   *             identifier to a campaign. This value is not the same as the campaign identifier that
+   *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
+   *             Amazon Pinpoint console.</p>
+   */
+  CampaignId?: string;
+
+  /**
+   * <p>The major email providers who handled the email message.</p>
+   */
+  Esps?: string[];
+
+  /**
+   * <p>The verified email address that the email message was sent from.</p>
+   */
+  FromAddress?: string;
+
+  /**
    * <p>The subject line, or title, of the email message.</p>
    */
   Subject?: string;
+
+  /**
+   * <p>The last time, in Unix time format, when the email message was delivered to any
+   *             recipient's inbox. This value can help you determine how long it took for a campaign to
+   *             deliver an email message.</p>
+   */
+  LastSeenDateTime?: Date;
+
+  /**
+   * <p>The first time, in Unix time format, when the email message was delivered to any
+   *             recipient's inbox. This value can help you determine how long it took for a campaign to
+   *             deliver an email message.</p>
+   */
+  FirstSeenDateTime?: Date;
+
+  /**
+   * <p>The percentage of email messages that were deleted by recipients, without being opened
+   *             first. Due to technical limitations, this value only includes recipients who opened the
+   *             message by using an email client that supports images.</p>
+   */
+  DeleteRate?: number;
 }
 
 export namespace DomainDeliverabilityCampaign {
-  export const filterSensitiveLog = (
-    obj: DomainDeliverabilityCampaign
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DomainDeliverabilityCampaign): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DomainDeliverabilityCampaign =>
-    __isa(o, "DomainDeliverabilityCampaign");
+  export const isa = (o: any): o is DomainDeliverabilityCampaign => __isa(o, "DomainDeliverabilityCampaign");
 }
 
 /**
@@ -1113,16 +1032,16 @@ export namespace DomainDeliverabilityCampaign {
 export interface DomainDeliverabilityTrackingOption {
   __type?: "DomainDeliverabilityTrackingOption";
   /**
-   * <p>A verified domain that’s associated with your AWS account and currently has an
-   *             active Deliverability dashboard subscription.</p>
-   */
-  Domain?: string;
-
-  /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    */
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
+
+  /**
+   * <p>A verified domain that’s associated with your AWS account and currently has an
+   *             active Deliverability dashboard subscription.</p>
+   */
+  Domain?: string;
 
   /**
    * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
@@ -1132,10 +1051,8 @@ export interface DomainDeliverabilityTrackingOption {
 }
 
 export namespace DomainDeliverabilityTrackingOption {
-  export const filterSensitiveLog = (
-    obj: DomainDeliverabilityTrackingOption
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DomainDeliverabilityTrackingOption): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DomainDeliverabilityTrackingOption =>
     __isa(o, "DomainDeliverabilityTrackingOption");
@@ -1148,10 +1065,21 @@ export namespace DomainDeliverabilityTrackingOption {
 export interface DomainIspPlacement {
   __type?: "DomainIspPlacement";
   /**
+   * <p>The name of the email provider that the inbox placement data applies to.</p>
+   */
+  IspName?: string;
+
+  /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    */
   InboxPercentage?: number;
+
+  /**
+   * <p>The total number of messages that were sent from the selected domain to the specified
+   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   */
+  SpamRawCount?: number;
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
@@ -1160,29 +1088,17 @@ export interface DomainIspPlacement {
   InboxRawCount?: number;
 
   /**
-   * <p>The name of the email provider that the inbox placement data applies to.</p>
-   */
-  IspName?: string;
-
-  /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    */
   SpamPercentage?: number;
-
-  /**
-   * <p>The total number of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' spam or junk mail folders.</p>
-   */
-  SpamRawCount?: number;
 }
 
 export namespace DomainIspPlacement {
   export const filterSensitiveLog = (obj: DomainIspPlacement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainIspPlacement =>
-    __isa(o, "DomainIspPlacement");
+  export const isa = (o: any): o is DomainIspPlacement => __isa(o, "DomainIspPlacement");
 }
 
 /**
@@ -1240,7 +1156,7 @@ export interface EmailContent {
 
 export namespace EmailContent {
   export const filterSensitiveLog = (obj: EmailContent): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EmailContent => __isa(o, "EmailContent");
 }
@@ -1255,6 +1171,12 @@ export namespace EmailContent {
 export interface EventDestination {
   __type?: "EventDestination";
   /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
+
+  /**
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    */
@@ -1270,10 +1192,11 @@ export interface EventDestination {
   Enabled?: boolean;
 
   /**
-   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
-   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
+   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
+   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
+   *             for your campaigns.</p>
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  PinpointDestination?: PinpointDestination;
 
   /**
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
@@ -1286,25 +1209,17 @@ export interface EventDestination {
   Name: string | undefined;
 
   /**
-   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
-   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
-   *             for your campaigns.</p>
+   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
+   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
-  PinpointDestination?: PinpointDestination;
-
-  /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
-   */
-  SnsDestination?: SnsDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
 }
 
 export namespace EventDestination {
   export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventDestination =>
-    __isa(o, "EventDestination");
+  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
@@ -1316,10 +1231,11 @@ export namespace EventDestination {
 export interface EventDestinationDefinition {
   __type?: "EventDestinationDefinition";
   /**
-   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
-   *             monitor and gain insights on your email sending metrics.</p>
+   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
+   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
+   *             for your campaigns.</p>
    */
-  CloudWatchDestination?: CloudWatchDestination;
+  PinpointDestination?: PinpointDestination;
 
   /**
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
@@ -1331,10 +1247,16 @@ export interface EventDestinationDefinition {
   Enabled?: boolean;
 
   /**
-   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
-   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
+   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
+   *             monitor and gain insights on your email sending metrics.</p>
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  CloudWatchDestination?: CloudWatchDestination;
+
+  /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
 
   /**
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
@@ -1343,25 +1265,17 @@ export interface EventDestinationDefinition {
   MatchingEventTypes?: (EventType | string)[];
 
   /**
-   * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
-   *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
-   *             for your campaigns.</p>
+   * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
+   *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
-  PinpointDestination?: PinpointDestination;
-
-  /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
-   */
-  SnsDestination?: SnsDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
 }
 
 export namespace EventDestinationDefinition {
   export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventDestinationDefinition =>
-    __isa(o, "EventDestinationDefinition");
+  export const isa = (o: any): o is EventDestinationDefinition => __isa(o, "EventDestinationDefinition");
 }
 
 export enum EventType {
@@ -1372,7 +1286,7 @@ export enum EventType {
   OPEN = "OPEN",
   REJECT = "REJECT",
   RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND"
+  SEND = "SEND",
 }
 
 /**
@@ -1385,10 +1299,9 @@ export interface GetAccountRequest {
 
 export namespace GetAccountRequest {
   export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountRequest =>
-    __isa(o, "GetAccountRequest");
+  export const isa = (o: any): o is GetAccountRequest => __isa(o, "GetAccountRequest");
 }
 
 /**
@@ -1398,10 +1311,30 @@ export namespace GetAccountRequest {
 export interface GetAccountResponse {
   __type?: "GetAccountResponse";
   /**
-   * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
-   *             addresses that are associated with your account.</p>
+   * <p>An object that contains information about the per-day and per-second sending limits
+   *             for your Amazon Pinpoint account in the current AWS Region.</p>
    */
-  DedicatedIpAutoWarmupEnabled?: boolean;
+  SendQuota?: SendQuota;
+
+  /**
+   * <p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the
+   *             current AWS Region.</p>
+   */
+  SendingEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether or not your account has production access in the current AWS
+   *             Region.</p>
+   *         <p>If the value is <code>false</code>, then your account is in the
+   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
+   *             email to verified identities. Additionally, the maximum number of emails you can send in
+   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
+   *             send per second (your maximum sending rate) is 1.</p>
+   *         <p>If the value is <code>true</code>, then your account has production access. When your
+   *             account has production access, you can send email to any address. The sending quota and
+   *             maximum sending rate for your account vary based on your specific use case.</p>
+   */
+  ProductionAccessEnabled?: boolean;
 
   /**
    * <p>The reputation status of your Amazon Pinpoint account. The status can be one of the
@@ -1430,38 +1363,17 @@ export interface GetAccountResponse {
   EnforcementStatus?: string;
 
   /**
-   * <p>Indicates whether or not your account has production access in the current AWS
-   *             Region.</p>
-   *         <p>If the value is <code>false</code>, then your account is in the
-   *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
-   *             email to verified identities. Additionally, the maximum number of emails you can send in
-   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
-   *             send per second (your maximum sending rate) is 1.</p>
-   *         <p>If the value is <code>true</code>, then your account has production access. When your
-   *             account has production access, you can send email to any address. The sending quota and
-   *             maximum sending rate for your account vary based on your specific use case.</p>
+   * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
+   *             addresses that are associated with your account.</p>
    */
-  ProductionAccessEnabled?: boolean;
-
-  /**
-   * <p>An object that contains information about the per-day and per-second sending limits
-   *             for your Amazon Pinpoint account in the current AWS Region.</p>
-   */
-  SendQuota?: SendQuota;
-
-  /**
-   * <p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the
-   *             current AWS Region.</p>
-   */
-  SendingEnabled?: boolean;
+  DedicatedIpAutoWarmupEnabled?: boolean;
 }
 
 export namespace GetAccountResponse {
   export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccountResponse =>
-    __isa(o, "GetAccountResponse");
+  export const isa = (o: any): o is GetAccountResponse => __isa(o, "GetAccountResponse");
 }
 
 /**
@@ -1480,10 +1392,9 @@ export interface GetBlacklistReportsRequest {
 
 export namespace GetBlacklistReportsRequest {
   export const filterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBlacklistReportsRequest =>
-    __isa(o, "GetBlacklistReportsRequest");
+  export const isa = (o: any): o is GetBlacklistReportsRequest => __isa(o, "GetBlacklistReportsRequest");
 }
 
 /**
@@ -1499,13 +1410,10 @@ export interface GetBlacklistReportsResponse {
 }
 
 export namespace GetBlacklistReportsResponse {
-  export const filterSensitiveLog = (
-    obj: GetBlacklistReportsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetBlacklistReportsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetBlacklistReportsResponse =>
-    __isa(o, "GetBlacklistReportsResponse");
+  export const isa = (o: any): o is GetBlacklistReportsResponse => __isa(o, "GetBlacklistReportsResponse");
 }
 
 /**
@@ -1521,14 +1429,10 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetConfigurationSetEventDestinationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsRequest =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsRequest =>
     __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
@@ -1545,14 +1449,10 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export const filterSensitiveLog = (
-    obj: GetConfigurationSetEventDestinationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsResponse =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsResponse =>
     __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
@@ -1570,10 +1470,9 @@ export interface GetConfigurationSetRequest {
 
 export namespace GetConfigurationSetRequest {
   export const filterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetRequest =>
-    __isa(o, "GetConfigurationSetRequest");
+  export const isa = (o: any): o is GetConfigurationSetRequest => __isa(o, "GetConfigurationSetRequest");
 }
 
 /**
@@ -1582,9 +1481,10 @@ export namespace GetConfigurationSetRequest {
 export interface GetConfigurationSetResponse {
   __type?: "GetConfigurationSetResponse";
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
+   *             configuration set.</p>
    */
-  ConfigurationSetName?: string;
+  SendingOptions?: SendingOptions;
 
   /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
@@ -1593,16 +1493,10 @@ export interface GetConfigurationSetResponse {
   DeliveryOptions?: DeliveryOptions;
 
   /**
-   * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
-   *             that you send that use the configuration set.</p>
+   * <p>An object that defines the open and click tracking options for emails that you send
+   *             using the configuration set.</p>
    */
-  ReputationOptions?: ReputationOptions;
-
-  /**
-   * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
-   *             configuration set.</p>
-   */
-  SendingOptions?: SendingOptions;
+  TrackingOptions?: TrackingOptions;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
@@ -1611,20 +1505,22 @@ export interface GetConfigurationSetResponse {
   Tags?: Tag[];
 
   /**
-   * <p>An object that defines the open and click tracking options for emails that you send
-   *             using the configuration set.</p>
+   * <p>The name of the configuration set.</p>
    */
-  TrackingOptions?: TrackingOptions;
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
+   *             that you send that use the configuration set.</p>
+   */
+  ReputationOptions?: ReputationOptions;
 }
 
 export namespace GetConfigurationSetResponse {
-  export const filterSensitiveLog = (
-    obj: GetConfigurationSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetConfigurationSetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetResponse =>
-    __isa(o, "GetConfigurationSetResponse");
+  export const isa = (o: any): o is GetConfigurationSetResponse => __isa(o, "GetConfigurationSetResponse");
 }
 
 /**
@@ -1641,10 +1537,9 @@ export interface GetDedicatedIpRequest {
 
 export namespace GetDedicatedIpRequest {
   export const filterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpRequest =>
-    __isa(o, "GetDedicatedIpRequest");
+  export const isa = (o: any): o is GetDedicatedIpRequest => __isa(o, "GetDedicatedIpRequest");
 }
 
 /**
@@ -1660,10 +1555,9 @@ export interface GetDedicatedIpResponse {
 
 export namespace GetDedicatedIpResponse {
   export const filterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpResponse =>
-    __isa(o, "GetDedicatedIpResponse");
+  export const isa = (o: any): o is GetDedicatedIpResponse => __isa(o, "GetDedicatedIpResponse");
 }
 
 /**
@@ -1671,12 +1565,6 @@ export namespace GetDedicatedIpResponse {
  */
 export interface GetDedicatedIpsRequest {
   __type?: "GetDedicatedIpsRequest";
-  /**
-   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
-   *             position of the dedicated IP pool in the list of IP pools.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
@@ -1686,6 +1574,12 @@ export interface GetDedicatedIpsRequest {
   PageSize?: number;
 
   /**
+   * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
+   *             position of the dedicated IP pool in the list of IP pools.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
    */
   PoolName?: string;
@@ -1693,10 +1587,9 @@ export interface GetDedicatedIpsRequest {
 
 export namespace GetDedicatedIpsRequest {
   export const filterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpsRequest =>
-    __isa(o, "GetDedicatedIpsRequest");
+  export const isa = (o: any): o is GetDedicatedIpsRequest => __isa(o, "GetDedicatedIpsRequest");
 }
 
 /**
@@ -1706,25 +1599,24 @@ export namespace GetDedicatedIpsRequest {
 export interface GetDedicatedIpsResponse {
   __type?: "GetDedicatedIpsResponse";
   /**
-   * <p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint
-   *             account.</p>
-   */
-  DedicatedIps?: DedicatedIp[];
-
-  /**
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
    *             view additional addresses, issue another request to <code>GetDedicatedIps</code>,
    *             passing this token in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint
+   *             account.</p>
+   */
+  DedicatedIps?: DedicatedIp[];
 }
 
 export namespace GetDedicatedIpsResponse {
   export const filterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpsResponse =>
-    __isa(o, "GetDedicatedIpsResponse");
+  export const isa = (o: any): o is GetDedicatedIpsResponse => __isa(o, "GetDedicatedIpsResponse");
 }
 
 /**
@@ -1741,10 +1633,8 @@ export interface GetDeliverabilityDashboardOptionsRequest {
 }
 
 export namespace GetDeliverabilityDashboardOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetDeliverabilityDashboardOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDeliverabilityDashboardOptionsRequest =>
     __isa(o, "GetDeliverabilityDashboardOptionsRequest");
@@ -1756,24 +1646,12 @@ export namespace GetDeliverabilityDashboardOptionsRequest {
 export interface GetDeliverabilityDashboardOptionsResponse {
   __type?: "GetDeliverabilityDashboardOptionsResponse";
   /**
-   * <p>The current status of your Deliverability dashboard subscription. If this value is
-   *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
-   *             of the current calendar month.</p>
+   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
+   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
+   *             current calendar month. This value is null if you have an active subscription that isn’t
+   *             due to expire at the end of the month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
-
-  /**
-   * <p>An array of objects, one for each verified domain that you use to send email and
-   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
-   *             the end of the current calendar month.</p>
-   */
-  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
-
-  /**
-   * <p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value
-   *             is <code>true</code>, the dashboard is enabled.</p>
-   */
-  DashboardEnabled: boolean | undefined;
+  SubscriptionExpiryDate?: Date;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -1783,19 +1661,29 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 
   /**
-   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
-   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
-   *             current calendar month. This value is null if you have an active subscription that isn’t
-   *             due to expire at the end of the month.</p>
+   * <p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value
+   *             is <code>true</code>, the dashboard is enabled.</p>
    */
-  SubscriptionExpiryDate?: Date;
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
+   *             the end of the current calendar month.</p>
+   */
+  ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>The current status of your Deliverability dashboard subscription. If this value is
+   *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
+   *             of the current calendar month.</p>
+   */
+  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
 }
 
 export namespace GetDeliverabilityDashboardOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetDeliverabilityDashboardOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDeliverabilityDashboardOptionsResponse =>
     __isa(o, "GetDeliverabilityDashboardOptionsResponse");
@@ -1813,10 +1701,8 @@ export interface GetDeliverabilityTestReportRequest {
 }
 
 export namespace GetDeliverabilityTestReportRequest {
-  export const filterSensitiveLog = (
-    obj: GetDeliverabilityTestReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDeliverabilityTestReportRequest =>
     __isa(o, "GetDeliverabilityTestReportRequest");
@@ -1828,21 +1714,16 @@ export namespace GetDeliverabilityTestReportRequest {
 export interface GetDeliverabilityTestReportResponse {
   __type?: "GetDeliverabilityTestReportResponse";
   /**
-   * <p>An object that contains the results of the predictive inbox placement test.</p>
-   */
-  DeliverabilityTestReport: DeliverabilityTestReport | undefined;
-
-  /**
    * <p>An object that describes how the test email was handled by several email providers,
    *             including Gmail, Hotmail, Yahoo, AOL, and others.</p>
    */
   IspPlacements: IspPlacement[] | undefined;
 
   /**
-   * <p>An object that contains the message that you sent when you performed this
-   *             predictive inbox placement test.</p>
+   * <p>An array of objects that define the tags (keys and values) that are associated with
+   *             the predictive inbox placement test.</p>
    */
-  Message?: string;
+  Tags?: Tag[];
 
   /**
    * <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were
@@ -1852,17 +1733,20 @@ export interface GetDeliverabilityTestReportResponse {
   OverallPlacement: PlacementStatistics | undefined;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that are associated with
-   *             the predictive inbox placement test.</p>
+   * <p>An object that contains the message that you sent when you performed this
+   *             predictive inbox placement test.</p>
    */
-  Tags?: Tag[];
+  Message?: string;
+
+  /**
+   * <p>An object that contains the results of the predictive inbox placement test.</p>
+   */
+  DeliverabilityTestReport: DeliverabilityTestReport | undefined;
 }
 
 export namespace GetDeliverabilityTestReportResponse {
-  export const filterSensitiveLog = (
-    obj: GetDeliverabilityTestReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDeliverabilityTestReportResponse =>
     __isa(o, "GetDeliverabilityTestReportResponse");
@@ -1886,10 +1770,8 @@ export interface GetDomainDeliverabilityCampaignRequest {
 }
 
 export namespace GetDomainDeliverabilityCampaignRequest {
-  export const filterSensitiveLog = (
-    obj: GetDomainDeliverabilityCampaignRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDomainDeliverabilityCampaignRequest =>
     __isa(o, "GetDomainDeliverabilityCampaignRequest");
@@ -1910,10 +1792,8 @@ export interface GetDomainDeliverabilityCampaignResponse {
 }
 
 export namespace GetDomainDeliverabilityCampaignResponse {
-  export const filterSensitiveLog = (
-    obj: GetDomainDeliverabilityCampaignResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetDomainDeliverabilityCampaignResponse =>
     __isa(o, "GetDomainDeliverabilityCampaignResponse");
@@ -1944,13 +1824,10 @@ export interface GetDomainStatisticsReportRequest {
 }
 
 export namespace GetDomainStatisticsReportRequest {
-  export const filterSensitiveLog = (
-    obj: GetDomainStatisticsReportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDomainStatisticsReportRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDomainStatisticsReportRequest =>
-    __isa(o, "GetDomainStatisticsReportRequest");
+  export const isa = (o: any): o is GetDomainStatisticsReportRequest => __isa(o, "GetDomainStatisticsReportRequest");
 }
 
 /**
@@ -1975,13 +1852,10 @@ export interface GetDomainStatisticsReportResponse {
 }
 
 export namespace GetDomainStatisticsReportResponse {
-  export const filterSensitiveLog = (
-    obj: GetDomainStatisticsReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDomainStatisticsReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDomainStatisticsReportResponse =>
-    __isa(o, "GetDomainStatisticsReportResponse");
+  export const isa = (o: any): o is GetDomainStatisticsReportResponse => __isa(o, "GetDomainStatisticsReportResponse");
 }
 
 /**
@@ -1997,10 +1871,9 @@ export interface GetEmailIdentityRequest {
 
 export namespace GetEmailIdentityRequest {
   export const filterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityRequest =>
-    __isa(o, "GetEmailIdentityRequest");
+  export const isa = (o: any): o is GetEmailIdentityRequest => __isa(o, "GetEmailIdentityRequest");
 }
 
 /**
@@ -2009,11 +1882,15 @@ export namespace GetEmailIdentityRequest {
 export interface GetEmailIdentityResponse {
   __type?: "GetEmailIdentityResponse";
   /**
-   * <p>An object that contains information about the DKIM attributes for the identity. This
-   *             object includes the tokens that you use to create the CNAME records that are required to
-   *             complete the DKIM verification process.</p>
+   * <p>The email identity type.</p>
    */
-  DkimAttributes?: DkimAttributes;
+  IdentityType?: IdentityType | string;
+
+  /**
+   * <p>An object that contains information about the Mail-From attributes for the email
+   *             identity.</p>
+   */
+  MailFromAttributes?: MailFromAttributes;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -2029,21 +1906,17 @@ export interface GetEmailIdentityResponse {
   FeedbackForwardingStatus?: boolean;
 
   /**
-   * <p>The email identity type.</p>
-   */
-  IdentityType?: IdentityType | string;
-
-  /**
-   * <p>An object that contains information about the Mail-From attributes for the email
-   *             identity.</p>
-   */
-  MailFromAttributes?: MailFromAttributes;
-
-  /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the email identity.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>An object that contains information about the DKIM attributes for the identity. This
+   *             object includes the tokens that you use to create the CNAME records that are required to
+   *             complete the DKIM verification process.</p>
+   */
+  DkimAttributes?: DkimAttributes;
 
   /**
    * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
@@ -2055,10 +1928,9 @@ export interface GetEmailIdentityResponse {
 
 export namespace GetEmailIdentityResponse {
   export const filterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityResponse =>
-    __isa(o, "GetEmailIdentityResponse");
+  export const isa = (o: any): o is GetEmailIdentityResponse => __isa(o, "GetEmailIdentityResponse");
 }
 
 /**
@@ -2066,6 +1938,14 @@ export namespace GetEmailIdentityResponse {
  */
 export interface IdentityInfo {
   __type?: "IdentityInfo";
+  /**
+   * <p>Indicates whether or not you can send email from the identity.</p>
+   *         <p>In Amazon Pinpoint, an identity is an email address or domain that you send email from. Before
+   *             you can send email from an identity, you have to demostrate that you own the identity,
+   *             and that you authorize Amazon Pinpoint to send email from that identity.</p>
+   */
+  SendingEnabled?: boolean;
+
   /**
    * <p>The address or domain of the identity.</p>
    */
@@ -2090,19 +1970,11 @@ export interface IdentityInfo {
    *          </ul>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>Indicates whether or not you can send email from the identity.</p>
-   *         <p>In Amazon Pinpoint, an identity is an email address or domain that you send email from. Before
-   *             you can send email from an identity, you have to demostrate that you own the identity,
-   *             and that you authorize Amazon Pinpoint to send email from that identity.</p>
-   */
-  SendingEnabled?: boolean;
 }
 
 export namespace IdentityInfo {
   export const filterSensitiveLog = (obj: IdentityInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IdentityInfo => __isa(o, "IdentityInfo");
 }
@@ -2110,7 +1982,7 @@ export namespace IdentityInfo {
 export enum IdentityType {
   DOMAIN = "DOMAIN",
   EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN"
+  MANAGED_DOMAIN = "MANAGED_DOMAIN",
 }
 
 /**
@@ -2134,13 +2006,10 @@ export interface InboxPlacementTrackingOption {
 }
 
 export namespace InboxPlacementTrackingOption {
-  export const filterSensitiveLog = (
-    obj: InboxPlacementTrackingOption
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InboxPlacementTrackingOption): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InboxPlacementTrackingOption =>
-    __isa(o, "InboxPlacementTrackingOption");
+  export const isa = (o: any): o is InboxPlacementTrackingOption => __isa(o, "InboxPlacementTrackingOption");
 }
 
 /**
@@ -2162,7 +2031,7 @@ export interface IspPlacement {
 
 export namespace IspPlacement {
   export const filterSensitiveLog = (obj: IspPlacement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IspPlacement => __isa(o, "IspPlacement");
 }
@@ -2174,32 +2043,29 @@ export namespace IspPlacement {
 export interface KinesisFirehoseDestination {
   __type?: "KinesisFirehoseDestination";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events
-   *             to.</p>
-   */
-  DeliveryStreamArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email
    *             events to the Amazon Kinesis Data Firehose stream.</p>
    */
   IamRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events
+   *             to.</p>
+   */
+  DeliveryStreamArn: string | undefined;
 }
 
 export namespace KinesisFirehoseDestination {
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseDestination =>
-    __isa(o, "KinesisFirehoseDestination");
+  export const isa = (o: any): o is KinesisFirehoseDestination => __isa(o, "KinesisFirehoseDestination");
 }
 
 /**
  * <p>There are too many instances of the specified resource type.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2207,10 +2073,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2220,28 +2085,25 @@ export namespace LimitExceededException {
 export interface ListConfigurationSetsRequest {
   __type?: "ListConfigurationSetsRequest";
   /**
-   * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
-   *             indicate the position in the list of configuration sets.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The number of results to show in a single call to <code>ListConfigurationSets</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
+   *             indicate the position in the list of configuration sets.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListConfigurationSetsRequest {
-  export const filterSensitiveLog = (
-    obj: ListConfigurationSetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsRequest =>
-    __isa(o, "ListConfigurationSetsRequest");
+  export const isa = (o: any): o is ListConfigurationSetsRequest => __isa(o, "ListConfigurationSetsRequest");
 }
 
 /**
@@ -2265,13 +2127,10 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
-  export const filterSensitiveLog = (
-    obj: ListConfigurationSetsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsResponse =>
-    __isa(o, "ListConfigurationSetsResponse");
+  export const isa = (o: any): o is ListConfigurationSetsResponse => __isa(o, "ListConfigurationSetsResponse");
 }
 
 /**
@@ -2295,13 +2154,10 @@ export interface ListDedicatedIpPoolsRequest {
 }
 
 export namespace ListDedicatedIpPoolsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDedicatedIpPoolsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDedicatedIpPoolsRequest =>
-    __isa(o, "ListDedicatedIpPoolsRequest");
+  export const isa = (o: any): o is ListDedicatedIpPoolsRequest => __isa(o, "ListDedicatedIpPoolsRequest");
 }
 
 /**
@@ -2310,27 +2166,24 @@ export namespace ListDedicatedIpPoolsRequest {
 export interface ListDedicatedIpPoolsResponse {
   __type?: "ListDedicatedIpPoolsResponse";
   /**
-   * <p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint
-   *             account.</p>
-   */
-  DedicatedIpPools?: string[];
-
-  /**
    * <p>A token that indicates that there are additional IP pools to list. To view additional
    *             IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token
    *             in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint
+   *             account.</p>
+   */
+  DedicatedIpPools?: string[];
 }
 
 export namespace ListDedicatedIpPoolsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDedicatedIpPoolsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDedicatedIpPoolsResponse =>
-    __isa(o, "ListDedicatedIpPoolsResponse");
+  export const isa = (o: any): o is ListDedicatedIpPoolsResponse => __isa(o, "ListDedicatedIpPoolsResponse");
 }
 
 /**
@@ -2356,10 +2209,8 @@ export interface ListDeliverabilityTestReportsRequest {
 }
 
 export namespace ListDeliverabilityTestReportsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDeliverabilityTestReportsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListDeliverabilityTestReportsRequest =>
     __isa(o, "ListDeliverabilityTestReportsRequest");
@@ -2385,10 +2236,8 @@ export interface ListDeliverabilityTestReportsResponse {
 }
 
 export namespace ListDeliverabilityTestReportsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDeliverabilityTestReportsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListDeliverabilityTestReportsResponse =>
     __isa(o, "ListDeliverabilityTestReportsResponse");
@@ -2403,20 +2252,6 @@ export namespace ListDeliverabilityTestReportsResponse {
 export interface ListDomainDeliverabilityCampaignsRequest {
   __type?: "ListDomainDeliverabilityCampaignsRequest";
   /**
-   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
-   *             This value has to be less than or equal to 30 days after the value of the
-   *                 <code>StartDate</code> parameter.</p>
-   */
-  EndDate: Date | undefined;
-
-  /**
-   * <p>A token that’s returned from a previous call to the
-   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
-   *             position of a campaign in the list of campaigns.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to include in response to a single call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
    *             is larger than the number that you specify in this parameter, the response includes a
@@ -2426,22 +2261,34 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   PageSize?: number;
 
   /**
+   * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
+   *             This value has to be less than or equal to 30 days after the value of the
+   *                 <code>StartDate</code> parameter.</p>
+   */
+  EndDate: Date | undefined;
+
+  /**
+   * <p>The domain to obtain deliverability data for.</p>
+   */
+  SubscribedDomain: string | undefined;
+
+  /**
    * <p>The first day, in Unix time format, that you want to obtain deliverability data
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
-   * <p>The domain to obtain deliverability data for.</p>
+   * <p>A token that’s returned from a previous call to the
+   *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
+   *             position of a campaign in the list of campaigns.</p>
    */
-  SubscribedDomain: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListDomainDeliverabilityCampaignsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDomainDeliverabilityCampaignsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListDomainDeliverabilityCampaignsRequest =>
     __isa(o, "ListDomainDeliverabilityCampaignsRequest");
@@ -2470,10 +2317,8 @@ export interface ListDomainDeliverabilityCampaignsResponse {
 }
 
 export namespace ListDomainDeliverabilityCampaignsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDomainDeliverabilityCampaignsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListDomainDeliverabilityCampaignsResponse =>
     __isa(o, "ListDomainDeliverabilityCampaignsResponse");
@@ -2504,10 +2349,9 @@ export interface ListEmailIdentitiesRequest {
 
 export namespace ListEmailIdentitiesRequest {
   export const filterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEmailIdentitiesRequest =>
-    __isa(o, "ListEmailIdentitiesRequest");
+  export const isa = (o: any): o is ListEmailIdentitiesRequest => __isa(o, "ListEmailIdentitiesRequest");
 }
 
 /**
@@ -2532,13 +2376,10 @@ export interface ListEmailIdentitiesResponse {
 }
 
 export namespace ListEmailIdentitiesResponse {
-  export const filterSensitiveLog = (
-    obj: ListEmailIdentitiesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEmailIdentitiesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEmailIdentitiesResponse =>
-    __isa(o, "ListEmailIdentitiesResponse");
+  export const isa = (o: any): o is ListEmailIdentitiesResponse => __isa(o, "ListEmailIdentitiesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2552,10 +2393,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -2569,13 +2409,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -2583,23 +2420,6 @@ export namespace ListTagsForResourceResponse {
  */
 export interface MailFromAttributes {
   __type?: "MailFromAttributes";
-  /**
-   * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
-   *             MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
-   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
-   *             to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>
-   *             error, and doesn't attempt to deliver the email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
-
-  /**
-   * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
-   */
-  MailFromDomain: string | undefined;
-
   /**
    * <p>The status of the MAIL FROM domain. This status can have the following values:</p>
    *         <ul>
@@ -2626,32 +2446,44 @@ export interface MailFromAttributes {
    *          </ul>
    */
   MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+
+  /**
+   * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
+   */
+  MailFromDomain: string | undefined;
+
+  /**
+   * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
+   *             MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
+   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
+   *             to <code>RejectMessage</code>, Amazon Pinpoint returns a <code>MailFromDomainNotVerified</code>
+   *             error, and doesn't attempt to deliver the email.</p>
+   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *             states.</p>
+   */
+  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
 export namespace MailFromAttributes {
   export const filterSensitiveLog = (obj: MailFromAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MailFromAttributes =>
-    __isa(o, "MailFromAttributes");
+  export const isa = (o: any): o is MailFromAttributes => __isa(o, "MailFromAttributes");
 }
 
 /**
  * <p>The message can't be sent because the sending domain isn't verified.</p>
  */
-export interface MailFromDomainNotVerifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
   name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MailFromDomainNotVerifiedException {
-  export const filterSensitiveLog = (
-    obj: MailFromDomainNotVerifiedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is MailFromDomainNotVerifiedException =>
     __isa(o, "MailFromDomainNotVerifiedException");
@@ -2661,7 +2493,7 @@ export enum MailFromDomainStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
   SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
 }
 
 /**
@@ -2686,7 +2518,7 @@ export interface Message {
 
 export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
@@ -2702,10 +2534,9 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 
 export namespace MessageRejected {
   export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MessageRejected =>
-    __isa(o, "MessageRejected");
+  export const isa = (o: any): o is MessageRejected => __isa(o, "MessageRejected");
 }
 
 /**
@@ -2715,21 +2546,6 @@ export namespace MessageRejected {
  */
 export interface MessageTag {
   __type?: "MessageTag";
-  /**
-   * <p>The name of the message tag. The message tag name has to meet the following
-   *             criteria:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
@@ -2744,11 +2560,26 @@ export interface MessageTag {
    *          </ul>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the message tag. The message tag name has to meet the following
+   *             criteria:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can contain no more than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
 }
 
 export namespace MessageTag {
   export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
 }
@@ -2764,10 +2595,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -2783,21 +2613,21 @@ export interface OverallVolume {
   DomainIspPlacements?: DomainIspPlacement[];
 
   /**
-   * <p>The percentage of emails that were sent from the domain that were read by their
-   *             recipients.</p>
-   */
-  ReadRatePercent?: number;
-
-  /**
    * <p>An object that contains information about the numbers of messages that arrived in
    *             recipients' inboxes and junk mail folders.</p>
    */
   VolumeStatistics?: VolumeStatistics;
+
+  /**
+   * <p>The percentage of emails that were sent from the domain that were read by their
+   *             recipients.</p>
+   */
+  ReadRatePercent?: number;
 }
 
 export namespace OverallVolume {
   export const filterSensitiveLog = (obj: OverallVolume): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OverallVolume => __isa(o, "OverallVolume");
 }
@@ -2818,10 +2648,9 @@ export interface PinpointDestination {
 
 export namespace PinpointDestination {
   export const filterSensitiveLog = (obj: PinpointDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PinpointDestination =>
-    __isa(o, "PinpointDestination");
+  export const isa = (o: any): o is PinpointDestination => __isa(o, "PinpointDestination");
 }
 
 /**
@@ -2830,21 +2659,21 @@ export namespace PinpointDestination {
 export interface PlacementStatistics {
   __type?: "PlacementStatistics";
   /**
-   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
-   *             (DKIM) during the predictive inbox placement test.</p>
-   */
-  DkimPercentage?: number;
-
-  /**
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    */
   InboxPercentage?: number;
 
   /**
-   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
-   *             predictive inbox placement test.</p>
+   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
+   *             (SPF) during the predictive inbox placement test.</p>
    */
-  MissingPercentage?: number;
+  SpfPercentage?: number;
+
+  /**
+   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
+   *             (DKIM) during the predictive inbox placement test.</p>
+   */
+  DkimPercentage?: number;
 
   /**
    * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
@@ -2853,18 +2682,17 @@ export interface PlacementStatistics {
   SpamPercentage?: number;
 
   /**
-   * <p>The percentage of emails that were authenticated by using Sender Policy Framework
-   *             (SPF) during the predictive inbox placement test.</p>
+   * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
+   *             predictive inbox placement test.</p>
    */
-  SpfPercentage?: number;
+  MissingPercentage?: number;
 }
 
 export namespace PlacementStatistics {
   export const filterSensitiveLog = (obj: PlacementStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlacementStatistics =>
-    __isa(o, "PlacementStatistics");
+  export const isa = (o: any): o is PlacementStatistics => __isa(o, "PlacementStatistics");
 }
 
 /**
@@ -2882,14 +2710,10 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutAccountDedicatedIpWarmupAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutAccountDedicatedIpWarmupAttributesRequest =>
+  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesRequest =>
     __isa(o, "PutAccountDedicatedIpWarmupAttributesRequest");
 }
 
@@ -2902,14 +2726,10 @@ export interface PutAccountDedicatedIpWarmupAttributesResponse {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutAccountDedicatedIpWarmupAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutAccountDedicatedIpWarmupAttributesResponse =>
+  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesResponse =>
     __isa(o, "PutAccountDedicatedIpWarmupAttributesResponse");
 }
 
@@ -2930,10 +2750,8 @@ export interface PutAccountSendingAttributesRequest {
 }
 
 export namespace PutAccountSendingAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutAccountSendingAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAccountSendingAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutAccountSendingAttributesRequest =>
     __isa(o, "PutAccountSendingAttributesRequest");
@@ -2948,10 +2766,8 @@ export interface PutAccountSendingAttributesResponse {
 }
 
 export namespace PutAccountSendingAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutAccountSendingAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutAccountSendingAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutAccountSendingAttributesResponse =>
     __isa(o, "PutAccountSendingAttributesResponse");
@@ -2962,12 +2778,6 @@ export namespace PutAccountSendingAttributesResponse {
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
   __type?: "PutConfigurationSetDeliveryOptionsRequest";
-  /**
-   * <p>The name of the configuration set that you want to associate with a dedicated IP
-   *             pool.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
   /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
@@ -2981,13 +2791,17 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
   TlsPolicy?: TlsPolicy | string;
+
+  /**
+   * <p>The name of the configuration set that you want to associate with a dedicated IP
+   *             pool.</p>
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace PutConfigurationSetDeliveryOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetDeliveryOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsRequest =>
     __isa(o, "PutConfigurationSetDeliveryOptionsRequest");
@@ -3002,14 +2816,10 @@ export interface PutConfigurationSetDeliveryOptionsResponse {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetDeliveryOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetDeliveryOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsResponse =>
     __isa(o, "PutConfigurationSetDeliveryOptionsResponse");
 }
 
@@ -3034,14 +2844,10 @@ export interface PutConfigurationSetReputationOptionsRequest {
 }
 
 export namespace PutConfigurationSetReputationOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetReputationOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetReputationOptionsRequest =>
+  export const isa = (o: any): o is PutConfigurationSetReputationOptionsRequest =>
     __isa(o, "PutConfigurationSetReputationOptionsRequest");
 }
 
@@ -3054,14 +2860,10 @@ export interface PutConfigurationSetReputationOptionsResponse {
 }
 
 export namespace PutConfigurationSetReputationOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetReputationOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetReputationOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetReputationOptionsResponse =>
     __isa(o, "PutConfigurationSetReputationOptionsResponse");
 }
 
@@ -3085,10 +2887,8 @@ export interface PutConfigurationSetSendingOptionsRequest {
 }
 
 export namespace PutConfigurationSetSendingOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetSendingOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutConfigurationSetSendingOptionsRequest =>
     __isa(o, "PutConfigurationSetSendingOptionsRequest");
@@ -3103,10 +2903,8 @@ export interface PutConfigurationSetSendingOptionsResponse {
 }
 
 export namespace PutConfigurationSetSendingOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetSendingOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutConfigurationSetSendingOptionsResponse =>
     __isa(o, "PutConfigurationSetSendingOptionsResponse");
@@ -3119,22 +2917,20 @@ export namespace PutConfigurationSetSendingOptionsResponse {
 export interface PutConfigurationSetTrackingOptionsRequest {
   __type?: "PutConfigurationSetTrackingOptionsRequest";
   /**
+   * <p>The domain that you want to use to track open and click events.</p>
+   */
+  CustomRedirectDomain?: string;
+
+  /**
    * <p>The name of the configuration set that you want to add a custom tracking domain
    *             to.</p>
    */
   ConfigurationSetName: string | undefined;
-
-  /**
-   * <p>The domain that you want to use to track open and click events.</p>
-   */
-  CustomRedirectDomain?: string;
 }
 
 export namespace PutConfigurationSetTrackingOptionsRequest {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetTrackingOptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutConfigurationSetTrackingOptionsRequest =>
     __isa(o, "PutConfigurationSetTrackingOptionsRequest");
@@ -3149,14 +2945,10 @@ export interface PutConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace PutConfigurationSetTrackingOptionsResponse {
-  export const filterSensitiveLog = (
-    obj: PutConfigurationSetTrackingOptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetTrackingOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetTrackingOptionsResponse =>
     __isa(o, "PutConfigurationSetTrackingOptionsResponse");
 }
 
@@ -3166,26 +2958,23 @@ export namespace PutConfigurationSetTrackingOptionsResponse {
 export interface PutDedicatedIpInPoolRequest {
   __type?: "PutDedicatedIpInPoolRequest";
   /**
-   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
-   *             specify an IP pool that already exists.</p>
-   */
-  DestinationPoolName: string | undefined;
-
-  /**
    * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
    *             has to be a dedicated IP address that's associated with your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   */
+  DestinationPoolName: string | undefined;
 }
 
 export namespace PutDedicatedIpInPoolRequest {
-  export const filterSensitiveLog = (
-    obj: PutDedicatedIpInPoolRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpInPoolRequest =>
-    __isa(o, "PutDedicatedIpInPoolRequest");
+  export const isa = (o: any): o is PutDedicatedIpInPoolRequest => __isa(o, "PutDedicatedIpInPoolRequest");
 }
 
 /**
@@ -3197,13 +2986,10 @@ export interface PutDedicatedIpInPoolResponse {
 }
 
 export namespace PutDedicatedIpInPoolResponse {
-  export const filterSensitiveLog = (
-    obj: PutDedicatedIpInPoolResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpInPoolResponse =>
-    __isa(o, "PutDedicatedIpInPoolResponse");
+  export const isa = (o: any): o is PutDedicatedIpInPoolResponse => __isa(o, "PutDedicatedIpInPoolResponse");
 }
 
 /**
@@ -3225,10 +3011,8 @@ export interface PutDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutDedicatedIpWarmupAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutDedicatedIpWarmupAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutDedicatedIpWarmupAttributesRequest =>
     __isa(o, "PutDedicatedIpWarmupAttributesRequest");
@@ -3243,10 +3027,8 @@ export interface PutDedicatedIpWarmupAttributesResponse {
 }
 
 export namespace PutDedicatedIpWarmupAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutDedicatedIpWarmupAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutDedicatedIpWarmupAttributesResponse =>
     __isa(o, "PutDedicatedIpWarmupAttributesResponse");
@@ -3264,23 +3046,21 @@ export namespace PutDedicatedIpWarmupAttributesResponse {
 export interface PutDeliverabilityDashboardOptionRequest {
   __type?: "PutDeliverabilityDashboardOptionRequest";
   /**
-   * <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the
-   *             dashboard, set this value to <code>true</code>.</p>
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             enabled the Deliverability dashboard for.</p>
    */
   SubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the
+   *             dashboard, set this value to <code>true</code>.</p>
+   */
+  DashboardEnabled: boolean | undefined;
 }
 
 export namespace PutDeliverabilityDashboardOptionRequest {
-  export const filterSensitiveLog = (
-    obj: PutDeliverabilityDashboardOptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutDeliverabilityDashboardOptionRequest =>
     __isa(o, "PutDeliverabilityDashboardOptionRequest");
@@ -3295,10 +3075,8 @@ export interface PutDeliverabilityDashboardOptionResponse {
 }
 
 export namespace PutDeliverabilityDashboardOptionResponse {
-  export const filterSensitiveLog = (
-    obj: PutDeliverabilityDashboardOptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutDeliverabilityDashboardOptionResponse =>
     __isa(o, "PutDeliverabilityDashboardOptionResponse");
@@ -3325,10 +3103,8 @@ export interface PutEmailIdentityDkimAttributesRequest {
 }
 
 export namespace PutEmailIdentityDkimAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityDkimAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutEmailIdentityDkimAttributesRequest =>
     __isa(o, "PutEmailIdentityDkimAttributesRequest");
@@ -3343,10 +3119,8 @@ export interface PutEmailIdentityDkimAttributesResponse {
 }
 
 export namespace PutEmailIdentityDkimAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityDkimAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutEmailIdentityDkimAttributesResponse =>
     __isa(o, "PutEmailIdentityDkimAttributesResponse");
@@ -3379,10 +3153,8 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
 }
 
 export namespace PutEmailIdentityFeedbackAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityFeedbackAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesRequest =>
     __isa(o, "PutEmailIdentityFeedbackAttributesRequest");
@@ -3397,14 +3169,10 @@ export interface PutEmailIdentityFeedbackAttributesResponse {
 }
 
 export namespace PutEmailIdentityFeedbackAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityFeedbackAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityFeedbackAttributesResponse =>
+  export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesResponse =>
     __isa(o, "PutEmailIdentityFeedbackAttributesResponse");
 }
 
@@ -3413,6 +3181,12 @@ export namespace PutEmailIdentityFeedbackAttributesResponse {
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
   __type?: "PutEmailIdentityMailFromAttributesRequest";
+  /**
+   * <p>The verified email identity that you want to set up the custom MAIL FROM domain
+   *             for.</p>
+   */
+  EmailIdentity: string | undefined;
+
   /**
    * <p>The action that you want Amazon Pinpoint to take if it can't read the required MX record when
    *             you send an email. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
@@ -3424,12 +3198,6 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             states.</p>
    */
   BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
-
-  /**
-   * <p>The verified email identity that you want to set up the custom MAIL FROM domain
-   *             for.</p>
-   */
-  EmailIdentity: string | undefined;
 
   /**
    * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
@@ -3451,10 +3219,8 @@ export interface PutEmailIdentityMailFromAttributesRequest {
 }
 
 export namespace PutEmailIdentityMailFromAttributesRequest {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityMailFromAttributesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PutEmailIdentityMailFromAttributesRequest =>
     __isa(o, "PutEmailIdentityMailFromAttributesRequest");
@@ -3469,14 +3235,10 @@ export interface PutEmailIdentityMailFromAttributesResponse {
 }
 
 export namespace PutEmailIdentityMailFromAttributesResponse {
-  export const filterSensitiveLog = (
-    obj: PutEmailIdentityMailFromAttributesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityMailFromAttributesResponse =>
+  export const isa = (o: any): o is PutEmailIdentityMailFromAttributesResponse =>
     __isa(o, "PutEmailIdentityMailFromAttributesResponse");
 }
 
@@ -3521,7 +3283,7 @@ export interface RawMessage {
 
 export namespace RawMessage {
   export const filterSensitiveLog = (obj: RawMessage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RawMessage => __isa(o, "RawMessage");
 }
@@ -3533,26 +3295,25 @@ export namespace RawMessage {
 export interface ReputationOptions {
   __type?: "ReputationOptions";
   /**
-   * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
-   *             start. When your account is given a fresh start, your reputation metrics are calculated
-   *             starting from the date of the fresh start.</p>
-   */
-  LastFreshStart?: Date;
-
-  /**
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
    *             configuration set.</p>
    */
   ReputationMetricsEnabled?: boolean;
+
+  /**
+   * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
+   *             start. When your account is given a fresh start, your reputation metrics are calculated
+   *             starting from the date of the fresh start.</p>
+   */
+  LastFreshStart?: Date;
 }
 
 export namespace ReputationOptions {
   export const filterSensitiveLog = (obj: ReputationOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReputationOptions =>
-    __isa(o, "ReputationOptions");
+  export const isa = (o: any): o is ReputationOptions => __isa(o, "ReputationOptions");
 }
 
 /**
@@ -3561,27 +3322,15 @@ export namespace ReputationOptions {
 export interface SendEmailRequest {
   __type?: "SendEmailRequest";
   /**
+   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
+   *             message, each Reply-to address receives the reply.</p>
+   */
+  ReplyToAddresses?: string[];
+
+  /**
    * <p>The name of the configuration set that you want to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
-
-  /**
-   * <p>An object that contains the body of the message. You can send either a Simple message
-   *             or a Raw message.</p>
-   */
-  Content: EmailContent | undefined;
-
-  /**
-   * <p>An object that contains the recipients of the email message.</p>
-   */
-  Destination: Destination | undefined;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events. </p>
-   */
-  EmailTags?: MessageTag[];
 
   /**
    * <p>The address that Amazon Pinpoint should send bounce and complaint notifications to.</p>
@@ -3596,18 +3345,29 @@ export interface SendEmailRequest {
   FromEmailAddress?: string;
 
   /**
-   * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
-   *             message, each Reply-to address receives the reply.</p>
+   * <p>An object that contains the recipients of the email message.</p>
    */
-  ReplyToAddresses?: string[];
+  Destination: Destination | undefined;
+
+  /**
+   * <p>An object that contains the body of the message. You can send either a Simple message
+   *             or a Raw message.</p>
+   */
+  Content: EmailContent | undefined;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events. </p>
+   */
+  EmailTags?: MessageTag[];
 }
 
 export namespace SendEmailRequest {
   export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendEmailRequest =>
-    __isa(o, "SendEmailRequest");
+  export const isa = (o: any): o is SendEmailRequest => __isa(o, "SendEmailRequest");
 }
 
 /**
@@ -3630,10 +3390,9 @@ export interface SendEmailResponse {
 
 export namespace SendEmailResponse {
   export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendEmailResponse =>
-    __isa(o, "SendEmailResponse");
+  export const isa = (o: any): o is SendEmailResponse => __isa(o, "SendEmailResponse");
 }
 
 /**
@@ -3651,19 +3410,16 @@ export interface SendingOptions {
 
 export namespace SendingOptions {
   export const filterSensitiveLog = (obj: SendingOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendingOptions =>
-    __isa(o, "SendingOptions");
+  export const isa = (o: any): o is SendingOptions => __isa(o, "SendingOptions");
 }
 
 /**
  * <p>The message can't be sent because the account's ability to send email is currently
  *             paused.</p>
  */
-export interface SendingPausedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SendingPausedException extends __SmithyException, $MetadataBearer {
   name: "SendingPausedException";
   $fault: "client";
   message?: string;
@@ -3671,10 +3427,9 @@ export interface SendingPausedException
 
 export namespace SendingPausedException {
   export const filterSensitiveLog = (obj: SendingPausedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendingPausedException =>
-    __isa(o, "SendingPausedException");
+  export const isa = (o: any): o is SendingPausedException => __isa(o, "SendingPausedException");
 }
 
 /**
@@ -3706,7 +3461,7 @@ export interface SendQuota {
 
 export namespace SendQuota {
   export const filterSensitiveLog = (obj: SendQuota): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SendQuota => __isa(o, "SendQuota");
 }
@@ -3727,10 +3482,9 @@ export interface SnsDestination {
 
 export namespace SnsDestination {
   export const filterSensitiveLog = (obj: SnsDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnsDestination =>
-    __isa(o, "SnsDestination");
+  export const isa = (o: any): o is SnsDestination => __isa(o, "SnsDestination");
 }
 
 /**
@@ -3771,23 +3525,23 @@ export namespace SnsDestination {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *             128 characters. The minimum length is 1 character.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
    *             value is 256 characters. The minimum length is 0 characters. If you don’t want a
    *             resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint
    *             will set the value to an empty string.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
+   *             128 characters. The minimum length is 1 character.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -3795,26 +3549,25 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
-   *             to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A list of the tags that you want to add to the resource. A tag consists of a required
    *             tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
    *             length of a tag key is 128 characters. The maximum length of a tag value is 256
    *             characters.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
+   *             to.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3823,10 +3576,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface Template {
@@ -3844,22 +3596,20 @@ export interface Template {
 
 export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
 export enum TlsPolicy {
   OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE"
+  REQUIRE = "REQUIRE",
 }
 
 /**
  * <p>Too many requests have been made to the operation.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -3867,10 +3617,9 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -3892,10 +3641,9 @@ export interface TrackingOptions {
 
 export namespace TrackingOptions {
   export const filterSensitiveLog = (obj: TrackingOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TrackingOptions =>
-    __isa(o, "TrackingOptions");
+  export const isa = (o: any): o is TrackingOptions => __isa(o, "TrackingOptions");
 }
 
 export interface UntagResourceRequest {
@@ -3920,10 +3668,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3932,10 +3679,9 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -3962,14 +3708,10 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateConfigurationSetEventDestinationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
     __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
@@ -3982,14 +3724,10 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateConfigurationSetEventDestinationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
     __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
@@ -4006,15 +3744,15 @@ export interface VolumeStatistics {
 
   /**
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
-   *             in recipients' inboxes.</p>
-   */
-  ProjectedInbox?: number;
-
-  /**
-   * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' spam or junk mail folders.</p>
    */
   ProjectedSpam?: number;
+
+  /**
+   * <p>An estimate of the percentage of emails sent from the current domain that will arrive
+   *             in recipients' inboxes.</p>
+   */
+  ProjectedInbox?: number;
 
   /**
    * <p>The total number of emails that arrived in recipients' spam or junk mail
@@ -4025,13 +3763,12 @@ export interface VolumeStatistics {
 
 export namespace VolumeStatistics {
   export const filterSensitiveLog = (obj: VolumeStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VolumeStatistics =>
-    __isa(o, "VolumeStatistics");
+  export const isa = (o: any): o is VolumeStatistics => __isa(o, "VolumeStatistics");
 }
 
 export enum WarmupStatus {
   DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }

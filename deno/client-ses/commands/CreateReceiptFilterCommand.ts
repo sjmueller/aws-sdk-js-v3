@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  CreateReceiptFilterRequest,
-  CreateReceiptFilterResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { CreateReceiptFilterRequest, CreateReceiptFilterResponse } from "../models/index.ts";
 import {
   deserializeAws_queryCreateReceiptFilterCommand,
-  serializeAws_queryCreateReceiptFilterCommand
+  serializeAws_queryCreateReceiptFilterCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateReceiptFilterCommandInput = CreateReceiptFilterRequest;
-export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse &
-  __MetadataBearer;
+export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse & __MetadataBearer;
 
 export class CreateReceiptFilterCommand extends $Command<
   CreateReceiptFilterCommandInput,
@@ -49,18 +38,16 @@ export class CreateReceiptFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReceiptFilterCommandInput,
-    CreateReceiptFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReceiptFilterCommandInput, CreateReceiptFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateReceiptFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReceiptFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateReceiptFilterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateReceiptFilterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReceiptFilterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateReceiptFilterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptFilterCommandOutput> {
     return deserializeAws_queryCreateReceiptFilterCommand(output, context);
   }
 

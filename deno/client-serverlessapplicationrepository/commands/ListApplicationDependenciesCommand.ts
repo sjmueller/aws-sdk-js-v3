@@ -1,21 +1,15 @@
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import {
-  ListApplicationDependenciesRequest,
-  ListApplicationDependenciesResponse
-} from "../models/index.ts";
+import { ListApplicationDependenciesRequest, ListApplicationDependenciesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListApplicationDependenciesCommand,
-  serializeAws_restJson1ListApplicationDependenciesCommand
+  serializeAws_restJson1ListApplicationDependenciesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListApplicationDependenciesCommandInput = ListApplicationDependenciesRequest;
-export type ListApplicationDependenciesCommandOutput = ListApplicationDependenciesResponse &
-  __MetadataBearer;
+export type ListApplicationDependenciesCommandOutput = ListApplicationDependenciesResponse & __MetadataBearer;
 
 export class ListApplicationDependenciesCommand extends $Command<
   ListApplicationDependenciesCommandInput,
@@ -49,18 +42,16 @@ export class ListApplicationDependenciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApplicationDependenciesCommandInput,
-    ListApplicationDependenciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApplicationDependenciesCommandInput, ListApplicationDependenciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListApplicationDependenciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListApplicationDependenciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class ListApplicationDependenciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListApplicationDependenciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationDependenciesCommand(
-      input,
-      context
-    );
+  private serialize(input: ListApplicationDependenciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListApplicationDependenciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationDependenciesCommandOutput> {
-    return deserializeAws_restJson1ListApplicationDependenciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListApplicationDependenciesCommand(output, context);
   }
 
   // Start section: command_body_extra

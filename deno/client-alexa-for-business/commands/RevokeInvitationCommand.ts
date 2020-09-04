@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  RevokeInvitationRequest,
-  RevokeInvitationResponse
-} from "../models/index.ts";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RevokeInvitationCommand,
-  serializeAws_json1_1RevokeInvitationCommand
+  serializeAws_json1_1RevokeInvitationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
-export type RevokeInvitationCommandOutput = RevokeInvitationResponse &
-  __MetadataBearer;
+export type RevokeInvitationCommandOutput = RevokeInvitationResponse & __MetadataBearer;
 
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,
@@ -50,14 +43,15 @@ export class RevokeInvitationCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeInvitationCommandInput, RevokeInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RevokeInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class RevokeInvitationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeInvitationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RevokeInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeInvitationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RevokeInvitationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeInvitationCommandOutput> {
     return deserializeAws_json1_1RevokeInvitationCommand(output, context);
   }
 

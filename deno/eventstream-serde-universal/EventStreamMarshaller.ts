@@ -1,10 +1,6 @@
 import { EventStreamMarshaller as EventMarshaller } from "../eventstream-marshaller/mod.ts";
-import {
-  Encoder,
-  Decoder,
-  Message,
-  EventStreamMarshaller as IEventStreamMarshaller
-} from "../types/mod.ts";
+import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "../types/mod.ts";
+
 import { getChunkedStream } from "./getChunkedStream.ts";
 import { getUnmarshalledStream } from "./getUnmarshalledStream.ts";
 
@@ -31,15 +27,13 @@ export class EventStreamMarshaller {
     const unmarshalledStream = getUnmarshalledStream(chunkedStream, {
       eventMarshaller: this.eventMarshaller,
       deserializer,
-      toUtf8: this.utfEncoder
+      toUtf8: this.utfEncoder,
     });
     return unmarshalledStream;
   }
 
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): AsyncIterable<Uint8Array> {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     const serializedIterator = async function* () {
       for await (const chunk of input) {
@@ -50,7 +44,7 @@ export class EventStreamMarshaller {
       yield new Uint8Array(0);
     };
     return {
-      [Symbol.asyncIterator]: serializedIterator
+      [Symbol.asyncIterator]: serializedIterator,
     };
   }
 }

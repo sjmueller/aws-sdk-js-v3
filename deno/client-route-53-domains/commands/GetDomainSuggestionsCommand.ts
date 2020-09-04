@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
-import {
-  GetDomainSuggestionsRequest,
-  GetDomainSuggestionsResponse
-} from "../models/index.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
+import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDomainSuggestionsCommand,
-  serializeAws_json1_1GetDomainSuggestionsCommand
+  serializeAws_json1_1GetDomainSuggestionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDomainSuggestionsCommandInput = GetDomainSuggestionsRequest;
-export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse &
-  __MetadataBearer;
+export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse & __MetadataBearer;
 
 export class GetDomainSuggestionsCommand extends $Command<
   GetDomainSuggestionsCommandInput,
@@ -49,18 +38,16 @@ export class GetDomainSuggestionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDomainSuggestionsCommandInput,
-    GetDomainSuggestionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDomainSuggestionsCommandInput, GetDomainSuggestionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetDomainSuggestionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDomainSuggestionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDomainSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDomainSuggestionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDomainSuggestionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainSuggestionsCommandOutput> {
     return deserializeAws_json1_1GetDomainSuggestionsCommand(output, context);
   }
 

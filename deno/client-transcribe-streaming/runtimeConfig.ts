@@ -1,13 +1,11 @@
 const name = "@aws-sdk/client-transcribe-streaming";
-const version = "1.0.0-gamma.2";
+const version = "1.0.0-gamma.8";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
 import { streamCollector } from "../fetch-http-handler/mod.ts";
 import { invalidFunction } from "../invalid-dependency/mod.ts";
-import {
-  WebSocketHandler,
-  eventStreamPayloadHandler
-} from "../middleware-sdk-transcribe-streaming/mod.ts";
+import { DEFAULT_MAX_ATTEMPTS } from "../middleware-retry/mod.ts";
+import { WebSocketHandler, eventStreamPayloadHandler } from "../middleware-sdk-transcribe-streaming/mod.ts";
 import { parseUrl } from "../url-parser-browser/mod.ts";
 import { fromBase64, toBase64 } from "../util-base64-browser/mod.ts";
 import { calculateBodyLength } from "../util-body-length-browser/mod.ts";
@@ -26,12 +24,12 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
-  maxAttemptsDefaultProvider: (() => "3") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  maxAttempts: DEFAULT_MAX_ATTEMPTS,
+  region: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
-  sha256: Hash.bind(null, "sha256"),
+  sha256: Sha256,
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
 };

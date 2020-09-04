@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface GetPersonalizedRankingRequest {
@@ -14,12 +10,9 @@ export interface GetPersonalizedRankingRequest {
   campaignArn: string | undefined;
 
   /**
-   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
-   *       any interaction information that might be relevant when getting a user's recommendations, such
-   *       as the user's current location or device type. For more information, see Contextual
-   *       Metadata.</p>
+   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
    */
-  context?: { [key: string]: string };
+  userId: string | undefined;
 
   /**
    * <p>A list of items (itemId's) to rank. If an item was not included in the training dataset,
@@ -28,20 +21,19 @@ export interface GetPersonalizedRankingRequest {
   inputList: string[] | undefined;
 
   /**
-   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
+   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
+   *       any interaction information that might be relevant when getting a user's recommendations, such
+   *       as the user's current location or device type.</p>
    */
-  userId: string | undefined;
+  context?: { [key: string]: string };
 }
 
 export namespace GetPersonalizedRankingRequest {
-  export const filterSensitiveLog = (
-    obj: GetPersonalizedRankingRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: GetPersonalizedRankingRequest): any => ({
     ...obj,
-    ...(obj.context && { context: SENSITIVE_STRING })
+    ...(obj.context && { context: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetPersonalizedRankingRequest =>
-    __isa(o, "GetPersonalizedRankingRequest");
+  export const isa = (o: any): o is GetPersonalizedRankingRequest => __isa(o, "GetPersonalizedRankingRequest");
 }
 
 export interface GetPersonalizedRankingResponse {
@@ -53,29 +45,37 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
-  export const filterSensitiveLog = (
-    obj: GetPersonalizedRankingResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPersonalizedRankingResponse =>
-    __isa(o, "GetPersonalizedRankingResponse");
+  export const isa = (o: any): o is GetPersonalizedRankingResponse => __isa(o, "GetPersonalizedRankingResponse");
 }
 
 export interface GetRecommendationsRequest {
   __type?: "GetRecommendationsRequest";
+  /**
+   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
+   *       any interaction information that might be relevant when getting a user's recommendations, such
+   *       as the user's current location or device type.</p>
+   */
+  context?: { [key: string]: string };
+
+  /**
+   * <p>The user ID to provide recommendations for.</p>
+   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
+   */
+  userId?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>
    */
   campaignArn: string | undefined;
 
   /**
-   * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
-   *       any interaction information that might be relevant when getting a user's recommendations, such
-   *       as the user's current location or device type. For more information, see Contextual
-   *       Metadata.</p>
+   * <p>The ARN of the filter to apply to the returned recommendations. For more information, see
+   *       Using Filters with Amazon Personalize.</p>
    */
-  context?: { [key: string]: string };
+  filterArn?: string;
 
   /**
    * <p>The item ID to provide recommendations for.</p>
@@ -87,21 +87,14 @@ export interface GetRecommendationsRequest {
    * <p>The number of results to return. The default is 25. The maximum is 500.</p>
    */
   numResults?: number;
-
-  /**
-   * <p>The user ID to provide recommendations for.</p>
-   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
-   */
-  userId?: string;
 }
 
 export namespace GetRecommendationsRequest {
   export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
     ...obj,
-    ...(obj.context && { context: SENSITIVE_STRING })
+    ...(obj.context && { context: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRecommendationsRequest =>
-    __isa(o, "GetRecommendationsRequest");
+  export const isa = (o: any): o is GetRecommendationsRequest => __isa(o, "GetRecommendationsRequest");
 }
 
 export interface GetRecommendationsResponse {
@@ -115,18 +108,15 @@ export interface GetRecommendationsResponse {
 
 export namespace GetRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRecommendationsResponse =>
-    __isa(o, "GetRecommendationsResponse");
+  export const isa = (o: any): o is GetRecommendationsResponse => __isa(o, "GetRecommendationsResponse");
 }
 
 /**
  * <p>Provide a valid value for the field or parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -134,10 +124,9 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -148,6 +137,12 @@ export namespace InvalidInputException {
 export interface PredictedItem {
   __type?: "PredictedItem";
   /**
+   * <p>A numeric representation of the model's certainty that the item will be the next user
+   *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
+   */
+  score?: number;
+
+  /**
    * <p>The recommended item ID.</p>
    */
   itemId?: string;
@@ -155,7 +150,7 @@ export interface PredictedItem {
 
 export namespace PredictedItem {
   export const filterSensitiveLog = (obj: PredictedItem): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
 }
@@ -163,9 +158,7 @@ export namespace PredictedItem {
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -173,8 +166,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

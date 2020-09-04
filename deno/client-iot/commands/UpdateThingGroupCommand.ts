@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  UpdateThingGroupRequest,
-  UpdateThingGroupResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { UpdateThingGroupRequest, UpdateThingGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateThingGroupCommand,
-  serializeAws_restJson1UpdateThingGroupCommand
+  serializeAws_restJson1UpdateThingGroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateThingGroupCommandInput = UpdateThingGroupRequest;
-export type UpdateThingGroupCommandOutput = UpdateThingGroupResponse &
-  __MetadataBearer;
+export type UpdateThingGroupCommandOutput = UpdateThingGroupResponse & __MetadataBearer;
 
 export class UpdateThingGroupCommand extends $Command<
   UpdateThingGroupCommandInput,
@@ -50,14 +39,15 @@ export class UpdateThingGroupCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateThingGroupCommandInput, UpdateThingGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateThingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateThingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateThingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateThingGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThingGroupCommandOutput> {
     return deserializeAws_restJson1UpdateThingGroupCommand(output, context);
   }
 

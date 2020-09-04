@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  DescribeReceiptRuleSetRequest,
-  DescribeReceiptRuleSetResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeReceiptRuleSetCommand,
-  serializeAws_queryDescribeReceiptRuleSetCommand
+  serializeAws_queryDescribeReceiptRuleSetCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeReceiptRuleSetCommandInput = DescribeReceiptRuleSetRequest;
-export type DescribeReceiptRuleSetCommandOutput = DescribeReceiptRuleSetResponse &
-  __MetadataBearer;
+export type DescribeReceiptRuleSetCommandOutput = DescribeReceiptRuleSetResponse & __MetadataBearer;
 
 export class DescribeReceiptRuleSetCommand extends $Command<
   DescribeReceiptRuleSetCommandInput,
@@ -49,18 +38,16 @@ export class DescribeReceiptRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReceiptRuleSetCommandInput,
-    DescribeReceiptRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReceiptRuleSetCommandInput, DescribeReceiptRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeReceiptRuleSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReceiptRuleSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeReceiptRuleSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeReceiptRuleSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReceiptRuleSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeReceiptRuleSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReceiptRuleSetCommandOutput> {
     return deserializeAws_queryDescribeReceiptRuleSetCommand(output, context);
   }
 

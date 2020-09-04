@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient.ts";
-import {
-  PutEmailIdentityDkimAttributesRequest,
-  PutEmailIdentityDkimAttributesResponse
-} from "../models/index.ts";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
+import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
-  serializeAws_restJson1PutEmailIdentityDkimAttributesCommand
+  serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutEmailIdentityDkimAttributesCommandInput = PutEmailIdentityDkimAttributesRequest;
-export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse &
-  __MetadataBearer;
+export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse & __MetadataBearer;
 
 export class PutEmailIdentityDkimAttributesCommand extends $Command<
   PutEmailIdentityDkimAttributesCommandInput,
@@ -49,18 +38,16 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutEmailIdentityDkimAttributesCommandInput,
-    PutEmailIdentityDkimAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutEmailIdentityDkimAttributesCommandInput, PutEmailIdentityDkimAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutEmailIdentityDkimAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityDkimAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     input: PutEmailIdentityDkimAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEmailIdentityDkimAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutEmailIdentityDkimAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

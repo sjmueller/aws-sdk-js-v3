@@ -2,147 +2,152 @@ import { CloudWatchClient } from "./CloudWatchClient.ts";
 import {
   DeleteAlarmsCommand,
   DeleteAlarmsCommandInput,
-  DeleteAlarmsCommandOutput
+  DeleteAlarmsCommandOutput,
 } from "./commands/DeleteAlarmsCommand.ts";
 import {
   DeleteAnomalyDetectorCommand,
   DeleteAnomalyDetectorCommandInput,
-  DeleteAnomalyDetectorCommandOutput
+  DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand.ts";
 import {
   DeleteDashboardsCommand,
   DeleteDashboardsCommandInput,
-  DeleteDashboardsCommandOutput
+  DeleteDashboardsCommandOutput,
 } from "./commands/DeleteDashboardsCommand.ts";
 import {
   DeleteInsightRulesCommand,
   DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput
+  DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand.ts";
 import {
   DescribeAlarmHistoryCommand,
   DescribeAlarmHistoryCommandInput,
-  DescribeAlarmHistoryCommandOutput
+  DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand.ts";
 import {
   DescribeAlarmsCommand,
   DescribeAlarmsCommandInput,
-  DescribeAlarmsCommandOutput
+  DescribeAlarmsCommandOutput,
 } from "./commands/DescribeAlarmsCommand.ts";
 import {
   DescribeAlarmsForMetricCommand,
   DescribeAlarmsForMetricCommandInput,
-  DescribeAlarmsForMetricCommandOutput
+  DescribeAlarmsForMetricCommandOutput,
 } from "./commands/DescribeAlarmsForMetricCommand.ts";
 import {
   DescribeAnomalyDetectorsCommand,
   DescribeAnomalyDetectorsCommandInput,
-  DescribeAnomalyDetectorsCommandOutput
+  DescribeAnomalyDetectorsCommandOutput,
 } from "./commands/DescribeAnomalyDetectorsCommand.ts";
 import {
   DescribeInsightRulesCommand,
   DescribeInsightRulesCommandInput,
-  DescribeInsightRulesCommandOutput
+  DescribeInsightRulesCommandOutput,
 } from "./commands/DescribeInsightRulesCommand.ts";
 import {
   DisableAlarmActionsCommand,
   DisableAlarmActionsCommandInput,
-  DisableAlarmActionsCommandOutput
+  DisableAlarmActionsCommandOutput,
 } from "./commands/DisableAlarmActionsCommand.ts";
 import {
   DisableInsightRulesCommand,
   DisableInsightRulesCommandInput,
-  DisableInsightRulesCommandOutput
+  DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand.ts";
 import {
   EnableAlarmActionsCommand,
   EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput
+  EnableAlarmActionsCommandOutput,
 } from "./commands/EnableAlarmActionsCommand.ts";
 import {
   EnableInsightRulesCommand,
   EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput
+  EnableInsightRulesCommandOutput,
 } from "./commands/EnableInsightRulesCommand.ts";
 import {
   GetDashboardCommand,
   GetDashboardCommandInput,
-  GetDashboardCommandOutput
+  GetDashboardCommandOutput,
 } from "./commands/GetDashboardCommand.ts";
 import {
   GetInsightRuleReportCommand,
   GetInsightRuleReportCommandInput,
-  GetInsightRuleReportCommandOutput
+  GetInsightRuleReportCommandOutput,
 } from "./commands/GetInsightRuleReportCommand.ts";
 import {
   GetMetricDataCommand,
   GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
+  GetMetricDataCommandOutput,
 } from "./commands/GetMetricDataCommand.ts";
 import {
   GetMetricStatisticsCommand,
   GetMetricStatisticsCommandInput,
-  GetMetricStatisticsCommandOutput
+  GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand.ts";
 import {
   GetMetricWidgetImageCommand,
   GetMetricWidgetImageCommandInput,
-  GetMetricWidgetImageCommandOutput
+  GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand.ts";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
+  ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand.ts";
 import {
   ListMetricsCommand,
   ListMetricsCommandInput,
-  ListMetricsCommandOutput
+  ListMetricsCommandOutput,
 } from "./commands/ListMetricsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutAnomalyDetectorCommand,
   PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput
+  PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand.ts";
+import {
+  PutCompositeAlarmCommand,
+  PutCompositeAlarmCommandInput,
+  PutCompositeAlarmCommandOutput,
+} from "./commands/PutCompositeAlarmCommand.ts";
 import {
   PutDashboardCommand,
   PutDashboardCommandInput,
-  PutDashboardCommandOutput
+  PutDashboardCommandOutput,
 } from "./commands/PutDashboardCommand.ts";
 import {
   PutInsightRuleCommand,
   PutInsightRuleCommandInput,
-  PutInsightRuleCommandOutput
+  PutInsightRuleCommandOutput,
 } from "./commands/PutInsightRuleCommand.ts";
 import {
   PutMetricAlarmCommand,
   PutMetricAlarmCommandInput,
-  PutMetricAlarmCommandOutput
+  PutMetricAlarmCommandOutput,
 } from "./commands/PutMetricAlarmCommand.ts";
 import {
   PutMetricDataCommand,
   PutMetricDataCommandInput,
-  PutMetricDataCommandOutput
+  PutMetricDataCommandOutput,
 } from "./commands/PutMetricDataCommand.ts";
 import {
   SetAlarmStateCommand,
   SetAlarmStateCommandInput,
-  SetAlarmStateCommandOutput
+  SetAlarmStateCommandOutput,
 } from "./commands/SetAlarmStateCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -152,12 +157,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * 			metrics, which are the variables you want to measure for your resources and
  * 			applications.</p>
  *
- * 		       <p>CloudWatch alarms send notifications or automatically change the resources
- * 			you are monitoring based on rules that you define. For example, you can monitor the CPU
- * 			usage and disk reads and writes of your Amazon EC2
- * 			instances. Then, use this data to determine whether you should launch additional
- * 			instances to handle increased load. You can also use this data to stop under-used
- * 			instances to save money.</p>
+ * 		       <p>CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules
+ * 			that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2
+ * 			instances. Then, use this data to determine whether you should launch
+ * 			additional instances to handle increased load. You can also use this data to stop
+ * 			under-used instances to save
+ * 			money.</p>
  *
  * 		       <p>In addition to monitoring the built-in metrics that come with AWS, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
@@ -165,18 +170,28 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  */
 export class CloudWatch extends CloudWatchClient {
   /**
-   * <p>Deletes the specified alarms. You can delete up to 50 alarms in one operation.
+   * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
+   * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
+   * 			delete two composite alarms with one operation.</p>
+   * 		       <p>
    * 			In the event of an error, no alarms are
    * 			deleted.</p>
+   * 		       <note>
+   *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
+   * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
+   * 			because there is always still a composite alarm that depends on that alarm that you want to delete.</p>
+   * 			         <p>To get out of such a situation, you must
+   * 				break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest
+   * 				change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>False</code>. </p>
+   * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
+   * 			</p>
+   *          </note>
    */
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAlarmsCommandOutput>;
-  public deleteAlarms(
-    args: DeleteAlarmsCommandInput,
-    cb: (err: any, data?: DeleteAlarmsCommandOutput) => void
-  ): void;
+  public deleteAlarms(args: DeleteAlarmsCommandInput, cb: (err: any, data?: DeleteAlarmsCommandOutput) => void): void;
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
     options: __HttpHandlerOptions,
@@ -184,17 +199,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DeleteAlarmsCommandOutput) => void
   ): Promise<DeleteAlarmsCommandOutput> | void {
     const command = new DeleteAlarmsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -219,17 +231,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAnomalyDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalyDetectorCommandOutput) => void),
     cb?: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
   ): Promise<DeleteAnomalyDetectorCommandOutput> | void {
     const command = new DeleteAnomalyDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -237,8 +246,9 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Deletes all dashboards that you specify. You may specify up to 100 dashboards to delete.
-   * 			If there is an error during this call, no dashboards are deleted.</p>
+   * <p>Deletes all dashboards that you specify. You
+   * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
+   * 			deleted.</p>
    */
   public deleteDashboards(
     args: DeleteDashboardsCommandInput,
@@ -255,17 +265,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteDashboards(
     args: DeleteDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
     cb?: (err: any, data?: DeleteDashboardsCommandOutput) => void
   ): Promise<DeleteDashboardsCommandOutput> | void {
     const command = new DeleteDashboardsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -274,8 +281,9 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Permanently deletes the specified Contributor Insights rules.</p>
-   * 		       <p>If you create a rule, delete it, and then re-create it with the same name,
-   * 			historical data from the first time the rule was created may or may not be available.</p>
+   * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+   * 			the rule was created might
+   * 			not be available.</p>
    */
   public deleteInsightRules(
     args: DeleteInsightRulesCommandInput,
@@ -292,17 +300,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteInsightRules(
     args: DeleteInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DeleteInsightRulesCommandOutput) => void
   ): Promise<DeleteInsightRulesCommandOutput> | void {
     const command = new DeleteInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -311,7 +316,7 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
-   * 			If an alarm name is not specified, the histories for all alarms are returned.</p>
+   * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
    * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
    */
   public describeAlarmHistory(
@@ -329,17 +334,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarmHistory(
     args: DescribeAlarmHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmHistoryCommandOutput) => void
   ): Promise<DescribeAlarmHistoryCommandOutput> | void {
     const command = new DescribeAlarmHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -347,8 +349,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Retrieves the specified alarms. If no alarms are specified, all alarms are
-   * 			returned. Alarms can be retrieved by using only a prefix for the alarm
+   * <p>Retrieves the specified alarms. You can filter the results by specifying a a prefix for the alarm
    * 			name, the alarm state, or a prefix for any action.</p>
    */
   public describeAlarms(
@@ -366,17 +367,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarms(
     args: DescribeAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmsCommandOutput) => void
   ): Promise<DescribeAlarmsCommandOutput> | void {
     const command = new DescribeAlarmsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -402,17 +400,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarmsForMetric(
     args: DescribeAlarmsForMetricCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmsForMetricCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmsForMetricCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmsForMetricCommandOutput) => void
   ): Promise<DescribeAlarmsForMetricCommandOutput> | void {
     const command = new DescribeAlarmsForMetricCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +434,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAnomalyDetectors(
     args: DescribeAnomalyDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAnomalyDetectorsCommandOutput) => void
   ): Promise<DescribeAnomalyDetectorsCommandOutput> | void {
     const command = new DescribeAnomalyDetectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -478,17 +470,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeInsightRules(
     args: DescribeInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInsightRulesCommandOutput) => void
   ): Promise<DescribeInsightRulesCommandOutput> | void {
     const command = new DescribeInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,17 +503,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public disableAlarmActions(
     args: DisableAlarmActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableAlarmActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAlarmActionsCommandOutput) => void),
     cb?: (err: any, data?: DisableAlarmActionsCommandOutput) => void
   ): Promise<DisableAlarmActionsCommandOutput> | void {
     const command = new DisableAlarmActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -550,17 +536,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public disableInsightRules(
     args: DisableInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: DisableInsightRulesCommandOutput) => void
   ): Promise<DisableInsightRulesCommandOutput> | void {
     const command = new DisableInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -585,17 +568,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public enableAlarmActions(
     args: EnableAlarmActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAlarmActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAlarmActionsCommandOutput) => void),
     cb?: (err: any, data?: EnableAlarmActionsCommandOutput) => void
   ): Promise<EnableAlarmActionsCommandOutput> | void {
     const command = new EnableAlarmActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -620,17 +600,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public enableInsightRules(
     args: EnableInsightRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableInsightRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableInsightRulesCommandOutput) => void),
     cb?: (err: any, data?: EnableInsightRulesCommandOutput) => void
   ): Promise<EnableInsightRulesCommandOutput> | void {
     const command = new EnableInsightRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -647,10 +624,7 @@ export class CloudWatch extends CloudWatchClient {
     args: GetDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDashboardCommandOutput>;
-  public getDashboard(
-    args: GetDashboardCommandInput,
-    cb: (err: any, data?: GetDashboardCommandOutput) => void
-  ): void;
+  public getDashboard(args: GetDashboardCommandInput, cb: (err: any, data?: GetDashboardCommandOutput) => void): void;
   public getDashboard(
     args: GetDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -658,17 +632,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getDashboard(
     args: GetDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardCommandOutput) => void),
     cb?: (err: any, data?: GetDashboardCommandOutput) => void
   ): Promise<GetDashboardCommandOutput> | void {
     const command = new GetDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -687,7 +658,7 @@ export class CloudWatch extends CloudWatchClient {
    *             <li>
    * 				           <p>
    *                   <code>MaxContributorValue</code> -- the value of the top contributor for each data point. The identity of the
-   * 					contributor may change for each data point in the graph.</p>
+   * 					contributor might change for each data point in the graph.</p>
    * 				           <p>If this rule aggregates by COUNT, the top contributor for each data point is the contributor with the
    * 					most occurrences in that period. If the rule aggregates by SUM, the top contributor is the contributor with the highest sum in the log field specified
    * 					by the rule's <code>Value</code>, during that period.</p>
@@ -729,17 +700,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getInsightRuleReport(
     args: GetInsightRuleReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInsightRuleReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightRuleReportCommandOutput) => void),
     cb?: (err: any, data?: GetInsightRuleReportCommandOutput) => void
   ): Promise<GetInsightRuleReportCommandOutput> | void {
     const command = new GetInsightRuleReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -747,7 +715,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>You can use the <code>GetMetricData</code> API to retrieve as many as 100 different
+   * <p>You can use the <code>GetMetricData</code> API to retrieve as many as 500 different
    * 			metrics in a single request, with a total of as many as 100,800 data points. You can also
    * 			optionally perform math expressions on the values of the returned statistics, to create
    * 			new time series that represent new insights into your data. For example, using Lambda
@@ -781,7 +749,7 @@ export class CloudWatch extends CloudWatchClient {
    * 			a resolution of 1 hour.</p>
    *
    * 		       <p>If you omit <code>Unit</code> in your request, all data that was collected with any unit is returned, along with the corresponding units that were specified
-   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified.
+   * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
   public getMetricData(
@@ -799,17 +767,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricData(
     args: GetMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -885,17 +850,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricStatistics(
     args: GetMetricStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricStatisticsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricStatisticsCommandOutput) => void),
     cb?: (err: any, data?: GetMetricStatisticsCommandOutput) => void
   ): Promise<GetMetricStatisticsCommandOutput> | void {
     const command = new GetMetricStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -937,17 +899,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricWidgetImage(
     args: GetMetricWidgetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricWidgetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricWidgetImageCommandOutput) => void),
     cb?: (err: any, data?: GetMetricWidgetImageCommandOutput) => void
   ): Promise<GetMetricWidgetImageCommandOutput> | void {
     const command = new GetMetricWidgetImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -980,17 +939,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listDashboards(
     args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -999,20 +955,22 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>List the specified metrics. You can use the returned metrics with
-   * 			<a>GetMetricData</a> or <a>GetMetricStatistics</a> to obtain statistical data.</p>
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to obtain statistical data.</p>
    * 		       <p>Up to 500 results are returned for any one call. To retrieve additional results,
    * 			use the returned token with subsequent calls.</p>
-   * 		       <p>After you create a metric, allow up to fifteen minutes before the metric appears.
-   * 			Statistics about the metric, however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.</p>
+   * 		       <p>After you create a metric, allow up to 15 minutes before the metric appears.
+   * 			You can see statistics about the metric sooner by using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+   *
+   * 	        <p>
+   *             <code>ListMetrics</code> doesn't return information about metrics if those metrics haven't
+   * 	reported data in the past two weeks. To retrieve those metrics, use
+   * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
    */
-  public listMetrics(
-    args: ListMetricsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMetricsCommandOutput>;
-  public listMetrics(
-    args: ListMetricsCommandInput,
-    cb: (err: any, data?: ListMetricsCommandOutput) => void
-  ): void;
+  public listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
+  public listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
   public listMetrics(
     args: ListMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -1020,17 +978,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listMetrics(
     args: ListMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricsCommandOutput) => void),
     cb?: (err: any, data?: ListMetricsCommandOutput) => void
   ): Promise<ListMetricsCommandOutput> | void {
     const command = new ListMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1038,7 +993,8 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Displays the tags associated with a CloudWatch resource. Alarms support tagging.</p>
+   * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
+   * 			and Contributor Insights rules support tagging.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1055,17 +1011,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1092,17 +1045,78 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putAnomalyDetector(
     args: PutAnomalyDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAnomalyDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAnomalyDetectorCommandOutput) => void),
     cb?: (err: any, data?: PutAnomalyDetectorCommandOutput) => void
   ): Promise<PutAnomalyDetectorCommandOutput> | void {
     const command = new PutAnomalyDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
+   * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
+   * 			states of other alarms that you have created. The composite alarm goes into ALARM state
+   * 			only if all conditions of the rule are met.</p>
+   * 		       <p>The alarms specified in a composite alarm's rule expression can include metric alarms
+   * 			and other composite alarms.</p>
+   * 		       <p>Using composite alarms can reduce
+   * 			alarm noise. You can create multiple metric alarms,
+   * 			and also create a composite alarm and
+   * 			set up alerts only
+   * 			for the composite alarm. For example, you could create a composite
+   * 			alarm that goes into ALARM state only when more than one of the underlying metric alarms
+   * 			are in ALARM state.</p>
+   * 		       <p>Currently, the only alarm actions that can be taken by composite alarms are notifying
+   * 			SNS topics.</p>
+   * 		       <note>
+   *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
+   * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle
+   * 			because there is always still a composite alarm that depends on that alarm that you want to delete.</p>
+   * 			         <p>To get out of such a situation, you must
+   * 			break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest
+   * 			change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>False</code>. </p>
+   * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
+   * 		</p>
+   *          </note>
+   * 		       <p>When this operation creates an alarm, the alarm state is immediately set to
+   * 				<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
+   * 			appropriately. Any actions associated with the new state are then executed. For a
+   * 			composite alarm, this initial time after creation is the only time that
+   * 			the
+   * 			alarm can be in <code>INSUFFICIENT_DATA</code> state.</p>
+   * 		       <p>When you update an existing alarm, its state is left unchanged, but the update
+   * 			completely overwrites the previous configuration of the alarm.</p>
+   */
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCompositeAlarmCommandOutput>;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    cb: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): void;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): void;
+  public putCompositeAlarm(
+    args: PutCompositeAlarmCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCompositeAlarmCommandOutput) => void),
+    cb?: (err: any, data?: PutCompositeAlarmCommandOutput) => void
+  ): Promise<PutCompositeAlarmCommandOutput> | void {
+    const command = new PutCompositeAlarmCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1129,10 +1143,7 @@ export class CloudWatch extends CloudWatchClient {
     args: PutDashboardCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutDashboardCommandOutput>;
-  public putDashboard(
-    args: PutDashboardCommandInput,
-    cb: (err: any, data?: PutDashboardCommandOutput) => void
-  ): void;
+  public putDashboard(args: PutDashboardCommandInput, cb: (err: any, data?: PutDashboardCommandOutput) => void): void;
   public putDashboard(
     args: PutDashboardCommandInput,
     options: __HttpHandlerOptions,
@@ -1140,17 +1151,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putDashboard(
     args: PutDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDashboardCommandOutput) => void),
     cb?: (err: any, data?: PutDashboardCommandOutput) => void
   ): Promise<PutDashboardCommandOutput> | void {
     const command = new PutDashboardCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1161,8 +1169,8 @@ export class CloudWatch extends CloudWatchClient {
    * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
    * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
    * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
-   * 		       <p>If you create a rule, delete it, and then re-create it with the same name,
-   * 			historical data from the first time the rule was created may or may not be available.</p>
+   * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
+   * 			the rule was created might not be available.</p>
    */
   public putInsightRule(
     args: PutInsightRuleCommandInput,
@@ -1179,17 +1187,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putInsightRule(
     args: PutInsightRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInsightRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInsightRuleCommandOutput) => void),
     cb?: (err: any, data?: PutInsightRuleCommandOutput) => void
   ): Promise<PutInsightRuleCommandOutput> | void {
     const command = new PutInsightRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1263,17 +1268,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricAlarm(
     args: PutMetricAlarmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
     cb?: (err: any, data?: PutMetricAlarmCommandOutput) => void
   ): Promise<PutMetricAlarmCommandOutput> | void {
     const command = new PutMetricAlarmCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1284,7 +1286,7 @@ export class CloudWatch extends CloudWatchClient {
    * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
    * 			the data points with the specified metric. If the specified metric does not exist,
    * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
-   * 			take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
+   * 			take up to fifteen minutes for the metric to appear in calls to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    *
    * 		       <p>You can publish either individual data points in the <code>Value</code> field, or
    * 		arrays of values and the number of times each value occurred during the period by using the
@@ -1304,8 +1306,11 @@ export class CloudWatch extends CloudWatchClient {
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    *
    * 		       <p>Data points with time stamps from 24 hours ago or longer can take at least 48
-   * 			hours to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they
-   * 			are submitted.</p>
+   * 			hours to become available for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> from the time they
+   * 			are submitted. Data points with time stamps between 3 and 24 hours ago can take as much as 2 hours to become available
+   * 			for for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
    * 		       <p>CloudWatch needs raw data points to calculate percentile statistics. If you publish
    * 			data using a statistic set instead, you can only retrieve
    * 			percentile statistics for this data if one of the following conditions is true:</p>
@@ -1336,17 +1341,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricData(
     args: PutMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricDataCommandOutput) => void),
     cb?: (err: any, data?: PutMetricDataCommandOutput) => void
   ): Promise<PutMetricDataCommandOutput> | void {
     const command = new PutMetricDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1358,10 +1360,18 @@ export class CloudWatch extends CloudWatchClient {
    * 			state differs from the previous value, the action configured for
    * 			the appropriate state is invoked. For example, if your alarm is configured to send an
    * 			Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to
-   * 			<code>ALARM</code> sends an SNS message. The alarm
-   * 			returns to its actual state (often within seconds). Because the alarm state change
+   * 			<code>ALARM</code> sends an SNS message.</p>
+   * 		       <p>Metric alarms
+   * 			returns to their actual state quickly, often within seconds. Because the metric alarm state change
    * 			happens quickly, it is typically only visible in the alarm's <b>History</b> tab in the Amazon CloudWatch console or through
-   * 			<a>DescribeAlarmHistory</a>.</p>
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html">DescribeAlarmHistory</a>.</p>
+   * 		       <p>If you use <code>SetAlarmState</code> on a composite alarm, the composite alarm is not guaranteed to return
+   * 			to its actual state. It
+   * 			returns to its actual state only once any of its children alarms change state. It is also
+   * 			reevaluated if you update its
+   * 			configuration.</p>
+   * 		       <p>If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include
+   * 		information in the <code>StateReasonData</code> parameter to enable the policy to take the correct action.</p>
    */
   public setAlarmState(
     args: SetAlarmStateCommandInput,
@@ -1378,17 +1388,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public setAlarmState(
     args: SetAlarmStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetAlarmStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetAlarmStateCommandOutput) => void),
     cb?: (err: any, data?: SetAlarmStateCommandOutput) => void
   ): Promise<SetAlarmStateCommandOutput> | void {
     const command = new SetAlarmStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1397,25 +1404,19 @@ export class CloudWatch extends CloudWatchClient {
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that
-   * 			can be tagged are alarms.</p>
-   * 		       <p>Tags can help you organize and categorize your
-   * 			resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
-   * 			certain tag values.</p>
+   * 			can be tagged are alarms and Contributor Insights rules.</p>
+   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   * 			permissions by granting a user
+   * 			permission to access or change only resources with certain tag values.</p>
    * 		       <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.</p>
    * 		       <p>You can use the <code>TagResource</code> action with an alarm that already has tags. If you specify a new tag key for the alarm,
    * 			this tag is appended to the list of tags associated
    * 			with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces
    * 			the previous value for that tag.</p>
-   * 		       <p>You can associate as many as 50 tags with a resource.</p>
+   * 		       <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1423,17 +1424,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1458,17 +1456,14 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

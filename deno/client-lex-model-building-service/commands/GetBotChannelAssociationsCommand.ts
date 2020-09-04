@@ -1,21 +1,15 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import {
-  GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsResponse
-} from "../models/index.ts";
+import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBotChannelAssociationsCommand,
-  serializeAws_restJson1GetBotChannelAssociationsCommand
+  serializeAws_restJson1GetBotChannelAssociationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBotChannelAssociationsCommandInput = GetBotChannelAssociationsRequest;
-export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse &
-  __MetadataBearer;
+export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse & __MetadataBearer;
 
 export class GetBotChannelAssociationsCommand extends $Command<
   GetBotChannelAssociationsCommandInput,
@@ -49,18 +42,16 @@ export class GetBotChannelAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBotChannelAssociationsCommandInput,
-    GetBotChannelAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBotChannelAssociationsCommandInput, GetBotChannelAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBotChannelAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotChannelAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class GetBotChannelAssociationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBotChannelAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotChannelAssociationsCommand(
-      input,
-      context
-    );
+  private serialize(input: GetBotChannelAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetBotChannelAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBotChannelAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetBotChannelAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetBotChannelAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

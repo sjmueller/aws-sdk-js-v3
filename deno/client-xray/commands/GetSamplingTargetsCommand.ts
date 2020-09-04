@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient.ts";
-import {
-  GetSamplingTargetsRequest,
-  GetSamplingTargetsResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
+import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetSamplingTargetsCommand,
-  serializeAws_restJson1GetSamplingTargetsCommand
+  serializeAws_restJson1GetSamplingTargetsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetSamplingTargetsCommandInput = GetSamplingTargetsRequest;
-export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult &
-  __MetadataBearer;
+export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult & __MetadataBearer;
 
 export class GetSamplingTargetsCommand extends $Command<
   GetSamplingTargetsCommandInput,
@@ -50,14 +39,15 @@ export class GetSamplingTargetsCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetSamplingTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSamplingTargetsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetSamplingTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSamplingTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSamplingTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetSamplingTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSamplingTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingTargetsCommandOutput> {
     return deserializeAws_restJson1GetSamplingTargetsCommand(output, context);
   }
 

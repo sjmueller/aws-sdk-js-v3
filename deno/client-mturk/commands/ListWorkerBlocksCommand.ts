@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
-import {
-  ListWorkerBlocksRequest,
-  ListWorkerBlocksResponse
-} from "../models/index.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
+import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListWorkerBlocksCommand,
-  serializeAws_json1_1ListWorkerBlocksCommand
+  serializeAws_json1_1ListWorkerBlocksCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListWorkerBlocksCommandInput = ListWorkerBlocksRequest;
-export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse &
-  __MetadataBearer;
+export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse & __MetadataBearer;
 
 export class ListWorkerBlocksCommand extends $Command<
   ListWorkerBlocksCommandInput,
@@ -50,14 +39,15 @@ export class ListWorkerBlocksCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListWorkerBlocksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkerBlocksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListWorkerBlocksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListWorkerBlocksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListWorkerBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkerBlocksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListWorkerBlocksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerBlocksCommandOutput> {
     return deserializeAws_json1_1ListWorkerBlocksCommand(output, context);
   }
 

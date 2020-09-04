@@ -1,19 +1,12 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
 import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryCopyDBSnapshotCommand,
-  serializeAws_queryCopyDBSnapshotCommand
+  serializeAws_queryCopyDBSnapshotCommand,
 } from "../protocols/Aws_query.ts";
 import { getCrossRegionPresignedUrlPlugin } from "../../middleware-sdk-rds/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -22,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
-export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult &
-  __MetadataBearer;
+export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult & __MetadataBearer;
 
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,
@@ -48,15 +40,16 @@ export class CopyDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CopyDBSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +59,11 @@ export class CopyDBSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopyDBSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CopyDBSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBSnapshotCommandOutput> {
     return deserializeAws_queryCopyDBSnapshotCommand(output, context);
   }
 

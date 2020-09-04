@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  RevokeDBSecurityGroupIngressMessage,
-  RevokeDBSecurityGroupIngressResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/index.ts";
 import {
   deserializeAws_queryRevokeDBSecurityGroupIngressCommand,
-  serializeAws_queryRevokeDBSecurityGroupIngressCommand
+  serializeAws_queryRevokeDBSecurityGroupIngressCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RevokeDBSecurityGroupIngressCommandInput = RevokeDBSecurityGroupIngressMessage;
-export type RevokeDBSecurityGroupIngressCommandOutput = RevokeDBSecurityGroupIngressResult &
-  __MetadataBearer;
+export type RevokeDBSecurityGroupIngressCommandOutput = RevokeDBSecurityGroupIngressResult & __MetadataBearer;
 
 export class RevokeDBSecurityGroupIngressCommand extends $Command<
   RevokeDBSecurityGroupIngressCommandInput,
@@ -49,18 +38,16 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeDBSecurityGroupIngressCommandInput,
-    RevokeDBSecurityGroupIngressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeDBSecurityGroupIngressCommandInput, RevokeDBSecurityGroupIngressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RevokeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeDBSecurityGroupIngressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(
-      input,
-      context
-    );
+  private serialize(input: RevokeDBSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,5 @@
 import { fromUtf8 as jsFromUtf8, toUtf8 as jsToUtf8 } from "./pureJs.ts";
-import {
-  fromUtf8 as textEncoderFromUtf8,
-  toUtf8 as textEncoderToUtf8
-} from "./whatwgEncodingApi.ts";
+import { fromUtf8 as textEncoderFromUtf8, toUtf8 as textEncoderToUtf8 } from "./whatwgEncodingApi.ts";
 
 declare const TextDecoder: Function | undefined;
 declare const TextEncoder: Function | undefined;

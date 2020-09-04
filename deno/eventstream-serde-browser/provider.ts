@@ -1,10 +1,5 @@
-import {
-  Encoder,
-  Decoder,
-  EventSigner,
-  EventStreamSerdeProvider,
-  Provider
-} from "../types/mod.ts";
+import { Decoder, Encoder, EventSigner, EventStreamSerdeProvider, Provider } from "../types/mod.ts";
+
 import { EventStreamMarshaller } from "./EventStreamMarshaller.ts";
 
 /** browser event stream serde utils provider */

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -16,19 +12,19 @@ export interface Alias {
   Name?: string;
 
   /**
-   * <p>A list of names for the alias, including the canonical name.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The type of the alias.</p>
    */
   Type?: string;
+
+  /**
+   * <p>A list of names for the alias, including the canonical name.</p>
+   */
+  Names?: string[];
 }
 
 export namespace Alias {
   export const filterSensitiveLog = (obj: Alias): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Alias => __isa(o, "Alias");
 }
@@ -40,14 +36,14 @@ export namespace Alias {
 export interface AnnotationValue {
   __type?: "AnnotationValue";
   /**
-   * <p>Value for a Boolean annotation.</p>
-   */
-  BooleanValue?: boolean;
-
-  /**
    * <p>Value for a Number annotation.</p>
    */
   NumberValue?: number;
+
+  /**
+   * <p>Value for a Boolean annotation.</p>
+   */
+  BooleanValue?: boolean;
 
   /**
    * <p>Value for a String annotation.</p>
@@ -57,10 +53,9 @@ export interface AnnotationValue {
 
 export namespace AnnotationValue {
   export const filterSensitiveLog = (obj: AnnotationValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AnnotationValue =>
-    __isa(o, "AnnotationValue");
+  export const isa = (o: any): o is AnnotationValue => __isa(o, "AnnotationValue");
 }
 
 /**
@@ -76,10 +71,9 @@ export interface AvailabilityZoneDetail {
 
 export namespace AvailabilityZoneDetail {
   export const filterSensitiveLog = (obj: AvailabilityZoneDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZoneDetail =>
-    __isa(o, "AvailabilityZoneDetail");
+  export const isa = (o: any): o is AvailabilityZoneDetail => __isa(o, "AvailabilityZoneDetail");
 }
 
 /**
@@ -87,6 +81,11 @@ export namespace AvailabilityZoneDetail {
  */
 export interface BackendConnectionErrors {
   __type?: "BackendConnectionErrors";
+  /**
+   * <p></p>
+   */
+  HTTPCode5XXCount?: number;
+
   /**
    * <p></p>
    */
@@ -100,7 +99,7 @@ export interface BackendConnectionErrors {
   /**
    * <p></p>
    */
-  HTTPCode5XXCount?: number;
+  UnknownHostCount?: number;
 
   /**
    * <p></p>
@@ -111,19 +110,13 @@ export interface BackendConnectionErrors {
    * <p></p>
    */
   TimeoutCount?: number;
-
-  /**
-   * <p></p>
-   */
-  UnknownHostCount?: number;
 }
 
 export namespace BackendConnectionErrors {
   export const filterSensitiveLog = (obj: BackendConnectionErrors): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BackendConnectionErrors =>
-    __isa(o, "BackendConnectionErrors");
+  export const isa = (o: any): o is BackendConnectionErrors => __isa(o, "BackendConnectionErrors");
 }
 
 export interface BatchGetTracesRequest {
@@ -141,10 +134,9 @@ export interface BatchGetTracesRequest {
 
 export namespace BatchGetTracesRequest {
   export const filterSensitiveLog = (obj: BatchGetTracesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetTracesRequest =>
-    __isa(o, "BatchGetTracesRequest");
+  export const isa = (o: any): o is BatchGetTracesRequest => __isa(o, "BatchGetTracesRequest");
 }
 
 export interface BatchGetTracesResult {
@@ -155,44 +147,42 @@ export interface BatchGetTracesResult {
   NextToken?: string;
 
   /**
-   * <p>Full traces for the specified requests.</p>
-   */
-  Traces?: Trace[];
-
-  /**
    * <p>Trace IDs of requests that haven't been processed.</p>
    */
   UnprocessedTraceIds?: string[];
+
+  /**
+   * <p>Full traces for the specified requests.</p>
+   */
+  Traces?: Trace[];
 }
 
 export namespace BatchGetTracesResult {
   export const filterSensitiveLog = (obj: BatchGetTracesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchGetTracesResult =>
-    __isa(o, "BatchGetTracesResult");
+  export const isa = (o: any): o is BatchGetTracesResult => __isa(o, "BatchGetTracesResult");
 }
 
 export interface CreateGroupRequest {
   __type?: "CreateGroupRequest";
   /**
-   * <p>The filter expression defining criteria by which to group traces.</p>
-   */
-  FilterExpression?: string;
-
-  /**
    * <p>The case-sensitive name of the new group. Default is a reserved name and names must
    *             be unique.</p>
    */
   GroupName: string | undefined;
+
+  /**
+   * <p>The filter expression defining criteria by which to group traces.</p>
+   */
+  FilterExpression?: string;
 }
 
 export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest =>
-    __isa(o, "CreateGroupRequest");
+  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 export interface CreateGroupResult {
@@ -207,10 +197,9 @@ export interface CreateGroupResult {
 
 export namespace CreateGroupResult {
   export const filterSensitiveLog = (obj: CreateGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResult =>
-    __isa(o, "CreateGroupResult");
+  export const isa = (o: any): o is CreateGroupResult => __isa(o, "CreateGroupResult");
 }
 
 export interface CreateSamplingRuleRequest {
@@ -223,10 +212,9 @@ export interface CreateSamplingRuleRequest {
 
 export namespace CreateSamplingRuleRequest {
   export const filterSensitiveLog = (obj: CreateSamplingRuleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSamplingRuleRequest =>
-    __isa(o, "CreateSamplingRuleRequest");
+  export const isa = (o: any): o is CreateSamplingRuleRequest => __isa(o, "CreateSamplingRuleRequest");
 }
 
 export interface CreateSamplingRuleResult {
@@ -239,31 +227,29 @@ export interface CreateSamplingRuleResult {
 
 export namespace CreateSamplingRuleResult {
   export const filterSensitiveLog = (obj: CreateSamplingRuleResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSamplingRuleResult =>
-    __isa(o, "CreateSamplingRuleResult");
+  export const isa = (o: any): o is CreateSamplingRuleResult => __isa(o, "CreateSamplingRuleResult");
 }
 
 export interface DeleteGroupRequest {
   __type?: "DeleteGroupRequest";
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
-   */
-  GroupARN?: string;
-
-  /**
    * <p>The case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ARN of the group that was generated on creation.</p>
+   */
+  GroupARN?: string;
 }
 
 export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest =>
-    __isa(o, "DeleteGroupRequest");
+  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteGroupResult {
@@ -272,10 +258,9 @@ export interface DeleteGroupResult {
 
 export namespace DeleteGroupResult {
   export const filterSensitiveLog = (obj: DeleteGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupResult =>
-    __isa(o, "DeleteGroupResult");
+  export const isa = (o: any): o is DeleteGroupResult => __isa(o, "DeleteGroupResult");
 }
 
 export interface DeleteSamplingRuleRequest {
@@ -293,10 +278,9 @@ export interface DeleteSamplingRuleRequest {
 
 export namespace DeleteSamplingRuleRequest {
   export const filterSensitiveLog = (obj: DeleteSamplingRuleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSamplingRuleRequest =>
-    __isa(o, "DeleteSamplingRuleRequest");
+  export const isa = (o: any): o is DeleteSamplingRuleRequest => __isa(o, "DeleteSamplingRuleRequest");
 }
 
 export interface DeleteSamplingRuleResult {
@@ -309,10 +293,9 @@ export interface DeleteSamplingRuleResult {
 
 export namespace DeleteSamplingRuleResult {
   export const filterSensitiveLog = (obj: DeleteSamplingRuleResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSamplingRuleResult =>
-    __isa(o, "DeleteSamplingRuleResult");
+  export const isa = (o: any): o is DeleteSamplingRuleResult => __isa(o, "DeleteSamplingRuleResult");
 }
 
 /**
@@ -321,24 +304,14 @@ export namespace DeleteSamplingRuleResult {
 export interface Edge {
   __type?: "Edge";
   /**
-   * <p>Aliases for the edge.</p>
-   */
-  Aliases?: Alias[];
-
-  /**
    * <p>The end time of the last segment on the edge.</p>
    */
   EndTime?: Date;
 
   /**
-   * <p>Identifier of the edge. Unique within a service map.</p>
+   * <p>Aliases for the edge.</p>
    */
-  ReferenceId?: number;
-
-  /**
-   * <p>A histogram that maps the spread of client response times on an edge.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
+  Aliases?: Alias[];
 
   /**
    * <p>The start time of the first segment on the edge.</p>
@@ -346,14 +319,24 @@ export interface Edge {
   StartTime?: Date;
 
   /**
+   * <p>Identifier of the edge. Unique within a service map.</p>
+   */
+  ReferenceId?: number;
+
+  /**
    * <p>Response statistics for segments on the edge.</p>
    */
   SummaryStatistics?: EdgeStatistics;
+
+  /**
+   * <p>A histogram that maps the spread of client response times on an edge.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
 }
 
 export namespace Edge {
   export const filterSensitiveLog = (obj: Edge): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Edge => __isa(o, "Edge");
 }
@@ -364,9 +347,9 @@ export namespace Edge {
 export interface EdgeStatistics {
   __type?: "EdgeStatistics";
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * <p>The number of requests that completed with a 2xx Success status code.</p>
    */
-  ErrorStatistics?: ErrorStatistics;
+  OkCount?: number;
 
   /**
    * <p>Information about requests that failed with a 5xx Server Error status code.</p>
@@ -374,9 +357,9 @@ export interface EdgeStatistics {
   FaultStatistics?: FaultStatistics;
 
   /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   * <p>The aggregate response time of completed requests.</p>
    */
-  OkCount?: number;
+  TotalResponseTime?: number;
 
   /**
    * <p>The total number of completed requests.</p>
@@ -384,17 +367,16 @@ export interface EdgeStatistics {
   TotalCount?: number;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
-  TotalResponseTime?: number;
+  ErrorStatistics?: ErrorStatistics;
 }
 
 export namespace EdgeStatistics {
   export const filterSensitiveLog = (obj: EdgeStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EdgeStatistics =>
-    __isa(o, "EdgeStatistics");
+  export const isa = (o: any): o is EdgeStatistics => __isa(o, "EdgeStatistics");
 }
 
 /**
@@ -421,20 +403,19 @@ export interface EncryptionConfig {
 
 export namespace EncryptionConfig {
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfig =>
-    __isa(o, "EncryptionConfig");
+  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
 }
 
 export enum EncryptionStatus {
   ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 export enum EncryptionType {
   KMS = "KMS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -447,14 +428,18 @@ export interface ErrorRootCause {
    *       contains a name, account ID, type, and inferred flag.</p>
    */
   Services?: ErrorRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace ErrorRootCause {
   export const filterSensitiveLog = (obj: ErrorRootCause): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorRootCause =>
-    __isa(o, "ErrorRootCause");
+  export const isa = (o: any): o is ErrorRootCause => __isa(o, "ErrorRootCause");
 }
 
 /**
@@ -469,22 +454,21 @@ export interface ErrorRootCauseEntity {
   Exceptions?: RootCauseException[];
 
   /**
-   * <p>The name of the entity.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A flag that denotes a remote subsegment.</p>
    */
   Remote?: boolean;
+
+  /**
+   * <p>The name of the entity.</p>
+   */
+  Name?: string;
 }
 
 export namespace ErrorRootCauseEntity {
   export const filterSensitiveLog = (obj: ErrorRootCauseEntity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorRootCauseEntity =>
-    __isa(o, "ErrorRootCauseEntity");
+  export const isa = (o: any): o is ErrorRootCauseEntity => __isa(o, "ErrorRootCauseEntity");
 }
 
 /**
@@ -492,6 +476,21 @@ export namespace ErrorRootCauseEntity {
  */
 export interface ErrorRootCauseService {
   __type?: "ErrorRootCauseService";
+  /**
+   * <p>The service name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
+   * <p>A collection of associated service names.</p>
+   */
+  Names?: string[];
+
   /**
    * <p>The account ID associated to the service.</p>
    */
@@ -503,21 +502,6 @@ export interface ErrorRootCauseService {
   EntityPath?: ErrorRootCauseEntity[];
 
   /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
-   * <p>The service name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A collection of associated service names.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The type associated to the service.</p>
    */
   Type?: string;
@@ -525,10 +509,9 @@ export interface ErrorRootCauseService {
 
 export namespace ErrorRootCauseService {
   export const filterSensitiveLog = (obj: ErrorRootCauseService): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorRootCauseService =>
-    __isa(o, "ErrorRootCauseService");
+  export const isa = (o: any): o is ErrorRootCauseService => __isa(o, "ErrorRootCauseService");
 }
 
 /**
@@ -536,6 +519,11 @@ export namespace ErrorRootCauseService {
  */
 export interface ErrorStatistics {
   __type?: "ErrorStatistics";
+  /**
+   * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
+   */
+  TotalCount?: number;
+
   /**
    * <p>The number of requests that failed with untracked 4xx Client Error status
    *       codes.</p>
@@ -546,19 +534,13 @@ export interface ErrorStatistics {
    * <p>The number of requests that failed with a 419 throttling status code.</p>
    */
   ThrottleCount?: number;
-
-  /**
-   * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
-   */
-  TotalCount?: number;
 }
 
 export namespace ErrorStatistics {
   export const filterSensitiveLog = (obj: ErrorStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ErrorStatistics =>
-    __isa(o, "ErrorStatistics");
+  export const isa = (o: any): o is ErrorStatistics => __isa(o, "ErrorStatistics");
 }
 
 /**
@@ -571,14 +553,18 @@ export interface FaultRootCause {
    *       name, account ID, type, and inferred flag.</p>
    */
   Services?: FaultRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace FaultRootCause {
   export const filterSensitiveLog = (obj: FaultRootCause): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FaultRootCause =>
-    __isa(o, "FaultRootCause");
+  export const isa = (o: any): o is FaultRootCause => __isa(o, "FaultRootCause");
 }
 
 /**
@@ -605,10 +591,9 @@ export interface FaultRootCauseEntity {
 
 export namespace FaultRootCauseEntity {
   export const filterSensitiveLog = (obj: FaultRootCauseEntity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FaultRootCauseEntity =>
-    __isa(o, "FaultRootCauseEntity");
+  export const isa = (o: any): o is FaultRootCauseEntity => __isa(o, "FaultRootCauseEntity");
 }
 
 /**
@@ -617,19 +602,19 @@ export namespace FaultRootCauseEntity {
 export interface FaultRootCauseService {
   __type?: "FaultRootCauseService";
   /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
    * <p>The account ID associated to the service.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The path of root cause entities found on the service. </p>
+   * <p>A collection of associated service names.</p>
    */
-  EntityPath?: FaultRootCauseEntity[];
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
+  Names?: string[];
 
   /**
    * <p>The service name.</p>
@@ -637,9 +622,9 @@ export interface FaultRootCauseService {
   Name?: string;
 
   /**
-   * <p>A collection of associated service names.</p>
+   * <p>The path of root cause entities found on the service. </p>
    */
-  Names?: string[];
+  EntityPath?: FaultRootCauseEntity[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -649,10 +634,9 @@ export interface FaultRootCauseService {
 
 export namespace FaultRootCauseService {
   export const filterSensitiveLog = (obj: FaultRootCauseService): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FaultRootCauseService =>
-    __isa(o, "FaultRootCauseService");
+  export const isa = (o: any): o is FaultRootCauseService => __isa(o, "FaultRootCauseService");
 }
 
 /**
@@ -661,23 +645,22 @@ export namespace FaultRootCauseService {
 export interface FaultStatistics {
   __type?: "FaultStatistics";
   /**
+   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
+   */
+  TotalCount?: number;
+
+  /**
    * <p>The number of requests that failed with untracked 5xx Server Error status
    *       codes.</p>
    */
   OtherCount?: number;
-
-  /**
-   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
-   */
-  TotalCount?: number;
 }
 
 export namespace FaultStatistics {
   export const filterSensitiveLog = (obj: FaultStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FaultStatistics =>
-    __isa(o, "FaultStatistics");
+  export const isa = (o: any): o is FaultStatistics => __isa(o, "FaultStatistics");
 }
 
 export interface GetEncryptionConfigRequest {
@@ -686,10 +669,9 @@ export interface GetEncryptionConfigRequest {
 
 export namespace GetEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: GetEncryptionConfigRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEncryptionConfigRequest =>
-    __isa(o, "GetEncryptionConfigRequest");
+  export const isa = (o: any): o is GetEncryptionConfigRequest => __isa(o, "GetEncryptionConfigRequest");
 }
 
 export interface GetEncryptionConfigResult {
@@ -702,31 +684,29 @@ export interface GetEncryptionConfigResult {
 
 export namespace GetEncryptionConfigResult {
   export const filterSensitiveLog = (obj: GetEncryptionConfigResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEncryptionConfigResult =>
-    __isa(o, "GetEncryptionConfigResult");
+  export const isa = (o: any): o is GetEncryptionConfigResult => __isa(o, "GetEncryptionConfigResult");
 }
 
 export interface GetGroupRequest {
   __type?: "GetGroupRequest";
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
-   */
-  GroupARN?: string;
-
-  /**
    * <p>The case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ARN of the group that was generated on creation.</p>
+   */
+  GroupARN?: string;
 }
 
 export namespace GetGroupRequest {
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupRequest =>
-    __isa(o, "GetGroupRequest");
+  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 export interface GetGroupResult {
@@ -740,10 +720,9 @@ export interface GetGroupResult {
 
 export namespace GetGroupResult {
   export const filterSensitiveLog = (obj: GetGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupResult =>
-    __isa(o, "GetGroupResult");
+  export const isa = (o: any): o is GetGroupResult => __isa(o, "GetGroupResult");
 }
 
 export interface GetGroupsRequest {
@@ -756,10 +735,9 @@ export interface GetGroupsRequest {
 
 export namespace GetGroupsRequest {
   export const filterSensitiveLog = (obj: GetGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupsRequest =>
-    __isa(o, "GetGroupsRequest");
+  export const isa = (o: any): o is GetGroupsRequest => __isa(o, "GetGroupsRequest");
 }
 
 export interface GetGroupsResult {
@@ -777,10 +755,9 @@ export interface GetGroupsResult {
 
 export namespace GetGroupsResult {
   export const filterSensitiveLog = (obj: GetGroupsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupsResult =>
-    __isa(o, "GetGroupsResult");
+  export const isa = (o: any): o is GetGroupsResult => __isa(o, "GetGroupsResult");
 }
 
 export interface GetSamplingRulesRequest {
@@ -793,31 +770,29 @@ export interface GetSamplingRulesRequest {
 
 export namespace GetSamplingRulesRequest {
   export const filterSensitiveLog = (obj: GetSamplingRulesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSamplingRulesRequest =>
-    __isa(o, "GetSamplingRulesRequest");
+  export const isa = (o: any): o is GetSamplingRulesRequest => __isa(o, "GetSamplingRulesRequest");
 }
 
 export interface GetSamplingRulesResult {
   __type?: "GetSamplingRulesResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Rule definitions and metadata.</p>
    */
   SamplingRuleRecords?: SamplingRuleRecord[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetSamplingRulesResult {
   export const filterSensitiveLog = (obj: GetSamplingRulesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSamplingRulesResult =>
-    __isa(o, "GetSamplingRulesResult");
+  export const isa = (o: any): o is GetSamplingRulesResult => __isa(o, "GetSamplingRulesResult");
 }
 
 export interface GetSamplingStatisticSummariesRequest {
@@ -829,10 +804,8 @@ export interface GetSamplingStatisticSummariesRequest {
 }
 
 export namespace GetSamplingStatisticSummariesRequest {
-  export const filterSensitiveLog = (
-    obj: GetSamplingStatisticSummariesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSamplingStatisticSummariesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetSamplingStatisticSummariesRequest =>
     __isa(o, "GetSamplingStatisticSummariesRequest");
@@ -841,22 +814,20 @@ export namespace GetSamplingStatisticSummariesRequest {
 export interface GetSamplingStatisticSummariesResult {
   __type?: "GetSamplingStatisticSummariesResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the number of requests instrumented for each sampling
    *          rule.</p>
    */
   SamplingStatisticSummaries?: SamplingStatisticSummary[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetSamplingStatisticSummariesResult {
-  export const filterSensitiveLog = (
-    obj: GetSamplingStatisticSummariesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSamplingStatisticSummariesResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetSamplingStatisticSummariesResult =>
     __isa(o, "GetSamplingStatisticSummariesResult");
@@ -872,10 +843,9 @@ export interface GetSamplingTargetsRequest {
 
 export namespace GetSamplingTargetsRequest {
   export const filterSensitiveLog = (obj: GetSamplingTargetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSamplingTargetsRequest =>
-    __isa(o, "GetSamplingTargetsRequest");
+  export const isa = (o: any): o is GetSamplingTargetsRequest => __isa(o, "GetSamplingTargetsRequest");
 }
 
 export interface GetSamplingTargetsResult {
@@ -888,27 +858,31 @@ export interface GetSamplingTargetsResult {
   LastRuleModification?: Date;
 
   /**
-   * <p>Updated rules that the service should use to sample requests.</p>
-   */
-  SamplingTargetDocuments?: SamplingTargetDocument[];
-
-  /**
    * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not
    *          process.</p>
    */
   UnprocessedStatistics?: UnprocessedStatistics[];
+
+  /**
+   * <p>Updated rules that the service should use to sample requests.</p>
+   */
+  SamplingTargetDocuments?: SamplingTargetDocument[];
 }
 
 export namespace GetSamplingTargetsResult {
   export const filterSensitiveLog = (obj: GetSamplingTargetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSamplingTargetsResult =>
-    __isa(o, "GetSamplingTargetsResult");
+  export const isa = (o: any): o is GetSamplingTargetsResult => __isa(o, "GetSamplingTargetsResult");
 }
 
 export interface GetServiceGraphRequest {
   __type?: "GetServiceGraphRequest";
+  /**
+   * <p>The name of a group to generate a graph based on.</p>
+   */
+  GroupName?: string;
+
   /**
    * <p>The end of the timeframe for which to generate a graph.</p>
    */
@@ -918,11 +892,6 @@ export interface GetServiceGraphRequest {
    * <p>The ARN of a group to generate a graph based on.</p>
    */
   GroupARN?: string;
-
-  /**
-   * <p>The name of a group to generate a graph based on.</p>
-   */
-  GroupName?: string;
 
   /**
    * <p>Pagination token.</p>
@@ -937,10 +906,9 @@ export interface GetServiceGraphRequest {
 
 export namespace GetServiceGraphRequest {
   export const filterSensitiveLog = (obj: GetServiceGraphRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetServiceGraphRequest =>
-    __isa(o, "GetServiceGraphRequest");
+  export const isa = (o: any): o is GetServiceGraphRequest => __isa(o, "GetServiceGraphRequest");
 }
 
 export interface GetServiceGraphResult {
@@ -953,54 +921,36 @@ export interface GetServiceGraphResult {
   ContainsOldGroupVersions?: boolean;
 
   /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The end of the time frame for which the graph was generated.</p>
    */
   EndTime?: Date;
 
   /**
-   * <p>Pagination token.</p>
+   * <p>The start of the time frame for which the graph was generated.</p>
    */
-  NextToken?: string;
+  StartTime?: Date;
 
   /**
    * <p>The services that have processed a traced request during the specified time
    *       frame.</p>
    */
   Services?: Service[];
-
-  /**
-   * <p>The start of the time frame for which the graph was generated.</p>
-   */
-  StartTime?: Date;
 }
 
 export namespace GetServiceGraphResult {
   export const filterSensitiveLog = (obj: GetServiceGraphResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetServiceGraphResult =>
-    __isa(o, "GetServiceGraphResult");
+  export const isa = (o: any): o is GetServiceGraphResult => __isa(o, "GetServiceGraphResult");
 }
 
 export interface GetTimeSeriesServiceStatisticsRequest {
   __type?: "GetTimeSeriesServiceStatisticsRequest";
-  /**
-   * <p>The end of the time frame for which to aggregate statistics.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>A filter expression defining entities that will be aggregated for statistics.
-   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
-   *             statistics are returned. </p>
-   */
-  EntitySelectorExpression?: string;
-
-  /**
-   * <p>The ARN of the group for which to pull statistics from.</p>
-   */
-  GroupARN?: string;
-
   /**
    * <p>The case-sensitive name of the group for which to pull statistics from.</p>
    */
@@ -1017,16 +967,31 @@ export interface GetTimeSeriesServiceStatisticsRequest {
   Period?: number;
 
   /**
+   * <p>The ARN of the group for which to pull statistics from.</p>
+   */
+  GroupARN?: string;
+
+  /**
    * <p>The start of the time frame for which to aggregate statistics.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time frame for which to aggregate statistics.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A filter expression defining entities that will be aggregated for statistics.
+   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
+   *             statistics are returned. </p>
+   */
+  EntitySelectorExpression?: string;
 }
 
 export namespace GetTimeSeriesServiceStatisticsRequest {
-  export const filterSensitiveLog = (
-    obj: GetTimeSeriesServiceStatisticsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTimeSeriesServiceStatisticsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetTimeSeriesServiceStatisticsRequest =>
     __isa(o, "GetTimeSeriesServiceStatisticsRequest");
@@ -1034,13 +999,6 @@ export namespace GetTimeSeriesServiceStatisticsRequest {
 
 export interface GetTimeSeriesServiceStatisticsResult {
   __type?: "GetTimeSeriesServiceStatisticsResult";
-  /**
-   * <p>A flag indicating whether or not a group's filter expression has been consistent,
-   *             or if a returned aggregation may show statistics from an older version of the group's
-   *             filter expression.</p>
-   */
-  ContainsOldGroupVersions?: boolean;
-
   /**
    * <p>Pagination token.</p>
    */
@@ -1050,13 +1008,18 @@ export interface GetTimeSeriesServiceStatisticsResult {
    * <p>The collection of statistics.</p>
    */
   TimeSeriesServiceStatistics?: TimeSeriesServiceStatistics[];
+
+  /**
+   * <p>A flag indicating whether or not a group's filter expression has been consistent,
+   *             or if a returned aggregation may show statistics from an older version of the group's
+   *             filter expression.</p>
+   */
+  ContainsOldGroupVersions?: boolean;
 }
 
 export namespace GetTimeSeriesServiceStatisticsResult {
-  export const filterSensitiveLog = (
-    obj: GetTimeSeriesServiceStatisticsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTimeSeriesServiceStatisticsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetTimeSeriesServiceStatisticsResult =>
     __isa(o, "GetTimeSeriesServiceStatisticsResult");
@@ -1065,43 +1028,41 @@ export namespace GetTimeSeriesServiceStatisticsResult {
 export interface GetTraceGraphRequest {
   __type?: "GetTraceGraphRequest";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Trace IDs of requests for which to generate a service graph.</p>
    */
   TraceIds: string[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetTraceGraphRequest {
   export const filterSensitiveLog = (obj: GetTraceGraphRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTraceGraphRequest =>
-    __isa(o, "GetTraceGraphRequest");
+  export const isa = (o: any): o is GetTraceGraphRequest => __isa(o, "GetTraceGraphRequest");
 }
 
 export interface GetTraceGraphResult {
   __type?: "GetTraceGraphResult";
   /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The services that have processed one of the specified requests.</p>
    */
   Services?: Service[];
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetTraceGraphResult {
   export const filterSensitiveLog = (obj: GetTraceGraphResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTraceGraphResult =>
-    __isa(o, "GetTraceGraphResult");
+  export const isa = (o: any): o is GetTraceGraphResult => __isa(o, "GetTraceGraphResult");
 }
 
 export interface GetTraceSummariesRequest {
@@ -1110,18 +1071,6 @@ export interface GetTraceSummariesRequest {
    * <p>The end of the time frame for which to retrieve traces.</p>
    */
   EndTime: Date | undefined;
-
-  /**
-   * <p>Specify a filter expression to retrieve trace summaries for services or requests that
-   *       meet certain requirements.</p>
-   */
-  FilterExpression?: string;
-
-  /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page
-   *       of results.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>Set to <code>true</code> to get summaries for only a subset of available
@@ -1136,26 +1085,43 @@ export interface GetTraceSummariesRequest {
   SamplingStrategy?: SamplingStrategy;
 
   /**
-   * <p>The start of the time frame for which to retrieve traces.</p>
+   * <p>Specify the pagination token returned by a previous request to retrieve the next page
+   *       of results.</p>
    */
-  StartTime: Date | undefined;
+  NextToken?: string;
+
+  /**
+   * <p>Specify a filter expression to retrieve trace summaries for services or requests that
+   *       meet certain requirements.</p>
+   */
+  FilterExpression?: string;
 
   /**
    * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
    */
   TimeRangeType?: TimeRangeType | string;
+
+  /**
+   * <p>The start of the time frame for which to retrieve traces.</p>
+   */
+  StartTime: Date | undefined;
 }
 
 export namespace GetTraceSummariesRequest {
   export const filterSensitiveLog = (obj: GetTraceSummariesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTraceSummariesRequest =>
-    __isa(o, "GetTraceSummariesRequest");
+  export const isa = (o: any): o is GetTraceSummariesRequest => __isa(o, "GetTraceSummariesRequest");
 }
 
 export interface GetTraceSummariesResult {
   __type?: "GetTraceSummariesResult";
+  /**
+   * <p>Trace IDs and annotations for traces that were found in the specified time
+   *       frame.</p>
+   */
+  TraceSummaries?: TraceSummary[];
+
   /**
    * <p>The start time of this page of results.</p>
    */
@@ -1169,12 +1135,6 @@ export interface GetTraceSummariesResult {
   NextToken?: string;
 
   /**
-   * <p>Trace IDs and annotations for traces that were found in the specified time
-   *       frame.</p>
-   */
-  TraceSummaries?: TraceSummary[];
-
-  /**
    * <p>The total number of traces processed, including traces that did not match the specified
    *       filter expression.</p>
    */
@@ -1183,10 +1143,9 @@ export interface GetTraceSummariesResult {
 
 export namespace GetTraceSummariesResult {
   export const filterSensitiveLog = (obj: GetTraceSummariesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTraceSummariesResult =>
-    __isa(o, "GetTraceSummariesResult");
+  export const isa = (o: any): o is GetTraceSummariesResult => __isa(o, "GetTraceSummariesResult");
 }
 
 /**
@@ -1194,11 +1153,6 @@ export namespace GetTraceSummariesResult {
  */
 export interface Group {
   __type?: "Group";
-  /**
-   * <p>The filter expression defining the parameters to include traces.</p>
-   */
-  FilterExpression?: string;
-
   /**
    * <p>The ARN of the group generated based on the GroupName.</p>
    */
@@ -1208,11 +1162,16 @@ export interface Group {
    * <p>The unique case-sensitive name of the group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The filter expression defining the parameters to include traces.</p>
+   */
+  FilterExpression?: string;
 }
 
 export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
@@ -1240,7 +1199,7 @@ export interface GroupSummary {
 
 export namespace GroupSummary {
   export const filterSensitiveLog = (obj: GroupSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GroupSummary => __isa(o, "GroupSummary");
 }
@@ -1264,10 +1223,9 @@ export interface HistogramEntry {
 
 export namespace HistogramEntry {
   export const filterSensitiveLog = (obj: HistogramEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HistogramEntry =>
-    __isa(o, "HistogramEntry");
+  export const isa = (o: any): o is HistogramEntry => __isa(o, "HistogramEntry");
 }
 
 /**
@@ -1276,9 +1234,9 @@ export namespace HistogramEntry {
 export interface Http {
   __type?: "Http";
   /**
-   * <p>The IP address of the requestor.</p>
+   * <p>The request URL.</p>
    */
-  ClientIp?: string;
+  HttpURL?: string;
 
   /**
    * <p>The request method.</p>
@@ -1286,24 +1244,24 @@ export interface Http {
   HttpMethod?: string;
 
   /**
-   * <p>The response status.</p>
+   * <p>The IP address of the requestor.</p>
    */
-  HttpStatus?: number;
-
-  /**
-   * <p>The request URL.</p>
-   */
-  HttpURL?: string;
+  ClientIp?: string;
 
   /**
    * <p>The request's user agent string.</p>
    */
   UserAgent?: string;
+
+  /**
+   * <p>The response status.</p>
+   */
+  HttpStatus?: number;
 }
 
 export namespace Http {
   export const filterSensitiveLog = (obj: Http): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Http => __isa(o, "Http");
 }
@@ -1321,18 +1279,15 @@ export interface InstanceIdDetail {
 
 export namespace InstanceIdDetail {
   export const filterSensitiveLog = (obj: InstanceIdDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceIdDetail =>
-    __isa(o, "InstanceIdDetail");
+  export const isa = (o: any): o is InstanceIdDetail => __isa(o, "InstanceIdDetail");
 }
 
 /**
  * <p>The request is missing required parameters or has invalid parameters.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -1340,10 +1295,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface PutEncryptionConfigRequest {
@@ -1382,10 +1336,9 @@ export interface PutEncryptionConfigRequest {
 
 export namespace PutEncryptionConfigRequest {
   export const filterSensitiveLog = (obj: PutEncryptionConfigRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutEncryptionConfigRequest =>
-    __isa(o, "PutEncryptionConfigRequest");
+  export const isa = (o: any): o is PutEncryptionConfigRequest => __isa(o, "PutEncryptionConfigRequest");
 }
 
 export interface PutEncryptionConfigResult {
@@ -1398,14 +1351,18 @@ export interface PutEncryptionConfigResult {
 
 export namespace PutEncryptionConfigResult {
   export const filterSensitiveLog = (obj: PutEncryptionConfigResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutEncryptionConfigResult =>
-    __isa(o, "PutEncryptionConfigResult");
+  export const isa = (o: any): o is PutEncryptionConfigResult => __isa(o, "PutEncryptionConfigResult");
 }
 
 export interface PutTelemetryRecordsRequest {
   __type?: "PutTelemetryRecordsRequest";
+  /**
+   * <p></p>
+   */
+  TelemetryRecords: TelemetryRecord[] | undefined;
+
   /**
    * <p></p>
    */
@@ -1420,19 +1377,13 @@ export interface PutTelemetryRecordsRequest {
    * <p></p>
    */
   ResourceARN?: string;
-
-  /**
-   * <p></p>
-   */
-  TelemetryRecords: TelemetryRecord[] | undefined;
 }
 
 export namespace PutTelemetryRecordsRequest {
   export const filterSensitiveLog = (obj: PutTelemetryRecordsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutTelemetryRecordsRequest =>
-    __isa(o, "PutTelemetryRecordsRequest");
+  export const isa = (o: any): o is PutTelemetryRecordsRequest => __isa(o, "PutTelemetryRecordsRequest");
 }
 
 export interface PutTelemetryRecordsResult {
@@ -1441,10 +1392,9 @@ export interface PutTelemetryRecordsResult {
 
 export namespace PutTelemetryRecordsResult {
   export const filterSensitiveLog = (obj: PutTelemetryRecordsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutTelemetryRecordsResult =>
-    __isa(o, "PutTelemetryRecordsResult");
+  export const isa = (o: any): o is PutTelemetryRecordsResult => __isa(o, "PutTelemetryRecordsResult");
 }
 
 export interface PutTraceSegmentsRequest {
@@ -1458,10 +1408,9 @@ export interface PutTraceSegmentsRequest {
 
 export namespace PutTraceSegmentsRequest {
   export const filterSensitiveLog = (obj: PutTraceSegmentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutTraceSegmentsRequest =>
-    __isa(o, "PutTraceSegmentsRequest");
+  export const isa = (o: any): o is PutTraceSegmentsRequest => __isa(o, "PutTraceSegmentsRequest");
 }
 
 export interface PutTraceSegmentsResult {
@@ -1474,10 +1423,9 @@ export interface PutTraceSegmentsResult {
 
 export namespace PutTraceSegmentsResult {
   export const filterSensitiveLog = (obj: PutTraceSegmentsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutTraceSegmentsResult =>
-    __isa(o, "PutTraceSegmentsResult");
+  export const isa = (o: any): o is PutTraceSegmentsResult => __isa(o, "PutTraceSegmentsResult");
 }
 
 /**
@@ -1493,10 +1441,9 @@ export interface ResourceARNDetail {
 
 export namespace ResourceARNDetail {
   export const filterSensitiveLog = (obj: ResourceARNDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceARNDetail =>
-    __isa(o, "ResourceARNDetail");
+  export const isa = (o: any): o is ResourceARNDetail => __isa(o, "ResourceARNDetail");
 }
 
 /**
@@ -1509,14 +1456,18 @@ export interface ResponseTimeRootCause {
    *       account ID, type, and inferred flag.</p>
    */
   Services?: ResponseTimeRootCauseService[];
+
+  /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
 }
 
 export namespace ResponseTimeRootCause {
   export const filterSensitiveLog = (obj: ResponseTimeRootCause): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseTimeRootCause =>
-    __isa(o, "ResponseTimeRootCause");
+  export const isa = (o: any): o is ResponseTimeRootCause => __isa(o, "ResponseTimeRootCause");
 }
 
 /**
@@ -1542,13 +1493,10 @@ export interface ResponseTimeRootCauseEntity {
 }
 
 export namespace ResponseTimeRootCauseEntity {
-  export const filterSensitiveLog = (
-    obj: ResponseTimeRootCauseEntity
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResponseTimeRootCauseEntity): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseTimeRootCauseEntity =>
-    __isa(o, "ResponseTimeRootCauseEntity");
+  export const isa = (o: any): o is ResponseTimeRootCauseEntity => __isa(o, "ResponseTimeRootCauseEntity");
 }
 
 /**
@@ -1557,24 +1505,14 @@ export namespace ResponseTimeRootCauseEntity {
 export interface ResponseTimeRootCauseService {
   __type?: "ResponseTimeRootCauseService";
   /**
-   * <p>The account ID associated to the service.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The path of root cause entities found on the service. </p>
-   */
-  EntityPath?: ResponseTimeRootCauseEntity[];
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
    * <p>The service name.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The type associated to the service.</p>
+   */
+  Type?: string;
 
   /**
    * <p>A collection of associated service names.</p>
@@ -1582,19 +1520,26 @@ export interface ResponseTimeRootCauseService {
   Names?: string[];
 
   /**
-   * <p>The type associated to the service.</p>
+   * <p>The account ID associated to the service.</p>
    */
-  Type?: string;
+  AccountId?: string;
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
+   * <p>The path of root cause entities found on the service. </p>
+   */
+  EntityPath?: ResponseTimeRootCauseEntity[];
 }
 
 export namespace ResponseTimeRootCauseService {
-  export const filterSensitiveLog = (
-    obj: ResponseTimeRootCauseService
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResponseTimeRootCauseService): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseTimeRootCauseService =>
-    __isa(o, "ResponseTimeRootCauseService");
+  export const isa = (o: any): o is ResponseTimeRootCauseService => __isa(o, "ResponseTimeRootCauseService");
 }
 
 /**
@@ -1615,18 +1560,15 @@ export interface RootCauseException {
 
 export namespace RootCauseException {
   export const filterSensitiveLog = (obj: RootCauseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RootCauseException =>
-    __isa(o, "RootCauseException");
+  export const isa = (o: any): o is RootCauseException => __isa(o, "RootCauseException");
 }
 
 /**
  * <p>You have reached the maximum number of sampling rules.</p>
  */
-export interface RuleLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RuleLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RuleLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1634,10 +1576,9 @@ export interface RuleLimitExceededException
 
 export namespace RuleLimitExceededException {
   export const filterSensitiveLog = (obj: RuleLimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RuleLimitExceededException =>
-    __isa(o, "RuleLimitExceededException");
+  export const isa = (o: any): o is RuleLimitExceededException => __isa(o, "RuleLimitExceededException");
 }
 
 /**
@@ -1648,15 +1589,25 @@ export namespace RuleLimitExceededException {
 export interface SamplingRule {
   __type?: "SamplingRule";
   /**
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
+   */
+  FixedRate: number | undefined;
+
+  /**
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   */
+  ServiceType: string | undefined;
+
+  /**
    * <p>Matches attributes derived from the request.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * <p>The version of the sampling rule format (<code>1</code>).</p>
    */
-  FixedRate: number | undefined;
+  Version: number | undefined;
 
   /**
    * <p>Matches the HTTP method of a request.</p>
@@ -1664,14 +1615,9 @@ export interface SamplingRule {
   HTTPMethod: string | undefined;
 
   /**
-   * <p>Matches the hostname from a request URL.</p>
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
    */
-  Host: string | undefined;
-
-  /**
-   * <p>The priority of the sampling rule.</p>
-   */
-  Priority: number | undefined;
+  ServiceName: string | undefined;
 
   /**
    * <p>A fixed number of matching requests to instrument per second, prior to applying the
@@ -1680,29 +1626,24 @@ export interface SamplingRule {
   ReservoirSize: number | undefined;
 
   /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
   RuleARN?: string;
 
   /**
-   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * <p>Matches the hostname from a request URL.</p>
    */
-  RuleName?: string;
+  Host: string | undefined;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
    */
-  ServiceName: string | undefined;
+  ResourceARN: string | undefined;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * <p>The priority of the sampling rule.</p>
    */
-  ServiceType: string | undefined;
+  Priority: number | undefined;
 
   /**
    * <p>Matches the path from a request URL.</p>
@@ -1710,14 +1651,14 @@ export interface SamplingRule {
   URLPath: string | undefined;
 
   /**
-   * <p>The version of the sampling rule format (<code>1</code>).</p>
+   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
-  Version: number | undefined;
+  RuleName?: string;
 }
 
 export namespace SamplingRule {
   export const filterSensitiveLog = (obj: SamplingRule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SamplingRule => __isa(o, "SamplingRule");
 }
@@ -1728,6 +1669,11 @@ export namespace SamplingRule {
 export interface SamplingRuleRecord {
   __type?: "SamplingRuleRecord";
   /**
+   * <p>The sampling rule.</p>
+   */
+  SamplingRule?: SamplingRule;
+
+  /**
    * <p>When the rule was created.</p>
    */
   CreatedAt?: Date;
@@ -1736,19 +1682,13 @@ export interface SamplingRuleRecord {
    * <p>When the rule was last modified.</p>
    */
   ModifiedAt?: Date;
-
-  /**
-   * <p>The sampling rule.</p>
-   */
-  SamplingRule?: SamplingRule;
 }
 
 export namespace SamplingRuleRecord {
   export const filterSensitiveLog = (obj: SamplingRuleRecord): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingRuleRecord =>
-    __isa(o, "SamplingRuleRecord");
+  export const isa = (o: any): o is SamplingRuleRecord => __isa(o, "SamplingRuleRecord");
 }
 
 /**
@@ -1757,20 +1697,30 @@ export namespace SamplingRuleRecord {
 export interface SamplingRuleUpdate {
   __type?: "SamplingRuleUpdate";
   /**
+   * <p>A fixed number of matching requests to instrument per second, prior to applying the
+   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
+   */
+  ReservoirSize?: number;
+
+  /**
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   */
+  ServiceName?: string;
+
+  /**
    * <p>Matches attributes derived from the request.</p>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
-  FixedRate?: number;
+  RuleARN?: string;
 
   /**
-   * <p>Matches the HTTP method of a request.</p>
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
    */
-  HTTPMethod?: string;
+  ServiceType?: string;
 
   /**
    * <p>Matches the hostname from a request URL.</p>
@@ -1783,20 +1733,14 @@ export interface SamplingRuleUpdate {
   Priority?: number;
 
   /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-   */
-  ReservoirSize?: number;
-
-  /**
    * <p>Matches the ARN of the AWS resource on which the service runs.</p>
    */
   ResourceARN?: string;
 
   /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * <p>Matches the path from a request URL.</p>
    */
-  RuleARN?: string;
+  URLPath?: string;
 
   /**
    * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
@@ -1804,27 +1748,22 @@ export interface SamplingRuleUpdate {
   RuleName?: string;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
    */
-  ServiceName?: string;
+  FixedRate?: number;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * <p>Matches the HTTP method of a request.</p>
    */
-  ServiceType?: string;
-
-  /**
-   * <p>Matches the path from a request URL.</p>
-   */
-  URLPath?: string;
+  HTTPMethod?: string;
 }
 
 export namespace SamplingRuleUpdate {
   export const filterSensitiveLog = (obj: SamplingRuleUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingRuleUpdate =>
-    __isa(o, "SamplingRuleUpdate");
+  export const isa = (o: any): o is SamplingRuleUpdate => __isa(o, "SamplingRuleUpdate");
 }
 
 /**
@@ -1835,14 +1774,9 @@ export namespace SamplingRuleUpdate {
 export interface SamplingStatisticsDocument {
   __type?: "SamplingStatisticsDocument";
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * <p>The number of requests recorded.</p>
    */
-  BorrowCount?: number;
-
-  /**
-   * <p>A unique identifier for the service in hexadecimal.</p>
-   */
-  ClientID: string | undefined;
+  SampledCount: number | undefined;
 
   /**
    * <p>The number of requests that matched the rule.</p>
@@ -1855,22 +1789,26 @@ export interface SamplingStatisticsDocument {
   RuleName: string | undefined;
 
   /**
-   * <p>The number of requests recorded.</p>
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
    */
-  SampledCount: number | undefined;
+  BorrowCount?: number;
 
   /**
    * <p>The current time.</p>
    */
   Timestamp: Date | undefined;
+
+  /**
+   * <p>A unique identifier for the service in hexadecimal.</p>
+   */
+  ClientID: string | undefined;
 }
 
 export namespace SamplingStatisticsDocument {
   export const filterSensitiveLog = (obj: SamplingStatisticsDocument): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingStatisticsDocument =>
-    __isa(o, "SamplingStatisticsDocument");
+  export const isa = (o: any): o is SamplingStatisticsDocument => __isa(o, "SamplingStatisticsDocument");
 }
 
 /**
@@ -1879,16 +1817,6 @@ export namespace SamplingStatisticsDocument {
  */
 export interface SamplingStatisticSummary {
   __type?: "SamplingStatisticSummary";
-  /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
-   */
-  BorrowCount?: number;
-
-  /**
-   * <p>The number of requests that matched the rule.</p>
-   */
-  RequestCount?: number;
-
   /**
    * <p>The name of the sampling rule.</p>
    */
@@ -1903,14 +1831,23 @@ export interface SamplingStatisticSummary {
    * <p>The start time of the reporting window.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   */
+  BorrowCount?: number;
+
+  /**
+   * <p>The number of requests that matched the rule.</p>
+   */
+  RequestCount?: number;
 }
 
 export namespace SamplingStatisticSummary {
   export const filterSensitiveLog = (obj: SamplingStatisticSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingStatisticSummary =>
-    __isa(o, "SamplingStatisticSummary");
+  export const isa = (o: any): o is SamplingStatisticSummary => __isa(o, "SamplingStatisticSummary");
 }
 
 /**
@@ -1931,15 +1868,14 @@ export interface SamplingStrategy {
 
 export namespace SamplingStrategy {
   export const filterSensitiveLog = (obj: SamplingStrategy): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingStrategy =>
-    __isa(o, "SamplingStrategy");
+  export const isa = (o: any): o is SamplingStrategy => __isa(o, "SamplingStrategy");
 }
 
 export enum SamplingStrategyName {
   FixedRate = "FixedRate",
-  PartialScan = "PartialScan"
+  PartialScan = "PartialScan",
 }
 
 /**
@@ -1949,6 +1885,16 @@ export enum SamplingStrategyName {
  */
 export interface SamplingTargetDocument {
   __type?: "SamplingTargetDocument";
+  /**
+   * <p>The name of the sampling rule.</p>
+   */
+  RuleName?: string;
+
+  /**
+   * <p>When the reservoir quota expires.</p>
+   */
+  ReservoirQuotaTTL?: Date;
+
   /**
    * <p>The percentage of matching requests to instrument, after the reservoir is
    *       exhausted.</p>
@@ -1965,24 +1911,13 @@ export interface SamplingTargetDocument {
    * <p>The number of requests per second that X-Ray allocated this service.</p>
    */
   ReservoirQuota?: number;
-
-  /**
-   * <p>When the reservoir quota expires.</p>
-   */
-  ReservoirQuotaTTL?: Date;
-
-  /**
-   * <p>The name of the sampling rule.</p>
-   */
-  RuleName?: string;
 }
 
 export namespace SamplingTargetDocument {
   export const filterSensitiveLog = (obj: SamplingTargetDocument): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SamplingTargetDocument =>
-    __isa(o, "SamplingTargetDocument");
+  export const isa = (o: any): o is SamplingTargetDocument => __isa(o, "SamplingTargetDocument");
 }
 
 /**
@@ -1996,19 +1931,19 @@ export namespace SamplingTargetDocument {
 export interface Segment {
   __type?: "Segment";
   /**
-   * <p>The segment document.</p>
-   */
-  Document?: string;
-
-  /**
    * <p>The segment's ID.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The segment document.</p>
+   */
+  Document?: string;
 }
 
 export namespace Segment {
   export const filterSensitiveLog = (obj: Segment): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Segment => __isa(o, "Segment");
 }
@@ -2020,54 +1955,9 @@ export namespace Segment {
 export interface Service {
   __type?: "Service";
   /**
-   * <p>Identifier of the AWS account in which the service runs.</p>
+   * <p>Aggregated statistics for the service.</p>
    */
-  AccountId?: string;
-
-  /**
-   * <p>A histogram that maps the spread of service durations.</p>
-   */
-  DurationHistogram?: HistogramEntry[];
-
-  /**
-   * <p>Connections to downstream services.</p>
-   */
-  Edges?: Edge[];
-
-  /**
-   * <p>The end time of the last segment that the service generated.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The canonical name of the service.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A list of names for the service, including the canonical name.</p>
-   */
-  Names?: string[];
-
-  /**
-   * <p>Identifier for the service. Unique within the service map.</p>
-   */
-  ReferenceId?: number;
-
-  /**
-   * <p>A histogram that maps the spread of service response times.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
-
-  /**
-   * <p>Indicates that the service was the first service to process a request.</p>
-   */
-  Root?: boolean;
-
-  /**
-   * <p>The start time of the first segment that the service generated.</p>
-   */
-  StartTime?: Date;
+  SummaryStatistics?: ServiceStatistics;
 
   /**
    * <p>The service's state.</p>
@@ -2075,9 +1965,54 @@ export interface Service {
   State?: string;
 
   /**
-   * <p>Aggregated statistics for the service.</p>
+   * <p>The start time of the first segment that the service generated.</p>
    */
-  SummaryStatistics?: ServiceStatistics;
+  StartTime?: Date;
+
+  /**
+   * <p>A histogram that maps the spread of service response times.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Identifier of the AWS account in which the service runs.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The canonical name of the service.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The end time of the last segment that the service generated.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Connections to downstream services.</p>
+   */
+  Edges?: Edge[];
+
+  /**
+   * <p>A histogram that maps the spread of service durations.</p>
+   */
+  DurationHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Identifier for the service. Unique within the service map.</p>
+   */
+  ReferenceId?: number;
+
+  /**
+   * <p>Indicates that the service was the first service to process a request.</p>
+   */
+  Root?: boolean;
+
+  /**
+   * <p>A list of names for the service, including the canonical name.</p>
+   */
+  Names?: string[];
 
   /**
    * <p>The type of service.</p>
@@ -2108,7 +2043,7 @@ export interface Service {
 
 export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Service => __isa(o, "Service");
 }
@@ -2126,22 +2061,22 @@ export interface ServiceId {
   /**
    * <p></p>
    */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
   Name?: string;
 
   /**
    * <p></p>
    */
   Names?: string[];
-
-  /**
-   * <p></p>
-   */
-  Type?: string;
 }
 
 export namespace ServiceId {
   export const filterSensitiveLog = (obj: ServiceId): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ServiceId => __isa(o, "ServiceId");
 }
@@ -2152,19 +2087,9 @@ export namespace ServiceId {
 export interface ServiceStatistics {
   __type?: "ServiceStatistics";
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * <p>The aggregate response time of completed requests.</p>
    */
-  ErrorStatistics?: ErrorStatistics;
-
-  /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
-   */
-  FaultStatistics?: FaultStatistics;
-
-  /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
-   */
-  OkCount?: number;
+  TotalResponseTime?: number;
 
   /**
    * <p>The total number of completed requests.</p>
@@ -2172,17 +2097,26 @@ export interface ServiceStatistics {
   TotalCount?: number;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
-  TotalResponseTime?: number;
+  ErrorStatistics?: ErrorStatistics;
+
+  /**
+   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   */
+  OkCount?: number;
+
+  /**
+   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   */
+  FaultStatistics?: FaultStatistics;
 }
 
 export namespace ServiceStatistics {
   export const filterSensitiveLog = (obj: ServiceStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceStatistics =>
-    __isa(o, "ServiceStatistics");
+  export const isa = (o: any): o is ServiceStatistics => __isa(o, "ServiceStatistics");
 }
 
 /**
@@ -2193,7 +2127,7 @@ export interface TelemetryRecord {
   /**
    * <p></p>
    */
-  BackendConnectionErrors?: BackendConnectionErrors;
+  Timestamp: Date | undefined;
 
   /**
    * <p></p>
@@ -2203,30 +2137,29 @@ export interface TelemetryRecord {
   /**
    * <p></p>
    */
-  SegmentsRejectedCount?: number;
-
-  /**
-   * <p></p>
-   */
   SegmentsSentCount?: number;
 
   /**
    * <p></p>
    */
-  SegmentsSpilloverCount?: number;
+  SegmentsRejectedCount?: number;
 
   /**
    * <p></p>
    */
-  Timestamp: Date | undefined;
+  BackendConnectionErrors?: BackendConnectionErrors;
+
+  /**
+   * <p></p>
+   */
+  SegmentsSpilloverCount?: number;
 }
 
 export namespace TelemetryRecord {
   export const filterSensitiveLog = (obj: TelemetryRecord): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TelemetryRecord =>
-    __isa(o, "TelemetryRecord");
+  export const isa = (o: any): o is TelemetryRecord => __isa(o, "TelemetryRecord");
 }
 
 /**
@@ -2240,15 +2173,14 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 
 export namespace ThrottledException {
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottledException =>
-    __isa(o, "ThrottledException");
+  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 export enum TimeRangeType {
   Event = "Event",
-  TraceId = "TraceId"
+  TraceId = "TraceId",
 }
 
 /**
@@ -2256,16 +2188,6 @@ export enum TimeRangeType {
  */
 export interface TimeSeriesServiceStatistics {
   __type?: "TimeSeriesServiceStatistics";
-  /**
-   * <p>Response statistics for an edge.</p>
-   */
-  EdgeSummaryStatistics?: EdgeStatistics;
-
-  /**
-   * <p>The response time histogram for the selected entities.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
-
   /**
    * <p>Response statistics for a service.</p>
    */
@@ -2275,16 +2197,23 @@ export interface TimeSeriesServiceStatistics {
    * <p>Timestamp of the window for which statistics are aggregated.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>Response statistics for an edge.</p>
+   */
+  EdgeSummaryStatistics?: EdgeStatistics;
+
+  /**
+   * <p>The response time histogram for the selected entities.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
 }
 
 export namespace TimeSeriesServiceStatistics {
-  export const filterSensitiveLog = (
-    obj: TimeSeriesServiceStatistics
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TimeSeriesServiceStatistics): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TimeSeriesServiceStatistics =>
-    __isa(o, "TimeSeriesServiceStatistics");
+  export const isa = (o: any): o is TimeSeriesServiceStatistics => __isa(o, "TimeSeriesServiceStatistics");
 }
 
 /**
@@ -2292,12 +2221,6 @@ export namespace TimeSeriesServiceStatistics {
  */
 export interface Trace {
   __type?: "Trace";
-  /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
-   */
-  Duration?: number;
-
   /**
    * <p>The unique identifier for the request that generated the trace's segments and
    *       subsegments.</p>
@@ -2308,11 +2231,17 @@ export interface Trace {
    * <p>Segment documents for the segments and subsegments that comprise the trace.</p>
    */
   Segments?: Segment[];
+
+  /**
+   * <p>The length of time in seconds between the start time of the root segment and the end
+   *       time of the last segment that completed.</p>
+   */
+  Duration?: number;
 }
 
 export namespace Trace {
   export const filterSensitiveLog = (obj: Trace): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Trace => __isa(o, "Trace");
 }
@@ -2323,32 +2252,9 @@ export namespace Trace {
 export interface TraceSummary {
   __type?: "TraceSummary";
   /**
-   * <p>Annotations from the trace's segment documents.</p>
-   */
-  Annotations?: { [key: string]: ValueWithServiceIds[] };
-
-  /**
-   * <p>A list of availability zones for any zone corresponding to the trace
-   *       segments.</p>
-   */
-  AvailabilityZones?: AvailabilityZoneDetail[];
-
-  /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
-   */
-  Duration?: number;
-
-  /**
    * <p>The root of a trace.</p>
    */
   EntryPoint?: ServiceId;
-
-  /**
-   * <p>A collection of ErrorRootCause structures corresponding to the trace
-   *       segments.</p>
-   */
-  ErrorRootCauses?: ErrorRootCause[];
 
   /**
    * <p>A collection of FaultRootCause structures corresponding to the the trace
@@ -2357,30 +2263,15 @@ export interface TraceSummary {
   FaultRootCauses?: FaultRootCause[];
 
   /**
-   * <p>The root segment document has a 400 series error.</p>
-   */
-  HasError?: boolean;
-
-  /**
-   * <p>The root segment document has a 500 series error.</p>
-   */
-  HasFault?: boolean;
-
-  /**
-   * <p>One or more of the segment documents has a 429 throttling error.</p>
-   */
-  HasThrottle?: boolean;
-
-  /**
    * <p>Information about the HTTP request served by the trace.</p>
    */
   Http?: Http;
 
   /**
-   * <p>The unique identifier for the request that generated the trace's segments and
-   *       subsegments.</p>
+   * <p>A list of availability zones for any zone corresponding to the trace
+   *       segments.</p>
    */
-  Id?: string;
+  AvailabilityZones?: AvailabilityZoneDetail[];
 
   /**
    * <p>A list of EC2 instance IDs for any instance corresponding to the trace
@@ -2389,9 +2280,9 @@ export interface TraceSummary {
   InstanceIds?: InstanceIdDetail[];
 
   /**
-   * <p>One or more of the segment documents is in progress.</p>
+   * <p>The root segment document has a 400 series error.</p>
    */
-  IsPartial?: boolean;
+  HasError?: boolean;
 
   /**
    * <p>The matched time stamp of a defined event.</p>
@@ -2399,9 +2290,42 @@ export interface TraceSummary {
   MatchedEventTime?: Date;
 
   /**
+   * <p>The unique identifier for the request that generated the trace's segments and
+   *       subsegments.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
    */
   ResourceARNs?: ResourceARNDetail[];
+
+  /**
+   * <p>The root segment document has a 500 series error.</p>
+   */
+  HasFault?: boolean;
+
+  /**
+   * <p>Annotations from the trace's segment documents.</p>
+   */
+  Annotations?: { [key: string]: ValueWithServiceIds[] };
+
+  /**
+   * <p>A collection of ErrorRootCause structures corresponding to the trace
+   *       segments.</p>
+   */
+  ErrorRootCauses?: ErrorRootCause[];
+
+  /**
+   * <p>One or more of the segment documents is in progress.</p>
+   */
+  IsPartial?: boolean;
+
+  /**
+   * <p>The length of time in seconds between the start time of the root segment and the end
+   *       time of the last segment that completed.</p>
+   */
+  Duration?: number;
 
   /**
    * <p>The length of time in seconds between the start and end times of the root segment. If
@@ -2410,6 +2334,11 @@ export interface TraceSummary {
    *       traced activity completes.</p>
    */
   ResponseTime?: number;
+
+  /**
+   * <p>Service IDs from the trace's segment documents.</p>
+   */
+  ServiceIds?: ServiceId[];
 
   /**
    * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
@@ -2423,9 +2352,9 @@ export interface TraceSummary {
   Revision?: number;
 
   /**
-   * <p>Service IDs from the trace's segment documents.</p>
+   * <p>One or more of the segment documents has a 429 throttling error.</p>
    */
-  ServiceIds?: ServiceId[];
+  HasThrottle?: boolean;
 
   /**
    * <p>Users from the trace's segment documents.</p>
@@ -2435,7 +2364,7 @@ export interface TraceSummary {
 
 export namespace TraceSummary {
   export const filterSensitiveLog = (obj: TraceSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TraceSummary => __isa(o, "TraceSummary");
 }
@@ -2446,19 +2375,19 @@ export namespace TraceSummary {
 export interface TraceUser {
   __type?: "TraceUser";
   /**
-   * <p>Services that the user's request hit.</p>
-   */
-  ServiceIds?: ServiceId[];
-
-  /**
    * <p>The user's name.</p>
    */
   UserName?: string;
+
+  /**
+   * <p>Services that the user's request hit.</p>
+   */
+  ServiceIds?: ServiceId[];
 }
 
 export namespace TraceUser {
   export const filterSensitiveLog = (obj: TraceUser): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TraceUser => __isa(o, "TraceUser");
 }
@@ -2470,14 +2399,14 @@ export namespace TraceUser {
 export interface UnprocessedStatistics {
   __type?: "UnprocessedStatistics";
   /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The error message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
 
   /**
    * <p>The name of the sampling rule.</p>
@@ -2487,10 +2416,9 @@ export interface UnprocessedStatistics {
 
 export namespace UnprocessedStatistics {
   export const filterSensitiveLog = (obj: UnprocessedStatistics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnprocessedStatistics =>
-    __isa(o, "UnprocessedStatistics");
+  export const isa = (o: any): o is UnprocessedStatistics => __isa(o, "UnprocessedStatistics");
 }
 
 /**
@@ -2499,9 +2427,9 @@ export namespace UnprocessedStatistics {
 export interface UnprocessedTraceSegment {
   __type?: "UnprocessedTraceSegment";
   /**
-   * <p>The error that caused processing to fail.</p>
+   * <p>The error message.</p>
    */
-  ErrorCode?: string;
+  Message?: string;
 
   /**
    * <p>The segment's ID.</p>
@@ -2509,21 +2437,25 @@ export interface UnprocessedTraceSegment {
   Id?: string;
 
   /**
-   * <p>The error message.</p>
+   * <p>The error that caused processing to fail.</p>
    */
-  Message?: string;
+  ErrorCode?: string;
 }
 
 export namespace UnprocessedTraceSegment {
   export const filterSensitiveLog = (obj: UnprocessedTraceSegment): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnprocessedTraceSegment =>
-    __isa(o, "UnprocessedTraceSegment");
+  export const isa = (o: any): o is UnprocessedTraceSegment => __isa(o, "UnprocessedTraceSegment");
 }
 
 export interface UpdateGroupRequest {
   __type?: "UpdateGroupRequest";
+  /**
+   * <p>The case-sensitive name of the group.</p>
+   */
+  GroupName?: string;
+
   /**
    * <p>The updated filter expression defining criteria by which to group traces.</p>
    */
@@ -2533,19 +2465,13 @@ export interface UpdateGroupRequest {
    * <p>The ARN that was generated upon creation.</p>
    */
   GroupARN?: string;
-
-  /**
-   * <p>The case-sensitive name of the group.</p>
-   */
-  GroupName?: string;
 }
 
 export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest =>
-    __isa(o, "UpdateGroupRequest");
+  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateGroupResult {
@@ -2560,10 +2486,9 @@ export interface UpdateGroupResult {
 
 export namespace UpdateGroupResult {
   export const filterSensitiveLog = (obj: UpdateGroupResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupResult =>
-    __isa(o, "UpdateGroupResult");
+  export const isa = (o: any): o is UpdateGroupResult => __isa(o, "UpdateGroupResult");
 }
 
 export interface UpdateSamplingRuleRequest {
@@ -2576,10 +2501,9 @@ export interface UpdateSamplingRuleRequest {
 
 export namespace UpdateSamplingRuleRequest {
   export const filterSensitiveLog = (obj: UpdateSamplingRuleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSamplingRuleRequest =>
-    __isa(o, "UpdateSamplingRuleRequest");
+  export const isa = (o: any): o is UpdateSamplingRuleRequest => __isa(o, "UpdateSamplingRuleRequest");
 }
 
 export interface UpdateSamplingRuleResult {
@@ -2592,10 +2516,9 @@ export interface UpdateSamplingRuleResult {
 
 export namespace UpdateSamplingRuleResult {
   export const filterSensitiveLog = (obj: UpdateSamplingRuleResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSamplingRuleResult =>
-    __isa(o, "UpdateSamplingRuleResult");
+  export const isa = (o: any): o is UpdateSamplingRuleResult => __isa(o, "UpdateSamplingRuleResult");
 }
 
 /**
@@ -2604,20 +2527,19 @@ export namespace UpdateSamplingRuleResult {
 export interface ValueWithServiceIds {
   __type?: "ValueWithServiceIds";
   /**
-   * <p>Values of the annotation.</p>
-   */
-  AnnotationValue?: AnnotationValue;
-
-  /**
    * <p>Services to which the annotation applies.</p>
    */
   ServiceIds?: ServiceId[];
+
+  /**
+   * <p>Values of the annotation.</p>
+   */
+  AnnotationValue?: AnnotationValue;
 }
 
 export namespace ValueWithServiceIds {
   export const filterSensitiveLog = (obj: ValueWithServiceIds): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValueWithServiceIds =>
-    __isa(o, "ValueWithServiceIds");
+  export const isa = (o: any): o is ValueWithServiceIds => __isa(o, "ValueWithServiceIds");
 }

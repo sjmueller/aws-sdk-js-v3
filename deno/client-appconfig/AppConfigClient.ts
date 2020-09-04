@@ -1,118 +1,83 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand.ts";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
 import {
   CreateConfigurationProfileCommandInput,
-  CreateConfigurationProfileCommandOutput
+  CreateConfigurationProfileCommandOutput,
 } from "./commands/CreateConfigurationProfileCommand.ts";
 import {
   CreateDeploymentStrategyCommandInput,
-  CreateDeploymentStrategyCommandOutput
+  CreateDeploymentStrategyCommandOutput,
 } from "./commands/CreateDeploymentStrategyCommand.ts";
+import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand.ts";
 import {
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput
-} from "./commands/CreateEnvironmentCommand.ts";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand.ts";
+  CreateHostedConfigurationVersionCommandInput,
+  CreateHostedConfigurationVersionCommandOutput,
+} from "./commands/CreateHostedConfigurationVersionCommand.ts";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand.ts";
 import {
   DeleteConfigurationProfileCommandInput,
-  DeleteConfigurationProfileCommandOutput
+  DeleteConfigurationProfileCommandOutput,
 } from "./commands/DeleteConfigurationProfileCommand.ts";
 import {
   DeleteDeploymentStrategyCommandInput,
-  DeleteDeploymentStrategyCommandOutput
+  DeleteDeploymentStrategyCommandOutput,
 } from "./commands/DeleteDeploymentStrategyCommand.ts";
+import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand.ts";
 import {
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
-} from "./commands/DeleteEnvironmentCommand.ts";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand.ts";
-import {
-  GetConfigurationCommandInput,
-  GetConfigurationCommandOutput
-} from "./commands/GetConfigurationCommand.ts";
+  DeleteHostedConfigurationVersionCommandInput,
+  DeleteHostedConfigurationVersionCommandOutput,
+} from "./commands/DeleteHostedConfigurationVersionCommand.ts";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand.ts";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand.ts";
 import {
   GetConfigurationProfileCommandInput,
-  GetConfigurationProfileCommandOutput
+  GetConfigurationProfileCommandOutput,
 } from "./commands/GetConfigurationProfileCommand.ts";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand.ts";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand.ts";
 import {
   GetDeploymentStrategyCommandInput,
-  GetDeploymentStrategyCommandOutput
+  GetDeploymentStrategyCommandOutput,
 } from "./commands/GetDeploymentStrategyCommand.ts";
+import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand.ts";
 import {
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput
-} from "./commands/GetEnvironmentCommand.ts";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand.ts";
+  GetHostedConfigurationVersionCommandInput,
+  GetHostedConfigurationVersionCommandOutput,
+} from "./commands/GetHostedConfigurationVersionCommand.ts";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand.ts";
 import {
   ListConfigurationProfilesCommandInput,
-  ListConfigurationProfilesCommandOutput
+  ListConfigurationProfilesCommandOutput,
 } from "./commands/ListConfigurationProfilesCommand.ts";
 import {
   ListDeploymentStrategiesCommandInput,
-  ListDeploymentStrategiesCommandOutput
+  ListDeploymentStrategiesCommandOutput,
 } from "./commands/ListDeploymentStrategiesCommand.ts";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand.ts";
+import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand.ts";
 import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand.ts";
-import {
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
-} from "./commands/ListEnvironmentsCommand.ts";
+  ListHostedConfigurationVersionsCommandInput,
+  ListHostedConfigurationVersionsCommandOutput,
+} from "./commands/ListHostedConfigurationVersionsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput
-} from "./commands/StartDeploymentCommand.ts";
-import {
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput
-} from "./commands/StopDeploymentCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand.ts";
+import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand.ts";
+import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand.ts";
 import {
   UpdateConfigurationProfileCommandInput,
-  UpdateConfigurationProfileCommandOutput
+  UpdateConfigurationProfileCommandOutput,
 } from "./commands/UpdateConfigurationProfileCommand.ts";
 import {
   UpdateDeploymentStrategyCommandInput,
-  UpdateDeploymentStrategyCommandOutput
+  UpdateDeploymentStrategyCommandOutput,
 } from "./commands/UpdateDeploymentStrategyCommand.ts";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand.ts";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand.ts";
 import {
   ValidateConfigurationCommandInput,
-  ValidateConfigurationCommandOutput
+  ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -121,38 +86,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -161,9 +122,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -171,21 +133,25 @@ export type ServiceInputTypes =
   | CreateConfigurationProfileCommandInput
   | CreateDeploymentStrategyCommandInput
   | CreateEnvironmentCommandInput
+  | CreateHostedConfigurationVersionCommandInput
   | DeleteApplicationCommandInput
   | DeleteConfigurationProfileCommandInput
   | DeleteDeploymentStrategyCommandInput
   | DeleteEnvironmentCommandInput
+  | DeleteHostedConfigurationVersionCommandInput
   | GetApplicationCommandInput
   | GetConfigurationCommandInput
   | GetConfigurationProfileCommandInput
   | GetDeploymentCommandInput
   | GetDeploymentStrategyCommandInput
   | GetEnvironmentCommandInput
+  | GetHostedConfigurationVersionCommandInput
   | ListApplicationsCommandInput
   | ListConfigurationProfilesCommandInput
   | ListDeploymentStrategiesCommandInput
   | ListDeploymentsCommandInput
   | ListEnvironmentsCommandInput
+  | ListHostedConfigurationVersionsCommandInput
   | ListTagsForResourceCommandInput
   | StartDeploymentCommandInput
   | StopDeploymentCommandInput
@@ -202,21 +168,25 @@ export type ServiceOutputTypes =
   | CreateConfigurationProfileCommandOutput
   | CreateDeploymentStrategyCommandOutput
   | CreateEnvironmentCommandOutput
+  | CreateHostedConfigurationVersionCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteConfigurationProfileCommandOutput
   | DeleteDeploymentStrategyCommandOutput
   | DeleteEnvironmentCommandOutput
+  | DeleteHostedConfigurationVersionCommandOutput
   | GetApplicationCommandOutput
   | GetConfigurationCommandOutput
   | GetConfigurationProfileCommandOutput
   | GetDeploymentCommandOutput
   | GetDeploymentStrategyCommandOutput
   | GetEnvironmentCommandOutput
+  | GetHostedConfigurationVersionCommandOutput
   | ListApplicationsCommandOutput
   | ListConfigurationProfilesCommandOutput
   | ListDeploymentStrategiesCommandOutput
   | ListDeploymentsCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListHostedConfigurationVersionsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartDeploymentCommandOutput
   | StopDeploymentCommandOutput
@@ -228,8 +198,7 @@ export type ServiceOutputTypes =
   | UpdateEnvironmentCommandOutput
   | ValidateConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -303,14 +272,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -318,9 +292,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppConfigClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +301,7 @@ export type AppConfigClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -343,24 +313,25 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
 /**
  * <fullname>AWS AppConfig</fullname>
  *          <p>Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy
- *          application configurations. AppConfig supports controlled deployments to applications of any size
- *          and includes built-in validation checks and monitoring. You can use AppConfig with applications
- *          hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
+ *          application configurations. AppConfig supports controlled deployments to applications of any
+ *          size and includes built-in validation checks and monitoring. You can use AppConfig with
+ *          applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT
  *          devices.</p>
  *
  *          <p>To prevent errors when deploying application configurations, especially for production
- *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators. A
- *          validator provides a syntactic or semantic check to ensure that the configuration you want
- *          to deploy works as intended. To validate your application configuration data, you provide a
- *          schema or a Lambda function that runs against the configuration. The configuration
- *          deployment or update can only proceed when the configuration data is valid.</p>
+ *          systems where a simple typo could cause an unexpected outage, AppConfig includes validators.
+ *          A validator provides a syntactic or semantic check to ensure that the configuration you
+ *          want to deploy works as intended. To validate your application configuration data, you
+ *          provide a schema or a Lambda function that runs against the configuration. The
+ *          configuration deployment or update can only proceed when the configuration data is
+ *          valid.</p>
  *
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
- *          deployment is successful. If the system encounters an error, AppConfig rolls back the change to
- *          minimize impact for your application users. You can configure a deployment strategy for
+ *          deployment is successful. If the system encounters an error, AppConfig rolls back the change
+ *          to minimize impact for your application users. You can configure a deployment strategy for
  *          each application or environment that includes deployment criteria, including velocity, bake
- *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an alarm,
- *          AppConfig automatically rolls back to the previous version. </p>
+ *          time, and alarms to monitor. Similar to error monitoring, if a deployment triggers an
+ *          alarm, AppConfig automatically rolls back to the previous version. </p>
  *
  *          <p>AppConfig supports multiple use cases. Here are some examples.</p>
  *          <ul>
@@ -372,18 +343,19 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Feature toggle</b>: Use AppConfig to turn on new features
- *                that require a timely deployment, such as a product launch or announcement. </p>
+ *                   <b>Feature toggle</b>: Use AppConfig to turn on new
+ *                features that require a timely deployment, such as a product launch or announcement.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>User membership</b>: Use AppConfig to allow premium
+ *                   <b>Allow list</b>: Use AppConfig to allow premium
  *                subscribers to access paid content. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Operational issues</b>: Use AppConfig to reduce stress on
- *                your application when a dependency or other external factor impacts the
+ *                   <b>Operational issues</b>: Use AppConfig to reduce stress
+ *                on your application when a dependency or other external factor impacts the
  *                system.</p>
  *             </li>
  *          </ul>
@@ -400,7 +372,7 @@ export class AppConfigClient extends __Client<
   constructor(configuration: AppConfigClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -415,6 +387,7 @@ export class AppConfigClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

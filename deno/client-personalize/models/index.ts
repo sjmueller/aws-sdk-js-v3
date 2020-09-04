@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -11,9 +7,19 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface Algorithm {
   __type?: "Algorithm";
   /**
+   * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
+   */
+  defaultResourceConfig?: { [key: string]: string };
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
    */
   algorithmArn?: string;
+
+  /**
+   * <p>The name of the algorithm.</p>
+   */
+  name?: string;
 
   /**
    * <p>The URI of the Docker container for the algorithm image.</p>
@@ -21,9 +27,24 @@ export interface Algorithm {
   algorithmImage?: AlgorithmImage;
 
   /**
-   * <p>The date and time (in Unix time) that the algorithm was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the role.</p>
    */
-  creationDateTime?: Date;
+  roleArn?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Specifies the default hyperparameters.</p>
+   */
+  defaultHyperParameters?: { [key: string]: string };
+
+  /**
+   * <p>The training input mode.</p>
+   */
+  trainingInputMode?: string;
 
   /**
    * <p>Specifies the default hyperparameters, their ranges, and whether they
@@ -33,39 +54,14 @@ export interface Algorithm {
   defaultHyperParameterRanges?: DefaultHyperParameterRanges;
 
   /**
-   * <p>Specifies the default hyperparameters.</p>
+   * <p>The date and time (in Unix time) that the algorithm was created.</p>
    */
-  defaultHyperParameters?: { [key: string]: string };
-
-  /**
-   * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
-   */
-  defaultResourceConfig?: { [key: string]: string };
-
-  /**
-   * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the algorithm.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The training input mode.</p>
-   */
-  trainingInputMode?: string;
+  creationDateTime?: Date;
 }
 
 export namespace Algorithm {
   export const filterSensitiveLog = (obj: Algorithm): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Algorithm => __isa(o, "Algorithm");
 }
@@ -76,22 +72,21 @@ export namespace Algorithm {
 export interface AlgorithmImage {
   __type?: "AlgorithmImage";
   /**
-   * <p>The URI of the Docker container for the algorithm image.</p>
-   */
-  dockerURI: string | undefined;
-
-  /**
    * <p>The name of the algorithm image.</p>
    */
   name?: string;
+
+  /**
+   * <p>The URI of the Docker container for the algorithm image.</p>
+   */
+  dockerURI: string | undefined;
 }
 
 export namespace AlgorithmImage {
   export const filterSensitiveLog = (obj: AlgorithmImage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AlgorithmImage =>
-    __isa(o, "AlgorithmImage");
+  export const isa = (o: any): o is AlgorithmImage => __isa(o, "AlgorithmImage");
 }
 
 /**
@@ -115,7 +110,7 @@ export interface AutoMLConfig {
 
 export namespace AutoMLConfig {
   export const filterSensitiveLog = (obj: AutoMLConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AutoMLConfig => __isa(o, "AutoMLConfig");
 }
@@ -135,7 +130,7 @@ export interface AutoMLResult {
 
 export namespace AutoMLResult {
   export const filterSensitiveLog = (obj: AutoMLResult): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AutoMLResult => __isa(o, "AutoMLResult");
 }
@@ -146,14 +141,9 @@ export namespace AutoMLResult {
 export interface BatchInferenceJob {
   __type?: "BatchInferenceJob";
   /**
-   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   * <p>The name of the batch inference job.</p>
    */
-  batchInferenceJobArn?: string;
-
-  /**
-   * <p>The time at which the batch inference job was created.</p>
-   */
-  creationDateTime?: Date;
+  jobName?: string;
 
   /**
    * <p>If the batch inference job failed, the reason for the failure.</p>
@@ -161,25 +151,15 @@ export interface BatchInferenceJob {
   failureReason?: string;
 
   /**
-   * <p>The Amazon S3 path that leads to the input data used to generate the batch inference
-   *       job.</p>
+   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
+   *       was created.</p>
    */
-  jobInput?: BatchInferenceJobInput;
+  solutionVersionArn?: string;
 
   /**
-   * <p>The name of the batch inference job.</p>
+   * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
    */
-  jobName?: string;
-
-  /**
-   * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
-   */
-  jobOutput?: BatchInferenceJobOutput;
-
-  /**
-   * <p>The time at which the batch inference job was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
+  roleArn?: string;
 
   /**
    * <p>The number of recommendations generated by the batch inference job. This number includes
@@ -188,15 +168,15 @@ export interface BatchInferenceJob {
   numResults?: number;
 
   /**
-   * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
+   * <p>The Amazon S3 path that leads to the input data used to generate the batch inference
+   *       job.</p>
    */
-  roleArn?: string;
+  jobInput?: BatchInferenceJobInput;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
-   *       was created.</p>
+   * <p>The time at which the batch inference job was last updated.</p>
    */
-  solutionVersionArn?: string;
+  lastUpdatedDateTime?: Date;
 
   /**
    * <p>The status of the batch inference job. The status is one of the following values:</p>
@@ -216,14 +196,33 @@ export interface BatchInferenceJob {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The time at which the batch inference job was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
+   */
+  jobOutput?: BatchInferenceJobOutput;
+
+  /**
+   * <p>The ARN of the filter used on the batch inference job.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+   */
+  batchInferenceJobArn?: string;
 }
 
 export namespace BatchInferenceJob {
   export const filterSensitiveLog = (obj: BatchInferenceJob): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchInferenceJob =>
-    __isa(o, "BatchInferenceJob");
+  export const isa = (o: any): o is BatchInferenceJob => __isa(o, "BatchInferenceJob");
 }
 
 /**
@@ -240,10 +239,9 @@ export interface BatchInferenceJobInput {
 
 export namespace BatchInferenceJobInput {
   export const filterSensitiveLog = (obj: BatchInferenceJobInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchInferenceJobInput =>
-    __isa(o, "BatchInferenceJobInput");
+  export const isa = (o: any): o is BatchInferenceJobInput => __isa(o, "BatchInferenceJobInput");
 }
 
 /**
@@ -259,10 +257,9 @@ export interface BatchInferenceJobOutput {
 
 export namespace BatchInferenceJobOutput {
   export const filterSensitiveLog = (obj: BatchInferenceJobOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchInferenceJobOutput =>
-    __isa(o, "BatchInferenceJobOutput");
+  export const isa = (o: any): o is BatchInferenceJobOutput => __isa(o, "BatchInferenceJobOutput");
 }
 
 /**
@@ -272,6 +269,21 @@ export namespace BatchInferenceJobOutput {
 export interface BatchInferenceJobSummary {
   __type?: "BatchInferenceJobSummary";
   /**
+   * <p>The ARN of the solution version used by the batch inference job.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
+   * <p>The time at which the batch inference job was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If the batch inference job failed, the reason for the failure.</p>
+   */
+  failureReason?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
    */
   batchInferenceJobArn?: string;
@@ -280,21 +292,6 @@ export interface BatchInferenceJobSummary {
    * <p>The time at which the batch inference job was created.</p>
    */
   creationDateTime?: Date;
-
-  /**
-   * <p>If the batch inference job failed, the reason for the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The name of the batch inference job.</p>
-   */
-  jobName?: string;
-
-  /**
-   * <p>The time at which the batch inference job was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
 
   /**
    * <p>The status of the batch inference job. The status is one of the following values:</p>
@@ -314,14 +311,18 @@ export interface BatchInferenceJobSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The name of the batch inference job.</p>
+   */
+  jobName?: string;
 }
 
 export namespace BatchInferenceJobSummary {
   export const filterSensitiveLog = (obj: BatchInferenceJobSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchInferenceJobSummary =>
-    __isa(o, "BatchInferenceJobSummary");
+  export const isa = (o: any): o is BatchInferenceJobSummary => __isa(o, "BatchInferenceJobSummary");
 }
 
 /**
@@ -331,30 +332,15 @@ export namespace BatchInferenceJobSummary {
 export interface Campaign {
   __type?: "Campaign";
   /**
-   * <p>The Amazon Resource Name (ARN) of the campaign. </p>
+   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+   *       <a>DescribeCampaign</a> API.</p>
    */
-  campaignArn?: string;
-
-  /**
-   * <p>The date and time (in Unix format) that the campaign was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>If a campaign fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
+  latestCampaignUpdate?: CampaignUpdateSummary;
 
   /**
    * <p>The date and time (in Unix format) that the campaign was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
-   *       <a>DescribeCampaign</a> API.</p>
-   */
-  latestCampaignUpdate?: CampaignUpdateSummary;
 
   /**
    * <p>Specifies the requested minimum provisioned transactions (recommendations) per second.</p>
@@ -367,11 +353,6 @@ export interface Campaign {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
-   */
-  solutionVersionArn?: string;
-
-  /**
    * <p>The status of the campaign.</p>
    *          <p>A campaign can be in one of the following states:</p>
    *          <ul>
@@ -384,11 +365,31 @@ export interface Campaign {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the campaign was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the campaign. </p>
+   */
+  campaignArn?: string;
+
+  /**
+   * <p>If a campaign fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace Campaign {
   export const filterSensitiveLog = (obj: Campaign): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Campaign => __isa(o, "Campaign");
 }
@@ -400,29 +401,24 @@ export namespace Campaign {
 export interface CampaignSummary {
   __type?: "CampaignSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   */
-  campaignArn?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the campaign was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>If a campaign fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the campaign was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
+   */
+  campaignArn?: string;
+
+  /**
    * <p>The name of the campaign.</p>
    */
   name?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the campaign was created.</p>
+   */
+  creationDateTime?: Date;
 
   /**
    * <p>The status of the campaign.</p>
@@ -437,14 +433,18 @@ export interface CampaignSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>If a campaign fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
 }
 
 export namespace CampaignSummary {
   export const filterSensitiveLog = (obj: CampaignSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CampaignSummary =>
-    __isa(o, "CampaignSummary");
+  export const isa = (o: any): o is CampaignSummary => __isa(o, "CampaignSummary");
 }
 
 /**
@@ -454,30 +454,14 @@ export namespace CampaignSummary {
 export interface CampaignUpdateSummary {
   __type?: "CampaignUpdateSummary";
   /**
-   * <p>The date and time (in Unix time) that the campaign update was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>If a campaign update fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the campaign update was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
-   *       Amazon Personalize will support.</p>
+   * <p>If a campaign update fails, the reason behind the failure.</p>
    */
-  minProvisionedTPS?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
-   */
-  solutionVersionArn?: string;
+  failureReason?: string;
 
   /**
    * <p>The status of the campaign update.</p>
@@ -492,14 +476,29 @@ export interface CampaignUpdateSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the campaign update was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+   *       Amazon Personalize will support.</p>
+   */
+  minProvisionedTPS?: number;
 }
 
 export namespace CampaignUpdateSummary {
   export const filterSensitiveLog = (obj: CampaignUpdateSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CampaignUpdateSummary =>
-    __isa(o, "CampaignUpdateSummary");
+  export const isa = (o: any): o is CampaignUpdateSummary => __isa(o, "CampaignUpdateSummary");
 }
 
 /**
@@ -519,13 +518,10 @@ export interface CategoricalHyperParameterRange {
 }
 
 export namespace CategoricalHyperParameterRange {
-  export const filterSensitiveLog = (
-    obj: CategoricalHyperParameterRange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CategoricalHyperParameterRange): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CategoricalHyperParameterRange =>
-    __isa(o, "CategoricalHyperParameterRange");
+  export const isa = (o: any): o is CategoricalHyperParameterRange => __isa(o, "CategoricalHyperParameterRange");
 }
 
 /**
@@ -539,39 +535,25 @@ export interface ContinuousHyperParameterRange {
   maxValue?: number;
 
   /**
-   * <p>The minimum allowable value for the hyperparameter.</p>
-   */
-  minValue?: number;
-
-  /**
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
+
+  /**
+   * <p>The minimum allowable value for the hyperparameter.</p>
+   */
+  minValue?: number;
 }
 
 export namespace ContinuousHyperParameterRange {
-  export const filterSensitiveLog = (
-    obj: ContinuousHyperParameterRange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ContinuousHyperParameterRange): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ContinuousHyperParameterRange =>
-    __isa(o, "ContinuousHyperParameterRange");
+  export const isa = (o: any): o is ContinuousHyperParameterRange => __isa(o, "ContinuousHyperParameterRange");
 }
 
 export interface CreateBatchInferenceJobRequest {
   __type?: "CreateBatchInferenceJobRequest";
-  /**
-   * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
-   *       material must be in JSON format.</p>
-   */
-  jobInput: BatchInferenceJobInput | undefined;
-
-  /**
-   * <p>The name of the batch inference job to create.</p>
-   */
-  jobName: string | undefined;
-
   /**
    * <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
    */
@@ -583,10 +565,27 @@ export interface CreateBatchInferenceJobRequest {
   numResults?: number;
 
   /**
+   * <p>The ARN of the filter to apply to the batch inference job. For more information on using
+   *       filters, see Using Filters with Amazon Personalize.</p>
+   */
+  filterArn?: string;
+
+  /**
    * <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out
    *       Amazon S3 buckets respectively.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The name of the batch inference job to create.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
+   *       material must be in JSON format.</p>
+   */
+  jobInput: BatchInferenceJobInput | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
@@ -596,13 +595,10 @@ export interface CreateBatchInferenceJobRequest {
 }
 
 export namespace CreateBatchInferenceJobRequest {
-  export const filterSensitiveLog = (
-    obj: CreateBatchInferenceJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateBatchInferenceJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBatchInferenceJobRequest =>
-    __isa(o, "CreateBatchInferenceJobRequest");
+  export const isa = (o: any): o is CreateBatchInferenceJobRequest => __isa(o, "CreateBatchInferenceJobRequest");
 }
 
 export interface CreateBatchInferenceJobResponse {
@@ -614,13 +610,10 @@ export interface CreateBatchInferenceJobResponse {
 }
 
 export namespace CreateBatchInferenceJobResponse {
-  export const filterSensitiveLog = (
-    obj: CreateBatchInferenceJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateBatchInferenceJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateBatchInferenceJobResponse =>
-    __isa(o, "CreateBatchInferenceJobResponse");
+  export const isa = (o: any): o is CreateBatchInferenceJobResponse => __isa(o, "CreateBatchInferenceJobResponse");
 }
 
 export interface CreateCampaignRequest {
@@ -632,22 +625,21 @@ export interface CreateCampaignRequest {
   minProvisionedTPS: number | undefined;
 
   /**
-   * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
    */
   solutionVersionArn: string | undefined;
+
+  /**
+   * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateCampaignRequest {
   export const filterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCampaignRequest =>
-    __isa(o, "CreateCampaignRequest");
+  export const isa = (o: any): o is CreateCampaignRequest => __isa(o, "CreateCampaignRequest");
 }
 
 export interface CreateCampaignResponse {
@@ -660,10 +652,9 @@ export interface CreateCampaignResponse {
 
 export namespace CreateCampaignResponse {
   export const filterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateCampaignResponse =>
-    __isa(o, "CreateCampaignResponse");
+  export const isa = (o: any): o is CreateCampaignResponse => __isa(o, "CreateCampaignResponse");
 }
 
 export interface CreateDatasetGroupRequest {
@@ -674,23 +665,22 @@ export interface CreateDatasetGroupRequest {
   kmsKeyArn?: string;
 
   /**
-   * <p>The name for the new dataset group.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an
    *       IAM role is only valid when also specifying a KMS key.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The name for the new dataset group.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateDatasetGroupRequest {
   export const filterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupRequest =>
-    __isa(o, "CreateDatasetGroupRequest");
+  export const isa = (o: any): o is CreateDatasetGroupRequest => __isa(o, "CreateDatasetGroupRequest");
 }
 
 export interface CreateDatasetGroupResponse {
@@ -703,10 +693,9 @@ export interface CreateDatasetGroupResponse {
 
 export namespace CreateDatasetGroupResponse {
   export const filterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupResponse =>
-    __isa(o, "CreateDatasetGroupResponse");
+  export const isa = (o: any): o is CreateDatasetGroupResponse => __isa(o, "CreateDatasetGroupResponse");
 }
 
 export interface CreateDatasetImportJobRequest {
@@ -717,11 +706,6 @@ export interface CreateDatasetImportJobRequest {
   dataSource: DataSource | undefined;
 
   /**
-   * <p>The ARN of the dataset that receives the imported data.</p>
-   */
-  datasetArn: string | undefined;
-
-  /**
    * <p>The name for the dataset import job.</p>
    */
   jobName: string | undefined;
@@ -730,16 +714,18 @@ export interface CreateDatasetImportJobRequest {
    * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The ARN of the dataset that receives the imported data.</p>
+   */
+  datasetArn: string | undefined;
 }
 
 export namespace CreateDatasetImportJobRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDatasetImportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobRequest =>
-    __isa(o, "CreateDatasetImportJobRequest");
+  export const isa = (o: any): o is CreateDatasetImportJobRequest => __isa(o, "CreateDatasetImportJobRequest");
 }
 
 export interface CreateDatasetImportJobResponse {
@@ -751,13 +737,10 @@ export interface CreateDatasetImportJobResponse {
 }
 
 export namespace CreateDatasetImportJobResponse {
-  export const filterSensitiveLog = (
-    obj: CreateDatasetImportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobResponse =>
-    __isa(o, "CreateDatasetImportJobResponse");
+  export const isa = (o: any): o is CreateDatasetImportJobResponse => __isa(o, "CreateDatasetImportJobResponse");
 }
 
 export interface CreateDatasetRequest {
@@ -766,6 +749,17 @@ export interface CreateDatasetRequest {
    * <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
    */
   datasetGroupArn: string | undefined;
+
+  /**
+   * <p>The name for the dataset.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
+   *       fields.</p>
+   */
+  schemaArn: string | undefined;
 
   /**
    * <p>The type of dataset.</p>
@@ -783,25 +777,13 @@ export interface CreateDatasetRequest {
    *          </ul>
    */
   datasetType: string | undefined;
-
-  /**
-   * <p>The name for the dataset.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
-   *       fields.</p>
-   */
-  schemaArn: string | undefined;
 }
 
 export namespace CreateDatasetRequest {
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetRequest =>
-    __isa(o, "CreateDatasetRequest");
+  export const isa = (o: any): o is CreateDatasetRequest => __isa(o, "CreateDatasetRequest");
 }
 
 export interface CreateDatasetResponse {
@@ -814,31 +796,29 @@ export interface CreateDatasetResponse {
 
 export namespace CreateDatasetResponse {
   export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetResponse =>
-    __isa(o, "CreateDatasetResponse");
+  export const isa = (o: any): o is CreateDatasetResponse => __isa(o, "CreateDatasetResponse");
 }
 
 export interface CreateEventTrackerRequest {
   __type?: "CreateEventTrackerRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
-   */
-  datasetGroupArn: string | undefined;
-
-  /**
    * <p>The name for the event tracker.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
+   */
+  datasetGroupArn: string | undefined;
 }
 
 export namespace CreateEventTrackerRequest {
   export const filterSensitiveLog = (obj: CreateEventTrackerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEventTrackerRequest =>
-    __isa(o, "CreateEventTrackerRequest");
+  export const isa = (o: any): o is CreateEventTrackerRequest => __isa(o, "CreateEventTrackerRequest");
 }
 
 export interface CreateEventTrackerResponse {
@@ -857,31 +837,77 @@ export interface CreateEventTrackerResponse {
 
 export namespace CreateEventTrackerResponse {
   export const filterSensitiveLog = (obj: CreateEventTrackerResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEventTrackerResponse =>
-    __isa(o, "CreateEventTrackerResponse");
+  export const isa = (o: any): o is CreateEventTrackerResponse => __isa(o, "CreateEventTrackerResponse");
+}
+
+export interface CreateFilterRequest {
+  __type?: "CreateFilterRequest";
+  /**
+   * <p>The filter expression that designates the interaction types that the filter will
+   *             filter out. A filter expression must follow the following format:</p>
+   *         <p>
+   *             <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")</code>
+   *          </p>
+   *         <p>Where "EVENT_TYPE" is the type of event to filter out. To filter out all items with
+   *             any interactions history, set <code>"*"</code> as the EVENT_TYPE. For more information, see
+   *             Using Filters with Amazon Personalize.</p>
+   */
+  filterExpression: string | undefined;
+
+  /**
+   * <p>The ARN of the dataset group that the filter will belong to.</p>
+   */
+  datasetGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the filter to create.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace CreateFilterRequest {
+  export const filterSensitiveLog = (obj: CreateFilterRequest): any => ({
+    ...obj,
+    ...(obj.filterExpression && { filterExpression: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is CreateFilterRequest => __isa(o, "CreateFilterRequest");
+}
+
+export interface CreateFilterResponse {
+  __type?: "CreateFilterResponse";
+  /**
+   * <p>The ARN of the new filter.</p>
+   */
+  filterArn?: string;
+}
+
+export namespace CreateFilterResponse {
+  export const filterSensitiveLog = (obj: CreateFilterResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateFilterResponse => __isa(o, "CreateFilterResponse");
 }
 
 export interface CreateSchemaRequest {
   __type?: "CreateSchemaRequest";
   /**
-   * <p>The name for the schema.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>A schema in Avro JSON format.</p>
    */
   schema: string | undefined;
+
+  /**
+   * <p>The name for the schema.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateSchemaRequest {
   export const filterSensitiveLog = (obj: CreateSchemaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSchemaRequest =>
-    __isa(o, "CreateSchemaRequest");
+  export const isa = (o: any): o is CreateSchemaRequest => __isa(o, "CreateSchemaRequest");
 }
 
 export interface CreateSchemaResponse {
@@ -894,30 +920,18 @@ export interface CreateSchemaResponse {
 
 export namespace CreateSchemaResponse {
   export const filterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSchemaResponse =>
-    __isa(o, "CreateSchemaResponse");
+  export const isa = (o: any): o is CreateSchemaResponse => __isa(o, "CreateSchemaResponse");
 }
 
 export interface CreateSolutionRequest {
   __type?: "CreateSolutionRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   * <p>The ARN of the recipe to use for model training. Only specified when
+   *       <code>performAutoML</code> is false.</p>
    */
-  datasetGroupArn: string | undefined;
-
-  /**
-   * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
-   *       this parameter specifies which event type (for example, 'click' or 'like') is used for
-   *       training the model.</p>
-   */
-  eventType?: string;
-
-  /**
-   * <p>The name for the solution.</p>
-   */
-  name: string | undefined;
+  recipeArn?: string;
 
   /**
    * <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
@@ -939,10 +953,9 @@ export interface CreateSolutionRequest {
   performHPO?: boolean;
 
   /**
-   * <p>The ARN of the recipe to use for model training. Only specified when
-   *       <code>performAutoML</code> is false.</p>
+   * <p>The name for the solution.</p>
    */
-  recipeArn?: string;
+  name: string | undefined;
 
   /**
    * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
@@ -950,14 +963,25 @@ export interface CreateSolutionRequest {
    *       of the solution configuration.</p>
    */
   solutionConfig?: SolutionConfig;
+
+  /**
+   * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
+   *       this parameter specifies which event type (for example, 'click' or 'like') is used for
+   *       training the model.</p>
+   */
+  eventType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   */
+  datasetGroupArn: string | undefined;
 }
 
 export namespace CreateSolutionRequest {
   export const filterSensitiveLog = (obj: CreateSolutionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSolutionRequest =>
-    __isa(o, "CreateSolutionRequest");
+  export const isa = (o: any): o is CreateSolutionRequest => __isa(o, "CreateSolutionRequest");
 }
 
 export interface CreateSolutionResponse {
@@ -970,10 +994,9 @@ export interface CreateSolutionResponse {
 
 export namespace CreateSolutionResponse {
   export const filterSensitiveLog = (obj: CreateSolutionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSolutionResponse =>
-    __isa(o, "CreateSolutionResponse");
+  export const isa = (o: any): o is CreateSolutionResponse => __isa(o, "CreateSolutionResponse");
 }
 
 export interface CreateSolutionVersionRequest {
@@ -1000,13 +1023,10 @@ export interface CreateSolutionVersionRequest {
 }
 
 export namespace CreateSolutionVersionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateSolutionVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSolutionVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSolutionVersionRequest =>
-    __isa(o, "CreateSolutionVersionRequest");
+  export const isa = (o: any): o is CreateSolutionVersionRequest => __isa(o, "CreateSolutionVersionRequest");
 }
 
 export interface CreateSolutionVersionResponse {
@@ -1018,13 +1038,10 @@ export interface CreateSolutionVersionResponse {
 }
 
 export namespace CreateSolutionVersionResponse {
-  export const filterSensitiveLog = (
-    obj: CreateSolutionVersionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSolutionVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSolutionVersionResponse =>
-    __isa(o, "CreateSolutionVersionResponse");
+  export const isa = (o: any): o is CreateSolutionVersionResponse => __isa(o, "CreateSolutionVersionResponse");
 }
 
 /**
@@ -1032,21 +1049,6 @@ export namespace CreateSolutionVersionResponse {
  */
 export interface Dataset {
   __type?: "Dataset";
-  /**
-   * <p>The creation date and time (in Unix time) of the dataset.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
-   */
-  datasetArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   */
-  datasetGroupArn?: string;
-
   /**
    * <p>One of the following values:</p>
    *          <ul>
@@ -1069,16 +1071,6 @@ export interface Dataset {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the dataset.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ARN of the associated schema.</p>
-   */
-  schemaArn?: string;
-
-  /**
    * <p>The status of the dataset.</p>
    *          <p>A dataset can be in one of the following states:</p>
    *          <ul>
@@ -1091,11 +1083,36 @@ export interface Dataset {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the dataset.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
+   */
+  datasetArn?: string;
+
+  /**
+   * <p>The name of the dataset.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN of the associated schema.</p>
+   */
+  schemaArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+   */
+  datasetGroupArn?: string;
 }
 
 export namespace Dataset {
   export const filterSensitiveLog = (obj: Dataset): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Dataset => __isa(o, "Dataset");
 }
@@ -1112,29 +1129,9 @@ export namespace Dataset {
 export interface DatasetGroup {
   __type?: "DatasetGroup";
   /**
-   * <p>The creation date and time (in Unix time) of the dataset group.</p>
+   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>If creating a dataset group fails, provides the reason why.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
-   */
-  kmsKeyArn?: string;
-
-  /**
-   * <p>The last update date and time (in Unix time) of the dataset group.</p>
-   */
-  lastUpdatedDateTime?: Date;
+  roleArn?: string;
 
   /**
    * <p>The name of the dataset group.</p>
@@ -1142,9 +1139,14 @@ export interface DatasetGroup {
   name?: string;
 
   /**
-   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
+   * <p>The last update date and time (in Unix time) of the dataset group.</p>
    */
-  roleArn?: string;
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If creating a dataset group fails, provides the reason why.</p>
+   */
+  failureReason?: string;
 
   /**
    * <p>The current status of the dataset group.</p>
@@ -1159,11 +1161,26 @@ export interface DatasetGroup {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the dataset group.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+   */
+  datasetGroupArn?: string;
 }
 
 export namespace DatasetGroup {
   export const filterSensitiveLog = (obj: DatasetGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DatasetGroup => __isa(o, "DatasetGroup");
 }
@@ -1175,14 +1192,14 @@ export namespace DatasetGroup {
 export interface DatasetGroupSummary {
   __type?: "DatasetGroupSummary";
   /**
-   * <p>The date and time (in Unix time) that the dataset group was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
+
+  /**
+   * <p>The name of the dataset group.</p>
+   */
+  name?: string;
 
   /**
    * <p>If creating a dataset group fails, the reason behind the failure.</p>
@@ -1195,9 +1212,9 @@ export interface DatasetGroupSummary {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the dataset group.</p>
+   * <p>The date and time (in Unix time) that the dataset group was created.</p>
    */
-  name?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The status of the dataset group.</p>
@@ -1216,10 +1233,9 @@ export interface DatasetGroupSummary {
 
 export namespace DatasetGroupSummary {
   export const filterSensitiveLog = (obj: DatasetGroupSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetGroupSummary =>
-    __isa(o, "DatasetGroupSummary");
+  export const isa = (o: any): o is DatasetGroupSummary => __isa(o, "DatasetGroupSummary");
 }
 
 /**
@@ -1236,24 +1252,15 @@ export namespace DatasetGroupSummary {
 export interface DatasetImportJob {
   __type?: "DatasetImportJob";
   /**
-   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
+   * <p>The status of the dataset import job.</p>
+   *          <p>A dataset import job can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *          </ul>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon S3 bucket that contains the training data to import.</p>
-   */
-  dataSource?: DataSource;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
-   */
-  datasetArn?: string;
-
-  /**
-   * <p>The ARN of the dataset import job.</p>
-   */
-  datasetImportJobArn?: string;
+  status?: string;
 
   /**
    * <p>If a dataset import job fails, provides the reason why.</p>
@@ -1261,9 +1268,9 @@ export interface DatasetImportJob {
   failureReason?: string;
 
   /**
-   * <p>The name of the import job.</p>
+   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
    */
-  jobName?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The date and time (in Unix time) the dataset was last updated.</p>
@@ -1271,9 +1278,53 @@ export interface DatasetImportJob {
   lastUpdatedDateTime?: Date;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
+   */
+  datasetArn?: string;
+
+  /**
+   * <p>The name of the import job.</p>
+   */
+  jobName?: string;
+
+  /**
+   * <p>The Amazon S3 bucket that contains the training data to import.</p>
+   */
+  dataSource?: DataSource;
+
+  /**
+   * <p>The ARN of the dataset import job.</p>
+   */
+  datasetImportJobArn?: string;
+
+  /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data source.</p>
    */
   roleArn?: string;
+}
+
+export namespace DatasetImportJob {
+  export const filterSensitiveLog = (obj: DatasetImportJob): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DatasetImportJob => __isa(o, "DatasetImportJob");
+}
+
+/**
+ * <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
+ *       <a>DescribeDatasetImportJob</a> API.</p>
+ */
+export interface DatasetImportJobSummary {
+  __type?: "DatasetImportJobSummary";
+  /**
+   * <p>The name of the dataset import job.</p>
+   */
+  jobName?: string;
+
+  /**
+   * <p>If a dataset import job fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
 
   /**
    * <p>The status of the dataset import job.</p>
@@ -1285,22 +1336,7 @@ export interface DatasetImportJob {
    *          </ul>
    */
   status?: string;
-}
 
-export namespace DatasetImportJob {
-  export const filterSensitiveLog = (obj: DatasetImportJob): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DatasetImportJob =>
-    __isa(o, "DatasetImportJob");
-}
-
-/**
- * <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
- *       <a>DescribeDatasetImportJob</a> API.</p>
- */
-export interface DatasetImportJobSummary {
-  __type?: "DatasetImportJobSummary";
   /**
    * <p>The date and time (in Unix time) that the dataset import job was created.</p>
    */
@@ -1312,38 +1348,16 @@ export interface DatasetImportJobSummary {
   datasetImportJobArn?: string;
 
   /**
-   * <p>If a dataset import job fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The name of the dataset import job.</p>
-   */
-  jobName?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the dataset was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The status of the dataset import job.</p>
-   *          <p>A dataset import job can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: string;
 }
 
 export namespace DatasetImportJobSummary {
   export const filterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetImportJobSummary =>
-    __isa(o, "DatasetImportJobSummary");
+  export const isa = (o: any): o is DatasetImportJobSummary => __isa(o, "DatasetImportJobSummary");
 }
 
 /**
@@ -1353,19 +1367,9 @@ export namespace DatasetImportJobSummary {
 export interface DatasetSchema {
   __type?: "DatasetSchema";
   /**
-   * <p>The date and time (in Unix time) that the schema was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time (in Unix time) that the schema was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the schema.</p>
-   */
-  name?: string;
+  schemaArn?: string;
 
   /**
    * <p>The schema.</p>
@@ -1373,14 +1377,24 @@ export interface DatasetSchema {
   schema?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * <p>The date and time (in Unix time) that the schema was created.</p>
    */
-  schemaArn?: string;
+  creationDateTime?: Date;
+
+  /**
+   * <p>The name of the schema.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the schema was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
 }
 
 export namespace DatasetSchema {
   export const filterSensitiveLog = (obj: DatasetSchema): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DatasetSchema => __isa(o, "DatasetSchema");
 }
@@ -1392,9 +1406,9 @@ export namespace DatasetSchema {
 export interface DatasetSchemaSummary {
   __type?: "DatasetSchemaSummary";
   /**
-   * <p>The date and time (in Unix time) that the schema was created.</p>
+   * <p>The name of the schema.</p>
    */
-  creationDateTime?: Date;
+  name?: string;
 
   /**
    * <p>The date and time (in Unix time) that the schema was last updated.</p>
@@ -1402,9 +1416,9 @@ export interface DatasetSchemaSummary {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the schema.</p>
+   * <p>The date and time (in Unix time) that the schema was created.</p>
    */
-  name?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -1414,10 +1428,9 @@ export interface DatasetSchemaSummary {
 
 export namespace DatasetSchemaSummary {
   export const filterSensitiveLog = (obj: DatasetSchemaSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetSchemaSummary =>
-    __isa(o, "DatasetSchemaSummary");
+  export const isa = (o: any): o is DatasetSchemaSummary => __isa(o, "DatasetSchemaSummary");
 }
 
 /**
@@ -1426,16 +1439,6 @@ export namespace DatasetSchemaSummary {
  */
 export interface DatasetSummary {
   __type?: "DatasetSummary";
-  /**
-   * <p>The date and time (in Unix time) that the dataset was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  datasetArn?: string;
-
   /**
    * <p>The dataset type. One of the following values:</p>
    *          <ul>
@@ -1461,9 +1464,9 @@ export interface DatasetSummary {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the dataset.</p>
+   * <p>The date and time (in Unix time) that the dataset was created.</p>
    */
-  name?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The status of the dataset.</p>
@@ -1478,14 +1481,23 @@ export interface DatasetSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The name of the dataset.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  datasetArn?: string;
 }
 
 export namespace DatasetSummary {
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetSummary =>
-    __isa(o, "DatasetSummary");
+  export const isa = (o: any): o is DatasetSummary => __isa(o, "DatasetSummary");
 }
 
 /**
@@ -1505,7 +1517,7 @@ export interface DataSource {
 
 export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
@@ -1518,6 +1530,11 @@ export namespace DataSource {
 export interface DefaultCategoricalHyperParameterRange {
   __type?: "DefaultCategoricalHyperParameterRange";
   /**
+   * <p>A list of the categories for the hyperparameter.</p>
+   */
+  values?: string[];
+
+  /**
    * <p>Whether the hyperparameter is tunable.</p>
    */
   isTunable?: boolean;
@@ -1526,18 +1543,11 @@ export interface DefaultCategoricalHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
-
-  /**
-   * <p>A list of the categories for the hyperparameter.</p>
-   */
-  values?: string[];
 }
 
 export namespace DefaultCategoricalHyperParameterRange {
-  export const filterSensitiveLog = (
-    obj: DefaultCategoricalHyperParameterRange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DefaultCategoricalHyperParameterRange): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DefaultCategoricalHyperParameterRange =>
     __isa(o, "DefaultCategoricalHyperParameterRange");
@@ -1551,16 +1561,6 @@ export namespace DefaultCategoricalHyperParameterRange {
 export interface DefaultContinuousHyperParameterRange {
   __type?: "DefaultContinuousHyperParameterRange";
   /**
-   * <p>Whether the hyperparameter is tunable.</p>
-   */
-  isTunable?: boolean;
-
-  /**
-   * <p>The maximum allowable value for the hyperparameter.</p>
-   */
-  maxValue?: number;
-
-  /**
    * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
@@ -1569,13 +1569,21 @@ export interface DefaultContinuousHyperParameterRange {
    * <p>The name of the hyperparameter.</p>
    */
   name?: string;
+
+  /**
+   * <p>Whether the hyperparameter is tunable.</p>
+   */
+  isTunable?: boolean;
+
+  /**
+   * <p>The maximum allowable value for the hyperparameter.</p>
+   */
+  maxValue?: number;
 }
 
 export namespace DefaultContinuousHyperParameterRange {
-  export const filterSensitiveLog = (
-    obj: DefaultContinuousHyperParameterRange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DefaultContinuousHyperParameterRange): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DefaultContinuousHyperParameterRange =>
     __isa(o, "DefaultContinuousHyperParameterRange");
@@ -1588,9 +1596,9 @@ export namespace DefaultContinuousHyperParameterRange {
 export interface DefaultHyperParameterRanges {
   __type?: "DefaultHyperParameterRanges";
   /**
-   * <p>The categorical hyperparameters and their default ranges.</p>
+   * <p>The integer-valued hyperparameters and their default ranges.</p>
    */
-  categoricalHyperParameterRanges?: DefaultCategoricalHyperParameterRange[];
+  integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[];
 
   /**
    * <p>The continuous hyperparameters and their default ranges.</p>
@@ -1598,19 +1606,16 @@ export interface DefaultHyperParameterRanges {
   continuousHyperParameterRanges?: DefaultContinuousHyperParameterRange[];
 
   /**
-   * <p>The integer-valued hyperparameters and their default ranges.</p>
+   * <p>The categorical hyperparameters and their default ranges.</p>
    */
-  integerHyperParameterRanges?: DefaultIntegerHyperParameterRange[];
+  categoricalHyperParameterRanges?: DefaultCategoricalHyperParameterRange[];
 }
 
 export namespace DefaultHyperParameterRanges {
-  export const filterSensitiveLog = (
-    obj: DefaultHyperParameterRanges
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DefaultHyperParameterRanges): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DefaultHyperParameterRanges =>
-    __isa(o, "DefaultHyperParameterRanges");
+  export const isa = (o: any): o is DefaultHyperParameterRanges => __isa(o, "DefaultHyperParameterRanges");
 }
 
 /**
@@ -1620,6 +1625,11 @@ export namespace DefaultHyperParameterRanges {
  */
 export interface DefaultIntegerHyperParameterRange {
   __type?: "DefaultIntegerHyperParameterRange";
+  /**
+   * <p>The name of the hyperparameter.</p>
+   */
+  name?: string;
+
   /**
    * <p>Indicates whether the hyperparameter is tunable.</p>
    */
@@ -1634,21 +1644,13 @@ export interface DefaultIntegerHyperParameterRange {
    * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
-
-  /**
-   * <p>The name of the hyperparameter.</p>
-   */
-  name?: string;
 }
 
 export namespace DefaultIntegerHyperParameterRange {
-  export const filterSensitiveLog = (
-    obj: DefaultIntegerHyperParameterRange
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DefaultIntegerHyperParameterRange): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DefaultIntegerHyperParameterRange =>
-    __isa(o, "DefaultIntegerHyperParameterRange");
+  export const isa = (o: any): o is DefaultIntegerHyperParameterRange => __isa(o, "DefaultIntegerHyperParameterRange");
 }
 
 export interface DeleteCampaignRequest {
@@ -1661,10 +1663,9 @@ export interface DeleteCampaignRequest {
 
 export namespace DeleteCampaignRequest {
   export const filterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteCampaignRequest =>
-    __isa(o, "DeleteCampaignRequest");
+  export const isa = (o: any): o is DeleteCampaignRequest => __isa(o, "DeleteCampaignRequest");
 }
 
 export interface DeleteDatasetGroupRequest {
@@ -1677,10 +1678,9 @@ export interface DeleteDatasetGroupRequest {
 
 export namespace DeleteDatasetGroupRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetGroupRequest =>
-    __isa(o, "DeleteDatasetGroupRequest");
+  export const isa = (o: any): o is DeleteDatasetGroupRequest => __isa(o, "DeleteDatasetGroupRequest");
 }
 
 export interface DeleteDatasetRequest {
@@ -1693,10 +1693,9 @@ export interface DeleteDatasetRequest {
 
 export namespace DeleteDatasetRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetRequest =>
-    __isa(o, "DeleteDatasetRequest");
+  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 export interface DeleteEventTrackerRequest {
@@ -1709,10 +1708,24 @@ export interface DeleteEventTrackerRequest {
 
 export namespace DeleteEventTrackerRequest {
   export const filterSensitiveLog = (obj: DeleteEventTrackerRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEventTrackerRequest =>
-    __isa(o, "DeleteEventTrackerRequest");
+  export const isa = (o: any): o is DeleteEventTrackerRequest => __isa(o, "DeleteEventTrackerRequest");
+}
+
+export interface DeleteFilterRequest {
+  __type?: "DeleteFilterRequest";
+  /**
+   * <p>The ARN of the filter to delete.</p>
+   */
+  filterArn: string | undefined;
+}
+
+export namespace DeleteFilterRequest {
+  export const filterSensitiveLog = (obj: DeleteFilterRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteFilterRequest => __isa(o, "DeleteFilterRequest");
 }
 
 export interface DeleteSchemaRequest {
@@ -1725,10 +1738,9 @@ export interface DeleteSchemaRequest {
 
 export namespace DeleteSchemaRequest {
   export const filterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSchemaRequest =>
-    __isa(o, "DeleteSchemaRequest");
+  export const isa = (o: any): o is DeleteSchemaRequest => __isa(o, "DeleteSchemaRequest");
 }
 
 export interface DeleteSolutionRequest {
@@ -1741,10 +1753,9 @@ export interface DeleteSolutionRequest {
 
 export namespace DeleteSolutionRequest {
   export const filterSensitiveLog = (obj: DeleteSolutionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSolutionRequest =>
-    __isa(o, "DeleteSolutionRequest");
+  export const isa = (o: any): o is DeleteSolutionRequest => __isa(o, "DeleteSolutionRequest");
 }
 
 export interface DescribeAlgorithmRequest {
@@ -1757,10 +1768,9 @@ export interface DescribeAlgorithmRequest {
 
 export namespace DescribeAlgorithmRequest {
   export const filterSensitiveLog = (obj: DescribeAlgorithmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlgorithmRequest =>
-    __isa(o, "DescribeAlgorithmRequest");
+  export const isa = (o: any): o is DescribeAlgorithmRequest => __isa(o, "DescribeAlgorithmRequest");
 }
 
 export interface DescribeAlgorithmResponse {
@@ -1773,10 +1783,9 @@ export interface DescribeAlgorithmResponse {
 
 export namespace DescribeAlgorithmResponse {
   export const filterSensitiveLog = (obj: DescribeAlgorithmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAlgorithmResponse =>
-    __isa(o, "DescribeAlgorithmResponse");
+  export const isa = (o: any): o is DescribeAlgorithmResponse => __isa(o, "DescribeAlgorithmResponse");
 }
 
 export interface DescribeBatchInferenceJobRequest {
@@ -1788,13 +1797,10 @@ export interface DescribeBatchInferenceJobRequest {
 }
 
 export namespace DescribeBatchInferenceJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeBatchInferenceJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeBatchInferenceJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBatchInferenceJobRequest =>
-    __isa(o, "DescribeBatchInferenceJobRequest");
+  export const isa = (o: any): o is DescribeBatchInferenceJobRequest => __isa(o, "DescribeBatchInferenceJobRequest");
 }
 
 export interface DescribeBatchInferenceJobResponse {
@@ -1806,13 +1812,10 @@ export interface DescribeBatchInferenceJobResponse {
 }
 
 export namespace DescribeBatchInferenceJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeBatchInferenceJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeBatchInferenceJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBatchInferenceJobResponse =>
-    __isa(o, "DescribeBatchInferenceJobResponse");
+  export const isa = (o: any): o is DescribeBatchInferenceJobResponse => __isa(o, "DescribeBatchInferenceJobResponse");
 }
 
 export interface DescribeCampaignRequest {
@@ -1825,10 +1828,9 @@ export interface DescribeCampaignRequest {
 
 export namespace DescribeCampaignRequest {
   export const filterSensitiveLog = (obj: DescribeCampaignRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCampaignRequest =>
-    __isa(o, "DescribeCampaignRequest");
+  export const isa = (o: any): o is DescribeCampaignRequest => __isa(o, "DescribeCampaignRequest");
 }
 
 export interface DescribeCampaignResponse {
@@ -1841,10 +1843,9 @@ export interface DescribeCampaignResponse {
 
 export namespace DescribeCampaignResponse {
   export const filterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeCampaignResponse =>
-    __isa(o, "DescribeCampaignResponse");
+  export const isa = (o: any): o is DescribeCampaignResponse => __isa(o, "DescribeCampaignResponse");
 }
 
 export interface DescribeDatasetGroupRequest {
@@ -1856,13 +1857,10 @@ export interface DescribeDatasetGroupRequest {
 }
 
 export namespace DescribeDatasetGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupRequest =>
-    __isa(o, "DescribeDatasetGroupRequest");
+  export const isa = (o: any): o is DescribeDatasetGroupRequest => __isa(o, "DescribeDatasetGroupRequest");
 }
 
 export interface DescribeDatasetGroupResponse {
@@ -1874,13 +1872,10 @@ export interface DescribeDatasetGroupResponse {
 }
 
 export namespace DescribeDatasetGroupResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupResponse =>
-    __isa(o, "DescribeDatasetGroupResponse");
+  export const isa = (o: any): o is DescribeDatasetGroupResponse => __isa(o, "DescribeDatasetGroupResponse");
 }
 
 export interface DescribeDatasetImportJobRequest {
@@ -1892,13 +1887,10 @@ export interface DescribeDatasetImportJobRequest {
 }
 
 export namespace DescribeDatasetImportJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetImportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobRequest =>
-    __isa(o, "DescribeDatasetImportJobRequest");
+  export const isa = (o: any): o is DescribeDatasetImportJobRequest => __isa(o, "DescribeDatasetImportJobRequest");
 }
 
 export interface DescribeDatasetImportJobResponse {
@@ -1925,13 +1917,10 @@ export interface DescribeDatasetImportJobResponse {
 }
 
 export namespace DescribeDatasetImportJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetImportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobResponse =>
-    __isa(o, "DescribeDatasetImportJobResponse");
+  export const isa = (o: any): o is DescribeDatasetImportJobResponse => __isa(o, "DescribeDatasetImportJobResponse");
 }
 
 export interface DescribeDatasetRequest {
@@ -1944,10 +1933,9 @@ export interface DescribeDatasetRequest {
 
 export namespace DescribeDatasetRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetRequest =>
-    __isa(o, "DescribeDatasetRequest");
+  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 export interface DescribeDatasetResponse {
@@ -1960,10 +1948,9 @@ export interface DescribeDatasetResponse {
 
 export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetResponse =>
-    __isa(o, "DescribeDatasetResponse");
+  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 export interface DescribeEventTrackerRequest {
@@ -1975,13 +1962,10 @@ export interface DescribeEventTrackerRequest {
 }
 
 export namespace DescribeEventTrackerRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEventTrackerRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEventTrackerRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventTrackerRequest =>
-    __isa(o, "DescribeEventTrackerRequest");
+  export const isa = (o: any): o is DescribeEventTrackerRequest => __isa(o, "DescribeEventTrackerRequest");
 }
 
 export interface DescribeEventTrackerResponse {
@@ -1993,13 +1977,10 @@ export interface DescribeEventTrackerResponse {
 }
 
 export namespace DescribeEventTrackerResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEventTrackerResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEventTrackerResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventTrackerResponse =>
-    __isa(o, "DescribeEventTrackerResponse");
+  export const isa = (o: any): o is DescribeEventTrackerResponse => __isa(o, "DescribeEventTrackerResponse");
 }
 
 export interface DescribeFeatureTransformationRequest {
@@ -2011,10 +1992,8 @@ export interface DescribeFeatureTransformationRequest {
 }
 
 export namespace DescribeFeatureTransformationRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeFeatureTransformationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFeatureTransformationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeFeatureTransformationRequest =>
     __isa(o, "DescribeFeatureTransformationRequest");
@@ -2029,13 +2008,42 @@ export interface DescribeFeatureTransformationResponse {
 }
 
 export namespace DescribeFeatureTransformationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeFeatureTransformationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeFeatureTransformationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeFeatureTransformationResponse =>
     __isa(o, "DescribeFeatureTransformationResponse");
+}
+
+export interface DescribeFilterRequest {
+  __type?: "DescribeFilterRequest";
+  /**
+   * <p>The ARN of the filter to describe.</p>
+   */
+  filterArn: string | undefined;
+}
+
+export namespace DescribeFilterRequest {
+  export const filterSensitiveLog = (obj: DescribeFilterRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeFilterRequest => __isa(o, "DescribeFilterRequest");
+}
+
+export interface DescribeFilterResponse {
+  __type?: "DescribeFilterResponse";
+  /**
+   * <p>The filter's details.</p>
+   */
+  filter?: Filter;
+}
+
+export namespace DescribeFilterResponse {
+  export const filterSensitiveLog = (obj: DescribeFilterResponse): any => ({
+    ...obj,
+    ...(obj.filter && { filter: Filter.filterSensitiveLog(obj.filter) }),
+  });
+  export const isa = (o: any): o is DescribeFilterResponse => __isa(o, "DescribeFilterResponse");
 }
 
 export interface DescribeRecipeRequest {
@@ -2048,10 +2056,9 @@ export interface DescribeRecipeRequest {
 
 export namespace DescribeRecipeRequest {
   export const filterSensitiveLog = (obj: DescribeRecipeRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRecipeRequest =>
-    __isa(o, "DescribeRecipeRequest");
+  export const isa = (o: any): o is DescribeRecipeRequest => __isa(o, "DescribeRecipeRequest");
 }
 
 export interface DescribeRecipeResponse {
@@ -2064,10 +2071,9 @@ export interface DescribeRecipeResponse {
 
 export namespace DescribeRecipeResponse {
   export const filterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRecipeResponse =>
-    __isa(o, "DescribeRecipeResponse");
+  export const isa = (o: any): o is DescribeRecipeResponse => __isa(o, "DescribeRecipeResponse");
 }
 
 export interface DescribeSchemaRequest {
@@ -2080,10 +2086,9 @@ export interface DescribeSchemaRequest {
 
 export namespace DescribeSchemaRequest {
   export const filterSensitiveLog = (obj: DescribeSchemaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSchemaRequest =>
-    __isa(o, "DescribeSchemaRequest");
+  export const isa = (o: any): o is DescribeSchemaRequest => __isa(o, "DescribeSchemaRequest");
 }
 
 export interface DescribeSchemaResponse {
@@ -2096,10 +2101,9 @@ export interface DescribeSchemaResponse {
 
 export namespace DescribeSchemaResponse {
   export const filterSensitiveLog = (obj: DescribeSchemaResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSchemaResponse =>
-    __isa(o, "DescribeSchemaResponse");
+  export const isa = (o: any): o is DescribeSchemaResponse => __isa(o, "DescribeSchemaResponse");
 }
 
 export interface DescribeSolutionRequest {
@@ -2112,10 +2116,9 @@ export interface DescribeSolutionRequest {
 
 export namespace DescribeSolutionRequest {
   export const filterSensitiveLog = (obj: DescribeSolutionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSolutionRequest =>
-    __isa(o, "DescribeSolutionRequest");
+  export const isa = (o: any): o is DescribeSolutionRequest => __isa(o, "DescribeSolutionRequest");
 }
 
 export interface DescribeSolutionResponse {
@@ -2128,10 +2131,9 @@ export interface DescribeSolutionResponse {
 
 export namespace DescribeSolutionResponse {
   export const filterSensitiveLog = (obj: DescribeSolutionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSolutionResponse =>
-    __isa(o, "DescribeSolutionResponse");
+  export const isa = (o: any): o is DescribeSolutionResponse => __isa(o, "DescribeSolutionResponse");
 }
 
 export interface DescribeSolutionVersionRequest {
@@ -2143,13 +2145,10 @@ export interface DescribeSolutionVersionRequest {
 }
 
 export namespace DescribeSolutionVersionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSolutionVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSolutionVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSolutionVersionRequest =>
-    __isa(o, "DescribeSolutionVersionRequest");
+  export const isa = (o: any): o is DescribeSolutionVersionRequest => __isa(o, "DescribeSolutionVersionRequest");
 }
 
 export interface DescribeSolutionVersionResponse {
@@ -2161,13 +2160,10 @@ export interface DescribeSolutionVersionResponse {
 }
 
 export namespace DescribeSolutionVersionResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSolutionVersionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSolutionVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSolutionVersionResponse =>
-    __isa(o, "DescribeSolutionVersionResponse");
+  export const isa = (o: any): o is DescribeSolutionVersionResponse => __isa(o, "DescribeSolutionVersionResponse");
 }
 
 /**
@@ -2176,24 +2172,9 @@ export namespace DescribeSolutionVersionResponse {
 export interface EventTracker {
   __type?: "EventTracker";
   /**
-   * <p>The Amazon AWS account that owns the event tracker.</p>
+   * <p>The name of the event tracker.</p>
    */
-  accountId?: string;
-
-  /**
-   * <p>The date and time (in Unix format) that the event tracker was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>The ARN of the event tracker.</p>
-   */
-  eventTrackerArn?: string;
+  name?: string;
 
   /**
    * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
@@ -2201,9 +2182,14 @@ export interface EventTracker {
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the event tracker.</p>
+   * <p>The ARN of the event tracker.</p>
    */
-  name?: string;
+  eventTrackerArn?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the event tracker was created.</p>
+   */
+  creationDateTime?: Date;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -2224,11 +2210,21 @@ export interface EventTracker {
    *     <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
    */
   trackingId?: string;
+
+  /**
+   * <p>The Amazon AWS account that owns the event tracker.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
+   */
+  datasetGroupArn?: string;
 }
 
 export namespace EventTracker {
   export const filterSensitiveLog = (obj: EventTracker): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EventTracker => __isa(o, "EventTracker");
 }
@@ -2240,6 +2236,11 @@ export namespace EventTracker {
 export interface EventTrackerSummary {
   __type?: "EventTrackerSummary";
   /**
+   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
    * <p>The date and time (in Unix time) that the event tracker was created.</p>
    */
   creationDateTime?: Date;
@@ -2248,16 +2249,6 @@ export interface EventTrackerSummary {
    * <p>The Amazon Resource Name (ARN) of the event tracker.</p>
    */
   eventTrackerArn?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the event tracker.</p>
-   */
-  name?: string;
 
   /**
    * <p>The status of the event tracker.</p>
@@ -2272,14 +2263,18 @@ export interface EventTrackerSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The name of the event tracker.</p>
+   */
+  name?: string;
 }
 
 export namespace EventTrackerSummary {
   export const filterSensitiveLog = (obj: EventTrackerSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventTrackerSummary =>
-    __isa(o, "EventTrackerSummary");
+  export const isa = (o: any): o is EventTrackerSummary => __isa(o, "EventTrackerSummary");
 }
 
 /**
@@ -2289,14 +2284,9 @@ export namespace EventTrackerSummary {
 export interface FeatureTransformation {
   __type?: "FeatureTransformation";
   /**
-   * <p>The creation date and time (in Unix time) of the feature transformation.</p>
+   * <p>The name of the feature transformation.</p>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>Provides the default parameters for feature transformation.</p>
-   */
-  defaultParameters?: { [key: string]: string };
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>
@@ -2304,14 +2294,19 @@ export interface FeatureTransformation {
   featureTransformationArn?: string;
 
   /**
+   * <p>The creation date and time (in Unix time) of the feature transformation.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
    * <p>The last update date and time (in Unix time) of the feature transformation.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The name of the feature transformation.</p>
+   * <p>Provides the default parameters for feature transformation.</p>
    */
-  name?: string;
+  defaultParameters?: { [key: string]: string };
 
   /**
    * <p>The status of the feature transformation.</p>
@@ -2327,10 +2322,118 @@ export interface FeatureTransformation {
 
 export namespace FeatureTransformation {
   export const filterSensitiveLog = (obj: FeatureTransformation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FeatureTransformation =>
-    __isa(o, "FeatureTransformation");
+  export const isa = (o: any): o is FeatureTransformation => __isa(o, "FeatureTransformation");
+}
+
+/**
+ * <p>Contains information on a recommendation filter, including its ARN, status, and filter
+ *             expression.</p>
+ */
+export interface Filter {
+  __type?: "Filter";
+  /**
+   * <p>The ARN of the dataset group to which the filter belongs.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>Specifies the type of item interactions to filter out of recommendation results. The
+   *             filter expression must follow the following format:</p>
+   *         <p>
+   *             <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")</code>
+   *          </p>
+   *         <p>Where "EVENT_TYPE" is the type of event to filter out. For more information, see Using
+   *             Filters with Amazon Personalize.</p>
+   */
+  filterExpression?: string;
+
+  /**
+   * <p>If the filter failed, the reason for its failure.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The time at which the filter was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The ARN of the filter.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The status of the filter.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The time at which the filter was created.</p>
+   */
+  creationDateTime?: Date;
+}
+
+export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj,
+    ...(obj.filterExpression && { filterExpression: SENSITIVE_STRING }),
+  });
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
+}
+
+/**
+ * <p>A short summary of a filter's attributes.</p>
+ */
+export interface FilterSummary {
+  __type?: "FilterSummary";
+  /**
+   * <p>The name of the filter.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN of the dataset group to which the filter belongs.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The time at which the filter was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The status of the filter.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The time at which the filter was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The ARN of the filter.</p>
+   */
+  filterArn?: string;
+
+  /**
+   * <p>If the filter failed, the reason for the failure.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace FilterSummary {
+  export const filterSensitiveLog = (obj: FilterSummary): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FilterSummary => __isa(o, "FilterSummary");
 }
 
 export interface GetSolutionMetricsRequest {
@@ -2343,10 +2446,9 @@ export interface GetSolutionMetricsRequest {
 
 export namespace GetSolutionMetricsRequest {
   export const filterSensitiveLog = (obj: GetSolutionMetricsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSolutionMetricsRequest =>
-    __isa(o, "GetSolutionMetricsRequest");
+  export const isa = (o: any): o is GetSolutionMetricsRequest => __isa(o, "GetSolutionMetricsRequest");
 }
 
 export interface GetSolutionMetricsResponse {
@@ -2364,10 +2466,9 @@ export interface GetSolutionMetricsResponse {
 
 export namespace GetSolutionMetricsResponse {
   export const filterSensitiveLog = (obj: GetSolutionMetricsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSolutionMetricsResponse =>
-    __isa(o, "GetSolutionMetricsResponse");
+  export const isa = (o: any): o is GetSolutionMetricsResponse => __isa(o, "GetSolutionMetricsResponse");
 }
 
 /**
@@ -2377,6 +2478,11 @@ export namespace GetSolutionMetricsResponse {
 export interface HPOConfig {
   __type?: "HPOConfig";
   /**
+   * <p>Describes the resource configuration for HPO.</p>
+   */
+  hpoResourceConfig?: HPOResourceConfig;
+
+  /**
    * <p>The hyperparameters and their allowable ranges.</p>
    */
   algorithmHyperParameterRanges?: HyperParameterRanges;
@@ -2385,16 +2491,11 @@ export interface HPOConfig {
    * <p>The metric to optimize during HPO.</p>
    */
   hpoObjective?: HPOObjective;
-
-  /**
-   * <p>Describes the resource configuration for HPO.</p>
-   */
-  hpoResourceConfig?: HPOResourceConfig;
 }
 
 export namespace HPOConfig {
   export const filterSensitiveLog = (obj: HPOConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HPOConfig => __isa(o, "HPOConfig");
 }
@@ -2410,19 +2511,19 @@ export interface HPOObjective {
   metricName?: string;
 
   /**
+   * <p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>
+   */
+  type?: string;
+
+  /**
    * <p>A regular expression for finding the metric in the training job logs.</p>
    */
   metricRegex?: string;
-
-  /**
-   * <p>The data type of the metric.</p>
-   */
-  type?: string;
 }
 
 export namespace HPOObjective {
   export const filterSensitiveLog = (obj: HPOObjective): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HPOObjective => __isa(o, "HPOObjective");
 }
@@ -2433,16 +2534,6 @@ export namespace HPOObjective {
 export interface HPOResourceConfig {
   __type?: "HPOResourceConfig";
   /**
-   * <p>The maximum number of training
-   *       jobs when you create a
-   *       solution
-   *       version.
-   *       The maximum value for <code>maxNumberOfTrainingJobs</code> is
-   *       <code>40</code>.</p>
-   */
-  maxNumberOfTrainingJobs?: string;
-
-  /**
    * <p>The maximum number of parallel training
    *       jobs when you create a
    *       solution
@@ -2451,14 +2542,23 @@ export interface HPOResourceConfig {
    *       <code>10</code>.</p>
    */
   maxParallelTrainingJobs?: string;
+
+  /**
+   * <p>The maximum number of training
+   *       jobs when you create a
+   *       solution
+   *       version.
+   *       The maximum value for <code>maxNumberOfTrainingJobs</code> is
+   *       <code>40</code>.</p>
+   */
+  maxNumberOfTrainingJobs?: string;
 }
 
 export namespace HPOResourceConfig {
   export const filterSensitiveLog = (obj: HPOResourceConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HPOResourceConfig =>
-    __isa(o, "HPOResourceConfig");
+  export const isa = (o: any): o is HPOResourceConfig => __isa(o, "HPOResourceConfig");
 }
 
 /**
@@ -2468,14 +2568,14 @@ export namespace HPOResourceConfig {
 export interface HyperParameterRanges {
   __type?: "HyperParameterRanges";
   /**
-   * <p>The categorical hyperparameters and their ranges.</p>
-   */
-  categoricalHyperParameterRanges?: CategoricalHyperParameterRange[];
-
-  /**
    * <p>The continuous hyperparameters and their ranges.</p>
    */
   continuousHyperParameterRanges?: ContinuousHyperParameterRange[];
+
+  /**
+   * <p>The categorical hyperparameters and their ranges.</p>
+   */
+  categoricalHyperParameterRanges?: CategoricalHyperParameterRange[];
 
   /**
    * <p>The integer-valued hyperparameters and their ranges.</p>
@@ -2485,10 +2585,9 @@ export interface HyperParameterRanges {
 
 export namespace HyperParameterRanges {
   export const filterSensitiveLog = (obj: HyperParameterRanges): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HyperParameterRanges =>
-    __isa(o, "HyperParameterRanges");
+  export const isa = (o: any): o is HyperParameterRanges => __isa(o, "HyperParameterRanges");
 }
 
 /**
@@ -2514,18 +2613,15 @@ export interface IntegerHyperParameterRange {
 
 export namespace IntegerHyperParameterRange {
   export const filterSensitiveLog = (obj: IntegerHyperParameterRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IntegerHyperParameterRange =>
-    __isa(o, "IntegerHyperParameterRange");
+  export const isa = (o: any): o is IntegerHyperParameterRange => __isa(o, "IntegerHyperParameterRange");
 }
 
 /**
  * <p>Provide a valid value for the field or parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -2533,18 +2629,15 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The token is not valid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -2552,18 +2645,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2571,10 +2661,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBatchInferenceJobsRequest {
@@ -2598,37 +2687,31 @@ export interface ListBatchInferenceJobsRequest {
 }
 
 export namespace ListBatchInferenceJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListBatchInferenceJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListBatchInferenceJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListBatchInferenceJobsRequest =>
-    __isa(o, "ListBatchInferenceJobsRequest");
+  export const isa = (o: any): o is ListBatchInferenceJobsRequest => __isa(o, "ListBatchInferenceJobsRequest");
 }
 
 export interface ListBatchInferenceJobsResponse {
   __type?: "ListBatchInferenceJobsResponse";
   /**
-   * <p>A list containing information on each job that is returned.</p>
-   */
-  batchInferenceJobs?: BatchInferenceJobSummary[];
-
-  /**
    * <p>The token to use to retreive the next page of results. The value is <code>null</code> when
    *       there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list containing information on each job that is returned.</p>
+   */
+  batchInferenceJobs?: BatchInferenceJobSummary[];
 }
 
 export namespace ListBatchInferenceJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListBatchInferenceJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListBatchInferenceJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListBatchInferenceJobsResponse =>
-    __isa(o, "ListBatchInferenceJobsResponse");
+  export const isa = (o: any): o is ListBatchInferenceJobsResponse => __isa(o, "ListBatchInferenceJobsResponse");
 }
 
 export interface ListCampaignsRequest {
@@ -2639,67 +2722,64 @@ export interface ListCampaignsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token returned from the previous call to <code>ListCampaigns</code> for getting
-   *       the next set of campaigns (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
    *         a solution is not specified, all the campaigns associated with the account are listed.</p>
    */
   solutionArn?: string;
+
+  /**
+   * <p>A token returned from the previous call to <code>ListCampaigns</code> for getting
+   *       the next set of campaigns (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListCampaignsRequest {
   export const filterSensitiveLog = (obj: ListCampaignsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListCampaignsRequest =>
-    __isa(o, "ListCampaignsRequest");
+  export const isa = (o: any): o is ListCampaignsRequest => __isa(o, "ListCampaignsRequest");
 }
 
 export interface ListCampaignsResponse {
   __type?: "ListCampaignsResponse";
   /**
-   * <p>A list of the campaigns.</p>
-   */
-  campaigns?: CampaignSummary[];
-
-  /**
    * <p>A token for getting the next set of campaigns (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of the campaigns.</p>
+   */
+  campaigns?: CampaignSummary[];
 }
 
 export namespace ListCampaignsResponse {
   export const filterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListCampaignsResponse =>
-    __isa(o, "ListCampaignsResponse");
+  export const isa = (o: any): o is ListCampaignsResponse => __isa(o, "ListCampaignsResponse");
 }
 
 export interface ListDatasetGroupsRequest {
   __type?: "ListDatasetGroupsRequest";
   /**
-   * <p>The maximum number of dataset groups to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting
    *       the next set of dataset groups (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of dataset groups to return.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListDatasetGroupsRequest {
   export const filterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsRequest =>
-    __isa(o, "ListDatasetGroupsRequest");
+  export const isa = (o: any): o is ListDatasetGroupsRequest => __isa(o, "ListDatasetGroupsRequest");
 }
 
 export interface ListDatasetGroupsResponse {
@@ -2717,14 +2797,19 @@ export interface ListDatasetGroupsResponse {
 
 export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsResponse =>
-    __isa(o, "ListDatasetGroupsResponse");
+  export const isa = (o: any): o is ListDatasetGroupsResponse => __isa(o, "ListDatasetGroupsResponse");
 }
 
 export interface ListDatasetImportJobsRequest {
   __type?: "ListDatasetImportJobsRequest";
+  /**
+   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
+   *       the next set of dataset import jobs (if they exist).</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
    */
@@ -2734,55 +2819,37 @@ export interface ListDatasetImportJobsRequest {
    * <p>The maximum number of dataset import jobs to return.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
-   *       the next set of dataset import jobs (if they exist).</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListDatasetImportJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDatasetImportJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsRequest =>
-    __isa(o, "ListDatasetImportJobsRequest");
+  export const isa = (o: any): o is ListDatasetImportJobsRequest => __isa(o, "ListDatasetImportJobsRequest");
 }
 
 export interface ListDatasetImportJobsResponse {
   __type?: "ListDatasetImportJobsResponse";
   /**
-   * <p>The list of dataset import jobs.</p>
-   */
-  datasetImportJobs?: DatasetImportJobSummary[];
-
-  /**
    * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of dataset import jobs.</p>
+   */
+  datasetImportJobs?: DatasetImportJobSummary[];
 }
 
 export namespace ListDatasetImportJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDatasetImportJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsResponse =>
-    __isa(o, "ListDatasetImportJobsResponse");
+  export const isa = (o: any): o is ListDatasetImportJobsResponse => __isa(o, "ListDatasetImportJobsResponse");
 }
 
 export interface ListDatasetsRequest {
   __type?: "ListDatasetsRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the
-   *       datasets to list.</p>
-   */
-  datasetGroupArn?: string;
-
   /**
    * <p>The maximum number of datasets to return.</p>
    */
@@ -2793,48 +2860,52 @@ export interface ListDatasetsRequest {
    *       the next set of dataset import jobs (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the
+   *       datasets to list.</p>
+   */
+  datasetGroupArn?: string;
 }
 
 export namespace ListDatasetsRequest {
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsRequest =>
-    __isa(o, "ListDatasetsRequest");
+  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
 }
 
 export interface ListDatasetsResponse {
   __type?: "ListDatasetsResponse";
   /**
-   * <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
-   */
-  datasets?: DatasetSummary[];
-
-  /**
    * <p>A token for getting the next set of datasets (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
+   */
+  datasets?: DatasetSummary[];
 }
 
 export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsResponse =>
-    __isa(o, "ListDatasetsResponse");
+  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
 }
 
 export interface ListEventTrackersRequest {
   __type?: "ListEventTrackersRequest";
   /**
-   * <p>The ARN of a dataset group used to filter the response.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
    * <p>The maximum number of event trackers to return.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The ARN of a dataset group used to filter the response.</p>
+   */
+  datasetGroupArn?: string;
 
   /**
    * <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
@@ -2845,39 +2916,83 @@ export interface ListEventTrackersRequest {
 
 export namespace ListEventTrackersRequest {
   export const filterSensitiveLog = (obj: ListEventTrackersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventTrackersRequest =>
-    __isa(o, "ListEventTrackersRequest");
+  export const isa = (o: any): o is ListEventTrackersRequest => __isa(o, "ListEventTrackersRequest");
 }
 
 export interface ListEventTrackersResponse {
   __type?: "ListEventTrackersResponse";
   /**
-   * <p>A list of event trackers.</p>
-   */
-  eventTrackers?: EventTrackerSummary[];
-
-  /**
    * <p>A token for getting the next set of event trackers (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of event trackers.</p>
+   */
+  eventTrackers?: EventTrackerSummary[];
 }
 
 export namespace ListEventTrackersResponse {
   export const filterSensitiveLog = (obj: ListEventTrackersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventTrackersResponse =>
-    __isa(o, "ListEventTrackersResponse");
+  export const isa = (o: any): o is ListEventTrackersResponse => __isa(o, "ListEventTrackersResponse");
+}
+
+export interface ListFiltersRequest {
+  __type?: "ListFiltersRequest";
+  /**
+   * <p>The maximum number of filters to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token returned from the previous call to <code>ListFilters</code> for getting the
+   *             next set of filters (if they exist).</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ARN of the dataset group that contains the filters.</p>
+   */
+  datasetGroupArn?: string;
+}
+
+export namespace ListFiltersRequest {
+  export const filterSensitiveLog = (obj: ListFiltersRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListFiltersRequest => __isa(o, "ListFiltersRequest");
+}
+
+export interface ListFiltersResponse {
+  __type?: "ListFiltersResponse";
+  /**
+   * <p>A list of returned filters.</p>
+   */
+  Filters?: FilterSummary[];
+
+  /**
+   * <p>A token for getting the next set of filters (if they exist).</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListFiltersResponse {
+  export const filterSensitiveLog = (obj: ListFiltersResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListFiltersResponse => __isa(o, "ListFiltersResponse");
 }
 
 export interface ListRecipesRequest {
   __type?: "ListRecipesRequest";
   /**
-   * <p>The maximum number of recipes to return.</p>
+   * <p>The default is <code>SERVICE</code>.</p>
    */
-  maxResults?: number;
+  recipeProvider?: RecipeProvider | string;
 
   /**
    * <p>A token returned from the previous call to <code>ListRecipes</code> for getting
@@ -2886,17 +3001,16 @@ export interface ListRecipesRequest {
   nextToken?: string;
 
   /**
-   * <p>The default is <code>SERVICE</code>.</p>
+   * <p>The maximum number of recipes to return.</p>
    */
-  recipeProvider?: RecipeProvider | string;
+  maxResults?: number;
 }
 
 export namespace ListRecipesRequest {
   export const filterSensitiveLog = (obj: ListRecipesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRecipesRequest =>
-    __isa(o, "ListRecipesRequest");
+  export const isa = (o: any): o is ListRecipesRequest => __isa(o, "ListRecipesRequest");
 }
 
 export interface ListRecipesResponse {
@@ -2914,10 +3028,9 @@ export interface ListRecipesResponse {
 
 export namespace ListRecipesResponse {
   export const filterSensitiveLog = (obj: ListRecipesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRecipesResponse =>
-    __isa(o, "ListRecipesResponse");
+  export const isa = (o: any): o is ListRecipesResponse => __isa(o, "ListRecipesResponse");
 }
 
 export interface ListSchemasRequest {
@@ -2936,31 +3049,29 @@ export interface ListSchemasRequest {
 
 export namespace ListSchemasRequest {
   export const filterSensitiveLog = (obj: ListSchemasRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSchemasRequest =>
-    __isa(o, "ListSchemasRequest");
+  export const isa = (o: any): o is ListSchemasRequest => __isa(o, "ListSchemasRequest");
 }
 
 export interface ListSchemasResponse {
   __type?: "ListSchemasResponse";
   /**
-   * <p>A token used to get the next set of schemas (if they exist).</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A list of schemas.</p>
    */
   schemas?: DatasetSchemaSummary[];
+
+  /**
+   * <p>A token used to get the next set of schemas (if they exist).</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListSchemasResponse {
   export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSchemasResponse =>
-    __isa(o, "ListSchemasResponse");
+  export const isa = (o: any): o is ListSchemasResponse => __isa(o, "ListSchemasResponse");
 }
 
 export interface ListSolutionsRequest {
@@ -2984,10 +3095,9 @@ export interface ListSolutionsRequest {
 
 export namespace ListSolutionsRequest {
   export const filterSensitiveLog = (obj: ListSolutionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSolutionsRequest =>
-    __isa(o, "ListSolutionsRequest");
+  export const isa = (o: any): o is ListSolutionsRequest => __isa(o, "ListSolutionsRequest");
 }
 
 export interface ListSolutionsResponse {
@@ -3005,24 +3115,23 @@ export interface ListSolutionsResponse {
 
 export namespace ListSolutionsResponse {
   export const filterSensitiveLog = (obj: ListSolutionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSolutionsResponse =>
-    __isa(o, "ListSolutionsResponse");
+  export const isa = (o: any): o is ListSolutionsResponse => __isa(o, "ListSolutionsResponse");
 }
 
 export interface ListSolutionVersionsRequest {
   __type?: "ListSolutionVersionsRequest";
   /**
-   * <p>The maximum number of solution versions to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
    *       the next set of solution versions (if they exist).</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of solution versions to return.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the solution.</p>
@@ -3031,13 +3140,10 @@ export interface ListSolutionVersionsRequest {
 }
 
 export namespace ListSolutionVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListSolutionVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSolutionVersionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSolutionVersionsRequest =>
-    __isa(o, "ListSolutionVersionsRequest");
+  export const isa = (o: any): o is ListSolutionVersionsRequest => __isa(o, "ListSolutionVersionsRequest");
 }
 
 export interface ListSolutionVersionsResponse {
@@ -3054,13 +3160,10 @@ export interface ListSolutionVersionsResponse {
 }
 
 export namespace ListSolutionVersionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListSolutionVersionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSolutionVersionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSolutionVersionsResponse =>
-    __isa(o, "ListSolutionVersionsResponse");
+  export const isa = (o: any): o is ListSolutionVersionsResponse => __isa(o, "ListSolutionVersionsResponse");
 }
 
 /**
@@ -3070,42 +3173,6 @@ export namespace ListSolutionVersionsResponse {
  */
 export interface Recipe {
   __type?: "Recipe";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
-   *       the model.</p>
-   */
-  algorithmArn?: string;
-
-  /**
-   * <p>The date and time (in Unix format) that the recipe was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The description of the recipe.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The ARN of the FeatureTransformation object.</p>
-   */
-  featureTransformationArn?: string;
-
-  /**
-   * <p>The date and time (in Unix format) that the recipe was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the recipe.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
-   */
-  recipeArn?: string;
-
   /**
    * <p>One of the following values:</p>
    *          <ul>
@@ -3123,20 +3190,56 @@ export interface Recipe {
   recipeType?: string;
 
   /**
+   * <p>The name of the recipe.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the recipe was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
+   */
+  recipeArn?: string;
+
+  /**
+   * <p>The date and time (in Unix format) that the recipe was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
    * <p>The status of the recipe.</p>
    */
   status?: string;
+
+  /**
+   * <p>The ARN of the FeatureTransformation object.</p>
+   */
+  featureTransformationArn?: string;
+
+  /**
+   * <p>The description of the recipe.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
+   *       the model.</p>
+   */
+  algorithmArn?: string;
 }
 
 export namespace Recipe {
   export const filterSensitiveLog = (obj: Recipe): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Recipe => __isa(o, "Recipe");
 }
 
 export enum RecipeProvider {
-  SERVICE = "SERVICE"
+  SERVICE = "SERVICE",
 }
 
 /**
@@ -3151,14 +3254,14 @@ export interface RecipeSummary {
   creationDateTime?: Date;
 
   /**
+   * <p>The status of the recipe.</p>
+   */
+  status?: string;
+
+  /**
    * <p>The date and time (in Unix time) that the recipe was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the recipe.</p>
-   */
-  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recipe.</p>
@@ -3166,14 +3269,14 @@ export interface RecipeSummary {
   recipeArn?: string;
 
   /**
-   * <p>The status of the recipe.</p>
+   * <p>The name of the recipe.</p>
    */
-  status?: string;
+  name?: string;
 }
 
 export namespace RecipeSummary {
   export const filterSensitiveLog = (obj: RecipeSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RecipeSummary => __isa(o, "RecipeSummary");
 }
@@ -3181,30 +3284,23 @@ export namespace RecipeSummary {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -3212,18 +3308,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>Could not find the specified resource.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -3231,10 +3324,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3243,7 +3335,7 @@ export namespace ResourceNotFoundException {
 export interface S3DataConfig {
   __type?: "S3DataConfig";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that  Amazon Personalize  uses to
+   * <p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that Amazon Personalize uses to
    *       encrypt or decrypt the input and output files of a batch inference job.</p>
    */
   kmsKeyArn?: string;
@@ -3256,7 +3348,7 @@ export interface S3DataConfig {
 
 export namespace S3DataConfig {
   export const filterSensitiveLog = (obj: S3DataConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3DataConfig => __isa(o, "S3DataConfig");
 }
@@ -3268,69 +3360,6 @@ export namespace S3DataConfig {
 export interface Solution {
   __type?: "Solution";
   /**
-   * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
-   */
-  autoMLResult?: AutoMLResult;
-
-  /**
-   * <p>The creation date and time (in Unix time) of the solution.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
-   */
-  eventType?: string;
-
-  /**
-   * <p>The date and time (in Unix time) that the solution was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Describes the latest version of the solution, including the status and the ARN.</p>
-   */
-  latestSolutionVersion?: SolutionVersionSummary;
-
-  /**
-   * <p>The name of the solution.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
-   *       the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
-   *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
-   */
-  performAutoML?: boolean;
-
-  /**
-   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
-   *       default is <code>false</code>.</p>
-   */
-  performHPO?: boolean;
-
-  /**
-   * <p>The ARN of the recipe used to create the solution.</p>
-   */
-  recipeArn?: string;
-
-  /**
-   * <p>The ARN of the solution.</p>
-   */
-  solutionArn?: string;
-
-  /**
-   * <p>Describes the configuration properties for the solution.</p>
-   */
-  solutionConfig?: SolutionConfig;
-
-  /**
    * <p>The status of the solution.</p>
    *          <p>A solution can be in one of the following states:</p>
    *          <ul>
@@ -3343,11 +3372,74 @@ export interface Solution {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>Describes the configuration properties for the solution.</p>
+   */
+  solutionConfig?: SolutionConfig;
+
+  /**
+   * <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
+   *       the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
+   *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
+   */
+  performAutoML?: boolean;
+
+  /**
+   * <p>The date and time (in Unix time) that the solution was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
+   *       default is <code>false</code>.</p>
+   */
+  performHPO?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the solution.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The name of the solution.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN of the recipe used to create the solution.</p>
+   */
+  recipeArn?: string;
+
+  /**
+   * <p>Describes the latest version of the solution, including the status and the ARN.</p>
+   */
+  latestSolutionVersion?: SolutionVersionSummary;
+
+  /**
+   * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
+   */
+  autoMLResult?: AutoMLResult;
+
+  /**
+   * <p>The ARN of the solution.</p>
+   */
+  solutionArn?: string;
+
+  /**
+   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
+   */
+  eventType?: string;
 }
 
 export namespace Solution {
   export const filterSensitiveLog = (obj: Solution): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Solution => __isa(o, "Solution");
 }
@@ -3358,21 +3450,16 @@ export namespace Solution {
 export interface SolutionConfig {
   __type?: "SolutionConfig";
   /**
-   * <p>Lists the hyperparameter names and ranges.</p>
+   * <p>Only events with a value greater than or equal to this threshold are
+   *       used for training a model.</p>
    */
-  algorithmHyperParameters?: { [key: string]: string };
+  eventValueThreshold?: string;
 
   /**
    * <p>The <a>AutoMLConfig</a> object containing a list of recipes to search
    *       when AutoML is performed.</p>
    */
   autoMLConfig?: AutoMLConfig;
-
-  /**
-   * <p>Only events with a value greater than or equal to this threshold are
-   *       used for training a model.</p>
-   */
-  eventValueThreshold?: string;
 
   /**
    * <p>Lists the feature transformation parameters.</p>
@@ -3383,14 +3470,18 @@ export interface SolutionConfig {
    * <p>Describes the properties for hyperparameter optimization (HPO).</p>
    */
   hpoConfig?: HPOConfig;
+
+  /**
+   * <p>Lists the hyperparameter names and ranges.</p>
+   */
+  algorithmHyperParameters?: { [key: string]: string };
 }
 
 export namespace SolutionConfig {
   export const filterSensitiveLog = (obj: SolutionConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SolutionConfig =>
-    __isa(o, "SolutionConfig");
+  export const isa = (o: any): o is SolutionConfig => __isa(o, "SolutionConfig");
 }
 
 /**
@@ -3400,24 +3491,14 @@ export namespace SolutionConfig {
 export interface SolutionSummary {
   __type?: "SolutionSummary";
   /**
-   * <p>The date and time (in Unix time) that the solution was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the solution.</p>
    */
-  creationDateTime?: Date;
+  solutionArn?: string;
 
   /**
    * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The name of the solution.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the solution.</p>
-   */
-  solutionArn?: string;
 
   /**
    * <p>The status of the solution.</p>
@@ -3432,14 +3513,23 @@ export interface SolutionSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the solution was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The name of the solution.</p>
+   */
+  name?: string;
 }
 
 export namespace SolutionSummary {
   export const filterSensitiveLog = (obj: SolutionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SolutionSummary =>
-    __isa(o, "SolutionSummary");
+  export const isa = (o: any): o is SolutionSummary => __isa(o, "SolutionSummary");
 }
 
 /**
@@ -3448,27 +3538,9 @@ export namespace SolutionSummary {
 export interface SolutionVersion {
   __type?: "SolutionVersion";
   /**
-   * <p>The date and
-   *       time
-   *       (in Unix time) that this version of the solution was created.</p>
+   * <p>Describes the configuration properties for the solution.</p>
    */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
-   */
-  datasetGroupArn?: string;
-
-  /**
-   * <p>The event type (for example, 'click' or 'like') that is used for training the
-   *       model.</p>
-   */
-  eventType?: string;
-
-  /**
-   * <p>If training a solution version fails, the reason for the failure.</p>
-   */
-  failureReason?: string;
+  solutionConfig?: SolutionConfig;
 
   /**
    * <p>The date and time (in
@@ -3476,38 +3548,6 @@ export interface SolutionVersion {
    *       time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
-   *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
-   */
-  performAutoML?: boolean;
-
-  /**
-   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
-   *         <code>false</code>.</p>
-   */
-  performHPO?: boolean;
-
-  /**
-   * <p>The ARN of the recipe used in the solution.</p>
-   */
-  recipeArn?: string;
-
-  /**
-   * <p>The ARN of the solution.</p>
-   */
-  solutionArn?: string;
-
-  /**
-   * <p>Describes the configuration properties for the solution.</p>
-   */
-  solutionConfig?: SolutionConfig;
-
-  /**
-   * <p>The ARN of the solution version.</p>
-   */
-  solutionVersionArn?: string;
 
   /**
    * <p>The status of the solution version.</p>
@@ -3530,10 +3570,22 @@ export interface SolutionVersion {
   status?: string;
 
   /**
-   * <p>The time used to train the model. You are billed for the time it takes to train a model.
-   *       This field is visible only after Amazon Personalize successfully trains a model.</p>
+   * <p>If hyperparameter optimization was performed, contains the hyperparameter values of the
+   *       best performing model.</p>
    */
-  trainingHours?: number;
+  tunedHPOParams?: TunedHPOParams;
+
+  /**
+   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
+   *         <code>false</code>.</p>
+   */
+  performHPO?: boolean;
+
+  /**
+   * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
+   *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
+   */
+  performAutoML?: boolean;
 
   /**
    * <p>The scope of training used to create the solution version. The <code>FULL</code> option
@@ -3547,14 +3599,57 @@ export interface SolutionVersion {
    *          </important>
    */
   trainingMode?: TrainingMode | string;
+
+  /**
+   * <p>The time used to train the model. You are billed for the time it takes to train a model.
+   *       This field is visible only after Amazon Personalize successfully trains a model.</p>
+   */
+  trainingHours?: number;
+
+  /**
+   * <p>If training a solution version fails, the reason for the failure.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The date and
+   *       time
+   *       (in Unix time) that this version of the solution was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The event type (for example, 'click' or 'like') that is used for training the
+   *       model.</p>
+   */
+  eventType?: string;
+
+  /**
+   * <p>The ARN of the solution.</p>
+   */
+  solutionArn?: string;
+
+  /**
+   * <p>The ARN of the recipe used in the solution.</p>
+   */
+  recipeArn?: string;
+
+  /**
+   * <p>The ARN of the solution version.</p>
+   */
+  solutionVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
+   */
+  datasetGroupArn?: string;
 }
 
 export namespace SolutionVersion {
   export const filterSensitiveLog = (obj: SolutionVersion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SolutionVersion =>
-    __isa(o, "SolutionVersion");
+  export const isa = (o: any): o is SolutionVersion => __isa(o, "SolutionVersion");
 }
 
 /**
@@ -3564,24 +3659,14 @@ export namespace SolutionVersion {
 export interface SolutionVersionSummary {
   __type?: "SolutionVersionSummary";
   /**
-   * <p>The date and time (in Unix time) that this version of a solution was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>If a solution version fails, the reason behind the failure.</p>
-   */
-  failureReason?: string;
-
-  /**
    * <p>The date and time (in Unix time) that the solution version was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
+   * <p>The date and time (in Unix time) that this version of a solution was created.</p>
    */
-  solutionVersionArn?: string;
+  creationDateTime?: Date;
 
   /**
    * <p>The status of the solution version.</p>
@@ -3593,23 +3678,56 @@ export interface SolutionVersionSummary {
    *          </ul>
    */
   status?: string;
+
+  /**
+   * <p>If a solution version fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
+   */
+  solutionVersionArn?: string;
 }
 
 export namespace SolutionVersionSummary {
   export const filterSensitiveLog = (obj: SolutionVersionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SolutionVersionSummary =>
-    __isa(o, "SolutionVersionSummary");
+  export const isa = (o: any): o is SolutionVersionSummary => __isa(o, "SolutionVersionSummary");
 }
 
 export enum TrainingMode {
   FULL = "FULL",
-  UPDATE = "UPDATE"
+  UPDATE = "UPDATE",
+}
+
+/**
+ * <p>If hyperparameter optimization (HPO) was performed, contains the hyperparameter values of
+ *       the best performing model.</p>
+ */
+export interface TunedHPOParams {
+  __type?: "TunedHPOParams";
+  /**
+   * <p>A list of the hyperparameter values of the best performing model.</p>
+   */
+  algorithmHyperParameters?: { [key: string]: string };
+}
+
+export namespace TunedHPOParams {
+  export const filterSensitiveLog = (obj: TunedHPOParams): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TunedHPOParams => __isa(o, "TunedHPOParams");
 }
 
 export interface UpdateCampaignRequest {
   __type?: "UpdateCampaignRequest";
+  /**
+   * <p>The ARN of a new solution version to deploy.</p>
+   */
+  solutionVersionArn?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    */
@@ -3620,19 +3738,13 @@ export interface UpdateCampaignRequest {
    *       Amazon Personalize will support.</p>
    */
   minProvisionedTPS?: number;
-
-  /**
-   * <p>The ARN of a new solution version to deploy.</p>
-   */
-  solutionVersionArn?: string;
 }
 
 export namespace UpdateCampaignRequest {
   export const filterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCampaignRequest =>
-    __isa(o, "UpdateCampaignRequest");
+  export const isa = (o: any): o is UpdateCampaignRequest => __isa(o, "UpdateCampaignRequest");
 }
 
 export interface UpdateCampaignResponse {
@@ -3645,8 +3757,7 @@ export interface UpdateCampaignResponse {
 
 export namespace UpdateCampaignResponse {
   export const filterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateCampaignResponse =>
-    __isa(o, "UpdateCampaignResponse");
+  export const isa = (o: any): o is UpdateCampaignResponse => __isa(o, "UpdateCampaignResponse");
 }

@@ -1,12 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
- * <p> An internal failure occurred. </p>
+ * <p>
+ *             Internal failure occurred.
+ *         </p>
  */
 export interface InternalFailure extends __SmithyException, $MetadataBearer {
   name: "InternalFailure";
@@ -16,43 +14,23 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 
 export namespace InternalFailure {
   export const filterSensitiveLog = (obj: InternalFailure): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailure =>
-    __isa(o, "InternalFailure");
+  export const isa = (o: any): o is InternalFailure => __isa(o, "InternalFailure");
 }
 
 export interface InvokeEndpointInput {
   __type?: "InvokeEndpointInput";
-  /**
-   * <p>The desired MIME type of the inference in the response.</p>
-   */
-  Accept?: string;
-
-  /**
-   * <p>Provides input data, in the format specified in the <code>ContentType</code>
-   *             request header. Amazon SageMaker passes all of the data in the body to the model. </p>
-   *         <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
-   *                 Formats—Inference</a>.</p>
-   */
-  Body: Uint8Array | undefined;
-
   /**
    * <p>The MIME type of the input data in the request body.</p>
    */
   ContentType?: string;
 
   /**
-   * <p>Provides additional information about a request for an inference submitted to a model
-   *             hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
-   *             forwarded verbatim. You could use this value, for example, to provide an ID that you can
-   *             use to track a request or to provide other metadata that a service endpoint was
-   *             programmed to process. The value must consist of no more than 1024 visible US-ASCII
-   *             characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value
-   *                 Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is
-   *             currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>
+   * <p>Provides input data, in the format specified in the <code>ContentType</code>
+   *             request header. Amazon SageMaker passes all of the data in the body to the model. </p>
    */
-  CustomAttributes?: string;
+  Body: Uint8Array | undefined;
 
   /**
    * <p>The name of the endpoint that you specified when you created the endpoint using the
@@ -61,99 +39,88 @@ export interface InvokeEndpointInput {
   EndpointName: string | undefined;
 
   /**
-   * <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>
+   * <p>The desired MIME type of the inference in the response.</p>
    */
-  TargetModel?: string;
+  Accept?: string;
 }
 
 export namespace InvokeEndpointInput {
   export const filterSensitiveLog = (obj: InvokeEndpointInput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
-    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is InvokeEndpointInput =>
-    __isa(o, "InvokeEndpointInput");
+  export const isa = (o: any): o is InvokeEndpointInput => __isa(o, "InvokeEndpointInput");
 }
 
 export interface InvokeEndpointOutput {
   __type?: "InvokeEndpointOutput";
   /**
    * <p>Includes the inference provided by the model.</p>
-   *         <p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
-   *                 Formats—Inference</a>.</p>
    */
   Body: Uint8Array | undefined;
-
-  /**
-   * <p>The MIME type of the inference returned in the response body.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>Provides additional information in the response about the inference returned by a
-   *             model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
-   *             forwarded verbatim. You could use this value, for example, to return an ID received in
-   *             the <code>CustomAttributes</code> header of a request or other metadata that a service
-   *             endpoint was programmed to produce. The value must consist of no more than 1024 visible
-   *             US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value
-   *                 Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer
-   *             wants the custom attribute returned, the model must set the custom attribute to be
-   *             included on the way back. </p>
-   *         <p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker
-   *             Python SDK.</p>
-   */
-  CustomAttributes?: string;
 
   /**
    * <p>Identifies the production variant that was invoked.</p>
    */
   InvokedProductionVariant?: string;
+
+  /**
+   * <p>The MIME type of the inference returned in the response body.</p>
+   */
+  ContentType?: string;
 }
 
 export namespace InvokeEndpointOutput {
   export const filterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
-    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is InvokeEndpointOutput =>
-    __isa(o, "InvokeEndpointOutput");
+  export const isa = (o: any): o is InvokeEndpointOutput => __isa(o, "InvokeEndpointOutput");
 }
 
 /**
- * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
+ * <p>
+ *             Model (owned by the customer in the container) returned an error 500.
  *         </p>
  */
 export interface ModelError extends __SmithyException, $MetadataBearer {
   name: "ModelError";
   $fault: "client";
   /**
-   * <p> The Amazon Resource Name (ARN) of the log stream. </p>
+   * <p>
+   *             Amazon Resource Name (ARN) of the log stream.
+   *         </p>
    */
   LogStreamArn?: string;
 
-  Message?: string;
   /**
-   * <p> Original message. </p>
+   * <p>
+   *             Original status code.
+   *         </p>
+   */
+  OriginalStatusCode?: number;
+
+  /**
+   * <p>
+   *             Original message.
+   *         </p>
    */
   OriginalMessage?: string;
 
-  /**
-   * <p> Original status code. </p>
-   */
-  OriginalStatusCode?: number;
+  Message?: string;
 }
 
 export namespace ModelError {
   export const filterSensitiveLog = (obj: ModelError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ModelError => __isa(o, "ModelError");
 }
 
 /**
- * <p> The service is unavailable. Try your call again. </p>
+ * <p>
+ *             Service is unavailable. Try your call again.
+ *         </p>
  */
 export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailable";
@@ -163,14 +130,16 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 
 export namespace ServiceUnavailable {
   export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailable =>
-    __isa(o, "ServiceUnavailable");
+  export const isa = (o: any): o is ServiceUnavailable => __isa(o, "ServiceUnavailable");
 }
 
 /**
- * <p> Inspect your request and try again. </p>
+ * <p>
+ *             Inspect your request and try again.
+ *
+ *         </p>
  */
 export interface ValidationError extends __SmithyException, $MetadataBearer {
   name: "ValidationError";
@@ -180,8 +149,7 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 
 export namespace ValidationError {
   export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationError =>
-    __isa(o, "ValidationError");
+  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }

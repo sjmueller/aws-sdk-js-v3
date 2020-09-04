@@ -2,99 +2,103 @@ import { SecretsManagerClient } from "./SecretsManagerClient.ts";
 import {
   CancelRotateSecretCommand,
   CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput
+  CancelRotateSecretCommandOutput,
 } from "./commands/CancelRotateSecretCommand.ts";
 import {
   CreateSecretCommand,
   CreateSecretCommandInput,
-  CreateSecretCommandOutput
+  CreateSecretCommandOutput,
 } from "./commands/CreateSecretCommand.ts";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteSecretCommand,
   DeleteSecretCommandInput,
-  DeleteSecretCommandOutput
+  DeleteSecretCommandOutput,
 } from "./commands/DeleteSecretCommand.ts";
 import {
   DescribeSecretCommand,
   DescribeSecretCommandInput,
-  DescribeSecretCommandOutput
+  DescribeSecretCommandOutput,
 } from "./commands/DescribeSecretCommand.ts";
 import {
   GetRandomPasswordCommand,
   GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput
+  GetRandomPasswordCommandOutput,
 } from "./commands/GetRandomPasswordCommand.ts";
 import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
+  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand.ts";
 import {
   GetSecretValueCommand,
   GetSecretValueCommandInput,
-  GetSecretValueCommandOutput
+  GetSecretValueCommandOutput,
 } from "./commands/GetSecretValueCommand.ts";
 import {
   ListSecretVersionIdsCommand,
   ListSecretVersionIdsCommandInput,
-  ListSecretVersionIdsCommandOutput
+  ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand.ts";
 import {
   ListSecretsCommand,
   ListSecretsCommandInput,
-  ListSecretsCommandOutput
+  ListSecretsCommandOutput,
 } from "./commands/ListSecretsCommand.ts";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
+  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand.ts";
 import {
   PutSecretValueCommand,
   PutSecretValueCommandInput,
-  PutSecretValueCommandOutput
+  PutSecretValueCommandOutput,
 } from "./commands/PutSecretValueCommand.ts";
 import {
   RestoreSecretCommand,
   RestoreSecretCommandInput,
-  RestoreSecretCommandOutput
+  RestoreSecretCommandOutput,
 } from "./commands/RestoreSecretCommand.ts";
 import {
   RotateSecretCommand,
   RotateSecretCommandInput,
-  RotateSecretCommandOutput
+  RotateSecretCommandOutput,
 } from "./commands/RotateSecretCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateSecretCommand,
   UpdateSecretCommandInput,
-  UpdateSecretCommandOutput
+  UpdateSecretCommandOutput,
 } from "./commands/UpdateSecretCommand.ts";
 import {
   UpdateSecretVersionStageCommand,
   UpdateSecretVersionStageCommandInput,
-  UpdateSecretVersionStageCommandOutput
+  UpdateSecretVersionStageCommandOutput,
 } from "./commands/UpdateSecretVersionStageCommand.ts";
+import {
+  ValidateResourcePolicyCommand,
+  ValidateResourcePolicyCommandInput,
+  ValidateResourcePolicyCommandOutput,
+} from "./commands/ValidateResourcePolicyCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <fullname>AWS Secrets Manager API Reference</fullname>
- *          <p>AWS Secrets Manager is a web service that enables you to store, manage, and retrieve,
- *       secrets.</p>
+ *          <p>AWS Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
  *
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
  *       service, see the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">AWS Secrets Manager User Guide</a>.</p>
@@ -105,21 +109,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
  *          <note>
- *             <p>As an alternative to using the API directly, you can use one of the AWS SDKs, which
- *         consist of libraries and sample code for various programming languages and platforms (such
- *         as Java, Ruby, .NET, iOS, and Android). The SDKs provide a convenient way to create
- *         programmatic access to AWS Secrets Manager. For example, the SDKs take care of cryptographically
- *         signing requests, managing errors, and retrying requests automatically. For more information
- *         about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+ *             <p>As an alternative to using the API, you can use one of the AWS SDKs, which consist of
+ *         libraries and sample code for various programming languages and platforms such as Java,
+ *         Ruby, .NET, iOS, and Android. The SDKs provide a convenient way to create programmatic
+ *         access to AWS Secrets Manager. For example, the SDKs provide cryptographically signing requests,
+ *         managing errors, and retrying requests automatically. For more information about the AWS
+ *         SDKs, including downloading and installing them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *          <p>We recommend that you use the AWS SDKs to make programmatic API calls to Secrets Manager. However,
- *       you also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To
- *       learn more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
+ *          <p>We recommend you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you
+ *       also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn
+ *       more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
  *         <i>AWS Secrets Manager User Guide</i>. </p>
- *          <p>Secrets Manager supports GET and POST requests for all actions. That is, the API doesn't require you
- *       to use GET for some actions and POST for others. However, GET requests are subject to the
- *       limitation size of a URL. Therefore, for operations that require larger sizes, use a POST
- *       request.</p>
+ *          <p>Secrets Manager API supports GET and POST requests for all actions, and doesn't require you to use
+ *       GET for some actions and POST for others. However, GET requests are subject to the limitation
+ *       size of a URL. Therefore, for operations that require larger sizes, use a POST request.</p>
  *
  *
  *
@@ -139,12 +142,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             <b>How examples are presented</b>
  *          </p>
  *
- *          <p>The JSON that AWS Secrets Manager expects as your request parameters and that the service returns as
- *       a response to HTTP query requests are single, long strings without line breaks or white space
- *       formatting. The JSON shown in the examples is formatted with both line breaks and white space
- *       to improve readability. When example input parameters would also result in long strings that
- *       extend beyond the screen, we insert line breaks to enhance readability. You should always
- *       submit the input as a single JSON text string.</p>
+ *          <p>The JSON that AWS Secrets Manager expects as your request parameters and the service returns as a
+ *       response to HTTP query requests contain single, long strings without line breaks or white
+ *       space formatting. The JSON shown in the examples displays the code formatted with both line
+ *       breaks and white space to improve readability. When example input parameters can also cause
+ *       long strings extending beyond the screen, you can insert line breaks to enhance readability.
+ *       You should always submit the input as a single JSON text string.</p>
  *
  *
  *          <p>
@@ -152,40 +155,39 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *          </p>
  *          <p>AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS
  *       account and delivers log files to an Amazon S3 bucket. By using information that's collected
- *       by AWS CloudTrail, you can determine which requests were successfully made to Secrets Manager, who
- *       made the request, when it was made, and so on. For more about AWS Secrets Manager and its support for
- *       AWS CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
+ *       by AWS CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
+ *       request, when it was made, and so on. For more about AWS Secrets Manager and support for AWS
+ *       CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
  *         AWS Secrets Manager Events with AWS CloudTrail</a> in the <i>AWS Secrets Manager User Guide</i>.
- *       To learn more about CloudTrail, including how to turn it on and find your log files, see the
- *         <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
+ *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
  */
 export class SecretsManager extends SecretsManagerClient {
   /**
-   * <p>Disables automatic scheduled rotation and cancels the rotation of a secret if one is
-   *       currently in progress.</p>
+   * <p>Disables automatic scheduled rotation and cancels the rotation of a secret if currently in
+   *       progress.</p>
    *          <p>To re-enable scheduled rotation, call <a>RotateSecret</a> with
-   *         <code>AutomaticallyRotateAfterDays</code> set to a value greater than 0. This will
-   *       immediately rotate your secret and then enable the automatic schedule.</p>
+   *         <code>AutomaticallyRotateAfterDays</code> set to a value greater than 0. This immediately
+   *       rotates your secret and then enables the automatic schedule.</p>
    *          <note>
-   *             <p>If you cancel a rotation that is in progress, it can leave the <code>VersionStage</code>
-   *         labels in an unexpected state. Depending on what step of the rotation was in progress, you
-   *         might need to remove the staging label <code>AWSPENDING</code> from the partially created version,
-   *         specified by the <code>VersionId</code> response value. You should also evaluate the
-   *         partially rotated new version to see if it should be deleted, which you can do by removing
-   *         all staging labels from the new version's <code>VersionStage</code> field.</p>
+   *             <p>If you cancel a rotation while in progress, it can leave the <code>VersionStage</code>
+   *         labels in an unexpected state. Depending on the step of the rotation in progress, you might
+   *         need to remove the staging label <code>AWSPENDING</code> from the partially created version, specified
+   *         by the <code>VersionId</code> response value. You should also evaluate the partially rotated
+   *         new version to see if it should be deleted, which you can do by removing all staging labels
+   *         from the new version <code>VersionStage</code> field.</p>
    *          </note>
    *          <p>To successfully start a rotation, the staging label <code>AWSPENDING</code> must be in one of the
    *       following states:</p>
    *          <ul>
    *             <li>
-   *                <p>Not be attached to any version at all</p>
+   *                <p>Not attached to any version at all</p>
    *             </li>
    *             <li>
    *                <p>Attached to the same version as the staging label <code>AWSCURRENT</code>
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>If the staging label <code>AWSPENDING</code> is attached to a different version than the version with
+   *          <p>If the staging label <code>AWSPENDING</code> attached to a different version than the version with
    *       <code>AWSCURRENT</code> then the attempt to rotate fails.</p>
    *
    *          <p>
@@ -230,17 +232,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelRotateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelRotateSecretCommandOutput) => void),
     cb?: (err: any, data?: CancelRotateSecretCommandOutput) => void
   ): Promise<CancelRotateSecretCommandOutput> | void {
     const command = new CancelRotateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -255,7 +254,7 @@ export class SecretsManager extends SecretsManagerClient {
    *       version is associated with one or more "staging labels" that identify where the version is in
    *       the rotation cycle. The <code>SecretVersionsToStages</code> field of the secret contains the
    *       mapping of staging labels to the active versions of the secret. Versions without a staging
-   *       label are considered deprecated and are not included in the list.</p>
+   *       label are considered deprecated and not included in the list.</p>
    *          <p>You provide the secret data to be encrypted by putting text in either the
    *         <code>SecretString</code> parameter or binary data in the <code>SecretBinary</code>
    *       parameter, but not both. If you include <code>SecretString</code> or <code>SecretBinary</code>
@@ -264,18 +263,18 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
+   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
    *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
    *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
    *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS having to create the account's
+   *           Note that if an Secrets Manager API call results in AWS creating the account's
    *           AWS-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret is in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
    *           AWS KMS CMK because you can't access the default CMK for the account using credentials
    *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
@@ -298,12 +297,12 @@ export class SecretsManager extends SecretsManagerClient {
    *             </li>
    *             <li>
    *                <p>kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt
-   *           the secret. You do not need this permission to use the account's default AWS managed CMK
+   *           the secret. You do not need this permission to use the account default AWS managed CMK
    *           for Secrets Manager.</p>
    *             </li>
    *             <li>
    *                <p>kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the
-   *           secret. You do not need this permission to use the account's default AWS managed CMK for
+   *           secret. You do not need this permission to use the account default AWS managed CMK for
    *           Secrets Manager.</p>
    *             </li>
    *             <li>
@@ -341,10 +340,7 @@ export class SecretsManager extends SecretsManagerClient {
     args: CreateSecretCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSecretCommandOutput>;
-  public createSecret(
-    args: CreateSecretCommandInput,
-    cb: (err: any, data?: CreateSecretCommandOutput) => void
-  ): void;
+  public createSecret(args: CreateSecretCommandInput, cb: (err: any, data?: CreateSecretCommandOutput) => void): void;
   public createSecret(
     args: CreateSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -352,17 +348,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public createSecret(
     args: CreateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecretCommandOutput) => void),
     cb?: (err: any, data?: CreateSecretCommandOutput) => void
   ): Promise<CreateSecretCommandOutput> | void {
     const command = new CreateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -370,7 +363,7 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Deletes the resource-based permission policy that's attached to the secret.</p>
+   * <p>Deletes the resource-based permission policy attached to the secret.</p>
    *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
@@ -410,17 +403,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -479,10 +469,7 @@ export class SecretsManager extends SecretsManagerClient {
     args: DeleteSecretCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSecretCommandOutput>;
-  public deleteSecret(
-    args: DeleteSecretCommandInput,
-    cb: (err: any, data?: DeleteSecretCommandOutput) => void
-  ): void;
+  public deleteSecret(args: DeleteSecretCommandInput, cb: (err: any, data?: DeleteSecretCommandOutput) => void): void;
   public deleteSecret(
     args: DeleteSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -490,17 +477,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public deleteSecret(
     args: DeleteSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecretCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecretCommandOutput) => void
   ): Promise<DeleteSecretCommandOutput> | void {
     const command = new DeleteSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -508,8 +492,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Retrieves the details of a secret. It does not include the encrypted fields. Only those
-   *       fields that are populated with a value are returned in the response. </p>
+   * <p>Retrieves the details of a secret. It does not include the encrypted fields. Secrets
+   *       Manager only returns fields populated with a value in the response. </p>
    *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
@@ -552,17 +536,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public describeSecret(
     args: DescribeSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecretCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecretCommandOutput) => void
   ): Promise<DescribeSecretCommandOutput> | void {
     const command = new DescribeSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -599,17 +580,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRandomPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRandomPasswordCommandOutput) => void),
     cb?: (err: any, data?: GetRandomPasswordCommandOutput) => void
   ): Promise<GetRandomPasswordCommandOutput> | void {
     const command = new GetRandomPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -617,8 +595,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Retrieves the JSON text of the resource-based policy document that's attached to the
-   *       specified secret. The JSON request string input and response output are shown formatted
+   * <p>Retrieves the JSON text of the resource-based policy document attached to the
+   *       specified secret. The JSON request string input and response output displays formatted code
    *       with white space and line breaks for better readability. Submit your input as a single line
    *       JSON string.</p>
    *          <p>
@@ -638,7 +616,7 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
    *             </li>
    *             <li>
-   *                <p>To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
+   *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
    *             </li>
    *             <li>
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
@@ -660,17 +638,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): Promise<GetResourcePolicyCommandOutput> | void {
     const command = new GetResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -722,17 +697,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getSecretValue(
     args: GetSecretValueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSecretValueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecretValueCommandOutput) => void),
     cb?: (err: any, data?: GetSecretValueCommandOutput) => void
   ): Promise<GetSecretValueCommandOutput> | void {
     const command = new GetSecretValueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,7 +720,7 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    *     when calling any of the <code>List*</code> operations. These operations can occasionally return
-   *     an empty or shorter than expected list of results even when there are more results available.
+   *     an empty or shorter than expected list of results even when there more results become available.
    *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
    *     next call to the same API to request the next part of the list.</p>
    *          </note>
@@ -771,14 +743,8 @@ export class SecretsManager extends SecretsManagerClient {
    *             </li>
    *          </ul>
    */
-  public listSecrets(
-    args: ListSecretsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecretsCommandOutput>;
-  public listSecrets(
-    args: ListSecretsCommandInput,
-    cb: (err: any, data?: ListSecretsCommandOutput) => void
-  ): void;
+  public listSecrets(args: ListSecretsCommandInput, options?: __HttpHandlerOptions): Promise<ListSecretsCommandOutput>;
+  public listSecrets(args: ListSecretsCommandInput, cb: (err: any, data?: ListSecretsCommandOutput) => void): void;
   public listSecrets(
     args: ListSecretsCommandInput,
     options: __HttpHandlerOptions,
@@ -786,17 +752,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public listSecrets(
     args: ListSecretsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecretsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecretsCommandOutput) => void),
     cb?: (err: any, data?: ListSecretsCommandOutput) => void
   ): Promise<ListSecretsCommandOutput> | void {
     const command = new ListSecretsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -811,7 +774,7 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    *     when calling any of the <code>List*</code> operations. These operations can occasionally return
-   *     an empty or shorter than expected list of results even when there are more results available.
+   *     an empty or shorter than expected list of results even when there more results become available.
    *     When this happens, the <code>NextToken</code> response parameter contains a value to pass to the
    *     next call to the same API to request the next part of the list.</p>
    *          </note>
@@ -849,17 +812,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
     cb?: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
   ): Promise<ListSecretVersionIdsCommandOutput> | void {
     const command = new ListSecretVersionIdsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -890,7 +850,7 @@ export class SecretsManager extends SecretsManagerClient {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>To retrieve the resource policy that's attached to a secret, use <a>GetResourcePolicy</a>.</p>
+   *                <p>To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
    *             </li>
    *             <li>
    *                <p>To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
@@ -915,17 +875,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): Promise<PutResourcePolicyCommandOutput> | void {
     const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -969,18 +926,18 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
+   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
    *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
    *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
    *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS having to create the account's
+   *           Note that if an Secrets Manager API call results in AWS creating the account's
    *           AWS-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret is in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
    *           AWS KMS CMK because you can't access the default CMK for the account using credentials
    *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
@@ -1039,17 +996,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public putSecretValue(
     args: PutSecretValueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSecretValueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSecretValueCommandOutput) => void),
     cb?: (err: any, data?: PutSecretValueCommandOutput) => void
   ): Promise<PutSecretValueCommandOutput> | void {
     const command = new PutSecretValueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1092,17 +1046,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public restoreSecret(
     args: RestoreSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreSecretCommandOutput) => void),
     cb?: (err: any, data?: RestoreSecretCommandOutput) => void
   ): Promise<RestoreSecretCommandOutput> | void {
     const command = new RestoreSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1124,7 +1075,7 @@ export class SecretsManager extends SecretsManagerClient {
    *       secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating Secrets in AWS Secrets Manager</a> in the
    *         <i>AWS Secrets Manager User Guide</i>.</p>
    *          <p>Secrets Manager schedules the next rotation when the previous
-   *     one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
+   *     one completes. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
    *     actual date of the last rotation. The service chooses the hour within that 24-hour date window
    *     randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour
    *     and influenced by a variety of factors that help distribute load.</p>
@@ -1139,9 +1090,9 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>The <code>AWSPENDING</code> staging label is not attached to any version of the secret.</p>
    *             </li>
    *          </ul>
-   *          <p>If instead the <code>AWSPENDING</code> staging label is present but is not attached to the same
-   *       version as <code>AWSCURRENT</code> then any later invocation of <code>RotateSecret</code> assumes that a
-   *       previous rotation request is still in progress and returns an error.</p>
+   *          <p>If the <code>AWSPENDING</code> staging label is present but not attached to the same version as
+   *       <code>AWSCURRENT</code> then any later invocation of <code>RotateSecret</code> assumes that a previous
+   *       rotation request is still in progress and returns an error.</p>
    *          <p>
    *             <b>Minimum permissions</b>
    *          </p>
@@ -1177,10 +1128,7 @@ export class SecretsManager extends SecretsManagerClient {
     args: RotateSecretCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RotateSecretCommandOutput>;
-  public rotateSecret(
-    args: RotateSecretCommandInput,
-    cb: (err: any, data?: RotateSecretCommandOutput) => void
-  ): void;
+  public rotateSecret(args: RotateSecretCommandInput, cb: (err: any, data?: RotateSecretCommandOutput) => void): void;
   public rotateSecret(
     args: RotateSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -1188,17 +1136,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public rotateSecret(
     args: RotateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RotateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RotateSecretCommandOutput) => void),
     cb?: (err: any, data?: RotateSecretCommandOutput) => void
   ): Promise<RotateSecretCommandOutput> | void {
     const command = new RotateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1225,14 +1170,14 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because it is
-   *               reserved for AWS use. You can't edit or delete tag names or values with this
+   *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because AWS reserves it
+   *             for AWS use. You can't edit or delete tag names or values with this
    *               prefix. Tags with this prefix do not count against your tags per secret limit.</p>
    *             </li>
    *             <li>
-   *                <p>If your tagging schema will be used across multiple services and resources,
-   *               remember that other services might have restrictions on allowed characters. Generally
-   *               allowed characters are: letters, spaces, and numbers representable in UTF-8, plus the
+   *                <p>If you use your tagging schema across multiple services and resources,
+   *               remember other services might have restrictions on allowed characters. Generally
+   *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
    *               following special characters: + - = . _ : / @.</p>
    *             </li>
    *          </ul>
@@ -1263,14 +1208,8 @@ export class SecretsManager extends SecretsManagerClient {
    *             </li>
    *          </ul>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1278,17 +1217,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1341,17 +1277,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1386,18 +1319,18 @@ export class SecretsManager extends SecretsManagerClient {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
+   *                   <p>If you call an operation to encrypt or decrypt the <code>SecretString</code>
    *           or <code>SecretBinary</code> for a secret in the same account as the calling user and that
    *           secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the account's default
    *           AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key
    *           doesn't already exist in your account then Secrets Manager creates it for you automatically. All
    *           users and roles in the same AWS account automatically have access to use the default CMK.
-   *           Note that if an Secrets Manager API call results in AWS having to create the account's
+   *           Note that if an Secrets Manager API call results in AWS creating the account's
    *           AWS-managed CMK, it can result in a one-time significant delay in returning the
    *           result.</p>
    *                </li>
    *                <li>
-   *                   <p>If the secret is in a different AWS account from the credentials calling an API that
+   *                   <p>If the secret resides in a different AWS account from the credentials calling an API that
    *           requires encryption or decryption of the secret value then you must create and use a custom
    *           AWS KMS CMK because you can't access the default CMK for the account using credentials
    *           from a different AWS account. Store the ARN of the CMK in the secret when you create the
@@ -1449,10 +1382,7 @@ export class SecretsManager extends SecretsManagerClient {
     args: UpdateSecretCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSecretCommandOutput>;
-  public updateSecret(
-    args: UpdateSecretCommandInput,
-    cb: (err: any, data?: UpdateSecretCommandOutput) => void
-  ): void;
+  public updateSecret(args: UpdateSecretCommandInput, cb: (err: any, data?: UpdateSecretCommandOutput) => void): void;
   public updateSecret(
     args: UpdateSecretCommandInput,
     options: __HttpHandlerOptions,
@@ -1460,17 +1390,14 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public updateSecret(
     args: UpdateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecretCommandOutput) => void),
     cb?: (err: any, data?: UpdateSecretCommandOutput) => void
   ): Promise<UpdateSecretCommandOutput> | void {
     const command = new UpdateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1531,17 +1458,50 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSecretVersionStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecretVersionStageCommandOutput) => void),
     cb?: (err: any, data?: UpdateSecretVersionStageCommandOutput) => void
   ): Promise<UpdateSecretVersionStageCommandOutput> | void {
     const command = new UpdateSecretVersionStageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Validates the JSON text of the resource-based policy document attached to the
+   *       specified secret. The JSON request string input and response output displays formatted code
+   *       with white space and line breaks for better readability. Submit your input as a single line
+   *       JSON string. A resource-based
+   *       policy is optional.</p>
+   */
+  public validateResourcePolicy(
+    args: ValidateResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateResourcePolicyCommandOutput>;
+  public validateResourcePolicy(
+    args: ValidateResourcePolicyCommandInput,
+    cb: (err: any, data?: ValidateResourcePolicyCommandOutput) => void
+  ): void;
+  public validateResourcePolicy(
+    args: ValidateResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateResourcePolicyCommandOutput) => void
+  ): void;
+  public validateResourcePolicy(
+    args: ValidateResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: ValidateResourcePolicyCommandOutput) => void
+  ): Promise<ValidateResourcePolicyCommandOutput> | void {
+    const command = new ValidateResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

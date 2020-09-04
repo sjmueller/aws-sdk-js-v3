@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
-import {
-  AttachLoadBalancersResultType,
-  AttachLoadBalancersType
-} from "../models/index.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
+import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/index.ts";
 import {
   deserializeAws_queryAttachLoadBalancersCommand,
-  serializeAws_queryAttachLoadBalancersCommand
+  serializeAws_queryAttachLoadBalancersCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AttachLoadBalancersCommandInput = AttachLoadBalancersType;
-export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType &
-  __MetadataBearer;
+export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType & __MetadataBearer;
 
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,
@@ -49,18 +38,16 @@ export class AttachLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachLoadBalancersCommandInput,
-    AttachLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachLoadBalancersCommandInput, AttachLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AttachLoadBalancersType.filterSensitiveLog,
+      outputFilterSensitiveLog: AttachLoadBalancersResultType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AttachLoadBalancersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachLoadBalancersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachLoadBalancersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AttachLoadBalancersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachLoadBalancersCommandOutput> {
     return deserializeAws_queryAttachLoadBalancersCommand(output, context);
   }
 

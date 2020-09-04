@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  ClusterParameterGroupDetails,
-  DescribeClusterParametersMessage
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { ClusterParameterGroupDetails, DescribeClusterParametersMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeClusterParametersCommand,
-  serializeAws_queryDescribeClusterParametersCommand
+  serializeAws_queryDescribeClusterParametersCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeClusterParametersCommandInput = DescribeClusterParametersMessage;
-export type DescribeClusterParametersCommandOutput = ClusterParameterGroupDetails &
-  __MetadataBearer;
+export type DescribeClusterParametersCommandOutput = ClusterParameterGroupDetails & __MetadataBearer;
 
 export class DescribeClusterParametersCommand extends $Command<
   DescribeClusterParametersCommandInput,
@@ -49,18 +38,16 @@ export class DescribeClusterParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterParametersCommandInput,
-    DescribeClusterParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterParametersCommandInput, DescribeClusterParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeClusterParametersMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ClusterParameterGroupDetails.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeClusterParametersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeClusterParametersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterParametersCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeClusterParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeClusterParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

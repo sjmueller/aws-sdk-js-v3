@@ -1,6 +1,7 @@
-import { SIGNATURE_HEADER } from "./constants.ts";
 import { HttpRequest } from "../types/mod.ts";
 import { escapeUri } from "../util-uri-escape/mod.ts";
+
+import { SIGNATURE_HEADER } from "./constants.ts";
 
 /**
  * @internal
@@ -8,7 +9,7 @@ import { escapeUri } from "../util-uri-escape/mod.ts";
 export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   const keys: Array<string> = [];
   const serialized: { [key: string]: string } = {};
-  for (let key of Object.keys(query).sort()) {
+  for (const key of Object.keys(query).sort()) {
     if (key.toLowerCase() === SIGNATURE_HEADER) {
       continue;
     }
@@ -22,8 +23,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
         .slice(0)
         .sort()
         .reduce(
-          (encoded: Array<string>, value: string) =>
-            encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
+          (encoded: Array<string>, value: string) => encoded.concat([`${escapeUri(key)}=${escapeUri(value)}`]),
           []
         )
         .join("&");
@@ -31,7 +31,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   }
 
   return keys
-    .map(key => serialized[key])
-    .filter(serialized => serialized) // omit any falsy values
+    .map((key) => serialized[key])
+    .filter((serialized) => serialized) // omit any falsy values
     .join("&");
 }

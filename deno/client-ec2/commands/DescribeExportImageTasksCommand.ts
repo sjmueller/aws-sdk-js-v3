@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeExportImageTasksRequest,
-  DescribeExportImageTasksResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeExportImageTasksRequest, DescribeExportImageTasksResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeExportImageTasksCommand,
-  serializeAws_ec2DescribeExportImageTasksCommand
+  serializeAws_ec2DescribeExportImageTasksCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeExportImageTasksCommandInput = DescribeExportImageTasksRequest;
-export type DescribeExportImageTasksCommandOutput = DescribeExportImageTasksResult &
-  __MetadataBearer;
+export type DescribeExportImageTasksCommandOutput = DescribeExportImageTasksResult & __MetadataBearer;
 
 export class DescribeExportImageTasksCommand extends $Command<
   DescribeExportImageTasksCommandInput,
@@ -49,18 +38,16 @@ export class DescribeExportImageTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeExportImageTasksCommandInput,
-    DescribeExportImageTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeExportImageTasksCommandInput, DescribeExportImageTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeExportImageTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExportImageTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeExportImageTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeExportImageTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeExportImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeExportImageTasksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeExportImageTasksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportImageTasksCommandOutput> {
     return deserializeAws_ec2DescribeExportImageTasksCommand(output, context);
   }
 

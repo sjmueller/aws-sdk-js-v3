@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  ListHostedZonesRequest,
-  ListHostedZonesResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { ListHostedZonesRequest, ListHostedZonesResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlListHostedZonesCommand,
-  serializeAws_restXmlListHostedZonesCommand
+  serializeAws_restXmlListHostedZonesCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getIdNormalizerPlugin } from "../../middleware-sdk-route53/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListHostedZonesCommandInput = ListHostedZonesRequest;
-export type ListHostedZonesCommandOutput = ListHostedZonesResponse &
-  __MetadataBearer;
+export type ListHostedZonesCommandOutput = ListHostedZonesResponse & __MetadataBearer;
 
 export class ListHostedZonesCommand extends $Command<
   ListHostedZonesCommandInput,
@@ -51,15 +40,16 @@ export class ListHostedZonesCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHostedZonesCommandInput, ListHostedZonesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListHostedZonesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHostedZonesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,17 +59,11 @@ export class ListHostedZonesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHostedZonesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHostedZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListHostedZonesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHostedZonesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostedZonesCommandOutput> {
     return deserializeAws_restXmlListHostedZonesCommand(output, context);
   }
 

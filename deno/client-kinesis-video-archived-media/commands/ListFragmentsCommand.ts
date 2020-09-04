@@ -1,18 +1,15 @@
 import {
   KinesisVideoArchivedMediaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient.ts";
 import { ListFragmentsInput, ListFragmentsOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListFragmentsCommand,
-  serializeAws_restJson1ListFragmentsCommand
+  serializeAws_restJson1ListFragmentsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListFragmentsCommandInput = ListFragmentsInput;
@@ -46,14 +43,15 @@ export class ListFragmentsCommand extends $Command<
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFragmentsCommandInput, ListFragmentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListFragmentsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFragmentsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class ListFragmentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListFragmentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListFragmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListFragmentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListFragmentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFragmentsCommandOutput> {
     return deserializeAws_restJson1ListFragmentsCommand(output, context);
   }
 

@@ -2,233 +2,193 @@ import { KMSClient } from "./KMSClient.ts";
 import {
   CancelKeyDeletionCommand,
   CancelKeyDeletionCommandInput,
-  CancelKeyDeletionCommandOutput
+  CancelKeyDeletionCommandOutput,
 } from "./commands/CancelKeyDeletionCommand.ts";
 import {
   ConnectCustomKeyStoreCommand,
   ConnectCustomKeyStoreCommandInput,
-  ConnectCustomKeyStoreCommandOutput
+  ConnectCustomKeyStoreCommandOutput,
 } from "./commands/ConnectCustomKeyStoreCommand.ts";
 import {
   CreateAliasCommand,
   CreateAliasCommandInput,
-  CreateAliasCommandOutput
+  CreateAliasCommandOutput,
 } from "./commands/CreateAliasCommand.ts";
 import {
   CreateCustomKeyStoreCommand,
   CreateCustomKeyStoreCommandInput,
-  CreateCustomKeyStoreCommandOutput
+  CreateCustomKeyStoreCommandOutput,
 } from "./commands/CreateCustomKeyStoreCommand.ts";
 import {
   CreateGrantCommand,
   CreateGrantCommandInput,
-  CreateGrantCommandOutput
+  CreateGrantCommandOutput,
 } from "./commands/CreateGrantCommand.ts";
-import {
-  CreateKeyCommand,
-  CreateKeyCommandInput,
-  CreateKeyCommandOutput
-} from "./commands/CreateKeyCommand.ts";
-import {
-  DecryptCommand,
-  DecryptCommandInput,
-  DecryptCommandOutput
-} from "./commands/DecryptCommand.ts";
+import { CreateKeyCommand, CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand.ts";
+import { DecryptCommand, DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand.ts";
 import {
   DeleteAliasCommand,
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
+  DeleteAliasCommandOutput,
 } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteCustomKeyStoreCommand,
   DeleteCustomKeyStoreCommandInput,
-  DeleteCustomKeyStoreCommandOutput
+  DeleteCustomKeyStoreCommandOutput,
 } from "./commands/DeleteCustomKeyStoreCommand.ts";
 import {
   DeleteImportedKeyMaterialCommand,
   DeleteImportedKeyMaterialCommandInput,
-  DeleteImportedKeyMaterialCommandOutput
+  DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand.ts";
 import {
   DescribeCustomKeyStoresCommand,
   DescribeCustomKeyStoresCommandInput,
-  DescribeCustomKeyStoresCommandOutput
+  DescribeCustomKeyStoresCommandOutput,
 } from "./commands/DescribeCustomKeyStoresCommand.ts";
 import {
   DescribeKeyCommand,
   DescribeKeyCommandInput,
-  DescribeKeyCommandOutput
+  DescribeKeyCommandOutput,
 } from "./commands/DescribeKeyCommand.ts";
-import {
-  DisableKeyCommand,
-  DisableKeyCommandInput,
-  DisableKeyCommandOutput
-} from "./commands/DisableKeyCommand.ts";
+import { DisableKeyCommand, DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand.ts";
 import {
   DisableKeyRotationCommand,
   DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput
+  DisableKeyRotationCommandOutput,
 } from "./commands/DisableKeyRotationCommand.ts";
 import {
   DisconnectCustomKeyStoreCommand,
   DisconnectCustomKeyStoreCommandInput,
-  DisconnectCustomKeyStoreCommandOutput
+  DisconnectCustomKeyStoreCommandOutput,
 } from "./commands/DisconnectCustomKeyStoreCommand.ts";
-import {
-  EnableKeyCommand,
-  EnableKeyCommandInput,
-  EnableKeyCommandOutput
-} from "./commands/EnableKeyCommand.ts";
+import { EnableKeyCommand, EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand.ts";
 import {
   EnableKeyRotationCommand,
   EnableKeyRotationCommandInput,
-  EnableKeyRotationCommandOutput
+  EnableKeyRotationCommandOutput,
 } from "./commands/EnableKeyRotationCommand.ts";
-import {
-  EncryptCommand,
-  EncryptCommandInput,
-  EncryptCommandOutput
-} from "./commands/EncryptCommand.ts";
+import { EncryptCommand, EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand.ts";
 import {
   GenerateDataKeyCommand,
   GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput
+  GenerateDataKeyCommandOutput,
 } from "./commands/GenerateDataKeyCommand.ts";
 import {
   GenerateDataKeyPairCommand,
   GenerateDataKeyPairCommandInput,
-  GenerateDataKeyPairCommandOutput
+  GenerateDataKeyPairCommandOutput,
 } from "./commands/GenerateDataKeyPairCommand.ts";
 import {
   GenerateDataKeyPairWithoutPlaintextCommand,
   GenerateDataKeyPairWithoutPlaintextCommandInput,
-  GenerateDataKeyPairWithoutPlaintextCommandOutput
+  GenerateDataKeyPairWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyPairWithoutPlaintextCommand.ts";
 import {
   GenerateDataKeyWithoutPlaintextCommand,
   GenerateDataKeyWithoutPlaintextCommandInput,
-  GenerateDataKeyWithoutPlaintextCommandOutput
+  GenerateDataKeyWithoutPlaintextCommandOutput,
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand.ts";
 import {
   GenerateRandomCommand,
   GenerateRandomCommandInput,
-  GenerateRandomCommandOutput
+  GenerateRandomCommandOutput,
 } from "./commands/GenerateRandomCommand.ts";
 import {
   GetKeyPolicyCommand,
   GetKeyPolicyCommandInput,
-  GetKeyPolicyCommandOutput
+  GetKeyPolicyCommandOutput,
 } from "./commands/GetKeyPolicyCommand.ts";
 import {
   GetKeyRotationStatusCommand,
   GetKeyRotationStatusCommandInput,
-  GetKeyRotationStatusCommandOutput
+  GetKeyRotationStatusCommandOutput,
 } from "./commands/GetKeyRotationStatusCommand.ts";
 import {
   GetParametersForImportCommand,
   GetParametersForImportCommandInput,
-  GetParametersForImportCommandOutput
+  GetParametersForImportCommandOutput,
 } from "./commands/GetParametersForImportCommand.ts";
 import {
   GetPublicKeyCommand,
   GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
+  GetPublicKeyCommandOutput,
 } from "./commands/GetPublicKeyCommand.ts";
 import {
   ImportKeyMaterialCommand,
   ImportKeyMaterialCommandInput,
-  ImportKeyMaterialCommandOutput
+  ImportKeyMaterialCommandOutput,
 } from "./commands/ImportKeyMaterialCommand.ts";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
-  ListAliasesCommandOutput
+  ListAliasesCommandOutput,
 } from "./commands/ListAliasesCommand.ts";
-import {
-  ListGrantsCommand,
-  ListGrantsCommandInput,
-  ListGrantsCommandOutput
-} from "./commands/ListGrantsCommand.ts";
+import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand.ts";
 import {
   ListKeyPoliciesCommand,
   ListKeyPoliciesCommandInput,
-  ListKeyPoliciesCommandOutput
+  ListKeyPoliciesCommandOutput,
 } from "./commands/ListKeyPoliciesCommand.ts";
-import {
-  ListKeysCommand,
-  ListKeysCommandInput,
-  ListKeysCommandOutput
-} from "./commands/ListKeysCommand.ts";
+import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand.ts";
 import {
   ListResourceTagsCommand,
   ListResourceTagsCommandInput,
-  ListResourceTagsCommandOutput
+  ListResourceTagsCommandOutput,
 } from "./commands/ListResourceTagsCommand.ts";
 import {
   ListRetirableGrantsCommand,
   ListRetirableGrantsCommandInput,
-  ListRetirableGrantsCommandOutput
+  ListRetirableGrantsCommandOutput,
 } from "./commands/ListRetirableGrantsCommand.ts";
 import {
   PutKeyPolicyCommand,
   PutKeyPolicyCommandInput,
-  PutKeyPolicyCommandOutput
+  PutKeyPolicyCommandOutput,
 } from "./commands/PutKeyPolicyCommand.ts";
-import {
-  ReEncryptCommand,
-  ReEncryptCommandInput,
-  ReEncryptCommandOutput
-} from "./commands/ReEncryptCommand.ts";
+import { ReEncryptCommand, ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand.ts";
 import {
   RetireGrantCommand,
   RetireGrantCommandInput,
-  RetireGrantCommandOutput
+  RetireGrantCommandOutput,
 } from "./commands/RetireGrantCommand.ts";
 import {
   RevokeGrantCommand,
   RevokeGrantCommandInput,
-  RevokeGrantCommandOutput
+  RevokeGrantCommandOutput,
 } from "./commands/RevokeGrantCommand.ts";
 import {
   ScheduleKeyDeletionCommand,
   ScheduleKeyDeletionCommandInput,
-  ScheduleKeyDeletionCommandOutput
+  ScheduleKeyDeletionCommandOutput,
 } from "./commands/ScheduleKeyDeletionCommand.ts";
-import {
-  SignCommand,
-  SignCommandInput,
-  SignCommandOutput
-} from "./commands/SignCommand.ts";
+import { SignCommand, SignCommandInput, SignCommandOutput } from "./commands/SignCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAliasCommand,
   UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
+  UpdateAliasCommandOutput,
 } from "./commands/UpdateAliasCommand.ts";
 import {
   UpdateCustomKeyStoreCommand,
   UpdateCustomKeyStoreCommandInput,
-  UpdateCustomKeyStoreCommandOutput
+  UpdateCustomKeyStoreCommandOutput,
 } from "./commands/UpdateCustomKeyStoreCommand.ts";
 import {
   UpdateKeyDescriptionCommand,
   UpdateKeyDescriptionCommandInput,
-  UpdateKeyDescriptionCommandOutput
+  UpdateKeyDescriptionCommandOutput,
 } from "./commands/UpdateKeyDescriptionCommand.ts";
-import {
-  VerifyCommand,
-  VerifyCommandInput,
-  VerifyCommandOutput
-} from "./commands/VerifyCommand.ts";
+import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
@@ -348,17 +308,14 @@ export class KMS extends KMSClient {
   ): void;
   public cancelKeyDeletion(
     args: CancelKeyDeletionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelKeyDeletionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelKeyDeletionCommandOutput) => void),
     cb?: (err: any, data?: CancelKeyDeletionCommandOutput) => void
   ): Promise<CancelKeyDeletionCommandOutput> | void {
     const command = new CancelKeyDeletionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -409,17 +366,14 @@ export class KMS extends KMSClient {
   ): void;
   public connectCustomKeyStore(
     args: ConnectCustomKeyStoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConnectCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConnectCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: ConnectCustomKeyStoreCommandOutput) => void
   ): Promise<ConnectCustomKeyStoreCommandOutput> | void {
     const command = new ConnectCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -428,8 +382,7 @@ export class KMS extends KMSClient {
 
   /**
    * <p>Creates a display name for a customer managed customer master key (CMK). You can use an
-   *       alias to identify a CMK in cryptographic operations, such as <a>Encrypt</a> and
-   *         <a>GenerateDataKey</a>. You can change the CMK associated with the alias at any
+   *       alias to identify a CMK in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. You can change the CMK associated with the alias at any
    *       time.</p>
    *          <p>Aliases are easier to remember than key IDs. They can also help to simplify your
    *       applications. For example, if you use an alias in your code, you can change the CMK your code
@@ -479,8 +432,7 @@ export class KMS extends KMSClient {
    *           with the desired name.</p>
    *             </li>
    *             <li>
-   *                <p>You can use an alias name or alias ARN to identify a CMK in AWS KMS cryptographic
-   *           operations and in the <a>DescribeKey</a> operation. However, you cannot use
+   *                <p>You can use an alias name or alias ARN to identify a CMK in AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> and in the <a>DescribeKey</a> operation. However, you cannot use
    *           alias names or alias ARNs in API operations that manage CMKs, such as <a>DisableKey</a> or <a>GetKeyPolicy</a>. For information about the
    *           valid CMK identifiers for each AWS KMS API operation, see the descriptions of the
    *             <code>KeyId</code> parameter in the API operation documentation.</p>
@@ -494,14 +446,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -509,17 +455,14 @@ export class KMS extends KMSClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -559,17 +502,14 @@ export class KMS extends KMSClient {
   ): void;
   public createCustomKeyStore(
     args: CreateCustomKeyStoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomKeyStoreCommandOutput) => void
   ): Promise<CreateCustomKeyStoreCommandOutput> | void {
     const command = new CreateCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -580,9 +520,9 @@ export class KMS extends KMSClient {
    * <p>Adds a grant to a customer master key (CMK). The grant allows the grantee principal to use
    *       the CMK when the conditions specified in the grant are met. When setting permissions, grants
    *       are an alternative to key policies. </p>
-   *          <p>To create a grant that allows a cryptographic operation only when the request includes a
-   *       particular <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>, use the <code>Constraints</code> parameter. For details, see
-   *         <a>GrantConstraints</a>.</p>
+   *          <p>To create a grant that allows a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> only when the request includes a particular
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
+   *         context</a>, use the <code>Constraints</code> parameter. For details, see <a>GrantConstraints</a>.</p>
    *          <p>You can create grants on symmetric and asymmetric CMKs. However, if the grant allows an
    *       operation that the CMK does not support, <code>CreateGrant</code> fails with a
    *         <code>ValidationException</code>. </p>
@@ -620,14 +560,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public createGrant(
-    args: CreateGrantCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGrantCommandOutput>;
-  public createGrant(
-    args: CreateGrantCommandInput,
-    cb: (err: any, data?: CreateGrantCommandOutput) => void
-  ): void;
+  public createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
+  public createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
   public createGrant(
     args: CreateGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -635,17 +569,14 @@ export class KMS extends KMSClient {
   ): void;
   public createGrant(
     args: CreateGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGrantCommandOutput) => void),
     cb?: (err: any, data?: CreateGrantCommandOutput) => void
   ): Promise<CreateGrantCommandOutput> | void {
     const command = new CreateGrantCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -730,14 +661,8 @@ export class KMS extends KMSClient {
    *             </dd>
    *          </dl>
    */
-  public createKey(
-    args: CreateKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateKeyCommandOutput>;
-  public createKey(
-    args: CreateKeyCommandInput,
-    cb: (err: any, data?: CreateKeyCommandOutput) => void
-  ): void;
+  public createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
+  public createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
   public createKey(
     args: CreateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -745,17 +670,14 @@ export class KMS extends KMSClient {
   ): void;
   public createKey(
     args: CreateKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyCommandOutput) => void
   ): Promise<CreateKeyCommandOutput> | void {
     const command = new CreateKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -815,14 +737,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public decrypt(
-    args: DecryptCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DecryptCommandOutput>;
-  public decrypt(
-    args: DecryptCommandInput,
-    cb: (err: any, data?: DecryptCommandOutput) => void
-  ): void;
+  public decrypt(args: DecryptCommandInput, options?: __HttpHandlerOptions): Promise<DecryptCommandOutput>;
+  public decrypt(args: DecryptCommandInput, cb: (err: any, data?: DecryptCommandOutput) => void): void;
   public decrypt(
     args: DecryptCommandInput,
     options: __HttpHandlerOptions,
@@ -830,17 +746,14 @@ export class KMS extends KMSClient {
   ): void;
   public decrypt(
     args: DecryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecryptCommandOutput) => void),
     cb?: (err: any, data?: DecryptCommandOutput) => void
   ): Promise<DecryptCommandOutput> | void {
     const command = new DecryptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -855,14 +768,8 @@ export class KMS extends KMSClient {
    *       create a new alias. To associate an existing alias with a different customer master key (CMK),
    *       call <a>UpdateAlias</a>.</p>
    */
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAliasCommandOutput>;
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    cb: (err: any, data?: DeleteAliasCommandOutput) => void
-  ): void;
+  public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
+  public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -870,17 +777,14 @@ export class KMS extends KMSClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -892,7 +796,7 @@ export class KMS extends KMSClient {
    *       associated with the custom key store, or affect any users or keys in the cluster.</p>
    *          <p>The custom key store that you delete cannot contain any AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">customer master keys (CMKs)</a>. Before
    *       deleting the key store, verify that you will never need to use any of the CMKs in the key
-   *       store for any cryptographic operations. Then, use <a>ScheduleKeyDeletion</a> to
+   *       store for any <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. Then, use <a>ScheduleKeyDeletion</a> to
    *       delete the AWS KMS customer master keys (CMKs) from the key store. When the scheduled waiting
    *       period expires, the <code>ScheduleKeyDeletion</code> operation deletes the CMKs. Then it makes
    *       a best effort to delete the key material from the associated cluster. However, you might need
@@ -924,17 +828,14 @@ export class KMS extends KMSClient {
   ): void;
   public deleteCustomKeyStore(
     args: DeleteCustomKeyStoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomKeyStoreCommandOutput) => void
   ): Promise<DeleteCustomKeyStoreCommandOutput> | void {
     const command = new DeleteCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -970,17 +871,14 @@ export class KMS extends KMSClient {
   ): void;
   public deleteImportedKeyMaterial(
     args: DeleteImportedKeyMaterialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void),
     cb?: (err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void
   ): Promise<DeleteImportedKeyMaterialCommandOutput> | void {
     const command = new DeleteImportedKeyMaterialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1024,17 +922,14 @@ export class KMS extends KMSClient {
   ): void;
   public describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCustomKeyStoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomKeyStoresCommandOutput) => void),
     cb?: (err: any, data?: DescribeCustomKeyStoresCommandOutput) => void
   ): Promise<DescribeCustomKeyStoresCommandOutput> | void {
     const command = new DescribeCustomKeyStoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1078,14 +973,8 @@ export class KMS extends KMSClient {
    *          <p>To perform this operation on a CMK in a different AWS account, specify
    *   the key ARN or alias ARN in the value of the KeyId parameter.</p>
    */
-  public describeKey(
-    args: DescribeKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeKeyCommandOutput>;
-  public describeKey(
-    args: DescribeKeyCommandInput,
-    cb: (err: any, data?: DescribeKeyCommandOutput) => void
-  ): void;
+  public describeKey(args: DescribeKeyCommandInput, options?: __HttpHandlerOptions): Promise<DescribeKeyCommandOutput>;
+  public describeKey(args: DescribeKeyCommandInput, cb: (err: any, data?: DescribeKeyCommandOutput) => void): void;
   public describeKey(
     args: DescribeKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1093,17 +982,14 @@ export class KMS extends KMSClient {
   ): void;
   public describeKey(
     args: DescribeKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyCommandOutput) => void
   ): Promise<DescribeKeyCommandOutput> | void {
     const command = new DescribeKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1112,7 +998,7 @@ export class KMS extends KMSClient {
 
   /**
    * <p>Sets the state of a customer master key (CMK) to disabled, thereby preventing its use for
-   *       cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p>
+   *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects the Use of a
    *         Customer Master Key</a> in the <i>
    *                <i>AWS Key Management Service Developer Guide</i>
@@ -1121,14 +1007,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public disableKey(
-    args: DisableKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisableKeyCommandOutput>;
-  public disableKey(
-    args: DisableKeyCommandInput,
-    cb: (err: any, data?: DisableKeyCommandOutput) => void
-  ): void;
+  public disableKey(args: DisableKeyCommandInput, options?: __HttpHandlerOptions): Promise<DisableKeyCommandOutput>;
+  public disableKey(args: DisableKeyCommandInput, cb: (err: any, data?: DisableKeyCommandOutput) => void): void;
   public disableKey(
     args: DisableKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1136,17 +1016,14 @@ export class KMS extends KMSClient {
   ): void;
   public disableKey(
     args: DisableKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKeyCommandOutput) => void),
     cb?: (err: any, data?: DisableKeyCommandOutput) => void
   ): Promise<DisableKeyCommandOutput> | void {
     const command = new DisableKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1177,17 +1054,14 @@ export class KMS extends KMSClient {
   ): void;
   public disableKeyRotation(
     args: DisableKeyRotationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableKeyRotationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKeyRotationCommandOutput) => void),
     cb?: (err: any, data?: DisableKeyRotationCommandOutput) => void
   ): Promise<DisableKeyRotationCommandOutput> | void {
     const command = new DisableKeyRotationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1201,7 +1075,7 @@ export class KMS extends KMSClient {
    *       custom key store at any time.</p>
    *          <note>
    *             <p>While a custom key store is disconnected, all attempts to create customer master keys
-   *         (CMKs) in the custom key store or to use existing CMKs in cryptographic operations will
+   *         (CMKs) in the custom key store or to use existing CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> will
    *         fail. This action can prevent users from storing and accessing sensitive data.</p>
    *          </note>
    *          <p></p>
@@ -1228,17 +1102,14 @@ export class KMS extends KMSClient {
   ): void;
   public disconnectCustomKeyStore(
     args: DisconnectCustomKeyStoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void
   ): Promise<DisconnectCustomKeyStoreCommandOutput> | void {
     const command = new DisconnectCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1247,19 +1118,13 @@ export class KMS extends KMSClient {
 
   /**
    * <p>Sets the key state of a customer master key (CMK) to enabled. This allows you to use the
-   *       CMK for cryptographic operations. You cannot perform this operation on a CMK in a different AWS account.</p>
+   *       CMK for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. You cannot perform this operation on a CMK in a different AWS account.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public enableKey(
-    args: EnableKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableKeyCommandOutput>;
-  public enableKey(
-    args: EnableKeyCommandInput,
-    cb: (err: any, data?: EnableKeyCommandOutput) => void
-  ): void;
+  public enableKey(args: EnableKeyCommandInput, options?: __HttpHandlerOptions): Promise<EnableKeyCommandOutput>;
+  public enableKey(args: EnableKeyCommandInput, cb: (err: any, data?: EnableKeyCommandOutput) => void): void;
   public enableKey(
     args: EnableKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1267,17 +1132,14 @@ export class KMS extends KMSClient {
   ): void;
   public enableKey(
     args: EnableKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKeyCommandOutput) => void),
     cb?: (err: any, data?: EnableKeyCommandOutput) => void
   ): Promise<EnableKeyCommandOutput> | void {
     const command = new EnableKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1308,17 +1170,14 @@ export class KMS extends KMSClient {
   ): void;
   public enableKeyRotation(
     args: EnableKeyRotationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableKeyRotationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKeyRotationCommandOutput) => void),
     cb?: (err: any, data?: EnableKeyRotationCommandOutput) => void
   ): Promise<EnableKeyRotationCommandOutput> | void {
     const command = new EnableKeyRotationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1335,10 +1194,11 @@ export class KMS extends KMSClient {
    *             </li>
    *             <li>
    *                <p>You can use the <code>Encrypt</code> operation to move encrypted data from one AWS
-   *           region to another. In the first region, generate a data key and use the plaintext key to
-   *           encrypt the data. Then, in the new region, call the <code>Encrypt</code> method on same
-   *           plaintext data key. Now, you can safely move the encrypted data and encrypted data key to
-   *           the new region, and decrypt in the new region when necessary.</p>
+   *           Region to another. For example, in Region A, generate a data key and use the plaintext key to encrypt
+   *           your data. Then, in Region A, use the <code>Encrypt</code> operation to encrypt the
+   *           plaintext data key under a CMK in Region B. Now, you can move the encrypted data and the
+   *           encrypted data key to Region B. When necessary, you can decrypt the encrypted data key and
+   *           the encrypted data entirely within in Region B.</p>
    *             </li>
    *          </ul>
    *
@@ -1427,14 +1287,8 @@ export class KMS extends KMSClient {
    *          <p>To perform this operation on a CMK in a different AWS account, specify
    *   the key ARN or alias ARN in the value of the KeyId parameter.</p>
    */
-  public encrypt(
-    args: EncryptCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EncryptCommandOutput>;
-  public encrypt(
-    args: EncryptCommandInput,
-    cb: (err: any, data?: EncryptCommandOutput) => void
-  ): void;
+  public encrypt(args: EncryptCommandInput, options?: __HttpHandlerOptions): Promise<EncryptCommandOutput>;
+  public encrypt(args: EncryptCommandInput, cb: (err: any, data?: EncryptCommandOutput) => void): void;
   public encrypt(
     args: EncryptCommandInput,
     options: __HttpHandlerOptions,
@@ -1442,17 +1296,14 @@ export class KMS extends KMSClient {
   ): void;
   public encrypt(
     args: EncryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EncryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EncryptCommandOutput) => void),
     cb?: (err: any, data?: EncryptCommandOutput) => void
   ): Promise<EncryptCommandOutput> | void {
     const command = new EncryptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1460,26 +1311,20 @@ export class KMS extends KMSClient {
   }
 
   /**
-   * <p>Generates a unique symmetric data key. This operation returns a plaintext copy of the data
-   *       key and a copy that is encrypted under a customer master key (CMK) that you specify. You can
-   *       use the plaintext key to encrypt your data outside of AWS KMS and store the encrypted data key
-   *       with the encrypted data.</p>
+   * <p>Generates a unique symmetric data key for client-side encryption. This operation returns a
+   *       plaintext copy of the data key and a copy that is encrypted under a customer master key (CMK)
+   *       that you specify. You can use the plaintext key to encrypt your data outside of AWS KMS and
+   *       store the encrypted data key with the encrypted data.</p>
    *
    *          <p>
    *             <code>GenerateDataKey</code> returns a unique data key for each request. The bytes in the
-   *       key are not related to the caller or CMK that is used to encrypt the data key.</p>
+   *       plaintext key are not related to the caller or the CMK.</p>
    *
    *          <p>To generate a data key, specify the symmetric CMK that will be used to encrypt the data
-   *       key. You cannot use an asymmetric CMK to generate data keys. To get the type
-   *       of your CMK, use the <a>DescribeKey</a> operation.</p>
-   *
-   *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
-   *         <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
-   *       the <code>KeySpec</code> parameter. </p>
-   *
-   *          <p>If the operation succeeds, the plaintext copy of the data key is in the
-   *         <code>Plaintext</code> field of the response, and the encrypted copy of the data key in the
-   *         <code>CiphertextBlob</code> field.</p>
+   *       key. You cannot use an asymmetric CMK to generate data keys. To get the type of your CMK, use
+   *       the <a>DescribeKey</a> operation. You must also specify the length of the data key.
+   *       Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters (but not both).
+   *       For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
    *
    *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
    *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
@@ -1488,35 +1333,41 @@ export class KMS extends KMSClient {
    *          <p>You can use the optional encryption context to add additional security to the encryption
    *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
    *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
-   *       Otherwise, the request to decrypt fails with an InvalidCiphertextException. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+   *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *          <p>We recommend that you use the
-   *       following pattern to encrypt data locally in your application:</p>
+   *          <p>
+   *             <b>How to use your data key</b>
+   *          </p>
+   *          <p>We recommend that you use the following pattern to encrypt data locally in your application.
+   *       You can write your own code or use a client-side encryption library, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
+   *         client-side encryption</a> to do these tasks for you.</p>
+   *          <p>To encrypt data outside of AWS KMS:</p>
    *          <ol>
    *             <li>
-   *                <p>Use the <code>GenerateDataKey</code> operation to get a data encryption key.</p>
+   *                <p>Use the <code>GenerateDataKey</code> operation to get a data key.</p>
    *             </li>
    *             <li>
-   *                <p>Use the plaintext data key (returned in the <code>Plaintext</code> field of the
-   *           response) to encrypt data locally, then erase the plaintext data key from memory.</p>
+   *                <p>Use the plaintext data key (in the <code>Plaintext</code> field of the response) to
+   *           encrypt your data outside of AWS KMS. Then erase the plaintext data key from memory.</p>
    *             </li>
    *             <li>
-   *                <p>Store the encrypted data key (returned in the <code>CiphertextBlob</code> field of the
-   *           response) alongside the locally encrypted data.</p>
+   *                <p>Store the encrypted data key (in the <code>CiphertextBlob</code> field of the
+   *           response) with the encrypted data.</p>
    *             </li>
    *          </ol>
-   *          <p>To decrypt data locally:</p>
+   *          <p>To decrypt data outside of AWS KMS:</p>
    *          <ol>
    *             <li>
    *                <p>Use the <a>Decrypt</a> operation to decrypt the encrypted data key. The
    *           operation returns a plaintext copy of the data key.</p>
    *             </li>
    *             <li>
-   *                <p>Use the plaintext data key to decrypt data locally, then erase the plaintext data key
-   *           from memory.</p>
+   *                <p>Use the plaintext data key to decrypt data outside of AWS KMS, then erase the plaintext
+   *           data key from memory.</p>
    *             </li>
    *          </ol>
    */
@@ -1535,17 +1386,14 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyCommandOutput) => void
   ): Promise<GenerateDataKeyCommandOutput> | void {
     const command = new GenerateDataKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1568,8 +1416,8 @@ export class KMS extends KMSClient {
    *       When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
    *
    *          <p>To generate a data key pair, you must specify a symmetric customer master key (CMK) to
-   *       encrypt the private key in a data key pair. You cannot use an asymmetric CMK. To get the type
-   *       of your CMK, use the <a>DescribeKey</a> operation.</p>
+   *       encrypt the private key in a data key pair. You cannot use an asymmetric CMK or a CMK in a
+   *       custom key store. To get the type and origin of your CMK, use the <a>DescribeKey</a> operation. </p>
    *
    *          <p>If you are using the data key pair to encrypt data, or for any operation where you don't
    *       immediately need a private key, consider using the <a>GenerateDataKeyPairWithoutPlaintext</a> operation.
@@ -1582,7 +1430,7 @@ export class KMS extends KMSClient {
    *          <p>You can use the optional encryption context to add additional security to the encryption
    *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
    *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
-   *       Otherwise, the request to decrypt fails with an InvalidCiphertextException. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+   *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
@@ -1603,17 +1451,14 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKeyPair(
     args: GenerateDataKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateDataKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyPairCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyPairCommandOutput) => void
   ): Promise<GenerateDataKeyPairCommandOutput> | void {
     const command = new GenerateDataKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1627,9 +1472,9 @@ export class KMS extends KMSClient {
    *         <a>GenerateDataKeyPair</a>, this operation does not return a plaintext private
    *       key. </p>
    *          <p>To generate a data key pair, you must specify a symmetric customer master key (CMK) to
-   *       encrypt the private key in the data key pair. You cannot use an asymmetric CMK. To get the
-   *       type of your CMK, use the <code>KeySpec</code> field in the <a>DescribeKey</a>
-   *       response.</p>
+   *       encrypt the private key in the data key pair. You cannot use an asymmetric CMK or a CMK in a
+   *       custom key store. To get the type and origin of your CMK, use the <code>KeySpec</code> field
+   *       in the <a>DescribeKey</a> response.</p>
    *          <p>You can use the public key that <code>GenerateDataKeyPairWithoutPlaintext</code> returns
    *       to encrypt data or verify a signature outside of AWS KMS. Then, store the encrypted private key
    *       with the data. When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
@@ -1641,7 +1486,7 @@ export class KMS extends KMSClient {
    *          <p>You can use the optional encryption context to add additional security to the encryption
    *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
    *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
-   *       Otherwise, the request to decrypt fails with an InvalidCiphertextException. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+   *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
@@ -1653,38 +1498,23 @@ export class KMS extends KMSClient {
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput>;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void),
+    cb?: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyPairWithoutPlaintextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1722,7 +1552,7 @@ export class KMS extends KMSClient {
    *          <p>You can use the optional encryption context to add additional security to the encryption
    *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
    *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
-   *       Otherwise, the request to decrypt fails with an InvalidCiphertextException. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+   *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
    *       <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
@@ -1743,20 +1573,14 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKeyWithoutPlaintext(
     args: GenerateDataKeyWithoutPlaintextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateDataKeyWithoutPlaintextCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyWithoutPlaintextCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1786,17 +1610,14 @@ export class KMS extends KMSClient {
   ): void;
   public generateRandom(
     args: GenerateRandomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateRandomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateRandomCommandOutput) => void),
     cb?: (err: any, data?: GenerateRandomCommandOutput) => void
   ): Promise<GenerateRandomCommandOutput> | void {
     const command = new GenerateRandomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1811,10 +1632,7 @@ export class KMS extends KMSClient {
     args: GetKeyPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetKeyPolicyCommandOutput>;
-  public getKeyPolicy(
-    args: GetKeyPolicyCommandInput,
-    cb: (err: any, data?: GetKeyPolicyCommandOutput) => void
-  ): void;
+  public getKeyPolicy(args: GetKeyPolicyCommandInput, cb: (err: any, data?: GetKeyPolicyCommandOutput) => void): void;
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1822,17 +1640,14 @@ export class KMS extends KMSClient {
   ): void;
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPolicyCommandOutput) => void
   ): Promise<GetKeyPolicyCommandOutput> | void {
     const command = new GetKeyPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1875,17 +1690,14 @@ export class KMS extends KMSClient {
   ): void;
   public getKeyRotationStatus(
     args: GetKeyRotationStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyRotationStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyRotationStatusCommandOutput) => void),
     cb?: (err: any, data?: GetKeyRotationStatusCommandOutput) => void
   ): Promise<GetKeyRotationStatusCommandOutput> | void {
     const command = new GetKeyRotationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1926,17 +1738,14 @@ export class KMS extends KMSClient {
   ): void;
   public getParametersForImport(
     args: GetParametersForImportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParametersForImportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersForImportCommandOutput) => void),
     cb?: (err: any, data?: GetParametersForImportCommandOutput) => void
   ): Promise<GetParametersForImportCommandOutput> | void {
     const command = new GetParametersForImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1987,10 +1796,7 @@ export class KMS extends KMSClient {
     args: GetPublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPublicKeyCommandOutput>;
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
-    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
-  ): void;
+  public getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1998,17 +1804,14 @@ export class KMS extends KMSClient {
   ): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): Promise<GetPublicKeyCommandOutput> | void {
     const command = new GetPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2077,17 +1880,14 @@ export class KMS extends KMSClient {
   ): void;
   public importKeyMaterial(
     args: ImportKeyMaterialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportKeyMaterialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyMaterialCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyMaterialCommandOutput) => void
   ): Promise<ImportKeyMaterialCommandOutput> | void {
     const command = new ImportKeyMaterialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2110,14 +1910,8 @@ export class KMS extends KMSClient {
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS KMS aliases
    *         quota</a>.</p>
    */
-  public listAliases(
-    args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAliasesCommandOutput>;
-  public listAliases(
-    args: ListAliasesCommandInput,
-    cb: (err: any, data?: ListAliasesCommandOutput) => void
-  ): void;
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   public listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -2125,17 +1919,14 @@ export class KMS extends KMSClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2146,15 +1937,16 @@ export class KMS extends KMSClient {
    * <p>Gets a list of all grants for the specified customer master key (CMK).</p>
    *          <p>To perform this operation on a CMK in a different AWS account, specify the key
    *   ARN in the value of the <code>KeyId</code> parameter.</p>
+   *          <note>
+   *             <p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the
+   *         user or role designated as the grantee principal in the grant. However, when the grantee
+   *         principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains
+   *         the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+   *           principal</a>, which might represent several different grantee principals.</p>
+   *          </note>
    */
-  public listGrants(
-    args: ListGrantsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGrantsCommandOutput>;
-  public listGrants(
-    args: ListGrantsCommandInput,
-    cb: (err: any, data?: ListGrantsCommandOutput) => void
-  ): void;
+  public listGrants(args: ListGrantsCommandInput, options?: __HttpHandlerOptions): Promise<ListGrantsCommandOutput>;
+  public listGrants(args: ListGrantsCommandInput, cb: (err: any, data?: ListGrantsCommandOutput) => void): void;
   public listGrants(
     args: ListGrantsCommandInput,
     options: __HttpHandlerOptions,
@@ -2162,17 +1954,14 @@ export class KMS extends KMSClient {
   ): void;
   public listGrants(
     args: ListGrantsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGrantsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGrantsCommandOutput) => void),
     cb?: (err: any, data?: ListGrantsCommandOutput) => void
   ): Promise<ListGrantsCommandOutput> | void {
     const command = new ListGrantsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2200,17 +1989,14 @@ export class KMS extends KMSClient {
   ): void;
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListKeyPoliciesCommandOutput) => void
   ): Promise<ListKeyPoliciesCommandOutput> | void {
     const command = new ListKeyPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2221,14 +2007,8 @@ export class KMS extends KMSClient {
    * <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and
    *       Region.</p>
    */
-  public listKeys(
-    args: ListKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListKeysCommandOutput>;
-  public listKeys(
-    args: ListKeysCommandInput,
-    cb: (err: any, data?: ListKeysCommandOutput) => void
-  ): void;
+  public listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
+  public listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
   public listKeys(
     args: ListKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -2236,17 +2016,14 @@ export class KMS extends KMSClient {
   ): void;
   public listKeys(
     args: ListKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeysCommandOutput) => void),
     cb?: (err: any, data?: ListKeysCommandOutput) => void
   ): Promise<ListKeysCommandOutput> | void {
     const command = new ListKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2272,17 +2049,14 @@ export class KMS extends KMSClient {
   ): void;
   public listResourceTags(
     args: ListResourceTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceTagsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceTagsCommandOutput) => void
   ): Promise<ListResourceTagsCommandOutput> | void {
     const command = new ListResourceTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2310,17 +2084,14 @@ export class KMS extends KMSClient {
   ): void;
   public listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRetirableGrantsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRetirableGrantsCommandOutput) => void),
     cb?: (err: any, data?: ListRetirableGrantsCommandOutput) => void
   ): Promise<ListRetirableGrantsCommandOutput> | void {
     const command = new ListRetirableGrantsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2336,10 +2107,7 @@ export class KMS extends KMSClient {
     args: PutKeyPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutKeyPolicyCommandOutput>;
-  public putKeyPolicy(
-    args: PutKeyPolicyCommandInput,
-    cb: (err: any, data?: PutKeyPolicyCommandOutput) => void
-  ): void;
+  public putKeyPolicy(args: PutKeyPolicyCommandInput, cb: (err: any, data?: PutKeyPolicyCommandOutput) => void): void;
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2347,17 +2115,14 @@ export class KMS extends KMSClient {
   ): void;
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutKeyPolicyCommandOutput) => void
   ): Promise<PutKeyPolicyCommandOutput> | void {
     const command = new PutKeyPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2369,10 +2134,10 @@ export class KMS extends KMSClient {
    *       operation to change the customer master key (CMK) under which data is encrypted, such as when
    *       you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually rotate</a> a
    *       CMK or change the CMK that protects a ciphertext. You can also use it to reencrypt ciphertext
-   *       under the same CMK, such as to change the encryption context of a ciphertext. </p>
+   *       under the same CMK, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a> of a ciphertext.</p>
    *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using an
    *       AWS KMS CMK in an AWS KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>. It can also decrypt ciphertext that was encrypted by using the
-   *       public key of an asymmetric CMK outside of AWS KMS. However, it cannot decrypt ciphertext
+   *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric CMK</a> outside of AWS KMS. However, it cannot decrypt ciphertext
    *       produced by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
    *       These libraries return a ciphertext format that is incompatible with AWS KMS.</p>
    *          <p>When you use the <code>ReEncrypt</code> operation, you need to provide information for the
@@ -2410,30 +2175,23 @@ export class KMS extends KMSClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>kms:EncryptFrom</code> permission on the source CMK</p>
+   *                   <code>kms:ReEncryptFrom</code> permission on the source CMK</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>kms:EncryptTo</code> permission on the destination CMK</p>
+   *                   <code>kms:ReEncryptTo</code> permission on the destination CMK</p>
    *             </li>
    *          </ul>
-   *          <p>To permit reencryption from</p>
-   *          <p> or to a CMK, include the <code>"kms:ReEncrypt*"</code> permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>.
-   *       This permission is automatically included in the key policy when you use the console to create
-   *       a CMK. But you must include it manually when you create a CMK programmatically or when you use
-   *       the <a>PutKeyPolicy</a> operation set a key policy.</p>
+   *          <p>To permit reencryption from or to a CMK, include the <code>"kms:ReEncrypt*"</code>
+   *       permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>. This permission is
+   *       automatically included in the key policy when you use the console to create a CMK. But you
+   *       must include it manually when you create a CMK programmatically or when you use the <a>PutKeyPolicy</a> operation to set a key policy.</p>
    *          <p>The CMK that you use for this operation must be in a compatible key state. For
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public reEncrypt(
-    args: ReEncryptCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ReEncryptCommandOutput>;
-  public reEncrypt(
-    args: ReEncryptCommandInput,
-    cb: (err: any, data?: ReEncryptCommandOutput) => void
-  ): void;
+  public reEncrypt(args: ReEncryptCommandInput, options?: __HttpHandlerOptions): Promise<ReEncryptCommandOutput>;
+  public reEncrypt(args: ReEncryptCommandInput, cb: (err: any, data?: ReEncryptCommandOutput) => void): void;
   public reEncrypt(
     args: ReEncryptCommandInput,
     options: __HttpHandlerOptions,
@@ -2441,17 +2199,14 @@ export class KMS extends KMSClient {
   ): void;
   public reEncrypt(
     args: ReEncryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReEncryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReEncryptCommandOutput) => void),
     cb?: (err: any, data?: ReEncryptCommandOutput) => void
   ): Promise<ReEncryptCommandOutput> | void {
     const command = new ReEncryptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2479,14 +2234,8 @@ export class KMS extends KMSClient {
    *       unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier
    *       of a grant. The <a>CreateGrant</a> operation returns both.</p>
    */
-  public retireGrant(
-    args: RetireGrantCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RetireGrantCommandOutput>;
-  public retireGrant(
-    args: RetireGrantCommandInput,
-    cb: (err: any, data?: RetireGrantCommandOutput) => void
-  ): void;
+  public retireGrant(args: RetireGrantCommandInput, options?: __HttpHandlerOptions): Promise<RetireGrantCommandOutput>;
+  public retireGrant(args: RetireGrantCommandInput, cb: (err: any, data?: RetireGrantCommandOutput) => void): void;
   public retireGrant(
     args: RetireGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -2494,17 +2243,14 @@ export class KMS extends KMSClient {
   ): void;
   public retireGrant(
     args: RetireGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetireGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetireGrantCommandOutput) => void),
     cb?: (err: any, data?: RetireGrantCommandOutput) => void
   ): Promise<RetireGrantCommandOutput> | void {
     const command = new RetireGrantCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2517,14 +2263,8 @@ export class KMS extends KMSClient {
    *          <p>To perform this operation on a CMK in a different AWS account, specify the key
    *   ARN in the value of the <code>KeyId</code> parameter.</p>
    */
-  public revokeGrant(
-    args: RevokeGrantCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RevokeGrantCommandOutput>;
-  public revokeGrant(
-    args: RevokeGrantCommandInput,
-    cb: (err: any, data?: RevokeGrantCommandOutput) => void
-  ): void;
+  public revokeGrant(args: RevokeGrantCommandInput, options?: __HttpHandlerOptions): Promise<RevokeGrantCommandOutput>;
+  public revokeGrant(args: RevokeGrantCommandInput, cb: (err: any, data?: RevokeGrantCommandOutput) => void): void;
   public revokeGrant(
     args: RevokeGrantCommandInput,
     options: __HttpHandlerOptions,
@@ -2532,17 +2272,14 @@ export class KMS extends KMSClient {
   ): void;
   public revokeGrant(
     args: RevokeGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeGrantCommandOutput) => void),
     cb?: (err: any, data?: RevokeGrantCommandOutput) => void
   ): Promise<RevokeGrantCommandOutput> | void {
     const command = new RevokeGrantCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2588,17 +2325,14 @@ export class KMS extends KMSClient {
   ): void;
   public scheduleKeyDeletion(
     args: ScheduleKeyDeletionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScheduleKeyDeletionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScheduleKeyDeletionCommandOutput) => void),
     cb?: (err: any, data?: ScheduleKeyDeletionCommandOutput) => void
   ): Promise<ScheduleKeyDeletionCommandOutput> | void {
     const command = new ScheduleKeyDeletionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2645,14 +2379,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public sign(
-    args: SignCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SignCommandOutput>;
-  public sign(
-    args: SignCommandInput,
-    cb: (err: any, data?: SignCommandOutput) => void
-  ): void;
+  public sign(args: SignCommandInput, options?: __HttpHandlerOptions): Promise<SignCommandOutput>;
+  public sign(args: SignCommandInput, cb: (err: any, data?: SignCommandOutput) => void): void;
   public sign(
     args: SignCommandInput,
     options: __HttpHandlerOptions,
@@ -2660,17 +2388,14 @@ export class KMS extends KMSClient {
   ): void;
   public sign(
     args: SignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignCommandOutput) => void),
     cb?: (err: any, data?: SignCommandOutput) => void
   ): Promise<SignCommandOutput> | void {
     const command = new SignCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2689,14 +2414,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2704,17 +2423,14 @@ export class KMS extends KMSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2745,17 +2461,14 @@ export class KMS extends KMSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2781,14 +2494,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAliasCommandOutput>;
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    cb: (err: any, data?: UpdateAliasCommandOutput) => void
-  ): void;
+  public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
+  public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2796,17 +2503,14 @@ export class KMS extends KMSClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2868,17 +2572,14 @@ export class KMS extends KMSClient {
   ): void;
   public updateCustomKeyStore(
     args: UpdateCustomKeyStoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: UpdateCustomKeyStoreCommandOutput) => void
   ): Promise<UpdateCustomKeyStoreCommandOutput> | void {
     const command = new UpdateCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2908,17 +2609,14 @@ export class KMS extends KMSClient {
   ): void;
   public updateKeyDescription(
     args: UpdateKeyDescriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateKeyDescriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateKeyDescriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateKeyDescriptionCommandOutput) => void
   ): Promise<UpdateKeyDescriptionCommandOutput> | void {
     const command = new UpdateKeyDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2950,14 +2648,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public verify(
-    args: VerifyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<VerifyCommandOutput>;
-  public verify(
-    args: VerifyCommandInput,
-    cb: (err: any, data?: VerifyCommandOutput) => void
-  ): void;
+  public verify(args: VerifyCommandInput, options?: __HttpHandlerOptions): Promise<VerifyCommandOutput>;
+  public verify(args: VerifyCommandInput, cb: (err: any, data?: VerifyCommandOutput) => void): void;
   public verify(
     args: VerifyCommandInput,
     options: __HttpHandlerOptions,
@@ -2965,17 +2657,14 @@ export class KMS extends KMSClient {
   ): void;
   public verify(
     args: VerifyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyCommandOutput) => void),
     cb?: (err: any, data?: VerifyCommandOutput) => void
   ): Promise<VerifyCommandOutput> | void {
     const command = new VerifyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

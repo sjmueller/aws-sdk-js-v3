@@ -1,18 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { GetMergeCommitInput, GetMergeCommitOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetMergeCommitCommand,
-  serializeAws_json1_1GetMergeCommitCommand
+  serializeAws_json1_1GetMergeCommitCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetMergeCommitCommandInput = GetMergeCommitInput;
-export type GetMergeCommitCommandOutput = GetMergeCommitOutput &
-  __MetadataBearer;
+export type GetMergeCommitCommandOutput = GetMergeCommitOutput & __MetadataBearer;
 
 export class GetMergeCommitCommand extends $Command<
   GetMergeCommitCommandInput,
@@ -47,14 +39,15 @@ export class GetMergeCommitCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMergeCommitCommandInput, GetMergeCommitCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetMergeCommitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMergeCommitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetMergeCommitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMergeCommitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMergeCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeCommitCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMergeCommitCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeCommitCommandOutput> {
     return deserializeAws_json1_1GetMergeCommitCommand(output, context);
   }
 

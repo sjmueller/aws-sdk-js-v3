@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AcceptResourceShareInvitationRequest {
@@ -19,10 +15,8 @@ export interface AcceptResourceShareInvitationRequest {
 }
 
 export namespace AcceptResourceShareInvitationRequest {
-  export const filterSensitiveLog = (
-    obj: AcceptResourceShareInvitationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptResourceShareInvitationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptResourceShareInvitationRequest =>
     __isa(o, "AcceptResourceShareInvitationRequest");
@@ -42,10 +36,8 @@ export interface AcceptResourceShareInvitationResponse {
 }
 
 export namespace AcceptResourceShareInvitationResponse {
-  export const filterSensitiveLog = (
-    obj: AcceptResourceShareInvitationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptResourceShareInvitationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptResourceShareInvitationResponse =>
     __isa(o, "AcceptResourceShareInvitationResponse");
@@ -54,14 +46,14 @@ export namespace AcceptResourceShareInvitationResponse {
 export interface AssociateResourceSharePermissionRequest {
   __type?: "AssociateResourceSharePermissionRequest";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
    */
   permissionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 
   /**
    * <p>Indicates whether the permission should replace the permissions that are currently
@@ -77,10 +69,8 @@ export interface AssociateResourceSharePermissionRequest {
 }
 
 export namespace AssociateResourceSharePermissionRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateResourceSharePermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateResourceSharePermissionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateResourceSharePermissionRequest =>
     __isa(o, "AssociateResourceSharePermissionRequest");
@@ -89,21 +79,19 @@ export namespace AssociateResourceSharePermissionRequest {
 export interface AssociateResourceSharePermissionResponse {
   __type?: "AssociateResourceSharePermissionResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AssociateResourceSharePermissionResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateResourceSharePermissionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateResourceSharePermissionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AssociateResourceSharePermissionResponse =>
     __isa(o, "AssociateResourceSharePermissionResponse");
@@ -122,65 +110,70 @@ export interface AssociateResourceShareRequest {
   principals?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
-   */
-  resourceArns?: string[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   */
+  resourceArns?: string[];
 }
 
 export namespace AssociateResourceShareRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateResourceShareRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceShareRequest =>
-    __isa(o, "AssociateResourceShareRequest");
+  export const isa = (o: any): o is AssociateResourceShareRequest => __isa(o, "AssociateResourceShareRequest");
 }
 
 export interface AssociateResourceShareResponse {
   __type?: "AssociateResourceShareResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AssociateResourceShareResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateResourceShareResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateResourceShareResponse =>
-    __isa(o, "AssociateResourceShareResponse");
+  export const isa = (o: any): o is AssociateResourceShareResponse => __isa(o, "AssociateResourceShareResponse");
 }
 
 export interface CreateResourceShareRequest {
   __type?: "CreateResourceShareRequest";
+  /**
+   * <p>One or more tags.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  name: string | undefined;
+
   /**
    * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
+   *           the ARN of an OU or organization from AWS Organizations.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The name of the resource share.</p>
-   */
-  name: string | undefined;
+  principals?: string[];
 
   /**
    * <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
@@ -190,51 +183,36 @@ export interface CreateResourceShareRequest {
   permissionArns?: string[];
 
   /**
-   * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
-   *           the ARN of an OU or organization from AWS Organizations.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  principals?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
-   */
-  resourceArns?: string[];
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  tags?: Tag[];
+  clientToken?: string;
 }
 
 export namespace CreateResourceShareRequest {
   export const filterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateResourceShareRequest =>
-    __isa(o, "CreateResourceShareRequest");
+  export const isa = (o: any): o is CreateResourceShareRequest => __isa(o, "CreateResourceShareRequest");
 }
 
 export interface CreateResourceShareResponse {
   __type?: "CreateResourceShareResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the resource share.</p>
    */
   resourceShare?: ResourceShare;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace CreateResourceShareResponse {
-  export const filterSensitiveLog = (
-    obj: CreateResourceShareResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateResourceShareResponse =>
-    __isa(o, "CreateResourceShareResponse");
+  export const isa = (o: any): o is CreateResourceShareResponse => __isa(o, "CreateResourceShareResponse");
 }
 
 export interface DeleteResourceShareRequest {
@@ -252,42 +230,33 @@ export interface DeleteResourceShareRequest {
 
 export namespace DeleteResourceShareRequest {
   export const filterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceShareRequest =>
-    __isa(o, "DeleteResourceShareRequest");
+  export const isa = (o: any): o is DeleteResourceShareRequest => __isa(o, "DeleteResourceShareRequest");
 }
 
 export interface DeleteResourceShareResponse {
   __type?: "DeleteResourceShareResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace DeleteResourceShareResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteResourceShareResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteResourceShareResponse =>
-    __isa(o, "DeleteResourceShareResponse");
+  export const isa = (o: any): o is DeleteResourceShareResponse => __isa(o, "DeleteResourceShareResponse");
 }
 
 export interface DisassociateResourceSharePermissionRequest {
   __type?: "DisassociateResourceSharePermissionRequest";
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
   /**
    * <p>The ARN of the permission to disassociate from the resource share.</p>
    */
@@ -297,42 +266,39 @@ export interface DisassociateResourceSharePermissionRequest {
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace DisassociateResourceSharePermissionRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateResourceSharePermissionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateResourceSharePermissionRequest =>
+  export const isa = (o: any): o is DisassociateResourceSharePermissionRequest =>
     __isa(o, "DisassociateResourceSharePermissionRequest");
 }
 
 export interface DisassociateResourceSharePermissionResponse {
   __type?: "DisassociateResourceSharePermissionResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateResourceSharePermissionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateResourceSharePermissionResponse =>
+  export const isa = (o: any): o is DisassociateResourceSharePermissionResponse =>
     __isa(o, "DisassociateResourceSharePermissionResponse");
 }
 
@@ -360,13 +326,10 @@ export interface DisassociateResourceShareRequest {
 }
 
 export namespace DisassociateResourceShareRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateResourceShareRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceShareRequest =>
-    __isa(o, "DisassociateResourceShareRequest");
+  export const isa = (o: any): o is DisassociateResourceShareRequest => __isa(o, "DisassociateResourceShareRequest");
 }
 
 export interface DisassociateResourceShareResponse {
@@ -383,13 +346,10 @@ export interface DisassociateResourceShareResponse {
 }
 
 export namespace DisassociateResourceShareResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateResourceShareResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateResourceShareResponse =>
-    __isa(o, "DisassociateResourceShareResponse");
+  export const isa = (o: any): o is DisassociateResourceShareResponse => __isa(o, "DisassociateResourceShareResponse");
 }
 
 export interface EnableSharingWithAwsOrganizationRequest {
@@ -397,10 +357,8 @@ export interface EnableSharingWithAwsOrganizationRequest {
 }
 
 export namespace EnableSharingWithAwsOrganizationRequest {
-  export const filterSensitiveLog = (
-    obj: EnableSharingWithAwsOrganizationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableSharingWithAwsOrganizationRequest =>
     __isa(o, "EnableSharingWithAwsOrganizationRequest");
@@ -415,10 +373,8 @@ export interface EnableSharingWithAwsOrganizationResponse {
 }
 
 export namespace EnableSharingWithAwsOrganizationResponse {
-  export const filterSensitiveLog = (
-    obj: EnableSharingWithAwsOrganizationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EnableSharingWithAwsOrganizationResponse =>
     __isa(o, "EnableSharingWithAwsOrganizationResponse");
@@ -439,10 +395,9 @@ export interface GetPermissionRequest {
 
 export namespace GetPermissionRequest {
   export const filterSensitiveLog = (obj: GetPermissionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPermissionRequest =>
-    __isa(o, "GetPermissionRequest");
+  export const isa = (o: any): o is GetPermissionRequest => __isa(o, "GetPermissionRequest");
 }
 
 export interface GetPermissionResponse {
@@ -455,14 +410,23 @@ export interface GetPermissionResponse {
 
 export namespace GetPermissionResponse {
   export const filterSensitiveLog = (obj: GetPermissionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPermissionResponse =>
-    __isa(o, "GetPermissionResponse");
+  export const isa = (o: any): o is GetPermissionResponse => __isa(o, "GetPermissionResponse");
 }
 
 export interface GetResourcePoliciesRequest {
   __type?: "GetResourcePoliciesRequest";
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   */
+  resourceArns: string[] | undefined;
+
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -470,50 +434,36 @@ export interface GetResourcePoliciesRequest {
   maxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The principal.</p>
    */
   principal?: string;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
-   */
-  resourceArns: string[] | undefined;
 }
 
 export namespace GetResourcePoliciesRequest {
   export const filterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesRequest =>
-    __isa(o, "GetResourcePoliciesRequest");
+  export const isa = (o: any): o is GetResourcePoliciesRequest => __isa(o, "GetResourcePoliciesRequest");
 }
 
 export interface GetResourcePoliciesResponse {
   __type?: "GetResourcePoliciesResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A key policy document, in JSON format.</p>
    */
   policies?: string[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourcePoliciesResponse {
-  export const filterSensitiveLog = (
-    obj: GetResourcePoliciesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesResponse =>
-    __isa(o, "GetResourcePoliciesResponse");
+  export const isa = (o: any): o is GetResourcePoliciesResponse => __isa(o, "GetResourcePoliciesResponse");
 }
 
 export interface GetResourceShareAssociationsRequest {
@@ -524,22 +474,21 @@ export interface GetResourceShareAssociationsRequest {
   associationStatus?: ResourceShareAssociationStatus | string;
 
   /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
+   */
+  resourceShareArns?: string[];
+
+  /**
    * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
    *    		associated with the specified resource share. Specify <code>RESOURCE</code> to list
    *    		the resources that are associated with the specified resource share.</p>
    */
   associationType: ResourceShareAssociationType | string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>The principal. You cannot specify this parameter if the association type is
@@ -548,22 +497,21 @@ export interface GetResourceShareAssociationsRequest {
   principal?: string;
 
   /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this parameter if the
    *       	association type is <code>PRINCIPAL</code>.</p>
    */
   resourceArn?: string;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   */
-  resourceShareArns?: string[];
 }
 
 export namespace GetResourceShareAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetResourceShareAssociationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceShareAssociationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetResourceShareAssociationsRequest =>
     __isa(o, "GetResourceShareAssociationsRequest");
@@ -572,21 +520,19 @@ export namespace GetResourceShareAssociationsRequest {
 export interface GetResourceShareAssociationsResponse {
   __type?: "GetResourceShareAssociationsResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourceShareAssociationsResponse {
-  export const filterSensitiveLog = (
-    obj: GetResourceShareAssociationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceShareAssociationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetResourceShareAssociationsResponse =>
     __isa(o, "GetResourceShareAssociationsResponse");
@@ -601,6 +547,11 @@ export interface GetResourceShareInvitationsRequest {
   maxResults?: number;
 
   /**
+   * <p>The Amazon Resource Names (ARN) of the invitations.</p>
+   */
+  resourceShareInvitationArns?: string[];
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
@@ -609,18 +560,11 @@ export interface GetResourceShareInvitationsRequest {
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
   resourceShareArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the invitations.</p>
-   */
-  resourceShareInvitationArns?: string[];
 }
 
 export namespace GetResourceShareInvitationsRequest {
-  export const filterSensitiveLog = (
-    obj: GetResourceShareInvitationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetResourceShareInvitationsRequest =>
     __isa(o, "GetResourceShareInvitationsRequest");
@@ -629,21 +573,19 @@ export namespace GetResourceShareInvitationsRequest {
 export interface GetResourceShareInvitationsResponse {
   __type?: "GetResourceShareInvitationsResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the invitations.</p>
    */
   resourceShareInvitations?: ResourceShareInvitation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourceShareInvitationsResponse {
-  export const filterSensitiveLog = (
-    obj: GetResourceShareInvitationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetResourceShareInvitationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetResourceShareInvitationsResponse =>
     __isa(o, "GetResourceShareInvitationsResponse");
@@ -658,19 +600,9 @@ export interface GetResourceSharesRequest {
   maxResults?: number;
 
   /**
-   * <p>The name of the resource share.</p>
+   * <p>The status of the resource share.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The type of owner.</p>
-   */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceShareStatus?: ResourceShareStatus | string;
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
@@ -678,62 +610,66 @@ export interface GetResourceSharesRequest {
   resourceShareArns?: string[];
 
   /**
-   * <p>The status of the resource share.</p>
+   * <p>The type of owner.</p>
    */
-  resourceShareStatus?: ResourceShareStatus | string;
+  resourceOwner: ResourceOwner | string | undefined;
 
   /**
    * <p>One or more tag filters.</p>
    */
   tagFilters?: TagFilter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  name?: string;
 }
 
 export namespace GetResourceSharesRequest {
   export const filterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceSharesRequest =>
-    __isa(o, "GetResourceSharesRequest");
+  export const isa = (o: any): o is GetResourceSharesRequest => __isa(o, "GetResourceSharesRequest");
 }
 
 export interface GetResourceSharesResponse {
   __type?: "GetResourceSharesResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the resource shares.</p>
    */
   resourceShares?: ResourceShare[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourceSharesResponse {
   export const filterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetResourceSharesResponse =>
-    __isa(o, "GetResourceSharesResponse");
+  export const isa = (o: any): o is GetResourceSharesResponse => __isa(o, "GetResourceSharesResponse");
 }
 
 /**
  * <p>A client token input parameter was reused with an operation, but at least one of
  *         the other input parameters is different from the previous call to the operation.</p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace IdempotentParameterMismatchException {
-  export const filterSensitiveLog = (
-    obj: IdempotentParameterMismatchException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is IdempotentParameterMismatchException =>
     __isa(o, "IdempotentParameterMismatchException");
@@ -742,30 +678,23 @@ export namespace IdempotentParameterMismatchException {
 /**
  * <p>A client token is not valid.</p>
  */
-export interface InvalidClientTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientTokenException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidClientTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidClientTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClientTokenException =>
-    __isa(o, "InvalidClientTokenException");
+  export const isa = (o: any): o is InvalidClientTokenException => __isa(o, "InvalidClientTokenException");
 }
 
 /**
  * <p>The specified value for MaxResults is not valid.</p>
  */
-export interface InvalidMaxResultsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
   message: string | undefined;
@@ -773,18 +702,15 @@ export interface InvalidMaxResultsException
 
 export namespace InvalidMaxResultsException {
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxResultsException =>
-    __isa(o, "InvalidMaxResultsException");
+  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
  * <p>The specified value for NextToken is not valid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message: string | undefined;
@@ -792,18 +718,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>A parameter is not valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message: string | undefined;
@@ -811,52 +734,41 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>The specified resource type is not valid.</p>
  */
-export interface InvalidResourceTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceTypeException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidResourceTypeException {
-  export const filterSensitiveLog = (
-    obj: InvalidResourceTypeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidResourceTypeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceTypeException =>
-    __isa(o, "InvalidResourceTypeException");
+  export const isa = (o: any): o is InvalidResourceTypeException => __isa(o, "InvalidResourceTypeException");
 }
 
 /**
  * <p>The requested state transition is not valid.</p>
  */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidStateTransitionException {
-  export const filterSensitiveLog = (
-    obj: InvalidStateTransitionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
+  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 export interface ListPendingInvitationResourcesRequest {
@@ -868,21 +780,19 @@ export interface ListPendingInvitationResourcesRequest {
   maxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPendingInvitationResourcesRequest {
-  export const filterSensitiveLog = (
-    obj: ListPendingInvitationResourcesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPendingInvitationResourcesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPendingInvitationResourcesRequest =>
     __isa(o, "ListPendingInvitationResourcesRequest");
@@ -891,21 +801,19 @@ export namespace ListPendingInvitationResourcesRequest {
 export interface ListPendingInvitationResourcesResponse {
   __type?: "ListPendingInvitationResourcesResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the resources included the resource share.</p>
    */
   resources?: Resource[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPendingInvitationResourcesResponse {
-  export const filterSensitiveLog = (
-    obj: ListPendingInvitationResourcesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPendingInvitationResourcesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPendingInvitationResourcesResponse =>
     __isa(o, "ListPendingInvitationResourcesResponse");
@@ -920,73 +828,55 @@ export interface ListPermissionsRequest {
   maxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Specifies the resource type for which to list permissions. For example, to list only
    * 		permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
    */
   resourceType?: string;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPermissionsRequest {
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
   __type?: "ListPermissionsResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the permissions.</p>
    */
   permissions?: ResourceSharePermissionSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListPrincipalsRequest {
   __type?: "ListPrincipalsRequest";
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The principals.</p>
    */
   principals?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * <p>The token for the next page of results.</p>
    */
-  resourceArn?: string;
-
-  /**
-   * <p>The type of owner.</p>
-   */
-  resourceOwner: ResourceOwner | string | undefined;
+  nextToken?: string;
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
@@ -994,12 +884,25 @@ export interface ListPrincipalsRequest {
   resourceShareArns?: string[];
 
   /**
+   * <p>The type of owner.</p>
+   */
+  resourceOwner: ResourceOwner | string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn?: string;
+
+  /**
    * <p>The resource type.</p>
-   *          <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> |
-   *     	<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> |
-   *     	<code>license-manager:LicenseConfiguration</code> |
-   *     	<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> I
-   *     	<code>resource-groups:Group</code>
+   *    	     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> |
+   *    		<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>
    *          </p>
    */
   resourceType?: string;
@@ -1007,10 +910,9 @@ export interface ListPrincipalsRequest {
 
 export namespace ListPrincipalsRequest {
   export const filterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalsRequest =>
-    __isa(o, "ListPrincipalsRequest");
+  export const isa = (o: any): o is ListPrincipalsRequest => __isa(o, "ListPrincipalsRequest");
 }
 
 export interface ListPrincipalsResponse {
@@ -1028,20 +930,13 @@ export interface ListPrincipalsResponse {
 
 export namespace ListPrincipalsResponse {
   export const filterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPrincipalsResponse =>
-    __isa(o, "ListPrincipalsResponse");
+  export const isa = (o: any): o is ListPrincipalsResponse => __isa(o, "ListPrincipalsResponse");
 }
 
 export interface ListResourceSharePermissionsRequest {
   __type?: "ListResourceSharePermissionsRequest";
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -1051,13 +946,17 @@ export interface ListResourceSharePermissionsRequest {
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListResourceSharePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListResourceSharePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListResourceSharePermissionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListResourceSharePermissionsRequest =>
     __isa(o, "ListResourceSharePermissionsRequest");
@@ -1077,10 +976,8 @@ export interface ListResourceSharePermissionsResponse {
 }
 
 export namespace ListResourceSharePermissionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListResourceSharePermissionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListResourceSharePermissionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListResourceSharePermissionsResponse =>
     __isa(o, "ListResourceSharePermissionsResponse");
@@ -1088,6 +985,29 @@ export namespace ListResourceSharePermissionsResponse {
 
 export interface ListResourcesRequest {
   __type?: "ListResourcesRequest";
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
+   */
+  resourceShareArns?: string[];
+
+  /**
+   * <p>The principal.</p>
+   */
+  principal?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *    	     <p>Valid values: <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>license-manager:LicenseConfiguration</code> I <code>resource-groups:Group</code> |
+   *    		<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code>
+   *          </p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>The type of owner.</p>
+   */
+  resourceOwner: ResourceOwner | string | undefined;
+
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1100,72 +1020,83 @@ export interface ListResourcesRequest {
   nextToken?: string;
 
   /**
-   * <p>The principal.</p>
-   */
-  principal?: string;
-
-  /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
   resourceArns?: string[];
-
-  /**
-   * <p>The type of owner.</p>
-   */
-  resourceOwner: ResourceOwner | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
-   */
-  resourceShareArns?: string[];
-
-  /**
-   * <p>The resource type.</p>
-   *    	     <p>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> |
-   *    		<code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> |
-   *    		<code>license-manager:LicenseConfiguration</code> |
-   *    		<code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> |
-   *    		<code>resource-groups:Group</code>
-   *          </p>
-   */
-  resourceType?: string;
 }
 
 export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest =>
-    __isa(o, "ListResourcesRequest");
+  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
   __type?: "ListResourcesResponse";
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the resources.</p>
    */
   resources?: Resource[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResponse =>
-    __isa(o, "ListResourcesResponse");
+  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
+}
+
+export interface ListResourceTypesRequest {
+  __type?: "ListResourceTypesRequest";
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListResourceTypesRequest {
+  export const filterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListResourceTypesRequest => __isa(o, "ListResourceTypesRequest");
+}
+
+export interface ListResourceTypesResponse {
+  __type?: "ListResourceTypesResponse";
+  /**
+   * <p>The shareable resource types supported by AWS RAM.</p>
+   */
+  resourceTypes?: ServiceNameAndResourceType[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListResourceTypesResponse {
+  export const filterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListResourceTypesResponse => __isa(o, "ListResourceTypesResponse");
 }
 
 /**
  * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
-export interface MalformedArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedArnException extends __SmithyException, $MetadataBearer {
   name: "MalformedArnException";
   $fault: "client";
   message: string | undefined;
@@ -1173,52 +1104,41 @@ export interface MalformedArnException
 
 export namespace MalformedArnException {
   export const filterSensitiveLog = (obj: MalformedArnException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedArnException =>
-    __isa(o, "MalformedArnException");
+  export const isa = (o: any): o is MalformedArnException => __isa(o, "MalformedArnException");
 }
 
 /**
  * <p>A required input parameter is missing.</p>
  */
-export interface MissingRequiredParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
   name: "MissingRequiredParameterException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace MissingRequiredParameterException {
-  export const filterSensitiveLog = (
-    obj: MissingRequiredParameterException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameterException =>
-    __isa(o, "MissingRequiredParameterException");
+  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
  * <p>The requested operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace OperationNotPermittedException {
-  export const filterSensitiveLog = (
-    obj: OperationNotPermittedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException =>
-    __isa(o, "OperationNotPermittedException");
+  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -1226,6 +1146,21 @@ export namespace OperationNotPermittedException {
  */
 export interface Principal {
   __type?: "Principal";
+  /**
+   * <p>The time when the association was last updated.</p>
+   */
+  lastUpdatedTime?: Date;
+
+  /**
+   * <p>The ID of the principal.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
+
   /**
    * <p>The time when the principal was associated with the resource share.</p>
    */
@@ -1235,26 +1170,11 @@ export interface Principal {
    * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
    */
   external?: boolean;
-
-  /**
-   * <p>The ID of the principal.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The time when the association was last updated.</p>
-   */
-  lastUpdatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
 }
 
 export namespace Principal {
   export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Principal => __isa(o, "Principal");
 }
@@ -1268,14 +1188,10 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: PromoteResourceShareCreatedFromPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyRequest =>
+  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyRequest =>
     __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
 }
 
@@ -1288,35 +1204,29 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: PromoteResourceShareCreatedFromPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyResponse =>
+  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyResponse =>
     __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
 }
 
 export interface RejectResourceShareInvitationRequest {
   __type?: "RejectResourceShareInvitationRequest";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace RejectResourceShareInvitationRequest {
-  export const filterSensitiveLog = (
-    obj: RejectResourceShareInvitationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectResourceShareInvitationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectResourceShareInvitationRequest =>
     __isa(o, "RejectResourceShareInvitationRequest");
@@ -1325,21 +1235,19 @@ export namespace RejectResourceShareInvitationRequest {
 export interface RejectResourceShareInvitationResponse {
   __type?: "RejectResourceShareInvitationResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the invitation.</p>
    */
   resourceShareInvitation?: ResourceShareInvitation;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace RejectResourceShareInvitationResponse {
-  export const filterSensitiveLog = (
-    obj: RejectResourceShareInvitationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RejectResourceShareInvitationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RejectResourceShareInvitationResponse =>
     __isa(o, "RejectResourceShareInvitationResponse");
@@ -1351,35 +1259,19 @@ export namespace RejectResourceShareInvitationResponse {
 export interface Resource {
   __type?: "Resource";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The time when the resource was associated with the resource share.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
 
   /**
-   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
-   * 			group.</p>
-   */
-  resourceGroupArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
-  /**
    * <p>The status of the resource.</p>
    */
   status?: ResourceStatus | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  arn?: string;
 
   /**
    * <p>A message about the status of the resource.</p>
@@ -1390,11 +1282,27 @@ export interface Resource {
    * <p>The resource type.</p>
    */
   type?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
+
+  /**
+   * <p>The time when the resource was associated with the resource share.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
+   * 			group.</p>
+   */
+  resourceGroupArn?: string;
 }
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -1402,27 +1310,22 @@ export namespace Resource {
 /**
  * <p>An Amazon Resource Name (ARN) was not found.</p>
  */
-export interface ResourceArnNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceArnNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceArnNotFoundException {
-  export const filterSensitiveLog = (
-    obj: ResourceArnNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceArnNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceArnNotFoundException =>
-    __isa(o, "ResourceArnNotFoundException");
+  export const isa = (o: any): o is ResourceArnNotFoundException => __isa(o, "ResourceArnNotFoundException");
 }
 
 export enum ResourceOwner {
   OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF"
+  SELF = "SELF",
 }
 
 /**
@@ -1431,14 +1334,24 @@ export enum ResourceOwner {
 export interface ResourceShare {
   __type?: "ResourceShare";
   /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   * <p>The tags for the resource share.</p>
    */
-  allowExternalPrincipals?: boolean;
+  tags?: Tag[];
 
   /**
    * <p>The time when the resource share was created.</p>
    */
   creationTime?: Date;
+
+  /**
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   */
+  allowExternalPrincipals?: boolean;
+
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  name?: string;
 
   /**
    * <p>Indicates how the resource share was created. Possible values include:</p>
@@ -1467,26 +1380,6 @@ export interface ResourceShare {
   featureSet?: ResourceShareFeatureSet | string;
 
   /**
-   * <p>The time when the resource share was last updated.</p>
-   */
-  lastUpdatedTime?: Date;
-
-  /**
-   * <p>The name of the resource share.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the resource share.</p>
-   */
-  owningAccountId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
-  /**
    * <p>The status of the resource share.</p>
    */
   status?: ResourceShareStatus | string;
@@ -1497,14 +1390,24 @@ export interface ResourceShare {
   statusMessage?: string;
 
   /**
-   * <p>The tags for the resource share.</p>
+   * <p>The ID of the AWS account that owns the resource share.</p>
    */
-  tags?: Tag[];
+  owningAccountId?: string;
+
+  /**
+   * <p>The time when the resource share was last updated.</p>
+   */
+  lastUpdatedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
 }
 
 export namespace ResourceShare {
   export const filterSensitiveLog = (obj: ResourceShare): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceShare => __isa(o, "ResourceShare");
 }
@@ -1514,6 +1417,21 @@ export namespace ResourceShare {
  */
 export interface ResourceShareAssociation {
   __type?: "ResourceShareAssociation";
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  resourceShareName?: string;
+
+  /**
+   * <p>A message about the status of the association.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The status of the association.</p>
+   */
+  status?: ResourceShareAssociationStatus | string;
+
   /**
    * <p>The associated entity. For resource associations, this is the ARN of the resource.
    *        For principal associations, this is the ID of an AWS account or the ARN of an OU or
@@ -1527,11 +1445,6 @@ export interface ResourceShareAssociation {
   associationType?: ResourceShareAssociationType | string;
 
   /**
-   * <p>The time when the association was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
    */
   external?: boolean;
@@ -1542,32 +1455,21 @@ export interface ResourceShareAssociation {
   lastUpdatedTime?: Date;
 
   /**
+   * <p>The time when the association was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
-
-  /**
-   * <p>The name of the resource share.</p>
-   */
-  resourceShareName?: string;
-
-  /**
-   * <p>The status of the association.</p>
-   */
-  status?: ResourceShareAssociationStatus | string;
-
-  /**
-   * <p>A message about the status of the association.</p>
-   */
-  statusMessage?: string;
 }
 
 export namespace ResourceShareAssociation {
   export const filterSensitiveLog = (obj: ResourceShareAssociation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceShareAssociation =>
-    __isa(o, "ResourceShareAssociation");
+  export const isa = (o: any): o is ResourceShareAssociation => __isa(o, "ResourceShareAssociation");
 }
 
 export type ResourceShareAssociationStatus =
@@ -1579,31 +1481,13 @@ export type ResourceShareAssociationStatus =
 
 export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
 
-export type ResourceShareFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
+export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
 
 /**
  * <p>Describes an invitation to join a resource share.</p>
  */
 export interface ResourceShareInvitation {
   __type?: "ResourceShareInvitation";
-  /**
-   * <p>The date and time when the invitation was sent.</p>
-   */
-  invitationTimestamp?: Date;
-
-  /**
-   * <p>The ID of the AWS account that received the invitation.</p>
-   */
-  receiverAccountId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
   /**
    * <p>To view the resources associated with a pending resource share invitation, use
    *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
@@ -1612,14 +1496,29 @@ export interface ResourceShareInvitation {
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
+   * <p>The date and time when the invitation was sent.</p>
    */
-  resourceShareInvitationArn?: string;
+  invitationTimestamp?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
 
   /**
    * <p>The name of the resource share.</p>
    */
   resourceShareName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the invitation.</p>
+   */
+  resourceShareInvitationArn?: string;
+
+  /**
+   * <p>The ID of the AWS account that received the invitation.</p>
+   */
+  receiverAccountId?: string;
 
   /**
    * <p>The ID of the AWS account that sent the invitation.</p>
@@ -1634,124 +1533,93 @@ export interface ResourceShareInvitation {
 
 export namespace ResourceShareInvitation {
   export const filterSensitiveLog = (obj: ResourceShareInvitation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceShareInvitation =>
-    __isa(o, "ResourceShareInvitation");
+  export const isa = (o: any): o is ResourceShareInvitation => __isa(o, "ResourceShareInvitation");
 }
 
 /**
  * <p>The invitation was already accepted.</p>
  */
-export interface ResourceShareInvitationAlreadyAcceptedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationAlreadyAcceptedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyAcceptedException {
-  export const filterSensitiveLog = (
-    obj: ResourceShareInvitationAlreadyAcceptedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyAcceptedException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationAlreadyAcceptedException =>
+  export const isa = (o: any): o is ResourceShareInvitationAlreadyAcceptedException =>
     __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
 }
 
 /**
  * <p>The invitation was already rejected.</p>
  */
-export interface ResourceShareInvitationAlreadyRejectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyRejectedException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyRejectedException {
-  export const filterSensitiveLog = (
-    obj: ResourceShareInvitationAlreadyRejectedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyRejectedException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationAlreadyRejectedException =>
+  export const isa = (o: any): o is ResourceShareInvitationAlreadyRejectedException =>
     __isa(o, "ResourceShareInvitationAlreadyRejectedException");
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
-export interface ResourceShareInvitationArnNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationArnNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationArnNotFoundException {
-  export const filterSensitiveLog = (
-    obj: ResourceShareInvitationArnNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceShareInvitationArnNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationArnNotFoundException =>
+  export const isa = (o: any): o is ResourceShareInvitationArnNotFoundException =>
     __isa(o, "ResourceShareInvitationArnNotFoundException");
 }
 
 /**
  * <p>The invitation is expired.</p>
  */
-export interface ResourceShareInvitationExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationExpiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationExpiredException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationExpiredException {
-  export const filterSensitiveLog = (
-    obj: ResourceShareInvitationExpiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceShareInvitationExpiredException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ResourceShareInvitationExpiredException =>
     __isa(o, "ResourceShareInvitationExpiredException");
 }
 
-export type ResourceShareInvitationStatus =
-  | "ACCEPTED"
-  | "EXPIRED"
-  | "PENDING"
-  | "REJECTED";
+export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED";
 
 /**
  * <p>The requested resource share exceeds the limit for your account.</p>
  */
-export interface ResourceShareLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareLimitExceededException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ResourceShareLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceShareLimitExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ResourceShareLimitExceededException =>
     __isa(o, "ResourceShareLimitExceededException");
@@ -1762,16 +1630,6 @@ export namespace ResourceShareLimitExceededException {
  */
 export interface ResourceSharePermissionDetail {
   __type?: "ResourceSharePermissionDetail";
-  /**
-   * <p>The ARN of the permission.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The date and time when the permission was created.</p>
-   */
-  creationTime?: Date;
-
   /**
    * <p>The identifier for the version of the permission that is set as the
    *     		default version.</p>
@@ -1784,16 +1642,16 @@ export interface ResourceSharePermissionDetail {
   lastUpdatedTime?: Date;
 
   /**
-   * <p>The name of the permission.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether
    * 			the actions are allowed or denied. The <code>actions</code> list the API actions to
    * 			which the principal is granted or denied access.</p>
    */
   permission?: string;
+
+  /**
+   * <p>The date and time when the permission was created.</p>
+   */
+  creationTime?: Date;
 
   /**
    * <p>The resource type to which the permission applies.</p>
@@ -1804,16 +1662,23 @@ export interface ResourceSharePermissionDetail {
    * <p>The identifier for the version of the permission.</p>
    */
   version?: string;
+
+  /**
+   * <p>The ARN of the permission.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the permission.</p>
+   */
+  name?: string;
 }
 
 export namespace ResourceSharePermissionDetail {
-  export const filterSensitiveLog = (
-    obj: ResourceSharePermissionDetail
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceSharePermissionDetail =>
-    __isa(o, "ResourceSharePermissionDetail");
+  export const isa = (o: any): o is ResourceSharePermissionDetail => __isa(o, "ResourceSharePermissionDetail");
 }
 
 /**
@@ -1822,9 +1687,14 @@ export namespace ResourceSharePermissionDetail {
 export interface ResourceSharePermissionSummary {
   __type?: "ResourceSharePermissionSummary";
   /**
-   * <p>The ARN of the permission.</p>
+   * <p>The current status of the permission.</p>
    */
-  arn?: string;
+  status?: string;
+
+  /**
+   * <p>The name of the permission.</p>
+   */
+  name?: string;
 
   /**
    * <p>The date and time when the permission was created.</p>
@@ -1837,14 +1707,9 @@ export interface ResourceSharePermissionSummary {
   defaultVersion?: boolean;
 
   /**
-   * <p>The date and time when the permission was last updated.</p>
+   * <p>The ARN of the permission.</p>
    */
-  lastUpdatedTime?: Date;
-
-  /**
-   * <p>The name of the permission.</p>
-   */
-  name?: string;
+  arn?: string;
 
   /**
    * <p>The type of resource to which the permission applies.</p>
@@ -1852,46 +1717,31 @@ export interface ResourceSharePermissionSummary {
   resourceType?: string;
 
   /**
-   * <p>The current status of the permission.</p>
-   */
-  status?: string;
-
-  /**
    * <p>The identifier for the version of the permission.</p>
    */
   version?: string;
+
+  /**
+   * <p>The date and time when the permission was last updated.</p>
+   */
+  lastUpdatedTime?: Date;
 }
 
 export namespace ResourceSharePermissionSummary {
-  export const filterSensitiveLog = (
-    obj: ResourceSharePermissionSummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceSharePermissionSummary =>
-    __isa(o, "ResourceSharePermissionSummary");
+  export const isa = (o: any): o is ResourceSharePermissionSummary => __isa(o, "ResourceSharePermissionSummary");
 }
 
-export type ResourceShareStatus =
-  | "ACTIVE"
-  | "DELETED"
-  | "DELETING"
-  | "FAILED"
-  | "PENDING";
+export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING";
 
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "LIMIT_EXCEEDED"
-  | "PENDING"
-  | "UNAVAILABLE"
-  | "ZONAL_RESOURCE_INACCESSIBLE";
+export type ResourceStatus = "AVAILABLE" | "LIMIT_EXCEEDED" | "PENDING" | "UNAVAILABLE" | "ZONAL_RESOURCE_INACCESSIBLE";
 
 /**
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
-export interface ServerInternalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerInternalException extends __SmithyException, $MetadataBearer {
   name: "ServerInternalException";
   $fault: "server";
   message: string | undefined;
@@ -1899,31 +1749,48 @@ export interface ServerInternalException
 
 export namespace ServerInternalException {
   export const filterSensitiveLog = (obj: ServerInternalException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServerInternalException =>
-    __isa(o, "ServerInternalException");
+  export const isa = (o: any): o is ServerInternalException => __isa(o, "ServerInternalException");
+}
+
+/**
+ * <p>Information about the shareable resource types and the AWS services to which they belong.</p>
+ */
+export interface ServiceNameAndResourceType {
+  __type?: "ServiceNameAndResourceType";
+  /**
+   * <p>The name of the AWS services to which the resources belong.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The shareable resource types.</p>
+   */
+  resourceType?: string;
+}
+
+export namespace ServiceNameAndResourceType {
+  export const filterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ServiceNameAndResourceType => __isa(o, "ServiceNameAndResourceType");
 }
 
 /**
  * <p>The service is not available.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message: string | undefined;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1944,7 +1811,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1967,7 +1834,7 @@ export interface TagFilter {
 
 export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
@@ -1975,9 +1842,7 @@ export namespace TagFilter {
 /**
  * <p>The requested tags exceed the limit for your account.</p>
  */
-export interface TagLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -1985,31 +1850,25 @@ export interface TagLimitExceededException
 
 export namespace TagLimitExceededException {
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededException =>
-    __isa(o, "TagLimitExceededException");
+  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
  * <p>The specified tag is a reserved word and cannot be used.</p>
  */
-export interface TagPolicyViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagPolicyViolationException extends __SmithyException, $MetadataBearer {
   name: "TagPolicyViolationException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace TagPolicyViolationException {
-  export const filterSensitiveLog = (
-    obj: TagPolicyViolationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TagPolicyViolationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TagPolicyViolationException =>
-    __isa(o, "TagPolicyViolationException");
+  export const isa = (o: any): o is TagPolicyViolationException => __isa(o, "TagPolicyViolationException");
 }
 
 export interface TagResourceRequest {
@@ -2027,10 +1886,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2039,18 +1897,15 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>A specified resource was not found.</p>
  */
-export interface UnknownResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnknownResourceException extends __SmithyException, $MetadataBearer {
   name: "UnknownResourceException";
   $fault: "client";
   message: string | undefined;
@@ -2058,10 +1913,9 @@ export interface UnknownResourceException
 
 export namespace UnknownResourceException {
   export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnknownResourceException =>
-    __isa(o, "UnknownResourceException");
+  export const isa = (o: any): o is UnknownResourceException => __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
@@ -2079,10 +1933,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2091,19 +1944,13 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResourceShareRequest {
   __type?: "UpdateResourceShareRequest";
-  /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
-   */
-  allowExternalPrincipals?: boolean;
-
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -2115,6 +1962,11 @@ export interface UpdateResourceShareRequest {
   name?: string;
 
   /**
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   */
+  allowExternalPrincipals?: boolean;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
@@ -2122,31 +1974,27 @@ export interface UpdateResourceShareRequest {
 
 export namespace UpdateResourceShareRequest {
   export const filterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceShareRequest =>
-    __isa(o, "UpdateResourceShareRequest");
+  export const isa = (o: any): o is UpdateResourceShareRequest => __isa(o, "UpdateResourceShareRequest");
 }
 
 export interface UpdateResourceShareResponse {
   __type?: "UpdateResourceShareResponse";
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the resource share.</p>
    */
   resourceShare?: ResourceShare;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace UpdateResourceShareResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateResourceShareResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceShareResponse =>
-    __isa(o, "UpdateResourceShareResponse");
+  export const isa = (o: any): o is UpdateResourceShareResponse => __isa(o, "UpdateResourceShareResponse");
 }

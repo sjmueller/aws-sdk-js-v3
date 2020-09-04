@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient.ts";
-import {
-  UpdateGlobalTableInput,
-  UpdateGlobalTableOutput
-} from "../models/index.ts";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
+import { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0UpdateGlobalTableCommand,
-  serializeAws_json1_0UpdateGlobalTableCommand
+  serializeAws_json1_0UpdateGlobalTableCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateGlobalTableCommandInput = UpdateGlobalTableInput;
-export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput &
-  __MetadataBearer;
+export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput & __MetadataBearer;
 
 export class UpdateGlobalTableCommand extends $Command<
   UpdateGlobalTableCommandInput,
@@ -50,14 +39,15 @@ export class UpdateGlobalTableCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateGlobalTableInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGlobalTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateGlobalTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateGlobalTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGlobalTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateGlobalTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalTableCommandOutput> {
     return deserializeAws_json1_0UpdateGlobalTableCommand(output, context);
   }
 

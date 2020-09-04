@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  DescribeEndpointsMessage,
-  DescribeEndpointsResponse
-} from "../models/index.ts";
+import { DescribeEndpointsMessage, DescribeEndpointsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEndpointsCommand,
-  serializeAws_json1_1DescribeEndpointsCommand
+  serializeAws_json1_1DescribeEndpointsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEndpointsCommandInput = DescribeEndpointsMessage;
-export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse &
-  __MetadataBearer;
+export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse & __MetadataBearer;
 
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,
@@ -50,14 +43,15 @@ export class DescribeEndpointsCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEndpointsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEndpointsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEndpointsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
     return deserializeAws_json1_1DescribeEndpointsCommand(output, context);
   }
 

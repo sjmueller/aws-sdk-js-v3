@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  RejectSharedDirectoryRequest,
-  RejectSharedDirectoryResult
-} from "../models/index.ts";
+import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1RejectSharedDirectoryCommand,
-  serializeAws_json1_1RejectSharedDirectoryCommand
+  serializeAws_json1_1RejectSharedDirectoryCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RejectSharedDirectoryCommandInput = RejectSharedDirectoryRequest;
-export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult &
-  __MetadataBearer;
+export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult & __MetadataBearer;
 
 export class RejectSharedDirectoryCommand extends $Command<
   RejectSharedDirectoryCommandInput,
@@ -49,18 +42,16 @@ export class RejectSharedDirectoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectSharedDirectoryCommandInput,
-    RejectSharedDirectoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectSharedDirectoryCommandInput, RejectSharedDirectoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RejectSharedDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectSharedDirectoryResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class RejectSharedDirectoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RejectSharedDirectoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RejectSharedDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectSharedDirectoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RejectSharedDirectoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSharedDirectoryCommandOutput> {
     return deserializeAws_json1_1RejectSharedDirectoryCommand(output, context);
   }
 

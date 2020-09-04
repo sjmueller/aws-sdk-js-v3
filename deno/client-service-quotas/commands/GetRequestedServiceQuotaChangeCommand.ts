@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ServiceQuotasClientResolvedConfig
-} from "../ServiceQuotasClient.ts";
-import {
-  GetRequestedServiceQuotaChangeRequest,
-  GetRequestedServiceQuotaChangeResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient.ts";
+import { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
-  serializeAws_json1_1GetRequestedServiceQuotaChangeCommand
+  serializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRequestedServiceQuotaChangeCommandInput = GetRequestedServiceQuotaChangeRequest;
-export type GetRequestedServiceQuotaChangeCommandOutput = GetRequestedServiceQuotaChangeResponse &
-  __MetadataBearer;
+export type GetRequestedServiceQuotaChangeCommandOutput = GetRequestedServiceQuotaChangeResponse & __MetadataBearer;
 
 export class GetRequestedServiceQuotaChangeCommand extends $Command<
   GetRequestedServiceQuotaChangeCommandInput,
@@ -49,18 +38,16 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRequestedServiceQuotaChangeCommandInput,
-    GetRequestedServiceQuotaChangeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRequestedServiceQuotaChangeCommandInput, GetRequestedServiceQuotaChangeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRequestedServiceQuotaChangeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRequestedServiceQuotaChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     input: GetRequestedServiceQuotaChangeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
-    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

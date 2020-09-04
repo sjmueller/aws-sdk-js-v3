@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>Access is denied.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -18,54 +12,51 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CancelChangeSetRequest {
   __type?: "CancelChangeSetRequest";
   /**
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>.</p>
-   */
-  Catalog: string | undefined;
-
-  /**
    * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
    *             want to cancel.</p>
    */
   ChangeSetId: string | undefined;
+
+  /**
+   * <p>Required. The catalog related to the request. Fixed value:
+   *             <code>AWSMarketplace</code>.</p>
+   */
+  Catalog: string | undefined;
 }
 
 export namespace CancelChangeSetRequest {
   export const filterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelChangeSetRequest =>
-    __isa(o, "CancelChangeSetRequest");
+  export const isa = (o: any): o is CancelChangeSetRequest => __isa(o, "CancelChangeSetRequest");
 }
 
 export interface CancelChangeSetResponse {
   __type?: "CancelChangeSetResponse";
   /**
-   * <p>The ARN associated with the change set referenced in this request.</p>
-   */
-  ChangeSetArn?: string;
-
-  /**
    * <p>The unique identifier for the change set referenced in this request.</p>
    */
   ChangeSetId?: string;
+
+  /**
+   * <p>The ARN associated with the change set referenced in this request.</p>
+   */
+  ChangeSetArn?: string;
 }
 
 export namespace CancelChangeSetResponse {
   export const filterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelChangeSetResponse =>
-    __isa(o, "CancelChangeSetResponse");
+  export const isa = (o: any): o is CancelChangeSetResponse => __isa(o, "CancelChangeSetResponse");
 }
 
 /**
@@ -75,11 +66,9 @@ export namespace CancelChangeSetResponse {
 export interface Change {
   __type?: "Change";
   /**
-   * <p>Change types are single string values that describe your intention for the change.
-   *             Each change type is unique for each <code>EntityType</code> provided in the change's
-   *             scope.</p>
+   * <p>The entity to be changed.</p>
    */
-  ChangeType: string | undefined;
+  Entity: Entity | undefined;
 
   /**
    * <p>This object contains details specific to the change type of the requested
@@ -88,14 +77,16 @@ export interface Change {
   Details: string | undefined;
 
   /**
-   * <p>The entity to be changed.</p>
+   * <p>Change types are single string values that describe your intention for the change.
+   *             Each change type is unique for each <code>EntityType</code> provided in the change's
+   *             scope.</p>
    */
-  Entity: Entity | undefined;
+  ChangeType: string | undefined;
 }
 
 export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Change => __isa(o, "Change");
 }
@@ -107,12 +98,6 @@ export namespace Change {
 export interface ChangeSetSummaryListItem {
   __type?: "ChangeSetSummaryListItem";
   /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
-   */
-  ChangeSetArn?: string;
-
-  /**
    * <p>The unique identifier for a change set.</p>
    */
   ChangeSetId?: string;
@@ -121,12 +106,6 @@ export interface ChangeSetSummaryListItem {
    * <p>The non-unique name for the change set.</p>
    */
   ChangeSetName?: string;
-
-  /**
-   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
-   *             finished.</p>
-   */
-  EndTime?: string;
 
   /**
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
@@ -141,6 +120,18 @@ export interface ChangeSetSummaryListItem {
   StartTime?: string;
 
   /**
+   * <p>The ARN associated with the unique identifier for the change set referenced in this
+   *             request.</p>
+   */
+  ChangeSetArn?: string;
+
+  /**
+   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
+   *             finished.</p>
+   */
+  EndTime?: string;
+
+  /**
    * <p>The current status of the change set.</p>
    */
   Status?: ChangeStatus | string;
@@ -148,10 +139,9 @@ export interface ChangeSetSummaryListItem {
 
 export namespace ChangeSetSummaryListItem {
   export const filterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ChangeSetSummaryListItem =>
-    __isa(o, "ChangeSetSummaryListItem");
+  export const isa = (o: any): o is ChangeSetSummaryListItem => __isa(o, "ChangeSetSummaryListItem");
 }
 
 export enum ChangeStatus {
@@ -159,7 +149,7 @@ export enum ChangeStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
   PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -169,9 +159,10 @@ export enum ChangeStatus {
 export interface ChangeSummary {
   __type?: "ChangeSummary";
   /**
-   * <p>The type of the change.</p>
+   * <p>This object contains details specific to the change type of the requested
+   *             change.</p>
    */
-  ChangeType?: string;
+  Details?: string;
 
   /**
    * <p>The entity to be changed.</p>
@@ -182,11 +173,16 @@ export interface ChangeSummary {
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
    */
   ErrorDetailList?: ErrorDetail[];
+
+  /**
+   * <p>The type of the change.</p>
+   */
+  ChangeType?: string;
 }
 
 export namespace ChangeSummary {
   export const filterSensitiveLog = (obj: ChangeSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ChangeSummary => __isa(o, "ChangeSummary");
 }
@@ -209,36 +205,13 @@ export interface DescribeChangeSetRequest {
 
 export namespace DescribeChangeSetRequest {
   export const filterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetRequest =>
-    __isa(o, "DescribeChangeSetRequest");
+  export const isa = (o: any): o is DescribeChangeSetRequest => __isa(o, "DescribeChangeSetRequest");
 }
 
 export interface DescribeChangeSetResponse {
   __type?: "DescribeChangeSetResponse";
-  /**
-   * <p>An array of <code>ChangeSummary</code> objects.</p>
-   */
-  ChangeSet?: ChangeSummary[];
-
-  /**
-   * <p>The ARN associated with the unique identifier for the change set referenced in this
-   *             request.</p>
-   */
-  ChangeSetArn?: string;
-
-  /**
-   * <p>Required. The unique identifier for the change set referenced in this request.</p>
-   */
-  ChangeSetId?: string;
-
-  /**
-   * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
-   *             provide a name, one is set by default.</p>
-   */
-  ChangeSetName?: string;
-
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
    *             to a terminal state. The change cannot transition to a different state. Null if the
@@ -247,10 +220,20 @@ export interface DescribeChangeSetResponse {
   EndTime?: string;
 
   /**
-   * <p>Returned if there is a failure on the change set, but that failure is not related to
-   *             any of the changes in the request.</p>
+   * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
+   *             provide a name, one is set by default.</p>
    */
-  FailureDescription?: string;
+  ChangeSetName?: string;
+
+  /**
+   * <p>The status of the change request.</p>
+   */
+  Status?: ChangeStatus | string;
+
+  /**
+   * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   */
+  ChangeSetId?: string;
 
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
@@ -259,17 +242,28 @@ export interface DescribeChangeSetResponse {
   StartTime?: string;
 
   /**
-   * <p>The status of the change request.</p>
+   * <p>The ARN associated with the unique identifier for the change set referenced in this
+   *             request.</p>
    */
-  Status?: ChangeStatus | string;
+  ChangeSetArn?: string;
+
+  /**
+   * <p>Returned if there is a failure on the change set, but that failure is not related to
+   *             any of the changes in the request.</p>
+   */
+  FailureDescription?: string;
+
+  /**
+   * <p>An array of <code>ChangeSummary</code> objects.</p>
+   */
+  ChangeSet?: ChangeSummary[];
 }
 
 export namespace DescribeChangeSetResponse {
   export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetResponse =>
-    __isa(o, "DescribeChangeSetResponse");
+  export const isa = (o: any): o is DescribeChangeSetResponse => __isa(o, "DescribeChangeSetResponse");
 }
 
 export interface DescribeEntityRequest {
@@ -289,14 +283,30 @@ export interface DescribeEntityRequest {
 
 export namespace DescribeEntityRequest {
   export const filterSensitiveLog = (obj: DescribeEntityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEntityRequest =>
-    __isa(o, "DescribeEntityRequest");
+  export const isa = (o: any): o is DescribeEntityRequest => __isa(o, "DescribeEntityRequest");
 }
 
 export interface DescribeEntityResponse {
   __type?: "DescribeEntityResponse";
+  /**
+   * <p>The last modified date of the entity, in ISO 8601 format
+   *             (2018-02-27T13:45:22Z).</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   */
+  EntityType?: string;
+
+  /**
+   * <p>The identifier of the entity, in the format of
+   *             <code>EntityId@RevisionId</code>.</p>
+   */
+  EntityIdentifier?: string;
+
   /**
    * <p>This stringified JSON object includes the details of the entity.</p>
    */
@@ -307,31 +317,13 @@ export interface DescribeEntityResponse {
    *             request.</p>
    */
   EntityArn?: string;
-
-  /**
-   * <p>The identifier of the entity, in the format of
-   *             <code>EntityId@RevisionId</code>.</p>
-   */
-  EntityIdentifier?: string;
-
-  /**
-   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
-   */
-  EntityType?: string;
-
-  /**
-   * <p>The last modified date of the entity, in ISO 8601 format
-   *             (2018-02-27T13:45:22Z).</p>
-   */
-  LastModifiedDate?: string;
 }
 
 export namespace DescribeEntityResponse {
   export const filterSensitiveLog = (obj: DescribeEntityResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEntityResponse =>
-    __isa(o, "DescribeEntityResponse");
+  export const isa = (o: any): o is DescribeEntityResponse => __isa(o, "DescribeEntityResponse");
 }
 
 /**
@@ -353,7 +345,7 @@ export interface Entity {
 
 export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
@@ -366,19 +358,22 @@ export namespace Entity {
 export interface EntitySummary {
   __type?: "EntitySummary";
   /**
-   * <p>The ARN associated with the unique identifier for the entity.</p>
+   * <p>The name for the entity. This value is not unique. It is defined by the
+   *             seller.</p>
    */
-  EntityArn?: string;
+  Name?: string;
 
   /**
-   * <p>The unique identifier for the entity.</p>
+   * <p>The visibility status of the entity to
+   *             buyers.
+   *             This value can be <code>Public</code> (everyone can view the entity),
+   *                 <code>Limited</code> (the entity is visible to limited accounts only), or
+   *                 <code>Restricted</code> (the entity was published and then unpublished and only
+   *             existing
+   *             buyers
+   *             can view it). </p>
    */
-  EntityId?: string;
-
-  /**
-   * <p>The type of the entity.</p>
-   */
-  EntityType?: string;
+  Visibility?: string;
 
   /**
    * <p>The last time the entity was published, using ISO 8601 format
@@ -387,23 +382,24 @@ export interface EntitySummary {
   LastModifiedDate?: string;
 
   /**
-   * <p>The name for the entity. This value is not unique. It is defined by the
-   *             provider.</p>
+   * <p>The ARN associated with the unique identifier for the entity.</p>
    */
-  Name?: string;
+  EntityArn?: string;
 
   /**
-   * <p>The visibility status of the entity to subscribers. This value can be
-   *                 <code>Public</code> (everyone can view the entity), <code>Limited</code> (the entity
-   *             is visible to limited accounts only), or <code>Restricted</code> (the entity was
-   *             published and then unpublished and only existing subscribers can view it). </p>
+   * <p>The type of the entity.</p>
    */
-  Visibility?: string;
+  EntityType?: string;
+
+  /**
+   * <p>The unique identifier for the entity.</p>
+   */
+  EntityId?: string;
 }
 
 export namespace EntitySummary {
   export const filterSensitiveLog = (obj: EntitySummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EntitySummary => __isa(o, "EntitySummary");
 }
@@ -426,7 +422,7 @@ export interface ErrorDetail {
 
 export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
@@ -437,13 +433,6 @@ export namespace ErrorDetail {
  */
 export interface Filter {
   __type?: "Filter";
-  /**
-   * <p>For <code>ListEntities</code>, the supported value for this is an
-   *                 <code>EntityId</code>.</p>
-   *         <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
-   */
-  Name?: string;
-
   /**
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
@@ -491,11 +480,18 @@ export interface Filter {
    *          </ul>
    */
   ValueList?: string[];
+
+  /**
+   * <p>For <code>ListEntities</code>, the supported value for this is an
+   *                 <code>EntityId</code>.</p>
+   *         <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
+   */
+  Name?: string;
 }
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
@@ -503,9 +499,7 @@ export namespace Filter {
 /**
  * <p>There was an internal service exception.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -513,32 +507,13 @@ export interface InternalServiceException
 
 export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
+  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 export interface ListChangeSetsRequest {
   __type?: "ListChangeSetsRequest";
-  /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
-   */
-  Catalog: string | undefined;
-
-  /**
-   * <p>An array of filter objects.</p>
-   */
-  FilterList?: Filter[];
-
-  /**
-   * <p>The maximum number of results returned by a single call. This value must be provided
-   *             in the next call to retrieve the next set of results. By default, this value is
-   *             20.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *             results.</p>
@@ -546,43 +521,16 @@ export interface ListChangeSetsRequest {
   NextToken?: string;
 
   /**
-   * <p>An object that contains two attributes, <code>sortBy</code> and
-   *             <code>sortOrder</code>.</p>
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
    */
   Sort?: Sort;
-}
-
-export namespace ListChangeSetsRequest {
-  export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListChangeSetsRequest =>
-    __isa(o, "ListChangeSetsRequest");
-}
-
-export interface ListChangeSetsResponse {
-  __type?: "ListChangeSetsResponse";
-  /**
-   * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
-   */
-  ChangeSetSummaryList?: ChangeSetSummaryListItem[];
 
   /**
-   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * <p>An array of filter objects.</p>
    */
-  NextToken?: string;
-}
+  FilterList?: Filter[];
 
-export namespace ListChangeSetsResponse {
-  export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListChangeSetsResponse =>
-    __isa(o, "ListChangeSetsResponse");
-}
-
-export interface ListEntitiesRequest {
-  __type?: "ListEntitiesRequest";
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
@@ -590,15 +538,57 @@ export interface ListEntitiesRequest {
   Catalog: string | undefined;
 
   /**
+   * <p>The maximum number of results returned by a single call. This value must be provided
+   *             in the next call to retrieve the next set of results. By default, this value is
+   *             20.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListChangeSetsRequest {
+  export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListChangeSetsRequest => __isa(o, "ListChangeSetsRequest");
+}
+
+export interface ListChangeSetsResponse {
+  __type?: "ListChangeSetsResponse";
+  /**
+   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
+   */
+  ChangeSetSummaryList?: ChangeSetSummaryListItem[];
+}
+
+export namespace ListChangeSetsResponse {
+  export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListChangeSetsResponse => __isa(o, "ListChangeSetsResponse");
+}
+
+export interface ListEntitiesRequest {
+  __type?: "ListEntitiesRequest";
+  /**
    * <p>The type of entities to retrieve.</p>
    */
   EntityType: string | undefined;
 
   /**
-   * <p>An array of filter objects. Each filter object contains two attributes,
-   *                 <code>filterName</code> and <code>filterValues</code>.</p>
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
    */
-  FilterList?: Filter[];
+  Catalog: string | undefined;
+
+  /**
+   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
@@ -607,23 +597,23 @@ export interface ListEntitiesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An object that contains two attributes, <code>sortBy</code> and
-   *             <code>sortOrder</code>.</p>
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
    */
   Sort?: Sort;
+
+  /**
+   * <p>An array of filter objects. Each filter object contains two attributes,
+   *                 <code>filterName</code> and <code>filterValues</code>.</p>
+   */
+  FilterList?: Filter[];
 }
 
 export namespace ListEntitiesRequest {
   export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesRequest =>
-    __isa(o, "ListEntitiesRequest");
+  export const isa = (o: any): o is ListEntitiesRequest => __isa(o, "ListEntitiesRequest");
 }
 
 export interface ListEntitiesResponse {
@@ -641,18 +631,15 @@ export interface ListEntitiesResponse {
 
 export namespace ListEntitiesResponse {
   export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEntitiesResponse =>
-    __isa(o, "ListEntitiesResponse");
+  export const isa = (o: any): o is ListEntitiesResponse => __isa(o, "ListEntitiesResponse");
 }
 
 /**
  * <p>The resource is currently in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -660,18 +647,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified resource wasn't found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -679,57 +663,46 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Currently, the specified resource is not supported.</p>
  */
-export interface ResourceNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotSupportedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceNotSupportedException {
-  export const filterSensitiveLog = (
-    obj: ResourceNotSupportedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceNotSupportedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotSupportedException =>
-    __isa(o, "ResourceNotSupportedException");
+  export const isa = (o: any): o is ResourceNotSupportedException => __isa(o, "ResourceNotSupportedException");
 }
 
 /**
  * <p>The maximum number of open requests per account has been exceeded.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (
-    obj: ServiceQuotaExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
- * <p>An object that contains two attributes, <code>sortBy</code> and
- *             <code>sortOrder</code>.</p>
+ * <p>An object that contains two attributes, <code>SortBy</code> and
+ *             <code>SortOrder</code>.</p>
  */
 export interface Sort {
   __type?: "Sort";
@@ -752,24 +725,18 @@ export interface Sort {
 
 export namespace Sort {
   export const filterSensitiveLog = (obj: Sort): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Sort => __isa(o, "Sort");
 }
 
 export enum SortOrder {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 export interface StartChangeSetRequest {
   __type?: "StartChangeSetRequest";
-  /**
-   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
-   *          </p>
-   */
-  Catalog: string | undefined;
-
   /**
    * <p>Array of <code>change</code> object.</p>
    */
@@ -785,43 +752,45 @@ export interface StartChangeSetRequest {
    * <p>A unique token to identify the request to ensure idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
+   */
+  Catalog: string | undefined;
 }
 
 export namespace StartChangeSetRequest {
   export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartChangeSetRequest =>
-    __isa(o, "StartChangeSetRequest");
+  export const isa = (o: any): o is StartChangeSetRequest => __isa(o, "StartChangeSetRequest");
 }
 
 export interface StartChangeSetResponse {
   __type?: "StartChangeSetResponse";
   /**
-   * <p>The ARN associated to the unique identifier generated for the request.</p>
-   */
-  ChangeSetArn?: string;
-
-  /**
    * <p>Unique identifier generated for the request.</p>
    */
   ChangeSetId?: string;
+
+  /**
+   * <p>The ARN associated to the unique identifier generated for the request.</p>
+   */
+  ChangeSetArn?: string;
 }
 
 export namespace StartChangeSetResponse {
   export const filterSensitiveLog = (obj: StartChangeSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartChangeSetResponse =>
-    __isa(o, "StartChangeSetResponse");
+  export const isa = (o: any): o is StartChangeSetResponse => __isa(o, "StartChangeSetResponse");
 }
 
 /**
  * <p>Too many requests.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -829,18 +798,15 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>An error occurred during validation.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -848,8 +814,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

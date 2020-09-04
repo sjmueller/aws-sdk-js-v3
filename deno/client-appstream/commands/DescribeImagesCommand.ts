@@ -1,18 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient.ts";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
 import { DescribeImagesRequest, DescribeImagesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeImagesCommand,
-  serializeAws_json1_1DescribeImagesCommand
+  serializeAws_json1_1DescribeImagesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeImagesCommandInput = DescribeImagesRequest;
-export type DescribeImagesCommandOutput = DescribeImagesResult &
-  __MetadataBearer;
+export type DescribeImagesCommandOutput = DescribeImagesResult & __MetadataBearer;
 
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,
@@ -47,14 +39,15 @@ export class DescribeImagesCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeImagesCommandInput, DescribeImagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeImagesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImagesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeImagesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
     return deserializeAws_json1_1DescribeImagesCommand(output, context);
   }
 

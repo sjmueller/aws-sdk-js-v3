@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  GetVPCEConfigurationRequest,
-  GetVPCEConfigurationResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { GetVPCEConfigurationRequest, GetVPCEConfigurationResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetVPCEConfigurationCommand,
-  serializeAws_json1_1GetVPCEConfigurationCommand
+  serializeAws_json1_1GetVPCEConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetVPCEConfigurationCommandInput = GetVPCEConfigurationRequest;
-export type GetVPCEConfigurationCommandOutput = GetVPCEConfigurationResult &
-  __MetadataBearer;
+export type GetVPCEConfigurationCommandOutput = GetVPCEConfigurationResult & __MetadataBearer;
 
 export class GetVPCEConfigurationCommand extends $Command<
   GetVPCEConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class GetVPCEConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVPCEConfigurationCommandInput,
-    GetVPCEConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVPCEConfigurationCommandInput, GetVPCEConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetVPCEConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVPCEConfigurationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetVPCEConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetVPCEConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVPCEConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVPCEConfigurationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVPCEConfigurationCommandOutput> {
     return deserializeAws_json1_1GetVPCEConfigurationCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  ContinueUpdateRollbackInput,
-  ContinueUpdateRollbackOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/index.ts";
 import {
   deserializeAws_queryContinueUpdateRollbackCommand,
-  serializeAws_queryContinueUpdateRollbackCommand
+  serializeAws_queryContinueUpdateRollbackCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ContinueUpdateRollbackCommandInput = ContinueUpdateRollbackInput;
-export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput &
-  __MetadataBearer;
+export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput & __MetadataBearer;
 
 export class ContinueUpdateRollbackCommand extends $Command<
   ContinueUpdateRollbackCommandInput,
@@ -49,18 +38,16 @@ export class ContinueUpdateRollbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ContinueUpdateRollbackCommandInput,
-    ContinueUpdateRollbackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ContinueUpdateRollbackCommandInput, ContinueUpdateRollbackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ContinueUpdateRollbackCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ContinueUpdateRollbackCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ContinueUpdateRollbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryContinueUpdateRollbackCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ContinueUpdateRollbackCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueUpdateRollbackCommandOutput> {
     return deserializeAws_queryContinueUpdateRollbackCommand(output, context);
   }
 

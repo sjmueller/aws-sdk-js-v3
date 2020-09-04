@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  ListObjectParentsRequest,
-  ListObjectParentsResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { ListObjectParentsRequest, ListObjectParentsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListObjectParentsCommand,
-  serializeAws_restJson1ListObjectParentsCommand
+  serializeAws_restJson1ListObjectParentsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListObjectParentsCommandInput = ListObjectParentsRequest;
-export type ListObjectParentsCommandOutput = ListObjectParentsResponse &
-  __MetadataBearer;
+export type ListObjectParentsCommandOutput = ListObjectParentsResponse & __MetadataBearer;
 
 export class ListObjectParentsCommand extends $Command<
   ListObjectParentsCommandInput,
@@ -50,14 +39,15 @@ export class ListObjectParentsCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectParentsCommandInput, ListObjectParentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListObjectParentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectParentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListObjectParentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListObjectParentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListObjectParentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListObjectParentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListObjectParentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectParentsCommandOutput> {
     return deserializeAws_restJson1ListObjectParentsCommand(output, context);
   }
 

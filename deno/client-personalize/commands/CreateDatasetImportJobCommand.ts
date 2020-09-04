@@ -1,21 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient.ts";
-import {
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse
-} from "../models/index.ts";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
+import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDatasetImportJobCommand,
-  serializeAws_json1_1CreateDatasetImportJobCommand
+  serializeAws_json1_1CreateDatasetImportJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDatasetImportJobCommandInput = CreateDatasetImportJobRequest;
-export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse &
-  __MetadataBearer;
+export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse & __MetadataBearer;
 
 export class CreateDatasetImportJobCommand extends $Command<
   CreateDatasetImportJobCommandInput,
@@ -49,18 +38,16 @@ export class CreateDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDatasetImportJobCommandInput,
-    CreateDatasetImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDatasetImportJobCommandInput, CreateDatasetImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDatasetImportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetImportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateDatasetImportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDatasetImportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDatasetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDatasetImportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDatasetImportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetImportJobCommandOutput> {
     return deserializeAws_json1_1CreateDatasetImportJobCommand(output, context);
   }
 

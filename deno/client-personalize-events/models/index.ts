@@ -2,7 +2,7 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa
+  isa as __isa,
 } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
@@ -12,14 +12,6 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
  */
 export interface Event {
   __type?: "Event";
-  /**
-   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
-   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
-   *       the event ID to distinquish unique events. Any subsequent events after the first with the
-   *       same event ID are not used in model training.</p>
-   */
-  eventId?: string;
-
   /**
    * <p>The type of event. This property corresponds to the <code>EVENT_TYPE</code>
    *       field of the Interactions schema.</p>
@@ -53,11 +45,19 @@ export interface Event {
    * <p>The timestamp on the client side when the event occurred.</p>
    */
   sentAt: Date | undefined;
+
+  /**
+   * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
+   *       a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses
+   *       the event ID to distinquish unique events. Any subsequent events after the first with the
+   *       same event ID are not used in model training.</p>
+   */
+  eventId?: string;
 }
 
 export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
@@ -65,9 +65,7 @@ export namespace Event {
 /**
  * <p>Provide a valid value for the field or parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -75,10 +73,9 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export interface PutEventsRequest {
@@ -89,9 +86,9 @@ export interface PutEventsRequest {
   eventList: Event[] | undefined;
 
   /**
-   * <p>The session ID associated with the user's visit.</p>
+   * <p>The user associated with the event.</p>
    */
-  sessionId: string | undefined;
+  userId?: string;
 
   /**
    * <p>The tracking ID for the event.
@@ -101,15 +98,14 @@ export interface PutEventsRequest {
   trackingId: string | undefined;
 
   /**
-   * <p>The user associated with the event.</p>
+   * <p>The session ID associated with the user's visit.</p>
    */
-  userId?: string;
+  sessionId: string | undefined;
 }
 
 export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutEventsRequest =>
-    __isa(o, "PutEventsRequest");
+  export const isa = (o: any): o is PutEventsRequest => __isa(o, "PutEventsRequest");
 }

@@ -1,18 +1,8 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient.ts";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { PublishInput, PublishResponse } from "../models/index.ts";
-import {
-  deserializeAws_queryPublishCommand,
-  serializeAws_queryPublishCommand
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PublishCommandInput = PublishInput;
 export type PublishCommandOutput = PublishResponse & __MetadataBearer;
 
-export class PublishCommand extends $Command<
-  PublishCommandInput,
-  PublishCommandOutput,
-  SNSClientResolvedConfig
-> {
+export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,15 @@ export class PublishCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PublishInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PublishResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +50,11 @@ export class PublishCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPublishCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PublishCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
     return deserializeAws_queryPublishCommand(output, context);
   }
 

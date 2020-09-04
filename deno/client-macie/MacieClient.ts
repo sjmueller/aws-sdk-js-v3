@@ -1,31 +1,25 @@
 import {
   AssociateMemberAccountCommandInput,
-  AssociateMemberAccountCommandOutput
+  AssociateMemberAccountCommandOutput,
 } from "./commands/AssociateMemberAccountCommand.ts";
 import {
   AssociateS3ResourcesCommandInput,
-  AssociateS3ResourcesCommandOutput
+  AssociateS3ResourcesCommandOutput,
 } from "./commands/AssociateS3ResourcesCommand.ts";
 import {
   DisassociateMemberAccountCommandInput,
-  DisassociateMemberAccountCommandOutput
+  DisassociateMemberAccountCommandOutput,
 } from "./commands/DisassociateMemberAccountCommand.ts";
 import {
   DisassociateS3ResourcesCommandInput,
-  DisassociateS3ResourcesCommandOutput
+  DisassociateS3ResourcesCommandOutput,
 } from "./commands/DisassociateS3ResourcesCommand.ts";
 import {
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
+  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand.ts";
-import {
-  ListS3ResourcesCommandInput,
-  ListS3ResourcesCommandOutput
-} from "./commands/ListS3ResourcesCommand.ts";
-import {
-  UpdateS3ResourcesCommandInput,
-  UpdateS3ResourcesCommandOutput
-} from "./commands/UpdateS3ResourcesCommand.ts";
+import { ListS3ResourcesCommandInput, ListS3ResourcesCommandOutput } from "./commands/ListS3ResourcesCommand.ts";
+import { UpdateS3ResourcesCommandInput, UpdateS3ResourcesCommandOutput } from "./commands/UpdateS3ResourcesCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -33,38 +27,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -73,9 +63,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -96,8 +87,7 @@ export type ServiceOutputTypes =
   | ListS3ResourcesCommandOutput
   | UpdateS3ResourcesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -171,14 +161,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -186,9 +181,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MacieClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MacieClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -197,9 +190,7 @@ export type MacieClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MacieClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MacieClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -209,13 +200,17 @@ export type MacieClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <fullname>Amazon Macie</fullname>
- *          <p>Amazon Macie is a security service that uses machine learning to automatically
- *       discover, classify, and protect sensitive data in AWS. Macie recognizes sensitive data such as
- *       personally identifiable information (PII) or intellectual property, and provides you with
- *       dashboards and alerts that give visibility into how this data is being accessed or moved. For
- *       more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Macie User
- *         Guide</a>. </p>
+ * <fullname>Amazon Macie Classic</fullname>
+ *          <p>Amazon Macie Classic is a security service that uses machine learning to automatically
+ *       discover, classify, and protect sensitive data in AWS. Macie Classic recognizes sensitive data
+ *       such as personally identifiable information (PII) or intellectual property, and provides you
+ *       with dashboards and alerts that give visibility into how this data is being accessed or moved.
+ *       For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Amazon Macie
+ *         Classic User Guide</a>. </p>
+ *          <p>A new Amazon Macie is now available with significant design improvements and additional
+ *       features, at a lower price and in most AWS Regions. We encourage you to explore and use
+ *       the new and improved features, and benefit from the reduced cost. To learn about features and
+ *       pricing for the new Amazon Macie, see <a href="https://aws.amazon.com/macie/">Amazon Macie</a>.</p>
  */
 export class MacieClient extends __Client<
   __HttpHandlerOptions,
@@ -228,7 +223,7 @@ export class MacieClient extends __Client<
   constructor(configuration: MacieClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -243,6 +238,7 @@ export class MacieClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

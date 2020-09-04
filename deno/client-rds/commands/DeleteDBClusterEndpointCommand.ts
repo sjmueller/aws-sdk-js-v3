@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DBClusterEndpoint,
-  DeleteDBClusterEndpointMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DBClusterEndpoint, DeleteDBClusterEndpointMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDBClusterEndpointCommand,
-  serializeAws_queryDeleteDBClusterEndpointCommand
+  serializeAws_queryDeleteDBClusterEndpointCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
-export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint &
-  __MetadataBearer;
+export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
 
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,
@@ -49,18 +38,16 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDBClusterEndpointCommandInput,
-    DeleteDBClusterEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDBClusterEndpointCommandInput, DeleteDBClusterEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDBClusterEndpointMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBClusterEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDBClusterEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterEndpointCommandOutput> {
     return deserializeAws_queryDeleteDBClusterEndpointCommand(output, context);
   }
 

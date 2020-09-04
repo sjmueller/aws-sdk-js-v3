@@ -1,18 +1,11 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient.ts";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient.ts";
 import { RemoveTagsFromCertificateRequest } from "../models/index.ts";
 import {
   deserializeAws_json1_1RemoveTagsFromCertificateCommand,
-  serializeAws_json1_1RemoveTagsFromCertificateCommand
+  serializeAws_json1_1RemoveTagsFromCertificateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveTagsFromCertificateCommandInput = RemoveTagsFromCertificateRequest;
@@ -45,18 +38,16 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveTagsFromCertificateCommandInput,
-    RemoveTagsFromCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveTagsFromCertificateCommandInput, RemoveTagsFromCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveTagsFromCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +57,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveTagsFromCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RemoveTagsFromCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RemoveTagsFromCertificateCommand(input, context);
   }
 
@@ -77,10 +65,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromCertificateCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

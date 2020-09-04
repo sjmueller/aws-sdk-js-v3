@@ -2,158 +2,169 @@ import { WorkLinkClient } from "./WorkLinkClient.ts";
 import {
   AssociateDomainCommand,
   AssociateDomainCommandInput,
-  AssociateDomainCommandOutput
+  AssociateDomainCommandOutput,
 } from "./commands/AssociateDomainCommand.ts";
 import {
   AssociateWebsiteAuthorizationProviderCommand,
   AssociateWebsiteAuthorizationProviderCommandInput,
-  AssociateWebsiteAuthorizationProviderCommandOutput
+  AssociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/AssociateWebsiteAuthorizationProviderCommand.ts";
 import {
   AssociateWebsiteCertificateAuthorityCommand,
   AssociateWebsiteCertificateAuthorityCommandInput,
-  AssociateWebsiteCertificateAuthorityCommandOutput
+  AssociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand.ts";
 import {
   CreateFleetCommand,
   CreateFleetCommandInput,
-  CreateFleetCommandOutput
+  CreateFleetCommandOutput,
 } from "./commands/CreateFleetCommand.ts";
 import {
   DeleteFleetCommand,
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
+  DeleteFleetCommandOutput,
 } from "./commands/DeleteFleetCommand.ts";
 import {
   DescribeAuditStreamConfigurationCommand,
   DescribeAuditStreamConfigurationCommandInput,
-  DescribeAuditStreamConfigurationCommandOutput
+  DescribeAuditStreamConfigurationCommandOutput,
 } from "./commands/DescribeAuditStreamConfigurationCommand.ts";
 import {
   DescribeCompanyNetworkConfigurationCommand,
   DescribeCompanyNetworkConfigurationCommandInput,
-  DescribeCompanyNetworkConfigurationCommandOutput
+  DescribeCompanyNetworkConfigurationCommandOutput,
 } from "./commands/DescribeCompanyNetworkConfigurationCommand.ts";
 import {
   DescribeDeviceCommand,
   DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
+  DescribeDeviceCommandOutput,
 } from "./commands/DescribeDeviceCommand.ts";
 import {
   DescribeDevicePolicyConfigurationCommand,
   DescribeDevicePolicyConfigurationCommandInput,
-  DescribeDevicePolicyConfigurationCommandOutput
+  DescribeDevicePolicyConfigurationCommandOutput,
 } from "./commands/DescribeDevicePolicyConfigurationCommand.ts";
 import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
+  DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand.ts";
 import {
   DescribeFleetMetadataCommand,
   DescribeFleetMetadataCommandInput,
-  DescribeFleetMetadataCommandOutput
+  DescribeFleetMetadataCommandOutput,
 } from "./commands/DescribeFleetMetadataCommand.ts";
 import {
   DescribeIdentityProviderConfigurationCommand,
   DescribeIdentityProviderConfigurationCommandInput,
-  DescribeIdentityProviderConfigurationCommandOutput
+  DescribeIdentityProviderConfigurationCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigurationCommand.ts";
 import {
   DescribeWebsiteCertificateAuthorityCommand,
   DescribeWebsiteCertificateAuthorityCommandInput,
-  DescribeWebsiteCertificateAuthorityCommandOutput
+  DescribeWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DescribeWebsiteCertificateAuthorityCommand.ts";
 import {
   DisassociateDomainCommand,
   DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput
+  DisassociateDomainCommandOutput,
 } from "./commands/DisassociateDomainCommand.ts";
 import {
   DisassociateWebsiteAuthorizationProviderCommand,
   DisassociateWebsiteAuthorizationProviderCommandInput,
-  DisassociateWebsiteAuthorizationProviderCommandOutput
+  DisassociateWebsiteAuthorizationProviderCommandOutput,
 } from "./commands/DisassociateWebsiteAuthorizationProviderCommand.ts";
 import {
   DisassociateWebsiteCertificateAuthorityCommand,
   DisassociateWebsiteCertificateAuthorityCommandInput,
-  DisassociateWebsiteCertificateAuthorityCommandOutput
+  DisassociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand.ts";
 import {
   ListDevicesCommand,
   ListDevicesCommandInput,
-  ListDevicesCommandOutput
+  ListDevicesCommandOutput,
 } from "./commands/ListDevicesCommand.ts";
 import {
   ListDomainsCommand,
   ListDomainsCommandInput,
-  ListDomainsCommandOutput
+  ListDomainsCommandOutput,
 } from "./commands/ListDomainsCommand.ts";
+import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
-  ListFleetsCommand,
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand.ts";
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWebsiteAuthorizationProvidersCommand,
   ListWebsiteAuthorizationProvidersCommandInput,
-  ListWebsiteAuthorizationProvidersCommandOutput
+  ListWebsiteAuthorizationProvidersCommandOutput,
 } from "./commands/ListWebsiteAuthorizationProvidersCommand.ts";
 import {
   ListWebsiteCertificateAuthoritiesCommand,
   ListWebsiteCertificateAuthoritiesCommandInput,
-  ListWebsiteCertificateAuthoritiesCommandOutput
+  ListWebsiteCertificateAuthoritiesCommandOutput,
 } from "./commands/ListWebsiteCertificateAuthoritiesCommand.ts";
 import {
   RestoreDomainAccessCommand,
   RestoreDomainAccessCommandInput,
-  RestoreDomainAccessCommandOutput
+  RestoreDomainAccessCommandOutput,
 } from "./commands/RestoreDomainAccessCommand.ts";
 import {
   RevokeDomainAccessCommand,
   RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput
+  RevokeDomainAccessCommandOutput,
 } from "./commands/RevokeDomainAccessCommand.ts";
 import {
   SignOutUserCommand,
   SignOutUserCommandInput,
-  SignOutUserCommandOutput
+  SignOutUserCommandOutput,
 } from "./commands/SignOutUserCommand.ts";
+import {
+  TagResourceCommand,
+  TagResourceCommandInput,
+  TagResourceCommandOutput,
+} from "./commands/TagResourceCommand.ts";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAuditStreamConfigurationCommand,
   UpdateAuditStreamConfigurationCommandInput,
-  UpdateAuditStreamConfigurationCommandOutput
+  UpdateAuditStreamConfigurationCommandOutput,
 } from "./commands/UpdateAuditStreamConfigurationCommand.ts";
 import {
   UpdateCompanyNetworkConfigurationCommand,
   UpdateCompanyNetworkConfigurationCommandInput,
-  UpdateCompanyNetworkConfigurationCommandOutput
+  UpdateCompanyNetworkConfigurationCommandOutput,
 } from "./commands/UpdateCompanyNetworkConfigurationCommand.ts";
 import {
   UpdateDevicePolicyConfigurationCommand,
   UpdateDevicePolicyConfigurationCommandInput,
-  UpdateDevicePolicyConfigurationCommandOutput
+  UpdateDevicePolicyConfigurationCommandOutput,
 } from "./commands/UpdateDevicePolicyConfigurationCommand.ts";
 import {
   UpdateDomainMetadataCommand,
   UpdateDomainMetadataCommandInput,
-  UpdateDomainMetadataCommandOutput
+  UpdateDomainMetadataCommandOutput,
 } from "./commands/UpdateDomainMetadataCommand.ts";
 import {
   UpdateFleetMetadataCommand,
   UpdateFleetMetadataCommandInput,
-  UpdateFleetMetadataCommandOutput
+  UpdateFleetMetadataCommandOutput,
 } from "./commands/UpdateFleetMetadataCommand.ts";
 import {
   UpdateIdentityProviderConfigurationCommand,
   UpdateIdentityProviderConfigurationCommandInput,
-  UpdateIdentityProviderConfigurationCommandOutput
+  UpdateIdentityProviderConfigurationCommandOutput,
 } from "./commands/UpdateIdentityProviderConfigurationCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
- *             to internal websites and web apps from iOS phones. In a single step, your users, such as
+ *             to internal websites and web apps from iOS and Android phones. In a single step, your users, such as
  *             employees, can access internal websites as efficiently as they access any other public website.
  *             They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink
  *             authenticates the user's access and securely renders authorized internal web content in a secure
@@ -179,17 +190,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public associateDomain(
     args: AssociateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDomainCommandOutput) => void),
     cb?: (err: any, data?: AssociateDomainCommandOutput) => void
   ): Promise<AssociateDomainCommandOutput> | void {
     const command = new AssociateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -205,38 +213,25 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput>;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateWebsiteAuthorizationProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> | void {
     const command = new AssociateWebsiteAuthorizationProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -253,38 +248,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput>;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new AssociateWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -295,14 +275,8 @@ export class WorkLink extends WorkLinkClient {
    * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
    *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
    */
-  public createFleet(
-    args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFleetCommandOutput>;
-  public createFleet(
-    args: CreateFleetCommandInput,
-    cb: (err: any, data?: CreateFleetCommandOutput) => void
-  ): void;
+  public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
   public createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -310,17 +284,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -330,14 +301,8 @@ export class WorkLink extends WorkLinkClient {
   /**
    * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
    */
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFleetCommandOutput>;
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    cb: (err: any, data?: DeleteFleetCommandOutput) => void
-  ): void;
+  public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
+  public deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -345,17 +310,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -380,23 +342,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeAuditStreamConfiguration(
     args: DescribeAuditStreamConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAuditStreamConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAuditStreamConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAuditStreamConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditStreamConfigurationCommandOutput) => void
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> | void {
     const command = new DescribeAuditStreamConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -413,38 +366,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput>;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCompanyNetworkConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> | void {
     const command = new DescribeCompanyNetworkConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -469,17 +407,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeDevice(
     args: DescribeDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): Promise<DescribeDeviceCommandOutput> | void {
     const command = new DescribeDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -495,38 +430,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput>;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): void;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): void;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDevicePolicyConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput> | void {
     const command = new DescribeDevicePolicyConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,17 +471,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -587,17 +504,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeFleetMetadata(
     args: DescribeFleetMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetMetadataCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetMetadataCommandOutput) => void
   ): Promise<DescribeFleetMetadataCommandOutput> | void {
     const command = new DescribeFleetMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -613,38 +527,25 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput>;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeIdentityProviderConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput> | void {
     const command = new DescribeIdentityProviderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -660,38 +561,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput>;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new DescribeWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -716,17 +602,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public disassociateDomain(
     args: DisassociateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDomainCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDomainCommandOutput) => void
   ): Promise<DisassociateDomainCommandOutput> | void {
     const command = new DisassociateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -744,38 +627,25 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput>;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> | void {
     const command = new DisassociateWebsiteAuthorizationProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -791,38 +661,25 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput>;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new DisassociateWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -832,14 +689,8 @@ export class WorkLink extends WorkLinkClient {
   /**
    * <p>Retrieves a list of devices registered with the specified fleet.</p>
    */
-  public listDevices(
-    args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDevicesCommandOutput>;
-  public listDevices(
-    args: ListDevicesCommandInput,
-    cb: (err: any, data?: ListDevicesCommandOutput) => void
-  ): void;
+  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   public listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -847,17 +698,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -867,14 +715,8 @@ export class WorkLink extends WorkLinkClient {
   /**
    * <p>Retrieves a list of domains associated to a specified fleet.</p>
    */
-  public listDomains(
-    args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainsCommandOutput>;
-  public listDomains(
-    args: ListDomainsCommandInput,
-    cb: (err: any, data?: ListDomainsCommandOutput) => void
-  ): void;
+  public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
+  public listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   public listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -882,17 +724,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -902,14 +741,8 @@ export class WorkLink extends WorkLinkClient {
   /**
    * <p>Retrieves a list of fleets for the current account and Region.</p>
    */
-  public listFleets(
-    args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFleetsCommandOutput>;
-  public listFleets(
-    args: ListFleetsCommandInput,
-    cb: (err: any, data?: ListFleetsCommandOutput) => void
-  ): void;
+  public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
+  public listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   public listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -917,17 +750,46 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of tags for the specified resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -943,38 +805,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput>;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
-    cb: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): void;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): void;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWebsiteAuthorizationProvidersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void),
+    cb?: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> | void {
     const command = new ListWebsiteAuthorizationProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -991,38 +838,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput>;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
-    cb: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): void;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): void;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWebsiteCertificateAuthoritiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void),
+    cb?: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> | void {
     const command = new ListWebsiteCertificateAuthoritiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1047,17 +879,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public restoreDomainAccess(
     args: RestoreDomainAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDomainAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDomainAccessCommandOutput) => void),
     cb?: (err: any, data?: RestoreDomainAccessCommandOutput) => void
   ): Promise<RestoreDomainAccessCommandOutput> | void {
     const command = new RestoreDomainAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1082,17 +911,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public revokeDomainAccess(
     args: RevokeDomainAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeDomainAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeDomainAccessCommandOutput) => void),
     cb?: (err: any, data?: RevokeDomainAccessCommandOutput) => void
   ): Promise<RevokeDomainAccessCommandOutput> | void {
     const command = new RevokeDomainAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1103,14 +929,8 @@ export class WorkLink extends WorkLinkClient {
    * <p>Signs the user out from all of their devices. The user can sign in again if they have
    *             valid credentials.</p>
    */
-  public signOutUser(
-    args: SignOutUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SignOutUserCommandOutput>;
-  public signOutUser(
-    args: SignOutUserCommandInput,
-    cb: (err: any, data?: SignOutUserCommandOutput) => void
-  ): void;
+  public signOutUser(args: SignOutUserCommandInput, options?: __HttpHandlerOptions): Promise<SignOutUserCommandOutput>;
+  public signOutUser(args: SignOutUserCommandInput, cb: (err: any, data?: SignOutUserCommandOutput) => void): void;
   public signOutUser(
     args: SignOutUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1118,17 +938,72 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public signOutUser(
     args: SignOutUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignOutUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignOutUserCommandOutput) => void),
     cb?: (err: any, data?: SignOutUserCommandOutput) => void
   ): Promise<SignOutUserCommandOutput> | void {
     const command = new SignOutUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds or overwrites one or more tags for the specified resource, such as a fleet. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags from the specified resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1153,20 +1028,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public updateAuditStreamConfiguration(
     args: UpdateAuditStreamConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateAuditStreamConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuditStreamConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuditStreamConfigurationCommandOutput) => void
   ): Promise<UpdateAuditStreamConfigurationCommandOutput> | void {
     const command = new UpdateAuditStreamConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1182,38 +1051,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput>;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateCompanyNetworkConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> | void {
     const command = new UpdateCompanyNetworkConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1238,20 +1092,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public updateDevicePolicyConfiguration(
     args: UpdateDevicePolicyConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDevicePolicyConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDevicePolicyConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateDevicePolicyConfigurationCommandOutput) => void
   ): Promise<UpdateDevicePolicyConfigurationCommandOutput> | void {
     const command = new UpdateDevicePolicyConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1276,17 +1124,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public updateDomainMetadata(
     args: UpdateDomainMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainMetadataCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainMetadataCommandOutput) => void
   ): Promise<UpdateDomainMetadataCommandOutput> | void {
     const command = new UpdateDomainMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1311,17 +1156,14 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public updateFleetMetadata(
     args: UpdateFleetMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetMetadataCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetMetadataCommandOutput) => void
   ): Promise<UpdateFleetMetadataCommandOutput> | void {
     const command = new UpdateFleetMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1337,38 +1179,23 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput>;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateIdentityProviderConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> | void {
     const command = new UpdateIdentityProviderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

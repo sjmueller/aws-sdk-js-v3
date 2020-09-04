@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  BatchGetWorkflowsRequest,
-  BatchGetWorkflowsResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { BatchGetWorkflowsRequest, BatchGetWorkflowsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetWorkflowsCommand,
-  serializeAws_json1_1BatchGetWorkflowsCommand
+  serializeAws_json1_1BatchGetWorkflowsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchGetWorkflowsCommandInput = BatchGetWorkflowsRequest;
-export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse &
-  __MetadataBearer;
+export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse & __MetadataBearer;
 
 export class BatchGetWorkflowsCommand extends $Command<
   BatchGetWorkflowsCommandInput,
@@ -50,14 +39,15 @@ export class BatchGetWorkflowsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchGetWorkflowsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetWorkflowsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class BatchGetWorkflowsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetWorkflowsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchGetWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetWorkflowsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetWorkflowsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetWorkflowsCommandOutput> {
     return deserializeAws_json1_1BatchGetWorkflowsCommand(output, context);
   }
 

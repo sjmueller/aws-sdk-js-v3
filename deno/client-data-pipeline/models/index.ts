@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -28,10 +24,9 @@ export interface ActivatePipelineInput {
 
 export namespace ActivatePipelineInput {
   export const filterSensitiveLog = (obj: ActivatePipelineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivatePipelineInput =>
-    __isa(o, "ActivatePipelineInput");
+  export const isa = (o: any): o is ActivatePipelineInput => __isa(o, "ActivatePipelineInput");
 }
 
 /**
@@ -43,10 +38,9 @@ export interface ActivatePipelineOutput {
 
 export namespace ActivatePipelineOutput {
   export const filterSensitiveLog = (obj: ActivatePipelineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ActivatePipelineOutput =>
-    __isa(o, "ActivatePipelineOutput");
+  export const isa = (o: any): o is ActivatePipelineOutput => __isa(o, "ActivatePipelineOutput");
 }
 
 /**
@@ -67,7 +61,7 @@ export interface AddTagsInput {
 
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -81,7 +75,7 @@ export interface AddTagsOutput {
 
 export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
@@ -92,21 +86,16 @@ export namespace AddTagsOutput {
 export interface CreatePipelineInput {
   __type?: "CreatePipelineInput";
   /**
-   * <p>The description for the pipeline.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines.
    *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a>
    *             in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline.
@@ -119,14 +108,18 @@ export interface CreatePipelineInput {
    *             name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>
    */
   uniqueId: string | undefined;
+
+  /**
+   * <p>The description for the pipeline.</p>
+   */
+  description?: string;
 }
 
 export namespace CreatePipelineInput {
   export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineInput =>
-    __isa(o, "CreatePipelineInput");
+  export const isa = (o: any): o is CreatePipelineInput => __isa(o, "CreatePipelineInput");
 }
 
 /**
@@ -142,10 +135,9 @@ export interface CreatePipelineOutput {
 
 export namespace CreatePipelineOutput {
   export const filterSensitiveLog = (obj: CreatePipelineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineOutput =>
-    __isa(o, "CreatePipelineOutput");
+  export const isa = (o: any): o is CreatePipelineOutput => __isa(o, "CreatePipelineOutput");
 }
 
 /**
@@ -169,10 +161,9 @@ export interface DeactivatePipelineInput {
 
 export namespace DeactivatePipelineInput {
   export const filterSensitiveLog = (obj: DeactivatePipelineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeactivatePipelineInput =>
-    __isa(o, "DeactivatePipelineInput");
+  export const isa = (o: any): o is DeactivatePipelineInput => __isa(o, "DeactivatePipelineInput");
 }
 
 /**
@@ -184,10 +175,9 @@ export interface DeactivatePipelineOutput {
 
 export namespace DeactivatePipelineOutput {
   export const filterSensitiveLog = (obj: DeactivatePipelineOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeactivatePipelineOutput =>
-    __isa(o, "DeactivatePipelineOutput");
+  export const isa = (o: any): o is DeactivatePipelineOutput => __isa(o, "DeactivatePipelineOutput");
 }
 
 /**
@@ -203,10 +193,9 @@ export interface DeletePipelineInput {
 
 export namespace DeletePipelineInput {
   export const filterSensitiveLog = (obj: DeletePipelineInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineInput =>
-    __isa(o, "DeletePipelineInput");
+  export const isa = (o: any): o is DeletePipelineInput => __isa(o, "DeletePipelineInput");
 }
 
 /**
@@ -214,6 +203,16 @@ export namespace DeletePipelineInput {
  */
 export interface DescribeObjectsInput {
   __type?: "DescribeObjectsInput";
+  /**
+   * <p>The ID of the pipeline that contains the object definitions.</p>
+   */
+  pipelineId: string | undefined;
+
+  /**
+   * <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>
+   */
+  objectIds: string[] | undefined;
+
   /**
    * <p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>
    */
@@ -225,24 +224,13 @@ export interface DescribeObjectsInput {
    *            the marker value from the previous call to retrieve the next set of results.</p>
    */
   marker?: string;
-
-  /**
-   * <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>
-   */
-  objectIds: string[] | undefined;
-
-  /**
-   * <p>The ID of the pipeline that contains the object definitions.</p>
-   */
-  pipelineId: string | undefined;
 }
 
 export namespace DescribeObjectsInput {
   export const filterSensitiveLog = (obj: DescribeObjectsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectsInput =>
-    __isa(o, "DescribeObjectsInput");
+  export const isa = (o: any): o is DescribeObjectsInput => __isa(o, "DescribeObjectsInput");
 }
 
 /**
@@ -250,11 +238,6 @@ export namespace DescribeObjectsInput {
  */
 export interface DescribeObjectsOutput {
   __type?: "DescribeObjectsOutput";
-  /**
-   * <p>Indicates whether there are more results to return.</p>
-   */
-  hasMoreResults?: boolean;
-
   /**
    * <p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code>
    *            again with this marker value. If the value is null, there are no more results.</p>
@@ -265,14 +248,18 @@ export interface DescribeObjectsOutput {
    * <p>An array of object definitions.</p>
    */
   pipelineObjects: PipelineObject[] | undefined;
+
+  /**
+   * <p>Indicates whether there are more results to return.</p>
+   */
+  hasMoreResults?: boolean;
 }
 
 export namespace DescribeObjectsOutput {
   export const filterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectsOutput =>
-    __isa(o, "DescribeObjectsOutput");
+  export const isa = (o: any): o is DescribeObjectsOutput => __isa(o, "DescribeObjectsOutput");
 }
 
 /**
@@ -289,10 +276,9 @@ export interface DescribePipelinesInput {
 
 export namespace DescribePipelinesInput {
   export const filterSensitiveLog = (obj: DescribePipelinesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePipelinesInput =>
-    __isa(o, "DescribePipelinesInput");
+  export const isa = (o: any): o is DescribePipelinesInput => __isa(o, "DescribePipelinesInput");
 }
 
 /**
@@ -308,10 +294,9 @@ export interface DescribePipelinesOutput {
 
 export namespace DescribePipelinesOutput {
   export const filterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePipelinesOutput =>
-    __isa(o, "DescribePipelinesOutput");
+  export const isa = (o: any): o is DescribePipelinesOutput => __isa(o, "DescribePipelinesOutput");
 }
 
 /**
@@ -319,6 +304,11 @@ export namespace DescribePipelinesOutput {
  */
 export interface EvaluateExpressionInput {
   __type?: "EvaluateExpressionInput";
+  /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
+
   /**
    * <p>The expression to evaluate.</p>
    */
@@ -328,19 +318,13 @@ export interface EvaluateExpressionInput {
    * <p>The ID of the object.</p>
    */
   objectId: string | undefined;
-
-  /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
 }
 
 export namespace EvaluateExpressionInput {
   export const filterSensitiveLog = (obj: EvaluateExpressionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluateExpressionInput =>
-    __isa(o, "EvaluateExpressionInput");
+  export const isa = (o: any): o is EvaluateExpressionInput => __isa(o, "EvaluateExpressionInput");
 }
 
 /**
@@ -356,10 +340,9 @@ export interface EvaluateExpressionOutput {
 
 export namespace EvaluateExpressionOutput {
   export const filterSensitiveLog = (obj: EvaluateExpressionOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluateExpressionOutput =>
-    __isa(o, "EvaluateExpressionOutput");
+  export const isa = (o: any): o is EvaluateExpressionOutput => __isa(o, "EvaluateExpressionOutput");
 }
 
 /**
@@ -367,11 +350,6 @@ export namespace EvaluateExpressionOutput {
  */
 export interface Field {
   __type?: "Field";
-  /**
-   * <p>The field identifier.</p>
-   */
-  key: string | undefined;
-
   /**
    * <p>The field value, expressed as the identifier of another object.</p>
    */
@@ -381,11 +359,16 @@ export interface Field {
    * <p>The field value, expressed as a String.</p>
    */
   stringValue?: string;
+
+  /**
+   * <p>The field identifier.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Field {
   export const filterSensitiveLog = (obj: Field): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Field => __isa(o, "Field");
 }
@@ -396,24 +379,23 @@ export namespace Field {
 export interface GetPipelineDefinitionInput {
   __type?: "GetPipelineDefinitionInput";
   /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
-
-  /**
    * <p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default)
    *             to use the last definition saved to the pipeline or <code>active</code> to use the last definition
    *             that was activated.</p>
    */
   version?: string;
+
+  /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
 }
 
 export namespace GetPipelineDefinitionInput {
   export const filterSensitiveLog = (obj: GetPipelineDefinitionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetPipelineDefinitionInput =>
-    __isa(o, "GetPipelineDefinitionInput");
+  export const isa = (o: any): o is GetPipelineDefinitionInput => __isa(o, "GetPipelineDefinitionInput");
 }
 
 /**
@@ -422,9 +404,9 @@ export namespace GetPipelineDefinitionInput {
 export interface GetPipelineDefinitionOutput {
   __type?: "GetPipelineDefinitionOutput";
   /**
-   * <p>The parameter objects used in the pipeline definition.</p>
+   * <p>The objects defined in the pipeline.</p>
    */
-  parameterObjects?: ParameterObject[];
+  pipelineObjects?: PipelineObject[];
 
   /**
    * <p>The parameter values used in the pipeline definition.</p>
@@ -432,19 +414,16 @@ export interface GetPipelineDefinitionOutput {
   parameterValues?: ParameterValue[];
 
   /**
-   * <p>The objects defined in the pipeline.</p>
+   * <p>The parameter objects used in the pipeline definition.</p>
    */
-  pipelineObjects?: PipelineObject[];
+  parameterObjects?: ParameterObject[];
 }
 
 export namespace GetPipelineDefinitionOutput {
-  export const filterSensitiveLog = (
-    obj: GetPipelineDefinitionOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPipelineDefinitionOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPipelineDefinitionOutput =>
-    __isa(o, "GetPipelineDefinitionOutput");
+  export const isa = (o: any): o is GetPipelineDefinitionOutput => __isa(o, "GetPipelineDefinitionOutput");
 }
 
 /**
@@ -467,18 +446,15 @@ export interface InstanceIdentity {
 
 export namespace InstanceIdentity {
   export const filterSensitiveLog = (obj: InstanceIdentity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InstanceIdentity =>
-    __isa(o, "InstanceIdentity");
+  export const isa = (o: any): o is InstanceIdentity => __isa(o, "InstanceIdentity");
 }
 
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   /**
@@ -489,18 +465,15 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -511,10 +484,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -532,10 +504,9 @@ export interface ListPipelinesInput {
 
 export namespace ListPipelinesInput {
   export const filterSensitiveLog = (obj: ListPipelinesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesInput =>
-    __isa(o, "ListPipelinesInput");
+  export const isa = (o: any): o is ListPipelinesInput => __isa(o, "ListPipelinesInput");
 }
 
 /**
@@ -549,24 +520,23 @@ export interface ListPipelinesOutput {
   hasMoreResults?: boolean;
 
   /**
-   * <p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code>
-   *            again with this marker value. If the value is null, there are no more results.</p>
-   */
-  marker?: string;
-
-  /**
    * <p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call
    *             <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>
    */
   pipelineIdList: PipelineIdName[] | undefined;
+
+  /**
+   * <p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code>
+   *            again with this marker value. If the value is null, there are no more results.</p>
+   */
+  marker?: string;
 }
 
 export namespace ListPipelinesOutput {
   export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesOutput =>
-    __isa(o, "ListPipelinesOutput");
+  export const isa = (o: any): o is ListPipelinesOutput => __isa(o, "ListPipelinesOutput");
 }
 
 /**
@@ -641,7 +611,7 @@ export interface Operator {
 
 export namespace Operator {
   export const filterSensitiveLog = (obj: Operator): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Operator => __isa(o, "Operator");
 }
@@ -651,7 +621,7 @@ export enum OperatorType {
   Equal = "EQ",
   GreaterThanOrEqual = "GE",
   LessThanOrEqual = "LE",
-  ReferenceEqual = "REF_EQ"
+  ReferenceEqual = "REF_EQ",
 }
 
 /**
@@ -672,10 +642,9 @@ export interface ParameterAttribute {
 
 export namespace ParameterAttribute {
   export const filterSensitiveLog = (obj: ParameterAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterAttribute =>
-    __isa(o, "ParameterAttribute");
+  export const isa = (o: any): o is ParameterAttribute => __isa(o, "ParameterAttribute");
 }
 
 /**
@@ -684,22 +653,21 @@ export namespace ParameterAttribute {
 export interface ParameterObject {
   __type?: "ParameterObject";
   /**
-   * <p>The attributes of the parameter object.</p>
-   */
-  attributes: ParameterAttribute[] | undefined;
-
-  /**
    * <p>The ID of the parameter object.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>The attributes of the parameter object.</p>
+   */
+  attributes: ParameterAttribute[] | undefined;
 }
 
 export namespace ParameterObject {
   export const filterSensitiveLog = (obj: ParameterObject): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterObject =>
-    __isa(o, "ParameterObject");
+  export const isa = (o: any): o is ParameterObject => __isa(o, "ParameterObject");
 }
 
 /**
@@ -720,18 +688,15 @@ export interface ParameterValue {
 
 export namespace ParameterValue {
   export const filterSensitiveLog = (obj: ParameterValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterValue =>
-    __isa(o, "ParameterValue");
+  export const isa = (o: any): o is ParameterValue => __isa(o, "ParameterValue");
 }
 
 /**
  * <p>The specified pipeline has been deleted.</p>
  */
-export interface PipelineDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PipelineDeletedException extends __SmithyException, $MetadataBearer {
   name: "PipelineDeletedException";
   $fault: "client";
   /**
@@ -742,10 +707,9 @@ export interface PipelineDeletedException
 
 export namespace PipelineDeletedException {
   export const filterSensitiveLog = (obj: PipelineDeletedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineDeletedException =>
-    __isa(o, "PipelineDeletedException");
+  export const isa = (o: any): o is PipelineDeletedException => __isa(o, "PipelineDeletedException");
 }
 
 /**
@@ -753,6 +717,11 @@ export namespace PipelineDeletedException {
  */
 export interface PipelineDescription {
   __type?: "PipelineDescription";
+  /**
+   * <p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>
+   */
+  pipelineId: string | undefined;
+
   /**
    * <p>Description of the pipeline.</p>
    */
@@ -769,11 +738,6 @@ export interface PipelineDescription {
   name: string | undefined;
 
   /**
-   * <p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>
-   */
-  pipelineId: string | undefined;
-
-  /**
    * <p>A list of tags to associated with a pipeline. Tags let you control access to pipelines.
    *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
@@ -782,10 +746,9 @@ export interface PipelineDescription {
 
 export namespace PipelineDescription {
   export const filterSensitiveLog = (obj: PipelineDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineDescription =>
-    __isa(o, "PipelineDescription");
+  export const isa = (o: any): o is PipelineDescription => __isa(o, "PipelineDescription");
 }
 
 /**
@@ -806,18 +769,15 @@ export interface PipelineIdName {
 
 export namespace PipelineIdName {
   export const filterSensitiveLog = (obj: PipelineIdName): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineIdName =>
-    __isa(o, "PipelineIdName");
+  export const isa = (o: any): o is PipelineIdName => __isa(o, "PipelineIdName");
 }
 
 /**
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
-export interface PipelineNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PipelineNotFoundException extends __SmithyException, $MetadataBearer {
   name: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -828,10 +788,9 @@ export interface PipelineNotFoundException
 
 export namespace PipelineNotFoundException {
   export const filterSensitiveLog = (obj: PipelineNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineNotFoundException =>
-    __isa(o, "PipelineNotFoundException");
+  export const isa = (o: any): o is PipelineNotFoundException => __isa(o, "PipelineNotFoundException");
 }
 
 /**
@@ -840,14 +799,14 @@ export namespace PipelineNotFoundException {
 export interface PipelineObject {
   __type?: "PipelineObject";
   /**
-   * <p>Key-value pairs that define the properties of the object.</p>
-   */
-  fields: Field[] | undefined;
-
-  /**
    * <p>The ID of the object.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>Key-value pairs that define the properties of the object.</p>
+   */
+  fields: Field[] | undefined;
 
   /**
    * <p>The name of the object.</p>
@@ -857,10 +816,9 @@ export interface PipelineObject {
 
 export namespace PipelineObject {
   export const filterSensitiveLog = (obj: PipelineObject): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PipelineObject =>
-    __isa(o, "PipelineObject");
+  export const isa = (o: any): o is PipelineObject => __isa(o, "PipelineObject");
 }
 
 /**
@@ -869,9 +827,11 @@ export namespace PipelineObject {
 export interface PollForTaskInput {
   __type?: "PollForTaskInput";
   /**
-   * <p>The public DNS name of the calling task runner.</p>
+   * <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created.
+   *             You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in
+   *             <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>
    */
-  hostname?: string;
+  workerGroup: string | undefined;
 
   /**
    * <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
@@ -879,19 +839,16 @@ export interface PollForTaskInput {
   instanceIdentity?: InstanceIdentity;
 
   /**
-   * <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created.
-   *             You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in
-   *             <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>
+   * <p>The public DNS name of the calling task runner.</p>
    */
-  workerGroup: string | undefined;
+  hostname?: string;
 }
 
 export namespace PollForTaskInput {
   export const filterSensitiveLog = (obj: PollForTaskInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PollForTaskInput =>
-    __isa(o, "PollForTaskInput");
+  export const isa = (o: any): o is PollForTaskInput => __isa(o, "PollForTaskInput");
 }
 
 /**
@@ -909,10 +866,9 @@ export interface PollForTaskOutput {
 
 export namespace PollForTaskOutput {
   export const filterSensitiveLog = (obj: PollForTaskOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PollForTaskOutput =>
-    __isa(o, "PollForTaskOutput");
+  export const isa = (o: any): o is PollForTaskOutput => __isa(o, "PollForTaskOutput");
 }
 
 /**
@@ -920,6 +876,16 @@ export namespace PollForTaskOutput {
  */
 export interface PutPipelineDefinitionInput {
   __type?: "PutPipelineDefinitionInput";
+  /**
+   * <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>
+   */
+  pipelineObjects: PipelineObject[] | undefined;
+
+  /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
+
   /**
    * <p>The parameter objects used with the pipeline.</p>
    */
@@ -929,24 +895,13 @@ export interface PutPipelineDefinitionInput {
    * <p>The parameter values used with the pipeline.</p>
    */
   parameterValues?: ParameterValue[];
-
-  /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
-
-  /**
-   * <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>
-   */
-  pipelineObjects: PipelineObject[] | undefined;
 }
 
 export namespace PutPipelineDefinitionInput {
   export const filterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutPipelineDefinitionInput =>
-    __isa(o, "PutPipelineDefinitionInput");
+  export const isa = (o: any): o is PutPipelineDefinitionInput => __isa(o, "PutPipelineDefinitionInput");
 }
 
 /**
@@ -972,13 +927,10 @@ export interface PutPipelineDefinitionOutput {
 }
 
 export namespace PutPipelineDefinitionOutput {
-  export const filterSensitiveLog = (
-    obj: PutPipelineDefinitionOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutPipelineDefinitionOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutPipelineDefinitionOutput =>
-    __isa(o, "PutPipelineDefinitionOutput");
+  export const isa = (o: any): o is PutPipelineDefinitionOutput => __isa(o, "PutPipelineDefinitionOutput");
 }
 
 /**
@@ -994,7 +946,7 @@ export interface Query {
 
 export namespace Query {
   export const filterSensitiveLog = (obj: Query): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Query => __isa(o, "Query");
 }
@@ -1005,9 +957,22 @@ export namespace Query {
 export interface QueryObjectsInput {
   __type?: "QueryObjectsInput";
   /**
+   * <p>Indicates whether the query applies to components or instances. The possible values are:
+   *             <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
+   */
+  sphere: string | undefined;
+
+  /**
    * <p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>
    */
   limit?: number;
+
+  /**
+   * <p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors.
+   *             The conditions in the query are limited to top-level String fields in the object.
+   *             These filters can be applied to components, instances, and attempts.</p>
+   */
+  query?: Query;
 
   /**
    * <p>The starting point for the results to be returned. For the first call, this value should be empty.
@@ -1020,27 +985,13 @@ export interface QueryObjectsInput {
    * <p>The ID of the pipeline.</p>
    */
   pipelineId: string | undefined;
-
-  /**
-   * <p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors.
-   *             The conditions in the query are limited to top-level String fields in the object.
-   *             These filters can be applied to components, instances, and attempts.</p>
-   */
-  query?: Query;
-
-  /**
-   * <p>Indicates whether the query applies to components or instances. The possible values are:
-   *             <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
-   */
-  sphere: string | undefined;
 }
 
 export namespace QueryObjectsInput {
   export const filterSensitiveLog = (obj: QueryObjectsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QueryObjectsInput =>
-    __isa(o, "QueryObjectsInput");
+  export const isa = (o: any): o is QueryObjectsInput => __isa(o, "QueryObjectsInput");
 }
 
 /**
@@ -1049,9 +1000,10 @@ export namespace QueryObjectsInput {
 export interface QueryObjectsOutput {
   __type?: "QueryObjectsOutput";
   /**
-   * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
+   * <p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code>
+   *            again with this marker value. If the value is null, there are no more results.</p>
    */
-  hasMoreResults?: boolean;
+  marker?: string;
 
   /**
    * <p>The identifiers that match the query selectors.</p>
@@ -1059,18 +1011,16 @@ export interface QueryObjectsOutput {
   ids?: string[];
 
   /**
-   * <p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code>
-   *            again with this marker value. If the value is null, there are no more results.</p>
+   * <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>
    */
-  marker?: string;
+  hasMoreResults?: boolean;
 }
 
 export namespace QueryObjectsOutput {
   export const filterSensitiveLog = (obj: QueryObjectsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QueryObjectsOutput =>
-    __isa(o, "QueryObjectsOutput");
+  export const isa = (o: any): o is QueryObjectsOutput => __isa(o, "QueryObjectsOutput");
 }
 
 /**
@@ -1079,22 +1029,21 @@ export namespace QueryObjectsOutput {
 export interface RemoveTagsInput {
   __type?: "RemoveTagsInput";
   /**
-   * <p>The ID of the pipeline.</p>
-   */
-  pipelineId: string | undefined;
-
-  /**
    * <p>The keys of the tags to remove.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The ID of the pipeline.</p>
+   */
+  pipelineId: string | undefined;
 }
 
 export namespace RemoveTagsInput {
   export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsInput =>
-    __isa(o, "RemoveTagsInput");
+  export const isa = (o: any): o is RemoveTagsInput => __isa(o, "RemoveTagsInput");
 }
 
 /**
@@ -1106,10 +1055,9 @@ export interface RemoveTagsOutput {
 
 export namespace RemoveTagsOutput {
   export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsOutput =>
-    __isa(o, "RemoveTagsOutput");
+  export const isa = (o: any): o is RemoveTagsOutput => __isa(o, "RemoveTagsOutput");
 }
 
 /**
@@ -1130,10 +1078,9 @@ export interface ReportTaskProgressInput {
 
 export namespace ReportTaskProgressInput {
   export const filterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReportTaskProgressInput =>
-    __isa(o, "ReportTaskProgressInput");
+  export const isa = (o: any): o is ReportTaskProgressInput => __isa(o, "ReportTaskProgressInput");
 }
 
 /**
@@ -1149,10 +1096,9 @@ export interface ReportTaskProgressOutput {
 
 export namespace ReportTaskProgressOutput {
   export const filterSensitiveLog = (obj: ReportTaskProgressOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReportTaskProgressOutput =>
-    __isa(o, "ReportTaskProgressOutput");
+  export const isa = (o: any): o is ReportTaskProgressOutput => __isa(o, "ReportTaskProgressOutput");
 }
 
 /**
@@ -1179,13 +1125,10 @@ export interface ReportTaskRunnerHeartbeatInput {
 }
 
 export namespace ReportTaskRunnerHeartbeatInput {
-  export const filterSensitiveLog = (
-    obj: ReportTaskRunnerHeartbeatInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReportTaskRunnerHeartbeatInput =>
-    __isa(o, "ReportTaskRunnerHeartbeatInput");
+  export const isa = (o: any): o is ReportTaskRunnerHeartbeatInput => __isa(o, "ReportTaskRunnerHeartbeatInput");
 }
 
 /**
@@ -1200,13 +1143,10 @@ export interface ReportTaskRunnerHeartbeatOutput {
 }
 
 export namespace ReportTaskRunnerHeartbeatOutput {
-  export const filterSensitiveLog = (
-    obj: ReportTaskRunnerHeartbeatOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReportTaskRunnerHeartbeatOutput =>
-    __isa(o, "ReportTaskRunnerHeartbeatOutput");
+  export const isa = (o: any): o is ReportTaskRunnerHeartbeatOutput => __isa(o, "ReportTaskRunnerHeartbeatOutput");
 }
 
 /**
@@ -1227,7 +1167,7 @@ export interface Selector {
 
 export namespace Selector {
   export const filterSensitiveLog = (obj: Selector): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Selector => __isa(o, "Selector");
 }
@@ -1238,9 +1178,10 @@ export namespace Selector {
 export interface SetStatusInput {
   __type?: "SetStatusInput";
   /**
-   * <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>
+   * <p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>.
+   *             For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>
    */
-  objectIds: string[] | undefined;
+  status: string | undefined;
 
   /**
    * <p>The ID of the pipeline that contains the objects.</p>
@@ -1248,18 +1189,16 @@ export interface SetStatusInput {
   pipelineId: string | undefined;
 
   /**
-   * <p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>.
-   *             For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>
+   * <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>
    */
-  status: string | undefined;
+  objectIds: string[] | undefined;
 }
 
 export namespace SetStatusInput {
   export const filterSensitiveLog = (obj: SetStatusInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetStatusInput =>
-    __isa(o, "SetStatusInput");
+  export const isa = (o: any): o is SetStatusInput => __isa(o, "SetStatusInput");
 }
 
 /**
@@ -1268,19 +1207,19 @@ export namespace SetStatusInput {
 export interface SetTaskStatusInput {
   __type?: "SetTaskStatusInput";
   /**
-   * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.</p>
-   */
-  errorId?: string;
-
-  /**
-   * <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
-   */
-  errorMessage?: string;
-
-  /**
    * <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
    */
   errorStackTrace?: string;
+
+  /**
+   * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
+   */
+  taskStatus: TaskStatus | string | undefined;
+
+  /**
+   * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.</p>
+   */
+  errorId?: string;
 
   /**
    * <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>
@@ -1288,17 +1227,16 @@ export interface SetTaskStatusInput {
   taskId: string | undefined;
 
   /**
-   * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
+   * <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
    */
-  taskStatus: TaskStatus | string | undefined;
+  errorMessage?: string;
 }
 
 export namespace SetTaskStatusInput {
   export const filterSensitiveLog = (obj: SetTaskStatusInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetTaskStatusInput =>
-    __isa(o, "SetTaskStatusInput");
+  export const isa = (o: any): o is SetTaskStatusInput => __isa(o, "SetTaskStatusInput");
 }
 
 /**
@@ -1310,10 +1248,9 @@ export interface SetTaskStatusOutput {
 
 export namespace SetTaskStatusOutput {
   export const filterSensitiveLog = (obj: SetTaskStatusOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetTaskStatusOutput =>
-    __isa(o, "SetTaskStatusOutput");
+  export const isa = (o: any): o is SetTaskStatusOutput => __isa(o, "SetTaskStatusOutput");
 }
 
 /**
@@ -1323,21 +1260,21 @@ export namespace SetTaskStatusOutput {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key name of a tag defined by a user.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The optional value portion of a tag defined by a user.
    *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The key name of a tag defined by a user.
+   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1345,9 +1282,7 @@ export namespace Tag {
 /**
  * <p>The specified task was not found.</p>
  */
-export interface TaskNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TaskNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TaskNotFoundException";
   $fault: "client";
   /**
@@ -1358,10 +1293,9 @@ export interface TaskNotFoundException
 
 export namespace TaskNotFoundException {
   export const filterSensitiveLog = (obj: TaskNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TaskNotFoundException =>
-    __isa(o, "TaskNotFoundException");
+  export const isa = (o: any): o is TaskNotFoundException => __isa(o, "TaskNotFoundException");
 }
 
 /**
@@ -1380,19 +1314,19 @@ export interface TaskObject {
   objects?: { [key: string]: PipelineObject };
 
   /**
-   * <p>The ID of the pipeline that provided the task.</p>
-   */
-  pipelineId?: string;
-
-  /**
    * <p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>
    */
   taskId?: string;
+
+  /**
+   * <p>The ID of the pipeline that provided the task.</p>
+   */
+  pipelineId?: string;
 }
 
 export namespace TaskObject {
   export const filterSensitiveLog = (obj: TaskObject): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TaskObject => __isa(o, "TaskObject");
 }
@@ -1400,7 +1334,7 @@ export namespace TaskObject {
 export enum TaskStatus {
   FAILED = "FAILED",
   FALSE = "FALSE",
-  FINISHED = "FINISHED"
+  FINISHED = "FINISHED",
 }
 
 /**
@@ -1409,14 +1343,14 @@ export enum TaskStatus {
 export interface ValidatePipelineDefinitionInput {
   __type?: "ValidatePipelineDefinitionInput";
   /**
+   * <p>The objects that define the pipeline changes to validate against the pipeline.</p>
+   */
+  pipelineObjects: PipelineObject[] | undefined;
+
+  /**
    * <p>The parameter objects used with the pipeline.</p>
    */
   parameterObjects?: ParameterObject[];
-
-  /**
-   * <p>The parameter values used with the pipeline.</p>
-   */
-  parameterValues?: ParameterValue[];
 
   /**
    * <p>The ID of the pipeline.</p>
@@ -1424,19 +1358,16 @@ export interface ValidatePipelineDefinitionInput {
   pipelineId: string | undefined;
 
   /**
-   * <p>The objects that define the pipeline changes to validate against the pipeline.</p>
+   * <p>The parameter values used with the pipeline.</p>
    */
-  pipelineObjects: PipelineObject[] | undefined;
+  parameterValues?: ParameterValue[];
 }
 
 export namespace ValidatePipelineDefinitionInput {
-  export const filterSensitiveLog = (
-    obj: ValidatePipelineDefinitionInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ValidatePipelineDefinitionInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ValidatePipelineDefinitionInput =>
-    __isa(o, "ValidatePipelineDefinitionInput");
+  export const isa = (o: any): o is ValidatePipelineDefinitionInput => __isa(o, "ValidatePipelineDefinitionInput");
 }
 
 /**
@@ -1445,14 +1376,14 @@ export namespace ValidatePipelineDefinitionInput {
 export interface ValidatePipelineDefinitionOutput {
   __type?: "ValidatePipelineDefinitionOutput";
   /**
-   * <p>Indicates whether there were validation errors.</p>
-   */
-  errored: boolean | undefined;
-
-  /**
    * <p>Any validation errors that were found.</p>
    */
   validationErrors?: ValidationError[];
+
+  /**
+   * <p>Indicates whether there were validation errors.</p>
+   */
+  errored: boolean | undefined;
 
   /**
    * <p>Any validation warnings that were found.</p>
@@ -1461,13 +1392,10 @@ export interface ValidatePipelineDefinitionOutput {
 }
 
 export namespace ValidatePipelineDefinitionOutput {
-  export const filterSensitiveLog = (
-    obj: ValidatePipelineDefinitionOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ValidatePipelineDefinitionOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ValidatePipelineDefinitionOutput =>
-    __isa(o, "ValidatePipelineDefinitionOutput");
+  export const isa = (o: any): o is ValidatePipelineDefinitionOutput => __isa(o, "ValidatePipelineDefinitionOutput");
 }
 
 /**
@@ -1488,10 +1416,9 @@ export interface ValidationError {
 
 export namespace ValidationError {
   export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationError =>
-    __isa(o, "ValidationError");
+  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }
 
 /**
@@ -1512,8 +1439,7 @@ export interface ValidationWarning {
 
 export namespace ValidationWarning {
   export const filterSensitiveLog = (obj: ValidationWarning): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationWarning =>
-    __isa(o, "ValidationWarning");
+  export const isa = (o: any): o is ValidationWarning => __isa(o, "ValidationWarning");
 }

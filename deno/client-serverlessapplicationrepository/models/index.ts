@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -22,13 +18,10 @@ export interface ApplicationDependencySummary {
 }
 
 export namespace ApplicationDependencySummary {
-  export const filterSensitiveLog = (
-    obj: ApplicationDependencySummary
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplicationDependencySummary): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationDependencySummary =>
-    __isa(o, "ApplicationDependencySummary");
+  export const isa = (o: any): o is ApplicationDependencySummary => __isa(o, "ApplicationDependencySummary");
 }
 
 /**
@@ -36,6 +29,11 @@ export namespace ApplicationDependencySummary {
  */
 export interface ApplicationPolicyStatement {
   __type?: "ApplicationPolicyStatement";
+  /**
+   * <p>An array of PrinciplalOrgIDs, which corresponds to AWS IAM <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id">aws:PrincipalOrgID</a> global condition key.</p>
+   */
+  PrincipalOrgIDs?: string[];
+
   /**
    * <p>For the list of actions supported for this operation, see <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
    *  Permissions</a>.</p>
@@ -55,10 +53,9 @@ export interface ApplicationPolicyStatement {
 
 export namespace ApplicationPolicyStatement {
   export const filterSensitiveLog = (obj: ApplicationPolicyStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationPolicyStatement =>
-    __isa(o, "ApplicationPolicyStatement");
+  export const isa = (o: any): o is ApplicationPolicyStatement => __isa(o, "ApplicationPolicyStatement");
 }
 
 /**
@@ -72,19 +69,9 @@ export interface ApplicationSummary {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+   * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
    */
-  Author: string | undefined;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
-   */
-  Description: string | undefined;
+  SpdxLicenseId?: string;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
@@ -97,56 +84,62 @@ export interface ApplicationSummary {
   Labels?: string[];
 
   /**
+   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+   */
+  Author: string | undefined;
+
+  /**
+   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime?: string;
+
+  /**
    * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
-   */
-  SpdxLicenseId?: string;
 }
 
 export namespace ApplicationSummary {
   export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationSummary =>
-    __isa(o, "ApplicationSummary");
+  export const isa = (o: any): o is ApplicationSummary => __isa(o, "ApplicationSummary");
 }
 
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
-  /**
-   * <p>400</p>
-   */
-  ErrorCode?: string;
-
   /**
    * <p>One of the parameters in the request is invalid.</p>
    */
   Message?: string;
+
+  /**
+   * <p>400</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum Capability {
   CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM = "CAPABILITY_IAM",
   CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY"
+  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY",
 }
 
 /**
@@ -156,89 +149,29 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
-   * <p>409</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The resource already exists.</p>
    */
   Message?: string;
+
+  /**
+   * <p>409</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
-   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
-   */
-  Author: string | undefined;
-
-  /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
-   */
-  HomePageUrl?: string;
-
-  /**
-   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
-   */
-  Labels?: string[];
-
-  /**
-   * <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
-   *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
-   */
-  LicenseBody?: string;
-
-  /**
-   * <p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
-   */
-  LicenseUrl?: string;
-
-  /**
-   * <p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works.
-   *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
-   */
-  ReadmeBody?: string;
-
-  /**
-   * <p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
-   */
-  ReadmeUrl?: string;
-
-  /**
-   * <p>The semantic version of the application:</p><p>
-   *  <a href="https://semver.org/">https://semver.org/</a>
-   *  </p>
-   */
-  SemanticVersion?: string;
-
-  /**
-   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
-   */
-  SourceCodeArchiveUrl?: string;
-
-  /**
-   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
-   */
-  SourceCodeUrl?: string;
 
   /**
    * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
@@ -252,40 +185,14 @@ export interface CreateApplicationRequest {
   TemplateBody?: string;
 
   /**
+   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+   */
+  Author: string | undefined;
+
+  /**
    * <p>A link to the S3 object containing the packaged AWS SAM template of your application.</p><p>You can specify only one of templateBody and templateUrl; otherwise an error results.</p>
    */
   TemplateUrl?: string;
-}
-
-export namespace CreateApplicationRequest {
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateApplicationRequest =>
-    __isa(o, "CreateApplicationRequest");
-}
-
-export interface CreateApplicationResponse {
-  __type?: "CreateApplicationResponse";
-  /**
-   * <p>The application Amazon Resource Name (ARN).</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
-   */
-  Author?: string;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
-   */
-  Description?: string;
 
   /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
@@ -293,9 +200,14 @@ export interface CreateApplicationResponse {
   HomePageUrl?: string;
 
   /**
-   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
+   * <p>A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
    */
-  IsVerifiedAuthor?: boolean;
+  ReadmeUrl?: string;
+
+  /**
+   * <p>A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
+   */
+  LicenseUrl?: string;
 
   /**
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
@@ -303,14 +215,78 @@ export interface CreateApplicationResponse {
   Labels?: string[];
 
   /**
+   * <p>The semantic version of the application:</p><p>
+   *  <a href="https://semver.org/">https://semver.org/</a>
+   *  </p>
+   */
+  SemanticVersion?: string;
+
+  /**
+   * <p>The name of the application that you want to publish.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
+   *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</p>
+   */
+  LicenseBody?: string;
+
+  /**
+   * <p>A local text readme file in Markdown language that contains a more detailed description of the application and how it works.
+   *  The file has the format file://&lt;path>/&lt;filename>.</p><p>Maximum size 5 MB</p><p>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</p>
+   */
+  ReadmeBody?: string;
+
+  /**
+   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
+   */
+  SourceCodeUrl?: string;
+
+  /**
+   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+   */
+  SourceCodeArchiveUrl?: string;
+}
+
+export namespace CreateApplicationRequest {
+  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
+}
+
+export interface CreateApplicationResponse {
+  __type?: "CreateApplicationResponse";
+  /**
+   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+   */
+  Author?: string;
+
+  /**
+   * <p>The application Amazon Resource Name (ARN).</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>Version information about the application.</p>
+   */
+  Version?: Version;
+
+  /**
    * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
    */
   LicenseUrl?: string;
-
-  /**
-   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
-   */
-  Name?: string;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
@@ -318,40 +294,54 @@ export interface CreateApplicationResponse {
   ReadmeUrl?: string;
 
   /**
-   * <p>A valid identifier from https://spdx.org/licenses/.</p>
-   */
-  SpdxLicenseId?: string;
-
-  /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    */
   VerifiedAuthorUrl?: string;
 
   /**
-   * <p>Version information about the application.</p>
+   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
    */
-  Version?: Version;
+  IsVerifiedAuthor?: boolean;
+
+  /**
+   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
+   */
+  HomePageUrl?: string;
+
+  /**
+   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
+   */
+  Labels?: string[];
+
+  /**
+   * <p>A valid identifier from https://spdx.org/licenses/.</p>
+   */
+  SpdxLicenseId?: string;
 }
 
 export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationResponse =>
-    __isa(o, "CreateApplicationResponse");
+  export const isa = (o: any): o is CreateApplicationResponse => __isa(o, "CreateApplicationResponse");
 }
 
 export interface CreateApplicationVersionRequest {
   __type?: "CreateApplicationVersionRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The semantic version of the new version.</p>
    */
   SemanticVersion: string | undefined;
+
+  /**
+   * <p>A link to the packaged AWS SAM template of your application.</p>
+   */
+  TemplateUrl?: string;
 
   /**
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
@@ -364,32 +354,51 @@ export interface CreateApplicationVersionRequest {
   SourceCodeUrl?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The raw packaged AWS SAM template of your application.</p>
    */
   TemplateBody?: string;
-
-  /**
-   * <p>A link to the packaged AWS SAM template of your application.</p>
-   */
-  TemplateUrl?: string;
 }
 
 export namespace CreateApplicationVersionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateApplicationVersionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateApplicationVersionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationVersionRequest =>
-    __isa(o, "CreateApplicationVersionRequest");
+  export const isa = (o: any): o is CreateApplicationVersionRequest => __isa(o, "CreateApplicationVersionRequest");
 }
 
 export interface CreateApplicationVersionResponse {
   __type?: "CreateApplicationVersionResponse";
   /**
-   * <p>The application Amazon Resource Name (ARN).</p>
+   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    */
-  ApplicationId?: string;
+  SourceCodeArchiveUrl?: string;
+
+  /**
+   * <p>A link to the packaged AWS SAM template of your application.</p>
+   */
+  TemplateUrl?: string;
+
+  /**
+   * <p>An array of parameter types supported by the application.</p>
+   */
+  ParameterDefinitions?: ParameterDefinition[];
+
+  /**
+   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
+   */
+  SourceCodeUrl?: string;
+
+  /**
+   * <p>The semantic version of the application:</p><p>
+   *  <a href="https://semver.org/">https://semver.org/</a>
+   *  </p>
+   */
+  SemanticVersion?: string;
 
   /**
    * <p>The date and time this resource was created.</p>
@@ -397,9 +406,15 @@ export interface CreateApplicationVersionResponse {
   CreationTime?: string;
 
   /**
-   * <p>An array of parameter types supported by the application.</p>
+   * <p>Whether all of the AWS resources contained in this application are supported in the region
+   *  in which it is being retrieved.</p>
    */
-  ParameterDefinitions?: ParameterDefinition[];
+  ResourcesSupported?: boolean;
+
+  /**
+   * <p>The application Amazon Resource Name (ARN).</p>
+   */
+  ApplicationId?: string;
 
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
@@ -427,52 +442,51 @@ export interface CreateApplicationVersionResponse {
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
   RequiredCapabilities?: (Capability | string)[];
-
-  /**
-   * <p>Whether all of the AWS resources contained in this application are supported in the region
-   *  in which it is being retrieved.</p>
-   */
-  ResourcesSupported?: boolean;
-
-  /**
-   * <p>The semantic version of the application:</p><p>
-   *  <a href="https://semver.org/">https://semver.org/</a>
-   *  </p>
-   */
-  SemanticVersion?: string;
-
-  /**
-   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
-   */
-  SourceCodeArchiveUrl?: string;
-
-  /**
-   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
-   */
-  SourceCodeUrl?: string;
-
-  /**
-   * <p>A link to the packaged AWS SAM template of your application.</p>
-   */
-  TemplateUrl?: string;
 }
 
 export namespace CreateApplicationVersionResponse {
-  export const filterSensitiveLog = (
-    obj: CreateApplicationVersionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateApplicationVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationVersionResponse =>
-    __isa(o, "CreateApplicationVersionResponse");
+  export const isa = (o: any): o is CreateApplicationVersionResponse => __isa(o, "CreateApplicationVersionResponse");
 }
 
 export interface CreateCloudFormationChangeSetRequest {
   __type?: "CreateCloudFormationChangeSetRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
    */
-  ApplicationId: string | undefined;
+  TemplateId?: string;
+
+  /**
+   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+   *  </i> API.</p>
+   */
+  ChangeSetName?: string;
+
+  /**
+   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+   *  </i> API.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+   *  </i> API.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+   *  </i> API.</p>
+   */
+  RollbackConfiguration?: RollbackConfiguration;
+
+  /**
+   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
+   *  </i> API.</p>
+   */
+  ResourceTypes?: string[];
 
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
@@ -502,30 +516,6 @@ export interface CreateCloudFormationChangeSetRequest {
   Capabilities?: string[];
 
   /**
-   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
-   *  </i> API.</p>
-   */
-  ChangeSetName?: string;
-
-  /**
-   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
-   *  </i> API.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
-   *  </i> API.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
-   *  </i> API.</p>
-   */
-  NotificationArns?: string[];
-
-  /**
    * <p>A list of parameter values for the parameters of the application.</p>
    */
   ParameterOverrides?: ParameterValue[];
@@ -534,13 +524,7 @@ export interface CreateCloudFormationChangeSetRequest {
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  ResourceTypes?: string[];
-
-  /**
-   * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
-   *  </i> API.</p>
-   */
-  RollbackConfiguration?: RollbackConfiguration;
+  Description?: string;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -553,25 +537,23 @@ export interface CreateCloudFormationChangeSetRequest {
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  StackName: string | undefined;
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a>
    *  </i> API.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
-   */
-  TemplateId?: string;
+  NotificationArns?: string[];
 }
 
 export namespace CreateCloudFormationChangeSetRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCloudFormationChangeSetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateCloudFormationChangeSetRequest =>
     __isa(o, "CreateCloudFormationChangeSetRequest");
@@ -580,14 +562,19 @@ export namespace CreateCloudFormationChangeSetRequest {
 export interface CreateCloudFormationChangeSetResponse {
   __type?: "CreateCloudFormationChangeSetResponse";
   /**
+   * <p>The Amazon Resource Name (ARN) of the change set.</p><p>Length constraints: Minimum length of 1.</p><p>Pattern: ARN:[-a-zA-Z0-9:/]*</p>
+   */
+  ChangeSetId?: string;
+
+  /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the change set.</p><p>Length constraints: Minimum length of 1.</p><p>Pattern: ARN:[-a-zA-Z0-9:/]*</p>
+   * <p>The unique ID of the stack.</p>
    */
-  ChangeSetId?: string;
+  StackId?: string;
 
   /**
    * <p>The semantic version of the application:</p><p>
@@ -595,18 +582,11 @@ export interface CreateCloudFormationChangeSetResponse {
    *  </p>
    */
   SemanticVersion?: string;
-
-  /**
-   * <p>The unique ID of the stack.</p>
-   */
-  StackId?: string;
 }
 
 export namespace CreateCloudFormationChangeSetResponse {
-  export const filterSensitiveLog = (
-    obj: CreateCloudFormationChangeSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateCloudFormationChangeSetResponse =>
     __isa(o, "CreateCloudFormationChangeSetResponse");
@@ -628,10 +608,8 @@ export interface CreateCloudFormationTemplateRequest {
 }
 
 export namespace CreateCloudFormationTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: CreateCloudFormationTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCloudFormationTemplateRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateCloudFormationTemplateRequest =>
     __isa(o, "CreateCloudFormationTemplateRequest");
@@ -640,27 +618,10 @@ export namespace CreateCloudFormationTemplateRequest {
 export interface CreateCloudFormationTemplateResponse {
   __type?: "CreateCloudFormationTemplateResponse";
   /**
-   * <p>The application Amazon Resource Name (ARN).</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
    * <p>The date and time this template expires. Templates
    *  expire 1 hour after creation.</p>
    */
   ExpirationTime?: string;
-
-  /**
-   * <p>The semantic version of the application:</p><p>
-   *  <a href="https://semver.org/">https://semver.org/</a>
-   *  </p>
-   */
-  SemanticVersion?: string;
 
   /**
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
@@ -674,6 +635,23 @@ export interface CreateCloudFormationTemplateResponse {
   TemplateId?: string;
 
   /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The application Amazon Resource Name (ARN).</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The semantic version of the application:</p><p>
+   *  <a href="https://semver.org/">https://semver.org/</a>
+   *  </p>
+   */
+  SemanticVersion?: string;
+
+  /**
    * <p>A link to the template that can be used to deploy the application using
    *  AWS CloudFormation.</p>
    */
@@ -681,10 +659,8 @@ export interface CreateCloudFormationTemplateResponse {
 }
 
 export namespace CreateCloudFormationTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: CreateCloudFormationTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateCloudFormationTemplateResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateCloudFormationTemplateResponse =>
     __isa(o, "CreateCloudFormationTemplateResponse");
@@ -700,10 +676,9 @@ export interface DeleteApplicationRequest {
 
 export namespace DeleteApplicationRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationRequest =>
-    __isa(o, "DeleteApplicationRequest");
+  export const isa = (o: any): o is DeleteApplicationRequest => __isa(o, "DeleteApplicationRequest");
 }
 
 /**
@@ -713,22 +688,21 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   /**
-   * <p>403</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The client is not authenticated.</p>
    */
   Message?: string;
+
+  /**
+   * <p>403</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetApplicationPolicyRequest {
@@ -740,13 +714,10 @@ export interface GetApplicationPolicyRequest {
 }
 
 export namespace GetApplicationPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: GetApplicationPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetApplicationPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetApplicationPolicyRequest =>
-    __isa(o, "GetApplicationPolicyRequest");
+  export const isa = (o: any): o is GetApplicationPolicyRequest => __isa(o, "GetApplicationPolicyRequest");
 }
 
 export interface GetApplicationPolicyResponse {
@@ -758,82 +729,38 @@ export interface GetApplicationPolicyResponse {
 }
 
 export namespace GetApplicationPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: GetApplicationPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetApplicationPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetApplicationPolicyResponse =>
-    __isa(o, "GetApplicationPolicyResponse");
+  export const isa = (o: any): o is GetApplicationPolicyResponse => __isa(o, "GetApplicationPolicyResponse");
 }
 
 export interface GetApplicationRequest {
   __type?: "GetApplicationRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The semantic version of the application to get.</p>
    */
   SemanticVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace GetApplicationRequest {
   export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRequest =>
-    __isa(o, "GetApplicationRequest");
+  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetApplicationResponse {
   __type?: "GetApplicationResponse";
   /**
-   * <p>The application Amazon Resource Name (ARN).</p>
+   * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    */
-  ApplicationId?: string;
-
-  /**
-   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
-   */
-  Author?: string;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
-   */
-  HomePageUrl?: string;
-
-  /**
-   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
-   */
-  IsVerifiedAuthor?: boolean;
-
-  /**
-   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
-   */
-  Labels?: string[];
-
-  /**
-   * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
-   */
-  LicenseUrl?: string;
-
-  /**
-   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
-   */
-  Name?: string;
+  VerifiedAuthorUrl?: string;
 
   /**
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
@@ -841,27 +768,66 @@ export interface GetApplicationResponse {
   ReadmeUrl?: string;
 
   /**
-   * <p>A valid identifier from https://spdx.org/licenses/.</p>
+   * <p>The application Amazon Resource Name (ARN).</p>
    */
-  SpdxLicenseId?: string;
+  ApplicationId?: string;
 
   /**
-   * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
+   * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
    */
-  VerifiedAuthorUrl?: string;
+  LicenseUrl?: string;
+
+  /**
+   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
+   */
+  IsVerifiedAuthor?: boolean;
+
+  /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime?: string;
 
   /**
    * <p>Version information about the application.</p>
    */
   Version?: Version;
+
+  /**
+   * <p>A valid identifier from https://spdx.org/licenses/.</p>
+   */
+  SpdxLicenseId?: string;
+
+  /**
+   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
+   */
+  Labels?: string[];
+
+  /**
+   * <p>The name of the author publishing the app.</p><p>Minimum length=1. Maximum length=127.</p><p>Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</p>
+   */
+  Author?: string;
+
+  /**
+   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
+   */
+  HomePageUrl?: string;
 }
 
 export namespace GetApplicationResponse {
   export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetApplicationResponse =>
-    __isa(o, "GetApplicationResponse");
+  export const isa = (o: any): o is GetApplicationResponse => __isa(o, "GetApplicationResponse");
 }
 
 export interface GetCloudFormationTemplateRequest {
@@ -878,33 +844,14 @@ export interface GetCloudFormationTemplateRequest {
 }
 
 export namespace GetCloudFormationTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: GetCloudFormationTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCloudFormationTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationTemplateRequest =>
-    __isa(o, "GetCloudFormationTemplateRequest");
+  export const isa = (o: any): o is GetCloudFormationTemplateRequest => __isa(o, "GetCloudFormationTemplateRequest");
 }
 
 export interface GetCloudFormationTemplateResponse {
   __type?: "GetCloudFormationTemplateResponse";
-  /**
-   * <p>The application Amazon Resource Name (ARN).</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The date and time this template expires. Templates
-   *  expire 1 hour after creation.</p>
-   */
-  ExpirationTime?: string;
-
   /**
    * <p>The semantic version of the application:</p><p>
    *  <a href="https://semver.org/">https://semver.org/</a>
@@ -913,10 +860,9 @@ export interface GetCloudFormationTemplateResponse {
   SemanticVersion?: string;
 
   /**
-   * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
-   *  </p>
+   * <p>The date and time this resource was created.</p>
    */
-  Status?: Status | string;
+  CreationTime?: string;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
@@ -924,28 +870,40 @@ export interface GetCloudFormationTemplateResponse {
   TemplateId?: string;
 
   /**
+   * <p>The application Amazon Resource Name (ARN).</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
+   *  </p>
+   */
+  Status?: Status | string;
+
+  /**
    * <p>A link to the template that can be used to deploy the application using
    *  AWS CloudFormation.</p>
    */
   TemplateUrl?: string;
+
+  /**
+   * <p>The date and time this template expires. Templates
+   *  expire 1 hour after creation.</p>
+   */
+  ExpirationTime?: string;
 }
 
 export namespace GetCloudFormationTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: GetCloudFormationTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetCloudFormationTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationTemplateResponse =>
-    __isa(o, "GetCloudFormationTemplateResponse");
+  export const isa = (o: any): o is GetCloudFormationTemplateResponse => __isa(o, "GetCloudFormationTemplateResponse");
 }
 
 /**
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -960,26 +918,23 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServerErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListApplicationDependenciesRequest {
   __type?: "ListApplicationDependenciesRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The total number of items to return.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>A token to specify where to start paginating.</p>
@@ -993,10 +948,8 @@ export interface ListApplicationDependenciesRequest {
 }
 
 export namespace ListApplicationDependenciesRequest {
-  export const filterSensitiveLog = (
-    obj: ListApplicationDependenciesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApplicationDependenciesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListApplicationDependenciesRequest =>
     __isa(o, "ListApplicationDependenciesRequest");
@@ -1016,10 +969,8 @@ export interface ListApplicationDependenciesResponse {
 }
 
 export namespace ListApplicationDependenciesResponse {
-  export const filterSensitiveLog = (
-    obj: ListApplicationDependenciesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApplicationDependenciesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListApplicationDependenciesResponse =>
     __isa(o, "ListApplicationDependenciesResponse");
@@ -1028,22 +979,21 @@ export namespace ListApplicationDependenciesResponse {
 export interface ListApplicationsRequest {
   __type?: "ListApplicationsRequest";
   /**
-   * <p>The total number of items to return.</p>
-   */
-  MaxItems?: number;
-
-  /**
    * <p>A token to specify where to start paginating.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The total number of items to return.</p>
+   */
+  MaxItems?: number;
 }
 
 export namespace ListApplicationsRequest {
   export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListApplicationsResponse {
@@ -1061,23 +1011,22 @@ export interface ListApplicationsResponse {
 
 export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsResponse =>
-    __isa(o, "ListApplicationsResponse");
+  export const isa = (o: any): o is ListApplicationsResponse => __isa(o, "ListApplicationsResponse");
 }
 
 export interface ListApplicationVersionsRequest {
   __type?: "ListApplicationVersionsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The total number of items to return.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>A token to specify where to start paginating.</p>
@@ -1086,13 +1035,10 @@ export interface ListApplicationVersionsRequest {
 }
 
 export namespace ListApplicationVersionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListApplicationVersionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationVersionsRequest =>
-    __isa(o, "ListApplicationVersionsRequest");
+  export const isa = (o: any): o is ListApplicationVersionsRequest => __isa(o, "ListApplicationVersionsRequest");
 }
 
 export interface ListApplicationVersionsResponse {
@@ -1109,13 +1055,10 @@ export interface ListApplicationVersionsResponse {
 }
 
 export namespace ListApplicationVersionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListApplicationVersionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationVersionsResponse =>
-    __isa(o, "ListApplicationVersionsResponse");
+  export const isa = (o: any): o is ListApplicationVersionsResponse => __isa(o, "ListApplicationVersionsResponse");
 }
 
 /**
@@ -1125,22 +1068,21 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
-   * <p>404</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
    */
   Message?: string;
+
+  /**
+   * <p>404</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1149,14 +1091,35 @@ export namespace NotFoundException {
 export interface ParameterDefinition {
   __type?: "ParameterDefinition";
   /**
+   * <p>An integer value that determines the smallest number of characters that you want to allow for String types.</p>
+   */
+  MinLength?: number;
+
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A value of the appropriate type for the template to use if no value is specified when a stack is created.
+   *  If you define constraints for the parameter, you must specify a value that adheres to those constraints.</p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * <p>A numeric value that determines the largest numeric value that you want to allow for Number types.</p>
+   */
+  MaxValue?: number;
+
+  /**
    * <p>A regular expression that represents the patterns to allow for String types.</p>
    */
   AllowedPattern?: string;
 
   /**
-   * <p>An array containing the list of values allowed for the parameter.</p>
+   * <p>An integer value that determines the largest number of characters that you want to allow for String types.</p>
    */
-  AllowedValues?: string[];
+  MaxLength?: number;
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description,
@@ -1171,51 +1134,14 @@ export interface ParameterDefinition {
   ConstraintDescription?: string;
 
   /**
-   * <p>A value of the appropriate type for the template to use if no value is specified when a stack is created.
-   *  If you define constraints for the parameter, you must specify a value that adheres to those constraints.</p>
-   */
-  DefaultValue?: string;
-
-  /**
-   * <p>A string of up to 4,000 characters that describes the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>An integer value that determines the largest number of characters that you want to allow for String types.</p>
-   */
-  MaxLength?: number;
-
-  /**
-   * <p>A numeric value that determines the largest numeric value that you want to allow for Number types.</p>
-   */
-  MaxValue?: number;
-
-  /**
-   * <p>An integer value that determines the smallest number of characters that you want to allow for String types.</p>
-   */
-  MinLength?: number;
-
-  /**
    * <p>A numeric value that determines the smallest numeric value that you want to allow for Number types.</p>
    */
   MinValue?: number;
 
   /**
-   * <p>The name of the parameter.</p>
+   * <p>An array containing the list of values allowed for the parameter.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the
-   *  value to true, the parameter value is masked with asterisks (*****).</p>
-   */
-  NoEcho?: boolean;
-
-  /**
-   * <p>A list of AWS SAM resources that use this parameter.</p>
-   */
-  ReferencedByResources: string[] | undefined;
+  AllowedValues?: string[];
 
   /**
    * <p>The type of the parameter.</p><p>Valid values: String | Number | List&lt;Number> | CommaDelimitedList
@@ -1229,14 +1155,29 @@ export interface ParameterDefinition {
    *  Also, each member string is space-trimmed.</p><p>For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].</p>
    */
   Type?: string;
+
+  /**
+   * <p>A string of up to 4,000 characters that describes the parameter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of AWS SAM resources that use this parameter.</p>
+   */
+  ReferencedByResources: string[] | undefined;
+
+  /**
+   * <p>Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the
+   *  value to true, the parameter value is masked with asterisks (*****).</p>
+   */
+  NoEcho?: boolean;
 }
 
 export namespace ParameterDefinition {
   export const filterSensitiveLog = (obj: ParameterDefinition): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterDefinition =>
-    __isa(o, "ParameterDefinition");
+  export const isa = (o: any): o is ParameterDefinition => __isa(o, "ParameterDefinition");
 }
 
 /**
@@ -1258,33 +1199,29 @@ export interface ParameterValue {
 
 export namespace ParameterValue {
   export const filterSensitiveLog = (obj: ParameterValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterValue =>
-    __isa(o, "ParameterValue");
+  export const isa = (o: any): o is ParameterValue => __isa(o, "ParameterValue");
 }
 
 export interface PutApplicationPolicyRequest {
   __type?: "PutApplicationPolicyRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>An array of policy statements applied to the application.</p>
    */
   Statements: ApplicationPolicyStatement[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace PutApplicationPolicyRequest {
-  export const filterSensitiveLog = (
-    obj: PutApplicationPolicyRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutApplicationPolicyRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutApplicationPolicyRequest =>
-    __isa(o, "PutApplicationPolicyRequest");
+  export const isa = (o: any): o is PutApplicationPolicyRequest => __isa(o, "PutApplicationPolicyRequest");
 }
 
 export interface PutApplicationPolicyResponse {
@@ -1296,13 +1233,10 @@ export interface PutApplicationPolicyResponse {
 }
 
 export namespace PutApplicationPolicyResponse {
-  export const filterSensitiveLog = (
-    obj: PutApplicationPolicyResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutApplicationPolicyResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutApplicationPolicyResponse =>
-    __isa(o, "PutApplicationPolicyResponse");
+  export const isa = (o: any): o is PutApplicationPolicyResponse => __isa(o, "PutApplicationPolicyResponse");
 }
 
 /**
@@ -1326,10 +1260,9 @@ export interface RollbackConfiguration {
 
 export namespace RollbackConfiguration {
   export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RollbackConfiguration =>
-    __isa(o, "RollbackConfiguration");
+  export const isa = (o: any): o is RollbackConfiguration => __isa(o, "RollbackConfiguration");
 }
 
 /**
@@ -1353,16 +1286,15 @@ export interface RollbackTrigger {
 
 export namespace RollbackTrigger {
   export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RollbackTrigger =>
-    __isa(o, "RollbackTrigger");
+  export const isa = (o: any): o is RollbackTrigger => __isa(o, "RollbackTrigger");
 }
 
 export enum Status {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
-  PREPARING = "PREPARING"
+  PREPARING = "PREPARING",
 }
 
 /**
@@ -1388,7 +1320,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -1396,9 +1328,7 @@ export namespace Tag {
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1414,10 +1344,29 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
+}
+
+export interface UnshareApplicationRequest {
+  __type?: "UnshareApplicationRequest";
+  /**
+   * <p>The AWS Organization ID to unshare the application from.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+export namespace UnshareApplicationRequest {
+  export const filterSensitiveLog = (obj: UnshareApplicationRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UnshareApplicationRequest => __isa(o, "UnshareApplicationRequest");
 }
 
 export interface UpdateApplicationRequest {
@@ -1438,6 +1387,16 @@ export interface UpdateApplicationRequest {
   Description?: string;
 
   /**
+   * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+   */
+  ReadmeUrl?: string;
+
+  /**
+   * <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+   */
+  ReadmeBody?: string;
+
+  /**
    * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
    */
   HomePageUrl?: string;
@@ -1446,28 +1405,22 @@ export interface UpdateApplicationRequest {
    * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
    */
   Labels?: string[];
-
-  /**
-   * <p>A text readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
-   */
-  ReadmeBody?: string;
-
-  /**
-   * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
-   */
-  ReadmeUrl?: string;
 }
 
 export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest =>
-    __isa(o, "UpdateApplicationRequest");
+  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
+  /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime?: string;
+
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
@@ -1479,51 +1432,6 @@ export interface UpdateApplicationResponse {
   Author?: string;
 
   /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
-   */
-  HomePageUrl?: string;
-
-  /**
-   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
-   */
-  IsVerifiedAuthor?: boolean;
-
-  /**
-   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
-   */
-  Labels?: string[];
-
-  /**
-   * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
-   */
-  LicenseUrl?: string;
-
-  /**
-   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
-   */
-  ReadmeUrl?: string;
-
-  /**
-   * <p>A valid identifier from https://spdx.org/licenses/.</p>
-   */
-  SpdxLicenseId?: string;
-
-  /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    */
   VerifiedAuthorUrl?: string;
@@ -1532,14 +1440,53 @@ export interface UpdateApplicationResponse {
    * <p>Version information about the application.</p>
    */
   Version?: Version;
+
+  /**
+   * <p>The name of the application.</p><p>Minimum length=1. Maximum length=140</p><p>Pattern: "[a-zA-Z0-9\\-]+";</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A link to a license file of the app that matches the spdxLicenseID value of your application.</p><p>Maximum size 5 MB</p>
+   */
+  LicenseUrl?: string;
+
+  /**
+   * <p>Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.</p>
+   */
+  IsVerifiedAuthor?: boolean;
+
+  /**
+   * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
+   */
+  ReadmeUrl?: string;
+
+  /**
+   * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A valid identifier from https://spdx.org/licenses/.</p>
+   */
+  SpdxLicenseId?: string;
+
+  /**
+   * <p>A URL with more information about the application, for example the location of your GitHub repository for the application.</p>
+   */
+  HomePageUrl?: string;
+
+  /**
+   * <p>Labels to improve discovery of apps in search results.</p><p>Minimum length=1. Maximum length=127. Maximum number of labels: 10</p><p>Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</p>
+   */
+  Labels?: string[];
 }
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResponse =>
-    __isa(o, "UpdateApplicationResponse");
+  export const isa = (o: any): o is UpdateApplicationResponse => __isa(o, "UpdateApplicationResponse");
 }
 
 /**
@@ -1547,21 +1494,6 @@ export namespace UpdateApplicationResponse {
  */
 export interface Version {
   __type?: "Version";
-  /**
-   * <p>The application Amazon Resource Name (ARN).</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The date and time this resource was created.</p>
-   */
-  CreationTime: string | undefined;
-
-  /**
-   * <p>An array of parameter types supported by the application.</p>
-   */
-  ParameterDefinitions: ParameterDefinition[] | undefined;
-
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
    *  Some applications might include resources that can affect permissions in your AWS
@@ -1590,12 +1522,6 @@ export interface Version {
   RequiredCapabilities: (Capability | string)[] | undefined;
 
   /**
-   * <p>Whether all of the AWS resources contained in this application are supported in the region
-   *  in which it is being retrieved.</p>
-   */
-  ResourcesSupported: boolean | undefined;
-
-  /**
    * <p>The semantic version of the application:</p><p>
    *  <a href="https://semver.org/">https://semver.org/</a>
    *  </p>
@@ -1603,9 +1529,14 @@ export interface Version {
   SemanticVersion: string | undefined;
 
   /**
-   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+   * <p>The application Amazon Resource Name (ARN).</p>
    */
-  SourceCodeArchiveUrl?: string;
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>An array of parameter types supported by the application.</p>
+   */
+  ParameterDefinitions: ParameterDefinition[] | undefined;
 
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
@@ -1613,14 +1544,30 @@ export interface Version {
   SourceCodeUrl?: string;
 
   /**
+   * <p>The date and time this resource was created.</p>
+   */
+  CreationTime: string | undefined;
+
+  /**
    * <p>A link to the packaged AWS SAM template of your application.</p>
    */
   TemplateUrl: string | undefined;
+
+  /**
+   * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
+   */
+  SourceCodeArchiveUrl?: string;
+
+  /**
+   * <p>Whether all of the AWS resources contained in this application are supported in the region
+   *  in which it is being retrieved.</p>
+   */
+  ResourcesSupported: boolean | undefined;
 }
 
 export namespace Version {
   export const filterSensitiveLog = (obj: Version): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Version => __isa(o, "Version");
 }
@@ -1630,6 +1577,11 @@ export namespace Version {
  */
 export interface VersionSummary {
   __type?: "VersionSummary";
+  /**
+   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
+   */
+  SourceCodeUrl?: string;
+
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
@@ -1646,17 +1598,11 @@ export interface VersionSummary {
    *  </p>
    */
   SemanticVersion: string | undefined;
-
-  /**
-   * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
-   */
-  SourceCodeUrl?: string;
 }
 
 export namespace VersionSummary {
   export const filterSensitiveLog = (obj: VersionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VersionSummary =>
-    __isa(o, "VersionSummary");
+  export const isa = (o: any): o is VersionSummary => __isa(o, "VersionSummary");
 }

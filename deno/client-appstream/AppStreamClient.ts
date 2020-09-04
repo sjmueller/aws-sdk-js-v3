@@ -1,191 +1,113 @@
-import {
-  AssociateFleetCommandInput,
-  AssociateFleetCommandOutput
-} from "./commands/AssociateFleetCommand.ts";
+import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand.ts";
 import {
   BatchAssociateUserStackCommandInput,
-  BatchAssociateUserStackCommandOutput
+  BatchAssociateUserStackCommandOutput,
 } from "./commands/BatchAssociateUserStackCommand.ts";
 import {
   BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput
+  BatchDisassociateUserStackCommandOutput,
 } from "./commands/BatchDisassociateUserStackCommand.ts";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand.ts";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand.ts";
 import {
   CreateDirectoryConfigCommandInput,
-  CreateDirectoryConfigCommandOutput
+  CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand.ts";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand.ts";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
   CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput
+  CreateImageBuilderCommandOutput,
 } from "./commands/CreateImageBuilderCommand.ts";
 import {
   CreateImageBuilderStreamingURLCommandInput,
-  CreateImageBuilderStreamingURLCommandOutput
+  CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand.ts";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand.ts";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand.ts";
 import {
   CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput
+  CreateStreamingURLCommandOutput,
 } from "./commands/CreateStreamingURLCommand.ts";
 import {
   CreateUsageReportSubscriptionCommandInput,
-  CreateUsageReportSubscriptionCommandOutput
+  CreateUsageReportSubscriptionCommandOutput,
 } from "./commands/CreateUsageReportSubscriptionCommand.ts";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   DeleteDirectoryConfigCommandInput,
-  DeleteDirectoryConfigCommandOutput
+  DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand.ts";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand.ts";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput
+  DeleteImageBuilderCommandOutput,
 } from "./commands/DeleteImageBuilderCommand.ts";
-import {
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "./commands/DeleteImageCommand.ts";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand.ts";
 import {
   DeleteImagePermissionsCommandInput,
-  DeleteImagePermissionsCommandOutput
+  DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand.ts";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand.ts";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand.ts";
 import {
   DeleteUsageReportSubscriptionCommandInput,
-  DeleteUsageReportSubscriptionCommandOutput
+  DeleteUsageReportSubscriptionCommandOutput,
 } from "./commands/DeleteUsageReportSubscriptionCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DescribeDirectoryConfigsCommandInput,
-  DescribeDirectoryConfigsCommandOutput
+  DescribeDirectoryConfigsCommandOutput,
 } from "./commands/DescribeDirectoryConfigsCommand.ts";
-import {
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
-} from "./commands/DescribeFleetsCommand.ts";
+import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand.ts";
 import {
   DescribeImageBuildersCommandInput,
-  DescribeImageBuildersCommandOutput
+  DescribeImageBuildersCommandOutput,
 } from "./commands/DescribeImageBuildersCommand.ts";
 import {
   DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput
+  DescribeImagePermissionsCommandOutput,
 } from "./commands/DescribeImagePermissionsCommand.ts";
-import {
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
-} from "./commands/DescribeImagesCommand.ts";
-import {
-  DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
-} from "./commands/DescribeSessionsCommand.ts";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand.ts";
+import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand.ts";
+import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand.ts";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand.ts";
 import {
   DescribeUsageReportSubscriptionsCommandInput,
-  DescribeUsageReportSubscriptionsCommandOutput
+  DescribeUsageReportSubscriptionsCommandOutput,
 } from "./commands/DescribeUsageReportSubscriptionsCommand.ts";
 import {
   DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput
+  DescribeUserStackAssociationsCommandOutput,
 } from "./commands/DescribeUserStackAssociationsCommand.ts";
-import {
-  DescribeUsersCommandInput,
-  DescribeUsersCommandOutput
-} from "./commands/DescribeUsersCommand.ts";
-import {
-  DisableUserCommandInput,
-  DisableUserCommandOutput
-} from "./commands/DisableUserCommand.ts";
-import {
-  DisassociateFleetCommandInput,
-  DisassociateFleetCommandOutput
-} from "./commands/DisassociateFleetCommand.ts";
-import {
-  EnableUserCommandInput,
-  EnableUserCommandOutput
-} from "./commands/EnableUserCommand.ts";
-import {
-  ExpireSessionCommandInput,
-  ExpireSessionCommandOutput
-} from "./commands/ExpireSessionCommand.ts";
+import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand.ts";
+import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand.ts";
+import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "./commands/DisassociateFleetCommand.ts";
+import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand.ts";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand.ts";
 import {
   ListAssociatedFleetsCommandInput,
-  ListAssociatedFleetsCommandOutput
+  ListAssociatedFleetsCommandOutput,
 } from "./commands/ListAssociatedFleetsCommand.ts";
 import {
   ListAssociatedStacksCommandInput,
-  ListAssociatedStacksCommandOutput
+  ListAssociatedStacksCommandOutput,
 } from "./commands/ListAssociatedStacksCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  StartFleetCommandInput,
-  StartFleetCommandOutput
-} from "./commands/StartFleetCommand.ts";
-import {
-  StartImageBuilderCommandInput,
-  StartImageBuilderCommandOutput
-} from "./commands/StartImageBuilderCommand.ts";
-import {
-  StopFleetCommandInput,
-  StopFleetCommandOutput
-} from "./commands/StopFleetCommand.ts";
-import {
-  StopImageBuilderCommandInput,
-  StopImageBuilderCommandOutput
-} from "./commands/StopImageBuilderCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand.ts";
+import { StartImageBuilderCommandInput, StartImageBuilderCommandOutput } from "./commands/StartImageBuilderCommand.ts";
+import { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand.ts";
+import { StopImageBuilderCommandInput, StopImageBuilderCommandOutput } from "./commands/StopImageBuilderCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateDirectoryConfigCommandInput,
-  UpdateDirectoryConfigCommandOutput
+  UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand.ts";
-import {
-  UpdateFleetCommandInput,
-  UpdateFleetCommandOutput
-} from "./commands/UpdateFleetCommand.ts";
+import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand.ts";
 import {
   UpdateImagePermissionsCommandInput,
-  UpdateImagePermissionsCommandOutput
+  UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand.ts";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand.ts";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -193,38 +115,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -233,9 +151,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -336,8 +255,7 @@ export type ServiceOutputTypes =
   | UpdateImagePermissionsCommandOutput
   | UpdateStackCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -411,14 +329,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -426,9 +349,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppStreamClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppStreamClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -437,9 +358,7 @@ export type AppStreamClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -482,7 +401,7 @@ export class AppStreamClient extends __Client<
   constructor(configuration: AppStreamClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -497,6 +416,7 @@ export class AppStreamClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

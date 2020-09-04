@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  RestoreTableFromClusterSnapshotMessage,
-  RestoreTableFromClusterSnapshotResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryRestoreTableFromClusterSnapshotCommand,
-  serializeAws_queryRestoreTableFromClusterSnapshotCommand
+  serializeAws_queryRestoreTableFromClusterSnapshotCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RestoreTableFromClusterSnapshotCommandInput = RestoreTableFromClusterSnapshotMessage;
-export type RestoreTableFromClusterSnapshotCommandOutput = RestoreTableFromClusterSnapshotResult &
-  __MetadataBearer;
+export type RestoreTableFromClusterSnapshotCommandOutput = RestoreTableFromClusterSnapshotResult & __MetadataBearer;
 
 export class RestoreTableFromClusterSnapshotCommand extends $Command<
   RestoreTableFromClusterSnapshotCommandInput,
@@ -49,18 +38,16 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreTableFromClusterSnapshotCommandInput,
-    RestoreTableFromClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreTableFromClusterSnapshotCommandInput, RestoreTableFromClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RestoreTableFromClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreTableFromClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     input: RestoreTableFromClusterSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

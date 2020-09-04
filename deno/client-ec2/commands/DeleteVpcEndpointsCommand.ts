@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DeleteVpcEndpointsRequest,
-  DeleteVpcEndpointsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
-  serializeAws_ec2DeleteVpcEndpointsCommand
+  serializeAws_ec2DeleteVpcEndpointsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteVpcEndpointsCommandInput = DeleteVpcEndpointsRequest;
-export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult &
-  __MetadataBearer;
+export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult & __MetadataBearer;
 
 export class DeleteVpcEndpointsCommand extends $Command<
   DeleteVpcEndpointsCommandInput,
@@ -50,14 +39,15 @@ export class DeleteVpcEndpointsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteVpcEndpointsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVpcEndpointsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteVpcEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteVpcEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpcEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteVpcEndpointsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointsCommandOutput> {
     return deserializeAws_ec2DeleteVpcEndpointsCommand(output, context);
   }
 

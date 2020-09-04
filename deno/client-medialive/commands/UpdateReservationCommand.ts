@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient.ts";
-import {
-  UpdateReservationRequest,
-  UpdateReservationResponse
-} from "../models/index.ts";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
+import { UpdateReservationRequest, UpdateReservationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateReservationCommand,
-  serializeAws_restJson1UpdateReservationCommand
+  serializeAws_restJson1UpdateReservationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateReservationCommandInput = UpdateReservationRequest;
-export type UpdateReservationCommandOutput = UpdateReservationResponse &
-  __MetadataBearer;
+export type UpdateReservationCommandOutput = UpdateReservationResponse & __MetadataBearer;
 
 export class UpdateReservationCommand extends $Command<
   UpdateReservationCommandInput,
@@ -50,14 +39,15 @@ export class UpdateReservationCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateReservationCommandInput, UpdateReservationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateReservationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateReservationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateReservationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateReservationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateReservationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReservationCommandOutput> {
     return deserializeAws_restJson1UpdateReservationCommand(output, context);
   }
 

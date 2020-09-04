@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  UpdateNetworkProfileRequest,
-  UpdateNetworkProfileResponse
-} from "../models/index.ts";
+import { UpdateNetworkProfileRequest, UpdateNetworkProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
-  serializeAws_json1_1UpdateNetworkProfileCommand
+  serializeAws_json1_1UpdateNetworkProfileCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateNetworkProfileCommandInput = UpdateNetworkProfileRequest;
-export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResponse &
-  __MetadataBearer;
+export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResponse & __MetadataBearer;
 
 export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandInput,
@@ -49,18 +42,16 @@ export class UpdateNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNetworkProfileCommandInput,
-    UpdateNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNetworkProfileCommandInput, UpdateNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateNetworkProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class UpdateNetworkProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateNetworkProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNetworkProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateNetworkProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkProfileCommandOutput> {
     return deserializeAws_json1_1UpdateNetworkProfileCommand(output, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -16,7 +12,7 @@ export interface AuthException extends __SmithyException, $MetadataBearer {
 
 export namespace AuthException {
   export const filterSensitiveLog = (obj: AuthException): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AuthException => __isa(o, "AuthException");
 }
@@ -24,30 +20,23 @@ export namespace AuthException {
 /**
  * <p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>
  */
-export interface EC2InstanceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2InstanceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EC2InstanceNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace EC2InstanceNotFoundException {
-  export const filterSensitiveLog = (
-    obj: EC2InstanceNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EC2InstanceNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EC2InstanceNotFoundException =>
-    __isa(o, "EC2InstanceNotFoundException");
+  export const isa = (o: any): o is EC2InstanceNotFoundException => __isa(o, "EC2InstanceNotFoundException");
 }
 
 /**
  * <p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   Message?: string;
@@ -55,10 +44,9 @@ export interface InvalidArgsException
 
 export namespace InvalidArgsException {
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 export interface SendSSHPublicKeyRequest {
@@ -74,43 +62,41 @@ export interface SendSSHPublicKeyRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>
-   */
-  InstanceOSUser: string | undefined;
-
-  /**
    * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
    */
   SSHPublicKey: string | undefined;
+
+  /**
+   * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>
+   */
+  InstanceOSUser: string | undefined;
 }
 
 export namespace SendSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendSSHPublicKeyRequest =>
-    __isa(o, "SendSSHPublicKeyRequest");
+  export const isa = (o: any): o is SendSSHPublicKeyRequest => __isa(o, "SendSSHPublicKeyRequest");
 }
 
 export interface SendSSHPublicKeyResponse {
   __type?: "SendSSHPublicKeyResponse";
   /**
-   * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>Indicates request success.</p>
    */
   Success?: boolean;
+
+  /**
+   * <p>The request ID as logged by EC2 Connect.  Please provide this when contacting AWS Support.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace SendSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SendSSHPublicKeyResponse =>
-    __isa(o, "SendSSHPublicKeyResponse");
+  export const isa = (o: any): o is SendSSHPublicKeyResponse => __isa(o, "SendSSHPublicKeyResponse");
 }
 
 /**
@@ -124,18 +110,15 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 
 export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
  * <p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -143,8 +126,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

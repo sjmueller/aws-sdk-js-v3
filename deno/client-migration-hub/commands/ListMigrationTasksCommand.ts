@@ -1,21 +1,11 @@
-import {
-  MigrationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MigrationHubClient.ts";
-import {
-  ListMigrationTasksRequest,
-  ListMigrationTasksResult
-} from "../models/index.ts";
+import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
+import { ListMigrationTasksRequest, ListMigrationTasksResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListMigrationTasksCommand,
-  serializeAws_json1_1ListMigrationTasksCommand
+  serializeAws_json1_1ListMigrationTasksCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListMigrationTasksCommandInput = ListMigrationTasksRequest;
-export type ListMigrationTasksCommandOutput = ListMigrationTasksResult &
-  __MetadataBearer;
+export type ListMigrationTasksCommandOutput = ListMigrationTasksResult & __MetadataBearer;
 
 export class ListMigrationTasksCommand extends $Command<
   ListMigrationTasksCommandInput,
@@ -50,14 +39,15 @@ export class ListMigrationTasksCommand extends $Command<
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListMigrationTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMigrationTasksResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListMigrationTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMigrationTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMigrationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMigrationTasksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMigrationTasksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMigrationTasksCommandOutput> {
     return deserializeAws_json1_1ListMigrationTasksCommand(output, context);
   }
 

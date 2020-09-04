@@ -1,21 +1,11 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient.ts";
-import {
-  UpdateClusterVersionRequest,
-  UpdateClusterVersionResponse
-} from "../models/index.ts";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
+import { UpdateClusterVersionRequest, UpdateClusterVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateClusterVersionCommand,
-  serializeAws_restJson1UpdateClusterVersionCommand
+  serializeAws_restJson1UpdateClusterVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateClusterVersionCommandInput = UpdateClusterVersionRequest;
-export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse &
-  __MetadataBearer;
+export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse & __MetadataBearer;
 
 export class UpdateClusterVersionCommand extends $Command<
   UpdateClusterVersionCommandInput,
@@ -49,18 +38,16 @@ export class UpdateClusterVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClusterVersionCommandInput,
-    UpdateClusterVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClusterVersionCommandInput, UpdateClusterVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateClusterVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateClusterVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateClusterVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateClusterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateClusterVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateClusterVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterVersionCommandOutput> {
     return deserializeAws_restJson1UpdateClusterVersionCommand(output, context);
   }
 

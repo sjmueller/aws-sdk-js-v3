@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DeleteNatGatewayRequest,
-  DeleteNatGatewayResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteNatGatewayCommand,
-  serializeAws_ec2DeleteNatGatewayCommand
+  serializeAws_ec2DeleteNatGatewayCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
-export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult &
-  __MetadataBearer;
+export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult & __MetadataBearer;
 
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,
@@ -50,14 +39,15 @@ export class DeleteNatGatewayCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteNatGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNatGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteNatGatewayCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteNatGatewayCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNatGatewayCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteNatGatewayCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNatGatewayCommandOutput> {
     return deserializeAws_ec2DeleteNatGatewayCommand(output, context);
   }
 

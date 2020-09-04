@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  CreateServiceLinkedRoleRequest,
-  CreateServiceLinkedRoleResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/index.ts";
 import {
   deserializeAws_queryCreateServiceLinkedRoleCommand,
-  serializeAws_queryCreateServiceLinkedRoleCommand
+  serializeAws_queryCreateServiceLinkedRoleCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateServiceLinkedRoleCommandInput = CreateServiceLinkedRoleRequest;
-export type CreateServiceLinkedRoleCommandOutput = CreateServiceLinkedRoleResponse &
-  __MetadataBearer;
+export type CreateServiceLinkedRoleCommandOutput = CreateServiceLinkedRoleResponse & __MetadataBearer;
 
 export class CreateServiceLinkedRoleCommand extends $Command<
   CreateServiceLinkedRoleCommandInput,
@@ -49,18 +38,16 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateServiceLinkedRoleCommandInput,
-    CreateServiceLinkedRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateServiceLinkedRoleCommandInput, CreateServiceLinkedRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateServiceLinkedRoleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateServiceLinkedRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateServiceLinkedRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateServiceLinkedRoleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateServiceLinkedRoleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceLinkedRoleCommandOutput> {
     return deserializeAws_queryCreateServiceLinkedRoleCommand(output, context);
   }
 

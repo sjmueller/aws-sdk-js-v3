@@ -1,21 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient.ts";
-import {
-  PutConformancePackRequest,
-  PutConformancePackResponse
-} from "../models/index.ts";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
+import { PutConformancePackRequest, PutConformancePackResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutConformancePackCommand,
-  serializeAws_json1_1PutConformancePackCommand
+  serializeAws_json1_1PutConformancePackCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutConformancePackCommandInput = PutConformancePackRequest;
-export type PutConformancePackCommandOutput = PutConformancePackResponse &
-  __MetadataBearer;
+export type PutConformancePackCommandOutput = PutConformancePackResponse & __MetadataBearer;
 
 export class PutConformancePackCommand extends $Command<
   PutConformancePackCommandInput,
@@ -50,14 +39,15 @@ export class PutConformancePackCommand extends $Command<
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutConformancePackCommandInput, PutConformancePackCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutConformancePackRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConformancePackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutConformancePackCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutConformancePackCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutConformancePackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConformancePackCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutConformancePackCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConformancePackCommandOutput> {
     return deserializeAws_json1_1PutConformancePackCommand(output, context);
   }
 

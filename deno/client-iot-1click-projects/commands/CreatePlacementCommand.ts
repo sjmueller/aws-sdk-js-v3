@@ -1,21 +1,15 @@
 import {
   IoT1ClickProjectsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import {
-  CreatePlacementRequest,
-  CreatePlacementResponse
-} from "../models/index.ts";
+import { CreatePlacementRequest, CreatePlacementResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreatePlacementCommand,
-  serializeAws_restJson1CreatePlacementCommand
+  serializeAws_restJson1CreatePlacementCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePlacementCommandInput = CreatePlacementRequest;
-export type CreatePlacementCommandOutput = CreatePlacementResponse &
-  __MetadataBearer;
+export type CreatePlacementCommandOutput = CreatePlacementResponse & __MetadataBearer;
 
 export class CreatePlacementCommand extends $Command<
   CreatePlacementCommandInput,
@@ -50,14 +43,15 @@ export class CreatePlacementCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePlacementCommandInput, CreatePlacementCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePlacementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePlacementResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class CreatePlacementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePlacementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePlacementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePlacementCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlacementCommandOutput> {
     return deserializeAws_restJson1CreatePlacementCommand(output, context);
   }
 

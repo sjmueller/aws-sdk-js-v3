@@ -1,18 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { GetTableRequest, GetTableResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetTableCommand,
-  serializeAws_json1_1GetTableCommand
+  serializeAws_json1_1GetTableCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetTableCommandInput = GetTableRequest;
 export type GetTableCommandOutput = GetTableResponse & __MetadataBearer;
 
-export class GetTableCommand extends $Command<
-  GetTableCommandInput,
-  GetTableCommandOutput,
-  GlueClientResolvedConfig
-> {
+export class GetTableCommand extends $Command<GetTableCommandInput, GetTableCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +35,15 @@ export class GetTableCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTableCommandInput, GetTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTableResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +53,11 @@ export class GetTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
     return deserializeAws_json1_1GetTableCommand(output, context);
   }
 

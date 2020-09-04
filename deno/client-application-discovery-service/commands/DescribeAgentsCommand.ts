@@ -1,18 +1,15 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
 import { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAgentsCommand,
-  serializeAws_json1_1DescribeAgentsCommand
+  serializeAws_json1_1DescribeAgentsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAgentsCommandInput = DescribeAgentsRequest;
-export type DescribeAgentsCommandOutput = DescribeAgentsResponse &
-  __MetadataBearer;
+export type DescribeAgentsCommandOutput = DescribeAgentsResponse & __MetadataBearer;
 
 export class DescribeAgentsCommand extends $Command<
   DescribeAgentsCommandInput,
@@ -47,14 +43,15 @@ export class DescribeAgentsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAgentsCommandInput, DescribeAgentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAgentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAgentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class DescribeAgentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAgentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAgentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAgentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAgentsCommandOutput> {
     return deserializeAws_json1_1DescribeAgentsCommand(output, context);
   }
 

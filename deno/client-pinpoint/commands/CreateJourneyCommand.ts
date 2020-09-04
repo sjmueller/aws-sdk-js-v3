@@ -1,18 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { CreateJourneyRequest, CreateJourneyResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateJourneyCommand,
-  serializeAws_restJson1CreateJourneyCommand
+  serializeAws_restJson1CreateJourneyCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateJourneyCommandInput = CreateJourneyRequest;
-export type CreateJourneyCommandOutput = CreateJourneyResponse &
-  __MetadataBearer;
+export type CreateJourneyCommandOutput = CreateJourneyResponse & __MetadataBearer;
 
 export class CreateJourneyCommand extends $Command<
   CreateJourneyCommandInput,
@@ -47,14 +39,15 @@ export class CreateJourneyCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJourneyCommandInput, CreateJourneyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateJourneyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateJourneyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateJourneyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateJourneyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJourneyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateJourneyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJourneyCommandOutput> {
     return deserializeAws_restJson1CreateJourneyCommand(output, context);
   }
 

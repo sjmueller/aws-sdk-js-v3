@@ -1,302 +1,226 @@
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-  AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+  AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
 } from "./commands/AssociateApprovalRuleTemplateWithRepositoryCommand.ts";
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
 } from "./commands/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand.ts";
 import {
   BatchDescribeMergeConflictsCommandInput,
-  BatchDescribeMergeConflictsCommandOutput
+  BatchDescribeMergeConflictsCommandOutput,
 } from "./commands/BatchDescribeMergeConflictsCommand.ts";
 import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
 } from "./commands/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand.ts";
-import {
-  BatchGetCommitsCommandInput,
-  BatchGetCommitsCommandOutput
-} from "./commands/BatchGetCommitsCommand.ts";
+import { BatchGetCommitsCommandInput, BatchGetCommitsCommandOutput } from "./commands/BatchGetCommitsCommand.ts";
 import {
   BatchGetRepositoriesCommandInput,
-  BatchGetRepositoriesCommandOutput
+  BatchGetRepositoriesCommandOutput,
 } from "./commands/BatchGetRepositoriesCommand.ts";
 import {
   CreateApprovalRuleTemplateCommandInput,
-  CreateApprovalRuleTemplateCommandOutput
+  CreateApprovalRuleTemplateCommandOutput,
 } from "./commands/CreateApprovalRuleTemplateCommand.ts";
-import {
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput
-} from "./commands/CreateBranchCommand.ts";
-import {
-  CreateCommitCommandInput,
-  CreateCommitCommandOutput
-} from "./commands/CreateCommitCommand.ts";
+import { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand.ts";
+import { CreateCommitCommandInput, CreateCommitCommandOutput } from "./commands/CreateCommitCommand.ts";
 import {
   CreatePullRequestApprovalRuleCommandInput,
-  CreatePullRequestApprovalRuleCommandOutput
+  CreatePullRequestApprovalRuleCommandOutput,
 } from "./commands/CreatePullRequestApprovalRuleCommand.ts";
-import {
-  CreatePullRequestCommandInput,
-  CreatePullRequestCommandOutput
-} from "./commands/CreatePullRequestCommand.ts";
-import {
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput
-} from "./commands/CreateRepositoryCommand.ts";
+import { CreatePullRequestCommandInput, CreatePullRequestCommandOutput } from "./commands/CreatePullRequestCommand.ts";
+import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand.ts";
 import {
   CreateUnreferencedMergeCommitCommandInput,
-  CreateUnreferencedMergeCommitCommandOutput
+  CreateUnreferencedMergeCommitCommandOutput,
 } from "./commands/CreateUnreferencedMergeCommitCommand.ts";
 import {
   DeleteApprovalRuleTemplateCommandInput,
-  DeleteApprovalRuleTemplateCommandOutput
+  DeleteApprovalRuleTemplateCommandOutput,
 } from "./commands/DeleteApprovalRuleTemplateCommand.ts";
-import {
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
-} from "./commands/DeleteBranchCommand.ts";
+import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand.ts";
 import {
   DeleteCommentContentCommandInput,
-  DeleteCommentContentCommandOutput
+  DeleteCommentContentCommandOutput,
 } from "./commands/DeleteCommentContentCommand.ts";
-import {
-  DeleteFileCommandInput,
-  DeleteFileCommandOutput
-} from "./commands/DeleteFileCommand.ts";
+import { DeleteFileCommandInput, DeleteFileCommandOutput } from "./commands/DeleteFileCommand.ts";
 import {
   DeletePullRequestApprovalRuleCommandInput,
-  DeletePullRequestApprovalRuleCommandOutput
+  DeletePullRequestApprovalRuleCommandOutput,
 } from "./commands/DeletePullRequestApprovalRuleCommand.ts";
-import {
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput
-} from "./commands/DeleteRepositoryCommand.ts";
+import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand.ts";
 import {
   DescribeMergeConflictsCommandInput,
-  DescribeMergeConflictsCommandOutput
+  DescribeMergeConflictsCommandOutput,
 } from "./commands/DescribeMergeConflictsCommand.ts";
 import {
   DescribePullRequestEventsCommandInput,
-  DescribePullRequestEventsCommandOutput
+  DescribePullRequestEventsCommandOutput,
 } from "./commands/DescribePullRequestEventsCommand.ts";
 import {
   DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
+  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
 } from "./commands/DisassociateApprovalRuleTemplateFromRepositoryCommand.ts";
 import {
   EvaluatePullRequestApprovalRulesCommandInput,
-  EvaluatePullRequestApprovalRulesCommandOutput
+  EvaluatePullRequestApprovalRulesCommandOutput,
 } from "./commands/EvaluatePullRequestApprovalRulesCommand.ts";
 import {
   GetApprovalRuleTemplateCommandInput,
-  GetApprovalRuleTemplateCommandOutput
+  GetApprovalRuleTemplateCommandOutput,
 } from "./commands/GetApprovalRuleTemplateCommand.ts";
+import { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCommand.ts";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand.ts";
+import { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand.ts";
 import {
-  GetBlobCommandInput,
-  GetBlobCommandOutput
-} from "./commands/GetBlobCommand.ts";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand.ts";
-import {
-  GetCommentCommandInput,
-  GetCommentCommandOutput
-} from "./commands/GetCommentCommand.ts";
+  GetCommentReactionsCommandInput,
+  GetCommentReactionsCommandOutput,
+} from "./commands/GetCommentReactionsCommand.ts";
 import {
   GetCommentsForComparedCommitCommandInput,
-  GetCommentsForComparedCommitCommandOutput
+  GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand.ts";
 import {
   GetCommentsForPullRequestCommandInput,
-  GetCommentsForPullRequestCommandOutput
+  GetCommentsForPullRequestCommandOutput,
 } from "./commands/GetCommentsForPullRequestCommand.ts";
-import {
-  GetCommitCommandInput,
-  GetCommitCommandOutput
-} from "./commands/GetCommitCommand.ts";
-import {
-  GetDifferencesCommandInput,
-  GetDifferencesCommandOutput
-} from "./commands/GetDifferencesCommand.ts";
-import {
-  GetFileCommandInput,
-  GetFileCommandOutput
-} from "./commands/GetFileCommand.ts";
-import {
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "./commands/GetFolderCommand.ts";
-import {
-  GetMergeCommitCommandInput,
-  GetMergeCommitCommandOutput
-} from "./commands/GetMergeCommitCommand.ts";
-import {
-  GetMergeConflictsCommandInput,
-  GetMergeConflictsCommandOutput
-} from "./commands/GetMergeConflictsCommand.ts";
-import {
-  GetMergeOptionsCommandInput,
-  GetMergeOptionsCommandOutput
-} from "./commands/GetMergeOptionsCommand.ts";
+import { GetCommitCommandInput, GetCommitCommandOutput } from "./commands/GetCommitCommand.ts";
+import { GetDifferencesCommandInput, GetDifferencesCommandOutput } from "./commands/GetDifferencesCommand.ts";
+import { GetFileCommandInput, GetFileCommandOutput } from "./commands/GetFileCommand.ts";
+import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand.ts";
+import { GetMergeCommitCommandInput, GetMergeCommitCommandOutput } from "./commands/GetMergeCommitCommand.ts";
+import { GetMergeConflictsCommandInput, GetMergeConflictsCommandOutput } from "./commands/GetMergeConflictsCommand.ts";
+import { GetMergeOptionsCommandInput, GetMergeOptionsCommandOutput } from "./commands/GetMergeOptionsCommand.ts";
 import {
   GetPullRequestApprovalStatesCommandInput,
-  GetPullRequestApprovalStatesCommandOutput
+  GetPullRequestApprovalStatesCommandOutput,
 } from "./commands/GetPullRequestApprovalStatesCommand.ts";
-import {
-  GetPullRequestCommandInput,
-  GetPullRequestCommandOutput
-} from "./commands/GetPullRequestCommand.ts";
+import { GetPullRequestCommandInput, GetPullRequestCommandOutput } from "./commands/GetPullRequestCommand.ts";
 import {
   GetPullRequestOverrideStateCommandInput,
-  GetPullRequestOverrideStateCommandOutput
+  GetPullRequestOverrideStateCommandOutput,
 } from "./commands/GetPullRequestOverrideStateCommand.ts";
-import {
-  GetRepositoryCommandInput,
-  GetRepositoryCommandOutput
-} from "./commands/GetRepositoryCommand.ts";
+import { GetRepositoryCommandInput, GetRepositoryCommandOutput } from "./commands/GetRepositoryCommand.ts";
 import {
   GetRepositoryTriggersCommandInput,
-  GetRepositoryTriggersCommandOutput
+  GetRepositoryTriggersCommandOutput,
 } from "./commands/GetRepositoryTriggersCommand.ts";
 import {
   ListApprovalRuleTemplatesCommandInput,
-  ListApprovalRuleTemplatesCommandOutput
+  ListApprovalRuleTemplatesCommandOutput,
 } from "./commands/ListApprovalRuleTemplatesCommand.ts";
 import {
   ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
+  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
 } from "./commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand.ts";
-import {
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput
-} from "./commands/ListBranchesCommand.ts";
-import {
-  ListPullRequestsCommandInput,
-  ListPullRequestsCommandOutput
-} from "./commands/ListPullRequestsCommand.ts";
-import {
-  ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput
-} from "./commands/ListRepositoriesCommand.ts";
+import { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand.ts";
+import { ListPullRequestsCommandInput, ListPullRequestsCommandOutput } from "./commands/ListPullRequestsCommand.ts";
+import { ListRepositoriesCommandInput, ListRepositoriesCommandOutput } from "./commands/ListRepositoriesCommand.ts";
 import {
   ListRepositoriesForApprovalRuleTemplateCommandInput,
-  ListRepositoriesForApprovalRuleTemplateCommandOutput
+  ListRepositoriesForApprovalRuleTemplateCommandOutput,
 } from "./commands/ListRepositoriesForApprovalRuleTemplateCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   MergeBranchesByFastForwardCommandInput,
-  MergeBranchesByFastForwardCommandOutput
+  MergeBranchesByFastForwardCommandOutput,
 } from "./commands/MergeBranchesByFastForwardCommand.ts";
 import {
   MergeBranchesBySquashCommandInput,
-  MergeBranchesBySquashCommandOutput
+  MergeBranchesBySquashCommandOutput,
 } from "./commands/MergeBranchesBySquashCommand.ts";
 import {
   MergeBranchesByThreeWayCommandInput,
-  MergeBranchesByThreeWayCommandOutput
+  MergeBranchesByThreeWayCommandOutput,
 } from "./commands/MergeBranchesByThreeWayCommand.ts";
 import {
   MergePullRequestByFastForwardCommandInput,
-  MergePullRequestByFastForwardCommandOutput
+  MergePullRequestByFastForwardCommandOutput,
 } from "./commands/MergePullRequestByFastForwardCommand.ts";
 import {
   MergePullRequestBySquashCommandInput,
-  MergePullRequestBySquashCommandOutput
+  MergePullRequestBySquashCommandOutput,
 } from "./commands/MergePullRequestBySquashCommand.ts";
 import {
   MergePullRequestByThreeWayCommandInput,
-  MergePullRequestByThreeWayCommandOutput
+  MergePullRequestByThreeWayCommandOutput,
 } from "./commands/MergePullRequestByThreeWayCommand.ts";
 import {
   OverridePullRequestApprovalRulesCommandInput,
-  OverridePullRequestApprovalRulesCommandOutput
+  OverridePullRequestApprovalRulesCommandOutput,
 } from "./commands/OverridePullRequestApprovalRulesCommand.ts";
 import {
   PostCommentForComparedCommitCommandInput,
-  PostCommentForComparedCommitCommandOutput
+  PostCommentForComparedCommitCommandOutput,
 } from "./commands/PostCommentForComparedCommitCommand.ts";
 import {
   PostCommentForPullRequestCommandInput,
-  PostCommentForPullRequestCommandOutput
+  PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand.ts";
+import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "./commands/PostCommentReplyCommand.ts";
 import {
-  PostCommentReplyCommandInput,
-  PostCommentReplyCommandOutput
-} from "./commands/PostCommentReplyCommand.ts";
-import {
-  PutFileCommandInput,
-  PutFileCommandOutput
-} from "./commands/PutFileCommand.ts";
+  PutCommentReactionCommandInput,
+  PutCommentReactionCommandOutput,
+} from "./commands/PutCommentReactionCommand.ts";
+import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand.ts";
 import {
   PutRepositoryTriggersCommandInput,
-  PutRepositoryTriggersCommandOutput
+  PutRepositoryTriggersCommandOutput,
 } from "./commands/PutRepositoryTriggersCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestRepositoryTriggersCommandInput,
-  TestRepositoryTriggersCommandOutput
+  TestRepositoryTriggersCommandOutput,
 } from "./commands/TestRepositoryTriggersCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateApprovalRuleTemplateContentCommandInput,
-  UpdateApprovalRuleTemplateContentCommandOutput
+  UpdateApprovalRuleTemplateContentCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateContentCommand.ts";
 import {
   UpdateApprovalRuleTemplateDescriptionCommandInput,
-  UpdateApprovalRuleTemplateDescriptionCommandOutput
+  UpdateApprovalRuleTemplateDescriptionCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateDescriptionCommand.ts";
 import {
   UpdateApprovalRuleTemplateNameCommandInput,
-  UpdateApprovalRuleTemplateNameCommandOutput
+  UpdateApprovalRuleTemplateNameCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateNameCommand.ts";
-import {
-  UpdateCommentCommandInput,
-  UpdateCommentCommandOutput
-} from "./commands/UpdateCommentCommand.ts";
+import { UpdateCommentCommandInput, UpdateCommentCommandOutput } from "./commands/UpdateCommentCommand.ts";
 import {
   UpdateDefaultBranchCommandInput,
-  UpdateDefaultBranchCommandOutput
+  UpdateDefaultBranchCommandOutput,
 } from "./commands/UpdateDefaultBranchCommand.ts";
 import {
   UpdatePullRequestApprovalRuleContentCommandInput,
-  UpdatePullRequestApprovalRuleContentCommandOutput
+  UpdatePullRequestApprovalRuleContentCommandOutput,
 } from "./commands/UpdatePullRequestApprovalRuleContentCommand.ts";
 import {
   UpdatePullRequestApprovalStateCommandInput,
-  UpdatePullRequestApprovalStateCommandOutput
+  UpdatePullRequestApprovalStateCommandOutput,
 } from "./commands/UpdatePullRequestApprovalStateCommand.ts";
 import {
   UpdatePullRequestDescriptionCommandInput,
-  UpdatePullRequestDescriptionCommandOutput
+  UpdatePullRequestDescriptionCommandOutput,
 } from "./commands/UpdatePullRequestDescriptionCommand.ts";
 import {
   UpdatePullRequestStatusCommandInput,
-  UpdatePullRequestStatusCommandOutput
+  UpdatePullRequestStatusCommandOutput,
 } from "./commands/UpdatePullRequestStatusCommand.ts";
 import {
   UpdatePullRequestTitleCommandInput,
-  UpdatePullRequestTitleCommandOutput
+  UpdatePullRequestTitleCommandOutput,
 } from "./commands/UpdatePullRequestTitleCommand.ts";
 import {
   UpdateRepositoryDescriptionCommandInput,
-  UpdateRepositoryDescriptionCommandOutput
+  UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand.ts";
 import {
   UpdateRepositoryNameCommandInput,
-  UpdateRepositoryNameCommandOutput
+  UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -305,38 +229,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -345,9 +265,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -378,6 +299,7 @@ export type ServiceInputTypes =
   | GetBlobCommandInput
   | GetBranchCommandInput
   | GetCommentCommandInput
+  | GetCommentReactionsCommandInput
   | GetCommentsForComparedCommitCommandInput
   | GetCommentsForPullRequestCommandInput
   | GetCommitCommandInput
@@ -409,6 +331,7 @@ export type ServiceInputTypes =
   | PostCommentForComparedCommitCommandInput
   | PostCommentForPullRequestCommandInput
   | PostCommentReplyCommandInput
+  | PutCommentReactionCommandInput
   | PutFileCommandInput
   | PutRepositoryTriggersCommandInput
   | TagResourceCommandInput
@@ -455,6 +378,7 @@ export type ServiceOutputTypes =
   | GetBlobCommandOutput
   | GetBranchCommandOutput
   | GetCommentCommandOutput
+  | GetCommentReactionsCommandOutput
   | GetCommentsForComparedCommitCommandOutput
   | GetCommentsForPullRequestCommandOutput
   | GetCommitCommandOutput
@@ -486,6 +410,7 @@ export type ServiceOutputTypes =
   | PostCommentForComparedCommitCommandOutput
   | PostCommentForPullRequestCommandOutput
   | PostCommentReplyCommandOutput
+  | PutCommentReactionCommandOutput
   | PutFileCommandOutput
   | PutRepositoryTriggersCommandOutput
   | TagResourceCommandOutput
@@ -504,8 +429,7 @@ export type ServiceOutputTypes =
   | UpdateRepositoryDescriptionCommandOutput
   | UpdateRepositoryNameCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -579,14 +503,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -594,9 +523,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeCommitClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeCommitClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -605,9 +532,7 @@ export type CodeCommitClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -950,6 +875,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                 <p>
+ *                   <a>GetCommentReactions</a>, which returns information about emoji reactions to comments.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
  *                   <a>GetCommentsForComparedCommit</a>, which returns information about comments on the comparison between two commit specifiers
  *                     in a repository.</p>
  *             </li>
@@ -960,6 +889,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
  *             <li>
  *                 <p>
  *                   <a>PostCommentReply</a>, which creates a reply to a comment.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutCommentReaction</a>, which creates or updates an emoji reaction to a comment.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -1018,7 +951,7 @@ export class CodeCommitClient extends __Client<
   constructor(configuration: CodeCommitClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -1033,6 +966,7 @@ export class CodeCommitClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

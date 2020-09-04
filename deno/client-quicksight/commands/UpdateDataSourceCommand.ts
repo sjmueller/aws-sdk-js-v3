@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient.ts";
-import {
-  UpdateDataSourceRequest,
-  UpdateDataSourceResponse
-} from "../models/index.ts";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
+import { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDataSourceCommand,
-  serializeAws_restJson1UpdateDataSourceCommand
+  serializeAws_restJson1UpdateDataSourceCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDataSourceCommandInput = UpdateDataSourceRequest;
-export type UpdateDataSourceCommandOutput = UpdateDataSourceResponse &
-  __MetadataBearer;
+export type UpdateDataSourceCommandOutput = UpdateDataSourceResponse & __MetadataBearer;
 
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,
@@ -50,14 +39,15 @@ export class UpdateDataSourceCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateDataSourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDataSourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataSourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDataSourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSourceCommandOutput> {
     return deserializeAws_restJson1UpdateDataSourceCommand(output, context);
   }
 

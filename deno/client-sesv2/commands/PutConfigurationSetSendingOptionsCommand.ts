@@ -1,21 +1,14 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client.ts";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
 import {
   PutConfigurationSetSendingOptionsRequest,
-  PutConfigurationSetSendingOptionsResponse
+  PutConfigurationSetSendingOptionsResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetSendingOptionsCommand
+  serializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutConfigurationSetSendingOptionsCommandInput = PutConfigurationSetSendingOptionsRequest;
@@ -49,18 +42,16 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConfigurationSetSendingOptionsCommandInput,
-    PutConfigurationSetSendingOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConfigurationSetSendingOptionsCommandInput, PutConfigurationSetSendingOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutConfigurationSetSendingOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetSendingOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetSendingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutConfigurationSetSendingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

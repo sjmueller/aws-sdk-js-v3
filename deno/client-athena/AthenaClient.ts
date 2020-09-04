@@ -1,79 +1,49 @@
 import {
   BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput
+  BatchGetNamedQueryCommandOutput,
 } from "./commands/BatchGetNamedQueryCommand.ts";
 import {
   BatchGetQueryExecutionCommandInput,
-  BatchGetQueryExecutionCommandOutput
+  BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand.ts";
-import {
-  CreateNamedQueryCommandInput,
-  CreateNamedQueryCommandOutput
-} from "./commands/CreateNamedQueryCommand.ts";
-import {
-  CreateWorkGroupCommandInput,
-  CreateWorkGroupCommandOutput
-} from "./commands/CreateWorkGroupCommand.ts";
-import {
-  DeleteNamedQueryCommandInput,
-  DeleteNamedQueryCommandOutput
-} from "./commands/DeleteNamedQueryCommand.ts";
-import {
-  DeleteWorkGroupCommandInput,
-  DeleteWorkGroupCommandOutput
-} from "./commands/DeleteWorkGroupCommand.ts";
-import {
-  GetNamedQueryCommandInput,
-  GetNamedQueryCommandOutput
-} from "./commands/GetNamedQueryCommand.ts";
-import {
-  GetQueryExecutionCommandInput,
-  GetQueryExecutionCommandOutput
-} from "./commands/GetQueryExecutionCommand.ts";
-import {
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
-} from "./commands/GetQueryResultsCommand.ts";
-import {
-  GetWorkGroupCommandInput,
-  GetWorkGroupCommandOutput
-} from "./commands/GetWorkGroupCommand.ts";
-import {
-  ListNamedQueriesCommandInput,
-  ListNamedQueriesCommandOutput
-} from "./commands/ListNamedQueriesCommand.ts";
+import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand.ts";
+import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand.ts";
+import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand.ts";
+import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand.ts";
+import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand.ts";
+import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand.ts";
+import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand.ts";
+import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand.ts";
+import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand.ts";
+import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand.ts";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand.ts";
+import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand.ts";
+import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand.ts";
+import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand.ts";
+import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand.ts";
+import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand.ts";
 import {
   ListQueryExecutionsCommandInput,
-  ListQueryExecutionsCommandOutput
+  ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand.ts";
+import { ListTableMetadataCommandInput, ListTableMetadataCommandOutput } from "./commands/ListTableMetadataCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWorkGroupsCommandInput,
-  ListWorkGroupsCommandOutput
-} from "./commands/ListWorkGroupsCommand.ts";
+import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand.ts";
 import {
   StartQueryExecutionCommandInput,
-  StartQueryExecutionCommandOutput
+  StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand.ts";
 import {
   StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput
+  StopQueryExecutionCommandOutput,
 } from "./commands/StopQueryExecutionCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateWorkGroupCommandInput,
-  UpdateWorkGroupCommandOutput
-} from "./commands/UpdateWorkGroupCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand.ts";
+import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -81,38 +51,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -121,55 +87,73 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | BatchGetNamedQueryCommandInput
   | BatchGetQueryExecutionCommandInput
+  | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
   | CreateWorkGroupCommandInput
+  | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
   | DeleteWorkGroupCommandInput
+  | GetDataCatalogCommandInput
+  | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
+  | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
+  | ListDataCatalogsCommandInput
+  | ListDatabasesCommandInput
   | ListNamedQueriesCommandInput
   | ListQueryExecutionsCommandInput
+  | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
   | StartQueryExecutionCommandInput
   | StopQueryExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDataCatalogCommandInput
   | UpdateWorkGroupCommandInput;
 
 export type ServiceOutputTypes =
   | BatchGetNamedQueryCommandOutput
   | BatchGetQueryExecutionCommandOutput
+  | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
   | CreateWorkGroupCommandOutput
+  | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
   | DeleteWorkGroupCommandOutput
+  | GetDataCatalogCommandOutput
+  | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
+  | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
+  | ListDataCatalogsCommandOutput
+  | ListDatabasesCommandOutput
   | ListNamedQueriesCommandOutput
   | ListQueryExecutionsCommandOutput
+  | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
   | StartQueryExecutionCommandOutput
   | StopQueryExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDataCatalogCommandOutput
   | UpdateWorkGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -243,14 +227,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -258,9 +247,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AthenaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AthenaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -269,9 +256,7 @@ export type AthenaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -281,9 +266,19 @@ export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
- *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing Amazon Athena with JDBC</a>.</p>
- *          <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * <p>Amazon Athena is an interactive query service that lets you use standard SQL to
+ *             analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and
+ *             run ad-hoc queries and get results in seconds. Athena is serverless, so there is no
+ *             infrastructure to set up or manage. You pay only for the queries you run. Athena scales
+ *             automatically—executing queries in parallel—so results are fast, even with large
+ *             datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon
+ *                 Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
+ *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or
+ *             later with the Amazon Athena API. Earlier version drivers do not support the API. For
+ *             more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
+ *                 Amazon Athena with JDBC</a>.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
  */
 export class AthenaClient extends __Client<
   __HttpHandlerOptions,
@@ -296,7 +291,7 @@ export class AthenaClient extends __Client<
   constructor(configuration: AthenaClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -311,6 +306,7 @@ export class AthenaClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

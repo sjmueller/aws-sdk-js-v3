@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  DeleteDirectoryRequest,
-  DeleteDirectoryResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { DeleteDirectoryRequest, DeleteDirectoryResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteDirectoryCommand,
-  serializeAws_restJson1DeleteDirectoryCommand
+  serializeAws_restJson1DeleteDirectoryCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDirectoryCommandInput = DeleteDirectoryRequest;
-export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse &
-  __MetadataBearer;
+export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse & __MetadataBearer;
 
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,
@@ -50,14 +39,15 @@ export class DeleteDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDirectoryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDirectoryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteDirectoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDirectoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteDirectoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDirectoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
     return deserializeAws_restJson1DeleteDirectoryCommand(output, context);
   }
 

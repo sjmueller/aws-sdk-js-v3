@@ -2,247 +2,227 @@ import { LambdaClient } from "./LambdaClient.ts";
 import {
   AddLayerVersionPermissionCommand,
   AddLayerVersionPermissionCommandInput,
-  AddLayerVersionPermissionCommandOutput
+  AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand.ts";
 import {
   AddPermissionCommand,
   AddPermissionCommandInput,
-  AddPermissionCommandOutput
+  AddPermissionCommandOutput,
 } from "./commands/AddPermissionCommand.ts";
 import {
   CreateAliasCommand,
   CreateAliasCommandInput,
-  CreateAliasCommandOutput
+  CreateAliasCommandOutput,
 } from "./commands/CreateAliasCommand.ts";
 import {
   CreateEventSourceMappingCommand,
   CreateEventSourceMappingCommandInput,
-  CreateEventSourceMappingCommandOutput
+  CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand.ts";
 import {
   CreateFunctionCommand,
   CreateFunctionCommandInput,
-  CreateFunctionCommandOutput
+  CreateFunctionCommandOutput,
 } from "./commands/CreateFunctionCommand.ts";
 import {
   DeleteAliasCommand,
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
+  DeleteAliasCommandOutput,
 } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteEventSourceMappingCommand,
   DeleteEventSourceMappingCommandInput,
-  DeleteEventSourceMappingCommandOutput
+  DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand.ts";
 import {
   DeleteFunctionCommand,
   DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput
+  DeleteFunctionCommandOutput,
 } from "./commands/DeleteFunctionCommand.ts";
 import {
   DeleteFunctionConcurrencyCommand,
   DeleteFunctionConcurrencyCommandInput,
-  DeleteFunctionConcurrencyCommandOutput
+  DeleteFunctionConcurrencyCommandOutput,
 } from "./commands/DeleteFunctionConcurrencyCommand.ts";
 import {
   DeleteFunctionEventInvokeConfigCommand,
   DeleteFunctionEventInvokeConfigCommandInput,
-  DeleteFunctionEventInvokeConfigCommandOutput
+  DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand.ts";
 import {
   DeleteLayerVersionCommand,
   DeleteLayerVersionCommandInput,
-  DeleteLayerVersionCommandOutput
+  DeleteLayerVersionCommandOutput,
 } from "./commands/DeleteLayerVersionCommand.ts";
 import {
   DeleteProvisionedConcurrencyConfigCommand,
   DeleteProvisionedConcurrencyConfigCommandInput,
-  DeleteProvisionedConcurrencyConfigCommandOutput
+  DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand.ts";
 import {
   GetAccountSettingsCommand,
   GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
+  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand.ts";
-import {
-  GetAliasCommand,
-  GetAliasCommandInput,
-  GetAliasCommandOutput
-} from "./commands/GetAliasCommand.ts";
+import { GetAliasCommand, GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand.ts";
 import {
   GetEventSourceMappingCommand,
   GetEventSourceMappingCommandInput,
-  GetEventSourceMappingCommandOutput
+  GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand.ts";
 import {
   GetFunctionCommand,
   GetFunctionCommandInput,
-  GetFunctionCommandOutput
+  GetFunctionCommandOutput,
 } from "./commands/GetFunctionCommand.ts";
 import {
   GetFunctionConcurrencyCommand,
   GetFunctionConcurrencyCommandInput,
-  GetFunctionConcurrencyCommandOutput
+  GetFunctionConcurrencyCommandOutput,
 } from "./commands/GetFunctionConcurrencyCommand.ts";
 import {
   GetFunctionConfigurationCommand,
   GetFunctionConfigurationCommandInput,
-  GetFunctionConfigurationCommandOutput
+  GetFunctionConfigurationCommandOutput,
 } from "./commands/GetFunctionConfigurationCommand.ts";
 import {
   GetFunctionEventInvokeConfigCommand,
   GetFunctionEventInvokeConfigCommandInput,
-  GetFunctionEventInvokeConfigCommandOutput
+  GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand.ts";
 import {
   GetLayerVersionByArnCommand,
   GetLayerVersionByArnCommandInput,
-  GetLayerVersionByArnCommandOutput
+  GetLayerVersionByArnCommandOutput,
 } from "./commands/GetLayerVersionByArnCommand.ts";
 import {
   GetLayerVersionCommand,
   GetLayerVersionCommandInput,
-  GetLayerVersionCommandOutput
+  GetLayerVersionCommandOutput,
 } from "./commands/GetLayerVersionCommand.ts";
 import {
   GetLayerVersionPolicyCommand,
   GetLayerVersionPolicyCommandInput,
-  GetLayerVersionPolicyCommandOutput
+  GetLayerVersionPolicyCommandOutput,
 } from "./commands/GetLayerVersionPolicyCommand.ts";
-import {
-  GetPolicyCommand,
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
 import {
   GetProvisionedConcurrencyConfigCommand,
   GetProvisionedConcurrencyConfigCommandInput,
-  GetProvisionedConcurrencyConfigCommandOutput
+  GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand.ts";
 import {
   InvokeAsyncCommand,
   InvokeAsyncCommandInput,
-  InvokeAsyncCommandOutput
+  InvokeAsyncCommandOutput,
 } from "./commands/InvokeAsyncCommand.ts";
-import {
-  InvokeCommand,
-  InvokeCommandInput,
-  InvokeCommandOutput
-} from "./commands/InvokeCommand.ts";
+import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand.ts";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
-  ListAliasesCommandOutput
+  ListAliasesCommandOutput,
 } from "./commands/ListAliasesCommand.ts";
 import {
   ListEventSourceMappingsCommand,
   ListEventSourceMappingsCommandInput,
-  ListEventSourceMappingsCommandOutput
+  ListEventSourceMappingsCommandOutput,
 } from "./commands/ListEventSourceMappingsCommand.ts";
 import {
   ListFunctionEventInvokeConfigsCommand,
   ListFunctionEventInvokeConfigsCommandInput,
-  ListFunctionEventInvokeConfigsCommandOutput
+  ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand.ts";
 import {
   ListFunctionsCommand,
   ListFunctionsCommandInput,
-  ListFunctionsCommandOutput
+  ListFunctionsCommandOutput,
 } from "./commands/ListFunctionsCommand.ts";
 import {
   ListLayerVersionsCommand,
   ListLayerVersionsCommandInput,
-  ListLayerVersionsCommandOutput
+  ListLayerVersionsCommandOutput,
 } from "./commands/ListLayerVersionsCommand.ts";
-import {
-  ListLayersCommand,
-  ListLayersCommandInput,
-  ListLayersCommandOutput
-} from "./commands/ListLayersCommand.ts";
+import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand.ts";
 import {
   ListProvisionedConcurrencyConfigsCommand,
   ListProvisionedConcurrencyConfigsCommandInput,
-  ListProvisionedConcurrencyConfigsCommandOutput
+  ListProvisionedConcurrencyConfigsCommandOutput,
 } from "./commands/ListProvisionedConcurrencyConfigsCommand.ts";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   ListVersionsByFunctionCommand,
   ListVersionsByFunctionCommandInput,
-  ListVersionsByFunctionCommandOutput
+  ListVersionsByFunctionCommandOutput,
 } from "./commands/ListVersionsByFunctionCommand.ts";
 import {
   PublishLayerVersionCommand,
   PublishLayerVersionCommandInput,
-  PublishLayerVersionCommandOutput
+  PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand.ts";
 import {
   PublishVersionCommand,
   PublishVersionCommandInput,
-  PublishVersionCommandOutput
+  PublishVersionCommandOutput,
 } from "./commands/PublishVersionCommand.ts";
 import {
   PutFunctionConcurrencyCommand,
   PutFunctionConcurrencyCommandInput,
-  PutFunctionConcurrencyCommandOutput
+  PutFunctionConcurrencyCommandOutput,
 } from "./commands/PutFunctionConcurrencyCommand.ts";
 import {
   PutFunctionEventInvokeConfigCommand,
   PutFunctionEventInvokeConfigCommandInput,
-  PutFunctionEventInvokeConfigCommandOutput
+  PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand.ts";
 import {
   PutProvisionedConcurrencyConfigCommand,
   PutProvisionedConcurrencyConfigCommandInput,
-  PutProvisionedConcurrencyConfigCommandOutput
+  PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand.ts";
 import {
   RemoveLayerVersionPermissionCommand,
   RemoveLayerVersionPermissionCommandInput,
-  RemoveLayerVersionPermissionCommandOutput
+  RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand.ts";
 import {
   RemovePermissionCommand,
   RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
+  RemovePermissionCommandOutput,
 } from "./commands/RemovePermissionCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAliasCommand,
   UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
+  UpdateAliasCommandOutput,
 } from "./commands/UpdateAliasCommand.ts";
 import {
   UpdateEventSourceMappingCommand,
   UpdateEventSourceMappingCommandInput,
-  UpdateEventSourceMappingCommandOutput
+  UpdateEventSourceMappingCommandOutput,
 } from "./commands/UpdateEventSourceMappingCommand.ts";
 import {
   UpdateFunctionCodeCommand,
   UpdateFunctionCodeCommandInput,
-  UpdateFunctionCodeCommandOutput
+  UpdateFunctionCodeCommandOutput,
 } from "./commands/UpdateFunctionCodeCommand.ts";
 import {
   UpdateFunctionConfigurationCommand,
   UpdateFunctionConfigurationCommandInput,
-  UpdateFunctionConfigurationCommandOutput
+  UpdateFunctionConfigurationCommandOutput,
 } from "./commands/UpdateFunctionConfigurationCommand.ts";
 import {
   UpdateFunctionEventInvokeConfigCommand,
   UpdateFunctionEventInvokeConfigCommandInput,
-  UpdateFunctionEventInvokeConfigCommandOutput
+  UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -279,17 +259,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public addLayerVersionPermission(
     args: AddLayerVersionPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddLayerVersionPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddLayerVersionPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddLayerVersionPermissionCommandOutput) => void
   ): Promise<AddLayerVersionPermissionCommandOutput> | void {
     const command = new AddLayerVersionPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -303,10 +280,9 @@ export class Lambda extends LambdaClient {
    *
    *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS
    *       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or
-   *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN or owning account of the
-   *       associated resource as the <code>SourceArn</code> or <code>SourceAccount</code>. If you grant permission to a
-   *       service principal without specifying the source, other accounts could potentially configure resources in their
-   *       account to invoke your Lambda function.</p>
+   *         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the
+   *         <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other
+   *       accounts could potentially configure resources in their account to invoke your Lambda function.</p>
    *
    *          <p>This action adds a statement to a resource-based permissions policy for the function. For more information
    *       about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
@@ -326,17 +302,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -351,14 +324,8 @@ export class Lambda extends LambdaClient {
    *         <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that
    *       it receives.</p>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -366,17 +333,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -446,17 +410,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public createEventSourceMapping(
     args: CreateEventSourceMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventSourceMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSourceMappingCommandOutput) => void),
     cb?: (err: any, data?: CreateEventSourceMappingCommandOutput) => void
   ): Promise<CreateEventSourceMappingCommandOutput> | void {
     const command = new CreateEventSourceMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -509,17 +470,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public createFunction(
     args: CreateFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionCommandOutput) => void
   ): Promise<CreateFunctionCommandOutput> | void {
     const command = new CreateFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -529,14 +487,8 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
    */
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAliasCommandOutput>;
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    cb: (err: any, data?: DeleteAliasCommandOutput) => void
-  ): void;
+  public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
+  public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -544,17 +496,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -582,17 +531,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteEventSourceMapping(
     args: DeleteEventSourceMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventSourceMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSourceMappingCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventSourceMappingCommandOutput) => void
   ): Promise<DeleteEventSourceMappingCommandOutput> | void {
     const command = new DeleteEventSourceMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -622,17 +568,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteFunction(
     args: DeleteFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): Promise<DeleteFunctionCommandOutput> | void {
     const command = new DeleteFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -657,17 +600,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteFunctionConcurrency(
     args: DeleteFunctionConcurrencyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFunctionConcurrencyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionConcurrencyCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionConcurrencyCommandOutput) => void
   ): Promise<DeleteFunctionConcurrencyCommandOutput> | void {
     const command = new DeleteFunctionConcurrencyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -693,20 +633,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteFunctionEventInvokeConfig(
     args: DeleteFunctionEventInvokeConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFunctionEventInvokeConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> | void {
     const command = new DeleteFunctionEventInvokeConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -733,17 +667,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteLayerVersion(
     args: DeleteLayerVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLayerVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLayerVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteLayerVersionCommandOutput) => void
   ): Promise<DeleteLayerVersionCommandOutput> | void {
     const command = new DeleteLayerVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,38 +690,23 @@ export class Lambda extends LambdaClient {
   ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput>;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteProvisionedConcurrencyConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new DeleteProvisionedConcurrencyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -815,17 +731,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): Promise<GetAccountSettingsCommandOutput> | void {
     const command = new GetAccountSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -835,14 +748,8 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
    */
-  public getAlias(
-    args: GetAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAliasCommandOutput>;
-  public getAlias(
-    args: GetAliasCommandInput,
-    cb: (err: any, data?: GetAliasCommandOutput) => void
-  ): void;
+  public getAlias(args: GetAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetAliasCommandOutput>;
+  public getAlias(args: GetAliasCommandInput, cb: (err: any, data?: GetAliasCommandOutput) => void): void;
   public getAlias(
     args: GetAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -850,17 +757,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getAlias(
     args: GetAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAliasCommandOutput) => void),
     cb?: (err: any, data?: GetAliasCommandOutput) => void
   ): Promise<GetAliasCommandOutput> | void {
     const command = new GetAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -886,17 +790,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getEventSourceMapping(
     args: GetEventSourceMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEventSourceMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventSourceMappingCommandOutput) => void),
     cb?: (err: any, data?: GetEventSourceMappingCommandOutput) => void
   ): Promise<GetEventSourceMappingCommandOutput> | void {
     const command = new GetEventSourceMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -908,14 +809,8 @@ export class Lambda extends LambdaClient {
    *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
    *       returned.</p>
    */
-  public getFunction(
-    args: GetFunctionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFunctionCommandOutput>;
-  public getFunction(
-    args: GetFunctionCommandInput,
-    cb: (err: any, data?: GetFunctionCommandOutput) => void
-  ): void;
+  public getFunction(args: GetFunctionCommandInput, options?: __HttpHandlerOptions): Promise<GetFunctionCommandOutput>;
+  public getFunction(args: GetFunctionCommandInput, cb: (err: any, data?: GetFunctionCommandOutput) => void): void;
   public getFunction(
     args: GetFunctionCommandInput,
     options: __HttpHandlerOptions,
@@ -923,17 +818,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getFunction(
     args: GetFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionCommandOutput) => void
   ): Promise<GetFunctionCommandOutput> | void {
     const command = new GetFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -941,8 +833,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns details about the concurrency configuration for a function. To set a concurrency limit for a function,
-   *       use <a>PutFunctionConcurrency</a>.</p>
+   * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
+   *       function, use <a>PutFunctionConcurrency</a>.</p>
    */
   public getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
@@ -959,17 +851,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionConcurrencyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionConcurrencyCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionConcurrencyCommandOutput) => void
   ): Promise<GetFunctionConcurrencyCommandOutput> | void {
     const command = new GetFunctionConcurrencyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -996,17 +885,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getFunctionConfiguration(
     args: GetFunctionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionConfigurationCommandOutput) => void
   ): Promise<GetFunctionConfigurationCommandOutput> | void {
     const command = new GetFunctionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1032,17 +918,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getFunctionEventInvokeConfig(
     args: GetFunctionEventInvokeConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionEventInvokeConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<GetFunctionEventInvokeConfigCommandOutput> | void {
     const command = new GetFunctionEventInvokeConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1069,17 +952,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getLayerVersion(
     args: GetLayerVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLayerVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLayerVersionCommandOutput) => void),
     cb?: (err: any, data?: GetLayerVersionCommandOutput) => void
   ): Promise<GetLayerVersionCommandOutput> | void {
     const command = new GetLayerVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,17 +986,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getLayerVersionByArn(
     args: GetLayerVersionByArnCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLayerVersionByArnCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLayerVersionByArnCommandOutput) => void),
     cb?: (err: any, data?: GetLayerVersionByArnCommandOutput) => void
   ): Promise<GetLayerVersionByArnCommandOutput> | void {
     const command = new GetLayerVersionByArnCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1142,17 +1019,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getLayerVersionPolicy(
     args: GetLayerVersionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLayerVersionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLayerVersionPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetLayerVersionPolicyCommandOutput) => void
   ): Promise<GetLayerVersionPolicyCommandOutput> | void {
     const command = new GetLayerVersionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1162,14 +1036,8 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Returns the <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based IAM policy</a> for a function, version, or alias.</p>
    */
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPolicyCommandOutput>;
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    cb: (err: any, data?: GetPolicyCommandOutput) => void
-  ): void;
+  public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
   public getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1177,17 +1045,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1212,20 +1077,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public getProvisionedConcurrencyConfig(
     args: GetProvisionedConcurrencyConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetProvisionedConcurrencyConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void),
     cb?: (err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<GetProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new GetProvisionedConcurrencyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1259,16 +1118,10 @@ export class Lambda extends LambdaClient {
    *       waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long
    *       connections with timeout or keep-alive settings.</p>
    *
-   *          <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>
+   *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
    */
-  public invoke(
-    args: InvokeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InvokeCommandOutput>;
-  public invoke(
-    args: InvokeCommandInput,
-    cb: (err: any, data?: InvokeCommandOutput) => void
-  ): void;
+  public invoke(args: InvokeCommandInput, options?: __HttpHandlerOptions): Promise<InvokeCommandOutput>;
+  public invoke(args: InvokeCommandInput, cb: (err: any, data?: InvokeCommandOutput) => void): void;
   public invoke(
     args: InvokeCommandInput,
     options: __HttpHandlerOptions,
@@ -1276,17 +1129,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public invoke(
     args: InvokeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeCommandOutput) => void),
     cb?: (err: any, data?: InvokeCommandOutput) => void
   ): Promise<InvokeCommandOutput> | void {
     const command = new InvokeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1299,14 +1149,8 @@ export class Lambda extends LambdaClient {
    *          </important>
    *          <p>Invokes a function asynchronously.</p>
    */
-  public invokeAsync(
-    args: InvokeAsyncCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InvokeAsyncCommandOutput>;
-  public invokeAsync(
-    args: InvokeAsyncCommandInput,
-    cb: (err: any, data?: InvokeAsyncCommandOutput) => void
-  ): void;
+  public invokeAsync(args: InvokeAsyncCommandInput, options?: __HttpHandlerOptions): Promise<InvokeAsyncCommandOutput>;
+  public invokeAsync(args: InvokeAsyncCommandInput, cb: (err: any, data?: InvokeAsyncCommandOutput) => void): void;
   public invokeAsync(
     args: InvokeAsyncCommandInput,
     options: __HttpHandlerOptions,
@@ -1314,17 +1158,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public invokeAsync(
     args: InvokeAsyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeAsyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeAsyncCommandOutput) => void),
     cb?: (err: any, data?: InvokeAsyncCommandOutput) => void
   ): Promise<InvokeAsyncCommandOutput> | void {
     const command = new InvokeAsyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1335,14 +1176,8 @@ export class Lambda extends LambdaClient {
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
    *       for a Lambda function.</p>
    */
-  public listAliases(
-    args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAliasesCommandOutput>;
-  public listAliases(
-    args: ListAliasesCommandInput,
-    cb: (err: any, data?: ListAliasesCommandOutput) => void
-  ): void;
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   public listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -1350,17 +1185,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1386,17 +1218,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listEventSourceMappings(
     args: ListEventSourceMappingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventSourceMappingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventSourceMappingsCommandOutput) => void),
     cb?: (err: any, data?: ListEventSourceMappingsCommandOutput) => void
   ): Promise<ListEventSourceMappingsCommandOutput> | void {
     const command = new ListEventSourceMappingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1422,20 +1251,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listFunctionEventInvokeConfigs(
     args: ListFunctionEventInvokeConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFunctionEventInvokeConfigsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionEventInvokeConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionEventInvokeConfigsCommandOutput) => void
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput> | void {
     const command = new ListFunctionEventInvokeConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1443,7 +1266,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
-   * <p>Returns a list of Lambda functions, with the version-specific configuration of each.</p>
+   * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
+   *       functions per call.</p>
    *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
    *       addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
    */
@@ -1462,17 +1286,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listFunctions(
     args: ListFunctionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFunctionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionsCommandOutput) => void
   ): Promise<ListFunctionsCommandOutput> | void {
     const command = new ListFunctionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1484,14 +1305,8 @@ export class Lambda extends LambdaClient {
    *         layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers
    *       that indicate that they're compatible with that runtime.</p>
    */
-  public listLayers(
-    args: ListLayersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLayersCommandOutput>;
-  public listLayers(
-    args: ListLayersCommandInput,
-    cb: (err: any, data?: ListLayersCommandOutput) => void
-  ): void;
+  public listLayers(args: ListLayersCommandInput, options?: __HttpHandlerOptions): Promise<ListLayersCommandOutput>;
+  public listLayers(args: ListLayersCommandInput, cb: (err: any, data?: ListLayersCommandOutput) => void): void;
   public listLayers(
     args: ListLayersCommandInput,
     options: __HttpHandlerOptions,
@@ -1499,17 +1314,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listLayers(
     args: ListLayersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLayersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLayersCommandOutput) => void),
     cb?: (err: any, data?: ListLayersCommandOutput) => void
   ): Promise<ListLayersCommandOutput> | void {
     const command = new ListLayersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1536,17 +1348,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listLayerVersions(
     args: ListLayerVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLayerVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLayerVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListLayerVersionsCommandOutput) => void
   ): Promise<ListLayerVersionsCommandOutput> | void {
     const command = new ListLayerVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1562,38 +1371,23 @@ export class Lambda extends LambdaClient {
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput>;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
-    cb: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): void;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): void;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisionedConcurrencyConfigsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> | void {
     const command = new ListProvisionedConcurrencyConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1604,14 +1398,8 @@ export class Lambda extends LambdaClient {
    * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
    *       also view tags with <a>GetFunction</a>.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1619,17 +1407,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1638,7 +1423,7 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
-   *       with the version-specific configuration of each. </p>
+   *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
    */
   public listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
@@ -1655,17 +1440,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVersionsByFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVersionsByFunctionCommandOutput) => void),
     cb?: (err: any, data?: ListVersionsByFunctionCommandOutput) => void
   ): Promise<ListVersionsByFunctionCommandOutput> | void {
     const command = new ListVersionsByFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1693,17 +1475,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public publishLayerVersion(
     args: PublishLayerVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishLayerVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishLayerVersionCommandOutput) => void),
     cb?: (err: any, data?: PublishLayerVersionCommandOutput) => void
   ): Promise<PublishLayerVersionCommandOutput> | void {
     const command = new PublishLayerVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1736,17 +1515,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public publishVersion(
     args: PublishVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishVersionCommandOutput) => void),
     cb?: (err: any, data?: PublishVersionCommandOutput) => void
   ): Promise<PublishVersionCommandOutput> | void {
     const command = new PublishVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1779,17 +1555,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public putFunctionConcurrency(
     args: PutFunctionConcurrencyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutFunctionConcurrencyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFunctionConcurrencyCommandOutput) => void),
     cb?: (err: any, data?: PutFunctionConcurrencyCommandOutput) => void
   ): Promise<PutFunctionConcurrencyCommandOutput> | void {
     const command = new PutFunctionConcurrencyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1798,11 +1571,16 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
-   *         invocation</a> on a function, version, or alias.</p>
+   *         invocation</a> on a function, version, or alias. If a configuration already exists for a function, version,
+   *       or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without
+   *       affecting existing settings for other options, use <a>UpdateFunctionEventInvokeConfig</a>.</p>
    *          <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains
    *       events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous
    *       invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with
    *         <a>UpdateFunctionConfiguration</a>.</p>
+   *          <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
+   *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
+   *       dead-letter queue.</p>
    */
   public putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,
@@ -1819,17 +1597,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutFunctionEventInvokeConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: PutFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<PutFunctionEventInvokeConfigCommandOutput> | void {
     const command = new PutFunctionEventInvokeConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1854,20 +1629,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public putProvisionedConcurrencyConfig(
     args: PutProvisionedConcurrencyConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutProvisionedConcurrencyConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void),
     cb?: (err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new PutProvisionedConcurrencyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1894,17 +1663,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public removeLayerVersionPermission(
     args: RemoveLayerVersionPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveLayerVersionPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveLayerVersionPermissionCommandOutput) => void),
     cb?: (err: any, data?: RemoveLayerVersionPermissionCommandOutput) => void
   ): Promise<RemoveLayerVersionPermissionCommandOutput> | void {
     const command = new RemoveLayerVersionPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1930,17 +1696,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1950,14 +1713,8 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Adds <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to a function.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1965,17 +1722,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2000,17 +1754,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2020,14 +1771,8 @@ export class Lambda extends LambdaClient {
   /**
    * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
    */
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAliasCommandOutput>;
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    cb: (err: any, data?: UpdateAliasCommandOutput) => void
-  ): void;
+  public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
+  public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2035,17 +1780,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2094,17 +1836,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateEventSourceMapping(
     args: UpdateEventSourceMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEventSourceMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventSourceMappingCommandOutput) => void),
     cb?: (err: any, data?: UpdateEventSourceMappingCommandOutput) => void
   ): Promise<UpdateEventSourceMappingCommandOutput> | void {
     const command = new UpdateEventSourceMappingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2132,17 +1871,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateFunctionCode(
     args: UpdateFunctionCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFunctionCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionCodeCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionCodeCommandOutput) => void
   ): Promise<UpdateFunctionCodeCommandOutput> | void {
     const command = new UpdateFunctionCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2181,17 +1917,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFunctionConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionConfigurationCommandOutput) => void
   ): Promise<UpdateFunctionConfigurationCommandOutput> | void {
     const command = new UpdateFunctionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2217,20 +1950,14 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateFunctionEventInvokeConfig(
     args: UpdateFunctionEventInvokeConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFunctionEventInvokeConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> | void {
     const command = new UpdateFunctionEventInvokeConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

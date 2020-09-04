@@ -1,119 +1,78 @@
-import {
-  DeleteAlarmsCommandInput,
-  DeleteAlarmsCommandOutput
-} from "./commands/DeleteAlarmsCommand.ts";
+import { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand.ts";
 import {
   DeleteAnomalyDetectorCommandInput,
-  DeleteAnomalyDetectorCommandOutput
+  DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand.ts";
-import {
-  DeleteDashboardsCommandInput,
-  DeleteDashboardsCommandOutput
-} from "./commands/DeleteDashboardsCommand.ts";
+import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand.ts";
 import {
   DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput
+  DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand.ts";
 import {
   DescribeAlarmHistoryCommandInput,
-  DescribeAlarmHistoryCommandOutput
+  DescribeAlarmHistoryCommandOutput,
 } from "./commands/DescribeAlarmHistoryCommand.ts";
-import {
-  DescribeAlarmsCommandInput,
-  DescribeAlarmsCommandOutput
-} from "./commands/DescribeAlarmsCommand.ts";
+import { DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput } from "./commands/DescribeAlarmsCommand.ts";
 import {
   DescribeAlarmsForMetricCommandInput,
-  DescribeAlarmsForMetricCommandOutput
+  DescribeAlarmsForMetricCommandOutput,
 } from "./commands/DescribeAlarmsForMetricCommand.ts";
 import {
   DescribeAnomalyDetectorsCommandInput,
-  DescribeAnomalyDetectorsCommandOutput
+  DescribeAnomalyDetectorsCommandOutput,
 } from "./commands/DescribeAnomalyDetectorsCommand.ts";
 import {
   DescribeInsightRulesCommandInput,
-  DescribeInsightRulesCommandOutput
+  DescribeInsightRulesCommandOutput,
 } from "./commands/DescribeInsightRulesCommand.ts";
 import {
   DisableAlarmActionsCommandInput,
-  DisableAlarmActionsCommandOutput
+  DisableAlarmActionsCommandOutput,
 } from "./commands/DisableAlarmActionsCommand.ts";
 import {
   DisableInsightRulesCommandInput,
-  DisableInsightRulesCommandOutput
+  DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand.ts";
 import {
   EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput
+  EnableAlarmActionsCommandOutput,
 } from "./commands/EnableAlarmActionsCommand.ts";
 import {
   EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput
+  EnableInsightRulesCommandOutput,
 } from "./commands/EnableInsightRulesCommand.ts";
-import {
-  GetDashboardCommandInput,
-  GetDashboardCommandOutput
-} from "./commands/GetDashboardCommand.ts";
+import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand.ts";
 import {
   GetInsightRuleReportCommandInput,
-  GetInsightRuleReportCommandOutput
+  GetInsightRuleReportCommandOutput,
 } from "./commands/GetInsightRuleReportCommand.ts";
-import {
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
-} from "./commands/GetMetricDataCommand.ts";
+import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand.ts";
 import {
   GetMetricStatisticsCommandInput,
-  GetMetricStatisticsCommandOutput
+  GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand.ts";
 import {
   GetMetricWidgetImageCommandInput,
-  GetMetricWidgetImageCommandOutput
+  GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand.ts";
-import {
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
-} from "./commands/ListDashboardsCommand.ts";
-import {
-  ListMetricsCommandInput,
-  ListMetricsCommandOutput
-} from "./commands/ListMetricsCommand.ts";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand.ts";
+import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput
+  PutAnomalyDetectorCommandOutput,
 } from "./commands/PutAnomalyDetectorCommand.ts";
-import {
-  PutDashboardCommandInput,
-  PutDashboardCommandOutput
-} from "./commands/PutDashboardCommand.ts";
-import {
-  PutInsightRuleCommandInput,
-  PutInsightRuleCommandOutput
-} from "./commands/PutInsightRuleCommand.ts";
-import {
-  PutMetricAlarmCommandInput,
-  PutMetricAlarmCommandOutput
-} from "./commands/PutMetricAlarmCommand.ts";
-import {
-  PutMetricDataCommandInput,
-  PutMetricDataCommandOutput
-} from "./commands/PutMetricDataCommand.ts";
-import {
-  SetAlarmStateCommandInput,
-  SetAlarmStateCommandOutput
-} from "./commands/SetAlarmStateCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand.ts";
+import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand.ts";
+import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand.ts";
+import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand.ts";
+import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand.ts";
+import { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -121,38 +80,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -161,9 +116,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -189,6 +145,7 @@ export type ServiceInputTypes =
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
   | PutAnomalyDetectorCommandInput
+  | PutCompositeAlarmCommandInput
   | PutDashboardCommandInput
   | PutInsightRuleCommandInput
   | PutMetricAlarmCommandInput
@@ -220,6 +177,7 @@ export type ServiceOutputTypes =
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAnomalyDetectorCommandOutput
+  | PutCompositeAlarmCommandOutput
   | PutDashboardCommandOutput
   | PutInsightRuleCommandOutput
   | PutMetricAlarmCommandOutput
@@ -228,8 +186,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -303,14 +260,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -318,9 +280,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +289,7 @@ export type CloudWatchClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -346,12 +304,12 @@ export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<
  * 			metrics, which are the variables you want to measure for your resources and
  * 			applications.</p>
  *
- * 		       <p>CloudWatch alarms send notifications or automatically change the resources
- * 			you are monitoring based on rules that you define. For example, you can monitor the CPU
- * 			usage and disk reads and writes of your Amazon EC2
- * 			instances. Then, use this data to determine whether you should launch additional
- * 			instances to handle increased load. You can also use this data to stop under-used
- * 			instances to save money.</p>
+ * 		       <p>CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules
+ * 			that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2
+ * 			instances. Then, use this data to determine whether you should launch
+ * 			additional instances to handle increased load. You can also use this data to stop
+ * 			under-used instances to save
+ * 			money.</p>
  *
  * 		       <p>In addition to monitoring the built-in metrics that come with AWS, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
@@ -368,7 +326,7 @@ export class CloudWatchClient extends __Client<
   constructor(configuration: CloudWatchClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -383,6 +341,7 @@ export class CloudWatchClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

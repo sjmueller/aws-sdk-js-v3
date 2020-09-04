@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient.ts";
-import {
-  UpdateCoreDefinitionRequest,
-  UpdateCoreDefinitionResponse
-} from "../models/index.ts";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
+import { UpdateCoreDefinitionRequest, UpdateCoreDefinitionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateCoreDefinitionCommand,
-  serializeAws_restJson1UpdateCoreDefinitionCommand
+  serializeAws_restJson1UpdateCoreDefinitionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateCoreDefinitionCommandInput = UpdateCoreDefinitionRequest;
-export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse &
-  __MetadataBearer;
+export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse & __MetadataBearer;
 
 export class UpdateCoreDefinitionCommand extends $Command<
   UpdateCoreDefinitionCommandInput,
@@ -49,18 +38,16 @@ export class UpdateCoreDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCoreDefinitionCommandInput,
-    UpdateCoreDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCoreDefinitionCommandInput, UpdateCoreDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateCoreDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateCoreDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateCoreDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateCoreDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateCoreDefinitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreDefinitionCommandOutput> {
     return deserializeAws_restJson1UpdateCoreDefinitionCommand(output, context);
   }
 

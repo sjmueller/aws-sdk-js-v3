@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  UpdateVTLDeviceTypeInput,
-  UpdateVTLDeviceTypeOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateVTLDeviceTypeCommand,
-  serializeAws_json1_1UpdateVTLDeviceTypeCommand
+  serializeAws_json1_1UpdateVTLDeviceTypeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateVTLDeviceTypeCommandInput = UpdateVTLDeviceTypeInput;
-export type UpdateVTLDeviceTypeCommandOutput = UpdateVTLDeviceTypeOutput &
-  __MetadataBearer;
+export type UpdateVTLDeviceTypeCommandOutput = UpdateVTLDeviceTypeOutput & __MetadataBearer;
 
 export class UpdateVTLDeviceTypeCommand extends $Command<
   UpdateVTLDeviceTypeCommandInput,
@@ -49,18 +38,16 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVTLDeviceTypeCommandInput,
-    UpdateVTLDeviceTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVTLDeviceTypeCommandInput, UpdateVTLDeviceTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateVTLDeviceTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVTLDeviceTypeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVTLDeviceTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVTLDeviceTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVTLDeviceTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVTLDeviceTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVTLDeviceTypeCommandOutput> {
     return deserializeAws_json1_1UpdateVTLDeviceTypeCommand(output, context);
   }
 

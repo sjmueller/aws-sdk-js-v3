@@ -1,21 +1,15 @@
 import {
   ElasticTranscoderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import {
-  UpdatePipelineStatusRequest,
-  UpdatePipelineStatusResponse
-} from "../models/index.ts";
+import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdatePipelineStatusCommand,
-  serializeAws_restJson1UpdatePipelineStatusCommand
+  serializeAws_restJson1UpdatePipelineStatusCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdatePipelineStatusCommandInput = UpdatePipelineStatusRequest;
-export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse &
-  __MetadataBearer;
+export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse & __MetadataBearer;
 
 export class UpdatePipelineStatusCommand extends $Command<
   UpdatePipelineStatusCommandInput,
@@ -49,18 +42,16 @@ export class UpdatePipelineStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePipelineStatusCommandInput,
-    UpdatePipelineStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePipelineStatusCommandInput, UpdatePipelineStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdatePipelineStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePipelineStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class UpdatePipelineStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdatePipelineStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdatePipelineStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdatePipelineStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePipelineStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineStatusCommandOutput> {
     return deserializeAws_restJson1UpdatePipelineStatusCommand(output, context);
   }
 

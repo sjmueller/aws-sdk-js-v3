@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
-import {
-  GetOperationDetailRequest,
-  GetOperationDetailResponse
-} from "../models/index.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
+import { GetOperationDetailRequest, GetOperationDetailResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetOperationDetailCommand,
-  serializeAws_json1_1GetOperationDetailCommand
+  serializeAws_json1_1GetOperationDetailCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetOperationDetailCommandInput = GetOperationDetailRequest;
-export type GetOperationDetailCommandOutput = GetOperationDetailResponse &
-  __MetadataBearer;
+export type GetOperationDetailCommandOutput = GetOperationDetailResponse & __MetadataBearer;
 
 export class GetOperationDetailCommand extends $Command<
   GetOperationDetailCommandInput,
@@ -50,14 +39,15 @@ export class GetOperationDetailCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOperationDetailCommandInput, GetOperationDetailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetOperationDetailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOperationDetailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetOperationDetailCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetOperationDetailCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetOperationDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationDetailCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetOperationDetailCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationDetailCommandOutput> {
     return deserializeAws_json1_1GetOperationDetailCommand(output, context);
   }
 

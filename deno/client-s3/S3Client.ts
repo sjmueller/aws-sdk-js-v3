@@ -1,339 +1,234 @@
 import {
   AbortMultipartUploadCommandInput,
-  AbortMultipartUploadCommandOutput
+  AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand.ts";
 import {
   CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput
+  CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand.ts";
-import {
-  CopyObjectCommandInput,
-  CopyObjectCommandOutput
-} from "./commands/CopyObjectCommand.ts";
-import {
-  CreateBucketCommandInput,
-  CreateBucketCommandOutput
-} from "./commands/CreateBucketCommand.ts";
+import { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand.ts";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand.ts";
 import {
   CreateMultipartUploadCommandInput,
-  CreateMultipartUploadCommandOutput
+  CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand.ts";
 import {
   DeleteBucketAnalyticsConfigurationCommandInput,
-  DeleteBucketAnalyticsConfigurationCommandOutput
+  DeleteBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/DeleteBucketAnalyticsConfigurationCommand.ts";
-import {
-  DeleteBucketCommandInput,
-  DeleteBucketCommandOutput
-} from "./commands/DeleteBucketCommand.ts";
-import {
-  DeleteBucketCorsCommandInput,
-  DeleteBucketCorsCommandOutput
-} from "./commands/DeleteBucketCorsCommand.ts";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand.ts";
+import { DeleteBucketCorsCommandInput, DeleteBucketCorsCommandOutput } from "./commands/DeleteBucketCorsCommand.ts";
 import {
   DeleteBucketEncryptionCommandInput,
-  DeleteBucketEncryptionCommandOutput
+  DeleteBucketEncryptionCommandOutput,
 } from "./commands/DeleteBucketEncryptionCommand.ts";
 import {
   DeleteBucketInventoryConfigurationCommandInput,
-  DeleteBucketInventoryConfigurationCommandOutput
+  DeleteBucketInventoryConfigurationCommandOutput,
 } from "./commands/DeleteBucketInventoryConfigurationCommand.ts";
 import {
   DeleteBucketLifecycleCommandInput,
-  DeleteBucketLifecycleCommandOutput
+  DeleteBucketLifecycleCommandOutput,
 } from "./commands/DeleteBucketLifecycleCommand.ts";
 import {
   DeleteBucketMetricsConfigurationCommandInput,
-  DeleteBucketMetricsConfigurationCommandOutput
+  DeleteBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetricsConfigurationCommand.ts";
 import {
   DeleteBucketPolicyCommandInput,
-  DeleteBucketPolicyCommandOutput
+  DeleteBucketPolicyCommandOutput,
 } from "./commands/DeleteBucketPolicyCommand.ts";
 import {
   DeleteBucketReplicationCommandInput,
-  DeleteBucketReplicationCommandOutput
+  DeleteBucketReplicationCommandOutput,
 } from "./commands/DeleteBucketReplicationCommand.ts";
 import {
   DeleteBucketTaggingCommandInput,
-  DeleteBucketTaggingCommandOutput
+  DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand.ts";
 import {
   DeleteBucketWebsiteCommandInput,
-  DeleteBucketWebsiteCommandOutput
+  DeleteBucketWebsiteCommandOutput,
 } from "./commands/DeleteBucketWebsiteCommand.ts";
-import {
-  DeleteObjectCommandInput,
-  DeleteObjectCommandOutput
-} from "./commands/DeleteObjectCommand.ts";
+import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand.ts";
 import {
   DeleteObjectTaggingCommandInput,
-  DeleteObjectTaggingCommandOutput
+  DeleteObjectTaggingCommandOutput,
 } from "./commands/DeleteObjectTaggingCommand.ts";
-import {
-  DeleteObjectsCommandInput,
-  DeleteObjectsCommandOutput
-} from "./commands/DeleteObjectsCommand.ts";
+import { DeleteObjectsCommandInput, DeleteObjectsCommandOutput } from "./commands/DeleteObjectsCommand.ts";
 import {
   DeletePublicAccessBlockCommandInput,
-  DeletePublicAccessBlockCommandOutput
+  DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand.ts";
 import {
   GetBucketAccelerateConfigurationCommandInput,
-  GetBucketAccelerateConfigurationCommandOutput
+  GetBucketAccelerateConfigurationCommandOutput,
 } from "./commands/GetBucketAccelerateConfigurationCommand.ts";
-import {
-  GetBucketAclCommandInput,
-  GetBucketAclCommandOutput
-} from "./commands/GetBucketAclCommand.ts";
+import { GetBucketAclCommandInput, GetBucketAclCommandOutput } from "./commands/GetBucketAclCommand.ts";
 import {
   GetBucketAnalyticsConfigurationCommandInput,
-  GetBucketAnalyticsConfigurationCommandOutput
+  GetBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/GetBucketAnalyticsConfigurationCommand.ts";
-import {
-  GetBucketCorsCommandInput,
-  GetBucketCorsCommandOutput
-} from "./commands/GetBucketCorsCommand.ts";
+import { GetBucketCorsCommandInput, GetBucketCorsCommandOutput } from "./commands/GetBucketCorsCommand.ts";
 import {
   GetBucketEncryptionCommandInput,
-  GetBucketEncryptionCommandOutput
+  GetBucketEncryptionCommandOutput,
 } from "./commands/GetBucketEncryptionCommand.ts";
 import {
   GetBucketInventoryConfigurationCommandInput,
-  GetBucketInventoryConfigurationCommandOutput
+  GetBucketInventoryConfigurationCommandOutput,
 } from "./commands/GetBucketInventoryConfigurationCommand.ts";
 import {
   GetBucketLifecycleConfigurationCommandInput,
-  GetBucketLifecycleConfigurationCommandOutput
+  GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand.ts";
-import {
-  GetBucketLocationCommandInput,
-  GetBucketLocationCommandOutput
-} from "./commands/GetBucketLocationCommand.ts";
-import {
-  GetBucketLoggingCommandInput,
-  GetBucketLoggingCommandOutput
-} from "./commands/GetBucketLoggingCommand.ts";
+import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "./commands/GetBucketLocationCommand.ts";
+import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "./commands/GetBucketLoggingCommand.ts";
 import {
   GetBucketMetricsConfigurationCommandInput,
-  GetBucketMetricsConfigurationCommandOutput
+  GetBucketMetricsConfigurationCommandOutput,
 } from "./commands/GetBucketMetricsConfigurationCommand.ts";
 import {
   GetBucketNotificationConfigurationCommandInput,
-  GetBucketNotificationConfigurationCommandOutput
+  GetBucketNotificationConfigurationCommandOutput,
 } from "./commands/GetBucketNotificationConfigurationCommand.ts";
-import {
-  GetBucketPolicyCommandInput,
-  GetBucketPolicyCommandOutput
-} from "./commands/GetBucketPolicyCommand.ts";
+import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand.ts";
 import {
   GetBucketPolicyStatusCommandInput,
-  GetBucketPolicyStatusCommandOutput
+  GetBucketPolicyStatusCommandOutput,
 } from "./commands/GetBucketPolicyStatusCommand.ts";
 import {
   GetBucketReplicationCommandInput,
-  GetBucketReplicationCommandOutput
+  GetBucketReplicationCommandOutput,
 } from "./commands/GetBucketReplicationCommand.ts";
 import {
   GetBucketRequestPaymentCommandInput,
-  GetBucketRequestPaymentCommandOutput
+  GetBucketRequestPaymentCommandOutput,
 } from "./commands/GetBucketRequestPaymentCommand.ts";
-import {
-  GetBucketTaggingCommandInput,
-  GetBucketTaggingCommandOutput
-} from "./commands/GetBucketTaggingCommand.ts";
+import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand.ts";
 import {
   GetBucketVersioningCommandInput,
-  GetBucketVersioningCommandOutput
+  GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand.ts";
-import {
-  GetBucketWebsiteCommandInput,
-  GetBucketWebsiteCommandOutput
-} from "./commands/GetBucketWebsiteCommand.ts";
-import {
-  GetObjectAclCommandInput,
-  GetObjectAclCommandOutput
-} from "./commands/GetObjectAclCommand.ts";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "./commands/GetObjectCommand.ts";
+import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand.ts";
+import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand.ts";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand.ts";
 import {
   GetObjectLegalHoldCommandInput,
-  GetObjectLegalHoldCommandOutput
+  GetObjectLegalHoldCommandOutput,
 } from "./commands/GetObjectLegalHoldCommand.ts";
 import {
   GetObjectLockConfigurationCommandInput,
-  GetObjectLockConfigurationCommandOutput
+  GetObjectLockConfigurationCommandOutput,
 } from "./commands/GetObjectLockConfigurationCommand.ts";
 import {
   GetObjectRetentionCommandInput,
-  GetObjectRetentionCommandOutput
+  GetObjectRetentionCommandOutput,
 } from "./commands/GetObjectRetentionCommand.ts";
-import {
-  GetObjectTaggingCommandInput,
-  GetObjectTaggingCommandOutput
-} from "./commands/GetObjectTaggingCommand.ts";
-import {
-  GetObjectTorrentCommandInput,
-  GetObjectTorrentCommandOutput
-} from "./commands/GetObjectTorrentCommand.ts";
+import { GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput } from "./commands/GetObjectTaggingCommand.ts";
+import { GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput } from "./commands/GetObjectTorrentCommand.ts";
 import {
   GetPublicAccessBlockCommandInput,
-  GetPublicAccessBlockCommandOutput
+  GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand.ts";
-import {
-  HeadBucketCommandInput,
-  HeadBucketCommandOutput
-} from "./commands/HeadBucketCommand.ts";
-import {
-  HeadObjectCommandInput,
-  HeadObjectCommandOutput
-} from "./commands/HeadObjectCommand.ts";
+import { HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand.ts";
+import { HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand.ts";
 import {
   ListBucketAnalyticsConfigurationsCommandInput,
-  ListBucketAnalyticsConfigurationsCommandOutput
+  ListBucketAnalyticsConfigurationsCommandOutput,
 } from "./commands/ListBucketAnalyticsConfigurationsCommand.ts";
 import {
   ListBucketInventoryConfigurationsCommandInput,
-  ListBucketInventoryConfigurationsCommandOutput
+  ListBucketInventoryConfigurationsCommandOutput,
 } from "./commands/ListBucketInventoryConfigurationsCommand.ts";
 import {
   ListBucketMetricsConfigurationsCommandInput,
-  ListBucketMetricsConfigurationsCommandOutput
+  ListBucketMetricsConfigurationsCommandOutput,
 } from "./commands/ListBucketMetricsConfigurationsCommand.ts";
-import {
-  ListBucketsCommandInput,
-  ListBucketsCommandOutput
-} from "./commands/ListBucketsCommand.ts";
+import { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand.ts";
 import {
   ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput
+  ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand.ts";
 import {
   ListObjectVersionsCommandInput,
-  ListObjectVersionsCommandOutput
+  ListObjectVersionsCommandOutput,
 } from "./commands/ListObjectVersionsCommand.ts";
-import {
-  ListObjectsCommandInput,
-  ListObjectsCommandOutput
-} from "./commands/ListObjectsCommand.ts";
-import {
-  ListObjectsV2CommandInput,
-  ListObjectsV2CommandOutput
-} from "./commands/ListObjectsV2Command.ts";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand.ts";
+import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand.ts";
+import { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command.ts";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand.ts";
 import {
   PutBucketAccelerateConfigurationCommandInput,
-  PutBucketAccelerateConfigurationCommandOutput
+  PutBucketAccelerateConfigurationCommandOutput,
 } from "./commands/PutBucketAccelerateConfigurationCommand.ts";
-import {
-  PutBucketAclCommandInput,
-  PutBucketAclCommandOutput
-} from "./commands/PutBucketAclCommand.ts";
+import { PutBucketAclCommandInput, PutBucketAclCommandOutput } from "./commands/PutBucketAclCommand.ts";
 import {
   PutBucketAnalyticsConfigurationCommandInput,
-  PutBucketAnalyticsConfigurationCommandOutput
+  PutBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/PutBucketAnalyticsConfigurationCommand.ts";
-import {
-  PutBucketCorsCommandInput,
-  PutBucketCorsCommandOutput
-} from "./commands/PutBucketCorsCommand.ts";
+import { PutBucketCorsCommandInput, PutBucketCorsCommandOutput } from "./commands/PutBucketCorsCommand.ts";
 import {
   PutBucketEncryptionCommandInput,
-  PutBucketEncryptionCommandOutput
+  PutBucketEncryptionCommandOutput,
 } from "./commands/PutBucketEncryptionCommand.ts";
 import {
   PutBucketInventoryConfigurationCommandInput,
-  PutBucketInventoryConfigurationCommandOutput
+  PutBucketInventoryConfigurationCommandOutput,
 } from "./commands/PutBucketInventoryConfigurationCommand.ts";
 import {
   PutBucketLifecycleConfigurationCommandInput,
-  PutBucketLifecycleConfigurationCommandOutput
+  PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand.ts";
-import {
-  PutBucketLoggingCommandInput,
-  PutBucketLoggingCommandOutput
-} from "./commands/PutBucketLoggingCommand.ts";
+import { PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput } from "./commands/PutBucketLoggingCommand.ts";
 import {
   PutBucketMetricsConfigurationCommandInput,
-  PutBucketMetricsConfigurationCommandOutput
+  PutBucketMetricsConfigurationCommandOutput,
 } from "./commands/PutBucketMetricsConfigurationCommand.ts";
 import {
   PutBucketNotificationConfigurationCommandInput,
-  PutBucketNotificationConfigurationCommandOutput
+  PutBucketNotificationConfigurationCommandOutput,
 } from "./commands/PutBucketNotificationConfigurationCommand.ts";
-import {
-  PutBucketPolicyCommandInput,
-  PutBucketPolicyCommandOutput
-} from "./commands/PutBucketPolicyCommand.ts";
+import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand.ts";
 import {
   PutBucketReplicationCommandInput,
-  PutBucketReplicationCommandOutput
+  PutBucketReplicationCommandOutput,
 } from "./commands/PutBucketReplicationCommand.ts";
 import {
   PutBucketRequestPaymentCommandInput,
-  PutBucketRequestPaymentCommandOutput
+  PutBucketRequestPaymentCommandOutput,
 } from "./commands/PutBucketRequestPaymentCommand.ts";
-import {
-  PutBucketTaggingCommandInput,
-  PutBucketTaggingCommandOutput
-} from "./commands/PutBucketTaggingCommand.ts";
+import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand.ts";
 import {
   PutBucketVersioningCommandInput,
-  PutBucketVersioningCommandOutput
+  PutBucketVersioningCommandOutput,
 } from "./commands/PutBucketVersioningCommand.ts";
-import {
-  PutBucketWebsiteCommandInput,
-  PutBucketWebsiteCommandOutput
-} from "./commands/PutBucketWebsiteCommand.ts";
-import {
-  PutObjectAclCommandInput,
-  PutObjectAclCommandOutput
-} from "./commands/PutObjectAclCommand.ts";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "./commands/PutObjectCommand.ts";
+import { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand.ts";
+import { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand.ts";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand.ts";
 import {
   PutObjectLegalHoldCommandInput,
-  PutObjectLegalHoldCommandOutput
+  PutObjectLegalHoldCommandOutput,
 } from "./commands/PutObjectLegalHoldCommand.ts";
 import {
   PutObjectLockConfigurationCommandInput,
-  PutObjectLockConfigurationCommandOutput
+  PutObjectLockConfigurationCommandOutput,
 } from "./commands/PutObjectLockConfigurationCommand.ts";
 import {
   PutObjectRetentionCommandInput,
-  PutObjectRetentionCommandOutput
+  PutObjectRetentionCommandOutput,
 } from "./commands/PutObjectRetentionCommand.ts";
-import {
-  PutObjectTaggingCommandInput,
-  PutObjectTaggingCommandOutput
-} from "./commands/PutObjectTaggingCommand.ts";
+import { PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput } from "./commands/PutObjectTaggingCommand.ts";
 import {
   PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput
+  PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand.ts";
-import {
-  RestoreObjectCommandInput,
-  RestoreObjectCommandOutput
-} from "./commands/RestoreObjectCommand.ts";
+import { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "./commands/RestoreObjectCommand.ts";
 import {
   SelectObjectContentCommandInput,
-  SelectObjectContentCommandOutput
+  SelectObjectContentCommandOutput,
 } from "./commands/SelectObjectContentCommand.ts";
-import {
-  UploadPartCommandInput,
-  UploadPartCommandOutput
-} from "./commands/UploadPartCommand.ts";
-import {
-  UploadPartCopyCommandInput,
-  UploadPartCopyCommandOutput
-} from "./commands/UploadPartCopyCommand.ts";
+import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand.ts";
+import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -341,17 +236,17 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
-  resolveEventStreamSerdeConfig
+  resolveEventStreamSerdeConfig,
 } from "../eventstream-serde-config-resolver/mod.ts";
 import {
   BucketEndpointInputConfig,
   BucketEndpointResolvedConfig,
-  resolveBucketEndpointConfig
+  resolveBucketEndpointConfig,
 } from "../middleware-bucket-endpoint/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import { getAddExpectContinuePlugin } from "../middleware-expect-continue/mod.ts";
@@ -359,34 +254,31 @@ import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import { getValidateBucketNamePlugin } from "../middleware-sdk-s3/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
+  Provider,
   RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
@@ -394,10 +286,11 @@ import {
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 type Readable = any;
 
@@ -573,8 +466,7 @@ export type ServiceOutputTypes =
   | UploadPartCommandOutput
   | UploadPartCopyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -648,14 +540,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -680,14 +577,16 @@ export interface ClientDefaults
   signingEscapePath?: boolean;
 
   /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   */
+  useArnRegion?: boolean | Provider<boolean>;
+  /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type S3ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -698,9 +597,7 @@ export type S3ClientConfig = Partial<
   HostHeaderInputConfig &
   EventStreamSerdeInputConfig;
 
-export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -725,7 +622,7 @@ export class S3Client extends __Client<
   constructor(configuration: S3ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -744,6 +641,7 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

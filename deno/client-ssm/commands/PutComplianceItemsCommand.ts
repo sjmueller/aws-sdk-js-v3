@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  PutComplianceItemsRequest,
-  PutComplianceItemsResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutComplianceItemsCommand,
-  serializeAws_json1_1PutComplianceItemsCommand
+  serializeAws_json1_1PutComplianceItemsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutComplianceItemsCommandInput = PutComplianceItemsRequest;
-export type PutComplianceItemsCommandOutput = PutComplianceItemsResult &
-  __MetadataBearer;
+export type PutComplianceItemsCommandOutput = PutComplianceItemsResult & __MetadataBearer;
 
 export class PutComplianceItemsCommand extends $Command<
   PutComplianceItemsCommandInput,
@@ -50,14 +39,15 @@ export class PutComplianceItemsCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutComplianceItemsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutComplianceItemsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutComplianceItemsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutComplianceItemsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutComplianceItemsCommandOutput> {
     return deserializeAws_json1_1PutComplianceItemsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  DescribeMatchmakingInput,
-  DescribeMatchmakingOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { DescribeMatchmakingInput, DescribeMatchmakingOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeMatchmakingCommand,
-  serializeAws_json1_1DescribeMatchmakingCommand
+  serializeAws_json1_1DescribeMatchmakingCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeMatchmakingCommandInput = DescribeMatchmakingInput;
-export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput &
-  __MetadataBearer;
+export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput & __MetadataBearer;
 
 export class DescribeMatchmakingCommand extends $Command<
   DescribeMatchmakingCommandInput,
@@ -49,18 +38,16 @@ export class DescribeMatchmakingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMatchmakingCommandInput,
-    DescribeMatchmakingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMatchmakingCommandInput, DescribeMatchmakingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeMatchmakingInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMatchmakingOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeMatchmakingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeMatchmakingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeMatchmakingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMatchmakingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMatchmakingCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMatchmakingCommandOutput> {
     return deserializeAws_json1_1DescribeMatchmakingCommand(output, context);
   }
 

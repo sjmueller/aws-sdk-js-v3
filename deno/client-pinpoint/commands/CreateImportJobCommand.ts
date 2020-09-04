@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  CreateImportJobRequest,
-  CreateImportJobResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { CreateImportJobRequest, CreateImportJobResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateImportJobCommand,
-  serializeAws_restJson1CreateImportJobCommand
+  serializeAws_restJson1CreateImportJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateImportJobCommandInput = CreateImportJobRequest;
-export type CreateImportJobCommandOutput = CreateImportJobResponse &
-  __MetadataBearer;
+export type CreateImportJobCommandOutput = CreateImportJobResponse & __MetadataBearer;
 
 export class CreateImportJobCommand extends $Command<
   CreateImportJobCommandInput,
@@ -50,14 +39,15 @@ export class CreateImportJobCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateImportJobCommandInput, CreateImportJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateImportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateImportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateImportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateImportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateImportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateImportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImportJobCommandOutput> {
     return deserializeAws_restJson1CreateImportJobCommand(output, context);
   }
 

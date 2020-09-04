@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
-  serializeAws_json1_1UpdateGatewaySoftwareNowCommand
+  serializeAws_json1_1UpdateGatewaySoftwareNowCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateGatewaySoftwareNowCommandInput = UpdateGatewaySoftwareNowInput;
-export type UpdateGatewaySoftwareNowCommandOutput = UpdateGatewaySoftwareNowOutput &
-  __MetadataBearer;
+export type UpdateGatewaySoftwareNowCommandOutput = UpdateGatewaySoftwareNowOutput & __MetadataBearer;
 
 export class UpdateGatewaySoftwareNowCommand extends $Command<
   UpdateGatewaySoftwareNowCommandInput,
@@ -49,18 +38,16 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateGatewaySoftwareNowCommandInput,
-    UpdateGatewaySoftwareNowCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateGatewaySoftwareNowCommandInput, UpdateGatewaySoftwareNowCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateGatewaySoftwareNowInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewaySoftwareNowOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateGatewaySoftwareNowCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateGatewaySoftwareNowCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
+    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

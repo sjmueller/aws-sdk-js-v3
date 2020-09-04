@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeClassicLinkInstancesRequest,
-  DescribeClassicLinkInstancesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeClassicLinkInstancesCommand,
-  serializeAws_ec2DescribeClassicLinkInstancesCommand
+  serializeAws_ec2DescribeClassicLinkInstancesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeClassicLinkInstancesCommandInput = DescribeClassicLinkInstancesRequest;
-export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult &
-  __MetadataBearer;
+export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult & __MetadataBearer;
 
 export class DescribeClassicLinkInstancesCommand extends $Command<
   DescribeClassicLinkInstancesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClassicLinkInstancesCommandInput,
-    DescribeClassicLinkInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClassicLinkInstancesCommandInput, DescribeClassicLinkInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeClassicLinkInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClassicLinkInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeClassicLinkInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeClassicLinkInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClassicLinkInstancesCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClassicLinkInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

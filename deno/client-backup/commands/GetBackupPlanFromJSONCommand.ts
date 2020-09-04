@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient.ts";
-import {
-  GetBackupPlanFromJSONInput,
-  GetBackupPlanFromJSONOutput
-} from "../models/index.ts";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
+import { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBackupPlanFromJSONCommand,
-  serializeAws_restJson1GetBackupPlanFromJSONCommand
+  serializeAws_restJson1GetBackupPlanFromJSONCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBackupPlanFromJSONCommandInput = GetBackupPlanFromJSONInput;
-export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput &
-  __MetadataBearer;
+export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput & __MetadataBearer;
 
 export class GetBackupPlanFromJSONCommand extends $Command<
   GetBackupPlanFromJSONCommandInput,
@@ -49,18 +38,16 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupPlanFromJSONCommandInput,
-    GetBackupPlanFromJSONCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupPlanFromJSONCommandInput, GetBackupPlanFromJSONCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBackupPlanFromJSONInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBackupPlanFromJSONOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBackupPlanFromJSONCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBackupPlanFromJSONCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBackupPlanFromJSONCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBackupPlanFromJSONCommandOutput> {
-    return deserializeAws_restJson1GetBackupPlanFromJSONCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupPlanFromJSONCommandOutput> {
+    return deserializeAws_restJson1GetBackupPlanFromJSONCommand(output, context);
   }
 
   // Start section: command_body_extra

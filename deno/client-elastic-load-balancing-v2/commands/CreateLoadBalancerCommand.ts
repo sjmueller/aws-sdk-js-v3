@@ -1,21 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
-import {
-  CreateLoadBalancerInput,
-  CreateLoadBalancerOutput
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
+import { CreateLoadBalancerInput, CreateLoadBalancerOutput } from "../models/index.ts";
 import {
   deserializeAws_queryCreateLoadBalancerCommand,
-  serializeAws_queryCreateLoadBalancerCommand
+  serializeAws_queryCreateLoadBalancerCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateLoadBalancerCommandInput = CreateLoadBalancerInput;
-export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput &
-  __MetadataBearer;
+export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput & __MetadataBearer;
 
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
   CreateLoadBalancerCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +40,18 @@ export class CreateLoadBalancerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateLoadBalancerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoadBalancerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLoadBalancerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLoadBalancerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerCommand(output, context);
   }
 

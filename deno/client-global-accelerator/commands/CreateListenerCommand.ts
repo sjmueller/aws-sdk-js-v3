@@ -1,18 +1,15 @@
 import {
   GlobalAcceleratorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
 import { CreateListenerRequest, CreateListenerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateListenerCommand,
-  serializeAws_json1_1CreateListenerCommand
+  serializeAws_json1_1CreateListenerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateListenerCommandInput = CreateListenerRequest;
-export type CreateListenerCommandOutput = CreateListenerResponse &
-  __MetadataBearer;
+export type CreateListenerCommandOutput = CreateListenerResponse & __MetadataBearer;
 
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,
@@ -47,14 +43,15 @@ export class CreateListenerCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateListenerCommandInput, CreateListenerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateListenerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateListenerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class CreateListenerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateListenerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateListenerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateListenerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
     return deserializeAws_json1_1CreateListenerCommand(output, context);
   }
 

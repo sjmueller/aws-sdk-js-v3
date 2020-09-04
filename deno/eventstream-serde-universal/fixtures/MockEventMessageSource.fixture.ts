@@ -19,6 +19,7 @@ export class MockEventMessageSource extends Readable {
   }
 
   _read() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     if (this.readCount === this.data.length) {
       if (this.throwError) {
@@ -35,10 +36,7 @@ export class MockEventMessageSource extends Readable {
     const bytesLeft = this.data.length - this.readCount;
     const numBytesToSend = Math.min(bytesLeft, this.emitSize);
 
-    const chunk = this.data.slice(
-      this.readCount,
-      this.readCount + numBytesToSend
-    );
+    const chunk = this.data.slice(this.readCount, this.readCount + numBytesToSend);
     this.readCount += numBytesToSend;
     this.push(chunk);
   }

@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  DescribeAlarmHistoryInput,
-  DescribeAlarmHistoryOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeAlarmHistoryCommand,
-  serializeAws_queryDescribeAlarmHistoryCommand
+  serializeAws_queryDescribeAlarmHistoryCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAlarmHistoryCommandInput = DescribeAlarmHistoryInput;
-export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput &
-  __MetadataBearer;
+export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput & __MetadataBearer;
 
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAlarmHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAlarmHistoryCommandInput,
-    DescribeAlarmHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAlarmHistoryCommandInput, DescribeAlarmHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAlarmHistoryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlarmHistoryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeAlarmHistoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAlarmHistoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAlarmHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmHistoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAlarmHistoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmHistoryCommandOutput> {
     return deserializeAws_queryDescribeAlarmHistoryCommand(output, context);
   }
 

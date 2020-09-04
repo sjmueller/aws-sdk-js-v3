@@ -1,15 +1,12 @@
-import {
-  GetSnapshotBlockCommandInput,
-  GetSnapshotBlockCommandOutput
-} from "./commands/GetSnapshotBlockCommand.ts";
-import {
-  ListChangedBlocksCommandInput,
-  ListChangedBlocksCommandOutput
-} from "./commands/ListChangedBlocksCommand.ts";
+import { CompleteSnapshotCommandInput, CompleteSnapshotCommandOutput } from "./commands/CompleteSnapshotCommand.ts";
+import { GetSnapshotBlockCommandInput, GetSnapshotBlockCommandOutput } from "./commands/GetSnapshotBlockCommand.ts";
+import { ListChangedBlocksCommandInput, ListChangedBlocksCommandOutput } from "./commands/ListChangedBlocksCommand.ts";
 import {
   ListSnapshotBlocksCommandInput,
-  ListSnapshotBlocksCommandOutput
+  ListSnapshotBlocksCommandOutput,
 } from "./commands/ListSnapshotBlocksCommand.ts";
+import { PutSnapshotBlockCommandInput, PutSnapshotBlockCommandOutput } from "./commands/PutSnapshotBlockCommand.ts";
+import { StartSnapshotCommandInput, StartSnapshotCommandOutput } from "./commands/StartSnapshotCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -17,38 +14,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -57,23 +50,29 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CompleteSnapshotCommandInput
   | GetSnapshotBlockCommandInput
   | ListChangedBlocksCommandInput
-  | ListSnapshotBlocksCommandInput;
+  | ListSnapshotBlocksCommandInput
+  | PutSnapshotBlockCommandInput
+  | StartSnapshotCommandInput;
 
 export type ServiceOutputTypes =
+  | CompleteSnapshotCommandOutput
   | GetSnapshotBlockCommandOutput
   | ListChangedBlocksCommandOutput
-  | ListSnapshotBlocksCommandOutput;
+  | ListSnapshotBlocksCommandOutput
+  | PutSnapshotBlockCommandOutput
+  | StartSnapshotCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -147,14 +146,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -162,9 +166,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EBSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EBSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -173,9 +175,7 @@ export type EBSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -188,20 +188,18 @@ export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<
  * <p>You can use the Amazon Elastic Block Store (EBS) direct APIs to directly read the data on your EBS
  *             snapshots, and identify the difference between two snapshots. You can view the details
  *             of blocks in an EBS snapshot, compare the block difference between two snapshots, and
- *             directly access the data in a snapshot. If you’re an independent software vendor (ISV)
- *             who offers backup services for EBS, the EBS direct APIs makes it easier and more
- *             cost-effective to track incremental changes on your EBS volumes via EBS snapshots. This
- *             can be done without having to create new volumes from EBS snapshots, and then use EC2
- *             instances to compare the differences.</p>
+ *             directly access the data in a snapshot. If you're an independent software vendor (ISV)
+ *             who offers backup services for EBS, the EBS direct APIs make it easier and more cost-effective
+ *             to track incremental changes on your EBS volumes via EBS snapshots. This can be done
+ *             without having to create new volumes from EBS snapshots.</p>
  *
  *
  *         <p>This API reference provides detailed information about the actions, data types,
  *             parameters, and errors of the EBS direct APIs. For more information about the elements that
- *             make up the EBS direct APIs, and examples of how to use them effectively, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html">Accessing the Contents of an EBS Snapshot</a>. For more information about how
- *             to use the EBS direct APIs, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshots.html">EBS direct APIs User Guide</a>. To view the currently supported AWS Regions and
- *             endpoints for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ebs_region">AWS
- *                 Service Endpoints</a> in the <i>AWS General
- *             Reference</i>.</p>
+ *             make up the EBS direct APIs, and examples of how to use them effectively, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html">Accessing the Contents of an EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User
+ *                 Guide</i>. For more information about the supported AWS Regions, endpoints,
+ *             and service quotas for the EBS direct APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/ebs-service.html">Amazon Elastic Block Store Endpoints and Quotas</a> in
+ *             the <i>AWS General Reference</i>.</p>
  */
 export class EBSClient extends __Client<
   __HttpHandlerOptions,
@@ -214,7 +212,7 @@ export class EBSClient extends __Client<
   constructor(configuration: EBSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -229,6 +227,7 @@ export class EBSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

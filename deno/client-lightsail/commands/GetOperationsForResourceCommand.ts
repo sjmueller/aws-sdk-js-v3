@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  GetOperationsForResourceRequest,
-  GetOperationsForResourceResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetOperationsForResourceCommand,
-  serializeAws_json1_1GetOperationsForResourceCommand
+  serializeAws_json1_1GetOperationsForResourceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetOperationsForResourceCommandInput = GetOperationsForResourceRequest;
-export type GetOperationsForResourceCommandOutput = GetOperationsForResourceResult &
-  __MetadataBearer;
+export type GetOperationsForResourceCommandOutput = GetOperationsForResourceResult & __MetadataBearer;
 
 export class GetOperationsForResourceCommand extends $Command<
   GetOperationsForResourceCommandInput,
@@ -49,18 +38,16 @@ export class GetOperationsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOperationsForResourceCommandInput,
-    GetOperationsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOperationsForResourceCommandInput, GetOperationsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetOperationsForResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOperationsForResourceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetOperationsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetOperationsForResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetOperationsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationsForResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetOperationsForResourceCommandOutput> {
-    return deserializeAws_json1_1GetOperationsForResourceCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationsForResourceCommandOutput> {
+    return deserializeAws_json1_1GetOperationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

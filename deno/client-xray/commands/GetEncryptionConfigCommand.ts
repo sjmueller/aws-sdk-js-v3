@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient.ts";
-import {
-  GetEncryptionConfigRequest,
-  GetEncryptionConfigResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
+import { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetEncryptionConfigCommand,
-  serializeAws_restJson1GetEncryptionConfigCommand
+  serializeAws_restJson1GetEncryptionConfigCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetEncryptionConfigCommandInput = GetEncryptionConfigRequest;
-export type GetEncryptionConfigCommandOutput = GetEncryptionConfigResult &
-  __MetadataBearer;
+export type GetEncryptionConfigCommandOutput = GetEncryptionConfigResult & __MetadataBearer;
 
 export class GetEncryptionConfigCommand extends $Command<
   GetEncryptionConfigCommandInput,
@@ -49,18 +38,16 @@ export class GetEncryptionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEncryptionConfigCommandInput,
-    GetEncryptionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEncryptionConfigCommandInput, GetEncryptionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetEncryptionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEncryptionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetEncryptionConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEncryptionConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetEncryptionConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEncryptionConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEncryptionConfigCommandOutput> {
     return deserializeAws_restJson1GetEncryptionConfigCommand(output, context);
   }
 

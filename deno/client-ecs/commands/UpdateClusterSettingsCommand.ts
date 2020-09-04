@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient.ts";
-import {
-  UpdateClusterSettingsRequest,
-  UpdateClusterSettingsResponse
-} from "../models/index.ts";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateClusterSettingsCommand,
-  serializeAws_json1_1UpdateClusterSettingsCommand
+  serializeAws_json1_1UpdateClusterSettingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateClusterSettingsCommandInput = UpdateClusterSettingsRequest;
-export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse &
-  __MetadataBearer;
+export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse & __MetadataBearer;
 
 export class UpdateClusterSettingsCommand extends $Command<
   UpdateClusterSettingsCommandInput,
@@ -49,18 +38,16 @@ export class UpdateClusterSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClusterSettingsCommandInput,
-    UpdateClusterSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClusterSettingsCommandInput, UpdateClusterSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateClusterSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateClusterSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateClusterSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateClusterSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateClusterSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateClusterSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateClusterSettingsCommand(output, context);
   }
 

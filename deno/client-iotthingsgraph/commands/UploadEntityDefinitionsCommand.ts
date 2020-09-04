@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  UploadEntityDefinitionsRequest,
-  UploadEntityDefinitionsResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UploadEntityDefinitionsCommand,
-  serializeAws_json1_1UploadEntityDefinitionsCommand
+  serializeAws_json1_1UploadEntityDefinitionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UploadEntityDefinitionsCommandInput = UploadEntityDefinitionsRequest;
-export type UploadEntityDefinitionsCommandOutput = UploadEntityDefinitionsResponse &
-  __MetadataBearer;
+export type UploadEntityDefinitionsCommandOutput = UploadEntityDefinitionsResponse & __MetadataBearer;
 
 export class UploadEntityDefinitionsCommand extends $Command<
   UploadEntityDefinitionsCommandInput,
@@ -49,18 +38,16 @@ export class UploadEntityDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UploadEntityDefinitionsCommandInput,
-    UploadEntityDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UploadEntityDefinitionsCommandInput, UploadEntityDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UploadEntityDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UploadEntityDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class UploadEntityDefinitionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UploadEntityDefinitionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UploadEntityDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UploadEntityDefinitionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UploadEntityDefinitionsCommandOutput> {
-    return deserializeAws_json1_1UploadEntityDefinitionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadEntityDefinitionsCommandOutput> {
+    return deserializeAws_json1_1UploadEntityDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

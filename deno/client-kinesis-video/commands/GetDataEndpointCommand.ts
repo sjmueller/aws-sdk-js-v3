@@ -1,18 +1,11 @@
-import {
-  KinesisVideoClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KinesisVideoClient.ts";
+import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
 import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDataEndpointCommand,
-  serializeAws_restJson1GetDataEndpointCommand
+  serializeAws_restJson1GetDataEndpointCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDataEndpointCommandInput = GetDataEndpointInput;
-export type GetDataEndpointCommandOutput = GetDataEndpointOutput &
-  __MetadataBearer;
+export type GetDataEndpointCommandOutput = GetDataEndpointOutput & __MetadataBearer;
 
 export class GetDataEndpointCommand extends $Command<
   GetDataEndpointCommandInput,
@@ -47,14 +39,15 @@ export class GetDataEndpointCommand extends $Command<
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataEndpointCommandInput, GetDataEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDataEndpointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataEndpointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetDataEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDataEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataEndpointCommandOutput> {
     return deserializeAws_restJson1GetDataEndpointCommand(output, context);
   }
 

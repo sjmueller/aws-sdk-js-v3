@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  CompleteMigrationMessage,
-  CompleteMigrationResponse
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/index.ts";
 import {
   deserializeAws_queryCompleteMigrationCommand,
-  serializeAws_queryCompleteMigrationCommand
+  serializeAws_queryCompleteMigrationCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CompleteMigrationCommandInput = CompleteMigrationMessage;
-export type CompleteMigrationCommandOutput = CompleteMigrationResponse &
-  __MetadataBearer;
+export type CompleteMigrationCommandOutput = CompleteMigrationResponse & __MetadataBearer;
 
 export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandInput,
@@ -50,14 +39,15 @@ export class CompleteMigrationCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteMigrationCommandInput, CompleteMigrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CompleteMigrationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteMigrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CompleteMigrationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CompleteMigrationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CompleteMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCompleteMigrationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CompleteMigrationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMigrationCommandOutput> {
     return deserializeAws_queryCompleteMigrationCommand(output, context);
   }
 

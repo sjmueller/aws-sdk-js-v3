@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
-} from "../WAFRegionalClient.ts";
-import {
-  DeletePermissionPolicyRequest,
-  DeletePermissionPolicyResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
+import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeletePermissionPolicyCommand,
-  serializeAws_json1_1DeletePermissionPolicyCommand
+  serializeAws_json1_1DeletePermissionPolicyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeletePermissionPolicyCommandInput = DeletePermissionPolicyRequest;
-export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse &
-  __MetadataBearer;
+export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse & __MetadataBearer;
 
 export class DeletePermissionPolicyCommand extends $Command<
   DeletePermissionPolicyCommandInput,
@@ -49,18 +38,16 @@ export class DeletePermissionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePermissionPolicyCommandInput,
-    DeletePermissionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePermissionPolicyCommandInput, DeletePermissionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeletePermissionPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePermissionPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeletePermissionPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePermissionPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeletePermissionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePermissionPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeletePermissionPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionPolicyCommandOutput> {
     return deserializeAws_json1_1DeletePermissionPolicyCommand(output, context);
   }
 

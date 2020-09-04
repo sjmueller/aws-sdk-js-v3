@@ -1,19 +1,17 @@
+import { GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand.ts";
 import {
   GetDASHStreamingSessionURLCommandInput,
-  GetDASHStreamingSessionURLCommandOutput
+  GetDASHStreamingSessionURLCommandOutput,
 } from "./commands/GetDASHStreamingSessionURLCommand.ts";
 import {
   GetHLSStreamingSessionURLCommandInput,
-  GetHLSStreamingSessionURLCommandOutput
+  GetHLSStreamingSessionURLCommandOutput,
 } from "./commands/GetHLSStreamingSessionURLCommand.ts";
 import {
   GetMediaForFragmentListCommandInput,
-  GetMediaForFragmentListCommandOutput
+  GetMediaForFragmentListCommandOutput,
 } from "./commands/GetMediaForFragmentListCommand.ts";
-import {
-  ListFragmentsCommandInput,
-  ListFragmentsCommandOutput
-} from "./commands/ListFragmentsCommand.ts";
+import { ListFragmentsCommandInput, ListFragmentsCommandOutput } from "./commands/ListFragmentsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -21,38 +19,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -61,25 +55,27 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | GetClipCommandInput
   | GetDASHStreamingSessionURLCommandInput
   | GetHLSStreamingSessionURLCommandInput
   | GetMediaForFragmentListCommandInput
   | ListFragmentsCommandInput;
 
 export type ServiceOutputTypes =
+  | GetClipCommandOutput
   | GetDASHStreamingSessionURLCommandOutput
   | GetHLSStreamingSessionURLCommandOutput
   | GetMediaForFragmentListCommandOutput
   | ListFragmentsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -153,14 +149,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -168,9 +169,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisVideoArchivedMediaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisVideoArchivedMediaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -179,9 +178,7 @@ export type KinesisVideoArchivedMediaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KinesisVideoArchivedMediaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisVideoArchivedMediaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -204,7 +201,7 @@ export class KinesisVideoArchivedMediaClient extends __Client<
   constructor(configuration: KinesisVideoArchivedMediaClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -219,6 +216,7 @@ export class KinesisVideoArchivedMediaClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,18 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
 import {
   DescribeReplicationInstanceTaskLogsMessage,
-  DescribeReplicationInstanceTaskLogsResponse
+  DescribeReplicationInstanceTaskLogsResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
-  serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand
+  serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeReplicationInstanceTaskLogsCommandInput = DescribeReplicationInstanceTaskLogsMessage;
@@ -49,18 +46,16 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReplicationInstanceTaskLogsCommandInput,
-    DescribeReplicationInstanceTaskLogsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReplicationInstanceTaskLogsCommandInput, DescribeReplicationInstanceTaskLogsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeReplicationInstanceTaskLogsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationInstanceTaskLogsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +69,14 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     input: DescribeReplicationInstanceTaskLogsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

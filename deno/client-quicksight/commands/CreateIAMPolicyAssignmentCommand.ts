@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient.ts";
-import {
-  CreateIAMPolicyAssignmentRequest,
-  CreateIAMPolicyAssignmentResponse
-} from "../models/index.ts";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
+import { CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateIAMPolicyAssignmentCommand,
-  serializeAws_restJson1CreateIAMPolicyAssignmentCommand
+  serializeAws_restJson1CreateIAMPolicyAssignmentCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateIAMPolicyAssignmentCommandInput = CreateIAMPolicyAssignmentRequest;
-export type CreateIAMPolicyAssignmentCommandOutput = CreateIAMPolicyAssignmentResponse &
-  __MetadataBearer;
+export type CreateIAMPolicyAssignmentCommandOutput = CreateIAMPolicyAssignmentResponse & __MetadataBearer;
 
 export class CreateIAMPolicyAssignmentCommand extends $Command<
   CreateIAMPolicyAssignmentCommandInput,
@@ -49,18 +38,16 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateIAMPolicyAssignmentCommandInput,
-    CreateIAMPolicyAssignmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateIAMPolicyAssignmentCommandInput, CreateIAMPolicyAssignmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateIAMPolicyAssignmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateIAMPolicyAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateIAMPolicyAssignmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIAMPolicyAssignmentCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateIAMPolicyAssignmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1CreateIAMPolicyAssignmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

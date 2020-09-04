@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient.ts";
-import {
-  CreateCapacityProviderRequest,
-  CreateCapacityProviderResponse
-} from "../models/index.ts";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
+import { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateCapacityProviderCommand,
-  serializeAws_json1_1CreateCapacityProviderCommand
+  serializeAws_json1_1CreateCapacityProviderCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateCapacityProviderCommandInput = CreateCapacityProviderRequest;
-export type CreateCapacityProviderCommandOutput = CreateCapacityProviderResponse &
-  __MetadataBearer;
+export type CreateCapacityProviderCommandOutput = CreateCapacityProviderResponse & __MetadataBearer;
 
 export class CreateCapacityProviderCommand extends $Command<
   CreateCapacityProviderCommandInput,
@@ -49,18 +38,16 @@ export class CreateCapacityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCapacityProviderCommandInput,
-    CreateCapacityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCapacityProviderCommandInput, CreateCapacityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateCapacityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCapacityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateCapacityProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCapacityProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCapacityProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCapacityProviderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCapacityProviderCommandOutput> {
     return deserializeAws_json1_1CreateCapacityProviderCommand(output, context);
   }
 

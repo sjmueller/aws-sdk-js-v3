@@ -1,21 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient.ts";
-import {
-  ListEventTrackersRequest,
-  ListEventTrackersResponse
-} from "../models/index.ts";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
+import { ListEventTrackersRequest, ListEventTrackersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListEventTrackersCommand,
-  serializeAws_json1_1ListEventTrackersCommand
+  serializeAws_json1_1ListEventTrackersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListEventTrackersCommandInput = ListEventTrackersRequest;
-export type ListEventTrackersCommandOutput = ListEventTrackersResponse &
-  __MetadataBearer;
+export type ListEventTrackersCommandOutput = ListEventTrackersResponse & __MetadataBearer;
 
 export class ListEventTrackersCommand extends $Command<
   ListEventTrackersCommandInput,
@@ -50,14 +39,15 @@ export class ListEventTrackersCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventTrackersCommandInput, ListEventTrackersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListEventTrackersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEventTrackersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListEventTrackersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEventTrackersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEventTrackersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventTrackersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEventTrackersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTrackersCommandOutput> {
     return deserializeAws_json1_1ListEventTrackersCommand(output, context);
   }
 

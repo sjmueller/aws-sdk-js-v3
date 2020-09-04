@@ -1,362 +1,320 @@
 import {
   AssociateRoleToGroupCommandInput,
-  AssociateRoleToGroupCommandOutput
+  AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand.ts";
 import {
   AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput
+  AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand.ts";
 import {
   CreateConnectorDefinitionCommandInput,
-  CreateConnectorDefinitionCommandOutput
+  CreateConnectorDefinitionCommandOutput,
 } from "./commands/CreateConnectorDefinitionCommand.ts";
 import {
   CreateConnectorDefinitionVersionCommandInput,
-  CreateConnectorDefinitionVersionCommandOutput
+  CreateConnectorDefinitionVersionCommandOutput,
 } from "./commands/CreateConnectorDefinitionVersionCommand.ts";
 import {
   CreateCoreDefinitionCommandInput,
-  CreateCoreDefinitionCommandOutput
+  CreateCoreDefinitionCommandOutput,
 } from "./commands/CreateCoreDefinitionCommand.ts";
 import {
   CreateCoreDefinitionVersionCommandInput,
-  CreateCoreDefinitionVersionCommandOutput
+  CreateCoreDefinitionVersionCommandOutput,
 } from "./commands/CreateCoreDefinitionVersionCommand.ts";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand.ts";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
 import {
   CreateDeviceDefinitionCommandInput,
-  CreateDeviceDefinitionCommandOutput
+  CreateDeviceDefinitionCommandOutput,
 } from "./commands/CreateDeviceDefinitionCommand.ts";
 import {
   CreateDeviceDefinitionVersionCommandInput,
-  CreateDeviceDefinitionVersionCommandOutput
+  CreateDeviceDefinitionVersionCommandOutput,
 } from "./commands/CreateDeviceDefinitionVersionCommand.ts";
 import {
   CreateFunctionDefinitionCommandInput,
-  CreateFunctionDefinitionCommandOutput
+  CreateFunctionDefinitionCommandOutput,
 } from "./commands/CreateFunctionDefinitionCommand.ts";
 import {
   CreateFunctionDefinitionVersionCommandInput,
-  CreateFunctionDefinitionVersionCommandOutput
+  CreateFunctionDefinitionVersionCommandOutput,
 } from "./commands/CreateFunctionDefinitionVersionCommand.ts";
 import {
   CreateGroupCertificateAuthorityCommandInput,
-  CreateGroupCertificateAuthorityCommandOutput
+  CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand.ts";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput
+  CreateGroupVersionCommandOutput,
 } from "./commands/CreateGroupVersionCommand.ts";
 import {
   CreateLoggerDefinitionCommandInput,
-  CreateLoggerDefinitionCommandOutput
+  CreateLoggerDefinitionCommandOutput,
 } from "./commands/CreateLoggerDefinitionCommand.ts";
 import {
   CreateLoggerDefinitionVersionCommandInput,
-  CreateLoggerDefinitionVersionCommandOutput
+  CreateLoggerDefinitionVersionCommandOutput,
 } from "./commands/CreateLoggerDefinitionVersionCommand.ts";
 import {
   CreateResourceDefinitionCommandInput,
-  CreateResourceDefinitionCommandOutput
+  CreateResourceDefinitionCommandOutput,
 } from "./commands/CreateResourceDefinitionCommand.ts";
 import {
   CreateResourceDefinitionVersionCommandInput,
-  CreateResourceDefinitionVersionCommandOutput
+  CreateResourceDefinitionVersionCommandOutput,
 } from "./commands/CreateResourceDefinitionVersionCommand.ts";
 import {
   CreateSoftwareUpdateJobCommandInput,
-  CreateSoftwareUpdateJobCommandOutput
+  CreateSoftwareUpdateJobCommandOutput,
 } from "./commands/CreateSoftwareUpdateJobCommand.ts";
 import {
   CreateSubscriptionDefinitionCommandInput,
-  CreateSubscriptionDefinitionCommandOutput
+  CreateSubscriptionDefinitionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionCommand.ts";
 import {
   CreateSubscriptionDefinitionVersionCommandInput,
-  CreateSubscriptionDefinitionVersionCommandOutput
+  CreateSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionVersionCommand.ts";
 import {
   DeleteConnectorDefinitionCommandInput,
-  DeleteConnectorDefinitionCommandOutput
+  DeleteConnectorDefinitionCommandOutput,
 } from "./commands/DeleteConnectorDefinitionCommand.ts";
 import {
   DeleteCoreDefinitionCommandInput,
-  DeleteCoreDefinitionCommandOutput
+  DeleteCoreDefinitionCommandOutput,
 } from "./commands/DeleteCoreDefinitionCommand.ts";
 import {
   DeleteDeviceDefinitionCommandInput,
-  DeleteDeviceDefinitionCommandOutput
+  DeleteDeviceDefinitionCommandOutput,
 } from "./commands/DeleteDeviceDefinitionCommand.ts";
 import {
   DeleteFunctionDefinitionCommandInput,
-  DeleteFunctionDefinitionCommandOutput
+  DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand.ts";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteLoggerDefinitionCommandInput,
-  DeleteLoggerDefinitionCommandOutput
+  DeleteLoggerDefinitionCommandOutput,
 } from "./commands/DeleteLoggerDefinitionCommand.ts";
 import {
   DeleteResourceDefinitionCommandInput,
-  DeleteResourceDefinitionCommandOutput
+  DeleteResourceDefinitionCommandOutput,
 } from "./commands/DeleteResourceDefinitionCommand.ts";
 import {
   DeleteSubscriptionDefinitionCommandInput,
-  DeleteSubscriptionDefinitionCommandOutput
+  DeleteSubscriptionDefinitionCommandOutput,
 } from "./commands/DeleteSubscriptionDefinitionCommand.ts";
 import {
   DisassociateRoleFromGroupCommandInput,
-  DisassociateRoleFromGroupCommandOutput
+  DisassociateRoleFromGroupCommandOutput,
 } from "./commands/DisassociateRoleFromGroupCommand.ts";
 import {
   DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput
+  DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand.ts";
-import {
-  GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput
-} from "./commands/GetAssociatedRoleCommand.ts";
+import { GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput } from "./commands/GetAssociatedRoleCommand.ts";
 import {
   GetBulkDeploymentStatusCommandInput,
-  GetBulkDeploymentStatusCommandOutput
+  GetBulkDeploymentStatusCommandOutput,
 } from "./commands/GetBulkDeploymentStatusCommand.ts";
 import {
   GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput
+  GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand.ts";
 import {
   GetConnectorDefinitionCommandInput,
-  GetConnectorDefinitionCommandOutput
+  GetConnectorDefinitionCommandOutput,
 } from "./commands/GetConnectorDefinitionCommand.ts";
 import {
   GetConnectorDefinitionVersionCommandInput,
-  GetConnectorDefinitionVersionCommandOutput
+  GetConnectorDefinitionVersionCommandOutput,
 } from "./commands/GetConnectorDefinitionVersionCommand.ts";
-import {
-  GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput
-} from "./commands/GetCoreDefinitionCommand.ts";
+import { GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput } from "./commands/GetCoreDefinitionCommand.ts";
 import {
   GetCoreDefinitionVersionCommandInput,
-  GetCoreDefinitionVersionCommandOutput
+  GetCoreDefinitionVersionCommandOutput,
 } from "./commands/GetCoreDefinitionVersionCommand.ts";
 import {
   GetDeploymentStatusCommandInput,
-  GetDeploymentStatusCommandOutput
+  GetDeploymentStatusCommandOutput,
 } from "./commands/GetDeploymentStatusCommand.ts";
 import {
   GetDeviceDefinitionCommandInput,
-  GetDeviceDefinitionCommandOutput
+  GetDeviceDefinitionCommandOutput,
 } from "./commands/GetDeviceDefinitionCommand.ts";
 import {
   GetDeviceDefinitionVersionCommandInput,
-  GetDeviceDefinitionVersionCommandOutput
+  GetDeviceDefinitionVersionCommandOutput,
 } from "./commands/GetDeviceDefinitionVersionCommand.ts";
 import {
   GetFunctionDefinitionCommandInput,
-  GetFunctionDefinitionCommandOutput
+  GetFunctionDefinitionCommandOutput,
 } from "./commands/GetFunctionDefinitionCommand.ts";
 import {
   GetFunctionDefinitionVersionCommandInput,
-  GetFunctionDefinitionVersionCommandOutput
+  GetFunctionDefinitionVersionCommandOutput,
 } from "./commands/GetFunctionDefinitionVersionCommand.ts";
 import {
   GetGroupCertificateAuthorityCommandInput,
-  GetGroupCertificateAuthorityCommandOutput
+  GetGroupCertificateAuthorityCommandOutput,
 } from "./commands/GetGroupCertificateAuthorityCommand.ts";
 import {
   GetGroupCertificateConfigurationCommandInput,
-  GetGroupCertificateConfigurationCommandOutput
+  GetGroupCertificateConfigurationCommandOutput,
 } from "./commands/GetGroupCertificateConfigurationCommand.ts";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
-import {
-  GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput
-} from "./commands/GetGroupVersionCommand.ts";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
+import { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "./commands/GetGroupVersionCommand.ts";
 import {
   GetLoggerDefinitionCommandInput,
-  GetLoggerDefinitionCommandOutput
+  GetLoggerDefinitionCommandOutput,
 } from "./commands/GetLoggerDefinitionCommand.ts";
 import {
   GetLoggerDefinitionVersionCommandInput,
-  GetLoggerDefinitionVersionCommandOutput
+  GetLoggerDefinitionVersionCommandOutput,
 } from "./commands/GetLoggerDefinitionVersionCommand.ts";
 import {
   GetResourceDefinitionCommandInput,
-  GetResourceDefinitionCommandOutput
+  GetResourceDefinitionCommandOutput,
 } from "./commands/GetResourceDefinitionCommand.ts";
 import {
   GetResourceDefinitionVersionCommandInput,
-  GetResourceDefinitionVersionCommandOutput
+  GetResourceDefinitionVersionCommandOutput,
 } from "./commands/GetResourceDefinitionVersionCommand.ts";
 import {
   GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput
+  GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand.ts";
 import {
   GetSubscriptionDefinitionCommandInput,
-  GetSubscriptionDefinitionCommandOutput
+  GetSubscriptionDefinitionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionCommand.ts";
 import {
   GetSubscriptionDefinitionVersionCommandInput,
-  GetSubscriptionDefinitionVersionCommandOutput
+  GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand.ts";
 import {
   ListBulkDeploymentDetailedReportsCommandInput,
-  ListBulkDeploymentDetailedReportsCommandOutput
+  ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand.ts";
 import {
   ListBulkDeploymentsCommandInput,
-  ListBulkDeploymentsCommandOutput
+  ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand.ts";
 import {
   ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput
+  ListConnectorDefinitionVersionsCommandOutput,
 } from "./commands/ListConnectorDefinitionVersionsCommand.ts";
 import {
   ListConnectorDefinitionsCommandInput,
-  ListConnectorDefinitionsCommandOutput
+  ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand.ts";
 import {
   ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput
+  ListCoreDefinitionVersionsCommandOutput,
 } from "./commands/ListCoreDefinitionVersionsCommand.ts";
 import {
   ListCoreDefinitionsCommandInput,
-  ListCoreDefinitionsCommandOutput
+  ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand.ts";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand.ts";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand.ts";
 import {
   ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput
+  ListDeviceDefinitionVersionsCommandOutput,
 } from "./commands/ListDeviceDefinitionVersionsCommand.ts";
 import {
   ListDeviceDefinitionsCommandInput,
-  ListDeviceDefinitionsCommandOutput
+  ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand.ts";
 import {
   ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput
+  ListFunctionDefinitionVersionsCommandOutput,
 } from "./commands/ListFunctionDefinitionVersionsCommand.ts";
 import {
   ListFunctionDefinitionsCommandInput,
-  ListFunctionDefinitionsCommandOutput
+  ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand.ts";
 import {
   ListGroupCertificateAuthoritiesCommandInput,
-  ListGroupCertificateAuthoritiesCommandOutput
+  ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand.ts";
-import {
-  ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput
-} from "./commands/ListGroupVersionsCommand.ts";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand.ts";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput
+  ListLoggerDefinitionVersionsCommandOutput,
 } from "./commands/ListLoggerDefinitionVersionsCommand.ts";
 import {
   ListLoggerDefinitionsCommandInput,
-  ListLoggerDefinitionsCommandOutput
+  ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand.ts";
 import {
   ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput
+  ListResourceDefinitionVersionsCommandOutput,
 } from "./commands/ListResourceDefinitionVersionsCommand.ts";
 import {
   ListResourceDefinitionsCommandInput,
-  ListResourceDefinitionsCommandOutput
+  ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand.ts";
 import {
   ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput
+  ListSubscriptionDefinitionVersionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionVersionsCommand.ts";
 import {
   ListSubscriptionDefinitionsCommandInput,
-  ListSubscriptionDefinitionsCommandOutput
+  ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput
-} from "./commands/ResetDeploymentsCommand.ts";
+import { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "./commands/ResetDeploymentsCommand.ts";
 import {
   StartBulkDeploymentCommandInput,
-  StartBulkDeploymentCommandOutput
+  StartBulkDeploymentCommandOutput,
 } from "./commands/StartBulkDeploymentCommand.ts";
 import {
   StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput
+  StopBulkDeploymentCommandOutput,
 } from "./commands/StopBulkDeploymentCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput
+  UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand.ts";
 import {
   UpdateConnectorDefinitionCommandInput,
-  UpdateConnectorDefinitionCommandOutput
+  UpdateConnectorDefinitionCommandOutput,
 } from "./commands/UpdateConnectorDefinitionCommand.ts";
 import {
   UpdateCoreDefinitionCommandInput,
-  UpdateCoreDefinitionCommandOutput
+  UpdateCoreDefinitionCommandOutput,
 } from "./commands/UpdateCoreDefinitionCommand.ts";
 import {
   UpdateDeviceDefinitionCommandInput,
-  UpdateDeviceDefinitionCommandOutput
+  UpdateDeviceDefinitionCommandOutput,
 } from "./commands/UpdateDeviceDefinitionCommand.ts";
 import {
   UpdateFunctionDefinitionCommandInput,
-  UpdateFunctionDefinitionCommandOutput
+  UpdateFunctionDefinitionCommandOutput,
 } from "./commands/UpdateFunctionDefinitionCommand.ts";
 import {
   UpdateGroupCertificateConfigurationCommandInput,
-  UpdateGroupCertificateConfigurationCommandOutput
+  UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand.ts";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoggerDefinitionCommandInput,
-  UpdateLoggerDefinitionCommandOutput
+  UpdateLoggerDefinitionCommandOutput,
 } from "./commands/UpdateLoggerDefinitionCommand.ts";
 import {
   UpdateResourceDefinitionCommandInput,
-  UpdateResourceDefinitionCommandOutput
+  UpdateResourceDefinitionCommandOutput,
 } from "./commands/UpdateResourceDefinitionCommand.ts";
 import {
   UpdateSubscriptionDefinitionCommandInput,
-  UpdateSubscriptionDefinitionCommandOutput
+  UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -365,38 +323,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -405,9 +359,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -594,8 +549,7 @@ export type ServiceOutputTypes =
   | UpdateResourceDefinitionCommandOutput
   | UpdateSubscriptionDefinitionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -669,14 +623,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -684,9 +643,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GreengrassClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -695,9 +652,7 @@ export type GreengrassClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -720,7 +675,7 @@ export class GreengrassClient extends __Client<
   constructor(configuration: GreengrassClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -735,6 +690,7 @@ export class GreengrassClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

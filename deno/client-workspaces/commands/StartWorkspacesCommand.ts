@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
 import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartWorkspacesCommand,
-  serializeAws_json1_1StartWorkspacesCommand
+  serializeAws_json1_1StartWorkspacesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartWorkspacesCommandInput = StartWorkspacesRequest;
-export type StartWorkspacesCommandOutput = StartWorkspacesResult &
-  __MetadataBearer;
+export type StartWorkspacesCommandOutput = StartWorkspacesResult & __MetadataBearer;
 
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,
@@ -47,14 +39,15 @@ export class StartWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartWorkspacesCommandInput, StartWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartWorkspacesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartWorkspacesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class StartWorkspacesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartWorkspacesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartWorkspacesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartWorkspacesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkspacesCommandOutput> {
     return deserializeAws_json1_1StartWorkspacesCommand(output, context);
   }
 

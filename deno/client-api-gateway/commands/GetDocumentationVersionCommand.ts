@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient.ts";
-import {
-  DocumentationVersion,
-  GetDocumentationVersionRequest
-} from "../models/index.ts";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
+import { DocumentationVersion, GetDocumentationVersionRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDocumentationVersionCommand,
-  serializeAws_restJson1GetDocumentationVersionCommand
+  serializeAws_restJson1GetDocumentationVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDocumentationVersionCommandInput = GetDocumentationVersionRequest;
-export type GetDocumentationVersionCommandOutput = DocumentationVersion &
-  __MetadataBearer;
+export type GetDocumentationVersionCommandOutput = DocumentationVersion & __MetadataBearer;
 
 export class GetDocumentationVersionCommand extends $Command<
   GetDocumentationVersionCommandInput,
@@ -49,18 +38,16 @@ export class GetDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDocumentationVersionCommandInput,
-    GetDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDocumentationVersionCommandInput, GetDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDocumentationVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DocumentationVersion.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetDocumentationVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDocumentationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDocumentationVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1GetDocumentationVersionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentationVersionCommandOutput> {
+    return deserializeAws_restJson1GetDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

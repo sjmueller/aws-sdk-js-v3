@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceResult
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand
+  serializeAws_queryModifyDBInstanceCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult &
-  __MetadataBearer;
+export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
@@ -50,14 +39,15 @@ export class ModifyDBInstanceCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
     return deserializeAws_queryModifyDBInstanceCommand(output, context);
   }
 

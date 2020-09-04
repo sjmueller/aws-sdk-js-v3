@@ -1,14 +1,15 @@
-import { PreviouslyResolved } from "./configurations.ts";
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "../types/mod.ts";
 import { toHex } from "../util-hex-encoding/mod.ts";
+
+import { PreviouslyResolved } from "./configurations.ts";
 
 interface SendMessageBatchResult {
   Successful: Array<SendMessageBatchResultEntry> | undefined;
@@ -20,9 +21,7 @@ interface SendMessageBatchResultEntry {
   MessageId: string | undefined;
 }
 
-export function sendMessageBatchMiddleware(
-  options: PreviouslyResolved
-): InitializeMiddleware<any, any> {
+export function sendMessageBatchMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -30,8 +29,8 @@ export function sendMessageBatchMiddleware(
   ): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
     const output = (resp.output as unknown) as SendMessageBatchResult;
-    let messageIds = [];
-    let entries: { [index: string]: SendMessageBatchResultEntry } = {};
+    const messageIds = [];
+    const entries: { [index: string]: SendMessageBatchResultEntry } = {};
     if (output.Successful !== undefined) {
       for (const entry of output.Successful) {
         if (entry.Id !== undefined) {
@@ -50,13 +49,11 @@ export function sendMessageBatchMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
-      ...args
+      ...args,
     });
   };
 }
@@ -64,16 +61,11 @@ export function sendMessageBatchMiddleware(
 export const sendMessageBatchMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
-  name: "sendMessageBatchMiddleware"
+  name: "sendMessageBatchMiddleware",
 };
 
-export const getSendMessageBatchPlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageBatchMiddleware(config),
-      sendMessageBatchMiddlewareOptions
-    );
-  }
+export const getSendMessageBatchPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(sendMessageBatchMiddleware(config), sendMessageBatchMiddlewareOptions);
+  },
 });

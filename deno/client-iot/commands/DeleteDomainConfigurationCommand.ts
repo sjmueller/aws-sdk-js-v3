@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DeleteDomainConfigurationRequest,
-  DeleteDomainConfigurationResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteDomainConfigurationCommand,
-  serializeAws_restJson1DeleteDomainConfigurationCommand
+  serializeAws_restJson1DeleteDomainConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDomainConfigurationCommandInput = DeleteDomainConfigurationRequest;
-export type DeleteDomainConfigurationCommandOutput = DeleteDomainConfigurationResponse &
-  __MetadataBearer;
+export type DeleteDomainConfigurationCommandOutput = DeleteDomainConfigurationResponse & __MetadataBearer;
 
 export class DeleteDomainConfigurationCommand extends $Command<
   DeleteDomainConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class DeleteDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDomainConfigurationCommandInput,
-    DeleteDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDomainConfigurationCommandInput, DeleteDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDomainConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteDomainConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDomainConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,14 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
 import {
   PurchaseReservedDBInstancesOfferingMessage,
-  PurchaseReservedDBInstancesOfferingResult
+  PurchaseReservedDBInstancesOfferingResult,
 } from "../models/index.ts";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
-  serializeAws_queryPurchaseReservedDBInstancesOfferingCommand
+  serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PurchaseReservedDBInstancesOfferingCommandInput = PurchaseReservedDBInstancesOfferingMessage;
@@ -49,18 +42,16 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PurchaseReservedDBInstancesOfferingCommandInput,
-    PurchaseReservedDBInstancesOfferingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PurchaseReservedDBInstancesOfferingCommandInput, PurchaseReservedDBInstancesOfferingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     input: PurchaseReservedDBInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

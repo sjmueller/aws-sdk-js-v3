@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { GetBotRequest, GetBotResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBotCommand,
-  serializeAws_restJson1GetBotCommand
+  serializeAws_restJson1GetBotCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBotCommandInput = GetBotRequest;
 export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
 
-export class GetBotCommand extends $Command<
-  GetBotCommandInput,
-  GetBotCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +35,15 @@ export class GetBotCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBotCommandInput, GetBotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +53,11 @@ export class GetBotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> {
     return deserializeAws_restJson1GetBotCommand(output, context);
   }
 

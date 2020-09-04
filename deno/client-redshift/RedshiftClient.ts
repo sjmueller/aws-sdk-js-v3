@@ -1,346 +1,310 @@
 import {
   AcceptReservedNodeExchangeCommandInput,
-  AcceptReservedNodeExchangeCommandOutput
+  AcceptReservedNodeExchangeCommandOutput,
 } from "./commands/AcceptReservedNodeExchangeCommand.ts";
 import {
   AuthorizeClusterSecurityGroupIngressCommandInput,
-  AuthorizeClusterSecurityGroupIngressCommandOutput
+  AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand.ts";
 import {
   AuthorizeSnapshotAccessCommandInput,
-  AuthorizeSnapshotAccessCommandOutput
+  AuthorizeSnapshotAccessCommandOutput,
 } from "./commands/AuthorizeSnapshotAccessCommand.ts";
 import {
   BatchDeleteClusterSnapshotsCommandInput,
-  BatchDeleteClusterSnapshotsCommandOutput
+  BatchDeleteClusterSnapshotsCommandOutput,
 } from "./commands/BatchDeleteClusterSnapshotsCommand.ts";
 import {
   BatchModifyClusterSnapshotsCommandInput,
-  BatchModifyClusterSnapshotsCommandOutput
+  BatchModifyClusterSnapshotsCommandOutput,
 } from "./commands/BatchModifyClusterSnapshotsCommand.ts";
-import {
-  CancelResizeCommandInput,
-  CancelResizeCommandOutput
-} from "./commands/CancelResizeCommand.ts";
+import { CancelResizeCommandInput, CancelResizeCommandOutput } from "./commands/CancelResizeCommand.ts";
 import {
   CopyClusterSnapshotCommandInput,
-  CopyClusterSnapshotCommandOutput
+  CopyClusterSnapshotCommandOutput,
 } from "./commands/CopyClusterSnapshotCommand.ts";
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand.ts";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import {
   CreateClusterParameterGroupCommandInput,
-  CreateClusterParameterGroupCommandOutput
+  CreateClusterParameterGroupCommandOutput,
 } from "./commands/CreateClusterParameterGroupCommand.ts";
 import {
   CreateClusterSecurityGroupCommandInput,
-  CreateClusterSecurityGroupCommandOutput
+  CreateClusterSecurityGroupCommandOutput,
 } from "./commands/CreateClusterSecurityGroupCommand.ts";
 import {
   CreateClusterSnapshotCommandInput,
-  CreateClusterSnapshotCommandOutput
+  CreateClusterSnapshotCommandOutput,
 } from "./commands/CreateClusterSnapshotCommand.ts";
 import {
   CreateClusterSubnetGroupCommandInput,
-  CreateClusterSubnetGroupCommandOutput
+  CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand.ts";
 import {
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand.ts";
 import {
   CreateHsmClientCertificateCommandInput,
-  CreateHsmClientCertificateCommandOutput
+  CreateHsmClientCertificateCommandOutput,
 } from "./commands/CreateHsmClientCertificateCommand.ts";
 import {
   CreateHsmConfigurationCommandInput,
-  CreateHsmConfigurationCommandOutput
+  CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand.ts";
 import {
   CreateScheduledActionCommandInput,
-  CreateScheduledActionCommandOutput
+  CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand.ts";
 import {
   CreateSnapshotCopyGrantCommandInput,
-  CreateSnapshotCopyGrantCommandOutput
+  CreateSnapshotCopyGrantCommandOutput,
 } from "./commands/CreateSnapshotCopyGrantCommand.ts";
 import {
   CreateSnapshotScheduleCommandInput,
-  CreateSnapshotScheduleCommandOutput
+  CreateSnapshotScheduleCommandOutput,
 } from "./commands/CreateSnapshotScheduleCommand.ts";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand.ts";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand.ts";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
+import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand.ts";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand.ts";
 import {
   DeleteClusterParameterGroupCommandInput,
-  DeleteClusterParameterGroupCommandOutput
+  DeleteClusterParameterGroupCommandOutput,
 } from "./commands/DeleteClusterParameterGroupCommand.ts";
 import {
   DeleteClusterSecurityGroupCommandInput,
-  DeleteClusterSecurityGroupCommandOutput
+  DeleteClusterSecurityGroupCommandOutput,
 } from "./commands/DeleteClusterSecurityGroupCommand.ts";
 import {
   DeleteClusterSnapshotCommandInput,
-  DeleteClusterSnapshotCommandOutput
+  DeleteClusterSnapshotCommandOutput,
 } from "./commands/DeleteClusterSnapshotCommand.ts";
 import {
   DeleteClusterSubnetGroupCommandInput,
-  DeleteClusterSubnetGroupCommandOutput
+  DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand.ts";
 import {
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand.ts";
 import {
   DeleteHsmClientCertificateCommandInput,
-  DeleteHsmClientCertificateCommandOutput
+  DeleteHsmClientCertificateCommandOutput,
 } from "./commands/DeleteHsmClientCertificateCommand.ts";
 import {
   DeleteHsmConfigurationCommandInput,
-  DeleteHsmConfigurationCommandOutput
+  DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand.ts";
 import {
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand.ts";
 import {
   DeleteSnapshotCopyGrantCommandInput,
-  DeleteSnapshotCopyGrantCommandOutput
+  DeleteSnapshotCopyGrantCommandOutput,
 } from "./commands/DeleteSnapshotCopyGrantCommand.ts";
 import {
   DeleteSnapshotScheduleCommandInput,
-  DeleteSnapshotScheduleCommandOutput
+  DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
+import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand.ts";
 import {
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
   DescribeClusterDbRevisionsCommandInput,
-  DescribeClusterDbRevisionsCommandOutput
+  DescribeClusterDbRevisionsCommandOutput,
 } from "./commands/DescribeClusterDbRevisionsCommand.ts";
 import {
   DescribeClusterParameterGroupsCommandInput,
-  DescribeClusterParameterGroupsCommandOutput
+  DescribeClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeClusterParameterGroupsCommand.ts";
 import {
   DescribeClusterParametersCommandInput,
-  DescribeClusterParametersCommandOutput
+  DescribeClusterParametersCommandOutput,
 } from "./commands/DescribeClusterParametersCommand.ts";
 import {
   DescribeClusterSecurityGroupsCommandInput,
-  DescribeClusterSecurityGroupsCommandOutput
+  DescribeClusterSecurityGroupsCommandOutput,
 } from "./commands/DescribeClusterSecurityGroupsCommand.ts";
 import {
   DescribeClusterSnapshotsCommandInput,
-  DescribeClusterSnapshotsCommandOutput
+  DescribeClusterSnapshotsCommandOutput,
 } from "./commands/DescribeClusterSnapshotsCommand.ts";
 import {
   DescribeClusterSubnetGroupsCommandInput,
-  DescribeClusterSubnetGroupsCommandOutput
+  DescribeClusterSubnetGroupsCommandOutput,
 } from "./commands/DescribeClusterSubnetGroupsCommand.ts";
 import {
   DescribeClusterTracksCommandInput,
-  DescribeClusterTracksCommandOutput
+  DescribeClusterTracksCommandOutput,
 } from "./commands/DescribeClusterTracksCommand.ts";
 import {
   DescribeClusterVersionsCommandInput,
-  DescribeClusterVersionsCommandOutput
+  DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand.ts";
-import {
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
-} from "./commands/DescribeClustersCommand.ts";
+import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand.ts";
 import {
   DescribeDefaultClusterParametersCommandInput,
-  DescribeDefaultClusterParametersCommandOutput
+  DescribeDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeDefaultClusterParametersCommand.ts";
 import {
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand.ts";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand.ts";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand.ts";
 import {
   DescribeHsmClientCertificatesCommandInput,
-  DescribeHsmClientCertificatesCommandOutput
+  DescribeHsmClientCertificatesCommandOutput,
 } from "./commands/DescribeHsmClientCertificatesCommand.ts";
 import {
   DescribeHsmConfigurationsCommandInput,
-  DescribeHsmConfigurationsCommandOutput
+  DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand.ts";
 import {
   DescribeLoggingStatusCommandInput,
-  DescribeLoggingStatusCommandOutput
+  DescribeLoggingStatusCommandOutput,
 } from "./commands/DescribeLoggingStatusCommand.ts";
 import {
   DescribeNodeConfigurationOptionsCommandInput,
-  DescribeNodeConfigurationOptionsCommandOutput
+  DescribeNodeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeNodeConfigurationOptionsCommand.ts";
 import {
   DescribeOrderableClusterOptionsCommandInput,
-  DescribeOrderableClusterOptionsCommandOutput
+  DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand.ts";
 import {
   DescribeReservedNodeOfferingsCommandInput,
-  DescribeReservedNodeOfferingsCommandOutput
+  DescribeReservedNodeOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodeOfferingsCommand.ts";
 import {
   DescribeReservedNodesCommandInput,
-  DescribeReservedNodesCommandOutput
+  DescribeReservedNodesCommandOutput,
 } from "./commands/DescribeReservedNodesCommand.ts";
-import {
-  DescribeResizeCommandInput,
-  DescribeResizeCommandOutput
-} from "./commands/DescribeResizeCommand.ts";
+import { DescribeResizeCommandInput, DescribeResizeCommandOutput } from "./commands/DescribeResizeCommand.ts";
 import {
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand.ts";
 import {
   DescribeSnapshotCopyGrantsCommandInput,
-  DescribeSnapshotCopyGrantsCommandOutput
+  DescribeSnapshotCopyGrantsCommandOutput,
 } from "./commands/DescribeSnapshotCopyGrantsCommand.ts";
 import {
   DescribeSnapshotSchedulesCommandInput,
-  DescribeSnapshotSchedulesCommandOutput
+  DescribeSnapshotSchedulesCommandOutput,
 } from "./commands/DescribeSnapshotSchedulesCommand.ts";
-import {
-  DescribeStorageCommandInput,
-  DescribeStorageCommandOutput
-} from "./commands/DescribeStorageCommand.ts";
+import { DescribeStorageCommandInput, DescribeStorageCommandOutput } from "./commands/DescribeStorageCommand.ts";
 import {
   DescribeTableRestoreStatusCommandInput,
-  DescribeTableRestoreStatusCommandOutput
+  DescribeTableRestoreStatusCommandOutput,
 } from "./commands/DescribeTableRestoreStatusCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
-import {
-  DisableLoggingCommandInput,
-  DisableLoggingCommandOutput
-} from "./commands/DisableLoggingCommand.ts";
+  DescribeUsageLimitsCommandInput,
+  DescribeUsageLimitsCommandOutput,
+} from "./commands/DescribeUsageLimitsCommand.ts";
+import { DisableLoggingCommandInput, DisableLoggingCommandOutput } from "./commands/DisableLoggingCommand.ts";
 import {
   DisableSnapshotCopyCommandInput,
-  DisableSnapshotCopyCommandOutput
+  DisableSnapshotCopyCommandOutput,
 } from "./commands/DisableSnapshotCopyCommand.ts";
-import {
-  EnableLoggingCommandInput,
-  EnableLoggingCommandOutput
-} from "./commands/EnableLoggingCommand.ts";
+import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "./commands/EnableLoggingCommand.ts";
 import {
   EnableSnapshotCopyCommandInput,
-  EnableSnapshotCopyCommandOutput
+  EnableSnapshotCopyCommandOutput,
 } from "./commands/EnableSnapshotCopyCommand.ts";
 import {
   GetClusterCredentialsCommandInput,
-  GetClusterCredentialsCommandOutput
+  GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand.ts";
 import {
   GetReservedNodeExchangeOfferingsCommandInput,
-  GetReservedNodeExchangeOfferingsCommandOutput
+  GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand.ts";
-import {
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput
-} from "./commands/ModifyClusterCommand.ts";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand.ts";
 import {
   ModifyClusterDbRevisionCommandInput,
-  ModifyClusterDbRevisionCommandOutput
+  ModifyClusterDbRevisionCommandOutput,
 } from "./commands/ModifyClusterDbRevisionCommand.ts";
 import {
   ModifyClusterIamRolesCommandInput,
-  ModifyClusterIamRolesCommandOutput
+  ModifyClusterIamRolesCommandOutput,
 } from "./commands/ModifyClusterIamRolesCommand.ts";
 import {
   ModifyClusterMaintenanceCommandInput,
-  ModifyClusterMaintenanceCommandOutput
+  ModifyClusterMaintenanceCommandOutput,
 } from "./commands/ModifyClusterMaintenanceCommand.ts";
 import {
   ModifyClusterParameterGroupCommandInput,
-  ModifyClusterParameterGroupCommandOutput
+  ModifyClusterParameterGroupCommandOutput,
 } from "./commands/ModifyClusterParameterGroupCommand.ts";
 import {
   ModifyClusterSnapshotCommandInput,
-  ModifyClusterSnapshotCommandOutput
+  ModifyClusterSnapshotCommandOutput,
 } from "./commands/ModifyClusterSnapshotCommand.ts";
 import {
   ModifyClusterSnapshotScheduleCommandInput,
-  ModifyClusterSnapshotScheduleCommandOutput
+  ModifyClusterSnapshotScheduleCommandOutput,
 } from "./commands/ModifyClusterSnapshotScheduleCommand.ts";
 import {
   ModifyClusterSubnetGroupCommandInput,
-  ModifyClusterSubnetGroupCommandOutput
+  ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand.ts";
 import {
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand.ts";
 import {
   ModifyScheduledActionCommandInput,
-  ModifyScheduledActionCommandOutput
+  ModifyScheduledActionCommandOutput,
 } from "./commands/ModifyScheduledActionCommand.ts";
 import {
   ModifySnapshotCopyRetentionPeriodCommandInput,
-  ModifySnapshotCopyRetentionPeriodCommandOutput
+  ModifySnapshotCopyRetentionPeriodCommandOutput,
 } from "./commands/ModifySnapshotCopyRetentionPeriodCommand.ts";
 import {
   ModifySnapshotScheduleCommandInput,
-  ModifySnapshotScheduleCommandOutput
+  ModifySnapshotScheduleCommandOutput,
 } from "./commands/ModifySnapshotScheduleCommand.ts";
+import { ModifyUsageLimitCommandInput, ModifyUsageLimitCommandOutput } from "./commands/ModifyUsageLimitCommand.ts";
+import { PauseClusterCommandInput, PauseClusterCommandOutput } from "./commands/PauseClusterCommand.ts";
 import {
   PurchaseReservedNodeOfferingCommandInput,
-  PurchaseReservedNodeOfferingCommandOutput
+  PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand.ts";
-import {
-  RebootClusterCommandInput,
-  RebootClusterCommandOutput
-} from "./commands/RebootClusterCommand.ts";
+import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand.ts";
 import {
   ResetClusterParameterGroupCommandInput,
-  ResetClusterParameterGroupCommandOutput
+  ResetClusterParameterGroupCommandOutput,
 } from "./commands/ResetClusterParameterGroupCommand.ts";
-import {
-  ResizeClusterCommandInput,
-  ResizeClusterCommandOutput
-} from "./commands/ResizeClusterCommand.ts";
+import { ResizeClusterCommandInput, ResizeClusterCommandOutput } from "./commands/ResizeClusterCommand.ts";
 import {
   RestoreFromClusterSnapshotCommandInput,
-  RestoreFromClusterSnapshotCommandOutput
+  RestoreFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreFromClusterSnapshotCommand.ts";
 import {
   RestoreTableFromClusterSnapshotCommandInput,
-  RestoreTableFromClusterSnapshotCommandOutput
+  RestoreTableFromClusterSnapshotCommandOutput,
 } from "./commands/RestoreTableFromClusterSnapshotCommand.ts";
+import { ResumeClusterCommandInput, ResumeClusterCommandOutput } from "./commands/ResumeClusterCommand.ts";
 import {
   RevokeClusterSecurityGroupIngressCommandInput,
-  RevokeClusterSecurityGroupIngressCommandOutput
+  RevokeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeClusterSecurityGroupIngressCommand.ts";
 import {
   RevokeSnapshotAccessCommandInput,
-  RevokeSnapshotAccessCommandOutput
+  RevokeSnapshotAccessCommandOutput,
 } from "./commands/RevokeSnapshotAccessCommand.ts";
 import {
   RotateEncryptionKeyCommandInput,
-  RotateEncryptionKeyCommandOutput
+  RotateEncryptionKeyCommandOutput,
 } from "./commands/RotateEncryptionKeyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -349,38 +313,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -389,9 +349,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -414,6 +375,7 @@ export type ServiceInputTypes =
   | CreateSnapshotCopyGrantCommandInput
   | CreateSnapshotScheduleCommandInput
   | CreateTagsCommandInput
+  | CreateUsageLimitCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterParameterGroupCommandInput
   | DeleteClusterSecurityGroupCommandInput
@@ -426,6 +388,7 @@ export type ServiceInputTypes =
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
   | DeleteTagsCommandInput
+  | DeleteUsageLimitCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeClusterDbRevisionsCommandInput
   | DescribeClusterParameterGroupsCommandInput
@@ -454,6 +417,7 @@ export type ServiceInputTypes =
   | DescribeStorageCommandInput
   | DescribeTableRestoreStatusCommandInput
   | DescribeTagsCommandInput
+  | DescribeUsageLimitsCommandInput
   | DisableLoggingCommandInput
   | DisableSnapshotCopyCommandInput
   | EnableLoggingCommandInput
@@ -472,12 +436,15 @@ export type ServiceInputTypes =
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
   | ModifySnapshotScheduleCommandInput
+  | ModifyUsageLimitCommandInput
+  | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
   | RebootClusterCommandInput
   | ResetClusterParameterGroupCommandInput
   | ResizeClusterCommandInput
   | RestoreFromClusterSnapshotCommandInput
   | RestoreTableFromClusterSnapshotCommandInput
+  | ResumeClusterCommandInput
   | RevokeClusterSecurityGroupIngressCommandInput
   | RevokeSnapshotAccessCommandInput
   | RotateEncryptionKeyCommandInput;
@@ -502,6 +469,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotCopyGrantCommandOutput
   | CreateSnapshotScheduleCommandOutput
   | CreateTagsCommandOutput
+  | CreateUsageLimitCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterParameterGroupCommandOutput
   | DeleteClusterSecurityGroupCommandOutput
@@ -514,6 +482,7 @@ export type ServiceOutputTypes =
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteUsageLimitCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeClusterDbRevisionsCommandOutput
   | DescribeClusterParameterGroupsCommandOutput
@@ -542,6 +511,7 @@ export type ServiceOutputTypes =
   | DescribeStorageCommandOutput
   | DescribeTableRestoreStatusCommandOutput
   | DescribeTagsCommandOutput
+  | DescribeUsageLimitsCommandOutput
   | DisableLoggingCommandOutput
   | DisableSnapshotCopyCommandOutput
   | EnableLoggingCommandOutput
@@ -560,18 +530,20 @@ export type ServiceOutputTypes =
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
   | ModifySnapshotScheduleCommandOutput
+  | ModifyUsageLimitCommandOutput
+  | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
   | RebootClusterCommandOutput
   | ResetClusterParameterGroupCommandOutput
   | ResizeClusterCommandOutput
   | RestoreFromClusterSnapshotCommandOutput
   | RestoreTableFromClusterSnapshotCommandOutput
+  | ResumeClusterCommandOutput
   | RevokeClusterSecurityGroupIngressCommandOutput
   | RevokeSnapshotAccessCommandOutput
   | RotateEncryptionKeyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -645,14 +617,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -660,9 +637,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RedshiftClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RedshiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -671,9 +646,7 @@ export type RedshiftClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -717,7 +690,7 @@ export class RedshiftClient extends __Client<
   constructor(configuration: RedshiftClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -732,6 +705,7 @@ export class RedshiftClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

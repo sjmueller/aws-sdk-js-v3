@@ -1,21 +1,11 @@
-import {
-  LakeFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LakeFormationClient.ts";
-import {
-  GetDataLakeSettingsRequest,
-  GetDataLakeSettingsResponse
-} from "../models/index.ts";
+import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
+import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDataLakeSettingsCommand,
-  serializeAws_json1_1GetDataLakeSettingsCommand
+  serializeAws_json1_1GetDataLakeSettingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDataLakeSettingsCommandInput = GetDataLakeSettingsRequest;
-export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse &
-  __MetadataBearer;
+export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse & __MetadataBearer;
 
 export class GetDataLakeSettingsCommand extends $Command<
   GetDataLakeSettingsCommandInput,
@@ -49,18 +38,16 @@ export class GetDataLakeSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataLakeSettingsCommandInput,
-    GetDataLakeSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataLakeSettingsCommandInput, GetDataLakeSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDataLakeSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataLakeSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetDataLakeSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataLakeSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataLakeSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataLakeSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataLakeSettingsCommandOutput> {
     return deserializeAws_json1_1GetDataLakeSettingsCommand(output, context);
   }
 

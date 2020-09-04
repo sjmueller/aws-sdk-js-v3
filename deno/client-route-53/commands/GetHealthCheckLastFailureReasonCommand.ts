@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  GetHealthCheckLastFailureReasonRequest,
-  GetHealthCheckLastFailureReasonResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { GetHealthCheckLastFailureReasonRequest, GetHealthCheckLastFailureReasonResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
-  serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
+  serializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetHealthCheckLastFailureReasonCommandInput = GetHealthCheckLastFailureReasonRequest;
-export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse &
-  __MetadataBearer;
+export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse & __MetadataBearer;
 
 export class GetHealthCheckLastFailureReasonCommand extends $Command<
   GetHealthCheckLastFailureReasonCommandInput,
@@ -49,18 +38,16 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHealthCheckLastFailureReasonCommandInput,
-    GetHealthCheckLastFailureReasonCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHealthCheckLastFailureReasonCommandInput, GetHealthCheckLastFailureReasonCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetHealthCheckLastFailureReasonRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHealthCheckLastFailureReasonResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     input: GetHealthCheckLastFailureReasonCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(output, context);
   }
 
   // Start section: command_body_extra

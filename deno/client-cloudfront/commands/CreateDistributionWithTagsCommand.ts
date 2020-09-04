@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
-import {
-  CreateDistributionWithTagsRequest,
-  CreateDistributionWithTagsResult
-} from "../models/index.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
+import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlCreateDistributionWithTagsCommand,
-  serializeAws_restXmlCreateDistributionWithTagsCommand
+  serializeAws_restXmlCreateDistributionWithTagsCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDistributionWithTagsCommandInput = CreateDistributionWithTagsRequest;
-export type CreateDistributionWithTagsCommandOutput = CreateDistributionWithTagsResult &
-  __MetadataBearer;
+export type CreateDistributionWithTagsCommandOutput = CreateDistributionWithTagsResult & __MetadataBearer;
 
 export class CreateDistributionWithTagsCommand extends $Command<
   CreateDistributionWithTagsCommandInput,
@@ -49,18 +38,16 @@ export class CreateDistributionWithTagsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDistributionWithTagsCommandInput,
-    CreateDistributionWithTagsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDistributionWithTagsCommandInput, CreateDistributionWithTagsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDistributionWithTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionWithTagsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateDistributionWithTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDistributionWithTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionWithTagsCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDistributionWithTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlCreateDistributionWithTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionWithTagsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

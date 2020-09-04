@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { UpdatePhoneNumberSettingsRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdatePhoneNumberSettingsCommand,
-  serializeAws_restJson1UpdatePhoneNumberSettingsCommand
+  serializeAws_restJson1UpdatePhoneNumberSettingsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdatePhoneNumberSettingsCommandInput = UpdatePhoneNumberSettingsRequest;
@@ -45,18 +38,16 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePhoneNumberSettingsCommandInput,
-    UpdatePhoneNumberSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePhoneNumberSettingsCommandInput, UpdatePhoneNumberSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdatePhoneNumberSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdatePhoneNumberSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePhoneNumberSettingsCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdatePhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdatePhoneNumberSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdatePhoneNumberSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdatePhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,562 +1,382 @@
 import {
   AddClientIDToOpenIDConnectProviderCommandInput,
-  AddClientIDToOpenIDConnectProviderCommandOutput
+  AddClientIDToOpenIDConnectProviderCommandOutput,
 } from "./commands/AddClientIDToOpenIDConnectProviderCommand.ts";
 import {
   AddRoleToInstanceProfileCommandInput,
-  AddRoleToInstanceProfileCommandOutput
+  AddRoleToInstanceProfileCommandOutput,
 } from "./commands/AddRoleToInstanceProfileCommand.ts";
-import {
-  AddUserToGroupCommandInput,
-  AddUserToGroupCommandOutput
-} from "./commands/AddUserToGroupCommand.ts";
-import {
-  AttachGroupPolicyCommandInput,
-  AttachGroupPolicyCommandOutput
-} from "./commands/AttachGroupPolicyCommand.ts";
-import {
-  AttachRolePolicyCommandInput,
-  AttachRolePolicyCommandOutput
-} from "./commands/AttachRolePolicyCommand.ts";
-import {
-  AttachUserPolicyCommandInput,
-  AttachUserPolicyCommandOutput
-} from "./commands/AttachUserPolicyCommand.ts";
-import {
-  ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
-} from "./commands/ChangePasswordCommand.ts";
-import {
-  CreateAccessKeyCommandInput,
-  CreateAccessKeyCommandOutput
-} from "./commands/CreateAccessKeyCommand.ts";
+import { AddUserToGroupCommandInput, AddUserToGroupCommandOutput } from "./commands/AddUserToGroupCommand.ts";
+import { AttachGroupPolicyCommandInput, AttachGroupPolicyCommandOutput } from "./commands/AttachGroupPolicyCommand.ts";
+import { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "./commands/AttachRolePolicyCommand.ts";
+import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./commands/AttachUserPolicyCommand.ts";
+import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand.ts";
+import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "./commands/CreateAccessKeyCommand.ts";
 import {
   CreateAccountAliasCommandInput,
-  CreateAccountAliasCommandOutput
+  CreateAccountAliasCommandOutput,
 } from "./commands/CreateAccountAliasCommand.ts";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput
+  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand.ts";
 import {
   CreateLoginProfileCommandInput,
-  CreateLoginProfileCommandOutput
+  CreateLoginProfileCommandOutput,
 } from "./commands/CreateLoginProfileCommand.ts";
 import {
   CreateOpenIDConnectProviderCommandInput,
-  CreateOpenIDConnectProviderCommandOutput
+  CreateOpenIDConnectProviderCommandOutput,
 } from "./commands/CreateOpenIDConnectProviderCommand.ts";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand.ts";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand.ts";
 import {
   CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput
+  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand.ts";
-import {
-  CreateRoleCommandInput,
-  CreateRoleCommandOutput
-} from "./commands/CreateRoleCommand.ts";
+import { CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand.ts";
 import {
   CreateSAMLProviderCommandInput,
-  CreateSAMLProviderCommandOutput
+  CreateSAMLProviderCommandOutput,
 } from "./commands/CreateSAMLProviderCommand.ts";
 import {
   CreateServiceLinkedRoleCommandInput,
-  CreateServiceLinkedRoleCommandOutput
+  CreateServiceLinkedRoleCommandOutput,
 } from "./commands/CreateServiceLinkedRoleCommand.ts";
 import {
   CreateServiceSpecificCredentialCommandInput,
-  CreateServiceSpecificCredentialCommandOutput
+  CreateServiceSpecificCredentialCommandOutput,
 } from "./commands/CreateServiceSpecificCredentialCommand.ts";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   CreateVirtualMFADeviceCommandInput,
-  CreateVirtualMFADeviceCommandOutput
+  CreateVirtualMFADeviceCommandOutput,
 } from "./commands/CreateVirtualMFADeviceCommand.ts";
 import {
   DeactivateMFADeviceCommandInput,
-  DeactivateMFADeviceCommandOutput
+  DeactivateMFADeviceCommandOutput,
 } from "./commands/DeactivateMFADeviceCommand.ts";
-import {
-  DeleteAccessKeyCommandInput,
-  DeleteAccessKeyCommandOutput
-} from "./commands/DeleteAccessKeyCommand.ts";
+import { DeleteAccessKeyCommandInput, DeleteAccessKeyCommandOutput } from "./commands/DeleteAccessKeyCommand.ts";
 import {
   DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput
+  DeleteAccountAliasCommandOutput,
 } from "./commands/DeleteAccountAliasCommand.ts";
 import {
   DeleteAccountPasswordPolicyCommandInput,
-  DeleteAccountPasswordPolicyCommandOutput
+  DeleteAccountPasswordPolicyCommandOutput,
 } from "./commands/DeleteAccountPasswordPolicyCommand.ts";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand.ts";
-import {
-  DeleteGroupPolicyCommandInput,
-  DeleteGroupPolicyCommandOutput
-} from "./commands/DeleteGroupPolicyCommand.ts";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupPolicyCommandInput, DeleteGroupPolicyCommandOutput } from "./commands/DeleteGroupPolicyCommand.ts";
 import {
   DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput
+  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand.ts";
 import {
   DeleteLoginProfileCommandInput,
-  DeleteLoginProfileCommandOutput
+  DeleteLoginProfileCommandOutput,
 } from "./commands/DeleteLoginProfileCommand.ts";
 import {
   DeleteOpenIDConnectProviderCommandInput,
-  DeleteOpenIDConnectProviderCommandOutput
+  DeleteOpenIDConnectProviderCommandOutput,
 } from "./commands/DeleteOpenIDConnectProviderCommand.ts";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand.ts";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand.ts";
 import {
   DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput
+  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand.ts";
-import {
-  DeleteRoleCommandInput,
-  DeleteRoleCommandOutput
-} from "./commands/DeleteRoleCommand.ts";
+import { DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand.ts";
 import {
   DeleteRolePermissionsBoundaryCommandInput,
-  DeleteRolePermissionsBoundaryCommandOutput
+  DeleteRolePermissionsBoundaryCommandOutput,
 } from "./commands/DeleteRolePermissionsBoundaryCommand.ts";
-import {
-  DeleteRolePolicyCommandInput,
-  DeleteRolePolicyCommandOutput
-} from "./commands/DeleteRolePolicyCommand.ts";
+import { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "./commands/DeleteRolePolicyCommand.ts";
 import {
   DeleteSAMLProviderCommandInput,
-  DeleteSAMLProviderCommandOutput
+  DeleteSAMLProviderCommandOutput,
 } from "./commands/DeleteSAMLProviderCommand.ts";
 import {
   DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput
+  DeleteSSHPublicKeyCommandOutput,
 } from "./commands/DeleteSSHPublicKeyCommand.ts";
 import {
   DeleteServerCertificateCommandInput,
-  DeleteServerCertificateCommandOutput
+  DeleteServerCertificateCommandOutput,
 } from "./commands/DeleteServerCertificateCommand.ts";
 import {
   DeleteServiceLinkedRoleCommandInput,
-  DeleteServiceLinkedRoleCommandOutput
+  DeleteServiceLinkedRoleCommandOutput,
 } from "./commands/DeleteServiceLinkedRoleCommand.ts";
 import {
   DeleteServiceSpecificCredentialCommandInput,
-  DeleteServiceSpecificCredentialCommandOutput
+  DeleteServiceSpecificCredentialCommandOutput,
 } from "./commands/DeleteServiceSpecificCredentialCommand.ts";
 import {
   DeleteSigningCertificateCommandInput,
-  DeleteSigningCertificateCommandOutput
+  DeleteSigningCertificateCommandOutput,
 } from "./commands/DeleteSigningCertificateCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeleteUserPermissionsBoundaryCommandInput,
-  DeleteUserPermissionsBoundaryCommandOutput
+  DeleteUserPermissionsBoundaryCommandOutput,
 } from "./commands/DeleteUserPermissionsBoundaryCommand.ts";
-import {
-  DeleteUserPolicyCommandInput,
-  DeleteUserPolicyCommandOutput
-} from "./commands/DeleteUserPolicyCommand.ts";
+import { DeleteUserPolicyCommandInput, DeleteUserPolicyCommandOutput } from "./commands/DeleteUserPolicyCommand.ts";
 import {
   DeleteVirtualMFADeviceCommandInput,
-  DeleteVirtualMFADeviceCommandOutput
+  DeleteVirtualMFADeviceCommandOutput,
 } from "./commands/DeleteVirtualMFADeviceCommand.ts";
-import {
-  DetachGroupPolicyCommandInput,
-  DetachGroupPolicyCommandOutput
-} from "./commands/DetachGroupPolicyCommand.ts";
-import {
-  DetachRolePolicyCommandInput,
-  DetachRolePolicyCommandOutput
-} from "./commands/DetachRolePolicyCommand.ts";
-import {
-  DetachUserPolicyCommandInput,
-  DetachUserPolicyCommandOutput
-} from "./commands/DetachUserPolicyCommand.ts";
-import {
-  EnableMFADeviceCommandInput,
-  EnableMFADeviceCommandOutput
-} from "./commands/EnableMFADeviceCommand.ts";
+import { DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput } from "./commands/DetachGroupPolicyCommand.ts";
+import { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "./commands/DetachRolePolicyCommand.ts";
+import { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "./commands/DetachUserPolicyCommand.ts";
+import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand.ts";
 import {
   GenerateCredentialReportCommandInput,
-  GenerateCredentialReportCommandOutput
+  GenerateCredentialReportCommandOutput,
 } from "./commands/GenerateCredentialReportCommand.ts";
 import {
   GenerateOrganizationsAccessReportCommandInput,
-  GenerateOrganizationsAccessReportCommandOutput
+  GenerateOrganizationsAccessReportCommandOutput,
 } from "./commands/GenerateOrganizationsAccessReportCommand.ts";
 import {
   GenerateServiceLastAccessedDetailsCommandInput,
-  GenerateServiceLastAccessedDetailsCommandOutput
+  GenerateServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GenerateServiceLastAccessedDetailsCommand.ts";
 import {
   GetAccessKeyLastUsedCommandInput,
-  GetAccessKeyLastUsedCommandOutput
+  GetAccessKeyLastUsedCommandOutput,
 } from "./commands/GetAccessKeyLastUsedCommand.ts";
 import {
   GetAccountAuthorizationDetailsCommandInput,
-  GetAccountAuthorizationDetailsCommandOutput
+  GetAccountAuthorizationDetailsCommandOutput,
 } from "./commands/GetAccountAuthorizationDetailsCommand.ts";
 import {
   GetAccountPasswordPolicyCommandInput,
-  GetAccountPasswordPolicyCommandOutput
+  GetAccountPasswordPolicyCommandOutput,
 } from "./commands/GetAccountPasswordPolicyCommand.ts";
-import {
-  GetAccountSummaryCommandInput,
-  GetAccountSummaryCommandOutput
-} from "./commands/GetAccountSummaryCommand.ts";
+import { GetAccountSummaryCommandInput, GetAccountSummaryCommandOutput } from "./commands/GetAccountSummaryCommand.ts";
 import {
   GetContextKeysForCustomPolicyCommandInput,
-  GetContextKeysForCustomPolicyCommandOutput
+  GetContextKeysForCustomPolicyCommandOutput,
 } from "./commands/GetContextKeysForCustomPolicyCommand.ts";
 import {
   GetContextKeysForPrincipalPolicyCommandInput,
-  GetContextKeysForPrincipalPolicyCommandOutput
+  GetContextKeysForPrincipalPolicyCommandOutput,
 } from "./commands/GetContextKeysForPrincipalPolicyCommand.ts";
 import {
   GetCredentialReportCommandInput,
-  GetCredentialReportCommandOutput
+  GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand.ts";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
-import {
-  GetGroupPolicyCommandInput,
-  GetGroupPolicyCommandOutput
-} from "./commands/GetGroupPolicyCommand.ts";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
+import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand.ts";
 import {
   GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
+  GetInstanceProfileCommandOutput,
 } from "./commands/GetInstanceProfileCommand.ts";
-import {
-  GetLoginProfileCommandInput,
-  GetLoginProfileCommandOutput
-} from "./commands/GetLoginProfileCommand.ts";
+import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand.ts";
 import {
   GetOpenIDConnectProviderCommandInput,
-  GetOpenIDConnectProviderCommandOutput
+  GetOpenIDConnectProviderCommandOutput,
 } from "./commands/GetOpenIDConnectProviderCommand.ts";
 import {
   GetOrganizationsAccessReportCommandInput,
-  GetOrganizationsAccessReportCommandOutput
+  GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand.ts";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
-import {
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
-} from "./commands/GetPolicyVersionCommand.ts";
-import {
-  GetRoleCommandInput,
-  GetRoleCommandOutput
-} from "./commands/GetRoleCommand.ts";
-import {
-  GetRolePolicyCommandInput,
-  GetRolePolicyCommandOutput
-} from "./commands/GetRolePolicyCommand.ts";
-import {
-  GetSAMLProviderCommandInput,
-  GetSAMLProviderCommandOutput
-} from "./commands/GetSAMLProviderCommand.ts";
-import {
-  GetSSHPublicKeyCommandInput,
-  GetSSHPublicKeyCommandOutput
-} from "./commands/GetSSHPublicKeyCommand.ts";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
+import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand.ts";
+import { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand.ts";
+import { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "./commands/GetRolePolicyCommand.ts";
+import { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "./commands/GetSAMLProviderCommand.ts";
+import { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "./commands/GetSSHPublicKeyCommand.ts";
 import {
   GetServerCertificateCommandInput,
-  GetServerCertificateCommandOutput
+  GetServerCertificateCommandOutput,
 } from "./commands/GetServerCertificateCommand.ts";
 import {
   GetServiceLastAccessedDetailsCommandInput,
-  GetServiceLastAccessedDetailsCommandOutput
+  GetServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsCommand.ts";
 import {
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-  GetServiceLastAccessedDetailsWithEntitiesCommandOutput
+  GetServiceLastAccessedDetailsWithEntitiesCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsWithEntitiesCommand.ts";
 import {
   GetServiceLinkedRoleDeletionStatusCommandInput,
-  GetServiceLinkedRoleDeletionStatusCommandOutput
+  GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand.ts";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand.ts";
-import {
-  GetUserPolicyCommandInput,
-  GetUserPolicyCommandOutput
-} from "./commands/GetUserPolicyCommand.ts";
-import {
-  ListAccessKeysCommandInput,
-  ListAccessKeysCommandOutput
-} from "./commands/ListAccessKeysCommand.ts";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand.ts";
+import { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "./commands/GetUserPolicyCommand.ts";
+import { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "./commands/ListAccessKeysCommand.ts";
 import {
   ListAccountAliasesCommandInput,
-  ListAccountAliasesCommandOutput
+  ListAccountAliasesCommandOutput,
 } from "./commands/ListAccountAliasesCommand.ts";
 import {
   ListAttachedGroupPoliciesCommandInput,
-  ListAttachedGroupPoliciesCommandOutput
+  ListAttachedGroupPoliciesCommandOutput,
 } from "./commands/ListAttachedGroupPoliciesCommand.ts";
 import {
   ListAttachedRolePoliciesCommandInput,
-  ListAttachedRolePoliciesCommandOutput
+  ListAttachedRolePoliciesCommandOutput,
 } from "./commands/ListAttachedRolePoliciesCommand.ts";
 import {
   ListAttachedUserPoliciesCommandInput,
-  ListAttachedUserPoliciesCommandOutput
+  ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand.ts";
 import {
   ListEntitiesForPolicyCommandInput,
-  ListEntitiesForPolicyCommandOutput
+  ListEntitiesForPolicyCommandOutput,
 } from "./commands/ListEntitiesForPolicyCommand.ts";
-import {
-  ListGroupPoliciesCommandInput,
-  ListGroupPoliciesCommandOutput
-} from "./commands/ListGroupPoliciesCommand.ts";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
-import {
-  ListGroupsForUserCommandInput,
-  ListGroupsForUserCommandOutput
-} from "./commands/ListGroupsForUserCommand.ts";
+import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from "./commands/ListGroupPoliciesCommand.ts";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
+import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "./commands/ListGroupsForUserCommand.ts";
 import {
   ListInstanceProfilesCommandInput,
-  ListInstanceProfilesCommandOutput
+  ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand.ts";
 import {
   ListInstanceProfilesForRoleCommandInput,
-  ListInstanceProfilesForRoleCommandOutput
+  ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand.ts";
-import {
-  ListMFADevicesCommandInput,
-  ListMFADevicesCommandOutput
-} from "./commands/ListMFADevicesCommand.ts";
+import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "./commands/ListMFADevicesCommand.ts";
 import {
   ListOpenIDConnectProvidersCommandInput,
-  ListOpenIDConnectProvidersCommandOutput
+  ListOpenIDConnectProvidersCommandOutput,
 } from "./commands/ListOpenIDConnectProvidersCommand.ts";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand.ts";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand.ts";
 import {
   ListPoliciesGrantingServiceAccessCommandInput,
-  ListPoliciesGrantingServiceAccessCommandOutput
+  ListPoliciesGrantingServiceAccessCommandOutput,
 } from "./commands/ListPoliciesGrantingServiceAccessCommand.ts";
 import {
   ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
+  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand.ts";
-import {
-  ListRolePoliciesCommandInput,
-  ListRolePoliciesCommandOutput
-} from "./commands/ListRolePoliciesCommand.ts";
-import {
-  ListRoleTagsCommandInput,
-  ListRoleTagsCommandOutput
-} from "./commands/ListRoleTagsCommand.ts";
-import {
-  ListRolesCommandInput,
-  ListRolesCommandOutput
-} from "./commands/ListRolesCommand.ts";
-import {
-  ListSAMLProvidersCommandInput,
-  ListSAMLProvidersCommandOutput
-} from "./commands/ListSAMLProvidersCommand.ts";
-import {
-  ListSSHPublicKeysCommandInput,
-  ListSSHPublicKeysCommandOutput
-} from "./commands/ListSSHPublicKeysCommand.ts";
+import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "./commands/ListRolePoliciesCommand.ts";
+import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "./commands/ListRoleTagsCommand.ts";
+import { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand.ts";
+import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "./commands/ListSAMLProvidersCommand.ts";
+import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "./commands/ListSSHPublicKeysCommand.ts";
 import {
   ListServerCertificatesCommandInput,
-  ListServerCertificatesCommandOutput
+  ListServerCertificatesCommandOutput,
 } from "./commands/ListServerCertificatesCommand.ts";
 import {
   ListServiceSpecificCredentialsCommandInput,
-  ListServiceSpecificCredentialsCommandOutput
+  ListServiceSpecificCredentialsCommandOutput,
 } from "./commands/ListServiceSpecificCredentialsCommand.ts";
 import {
   ListSigningCertificatesCommandInput,
-  ListSigningCertificatesCommandOutput
+  ListSigningCertificatesCommandOutput,
 } from "./commands/ListSigningCertificatesCommand.ts";
-import {
-  ListUserPoliciesCommandInput,
-  ListUserPoliciesCommandOutput
-} from "./commands/ListUserPoliciesCommand.ts";
-import {
-  ListUserTagsCommandInput,
-  ListUserTagsCommandOutput
-} from "./commands/ListUserTagsCommand.ts";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput } from "./commands/ListUserPoliciesCommand.ts";
+import { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "./commands/ListUserTagsCommand.ts";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   ListVirtualMFADevicesCommandInput,
-  ListVirtualMFADevicesCommandOutput
+  ListVirtualMFADevicesCommandOutput,
 } from "./commands/ListVirtualMFADevicesCommand.ts";
-import {
-  PutGroupPolicyCommandInput,
-  PutGroupPolicyCommandOutput
-} from "./commands/PutGroupPolicyCommand.ts";
+import { PutGroupPolicyCommandInput, PutGroupPolicyCommandOutput } from "./commands/PutGroupPolicyCommand.ts";
 import {
   PutRolePermissionsBoundaryCommandInput,
-  PutRolePermissionsBoundaryCommandOutput
+  PutRolePermissionsBoundaryCommandOutput,
 } from "./commands/PutRolePermissionsBoundaryCommand.ts";
-import {
-  PutRolePolicyCommandInput,
-  PutRolePolicyCommandOutput
-} from "./commands/PutRolePolicyCommand.ts";
+import { PutRolePolicyCommandInput, PutRolePolicyCommandOutput } from "./commands/PutRolePolicyCommand.ts";
 import {
   PutUserPermissionsBoundaryCommandInput,
-  PutUserPermissionsBoundaryCommandOutput
+  PutUserPermissionsBoundaryCommandOutput,
 } from "./commands/PutUserPermissionsBoundaryCommand.ts";
-import {
-  PutUserPolicyCommandInput,
-  PutUserPolicyCommandOutput
-} from "./commands/PutUserPolicyCommand.ts";
+import { PutUserPolicyCommandInput, PutUserPolicyCommandOutput } from "./commands/PutUserPolicyCommand.ts";
 import {
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
-  RemoveClientIDFromOpenIDConnectProviderCommandOutput
+  RemoveClientIDFromOpenIDConnectProviderCommandOutput,
 } from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand.ts";
 import {
   RemoveRoleFromInstanceProfileCommandInput,
-  RemoveRoleFromInstanceProfileCommandOutput
+  RemoveRoleFromInstanceProfileCommandOutput,
 } from "./commands/RemoveRoleFromInstanceProfileCommand.ts";
 import {
   RemoveUserFromGroupCommandInput,
-  RemoveUserFromGroupCommandOutput
+  RemoveUserFromGroupCommandOutput,
 } from "./commands/RemoveUserFromGroupCommand.ts";
 import {
   ResetServiceSpecificCredentialCommandInput,
-  ResetServiceSpecificCredentialCommandOutput
+  ResetServiceSpecificCredentialCommandOutput,
 } from "./commands/ResetServiceSpecificCredentialCommand.ts";
-import {
-  ResyncMFADeviceCommandInput,
-  ResyncMFADeviceCommandOutput
-} from "./commands/ResyncMFADeviceCommand.ts";
+import { ResyncMFADeviceCommandInput, ResyncMFADeviceCommandOutput } from "./commands/ResyncMFADeviceCommand.ts";
 import {
   SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput
+  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand.ts";
 import {
   SetSecurityTokenServicePreferencesCommandInput,
-  SetSecurityTokenServicePreferencesCommandOutput
+  SetSecurityTokenServicePreferencesCommandOutput,
 } from "./commands/SetSecurityTokenServicePreferencesCommand.ts";
 import {
   SimulateCustomPolicyCommandInput,
-  SimulateCustomPolicyCommandOutput
+  SimulateCustomPolicyCommandOutput,
 } from "./commands/SimulateCustomPolicyCommand.ts";
 import {
   SimulatePrincipalPolicyCommandInput,
-  SimulatePrincipalPolicyCommandOutput
+  SimulatePrincipalPolicyCommandOutput,
 } from "./commands/SimulatePrincipalPolicyCommand.ts";
-import {
-  TagRoleCommandInput,
-  TagRoleCommandOutput
-} from "./commands/TagRoleCommand.ts";
-import {
-  TagUserCommandInput,
-  TagUserCommandOutput
-} from "./commands/TagUserCommand.ts";
-import {
-  UntagRoleCommandInput,
-  UntagRoleCommandOutput
-} from "./commands/UntagRoleCommand.ts";
-import {
-  UntagUserCommandInput,
-  UntagUserCommandOutput
-} from "./commands/UntagUserCommand.ts";
-import {
-  UpdateAccessKeyCommandInput,
-  UpdateAccessKeyCommandOutput
-} from "./commands/UpdateAccessKeyCommand.ts";
+import { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand.ts";
+import { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand.ts";
+import { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand.ts";
+import { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand.ts";
+import { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "./commands/UpdateAccessKeyCommand.ts";
 import {
   UpdateAccountPasswordPolicyCommandInput,
-  UpdateAccountPasswordPolicyCommandOutput
+  UpdateAccountPasswordPolicyCommandOutput,
 } from "./commands/UpdateAccountPasswordPolicyCommand.ts";
 import {
   UpdateAssumeRolePolicyCommandInput,
-  UpdateAssumeRolePolicyCommandOutput
+  UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand.ts";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoginProfileCommandInput,
-  UpdateLoginProfileCommandOutput
+  UpdateLoginProfileCommandOutput,
 } from "./commands/UpdateLoginProfileCommand.ts";
 import {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
-  UpdateOpenIDConnectProviderThumbprintCommandOutput
+  UpdateOpenIDConnectProviderThumbprintCommandOutput,
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand.ts";
-import {
-  UpdateRoleCommandInput,
-  UpdateRoleCommandOutput
-} from "./commands/UpdateRoleCommand.ts";
+import { UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand.ts";
 import {
   UpdateRoleDescriptionCommandInput,
-  UpdateRoleDescriptionCommandOutput
+  UpdateRoleDescriptionCommandOutput,
 } from "./commands/UpdateRoleDescriptionCommand.ts";
 import {
   UpdateSAMLProviderCommandInput,
-  UpdateSAMLProviderCommandOutput
+  UpdateSAMLProviderCommandOutput,
 } from "./commands/UpdateSAMLProviderCommand.ts";
 import {
   UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput
+  UpdateSSHPublicKeyCommandOutput,
 } from "./commands/UpdateSSHPublicKeyCommand.ts";
 import {
   UpdateServerCertificateCommandInput,
-  UpdateServerCertificateCommandOutput
+  UpdateServerCertificateCommandOutput,
 } from "./commands/UpdateServerCertificateCommand.ts";
 import {
   UpdateServiceSpecificCredentialCommandInput,
-  UpdateServiceSpecificCredentialCommandOutput
+  UpdateServiceSpecificCredentialCommandOutput,
 } from "./commands/UpdateServiceSpecificCredentialCommand.ts";
 import {
   UpdateSigningCertificateCommandInput,
-  UpdateSigningCertificateCommandOutput
+  UpdateSigningCertificateCommandOutput,
 } from "./commands/UpdateSigningCertificateCommand.ts";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand.ts";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import {
   UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput
+  UploadSSHPublicKeyCommandOutput,
 } from "./commands/UploadSSHPublicKeyCommand.ts";
 import {
   UploadServerCertificateCommandInput,
-  UploadServerCertificateCommandOutput
+  UploadServerCertificateCommandOutput,
 } from "./commands/UploadServerCertificateCommand.ts";
 import {
   UploadSigningCertificateCommandInput,
-  UploadSigningCertificateCommandOutput
+  UploadSigningCertificateCommandOutput,
 } from "./commands/UploadSigningCertificateCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -565,38 +385,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -605,9 +421,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -894,8 +711,7 @@ export type ServiceOutputTypes =
   | UploadServerCertificateCommandOutput
   | UploadSigningCertificateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -969,14 +785,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -984,9 +805,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IAMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -995,9 +814,7 @@ export type IAMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1008,62 +825,10 @@ export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <fullname>AWS Identity and Access Management</fullname>
- *          <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage
- *       users and user permissions under your AWS account. This guide provides descriptions of IAM
- *       actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user
- *       guide for IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">Using IAM</a>. </p>
- *          <note>
- *             <p>AWS provides SDKs that consist of libraries and sample code for various programming
- *         languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a
- *         convenient way to create programmatic access to IAM and AWS. For example, the SDKs take care
- *         of tasks such as cryptographically signing requests (see below), managing errors, and
- *         retrying requests automatically. For information about the AWS SDKs, including how to
- *         download and install them, see the <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
- *           Services</a> page. </p>
- *          </note>
- *          <p>We recommend that you use the AWS SDKs to make programmatic API calls to IAM. However,
- *       you can also use the IAM Query API to make direct calls to the IAM web service. To learn more
- *       about the IAM Query API, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
- *         <i>Using IAM</i> guide. IAM supports GET and POST requests for all actions.
- *       That is, the API does not require you to use GET for some actions and POST for others.
- *       However, GET requests are subject to the limitation size of a URL. Therefore, for operations
- *       that require larger sizes, use a POST request. </p>
- *          <p>
- *             <b>Signing Requests</b>
- *          </p>
- *          <p>Requests must be signed using an access key ID and a secret access key. We strongly
- *       recommend that you do not use your AWS account access key ID and secret access key for
- *       everyday work with IAM. You can use the access key ID and secret access key for an IAM user or
- *       you can use the AWS Security Token Service to generate temporary security credentials and use
- *       those to sign requests.</p>
- *          <p>To sign requests, we recommend that you use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>. If you have an
- *       existing application that uses Signature Version 2, you do not have to update it to use
- *       Signature Version 4. However, some operations now require Signature Version 4. The
- *       documentation for operations that require version 4 indicate this requirement. </p>
- *          <p>
- *             <b>Additional Resources</b>
- *          </p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS
- *             Security Credentials</a>. This topic provides general information about the types of
- *           credentials used for accessing AWS. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html">IAM Best
- *             Practices</a>. This topic presents a list of suggestions for using the IAM service
- *           to help secure your AWS resources. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
- *             AWS API Requests</a>. This set of topics walk you through the process of signing a
- *           request using an access key ID and secret access key. </p>
- *             </li>
- *          </ul>
+ *          <p>AWS Identity and Access Management (IAM) is a web service for securely controlling
+ *       access to AWS services. With IAM, you can centrally manage users, security credentials
+ *       such as access keys, and permissions that control which AWS resources users and
+ *       applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">AWS Identity and Access Management User Guide</a>.</p>
  */
 export class IAMClient extends __Client<
   __HttpHandlerOptions,
@@ -1076,7 +841,7 @@ export class IAMClient extends __Client<
   constructor(configuration: IAMClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -1091,6 +856,7 @@ export class IAMClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,15 @@
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client.ts";
-import {
-  DescribeApplicationSnapshotRequest,
-  DescribeApplicationSnapshotResponse
-} from "../models/index.ts";
+import { DescribeApplicationSnapshotRequest, DescribeApplicationSnapshotResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeApplicationSnapshotCommand,
-  serializeAws_json1_1DescribeApplicationSnapshotCommand
+  serializeAws_json1_1DescribeApplicationSnapshotCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeApplicationSnapshotCommandInput = DescribeApplicationSnapshotRequest;
-export type DescribeApplicationSnapshotCommandOutput = DescribeApplicationSnapshotResponse &
-  __MetadataBearer;
+export type DescribeApplicationSnapshotCommandOutput = DescribeApplicationSnapshotResponse & __MetadataBearer;
 
 export class DescribeApplicationSnapshotCommand extends $Command<
   DescribeApplicationSnapshotCommandInput,
@@ -49,18 +42,16 @@ export class DescribeApplicationSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeApplicationSnapshotCommandInput,
-    DescribeApplicationSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeApplicationSnapshotCommandInput, DescribeApplicationSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeApplicationSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeApplicationSnapshotResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class DescribeApplicationSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeApplicationSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationSnapshotCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeApplicationSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeApplicationSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationSnapshotCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeApplicationSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

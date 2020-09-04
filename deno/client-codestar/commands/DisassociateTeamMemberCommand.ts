@@ -1,21 +1,11 @@
-import {
-  CodeStarClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarClient.ts";
-import {
-  DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult
-} from "../models/index.ts";
+import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
+import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateTeamMemberCommand,
-  serializeAws_json1_1DisassociateTeamMemberCommand
+  serializeAws_json1_1DisassociateTeamMemberCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateTeamMemberCommandInput = DisassociateTeamMemberRequest;
-export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult &
-  __MetadataBearer;
+export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult & __MetadataBearer;
 
 export class DisassociateTeamMemberCommand extends $Command<
   DisassociateTeamMemberCommandInput,
@@ -49,18 +38,16 @@ export class DisassociateTeamMemberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateTeamMemberCommandInput,
-    DisassociateTeamMemberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateTeamMemberCommandInput, DisassociateTeamMemberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateTeamMemberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTeamMemberResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DisassociateTeamMemberCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateTeamMemberCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateTeamMemberCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateTeamMemberCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateTeamMemberCommandOutput> {
     return deserializeAws_json1_1DisassociateTeamMemberCommand(output, context);
   }
 

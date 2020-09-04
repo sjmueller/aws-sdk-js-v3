@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -29,10 +25,9 @@ export interface AppliedTerminology {
 
 export namespace AppliedTerminology {
   export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AppliedTerminology =>
-    __isa(o, "AppliedTerminology");
+  export const isa = (o: any): o is AppliedTerminology => __isa(o, "AppliedTerminology");
 }
 
 export interface DeleteTerminologyRequest {
@@ -45,10 +40,9 @@ export interface DeleteTerminologyRequest {
 
 export namespace DeleteTerminologyRequest {
   export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTerminologyRequest =>
-    __isa(o, "DeleteTerminologyRequest");
+  export const isa = (o: any): o is DeleteTerminologyRequest => __isa(o, "DeleteTerminologyRequest");
 }
 
 export interface DescribeTextTranslationJobRequest {
@@ -61,13 +55,10 @@ export interface DescribeTextTranslationJobRequest {
 }
 
 export namespace DescribeTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTextTranslationJobRequest =>
-    __isa(o, "DescribeTextTranslationJobRequest");
+  export const isa = (o: any): o is DescribeTextTranslationJobRequest => __isa(o, "DescribeTextTranslationJobRequest");
 }
 
 export interface DescribeTextTranslationJobResponse {
@@ -80,10 +71,8 @@ export interface DescribeTextTranslationJobResponse {
 }
 
 export namespace DescribeTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeTextTranslationJobResponse =>
     __isa(o, "DescribeTextTranslationJobResponse");
@@ -95,9 +84,7 @@ export namespace DescribeTextTranslationJobResponse {
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
  *         Guide</i>. </p>
  */
-export interface DetectedLanguageLowConfidenceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
   /**
@@ -109,10 +96,8 @@ export interface DetectedLanguageLowConfidenceException
 }
 
 export namespace DetectedLanguageLowConfidenceException {
-  export const filterSensitiveLog = (
-    obj: DetectedLanguageLowConfidenceException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DetectedLanguageLowConfidenceException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DetectedLanguageLowConfidenceException =>
     __isa(o, "DetectedLanguageLowConfidenceException");
@@ -137,64 +122,72 @@ export interface EncryptionKey {
 
 export namespace EncryptionKey {
   export const filterSensitiveLog = (obj: EncryptionKey): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
 }
 
 export enum EncryptionKeyType {
-  KMS = "KMS"
+  KMS = "KMS",
 }
 
 export interface GetTerminologyRequest {
   __type?: "GetTerminologyRequest";
   /**
-   * <p>The name of the custom terminology being retrieved.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>
    */
   TerminologyDataFormat: TerminologyDataFormat | string | undefined;
+
+  /**
+   * <p>The name of the custom terminology being retrieved.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace GetTerminologyRequest {
   export const filterSensitiveLog = (obj: GetTerminologyRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTerminologyRequest =>
-    __isa(o, "GetTerminologyRequest");
+  export const isa = (o: any): o is GetTerminologyRequest => __isa(o, "GetTerminologyRequest");
 }
 
 export interface GetTerminologyResponse {
   __type?: "GetTerminologyResponse";
   /**
+   * <p>The properties of the custom terminology being retrieved.</p>
+   */
+  TerminologyProperties?: TerminologyProperties;
+
+  /**
    * <p>The data location of the custom terminology being retrieved. The custom terminology file
    *       is returned in a presigned url that has a 30 minute expiration.</p>
    */
   TerminologyDataLocation?: TerminologyDataLocation;
-
-  /**
-   * <p>The properties of the custom terminology being retrieved.</p>
-   */
-  TerminologyProperties?: TerminologyProperties;
 }
 
 export namespace GetTerminologyResponse {
   export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetTerminologyResponse =>
-    __isa(o, "GetTerminologyResponse");
+  export const isa = (o: any): o is GetTerminologyResponse => __isa(o, "GetTerminologyResponse");
 }
 
 export interface ImportTerminologyRequest {
   __type?: "ImportTerminologyRequest";
   /**
+   * <p>The terminology data for the custom terminology being imported.</p>
+   */
+  TerminologyData: TerminologyData | undefined;
+
+  /**
    * <p>The description of the custom terminology being imported.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The name of the custom terminology being imported.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The encryption key for the custom terminology being imported.</p>
@@ -207,27 +200,14 @@ export interface ImportTerminologyRequest {
    *       terminology of the same name.</p>
    */
   MergeStrategy: MergeStrategy | string | undefined;
-
-  /**
-   * <p>The name of the custom terminology being imported.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The terminology data for the custom terminology being imported.</p>
-   */
-  TerminologyData: TerminologyData | undefined;
 }
 
 export namespace ImportTerminologyRequest {
   export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
-    ...(obj.TerminologyData && {
-      TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData)
-    })
+    ...(obj.TerminologyData && { TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData) }),
   });
-  export const isa = (o: any): o is ImportTerminologyRequest =>
-    __isa(o, "ImportTerminologyRequest");
+  export const isa = (o: any): o is ImportTerminologyRequest => __isa(o, "ImportTerminologyRequest");
 }
 
 export interface ImportTerminologyResponse {
@@ -240,10 +220,9 @@ export interface ImportTerminologyResponse {
 
 export namespace ImportTerminologyResponse {
   export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportTerminologyResponse =>
-    __isa(o, "ImportTerminologyResponse");
+  export const isa = (o: any): o is ImportTerminologyResponse => __isa(o, "ImportTerminologyResponse");
 }
 
 /**
@@ -252,33 +231,30 @@ export namespace ImportTerminologyResponse {
 export interface InputDataConfig {
   __type?: "InputDataConfig";
   /**
+   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
+   *       same Region as the API endpoint you are calling.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
    * <p>The multipurpose internet mail extension (MIME) type of the input files. Valid values are
    *         <code>text/plain</code> for plaintext files and <code>text/html</code> for HTML
    *       files.</p>
    */
   ContentType: string | undefined;
-
-  /**
-   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
-   *       same Region as the API endpoint you are calling.</p>
-   */
-  S3Uri: string | undefined;
 }
 
 export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -286,18 +262,15 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
  */
-export interface InvalidFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
@@ -305,41 +278,33 @@ export interface InvalidFilterException
 
 export namespace InvalidFilterException {
   export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidFilterException =>
-    __isa(o, "InvalidFilterException");
+  export const isa = (o: any): o is InvalidFilterException => __isa(o, "InvalidFilterException");
 }
 
 /**
  * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
  *       correct it, and then retry your operation.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request. </p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -347,10 +312,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -360,14 +324,14 @@ export namespace InvalidRequestException {
 export interface JobDetails {
   __type?: "JobDetails";
   /**
-   * <p>The number of documents that could not be processed during a translation job.</p>
-   */
-  DocumentsWithErrorsCount?: number;
-
-  /**
    * <p>The number of documents used as input in a translation job.</p>
    */
   InputDocumentsCount?: number;
+
+  /**
+   * <p>The number of documents that could not be processed during a translation job.</p>
+   */
+  DocumentsWithErrorsCount?: number;
 
   /**
    * <p>The number of documents successfully processed during a translation job.</p>
@@ -377,7 +341,7 @@ export interface JobDetails {
 
 export namespace JobDetails {
   export const filterSensitiveLog = (obj: JobDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
 }
@@ -389,16 +353,14 @@ export enum JobStatus {
   IN_PROGRESS = "IN_PROGRESS",
   STOPPED = "STOPPED",
   STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 /**
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -406,10 +368,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTerminologiesRequest {
@@ -428,41 +389,38 @@ export interface ListTerminologiesRequest {
 
 export namespace ListTerminologiesRequest {
   export const filterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTerminologiesRequest =>
-    __isa(o, "ListTerminologiesRequest");
+  export const isa = (o: any): o is ListTerminologiesRequest => __isa(o, "ListTerminologiesRequest");
 }
 
 export interface ListTerminologiesResponse {
   __type?: "ListTerminologiesResponse";
   /**
+   * <p>The properties list of the custom terminologies returned on the list request.</p>
+   */
+  TerminologyPropertiesList?: TerminologyProperties[];
+
+  /**
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
    *       group of custom terminologies.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The properties list of the custom terminologies returned on the list request.</p>
-   */
-  TerminologyPropertiesList?: TerminologyProperties[];
 }
 
 export namespace ListTerminologiesResponse {
   export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTerminologiesResponse =>
-    __isa(o, "ListTerminologiesResponse");
+  export const isa = (o: any): o is ListTerminologiesResponse => __isa(o, "ListTerminologiesResponse");
 }
 
 export interface ListTextTranslationJobsRequest {
   __type?: "ListTextTranslationJobsRequest";
   /**
-   * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
-   *       name, job status, and submission time. You can only set one filter at a time.</p>
+   * <p>The token to request the next page of results.</p>
    */
-  Filter?: TextTranslationJobFilter;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in each page. The default value is 100.</p>
@@ -470,19 +428,17 @@ export interface ListTextTranslationJobsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
+   *       name, job status, and submission time. You can only set one filter at a time.</p>
    */
-  NextToken?: string;
+  Filter?: TextTranslationJobFilter;
 }
 
 export namespace ListTextTranslationJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListTextTranslationJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTextTranslationJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTextTranslationJobsRequest =>
-    __isa(o, "ListTextTranslationJobsRequest");
+  export const isa = (o: any): o is ListTextTranslationJobsRequest => __isa(o, "ListTextTranslationJobsRequest");
 }
 
 export interface ListTextTranslationJobsResponse {
@@ -500,17 +456,14 @@ export interface ListTextTranslationJobsResponse {
 }
 
 export namespace ListTextTranslationJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListTextTranslationJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTextTranslationJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTextTranslationJobsResponse =>
-    __isa(o, "ListTextTranslationJobsResponse");
+  export const isa = (o: any): o is ListTextTranslationJobsResponse => __isa(o, "ListTextTranslationJobsResponse");
 }
 
 export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE"
+  OVERWRITE = "OVERWRITE",
 }
 
 /**
@@ -527,10 +480,9 @@ export interface OutputDataConfig {
 
 export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -538,9 +490,7 @@ export namespace OutputDataConfig {
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -548,32 +498,26 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
  *       request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartTextTranslationJobRequest {
@@ -599,15 +543,15 @@ export interface StartTextTranslationJobRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>The name of the batch translation job to be performed.</p>
-   */
-  JobName?: string;
-
-  /**
    * <p>Specifies the S3 folder to which your job output will be saved.
    *       </p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The name of the batch translation job to be performed.</p>
+   */
+  JobName?: string;
 
   /**
    * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
@@ -617,25 +561,22 @@ export interface StartTextTranslationJobRequest {
   SourceLanguageCode: string | undefined;
 
   /**
-   * <p>The language code of the output language.</p>
-   */
-  TargetLanguageCodes: string[] | undefined;
-
-  /**
    * <p>The name of the terminology to use in the batch translation job. For a list of available
    *       terminologies, use the <a>ListTerminologies</a> operation.</p>
    */
   TerminologyNames?: string[];
+
+  /**
+   * <p>The language code of the output language.</p>
+   */
+  TargetLanguageCodes: string[] | undefined;
 }
 
 export namespace StartTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: StartTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTextTranslationJobRequest =>
-    __isa(o, "StartTextTranslationJobRequest");
+  export const isa = (o: any): o is StartTextTranslationJobRequest => __isa(o, "StartTextTranslationJobRequest");
 }
 
 export interface StartTextTranslationJobResponse {
@@ -687,13 +628,10 @@ export interface StartTextTranslationJobResponse {
 }
 
 export namespace StartTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: StartTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartTextTranslationJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartTextTranslationJobResponse =>
-    __isa(o, "StartTextTranslationJobResponse");
+  export const isa = (o: any): o is StartTextTranslationJobResponse => __isa(o, "StartTextTranslationJobResponse");
 }
 
 export interface StopTextTranslationJobRequest {
@@ -705,37 +643,31 @@ export interface StopTextTranslationJobRequest {
 }
 
 export namespace StopTextTranslationJobRequest {
-  export const filterSensitiveLog = (
-    obj: StopTextTranslationJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopTextTranslationJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopTextTranslationJobRequest =>
-    __isa(o, "StopTextTranslationJobRequest");
+  export const isa = (o: any): o is StopTextTranslationJobRequest => __isa(o, "StopTextTranslationJobRequest");
 }
 
 export interface StopTextTranslationJobResponse {
   __type?: "StopTextTranslationJobResponse";
   /**
-   * <p>The job ID of the stopped batch translation job.</p>
-   */
-  JobId?: string;
-
-  /**
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The job ID of the stopped batch translation job.</p>
+   */
+  JobId?: string;
 }
 
 export namespace StopTextTranslationJobResponse {
-  export const filterSensitiveLog = (
-    obj: StopTextTranslationJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopTextTranslationJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopTextTranslationJobResponse =>
-    __isa(o, "StopTextTranslationJobResponse");
+  export const isa = (o: any): o is StopTextTranslationJobResponse => __isa(o, "StopTextTranslationJobResponse");
 }
 
 /**
@@ -744,19 +676,19 @@ export namespace StopTextTranslationJobResponse {
 export interface Term {
   __type?: "Term";
   /**
-   * <p>The source text of the term being translated by the custom terminology.</p>
-   */
-  SourceText?: string;
-
-  /**
    * <p>The target text of the term being translated by the custom terminology.</p>
    */
   TargetText?: string;
+
+  /**
+   * <p>The source text of the term being translated by the custom terminology.</p>
+   */
+  SourceText?: string;
 }
 
 export namespace Term {
   export const filterSensitiveLog = (obj: Term): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Term => __isa(o, "Term");
 }
@@ -767,30 +699,29 @@ export namespace Term {
 export interface TerminologyData {
   __type?: "TerminologyData";
   /**
+   * <p>The data format of the custom terminology. Either CSV or TMX.</p>
+   */
+  Format: TerminologyDataFormat | string | undefined;
+
+  /**
    * <p>The file containing the custom terminology data. Your version of the AWS SDK performs a
    *       Base64-encoding on this field before sending a request to the AWS service. Users of the SDK
    *       should not perform Base64-encoding themselves.</p>
    */
   File: Uint8Array | undefined;
-
-  /**
-   * <p>The data format of the custom terminology. Either CSV or TMX.</p>
-   */
-  Format: TerminologyDataFormat | string | undefined;
 }
 
 export namespace TerminologyData {
   export const filterSensitiveLog = (obj: TerminologyData): any => ({
     ...obj,
-    ...(obj.File && { File: SENSITIVE_STRING })
+    ...(obj.File && { File: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TerminologyData =>
-    __isa(o, "TerminologyData");
+  export const isa = (o: any): o is TerminologyData => __isa(o, "TerminologyData");
 }
 
 export enum TerminologyDataFormat {
   CSV = "CSV",
-  TMX = "TMX"
+  TMX = "TMX",
 }
 
 /**
@@ -811,10 +742,9 @@ export interface TerminologyDataLocation {
 
 export namespace TerminologyDataLocation {
   export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminologyDataLocation =>
-    __isa(o, "TerminologyDataLocation");
+  export const isa = (o: any): o is TerminologyDataLocation => __isa(o, "TerminologyDataLocation");
 }
 
 /**
@@ -823,14 +753,9 @@ export namespace TerminologyDataLocation {
 export interface TerminologyProperties {
   __type?: "TerminologyProperties";
   /**
-   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
+   * <p>The size of the file used when importing a custom terminology.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
-   */
-  CreatedAt?: Date;
+  SizeBytes?: number;
 
   /**
    * <p>The description of the custom terminology properties.</p>
@@ -838,24 +763,9 @@ export interface TerminologyProperties {
   Description?: string;
 
   /**
-   * <p>The encryption key for the custom terminology.</p>
-   */
-  EncryptionKey?: EncryptionKey;
-
-  /**
-   * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
-   */
-  LastUpdatedAt?: Date;
-
-  /**
    * <p>The name of the custom terminology.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The size of the file used when importing a custom terminology.</p>
-   */
-  SizeBytes?: number;
 
   /**
    * <p>The language code for the source text of the translation request for which the custom
@@ -864,45 +774,59 @@ export interface TerminologyProperties {
   SourceLanguageCode?: string;
 
   /**
+   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The language codes for the target languages available with the custom terminology file.
    *       All possible target languages are returned in array.</p>
    */
   TargetLanguageCodes?: string[];
 
   /**
+   * <p>The encryption key for the custom terminology.</p>
+   */
+  EncryptionKey?: EncryptionKey;
+
+  /**
    * <p>The number of terms included in the custom terminology.</p>
    */
   TermCount?: number;
+
+  /**
+   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
+   */
+  LastUpdatedAt?: Date;
 }
 
 export namespace TerminologyProperties {
   export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminologyProperties =>
-    __isa(o, "TerminologyProperties");
+  export const isa = (o: any): o is TerminologyProperties => __isa(o, "TerminologyProperties");
 }
 
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TextSizeLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: TextSizeLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextSizeLimitExceededException =>
-    __isa(o, "TextSizeLimitExceededException");
+  export const isa = (o: any): o is TextSizeLimitExceededException => __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -917,11 +841,6 @@ export interface TextTranslationJobFilter {
   JobName?: string;
 
   /**
-   * <p>Filters the list of jobs based by job status.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
    *       returns only the jobs submitted after the specified time. Jobs are returned in descending
    *       order, newest to oldest.</p>
@@ -934,14 +853,18 @@ export interface TextTranslationJobFilter {
    *       order, oldest to newest.</p>
    */
   SubmittedBeforeTime?: Date;
+
+  /**
+   * <p>Filters the list of jobs based by job status.</p>
+   */
+  JobStatus?: JobStatus | string;
 }
 
 export namespace TextTranslationJobFilter {
   export const filterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TextTranslationJobFilter =>
-    __isa(o, "TextTranslationJobFilter");
+  export const isa = (o: any): o is TextTranslationJobFilter => __isa(o, "TextTranslationJobFilter");
 }
 
 /**
@@ -950,15 +873,47 @@ export namespace TextTranslationJobFilter {
 export interface TextTranslationJobProperties {
   __type?: "TextTranslationJobProperties";
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that granted Amazon Translate read access to the job's input data.</p>
+   * <p>The user-defined name of the translation job.</p>
    */
-  DataAccessRoleArn?: string;
+  JobName?: string;
+
+  /**
+   * <p>A list containing the names of the terminologies applied to a translation job. Only one
+   *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
+   *       time.</p>
+   */
+  TerminologyNames?: string[];
+
+  /**
+   * <p>The language code of the language of the target text. The language must be a language
+   *       supported by Amazon Translate.</p>
+   */
+  TargetLanguageCodes?: string[];
+
+  /**
+   * <p>An explanation of any errors that may have occured during the translation job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The status of the translation job.</p>
+   */
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>The time at which the translation job ended.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The time at which the translation job was submitted.</p>
+   */
+  SubmittedTime?: Date;
+
+  /**
+   * <p>The output configuration properties that were specified when the job was requested.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
 
   /**
    * <p>The input configuration properties that were specified when the job was requested.</p>
@@ -972,72 +927,35 @@ export interface TextTranslationJobProperties {
   JobDetails?: JobDetails;
 
   /**
-   * <p>The ID of the translation job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The user-defined name of the translation job.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>The status of the translation job.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
-   * <p>An explanation of any errors that may have occured during the translation job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The output configuration properties that were specified when the job was requested.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
    * <p>The language code of the language of the source text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
   SourceLanguageCode?: string;
 
   /**
-   * <p>The time at which the translation job was submitted.</p>
+   * <p>The ID of the translation job.</p>
    */
-  SubmittedTime?: Date;
+  JobId?: string;
 
   /**
-   * <p>The language code of the language of the target text. The language must be a language
-   *       supported by Amazon Translate.</p>
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that granted Amazon Translate read access to the job's input data.</p>
    */
-  TargetLanguageCodes?: string[];
-
-  /**
-   * <p>A list containing the names of the terminologies applied to a translation job. Only one
-   *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
-   *       time.</p>
-   */
-  TerminologyNames?: string[];
+  DataAccessRoleArn?: string;
 }
 
 export namespace TextTranslationJobProperties {
-  export const filterSensitiveLog = (
-    obj: TextTranslationJobProperties
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: TextTranslationJobProperties): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TextTranslationJobProperties =>
-    __isa(o, "TextTranslationJobProperties");
+  export const isa = (o: any): o is TextTranslationJobProperties => __isa(o, "TextTranslationJobProperties");
 }
 
 /**
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1045,10 +963,9 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface TranslateTextRequest {
@@ -1064,6 +981,12 @@ export interface TranslateTextRequest {
   SourceLanguageCode: string | undefined;
 
   /**
+   * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
+   *       your character set, this may be fewer than 5,000 characters.</p>
+   */
+  Text: string | undefined;
+
+  /**
    * <p>The language code requested for the language of the target text. The language must be a
    *       language supported by Amazon Translate.</p>
    */
@@ -1075,30 +998,17 @@ export interface TranslateTextRequest {
    *       contain a maximum of 256 terms.</p>
    */
   TerminologyNames?: string[];
-
-  /**
-   * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
-   *       your character set, this may be fewer than 5,000 characters.</p>
-   */
-  Text: string | undefined;
 }
 
 export namespace TranslateTextRequest {
   export const filterSensitiveLog = (obj: TranslateTextRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TranslateTextRequest =>
-    __isa(o, "TranslateTextRequest");
+  export const isa = (o: any): o is TranslateTextRequest => __isa(o, "TranslateTextRequest");
 }
 
 export interface TranslateTextResponse {
   __type?: "TranslateTextResponse";
-  /**
-   * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
-   *       translated text response.</p>
-   */
-  AppliedTerminologies?: AppliedTerminology[];
-
   /**
    * <p>The language code for the language of the source text.</p>
    */
@@ -1113,31 +1023,34 @@ export interface TranslateTextResponse {
    * <p>The translated text.</p>
    */
   TranslatedText: string | undefined;
+
+  /**
+   * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
+   *       translated text response.</p>
+   */
+  AppliedTerminologies?: AppliedTerminology[];
 }
 
 export namespace TranslateTextResponse {
   export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TranslateTextResponse =>
-    __isa(o, "TranslateTextResponse");
+  export const isa = (o: any): o is TranslateTextResponse => __isa(o, "TranslateTextResponse");
 }
 
 /**
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
  */
-export interface UnsupportedLanguagePairException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLanguagePairException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLanguagePairException";
   $fault: "client";
-  Message?: string;
   /**
    * <p>The language code for the language of the input text. </p>
    */
   SourceLanguageCode?: string;
 
+  Message?: string;
   /**
    * <p>The language code for the language of the translated text. </p>
    */
@@ -1145,11 +1058,8 @@ export interface UnsupportedLanguagePairException
 }
 
 export namespace UnsupportedLanguagePairException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedLanguagePairException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedLanguagePairException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedLanguagePairException =>
-    __isa(o, "UnsupportedLanguagePairException");
+  export const isa = (o: any): o is UnsupportedLanguagePairException => __isa(o, "UnsupportedLanguagePairException");
 }

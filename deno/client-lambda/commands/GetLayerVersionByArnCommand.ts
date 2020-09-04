@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient.ts";
-import {
-  GetLayerVersionByArnRequest,
-  GetLayerVersionResponse
-} from "../models/index.ts";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
+import { GetLayerVersionByArnRequest, GetLayerVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetLayerVersionByArnCommand,
-  serializeAws_restJson1GetLayerVersionByArnCommand
+  serializeAws_restJson1GetLayerVersionByArnCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLayerVersionByArnCommandInput = GetLayerVersionByArnRequest;
-export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse &
-  __MetadataBearer;
+export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
 export class GetLayerVersionByArnCommand extends $Command<
   GetLayerVersionByArnCommandInput,
@@ -49,18 +38,16 @@ export class GetLayerVersionByArnCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLayerVersionByArnCommandInput,
-    GetLayerVersionByArnCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLayerVersionByArnCommandInput, GetLayerVersionByArnCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLayerVersionByArnRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetLayerVersionByArnCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLayerVersionByArnCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLayerVersionByArnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayerVersionByArnCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLayerVersionByArnCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionByArnCommandOutput> {
     return deserializeAws_restJson1GetLayerVersionByArnCommand(output, context);
   }
 

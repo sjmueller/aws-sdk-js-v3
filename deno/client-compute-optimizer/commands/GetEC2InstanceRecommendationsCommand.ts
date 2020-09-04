@@ -1,21 +1,15 @@
 import {
   ComputeOptimizerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComputeOptimizerClient.ts";
-import {
-  GetEC2InstanceRecommendationsRequest,
-  GetEC2InstanceRecommendationsResponse
-} from "../models/index.ts";
+import { GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_0GetEC2InstanceRecommendationsCommand,
-  serializeAws_json1_0GetEC2InstanceRecommendationsCommand
+  serializeAws_json1_0GetEC2InstanceRecommendationsCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetEC2InstanceRecommendationsCommandInput = GetEC2InstanceRecommendationsRequest;
-export type GetEC2InstanceRecommendationsCommandOutput = GetEC2InstanceRecommendationsResponse &
-  __MetadataBearer;
+export type GetEC2InstanceRecommendationsCommandOutput = GetEC2InstanceRecommendationsResponse & __MetadataBearer;
 
 export class GetEC2InstanceRecommendationsCommand extends $Command<
   GetEC2InstanceRecommendationsCommandInput,
@@ -49,18 +42,16 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEC2InstanceRecommendationsCommandInput,
-    GetEC2InstanceRecommendationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEC2InstanceRecommendationsCommandInput, GetEC2InstanceRecommendationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetEC2InstanceRecommendationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEC2InstanceRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
-      input,
-      context
-    );
+  private serialize(input: GetEC2InstanceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEC2InstanceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

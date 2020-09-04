@@ -1,18 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { GetDifferencesInput, GetDifferencesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDifferencesCommand,
-  serializeAws_json1_1GetDifferencesCommand
+  serializeAws_json1_1GetDifferencesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDifferencesCommandInput = GetDifferencesInput;
-export type GetDifferencesCommandOutput = GetDifferencesOutput &
-  __MetadataBearer;
+export type GetDifferencesCommandOutput = GetDifferencesOutput & __MetadataBearer;
 
 export class GetDifferencesCommand extends $Command<
   GetDifferencesCommandInput,
@@ -47,14 +39,15 @@ export class GetDifferencesCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDifferencesCommandInput, GetDifferencesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDifferencesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDifferencesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetDifferencesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDifferencesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDifferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDifferencesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDifferencesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDifferencesCommandOutput> {
     return deserializeAws_json1_1GetDifferencesCommand(output, context);
   }
 

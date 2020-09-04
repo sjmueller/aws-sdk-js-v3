@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
 import { UpdateResourceRequest, UpdateResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateResourceCommand,
-  serializeAws_json1_1UpdateResourceCommand
+  serializeAws_json1_1UpdateResourceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = UpdateResourceResponse &
-  __MetadataBearer;
+export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
 
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,
@@ -47,14 +39,15 @@ export class UpdateResourceCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateResourceCommandInput, UpdateResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class UpdateResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
     return deserializeAws_json1_1UpdateResourceCommand(output, context);
   }
 

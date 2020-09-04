@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient.ts";
-import {
-  GetDownloadUrlForLayerRequest,
-  GetDownloadUrlForLayerResponse
-} from "../models/index.ts";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
+import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDownloadUrlForLayerCommand,
-  serializeAws_json1_1GetDownloadUrlForLayerCommand
+  serializeAws_json1_1GetDownloadUrlForLayerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDownloadUrlForLayerCommandInput = GetDownloadUrlForLayerRequest;
-export type GetDownloadUrlForLayerCommandOutput = GetDownloadUrlForLayerResponse &
-  __MetadataBearer;
+export type GetDownloadUrlForLayerCommandOutput = GetDownloadUrlForLayerResponse & __MetadataBearer;
 
 export class GetDownloadUrlForLayerCommand extends $Command<
   GetDownloadUrlForLayerCommandInput,
@@ -49,18 +38,16 @@ export class GetDownloadUrlForLayerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDownloadUrlForLayerCommandInput,
-    GetDownloadUrlForLayerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDownloadUrlForLayerCommandInput, GetDownloadUrlForLayerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDownloadUrlForLayerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDownloadUrlForLayerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetDownloadUrlForLayerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDownloadUrlForLayerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDownloadUrlForLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDownloadUrlForLayerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDownloadUrlForLayerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDownloadUrlForLayerCommandOutput> {
     return deserializeAws_json1_1GetDownloadUrlForLayerCommand(output, context);
   }
 

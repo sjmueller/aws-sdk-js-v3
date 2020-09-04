@@ -1,18 +1,11 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient.ts";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
 import { GetLexiconInput, GetLexiconOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetLexiconCommand,
-  serializeAws_restJson1GetLexiconCommand
+  serializeAws_restJson1GetLexiconCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLexiconCommandInput = GetLexiconInput;
@@ -46,14 +39,15 @@ export class GetLexiconCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLexiconCommandInput, GetLexiconCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLexiconInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLexiconOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class GetLexiconCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLexiconCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLexiconCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLexiconCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLexiconCommandOutput> {
     return deserializeAws_restJson1GetLexiconCommand(output, context);
   }
 

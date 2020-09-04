@@ -1,146 +1,123 @@
 import {
   BatchDescribeSimulationJobCommandInput,
-  BatchDescribeSimulationJobCommandOutput
+  BatchDescribeSimulationJobCommandOutput,
 } from "./commands/BatchDescribeSimulationJobCommand.ts";
 import {
   CancelDeploymentJobCommandInput,
-  CancelDeploymentJobCommandOutput
+  CancelDeploymentJobCommandOutput,
 } from "./commands/CancelDeploymentJobCommand.ts";
 import {
+  CancelSimulationJobBatchCommandInput,
+  CancelSimulationJobBatchCommandOutput,
+} from "./commands/CancelSimulationJobBatchCommand.ts";
+import {
   CancelSimulationJobCommandInput,
-  CancelSimulationJobCommandOutput
+  CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand.ts";
 import {
   CreateDeploymentJobCommandInput,
-  CreateDeploymentJobCommandOutput
+  CreateDeploymentJobCommandOutput,
 } from "./commands/CreateDeploymentJobCommand.ts";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand.ts";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
   CreateRobotApplicationCommandInput,
-  CreateRobotApplicationCommandOutput
+  CreateRobotApplicationCommandOutput,
 } from "./commands/CreateRobotApplicationCommand.ts";
 import {
   CreateRobotApplicationVersionCommandInput,
-  CreateRobotApplicationVersionCommandOutput
+  CreateRobotApplicationVersionCommandOutput,
 } from "./commands/CreateRobotApplicationVersionCommand.ts";
-import {
-  CreateRobotCommandInput,
-  CreateRobotCommandOutput
-} from "./commands/CreateRobotCommand.ts";
+import { CreateRobotCommandInput, CreateRobotCommandOutput } from "./commands/CreateRobotCommand.ts";
 import {
   CreateSimulationApplicationCommandInput,
-  CreateSimulationApplicationCommandOutput
+  CreateSimulationApplicationCommandOutput,
 } from "./commands/CreateSimulationApplicationCommand.ts";
 import {
   CreateSimulationApplicationVersionCommandInput,
-  CreateSimulationApplicationVersionCommandOutput
+  CreateSimulationApplicationVersionCommandOutput,
 } from "./commands/CreateSimulationApplicationVersionCommand.ts";
 import {
   CreateSimulationJobCommandInput,
-  CreateSimulationJobCommandOutput
+  CreateSimulationJobCommandOutput,
 } from "./commands/CreateSimulationJobCommand.ts";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand.ts";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DeleteRobotApplicationCommandInput,
-  DeleteRobotApplicationCommandOutput
+  DeleteRobotApplicationCommandOutput,
 } from "./commands/DeleteRobotApplicationCommand.ts";
-import {
-  DeleteRobotCommandInput,
-  DeleteRobotCommandOutput
-} from "./commands/DeleteRobotCommand.ts";
+import { DeleteRobotCommandInput, DeleteRobotCommandOutput } from "./commands/DeleteRobotCommand.ts";
 import {
   DeleteSimulationApplicationCommandInput,
-  DeleteSimulationApplicationCommandOutput
+  DeleteSimulationApplicationCommandOutput,
 } from "./commands/DeleteSimulationApplicationCommand.ts";
-import {
-  DeregisterRobotCommandInput,
-  DeregisterRobotCommandOutput
-} from "./commands/DeregisterRobotCommand.ts";
+import { DeregisterRobotCommandInput, DeregisterRobotCommandOutput } from "./commands/DeregisterRobotCommand.ts";
 import {
   DescribeDeploymentJobCommandInput,
-  DescribeDeploymentJobCommandOutput
+  DescribeDeploymentJobCommandOutput,
 } from "./commands/DescribeDeploymentJobCommand.ts";
-import {
-  DescribeFleetCommandInput,
-  DescribeFleetCommandOutput
-} from "./commands/DescribeFleetCommand.ts";
+import { DescribeFleetCommandInput, DescribeFleetCommandOutput } from "./commands/DescribeFleetCommand.ts";
 import {
   DescribeRobotApplicationCommandInput,
-  DescribeRobotApplicationCommandOutput
+  DescribeRobotApplicationCommandOutput,
 } from "./commands/DescribeRobotApplicationCommand.ts";
-import {
-  DescribeRobotCommandInput,
-  DescribeRobotCommandOutput
-} from "./commands/DescribeRobotCommand.ts";
+import { DescribeRobotCommandInput, DescribeRobotCommandOutput } from "./commands/DescribeRobotCommand.ts";
 import {
   DescribeSimulationApplicationCommandInput,
-  DescribeSimulationApplicationCommandOutput
+  DescribeSimulationApplicationCommandOutput,
 } from "./commands/DescribeSimulationApplicationCommand.ts";
 import {
+  DescribeSimulationJobBatchCommandInput,
+  DescribeSimulationJobBatchCommandOutput,
+} from "./commands/DescribeSimulationJobBatchCommand.ts";
+import {
   DescribeSimulationJobCommandInput,
-  DescribeSimulationJobCommandOutput
+  DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand.ts";
 import {
   ListDeploymentJobsCommandInput,
-  ListDeploymentJobsCommandOutput
+  ListDeploymentJobsCommandOutput,
 } from "./commands/ListDeploymentJobsCommand.ts";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand.ts";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
   ListRobotApplicationsCommandInput,
-  ListRobotApplicationsCommandOutput
+  ListRobotApplicationsCommandOutput,
 } from "./commands/ListRobotApplicationsCommand.ts";
-import {
-  ListRobotsCommandInput,
-  ListRobotsCommandOutput
-} from "./commands/ListRobotsCommand.ts";
+import { ListRobotsCommandInput, ListRobotsCommandOutput } from "./commands/ListRobotsCommand.ts";
 import {
   ListSimulationApplicationsCommandInput,
-  ListSimulationApplicationsCommandOutput
+  ListSimulationApplicationsCommandOutput,
 } from "./commands/ListSimulationApplicationsCommand.ts";
 import {
+  ListSimulationJobBatchesCommandInput,
+  ListSimulationJobBatchesCommandOutput,
+} from "./commands/ListSimulationJobBatchesCommand.ts";
+import {
   ListSimulationJobsCommandInput,
-  ListSimulationJobsCommandOutput
+  ListSimulationJobsCommandOutput,
 } from "./commands/ListSimulationJobsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  RegisterRobotCommandInput,
-  RegisterRobotCommandOutput
-} from "./commands/RegisterRobotCommand.ts";
+import { RegisterRobotCommandInput, RegisterRobotCommandOutput } from "./commands/RegisterRobotCommand.ts";
 import {
   RestartSimulationJobCommandInput,
-  RestartSimulationJobCommandOutput
+  RestartSimulationJobCommandOutput,
 } from "./commands/RestartSimulationJobCommand.ts";
 import {
-  SyncDeploymentJobCommandInput,
-  SyncDeploymentJobCommandOutput
-} from "./commands/SyncDeploymentJobCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+  StartSimulationJobBatchCommandInput,
+  StartSimulationJobBatchCommandOutput,
+} from "./commands/StartSimulationJobBatchCommand.ts";
+import { SyncDeploymentJobCommandInput, SyncDeploymentJobCommandOutput } from "./commands/SyncDeploymentJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateRobotApplicationCommandInput,
-  UpdateRobotApplicationCommandOutput
+  UpdateRobotApplicationCommandOutput,
 } from "./commands/UpdateRobotApplicationCommand.ts";
 import {
   UpdateSimulationApplicationCommandInput,
-  UpdateSimulationApplicationCommandOutput
+  UpdateSimulationApplicationCommandOutput,
 } from "./commands/UpdateSimulationApplicationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -149,38 +126,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -189,14 +162,16 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | BatchDescribeSimulationJobCommandInput
   | CancelDeploymentJobCommandInput
+  | CancelSimulationJobBatchCommandInput
   | CancelSimulationJobCommandInput
   | CreateDeploymentJobCommandInput
   | CreateFleetCommandInput
@@ -216,16 +191,19 @@ export type ServiceInputTypes =
   | DescribeRobotApplicationCommandInput
   | DescribeRobotCommandInput
   | DescribeSimulationApplicationCommandInput
+  | DescribeSimulationJobBatchCommandInput
   | DescribeSimulationJobCommandInput
   | ListDeploymentJobsCommandInput
   | ListFleetsCommandInput
   | ListRobotApplicationsCommandInput
   | ListRobotsCommandInput
   | ListSimulationApplicationsCommandInput
+  | ListSimulationJobBatchesCommandInput
   | ListSimulationJobsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterRobotCommandInput
   | RestartSimulationJobCommandInput
+  | StartSimulationJobBatchCommandInput
   | SyncDeploymentJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -235,6 +213,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchDescribeSimulationJobCommandOutput
   | CancelDeploymentJobCommandOutput
+  | CancelSimulationJobBatchCommandOutput
   | CancelSimulationJobCommandOutput
   | CreateDeploymentJobCommandOutput
   | CreateFleetCommandOutput
@@ -254,24 +233,26 @@ export type ServiceOutputTypes =
   | DescribeRobotApplicationCommandOutput
   | DescribeRobotCommandOutput
   | DescribeSimulationApplicationCommandOutput
+  | DescribeSimulationJobBatchCommandOutput
   | DescribeSimulationJobCommandOutput
   | ListDeploymentJobsCommandOutput
   | ListFleetsCommandOutput
   | ListRobotApplicationsCommandOutput
   | ListRobotsCommandOutput
   | ListSimulationApplicationsCommandOutput
+  | ListSimulationJobBatchesCommandOutput
   | ListSimulationJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterRobotCommandOutput
   | RestartSimulationJobCommandOutput
+  | StartSimulationJobBatchCommandOutput
   | SyncDeploymentJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateRobotApplicationCommandOutput
   | UpdateSimulationApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -345,14 +326,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -360,9 +346,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RoboMakerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RoboMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -371,9 +355,7 @@ export type RoboMakerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -396,7 +378,7 @@ export class RoboMakerClient extends __Client<
   constructor(configuration: RoboMakerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -411,6 +393,7 @@ export class RoboMakerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

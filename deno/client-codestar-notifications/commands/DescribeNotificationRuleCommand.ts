@@ -1,21 +1,15 @@
 import {
+  CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig
-} from "../codestarnotificationsClient.ts";
-import {
-  DescribeNotificationRuleRequest,
-  DescribeNotificationRuleResult
-} from "../models/index.ts";
+} from "../CodestarNotificationsClient.ts";
+import { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeNotificationRuleCommand,
-  serializeAws_restJson1DescribeNotificationRuleCommand
+  serializeAws_restJson1DescribeNotificationRuleCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeNotificationRuleCommandInput = DescribeNotificationRuleRequest;
-export type DescribeNotificationRuleCommandOutput = DescribeNotificationRuleResult &
-  __MetadataBearer;
+export type DescribeNotificationRuleCommandOutput = DescribeNotificationRuleResult & __MetadataBearer;
 
 export class DescribeNotificationRuleCommand extends $Command<
   DescribeNotificationRuleCommandInput,
   DescribeNotificationRuleCommandOutput,
-  codestarnotificationsClientResolvedConfig
+  CodestarNotificationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DescribeNotificationRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: codestarnotificationsClientResolvedConfig,
+    configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNotificationRuleCommandInput,
-    DescribeNotificationRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNotificationRuleCommandInput, DescribeNotificationRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeNotificationRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNotificationRuleResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,12 @@ export class DescribeNotificationRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeNotificationRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNotificationRuleCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeNotificationRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1DescribeNotificationRuleCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNotificationRuleCommandOutput> {
+    return deserializeAws_restJson1DescribeNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

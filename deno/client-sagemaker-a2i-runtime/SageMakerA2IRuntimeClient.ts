@@ -1,23 +1,8 @@
-import {
-  DeleteHumanLoopCommandInput,
-  DeleteHumanLoopCommandOutput
-} from "./commands/DeleteHumanLoopCommand.ts";
-import {
-  DescribeHumanLoopCommandInput,
-  DescribeHumanLoopCommandOutput
-} from "./commands/DescribeHumanLoopCommand.ts";
-import {
-  ListHumanLoopsCommandInput,
-  ListHumanLoopsCommandOutput
-} from "./commands/ListHumanLoopsCommand.ts";
-import {
-  StartHumanLoopCommandInput,
-  StartHumanLoopCommandOutput
-} from "./commands/StartHumanLoopCommand.ts";
-import {
-  StopHumanLoopCommandInput,
-  StopHumanLoopCommandOutput
-} from "./commands/StopHumanLoopCommand.ts";
+import { DeleteHumanLoopCommandInput, DeleteHumanLoopCommandOutput } from "./commands/DeleteHumanLoopCommand.ts";
+import { DescribeHumanLoopCommandInput, DescribeHumanLoopCommandOutput } from "./commands/DescribeHumanLoopCommand.ts";
+import { ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput } from "./commands/ListHumanLoopsCommand.ts";
+import { StartHumanLoopCommandInput, StartHumanLoopCommandOutput } from "./commands/StartHumanLoopCommand.ts";
+import { StopHumanLoopCommandInput, StopHumanLoopCommandOutput } from "./commands/StopHumanLoopCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -25,38 +10,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -65,9 +46,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -84,8 +66,7 @@ export type ServiceOutputTypes =
   | StartHumanLoopCommandOutput
   | StopHumanLoopCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -159,14 +140,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -174,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SageMakerA2IRuntimeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SageMakerA2IRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -185,9 +169,7 @@ export type SageMakerA2IRuntimeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -197,15 +179,36 @@ export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Augmented AI (Augmented AI) (Preview) is a service that adds human judgment to any machine learning application. Human reviewers can take over when an AI application can't evaluate data with a high degree of confidence.</p>
- *          <p>From fraudulent bank transaction identification to document processing to image analysis, machine learning models can be trained to make decisions as well as or better than a human. Nevertheless, some decisions require contextual
- *       interpretation, such as when you need to decide whether an image is appropriate for a given audience. Content moderation guidelines are nuanced and highly dependent on context, and they vary between countries.
- *       When trying to apply AI in these situations, you can be forced to choose between "ML only" systems with unacceptably high error rates or "human only" systems that are expensive and difficult to scale, and that slow down decision making.</p>
- *          <p>This API reference includes information about API actions and data types you can use to interact with Augmented AI programmatically. </p>
- *          <p>You can create a flow definition against the Augmented AI API. Provide the Amazon Resource Name (ARN) of a flow definition to integrate AI service APIs, such as <code>Textract.AnalyzeDocument</code> and <code>Rekognition.DetectModerationLabels</code>.
- *       These AI services, in turn, invoke the <a>StartHumanLoop</a> API, which evaluates conditions under which humans will be invoked. If humans are required, Augmented AI creates a human loop.
- *       Results of human work are available asynchronously in Amazon Simple Storage Service (Amazon S3). You can use Amazon CloudWatch Events to detect human work results.</p>
- *          <p>You can find additional Augmented AI API documentation in the following reference guides: <a href="https://aws.amazon.com/rekognition/latest/dg/API_Reference.html">Amazon Rekognition</a>, <a href="https://aws.amazon.com/sagemaker/latest/dg/API_Reference.html">Amazon SageMaker</a>, and <a href="https://aws.amazon.com/textract/latest/dg/API_Reference.html">Amazon Textract</a>.</p>
+ * <important>
+ *             <p>Amazon Augmented AI is in preview release and is subject to change. We do not recommend using this
+ *         product in production environments.</p>
+ *          </important>
+ *          <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
+ *       application. When an AI application can't evaluate data with a high degree of confidence,
+ *       human reviewers can take over. This human review is called a human review workflow. To create
+ *       and start a human review workflow, you need three resources: a <i>worker task
+ *         template</i>, a <i>flow definition</i>, and a <i>human
+ *         loop</i>.</p>
+ *          <p>For information about these resources and prerequisites for using Amazon A2I, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html">Get Started with
+ *         Amazon Augmented AI</a> in the Amazon SageMaker Developer Guide.</p>
+ *          <p>This API reference includes information about API actions and data types that you can use
+ *       to interact with Amazon A2I programmatically. Use this guide to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Start a human loop with the <code>StartHumanLoop</code> operation when using
+ *           Amazon A2I with a <i>custom task type</i>. To learn more about the
+ *           difference between custom and built-in task types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-task-types-general.html">Use Task Types </a>. To learn
+ *           how to start a human loop using this API, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html#a2i-instructions-starthumanloop">Create and Start a Human Loop for a Custom Task Type </a> in the
+ *           Amazon SageMaker Developer Guide.</p>
+ *             </li>
+ *             <li>
+ *                <p>Manage your human loops. You can list all human loops that you have created, describe
+ *           individual human loops, and stop and delete human loops. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-monitor-humanloop-results.html">Monitor and Manage Your Human Loop </a> in the Amazon SageMaker Developer Guide.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon A2I integrates APIs from various AWS services to create and start human review
+ *       workflows for those services. To learn how Amazon A2I uses these APIs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html">Use APIs in
+ *         Amazon A2I</a> in the Amazon SageMaker Developer Guide.</p>
  */
 export class SageMakerA2IRuntimeClient extends __Client<
   __HttpHandlerOptions,
@@ -218,7 +221,7 @@ export class SageMakerA2IRuntimeClient extends __Client<
   constructor(configuration: SageMakerA2IRuntimeClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -233,6 +236,7 @@ export class SageMakerA2IRuntimeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

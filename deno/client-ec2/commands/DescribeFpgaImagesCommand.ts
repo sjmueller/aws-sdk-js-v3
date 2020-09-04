@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeFpgaImagesRequest,
-  DescribeFpgaImagesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeFpgaImagesCommand,
-  serializeAws_ec2DescribeFpgaImagesCommand
+  serializeAws_ec2DescribeFpgaImagesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeFpgaImagesCommandInput = DescribeFpgaImagesRequest;
-export type DescribeFpgaImagesCommandOutput = DescribeFpgaImagesResult &
-  __MetadataBearer;
+export type DescribeFpgaImagesCommandOutput = DescribeFpgaImagesResult & __MetadataBearer;
 
 export class DescribeFpgaImagesCommand extends $Command<
   DescribeFpgaImagesCommandInput,
@@ -50,14 +39,15 @@ export class DescribeFpgaImagesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFpgaImagesCommandInput, DescribeFpgaImagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeFpgaImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFpgaImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeFpgaImagesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFpgaImagesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFpgaImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeFpgaImagesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFpgaImagesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFpgaImagesCommandOutput> {
     return deserializeAws_ec2DescribeFpgaImagesCommand(output, context);
   }
 

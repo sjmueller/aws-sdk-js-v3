@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -18,25 +14,24 @@ export interface AgentConfigurationStatus {
   agentId?: string;
 
   /**
-   * <p>A description of the operation performed.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Information about the status of the <code>StartDataCollection</code> and
    *         <code>StopDataCollection</code> operations. The system has recorded the data collection
    *       operation. The agent/connector receives this command the next time it polls for a new command.
    *     </p>
    */
   operationSucceeded?: boolean;
+
+  /**
+   * <p>A description of the operation performed.</p>
+   */
+  description?: string;
 }
 
 export namespace AgentConfigurationStatus {
   export const filterSensitiveLog = (obj: AgentConfigurationStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AgentConfigurationStatus =>
-    __isa(o, "AgentConfigurationStatus");
+  export const isa = (o: any): o is AgentConfigurationStatus => __isa(o, "AgentConfigurationStatus");
 }
 
 /**
@@ -48,34 +43,9 @@ export namespace AgentConfigurationStatus {
 export interface AgentInfo {
   __type?: "AgentInfo";
   /**
-   * <p>The agent or connector ID.</p>
+   * <p>Time since agent or connector health was reported.</p>
    */
-  agentId?: string;
-
-  /**
-   * <p>Network details about the host where the agent or connector resides.</p>
-   */
-  agentNetworkInfoList?: AgentNetworkInfo[];
-
-  /**
-   * <p>Type of agent.</p>
-   */
-  agentType?: string;
-
-  /**
-   * <p>Status of the collection process for an agent or connector.</p>
-   */
-  collectionStatus?: string;
-
-  /**
-   * <p>The ID of the connector.</p>
-   */
-  connectorId?: string;
-
-  /**
-   * <p>The health of the agent or connector.</p>
-   */
-  health?: AgentStatus | string;
+  lastHealthPingTime?: string;
 
   /**
    * <p>The name of the host where the agent or connector resides. The host can be a server or
@@ -84,14 +54,39 @@ export interface AgentInfo {
   hostName?: string;
 
   /**
-   * <p>Time since agent or connector health was reported.</p>
+   * <p>The agent or connector ID.</p>
    */
-  lastHealthPingTime?: string;
+  agentId?: string;
+
+  /**
+   * <p>The ID of the connector.</p>
+   */
+  connectorId?: string;
+
+  /**
+   * <p>Status of the collection process for an agent or connector.</p>
+   */
+  collectionStatus?: string;
+
+  /**
+   * <p>Network details about the host where the agent or connector resides.</p>
+   */
+  agentNetworkInfoList?: AgentNetworkInfo[];
+
+  /**
+   * <p>The health of the agent or connector.</p>
+   */
+  health?: AgentStatus | string;
 
   /**
    * <p>Agent's first registration timestamp in UTC.</p>
    */
   registeredTime?: string;
+
+  /**
+   * <p>Type of agent.</p>
+   */
+  agentType?: string;
 
   /**
    * <p>The agent or connector version.</p>
@@ -101,7 +96,7 @@ export interface AgentInfo {
 
 export namespace AgentInfo {
   export const filterSensitiveLog = (obj: AgentInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AgentInfo => __isa(o, "AgentInfo");
 }
@@ -112,22 +107,21 @@ export namespace AgentInfo {
 export interface AgentNetworkInfo {
   __type?: "AgentNetworkInfo";
   /**
-   * <p>The IP address for the host where the agent/connector resides.</p>
-   */
-  ipAddress?: string;
-
-  /**
    * <p>The MAC address for the host where the agent/connector resides.</p>
    */
   macAddress?: string;
+
+  /**
+   * <p>The IP address for the host where the agent/connector resides.</p>
+   */
+  ipAddress?: string;
 }
 
 export namespace AgentNetworkInfo {
   export const filterSensitiveLog = (obj: AgentNetworkInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AgentNetworkInfo =>
-    __isa(o, "AgentNetworkInfo");
+  export const isa = (o: any): o is AgentNetworkInfo => __isa(o, "AgentNetworkInfo");
 }
 
 export enum AgentStatus {
@@ -136,7 +130,7 @@ export enum AgentStatus {
   RUNNING = "RUNNING",
   SHUTDOWN = "SHUTDOWN",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
+  UNKNOWN = "UNKNOWN",
 }
 
 export interface AssociateConfigurationItemsToApplicationRequest {
@@ -153,14 +147,10 @@ export interface AssociateConfigurationItemsToApplicationRequest {
 }
 
 export namespace AssociateConfigurationItemsToApplicationRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateConfigurationItemsToApplicationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AssociateConfigurationItemsToApplicationRequest =>
+  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationRequest =>
     __isa(o, "AssociateConfigurationItemsToApplicationRequest");
 }
 
@@ -169,14 +159,10 @@ export interface AssociateConfigurationItemsToApplicationResponse {
 }
 
 export namespace AssociateConfigurationItemsToApplicationResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateConfigurationItemsToApplicationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AssociateConfigurationItemsToApplicationResponse =>
+  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationResponse =>
     __isa(o, "AssociateConfigurationItemsToApplicationResponse");
 }
 
@@ -184,22 +170,17 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
  * <p>The AWS user account does not have permission to perform the action. Check the IAM
  *       policy associated with this account.</p>
  */
-export interface AuthorizationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationErrorException {
-  export const filterSensitiveLog = (
-    obj: AuthorizationErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationErrorException =>
-    __isa(o, "AuthorizationErrorException");
+  export const isa = (o: any): o is AuthorizationErrorException => __isa(o, "AuthorizationErrorException");
 }
 
 /**
@@ -209,9 +190,9 @@ export namespace AuthorizationErrorException {
 export interface BatchDeleteImportDataError {
   __type?: "BatchDeleteImportDataError";
   /**
-   * <p>The type of error that occurred for a specific import task.</p>
+   * <p>The unique import ID associated with the error that occurred.</p>
    */
-  errorCode?: BatchDeleteImportDataErrorCode | string;
+  importTaskId?: string;
 
   /**
    * <p>The description of the error that occurred for a specific import task.</p>
@@ -219,23 +200,22 @@ export interface BatchDeleteImportDataError {
   errorDescription?: string;
 
   /**
-   * <p>The unique import ID associated with the error that occurred.</p>
+   * <p>The type of error that occurred for a specific import task.</p>
    */
-  importTaskId?: string;
+  errorCode?: BatchDeleteImportDataErrorCode | string;
 }
 
 export namespace BatchDeleteImportDataError {
   export const filterSensitiveLog = (obj: BatchDeleteImportDataError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataError =>
-    __isa(o, "BatchDeleteImportDataError");
+  export const isa = (o: any): o is BatchDeleteImportDataError => __isa(o, "BatchDeleteImportDataError");
 }
 
 export enum BatchDeleteImportDataErrorCode {
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
   NOT_FOUND = "NOT_FOUND",
-  OVER_LIMIT = "OVER_LIMIT"
+  OVER_LIMIT = "OVER_LIMIT",
 }
 
 export interface BatchDeleteImportDataRequest {
@@ -247,13 +227,10 @@ export interface BatchDeleteImportDataRequest {
 }
 
 export namespace BatchDeleteImportDataRequest {
-  export const filterSensitiveLog = (
-    obj: BatchDeleteImportDataRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDeleteImportDataRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataRequest =>
-    __isa(o, "BatchDeleteImportDataRequest");
+  export const isa = (o: any): o is BatchDeleteImportDataRequest => __isa(o, "BatchDeleteImportDataRequest");
 }
 
 export interface BatchDeleteImportDataResponse {
@@ -266,20 +243,17 @@ export interface BatchDeleteImportDataResponse {
 }
 
 export namespace BatchDeleteImportDataResponse {
-  export const filterSensitiveLog = (
-    obj: BatchDeleteImportDataResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDeleteImportDataResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataResponse =>
-    __isa(o, "BatchDeleteImportDataResponse");
+  export const isa = (o: any): o is BatchDeleteImportDataResponse => __isa(o, "BatchDeleteImportDataResponse");
 }
 
 export enum ConfigurationItemType {
   APPLICATION = "APPLICATION",
   CONNECTIONS = "CONNECTION",
   PROCESS = "PROCESS",
-  SERVER = "SERVER"
+  SERVER = "SERVER",
 }
 
 /**
@@ -293,6 +267,12 @@ export interface ConfigurationTag {
    *       values.</p>
    */
   configurationId?: string;
+
+  /**
+   * <p>A value on which to filter. For example <i>key = serverType</i> and
+   *         <i>value = web server</i>.</p>
+   */
+  value?: string;
 
   /**
    * <p>A type of IT asset to tag.</p>
@@ -310,28 +290,19 @@ export interface ConfigurationTag {
    *       (UTC).</p>
    */
   timeOfCreation?: Date;
-
-  /**
-   * <p>A value on which to filter. For example <i>key = serverType</i> and
-   *         <i>value = web server</i>.</p>
-   */
-  value?: string;
 }
 
 export namespace ConfigurationTag {
   export const filterSensitiveLog = (obj: ConfigurationTag): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationTag =>
-    __isa(o, "ConfigurationTag");
+  export const isa = (o: any): o is ConfigurationTag => __isa(o, "ConfigurationTag");
 }
 
 /**
  * <p></p>
  */
-export interface ConflictErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConflictErrorException extends __SmithyException, $MetadataBearer {
   name: "ConflictErrorException";
   $fault: "client";
   message?: string;
@@ -339,10 +310,9 @@ export interface ConflictErrorException
 
 export namespace ConflictErrorException {
   export const filterSensitiveLog = (obj: ConflictErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictErrorException =>
-    __isa(o, "ConflictErrorException");
+  export const isa = (o: any): o is ConflictErrorException => __isa(o, "ConflictErrorException");
 }
 
 /**
@@ -357,63 +327,14 @@ export interface ContinuousExportDescription {
   dataSource?: DataSource | string;
 
   /**
-   * <p>The unique ID assigned to this export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
-   */
-  s3Bucket?: string;
-
-  /**
-   * <p>An object which describes how the data is stored.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>databaseName</code> - the name of the Glue database used to store the
-   *           schema.</p>
-   *             </li>
-   *          </ul>
-   */
-  schemaStorageConfig?: { [key: string]: string };
-
-  /**
    * <p>The timestamp representing when the continuous export was started.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>Describes the status of the export. Can be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>START_IN_PROGRESS - setting up resources to start continuous export.</p>
-   *             </li>
-   *             <li>
-   *                <p>START_FAILED - an error occurred setting up continuous export. To recover, call
-   *           start-continuous-export again.</p>
-   *             </li>
-   *             <li>
-   *                <p>ACTIVE - data is being exported to the customer bucket.</p>
-   *             </li>
-   *             <li>
-   *                <p>ERROR - an error occurred during export. To fix the issue, call
-   *           stop-continuous-export and start-continuous-export.</p>
-   *             </li>
-   *             <li>
-   *                <p>STOP_IN_PROGRESS - stopping the export.</p>
-   *             </li>
-   *             <li>
-   *                <p>STOP_FAILED - an error occurred stopping the export. To recover, call
-   *           stop-continuous-export again.</p>
-   *             </li>
-   *             <li>
-   *                <p>INACTIVE - the continuous export has been stopped. Data is no longer being exported
-   *           to the customer bucket.</p>
-   *             </li>
-   *          </ul>
+   * <p>The timestamp that represents when this continuous export was stopped.</p>
    */
-  status?: ContinuousExportStatus | string;
+  stopTime?: Date;
 
   /**
    * <p>Contains information about any errors that have occurred. This data type can have the
@@ -463,19 +384,65 @@ export interface ContinuousExportDescription {
   statusDetail?: string;
 
   /**
-   * <p>The timestamp that represents when this continuous export was stopped.</p>
+   * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
-  stopTime?: Date;
+  s3Bucket?: string;
+
+  /**
+   * <p>An object which describes how the data is stored.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>databaseName</code> - the name of the Glue database used to store the
+   *           schema.</p>
+   *             </li>
+   *          </ul>
+   */
+  schemaStorageConfig?: { [key: string]: string };
+
+  /**
+   * <p>Describes the status of the export. Can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>START_IN_PROGRESS - setting up resources to start continuous export.</p>
+   *             </li>
+   *             <li>
+   *                <p>START_FAILED - an error occurred setting up continuous export. To recover, call
+   *           start-continuous-export again.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE - data is being exported to the customer bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>ERROR - an error occurred during export. To fix the issue, call
+   *           stop-continuous-export and start-continuous-export.</p>
+   *             </li>
+   *             <li>
+   *                <p>STOP_IN_PROGRESS - stopping the export.</p>
+   *             </li>
+   *             <li>
+   *                <p>STOP_FAILED - an error occurred stopping the export. To recover, call
+   *           stop-continuous-export again.</p>
+   *             </li>
+   *             <li>
+   *                <p>INACTIVE - the continuous export has been stopped. Data is no longer being exported
+   *           to the customer bucket.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: ContinuousExportStatus | string;
+
+  /**
+   * <p>The unique ID assigned to this export.</p>
+   */
+  exportId?: string;
 }
 
 export namespace ContinuousExportDescription {
-  export const filterSensitiveLog = (
-    obj: ContinuousExportDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ContinuousExportDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ContinuousExportDescription =>
-    __isa(o, "ContinuousExportDescription");
+  export const isa = (o: any): o is ContinuousExportDescription => __isa(o, "ContinuousExportDescription");
 }
 
 export enum ContinuousExportStatus {
@@ -485,28 +452,27 @@ export enum ContinuousExportStatus {
   START_FAILED = "START_FAILED",
   START_IN_PROGRESS = "START_IN_PROGRESS",
   STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS"
+  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
 }
 
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
-   * <p>Description of the application to be created.</p>
-   */
-  description?: string;
-
-  /**
    * <p>Name of the application to be created.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>Description of the application to be created.</p>
+   */
+  description?: string;
 }
 
 export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest =>
-    __isa(o, "CreateApplicationRequest");
+  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateApplicationResponse {
@@ -519,10 +485,9 @@ export interface CreateApplicationResponse {
 
 export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationResponse =>
-    __isa(o, "CreateApplicationResponse");
+  export const isa = (o: any): o is CreateApplicationResponse => __isa(o, "CreateApplicationResponse");
 }
 
 export interface CreateTagsRequest {
@@ -545,10 +510,9 @@ export interface CreateTagsRequest {
 
 export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest =>
-    __isa(o, "CreateTagsRequest");
+  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTagsResponse {
@@ -557,10 +521,9 @@ export interface CreateTagsResponse {
 
 export namespace CreateTagsResponse {
   export const filterSensitiveLog = (obj: CreateTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTagsResponse =>
-    __isa(o, "CreateTagsResponse");
+  export const isa = (o: any): o is CreateTagsResponse => __isa(o, "CreateTagsResponse");
 }
 
 /**
@@ -569,14 +532,14 @@ export namespace CreateTagsResponse {
 export interface CustomerAgentInfo {
   __type?: "CustomerAgentInfo";
   /**
+   * <p>Total number of discovery agents.</p>
+   */
+  totalAgents: number | undefined;
+
+  /**
    * <p>Number of active discovery agents.</p>
    */
   activeAgents: number | undefined;
-
-  /**
-   * <p>Number of blacklisted discovery agents.</p>
-   */
-  blackListedAgents: number | undefined;
 
   /**
    * <p>Number of healthy discovery agents</p>
@@ -584,14 +547,14 @@ export interface CustomerAgentInfo {
   healthyAgents: number | undefined;
 
   /**
-   * <p>Number of discovery agents with status SHUTDOWN.</p>
+   * <p>Number of blacklisted discovery agents.</p>
    */
-  shutdownAgents: number | undefined;
+  blackListedAgents: number | undefined;
 
   /**
-   * <p>Total number of discovery agents.</p>
+   * <p>Number of unknown discovery agents.</p>
    */
-  totalAgents: number | undefined;
+  unknownAgents: number | undefined;
 
   /**
    * <p>Number of unhealthy discovery agents.</p>
@@ -599,17 +562,16 @@ export interface CustomerAgentInfo {
   unhealthyAgents: number | undefined;
 
   /**
-   * <p>Number of unknown discovery agents.</p>
+   * <p>Number of discovery agents with status SHUTDOWN.</p>
    */
-  unknownAgents: number | undefined;
+  shutdownAgents: number | undefined;
 }
 
 export namespace CustomerAgentInfo {
   export const filterSensitiveLog = (obj: CustomerAgentInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerAgentInfo =>
-    __isa(o, "CustomerAgentInfo");
+  export const isa = (o: any): o is CustomerAgentInfo => __isa(o, "CustomerAgentInfo");
 }
 
 /**
@@ -617,11 +579,6 @@ export namespace CustomerAgentInfo {
  */
 export interface CustomerConnectorInfo {
   __type?: "CustomerConnectorInfo";
-  /**
-   * <p>Number of active discovery connectors.</p>
-   */
-  activeConnectors: number | undefined;
-
   /**
    * <p>Number of blacklisted discovery connectors.</p>
    */
@@ -633,36 +590,40 @@ export interface CustomerConnectorInfo {
   healthyConnectors: number | undefined;
 
   /**
-   * <p>Number of discovery connectors with status SHUTDOWN,</p>
-   */
-  shutdownConnectors: number | undefined;
-
-  /**
    * <p>Total number of discovery connectors.</p>
    */
   totalConnectors: number | undefined;
 
   /**
-   * <p>Number of unhealthy discovery connectors.</p>
+   * <p>Number of discovery connectors with status SHUTDOWN,</p>
    */
-  unhealthyConnectors: number | undefined;
+  shutdownConnectors: number | undefined;
+
+  /**
+   * <p>Number of active discovery connectors.</p>
+   */
+  activeConnectors: number | undefined;
 
   /**
    * <p>Number of unknown discovery connectors.</p>
    */
   unknownConnectors: number | undefined;
+
+  /**
+   * <p>Number of unhealthy discovery connectors.</p>
+   */
+  unhealthyConnectors: number | undefined;
 }
 
 export namespace CustomerConnectorInfo {
   export const filterSensitiveLog = (obj: CustomerConnectorInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerConnectorInfo =>
-    __isa(o, "CustomerConnectorInfo");
+  export const isa = (o: any): o is CustomerConnectorInfo => __isa(o, "CustomerConnectorInfo");
 }
 
 export enum DataSource {
-  AGENT = "AGENT"
+  AGENT = "AGENT",
 }
 
 export interface DeleteApplicationsRequest {
@@ -675,10 +636,9 @@ export interface DeleteApplicationsRequest {
 
 export namespace DeleteApplicationsRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationsRequest =>
-    __isa(o, "DeleteApplicationsRequest");
+  export const isa = (o: any): o is DeleteApplicationsRequest => __isa(o, "DeleteApplicationsRequest");
 }
 
 export interface DeleteApplicationsResponse {
@@ -687,19 +647,13 @@ export interface DeleteApplicationsResponse {
 
 export namespace DeleteApplicationsResponse {
   export const filterSensitiveLog = (obj: DeleteApplicationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationsResponse =>
-    __isa(o, "DeleteApplicationsResponse");
+  export const isa = (o: any): o is DeleteApplicationsResponse => __isa(o, "DeleteApplicationsResponse");
 }
 
 export interface DeleteTagsRequest {
   __type?: "DeleteTagsRequest";
-  /**
-   * <p>A list of configuration items with tags that you want to delete.</p>
-   */
-  configurationIds: string[] | undefined;
-
   /**
    * <p>Tags that you want to delete from one or more configuration items. Specify the tags
    *       that you want to delete in a <i>key</i>-<i>value</i> format. For
@@ -709,14 +663,18 @@ export interface DeleteTagsRequest {
    *          </p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>A list of configuration items with tags that you want to delete.</p>
+   */
+  configurationIds: string[] | undefined;
 }
 
 export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest =>
-    __isa(o, "DeleteTagsRequest");
+  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTagsResponse {
@@ -725,21 +683,13 @@ export interface DeleteTagsResponse {
 
 export namespace DeleteTagsResponse {
   export const filterSensitiveLog = (obj: DeleteTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsResponse =>
-    __isa(o, "DeleteTagsResponse");
+  export const isa = (o: any): o is DeleteTagsResponse => __isa(o, "DeleteTagsResponse");
 }
 
 export interface DescribeAgentsRequest {
   __type?: "DescribeAgentsRequest";
-  /**
-   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
-   *       the system returns information about all agents/Connectors associated with your AWS user
-   *       account.</p>
-   */
-  agentIds?: string[];
-
   /**
    * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
@@ -762,14 +712,20 @@ export interface DescribeAgentsRequest {
    *       with a token. Use that token in this query to get the next set of 10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The agent or the Connector IDs for which you want information. If you specify no IDs,
+   *       the system returns information about all agents/Connectors associated with your AWS user
+   *       account.</p>
+   */
+  agentIds?: string[];
 }
 
 export namespace DescribeAgentsRequest {
   export const filterSensitiveLog = (obj: DescribeAgentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentsRequest =>
-    __isa(o, "DescribeAgentsRequest");
+  export const isa = (o: any): o is DescribeAgentsRequest => __isa(o, "DescribeAgentsRequest");
 }
 
 export interface DescribeAgentsResponse {
@@ -793,10 +749,9 @@ export interface DescribeAgentsResponse {
 
 export namespace DescribeAgentsResponse {
   export const filterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentsResponse =>
-    __isa(o, "DescribeAgentsResponse");
+  export const isa = (o: any): o is DescribeAgentsResponse => __isa(o, "DescribeAgentsResponse");
 }
 
 export interface DescribeConfigurationsRequest {
@@ -808,13 +763,10 @@ export interface DescribeConfigurationsRequest {
 }
 
 export namespace DescribeConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationsRequest =>
-    __isa(o, "DescribeConfigurationsRequest");
+  export const isa = (o: any): o is DescribeConfigurationsRequest => __isa(o, "DescribeConfigurationsRequest");
 }
 
 export interface DescribeConfigurationsResponse {
@@ -826,17 +778,19 @@ export interface DescribeConfigurationsResponse {
 }
 
 export namespace DescribeConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationsResponse =>
-    __isa(o, "DescribeConfigurationsResponse");
+  export const isa = (o: any): o is DescribeConfigurationsResponse => __isa(o, "DescribeConfigurationsResponse");
 }
 
 export interface DescribeContinuousExportsRequest {
   __type?: "DescribeContinuousExportsRequest";
+  /**
+   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>The unique IDs assigned to the exports.</p>
    */
@@ -847,21 +801,13 @@ export interface DescribeContinuousExportsRequest {
    *       descriptions returned.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeContinuousExportsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeContinuousExportsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeContinuousExportsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousExportsRequest =>
-    __isa(o, "DescribeContinuousExportsRequest");
+  export const isa = (o: any): o is DescribeContinuousExportsRequest => __isa(o, "DescribeContinuousExportsRequest");
 }
 
 export interface DescribeContinuousExportsResponse {
@@ -878,13 +824,10 @@ export interface DescribeContinuousExportsResponse {
 }
 
 export namespace DescribeContinuousExportsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeContinuousExportsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeContinuousExportsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousExportsResponse =>
-    __isa(o, "DescribeContinuousExportsResponse");
+  export const isa = (o: any): o is DescribeContinuousExportsResponse => __isa(o, "DescribeContinuousExportsResponse");
 }
 
 export interface DescribeExportConfigurationsRequest {
@@ -895,22 +838,20 @@ export interface DescribeExportConfigurationsRequest {
   exportIds?: string[];
 
   /**
+   * <p>The token from the previous call to describe-export-tasks.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token from the previous call to describe-export-tasks.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeExportConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeExportConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeExportConfigurationsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeExportConfigurationsRequest =>
     __isa(o, "DescribeExportConfigurationsRequest");
@@ -919,21 +860,19 @@ export namespace DescribeExportConfigurationsRequest {
 export interface DescribeExportConfigurationsResponse {
   __type?: "DescribeExportConfigurationsResponse";
   /**
-   * <p></p>
-   */
-  exportsInfo?: ExportInfo[];
-
-  /**
    * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p></p>
+   */
+  exportsInfo?: ExportInfo[];
 }
 
 export namespace DescribeExportConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeExportConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeExportConfigurationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeExportConfigurationsResponse =>
     __isa(o, "DescribeExportConfigurationsResponse");
@@ -941,11 +880,6 @@ export namespace DescribeExportConfigurationsResponse {
 
 export interface DescribeExportTasksRequest {
   __type?: "DescribeExportTasksRequest";
-  /**
-   * <p>One or more unique identifiers used to query the status of an export request.</p>
-   */
-  exportIds?: string[];
-
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -957,6 +891,11 @@ export interface DescribeExportTasksRequest {
    *          </ul>
    */
   filters?: ExportFilter[];
+
+  /**
+   * <p>One or more unique identifiers used to query the status of an export request.</p>
+   */
+  exportIds?: string[];
 
   /**
    * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
@@ -978,21 +917,13 @@ export interface DescribeExportTasksRequest {
 
 export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksRequest =>
-    __isa(o, "DescribeExportTasksRequest");
+  export const isa = (o: any): o is DescribeExportTasksRequest => __isa(o, "DescribeExportTasksRequest");
 }
 
 export interface DescribeExportTasksResponse {
   __type?: "DescribeExportTasksResponse";
-  /**
-   * <p>Contains one or more sets of export request details. When the status of a request is
-   *         <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can
-   *       view the data in a CSV file.</p>
-   */
-  exportsInfo?: ExportInfo[];
-
   /**
    * <p>The <code>nextToken</code> value to include in a future
    *         <code>DescribeExportTasks</code> request. When the results of a
@@ -1001,26 +932,28 @@ export interface DescribeExportTasksResponse {
    *       to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Contains one or more sets of export request details. When the status of a request is
+   *         <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can
+   *       view the data in a CSV file.</p>
+   */
+  exportsInfo?: ExportInfo[];
 }
 
 export namespace DescribeExportTasksResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeExportTasksResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeExportTasksResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksResponse =>
-    __isa(o, "DescribeExportTasksResponse");
+  export const isa = (o: any): o is DescribeExportTasksResponse => __isa(o, "DescribeExportTasksResponse");
 }
 
 export interface DescribeImportTasksRequest {
   __type?: "DescribeImportTasksRequest";
   /**
-   * <p>An array of name-value pairs that you provide to filter the results for the
-   *         <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard
-   *       values aren't supported for filters.</p>
+   * <p>The token to request a specific page of results.</p>
    */
-  filters?: ImportTaskFilter[];
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results that you want this request to return, up to 100.</p>
@@ -1028,41 +961,39 @@ export interface DescribeImportTasksRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to request a specific page of results.</p>
+   * <p>An array of name-value pairs that you provide to filter the results for the
+   *         <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard
+   *       values aren't supported for filters.</p>
    */
-  nextToken?: string;
+  filters?: ImportTaskFilter[];
 }
 
 export namespace DescribeImportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeImportTasksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImportTasksRequest =>
-    __isa(o, "DescribeImportTasksRequest");
+  export const isa = (o: any): o is DescribeImportTasksRequest => __isa(o, "DescribeImportTasksRequest");
 }
 
 export interface DescribeImportTasksResponse {
   __type?: "DescribeImportTasksResponse";
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A returned array of import tasks that match any applied filters, up to the specified
    *       number of maximum results.</p>
    */
   tasks?: ImportTask[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeImportTasksResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeImportTasksResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImportTasksResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImportTasksResponse =>
-    __isa(o, "DescribeImportTasksResponse");
+  export const isa = (o: any): o is DescribeImportTasksResponse => __isa(o, "DescribeImportTasksResponse");
 }
 
 export interface DescribeTagsRequest {
@@ -1088,10 +1019,9 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResponse {
@@ -1110,10 +1040,9 @@ export interface DescribeTagsResponse {
 
 export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResponse =>
-    __isa(o, "DescribeTagsResponse");
+  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 export interface DisassociateConfigurationItemsFromApplicationRequest {
@@ -1130,14 +1059,10 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateConfigurationItemsFromApplicationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateConfigurationItemsFromApplicationRequest =>
+  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationRequest =>
     __isa(o, "DisassociateConfigurationItemsFromApplicationRequest");
 }
 
@@ -1146,14 +1071,10 @@ export interface DisassociateConfigurationItemsFromApplicationResponse {
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateConfigurationItemsFromApplicationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DisassociateConfigurationItemsFromApplicationResponse =>
+  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationResponse =>
     __isa(o, "DisassociateConfigurationItemsFromApplicationResponse");
 }
 
@@ -1166,18 +1087,15 @@ export interface ExportConfigurationsResponse {
 }
 
 export namespace ExportConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: ExportConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportConfigurationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportConfigurationsResponse =>
-    __isa(o, "ExportConfigurationsResponse");
+  export const isa = (o: any): o is ExportConfigurationsResponse => __isa(o, "ExportConfigurationsResponse");
 }
 
 export enum ExportDataFormat {
   CSV = "CSV",
-  GRAPHML = "GRAPHML"
+  GRAPHML = "GRAPHML",
 }
 
 /**
@@ -1186,6 +1104,13 @@ export enum ExportDataFormat {
  */
 export interface ExportFilter {
   __type?: "ExportFilter";
+  /**
+   * <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
+   *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
+   *         <code>o-0123456789abcdef0</code>.</p>
+   */
+  values: string[] | undefined;
+
   /**
    * <p>Supported condition: <code>EQUALS</code>
    *          </p>
@@ -1197,18 +1122,11 @@ export interface ExportFilter {
    *       <code>agentId</code>.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
-   *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
-   *         <code>o-0123456789abcdef0</code>.</p>
-   */
-  values: string[] | undefined;
 }
 
 export namespace ExportFilter {
   export const filterSensitiveLog = (obj: ExportFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ExportFilter => __isa(o, "ExportFilter");
 }
@@ -1226,14 +1144,33 @@ export interface ExportInfo {
   configurationsDownloadUrl?: string;
 
   /**
+   * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
+   *         <code>endTime</code> was requested, this result does not appear in
+   *       <code>ExportInfo</code>.</p>
+   */
+  requestedEndTime?: Date;
+
+  /**
    * <p>A unique identifier used to query an export.</p>
    */
   exportId: string | undefined;
 
   /**
+   * <p>A status message provided for API callers.</p>
+   */
+  statusMessage: string | undefined;
+
+  /**
    * <p>The time that the data export was initiated.</p>
    */
   exportRequestTime: Date | undefined;
+
+  /**
+   * <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
+   *       request. If no <code>startTime</code> was requested, this result does not appear in
+   *         <code>ExportInfo</code>.</p>
+   */
+  requestedStartTime?: Date;
 
   /**
    * <p>The status of the data export job.</p>
@@ -1247,30 +1184,11 @@ export interface ExportInfo {
    *       <code>endDate</code>.</p>
    */
   isTruncated?: boolean;
-
-  /**
-   * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
-   *         <code>endTime</code> was requested, this result does not appear in
-   *       <code>ExportInfo</code>.</p>
-   */
-  requestedEndTime?: Date;
-
-  /**
-   * <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
-   *       request. If no <code>startTime</code> was requested, this result does not appear in
-   *         <code>ExportInfo</code>.</p>
-   */
-  requestedStartTime?: Date;
-
-  /**
-   * <p>A status message provided for API callers.</p>
-   */
-  statusMessage: string | undefined;
 }
 
 export namespace ExportInfo {
   export const filterSensitiveLog = (obj: ExportInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ExportInfo => __isa(o, "ExportInfo");
 }
@@ -1278,7 +1196,7 @@ export namespace ExportInfo {
 export enum ExportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -1290,6 +1208,11 @@ export enum ExportStatus {
 export interface Filter {
   __type?: "Filter";
   /**
+   * <p>The name of the filter.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
    *       CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as
    *       though concatenated by <i>AND</i>. If you specify multiple values for a
@@ -1298,11 +1221,6 @@ export interface Filter {
    *       returns attributes of matching configuration items.</p>
    */
   condition: string | undefined;
-
-  /**
-   * <p>The name of the filter.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>A string value on which to filter. For example, if you choose the
@@ -1314,7 +1232,7 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
@@ -1325,18 +1243,27 @@ export interface GetDiscoverySummaryRequest {
 
 export namespace GetDiscoverySummaryRequest {
   export const filterSensitiveLog = (obj: GetDiscoverySummaryRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDiscoverySummaryRequest =>
-    __isa(o, "GetDiscoverySummaryRequest");
+  export const isa = (o: any): o is GetDiscoverySummaryRequest => __isa(o, "GetDiscoverySummaryRequest");
 }
 
 export interface GetDiscoverySummaryResponse {
   __type?: "GetDiscoverySummaryResponse";
   /**
-   * <p>Details about discovered agents, including agent status and health.</p>
+   * <p>The number of servers mapped to tags.</p>
    */
-  agentSummary?: CustomerAgentInfo;
+  serversMappedtoTags?: number;
+
+  /**
+   * <p>The number of servers mapped to applications.</p>
+   */
+  serversMappedToApplications?: number;
+
+  /**
+   * <p>The number of servers discovered.</p>
+   */
+  servers?: number;
 
   /**
    * <p>The number of applications discovered.</p>
@@ -1349,37 +1276,22 @@ export interface GetDiscoverySummaryResponse {
   connectorSummary?: CustomerConnectorInfo;
 
   /**
-   * <p>The number of servers discovered.</p>
+   * <p>Details about discovered agents, including agent status and health.</p>
    */
-  servers?: number;
-
-  /**
-   * <p>The number of servers mapped to applications.</p>
-   */
-  serversMappedToApplications?: number;
-
-  /**
-   * <p>The number of servers mapped to tags.</p>
-   */
-  serversMappedtoTags?: number;
+  agentSummary?: CustomerAgentInfo;
 }
 
 export namespace GetDiscoverySummaryResponse {
-  export const filterSensitiveLog = (
-    obj: GetDiscoverySummaryResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetDiscoverySummaryResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetDiscoverySummaryResponse =>
-    __isa(o, "GetDiscoverySummaryResponse");
+  export const isa = (o: any): o is GetDiscoverySummaryResponse => __isa(o, "GetDiscoverySummaryResponse");
 }
 
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
-export interface HomeRegionNotSetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HomeRegionNotSetException extends __SmithyException, $MetadataBearer {
   name: "HomeRegionNotSetException";
   $fault: "client";
   message?: string;
@@ -1387,10 +1299,9 @@ export interface HomeRegionNotSetException
 
 export namespace HomeRegionNotSetException {
   export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HomeRegionNotSetException =>
-    __isa(o, "HomeRegionNotSetException");
+  export const isa = (o: any): o is HomeRegionNotSetException => __isa(o, "HomeRegionNotSetException");
 }
 
 export enum ImportStatus {
@@ -1404,7 +1315,7 @@ export enum ImportStatus {
   IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
   IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
   IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
+  INTERNAL_ERROR = "INTERNAL_ERROR",
 }
 
 /**
@@ -1414,67 +1325,10 @@ export enum ImportStatus {
 export interface ImportTask {
   __type?: "ImportTask";
   /**
-   * <p>The total number of application records in the import file that failed to be
-   *       imported.</p>
-   */
-  applicationImportFailure?: number;
-
-  /**
-   * <p>The total number of application records in the import file that were successfully
-   *       imported.</p>
-   */
-  applicationImportSuccess?: number;
-
-  /**
-   * <p>A unique token used to prevent the same import request from occurring more than once. If
-   *       you didn't provide a token, a token was automatically generated when the import task request
-   *       was sent.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
-   *       file of failed records. You can use these two files to quickly identify records that failed,
-   *       why they failed, and correct those records. Afterward, you can upload the corrected file to
-   *       your Amazon S3 bucket and create another import task request.</p>
-   *
-   *          <p>This field also includes authorization information so you can confirm the authenticity of
-   *       the compressed archive before you download it.</p>
-   *
-   *          <p>If some records failed to be imported we recommend that you correct the records in the
-   *       failed entries file and then imports that failed entries file. This prevents you from having
-   *       to correct and update the larger original file and attempt importing it again.</p>
-   */
-  errorsAndFailedEntriesZip?: string;
-
-  /**
-   * <p>The time that the import task request finished, presented in the Unix time stamp
-   *       format.</p>
-   */
-  importCompletionTime?: Date;
-
-  /**
    * <p>The time that the import task request was deleted, presented in the Unix time stamp
    *       format.</p>
    */
   importDeletedTime?: Date;
-
-  /**
-   * <p>The time that the import task request was made, presented in the Unix time stamp
-   *       format.</p>
-   */
-  importRequestTime?: Date;
-
-  /**
-   * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
-   *       unique within an AWS account.</p>
-   */
-  importTaskId?: string;
-
-  /**
-   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
-   */
-  importUrl?: string;
 
   /**
    * <p>A descriptive name for an import task. You can use this name to filter future requests
@@ -1495,6 +1349,30 @@ export interface ImportTask {
   serverImportSuccess?: number;
 
   /**
+   * <p>A unique token used to prevent the same import request from occurring more than once. If
+   *       you didn't provide a token, a token was automatically generated when the import task request
+   *       was sent.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The time that the import task request was made, presented in the Unix time stamp
+   *       format.</p>
+   */
+  importRequestTime?: Date;
+
+  /**
+   * <p>The total number of application records in the import file that were successfully
+   *       imported.</p>
+   */
+  applicationImportSuccess?: number;
+
+  /**
+   * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
+   */
+  importUrl?: string;
+
+  /**
    * <p>The status of the import task. An import can have the status of
    *         <code>IMPORT_COMPLETE</code> and still have some records fail to import from the overall
    *       request. More information can be found in the downloadable archive defined in the
@@ -1502,11 +1380,44 @@ export interface ImportTask {
    *       console.</p>
    */
   status?: ImportStatus | string;
+
+  /**
+   * <p>The time that the import task request finished, presented in the Unix time stamp
+   *       format.</p>
+   */
+  importCompletionTime?: Date;
+
+  /**
+   * <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
+   *       file of failed records. You can use these two files to quickly identify records that failed,
+   *       why they failed, and correct those records. Afterward, you can upload the corrected file to
+   *       your Amazon S3 bucket and create another import task request.</p>
+   *
+   *          <p>This field also includes authorization information so you can confirm the authenticity of
+   *       the compressed archive before you download it.</p>
+   *
+   *          <p>If some records failed to be imported we recommend that you correct the records in the
+   *       failed entries file and then imports that failed entries file. This prevents you from having
+   *       to correct and update the larger original file and attempt importing it again.</p>
+   */
+  errorsAndFailedEntriesZip?: string;
+
+  /**
+   * <p>The total number of application records in the import file that failed to be
+   *       imported.</p>
+   */
+  applicationImportFailure?: number;
+
+  /**
+   * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
+   *       unique within an AWS account.</p>
+   */
+  importTaskId?: string;
 }
 
 export namespace ImportTask {
   export const filterSensitiveLog = (obj: ImportTask): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ImportTask => __isa(o, "ImportTask");
 }
@@ -1535,24 +1446,21 @@ export interface ImportTaskFilter {
 
 export namespace ImportTaskFilter {
   export const filterSensitiveLog = (obj: ImportTaskFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImportTaskFilter =>
-    __isa(o, "ImportTaskFilter");
+  export const isa = (o: any): o is ImportTaskFilter => __isa(o, "ImportTaskFilter");
 }
 
 export enum ImportTaskFilterName {
   IMPORT_TASK_ID = "IMPORT_TASK_ID",
   NAME = "NAME",
-  STATUS = "STATUS"
+  STATUS = "STATUS",
 }
 
 /**
  * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1560,36 +1468,50 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterValueException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 export interface ListConfigurationsRequest {
   __type?: "ListConfigurationsRequest";
+  /**
+   * <p>The total number of items to return. The maximum value is 100.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Certain filter criteria return output that can be sorted in ascending or descending
+   *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
+   *         Service User Guide</i>.</p>
+   */
+  orderBy?: OrderByElement[];
+
+  /**
+   * <p>Token to retrieve the next set of results. For example, if a previous call to
+   *       ListConfigurations returned 100 items, but you set
+   *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
+   *       along with a token. Use that token in this query to get the next set of 10.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>A valid configuration identified by Application Discovery Service. </p>
    */
@@ -1606,34 +1528,13 @@ export interface ListConfigurationsRequest {
    *         Service User Guide</i>.</p>
    */
   filters?: Filter[];
-
-  /**
-   * <p>The total number of items to return. The maximum value is 100.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Token to retrieve the next set of results. For example, if a previous call to
-   *       ListConfigurations returned 100 items, but you set
-   *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
-   *       along with a token. Use that token in this query to get the next set of 10.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Certain filter criteria return output that can be sorted in ascending or descending
-   *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>AWS Application Discovery
-   *         Service User Guide</i>.</p>
-   */
-  orderBy?: OrderByElement[];
 }
 
 export namespace ListConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsRequest =>
-    __isa(o, "ListConfigurationsRequest");
+  export const isa = (o: any): o is ListConfigurationsRequest => __isa(o, "ListConfigurationsRequest");
 }
 
 export interface ListConfigurationsResponse {
@@ -1656,19 +1557,13 @@ export interface ListConfigurationsResponse {
 
 export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsResponse =>
-    __isa(o, "ListConfigurationsResponse");
+  export const isa = (o: any): o is ListConfigurationsResponse => __isa(o, "ListConfigurationsResponse");
 }
 
 export interface ListServerNeighborsRequest {
   __type?: "ListServerNeighborsRequest";
-  /**
-   * <p>Configuration ID of the server for which neighbors are being listed.</p>
-   */
-  configurationId: string | undefined;
-
   /**
    * <p>Maximum number of results to return in a single page of output.</p>
    */
@@ -1680,6 +1575,12 @@ export interface ListServerNeighborsRequest {
   neighborConfigurationIds?: string[];
 
   /**
+   * <p>Flag to indicate if port and protocol information is needed as part of the
+   *       response.</p>
+   */
+  portInformationNeeded?: boolean;
+
+  /**
    * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
@@ -1688,18 +1589,16 @@ export interface ListServerNeighborsRequest {
   nextToken?: string;
 
   /**
-   * <p>Flag to indicate if port and protocol information is needed as part of the
-   *       response.</p>
+   * <p>Configuration ID of the server for which neighbors are being listed.</p>
    */
-  portInformationNeeded?: boolean;
+  configurationId: string | undefined;
 }
 
 export namespace ListServerNeighborsRequest {
   export const filterSensitiveLog = (obj: ListServerNeighborsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListServerNeighborsRequest =>
-    __isa(o, "ListServerNeighborsRequest");
+  export const isa = (o: any): o is ListServerNeighborsRequest => __isa(o, "ListServerNeighborsRequest");
 }
 
 export interface ListServerNeighborsResponse {
@@ -1710,11 +1609,6 @@ export interface ListServerNeighborsResponse {
   knownDependencyCount?: number;
 
   /**
-   * <p>List of distinct servers that are one hop away from the given server.</p>
-   */
-  neighbors: NeighborConnectionDetail[] | undefined;
-
-  /**
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
@@ -1722,16 +1616,18 @@ export interface ListServerNeighborsResponse {
    *       10.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>List of distinct servers that are one hop away from the given server.</p>
+   */
+  neighbors: NeighborConnectionDetail[] | undefined;
 }
 
 export namespace ListServerNeighborsResponse {
-  export const filterSensitiveLog = (
-    obj: ListServerNeighborsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListServerNeighborsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListServerNeighborsResponse =>
-    __isa(o, "ListServerNeighborsResponse");
+  export const isa = (o: any): o is ListServerNeighborsResponse => __isa(o, "ListServerNeighborsResponse");
 }
 
 /**
@@ -1743,11 +1639,6 @@ export interface NeighborConnectionDetail {
    * <p>The number of open network connections with the neighboring server.</p>
    */
   connectionsCount: number | undefined;
-
-  /**
-   * <p>The destination network port for the connection.</p>
-   */
-  destinationPort?: number;
 
   /**
    * <p>The ID of the server that accepted the network connection.</p>
@@ -1763,35 +1654,34 @@ export interface NeighborConnectionDetail {
    * <p>The network protocol used for the connection.</p>
    */
   transportProtocol?: string;
+
+  /**
+   * <p>The destination network port for the connection.</p>
+   */
+  destinationPort?: number;
 }
 
 export namespace NeighborConnectionDetail {
   export const filterSensitiveLog = (obj: NeighborConnectionDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NeighborConnectionDetail =>
-    __isa(o, "NeighborConnectionDetail");
+  export const isa = (o: any): o is NeighborConnectionDetail => __isa(o, "NeighborConnectionDetail");
 }
 
 /**
  * <p>This operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace OperationNotPermittedException {
-  export const filterSensitiveLog = (
-    obj: OperationNotPermittedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException =>
-    __isa(o, "OperationNotPermittedException");
+  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -1812,15 +1702,14 @@ export interface OrderByElement {
 
 export namespace OrderByElement {
   export const filterSensitiveLog = (obj: OrderByElement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OrderByElement =>
-    __isa(o, "OrderByElement");
+  export const isa = (o: any): o is OrderByElement => __isa(o, "OrderByElement");
 }
 
 export enum OrderString {
   ASC = "ASC",
-  DESC = "DESC"
+  DESC = "DESC",
 }
 
 /**
@@ -1830,9 +1719,7 @@ export enum OrderString {
  *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
  *       try again.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1840,19 +1727,16 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified configuration ID was not located. Verify the configuration ID and try
  *       again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1860,31 +1744,25 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
-export interface ServerInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "ServerInternalErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace ServerInternalErrorException {
-  export const filterSensitiveLog = (
-    obj: ServerInternalErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServerInternalErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServerInternalErrorException =>
-    __isa(o, "ServerInternalErrorException");
+  export const isa = (o: any): o is ServerInternalErrorException => __isa(o, "ServerInternalErrorException");
 }
 
 export interface StartContinuousExportRequest {
@@ -1892,28 +1770,14 @@ export interface StartContinuousExportRequest {
 }
 
 export namespace StartContinuousExportRequest {
-  export const filterSensitiveLog = (
-    obj: StartContinuousExportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartContinuousExportRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartContinuousExportRequest =>
-    __isa(o, "StartContinuousExportRequest");
+  export const isa = (o: any): o is StartContinuousExportRequest => __isa(o, "StartContinuousExportRequest");
 }
 
 export interface StartContinuousExportResponse {
   __type?: "StartContinuousExportResponse";
-  /**
-   * <p>The type of data collector used to gather this data (currently only offered for
-   *       AGENT).</p>
-   */
-  dataSource?: DataSource | string;
-
-  /**
-   * <p>The unique ID assigned to this export.</p>
-   */
-  exportId?: string;
-
   /**
    * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
@@ -1932,19 +1796,27 @@ export interface StartContinuousExportResponse {
   schemaStorageConfig?: { [key: string]: string };
 
   /**
+   * <p>The type of data collector used to gather this data (currently only offered for
+   *       AGENT).</p>
+   */
+  dataSource?: DataSource | string;
+
+  /**
    * <p>The timestamp representing when the continuous export was started.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>The unique ID assigned to this export.</p>
+   */
+  exportId?: string;
 }
 
 export namespace StartContinuousExportResponse {
-  export const filterSensitiveLog = (
-    obj: StartContinuousExportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartContinuousExportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StartContinuousExportResponse =>
-    __isa(o, "StartContinuousExportResponse");
+  export const isa = (o: any): o is StartContinuousExportResponse => __isa(o, "StartContinuousExportResponse");
 }
 
 export interface StartDataCollectionByAgentIdsRequest {
@@ -1962,10 +1834,8 @@ export interface StartDataCollectionByAgentIdsRequest {
 }
 
 export namespace StartDataCollectionByAgentIdsRequest {
-  export const filterSensitiveLog = (
-    obj: StartDataCollectionByAgentIdsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartDataCollectionByAgentIdsRequest =>
     __isa(o, "StartDataCollectionByAgentIdsRequest");
@@ -1982,10 +1852,8 @@ export interface StartDataCollectionByAgentIdsResponse {
 }
 
 export namespace StartDataCollectionByAgentIdsResponse {
-  export const filterSensitiveLog = (
-    obj: StartDataCollectionByAgentIdsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartDataCollectionByAgentIdsResponse =>
     __isa(o, "StartDataCollectionByAgentIdsResponse");
@@ -1994,21 +1862,18 @@ export namespace StartDataCollectionByAgentIdsResponse {
 export interface StartExportTaskRequest {
   __type?: "StartExportTaskRequest";
   /**
+   * <p>The start timestamp for exported data from the single Application Discovery Agent
+   *       selected in the filters. If no value is specified, data is exported starting from the first
+   *       data collected by the agent.</p>
+   */
+  startTime?: Date;
+
+  /**
    * <p>The end timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, exported data includes the most recent data
    *       collected by the agent.</p>
    */
   endTime?: Date;
-
-  /**
-   * <p>The file format for the returned export data. Default value is <code>CSV</code>.
-   *         <b>Note:</b>
-   *             <i>The</i>
-   *             <code>GRAPHML</code>
-   *             <i>option has been deprecated.</i>
-   *          </p>
-   */
-  exportDataFormat?: (ExportDataFormat | string)[];
 
   /**
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application
@@ -2021,19 +1886,21 @@ export interface StartExportTaskRequest {
   filters?: ExportFilter[];
 
   /**
-   * <p>The start timestamp for exported data from the single Application Discovery Agent
-   *       selected in the filters. If no value is specified, data is exported starting from the first
-   *       data collected by the agent.</p>
+   * <p>The file format for the returned export data. Default value is <code>CSV</code>.
+   *         <b>Note:</b>
+   *             <i>The</i>
+   *             <code>GRAPHML</code>
+   *             <i>option has been deprecated.</i>
+   *          </p>
    */
-  startTime?: Date;
+  exportDataFormat?: (ExportDataFormat | string)[];
 }
 
 export namespace StartExportTaskRequest {
   export const filterSensitiveLog = (obj: StartExportTaskRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartExportTaskRequest =>
-    __isa(o, "StartExportTaskRequest");
+  export const isa = (o: any): o is StartExportTaskRequest => __isa(o, "StartExportTaskRequest");
 }
 
 export interface StartExportTaskResponse {
@@ -2046,25 +1913,13 @@ export interface StartExportTaskResponse {
 
 export namespace StartExportTaskResponse {
   export const filterSensitiveLog = (obj: StartExportTaskResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartExportTaskResponse =>
-    __isa(o, "StartExportTaskResponse");
+  export const isa = (o: any): o is StartExportTaskResponse => __isa(o, "StartExportTaskResponse");
 }
 
 export interface StartImportTaskRequest {
   __type?: "StartImportTaskRequest";
-  /**
-   * <p>Optional. A unique token that you can provide to prevent the same import request from
-   *       occurring more than once. If you don't provide a token, a token is automatically
-   *       generated.</p>
-   *
-   *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
-   *       token will return information about the original import task with that client request
-   *       token.</p>
-   */
-  clientRequestToken?: string;
-
   /**
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    *
@@ -2077,6 +1932,17 @@ export interface StartImportTaskRequest {
   importUrl: string | undefined;
 
   /**
+   * <p>Optional. A unique token that you can provide to prevent the same import request from
+   *       occurring more than once. If you don't provide a token, a token is automatically
+   *       generated.</p>
+   *
+   *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
+   *       token will return information about the original import task with that client request
+   *       token.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
    * <p>A descriptive name for this request. You can use this name to filter future requests
    *       related to this import task, such as identifying applications and servers that were included
    *       in this import task. We recommend that you use a meaningful name for each import task.</p>
@@ -2086,10 +1952,9 @@ export interface StartImportTaskRequest {
 
 export namespace StartImportTaskRequest {
   export const filterSensitiveLog = (obj: StartImportTaskRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImportTaskRequest =>
-    __isa(o, "StartImportTaskRequest");
+  export const isa = (o: any): o is StartImportTaskRequest => __isa(o, "StartImportTaskRequest");
 }
 
 export interface StartImportTaskResponse {
@@ -2103,10 +1968,9 @@ export interface StartImportTaskResponse {
 
 export namespace StartImportTaskResponse {
   export const filterSensitiveLog = (obj: StartImportTaskResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImportTaskResponse =>
-    __isa(o, "StartImportTaskResponse");
+  export const isa = (o: any): o is StartImportTaskResponse => __isa(o, "StartImportTaskResponse");
 }
 
 export interface StopContinuousExportRequest {
@@ -2118,13 +1982,10 @@ export interface StopContinuousExportRequest {
 }
 
 export namespace StopContinuousExportRequest {
-  export const filterSensitiveLog = (
-    obj: StopContinuousExportRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopContinuousExportRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopContinuousExportRequest =>
-    __isa(o, "StopContinuousExportRequest");
+  export const isa = (o: any): o is StopContinuousExportRequest => __isa(o, "StopContinuousExportRequest");
 }
 
 export interface StopContinuousExportResponse {
@@ -2142,13 +2003,10 @@ export interface StopContinuousExportResponse {
 }
 
 export namespace StopContinuousExportResponse {
-  export const filterSensitiveLog = (
-    obj: StopContinuousExportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopContinuousExportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is StopContinuousExportResponse =>
-    __isa(o, "StopContinuousExportResponse");
+  export const isa = (o: any): o is StopContinuousExportResponse => __isa(o, "StopContinuousExportResponse");
 }
 
 export interface StopDataCollectionByAgentIdsRequest {
@@ -2160,10 +2018,8 @@ export interface StopDataCollectionByAgentIdsRequest {
 }
 
 export namespace StopDataCollectionByAgentIdsRequest {
-  export const filterSensitiveLog = (
-    obj: StopDataCollectionByAgentIdsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StopDataCollectionByAgentIdsRequest =>
     __isa(o, "StopDataCollectionByAgentIdsRequest");
@@ -2180,10 +2036,8 @@ export interface StopDataCollectionByAgentIdsResponse {
 }
 
 export namespace StopDataCollectionByAgentIdsResponse {
-  export const filterSensitiveLog = (
-    obj: StopDataCollectionByAgentIdsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StopDataCollectionByAgentIdsResponse =>
     __isa(o, "StopDataCollectionByAgentIdsResponse");
@@ -2207,7 +2061,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2219,19 +2073,19 @@ export namespace Tag {
 export interface TagFilter {
   __type?: "TagFilter";
   /**
-   * <p>A name of the tag filter.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Values for the tag filter.</p>
    */
   values: string[] | undefined;
+
+  /**
+   * <p>A name of the tag filter.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
@@ -2239,9 +2093,9 @@ export namespace TagFilter {
 export interface UpdateApplicationRequest {
   __type?: "UpdateApplicationRequest";
   /**
-   * <p>Configuration ID of the application to be updated.</p>
+   * <p>New name of the application to be updated.</p>
    */
-  configurationId: string | undefined;
+  name?: string;
 
   /**
    * <p>New description of the application to be updated.</p>
@@ -2249,17 +2103,16 @@ export interface UpdateApplicationRequest {
   description?: string;
 
   /**
-   * <p>New name of the application to be updated.</p>
+   * <p>Configuration ID of the application to be updated.</p>
    */
-  name?: string;
+  configurationId: string | undefined;
 }
 
 export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest =>
-    __isa(o, "UpdateApplicationRequest");
+  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateApplicationResponse {
@@ -2268,8 +2121,7 @@ export interface UpdateApplicationResponse {
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResponse =>
-    __isa(o, "UpdateApplicationResponse");
+  export const isa = (o: any): o is UpdateApplicationResponse => __isa(o, "UpdateApplicationResponse");
 }

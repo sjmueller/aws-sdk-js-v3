@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient.ts";
-import {
-  DescribeRaidArraysRequest,
-  DescribeRaidArraysResult
-} from "../models/index.ts";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
+import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeRaidArraysCommand,
-  serializeAws_json1_1DescribeRaidArraysCommand
+  serializeAws_json1_1DescribeRaidArraysCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRaidArraysCommandInput = DescribeRaidArraysRequest;
-export type DescribeRaidArraysCommandOutput = DescribeRaidArraysResult &
-  __MetadataBearer;
+export type DescribeRaidArraysCommandOutput = DescribeRaidArraysResult & __MetadataBearer;
 
 export class DescribeRaidArraysCommand extends $Command<
   DescribeRaidArraysCommandInput,
@@ -50,14 +39,15 @@ export class DescribeRaidArraysCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRaidArraysCommandInput, DescribeRaidArraysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRaidArraysRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRaidArraysResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeRaidArraysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRaidArraysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRaidArraysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRaidArraysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRaidArraysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRaidArraysCommandOutput> {
     return deserializeAws_json1_1DescribeRaidArraysCommand(output, context);
   }
 

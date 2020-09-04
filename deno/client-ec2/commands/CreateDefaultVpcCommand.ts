@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CreateDefaultVpcRequest,
-  CreateDefaultVpcResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateDefaultVpcCommand,
-  serializeAws_ec2CreateDefaultVpcCommand
+  serializeAws_ec2CreateDefaultVpcCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDefaultVpcCommandInput = CreateDefaultVpcRequest;
-export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult &
-  __MetadataBearer;
+export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult & __MetadataBearer;
 
 export class CreateDefaultVpcCommand extends $Command<
   CreateDefaultVpcCommandInput,
@@ -50,14 +39,15 @@ export class CreateDefaultVpcCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDefaultVpcRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDefaultVpcResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateDefaultVpcCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDefaultVpcCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDefaultVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateDefaultVpcCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDefaultVpcCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultVpcCommandOutput> {
     return deserializeAws_ec2CreateDefaultVpcCommand(output, context);
   }
 

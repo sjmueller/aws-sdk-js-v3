@@ -1,18 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
 import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/index.ts";
 import {
   deserializeAws_queryRegisterTargetsCommand,
-  serializeAws_queryRegisterTargetsCommand
+  serializeAws_queryRegisterTargetsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterTargetsCommandInput = RegisterTargetsInput;
-export type RegisterTargetsCommandOutput = RegisterTargetsOutput &
-  __MetadataBearer;
+export type RegisterTargetsCommandOutput = RegisterTargetsOutput & __MetadataBearer;
 
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,
   RegisterTargetsCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +40,18 @@ export class RegisterTargetsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterTargetsCommandInput, RegisterTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterTargetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTargetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class RegisterTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
     return deserializeAws_queryRegisterTargetsCommand(output, context);
   }
 

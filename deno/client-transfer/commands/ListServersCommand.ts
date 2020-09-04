@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TransferClientResolvedConfig
-} from "../TransferClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
 import { ListServersRequest, ListServersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListServersCommand,
-  serializeAws_json1_1ListServersCommand
+  serializeAws_json1_1ListServersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListServersCommandInput = ListServersRequest;
@@ -46,14 +39,15 @@ export class ListServersCommand extends $Command<
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListServersCommandInput, ListServersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListServersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListServersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class ListServersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListServersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListServersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServersCommandOutput> {
     return deserializeAws_json1_1ListServersCommand(output, context);
   }
 

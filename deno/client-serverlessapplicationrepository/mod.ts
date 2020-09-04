@@ -12,5 +12,6 @@ export * from "./commands/ListApplicationDependenciesCommand.ts";
 export * from "./commands/ListApplicationsCommand.ts";
 export * from "./commands/ListApplicationVersionsCommand.ts";
 export * from "./commands/PutApplicationPolicyCommand.ts";
+export * from "./commands/UnshareApplicationCommand.ts";
 export * from "./commands/UpdateApplicationCommand.ts";
 export * from "./models/index.ts";

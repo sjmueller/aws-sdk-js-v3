@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient.ts";
-import {
-  FunctionEventInvokeConfig,
-  PutFunctionEventInvokeConfigRequest
-} from "../models/index.ts";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
+import { FunctionEventInvokeConfig, PutFunctionEventInvokeConfigRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutFunctionEventInvokeConfigCommand,
-  serializeAws_restJson1PutFunctionEventInvokeConfigCommand
+  serializeAws_restJson1PutFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutFunctionEventInvokeConfigCommandInput = PutFunctionEventInvokeConfigRequest;
-export type PutFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig &
-  __MetadataBearer;
+export type PutFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
 
 export class PutFunctionEventInvokeConfigCommand extends $Command<
   PutFunctionEventInvokeConfigCommandInput,
@@ -49,18 +38,16 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutFunctionEventInvokeConfigCommandInput,
-    PutFunctionEventInvokeConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutFunctionEventInvokeConfigCommandInput, PutFunctionEventInvokeConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutFunctionEventInvokeConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FunctionEventInvokeConfig.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutFunctionEventInvokeConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionEventInvokeConfigCommand(
-      input,
-      context
-    );
+  private serialize(input: PutFunctionEventInvokeConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PutFunctionEventInvokeConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1PutFunctionEventInvokeConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

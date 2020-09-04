@@ -1,18 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
 import { PutInsightRuleInput, PutInsightRuleOutput } from "../models/index.ts";
 import {
   deserializeAws_queryPutInsightRuleCommand,
-  serializeAws_queryPutInsightRuleCommand
+  serializeAws_queryPutInsightRuleCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutInsightRuleCommandInput = PutInsightRuleInput;
-export type PutInsightRuleCommandOutput = PutInsightRuleOutput &
-  __MetadataBearer;
+export type PutInsightRuleCommandOutput = PutInsightRuleOutput & __MetadataBearer;
 
 export class PutInsightRuleCommand extends $Command<
   PutInsightRuleCommandInput,
@@ -47,14 +39,15 @@ export class PutInsightRuleCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutInsightRuleCommandInput, PutInsightRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutInsightRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutInsightRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class PutInsightRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutInsightRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutInsightRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutInsightRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutInsightRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInsightRuleCommandOutput> {
     return deserializeAws_queryPutInsightRuleCommand(output, context);
   }
 

@@ -1,151 +1,73 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand.ts";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
 import {
   CreateBackendEnvironmentCommandInput,
-  CreateBackendEnvironmentCommandOutput
+  CreateBackendEnvironmentCommandOutput,
 } from "./commands/CreateBackendEnvironmentCommand.ts";
-import {
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput
-} from "./commands/CreateBranchCommand.ts";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand.ts";
+import { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand.ts";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
 import {
   CreateDomainAssociationCommandInput,
-  CreateDomainAssociationCommandOutput
+  CreateDomainAssociationCommandOutput,
 } from "./commands/CreateDomainAssociationCommand.ts";
-import {
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
-} from "./commands/CreateWebhookCommand.ts";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand.ts";
+import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand.ts";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand.ts";
 import {
   DeleteBackendEnvironmentCommandInput,
-  DeleteBackendEnvironmentCommandOutput
+  DeleteBackendEnvironmentCommandOutput,
 } from "./commands/DeleteBackendEnvironmentCommand.ts";
-import {
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
-} from "./commands/DeleteBranchCommand.ts";
+import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand.ts";
 import {
   DeleteDomainAssociationCommandInput,
-  DeleteDomainAssociationCommandOutput
+  DeleteDomainAssociationCommandOutput,
 } from "./commands/DeleteDomainAssociationCommand.ts";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand.ts";
-import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "./commands/DeleteWebhookCommand.ts";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand.ts";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand.ts";
 import {
   GenerateAccessLogsCommandInput,
-  GenerateAccessLogsCommandOutput
+  GenerateAccessLogsCommandOutput,
 } from "./commands/GenerateAccessLogsCommand.ts";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand.ts";
-import {
-  GetArtifactUrlCommandInput,
-  GetArtifactUrlCommandOutput
-} from "./commands/GetArtifactUrlCommand.ts";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand.ts";
+import { GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput } from "./commands/GetArtifactUrlCommand.ts";
 import {
   GetBackendEnvironmentCommandInput,
-  GetBackendEnvironmentCommandOutput
+  GetBackendEnvironmentCommandOutput,
 } from "./commands/GetBackendEnvironmentCommand.ts";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand.ts";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand.ts";
 import {
   GetDomainAssociationCommandInput,
-  GetDomainAssociationCommandOutput
+  GetDomainAssociationCommandOutput,
 } from "./commands/GetDomainAssociationCommand.ts";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand.ts";
-import {
-  GetWebhookCommandInput,
-  GetWebhookCommandOutput
-} from "./commands/GetWebhookCommand.ts";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand.ts";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "./commands/ListArtifactsCommand.ts";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
+import { GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand.ts";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand.ts";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand.ts";
 import {
   ListBackendEnvironmentsCommandInput,
-  ListBackendEnvironmentsCommandOutput
+  ListBackendEnvironmentsCommandOutput,
 } from "./commands/ListBackendEnvironmentsCommand.ts";
-import {
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput
-} from "./commands/ListBranchesCommand.ts";
+import { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand.ts";
 import {
   ListDomainAssociationsCommandInput,
-  ListDomainAssociationsCommandOutput
+  ListDomainAssociationsCommandOutput,
 } from "./commands/ListDomainAssociationsCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput
-} from "./commands/ListWebhooksCommand.ts";
-import {
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput
-} from "./commands/StartDeploymentCommand.ts";
-import {
-  StartJobCommandInput,
-  StartJobCommandOutput
-} from "./commands/StartJobCommand.ts";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand.ts";
-import {
-  UpdateBranchCommandInput,
-  UpdateBranchCommandOutput
-} from "./commands/UpdateBranchCommand.ts";
+import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand.ts";
+import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand.ts";
+import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand.ts";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand.ts";
+import { UpdateBranchCommandInput, UpdateBranchCommandOutput } from "./commands/UpdateBranchCommand.ts";
 import {
   UpdateDomainAssociationCommandInput,
-  UpdateDomainAssociationCommandOutput
+  UpdateDomainAssociationCommandOutput,
 } from "./commands/UpdateDomainAssociationCommand.ts";
-import {
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
-} from "./commands/UpdateWebhookCommand.ts";
+import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -153,38 +75,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -193,9 +111,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -276,8 +195,7 @@ export type ServiceOutputTypes =
   | UpdateDomainAssociationCommandOutput
   | UpdateWebhookCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -351,14 +269,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -366,9 +289,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AmplifyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AmplifyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -377,9 +298,7 @@ export type AmplifyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -389,9 +308,12 @@ export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>
- *             Amplify is a fully managed continuous deployment and hosting service for modern web apps.
- *         </p>
+ * <p>Amplify enables developers to develop and deploy cloud-powered mobile and web apps.
+ *             The Amplify Console provides a continuous delivery and hosting service for web
+ *             applications. For more information, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Console User Guide</a>. The
+ *             Amplify Framework is a comprehensive set of SDKs, libraries, tools, and documentation
+ *             for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework.</a>
+ *          </p>
  */
 export class AmplifyClient extends __Client<
   __HttpHandlerOptions,
@@ -404,7 +326,7 @@ export class AmplifyClient extends __Client<
   constructor(configuration: AmplifyClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -419,6 +341,7 @@ export class AmplifyClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

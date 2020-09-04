@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export enum AccessDeniedErrorCode {
@@ -13,15 +9,13 @@ export enum AccessDeniedErrorCode {
   ACCESS_DENIED_TO_IAM_ROLE = "ACCESS_DENIED_TO_IAM_ROLE",
   ACCESS_DENIED_TO_RESOURCE_GROUP = "ACCESS_DENIED_TO_RESOURCE_GROUP",
   ACCESS_DENIED_TO_RULES_PACKAGE = "ACCESS_DENIED_TO_RULES_PACKAGE",
-  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC"
+  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC",
 }
 
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -42,33 +36,29 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AddAttributesToFindingsRequest {
   __type?: "AddAttributesToFindingsRequest";
   /**
-   * <p>The array of attributes that you want to assign to specified findings.</p>
-   */
-  attributes: Attribute[] | undefined;
-
-  /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
    */
   findingArns: string[] | undefined;
+
+  /**
+   * <p>The array of attributes that you want to assign to specified findings.</p>
+   */
+  attributes: Attribute[] | undefined;
 }
 
 export namespace AddAttributesToFindingsRequest {
-  export const filterSensitiveLog = (
-    obj: AddAttributesToFindingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddAttributesToFindingsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddAttributesToFindingsRequest =>
-    __isa(o, "AddAttributesToFindingsRequest");
+  export const isa = (o: any): o is AddAttributesToFindingsRequest => __isa(o, "AddAttributesToFindingsRequest");
 }
 
 export interface AddAttributesToFindingsResponse {
@@ -81,13 +71,10 @@ export interface AddAttributesToFindingsResponse {
 }
 
 export namespace AddAttributesToFindingsResponse {
-  export const filterSensitiveLog = (
-    obj: AddAttributesToFindingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddAttributesToFindingsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddAttributesToFindingsResponse =>
-    __isa(o, "AddAttributesToFindingsResponse");
+  export const isa = (o: any): o is AddAttributesToFindingsResponse => __isa(o, "AddAttributesToFindingsResponse");
 }
 
 /**
@@ -110,13 +97,10 @@ export interface AgentAlreadyRunningAssessment {
 }
 
 export namespace AgentAlreadyRunningAssessment {
-  export const filterSensitiveLog = (
-    obj: AgentAlreadyRunningAssessment
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AgentAlreadyRunningAssessment): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AgentAlreadyRunningAssessment =>
-    __isa(o, "AgentAlreadyRunningAssessment");
+  export const isa = (o: any): o is AgentAlreadyRunningAssessment => __isa(o, "AgentAlreadyRunningAssessment");
 }
 
 /**
@@ -138,7 +122,7 @@ export interface AgentFilter {
 
 export namespace AgentFilter {
   export const filterSensitiveLog = (obj: AgentFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AgentFilter => __isa(o, "AgentFilter");
 }
@@ -146,7 +130,7 @@ export namespace AgentFilter {
 export enum AgentHealth {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
+  UNKNOWN = "UNKNOWN",
 }
 
 export enum AgentHealthCode {
@@ -155,7 +139,7 @@ export enum AgentHealthCode {
   SHUTDOWN = "SHUTDOWN",
   THROTTLED = "THROTTLED",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
+  UNKNOWN = "UNKNOWN",
 }
 
 /**
@@ -169,33 +153,6 @@ export interface AgentPreview {
   agentHealth?: AgentHealth | string;
 
   /**
-   * <p>The ID of the EC2 instance where the agent is installed.</p>
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the Amazon Inspector Agent.</p>
-   */
-  agentVersion?: string;
-
-  /**
-   * <p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>
-   */
-  autoScalingGroup?: string;
-
-  /**
-   * <p>The hostname of the EC2 instance on which the Amazon Inspector Agent is
-   *          installed.</p>
-   */
-  hostname?: string;
-
-  /**
-   * <p>The IP address of the EC2 instance on which the Amazon Inspector Agent is
-   *          installed.</p>
-   */
-  ipv4Address?: string;
-
-  /**
    * <p>The kernel version of the operating system running on the EC2 instance on which the
    *          Amazon Inspector Agent is installed.</p>
    */
@@ -206,11 +163,38 @@ export interface AgentPreview {
    *          is installed.</p>
    */
   operatingSystem?: string;
+
+  /**
+   * <p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>
+   */
+  autoScalingGroup?: string;
+
+  /**
+   * <p>The version of the Amazon Inspector Agent.</p>
+   */
+  agentVersion?: string;
+
+  /**
+   * <p>The IP address of the EC2 instance on which the Amazon Inspector Agent is
+   *          installed.</p>
+   */
+  ipv4Address?: string;
+
+  /**
+   * <p>The hostname of the EC2 instance on which the Amazon Inspector Agent is
+   *          installed.</p>
+   */
+  hostname?: string;
+
+  /**
+   * <p>The ID of the EC2 instance where the agent is installed.</p>
+   */
+  agentId: string | undefined;
 }
 
 export namespace AgentPreview {
   export const filterSensitiveLog = (obj: AgentPreview): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AgentPreview => __isa(o, "AgentPreview");
 }
@@ -219,9 +203,7 @@ export namespace AgentPreview {
  * <p>You started an assessment run, but one of the instances is already participating in
  *          another assessment run.</p>
  */
-export interface AgentsAlreadyRunningAssessmentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AgentsAlreadyRunningAssessmentException extends __SmithyException, $MetadataBearer {
   name: "AgentsAlreadyRunningAssessmentException";
   $fault: "client";
   /**
@@ -235,21 +217,19 @@ export interface AgentsAlreadyRunningAssessmentException
   agentsTruncated: boolean | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace AgentsAlreadyRunningAssessmentException {
-  export const filterSensitiveLog = (
-    obj: AgentsAlreadyRunningAssessmentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AgentsAlreadyRunningAssessmentException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AgentsAlreadyRunningAssessmentException =>
     __isa(o, "AgentsAlreadyRunningAssessmentException");
@@ -264,9 +244,19 @@ export namespace AgentsAlreadyRunningAssessmentException {
 export interface AssessmentRun {
   __type?: "AssessmentRun";
   /**
-   * <p>The ARN of the assessment run.</p>
+   * <p>Provides a total count of generated findings per severity.</p>
    */
-  arn: string | undefined;
+  findingCounts: { [key: string]: number } | undefined;
+
+  /**
+   * <p>The user-defined attributes that are assigned to every generated finding.</p>
+   */
+  userAttributesForFindings: Attribute[] | undefined;
+
+  /**
+   * <p>The rules packages selected for the assessment run.</p>
+   */
+  rulesPackageArns: string[] | undefined;
 
   /**
    * <p>The ARN of the assessment template that is associated with the assessment
@@ -275,10 +265,51 @@ export interface AssessmentRun {
   assessmentTemplateArn: string | undefined;
 
   /**
+   * <p>A list of notifications for the event subscriptions. A notification about a
+   *          particular generated finding is added to this list only once.</p>
+   */
+  notifications: AssessmentRunNotification[] | undefined;
+
+  /**
+   * <p>The state of the assessment run.</p>
+   */
+  state: AssessmentRunState | string | undefined;
+
+  /**
    * <p>The assessment run completion time that corresponds to the rules packages evaluation
    *          completion time or failure.</p>
    */
   completedAt?: Date;
+
+  /**
+   * <p>The last time when the assessment run's state changed.</p>
+   */
+  stateChangedAt: Date | undefined;
+
+  /**
+   * <p>The auto-generated name for the assessment run.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the assessment run.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>A list of the assessment run state changes.</p>
+   */
+  stateChanges: AssessmentRunStateChange[] | undefined;
+
+  /**
+   * <p>The duration of the assessment run.</p>
+   */
+  durationInSeconds: number | undefined;
 
   /**
    * <p>The time when <a>StartAssessmentRun</a> was called.</p>
@@ -290,62 +321,11 @@ export interface AssessmentRun {
    *          from the agents is completed.</p>
    */
   dataCollected: boolean | undefined;
-
-  /**
-   * <p>The duration of the assessment run.</p>
-   */
-  durationInSeconds: number | undefined;
-
-  /**
-   * <p>Provides a total count of generated findings per severity.</p>
-   */
-  findingCounts: { [key: string]: number } | undefined;
-
-  /**
-   * <p>The auto-generated name for the assessment run.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A list of notifications for the event subscriptions. A notification about a
-   *          particular generated finding is added to this list only once.</p>
-   */
-  notifications: AssessmentRunNotification[] | undefined;
-
-  /**
-   * <p>The rules packages selected for the assessment run.</p>
-   */
-  rulesPackageArns: string[] | undefined;
-
-  /**
-   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
-   */
-  startedAt?: Date;
-
-  /**
-   * <p>The state of the assessment run.</p>
-   */
-  state: AssessmentRunState | string | undefined;
-
-  /**
-   * <p>The last time when the assessment run's state changed.</p>
-   */
-  stateChangedAt: Date | undefined;
-
-  /**
-   * <p>A list of the assessment run state changes.</p>
-   */
-  stateChanges: AssessmentRunStateChange[] | undefined;
-
-  /**
-   * <p>The user-defined attributes that are assigned to every generated finding.</p>
-   */
-  userAttributesForFindings: Attribute[] | undefined;
 }
 
 export namespace AssessmentRun {
   export const filterSensitiveLog = (obj: AssessmentRun): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AssessmentRun => __isa(o, "AssessmentRun");
 }
@@ -357,29 +337,14 @@ export namespace AssessmentRun {
 export interface AssessmentRunAgent {
   __type?: "AssessmentRunAgent";
   /**
-   * <p>The current health state of the agent.</p>
+   * <p>The ARN of the assessment run that is associated with the agent.</p>
    */
-  agentHealth: AgentHealth | string | undefined;
+  assessmentRunArn: string | undefined;
 
   /**
    * <p>The detailed health state of the agent.</p>
    */
   agentHealthCode: AgentHealthCode | string | undefined;
-
-  /**
-   * <p>The description for the agent health code.</p>
-   */
-  agentHealthDetails?: string;
-
-  /**
-   * <p>The AWS account of the EC2 instance where the agent is installed.</p>
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The ARN of the assessment run that is associated with the agent.</p>
-   */
-  assessmentRunArn: string | undefined;
 
   /**
    * <p>The Auto Scaling group of the EC2 instance that is specified by the agent
@@ -388,18 +353,32 @@ export interface AssessmentRunAgent {
   autoScalingGroup?: string;
 
   /**
+   * <p>The AWS account of the EC2 instance where the agent is installed.</p>
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The current health state of the agent.</p>
+   */
+  agentHealth: AgentHealth | string | undefined;
+
+  /**
    * <p>The Amazon Inspector application data metrics that are collected by the
    *          agent.</p>
    */
   telemetryMetadata: TelemetryMetadata[] | undefined;
+
+  /**
+   * <p>The description for the agent health code.</p>
+   */
+  agentHealthDetails?: string;
 }
 
 export namespace AssessmentRunAgent {
   export const filterSensitiveLog = (obj: AssessmentRunAgent): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunAgent =>
-    __isa(o, "AssessmentRunAgent");
+  export const isa = (o: any): o is AssessmentRunAgent => __isa(o, "AssessmentRunAgent");
 }
 
 /**
@@ -409,20 +388,6 @@ export namespace AssessmentRunAgent {
 export interface AssessmentRunFilter {
   __type?: "AssessmentRunFilter";
   /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must inclusively match any value between the specified minimum and maximum values
-   *          of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>
-   */
-  completionTimeRange?: TimestampRange;
-
-  /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must inclusively match any value between the specified minimum and maximum values
-   *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
-   */
-  durationRange?: DurationRange;
-
-  /**
    * <p>For a record to match a filter, an explicit value or a string containing a wildcard
    *          that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>
    *          data type.</p>
@@ -430,11 +395,11 @@ export interface AssessmentRunFilter {
   namePattern?: string;
 
   /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data
+   * <p>For a record to match a filter, one of the values specified for this data type
+   *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  rulesPackageArns?: string[];
+  states?: (AssessmentRunState | string)[];
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -445,34 +410,45 @@ export interface AssessmentRunFilter {
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must inclusively match any value between the specified minimum and maximum values
+   *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
+   */
+  durationRange?: DurationRange;
+
+  /**
+   * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data
+   *          type.</p>
+   */
+  rulesPackageArns?: string[];
+
+  /**
+   * <p>For a record to match a filter, the value that is specified for this data type
    *          property must match the <b>stateChangedAt</b> property of the
    *             <a>AssessmentRun</a> data type.</p>
    */
   stateChangeTimeRange?: TimestampRange;
 
   /**
-   * <p>For a record to match a filter, one of the values specified for this data type
-   *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
-   *          type.</p>
+   * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must inclusively match any value between the specified minimum and maximum values
+   *          of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>
    */
-  states?: (AssessmentRunState | string)[];
+  completionTimeRange?: TimestampRange;
 }
 
 export namespace AssessmentRunFilter {
   export const filterSensitiveLog = (obj: AssessmentRunFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunFilter =>
-    __isa(o, "AssessmentRunFilter");
+  export const isa = (o: any): o is AssessmentRunFilter => __isa(o, "AssessmentRunFilter");
 }
 
 /**
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
  */
-export interface AssessmentRunInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssessmentRunInProgressException extends __SmithyException, $MetadataBearer {
   name: "AssessmentRunInProgressException";
   $fault: "client";
   /**
@@ -498,13 +474,10 @@ export interface AssessmentRunInProgressException
 }
 
 export namespace AssessmentRunInProgressException {
-  export const filterSensitiveLog = (
-    obj: AssessmentRunInProgressException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssessmentRunInProgressException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunInProgressException =>
-    __isa(o, "AssessmentRunInProgressException");
+  export const isa = (o: any): o is AssessmentRunInProgressException => __isa(o, "AssessmentRunInProgressException");
 }
 
 /**
@@ -514,25 +487,14 @@ export namespace AssessmentRunInProgressException {
 export interface AssessmentRunNotification {
   __type?: "AssessmentRunNotification";
   /**
-   * <p>The date of the notification.</p>
-   */
-  date: Date | undefined;
-
-  /**
-   * <p>The Boolean value that specifies whether the notification represents an
-   *          error.</p>
-   */
-  error: boolean | undefined;
-
-  /**
-   * <p>The event for which a notification is sent.</p>
-   */
-  event: InspectorEvent | string | undefined;
-
-  /**
    * <p>The message included in the notification.</p>
    */
   message?: string;
+
+  /**
+   * <p>The date of the notification.</p>
+   */
+  date: Date | undefined;
 
   /**
    * <p>The status code of the SNS notification.</p>
@@ -540,24 +502,34 @@ export interface AssessmentRunNotification {
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
 
   /**
+   * <p>The event for which a notification is sent.</p>
+   */
+  event: InspectorEvent | string | undefined;
+
+  /**
    * <p>The SNS topic to which the SNS notification is sent.</p>
    */
   snsTopicArn?: string;
+
+  /**
+   * <p>The Boolean value that specifies whether the notification represents an
+   *          error.</p>
+   */
+  error: boolean | undefined;
 }
 
 export namespace AssessmentRunNotification {
   export const filterSensitiveLog = (obj: AssessmentRunNotification): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunNotification =>
-    __isa(o, "AssessmentRunNotification");
+  export const isa = (o: any): o is AssessmentRunNotification => __isa(o, "AssessmentRunNotification");
 }
 
 export enum AssessmentRunNotificationSnsStatusCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   SUCCESS = "SUCCESS",
-  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST"
+  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST",
 }
 
 export enum AssessmentRunState {
@@ -573,7 +545,7 @@ export enum AssessmentRunState {
   START_DATA_COLLECTION_IN_PROGRESS = "START_DATA_COLLECTION_IN_PROGRESS",
   START_DATA_COLLECTION_PENDING = "START_DATA_COLLECTION_PENDING",
   START_EVALUATING_RULES_PENDING = "START_EVALUATING_RULES_PENDING",
-  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING"
+  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING",
 }
 
 /**
@@ -595,10 +567,9 @@ export interface AssessmentRunStateChange {
 
 export namespace AssessmentRunStateChange {
   export const filterSensitiveLog = (obj: AssessmentRunStateChange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunStateChange =>
-    __isa(o, "AssessmentRunStateChange");
+  export const isa = (o: any): o is AssessmentRunStateChange => __isa(o, "AssessmentRunStateChange");
 }
 
 /**
@@ -613,14 +584,9 @@ export interface AssessmentTarget {
   arn: string | undefined;
 
   /**
-   * <p>The time at which the assessment target is created.</p>
+   * <p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The name of the Amazon Inspector assessment target.</p>
-   */
-  name: string | undefined;
+  updatedAt: Date | undefined;
 
   /**
    * <p>The ARN that specifies the resource group that is associated with the assessment
@@ -629,17 +595,21 @@ export interface AssessmentTarget {
   resourceGroupArn?: string;
 
   /**
-   * <p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>
+   * <p>The name of the Amazon Inspector assessment target.</p>
    */
-  updatedAt: Date | undefined;
+  name: string | undefined;
+
+  /**
+   * <p>The time at which the assessment target is created.</p>
+   */
+  createdAt: Date | undefined;
 }
 
 export namespace AssessmentTarget {
   export const filterSensitiveLog = (obj: AssessmentTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentTarget =>
-    __isa(o, "AssessmentTarget");
+  export const isa = (o: any): o is AssessmentTarget => __isa(o, "AssessmentTarget");
 }
 
 /**
@@ -658,10 +628,9 @@ export interface AssessmentTargetFilter {
 
 export namespace AssessmentTargetFilter {
   export const filterSensitiveLog = (obj: AssessmentTargetFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentTargetFilter =>
-    __isa(o, "AssessmentTargetFilter");
+  export const isa = (o: any): o is AssessmentTargetFilter => __isa(o, "AssessmentTargetFilter");
 }
 
 /**
@@ -672,26 +641,10 @@ export namespace AssessmentTargetFilter {
 export interface AssessmentTemplate {
   __type?: "AssessmentTemplate";
   /**
-   * <p>The ARN of the assessment template.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The number of existing assessment runs associated with this assessment template. This
-   *          value can be zero or a positive integer.</p>
-   */
-  assessmentRunCount: number | undefined;
-
-  /**
    * <p>The ARN of the assessment target that corresponds to this assessment
    *          template.</p>
    */
   assessmentTargetArn: string | undefined;
-
-  /**
-   * <p>The time at which the assessment template is created.</p>
-   */
-  createdAt: Date | undefined;
 
   /**
    * <p>The duration in seconds specified for this assessment template. The default value is
@@ -707,9 +660,15 @@ export interface AssessmentTemplate {
   lastAssessmentRunArn?: string;
 
   /**
-   * <p>The name of the assessment template.</p>
+   * <p>The time at which the assessment template is created.</p>
    */
-  name: string | undefined;
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The number of existing assessment runs associated with this assessment template. This
+   *          value can be zero or a positive integer.</p>
+   */
+  assessmentRunCount: number | undefined;
 
   /**
    * <p>The rules packages that are specified for this assessment template.</p>
@@ -721,14 +680,23 @@ export interface AssessmentTemplate {
    *          assessment run that uses this assessment template.</p>
    */
   userAttributesForFindings: Attribute[] | undefined;
+
+  /**
+   * <p>The ARN of the assessment template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the assessment template.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace AssessmentTemplate {
   export const filterSensitiveLog = (obj: AssessmentTemplate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentTemplate =>
-    __isa(o, "AssessmentTemplate");
+  export const isa = (o: any): o is AssessmentTemplate => __isa(o, "AssessmentTemplate");
 }
 
 /**
@@ -737,13 +705,6 @@ export namespace AssessmentTemplate {
  */
 export interface AssessmentTemplateFilter {
   __type?: "AssessmentTemplateFilter";
-  /**
-   * <p>For a record to match a filter, the value specified for this data type property must
-   *          inclusively match any value between the specified minimum and maximum values of the
-   *             <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>
-   */
-  durationRange?: DurationRange;
-
   /**
    * <p>For a record to match a filter, an explicit value or a string that contains a
    *          wildcard that is specified for this data type property must match the value of the
@@ -757,14 +718,20 @@ export interface AssessmentTemplateFilter {
    *          type.</p>
    */
   rulesPackageArns?: string[];
+
+  /**
+   * <p>For a record to match a filter, the value specified for this data type property must
+   *          inclusively match any value between the specified minimum and maximum values of the
+   *             <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>
+   */
+  durationRange?: DurationRange;
 }
 
 export namespace AssessmentTemplateFilter {
   export const filterSensitiveLog = (obj: AssessmentTemplateFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssessmentTemplateFilter =>
-    __isa(o, "AssessmentTemplateFilter");
+  export const isa = (o: any): o is AssessmentTemplateFilter => __isa(o, "AssessmentTemplateFilter");
 }
 
 /**
@@ -773,32 +740,15 @@ export namespace AssessmentTemplateFilter {
 export interface AssetAttributes {
   __type?: "AssetAttributes";
   /**
-   * <p>The ID of the agent that is installed on the EC2 instance where the finding is
-   *          generated.</p>
-   */
-  agentId?: string;
-
-  /**
    * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
    *          the finding is generated.</p>
    */
   amiId?: string;
 
   /**
-   * <p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>
-   */
-  autoScalingGroup?: string;
-
-  /**
    * <p>The hostname of the EC2 instance where the finding is generated.</p>
    */
   hostname?: string;
-
-  /**
-   * <p>The list of IP v4 addresses of the EC2 instance where the finding is
-   *          generated.</p>
-   */
-  ipv4Addresses?: string[];
 
   /**
    * <p>An array of the network interfaces interacting with the EC2 instance where the
@@ -807,26 +757,42 @@ export interface AssetAttributes {
   networkInterfaces?: NetworkInterface[];
 
   /**
-   * <p>The schema version of this data type.</p>
+   * <p>The ID of the agent that is installed on the EC2 instance where the finding is
+   *          generated.</p>
    */
-  schemaVersion: number | undefined;
+  agentId?: string;
 
   /**
    * <p>The tags related to the EC2 instance where the finding is generated.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>
+   */
+  autoScalingGroup?: string;
+
+  /**
+   * <p>The list of IP v4 addresses of the EC2 instance where the finding is
+   *          generated.</p>
+   */
+  ipv4Addresses?: string[];
+
+  /**
+   * <p>The schema version of this data type.</p>
+   */
+  schemaVersion: number | undefined;
 }
 
 export namespace AssetAttributes {
   export const filterSensitiveLog = (obj: AssetAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssetAttributes =>
-    __isa(o, "AssetAttributes");
+  export const isa = (o: any): o is AssetAttributes => __isa(o, "AssetAttributes");
 }
 
 export enum AssetType {
-  EC2_INSTANCE = "ec2-instance"
+  EC2_INSTANCE = "ec2-instance",
 }
 
 /**
@@ -848,7 +814,7 @@ export interface Attribute {
 
 export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
@@ -856,27 +822,24 @@ export namespace Attribute {
 export interface CreateAssessmentTargetRequest {
   __type?: "CreateAssessmentTargetRequest";
   /**
-   * <p>The user-defined name that identifies the assessment target that you want to create.
-   *          The name must be unique within the AWS account.</p>
-   */
-  assessmentTargetName: string | undefined;
-
-  /**
    * <p>The ARN that specifies the resource group that is used to create the assessment
    *          target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account
    *          and region are included in the assessment target.</p>
    */
   resourceGroupArn?: string;
+
+  /**
+   * <p>The user-defined name that identifies the assessment target that you want to create.
+   *          The name must be unique within the AWS account.</p>
+   */
+  assessmentTargetName: string | undefined;
 }
 
 export namespace CreateAssessmentTargetRequest {
-  export const filterSensitiveLog = (
-    obj: CreateAssessmentTargetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAssessmentTargetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTargetRequest =>
-    __isa(o, "CreateAssessmentTargetRequest");
+  export const isa = (o: any): o is CreateAssessmentTargetRequest => __isa(o, "CreateAssessmentTargetRequest");
 }
 
 export interface CreateAssessmentTargetResponse {
@@ -888,22 +851,19 @@ export interface CreateAssessmentTargetResponse {
 }
 
 export namespace CreateAssessmentTargetResponse {
-  export const filterSensitiveLog = (
-    obj: CreateAssessmentTargetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAssessmentTargetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTargetResponse =>
-    __isa(o, "CreateAssessmentTargetResponse");
+  export const isa = (o: any): o is CreateAssessmentTargetResponse => __isa(o, "CreateAssessmentTargetResponse");
 }
 
 export interface CreateAssessmentTemplateRequest {
   __type?: "CreateAssessmentTemplateRequest";
   /**
-   * <p>The ARN that specifies the assessment target for which you want to create the
-   *          assessment template.</p>
+   * <p>The ARNs that specify the rules packages that you want to attach to the assessment
+   *          template.</p>
    */
-  assessmentTargetArn: string | undefined;
+  rulesPackageArns: string[] | undefined;
 
   /**
    * <p>The user-defined name that identifies the assessment template that you want to
@@ -914,15 +874,10 @@ export interface CreateAssessmentTemplateRequest {
   assessmentTemplateName: string | undefined;
 
   /**
-   * <p>The duration of the assessment run in seconds.</p>
+   * <p>The ARN that specifies the assessment target for which you want to create the
+   *          assessment template.</p>
    */
-  durationInSeconds: number | undefined;
-
-  /**
-   * <p>The ARNs that specify the rules packages that you want to attach to the assessment
-   *          template.</p>
-   */
-  rulesPackageArns: string[] | undefined;
+  assessmentTargetArn: string | undefined;
 
   /**
    * <p>The user-defined attributes that are assigned to every finding that is generated by
@@ -931,16 +886,18 @@ export interface CreateAssessmentTemplateRequest {
    *          unique.</p>
    */
   userAttributesForFindings?: Attribute[];
+
+  /**
+   * <p>The duration of the assessment run in seconds.</p>
+   */
+  durationInSeconds: number | undefined;
 }
 
 export namespace CreateAssessmentTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: CreateAssessmentTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAssessmentTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTemplateRequest =>
-    __isa(o, "CreateAssessmentTemplateRequest");
+  export const isa = (o: any): o is CreateAssessmentTemplateRequest => __isa(o, "CreateAssessmentTemplateRequest");
 }
 
 export interface CreateAssessmentTemplateResponse {
@@ -952,13 +909,10 @@ export interface CreateAssessmentTemplateResponse {
 }
 
 export namespace CreateAssessmentTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: CreateAssessmentTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateAssessmentTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTemplateResponse =>
-    __isa(o, "CreateAssessmentTemplateResponse");
+  export const isa = (o: any): o is CreateAssessmentTemplateResponse => __isa(o, "CreateAssessmentTemplateResponse");
 }
 
 export interface CreateExclusionsPreviewRequest {
@@ -971,13 +925,10 @@ export interface CreateExclusionsPreviewRequest {
 }
 
 export namespace CreateExclusionsPreviewRequest {
-  export const filterSensitiveLog = (
-    obj: CreateExclusionsPreviewRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateExclusionsPreviewRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateExclusionsPreviewRequest =>
-    __isa(o, "CreateExclusionsPreviewRequest");
+  export const isa = (o: any): o is CreateExclusionsPreviewRequest => __isa(o, "CreateExclusionsPreviewRequest");
 }
 
 export interface CreateExclusionsPreviewResponse {
@@ -991,13 +942,10 @@ export interface CreateExclusionsPreviewResponse {
 }
 
 export namespace CreateExclusionsPreviewResponse {
-  export const filterSensitiveLog = (
-    obj: CreateExclusionsPreviewResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateExclusionsPreviewResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateExclusionsPreviewResponse =>
-    __isa(o, "CreateExclusionsPreviewResponse");
+  export const isa = (o: any): o is CreateExclusionsPreviewResponse => __isa(o, "CreateExclusionsPreviewResponse");
 }
 
 export interface CreateResourceGroupRequest {
@@ -1012,10 +960,9 @@ export interface CreateResourceGroupRequest {
 
 export namespace CreateResourceGroupRequest {
   export const filterSensitiveLog = (obj: CreateResourceGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateResourceGroupRequest =>
-    __isa(o, "CreateResourceGroupRequest");
+  export const isa = (o: any): o is CreateResourceGroupRequest => __isa(o, "CreateResourceGroupRequest");
 }
 
 export interface CreateResourceGroupResponse {
@@ -1027,13 +974,10 @@ export interface CreateResourceGroupResponse {
 }
 
 export namespace CreateResourceGroupResponse {
-  export const filterSensitiveLog = (
-    obj: CreateResourceGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateResourceGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateResourceGroupResponse =>
-    __isa(o, "CreateResourceGroupResponse");
+  export const isa = (o: any): o is CreateResourceGroupResponse => __isa(o, "CreateResourceGroupResponse");
 }
 
 export interface DeleteAssessmentRunRequest {
@@ -1046,10 +990,9 @@ export interface DeleteAssessmentRunRequest {
 
 export namespace DeleteAssessmentRunRequest {
   export const filterSensitiveLog = (obj: DeleteAssessmentRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentRunRequest =>
-    __isa(o, "DeleteAssessmentRunRequest");
+  export const isa = (o: any): o is DeleteAssessmentRunRequest => __isa(o, "DeleteAssessmentRunRequest");
 }
 
 export interface DeleteAssessmentTargetRequest {
@@ -1061,13 +1004,10 @@ export interface DeleteAssessmentTargetRequest {
 }
 
 export namespace DeleteAssessmentTargetRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteAssessmentTargetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteAssessmentTargetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentTargetRequest =>
-    __isa(o, "DeleteAssessmentTargetRequest");
+  export const isa = (o: any): o is DeleteAssessmentTargetRequest => __isa(o, "DeleteAssessmentTargetRequest");
 }
 
 export interface DeleteAssessmentTemplateRequest {
@@ -1079,13 +1019,10 @@ export interface DeleteAssessmentTemplateRequest {
 }
 
 export namespace DeleteAssessmentTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteAssessmentTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteAssessmentTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentTemplateRequest =>
-    __isa(o, "DeleteAssessmentTemplateRequest");
+  export const isa = (o: any): o is DeleteAssessmentTemplateRequest => __isa(o, "DeleteAssessmentTemplateRequest");
 }
 
 export interface DescribeAssessmentRunsRequest {
@@ -1097,13 +1034,10 @@ export interface DescribeAssessmentRunsRequest {
 }
 
 export namespace DescribeAssessmentRunsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentRunsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentRunsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentRunsRequest =>
-    __isa(o, "DescribeAssessmentRunsRequest");
+  export const isa = (o: any): o is DescribeAssessmentRunsRequest => __isa(o, "DescribeAssessmentRunsRequest");
 }
 
 export interface DescribeAssessmentRunsResponse {
@@ -1121,13 +1055,10 @@ export interface DescribeAssessmentRunsResponse {
 }
 
 export namespace DescribeAssessmentRunsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentRunsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentRunsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentRunsResponse =>
-    __isa(o, "DescribeAssessmentRunsResponse");
+  export const isa = (o: any): o is DescribeAssessmentRunsResponse => __isa(o, "DescribeAssessmentRunsResponse");
 }
 
 export interface DescribeAssessmentTargetsRequest {
@@ -1139,37 +1070,31 @@ export interface DescribeAssessmentTargetsRequest {
 }
 
 export namespace DescribeAssessmentTargetsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentTargetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentTargetsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTargetsRequest =>
-    __isa(o, "DescribeAssessmentTargetsRequest");
+  export const isa = (o: any): o is DescribeAssessmentTargetsRequest => __isa(o, "DescribeAssessmentTargetsRequest");
 }
 
 export interface DescribeAssessmentTargetsResponse {
   __type?: "DescribeAssessmentTargetsResponse";
   /**
-   * <p>Information about the assessment targets.</p>
-   */
-  assessmentTargets: AssessmentTarget[] | undefined;
-
-  /**
    * <p>Assessment target details that cannot be described. An error code is provided for
    *          each failed item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
+
+  /**
+   * <p>Information about the assessment targets.</p>
+   */
+  assessmentTargets: AssessmentTarget[] | undefined;
 }
 
 export namespace DescribeAssessmentTargetsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentTargetsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentTargetsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTargetsResponse =>
-    __isa(o, "DescribeAssessmentTargetsResponse");
+  export const isa = (o: any): o is DescribeAssessmentTargetsResponse => __isa(o, "DescribeAssessmentTargetsResponse");
 }
 
 export interface DescribeAssessmentTemplatesRequest {
@@ -1178,10 +1103,8 @@ export interface DescribeAssessmentTemplatesRequest {
 }
 
 export namespace DescribeAssessmentTemplatesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentTemplatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAssessmentTemplatesRequest =>
     __isa(o, "DescribeAssessmentTemplatesRequest");
@@ -1202,10 +1125,8 @@ export interface DescribeAssessmentTemplatesResponse {
 }
 
 export namespace DescribeAssessmentTemplatesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeAssessmentTemplatesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeAssessmentTemplatesResponse =>
     __isa(o, "DescribeAssessmentTemplatesResponse");
@@ -1214,9 +1135,10 @@ export namespace DescribeAssessmentTemplatesResponse {
 export interface DescribeCrossAccountAccessRoleResponse {
   __type?: "DescribeCrossAccountAccessRoleResponse";
   /**
-   * <p>The date when the cross-account access role was registered.</p>
+   * <p>A Boolean value that specifies whether the IAM role has the necessary policies
+   *          attached to enable Amazon Inspector to access your AWS account.</p>
    */
-  registeredAt: Date | undefined;
+  valid: boolean | undefined;
 
   /**
    * <p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS
@@ -1225,17 +1147,14 @@ export interface DescribeCrossAccountAccessRoleResponse {
   roleArn: string | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the IAM role has the necessary policies
-   *          attached to enable Amazon Inspector to access your AWS account.</p>
+   * <p>The date when the cross-account access role was registered.</p>
    */
-  valid: boolean | undefined;
+  registeredAt: Date | undefined;
 }
 
 export namespace DescribeCrossAccountAccessRoleResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeCrossAccountAccessRoleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeCrossAccountAccessRoleResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeCrossAccountAccessRoleResponse =>
     __isa(o, "DescribeCrossAccountAccessRoleResponse");
@@ -1257,10 +1176,9 @@ export interface DescribeExclusionsRequest {
 
 export namespace DescribeExclusionsRequest {
   export const filterSensitiveLog = (obj: DescribeExclusionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExclusionsRequest =>
-    __isa(o, "DescribeExclusionsRequest");
+  export const isa = (o: any): o is DescribeExclusionsRequest => __isa(o, "DescribeExclusionsRequest");
 }
 
 export interface DescribeExclusionsResponse {
@@ -1279,54 +1197,51 @@ export interface DescribeExclusionsResponse {
 
 export namespace DescribeExclusionsResponse {
   export const filterSensitiveLog = (obj: DescribeExclusionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeExclusionsResponse =>
-    __isa(o, "DescribeExclusionsResponse");
+  export const isa = (o: any): o is DescribeExclusionsResponse => __isa(o, "DescribeExclusionsResponse");
 }
 
 export interface DescribeFindingsRequest {
   __type?: "DescribeFindingsRequest";
   /**
-   * <p>The ARN that specifies the finding that you want to describe.</p>
-   */
-  findingArns: string[] | undefined;
-
-  /**
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
    */
   locale?: Locale | string;
+
+  /**
+   * <p>The ARN that specifies the finding that you want to describe.</p>
+   */
+  findingArns: string[] | undefined;
 }
 
 export namespace DescribeFindingsRequest {
   export const filterSensitiveLog = (obj: DescribeFindingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFindingsRequest =>
-    __isa(o, "DescribeFindingsRequest");
+  export const isa = (o: any): o is DescribeFindingsRequest => __isa(o, "DescribeFindingsRequest");
 }
 
 export interface DescribeFindingsResponse {
   __type?: "DescribeFindingsResponse";
   /**
+   * <p>Information about the finding.</p>
+   */
+  findings: Finding[] | undefined;
+
+  /**
    * <p>Finding details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about the finding.</p>
-   */
-  findings: Finding[] | undefined;
 }
 
 export namespace DescribeFindingsResponse {
   export const filterSensitiveLog = (obj: DescribeFindingsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFindingsResponse =>
-    __isa(o, "DescribeFindingsResponse");
+  export const isa = (o: any): o is DescribeFindingsResponse => __isa(o, "DescribeFindingsResponse");
 }
 
 export interface DescribeResourceGroupsRequest {
@@ -1338,13 +1253,10 @@ export interface DescribeResourceGroupsRequest {
 }
 
 export namespace DescribeResourceGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeResourceGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeResourceGroupsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceGroupsRequest =>
-    __isa(o, "DescribeResourceGroupsRequest");
+  export const isa = (o: any): o is DescribeResourceGroupsRequest => __isa(o, "DescribeResourceGroupsRequest");
 }
 
 export interface DescribeResourceGroupsResponse {
@@ -1362,13 +1274,10 @@ export interface DescribeResourceGroupsResponse {
 }
 
 export namespace DescribeResourceGroupsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeResourceGroupsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeResourceGroupsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceGroupsResponse =>
-    __isa(o, "DescribeResourceGroupsResponse");
+  export const isa = (o: any): o is DescribeResourceGroupsResponse => __isa(o, "DescribeResourceGroupsResponse");
 }
 
 export interface DescribeRulesPackagesRequest {
@@ -1385,37 +1294,31 @@ export interface DescribeRulesPackagesRequest {
 }
 
 export namespace DescribeRulesPackagesRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeRulesPackagesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRulesPackagesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRulesPackagesRequest =>
-    __isa(o, "DescribeRulesPackagesRequest");
+  export const isa = (o: any): o is DescribeRulesPackagesRequest => __isa(o, "DescribeRulesPackagesRequest");
 }
 
 export interface DescribeRulesPackagesResponse {
   __type?: "DescribeRulesPackagesResponse";
   /**
+   * <p>Information about the rules package.</p>
+   */
+  rulesPackages: RulesPackage[] | undefined;
+
+  /**
    * <p>Rules package details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about the rules package.</p>
-   */
-  rulesPackages: RulesPackage[] | undefined;
 }
 
 export namespace DescribeRulesPackagesResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeRulesPackagesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeRulesPackagesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeRulesPackagesResponse =>
-    __isa(o, "DescribeRulesPackagesResponse");
+  export const isa = (o: any): o is DescribeRulesPackagesResponse => __isa(o, "DescribeRulesPackagesResponse");
 }
 
 /**
@@ -1438,7 +1341,7 @@ export interface DurationRange {
 
 export namespace DurationRange {
   export const filterSensitiveLog = (obj: DurationRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DurationRange => __isa(o, "DurationRange");
 }
@@ -1449,23 +1352,22 @@ export namespace DurationRange {
 export interface EventSubscription {
   __type?: "EventSubscription";
   /**
+   * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
+   */
+  subscribedAt: Date | undefined;
+
+  /**
    * <p>The event for which Amazon Simple Notification Service (SNS) notifications are
    *          sent.</p>
    */
   event: InspectorEvent | string | undefined;
-
-  /**
-   * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
-   */
-  subscribedAt: Date | undefined;
 }
 
 export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventSubscription =>
-    __isa(o, "EventSubscription");
+  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -1474,9 +1376,14 @@ export namespace EventSubscription {
 export interface Exclusion {
   __type?: "Exclusion";
   /**
-   * <p>The ARN that specifies the exclusion.</p>
+   * <p>The description of the exclusion.</p>
    */
-  arn: string | undefined;
+  description: string | undefined;
+
+  /**
+   * <p>The AWS resources for which the exclusion pertains.</p>
+   */
+  scopes: Scope[] | undefined;
 
   /**
    * <p>The system-defined attributes for the exclusion.</p>
@@ -1484,19 +1391,14 @@ export interface Exclusion {
   attributes?: Attribute[];
 
   /**
-   * <p>The description of the exclusion.</p>
-   */
-  description: string | undefined;
-
-  /**
    * <p>The recommendation for the exclusion.</p>
    */
   recommendation: string | undefined;
 
   /**
-   * <p>The AWS resources for which the exclusion pertains.</p>
+   * <p>The ARN that specifies the exclusion.</p>
    */
-  scopes: Scope[] | undefined;
+  arn: string | undefined;
 
   /**
    * <p>The name of the exclusion.</p>
@@ -1506,7 +1408,7 @@ export interface Exclusion {
 
 export namespace Exclusion {
   export const filterSensitiveLog = (obj: Exclusion): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Exclusion => __isa(o, "Exclusion");
 }
@@ -1517,11 +1419,6 @@ export namespace Exclusion {
  */
 export interface ExclusionPreview {
   __type?: "ExclusionPreview";
-  /**
-   * <p>The system-defined attributes for the exclusion preview.</p>
-   */
-  attributes?: Attribute[];
-
   /**
    * <p>The description of the exclusion preview.</p>
    */
@@ -1538,6 +1435,11 @@ export interface ExclusionPreview {
   scopes: Scope[] | undefined;
 
   /**
+   * <p>The system-defined attributes for the exclusion preview.</p>
+   */
+  attributes?: Attribute[];
+
+  /**
    * <p>The name of the exclusion preview.</p>
    */
   title: string | undefined;
@@ -1545,10 +1447,9 @@ export interface ExclusionPreview {
 
 export namespace ExclusionPreview {
   export const filterSensitiveLog = (obj: ExclusionPreview): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExclusionPreview =>
-    __isa(o, "ExclusionPreview");
+  export const isa = (o: any): o is ExclusionPreview => __isa(o, "ExclusionPreview");
 }
 
 /**
@@ -1557,23 +1458,22 @@ export namespace ExclusionPreview {
 export interface FailedItemDetails {
   __type?: "FailedItemDetails";
   /**
-   * <p>The status code of a failed item.</p>
-   */
-  failureCode: FailedItemErrorCode | string | undefined;
-
-  /**
    * <p>Indicates whether you can immediately retry a request for this item for a specified
    *          resource.</p>
    */
   retryable: boolean | undefined;
+
+  /**
+   * <p>The status code of a failed item.</p>
+   */
+  failureCode: FailedItemErrorCode | string | undefined;
 }
 
 export namespace FailedItemDetails {
   export const filterSensitiveLog = (obj: FailedItemDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FailedItemDetails =>
-    __isa(o, "FailedItemDetails");
+  export const isa = (o: any): o is FailedItemDetails => __isa(o, "FailedItemDetails");
 }
 
 export enum FailedItemErrorCode {
@@ -1582,7 +1482,7 @@ export enum FailedItemErrorCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   INVALID_ARN = "INVALID_ARN",
   ITEM_DOES_NOT_EXIST = "ITEM_DOES_NOT_EXIST",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
+  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
 }
 
 /**
@@ -1592,49 +1492,10 @@ export enum FailedItemErrorCode {
 export interface Finding {
   __type?: "Finding";
   /**
-   * <p>The ARN that specifies the finding.</p>
+   * <p>The finding severity. Values can be set to High, Medium, Low, and
+   *          Informational.</p>
    */
-  arn: string | undefined;
-
-  /**
-   * <p>A collection of attributes of the host from which the finding is generated.</p>
-   */
-  assetAttributes?: AssetAttributes;
-
-  /**
-   * <p>The type of the host from which the finding is generated.</p>
-   */
-  assetType?: AssetType | string;
-
-  /**
-   * <p>The system-defined attributes for the finding.</p>
-   */
-  attributes: Attribute[] | undefined;
-
-  /**
-   * <p>This data element is currently not used.</p>
-   */
-  confidence?: number;
-
-  /**
-   * <p>The time when the finding was generated.</p>
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The description of the finding.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The ID of the finding.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>This data element is currently not used.</p>
-   */
-  indicatorOfCompromise?: boolean;
+  severity?: Severity | string;
 
   /**
    * <p>The numeric value of the finding severity.</p>
@@ -1642,9 +1503,19 @@ export interface Finding {
   numericSeverity?: number;
 
   /**
-   * <p>The recommendation for the finding.</p>
+   * <p>The name of the finding.</p>
    */
-  recommendation?: string;
+  title?: string;
+
+  /**
+   * <p>The ARN that specifies the finding.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The type of the host from which the finding is generated.</p>
+   */
+  assetType?: AssetType | string;
 
   /**
    * <p>The schema version of this data type.</p>
@@ -1652,25 +1523,9 @@ export interface Finding {
   schemaVersion?: number;
 
   /**
-   * <p>The data element is set to "Inspector".</p>
+   * <p>The ID of the finding.</p>
    */
-  service?: string;
-
-  /**
-   * <p>This data type is used in the <a>Finding</a> data type.</p>
-   */
-  serviceAttributes?: InspectorServiceAttributes;
-
-  /**
-   * <p>The finding severity. Values can be set to High, Medium, Low, and
-   *          Informational.</p>
-   */
-  severity?: Severity | string;
-
-  /**
-   * <p>The name of the finding.</p>
-   */
-  title?: string;
+  id?: string;
 
   /**
    * <p>The time when <a>AddAttributesToFindings</a> is called.</p>
@@ -1678,14 +1533,59 @@ export interface Finding {
   updatedAt: Date | undefined;
 
   /**
+   * <p>This data type is used in the <a>Finding</a> data type.</p>
+   */
+  serviceAttributes?: InspectorServiceAttributes;
+
+  /**
+   * <p>The recommendation for the finding.</p>
+   */
+  recommendation?: string;
+
+  /**
    * <p>The user-defined attributes that are assigned to the finding.</p>
    */
   userAttributes: Attribute[] | undefined;
+
+  /**
+   * <p>The system-defined attributes for the finding.</p>
+   */
+  attributes: Attribute[] | undefined;
+
+  /**
+   * <p>The time when the finding was generated.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>A collection of attributes of the host from which the finding is generated.</p>
+   */
+  assetAttributes?: AssetAttributes;
+
+  /**
+   * <p>The data element is set to "Inspector".</p>
+   */
+  service?: string;
+
+  /**
+   * <p>This data element is currently not used.</p>
+   */
+  indicatorOfCompromise?: boolean;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>This data element is currently not used.</p>
+   */
+  confidence?: number;
 }
 
 export namespace Finding {
   export const filterSensitiveLog = (obj: Finding): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Finding => __isa(o, "Finding");
 }
@@ -1696,36 +1596,6 @@ export namespace Finding {
  */
 export interface FindingFilter {
   __type?: "FindingFilter";
-  /**
-   * <p>For a record to match a filter, one of the values that is specified for this data
-   *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
-   */
-  agentIds?: string[];
-
-  /**
-   * <p>For a record to match a filter, the list of values that are specified for this data
-   *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
-   */
-  attributes?: Attribute[];
-
-  /**
-   * <p>For a record to match a filter, one of the values that is specified for this data
-   *          type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data
-   *          type.</p>
-   */
-  autoScalingGroups?: string[];
-
-  /**
-   * <p>The time range during which the finding is generated.</p>
-   */
-  creationTimeRange?: TimestampRange;
-
-  /**
-   * <p>For a record to match a filter, one of the values that is specified for this data
-   *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
-   */
-  ruleNames?: string[];
-
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
@@ -1740,16 +1610,46 @@ export interface FindingFilter {
   severities?: (Severity | string)[];
 
   /**
+   * <p>For a record to match a filter, one of the values that is specified for this data
+   *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
+   */
+  ruleNames?: string[];
+
+  /**
+   * <p>For a record to match a filter, one of the values that is specified for this data
+   *          type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data
+   *          type.</p>
+   */
+  autoScalingGroups?: string[];
+
+  /**
+   * <p>For a record to match a filter, the list of values that are specified for this data
+   *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
+   */
+  attributes?: Attribute[];
+
+  /**
+   * <p>For a record to match a filter, one of the values that is specified for this data
+   *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
+   */
+  agentIds?: string[];
+
+  /**
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data
    *          type.</p>
    */
   userAttributes?: Attribute[];
+
+  /**
+   * <p>The time range during which the finding is generated.</p>
+   */
+  creationTimeRange?: TimestampRange;
 }
 
 export namespace FindingFilter {
   export const filterSensitiveLog = (obj: FindingFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FindingFilter => __isa(o, "FindingFilter");
 }
@@ -1757,16 +1657,16 @@ export namespace FindingFilter {
 export interface GetAssessmentReportRequest {
   __type?: "GetAssessmentReportRequest";
   /**
-   * <p>The ARN that specifies the assessment run for which you want to generate a
-   *          report.</p>
-   */
-  assessmentRunArn: string | undefined;
-
-  /**
    * <p>Specifies the file format (html or pdf) of the assessment report that you want to
    *          generate.</p>
    */
   reportFileFormat: ReportFileFormat | string | undefined;
+
+  /**
+   * <p>The ARN that specifies the assessment run for which you want to generate a
+   *          report.</p>
+   */
+  assessmentRunArn: string | undefined;
 
   /**
    * <p>Specifies the type of the assessment report that you want to generate. There are two
@@ -1778,10 +1678,9 @@ export interface GetAssessmentReportRequest {
 
 export namespace GetAssessmentReportRequest {
   export const filterSensitiveLog = (obj: GetAssessmentReportRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssessmentReportRequest =>
-    __isa(o, "GetAssessmentReportRequest");
+  export const isa = (o: any): o is GetAssessmentReportRequest => __isa(o, "GetAssessmentReportRequest");
 }
 
 export interface GetAssessmentReportResponse {
@@ -1799,13 +1698,10 @@ export interface GetAssessmentReportResponse {
 }
 
 export namespace GetAssessmentReportResponse {
-  export const filterSensitiveLog = (
-    obj: GetAssessmentReportResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetAssessmentReportResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssessmentReportResponse =>
-    __isa(o, "GetAssessmentReportResponse");
+  export const isa = (o: any): o is GetAssessmentReportResponse => __isa(o, "GetAssessmentReportResponse");
 }
 
 export interface GetExclusionsPreviewRequest {
@@ -1823,10 +1719,9 @@ export interface GetExclusionsPreviewRequest {
   locale?: Locale | string;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 100. The maximum value is 500.</p>
+   * <p>The unique identifier associated of the exclusions preview.</p>
    */
-  maxResults?: number;
+  previewToken: string | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -1837,19 +1732,17 @@ export interface GetExclusionsPreviewRequest {
   nextToken?: string;
 
   /**
-   * <p>The unique identifier associated of the exclusions preview.</p>
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 100. The maximum value is 500.</p>
    */
-  previewToken: string | undefined;
+  maxResults?: number;
 }
 
 export namespace GetExclusionsPreviewRequest {
-  export const filterSensitiveLog = (
-    obj: GetExclusionsPreviewRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetExclusionsPreviewRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetExclusionsPreviewRequest =>
-    __isa(o, "GetExclusionsPreviewRequest");
+  export const isa = (o: any): o is GetExclusionsPreviewRequest => __isa(o, "GetExclusionsPreviewRequest");
 }
 
 export interface GetExclusionsPreviewResponse {
@@ -1874,13 +1767,10 @@ export interface GetExclusionsPreviewResponse {
 }
 
 export namespace GetExclusionsPreviewResponse {
-  export const filterSensitiveLog = (
-    obj: GetExclusionsPreviewResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetExclusionsPreviewResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetExclusionsPreviewResponse =>
-    __isa(o, "GetExclusionsPreviewResponse");
+  export const isa = (o: any): o is GetExclusionsPreviewResponse => __isa(o, "GetExclusionsPreviewResponse");
 }
 
 export interface GetTelemetryMetadataRequest {
@@ -1893,13 +1783,10 @@ export interface GetTelemetryMetadataRequest {
 }
 
 export namespace GetTelemetryMetadataRequest {
-  export const filterSensitiveLog = (
-    obj: GetTelemetryMetadataRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTelemetryMetadataRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetTelemetryMetadataRequest =>
-    __isa(o, "GetTelemetryMetadataRequest");
+  export const isa = (o: any): o is GetTelemetryMetadataRequest => __isa(o, "GetTelemetryMetadataRequest");
 }
 
 export interface GetTelemetryMetadataResponse {
@@ -1911,13 +1798,10 @@ export interface GetTelemetryMetadataResponse {
 }
 
 export namespace GetTelemetryMetadataResponse {
-  export const filterSensitiveLog = (
-    obj: GetTelemetryMetadataResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetTelemetryMetadataResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetTelemetryMetadataResponse =>
-    __isa(o, "GetTelemetryMetadataResponse");
+  export const isa = (o: any): o is GetTelemetryMetadataResponse => __isa(o, "GetTelemetryMetadataResponse");
 }
 
 export enum InspectorEvent {
@@ -1925,7 +1809,7 @@ export enum InspectorEvent {
   ASSESSMENT_RUN_STARTED = "ASSESSMENT_RUN_STARTED",
   ASSESSMENT_RUN_STATE_CHANGED = "ASSESSMENT_RUN_STATE_CHANGED",
   FINDING_REPORTED = "FINDING_REPORTED",
-  OTHER = "OTHER"
+  OTHER = "OTHER",
 }
 
 /**
@@ -1939,22 +1823,21 @@ export interface InspectorServiceAttributes {
   assessmentRunArn?: string;
 
   /**
-   * <p>The ARN of the rules package that is used to generate the finding.</p>
-   */
-  rulesPackageArn?: string;
-
-  /**
    * <p>The schema version of this data type.</p>
    */
   schemaVersion: number | undefined;
+
+  /**
+   * <p>The ARN of the rules package that is used to generate the finding.</p>
+   */
+  rulesPackageArn?: string;
 }
 
 export namespace InspectorServiceAttributes {
   export const filterSensitiveLog = (obj: InspectorServiceAttributes): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InspectorServiceAttributes =>
-    __isa(o, "InspectorServiceAttributes");
+  export const isa = (o: any): o is InspectorServiceAttributes => __isa(o, "InspectorServiceAttributes");
 }
 
 /**
@@ -1964,42 +1847,39 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 export enum InvalidCrossAccountRoleErrorCode {
   ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
-  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY"
+  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
 }
 
 /**
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
  */
-export interface InvalidCrossAccountRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCrossAccountRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidCrossAccountRoleException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
+   * <p>Details of the exception error.</p>
    */
-  canRetry: boolean | undefined;
+  message: string | undefined;
 
   /**
    * <p>Code that indicates the type of error that is generated.</p>
@@ -2007,19 +1887,16 @@ export interface InvalidCrossAccountRoleException
   errorCode: InvalidCrossAccountRoleErrorCode | string | undefined;
 
   /**
-   * <p>Details of the exception error.</p>
+   * <p>You can immediately retry your request.</p>
    */
-  message: string | undefined;
+  canRetry: boolean | undefined;
 }
 
 export namespace InvalidCrossAccountRoleException {
-  export const filterSensitiveLog = (
-    obj: InvalidCrossAccountRoleException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidCrossAccountRoleException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidCrossAccountRoleException =>
-    __isa(o, "InvalidCrossAccountRoleException");
+  export const isa = (o: any): o is InvalidCrossAccountRoleException => __isa(o, "InvalidCrossAccountRoleException");
 }
 
 export enum InvalidInputErrorCode {
@@ -2076,16 +1953,14 @@ export enum InvalidInputErrorCode {
   INVALID_TAG_VALUE = "INVALID_TAG_VALUE",
   INVALID_USER_ATTRIBUTE = "INVALID_USER_ATTRIBUTE",
   INVALID_USER_ATTRIBUTE_KEY = "INVALID_USER_ATTRIBUTE_KEY",
-  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE"
+  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE",
 }
 
 /**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -2094,22 +1969,21 @@ export interface InvalidInputException
   canRetry: boolean | undefined;
 
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
-   */
-  errorCode: InvalidInputErrorCode | string | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>Code that indicates the type of error that is generated.</p>
+   */
+  errorCode: InvalidInputErrorCode | string | undefined;
 }
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum LimitExceededErrorCode {
@@ -2117,22 +1991,20 @@ export enum LimitExceededErrorCode {
   ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
   ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED = "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
   EVENT_SUBSCRIPTION_LIMIT_EXCEEDED = "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
-  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED"
+  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED",
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
+   * <p>Details of the exception error.</p>
    */
-  canRetry: boolean | undefined;
+  message: string | undefined;
 
   /**
    * <p>Code that indicates the type of error that is generated.</p>
@@ -2140,21 +2012,35 @@ export interface LimitExceededException
   errorCode: LimitExceededErrorCode | string | undefined;
 
   /**
-   * <p>Details of the exception error.</p>
+   * <p>You can immediately retry your request.</p>
    */
-  message: string | undefined;
+  canRetry: boolean | undefined;
 }
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAssessmentRunAgentsRequest {
   __type?: "ListAssessmentRunAgentsRequest";
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter
+   *          to null on your first call to the <b>ListAssessmentRunAgents</b>
+   *          action. Subsequent calls to the action fill <b>nextToken</b> in
+   *          the request with the value of <b>NextToken</b> from the previous
+   *          response to continue listing data.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items that you want in
+   *          the response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
+
   /**
    * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
    */
@@ -2168,31 +2054,13 @@ export interface ListAssessmentRunAgentsRequest {
    *          match.</p>
    */
   filter?: AgentFilter;
-
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items that you want in
-   *          the response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter
-   *          to null on your first call to the <b>ListAssessmentRunAgents</b>
-   *          action. Subsequent calls to the action fill <b>nextToken</b> in
-   *          the request with the value of <b>NextToken</b> from the previous
-   *          response to continue listing data.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListAssessmentRunAgentsRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentRunAgentsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentRunAgentsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunAgentsRequest =>
-    __isa(o, "ListAssessmentRunAgentsRequest");
+  export const isa = (o: any): o is ListAssessmentRunAgentsRequest => __isa(o, "ListAssessmentRunAgentsRequest");
 }
 
 export interface ListAssessmentRunAgentsResponse {
@@ -2211,23 +2079,14 @@ export interface ListAssessmentRunAgentsResponse {
 }
 
 export namespace ListAssessmentRunAgentsResponse {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentRunAgentsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentRunAgentsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunAgentsResponse =>
-    __isa(o, "ListAssessmentRunAgentsResponse");
+  export const isa = (o: any): o is ListAssessmentRunAgentsResponse => __isa(o, "ListAssessmentRunAgentsResponse");
 }
 
 export interface ListAssessmentRunsRequest {
   __type?: "ListAssessmentRunsRequest";
-  /**
-   * <p>The ARNs that specify the assessment templates whose assessment runs you want to
-   *          list.</p>
-   */
-  assessmentTemplateArns?: string[];
-
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
@@ -2251,57 +2110,46 @@ export interface ListAssessmentRunsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ARNs that specify the assessment templates whose assessment runs you want to
+   *          list.</p>
+   */
+  assessmentTemplateArns?: string[];
 }
 
 export namespace ListAssessmentRunsRequest {
   export const filterSensitiveLog = (obj: ListAssessmentRunsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunsRequest =>
-    __isa(o, "ListAssessmentRunsRequest");
+  export const isa = (o: any): o is ListAssessmentRunsRequest => __isa(o, "ListAssessmentRunsRequest");
 }
 
 export interface ListAssessmentRunsResponse {
   __type?: "ListAssessmentRunsResponse";
-  /**
-   * <p>A list of ARNs that specifies the assessment runs that are returned by the
-   *          action.</p>
-   */
-  assessmentRunArns: string[] | undefined;
-
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of ARNs that specifies the assessment runs that are returned by the
+   *          action.</p>
+   */
+  assessmentRunArns: string[] | undefined;
 }
 
 export namespace ListAssessmentRunsResponse {
   export const filterSensitiveLog = (obj: ListAssessmentRunsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunsResponse =>
-    __isa(o, "ListAssessmentRunsResponse");
+  export const isa = (o: any): o is ListAssessmentRunsResponse => __isa(o, "ListAssessmentRunsResponse");
 }
 
 export interface ListAssessmentTargetsRequest {
   __type?: "ListAssessmentTargetsRequest";
-  /**
-   * <p>You can use this parameter to specify a subset of data to be included in the action's
-   *          response.</p>
-   *          <p>For a record to match a filter, all specified filter attributes must match. When
-   *          multiple values are specified for a filter attribute, any of the values can
-   *          match.</p>
-   */
-  filter?: AssessmentTargetFilter;
-
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentTargets</b>
@@ -2310,16 +2158,28 @@ export interface ListAssessmentTargetsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>You can use this parameter to specify a subset of data to be included in the action's
+   *          response.</p>
+   *          <p>For a record to match a filter, all specified filter attributes must match. When
+   *          multiple values are specified for a filter attribute, any of the values can
+   *          match.</p>
+   */
+  filter?: AssessmentTargetFilter;
 }
 
 export namespace ListAssessmentTargetsRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentTargetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentTargetsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTargetsRequest =>
-    __isa(o, "ListAssessmentTargetsRequest");
+  export const isa = (o: any): o is ListAssessmentTargetsRequest => __isa(o, "ListAssessmentTargetsRequest");
 }
 
 export interface ListAssessmentTargetsResponse {
@@ -2339,13 +2199,10 @@ export interface ListAssessmentTargetsResponse {
 }
 
 export namespace ListAssessmentTargetsResponse {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentTargetsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentTargetsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTargetsResponse =>
-    __isa(o, "ListAssessmentTargetsResponse");
+  export const isa = (o: any): o is ListAssessmentTargetsResponse => __isa(o, "ListAssessmentTargetsResponse");
 }
 
 export interface ListAssessmentTemplatesRequest {
@@ -2382,13 +2239,10 @@ export interface ListAssessmentTemplatesRequest {
 }
 
 export namespace ListAssessmentTemplatesRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentTemplatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentTemplatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTemplatesRequest =>
-    __isa(o, "ListAssessmentTemplatesRequest");
+  export const isa = (o: any): o is ListAssessmentTemplatesRequest => __isa(o, "ListAssessmentTemplatesRequest");
 }
 
 export interface ListAssessmentTemplatesResponse {
@@ -2408,23 +2262,14 @@ export interface ListAssessmentTemplatesResponse {
 }
 
 export namespace ListAssessmentTemplatesResponse {
-  export const filterSensitiveLog = (
-    obj: ListAssessmentTemplatesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssessmentTemplatesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTemplatesResponse =>
-    __isa(o, "ListAssessmentTemplatesResponse");
+  export const isa = (o: any): o is ListAssessmentTemplatesResponse => __isa(o, "ListAssessmentTemplatesResponse");
 }
 
 export interface ListEventSubscriptionsRequest {
   __type?: "ListEventSubscriptionsRequest";
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListEventSubscriptions</b>
@@ -2435,6 +2280,12 @@ export interface ListEventSubscriptionsRequest {
   nextToken?: string;
 
   /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The ARN of the assessment template for which you want to list the existing event
    *          subscriptions.</p>
    */
@@ -2442,48 +2293,36 @@ export interface ListEventSubscriptionsRequest {
 }
 
 export namespace ListEventSubscriptionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListEventSubscriptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEventSubscriptionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventSubscriptionsRequest =>
-    __isa(o, "ListEventSubscriptionsRequest");
+  export const isa = (o: any): o is ListEventSubscriptionsRequest => __isa(o, "ListEventSubscriptionsRequest");
 }
 
 export interface ListEventSubscriptionsResponse {
   __type?: "ListEventSubscriptionsResponse";
+  /**
+   * <p>Details of the returned event subscriptions.</p>
+   */
+  subscriptions: Subscription[] | undefined;
+
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Details of the returned event subscriptions.</p>
-   */
-  subscriptions: Subscription[] | undefined;
 }
 
 export namespace ListEventSubscriptionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListEventSubscriptionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListEventSubscriptionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventSubscriptionsResponse =>
-    __isa(o, "ListEventSubscriptionsResponse");
+  export const isa = (o: any): o is ListEventSubscriptionsResponse => __isa(o, "ListEventSubscriptionsResponse");
 }
 
 export interface ListExclusionsRequest {
   __type?: "ListExclusionsRequest";
-  /**
-   * <p>The ARN of the assessment run that generated the exclusions that you want to
-   *          list.</p>
-   */
-  assessmentRunArn: string | undefined;
-
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
@@ -2497,14 +2336,19 @@ export interface ListExclusionsRequest {
    *          to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ARN of the assessment run that generated the exclusions that you want to
+   *          list.</p>
+   */
+  assessmentRunArn: string | undefined;
 }
 
 export namespace ListExclusionsRequest {
   export const filterSensitiveLog = (obj: ListExclusionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListExclusionsRequest =>
-    __isa(o, "ListExclusionsRequest");
+  export const isa = (o: any): o is ListExclusionsRequest => __isa(o, "ListExclusionsRequest");
 }
 
 export interface ListExclusionsResponse {
@@ -2525,19 +2369,33 @@ export interface ListExclusionsResponse {
 
 export namespace ListExclusionsResponse {
   export const filterSensitiveLog = (obj: ListExclusionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListExclusionsResponse =>
-    __isa(o, "ListExclusionsResponse");
+  export const isa = (o: any): o is ListExclusionsResponse => __isa(o, "ListExclusionsResponse");
 }
 
 export interface ListFindingsRequest {
   __type?: "ListFindingsRequest";
   /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter
+   *          to null on your first call to the <b>ListFindings</b> action.
+   *          Subsequent calls to the action fill <b>nextToken</b> in the
+   *          request with the value of <b>NextToken</b> from the previous
+   *          response to continue listing data.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The ARNs of the assessment runs that generate the findings that you want to
    *          list.</p>
    */
   assessmentRunArns?: string[];
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2547,62 +2405,39 @@ export interface ListFindingsRequest {
    *          match.</p>
    */
   filter?: FindingFilter;
-
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter
-   *          to null on your first call to the <b>ListFindings</b> action.
-   *          Subsequent calls to the action fill <b>nextToken</b> in the
-   *          request with the value of <b>NextToken</b> from the previous
-   *          response to continue listing data.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListFindingsRequest {
   export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListFindingsRequest =>
-    __isa(o, "ListFindingsRequest");
+  export const isa = (o: any): o is ListFindingsRequest => __isa(o, "ListFindingsRequest");
 }
 
 export interface ListFindingsResponse {
   __type?: "ListFindingsResponse";
-  /**
-   * <p>A list of ARNs that specifies the findings returned by the action.</p>
-   */
-  findingArns: string[] | undefined;
-
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of ARNs that specifies the findings returned by the action.</p>
+   */
+  findingArns: string[] | undefined;
 }
 
 export namespace ListFindingsResponse {
   export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListFindingsResponse =>
-    __isa(o, "ListFindingsResponse");
+  export const isa = (o: any): o is ListFindingsResponse => __isa(o, "ListFindingsResponse");
 }
 
 export interface ListRulesPackagesRequest {
   __type?: "ListRulesPackagesRequest";
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListRulesPackages</b>
@@ -2611,14 +2446,19 @@ export interface ListRulesPackagesRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListRulesPackagesRequest {
   export const filterSensitiveLog = (obj: ListRulesPackagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRulesPackagesRequest =>
-    __isa(o, "ListRulesPackagesRequest");
+  export const isa = (o: any): o is ListRulesPackagesRequest => __isa(o, "ListRulesPackagesRequest");
 }
 
 export interface ListRulesPackagesResponse {
@@ -2638,10 +2478,9 @@ export interface ListRulesPackagesResponse {
 
 export namespace ListRulesPackagesResponse {
   export const filterSensitiveLog = (obj: ListRulesPackagesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRulesPackagesResponse =>
-    __isa(o, "ListRulesPackagesResponse");
+  export const isa = (o: any): o is ListRulesPackagesResponse => __isa(o, "ListRulesPackagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2654,10 +2493,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -2669,17 +2507,14 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum Locale {
-  EN_US = "EN_US"
+  EN_US = "EN_US",
 }
 
 /**
@@ -2690,14 +2525,35 @@ export enum Locale {
 export interface NetworkInterface {
   __type?: "NetworkInterface";
   /**
+   * <p>The ID of the network interface.</p>
+   */
+  networkInterfaceId?: string;
+
+  /**
+   * <p>The ID of a subnet associated with the network interface.</p>
+   */
+  subnetId?: string;
+
+  /**
+   * <p>A list of the private IP addresses associated with the network interface. Includes
+   *          the privateDnsName and privateIpAddress.</p>
+   */
+  privateIpAddresses?: PrivateIp[];
+
+  /**
+   * <p>The ID of a VPC associated with the network interface.</p>
+   */
+  vpcId?: string;
+
+  /**
    * <p>The IP addresses associated with the network interface.</p>
    */
   ipv6Addresses?: string[];
 
   /**
-   * <p>The ID of the network interface.</p>
+   * <p>The public IP address from which the network interface is reachable.</p>
    */
-  networkInterfaceId?: string;
+  publicIp?: string;
 
   /**
    * <p>The name of a private DNS associated with the network interface.</p>
@@ -2710,44 +2566,22 @@ export interface NetworkInterface {
   privateIpAddress?: string;
 
   /**
-   * <p>A list of the private IP addresses associated with the network interface. Includes
-   *          the privateDnsName and privateIpAddress.</p>
-   */
-  privateIpAddresses?: PrivateIp[];
-
-  /**
    * <p>The name of a public DNS associated with the network interface.</p>
    */
   publicDnsName?: string;
-
-  /**
-   * <p>The public IP address from which the network interface is reachable.</p>
-   */
-  publicIp?: string;
 
   /**
    * <p>A list of the security groups associated with the network interface. Includes the
    *          groupId and groupName.</p>
    */
   securityGroups?: SecurityGroup[];
-
-  /**
-   * <p>The ID of a subnet associated with the network interface.</p>
-   */
-  subnetId?: string;
-
-  /**
-   * <p>The ID of a VPC associated with the network interface.</p>
-   */
-  vpcId?: string;
 }
 
 export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
+  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 export enum NoSuchEntityErrorCode {
@@ -2758,16 +2592,14 @@ export enum NoSuchEntityErrorCode {
   IAM_ROLE_DOES_NOT_EXIST = "IAM_ROLE_DOES_NOT_EXIST",
   RESOURCE_GROUP_DOES_NOT_EXIST = "RESOURCE_GROUP_DOES_NOT_EXIST",
   RULES_PACKAGE_DOES_NOT_EXIST = "RULES_PACKAGE_DOES_NOT_EXIST",
-  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST"
+  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST",
 }
 
 /**
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  */
-export interface NoSuchEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchEntityException extends __SmithyException, $MetadataBearer {
   name: "NoSuchEntityException";
   $fault: "client";
   /**
@@ -2788,14 +2620,18 @@ export interface NoSuchEntityException
 
 export namespace NoSuchEntityException {
   export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoSuchEntityException =>
-    __isa(o, "NoSuchEntityException");
+  export const isa = (o: any): o is NoSuchEntityException => __isa(o, "NoSuchEntityException");
 }
 
 export interface PreviewAgentsRequest {
   __type?: "PreviewAgentsRequest";
+  /**
+   * <p>The ARN of the assessment target whose agents you want to preview.</p>
+   */
+  previewAgentsArn: string | undefined;
+
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
@@ -2810,61 +2646,50 @@ export interface PreviewAgentsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The ARN of the assessment target whose agents you want to preview.</p>
-   */
-  previewAgentsArn: string | undefined;
 }
 
 export namespace PreviewAgentsRequest {
   export const filterSensitiveLog = (obj: PreviewAgentsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PreviewAgentsRequest =>
-    __isa(o, "PreviewAgentsRequest");
+  export const isa = (o: any): o is PreviewAgentsRequest => __isa(o, "PreviewAgentsRequest");
 }
 
 export interface PreviewAgentsResponse {
   __type?: "PreviewAgentsResponse";
-  /**
-   * <p>The resulting list of agents.</p>
-   */
-  agentPreviews: AgentPreview[] | undefined;
-
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The resulting list of agents.</p>
+   */
+  agentPreviews: AgentPreview[] | undefined;
 }
 
 export namespace PreviewAgentsResponse {
   export const filterSensitiveLog = (obj: PreviewAgentsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PreviewAgentsResponse =>
-    __isa(o, "PreviewAgentsResponse");
+  export const isa = (o: any): o is PreviewAgentsResponse => __isa(o, "PreviewAgentsResponse");
 }
 
 /**
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
  */
-export interface PreviewGenerationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreviewGenerationInProgressException extends __SmithyException, $MetadataBearer {
   name: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace PreviewGenerationInProgressException {
-  export const filterSensitiveLog = (
-    obj: PreviewGenerationInProgressException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PreviewGenerationInProgressException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PreviewGenerationInProgressException =>
     __isa(o, "PreviewGenerationInProgressException");
@@ -2872,7 +2697,7 @@ export namespace PreviewGenerationInProgressException {
 
 export enum PreviewStatus {
   COMPLETED = "COMPLETED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS"
+  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
 }
 
 /**
@@ -2883,19 +2708,19 @@ export enum PreviewStatus {
 export interface PrivateIp {
   __type?: "PrivateIp";
   /**
-   * <p>The DNS name of the private IP address.</p>
-   */
-  privateDnsName?: string;
-
-  /**
    * <p>The full IP address of the network inteface.</p>
    */
   privateIpAddress?: string;
+
+  /**
+   * <p>The DNS name of the private IP address.</p>
+   */
+  privateDnsName?: string;
 }
 
 export namespace PrivateIp {
   export const filterSensitiveLog = (obj: PrivateIp): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is PrivateIp => __isa(o, "PrivateIp");
 }
@@ -2910,10 +2735,8 @@ export interface RegisterCrossAccountAccessRoleRequest {
 }
 
 export namespace RegisterCrossAccountAccessRoleRequest {
-  export const filterSensitiveLog = (
-    obj: RegisterCrossAccountAccessRoleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterCrossAccountAccessRoleRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RegisterCrossAccountAccessRoleRequest =>
     __isa(o, "RegisterCrossAccountAccessRoleRequest");
@@ -2922,22 +2745,20 @@ export namespace RegisterCrossAccountAccessRoleRequest {
 export interface RemoveAttributesFromFindingsRequest {
   __type?: "RemoveAttributesFromFindingsRequest";
   /**
+   * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
+   */
+  findingArns: string[] | undefined;
+
+  /**
    * <p>The array of attribute keys that you want to remove from specified
    *          findings.</p>
    */
   attributeKeys: string[] | undefined;
-
-  /**
-   * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
-   */
-  findingArns: string[] | undefined;
 }
 
 export namespace RemoveAttributesFromFindingsRequest {
-  export const filterSensitiveLog = (
-    obj: RemoveAttributesFromFindingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RemoveAttributesFromFindingsRequest =>
     __isa(o, "RemoveAttributesFromFindingsRequest");
@@ -2953,10 +2774,8 @@ export interface RemoveAttributesFromFindingsResponse {
 }
 
 export namespace RemoveAttributesFromFindingsResponse {
-  export const filterSensitiveLog = (
-    obj: RemoveAttributesFromFindingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RemoveAttributesFromFindingsResponse =>
     __isa(o, "RemoveAttributesFromFindingsResponse");
@@ -2964,18 +2783,18 @@ export namespace RemoveAttributesFromFindingsResponse {
 
 export enum ReportFileFormat {
   HTML = "HTML",
-  PDF = "PDF"
+  PDF = "PDF",
 }
 
 export enum ReportStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS"
+  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
 }
 
 export enum ReportType {
   FINDING = "FINDING",
-  FULL = "FULL"
+  FULL = "FULL",
 }
 
 /**
@@ -2987,9 +2806,10 @@ export enum ReportType {
 export interface ResourceGroup {
   __type?: "ResourceGroup";
   /**
-   * <p>The ARN of the resource group.</p>
+   * <p>The tags (key and value pairs) of the resource group. This data type property is used
+   *          in the <a>CreateResourceGroup</a> action.</p>
    */
-  arn: string | undefined;
+  tags: ResourceGroupTag[] | undefined;
 
   /**
    * <p>The time at which resource group is created.</p>
@@ -2997,15 +2817,14 @@ export interface ResourceGroup {
   createdAt: Date | undefined;
 
   /**
-   * <p>The tags (key and value pairs) of the resource group. This data type property is used
-   *          in the <a>CreateResourceGroup</a> action.</p>
+   * <p>The ARN of the resource group.</p>
    */
-  tags: ResourceGroupTag[] | undefined;
+  arn: string | undefined;
 }
 
 export namespace ResourceGroup {
   export const filterSensitiveLog = (obj: ResourceGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceGroup => __isa(o, "ResourceGroup");
 }
@@ -3029,10 +2848,9 @@ export interface ResourceGroupTag {
 
 export namespace ResourceGroupTag {
   export const filterSensitiveLog = (obj: ResourceGroupTag): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceGroupTag =>
-    __isa(o, "ResourceGroupTag");
+  export const isa = (o: any): o is ResourceGroupTag => __isa(o, "ResourceGroupTag");
 }
 
 /**
@@ -3041,16 +2859,6 @@ export namespace ResourceGroupTag {
  */
 export interface RulesPackage {
   __type?: "RulesPackage";
-  /**
-   * <p>The ARN of the rules package.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The description of the rules package.</p>
-   */
-  description?: string;
-
   /**
    * <p>The name of the rules package.</p>
    */
@@ -3065,11 +2873,21 @@ export interface RulesPackage {
    * <p>The version ID of the rules package.</p>
    */
   version: string | undefined;
+
+  /**
+   * <p>The ARN of the rules package.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The description of the rules package.</p>
+   */
+  description?: string;
 }
 
 export namespace RulesPackage {
   export const filterSensitiveLog = (obj: RulesPackage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RulesPackage => __isa(o, "RulesPackage");
 }
@@ -3081,26 +2899,26 @@ export namespace RulesPackage {
 export interface Scope {
   __type?: "Scope";
   /**
-   * <p>The type of the scope.</p>
-   */
-  key?: ScopeType | string;
-
-  /**
    * <p>The resource identifier for the specified scope type.</p>
    */
   value?: string;
+
+  /**
+   * <p>The type of the scope.</p>
+   */
+  key?: ScopeType | string;
 }
 
 export namespace Scope {
   export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Scope => __isa(o, "Scope");
 }
 
 export enum ScopeType {
   INSTANCE_ID = "INSTANCE_ID",
-  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN"
+  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN",
 }
 
 /**
@@ -3111,19 +2929,19 @@ export enum ScopeType {
 export interface SecurityGroup {
   __type?: "SecurityGroup";
   /**
-   * <p>The ID of the security group.</p>
-   */
-  groupId?: string;
-
-  /**
    * <p>The name of the security group.</p>
    */
   groupName?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  groupId?: string;
 }
 
 export namespace SecurityGroup {
   export const filterSensitiveLog = (obj: SecurityGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SecurityGroup => __isa(o, "SecurityGroup");
 }
@@ -3131,9 +2949,7 @@ export namespace SecurityGroup {
 /**
  * <p>The serice is temporary unavailable.</p>
  */
-export interface ServiceTemporarilyUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceTemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
@@ -3148,10 +2964,8 @@ export interface ServiceTemporarilyUnavailableException
 }
 
 export namespace ServiceTemporarilyUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceTemporarilyUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceTemporarilyUnavailableException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ServiceTemporarilyUnavailableException =>
     __isa(o, "ServiceTemporarilyUnavailableException");
@@ -3160,23 +2974,22 @@ export namespace ServiceTemporarilyUnavailableException {
 export interface SetTagsForResourceRequest {
   __type?: "SetTagsForResourceRequest";
   /**
-   * <p>The ARN of the assessment template that you want to set tags to.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>A collection of key and value pairs that you want to set to the assessment
    *          template.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The ARN of the assessment template that you want to set tags to.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace SetTagsForResourceRequest {
   export const filterSensitiveLog = (obj: SetTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SetTagsForResourceRequest =>
-    __isa(o, "SetTagsForResourceRequest");
+  export const isa = (o: any): o is SetTagsForResourceRequest => __isa(o, "SetTagsForResourceRequest");
 }
 
 export enum Severity {
@@ -3184,30 +2997,29 @@ export enum Severity {
   INFORMATIONAL = "Informational",
   LOW = "Low",
   MEDIUM = "Medium",
-  UNDEFINED = "Undefined"
+  UNDEFINED = "Undefined",
 }
 
 export interface StartAssessmentRunRequest {
   __type?: "StartAssessmentRunRequest";
   /**
-   * <p>You can specify the name for the assessment run. The name must be unique for the
-   *          assessment template whose ARN is used to start the assessment run.</p>
-   */
-  assessmentRunName?: string;
-
-  /**
    * <p>The ARN of the assessment template of the assessment run that you want to
    *          start.</p>
    */
   assessmentTemplateArn: string | undefined;
+
+  /**
+   * <p>You can specify the name for the assessment run. The name must be unique for the
+   *          assessment template whose ARN is used to start the assessment run.</p>
+   */
+  assessmentRunName?: string;
 }
 
 export namespace StartAssessmentRunRequest {
   export const filterSensitiveLog = (obj: StartAssessmentRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartAssessmentRunRequest =>
-    __isa(o, "StartAssessmentRunRequest");
+  export const isa = (o: any): o is StartAssessmentRunRequest => __isa(o, "StartAssessmentRunRequest");
 }
 
 export interface StartAssessmentRunResponse {
@@ -3220,15 +3032,14 @@ export interface StartAssessmentRunResponse {
 
 export namespace StartAssessmentRunResponse {
   export const filterSensitiveLog = (obj: StartAssessmentRunResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartAssessmentRunResponse =>
-    __isa(o, "StartAssessmentRunResponse");
+  export const isa = (o: any): o is StartAssessmentRunResponse => __isa(o, "StartAssessmentRunResponse");
 }
 
 export enum StopAction {
   SKIP_EVALUATION = "SKIP_EVALUATION",
-  START_EVALUATION = "START_EVALUATION"
+  START_EVALUATION = "START_EVALUATION",
 }
 
 export interface StopAssessmentRunRequest {
@@ -3249,14 +3060,18 @@ export interface StopAssessmentRunRequest {
 
 export namespace StopAssessmentRunRequest {
   export const filterSensitiveLog = (obj: StopAssessmentRunRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopAssessmentRunRequest =>
-    __isa(o, "StopAssessmentRunRequest");
+  export const isa = (o: any): o is StopAssessmentRunRequest => __isa(o, "StopAssessmentRunRequest");
 }
 
 export interface SubscribeToEventRequest {
   __type?: "SubscribeToEventRequest";
+  /**
+   * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
+   */
+  topicArn: string | undefined;
+
   /**
    * <p>The event for which you want to receive SNS notifications.</p>
    */
@@ -3267,19 +3082,13 @@ export interface SubscribeToEventRequest {
    *          to receive SNS notifications.</p>
    */
   resourceArn: string | undefined;
-
-  /**
-   * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
-   */
-  topicArn: string | undefined;
 }
 
 export namespace SubscribeToEventRequest {
   export const filterSensitiveLog = (obj: SubscribeToEventRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeToEventRequest =>
-    __isa(o, "SubscribeToEventRequest");
+  export const isa = (o: any): o is SubscribeToEventRequest => __isa(o, "SubscribeToEventRequest");
 }
 
 /**
@@ -3293,21 +3102,21 @@ export interface Subscription {
   eventSubscriptions: EventSubscription[] | undefined;
 
   /**
-   * <p>The ARN of the assessment template that is used during the event for which the SNS
-   *          notification is sent.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS
    *          notifications are sent.</p>
    */
   topicArn: string | undefined;
+
+  /**
+   * <p>The ARN of the assessment template that is used during the event for which the SNS
+   *          notification is sent.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
@@ -3318,19 +3127,19 @@ export namespace Subscription {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>A tag key.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>A value assigned to a tag key.</p>
    */
   value?: string;
+
+  /**
+   * <p>A tag key.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -3360,10 +3169,9 @@ export interface TelemetryMetadata {
 
 export namespace TelemetryMetadata {
   export const filterSensitiveLog = (obj: TelemetryMetadata): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TelemetryMetadata =>
-    __isa(o, "TelemetryMetadata");
+  export const isa = (o: any): o is TelemetryMetadata => __isa(o, "TelemetryMetadata");
 }
 
 /**
@@ -3373,36 +3181,35 @@ export namespace TelemetryMetadata {
 export interface TimestampRange {
   __type?: "TimestampRange";
   /**
-   * <p>The minimum value of the timestamp range.</p>
-   */
-  beginDate?: Date;
-
-  /**
    * <p>The maximum value of the timestamp range.</p>
    */
   endDate?: Date;
+
+  /**
+   * <p>The minimum value of the timestamp range.</p>
+   */
+  beginDate?: Date;
 }
 
 export namespace TimestampRange {
   export const filterSensitiveLog = (obj: TimestampRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TimestampRange =>
-    __isa(o, "TimestampRange");
+  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 export interface UnsubscribeFromEventRequest {
   __type?: "UnsubscribeFromEventRequest";
   /**
-   * <p>The event for which you want to stop receiving SNS notifications.</p>
-   */
-  event: InspectorEvent | string | undefined;
-
-  /**
    * <p>The ARN of the assessment template that is used during the event for which you want
    *          to stop receiving SNS notifications.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The event for which you want to stop receiving SNS notifications.</p>
+   */
+  event: InspectorEvent | string | undefined;
 
   /**
    * <p>The ARN of the SNS topic to which SNS notifications are sent.</p>
@@ -3411,13 +3218,10 @@ export interface UnsubscribeFromEventRequest {
 }
 
 export namespace UnsubscribeFromEventRequest {
-  export const filterSensitiveLog = (
-    obj: UnsubscribeFromEventRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsubscribeFromEventRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeFromEventRequest =>
-    __isa(o, "UnsubscribeFromEventRequest");
+  export const isa = (o: any): o is UnsubscribeFromEventRequest => __isa(o, "UnsubscribeFromEventRequest");
 }
 
 /**
@@ -3427,9 +3231,7 @@ export namespace UnsubscribeFromEventRequest {
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
  */
-export interface UnsupportedFeatureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedFeatureException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedFeatureException";
   $fault: "client";
   canRetry: boolean | undefined;
@@ -3437,13 +3239,10 @@ export interface UnsupportedFeatureException
 }
 
 export namespace UnsupportedFeatureException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedFeatureException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedFeatureException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedFeatureException =>
-    __isa(o, "UnsupportedFeatureException");
+  export const isa = (o: any): o is UnsupportedFeatureException => __isa(o, "UnsupportedFeatureException");
 }
 
 export interface UpdateAssessmentTargetRequest {
@@ -3454,23 +3253,20 @@ export interface UpdateAssessmentTargetRequest {
   assessmentTargetArn: string | undefined;
 
   /**
-   * <p>The name of the assessment target that you want to update.</p>
-   */
-  assessmentTargetName: string | undefined;
-
-  /**
    * <p>The ARN of the resource group that is used to specify the new resource group to
    *          associate with the assessment target.</p>
    */
   resourceGroupArn?: string;
+
+  /**
+   * <p>The name of the assessment target that you want to update.</p>
+   */
+  assessmentTargetName: string | undefined;
 }
 
 export namespace UpdateAssessmentTargetRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateAssessmentTargetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateAssessmentTargetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAssessmentTargetRequest =>
-    __isa(o, "UpdateAssessmentTargetRequest");
+  export const isa = (o: any): o is UpdateAssessmentTargetRequest => __isa(o, "UpdateAssessmentTargetRequest");
 }

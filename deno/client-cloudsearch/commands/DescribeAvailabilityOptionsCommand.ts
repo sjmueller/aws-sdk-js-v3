@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient.ts";
-import {
-  DescribeAvailabilityOptionsRequest,
-  DescribeAvailabilityOptionsResponse
-} from "../models/index.ts";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
+import { DescribeAvailabilityOptionsRequest, DescribeAvailabilityOptionsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeAvailabilityOptionsCommand,
-  serializeAws_queryDescribeAvailabilityOptionsCommand
+  serializeAws_queryDescribeAvailabilityOptionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAvailabilityOptionsCommandInput = DescribeAvailabilityOptionsRequest;
-export type DescribeAvailabilityOptionsCommandOutput = DescribeAvailabilityOptionsResponse &
-  __MetadataBearer;
+export type DescribeAvailabilityOptionsCommandOutput = DescribeAvailabilityOptionsResponse & __MetadataBearer;
 
 export class DescribeAvailabilityOptionsCommand extends $Command<
   DescribeAvailabilityOptionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAvailabilityOptionsCommandInput,
-    DescribeAvailabilityOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAvailabilityOptionsCommandInput, DescribeAvailabilityOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAvailabilityOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityOptionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAvailabilityOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAvailabilityOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAvailabilityOptionsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityOptionsCommandOutput> {
-    return deserializeAws_queryDescribeAvailabilityOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAvailabilityOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

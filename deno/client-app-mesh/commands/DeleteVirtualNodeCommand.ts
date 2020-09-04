@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient.ts";
-import {
-  DeleteVirtualNodeInput,
-  DeleteVirtualNodeOutput
-} from "../models/index.ts";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
+import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteVirtualNodeCommand,
-  serializeAws_restJson1DeleteVirtualNodeCommand
+  serializeAws_restJson1DeleteVirtualNodeCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteVirtualNodeCommandInput = DeleteVirtualNodeInput;
-export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput &
-  __MetadataBearer;
+export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput & __MetadataBearer;
 
 export class DeleteVirtualNodeCommand extends $Command<
   DeleteVirtualNodeCommandInput,
@@ -50,14 +39,15 @@ export class DeleteVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteVirtualNodeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualNodeOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteVirtualNodeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteVirtualNodeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualNodeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteVirtualNodeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualNodeCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualNodeCommand(output, context);
   }
 

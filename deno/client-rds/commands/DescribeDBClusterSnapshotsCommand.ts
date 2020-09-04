@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DBClusterSnapshotMessage,
-  DescribeDBClusterSnapshotsMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DBClusterSnapshotMessage, DescribeDBClusterSnapshotsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotsCommand,
-  serializeAws_queryDescribeDBClusterSnapshotsCommand
+  serializeAws_queryDescribeDBClusterSnapshotsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDBClusterSnapshotsCommandInput = DescribeDBClusterSnapshotsMessage;
-export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage &
-  __MetadataBearer;
+export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage & __MetadataBearer;
 
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBClusterSnapshotsCommandInput,
-    DescribeDBClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBClusterSnapshotsCommandInput, DescribeDBClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterSnapshotMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBClusterSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClusterSnapshotsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

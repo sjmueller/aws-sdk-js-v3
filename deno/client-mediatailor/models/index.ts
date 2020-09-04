@@ -1,16 +1,33 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+
+/**
+ * <p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>
+ */
+export interface AvailSuppression {
+  __type?: "AvailSuppression";
+  /**
+   * The avail suppression value is a live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window.
+   */
+  Value?: string;
+
+  /**
+   * Sets the mode for avail suppression, also known as ad suppression. By default, ad suppression is off and all ad breaks are filled by MediaTailor with ads or slate.
+   */
+  Mode?: Mode | string;
+}
+
+export namespace AvailSuppression {
+  export const filterSensitiveLog = (obj: AvailSuppression): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AvailSuppression => __isa(o, "AvailSuppression");
+}
 
 /**
  * <p>Invalid request parameters.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -18,10 +35,32 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
+}
+
+/**
+ * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>
+ */
+export interface Bumper {
+  __type?: "Bumper";
+  /**
+   * <p>The URL for the end bumper asset. </p>
+   */
+  EndUrl?: string;
+
+  /**
+   * <p>The URL for the start bumper asset. </p>
+   */
+  StartUrl?: string;
+}
+
+export namespace Bumper {
+  export const filterSensitiveLog = (obj: Bumper): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Bumper => __isa(o, "Bumper");
 }
 
 /**
@@ -30,22 +69,21 @@ export namespace BadRequestException {
 export interface CdnConfiguration {
   __type?: "CdnConfiguration";
   /**
-   * <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
-   */
-  AdSegmentUrlPrefix?: string;
-
-  /**
    * <p>A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.</p>
    */
   ContentSegmentUrlPrefix?: string;
+
+  /**
+   * <p>A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the following origin: ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.</p>
+   */
+  AdSegmentUrlPrefix?: string;
 }
 
 export namespace CdnConfiguration {
   export const filterSensitiveLog = (obj: CdnConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CdnConfiguration =>
-    __isa(o, "CdnConfiguration");
+  export const isa = (o: any): o is CdnConfiguration => __isa(o, "CdnConfiguration");
 }
 
 /**
@@ -71,10 +109,9 @@ export interface DashConfiguration {
 
 export namespace DashConfiguration {
   export const filterSensitiveLog = (obj: DashConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashConfiguration =>
-    __isa(o, "DashConfiguration");
+  export const isa = (o: any): o is DashConfiguration => __isa(o, "DashConfiguration");
 }
 
 /**
@@ -83,22 +120,21 @@ export namespace DashConfiguration {
 export interface DashConfigurationForPut {
   __type?: "DashConfigurationForPut";
   /**
-   * <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value. </p>
-   */
-  MpdLocation?: string;
-
-  /**
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD. </p>
    */
   OriginManifestType?: OriginManifestType | string;
+
+  /**
+   * <p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value. </p>
+   */
+  MpdLocation?: string;
 }
 
 export namespace DashConfigurationForPut {
   export const filterSensitiveLog = (obj: DashConfigurationForPut): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DashConfigurationForPut =>
-    __isa(o, "DashConfigurationForPut");
+  export const isa = (o: any): o is DashConfigurationForPut => __isa(o, "DashConfigurationForPut");
 }
 
 export interface DeletePlaybackConfigurationRequest {
@@ -110,10 +146,8 @@ export interface DeletePlaybackConfigurationRequest {
 }
 
 export namespace DeletePlaybackConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeletePlaybackConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePlaybackConfigurationRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeletePlaybackConfigurationRequest =>
     __isa(o, "DeletePlaybackConfigurationRequest");
@@ -124,10 +158,8 @@ export interface DeletePlaybackConfigurationResponse {
 }
 
 export namespace DeletePlaybackConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: DeletePlaybackConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeletePlaybackConfigurationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeletePlaybackConfigurationResponse =>
     __isa(o, "DeletePlaybackConfigurationResponse");
@@ -142,46 +174,23 @@ export interface GetPlaybackConfigurationRequest {
 }
 
 export namespace GetPlaybackConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: GetPlaybackConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPlaybackConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPlaybackConfigurationRequest =>
-    __isa(o, "GetPlaybackConfigurationRequest");
+  export const isa = (o: any): o is GetPlaybackConfigurationRequest => __isa(o, "GetPlaybackConfigurationRequest");
 }
 
 export interface GetPlaybackConfigurationResponse {
   __type?: "GetPlaybackConfigurationResponse";
-  /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
-   */
-  AdDecisionServerUrl?: string;
-
-  /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
-   */
-  CdnConfiguration?: CdnConfiguration;
-
-  /**
-   * <p>The configuration for DASH content. </p>
-   */
-  DashConfiguration?: DashConfiguration;
-
   /**
    * <p>The configuration for HLS content. </p>
    */
   HlsConfiguration?: HlsConfiguration;
 
   /**
-   * <p>The configuration for pre-roll ad insertion.</p>
+   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
    */
-  LivePreRollConfiguration?: LivePreRollConfiguration;
-
-  /**
-   * <p>The identifier for the playback configuration.</p>
-   */
-  Name?: string;
+  VideoContentSourceUrl?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the playback configuration. </p>
@@ -189,9 +198,9 @@ export interface GetPlaybackConfigurationResponse {
   PlaybackConfigurationArn?: string;
 
   /**
-   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
+   * <p>The configuration for pre-roll ad insertion.</p>
    */
-  PlaybackEndpointPrefix?: string;
+  LivePreRollConfiguration?: LivePreRollConfiguration;
 
   /**
    * <p>The URL that the player uses to initialize a session that uses client-side reporting. </p>
@@ -199,14 +208,34 @@ export interface GetPlaybackConfigurationResponse {
   SessionInitializationEndpointPrefix?: string;
 
   /**
+   * <p>The identifier for the playback configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>
+   */
+  AvailSuppression?: AvailSuppression;
+
+  /**
+   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
+   */
+  PersonalizationThresholdSeconds?: number;
+
+  /**
+   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
+   */
+  CdnConfiguration?: CdnConfiguration;
+
+  /**
+   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
+   */
+  PlaybackEndpointPrefix?: string;
+
+  /**
    * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. </p>
    */
   SlateAdUrl?: string;
-
-  /**
-   * <p>The tags assigned to the playback configuration. </p>
-   */
-  Tags?: { [key: string]: string };
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -214,19 +243,31 @@ export interface GetPlaybackConfigurationResponse {
   TranscodeProfileName?: string;
 
   /**
-   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * <p>The configuration for DASH content. </p>
    */
-  VideoContentSourceUrl?: string;
+  DashConfiguration?: DashConfiguration;
+
+  /**
+   * <p>The tags assigned to the playback configuration. </p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   */
+  AdDecisionServerUrl?: string;
+
+  /**
+   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>
+   */
+  Bumper?: Bumper;
 }
 
 export namespace GetPlaybackConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: GetPlaybackConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPlaybackConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPlaybackConfigurationResponse =>
-    __isa(o, "GetPlaybackConfigurationResponse");
+  export const isa = (o: any): o is GetPlaybackConfigurationResponse => __isa(o, "GetPlaybackConfigurationResponse");
 }
 
 /**
@@ -242,10 +283,9 @@ export interface HlsConfiguration {
 
 export namespace HlsConfiguration {
   export const filterSensitiveLog = (obj: HlsConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HlsConfiguration =>
-    __isa(o, "HlsConfiguration");
+  export const isa = (o: any): o is HlsConfiguration => __isa(o, "HlsConfiguration");
 }
 
 export interface ListPlaybackConfigurationsRequest {
@@ -262,33 +302,28 @@ export interface ListPlaybackConfigurationsRequest {
 }
 
 export namespace ListPlaybackConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: ListPlaybackConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPlaybackConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListPlaybackConfigurationsRequest =>
-    __isa(o, "ListPlaybackConfigurationsRequest");
+  export const isa = (o: any): o is ListPlaybackConfigurationsRequest => __isa(o, "ListPlaybackConfigurationsRequest");
 }
 
 export interface ListPlaybackConfigurationsResponse {
   __type?: "ListPlaybackConfigurationsResponse";
   /**
-   * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>
-   */
-  Items?: PlaybackConfiguration[];
-
-  /**
    * <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>
+   */
+  Items?: PlaybackConfiguration[];
 }
 
 export namespace ListPlaybackConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: ListPlaybackConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListPlaybackConfigurationsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListPlaybackConfigurationsResponse =>
     __isa(o, "ListPlaybackConfigurationsResponse");
@@ -304,10 +339,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -324,13 +358,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -351,15 +382,19 @@ export interface LivePreRollConfiguration {
 
 export namespace LivePreRollConfiguration {
   export const filterSensitiveLog = (obj: LivePreRollConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LivePreRollConfiguration =>
-    __isa(o, "LivePreRollConfiguration");
+  export const isa = (o: any): o is LivePreRollConfiguration => __isa(o, "LivePreRollConfiguration");
+}
+
+export enum Mode {
+  BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE",
+  OFF = "OFF",
 }
 
 export enum OriginManifestType {
   MULTI_PERIOD = "MULTI_PERIOD",
-  SINGLE_PERIOD = "SINGLE_PERIOD"
+  SINGLE_PERIOD = "SINGLE_PERIOD",
 }
 
 /**
@@ -368,19 +403,9 @@ export enum OriginManifestType {
 export interface PlaybackConfiguration {
   __type?: "PlaybackConfiguration";
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
    */
-  AdDecisionServerUrl?: string;
-
-  /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
-   */
-  CdnConfiguration?: CdnConfiguration;
-
-  /**
-   * <p>The configuration for DASH content. </p>
-   */
-  DashConfiguration?: DashConfiguration;
+  VideoContentSourceUrl?: string;
 
   /**
    * <p>The configuration for HLS content. </p>
@@ -388,9 +413,19 @@ export interface PlaybackConfiguration {
   HlsConfiguration?: HlsConfiguration;
 
   /**
-   * <p>The identifier for the playback configuration.</p>
+   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
    */
-  Name?: string;
+  AdDecisionServerUrl?: string;
+
+  /**
+   * <p>The configuration for DASH content. </p>
+   */
+  DashConfiguration?: DashConfiguration;
+
+  /**
+   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>
+   */
+  Bumper?: Bumper;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the playback configuration. </p>
@@ -398,14 +433,29 @@ export interface PlaybackConfiguration {
   PlaybackConfigurationArn?: string;
 
   /**
-   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
+   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
    */
-  PlaybackEndpointPrefix?: string;
+  PersonalizationThresholdSeconds?: number;
 
   /**
-   * <p>The URL that the player uses to initialize a session that uses client-side reporting. </p>
+   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
    */
-  SessionInitializationEndpointPrefix?: string;
+  CdnConfiguration?: CdnConfiguration;
+
+  /**
+   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   */
+  TranscodeProfileName?: string;
+
+  /**
+   * <p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>
+   */
+  AvailSuppression?: AvailSuppression;
+
+  /**
+   * <p>The identifier for the playback configuration.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. </p>
@@ -418,45 +468,34 @@ export interface PlaybackConfiguration {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
    */
-  TranscodeProfileName?: string;
+  PlaybackEndpointPrefix?: string;
 
   /**
-   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * <p>The URL that the player uses to initialize a session that uses client-side reporting. </p>
    */
-  VideoContentSourceUrl?: string;
+  SessionInitializationEndpointPrefix?: string;
 }
 
 export namespace PlaybackConfiguration {
   export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PlaybackConfiguration =>
-    __isa(o, "PlaybackConfiguration");
+  export const isa = (o: any): o is PlaybackConfiguration => __isa(o, "PlaybackConfiguration");
 }
 
 export interface PutPlaybackConfigurationRequest {
   __type?: "PutPlaybackConfigurationRequest";
   /**
-   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
+   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
    */
-  AdDecisionServerUrl?: string;
+  VideoContentSourceUrl?: string;
 
   /**
-   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
+   * <p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>
    */
-  CdnConfiguration?: CdnConfiguration;
-
-  /**
-   * <p>The configuration for DASH content. </p>
-   */
-  DashConfiguration?: DashConfigurationForPut;
-
-  /**
-   * <p>The configuration for pre-roll ad insertion.</p>
-   */
-  LivePreRollConfiguration?: LivePreRollConfiguration;
+  AvailSuppression?: AvailSuppression;
 
   /**
    * <p>The identifier for the playback configuration.</p>
@@ -469,9 +508,9 @@ export interface PutPlaybackConfigurationRequest {
   SlateAdUrl?: string;
 
   /**
-   * <p>The tags to assign to the playback configuration. </p>
+   * <p>The configuration for DASH content. </p>
    */
-  Tags?: { [key: string]: string };
+  DashConfiguration?: DashConfigurationForPut;
 
   /**
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
@@ -479,23 +518,50 @@ export interface PutPlaybackConfigurationRequest {
   TranscodeProfileName?: string;
 
   /**
-   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
    */
-  VideoContentSourceUrl?: string;
+  AdDecisionServerUrl?: string;
+
+  /**
+   * <p>The tags to assign to the playback configuration. </p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
+   */
+  CdnConfiguration?: CdnConfiguration;
+
+  /**
+   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>
+   */
+  Bumper?: Bumper;
+
+  /**
+   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
+   */
+  PersonalizationThresholdSeconds?: number;
+
+  /**
+   * <p>The configuration for pre-roll ad insertion.</p>
+   */
+  LivePreRollConfiguration?: LivePreRollConfiguration;
 }
 
 export namespace PutPlaybackConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: PutPlaybackConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutPlaybackConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutPlaybackConfigurationRequest =>
-    __isa(o, "PutPlaybackConfigurationRequest");
+  export const isa = (o: any): o is PutPlaybackConfigurationRequest => __isa(o, "PutPlaybackConfigurationRequest");
 }
 
 export interface PutPlaybackConfigurationResponse {
   __type?: "PutPlaybackConfigurationResponse";
+  /**
+   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
+   */
+  TranscodeProfileName?: string;
+
   /**
    * <p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>
    */
@@ -505,21 +571,6 @@ export interface PutPlaybackConfigurationResponse {
    * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management. </p>
    */
   CdnConfiguration?: CdnConfiguration;
-
-  /**
-   * <p>The configuration for DASH content. </p>
-   */
-  DashConfiguration?: DashConfiguration;
-
-  /**
-   * <p>The configuration for HLS content. </p>
-   */
-  HlsConfiguration?: HlsConfiguration;
-
-  /**
-   * <p>The configuration for pre-roll ad insertion.</p>
-   */
-  LivePreRollConfiguration?: LivePreRollConfiguration;
 
   /**
    * <p>The identifier for the playback configuration.</p>
@@ -532,14 +583,49 @@ export interface PutPlaybackConfigurationResponse {
   PlaybackConfigurationArn?: string;
 
   /**
-   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
-   */
-  PlaybackEndpointPrefix?: string;
-
-  /**
    * <p>The URL that the player uses to initialize a session that uses client-side reporting. </p>
    */
   SessionInitializationEndpointPrefix?: string;
+
+  /**
+   * <p>The configuration for HLS content. </p>
+   */
+  HlsConfiguration?: HlsConfiguration;
+
+  /**
+   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
+   */
+  VideoContentSourceUrl?: string;
+
+  /**
+   * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. </p>
+   */
+  Bumper?: Bumper;
+
+  /**
+   * <p>The configuration for DASH content. </p>
+   */
+  DashConfiguration?: DashConfiguration;
+
+  /**
+   * <p>The configuration for pre-roll ad insertion.</p>
+   */
+  LivePreRollConfiguration?: LivePreRollConfiguration;
+
+  /**
+   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
+   */
+  PersonalizationThresholdSeconds?: number;
+
+  /**
+   * <p>The configuration for Avail Suppression. Ad suppression can be used to turn off ad personalization in a long manifest, or if a viewer joins mid-break.</p>
+   */
+  AvailSuppression?: AvailSuppression;
+
+  /**
+   * <p>The URL that the player accesses to get a manifest from AWS Elemental MediaTailor. This session will use server-side reporting. </p>
+   */
+  PlaybackEndpointPrefix?: string;
 
   /**
    * <p>The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID playback configurations. For VPAID, the slate is required because MediaTailor provides it in the slots designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video. </p>
@@ -550,26 +636,13 @@ export interface PutPlaybackConfigurationResponse {
    * <p>The tags assigned to the playback configuration. </p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
-   */
-  TranscodeProfileName?: string;
-
-  /**
-   * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>
-   */
-  VideoContentSourceUrl?: string;
 }
 
 export namespace PutPlaybackConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: PutPlaybackConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutPlaybackConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutPlaybackConfigurationResponse =>
-    __isa(o, "PutPlaybackConfigurationResponse");
+  export const isa = (o: any): o is PutPlaybackConfigurationResponse => __isa(o, "PutPlaybackConfigurationResponse");
 }
 
 export interface TagResourceRequest {
@@ -592,29 +665,27 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A comma-separated list of the tag keys to remove from the playback configuration. </p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request. </p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }

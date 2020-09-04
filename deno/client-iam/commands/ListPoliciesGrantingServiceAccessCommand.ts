@@ -1,21 +1,14 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import {
   ListPoliciesGrantingServiceAccessRequest,
-  ListPoliciesGrantingServiceAccessResponse
+  ListPoliciesGrantingServiceAccessResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_queryListPoliciesGrantingServiceAccessCommand,
-  serializeAws_queryListPoliciesGrantingServiceAccessCommand
+  serializeAws_queryListPoliciesGrantingServiceAccessCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPoliciesGrantingServiceAccessCommandInput = ListPoliciesGrantingServiceAccessRequest;
@@ -49,18 +42,16 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPoliciesGrantingServiceAccessCommandInput,
-    ListPoliciesGrantingServiceAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPoliciesGrantingServiceAccessCommandInput, ListPoliciesGrantingServiceAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPoliciesGrantingServiceAccessRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPoliciesGrantingServiceAccessResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     input: ListPoliciesGrantingServiceAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> {
-    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

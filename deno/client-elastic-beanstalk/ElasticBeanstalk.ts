@@ -2,222 +2,237 @@ import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient.ts";
 import {
   AbortEnvironmentUpdateCommand,
   AbortEnvironmentUpdateCommandInput,
-  AbortEnvironmentUpdateCommandOutput
+  AbortEnvironmentUpdateCommandOutput,
 } from "./commands/AbortEnvironmentUpdateCommand.ts";
 import {
   ApplyEnvironmentManagedActionCommand,
   ApplyEnvironmentManagedActionCommandInput,
-  ApplyEnvironmentManagedActionCommandOutput
+  ApplyEnvironmentManagedActionCommandOutput,
 } from "./commands/ApplyEnvironmentManagedActionCommand.ts";
+import {
+  AssociateEnvironmentOperationsRoleCommand,
+  AssociateEnvironmentOperationsRoleCommandInput,
+  AssociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/AssociateEnvironmentOperationsRoleCommand.ts";
 import {
   CheckDNSAvailabilityCommand,
   CheckDNSAvailabilityCommandInput,
-  CheckDNSAvailabilityCommandOutput
+  CheckDNSAvailabilityCommandOutput,
 } from "./commands/CheckDNSAvailabilityCommand.ts";
 import {
   ComposeEnvironmentsCommand,
   ComposeEnvironmentsCommandInput,
-  ComposeEnvironmentsCommandOutput
+  ComposeEnvironmentsCommandOutput,
 } from "./commands/ComposeEnvironmentsCommand.ts";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
+  CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand.ts";
 import {
   CreateApplicationVersionCommand,
   CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput
+  CreateApplicationVersionCommandOutput,
 } from "./commands/CreateApplicationVersionCommand.ts";
 import {
   CreateConfigurationTemplateCommand,
   CreateConfigurationTemplateCommandInput,
-  CreateConfigurationTemplateCommandOutput
+  CreateConfigurationTemplateCommandOutput,
 } from "./commands/CreateConfigurationTemplateCommand.ts";
 import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput
+  CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand.ts";
 import {
   CreatePlatformVersionCommand,
   CreatePlatformVersionCommandInput,
-  CreatePlatformVersionCommandOutput
+  CreatePlatformVersionCommandOutput,
 } from "./commands/CreatePlatformVersionCommand.ts";
 import {
   CreateStorageLocationCommand,
   CreateStorageLocationCommandInput,
-  CreateStorageLocationCommandOutput
+  CreateStorageLocationCommandOutput,
 } from "./commands/CreateStorageLocationCommand.ts";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
+  DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand.ts";
 import {
   DeleteApplicationVersionCommand,
   DeleteApplicationVersionCommandInput,
-  DeleteApplicationVersionCommandOutput
+  DeleteApplicationVersionCommandOutput,
 } from "./commands/DeleteApplicationVersionCommand.ts";
 import {
   DeleteConfigurationTemplateCommand,
   DeleteConfigurationTemplateCommandInput,
-  DeleteConfigurationTemplateCommandOutput
+  DeleteConfigurationTemplateCommandOutput,
 } from "./commands/DeleteConfigurationTemplateCommand.ts";
 import {
   DeleteEnvironmentConfigurationCommand,
   DeleteEnvironmentConfigurationCommandInput,
-  DeleteEnvironmentConfigurationCommandOutput
+  DeleteEnvironmentConfigurationCommandOutput,
 } from "./commands/DeleteEnvironmentConfigurationCommand.ts";
 import {
   DeletePlatformVersionCommand,
   DeletePlatformVersionCommandInput,
-  DeletePlatformVersionCommandOutput
+  DeletePlatformVersionCommandOutput,
 } from "./commands/DeletePlatformVersionCommand.ts";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
   DescribeApplicationVersionsCommand,
   DescribeApplicationVersionsCommandInput,
-  DescribeApplicationVersionsCommandOutput
+  DescribeApplicationVersionsCommandOutput,
 } from "./commands/DescribeApplicationVersionsCommand.ts";
 import {
   DescribeApplicationsCommand,
   DescribeApplicationsCommandInput,
-  DescribeApplicationsCommandOutput
+  DescribeApplicationsCommandOutput,
 } from "./commands/DescribeApplicationsCommand.ts";
 import {
   DescribeConfigurationOptionsCommand,
   DescribeConfigurationOptionsCommandInput,
-  DescribeConfigurationOptionsCommandOutput
+  DescribeConfigurationOptionsCommandOutput,
 } from "./commands/DescribeConfigurationOptionsCommand.ts";
 import {
   DescribeConfigurationSettingsCommand,
   DescribeConfigurationSettingsCommandInput,
-  DescribeConfigurationSettingsCommandOutput
+  DescribeConfigurationSettingsCommandOutput,
 } from "./commands/DescribeConfigurationSettingsCommand.ts";
 import {
   DescribeEnvironmentHealthCommand,
   DescribeEnvironmentHealthCommandInput,
-  DescribeEnvironmentHealthCommandOutput
+  DescribeEnvironmentHealthCommandOutput,
 } from "./commands/DescribeEnvironmentHealthCommand.ts";
 import {
   DescribeEnvironmentManagedActionHistoryCommand,
   DescribeEnvironmentManagedActionHistoryCommandInput,
-  DescribeEnvironmentManagedActionHistoryCommandOutput
+  DescribeEnvironmentManagedActionHistoryCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionHistoryCommand.ts";
 import {
   DescribeEnvironmentManagedActionsCommand,
   DescribeEnvironmentManagedActionsCommandInput,
-  DescribeEnvironmentManagedActionsCommandOutput
+  DescribeEnvironmentManagedActionsCommandOutput,
 } from "./commands/DescribeEnvironmentManagedActionsCommand.ts";
 import {
   DescribeEnvironmentResourcesCommand,
   DescribeEnvironmentResourcesCommandInput,
-  DescribeEnvironmentResourcesCommandOutput
+  DescribeEnvironmentResourcesCommandOutput,
 } from "./commands/DescribeEnvironmentResourcesCommand.ts";
 import {
   DescribeEnvironmentsCommand,
   DescribeEnvironmentsCommandInput,
-  DescribeEnvironmentsCommandOutput
+  DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand.ts";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand.ts";
 import {
   DescribeInstancesHealthCommand,
   DescribeInstancesHealthCommandInput,
-  DescribeInstancesHealthCommandOutput
+  DescribeInstancesHealthCommandOutput,
 } from "./commands/DescribeInstancesHealthCommand.ts";
 import {
   DescribePlatformVersionCommand,
   DescribePlatformVersionCommandInput,
-  DescribePlatformVersionCommandOutput
+  DescribePlatformVersionCommandOutput,
 } from "./commands/DescribePlatformVersionCommand.ts";
+import {
+  DisassociateEnvironmentOperationsRoleCommand,
+  DisassociateEnvironmentOperationsRoleCommandInput,
+  DisassociateEnvironmentOperationsRoleCommandOutput,
+} from "./commands/DisassociateEnvironmentOperationsRoleCommand.ts";
 import {
   ListAvailableSolutionStacksCommand,
   ListAvailableSolutionStacksCommandInput,
-  ListAvailableSolutionStacksCommandOutput
+  ListAvailableSolutionStacksCommandOutput,
 } from "./commands/ListAvailableSolutionStacksCommand.ts";
+import {
+  ListPlatformBranchesCommand,
+  ListPlatformBranchesCommandInput,
+  ListPlatformBranchesCommandOutput,
+} from "./commands/ListPlatformBranchesCommand.ts";
 import {
   ListPlatformVersionsCommand,
   ListPlatformVersionsCommandInput,
-  ListPlatformVersionsCommandOutput
+  ListPlatformVersionsCommandOutput,
 } from "./commands/ListPlatformVersionsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   RebuildEnvironmentCommand,
   RebuildEnvironmentCommandInput,
-  RebuildEnvironmentCommandOutput
+  RebuildEnvironmentCommandOutput,
 } from "./commands/RebuildEnvironmentCommand.ts";
 import {
   RequestEnvironmentInfoCommand,
   RequestEnvironmentInfoCommandInput,
-  RequestEnvironmentInfoCommandOutput
+  RequestEnvironmentInfoCommandOutput,
 } from "./commands/RequestEnvironmentInfoCommand.ts";
 import {
   RestartAppServerCommand,
   RestartAppServerCommandInput,
-  RestartAppServerCommandOutput
+  RestartAppServerCommandOutput,
 } from "./commands/RestartAppServerCommand.ts";
 import {
   RetrieveEnvironmentInfoCommand,
   RetrieveEnvironmentInfoCommandInput,
-  RetrieveEnvironmentInfoCommandOutput
+  RetrieveEnvironmentInfoCommandOutput,
 } from "./commands/RetrieveEnvironmentInfoCommand.ts";
 import {
   SwapEnvironmentCNAMEsCommand,
   SwapEnvironmentCNAMEsCommandInput,
-  SwapEnvironmentCNAMEsCommandOutput
+  SwapEnvironmentCNAMEsCommandOutput,
 } from "./commands/SwapEnvironmentCNAMEsCommand.ts";
 import {
   TerminateEnvironmentCommand,
   TerminateEnvironmentCommandInput,
-  TerminateEnvironmentCommandOutput
+  TerminateEnvironmentCommandOutput,
 } from "./commands/TerminateEnvironmentCommand.ts";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
+  UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand.ts";
 import {
   UpdateApplicationResourceLifecycleCommand,
   UpdateApplicationResourceLifecycleCommandInput,
-  UpdateApplicationResourceLifecycleCommandOutput
+  UpdateApplicationResourceLifecycleCommandOutput,
 } from "./commands/UpdateApplicationResourceLifecycleCommand.ts";
 import {
   UpdateApplicationVersionCommand,
   UpdateApplicationVersionCommandInput,
-  UpdateApplicationVersionCommandOutput
+  UpdateApplicationVersionCommandOutput,
 } from "./commands/UpdateApplicationVersionCommand.ts";
 import {
   UpdateConfigurationTemplateCommand,
   UpdateConfigurationTemplateCommandInput,
-  UpdateConfigurationTemplateCommandOutput
+  UpdateConfigurationTemplateCommandOutput,
 } from "./commands/UpdateConfigurationTemplateCommand.ts";
 import {
   UpdateEnvironmentCommand,
   UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
+  UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand.ts";
 import {
   UpdateTagsForResourceCommand,
   UpdateTagsForResourceCommandInput,
-  UpdateTagsForResourceCommandOutput
+  UpdateTagsForResourceCommandOutput,
 } from "./commands/UpdateTagsForResourceCommand.ts";
 import {
   ValidateConfigurationSettingsCommand,
   ValidateConfigurationSettingsCommandInput,
-  ValidateConfigurationSettingsCommandOutput
+  ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -228,7 +243,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
  *          <p>For more information about this product, go to the <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the
- *       latest AWS Elastic Beanstalk WSDL is <a href="http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
+ *       latest AWS Elastic Beanstalk WSDL is <a href="https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl">https://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl</a>.
  *       To install the Software Development Kits (SDKs), Integrated Development Environment (IDE)
  *       Toolkits, and command line tools that enable you to access the API, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          <p>
@@ -258,17 +273,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public abortEnvironmentUpdate(
     args: AbortEnvironmentUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AbortEnvironmentUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortEnvironmentUpdateCommandOutput) => void),
     cb?: (err: any, data?: AbortEnvironmentUpdateCommandOutput) => void
   ): Promise<AbortEnvironmentUpdateCommandOutput> | void {
     const command = new AbortEnvironmentUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -295,17 +307,49 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public applyEnvironmentManagedAction(
     args: ApplyEnvironmentManagedActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApplyEnvironmentManagedActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplyEnvironmentManagedActionCommandOutput) => void),
     cb?: (err: any, data?: ApplyEnvironmentManagedActionCommandOutput) => void
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> | void {
     const command = new ApplyEnvironmentManagedActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
+   *       uses the associated operations role for permissions to downstream services during subsequent
+   *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   */
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEnvironmentOperationsRoleCommandOutput>;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    cb: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public associateEnvironmentOperationsRole(
+    args: AssociateEnvironmentOperationsRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void),
+    cb?: (err: any, data?: AssociateEnvironmentOperationsRoleCommandOutput) => void
+  ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> | void {
+    const command = new AssociateEnvironmentOperationsRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -330,17 +374,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public checkDNSAvailability(
     args: CheckDNSAvailabilityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CheckDNSAvailabilityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckDNSAvailabilityCommandOutput) => void),
     cb?: (err: any, data?: CheckDNSAvailabilityCommandOutput) => void
   ): Promise<CheckDNSAvailabilityCommandOutput> | void {
     const command = new CheckDNSAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -370,17 +411,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public composeEnvironments(
     args: ComposeEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ComposeEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ComposeEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: ComposeEnvironmentsCommandOutput) => void
   ): Promise<ComposeEnvironmentsCommandOutput> | void {
     const command = new ComposeEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -388,8 +426,8 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p> Creates an application that has one configuration template named <code>default</code>
-   *       and no application versions. </p>
+   * <p>Creates an application that has one configuration template named <code>default</code>
+   *       and no application versions.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -406,17 +444,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -436,8 +471,8 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
    *          <p>Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use the
    *       default sample application.</p>
    *          <note>
-   *             <p>Once you create an application version with a specified Amazon S3 bucket and key
-   *         location, you cannot change that Amazon S3 location. If you change the Amazon S3 location,
+   *             <p>After you create an application version with a specified Amazon S3 bucket and key
+   *         location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
    *         you receive an exception when you attempt to launch an environment from the application
    *         version.</p>
    *          </note>
@@ -457,17 +492,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApplicationVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationVersionCommandOutput) => void
   ): Promise<CreateApplicationVersionCommandOutput> | void {
     const command = new CreateApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,9 +507,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Creates a configuration template. Templates are associated with a specific application
-   *       and are used to deploy different versions of the application with the same configuration
-   *       settings.</p>
+   * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
+   *       application. You define application configuration settings in a configuration template. You
+   *       can then use the configuration template to deploy different versions of the application with
+   *       the same configuration settings.</p>
    *          <p>Templates aren't associated with any environment. The <code>EnvironmentName</code>
    *       response element is always <code>null</code>.</p>
    *          <p>Related Topics</p>
@@ -514,17 +547,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createConfigurationTemplate(
     args: CreateConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationTemplateCommandOutput) => void
   ): Promise<CreateConfigurationTemplateCommandOutput> | void {
     const command = new CreateConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -532,7 +562,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Launches an environment for the specified application using the specified
+   * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
    *       configuration.</p>
    */
   public createEnvironment(
@@ -550,17 +580,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): Promise<CreateEnvironmentCommandOutput> | void {
     const command = new CreateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -585,17 +612,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createPlatformVersion(
     args: CreatePlatformVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlatformVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlatformVersionCommandOutput) => void),
     cb?: (err: any, data?: CreatePlatformVersionCommandOutput) => void
   ): Promise<CreatePlatformVersionCommandOutput> | void {
     const command = new CreatePlatformVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -624,17 +648,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public createStorageLocation(
     args: CreateStorageLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStorageLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStorageLocationCommandOutput) => void),
     cb?: (err: any, data?: CreateStorageLocationCommandOutput) => void
   ): Promise<CreateStorageLocationCommandOutput> | void {
     const command = new CreateStorageLocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -664,17 +685,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -703,17 +721,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public deleteApplicationVersion(
     args: DeleteApplicationVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApplicationVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationVersionCommandOutput) => void
   ): Promise<DeleteApplicationVersionCommandOutput> | void {
     const command = new DeleteApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -743,17 +758,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public deleteConfigurationTemplate(
     args: DeleteConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationTemplateCommandOutput) => void
   ): Promise<DeleteConfigurationTemplateCommandOutput> | void {
     const command = new DeleteConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -783,20 +795,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public deleteEnvironmentConfiguration(
     args: DeleteEnvironmentConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteEnvironmentConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteEnvironmentConfigurationCommandOutput) => void
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> | void {
     const command = new DeleteEnvironmentConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -821,17 +827,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public deletePlatformVersion(
     args: DeletePlatformVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlatformVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlatformVersionCommandOutput) => void),
     cb?: (err: any, data?: DeletePlatformVersionCommandOutput) => void
   ): Promise<DeletePlatformVersionCommandOutput> | void {
     const command = new DeletePlatformVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -858,17 +861,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +893,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeApplications(
     args: DescribeApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationsCommandOutput) => void
   ): Promise<DescribeApplicationsCommandOutput> | void {
     const command = new DescribeApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +925,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeApplicationVersions(
     args: DescribeApplicationVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeApplicationVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationVersionsCommandOutput) => void
   ): Promise<DescribeApplicationVersionsCommandOutput> | void {
     const command = new DescribeApplicationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -966,17 +960,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeConfigurationOptions(
     args: DescribeConfigurationOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigurationOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationOptionsCommandOutput) => void
   ): Promise<DescribeConfigurationOptionsCommandOutput> | void {
     const command = new DescribeConfigurationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1015,17 +1006,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeConfigurationSettings(
     args: DescribeConfigurationSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigurationSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationSettingsCommandOutput) => void
   ): Promise<DescribeConfigurationSettingsCommandOutput> | void {
     const command = new DescribeConfigurationSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1052,17 +1040,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeEnvironmentHealth(
     args: DescribeEnvironmentHealthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentHealthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentHealthCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentHealthCommandOutput) => void
   ): Promise<DescribeEnvironmentHealthCommandOutput> | void {
     const command = new DescribeEnvironmentHealthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1078,38 +1063,25 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput>;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> | void {
     const command = new DescribeEnvironmentManagedActionHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1125,38 +1097,23 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput>;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentManagedActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput> | void {
     const command = new DescribeEnvironmentManagedActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1181,17 +1138,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeEnvironmentResources(
     args: DescribeEnvironmentResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentResourcesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentResourcesCommandOutput) => void
   ): Promise<DescribeEnvironmentResourcesCommandOutput> | void {
     const command = new DescribeEnvironmentResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1216,17 +1170,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeEnvironments(
     args: DescribeEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentsCommandOutput) => void
   ): Promise<DescribeEnvironmentsCommandOutput> | void {
     const command = new DescribeEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1255,17 +1206,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1292,17 +1240,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeInstancesHealth(
     args: DescribeInstancesHealthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesHealthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesHealthCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancesHealthCommandOutput) => void
   ): Promise<DescribeInstancesHealthCommandOutput> | void {
     const command = new DescribeInstancesHealthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1310,7 +1255,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Describes the version of the platform.</p>
+   * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
+   *       platform versions.</p>
+   *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
    */
   public describePlatformVersion(
     args: DescribePlatformVersionCommandInput,
@@ -1327,17 +1275,51 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describePlatformVersion(
     args: DescribePlatformVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlatformVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePlatformVersionCommandOutput) => void),
     cb?: (err: any, data?: DescribePlatformVersionCommandOutput) => void
   ): Promise<DescribePlatformVersionCommandOutput> | void {
     const command = new DescribePlatformVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
+   *       the caller's permissions for permissions to downstream services during subsequent calls acting
+   *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   */
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput>;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    cb: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): void;
+  public disassociateEnvironmentOperationsRole(
+    args: DisassociateEnvironmentOperationsRoleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateEnvironmentOperationsRoleCommandOutput) => void
+  ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> | void {
+    const command = new DisassociateEnvironmentOperationsRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1363,17 +1345,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public listAvailableSolutionStacks(
     args: ListAvailableSolutionStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAvailableSolutionStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableSolutionStacksCommandOutput) => void),
     cb?: (err: any, data?: ListAvailableSolutionStacksCommandOutput) => void
   ): Promise<ListAvailableSolutionStacksCommandOutput> | void {
     const command = new ListAvailableSolutionStacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1381,7 +1360,46 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Lists the available platforms.</p>
+   * <p>Lists the platform branches available for your account in an AWS Region. Provides
+   *       summary information about each platform branch.</p>
+   *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
+   */
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlatformBranchesCommandOutput>;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    cb: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): void;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): void;
+  public listPlatformBranches(
+    args: ListPlatformBranchesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlatformBranchesCommandOutput) => void),
+    cb?: (err: any, data?: ListPlatformBranchesCommandOutput) => void
+  ): Promise<ListPlatformBranchesCommandOutput> | void {
+    const command = new ListPlatformBranchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the platform versions available for your account in an AWS Region. Provides
+   *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
+   *       version.</p>
+   *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
+   *         Platforms Glossary</a>.</p>
    */
   public listPlatformVersions(
     args: ListPlatformVersionsCommandInput,
@@ -1398,17 +1416,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public listPlatformVersions(
     args: ListPlatformVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPlatformVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlatformVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListPlatformVersionsCommandOutput) => void
   ): Promise<ListPlatformVersionsCommandOutput> | void {
     const command = new ListPlatformVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1416,8 +1431,10 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   }
 
   /**
-   * <p>Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
-   *          <p>Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in Your Elastic Beanstalk Environment</a>.</p>
+   * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
+   *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
+   *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
+   *         Resources</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1434,17 +1451,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1470,17 +1484,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public rebuildEnvironment(
     args: RebuildEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebuildEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebuildEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: RebuildEnvironmentCommandOutput) => void
   ): Promise<RebuildEnvironmentCommandOutput> | void {
     const command = new RebuildEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1520,17 +1531,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public requestEnvironmentInfo(
     args: RequestEnvironmentInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestEnvironmentInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestEnvironmentInfoCommandOutput) => void),
     cb?: (err: any, data?: RequestEnvironmentInfoCommandOutput) => void
   ): Promise<RequestEnvironmentInfoCommandOutput> | void {
     const command = new RequestEnvironmentInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1556,17 +1564,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public restartAppServer(
     args: RestartAppServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestartAppServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestartAppServerCommandOutput) => void),
     cb?: (err: any, data?: RestartAppServerCommandOutput) => void
   ): Promise<RestartAppServerCommandOutput> | void {
     const command = new RestartAppServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1600,17 +1605,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public retrieveEnvironmentInfo(
     args: RetrieveEnvironmentInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveEnvironmentInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveEnvironmentInfoCommandOutput) => void),
     cb?: (err: any, data?: RetrieveEnvironmentInfoCommandOutput) => void
   ): Promise<RetrieveEnvironmentInfoCommandOutput> | void {
     const command = new RetrieveEnvironmentInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1635,17 +1637,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public swapEnvironmentCNAMEs(
     args: SwapEnvironmentCNAMEsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SwapEnvironmentCNAMEsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SwapEnvironmentCNAMEsCommandOutput) => void),
     cb?: (err: any, data?: SwapEnvironmentCNAMEsCommandOutput) => void
   ): Promise<SwapEnvironmentCNAMEsCommandOutput> | void {
     const command = new SwapEnvironmentCNAMEsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1670,17 +1669,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public terminateEnvironment(
     args: TerminateEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: TerminateEnvironmentCommandOutput) => void
   ): Promise<TerminateEnvironmentCommandOutput> | void {
     const command = new TerminateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1709,17 +1705,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1735,38 +1728,23 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput>;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): void;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): void;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApplicationResourceLifecycleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> | void {
     const command = new UpdateApplicationResourceLifecycleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1795,17 +1773,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public updateApplicationVersion(
     args: UpdateApplicationVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApplicationVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationVersionCommandOutput) => void
   ): Promise<UpdateApplicationVersionCommandOutput> | void {
     const command = new UpdateApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1843,17 +1818,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public updateConfigurationTemplate(
     args: UpdateConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConfigurationTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateConfigurationTemplateCommandOutput) => void
   ): Promise<UpdateConfigurationTemplateCommandOutput> | void {
     const command = new UpdateConfigurationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1886,17 +1858,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): Promise<UpdateEnvironmentCommandOutput> | void {
     const command = new UpdateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1906,7 +1875,9 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   /**
    * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
    *       for tags to add or update, and <code>TagsToRemove</code>.</p>
-   *          <p>Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging Resources in Your Elastic Beanstalk Environment</a>.</p>
+   *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
+   *       <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
+   *         Resources</a>.</p>
    *          <p>If you create a custom IAM user policy to control permission to this operation, specify
    *       one of the following two virtual actions (or both) instead of the API operation name:</p>
    *          <dl>
@@ -1938,17 +1909,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public updateTagsForResource(
     args: UpdateTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateTagsForResourceCommandOutput) => void
   ): Promise<UpdateTagsForResourceCommandOutput> | void {
     const command = new UpdateTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1976,17 +1944,14 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public validateConfigurationSettings(
     args: ValidateConfigurationSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateConfigurationSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateConfigurationSettingsCommandOutput) => void),
     cb?: (err: any, data?: ValidateConfigurationSettingsCommandOutput) => void
   ): Promise<ValidateConfigurationSettingsCommandOutput> | void {
     const command = new ValidateConfigurationSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

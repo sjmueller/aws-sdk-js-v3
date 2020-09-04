@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  CreateClusterSecurityGroupMessage,
-  CreateClusterSecurityGroupResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { CreateClusterSecurityGroupMessage, CreateClusterSecurityGroupResult } from "../models/index.ts";
 import {
   deserializeAws_queryCreateClusterSecurityGroupCommand,
-  serializeAws_queryCreateClusterSecurityGroupCommand
+  serializeAws_queryCreateClusterSecurityGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateClusterSecurityGroupCommandInput = CreateClusterSecurityGroupMessage;
-export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult &
-  __MetadataBearer;
+export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult & __MetadataBearer;
 
 export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandInput,
@@ -49,18 +38,16 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateClusterSecurityGroupCommandInput,
-    CreateClusterSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateClusterSecurityGroupCommandInput, CreateClusterSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateClusterSecurityGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateClusterSecurityGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateClusterSecurityGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterSecurityGroupCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryCreateClusterSecurityGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

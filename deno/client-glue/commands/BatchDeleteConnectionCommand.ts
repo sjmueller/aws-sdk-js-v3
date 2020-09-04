@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  BatchDeleteConnectionRequest,
-  BatchDeleteConnectionResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchDeleteConnectionCommand,
-  serializeAws_json1_1BatchDeleteConnectionCommand
+  serializeAws_json1_1BatchDeleteConnectionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
-export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse &
-  __MetadataBearer;
+export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse & __MetadataBearer;
 
 export class BatchDeleteConnectionCommand extends $Command<
   BatchDeleteConnectionCommandInput,
@@ -49,18 +38,16 @@ export class BatchDeleteConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteConnectionCommandInput,
-    BatchDeleteConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteConnectionCommandInput, BatchDeleteConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDeleteConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteConnectionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class BatchDeleteConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDeleteConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
     return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
   }
 

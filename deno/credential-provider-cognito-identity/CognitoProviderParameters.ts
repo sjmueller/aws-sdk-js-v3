@@ -1,5 +1,6 @@
-import { Logins } from "./Logins.ts";
 import { CognitoIdentityClient } from "../client-cognito-identity/mod.ts";
+
+import { Logins } from "./Logins.ts";
 
 export interface CognitoProviderParameters {
   /**

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient.ts";
-import {
-  DeregisterFromWorkMailRequest,
-  DeregisterFromWorkMailResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
+import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeregisterFromWorkMailCommand,
-  serializeAws_json1_1DeregisterFromWorkMailCommand
+  serializeAws_json1_1DeregisterFromWorkMailCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeregisterFromWorkMailCommandInput = DeregisterFromWorkMailRequest;
-export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse &
-  __MetadataBearer;
+export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse & __MetadataBearer;
 
 export class DeregisterFromWorkMailCommand extends $Command<
   DeregisterFromWorkMailCommandInput,
@@ -49,18 +38,16 @@ export class DeregisterFromWorkMailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterFromWorkMailCommandInput,
-    DeregisterFromWorkMailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterFromWorkMailCommandInput, DeregisterFromWorkMailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeregisterFromWorkMailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterFromWorkMailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeregisterFromWorkMailCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterFromWorkMailCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterFromWorkMailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterFromWorkMailCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterFromWorkMailCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterFromWorkMailCommandOutput> {
     return deserializeAws_json1_1DeregisterFromWorkMailCommand(output, context);
   }
 

@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  DeleteTrafficPolicyInstanceRequest,
-  DeleteTrafficPolicyInstanceResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
-  serializeAws_restXmlDeleteTrafficPolicyInstanceCommand
+  serializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getIdNormalizerPlugin } from "../../middleware-sdk-route53/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteTrafficPolicyInstanceCommandInput = DeleteTrafficPolicyInstanceRequest;
-export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse &
-  __MetadataBearer;
+export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse & __MetadataBearer;
 
 export class DeleteTrafficPolicyInstanceCommand extends $Command<
   DeleteTrafficPolicyInstanceCommandInput,
@@ -50,19 +39,17 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTrafficPolicyInstanceCommandInput,
-    DeleteTrafficPolicyInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTrafficPolicyInstanceCommandInput, DeleteTrafficPolicyInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteTrafficPolicyInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrafficPolicyInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,24 +59,15 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteTrafficPolicyInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

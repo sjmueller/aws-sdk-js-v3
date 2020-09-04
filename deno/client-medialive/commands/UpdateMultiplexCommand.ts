@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient.ts";
-import {
-  UpdateMultiplexRequest,
-  UpdateMultiplexResponse
-} from "../models/index.ts";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
+import { UpdateMultiplexRequest, UpdateMultiplexResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateMultiplexCommand,
-  serializeAws_restJson1UpdateMultiplexCommand
+  serializeAws_restJson1UpdateMultiplexCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateMultiplexCommandInput = UpdateMultiplexRequest;
-export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse &
-  __MetadataBearer;
+export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse & __MetadataBearer;
 
 export class UpdateMultiplexCommand extends $Command<
   UpdateMultiplexCommandInput,
@@ -50,14 +39,15 @@ export class UpdateMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMultiplexCommandInput, UpdateMultiplexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateMultiplexRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMultiplexResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateMultiplexCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateMultiplexCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMultiplexCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateMultiplexCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMultiplexCommandOutput> {
     return deserializeAws_restJson1UpdateMultiplexCommand(output, context);
   }
 

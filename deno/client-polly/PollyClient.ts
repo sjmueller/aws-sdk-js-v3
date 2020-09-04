@@ -1,39 +1,21 @@
-import {
-  DeleteLexiconCommandInput,
-  DeleteLexiconCommandOutput
-} from "./commands/DeleteLexiconCommand.ts";
-import {
-  DescribeVoicesCommandInput,
-  DescribeVoicesCommandOutput
-} from "./commands/DescribeVoicesCommand.ts";
-import {
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "./commands/GetLexiconCommand.ts";
+import { DeleteLexiconCommandInput, DeleteLexiconCommandOutput } from "./commands/DeleteLexiconCommand.ts";
+import { DescribeVoicesCommandInput, DescribeVoicesCommandOutput } from "./commands/DescribeVoicesCommand.ts";
+import { GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand.ts";
 import {
   GetSpeechSynthesisTaskCommandInput,
-  GetSpeechSynthesisTaskCommandOutput
+  GetSpeechSynthesisTaskCommandOutput,
 } from "./commands/GetSpeechSynthesisTaskCommand.ts";
-import {
-  ListLexiconsCommandInput,
-  ListLexiconsCommandOutput
-} from "./commands/ListLexiconsCommand.ts";
+import { ListLexiconsCommandInput, ListLexiconsCommandOutput } from "./commands/ListLexiconsCommand.ts";
 import {
   ListSpeechSynthesisTasksCommandInput,
-  ListSpeechSynthesisTasksCommandOutput
+  ListSpeechSynthesisTasksCommandOutput,
 } from "./commands/ListSpeechSynthesisTasksCommand.ts";
-import {
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "./commands/PutLexiconCommand.ts";
+import { PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand.ts";
 import {
   StartSpeechSynthesisTaskCommandInput,
-  StartSpeechSynthesisTaskCommandOutput
+  StartSpeechSynthesisTaskCommandOutput,
 } from "./commands/StartSpeechSynthesisTaskCommand.ts";
-import {
-  SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput
-} from "./commands/SynthesizeSpeechCommand.ts";
+import { SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput } from "./commands/SynthesizeSpeechCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -41,38 +23,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -81,9 +59,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -108,8 +87,7 @@ export type ServiceOutputTypes =
   | StartSpeechSynthesisTaskCommandOutput
   | SynthesizeSpeechCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -183,14 +161,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -198,9 +181,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PollyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PollyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -209,9 +190,7 @@ export type PollyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -236,7 +215,7 @@ export class PollyClient extends __Client<
   constructor(configuration: PollyClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -251,6 +230,7 @@ export class PollyClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

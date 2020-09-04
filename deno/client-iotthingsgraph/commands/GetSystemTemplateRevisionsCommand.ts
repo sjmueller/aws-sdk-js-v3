@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  GetSystemTemplateRevisionsRequest,
-  GetSystemTemplateRevisionsResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { GetSystemTemplateRevisionsRequest, GetSystemTemplateRevisionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetSystemTemplateRevisionsCommand,
-  serializeAws_json1_1GetSystemTemplateRevisionsCommand
+  serializeAws_json1_1GetSystemTemplateRevisionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetSystemTemplateRevisionsCommandInput = GetSystemTemplateRevisionsRequest;
-export type GetSystemTemplateRevisionsCommandOutput = GetSystemTemplateRevisionsResponse &
-  __MetadataBearer;
+export type GetSystemTemplateRevisionsCommandOutput = GetSystemTemplateRevisionsResponse & __MetadataBearer;
 
 export class GetSystemTemplateRevisionsCommand extends $Command<
   GetSystemTemplateRevisionsCommandInput,
@@ -49,18 +38,16 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSystemTemplateRevisionsCommandInput,
-    GetSystemTemplateRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSystemTemplateRevisionsCommandInput, GetSystemTemplateRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetSystemTemplateRevisionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSystemTemplateRevisionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSystemTemplateRevisionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSystemTemplateRevisionsCommand(
-      input,
-      context
-    );
+  private serialize(input: GetSystemTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetSystemTemplateRevisionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSystemTemplateRevisionsCommandOutput> {
-    return deserializeAws_json1_1GetSystemTemplateRevisionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSystemTemplateRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

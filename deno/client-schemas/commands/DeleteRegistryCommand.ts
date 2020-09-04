@@ -1,18 +1,11 @@
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
 import { DeleteRegistryRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteRegistryCommand,
-  serializeAws_restJson1DeleteRegistryCommand
+  serializeAws_restJson1DeleteRegistryCommand,
 } from "../protocols/Aws_restJson1.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteRegistryCommandInput = DeleteRegistryRequest;
@@ -30,7 +23,7 @@ export type DeleteRegistryCommandOutput = __MetadataBearer;
 export class DeleteRegistryCommand extends $Command<
   DeleteRegistryCommandInput,
   DeleteRegistryCommandOutput,
-  schemasClientResolvedConfig
+  SchemasClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,17 +36,18 @@ export class DeleteRegistryCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: schemasClientResolvedConfig,
+    configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRegistryCommandInput, DeleteRegistryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteRegistryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class DeleteRegistryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRegistryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRegistryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteRegistryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistryCommandOutput> {
     return deserializeAws_restJson1DeleteRegistryCommand(output, context);
   }
 

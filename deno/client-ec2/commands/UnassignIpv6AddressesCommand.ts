@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  UnassignIpv6AddressesRequest,
-  UnassignIpv6AddressesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2UnassignIpv6AddressesCommand,
-  serializeAws_ec2UnassignIpv6AddressesCommand
+  serializeAws_ec2UnassignIpv6AddressesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UnassignIpv6AddressesCommandInput = UnassignIpv6AddressesRequest;
-export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult &
-  __MetadataBearer;
+export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult & __MetadataBearer;
 
 export class UnassignIpv6AddressesCommand extends $Command<
   UnassignIpv6AddressesCommandInput,
@@ -49,18 +38,16 @@ export class UnassignIpv6AddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UnassignIpv6AddressesCommandInput,
-    UnassignIpv6AddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UnassignIpv6AddressesCommandInput, UnassignIpv6AddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UnassignIpv6AddressesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnassignIpv6AddressesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UnassignIpv6AddressesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnassignIpv6AddressesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnassignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2UnassignIpv6AddressesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnassignIpv6AddressesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignIpv6AddressesCommandOutput> {
     return deserializeAws_ec2UnassignIpv6AddressesCommand(output, context);
   }
 

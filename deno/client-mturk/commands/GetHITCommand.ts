@@ -1,18 +1,8 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import { GetHITRequest, GetHITResponse } from "../models/index.ts";
-import {
-  deserializeAws_json1_1GetHITCommand,
-  serializeAws_json1_1GetHITCommand
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1GetHITCommand, serializeAws_json1_1GetHITCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetHITCommandInput = GetHITRequest;
 export type GetHITCommandOutput = GetHITResponse & __MetadataBearer;
 
-export class GetHITCommand extends $Command<
-  GetHITCommandInput,
-  GetHITCommandOutput,
-  MTurkClientResolvedConfig
-> {
+export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,15 @@ export class GetHITCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHITCommandInput, GetHITCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +50,11 @@ export class GetHITCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetHITCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHITCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetHITCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> {
     return deserializeAws_json1_1GetHITCommand(output, context);
   }
 

@@ -1,21 +1,14 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient.ts";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
 import {
   GetAggregateConfigRuleComplianceSummaryRequest,
-  GetAggregateConfigRuleComplianceSummaryResponse
+  GetAggregateConfigRuleComplianceSummaryResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
-  serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand
+  serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAggregateConfigRuleComplianceSummaryCommandInput = GetAggregateConfigRuleComplianceSummaryRequest;
@@ -39,9 +32,7 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetAggregateConfigRuleComplianceSummaryCommandInput
-  ) {
+  constructor(readonly input: GetAggregateConfigRuleComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     GetAggregateConfigRuleComplianceSummaryCommandInput,
     GetAggregateConfigRuleComplianceSummaryCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateConfigRuleComplianceSummaryResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<
     input: GetAggregateConfigRuleComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

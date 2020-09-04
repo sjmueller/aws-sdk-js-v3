@@ -1,21 +1,15 @@
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient.ts";
-import {
-  DescribeReportCreationInput,
-  DescribeReportCreationOutput
-} from "../models/index.ts";
+import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeReportCreationCommand,
-  serializeAws_json1_1DescribeReportCreationCommand
+  serializeAws_json1_1DescribeReportCreationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeReportCreationCommandInput = DescribeReportCreationInput;
-export type DescribeReportCreationCommandOutput = DescribeReportCreationOutput &
-  __MetadataBearer;
+export type DescribeReportCreationCommandOutput = DescribeReportCreationOutput & __MetadataBearer;
 
 export class DescribeReportCreationCommand extends $Command<
   DescribeReportCreationCommandInput,
@@ -49,18 +42,16 @@ export class DescribeReportCreationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReportCreationCommandInput,
-    DescribeReportCreationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReportCreationCommandInput, DescribeReportCreationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeReportCreationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReportCreationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DescribeReportCreationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeReportCreationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReportCreationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeReportCreationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportCreationCommandOutput> {
     return deserializeAws_json1_1DescribeReportCreationCommand(output, context);
   }
 

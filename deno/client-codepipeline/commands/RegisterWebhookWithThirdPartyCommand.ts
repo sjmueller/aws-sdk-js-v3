@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
-import {
-  RegisterWebhookWithThirdPartyInput,
-  RegisterWebhookWithThirdPartyOutput
-} from "../models/index.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
+import { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
-  serializeAws_json1_1RegisterWebhookWithThirdPartyCommand
+  serializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterWebhookWithThirdPartyCommandInput = RegisterWebhookWithThirdPartyInput;
-export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput &
-  __MetadataBearer;
+export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput & __MetadataBearer;
 
 export class RegisterWebhookWithThirdPartyCommand extends $Command<
   RegisterWebhookWithThirdPartyCommandInput,
@@ -49,18 +38,16 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterWebhookWithThirdPartyCommandInput,
-    RegisterWebhookWithThirdPartyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterWebhookWithThirdPartyCommandInput, RegisterWebhookWithThirdPartyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterWebhookWithThirdPartyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterWebhookWithThirdPartyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterWebhookWithThirdPartyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
-      input,
-      context
-    );
+  private serialize(input: RegisterWebhookWithThirdPartyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

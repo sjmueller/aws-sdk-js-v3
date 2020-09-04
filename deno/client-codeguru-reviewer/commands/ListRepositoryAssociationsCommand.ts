@@ -1,21 +1,15 @@
 import {
   CodeGuruReviewerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeGuruReviewerClient.ts";
-import {
-  ListRepositoryAssociationsRequest,
-  ListRepositoryAssociationsResponse
-} from "../models/index.ts";
+import { ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListRepositoryAssociationsCommand,
-  serializeAws_restJson1ListRepositoryAssociationsCommand
+  serializeAws_restJson1ListRepositoryAssociationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListRepositoryAssociationsCommandInput = ListRepositoryAssociationsRequest;
-export type ListRepositoryAssociationsCommandOutput = ListRepositoryAssociationsResponse &
-  __MetadataBearer;
+export type ListRepositoryAssociationsCommandOutput = ListRepositoryAssociationsResponse & __MetadataBearer;
 
 export class ListRepositoryAssociationsCommand extends $Command<
   ListRepositoryAssociationsCommandInput,
@@ -49,18 +42,16 @@ export class ListRepositoryAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRepositoryAssociationsCommandInput,
-    ListRepositoryAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRepositoryAssociationsCommandInput, ListRepositoryAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListRepositoryAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRepositoryAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class ListRepositoryAssociationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRepositoryAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRepositoryAssociationsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListRepositoryAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListRepositoryAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositoryAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListRepositoryAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListRepositoryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

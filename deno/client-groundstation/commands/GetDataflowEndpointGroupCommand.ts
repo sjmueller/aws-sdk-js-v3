@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient.ts";
-import {
-  GetDataflowEndpointGroupRequest,
-  GetDataflowEndpointGroupResponse
-} from "../models/index.ts";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
+import { GetDataflowEndpointGroupRequest, GetDataflowEndpointGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDataflowEndpointGroupCommand,
-  serializeAws_restJson1GetDataflowEndpointGroupCommand
+  serializeAws_restJson1GetDataflowEndpointGroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDataflowEndpointGroupCommandInput = GetDataflowEndpointGroupRequest;
-export type GetDataflowEndpointGroupCommandOutput = GetDataflowEndpointGroupResponse &
-  __MetadataBearer;
+export type GetDataflowEndpointGroupCommandOutput = GetDataflowEndpointGroupResponse & __MetadataBearer;
 
 export class GetDataflowEndpointGroupCommand extends $Command<
   GetDataflowEndpointGroupCommandInput,
@@ -49,18 +38,16 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataflowEndpointGroupCommandInput,
-    GetDataflowEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataflowEndpointGroupCommandInput, GetDataflowEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDataflowEndpointGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowEndpointGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,12 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataflowEndpointGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataflowEndpointGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: GetDataflowEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetDataflowEndpointGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1GetDataflowEndpointGroupCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowEndpointGroupCommandOutput> {
+    return deserializeAws_restJson1GetDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

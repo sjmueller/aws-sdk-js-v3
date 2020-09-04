@@ -1,21 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient.ts";
-import {
-  GenerateDataKeyRequest,
-  GenerateDataKeyResponse
-} from "../models/index.ts";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
+import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GenerateDataKeyCommand,
-  serializeAws_json1_1GenerateDataKeyCommand
+  serializeAws_json1_1GenerateDataKeyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GenerateDataKeyCommandInput = GenerateDataKeyRequest;
-export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse &
-  __MetadataBearer;
+export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse & __MetadataBearer;
 
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,
@@ -50,14 +39,15 @@ export class GenerateDataKeyCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GenerateDataKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GenerateDataKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GenerateDataKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GenerateDataKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GenerateDataKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyCommand(output, context);
   }
 

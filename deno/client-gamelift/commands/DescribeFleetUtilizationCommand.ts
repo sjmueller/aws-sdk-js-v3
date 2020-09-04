@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeFleetUtilizationCommand,
-  serializeAws_json1_1DescribeFleetUtilizationCommand
+  serializeAws_json1_1DescribeFleetUtilizationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeFleetUtilizationCommandInput = DescribeFleetUtilizationInput;
-export type DescribeFleetUtilizationCommandOutput = DescribeFleetUtilizationOutput &
-  __MetadataBearer;
+export type DescribeFleetUtilizationCommandOutput = DescribeFleetUtilizationOutput & __MetadataBearer;
 
 export class DescribeFleetUtilizationCommand extends $Command<
   DescribeFleetUtilizationCommandInput,
@@ -49,18 +38,16 @@ export class DescribeFleetUtilizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetUtilizationCommandInput,
-    DescribeFleetUtilizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetUtilizationCommandInput, DescribeFleetUtilizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeFleetUtilizationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetUtilizationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeFleetUtilizationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFleetUtilizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFleetUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFleetUtilizationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFleetUtilizationCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetUtilizationCommandOutput> {
+    return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

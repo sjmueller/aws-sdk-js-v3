@@ -1,30 +1,25 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface CloseTunnelRequest {
   __type?: "CloseTunnelRequest";
   /**
+   * <p>The ID of the tunnel to close.</p>
+   */
+  tunnelId: string | undefined;
+
+  /**
    * <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data
    * 			immediately.</p>
    */
   delete?: boolean;
-
-  /**
-   * <p>The ID of the tunnel to close.</p>
-   */
-  tunnelId: string | undefined;
 }
 
 export namespace CloseTunnelRequest {
   export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloseTunnelRequest =>
-    __isa(o, "CloseTunnelRequest");
+  export const isa = (o: any): o is CloseTunnelRequest => __isa(o, "CloseTunnelRequest");
 }
 
 export interface CloseTunnelResponse {
@@ -33,10 +28,9 @@ export interface CloseTunnelResponse {
 
 export namespace CloseTunnelResponse {
   export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloseTunnelResponse =>
-    __isa(o, "CloseTunnelResponse");
+  export const isa = (o: any): o is CloseTunnelResponse => __isa(o, "CloseTunnelResponse");
 }
 
 /**
@@ -45,28 +39,27 @@ export namespace CloseTunnelResponse {
 export interface ConnectionState {
   __type?: "ConnectionState";
   /**
-   * <p>The last time the connection status was updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
   status?: ConnectionStatus | string;
+
+  /**
+   * <p>The last time the connection status was updated.</p>
+   */
+  lastUpdatedAt?: Date;
 }
 
 export namespace ConnectionState {
   export const filterSensitiveLog = (obj: ConnectionState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionState =>
-    __isa(o, "ConnectionState");
+  export const isa = (o: any): o is ConnectionState => __isa(o, "ConnectionState");
 }
 
 export enum ConnectionStatus {
   CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED"
+  DISCONNECTED = "DISCONNECTED",
 }
 
 export interface DescribeTunnelRequest {
@@ -79,10 +72,9 @@ export interface DescribeTunnelRequest {
 
 export namespace DescribeTunnelRequest {
   export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTunnelRequest =>
-    __isa(o, "DescribeTunnelRequest");
+  export const isa = (o: any): o is DescribeTunnelRequest => __isa(o, "DescribeTunnelRequest");
 }
 
 export interface DescribeTunnelResponse {
@@ -95,10 +87,9 @@ export interface DescribeTunnelResponse {
 
 export namespace DescribeTunnelResponse {
   export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTunnelResponse =>
-    __isa(o, "DescribeTunnelResponse");
+  export const isa = (o: any): o is DescribeTunnelResponse => __isa(o, "DescribeTunnelResponse");
 }
 
 /**
@@ -107,6 +98,11 @@ export namespace DescribeTunnelResponse {
 export interface DestinationConfig {
   __type?: "DestinationConfig";
   /**
+   * <p>The name of the IoT thing to which you want to connect.</p>
+   */
+  thingName: string | undefined;
+
+  /**
    * <p>A list of service names that identity the target application. Currently, you can
    * 			only specify a single name. The AWS IoT client running on the destination device reads
    * 			this value and uses it to look up a port or an IP address and a port. The AWS IoT client
@@ -114,27 +110,19 @@ export interface DestinationConfig {
    * 			application.</p>
    */
   services: string[] | undefined;
-
-  /**
-   * <p>The name of the IoT thing to which you want to connect.</p>
-   */
-  thingName: string | undefined;
 }
 
 export namespace DestinationConfig {
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DestinationConfig =>
-    __isa(o, "DestinationConfig");
+  export const isa = (o: any): o is DestinationConfig => __isa(o, "DestinationConfig");
 }
 
 /**
  * <p>Thrown when a tunnel limit is exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -142,10 +130,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -158,10 +145,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -173,17 +159,19 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTunnelsRequest {
   __type?: "ListTunnelsRequest";
+  /**
+   * <p>The name of the IoT thing associated with the destination device.</p>
+   */
+  thingName?: string;
+
   /**
    * <p>The maximum number of results to return at once.</p>
    */
@@ -193,19 +181,13 @@ export interface ListTunnelsRequest {
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The name of the IoT thing associated with the destination device.</p>
-   */
-  thingName?: string;
 }
 
 export namespace ListTunnelsRequest {
   export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTunnelsRequest =>
-    __isa(o, "ListTunnelsRequest");
+  export const isa = (o: any): o is ListTunnelsRequest => __isa(o, "ListTunnelsRequest");
 }
 
 export interface ListTunnelsResponse {
@@ -223,24 +205,13 @@ export interface ListTunnelsResponse {
 
 export namespace ListTunnelsResponse {
   export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTunnelsResponse =>
-    __isa(o, "ListTunnelsResponse");
+  export const isa = (o: any): o is ListTunnelsResponse => __isa(o, "ListTunnelsResponse");
 }
 
 export interface OpenTunnelRequest {
   __type?: "OpenTunnelRequest";
-  /**
-   * <p>A short text description of the tunnel. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The destination configuration for the OpenTunnel request.</p>
-   */
-  destinationConfig?: DestinationConfig;
-
   /**
    * <p>A collection of tag metadata.</p>
    */
@@ -250,18 +221,34 @@ export interface OpenTunnelRequest {
    * <p>Timeout configuration for a tunnel.</p>
    */
   timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>The destination configuration for the OpenTunnel request.</p>
+   */
+  destinationConfig?: DestinationConfig;
+
+  /**
+   * <p>A short text description of the tunnel. </p>
+   */
+  description?: string;
 }
 
 export namespace OpenTunnelRequest {
   export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OpenTunnelRequest =>
-    __isa(o, "OpenTunnelRequest");
+  export const isa = (o: any): o is OpenTunnelRequest => __isa(o, "OpenTunnelRequest");
 }
 
 export interface OpenTunnelResponse {
   __type?: "OpenTunnelResponse";
+  /**
+   * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
+   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
+   *          </p>
+   */
+  tunnelArn?: string;
+
   /**
    * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
    * 			Tunneling.</p>
@@ -275,13 +262,6 @@ export interface OpenTunnelResponse {
   sourceAccessToken?: string;
 
   /**
-   * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
-   */
-  tunnelArn?: string;
-
-  /**
    * <p>A unique alpha-numeric tunnel ID.</p>
    */
   tunnelId?: string;
@@ -290,21 +270,16 @@ export interface OpenTunnelResponse {
 export namespace OpenTunnelResponse {
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
-    ...(obj.destinationAccessToken && {
-      destinationAccessToken: SENSITIVE_STRING
-    }),
-    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING })
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is OpenTunnelResponse =>
-    __isa(o, "OpenTunnelResponse");
+  export const isa = (o: any): o is OpenTunnelResponse => __isa(o, "OpenTunnelResponse");
 }
 
 /**
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -312,10 +287,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -337,7 +311,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -345,22 +319,21 @@ export namespace Tag {
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The tags for the resource.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -369,10 +342,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -390,7 +362,7 @@ export interface TimeoutConfig {
 
 export namespace TimeoutConfig {
   export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TimeoutConfig => __isa(o, "TimeoutConfig");
 }
@@ -406,43 +378,6 @@ export interface Tunnel {
   createdAt?: Date;
 
   /**
-   * <p>A description of the tunnel.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The destination configuration that specifies the thing name of the destination
-   * 			device and a service name that the local proxy uses to connect to the destination
-   * 			application.</p>
-   */
-  destinationConfig?: DestinationConfig;
-
-  /**
-   * <p>The connection state of the destination application.</p>
-   */
-  destinationConnectionState?: ConnectionState;
-
-  /**
-   * <p>The last time the tunnel was updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The connection state of the source application.</p>
-   */
-  sourceConnectionState?: ConnectionState;
-
-  /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
-   */
-  status?: TunnelStatus | string;
-
-  /**
-   * <p>A list of tag metadata associated with the secure tunnel.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>Timeout configuration for the tunnel.</p>
    */
   timeoutConfig?: TimeoutConfig;
@@ -455,21 +390,58 @@ export interface Tunnel {
   tunnelArn?: string;
 
   /**
+   * <p>The last time the tunnel was updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The connection state of the source application.</p>
+   */
+  sourceConnectionState?: ConnectionState;
+
+  /**
    * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
    */
   tunnelId?: string;
+
+  /**
+   * <p>The connection state of the destination application.</p>
+   */
+  destinationConnectionState?: ConnectionState;
+
+  /**
+   * <p>A description of the tunnel.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
+   */
+  status?: TunnelStatus | string;
+
+  /**
+   * <p>The destination configuration that specifies the thing name of the destination
+   * 			device and a service name that the local proxy uses to connect to the destination
+   * 			application.</p>
+   */
+  destinationConfig?: DestinationConfig;
+
+  /**
+   * <p>A list of tag metadata associated with the secure tunnel.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace Tunnel {
   export const filterSensitiveLog = (obj: Tunnel): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tunnel => __isa(o, "Tunnel");
 }
 
 export enum TunnelStatus {
   CLOSED = "CLOSED",
-  OPEN = "OPEN"
+  OPEN = "OPEN",
 }
 
 /**
@@ -477,16 +449,6 @@ export enum TunnelStatus {
  */
 export interface TunnelSummary {
   __type?: "TunnelSummary";
-  /**
-   * <p>The time the tunnel was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>A description of the tunnel.</p>
-   */
-  description?: string;
-
   /**
    * <p>The time the tunnel was last updated.</p>
    */
@@ -505,6 +467,16 @@ export interface TunnelSummary {
   tunnelArn?: string;
 
   /**
+   * <p>A description of the tunnel.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The time the tunnel was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
    * <p>The unique alpha-numeric identifier for the tunnel.</p>
    */
   tunnelId?: string;
@@ -512,7 +484,7 @@ export interface TunnelSummary {
 
 export namespace TunnelSummary {
   export const filterSensitiveLog = (obj: TunnelSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TunnelSummary => __isa(o, "TunnelSummary");
 }
@@ -520,22 +492,21 @@ export namespace TunnelSummary {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The resource ARN.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>The keys of the tags to remove.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The resource ARN.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -544,8 +515,7 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

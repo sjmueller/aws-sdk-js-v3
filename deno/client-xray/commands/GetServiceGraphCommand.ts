@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
 import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetServiceGraphCommand,
-  serializeAws_restJson1GetServiceGraphCommand
+  serializeAws_restJson1GetServiceGraphCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetServiceGraphCommandInput = GetServiceGraphRequest;
-export type GetServiceGraphCommandOutput = GetServiceGraphResult &
-  __MetadataBearer;
+export type GetServiceGraphCommandOutput = GetServiceGraphResult & __MetadataBearer;
 
 export class GetServiceGraphCommand extends $Command<
   GetServiceGraphCommandInput,
@@ -47,14 +39,15 @@ export class GetServiceGraphCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetServiceGraphCommandInput, GetServiceGraphCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetServiceGraphCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetServiceGraphCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetServiceGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetServiceGraphCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetServiceGraphCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceGraphCommandOutput> {
     return deserializeAws_restJson1GetServiceGraphCommand(output, context);
   }
 

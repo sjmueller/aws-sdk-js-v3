@@ -1,22 +1,12 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand
+  serializeAws_queryCopyDBClusterSnapshotCommand,
 } from "../protocols/Aws_query.ts";
 import { getCrossRegionPresignedUrlPlugin } from "../../middleware-sdk-rds/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
-export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult &
-  __MetadataBearer;
+export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & __MetadataBearer;
 
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,
@@ -50,19 +39,17 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CopyDBClusterSnapshotCommandInput,
-    CopyDBClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CopyDBClusterSnapshotCommandInput, CopyDBClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CopyDBClusterSnapshotMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBClusterSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,17 +59,11 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopyDBClusterSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CopyDBClusterSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
     return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
   }
 

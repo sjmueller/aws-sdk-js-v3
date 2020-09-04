@@ -1,18 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
 import { RequestEnvironmentInfoMessage } from "../models/index.ts";
 import {
   deserializeAws_queryRequestEnvironmentInfoCommand,
-  serializeAws_queryRequestEnvironmentInfoCommand
+  serializeAws_queryRequestEnvironmentInfoCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RequestEnvironmentInfoCommandInput = RequestEnvironmentInfoMessage;
@@ -45,18 +42,16 @@ export class RequestEnvironmentInfoCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RequestEnvironmentInfoCommandInput,
-    RequestEnvironmentInfoCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RequestEnvironmentInfoCommandInput, RequestEnvironmentInfoCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RequestEnvironmentInfoMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +61,11 @@ export class RequestEnvironmentInfoCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RequestEnvironmentInfoCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RequestEnvironmentInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRequestEnvironmentInfoCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RequestEnvironmentInfoCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestEnvironmentInfoCommandOutput> {
     return deserializeAws_queryRequestEnvironmentInfoCommand(output, context);
   }
 

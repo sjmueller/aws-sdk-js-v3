@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  CacheSecurityGroupMessage,
-  DescribeCacheSecurityGroupsMessage
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeCacheSecurityGroupsCommand,
-  serializeAws_queryDescribeCacheSecurityGroupsCommand
+  serializeAws_queryDescribeCacheSecurityGroupsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeCacheSecurityGroupsCommandInput = DescribeCacheSecurityGroupsMessage;
-export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage &
-  __MetadataBearer;
+export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage & __MetadataBearer;
 
 export class DescribeCacheSecurityGroupsCommand extends $Command<
   DescribeCacheSecurityGroupsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCacheSecurityGroupsCommandInput,
-    DescribeCacheSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCacheSecurityGroupsCommandInput, DescribeCacheSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeCacheSecurityGroupsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheSecurityGroupMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCacheSecurityGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCacheSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheSecurityGroupsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

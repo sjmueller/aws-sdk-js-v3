@@ -1,21 +1,11 @@
-import {
-  CreateSavingsPlanRequest,
-  CreateSavingsPlanResponse
-} from "../models/index.ts";
+import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient.ts";
+import { CreateSavingsPlanRequest, CreateSavingsPlanResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateSavingsPlanCommand,
-  serializeAws_restJson1CreateSavingsPlanCommand
+  serializeAws_restJson1CreateSavingsPlanCommand,
 } from "../protocols/Aws_restJson1.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  savingsplansClientResolvedConfig
-} from "../savingsplansClient.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSavingsPlanCommandInput = CreateSavingsPlanRequest;
-export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse &
-  __MetadataBearer;
+export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse & __MetadataBearer;
 
 export class CreateSavingsPlanCommand extends $Command<
   CreateSavingsPlanCommandInput,
   CreateSavingsPlanCommandOutput,
-  savingsplansClientResolvedConfig
+  SavingsplansClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,18 @@ export class CreateSavingsPlanCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: savingsplansClientResolvedConfig,
+    configuration: SavingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSavingsPlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSavingsPlanResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateSavingsPlanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSavingsPlanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSavingsPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSavingsPlanCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSavingsPlanCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSavingsPlanCommandOutput> {
     return deserializeAws_restJson1CreateSavingsPlanCommand(output, context);
   }
 

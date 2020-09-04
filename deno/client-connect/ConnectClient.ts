@@ -1,118 +1,98 @@
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand.ts";
 import {
   DescribeUserHierarchyGroupCommandInput,
-  DescribeUserHierarchyGroupCommandOutput
+  DescribeUserHierarchyGroupCommandOutput,
 } from "./commands/DescribeUserHierarchyGroupCommand.ts";
 import {
   DescribeUserHierarchyStructureCommandInput,
-  DescribeUserHierarchyStructureCommandOutput
+  DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand.ts";
 import {
   GetContactAttributesCommandInput,
-  GetContactAttributesCommandOutput
+  GetContactAttributesCommandOutput,
 } from "./commands/GetContactAttributesCommand.ts";
 import {
   GetCurrentMetricDataCommandInput,
-  GetCurrentMetricDataCommandOutput
+  GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand.ts";
 import {
   GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
+  GetFederationTokenCommandOutput,
 } from "./commands/GetFederationTokenCommand.ts";
-import {
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
-} from "./commands/GetMetricDataCommand.ts";
-import {
-  ListContactFlowsCommandInput,
-  ListContactFlowsCommandOutput
-} from "./commands/ListContactFlowsCommand.ts";
+import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand.ts";
+import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand.ts";
 import {
   ListHoursOfOperationsCommandInput,
-  ListHoursOfOperationsCommandOutput
+  ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand.ts";
-import {
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
-} from "./commands/ListPhoneNumbersCommand.ts";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand.ts";
+import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand.ts";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand.ts";
 import {
   ListRoutingProfilesCommandInput,
-  ListRoutingProfilesCommandOutput
+  ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand.ts";
 import {
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListUserHierarchyGroupsCommandInput,
-  ListUserHierarchyGroupsCommandOutput
+  ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand.ts";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+  ResumeContactRecordingCommandInput,
+  ResumeContactRecordingCommandOutput,
+} from "./commands/ResumeContactRecordingCommand.ts";
+import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand.ts";
 import {
-  StartChatContactCommandInput,
-  StartChatContactCommandOutput
-} from "./commands/StartChatContactCommand.ts";
+  StartContactRecordingCommandInput,
+  StartContactRecordingCommandOutput,
+} from "./commands/StartContactRecordingCommand.ts";
 import {
   StartOutboundVoiceContactCommandInput,
-  StartOutboundVoiceContactCommandOutput
+  StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand.ts";
+import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand.ts";
 import {
-  StopContactCommandInput,
-  StopContactCommandOutput
-} from "./commands/StopContactCommand.ts";
+  StopContactRecordingCommandInput,
+  StopContactRecordingCommandOutput,
+} from "./commands/StopContactRecordingCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+  SuspendContactRecordingCommandInput,
+  SuspendContactRecordingCommandOutput,
+} from "./commands/SuspendContactRecordingCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateContactAttributesCommandInput,
-  UpdateContactAttributesCommandOutput
+  UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand.ts";
 import {
   UpdateUserHierarchyCommandInput,
-  UpdateUserHierarchyCommandOutput
+  UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand.ts";
 import {
   UpdateUserIdentityInfoCommandInput,
-  UpdateUserIdentityInfoCommandOutput
+  UpdateUserIdentityInfoCommandOutput,
 } from "./commands/UpdateUserIdentityInfoCommand.ts";
 import {
   UpdateUserPhoneConfigCommandInput,
-  UpdateUserPhoneConfigCommandOutput
+  UpdateUserPhoneConfigCommandOutput,
 } from "./commands/UpdateUserPhoneConfigCommand.ts";
 import {
   UpdateUserRoutingProfileCommandInput,
-  UpdateUserRoutingProfileCommandOutput
+  UpdateUserRoutingProfileCommandOutput,
 } from "./commands/UpdateUserRoutingProfileCommand.ts";
 import {
   UpdateUserSecurityProfilesCommandInput,
-  UpdateUserSecurityProfilesCommandOutput
+  UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -121,38 +101,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -161,9 +137,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -185,9 +162,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | ResumeContactRecordingCommandInput
   | StartChatContactCommandInput
+  | StartContactRecordingCommandInput
   | StartOutboundVoiceContactCommandInput
   | StopContactCommandInput
+  | StopContactRecordingCommandInput
+  | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContactAttributesCommandInput
@@ -216,9 +197,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | ResumeContactRecordingCommandOutput
   | StartChatContactCommandOutput
+  | StartContactRecordingCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StopContactCommandOutput
+  | StopContactRecordingCommandOutput
+  | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContactAttributesCommandOutput
@@ -228,8 +213,7 @@ export type ServiceOutputTypes =
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -303,14 +287,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -318,9 +307,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +316,7 @@ export type ConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -361,7 +346,7 @@ export class ConnectClient extends __Client<
   constructor(configuration: ConnectClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -376,6 +361,7 @@ export class ConnectClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

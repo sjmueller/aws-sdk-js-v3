@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  DeleteGcmChannelRequest,
-  DeleteGcmChannelResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteGcmChannelCommand,
-  serializeAws_restJson1DeleteGcmChannelCommand
+  serializeAws_restJson1DeleteGcmChannelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteGcmChannelCommandInput = DeleteGcmChannelRequest;
-export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse &
-  __MetadataBearer;
+export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse & __MetadataBearer;
 
 export class DeleteGcmChannelCommand extends $Command<
   DeleteGcmChannelCommandInput,
@@ -50,14 +39,15 @@ export class DeleteGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteGcmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGcmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteGcmChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGcmChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGcmChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGcmChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGcmChannelCommandOutput> {
     return deserializeAws_restJson1DeleteGcmChannelCommand(output, context);
   }
 

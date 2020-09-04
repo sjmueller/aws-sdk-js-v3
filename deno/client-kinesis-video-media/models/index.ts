@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 type Readable = any;
 
@@ -10,53 +6,38 @@ type Readable = any;
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ClientLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException =>
-    __isa(o, "ClientLimitExceededException");
+  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
  */
-export interface ConnectionLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConnectionLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ConnectionLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ConnectionLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ConnectionLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConnectionLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConnectionLimitExceededException =>
-    __isa(o, "ConnectionLimitExceededException");
+  export const isa = (o: any): o is ConnectionLimitExceededException => __isa(o, "ConnectionLimitExceededException");
 }
 
 export interface GetMediaInput {
   __type?: "GetMediaInput";
-  /**
-   * <p>Identifies the starting chunk to get from the specified stream. </p>
-   */
-  StartSelector: StartSelector | undefined;
-
   /**
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
@@ -69,11 +50,16 @@ export interface GetMediaInput {
    *       <code>streamARN</code>.</p>
    */
   StreamName?: string;
+
+  /**
+   * <p>Identifies the starting chunk to get from the specified stream. </p>
+   */
+  StartSelector: StartSelector | undefined;
 }
 
 export namespace GetMediaInput {
   export const filterSensitiveLog = (obj: GetMediaInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetMediaInput => __isa(o, "GetMediaInput");
 }
@@ -160,18 +146,15 @@ export interface GetMediaOutput {
 
 export namespace GetMediaOutput {
   export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetMediaOutput =>
-    __isa(o, "GetMediaOutput");
+  export const isa = (o: any): o is GetMediaOutput => __isa(o, "GetMediaOutput");
 }
 
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -179,10 +162,9 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -191,9 +173,7 @@ export namespace InvalidArgumentException {
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
  *         <code>GetMedia</code> call. </p>
  */
-export interface InvalidEndpointException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
@@ -201,19 +181,16 @@ export interface InvalidEndpointException
 
 export namespace InvalidEndpointException {
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidEndpointException =>
-    __isa(o, "InvalidEndpointException");
+  export const isa = (o: any): o is InvalidEndpointException => __isa(o, "InvalidEndpointException");
 }
 
 /**
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -221,18 +198,15 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -240,10 +214,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -270,17 +243,24 @@ export namespace ResourceNotFoundException {
 export interface StartSelector {
   __type?: "StartSelector";
   /**
-   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
-   *       start returning the fragments. </p>
-   */
-  AfterFragmentNumber?: string;
-
-  /**
    * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
    *       identified by the continuation token.</p>
    */
   ContinuationToken?: string;
+
+  /**
+   * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
+   *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
+   *       starts with the chunk containing the fragment that has the specified timestamp.</p>
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
+   *       start returning the fragments. </p>
+   */
+  AfterFragmentNumber?: string;
 
   /**
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
@@ -312,18 +292,11 @@ export interface StartSelector {
    *          </note>
    */
   StartSelectorType: StartSelectorType | string | undefined;
-
-  /**
-   * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
-   *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
-   *       starts with the chunk containing the fragment that has the specified timestamp.</p>
-   */
-  StartTimestamp?: Date;
 }
 
 export namespace StartSelector {
   export const filterSensitiveLog = (obj: StartSelector): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StartSelector => __isa(o, "StartSelector");
 }
@@ -334,5 +307,5 @@ export enum StartSelectorType {
   FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
   NOW = "NOW",
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }

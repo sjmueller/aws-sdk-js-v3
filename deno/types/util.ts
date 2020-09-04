@@ -1,9 +1,5 @@
 import { Endpoint } from "./http.ts";
-import {
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput
-} from "./middleware.ts";
+import { FinalizeHandler, FinalizeHandlerArguments, FinalizeHandlerOutput } from "./middleware.ts";
 import { MetadataBearer } from "./response.ts";
 
 /**
@@ -81,6 +77,7 @@ export interface UrlParser {
  */
 export interface RegionInfo {
   hostname: string;
+  partition: string;
   path?: string;
   signingService?: string;
   signingRegion?: string;

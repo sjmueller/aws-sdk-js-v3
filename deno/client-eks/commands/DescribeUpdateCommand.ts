@@ -1,18 +1,11 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient.ts";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
 import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeUpdateCommand,
-  serializeAws_restJson1DescribeUpdateCommand
+  serializeAws_restJson1DescribeUpdateCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeUpdateCommandInput = DescribeUpdateRequest;
-export type DescribeUpdateCommandOutput = DescribeUpdateResponse &
-  __MetadataBearer;
+export type DescribeUpdateCommandOutput = DescribeUpdateResponse & __MetadataBearer;
 
 export class DescribeUpdateCommand extends $Command<
   DescribeUpdateCommandInput,
@@ -47,14 +39,15 @@ export class DescribeUpdateCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeUpdateCommandInput, DescribeUpdateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DescribeUpdateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeUpdateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeUpdateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeUpdateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateCommandOutput> {
     return deserializeAws_restJson1DescribeUpdateCommand(output, context);
   }
 

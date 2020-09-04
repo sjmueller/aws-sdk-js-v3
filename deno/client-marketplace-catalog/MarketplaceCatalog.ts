@@ -2,38 +2,38 @@ import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient.ts";
 import {
   CancelChangeSetCommand,
   CancelChangeSetCommandInput,
-  CancelChangeSetCommandOutput
+  CancelChangeSetCommandOutput,
 } from "./commands/CancelChangeSetCommand.ts";
 import {
   DescribeChangeSetCommand,
   DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
+  DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand.ts";
 import {
   DescribeEntityCommand,
   DescribeEntityCommandInput,
-  DescribeEntityCommandOutput
+  DescribeEntityCommandOutput,
 } from "./commands/DescribeEntityCommand.ts";
 import {
   ListChangeSetsCommand,
   ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
+  ListChangeSetsCommandOutput,
 } from "./commands/ListChangeSetsCommand.ts";
 import {
   ListEntitiesCommand,
   ListEntitiesCommandInput,
-  ListEntitiesCommandOutput
+  ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand.ts";
 import {
   StartChangeSetCommand,
   StartChangeSetCommandInput,
-  StartChangeSetCommandOutput
+  StartChangeSetCommandOutput,
 } from "./commands/StartChangeSetCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <p>Catalog API actions allow you to create, describe, list, and delete changes to your
- *             published entities. An entity is a product or an offer on AWS Marketplace.</p>
+ * <p>Catalog API actions allow you to manage your entities through list, describe, and update
+ *             capabilities. An entity can be a product or an offer on AWS Marketplace.</p>
  *
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
@@ -62,17 +62,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public cancelChangeSet(
     args: CancelChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): Promise<CancelChangeSetCommandOutput> | void {
     const command = new CancelChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -97,17 +94,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public describeChangeSet(
     args: DescribeChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
   ): Promise<DescribeChangeSetCommandOutput> | void {
     const command = new DescribeChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -132,17 +126,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public describeEntity(
     args: DescribeEntityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntityCommandOutput) => void
   ): Promise<DescribeEntityCommandOutput> | void {
     const command = new DescribeEntityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -173,17 +164,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listChangeSets(
     args: ListChangeSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangeSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangeSetsCommandOutput) => void),
     cb?: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): Promise<ListChangeSetsCommandOutput> | void {
     const command = new ListChangeSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -197,10 +185,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
     args: ListEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEntitiesCommandOutput>;
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    cb: (err: any, data?: ListEntitiesCommandOutput) => void
-  ): void;
+  public listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
   public listEntities(
     args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -208,17 +193,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listEntities(
     args: ListEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesCommandOutput) => void
   ): Promise<ListEntitiesCommandOutput> | void {
     const command = new ListEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -226,7 +208,17 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   }
 
   /**
-   * <p>This operation allows you to request changes in your entities.</p>
+   * <p>This operation allows you to request changes for your entities. Within a single
+   *             ChangeSet, you cannot start the same change type against the same entity multiple times.
+   *             Additionally, when a ChangeSet is running, all the entities targeted by the different
+   *             changes are locked until the ChangeSet has completed (either succeeded, cancelled, or failed). If
+   *             you try to start a ChangeSet containing a change against an entity that is already
+   *             locked, you will receive a <code>ResourceInUseException</code>.</p>
+   *
+   *
+   *         <p>For example, you cannot start the ChangeSet described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> below because it contains two changes to execute the same change
+   *             type (<code>AddRevisions</code>) against the same entity
+   *             (<code>entity-id@1)</code>.</p>
    */
   public startChangeSet(
     args: StartChangeSetCommandInput,
@@ -243,17 +235,14 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public startChangeSet(
     args: StartChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChangeSetCommandOutput) => void),
     cb?: (err: any, data?: StartChangeSetCommandOutput) => void
   ): Promise<StartChangeSetCommandOutput> | void {
     const command = new StartChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

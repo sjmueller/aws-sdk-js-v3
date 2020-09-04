@@ -1,231 +1,141 @@
 import {
   AcceptSharedDirectoryCommandInput,
-  AcceptSharedDirectoryCommandOutput
+  AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand.ts";
-import {
-  AddIpRoutesCommandInput,
-  AddIpRoutesCommandOutput
-} from "./commands/AddIpRoutesCommand.ts";
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand.ts";
+import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand.ts";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand.ts";
 import {
   CancelSchemaExtensionCommandInput,
-  CancelSchemaExtensionCommandOutput
+  CancelSchemaExtensionCommandOutput,
 } from "./commands/CancelSchemaExtensionCommand.ts";
-import {
-  ConnectDirectoryCommandInput,
-  ConnectDirectoryCommandOutput
-} from "./commands/ConnectDirectoryCommand.ts";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand.ts";
-import {
-  CreateComputerCommandInput,
-  CreateComputerCommandOutput
-} from "./commands/CreateComputerCommand.ts";
+import { ConnectDirectoryCommandInput, ConnectDirectoryCommandOutput } from "./commands/ConnectDirectoryCommand.ts";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
+import { CreateComputerCommandInput, CreateComputerCommandOutput } from "./commands/CreateComputerCommand.ts";
 import {
   CreateConditionalForwarderCommandInput,
-  CreateConditionalForwarderCommandOutput
+  CreateConditionalForwarderCommandOutput,
 } from "./commands/CreateConditionalForwarderCommand.ts";
-import {
-  CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput
-} from "./commands/CreateDirectoryCommand.ts";
+import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand.ts";
 import {
   CreateLogSubscriptionCommandInput,
-  CreateLogSubscriptionCommandOutput
+  CreateLogSubscriptionCommandOutput,
 } from "./commands/CreateLogSubscriptionCommand.ts";
-import {
-  CreateMicrosoftADCommandInput,
-  CreateMicrosoftADCommandOutput
-} from "./commands/CreateMicrosoftADCommand.ts";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand.ts";
-import {
-  CreateTrustCommandInput,
-  CreateTrustCommandOutput
-} from "./commands/CreateTrustCommand.ts";
+import { CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput } from "./commands/CreateMicrosoftADCommand.ts";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand.ts";
+import { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand.ts";
 import {
   DeleteConditionalForwarderCommandInput,
-  DeleteConditionalForwarderCommandOutput
+  DeleteConditionalForwarderCommandOutput,
 } from "./commands/DeleteConditionalForwarderCommand.ts";
-import {
-  DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput
-} from "./commands/DeleteDirectoryCommand.ts";
+import { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand.ts";
 import {
   DeleteLogSubscriptionCommandInput,
-  DeleteLogSubscriptionCommandOutput
+  DeleteLogSubscriptionCommandOutput,
 } from "./commands/DeleteLogSubscriptionCommand.ts";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand.ts";
-import {
-  DeleteTrustCommandInput,
-  DeleteTrustCommandOutput
-} from "./commands/DeleteTrustCommand.ts";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand.ts";
+import { DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand.ts";
 import {
   DeregisterCertificateCommandInput,
-  DeregisterCertificateCommandOutput
+  DeregisterCertificateCommandOutput,
 } from "./commands/DeregisterCertificateCommand.ts";
 import {
   DeregisterEventTopicCommandInput,
-  DeregisterEventTopicCommandOutput
+  DeregisterEventTopicCommandOutput,
 } from "./commands/DeregisterEventTopicCommand.ts";
 import {
   DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput
+  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand.ts";
 import {
   DescribeConditionalForwardersCommandInput,
-  DescribeConditionalForwardersCommandOutput
+  DescribeConditionalForwardersCommandOutput,
 } from "./commands/DescribeConditionalForwardersCommand.ts";
 import {
   DescribeDirectoriesCommandInput,
-  DescribeDirectoriesCommandOutput
+  DescribeDirectoriesCommandOutput,
 } from "./commands/DescribeDirectoriesCommand.ts";
 import {
   DescribeDomainControllersCommandInput,
-  DescribeDomainControllersCommandOutput
+  DescribeDomainControllersCommandOutput,
 } from "./commands/DescribeDomainControllersCommand.ts";
 import {
   DescribeEventTopicsCommandInput,
-  DescribeEventTopicsCommandOutput
+  DescribeEventTopicsCommandOutput,
 } from "./commands/DescribeEventTopicsCommand.ts";
 import {
   DescribeLDAPSSettingsCommandInput,
-  DescribeLDAPSSettingsCommandOutput
+  DescribeLDAPSSettingsCommandOutput,
 } from "./commands/DescribeLDAPSSettingsCommand.ts";
 import {
   DescribeSharedDirectoriesCommandInput,
-  DescribeSharedDirectoriesCommandOutput
+  DescribeSharedDirectoriesCommandOutput,
 } from "./commands/DescribeSharedDirectoriesCommand.ts";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand.ts";
-import {
-  DescribeTrustsCommandInput,
-  DescribeTrustsCommandOutput
-} from "./commands/DescribeTrustsCommand.ts";
-import {
-  DisableLDAPSCommandInput,
-  DisableLDAPSCommandOutput
-} from "./commands/DisableLDAPSCommand.ts";
-import {
-  DisableRadiusCommandInput,
-  DisableRadiusCommandOutput
-} from "./commands/DisableRadiusCommand.ts";
-import {
-  DisableSsoCommandInput,
-  DisableSsoCommandOutput
-} from "./commands/DisableSsoCommand.ts";
-import {
-  EnableLDAPSCommandInput,
-  EnableLDAPSCommandOutput
-} from "./commands/EnableLDAPSCommand.ts";
-import {
-  EnableRadiusCommandInput,
-  EnableRadiusCommandOutput
-} from "./commands/EnableRadiusCommand.ts";
-import {
-  EnableSsoCommandInput,
-  EnableSsoCommandOutput
-} from "./commands/EnableSsoCommand.ts";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand.ts";
+import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand.ts";
+import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand.ts";
+import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand.ts";
+import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand.ts";
+import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand.ts";
+import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand.ts";
+import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand.ts";
 import {
   GetDirectoryLimitsCommandInput,
-  GetDirectoryLimitsCommandOutput
+  GetDirectoryLimitsCommandOutput,
 } from "./commands/GetDirectoryLimitsCommand.ts";
-import {
-  GetSnapshotLimitsCommandInput,
-  GetSnapshotLimitsCommandOutput
-} from "./commands/GetSnapshotLimitsCommand.ts";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand.ts";
-import {
-  ListIpRoutesCommandInput,
-  ListIpRoutesCommandOutput
-} from "./commands/ListIpRoutesCommand.ts";
+import { GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput } from "./commands/GetSnapshotLimitsCommand.ts";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand.ts";
+import { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "./commands/ListIpRoutesCommand.ts";
 import {
   ListLogSubscriptionsCommandInput,
-  ListLogSubscriptionsCommandOutput
+  ListLogSubscriptionsCommandOutput,
 } from "./commands/ListLogSubscriptionsCommand.ts";
 import {
   ListSchemaExtensionsCommandInput,
-  ListSchemaExtensionsCommandOutput
+  ListSchemaExtensionsCommandOutput,
 } from "./commands/ListSchemaExtensionsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput
+  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand.ts";
 import {
   RegisterEventTopicCommandInput,
-  RegisterEventTopicCommandOutput
+  RegisterEventTopicCommandOutput,
 } from "./commands/RegisterEventTopicCommand.ts";
 import {
   RejectSharedDirectoryCommandInput,
-  RejectSharedDirectoryCommandOutput
+  RejectSharedDirectoryCommandOutput,
 } from "./commands/RejectSharedDirectoryCommand.ts";
-import {
-  RemoveIpRoutesCommandInput,
-  RemoveIpRoutesCommandOutput
-} from "./commands/RemoveIpRoutesCommand.ts";
+import { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "./commands/RemoveIpRoutesCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
-import {
-  ResetUserPasswordCommandInput,
-  ResetUserPasswordCommandOutput
-} from "./commands/ResetUserPasswordCommand.ts";
+import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand.ts";
 import {
   RestoreFromSnapshotCommandInput,
-  RestoreFromSnapshotCommandOutput
+  RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand.ts";
-import {
-  ShareDirectoryCommandInput,
-  ShareDirectoryCommandOutput
-} from "./commands/ShareDirectoryCommand.ts";
+import { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "./commands/ShareDirectoryCommand.ts";
 import {
   StartSchemaExtensionCommandInput,
-  StartSchemaExtensionCommandOutput
+  StartSchemaExtensionCommandOutput,
 } from "./commands/StartSchemaExtensionCommand.ts";
-import {
-  UnshareDirectoryCommandInput,
-  UnshareDirectoryCommandOutput
-} from "./commands/UnshareDirectoryCommand.ts";
+import { UnshareDirectoryCommandInput, UnshareDirectoryCommandOutput } from "./commands/UnshareDirectoryCommand.ts";
 import {
   UpdateConditionalForwarderCommandInput,
-  UpdateConditionalForwarderCommandOutput
+  UpdateConditionalForwarderCommandOutput,
 } from "./commands/UpdateConditionalForwarderCommand.ts";
 import {
   UpdateNumberOfDomainControllersCommandInput,
-  UpdateNumberOfDomainControllersCommandOutput
+  UpdateNumberOfDomainControllersCommandOutput,
 } from "./commands/UpdateNumberOfDomainControllersCommand.ts";
-import {
-  UpdateRadiusCommandInput,
-  UpdateRadiusCommandOutput
-} from "./commands/UpdateRadiusCommand.ts";
-import {
-  UpdateTrustCommandInput,
-  UpdateTrustCommandOutput
-} from "./commands/UpdateTrustCommand.ts";
-import {
-  VerifyTrustCommandInput,
-  VerifyTrustCommandOutput
-} from "./commands/VerifyTrustCommand.ts";
+import { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "./commands/UpdateRadiusCommand.ts";
+import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand.ts";
+import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -233,38 +143,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -273,9 +179,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -396,8 +303,7 @@ export type ServiceOutputTypes =
   | UpdateTrustCommandOutput
   | VerifyTrustCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -471,14 +377,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -486,9 +397,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectoryServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectoryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -497,9 +406,7 @@ export type DirectoryServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -527,7 +434,7 @@ export class DirectoryServiceClient extends __Client<
   constructor(configuration: DirectoryServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -542,6 +449,7 @@ export class DirectoryServiceClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

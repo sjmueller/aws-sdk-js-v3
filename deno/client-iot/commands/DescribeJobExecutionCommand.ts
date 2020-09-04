@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeJobExecutionCommand,
-  serializeAws_restJson1DescribeJobExecutionCommand
+  serializeAws_restJson1DescribeJobExecutionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeJobExecutionCommandInput = DescribeJobExecutionRequest;
-export type DescribeJobExecutionCommandOutput = DescribeJobExecutionResponse &
-  __MetadataBearer;
+export type DescribeJobExecutionCommandOutput = DescribeJobExecutionResponse & __MetadataBearer;
 
 export class DescribeJobExecutionCommand extends $Command<
   DescribeJobExecutionCommandInput,
@@ -49,18 +38,16 @@ export class DescribeJobExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeJobExecutionCommandInput,
-    DescribeJobExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeJobExecutionCommandInput, DescribeJobExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeJobExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeJobExecutionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeJobExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeJobExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
     return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
   }
 

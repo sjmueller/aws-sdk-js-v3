@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  ListOpenIDConnectProvidersRequest,
-  ListOpenIDConnectProvidersResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse } from "../models/index.ts";
 import {
   deserializeAws_queryListOpenIDConnectProvidersCommand,
-  serializeAws_queryListOpenIDConnectProvidersCommand
+  serializeAws_queryListOpenIDConnectProvidersCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListOpenIDConnectProvidersCommandInput = ListOpenIDConnectProvidersRequest;
-export type ListOpenIDConnectProvidersCommandOutput = ListOpenIDConnectProvidersResponse &
-  __MetadataBearer;
+export type ListOpenIDConnectProvidersCommandOutput = ListOpenIDConnectProvidersResponse & __MetadataBearer;
 
 export class ListOpenIDConnectProvidersCommand extends $Command<
   ListOpenIDConnectProvidersCommandInput,
@@ -49,18 +38,16 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOpenIDConnectProvidersCommandInput,
-    ListOpenIDConnectProvidersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOpenIDConnectProvidersCommandInput, ListOpenIDConnectProvidersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListOpenIDConnectProvidersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListOpenIDConnectProvidersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListOpenIDConnectProvidersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListOpenIDConnectProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListOpenIDConnectProvidersCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenIDConnectProvidersCommandOutput> {
-    return deserializeAws_queryListOpenIDConnectProvidersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListOpenIDConnectProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

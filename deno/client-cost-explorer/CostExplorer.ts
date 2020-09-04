@@ -2,97 +2,93 @@ import { CostExplorerClient } from "./CostExplorerClient.ts";
 import {
   CreateCostCategoryDefinitionCommand,
   CreateCostCategoryDefinitionCommandInput,
-  CreateCostCategoryDefinitionCommandOutput
+  CreateCostCategoryDefinitionCommandOutput,
 } from "./commands/CreateCostCategoryDefinitionCommand.ts";
 import {
   DeleteCostCategoryDefinitionCommand,
   DeleteCostCategoryDefinitionCommandInput,
-  DeleteCostCategoryDefinitionCommandOutput
+  DeleteCostCategoryDefinitionCommandOutput,
 } from "./commands/DeleteCostCategoryDefinitionCommand.ts";
 import {
   DescribeCostCategoryDefinitionCommand,
   DescribeCostCategoryDefinitionCommandInput,
-  DescribeCostCategoryDefinitionCommandOutput
+  DescribeCostCategoryDefinitionCommandOutput,
 } from "./commands/DescribeCostCategoryDefinitionCommand.ts";
 import {
   GetCostAndUsageCommand,
   GetCostAndUsageCommandInput,
-  GetCostAndUsageCommandOutput
+  GetCostAndUsageCommandOutput,
 } from "./commands/GetCostAndUsageCommand.ts";
 import {
   GetCostAndUsageWithResourcesCommand,
   GetCostAndUsageWithResourcesCommandInput,
-  GetCostAndUsageWithResourcesCommandOutput
+  GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand.ts";
 import {
   GetCostForecastCommand,
   GetCostForecastCommandInput,
-  GetCostForecastCommandOutput
+  GetCostForecastCommandOutput,
 } from "./commands/GetCostForecastCommand.ts";
 import {
   GetDimensionValuesCommand,
   GetDimensionValuesCommandInput,
-  GetDimensionValuesCommandOutput
+  GetDimensionValuesCommandOutput,
 } from "./commands/GetDimensionValuesCommand.ts";
 import {
   GetReservationCoverageCommand,
   GetReservationCoverageCommandInput,
-  GetReservationCoverageCommandOutput
+  GetReservationCoverageCommandOutput,
 } from "./commands/GetReservationCoverageCommand.ts";
 import {
   GetReservationPurchaseRecommendationCommand,
   GetReservationPurchaseRecommendationCommandInput,
-  GetReservationPurchaseRecommendationCommandOutput
+  GetReservationPurchaseRecommendationCommandOutput,
 } from "./commands/GetReservationPurchaseRecommendationCommand.ts";
 import {
   GetReservationUtilizationCommand,
   GetReservationUtilizationCommandInput,
-  GetReservationUtilizationCommandOutput
+  GetReservationUtilizationCommandOutput,
 } from "./commands/GetReservationUtilizationCommand.ts";
 import {
   GetRightsizingRecommendationCommand,
   GetRightsizingRecommendationCommandInput,
-  GetRightsizingRecommendationCommandOutput
+  GetRightsizingRecommendationCommandOutput,
 } from "./commands/GetRightsizingRecommendationCommand.ts";
 import {
   GetSavingsPlansCoverageCommand,
   GetSavingsPlansCoverageCommandInput,
-  GetSavingsPlansCoverageCommandOutput
+  GetSavingsPlansCoverageCommandOutput,
 } from "./commands/GetSavingsPlansCoverageCommand.ts";
 import {
   GetSavingsPlansPurchaseRecommendationCommand,
   GetSavingsPlansPurchaseRecommendationCommandInput,
-  GetSavingsPlansPurchaseRecommendationCommandOutput
+  GetSavingsPlansPurchaseRecommendationCommandOutput,
 } from "./commands/GetSavingsPlansPurchaseRecommendationCommand.ts";
 import {
   GetSavingsPlansUtilizationCommand,
   GetSavingsPlansUtilizationCommandInput,
-  GetSavingsPlansUtilizationCommandOutput
+  GetSavingsPlansUtilizationCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationCommand.ts";
 import {
   GetSavingsPlansUtilizationDetailsCommand,
   GetSavingsPlansUtilizationDetailsCommandInput,
-  GetSavingsPlansUtilizationDetailsCommandOutput
+  GetSavingsPlansUtilizationDetailsCommandOutput,
 } from "./commands/GetSavingsPlansUtilizationDetailsCommand.ts";
-import {
-  GetTagsCommand,
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand.ts";
+import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand.ts";
 import {
   GetUsageForecastCommand,
   GetUsageForecastCommandInput,
-  GetUsageForecastCommandOutput
+  GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand.ts";
 import {
   ListCostCategoryDefinitionsCommand,
   ListCostCategoryDefinitionsCommandInput,
-  ListCostCategoryDefinitionsCommandOutput
+  ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand.ts";
 import {
   UpdateCostCategoryDefinitionCommand,
   UpdateCostCategoryDefinitionCommandInput,
-  UpdateCostCategoryDefinitionCommandOutput
+  UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -110,18 +106,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * 			         </li>
  *          </ul>
  * 		       <p>For information about costs associated with the Cost Explorer API, see
- * 			<a href="https://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
+ * 			<a href="http://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
  */
 export class CostExplorer extends CostExplorerClient {
   /**
-   * <important>
-   *             <p>
-   *                <i>
-   *                   <b>Cost Category is in public beta for AWS Billing and Cost Management and is subject to change. Your use of Cost Categories is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> (Section 1.10).</b>
-   *                </i>
-   *             </p>
-   *          </important>
-   *          <p>Creates a new Cost Category with the requested name and rules.</p>
+   * <p>Creates a new Cost Category with the requested name and rules.</p>
    */
   public createCostCategoryDefinition(
     args: CreateCostCategoryDefinitionCommandInput,
@@ -138,17 +127,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public createCostCategoryDefinition(
     args: CreateCostCategoryDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
   ): Promise<CreateCostCategoryDefinitionCommandOutput> | void {
     const command = new CreateCostCategoryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -156,14 +142,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <important>
-   *             <p>
-   *                <i>
-   *                   <b>Cost Category is in public beta for AWS Billing and Cost Management and is subject to change. Your use of Cost Categories is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> (Section 1.10).</b>
-   *                </i>
-   *             </p>
-   *          </important>
-   *          <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>
+   * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>
    */
   public deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
@@ -180,17 +159,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
   ): Promise<DeleteCostCategoryDefinitionCommandOutput> | void {
     const command = new DeleteCostCategoryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -198,14 +174,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <important>
-   *             <p>
-   *                <i>
-   *                   <b>Cost Category is in public beta for AWS Billing and Cost Management and is subject to change. Your use of Cost Categories is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> (Section 1.10).</b>
-   *                </i>
-   *             </p>
-   *          </important>
-   *          <p>Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.</p>
+   * <p>Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.</p>
    *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that is active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see a Cost Category that is effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. </p>
    */
   public describeCostCategoryDefinition(
@@ -223,20 +192,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public describeCostCategoryDefinition(
     args: DescribeCostCategoryDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCostCategoryDefinitionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
   ): Promise<DescribeCostCategoryDefinitionCommandOutput> | void {
     const command = new DescribeCostCategoryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -248,7 +211,7 @@ export class CostExplorer extends CostExplorerClient {
    * 			<code>BlendedCosts</code> or <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
    * 			your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
    * 			of valid dimensions, see the
-   * 			<a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
+   * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
    * 			operation. Master accounts in an organization in AWS Organizations have access to all member accounts.</p>
    */
   public getCostAndUsage(
@@ -266,17 +229,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getCostAndUsage(
     args: GetCostAndUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCostAndUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostAndUsageCommandOutput) => void),
     cb?: (err: any, data?: GetCostAndUsageCommandOutput) => void
   ): Promise<GetCostAndUsageCommandOutput> | void {
     const command = new GetCostAndUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -288,7 +248,7 @@ export class CostExplorer extends CostExplorerClient {
    * 	    usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that
    * 	    you want the request to return. You can also filter and group your data by various dimensions,
    * 	    such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
-   * 	    of valid dimensions, see the <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Master accounts in an organization in AWS
+   * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Master accounts in an organization in AWS
    * 	    Organizations have access to all member accounts. This API is currently available for the Amazon Elastic Compute Cloud – Compute service only.</p>
    * 	        <note>
    *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost Explorer</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
@@ -309,17 +269,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getCostAndUsageWithResources(
     args: GetCostAndUsageWithResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
   ): Promise<GetCostAndUsageWithResourcesCommandOutput> | void {
     const command = new GetCostAndUsageWithResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -344,17 +301,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getCostForecast(
     args: GetCostForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCostForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostForecastCommandOutput) => void),
     cb?: (err: any, data?: GetCostForecastCommandOutput) => void
   ): Promise<GetCostForecastCommandOutput> | void {
     const command = new GetCostForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -379,17 +333,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getDimensionValues(
     args: GetDimensionValuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDimensionValuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDimensionValuesCommandOutput) => void),
     cb?: (err: any, data?: GetDimensionValuesCommandOutput) => void
   ): Promise<GetDimensionValuesCommandOutput> | void {
     const command = new GetDimensionValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -398,7 +349,7 @@ export class CostExplorer extends CostExplorerClient {
 
   /**
    * <p>Retrieves the reservation coverage for your account. This enables you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or
-   * 			Amazon Redshift usage is covered by a reservation. An organization's master account can see the coverage of the associated member accounts.
+   * 		  Amazon Redshift usage is covered by a reservation. An organization's master account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions.
    * 			For any time period, you can filter data about reservation usage by the following dimensions:</p>
    * 		       <ul>
    *             <li>
@@ -455,17 +406,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getReservationCoverage(
     args: GetReservationCoverageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReservationCoverageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationCoverageCommandOutput) => void),
     cb?: (err: any, data?: GetReservationCoverageCommandOutput) => void
   ): Promise<GetReservationCoverageCommandOutput> | void {
     const command = new GetReservationCoverageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -490,38 +438,23 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetReservationPurchaseRecommendationCommandOutput>;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
-    cb: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): void;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): void;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservationPurchaseRecommendationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): Promise<GetReservationPurchaseRecommendationCommandOutput> | void {
     const command = new GetReservationPurchaseRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -548,17 +481,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getReservationUtilization(
     args: GetReservationUtilizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReservationUtilizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationUtilizationCommandOutput) => void),
     cb?: (err: any, data?: GetReservationUtilizationCommandOutput) => void
   ): Promise<GetReservationUtilizationCommandOutput> | void {
     const command = new GetReservationUtilizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -566,10 +496,16 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Creates recommendations that helps you save cost by identifying idle and underutilized Amazon EC2 instances.</p>
-   *          <p>Recommendations are generated to either downsize or terminate instances, along with providing savings detail and metrics.
-   *     	For details on calculation and function, see
-   *     	<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-what-is.html">Optimizing Your Cost with Rightsizing Recommendations</a>.</p>
+   * <p>Creates recommendations that
+   *       help you save cost
+   *       by identifying idle and underutilized Amazon EC2 instances.</p>
+   *          <p>Recommendations are generated to either downsize or terminate instances, along with
+   *       providing savings detail and metrics. For details on calculation and function, see
+   *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing
+   *         Your Cost with Rightsizing
+   *       Recommendations</a>
+   *       in the <i>AWS Billing and Cost Management User
+   *       Guide</i>.</p>
    */
   public getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
@@ -586,17 +522,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRightsizingRecommendationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRightsizingRecommendationCommandOutput) => void),
     cb?: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
   ): Promise<GetRightsizingRecommendationCommandOutput> | void {
     const command = new GetRightsizingRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -604,7 +537,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s master account can see the coverage of the associated member accounts. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
+   * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization’s master account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions:</p>
    * 	        <ul>
    *             <li>
    *                <p>
@@ -644,17 +577,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getSavingsPlansCoverage(
     args: GetSavingsPlansCoverageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSavingsPlansCoverageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansCoverageCommandOutput) => void),
     cb?: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
   ): Promise<GetSavingsPlansCoverageCommandOutput> | void {
     const command = new GetSavingsPlansCoverageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -662,7 +592,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details.</p>
+   * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>
    */
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
@@ -670,38 +600,25 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput>;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): void;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): void;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+      | ((err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> | void {
     const command = new GetSavingsPlansPurchaseRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -729,17 +646,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getSavingsPlansUtilization(
     args: GetSavingsPlansUtilizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void),
     cb?: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
   ): Promise<GetSavingsPlansUtilizationCommandOutput> | void {
     const command = new GetSavingsPlansUtilizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,38 +673,23 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput>;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): void;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): void;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSavingsPlansUtilizationDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> | void {
     const command = new GetSavingsPlansUtilizationDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -800,14 +699,8 @@ export class CostExplorer extends CostExplorerClient {
   /**
    * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
    */
-  public getTags(
-    args: GetTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTagsCommandOutput>;
-  public getTags(
-    args: GetTagsCommandInput,
-    cb: (err: any, data?: GetTagsCommandOutput) => void
-  ): void;
+  public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
+  public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
   public getTags(
     args: GetTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -815,17 +708,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -850,17 +740,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getUsageForecast(
     args: GetUsageForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsageForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsageForecastCommandOutput) => void),
     cb?: (err: any, data?: GetUsageForecastCommandOutput) => void
   ): Promise<GetUsageForecastCommandOutput> | void {
     const command = new GetUsageForecastCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -868,14 +755,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <important>
-   *             <p>
-   *                <i>
-   *                   <b>Cost Category is in public beta for AWS Billing and Cost Management and is subject to change. Your use of Cost Categories is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> (Section 1.10).</b>
-   *                </i>
-   *             </p>
-   *          </important>
-   *          <p>Returns the name, ARN and effective dates of all Cost Categories defined in the account. You have the option to use <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. </p>
+   * <p>Returns the name, ARN, <code>NumberOfRules</code> and effective dates of all Cost Categories defined in the account. You have the option to use <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination. The request can have a <code>MaxResults</code> range up to 100.</p>
    */
   public listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
@@ -892,17 +772,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
   ): Promise<ListCostCategoryDefinitionsCommandOutput> | void {
     const command = new ListCostCategoryDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -910,14 +787,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <important>
-   *             <p>
-   *                <i>
-   *                   <b>Cost Category is in public beta for AWS Billing and Cost Management and is subject to change. Your use of Cost Categories is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> (Section 1.10).</b>
-   *                </i>
-   *             </p>
-   *          </important>
-   *          <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>
+   * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>
    */
   public updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,
@@ -934,17 +804,14 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
   ): Promise<UpdateCostCategoryDefinitionCommandOutput> | void {
     const command = new UpdateCostCategoryDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

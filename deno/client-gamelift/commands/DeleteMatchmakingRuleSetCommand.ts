@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  DeleteMatchmakingRuleSetInput,
-  DeleteMatchmakingRuleSetOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteMatchmakingRuleSetCommand,
-  serializeAws_json1_1DeleteMatchmakingRuleSetCommand
+  serializeAws_json1_1DeleteMatchmakingRuleSetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteMatchmakingRuleSetCommandInput = DeleteMatchmakingRuleSetInput;
-export type DeleteMatchmakingRuleSetCommandOutput = DeleteMatchmakingRuleSetOutput &
-  __MetadataBearer;
+export type DeleteMatchmakingRuleSetCommandOutput = DeleteMatchmakingRuleSetOutput & __MetadataBearer;
 
 export class DeleteMatchmakingRuleSetCommand extends $Command<
   DeleteMatchmakingRuleSetCommandInput,
@@ -49,18 +38,16 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMatchmakingRuleSetCommandInput,
-    DeleteMatchmakingRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMatchmakingRuleSetCommandInput, DeleteMatchmakingRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteMatchmakingRuleSetInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMatchmakingRuleSetOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMatchmakingRuleSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMatchmakingRuleSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMatchmakingRuleSetCommandOutput> {
+    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

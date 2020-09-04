@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient.ts";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
 import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/index.ts";
 import {
   deserializeAws_json1_0DescribeWorkflowTypeCommand,
-  serializeAws_json1_0DescribeWorkflowTypeCommand
+  serializeAws_json1_0DescribeWorkflowTypeCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeWorkflowTypeCommandInput = DescribeWorkflowTypeInput;
-export type DescribeWorkflowTypeCommandOutput = WorkflowTypeDetail &
-  __MetadataBearer;
+export type DescribeWorkflowTypeCommandOutput = WorkflowTypeDetail & __MetadataBearer;
 
 export class DescribeWorkflowTypeCommand extends $Command<
   DescribeWorkflowTypeCommandInput,
@@ -46,18 +38,16 @@ export class DescribeWorkflowTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkflowTypeCommandInput,
-    DescribeWorkflowTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkflowTypeCommandInput, DescribeWorkflowTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeWorkflowTypeInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowTypeDetail.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeWorkflowTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeWorkflowTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeWorkflowTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeWorkflowTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0DescribeWorkflowTypeCommand(output, context);
   }
 

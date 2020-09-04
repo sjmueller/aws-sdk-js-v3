@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -14,19 +10,15 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface Backup {
   __type?: "Backup";
   /**
+   * <p>The AWS Region that contains the source backup from which the new backup was
+   *       copied.</p>
+   */
+  SourceRegion?: string;
+
+  /**
    * <p>The identifier (ID) of the backup.</p>
    */
   BackupId: string | undefined;
-
-  /**
-   * <p>The state of the backup.</p>
-   */
-  BackupState?: BackupState | string;
-
-  /**
-   * <p>The identifier (ID) of the cluster that was backed up.</p>
-   */
-  ClusterId?: string;
 
   /**
    * <p>The date and time when the backup was copied from a source backup.</p>
@@ -34,14 +26,14 @@ export interface Backup {
   CopyTimestamp?: Date;
 
   /**
-   * <p>The date and time when the backup was created.</p>
-   */
-  CreateTimestamp?: Date;
-
-  /**
    * <p>The date and time when the backup will be permanently deleted.</p>
    */
   DeleteTimestamp?: Date;
+
+  /**
+   * <p>The identifier (ID) of the cluster that was backed up.</p>
+   */
+  ClusterId?: string;
 
   /**
    * <p>The identifier (ID) of the source backup from which the new backup was
@@ -50,36 +42,43 @@ export interface Backup {
   SourceBackup?: string;
 
   /**
+   * <p>The date and time when the backup was created.</p>
+   */
+  CreateTimestamp?: Date;
+
+  /**
+   * <p>The list of tags for the backup.</p>
+   */
+  TagList?: Tag[];
+
+  /**
    * <p>The identifier (ID) of the cluster containing the source backup from which the new
-   *       backup was copied. .</p>
+   *       backup was copied.</p>
    */
   SourceCluster?: string;
 
   /**
-   * <p>The AWS region that contains the source backup from which the new backup was
-   *       copied.</p>
+   * <p>The state of the backup.</p>
    */
-  SourceRegion?: string;
-
-  TagList?: Tag[];
+  BackupState?: BackupState | string;
 }
 
 export namespace Backup {
   export const filterSensitiveLog = (obj: Backup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
 
 export enum BackupPolicy {
-  DEFAULT = "DEFAULT"
+  DEFAULT = "DEFAULT",
 }
 
 export enum BackupState {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DELETED = "DELETED",
   PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY"
+  READY = "READY",
 }
 
 /**
@@ -87,17 +86,6 @@ export enum BackupState {
  */
 export interface Certificates {
   __type?: "Certificates";
-  /**
-   * <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
-   */
-  AwsHardwareCertificate?: string;
-
-  /**
-   * <p>The cluster certificate issued (signed) by the issuing certificate authority (CA) of
-   *       the cluster's owner.</p>
-   */
-  ClusterCertificate?: string;
-
   /**
    * <p>The cluster's certificate signing request (CSR). The CSR exists only when the cluster's
    *       state is <code>UNINITIALIZED</code>.</p>
@@ -113,11 +101,22 @@ export interface Certificates {
    * <p>The HSM hardware certificate issued (signed) by the hardware manufacturer.</p>
    */
   ManufacturerHardwareCertificate?: string;
+
+  /**
+   * <p>The cluster certificate issued (signed) by the issuing certificate authority (CA) of
+   *       the cluster's owner.</p>
+   */
+  ClusterCertificate?: string;
+
+  /**
+   * <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
+   */
+  AwsHardwareCertificate?: string;
 }
 
 export namespace Certificates {
   export const filterSensitiveLog = (obj: Certificates): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Certificates => __isa(o, "Certificates");
 }
@@ -126,95 +125,73 @@ export namespace Certificates {
  * <p>The request was rejected because the requester does not have permission to perform the
  *       requested operation.</p>
  */
-export interface CloudHsmAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmAccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CloudHsmAccessDeniedException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmAccessDeniedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudHsmAccessDeniedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmAccessDeniedException =>
-    __isa(o, "CloudHsmAccessDeniedException");
+  export const isa = (o: any): o is CloudHsmAccessDeniedException => __isa(o, "CloudHsmAccessDeniedException");
 }
 
 /**
  * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
  *       be retried.</p>
  */
-export interface CloudHsmInternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInternalFailureException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmInternalFailureException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace CloudHsmInternalFailureException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmInternalFailureException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudHsmInternalFailureException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmInternalFailureException =>
-    __isa(o, "CloudHsmInternalFailureException");
+  export const isa = (o: any): o is CloudHsmInternalFailureException => __isa(o, "CloudHsmInternalFailureException");
 }
 
 /**
  * <p>The request was rejected because it is not a valid request.</p>
  */
-export interface CloudHsmInvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmInvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CloudHsmInvalidRequestException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmInvalidRequestException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudHsmInvalidRequestException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmInvalidRequestException =>
-    __isa(o, "CloudHsmInvalidRequestException");
+  export const isa = (o: any): o is CloudHsmInvalidRequestException => __isa(o, "CloudHsmInvalidRequestException");
 }
 
 /**
  * <p>The request was rejected because it refers to a resource that cannot be
  *       found.</p>
  */
-export interface CloudHsmResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CloudHsmResourceNotFoundException {
-  export const filterSensitiveLog = (
-    obj: CloudHsmResourceNotFoundException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudHsmResourceNotFoundException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmResourceNotFoundException =>
-    __isa(o, "CloudHsmResourceNotFoundException");
+  export const isa = (o: any): o is CloudHsmResourceNotFoundException => __isa(o, "CloudHsmResourceNotFoundException");
 }
 
 /**
  * <p>The request was rejected because an error occurred.</p>
  */
-export interface CloudHsmServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmServiceException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmServiceException";
   $fault: "client";
   Message?: string;
@@ -222,15 +199,15 @@ export interface CloudHsmServiceException
 
 export namespace CloudHsmServiceException {
   export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmServiceException =>
-    __isa(o, "CloudHsmServiceException");
+  export const isa = (o: any): o is CloudHsmServiceException => __isa(o, "CloudHsmServiceException");
 }
 
-export interface CloudHsmTagException
-  extends __SmithyException,
-    $MetadataBearer {
+/**
+ * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+ */
+export interface CloudHsmTagException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmTagException";
   $fault: "client";
   Message?: string;
@@ -238,10 +215,9 @@ export interface CloudHsmTagException
 
 export namespace CloudHsmTagException {
   export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudHsmTagException =>
-    __isa(o, "CloudHsmTagException");
+  export const isa = (o: any): o is CloudHsmTagException => __isa(o, "CloudHsmTagException");
 }
 
 /**
@@ -250,14 +226,14 @@ export namespace CloudHsmTagException {
 export interface Cluster {
   __type?: "Cluster";
   /**
-   * <p>The cluster's backup policy.</p>
-   */
-  BackupPolicy?: BackupPolicy | string;
-
-  /**
    * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
    */
   Certificates?: Certificates;
+
+  /**
+   * <p>The cluster's backup policy.</p>
+   */
+  BackupPolicy?: BackupPolicy | string;
 
   /**
    * <p>The cluster's identifier (ID).</p>
@@ -265,14 +241,9 @@ export interface Cluster {
   ClusterId?: string;
 
   /**
-   * <p>The date and time when the cluster was created.</p>
+   * <p>The cluster's state.</p>
    */
-  CreateTimestamp?: Date;
-
-  /**
-   * <p>The type of HSM that the cluster contains.</p>
-   */
-  HsmType?: string;
+  State?: ClusterState | string;
 
   /**
    * <p>Contains information about the HSMs in the cluster.</p>
@@ -280,14 +251,10 @@ export interface Cluster {
   Hsms?: Hsm[];
 
   /**
-   * <p>The default password for the cluster's Pre-Crypto Officer (PRECO) user.</p>
+   * <p>The identifier (ID) of the virtual private cloud (VPC) that contains the
+   *       cluster.</p>
    */
-  PreCoPassword?: string;
-
-  /**
-   * <p>The identifier (ID) of the cluster's security group.</p>
-   */
-  SecurityGroup?: string;
+  VpcId?: string;
 
   /**
    * <p>The identifier (ID) of the backup used to create the cluster. This value exists only
@@ -296,9 +263,24 @@ export interface Cluster {
   SourceBackupId?: string;
 
   /**
-   * <p>The cluster's state.</p>
+   * <p>The identifier (ID) of the cluster's security group.</p>
    */
-  State?: ClusterState | string;
+  SecurityGroup?: string;
+
+  /**
+   * <p>The list of tags for the cluster.</p>
+   */
+  TagList?: Tag[];
+
+  /**
+   * <p>The default password for the cluster's Pre-Crypto Officer (PRECO) user.</p>
+   */
+  PreCoPassword?: string;
+
+  /**
+   * <p>A map from availability zone to the cluster’s subnet in that availability zone.</p>
+   */
+  SubnetMapping?: { [key: string]: string };
 
   /**
    * <p>A description of the cluster's state.</p>
@@ -306,21 +288,19 @@ export interface Cluster {
   StateMessage?: string;
 
   /**
-   * <p>A map from availability zone to the cluster’s subnet in that availability zone.</p>
+   * <p>The type of HSM that the cluster contains.</p>
    */
-  SubnetMapping?: { [key: string]: string };
+  HsmType?: string;
 
-  TagList?: Tag[];
   /**
-   * <p>The identifier (ID) of the virtual private cloud (VPC) that contains the
-   *       cluster.</p>
+   * <p>The date and time when the cluster was created.</p>
    */
-  VpcId?: string;
+  CreateTimestamp?: Date;
 }
 
 export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
@@ -334,30 +314,32 @@ export enum ClusterState {
   INITIALIZED = "INITIALIZED",
   INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
   UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
 export interface CopyBackupToRegionRequest {
   __type?: "CopyBackupToRegionRequest";
   /**
-   * <p>The ID of the backup that will be copied to the destination region. </p>
+   * <p>Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.</p>
    */
-  BackupId: string | undefined;
+  TagList?: Tag[];
 
   /**
    * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
    */
   DestinationRegion: string | undefined;
 
-  TagList?: Tag[];
+  /**
+   * <p>The ID of the backup that will be copied to the destination region. </p>
+   */
+  BackupId: string | undefined;
 }
 
 export namespace CopyBackupToRegionRequest {
   export const filterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyBackupToRegionRequest =>
-    __isa(o, "CopyBackupToRegionRequest");
+  export const isa = (o: any): o is CopyBackupToRegionRequest => __isa(o, "CopyBackupToRegionRequest");
 }
 
 export interface CopyBackupToRegionResponse {
@@ -375,25 +357,23 @@ export interface CopyBackupToRegionResponse {
 
 export namespace CopyBackupToRegionResponse {
   export const filterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyBackupToRegionResponse =>
-    __isa(o, "CopyBackupToRegionResponse");
+  export const isa = (o: any): o is CopyBackupToRegionResponse => __isa(o, "CopyBackupToRegionResponse");
 }
 
 export interface CreateClusterRequest {
   __type?: "CreateClusterRequest";
   /**
-   * <p>The type of HSM to use in the cluster. Currently the only allowed value is
-   *       <code>hsm1.medium</code>.</p>
-   */
-  HsmType: string | undefined;
-
-  /**
    * <p>The identifier (ID) of the cluster backup to restore. Use this value to restore the
    *       cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>.</p>
    */
   SourceBackupId?: string;
+
+  /**
+   * <p>Tags to apply to the CloudHSM cluster during creation.</p>
+   */
+  TagList?: Tag[];
 
   /**
    * <p>The identifiers (IDs) of the subnets where you are creating the cluster. You must
@@ -410,15 +390,18 @@ export interface CreateClusterRequest {
    */
   SubnetIds: string[] | undefined;
 
-  TagList?: Tag[];
+  /**
+   * <p>The type of HSM to use in the cluster. Currently the only allowed value is
+   *       <code>hsm1.medium</code>.</p>
+   */
+  HsmType: string | undefined;
 }
 
 export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest =>
-    __isa(o, "CreateClusterRequest");
+  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
@@ -431,10 +414,9 @@ export interface CreateClusterResponse {
 
 export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResponse =>
-    __isa(o, "CreateClusterResponse");
+  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateHsmRequest {
@@ -460,10 +442,9 @@ export interface CreateHsmRequest {
 
 export namespace CreateHsmRequest {
   export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmRequest =>
-    __isa(o, "CreateHsmRequest");
+  export const isa = (o: any): o is CreateHsmRequest => __isa(o, "CreateHsmRequest");
 }
 
 export interface CreateHsmResponse {
@@ -476,10 +457,9 @@ export interface CreateHsmResponse {
 
 export namespace CreateHsmResponse {
   export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmResponse =>
-    __isa(o, "CreateHsmResponse");
+  export const isa = (o: any): o is CreateHsmResponse => __isa(o, "CreateHsmResponse");
 }
 
 export interface DeleteBackupRequest {
@@ -492,10 +472,9 @@ export interface DeleteBackupRequest {
 
 export namespace DeleteBackupRequest {
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupRequest =>
-    __isa(o, "DeleteBackupRequest");
+  export const isa = (o: any): o is DeleteBackupRequest => __isa(o, "DeleteBackupRequest");
 }
 
 export interface DeleteBackupResponse {
@@ -508,10 +487,9 @@ export interface DeleteBackupResponse {
 
 export namespace DeleteBackupResponse {
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupResponse =>
-    __isa(o, "DeleteBackupResponse");
+  export const isa = (o: any): o is DeleteBackupResponse => __isa(o, "DeleteBackupResponse");
 }
 
 export interface DeleteClusterRequest {
@@ -525,10 +503,9 @@ export interface DeleteClusterRequest {
 
 export namespace DeleteClusterRequest {
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterRequest =>
-    __isa(o, "DeleteClusterRequest");
+  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
@@ -541,19 +518,18 @@ export interface DeleteClusterResponse {
 
 export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResponse =>
-    __isa(o, "DeleteClusterResponse");
+  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DeleteHsmRequest {
   __type?: "DeleteHsmRequest";
   /**
-   * <p>The identifier (ID) of the cluster that contains the HSM that you are
+   * <p>The IP address of the elastic network interface (ENI) of the HSM that you are
    *       deleting.</p>
    */
-  ClusterId: string | undefined;
+  EniIp?: string;
 
   /**
    * <p>The identifier (ID) of the elastic network interface (ENI) of the HSM that you are
@@ -562,23 +538,22 @@ export interface DeleteHsmRequest {
   EniId?: string;
 
   /**
-   * <p>The IP address of the elastic network interface (ENI) of the HSM that you are
-   *       deleting.</p>
-   */
-  EniIp?: string;
-
-  /**
    * <p>The identifier (ID) of the HSM that you are deleting.</p>
    */
   HsmId?: string;
+
+  /**
+   * <p>The identifier (ID) of the cluster that contains the HSM that you are
+   *       deleting.</p>
+   */
+  ClusterId: string | undefined;
 }
 
 export namespace DeleteHsmRequest {
   export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmRequest =>
-    __isa(o, "DeleteHsmRequest");
+  export const isa = (o: any): o is DeleteHsmRequest => __isa(o, "DeleteHsmRequest");
 }
 
 export interface DeleteHsmResponse {
@@ -591,14 +566,31 @@ export interface DeleteHsmResponse {
 
 export namespace DeleteHsmResponse {
   export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmResponse =>
-    __isa(o, "DeleteHsmResponse");
+  export const isa = (o: any): o is DeleteHsmResponse => __isa(o, "DeleteHsmResponse");
 }
 
 export interface DescribeBackupsRequest {
   __type?: "DescribeBackupsRequest";
+  /**
+   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
+   *       value to get more backups.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of backups to return in the response. When there are more backups
+   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Designates whether or not to sort the return backups by ascending chronological order
+   *       of generation.</p>
+   */
+  SortAscending?: boolean;
+
   /**
    * <p>One or more filters to limit the items returned in the response.</p>
    *          <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify
@@ -611,55 +603,35 @@ export interface DescribeBackupsRequest {
    *       state.</p>
    */
   Filters?: { [key: string]: string[] };
-
-  /**
-   * <p>The maximum number of backups to return in the response. When there are more backups
-   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
-   *       value to get more backups.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Designates whether or not to sort the return backups by ascending chronological order
-   *       of generation.</p>
-   */
-  SortAscending?: boolean;
 }
 
 export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsRequest =>
-    __isa(o, "DescribeBackupsRequest");
+  export const isa = (o: any): o is DescribeBackupsRequest => __isa(o, "DescribeBackupsRequest");
 }
 
 export interface DescribeBackupsResponse {
   __type?: "DescribeBackupsResponse";
-  /**
-   * <p>A list of backups.</p>
-   */
-  Backups?: Backup[];
-
   /**
    * <p>An opaque string that indicates that the response contains only a subset of backups.
    *       Use this value in a subsequent <code>DescribeBackups</code> request to get more
    *       backups.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of backups.</p>
+   */
+  Backups?: Backup[];
 }
 
 export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsResponse =>
-    __isa(o, "DescribeBackupsResponse");
+  export const isa = (o: any): o is DescribeBackupsResponse => __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeClustersRequest {
@@ -676,47 +648,45 @@ export interface DescribeClustersRequest {
   Filters?: { [key: string]: string[] };
 
   /**
-   * <p>The maximum number of clusters to return in the response. When there are more clusters
-   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
    *       value to get more clusters.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of clusters to return in the response. When there are more clusters
+   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeClustersRequest {
   export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersRequest =>
-    __isa(o, "DescribeClustersRequest");
+  export const isa = (o: any): o is DescribeClustersRequest => __isa(o, "DescribeClustersRequest");
 }
 
 export interface DescribeClustersResponse {
   __type?: "DescribeClustersResponse";
-  /**
-   * <p>A list of clusters.</p>
-   */
-  Clusters?: Cluster[];
-
   /**
    * <p>An opaque string that indicates that the response contains only a subset of clusters.
    *       Use this value in a subsequent <code>DescribeClusters</code> request to get more
    *       clusters.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of clusters.</p>
+   */
+  Clusters?: Cluster[];
 }
 
 export namespace DescribeClustersResponse {
   export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersResponse =>
-    __isa(o, "DescribeClustersResponse");
+  export const isa = (o: any): o is DescribeClustersResponse => __isa(o, "DescribeClustersResponse");
 }
 
 /**
@@ -724,6 +694,11 @@ export namespace DescribeClustersResponse {
  */
 export interface DestinationBackup {
   __type?: "DestinationBackup";
+  /**
+   * <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
+   */
+  SourceCluster?: string;
+
   /**
    * <p>The date and time when both the source backup was created.</p>
    */
@@ -735,11 +710,6 @@ export interface DestinationBackup {
   SourceBackup?: string;
 
   /**
-   * <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
-   */
-  SourceCluster?: string;
-
-  /**
    * <p>The AWS region that contains the source backup from which the new backup was copied.</p>
    */
   SourceRegion?: string;
@@ -747,10 +717,9 @@ export interface DestinationBackup {
 
 export namespace DestinationBackup {
   export const filterSensitiveLog = (obj: DestinationBackup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DestinationBackup =>
-    __isa(o, "DestinationBackup");
+  export const isa = (o: any): o is DestinationBackup => __isa(o, "DestinationBackup");
 }
 
 /**
@@ -760,6 +729,36 @@ export namespace DestinationBackup {
 export interface Hsm {
   __type?: "Hsm";
   /**
+   * <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The HSM's identifier (ID).</p>
+   */
+  HsmId: string | undefined;
+
+  /**
+   * <p>A description of the HSM's state.</p>
+   */
+  StateMessage?: string;
+
+  /**
+   * <p>The identifier (ID) of the HSM's elastic network interface (ENI).</p>
+   */
+  EniId?: string;
+
+  /**
+   * <p>The HSM's state.</p>
+   */
+  State?: HsmState | string;
+
+  /**
+   * <p>The IP address of the HSM's elastic network interface (ENI).</p>
+   */
+  EniIp?: string;
+
+  /**
    * <p>The Availability Zone that contains the HSM.</p>
    */
   AvailabilityZone?: string;
@@ -768,41 +767,11 @@ export interface Hsm {
    * <p>The identifier (ID) of the cluster that contains the HSM.</p>
    */
   ClusterId?: string;
-
-  /**
-   * <p>The identifier (ID) of the HSM's elastic network interface (ENI).</p>
-   */
-  EniId?: string;
-
-  /**
-   * <p>The IP address of the HSM's elastic network interface (ENI).</p>
-   */
-  EniIp?: string;
-
-  /**
-   * <p>The HSM's identifier (ID).</p>
-   */
-  HsmId: string | undefined;
-
-  /**
-   * <p>The HSM's state.</p>
-   */
-  State?: HsmState | string;
-
-  /**
-   * <p>A description of the HSM's state.</p>
-   */
-  StateMessage?: string;
-
-  /**
-   * <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
-   */
-  SubnetId?: string;
 }
 
 export namespace Hsm {
   export const filterSensitiveLog = (obj: Hsm): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Hsm => __isa(o, "Hsm");
 }
@@ -812,22 +781,22 @@ export enum HsmState {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DEGRADED = "DEGRADED",
   DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
 }
 
 export interface InitializeClusterRequest {
   __type?: "InitializeClusterRequest";
   /**
-   * <p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use
-   *         <a>DescribeClusters</a>.</p>
-   */
-  ClusterId: string | undefined;
-
-  /**
    * <p>The cluster certificate issued (signed) by your issuing certificate authority (CA). The
    *       certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
    */
   SignedCert: string | undefined;
+
+  /**
+   * <p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use
+   *         <a>DescribeClusters</a>.</p>
+   */
+  ClusterId: string | undefined;
 
   /**
    * <p>The issuing certificate of the issuing certificate authority (CA) that issued (signed)
@@ -840,41 +809,33 @@ export interface InitializeClusterRequest {
 
 export namespace InitializeClusterRequest {
   export const filterSensitiveLog = (obj: InitializeClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InitializeClusterRequest =>
-    __isa(o, "InitializeClusterRequest");
+  export const isa = (o: any): o is InitializeClusterRequest => __isa(o, "InitializeClusterRequest");
 }
 
 export interface InitializeClusterResponse {
   __type?: "InitializeClusterResponse";
   /**
-   * <p>The cluster's state.</p>
-   */
-  State?: ClusterState | string;
-
-  /**
    * <p>A description of the cluster's state.</p>
    */
   StateMessage?: string;
+
+  /**
+   * <p>The cluster's state.</p>
+   */
+  State?: ClusterState | string;
 }
 
 export namespace InitializeClusterResponse {
   export const filterSensitiveLog = (obj: InitializeClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InitializeClusterResponse =>
-    __isa(o, "InitializeClusterResponse");
+  export const isa = (o: any): o is InitializeClusterResponse => __isa(o, "InitializeClusterResponse");
 }
 
 export interface ListTagsRequest {
   __type?: "ListTagsRequest";
-  /**
-   * <p>The maximum number of tags to return in the response. When there are more tags than the
-   *       number you specify, the response contains a <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
    *       value to get more tags.</p>
@@ -886,14 +847,19 @@ export interface ListTagsRequest {
    *       cluster ID, use <a>DescribeClusters</a>.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The maximum number of tags to return in the response. When there are more tags than the
+   *       number you specify, the response contains a <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -912,10 +878,9 @@ export interface ListTagsResponse {
 
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface RestoreBackupRequest {
@@ -928,10 +893,9 @@ export interface RestoreBackupRequest {
 
 export namespace RestoreBackupRequest {
   export const filterSensitiveLog = (obj: RestoreBackupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreBackupRequest =>
-    __isa(o, "RestoreBackupRequest");
+  export const isa = (o: any): o is RestoreBackupRequest => __isa(o, "RestoreBackupRequest");
 }
 
 export interface RestoreBackupResponse {
@@ -944,10 +908,9 @@ export interface RestoreBackupResponse {
 
 export namespace RestoreBackupResponse {
   export const filterSensitiveLog = (obj: RestoreBackupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreBackupResponse =>
-    __isa(o, "RestoreBackupResponse");
+  export const isa = (o: any): o is RestoreBackupResponse => __isa(o, "RestoreBackupResponse");
 }
 
 /**
@@ -968,7 +931,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -989,10 +952,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1001,10 +963,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1024,10 +985,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1036,8 +996,7 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

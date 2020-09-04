@@ -14,6 +14,18 @@ export interface SigningArguments {
    * value returned by `new Date()` will be used.
    */
   signingDate?: DateInput;
+
+  /**
+   * The service signing name. It will override the service name of the signer
+   * in current invocation
+   */
+  signingService?: string;
+
+  /**
+   * The region name to sign the request. It will override the signing region of the
+   * signer in current invocation
+   */
+  signingRegion?: string;
 }
 
 export interface RequestSigningArguments extends SigningArguments {
@@ -56,10 +68,7 @@ export interface RequestPresigner {
    * @param requestToSign The request that should be signed.
    * @param options       Additional signing options.
    */
-  presign(
-    requestToSign: HttpRequest,
-    options?: RequestPresigningArguments
-  ): Promise<HttpRequest>;
+  presign(requestToSign: HttpRequest, options?: RequestPresigningArguments): Promise<HttpRequest>;
 }
 
 /**
@@ -70,10 +79,7 @@ export interface RequestSigner {
   /**
    * Sign the provided request for immediate dispatch.
    */
-  sign(
-    requestToSign: HttpRequest,
-    options?: RequestSigningArguments
-  ): Promise<HttpRequest>;
+  sign(requestToSign: HttpRequest, options?: RequestSigningArguments): Promise<HttpRequest>;
 }
 
 export interface StringSigner {

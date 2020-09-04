@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient.ts";
-import {
-  CreateDistributionConfigurationRequest,
-  CreateDistributionConfigurationResponse
-} from "../models/index.ts";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
+import { CreateDistributionConfigurationRequest, CreateDistributionConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateDistributionConfigurationCommand,
-  serializeAws_restJson1CreateDistributionConfigurationCommand
+  serializeAws_restJson1CreateDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDistributionConfigurationCommandInput = CreateDistributionConfigurationRequest;
-export type CreateDistributionConfigurationCommandOutput = CreateDistributionConfigurationResponse &
-  __MetadataBearer;
+export type CreateDistributionConfigurationCommandOutput = CreateDistributionConfigurationResponse & __MetadataBearer;
 
 export class CreateDistributionConfigurationCommand extends $Command<
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +36,18 @@ export class CreateDistributionConfigurationCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDistributionConfigurationCommandInput,
-    CreateDistributionConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDistributionConfigurationCommandInput, CreateDistributionConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDistributionConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateDistributionConfigurationCommand extends $Command<
     input: CreateDistributionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDistributionConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateDistributionConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateDistributionConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

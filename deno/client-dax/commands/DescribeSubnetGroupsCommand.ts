@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient.ts";
-import {
-  DescribeSubnetGroupsRequest,
-  DescribeSubnetGroupsResponse
-} from "../models/index.ts";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
+import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSubnetGroupsCommand,
-  serializeAws_json1_1DescribeSubnetGroupsCommand
+  serializeAws_json1_1DescribeSubnetGroupsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSubnetGroupsCommandInput = DescribeSubnetGroupsRequest;
-export type DescribeSubnetGroupsCommandOutput = DescribeSubnetGroupsResponse &
-  __MetadataBearer;
+export type DescribeSubnetGroupsCommandOutput = DescribeSubnetGroupsResponse & __MetadataBearer;
 
 export class DescribeSubnetGroupsCommand extends $Command<
   DescribeSubnetGroupsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSubnetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSubnetGroupsCommandInput,
-    DescribeSubnetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSubnetGroupsCommandInput, DescribeSubnetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSubnetGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubnetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeSubnetGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSubnetGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSubnetGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSubnetGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetGroupsCommandOutput> {
     return deserializeAws_json1_1DescribeSubnetGroupsCommand(output, context);
   }
 

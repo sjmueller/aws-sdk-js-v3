@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  UpdateMaintenanceWindowTargetRequest,
-  UpdateMaintenanceWindowTargetResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { UpdateMaintenanceWindowTargetRequest, UpdateMaintenanceWindowTargetResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
-  serializeAws_json1_1UpdateMaintenanceWindowTargetCommand
+  serializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateMaintenanceWindowTargetCommandInput = UpdateMaintenanceWindowTargetRequest;
-export type UpdateMaintenanceWindowTargetCommandOutput = UpdateMaintenanceWindowTargetResult &
-  __MetadataBearer;
+export type UpdateMaintenanceWindowTargetCommandOutput = UpdateMaintenanceWindowTargetResult & __MetadataBearer;
 
 export class UpdateMaintenanceWindowTargetCommand extends $Command<
   UpdateMaintenanceWindowTargetCommandInput,
@@ -49,18 +38,16 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMaintenanceWindowTargetCommandInput,
-    UpdateMaintenanceWindowTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMaintenanceWindowTargetCommandInput, UpdateMaintenanceWindowTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateMaintenanceWindowTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMaintenanceWindowTargetResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateMaintenanceWindowTargetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateMaintenanceWindowTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMaintenanceWindowTargetCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

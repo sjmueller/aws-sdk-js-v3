@@ -1,21 +1,14 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient.ts";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import {
   DescribeDirectConnectGatewayAssociationsRequest,
-  DescribeDirectConnectGatewayAssociationsResult
+  DescribeDirectConnectGatewayAssociationsResult,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand
+  serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDirectConnectGatewayAssociationsCommandInput = DescribeDirectConnectGatewayAssociationsRequest;
@@ -39,9 +32,7 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeDirectConnectGatewayAssociationsCommandInput
-  ) {
+  constructor(readonly input: DescribeDirectConnectGatewayAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     DescribeDirectConnectGatewayAssociationsCommandInput,
     DescribeDirectConnectGatewayAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     input: DescribeDirectConnectGatewayAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

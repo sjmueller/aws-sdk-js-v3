@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
-import {
-  ListFieldLevelEncryptionConfigsRequest,
-  ListFieldLevelEncryptionConfigsResult
-} from "../models/index.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
+import { ListFieldLevelEncryptionConfigsRequest, ListFieldLevelEncryptionConfigsResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
-  serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
+  serializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListFieldLevelEncryptionConfigsCommandInput = ListFieldLevelEncryptionConfigsRequest;
-export type ListFieldLevelEncryptionConfigsCommandOutput = ListFieldLevelEncryptionConfigsResult &
-  __MetadataBearer;
+export type ListFieldLevelEncryptionConfigsCommandOutput = ListFieldLevelEncryptionConfigsResult & __MetadataBearer;
 
 export class ListFieldLevelEncryptionConfigsCommand extends $Command<
   ListFieldLevelEncryptionConfigsCommandInput,
@@ -49,18 +38,16 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListFieldLevelEncryptionConfigsCommandInput,
-    ListFieldLevelEncryptionConfigsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListFieldLevelEncryptionConfigsCommandInput, ListFieldLevelEncryptionConfigsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListFieldLevelEncryptionConfigsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFieldLevelEncryptionConfigsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     input: ListFieldLevelEncryptionConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListFieldLevelEncryptionConfigsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> {
-    return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

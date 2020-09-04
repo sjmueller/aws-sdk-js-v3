@@ -1,21 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient.ts";
-import {
-  AccessPointDescription,
-  CreateAccessPointRequest
-} from "../models/index.ts";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
+import { AccessPointDescription, CreateAccessPointRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateAccessPointCommand,
-  serializeAws_restJson1CreateAccessPointCommand
+  serializeAws_restJson1CreateAccessPointCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = AccessPointDescription &
-  __MetadataBearer;
+export type CreateAccessPointCommandOutput = AccessPointDescription & __MetadataBearer;
 
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,
@@ -50,14 +39,15 @@ export class CreateAccessPointCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AccessPointDescription.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateAccessPointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAccessPointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateAccessPointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
     return deserializeAws_restJson1CreateAccessPointCommand(output, context);
   }
 

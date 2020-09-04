@@ -1,147 +1,106 @@
-import {
-  AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput
-} from "./commands/AssociateWebACLCommand.ts";
-import {
-  CheckCapacityCommandInput,
-  CheckCapacityCommandOutput
-} from "./commands/CheckCapacityCommand.ts";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand.ts";
+import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand.ts";
+import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand.ts";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput
+  CreateRegexPatternSetCommandOutput,
 } from "./commands/CreateRegexPatternSetCommand.ts";
+import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand.ts";
+import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand.ts";
 import {
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
-} from "./commands/CreateRuleGroupCommand.ts";
-import {
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
-} from "./commands/CreateWebACLCommand.ts";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand.ts";
+  DeleteFirewallManagerRuleGroupsCommandInput,
+  DeleteFirewallManagerRuleGroupsCommandOutput,
+} from "./commands/DeleteFirewallManagerRuleGroupsCommand.ts";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput
+  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand.ts";
 import {
+  DeletePermissionPolicyCommandInput,
+  DeletePermissionPolicyCommandOutput,
+} from "./commands/DeletePermissionPolicyCommand.ts";
+import {
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput
+  DeleteRegexPatternSetCommandOutput,
 } from "./commands/DeleteRegexPatternSetCommand.ts";
-import {
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
-} from "./commands/DeleteRuleGroupCommand.ts";
-import {
-  DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
-} from "./commands/DeleteWebACLCommand.ts";
+import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand.ts";
+import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand.ts";
 import {
   DescribeManagedRuleGroupCommandInput,
-  DescribeManagedRuleGroupCommandOutput
+  DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand.ts";
 import {
   DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput
+  DisassociateWebACLCommandOutput,
 } from "./commands/DisassociateWebACLCommand.ts";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand.ts";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand.ts";
 import {
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput
+  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand.ts";
 import {
+  GetPermissionPolicyCommandInput,
+  GetPermissionPolicyCommandOutput,
+} from "./commands/GetPermissionPolicyCommand.ts";
+import {
   GetRateBasedStatementManagedKeysCommandInput,
-  GetRateBasedStatementManagedKeysCommandOutput
+  GetRateBasedStatementManagedKeysCommandOutput,
 } from "./commands/GetRateBasedStatementManagedKeysCommand.ts";
 import {
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
+  GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand.ts";
-import {
-  GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
-} from "./commands/GetRuleGroupCommand.ts";
+import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand.ts";
 import {
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
+  GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand.ts";
-import {
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand.ts";
+import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand.ts";
 import {
   GetWebACLForResourceCommandInput,
-  GetWebACLForResourceCommandOutput
+  GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand.ts";
 import {
   ListAvailableManagedRuleGroupsCommandInput,
-  ListAvailableManagedRuleGroupsCommandOutput
+  ListAvailableManagedRuleGroupsCommandOutput,
 } from "./commands/ListAvailableManagedRuleGroupsCommand.ts";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand.ts";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand.ts";
 import {
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput
+  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand.ts";
 import {
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput
+  ListRegexPatternSetsCommandOutput,
 } from "./commands/ListRegexPatternSetsCommand.ts";
 import {
   ListResourcesForWebACLCommandInput,
-  ListResourcesForWebACLCommandOutput
+  ListResourcesForWebACLCommandOutput,
 } from "./commands/ListResourcesForWebACLCommand.ts";
-import {
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
-} from "./commands/ListRuleGroupsCommand.ts";
+import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand.ts";
+import { ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand.ts";
 import {
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput
+  PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand.ts";
+  PutPermissionPolicyCommandInput,
+  PutPermissionPolicyCommandOutput,
+} from "./commands/PutPermissionPolicyCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand.ts";
 import {
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput
+  UpdateRegexPatternSetCommandOutput,
 } from "./commands/UpdateRegexPatternSetCommand.ts";
-import {
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
-} from "./commands/UpdateRuleGroupCommand.ts";
-import {
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
-} from "./commands/UpdateWebACLCommand.ts";
+import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand.ts";
+import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "./commands/UpdateWebACLCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -149,38 +108,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -189,9 +144,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -201,8 +157,10 @@ export type ServiceInputTypes =
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
   | CreateWebACLCommandInput
+  | DeleteFirewallManagerRuleGroupsCommandInput
   | DeleteIPSetCommandInput
   | DeleteLoggingConfigurationCommandInput
+  | DeletePermissionPolicyCommandInput
   | DeleteRegexPatternSetCommandInput
   | DeleteRuleGroupCommandInput
   | DeleteWebACLCommandInput
@@ -210,6 +168,7 @@ export type ServiceInputTypes =
   | DisassociateWebACLCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
+  | GetPermissionPolicyCommandInput
   | GetRateBasedStatementManagedKeysCommandInput
   | GetRegexPatternSetCommandInput
   | GetRuleGroupCommandInput
@@ -225,6 +184,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListWebACLsCommandInput
   | PutLoggingConfigurationCommandInput
+  | PutPermissionPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateIPSetCommandInput
@@ -239,8 +199,10 @@ export type ServiceOutputTypes =
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
   | CreateWebACLCommandOutput
+  | DeleteFirewallManagerRuleGroupsCommandOutput
   | DeleteIPSetCommandOutput
   | DeleteLoggingConfigurationCommandOutput
+  | DeletePermissionPolicyCommandOutput
   | DeleteRegexPatternSetCommandOutput
   | DeleteRuleGroupCommandOutput
   | DeleteWebACLCommandOutput
@@ -248,6 +210,7 @@ export type ServiceOutputTypes =
   | DisassociateWebACLCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
+  | GetPermissionPolicyCommandOutput
   | GetRateBasedStatementManagedKeysCommandOutput
   | GetRegexPatternSetCommandOutput
   | GetRuleGroupCommandOutput
@@ -263,6 +226,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListWebACLsCommandOutput
   | PutLoggingConfigurationCommandOutput
+  | PutPermissionPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateIPSetCommandOutput
@@ -270,8 +234,7 @@ export type ServiceOutputTypes =
   | UpdateRuleGroupCommandOutput
   | UpdateWebACLCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -345,14 +308,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -360,9 +328,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WAFV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -371,9 +337,7 @@ export type WAFV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -406,7 +370,7 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>This API guide is for developers who need detailed information about AWS WAF API
  *          actions, data types, and errors. For detailed information about AWS WAF features and an
  *          overview of how to use AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *          <p>You can make API calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
+ *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region">AWS Service Endpoints for AWS WAF</a>. </p>
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
@@ -429,9 +393,9 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
  *                   <code>CLOUDFRONT</code> or <code>REGIONAL</code>. </p>
  *             </li>
  *             <li>
- *                <p>You can define a Web ACL or rule group with a single API call, and update it with a
+ *                <p>You can define a Web ACL or rule group with a single call, and update it with a
  *                single call. You define all rule specifications in JSON format, and pass them to your
- *                rule group or Web ACL API calls.</p>
+ *                rule group or Web ACL calls.</p>
  *             </li>
  *             <li>
  *                <p>The limits AWS WAF places on the use of rules more closely reflects the cost of
@@ -451,7 +415,7 @@ export class WAFV2Client extends __Client<
   constructor(configuration: WAFV2ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -466,6 +430,7 @@ export class WAFV2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

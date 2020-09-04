@@ -1,18 +1,11 @@
-import {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ResourceGroupsClient.ts";
+import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient.ts";
 import { GetTagsInput, GetTagsOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetTagsCommand,
-  serializeAws_restJson1GetTagsCommand
+  serializeAws_restJson1GetTagsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetTagsCommandInput = GetTagsInput;
@@ -46,14 +39,15 @@ export class GetTagsCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTagsCommandInput, GetTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetTagsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTagsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class GetTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetTagsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTagsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagsCommandOutput> {
     return deserializeAws_restJson1GetTagsCommand(output, context);
   }
 

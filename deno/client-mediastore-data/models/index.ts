@@ -1,17 +1,11 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 type Readable = any;
 
 /**
  * <p>The specified container was not found for the specified account.</p>
  */
-export interface ContainerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ContainerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -19,10 +13,9 @@ export interface ContainerNotFoundException
 
 export namespace ContainerNotFoundException {
   export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ContainerNotFoundException =>
-    __isa(o, "ContainerNotFoundException");
+  export const isa = (o: any): o is ContainerNotFoundException => __isa(o, "ContainerNotFoundException");
 }
 
 export interface DeleteObjectRequest {
@@ -36,10 +29,9 @@ export interface DeleteObjectRequest {
 
 export namespace DeleteObjectRequest {
   export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectRequest =>
-    __isa(o, "DeleteObjectRequest");
+  export const isa = (o: any): o is DeleteObjectRequest => __isa(o, "DeleteObjectRequest");
 }
 
 export interface DeleteObjectResponse {
@@ -48,10 +40,9 @@ export interface DeleteObjectResponse {
 
 export namespace DeleteObjectResponse {
   export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectResponse =>
-    __isa(o, "DeleteObjectResponse");
+  export const isa = (o: any): o is DeleteObjectResponse => __isa(o, "DeleteObjectResponse");
 }
 
 export interface DescribeObjectRequest {
@@ -65,14 +56,23 @@ export interface DescribeObjectRequest {
 
 export namespace DescribeObjectRequest {
   export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectRequest =>
-    __isa(o, "DescribeObjectRequest");
+  export const isa = (o: any): o is DescribeObjectRequest => __isa(o, "DescribeObjectRequest");
 }
 
 export interface DescribeObjectResponse {
   __type?: "DescribeObjectResponse";
+  /**
+   * <p>The date and time that the object was last modified.</p>
+   */
+  LastModified?: Date;
+
+  /**
+   * <p>The content type of the object.</p>
+   */
+  ContentType?: string;
+
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
@@ -81,32 +81,21 @@ export interface DescribeObjectResponse {
   CacheControl?: string;
 
   /**
-   * <p>The length of the object in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>The ETag that represents a unique instance of the object.</p>
    */
   ETag?: string;
 
   /**
-   * <p>The date and time that the object was last modified.</p>
+   * <p>The length of the object in bytes.</p>
    */
-  LastModified?: Date;
+  ContentLength?: number;
 }
 
 export namespace DescribeObjectResponse {
   export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectResponse =>
-    __isa(o, "DescribeObjectResponse");
+  export const isa = (o: any): o is DescribeObjectResponse => __isa(o, "DescribeObjectResponse");
 }
 
 export interface GetObjectRequest {
@@ -142,18 +131,22 @@ export interface GetObjectRequest {
 
 export namespace GetObjectRequest {
   export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetObjectRequest =>
-    __isa(o, "GetObjectRequest");
+  export const isa = (o: any): o is GetObjectRequest => __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectResponse {
   __type?: "GetObjectResponse";
   /**
-   * <p>The bytes of the object. </p>
+   * <p>The content type of the object.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  ContentType?: string;
+
+  /**
+   * <p>The length of the object in bytes.</p>
+   */
+  ContentLength?: number;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -163,19 +156,9 @@ export interface GetObjectResponse {
   CacheControl?: string;
 
   /**
-   * <p>The length of the object in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
    * <p>The range of bytes to retrieve.</p>
    */
   ContentRange?: string;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
 
   /**
    * <p>The ETag that represents a unique instance of the object.</p>
@@ -186,22 +169,24 @@ export interface GetObjectResponse {
    * <p>The date and time that the object was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>The bytes of the object. </p>
+   */
+  Body?: Readable | ReadableStream | Blob;
 }
 
 export namespace GetObjectResponse {
   export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetObjectResponse =>
-    __isa(o, "GetObjectResponse");
+  export const isa = (o: any): o is GetObjectResponse => __isa(o, "GetObjectResponse");
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -209,10 +194,9 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -220,26 +204,6 @@ export namespace InternalServerError {
  */
 export interface Item {
   __type?: "Item";
-  /**
-   * <p>The length of the item in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
-   * <p>The content type of the item.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>The ETag that represents a unique instance of the item.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>The date and time that the item was last modified.</p>
-   */
-  LastModified?: Date;
-
   /**
    * <p>The name of the item.</p>
    */
@@ -249,33 +213,47 @@ export interface Item {
    * <p>The item type (folder or object).</p>
    */
   Type?: ItemType | string;
+
+  /**
+   * <p>The length of the item in bytes.</p>
+   */
+  ContentLength?: number;
+
+  /**
+   * <p>The ETag that represents a unique instance of the item.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>The content type of the item.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The date and time that the item was last modified.</p>
+   */
+  LastModified?: Date;
 }
 
 export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
   FOLDER = "FOLDER",
-  OBJECT = "OBJECT"
+  OBJECT = "OBJECT",
 }
 
 export interface ListItemsRequest {
   __type?: "ListItemsRequest";
   /**
-   * <p>The maximum number of results to return per API request. For example, you submit a
-   *             <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
-   *          items match your request, the service returns no more than the first 500 items. (The
-   *          service also returns a <code>NextToken</code> value that you can use to fetch the next
-   *          batch of results.) The service might return fewer results than the <code>MaxResults</code>
-   *          value.</p>
-   *          <p>If <code>MaxResults</code> is not included in the request, the service defaults to
-   *          pagination with a maximum of 1,000 results per page.</p>
+   * <p>The path in the container from which to retrieve items. Format: <folder
+   *          name>/<folder name>/<file name></p>
    */
-  MaxResults?: number;
+  Path?: string;
 
   /**
    * <p>The token that identifies which batch of results that you want to see. For example,
@@ -288,18 +266,23 @@ export interface ListItemsRequest {
   NextToken?: string;
 
   /**
-   * <p>The path in the container from which to retrieve items. Format: <folder
-   *          name>/<folder name>/<file name></p>
+   * <p>The maximum number of results to return per API request. For example, you submit a
+   *             <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
+   *          items match your request, the service returns no more than the first 500 items. (The
+   *          service also returns a <code>NextToken</code> value that you can use to fetch the next
+   *          batch of results.) The service might return fewer results than the <code>MaxResults</code>
+   *          value.</p>
+   *          <p>If <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 1,000 results per page.</p>
    */
-  Path?: string;
+  MaxResults?: number;
 }
 
 export namespace ListItemsRequest {
   export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListItemsRequest =>
-    __isa(o, "ListItemsRequest");
+  export const isa = (o: any): o is ListItemsRequest => __isa(o, "ListItemsRequest");
 }
 
 export interface ListItemsResponse {
@@ -321,18 +304,15 @@ export interface ListItemsResponse {
 
 export namespace ListItemsResponse {
   export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListItemsResponse =>
-    __isa(o, "ListItemsResponse");
+  export const isa = (o: any): o is ListItemsResponse => __isa(o, "ListItemsResponse");
 }
 
 /**
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
-export interface ObjectNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -340,18 +320,19 @@ export interface ObjectNotFoundException
 
 export namespace ObjectNotFoundException {
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ObjectNotFoundException =>
-    __isa(o, "ObjectNotFoundException");
+  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export interface PutObjectRequest {
   __type?: "PutObjectRequest";
   /**
-   * <p>The bytes to be stored. </p>
+   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
+   *          high-performance temporal storage class, and objects are persisted into durable storage
+   *          shortly after being received.</p>
    */
-  Body: Readable | ReadableStream | Blob | undefined;
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -388,32 +369,29 @@ export interface PutObjectRequest {
   Path: string | undefined;
 
   /**
-   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
-   *          high-performance temporal storage class, and objects are persisted into durable storage
-   *          shortly after being received.</p>
+   * <p>The bytes to be stored. </p>
    */
-  StorageClass?: StorageClass | string;
+  Body: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace PutObjectRequest {
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutObjectRequest =>
-    __isa(o, "PutObjectRequest");
+  export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectResponse {
   __type?: "PutObjectResponse";
   /**
-   * <p>The SHA256 digest of the object that is persisted.</p>
-   */
-  ContentSHA256?: string;
-
-  /**
    * <p>Unique identifier of the object in the container.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The SHA256 digest of the object that is persisted.</p>
+   */
+  ContentSHA256?: string;
 
   /**
    * <p>The storage class where the object was persisted. The class should be
@@ -424,33 +402,28 @@ export interface PutObjectResponse {
 
 export namespace PutObjectResponse {
   export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutObjectResponse =>
-    __isa(o, "PutObjectResponse");
+  export const isa = (o: any): o is PutObjectResponse => __isa(o, "PutObjectResponse");
 }
 
 /**
  * <p>The requested content range is not valid.</p>
  */
-export interface RequestedRangeNotSatisfiableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestedRangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
   name: "RequestedRangeNotSatisfiableException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace RequestedRangeNotSatisfiableException {
-  export const filterSensitiveLog = (
-    obj: RequestedRangeNotSatisfiableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RequestedRangeNotSatisfiableException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RequestedRangeNotSatisfiableException =>
     __isa(o, "RequestedRangeNotSatisfiableException");
 }
 
 export enum StorageClass {
-  TEMPORAL = "TEMPORAL"
+  TEMPORAL = "TEMPORAL",
 }

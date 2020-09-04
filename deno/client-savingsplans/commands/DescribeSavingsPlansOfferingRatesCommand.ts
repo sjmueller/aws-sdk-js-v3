@@ -1,21 +1,14 @@
+import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient.ts";
 import {
   DescribeSavingsPlansOfferingRatesRequest,
-  DescribeSavingsPlansOfferingRatesResponse
+  DescribeSavingsPlansOfferingRatesResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand,
-  serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand
+  serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand,
 } from "../protocols/Aws_restJson1.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  savingsplansClientResolvedConfig
-} from "../savingsplansClient.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSavingsPlansOfferingRatesCommandInput = DescribeSavingsPlansOfferingRatesRequest;
@@ -34,7 +27,7 @@ export type DescribeSavingsPlansOfferingRatesCommandOutput = DescribeSavingsPlan
 export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
   DescribeSavingsPlansOfferingRatesCommandInput,
   DescribeSavingsPlansOfferingRatesCommandOutput,
-  savingsplansClientResolvedConfig
+  SavingsplansClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: savingsplansClientResolvedConfig,
+    configuration: SavingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSavingsPlansOfferingRatesCommandInput,
-    DescribeSavingsPlansOfferingRatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSavingsPlansOfferingRatesCommandInput, DescribeSavingsPlansOfferingRatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     input: DescribeSavingsPlansOfferingRatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
-    return deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand(output, context);
   }
 
   // Start section: command_body_extra

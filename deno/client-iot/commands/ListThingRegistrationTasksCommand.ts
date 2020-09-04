@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  ListThingRegistrationTasksRequest,
-  ListThingRegistrationTasksResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { ListThingRegistrationTasksRequest, ListThingRegistrationTasksResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListThingRegistrationTasksCommand,
-  serializeAws_restJson1ListThingRegistrationTasksCommand
+  serializeAws_restJson1ListThingRegistrationTasksCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListThingRegistrationTasksCommandInput = ListThingRegistrationTasksRequest;
-export type ListThingRegistrationTasksCommandOutput = ListThingRegistrationTasksResponse &
-  __MetadataBearer;
+export type ListThingRegistrationTasksCommandOutput = ListThingRegistrationTasksResponse & __MetadataBearer;
 
 export class ListThingRegistrationTasksCommand extends $Command<
   ListThingRegistrationTasksCommandInput,
@@ -49,18 +38,16 @@ export class ListThingRegistrationTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThingRegistrationTasksCommandInput,
-    ListThingRegistrationTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThingRegistrationTasksCommandInput, ListThingRegistrationTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListThingRegistrationTasksRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListThingRegistrationTasksResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListThingRegistrationTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListThingRegistrationTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingRegistrationTasksCommand(
-      input,
-      context
-    );
+  private serialize(input: ListThingRegistrationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListThingRegistrationTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingRegistrationTasksCommandOutput> {
-    return deserializeAws_restJson1ListThingRegistrationTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListThingRegistrationTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

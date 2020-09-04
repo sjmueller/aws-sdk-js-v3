@@ -1,21 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient.ts";
-import {
-  GetDataRetrievalPolicyInput,
-  GetDataRetrievalPolicyOutput
-} from "../models/index.ts";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
+import { GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDataRetrievalPolicyCommand,
-  serializeAws_restJson1GetDataRetrievalPolicyCommand
+  serializeAws_restJson1GetDataRetrievalPolicyCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
-export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput &
-  __MetadataBearer;
+export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput & __MetadataBearer;
 
 export class GetDataRetrievalPolicyCommand extends $Command<
   GetDataRetrievalPolicyCommandInput,
@@ -49,18 +38,16 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataRetrievalPolicyCommandInput,
-    GetDataRetrievalPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataRetrievalPolicyCommandInput, GetDataRetrievalPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDataRetrievalPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataRetrievalPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataRetrievalPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDataRetrievalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDataRetrievalPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1GetDataRetrievalPolicyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataRetrievalPolicyCommandOutput> {
+    return deserializeAws_restJson1GetDataRetrievalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

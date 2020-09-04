@@ -1,127 +1,64 @@
 import {
   ActivateEventSourceCommandInput,
-  ActivateEventSourceCommandOutput
+  ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand.ts";
-import {
-  CreateEventBusCommandInput,
-  CreateEventBusCommandOutput
-} from "./commands/CreateEventBusCommand.ts";
+import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand.ts";
 import {
   CreatePartnerEventSourceCommandInput,
-  CreatePartnerEventSourceCommandOutput
+  CreatePartnerEventSourceCommandOutput,
 } from "./commands/CreatePartnerEventSourceCommand.ts";
 import {
   DeactivateEventSourceCommandInput,
-  DeactivateEventSourceCommandOutput
+  DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand.ts";
-import {
-  DeleteEventBusCommandInput,
-  DeleteEventBusCommandOutput
-} from "./commands/DeleteEventBusCommand.ts";
+import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand.ts";
 import {
   DeletePartnerEventSourceCommandInput,
-  DeletePartnerEventSourceCommandOutput
+  DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand.ts";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand.ts";
-import {
-  DescribeEventBusCommandInput,
-  DescribeEventBusCommandOutput
-} from "./commands/DescribeEventBusCommand.ts";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
+import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand.ts";
 import {
   DescribeEventSourceCommandInput,
-  DescribeEventSourceCommandOutput
+  DescribeEventSourceCommandOutput,
 } from "./commands/DescribeEventSourceCommand.ts";
 import {
   DescribePartnerEventSourceCommandInput,
-  DescribePartnerEventSourceCommandOutput
+  DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand.ts";
-import {
-  DescribeRuleCommandInput,
-  DescribeRuleCommandOutput
-} from "./commands/DescribeRuleCommand.ts";
-import {
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput
-} from "./commands/DisableRuleCommand.ts";
-import {
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "./commands/EnableRuleCommand.ts";
-import {
-  ListEventBusesCommandInput,
-  ListEventBusesCommandOutput
-} from "./commands/ListEventBusesCommand.ts";
-import {
-  ListEventSourcesCommandInput,
-  ListEventSourcesCommandOutput
-} from "./commands/ListEventSourcesCommand.ts";
+import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand.ts";
+import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand.ts";
+import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand.ts";
+import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand.ts";
+import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand.ts";
 import {
   ListPartnerEventSourceAccountsCommandInput,
-  ListPartnerEventSourceAccountsCommandOutput
+  ListPartnerEventSourceAccountsCommandOutput,
 } from "./commands/ListPartnerEventSourceAccountsCommand.ts";
 import {
   ListPartnerEventSourcesCommandInput,
-  ListPartnerEventSourcesCommandOutput
+  ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand.ts";
 import {
   ListRuleNamesByTargetCommandInput,
-  ListRuleNamesByTargetCommandOutput
+  ListRuleNamesByTargetCommandOutput,
 } from "./commands/ListRuleNamesByTargetCommand.ts";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand.ts";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListTargetsByRuleCommandInput,
-  ListTargetsByRuleCommandOutput
-} from "./commands/ListTargetsByRuleCommand.ts";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand.ts";
-import {
-  PutPartnerEventsCommandInput,
-  PutPartnerEventsCommandOutput
-} from "./commands/PutPartnerEventsCommand.ts";
-import {
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput
-} from "./commands/PutPermissionCommand.ts";
-import {
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "./commands/PutRuleCommand.ts";
-import {
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "./commands/PutTargetsCommand.ts";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand.ts";
-import {
-  RemoveTargetsCommandInput,
-  RemoveTargetsCommandOutput
-} from "./commands/RemoveTargetsCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  TestEventPatternCommandInput,
-  TestEventPatternCommandOutput
-} from "./commands/TestEventPatternCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { ListTargetsByRuleCommandInput, ListTargetsByRuleCommandOutput } from "./commands/ListTargetsByRuleCommand.ts";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand.ts";
+import { PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput } from "./commands/PutPartnerEventsCommand.ts";
+import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand.ts";
+import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand.ts";
+import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand.ts";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand.ts";
+import { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -129,38 +66,33 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -171,7 +103,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -240,8 +172,7 @@ export type ServiceOutputTypes =
   | TestEventPatternCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -315,14 +246,14 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -330,9 +261,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchEventsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -341,9 +270,7 @@ export type CloudWatchEventsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudWatchEventsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudWatchEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -386,7 +313,7 @@ export class CloudWatchEventsClient extends __Client<
   constructor(configuration: CloudWatchEventsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);

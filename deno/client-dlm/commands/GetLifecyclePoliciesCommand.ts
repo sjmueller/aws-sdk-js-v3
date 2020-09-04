@@ -1,21 +1,11 @@
-import {
-  DLMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DLMClient.ts";
-import {
-  GetLifecyclePoliciesRequest,
-  GetLifecyclePoliciesResponse
-} from "../models/index.ts";
+import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient.ts";
+import { GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetLifecyclePoliciesCommand,
-  serializeAws_restJson1GetLifecyclePoliciesCommand
+  serializeAws_restJson1GetLifecyclePoliciesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLifecyclePoliciesCommandInput = GetLifecyclePoliciesRequest;
-export type GetLifecyclePoliciesCommandOutput = GetLifecyclePoliciesResponse &
-  __MetadataBearer;
+export type GetLifecyclePoliciesCommandOutput = GetLifecyclePoliciesResponse & __MetadataBearer;
 
 export class GetLifecyclePoliciesCommand extends $Command<
   GetLifecyclePoliciesCommandInput,
@@ -49,18 +38,16 @@ export class GetLifecyclePoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DLMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLifecyclePoliciesCommandInput,
-    GetLifecyclePoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLifecyclePoliciesCommandInput, GetLifecyclePoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLifecyclePoliciesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLifecyclePoliciesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetLifecyclePoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLifecyclePoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLifecyclePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLifecyclePoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLifecyclePoliciesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePoliciesCommandOutput> {
     return deserializeAws_restJson1GetLifecyclePoliciesCommand(output, context);
   }
 

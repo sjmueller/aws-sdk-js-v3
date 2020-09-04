@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  DescribeEventTopicsRequest,
-  DescribeEventTopicsResult
-} from "../models/index.ts";
+import { DescribeEventTopicsRequest, DescribeEventTopicsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventTopicsCommand,
-  serializeAws_json1_1DescribeEventTopicsCommand
+  serializeAws_json1_1DescribeEventTopicsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventTopicsCommandInput = DescribeEventTopicsRequest;
-export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult &
-  __MetadataBearer;
+export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult & __MetadataBearer;
 
 export class DescribeEventTopicsCommand extends $Command<
   DescribeEventTopicsCommandInput,
@@ -49,18 +42,16 @@ export class DescribeEventTopicsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventTopicsCommandInput,
-    DescribeEventTopicsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventTopicsCommandInput, DescribeEventTopicsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventTopicsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventTopicsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DescribeEventTopicsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventTopicsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventTopicsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventTopicsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventTopicsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTopicsCommandOutput> {
     return deserializeAws_json1_1DescribeEventTopicsCommand(output, context);
   }
 

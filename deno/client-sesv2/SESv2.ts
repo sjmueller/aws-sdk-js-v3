@@ -2,248 +2,330 @@ import { SESv2Client } from "./SESv2Client.ts";
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand.ts";
 import {
   CreateConfigurationSetEventDestinationCommand,
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand.ts";
+import {
+  CreateCustomVerificationEmailTemplateCommand,
+  CreateCustomVerificationEmailTemplateCommandInput,
+  CreateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/CreateCustomVerificationEmailTemplateCommand.ts";
 import {
   CreateDedicatedIpPoolCommand,
   CreateDedicatedIpPoolCommandInput,
-  CreateDedicatedIpPoolCommandOutput
+  CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand.ts";
 import {
   CreateDeliverabilityTestReportCommand,
   CreateDeliverabilityTestReportCommandInput,
-  CreateDeliverabilityTestReportCommandOutput
+  CreateDeliverabilityTestReportCommandOutput,
 } from "./commands/CreateDeliverabilityTestReportCommand.ts";
 import {
   CreateEmailIdentityCommand,
   CreateEmailIdentityCommandInput,
-  CreateEmailIdentityCommandOutput
+  CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand.ts";
+import {
+  CreateEmailIdentityPolicyCommand,
+  CreateEmailIdentityPolicyCommandInput,
+  CreateEmailIdentityPolicyCommandOutput,
+} from "./commands/CreateEmailIdentityPolicyCommand.ts";
+import {
+  CreateEmailTemplateCommand,
+  CreateEmailTemplateCommandInput,
+  CreateEmailTemplateCommandOutput,
+} from "./commands/CreateEmailTemplateCommand.ts";
 import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand.ts";
 import {
   DeleteConfigurationSetEventDestinationCommand,
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand.ts";
+import {
+  DeleteCustomVerificationEmailTemplateCommand,
+  DeleteCustomVerificationEmailTemplateCommandInput,
+  DeleteCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/DeleteCustomVerificationEmailTemplateCommand.ts";
 import {
   DeleteDedicatedIpPoolCommand,
   DeleteDedicatedIpPoolCommandInput,
-  DeleteDedicatedIpPoolCommandOutput
+  DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand.ts";
 import {
   DeleteEmailIdentityCommand,
   DeleteEmailIdentityCommandInput,
-  DeleteEmailIdentityCommandOutput
+  DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand.ts";
+import {
+  DeleteEmailIdentityPolicyCommand,
+  DeleteEmailIdentityPolicyCommandInput,
+  DeleteEmailIdentityPolicyCommandOutput,
+} from "./commands/DeleteEmailIdentityPolicyCommand.ts";
+import {
+  DeleteEmailTemplateCommand,
+  DeleteEmailTemplateCommandInput,
+  DeleteEmailTemplateCommandOutput,
+} from "./commands/DeleteEmailTemplateCommand.ts";
 import {
   DeleteSuppressedDestinationCommand,
   DeleteSuppressedDestinationCommandInput,
-  DeleteSuppressedDestinationCommandOutput
+  DeleteSuppressedDestinationCommandOutput,
 } from "./commands/DeleteSuppressedDestinationCommand.ts";
-import {
-  GetAccountCommand,
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand.ts";
+import { GetAccountCommand, GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand.ts";
 import {
   GetBlacklistReportsCommand,
   GetBlacklistReportsCommandInput,
-  GetBlacklistReportsCommandOutput
+  GetBlacklistReportsCommandOutput,
 } from "./commands/GetBlacklistReportsCommand.ts";
 import {
   GetConfigurationSetCommand,
   GetConfigurationSetCommandInput,
-  GetConfigurationSetCommandOutput
+  GetConfigurationSetCommandOutput,
 } from "./commands/GetConfigurationSetCommand.ts";
 import {
   GetConfigurationSetEventDestinationsCommand,
   GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput
+  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand.ts";
+import {
+  GetCustomVerificationEmailTemplateCommand,
+  GetCustomVerificationEmailTemplateCommandInput,
+  GetCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/GetCustomVerificationEmailTemplateCommand.ts";
 import {
   GetDedicatedIpCommand,
   GetDedicatedIpCommandInput,
-  GetDedicatedIpCommandOutput
+  GetDedicatedIpCommandOutput,
 } from "./commands/GetDedicatedIpCommand.ts";
 import {
   GetDedicatedIpsCommand,
   GetDedicatedIpsCommandInput,
-  GetDedicatedIpsCommandOutput
+  GetDedicatedIpsCommandOutput,
 } from "./commands/GetDedicatedIpsCommand.ts";
 import {
   GetDeliverabilityDashboardOptionsCommand,
   GetDeliverabilityDashboardOptionsCommandInput,
-  GetDeliverabilityDashboardOptionsCommandOutput
+  GetDeliverabilityDashboardOptionsCommandOutput,
 } from "./commands/GetDeliverabilityDashboardOptionsCommand.ts";
 import {
   GetDeliverabilityTestReportCommand,
   GetDeliverabilityTestReportCommandInput,
-  GetDeliverabilityTestReportCommandOutput
+  GetDeliverabilityTestReportCommandOutput,
 } from "./commands/GetDeliverabilityTestReportCommand.ts";
 import {
   GetDomainDeliverabilityCampaignCommand,
   GetDomainDeliverabilityCampaignCommandInput,
-  GetDomainDeliverabilityCampaignCommandOutput
+  GetDomainDeliverabilityCampaignCommandOutput,
 } from "./commands/GetDomainDeliverabilityCampaignCommand.ts";
 import {
   GetDomainStatisticsReportCommand,
   GetDomainStatisticsReportCommandInput,
-  GetDomainStatisticsReportCommandOutput
+  GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand.ts";
 import {
   GetEmailIdentityCommand,
   GetEmailIdentityCommandInput,
-  GetEmailIdentityCommandOutput
+  GetEmailIdentityCommandOutput,
 } from "./commands/GetEmailIdentityCommand.ts";
+import {
+  GetEmailIdentityPoliciesCommand,
+  GetEmailIdentityPoliciesCommandInput,
+  GetEmailIdentityPoliciesCommandOutput,
+} from "./commands/GetEmailIdentityPoliciesCommand.ts";
+import {
+  GetEmailTemplateCommand,
+  GetEmailTemplateCommandInput,
+  GetEmailTemplateCommandOutput,
+} from "./commands/GetEmailTemplateCommand.ts";
 import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
-  GetSuppressedDestinationCommandOutput
+  GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand.ts";
 import {
   ListConfigurationSetsCommand,
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand.ts";
+import {
+  ListCustomVerificationEmailTemplatesCommand,
+  ListCustomVerificationEmailTemplatesCommandInput,
+  ListCustomVerificationEmailTemplatesCommandOutput,
+} from "./commands/ListCustomVerificationEmailTemplatesCommand.ts";
 import {
   ListDedicatedIpPoolsCommand,
   ListDedicatedIpPoolsCommandInput,
-  ListDedicatedIpPoolsCommandOutput
+  ListDedicatedIpPoolsCommandOutput,
 } from "./commands/ListDedicatedIpPoolsCommand.ts";
 import {
   ListDeliverabilityTestReportsCommand,
   ListDeliverabilityTestReportsCommandInput,
-  ListDeliverabilityTestReportsCommandOutput
+  ListDeliverabilityTestReportsCommandOutput,
 } from "./commands/ListDeliverabilityTestReportsCommand.ts";
 import {
   ListDomainDeliverabilityCampaignsCommand,
   ListDomainDeliverabilityCampaignsCommandInput,
-  ListDomainDeliverabilityCampaignsCommandOutput
+  ListDomainDeliverabilityCampaignsCommandOutput,
 } from "./commands/ListDomainDeliverabilityCampaignsCommand.ts";
 import {
   ListEmailIdentitiesCommand,
   ListEmailIdentitiesCommandInput,
-  ListEmailIdentitiesCommandOutput
+  ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand.ts";
+import {
+  ListEmailTemplatesCommand,
+  ListEmailTemplatesCommandInput,
+  ListEmailTemplatesCommandOutput,
+} from "./commands/ListEmailTemplatesCommand.ts";
 import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
-  ListSuppressedDestinationsCommandOutput
+  ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDedicatedIpWarmupAttributesCommandInput,
-  PutAccountDedicatedIpWarmupAttributesCommandOutput
+  PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand.ts";
+import {
+  PutAccountDetailsCommand,
+  PutAccountDetailsCommandInput,
+  PutAccountDetailsCommandOutput,
+} from "./commands/PutAccountDetailsCommand.ts";
 import {
   PutAccountSendingAttributesCommand,
   PutAccountSendingAttributesCommandInput,
-  PutAccountSendingAttributesCommandOutput
+  PutAccountSendingAttributesCommandOutput,
 } from "./commands/PutAccountSendingAttributesCommand.ts";
 import {
   PutAccountSuppressionAttributesCommand,
   PutAccountSuppressionAttributesCommandInput,
-  PutAccountSuppressionAttributesCommandOutput
+  PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand.ts";
 import {
   PutConfigurationSetDeliveryOptionsCommand,
   PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput
+  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand.ts";
 import {
   PutConfigurationSetReputationOptionsCommand,
   PutConfigurationSetReputationOptionsCommandInput,
-  PutConfigurationSetReputationOptionsCommandOutput
+  PutConfigurationSetReputationOptionsCommandOutput,
 } from "./commands/PutConfigurationSetReputationOptionsCommand.ts";
 import {
   PutConfigurationSetSendingOptionsCommand,
   PutConfigurationSetSendingOptionsCommandInput,
-  PutConfigurationSetSendingOptionsCommandOutput
+  PutConfigurationSetSendingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSendingOptionsCommand.ts";
 import {
   PutConfigurationSetSuppressionOptionsCommand,
   PutConfigurationSetSuppressionOptionsCommandInput,
-  PutConfigurationSetSuppressionOptionsCommandOutput
+  PutConfigurationSetSuppressionOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSuppressionOptionsCommand.ts";
 import {
   PutConfigurationSetTrackingOptionsCommand,
   PutConfigurationSetTrackingOptionsCommandInput,
-  PutConfigurationSetTrackingOptionsCommandOutput
+  PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand.ts";
 import {
   PutDedicatedIpInPoolCommand,
   PutDedicatedIpInPoolCommandInput,
-  PutDedicatedIpInPoolCommandOutput
+  PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand.ts";
 import {
   PutDedicatedIpWarmupAttributesCommand,
   PutDedicatedIpWarmupAttributesCommandInput,
-  PutDedicatedIpWarmupAttributesCommandOutput
+  PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand.ts";
 import {
   PutDeliverabilityDashboardOptionCommand,
   PutDeliverabilityDashboardOptionCommandInput,
-  PutDeliverabilityDashboardOptionCommandOutput
+  PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand.ts";
 import {
   PutEmailIdentityDkimAttributesCommand,
   PutEmailIdentityDkimAttributesCommandInput,
-  PutEmailIdentityDkimAttributesCommandOutput
+  PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand.ts";
 import {
   PutEmailIdentityDkimSigningAttributesCommand,
   PutEmailIdentityDkimSigningAttributesCommandInput,
-  PutEmailIdentityDkimSigningAttributesCommandOutput
+  PutEmailIdentityDkimSigningAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimSigningAttributesCommand.ts";
 import {
   PutEmailIdentityFeedbackAttributesCommand,
   PutEmailIdentityFeedbackAttributesCommandInput,
-  PutEmailIdentityFeedbackAttributesCommandOutput
+  PutEmailIdentityFeedbackAttributesCommandOutput,
 } from "./commands/PutEmailIdentityFeedbackAttributesCommand.ts";
 import {
   PutEmailIdentityMailFromAttributesCommand,
   PutEmailIdentityMailFromAttributesCommandInput,
-  PutEmailIdentityMailFromAttributesCommandOutput
+  PutEmailIdentityMailFromAttributesCommandOutput,
 } from "./commands/PutEmailIdentityMailFromAttributesCommand.ts";
 import {
   PutSuppressedDestinationCommand,
   PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput
+  PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand.ts";
 import {
-  SendEmailCommand,
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand.ts";
+  SendBulkEmailCommand,
+  SendBulkEmailCommandInput,
+  SendBulkEmailCommandOutput,
+} from "./commands/SendBulkEmailCommand.ts";
+import {
+  SendCustomVerificationEmailCommand,
+  SendCustomVerificationEmailCommandInput,
+  SendCustomVerificationEmailCommandOutput,
+} from "./commands/SendCustomVerificationEmailCommand.ts";
+import { SendEmailCommand, SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
+import {
+  TestRenderEmailTemplateCommand,
+  TestRenderEmailTemplateCommandInput,
+  TestRenderEmailTemplateCommandOutput,
+} from "./commands/TestRenderEmailTemplateCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateConfigurationSetEventDestinationCommand,
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand.ts";
+import {
+  UpdateCustomVerificationEmailTemplateCommand,
+  UpdateCustomVerificationEmailTemplateCommandInput,
+  UpdateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/UpdateCustomVerificationEmailTemplateCommand.ts";
+import {
+  UpdateEmailIdentityPolicyCommand,
+  UpdateEmailIdentityPolicyCommandInput,
+  UpdateEmailIdentityPolicyCommandOutput,
+} from "./commands/UpdateEmailIdentityPolicyCommand.ts";
+import {
+  UpdateEmailTemplateCommand,
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput,
+} from "./commands/UpdateEmailTemplateCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
@@ -291,17 +373,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): Promise<CreateConfigurationSetCommandOutput> | void {
     const command = new CreateConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -323,38 +402,62 @@ export class SESv2 extends SESv2Client {
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomVerificationEmailTemplateCommandOutput>;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public createCustomVerificationEmailTemplate(
+    args: CreateCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new CreateCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -382,17 +485,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createDedicatedIpPool(
     args: CreateDedicatedIpPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDedicatedIpPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDedicatedIpPoolCommandOutput) => void),
     cb?: (err: any, data?: CreateDedicatedIpPoolCommandOutput) => void
   ): Promise<CreateDedicatedIpPoolCommandOutput> | void {
     const command = new CreateDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -423,20 +523,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createDeliverabilityTestReport(
     args: CreateDeliverabilityTestReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDeliverabilityTestReportCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeliverabilityTestReportCommandOutput) => void),
     cb?: (err: any, data?: CreateDeliverabilityTestReportCommandOutput) => void
   ): Promise<CreateDeliverabilityTestReportCommandOutput> | void {
     const command = new CreateDeliverabilityTestReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -480,17 +574,92 @@ export class SESv2 extends SESv2Client {
   ): void;
   public createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: CreateEmailIdentityCommandOutput) => void
   ): Promise<CreateEmailIdentityCommandOutput> | void {
     const command = new CreateEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the specified sending authorization policy for the given identity (an email
+   *         address or a domain).</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailIdentityPolicyCommandOutput>;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public createEmailIdentityPolicy(
+    args: CreateEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateEmailIdentityPolicyCommandOutput) => void
+  ): Promise<CreateEmailIdentityPolicyCommandOutput> | void {
+    const command = new CreateEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an email template. Email templates enable you to send personalized email to
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+   *                 Developer Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailTemplateCommandOutput>;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): void;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): void;
+  public createEmailTemplate(
+    args: CreateEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): Promise<CreateEmailTemplateCommandOutput> | void {
+    const command = new CreateEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -520,17 +689,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): Promise<DeleteConfigurationSetCommandOutput> | void {
     const command = new DeleteConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -552,38 +718,62 @@ export class SESv2 extends SESv2Client {
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/es/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput>;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteCustomVerificationEmailTemplate(
+    args: DeleteCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new DeleteCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -608,17 +798,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteDedicatedIpPool(
     args: DeleteDedicatedIpPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void
   ): Promise<DeleteDedicatedIpPoolCommandOutput> | void {
     const command = new DeleteDedicatedIpPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -644,17 +831,92 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteEmailIdentity(
     args: DeleteEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: DeleteEmailIdentityCommandOutput) => void
   ): Promise<DeleteEmailIdentityCommandOutput> | void {
     const command = new DeleteEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified sending authorization policy for the given identity (an email
+   *             address or a domain). This API returns successfully even if a policy with the specified
+   *             name does not exist.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailIdentityPolicyCommandOutput>;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public deleteEmailIdentityPolicy(
+    args: DeleteEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEmailIdentityPolicyCommandOutput) => void
+  ): Promise<DeleteEmailIdentityPolicyCommandOutput> | void {
+    const command = new DeleteEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an email template.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailTemplateCommandOutput>;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): void;
+  public deleteEmailTemplate(
+    args: DeleteEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
+  ): Promise<DeleteEmailTemplateCommandOutput> | void {
+    const command = new DeleteEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -679,17 +941,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public deleteSuppressedDestination(
     args: DeleteSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSuppressedDestinationCommandOutput) => void
   ): Promise<DeleteSuppressedDestinationCommandOutput> | void {
     const command = new DeleteSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -700,14 +959,8 @@ export class SESv2 extends SESv2Client {
    * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
    *             account in the current AWS Region.</p>
    */
-  public getAccount(
-    args: GetAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAccountCommandOutput>;
-  public getAccount(
-    args: GetAccountCommandInput,
-    cb: (err: any, data?: GetAccountCommandOutput) => void
-  ): void;
+  public getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
+  public getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
   public getAccount(
     args: GetAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -715,17 +968,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getAccount(
     args: GetAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountCommandOutput) => void),
     cb?: (err: any, data?: GetAccountCommandOutput) => void
   ): Promise<GetAccountCommandOutput> | void {
     const command = new GetAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -750,17 +1000,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getBlacklistReports(
     args: GetBlacklistReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlacklistReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlacklistReportsCommandOutput) => void),
     cb?: (err: any, data?: GetBlacklistReportsCommandOutput) => void
   ): Promise<GetBlacklistReportsCommandOutput> | void {
     const command = new GetBlacklistReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -792,17 +1039,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getConfigurationSet(
     args: GetConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigurationSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationSetCommandOutput) => void),
     cb?: (err: any, data?: GetConfigurationSetCommandOutput) => void
   ): Promise<GetConfigurationSetCommandOutput> | void {
     const command = new GetConfigurationSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -825,38 +1069,59 @@ export class SESv2 extends SESv2Client {
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConfigurationSetEventDestinationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the custom email verification template for the template name you
+   *             specify.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomVerificationEmailTemplateCommandOutput>;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public getCustomVerificationEmailTemplate(
+    args: GetCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<GetCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new GetCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -883,17 +1148,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDedicatedIp(
     args: GetDedicatedIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDedicatedIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpCommandOutput) => void),
     cb?: (err: any, data?: GetDedicatedIpCommandOutput) => void
   ): Promise<GetDedicatedIpCommandOutput> | void {
     const command = new GetDedicatedIpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -919,17 +1181,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDedicatedIpsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDedicatedIpsCommandOutput) => void),
     cb?: (err: any, data?: GetDedicatedIpsCommandOutput) => void
   ): Promise<GetDedicatedIpsCommandOutput> | void {
     const command = new GetDedicatedIpsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -952,38 +1211,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): void;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): void;
   public getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDeliverabilityDashboardOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDeliverabilityDashboardOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> | void {
     const command = new GetDeliverabilityDashboardOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1008,17 +1252,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDeliverabilityTestReport(
     args: GetDeliverabilityTestReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeliverabilityTestReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeliverabilityTestReportCommandOutput) => void),
     cb?: (err: any, data?: GetDeliverabilityTestReportCommandOutput) => void
   ): Promise<GetDeliverabilityTestReportCommandOutput> | void {
     const command = new GetDeliverabilityTestReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,20 +1286,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDomainDeliverabilityCampaign(
     args: GetDomainDeliverabilityCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDomainDeliverabilityCampaignCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainDeliverabilityCampaignCommandOutput) => void),
     cb?: (err: any, data?: GetDomainDeliverabilityCampaignCommandOutput) => void
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput> | void {
     const command = new GetDomainDeliverabilityCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1084,17 +1319,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getDomainStatisticsReport(
     args: GetDomainStatisticsReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainStatisticsReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainStatisticsReportCommandOutput) => void),
     cb?: (err: any, data?: GetDomainStatisticsReportCommandOutput) => void
   ): Promise<GetDomainStatisticsReportCommandOutput> | void {
     const command = new GetDomainStatisticsReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1103,7 +1335,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Provides information about a specific identity, including the identity's verification
-   *             status, its DKIM authentication status, and its custom Mail-From settings.</p>
+   *             status, sending authorization policies, its DKIM authentication status, and its custom
+   *             Mail-From settings.</p>
    */
   public getEmailIdentity(
     args: GetEmailIdentityCommandInput,
@@ -1120,17 +1353,92 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getEmailIdentity(
     args: GetEmailIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailIdentityCommandOutput) => void),
     cb?: (err: any, data?: GetEmailIdentityCommandOutput) => void
   ): Promise<GetEmailIdentityCommandOutput> | void {
     const command = new GetEmailIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the requested sending authorization policies for the given identity (an email
+   *             address or a domain). The policies are returned as a map of policy names to policy
+   *             contents. You can retrieve a maximum of 20 policies at a time.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEmailIdentityPoliciesCommandOutput>;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    cb: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): void;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): void;
+  public getEmailIdentityPolicies(
+    args: GetEmailIdentityPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetEmailIdentityPoliciesCommandOutput) => void
+  ): Promise<GetEmailIdentityPoliciesCommandOutput> | void {
+    const command = new GetEmailIdentityPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays the template object (which includes the subject line, HTML part and text
+   *             part) for the template you specify.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEmailTemplateCommandOutput>;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): void;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): void;
+  public getEmailTemplate(
+    args: GetEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetEmailTemplateCommandOutput) => void
+  ): Promise<GetEmailTemplateCommandOutput> | void {
+    const command = new GetEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1156,17 +1464,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public getSuppressedDestination(
     args: GetSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: GetSuppressedDestinationCommandOutput) => void
   ): Promise<GetSuppressedDestinationCommandOutput> | void {
     const command = new GetSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1197,17 +1502,50 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationSetsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): Promise<ListConfigurationSetsCommandOutput> | void {
     const command = new ListConfigurationSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the existing custom verification email templates for your account in the current
+   *             AWS Region.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): void;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): void;
+  public listCustomVerificationEmailTemplates(
+    args: ListCustomVerificationEmailTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
+  ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> | void {
+    const command = new ListCustomVerificationEmailTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1233,17 +1571,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDedicatedIpPoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDedicatedIpPoolsCommandOutput) => void),
     cb?: (err: any, data?: ListDedicatedIpPoolsCommandOutput) => void
   ): Promise<ListDedicatedIpPoolsCommandOutput> | void {
     const command = new ListDedicatedIpPoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1270,17 +1605,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void),
     cb?: (err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void
   ): Promise<ListDeliverabilityTestReportsCommandOutput> | void {
     const command = new ListDeliverabilityTestReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1298,38 +1630,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput>;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    cb: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): void;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): void;
   public listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDomainDeliverabilityCampaignsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListDomainDeliverabilityCampaignsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void),
+    cb?: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> | void {
     const command = new ListDomainDeliverabilityCampaignsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1357,17 +1674,49 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEmailIdentitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEmailIdentitiesCommandOutput) => void),
     cb?: (err: any, data?: ListEmailIdentitiesCommandOutput) => void
   ): Promise<ListEmailIdentitiesCommandOutput> | void {
     const command = new ListEmailIdentitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the email templates present in your Amazon SES account in the current AWS
+   *             Region.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEmailTemplatesCommandOutput>;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    cb: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): void;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): void;
+  public listEmailTemplates(
+    args: ListEmailTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEmailTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): Promise<ListEmailTemplatesCommandOutput> | void {
+    const command = new ListEmailTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1393,17 +1742,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listSuppressedDestinations(
     args: ListSuppressedDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSuppressedDestinationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSuppressedDestinationsCommandOutput) => void),
     cb?: (err: any, data?: ListSuppressedDestinationsCommandOutput) => void
   ): Promise<ListSuppressedDestinationsCommandOutput> | void {
     const command = new ListSuppressedDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1433,17 +1779,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1459,38 +1802,57 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
   public putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutAccountDedicatedIpWarmupAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> | void {
     const command = new PutAccountDedicatedIpWarmupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update your Amazon SES account details.</p>
+   */
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountDetailsCommandOutput>;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    cb: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): void;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): void;
+  public putAccountDetails(
+    args: PutAccountDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountDetailsCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): Promise<PutAccountDetailsCommandOutput> | void {
+    const command = new PutAccountDetailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1515,17 +1877,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAccountSendingAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSendingAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSendingAttributesCommandOutput) => void
   ): Promise<PutAccountSendingAttributesCommandOutput> | void {
     const command = new PutAccountSendingAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1550,20 +1909,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putAccountSuppressionAttributes(
     args: PutAccountSuppressionAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAccountSuppressionAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSuppressionAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSuppressionAttributesCommandOutput) => void
   ): Promise<PutAccountSuppressionAttributesCommandOutput> | void {
     const command = new PutAccountSuppressionAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1580,38 +1933,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput>;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetDeliveryOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> | void {
     const command = new PutConfigurationSetDeliveryOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1628,38 +1966,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput>;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetReputationOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetReputationOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> | void {
     const command = new PutConfigurationSetReputationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1676,38 +1999,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput>;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetSendingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetSendingOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> | void {
     const command = new PutConfigurationSetSendingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1723,38 +2031,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput>;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetSuppressionOptions(
     args: PutConfigurationSetSuppressionOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetSuppressionOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetSuppressionOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetSuppressionOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> | void {
     const command = new PutConfigurationSetSuppressionOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1771,38 +2066,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput>;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetTrackingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new PutConfigurationSetTrackingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1836,17 +2116,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDedicatedIpInPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDedicatedIpInPoolCommandOutput) => void),
     cb?: (err: any, data?: PutDedicatedIpInPoolCommandOutput) => void
   ): Promise<PutDedicatedIpInPoolCommandOutput> | void {
     const command = new PutDedicatedIpInPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1871,20 +2148,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDedicatedIpWarmupAttributes(
     args: PutDedicatedIpWarmupAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDedicatedIpWarmupAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDedicatedIpWarmupAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutDedicatedIpWarmupAttributesCommandOutput) => void
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> | void {
     const command = new PutDedicatedIpWarmupAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1915,23 +2186,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putDeliverabilityDashboardOption(
     args: PutDeliverabilityDashboardOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDeliverabilityDashboardOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutDeliverabilityDashboardOptionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void),
+    cb?: (err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> | void {
     const command = new PutDeliverabilityDashboardOptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1956,20 +2218,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putEmailIdentityDkimAttributes(
     args: PutEmailIdentityDkimAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityDkimAttributesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityDkimAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutEmailIdentityDkimAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> | void {
     const command = new PutEmailIdentityDkimAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2004,38 +2260,25 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput>;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityDkimSigningAttributes(
     args: PutEmailIdentityDkimSigningAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityDkimSigningAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityDkimSigningAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> | void {
     const command = new PutEmailIdentityDkimSigningAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2060,38 +2303,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput>;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityFeedbackAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityFeedbackAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> | void {
     const command = new PutEmailIdentityFeedbackAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2108,38 +2336,23 @@ export class SESv2 extends SESv2Client {
   ): Promise<PutEmailIdentityMailFromAttributesCommandOutput>;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): void;
   public putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutEmailIdentityMailFromAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutEmailIdentityMailFromAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> | void {
     const command = new PutEmailIdentityMailFromAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2164,17 +2377,85 @@ export class SESv2 extends SESv2Client {
   ): void;
   public putSuppressedDestination(
     args: PutSuppressedDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSuppressedDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSuppressedDestinationCommandOutput) => void),
     cb?: (err: any, data?: PutSuppressedDestinationCommandOutput) => void
   ): Promise<PutSuppressedDestinationCommandOutput> | void {
     const command = new PutSuppressedDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Composes an email message to multiple destinations.</p>
+   */
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendBulkEmailCommandOutput>;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    cb: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): void;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): void;
+  public sendBulkEmail(
+    args: SendBulkEmailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendBulkEmailCommandOutput) => void),
+    cb?: (err: any, data?: SendBulkEmailCommandOutput) => void
+  ): Promise<SendBulkEmailCommandOutput> | void {
+    const command = new SendBulkEmailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds an email address to the list of identities for your Amazon SES account in the current
+   *             AWS Region and attempts to verify it. As a result of executing this operation, a
+   *             customized verification email is sent to the specified address.</p>
+   *         <p>To use this operation, you must first create a custom verification email template. For
+   *             more information about creating and using custom verification email templates, see
+   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendCustomVerificationEmailCommandOutput>;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    cb: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): void;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): void;
+  public sendCustomVerificationEmail(
+    args: SendCustomVerificationEmailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCustomVerificationEmailCommandOutput) => void),
+    cb?: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
+  ): Promise<SendCustomVerificationEmailCommandOutput> | void {
+    const command = new SendCustomVerificationEmailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2199,16 +2480,16 @@ export class SESv2 extends SESv2Client {
    *                     send messages that contain attachments. The message that you specify has to be a
    *                     valid MIME message.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Templated</b> – A message that contains
+   *                     personalization tags. When you send this type of email, Amazon SES API v2 automatically
+   *                     replaces the tags with values that you specify.</p>
+   *             </li>
    *          </ul>
    */
-  public sendEmail(
-    args: SendEmailCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendEmailCommandOutput>;
-  public sendEmail(
-    args: SendEmailCommandInput,
-    cb: (err: any, data?: SendEmailCommandOutput) => void
-  ): void;
+  public sendEmail(args: SendEmailCommandInput, options?: __HttpHandlerOptions): Promise<SendEmailCommandOutput>;
+  public sendEmail(args: SendEmailCommandInput, cb: (err: any, data?: SendEmailCommandOutput) => void): void;
   public sendEmail(
     args: SendEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -2216,17 +2497,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public sendEmail(
     args: SendEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendEmailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEmailCommandOutput) => void),
     cb?: (err: any, data?: SendEmailCommandOutput) => void
   ): Promise<SendEmailCommandOutput> | void {
     const command = new SendEmailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2244,14 +2522,8 @@ export class SESv2 extends SESv2Client {
    *             general label that acts as a category for more specific tag values. A tag value acts as
    *             a descriptor within a tag key.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2259,17 +2531,49 @@ export class SESv2 extends SESv2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a preview of the MIME content of an email when provided with a template and a
+   *             set of replacement data.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestRenderEmailTemplateCommandOutput>;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    cb: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): void;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): void;
+  public testRenderEmailTemplate(
+    args: TestRenderEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestRenderEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: TestRenderEmailTemplateCommandOutput) => void
+  ): Promise<TestRenderEmailTemplateCommandOutput> | void {
+    const command = new TestRenderEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2294,17 +2598,14 @@ export class SESv2 extends SESv2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2326,38 +2627,141 @@ export class SESv2 extends SESv2Client {
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing custom verification email template.</p>
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *                 Guide</i>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput>;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): void;
+  public updateCustomVerificationEmailTemplate(
+    args: UpdateCustomVerificationEmailTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
+  ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> | void {
+    const command = new UpdateCustomVerificationEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified sending authorization policy for the given identity (an email
+   *             address or a domain). This API returns successfully even if a policy with the specified
+   *             name does not exist.</p>
+   *         <note>
+   *             <p>This API is for the identity owner only. If you have not verified the identity,
+   *                 this API will return an error.</p>
+   *         </note>
+   *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+   *             senders to use its identities. For information about using sending authorization, see
+   *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailIdentityPolicyCommandOutput>;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    cb: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): void;
+  public updateEmailIdentityPolicy(
+    args: UpdateEmailIdentityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEmailIdentityPolicyCommandOutput) => void
+  ): Promise<UpdateEmailIdentityPolicyCommandOutput> | void {
+    const command = new UpdateEmailIdentityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an email template. Email templates enable you to send personalized email to
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
+   *                 Developer Guide</a>.</p>
+   *         <p>You can execute this operation no more than once per second.</p>
+   */
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailTemplateCommandOutput>;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): void;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): void;
+  public updateEmailTemplate(
+    args: UpdateEmailTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
+  ): Promise<UpdateEmailTemplateCommandOutput> | void {
+    const command = new UpdateEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,15 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import {
-  GetIntentVersionsRequest,
-  GetIntentVersionsResponse
-} from "../models/index.ts";
+import { GetIntentVersionsRequest, GetIntentVersionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetIntentVersionsCommand,
-  serializeAws_restJson1GetIntentVersionsCommand
+  serializeAws_restJson1GetIntentVersionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetIntentVersionsCommandInput = GetIntentVersionsRequest;
-export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse &
-  __MetadataBearer;
+export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse & __MetadataBearer;
 
 export class GetIntentVersionsCommand extends $Command<
   GetIntentVersionsCommandInput,
@@ -50,14 +43,15 @@ export class GetIntentVersionsCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetIntentVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetIntentVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class GetIntentVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetIntentVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetIntentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetIntentVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetIntentVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentVersionsCommandOutput> {
     return deserializeAws_restJson1GetIntentVersionsCommand(output, context);
   }
 

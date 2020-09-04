@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient.ts";
-import {
-  UpdateBrokerCountRequest,
-  UpdateBrokerCountResponse
-} from "../models/index.ts";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
+import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateBrokerCountCommand,
-  serializeAws_restJson1UpdateBrokerCountCommand
+  serializeAws_restJson1UpdateBrokerCountCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateBrokerCountCommandInput = UpdateBrokerCountRequest;
-export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse &
-  __MetadataBearer;
+export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse & __MetadataBearer;
 
 export class UpdateBrokerCountCommand extends $Command<
   UpdateBrokerCountCommandInput,
@@ -50,14 +39,15 @@ export class UpdateBrokerCountCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateBrokerCountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBrokerCountResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateBrokerCountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateBrokerCountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateBrokerCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateBrokerCountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateBrokerCountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCountCommandOutput> {
     return deserializeAws_restJson1UpdateBrokerCountCommand(output, context);
   }
 

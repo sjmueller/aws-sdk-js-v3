@@ -1,118 +1,109 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand.ts";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
 import {
   ApplySecurityGroupsToLoadBalancerCommandInput,
-  ApplySecurityGroupsToLoadBalancerCommandOutput
+  ApplySecurityGroupsToLoadBalancerCommandOutput,
 } from "./commands/ApplySecurityGroupsToLoadBalancerCommand.ts";
 import {
   AttachLoadBalancerToSubnetsCommandInput,
-  AttachLoadBalancerToSubnetsCommandOutput
+  AttachLoadBalancerToSubnetsCommandOutput,
 } from "./commands/AttachLoadBalancerToSubnetsCommand.ts";
 import {
   ConfigureHealthCheckCommandInput,
-  ConfigureHealthCheckCommandOutput
+  ConfigureHealthCheckCommandOutput,
 } from "./commands/ConfigureHealthCheckCommand.ts";
 import {
   CreateAppCookieStickinessPolicyCommandInput,
-  CreateAppCookieStickinessPolicyCommandOutput
+  CreateAppCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateAppCookieStickinessPolicyCommand.ts";
 import {
   CreateLBCookieStickinessPolicyCommandInput,
-  CreateLBCookieStickinessPolicyCommandOutput
+  CreateLBCookieStickinessPolicyCommandOutput,
 } from "./commands/CreateLBCookieStickinessPolicyCommand.ts";
 import {
   CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
+  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand.ts";
 import {
   CreateLoadBalancerListenersCommandInput,
-  CreateLoadBalancerListenersCommandOutput
+  CreateLoadBalancerListenersCommandOutput,
 } from "./commands/CreateLoadBalancerListenersCommand.ts";
 import {
   CreateLoadBalancerPolicyCommandInput,
-  CreateLoadBalancerPolicyCommandOutput
+  CreateLoadBalancerPolicyCommandOutput,
 } from "./commands/CreateLoadBalancerPolicyCommand.ts";
 import {
   DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
+  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand.ts";
 import {
   DeleteLoadBalancerListenersCommandInput,
-  DeleteLoadBalancerListenersCommandOutput
+  DeleteLoadBalancerListenersCommandOutput,
 } from "./commands/DeleteLoadBalancerListenersCommand.ts";
 import {
   DeleteLoadBalancerPolicyCommandInput,
-  DeleteLoadBalancerPolicyCommandOutput
+  DeleteLoadBalancerPolicyCommandOutput,
 } from "./commands/DeleteLoadBalancerPolicyCommand.ts";
 import {
   DeregisterInstancesFromLoadBalancerCommandInput,
-  DeregisterInstancesFromLoadBalancerCommandOutput
+  DeregisterInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DeregisterInstancesFromLoadBalancerCommand.ts";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand.ts";
 import {
   DescribeInstanceHealthCommandInput,
-  DescribeInstanceHealthCommandOutput
+  DescribeInstanceHealthCommandOutput,
 } from "./commands/DescribeInstanceHealthCommand.ts";
 import {
   DescribeLoadBalancerAttributesCommandInput,
-  DescribeLoadBalancerAttributesCommandOutput
+  DescribeLoadBalancerAttributesCommandOutput,
 } from "./commands/DescribeLoadBalancerAttributesCommand.ts";
 import {
   DescribeLoadBalancerPoliciesCommandInput,
-  DescribeLoadBalancerPoliciesCommandOutput
+  DescribeLoadBalancerPoliciesCommandOutput,
 } from "./commands/DescribeLoadBalancerPoliciesCommand.ts";
 import {
   DescribeLoadBalancerPolicyTypesCommandInput,
-  DescribeLoadBalancerPolicyTypesCommandOutput
+  DescribeLoadBalancerPolicyTypesCommandOutput,
 } from "./commands/DescribeLoadBalancerPolicyTypesCommand.ts";
 import {
   DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput
+  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand.ts";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
   DetachLoadBalancerFromSubnetsCommandInput,
-  DetachLoadBalancerFromSubnetsCommandOutput
+  DetachLoadBalancerFromSubnetsCommandOutput,
 } from "./commands/DetachLoadBalancerFromSubnetsCommand.ts";
 import {
   DisableAvailabilityZonesForLoadBalancerCommandInput,
-  DisableAvailabilityZonesForLoadBalancerCommandOutput
+  DisableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/DisableAvailabilityZonesForLoadBalancerCommand.ts";
 import {
   EnableAvailabilityZonesForLoadBalancerCommandInput,
-  EnableAvailabilityZonesForLoadBalancerCommandOutput
+  EnableAvailabilityZonesForLoadBalancerCommandOutput,
 } from "./commands/EnableAvailabilityZonesForLoadBalancerCommand.ts";
 import {
   ModifyLoadBalancerAttributesCommandInput,
-  ModifyLoadBalancerAttributesCommandOutput
+  ModifyLoadBalancerAttributesCommandOutput,
 } from "./commands/ModifyLoadBalancerAttributesCommand.ts";
 import {
   RegisterInstancesWithLoadBalancerCommandInput,
-  RegisterInstancesWithLoadBalancerCommandOutput
+  RegisterInstancesWithLoadBalancerCommandOutput,
 } from "./commands/RegisterInstancesWithLoadBalancerCommand.ts";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand.ts";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand.ts";
 import {
   SetLoadBalancerListenerSSLCertificateCommandInput,
-  SetLoadBalancerListenerSSLCertificateCommandOutput
+  SetLoadBalancerListenerSSLCertificateCommandOutput,
 } from "./commands/SetLoadBalancerListenerSSLCertificateCommand.ts";
 import {
   SetLoadBalancerPoliciesForBackendServerCommandInput,
-  SetLoadBalancerPoliciesForBackendServerCommandOutput
+  SetLoadBalancerPoliciesForBackendServerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesForBackendServerCommand.ts";
 import {
   SetLoadBalancerPoliciesOfListenerCommandInput,
-  SetLoadBalancerPoliciesOfListenerCommandOutput
+  SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -121,38 +112,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -161,9 +148,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -228,8 +216,7 @@ export type ServiceOutputTypes =
   | SetLoadBalancerPoliciesForBackendServerCommandOutput
   | SetLoadBalancerPoliciesOfListenerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -303,14 +290,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -318,9 +310,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticLoadBalancingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticLoadBalancingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -329,9 +319,7 @@ export type ElasticLoadBalancingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -374,7 +362,7 @@ export class ElasticLoadBalancingClient extends __Client<
   constructor(configuration: ElasticLoadBalancingClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -389,6 +377,7 @@ export class ElasticLoadBalancingClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

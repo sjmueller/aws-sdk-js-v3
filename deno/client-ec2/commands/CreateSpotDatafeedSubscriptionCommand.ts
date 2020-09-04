@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CreateSpotDatafeedSubscriptionRequest,
-  CreateSpotDatafeedSubscriptionResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CreateSpotDatafeedSubscriptionRequest, CreateSpotDatafeedSubscriptionResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
-  serializeAws_ec2CreateSpotDatafeedSubscriptionCommand
+  serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSpotDatafeedSubscriptionCommandInput = CreateSpotDatafeedSubscriptionRequest;
-export type CreateSpotDatafeedSubscriptionCommandOutput = CreateSpotDatafeedSubscriptionResult &
-  __MetadataBearer;
+export type CreateSpotDatafeedSubscriptionCommandOutput = CreateSpotDatafeedSubscriptionResult & __MetadataBearer;
 
 export class CreateSpotDatafeedSubscriptionCommand extends $Command<
   CreateSpotDatafeedSubscriptionCommandInput,
@@ -49,18 +38,16 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSpotDatafeedSubscriptionCommandInput,
-    CreateSpotDatafeedSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSpotDatafeedSubscriptionCommandInput, CreateSpotDatafeedSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSpotDatafeedSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSpotDatafeedSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     input: CreateSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

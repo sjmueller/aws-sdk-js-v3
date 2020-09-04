@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  DescribeScheduledActionsMessage,
-  ScheduledActionsMessage
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
-  serializeAws_queryDescribeScheduledActionsCommand
+  serializeAws_queryDescribeScheduledActionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsMessage;
-export type DescribeScheduledActionsCommandOutput = ScheduledActionsMessage &
-  __MetadataBearer;
+export type DescribeScheduledActionsCommandOutput = ScheduledActionsMessage & __MetadataBearer;
 
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeScheduledActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScheduledActionsCommandInput,
-    DescribeScheduledActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScheduledActionsCommandInput, DescribeScheduledActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeScheduledActionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ScheduledActionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeScheduledActionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeScheduledActionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScheduledActionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeScheduledActionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
     return deserializeAws_queryDescribeScheduledActionsCommand(output, context);
   }
 

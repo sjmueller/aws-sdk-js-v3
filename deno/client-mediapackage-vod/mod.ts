@@ -12,4 +12,8 @@ export * from "./commands/DescribePackagingGroupCommand.ts";
 export * from "./commands/ListAssetsCommand.ts";
 export * from "./commands/ListPackagingConfigurationsCommand.ts";
 export * from "./commands/ListPackagingGroupsCommand.ts";
+export * from "./commands/ListTagsForResourceCommand.ts";
+export * from "./commands/TagResourceCommand.ts";
+export * from "./commands/UntagResourceCommand.ts";
+export * from "./commands/UpdatePackagingGroupCommand.ts";
 export * from "./models/index.ts";

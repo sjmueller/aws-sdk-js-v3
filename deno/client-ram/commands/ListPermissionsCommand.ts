@@ -1,21 +1,11 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient.ts";
-import {
-  ListPermissionsRequest,
-  ListPermissionsResponse
-} from "../models/index.ts";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListPermissionsCommand,
-  serializeAws_restJson1ListPermissionsCommand
+  serializeAws_restJson1ListPermissionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPermissionsCommandInput = ListPermissionsRequest;
-export type ListPermissionsCommandOutput = ListPermissionsResponse &
-  __MetadataBearer;
+export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
 
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,
@@ -50,14 +39,15 @@ export class ListPermissionsCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPermissionsCommandInput, ListPermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPermissionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPermissionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListPermissionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPermissionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
     return deserializeAws_restJson1ListPermissionsCommand(output, context);
   }
 

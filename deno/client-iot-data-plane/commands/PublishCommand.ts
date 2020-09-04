@@ -1,18 +1,11 @@
-import {
-  IoTDataPlaneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTDataPlaneClient.ts";
+import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient.ts";
 import { PublishRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1PublishCommand,
-  serializeAws_restJson1PublishCommand
+  serializeAws_restJson1PublishCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PublishCommandInput = PublishRequest;
@@ -46,14 +39,15 @@ export class PublishCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PublishRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class PublishCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PublishCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PublishCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
     return deserializeAws_restJson1PublishCommand(output, context);
   }
 

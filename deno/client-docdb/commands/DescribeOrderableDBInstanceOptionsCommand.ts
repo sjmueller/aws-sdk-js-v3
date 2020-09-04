@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  DescribeOrderableDBInstanceOptionsMessage,
-  OrderableDBInstanceOptionsMessage
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
-  serializeAws_queryDescribeOrderableDBInstanceOptionsCommand
+  serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeOrderableDBInstanceOptionsCommandInput = DescribeOrderableDBInstanceOptionsMessage;
-export type DescribeOrderableDBInstanceOptionsCommandOutput = OrderableDBInstanceOptionsMessage &
-  __MetadataBearer;
+export type DescribeOrderableDBInstanceOptionsCommandOutput = OrderableDBInstanceOptionsMessage & __MetadataBearer;
 
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
   DescribeOrderableDBInstanceOptionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOrderableDBInstanceOptionsCommandInput,
-    DescribeOrderableDBInstanceOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOrderableDBInstanceOptionsCommandInput, DescribeOrderableDBInstanceOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

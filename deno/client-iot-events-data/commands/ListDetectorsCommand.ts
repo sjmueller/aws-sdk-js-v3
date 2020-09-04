@@ -1,18 +1,11 @@
-import {
-  IoTEventsDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsDataClient.ts";
+import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient.ts";
 import { ListDetectorsRequest, ListDetectorsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListDetectorsCommand,
-  serializeAws_restJson1ListDetectorsCommand
+  serializeAws_restJson1ListDetectorsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListDetectorsCommandInput = ListDetectorsRequest;
-export type ListDetectorsCommandOutput = ListDetectorsResponse &
-  __MetadataBearer;
+export type ListDetectorsCommandOutput = ListDetectorsResponse & __MetadataBearer;
 
 export class ListDetectorsCommand extends $Command<
   ListDetectorsCommandInput,
@@ -47,14 +39,15 @@ export class ListDetectorsCommand extends $Command<
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDetectorsCommandInput, ListDetectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListDetectorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDetectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListDetectorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDetectorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListDetectorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDetectorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
     return deserializeAws_restJson1ListDetectorsCommand(output, context);
   }
 

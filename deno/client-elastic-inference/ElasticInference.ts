@@ -1,27 +1,148 @@
 import { ElasticInferenceClient } from "./ElasticInferenceClient.ts";
 import {
+  DescribeAcceleratorOfferingsCommand,
+  DescribeAcceleratorOfferingsCommandInput,
+  DescribeAcceleratorOfferingsCommandOutput,
+} from "./commands/DescribeAcceleratorOfferingsCommand.ts";
+import {
+  DescribeAcceleratorTypesCommand,
+  DescribeAcceleratorTypesCommandInput,
+  DescribeAcceleratorTypesCommandOutput,
+} from "./commands/DescribeAcceleratorTypesCommand.ts";
+import {
+  DescribeAcceleratorsCommand,
+  DescribeAcceleratorsCommandInput,
+  DescribeAcceleratorsCommandOutput,
+} from "./commands/DescribeAcceleratorsCommand.ts";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * Elastic Inference public APIs.
+ * <p>
+ *             Elastic Inference public APIs.
+ *         </p>
  */
 export class ElasticInference extends ElasticInferenceClient {
   /**
-   * Returns all tags of an Elastic Inference Accelerator.
+   * <p>
+   *             Describes the locations in which a given accelerator type or set of types is present in a given region.
+   *         </p>
+   */
+  public describeAcceleratorOfferings(
+    args: DescribeAcceleratorOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAcceleratorOfferingsCommandOutput>;
+  public describeAcceleratorOfferings(
+    args: DescribeAcceleratorOfferingsCommandInput,
+    cb: (err: any, data?: DescribeAcceleratorOfferingsCommandOutput) => void
+  ): void;
+  public describeAcceleratorOfferings(
+    args: DescribeAcceleratorOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAcceleratorOfferingsCommandOutput) => void
+  ): void;
+  public describeAcceleratorOfferings(
+    args: DescribeAcceleratorOfferingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAcceleratorOfferingsCommandOutput) => void
+  ): Promise<DescribeAcceleratorOfferingsCommandOutput> | void {
+    const command = new DescribeAcceleratorOfferingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Describes information over a provided set of accelerators belonging to an account.
+   *         </p>
+   */
+  public describeAccelerators(
+    args: DescribeAcceleratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAcceleratorsCommandOutput>;
+  public describeAccelerators(
+    args: DescribeAcceleratorsCommandInput,
+    cb: (err: any, data?: DescribeAcceleratorsCommandOutput) => void
+  ): void;
+  public describeAccelerators(
+    args: DescribeAcceleratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAcceleratorsCommandOutput) => void
+  ): void;
+  public describeAccelerators(
+    args: DescribeAcceleratorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAcceleratorsCommandOutput) => void
+  ): Promise<DescribeAcceleratorsCommandOutput> | void {
+    const command = new DescribeAcceleratorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
+   *         </p>
+   */
+  public describeAcceleratorTypes(
+    args: DescribeAcceleratorTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAcceleratorTypesCommandOutput>;
+  public describeAcceleratorTypes(
+    args: DescribeAcceleratorTypesCommandInput,
+    cb: (err: any, data?: DescribeAcceleratorTypesCommandOutput) => void
+  ): void;
+  public describeAcceleratorTypes(
+    args: DescribeAcceleratorTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAcceleratorTypesCommandOutput) => void
+  ): void;
+  public describeAcceleratorTypes(
+    args: DescribeAcceleratorTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAcceleratorTypesCommandOutput) => void
+  ): Promise<DescribeAcceleratorTypesCommandOutput> | void {
+    const command = new DescribeAcceleratorTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Returns all tags of an Elastic Inference Accelerator.
+   *         </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -38,17 +159,14 @@ export class ElasticInference extends ElasticInferenceClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -56,16 +174,12 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
-   * Adds the specified tag(s) to an Elastic Inference Accelerator.
+   * <p>
+   *             Adds the specified tags to an Elastic Inference Accelerator.
+   *         </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -73,17 +187,14 @@ export class ElasticInference extends ElasticInferenceClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -91,7 +202,9 @@ export class ElasticInference extends ElasticInferenceClient {
   }
 
   /**
-   * Removes the specified tag(s) from an Elastic Inference Accelerator.
+   * <p>
+   *             Removes the specified tags from an Elastic Inference Accelerator.
+   *         </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -108,17 +221,14 @@ export class ElasticInference extends ElasticInferenceClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

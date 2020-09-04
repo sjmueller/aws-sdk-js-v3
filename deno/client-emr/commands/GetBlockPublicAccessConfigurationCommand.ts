@@ -1,21 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient.ts";
-import {
-  GetBlockPublicAccessConfigurationInput,
-  GetBlockPublicAccessConfigurationOutput
-} from "../models/index.ts";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
+import { GetBlockPublicAccessConfigurationInput, GetBlockPublicAccessConfigurationOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
-  serializeAws_json1_1GetBlockPublicAccessConfigurationCommand
+  serializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBlockPublicAccessConfigurationCommandInput = GetBlockPublicAccessConfigurationInput;
-export type GetBlockPublicAccessConfigurationCommandOutput = GetBlockPublicAccessConfigurationOutput &
-  __MetadataBearer;
+export type GetBlockPublicAccessConfigurationCommandOutput = GetBlockPublicAccessConfigurationOutput & __MetadataBearer;
 
 export class GetBlockPublicAccessConfigurationCommand extends $Command<
   GetBlockPublicAccessConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBlockPublicAccessConfigurationCommandInput,
-    GetBlockPublicAccessConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBlockPublicAccessConfigurationCommandInput, GetBlockPublicAccessConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBlockPublicAccessConfigurationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     input: GetBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlockPublicAccessConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetBlockPublicAccessConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

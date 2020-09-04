@@ -1,19 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { DeleteBucketLifecycleRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlDeleteBucketLifecycleCommand,
-  serializeAws_restXmlDeleteBucketLifecycleCommand
+  serializeAws_restXmlDeleteBucketLifecycleCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -22,7 +15,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteBucketLifecycleCommandInput = DeleteBucketLifecycleRequest;
@@ -46,19 +39,17 @@ export class DeleteBucketLifecycleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBucketLifecycleCommandInput,
-    DeleteBucketLifecycleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBucketLifecycleCommandInput, DeleteBucketLifecycleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteBucketLifecycleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -68,17 +59,11 @@ export class DeleteBucketLifecycleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteBucketLifecycleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteBucketLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketLifecycleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteBucketLifecycleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketLifecycleCommandOutput> {
     return deserializeAws_restXmlDeleteBucketLifecycleCommand(output, context);
   }
 

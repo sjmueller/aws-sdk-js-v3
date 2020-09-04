@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  MergePullRequestByThreeWayInput,
-  MergePullRequestByThreeWayOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1MergePullRequestByThreeWayCommand,
-  serializeAws_json1_1MergePullRequestByThreeWayCommand
+  serializeAws_json1_1MergePullRequestByThreeWayCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type MergePullRequestByThreeWayCommandInput = MergePullRequestByThreeWayInput;
-export type MergePullRequestByThreeWayCommandOutput = MergePullRequestByThreeWayOutput &
-  __MetadataBearer;
+export type MergePullRequestByThreeWayCommandOutput = MergePullRequestByThreeWayOutput & __MetadataBearer;
 
 export class MergePullRequestByThreeWayCommand extends $Command<
   MergePullRequestByThreeWayCommandInput,
@@ -49,18 +38,16 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergePullRequestByThreeWayCommandInput,
-    MergePullRequestByThreeWayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergePullRequestByThreeWayCommandInput, MergePullRequestByThreeWayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: MergePullRequestByThreeWayInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByThreeWayOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: MergePullRequestByThreeWayCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestByThreeWayCommand(
-      input,
-      context
-    );
+  private serialize(input: MergePullRequestByThreeWayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1MergePullRequestByThreeWayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestByThreeWayCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestByThreeWayCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergePullRequestByThreeWayCommand(output, context);
   }
 
   // Start section: command_body_extra

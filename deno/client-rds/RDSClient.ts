@@ -1,511 +1,439 @@
 import {
   AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput
+  AddRoleToDBClusterCommandOutput,
 } from "./commands/AddRoleToDBClusterCommand.ts";
 import {
   AddRoleToDBInstanceCommandInput,
-  AddRoleToDBInstanceCommandOutput
+  AddRoleToDBInstanceCommandOutput,
 } from "./commands/AddRoleToDBInstanceCommand.ts";
 import {
   AddSourceIdentifierToSubscriptionCommandInput,
-  AddSourceIdentifierToSubscriptionCommandOutput
+  AddSourceIdentifierToSubscriptionCommandOutput,
 } from "./commands/AddSourceIdentifierToSubscriptionCommand.ts";
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand.ts";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand.ts";
 import {
   AuthorizeDBSecurityGroupIngressCommandInput,
-  AuthorizeDBSecurityGroupIngressCommandOutput
+  AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand.ts";
 import {
   BacktrackDBClusterCommandInput,
-  BacktrackDBClusterCommandOutput
+  BacktrackDBClusterCommandOutput,
 } from "./commands/BacktrackDBClusterCommand.ts";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand.ts";
 import {
   CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput
+  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand.ts";
 import {
   CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput
+  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand.ts";
 import {
   CopyDBParameterGroupCommandInput,
-  CopyDBParameterGroupCommandOutput
+  CopyDBParameterGroupCommandOutput,
 } from "./commands/CopyDBParameterGroupCommand.ts";
-import {
-  CopyDBSnapshotCommandInput,
-  CopyDBSnapshotCommandOutput
-} from "./commands/CopyDBSnapshotCommand.ts";
-import {
-  CopyOptionGroupCommandInput,
-  CopyOptionGroupCommandOutput
-} from "./commands/CopyOptionGroupCommand.ts";
+import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "./commands/CopyDBSnapshotCommand.ts";
+import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "./commands/CopyOptionGroupCommand.ts";
 import {
   CreateCustomAvailabilityZoneCommandInput,
-  CreateCustomAvailabilityZoneCommandOutput
+  CreateCustomAvailabilityZoneCommandOutput,
 } from "./commands/CreateCustomAvailabilityZoneCommand.ts";
-import {
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput
-} from "./commands/CreateDBClusterCommand.ts";
+import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand.ts";
 import {
   CreateDBClusterEndpointCommandInput,
-  CreateDBClusterEndpointCommandOutput
+  CreateDBClusterEndpointCommandOutput,
 } from "./commands/CreateDBClusterEndpointCommand.ts";
 import {
   CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput
+  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand.ts";
 import {
   CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput
+  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand.ts";
-import {
-  CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput
-} from "./commands/CreateDBInstanceCommand.ts";
+import { CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput } from "./commands/CreateDBInstanceCommand.ts";
 import {
   CreateDBInstanceReadReplicaCommandInput,
-  CreateDBInstanceReadReplicaCommandOutput
+  CreateDBInstanceReadReplicaCommandOutput,
 } from "./commands/CreateDBInstanceReadReplicaCommand.ts";
 import {
   CreateDBParameterGroupCommandInput,
-  CreateDBParameterGroupCommandOutput
+  CreateDBParameterGroupCommandOutput,
 } from "./commands/CreateDBParameterGroupCommand.ts";
-import {
-  CreateDBProxyCommandInput,
-  CreateDBProxyCommandOutput
-} from "./commands/CreateDBProxyCommand.ts";
+import { CreateDBProxyCommandInput, CreateDBProxyCommandOutput } from "./commands/CreateDBProxyCommand.ts";
 import {
   CreateDBSecurityGroupCommandInput,
-  CreateDBSecurityGroupCommandOutput
+  CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand.ts";
-import {
-  CreateDBSnapshotCommandInput,
-  CreateDBSnapshotCommandOutput
-} from "./commands/CreateDBSnapshotCommand.ts";
+import { CreateDBSnapshotCommandInput, CreateDBSnapshotCommandOutput } from "./commands/CreateDBSnapshotCommand.ts";
 import {
   CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput
+  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand.ts";
 import {
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand.ts";
 import {
   CreateGlobalClusterCommandInput,
-  CreateGlobalClusterCommandOutput
+  CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand.ts";
-import {
-  CreateOptionGroupCommandInput,
-  CreateOptionGroupCommandOutput
-} from "./commands/CreateOptionGroupCommand.ts";
+import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand.ts";
 import {
   DeleteCustomAvailabilityZoneCommandInput,
-  DeleteCustomAvailabilityZoneCommandOutput
+  DeleteCustomAvailabilityZoneCommandOutput,
 } from "./commands/DeleteCustomAvailabilityZoneCommand.ts";
-import {
-  DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput
-} from "./commands/DeleteDBClusterCommand.ts";
+import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand.ts";
 import {
   DeleteDBClusterEndpointCommandInput,
-  DeleteDBClusterEndpointCommandOutput
+  DeleteDBClusterEndpointCommandOutput,
 } from "./commands/DeleteDBClusterEndpointCommand.ts";
 import {
   DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput
+  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand.ts";
 import {
   DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput
+  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand.ts";
 import {
   DeleteDBInstanceAutomatedBackupCommandInput,
-  DeleteDBInstanceAutomatedBackupCommandOutput
+  DeleteDBInstanceAutomatedBackupCommandOutput,
 } from "./commands/DeleteDBInstanceAutomatedBackupCommand.ts";
-import {
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput
-} from "./commands/DeleteDBInstanceCommand.ts";
+import { DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput } from "./commands/DeleteDBInstanceCommand.ts";
 import {
   DeleteDBParameterGroupCommandInput,
-  DeleteDBParameterGroupCommandOutput
+  DeleteDBParameterGroupCommandOutput,
 } from "./commands/DeleteDBParameterGroupCommand.ts";
-import {
-  DeleteDBProxyCommandInput,
-  DeleteDBProxyCommandOutput
-} from "./commands/DeleteDBProxyCommand.ts";
+import { DeleteDBProxyCommandInput, DeleteDBProxyCommandOutput } from "./commands/DeleteDBProxyCommand.ts";
 import {
   DeleteDBSecurityGroupCommandInput,
-  DeleteDBSecurityGroupCommandOutput
+  DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand.ts";
-import {
-  DeleteDBSnapshotCommandInput,
-  DeleteDBSnapshotCommandOutput
-} from "./commands/DeleteDBSnapshotCommand.ts";
+import { DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput } from "./commands/DeleteDBSnapshotCommand.ts";
 import {
   DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput
+  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand.ts";
 import {
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand.ts";
 import {
   DeleteGlobalClusterCommandInput,
-  DeleteGlobalClusterCommandOutput
+  DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand.ts";
 import {
   DeleteInstallationMediaCommandInput,
-  DeleteInstallationMediaCommandOutput
+  DeleteInstallationMediaCommandOutput,
 } from "./commands/DeleteInstallationMediaCommand.ts";
-import {
-  DeleteOptionGroupCommandInput,
-  DeleteOptionGroupCommandOutput
-} from "./commands/DeleteOptionGroupCommand.ts";
+import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "./commands/DeleteOptionGroupCommand.ts";
 import {
   DeregisterDBProxyTargetsCommandInput,
-  DeregisterDBProxyTargetsCommandOutput
+  DeregisterDBProxyTargetsCommandOutput,
 } from "./commands/DeregisterDBProxyTargetsCommand.ts";
 import {
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand.ts";
 import {
   DescribeCustomAvailabilityZonesCommandInput,
-  DescribeCustomAvailabilityZonesCommandOutput
+  DescribeCustomAvailabilityZonesCommandOutput,
 } from "./commands/DescribeCustomAvailabilityZonesCommand.ts";
 import {
   DescribeDBClusterBacktracksCommandInput,
-  DescribeDBClusterBacktracksCommandOutput
+  DescribeDBClusterBacktracksCommandOutput,
 } from "./commands/DescribeDBClusterBacktracksCommand.ts";
 import {
   DescribeDBClusterEndpointsCommandInput,
-  DescribeDBClusterEndpointsCommandOutput
+  DescribeDBClusterEndpointsCommandOutput,
 } from "./commands/DescribeDBClusterEndpointsCommand.ts";
 import {
   DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput
+  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand.ts";
 import {
   DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput
+  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand.ts";
 import {
   DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput
+  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand.ts";
 import {
   DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput
+  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand.ts";
 import {
   DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput
+  DescribeDBClustersCommandOutput,
 } from "./commands/DescribeDBClustersCommand.ts";
 import {
   DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput
+  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand.ts";
 import {
   DescribeDBInstanceAutomatedBackupsCommandInput,
-  DescribeDBInstanceAutomatedBackupsCommandOutput
+  DescribeDBInstanceAutomatedBackupsCommandOutput,
 } from "./commands/DescribeDBInstanceAutomatedBackupsCommand.ts";
 import {
   DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput
+  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand.ts";
 import {
   DescribeDBLogFilesCommandInput,
-  DescribeDBLogFilesCommandOutput
+  DescribeDBLogFilesCommandOutput,
 } from "./commands/DescribeDBLogFilesCommand.ts";
 import {
   DescribeDBParameterGroupsCommandInput,
-  DescribeDBParameterGroupsCommandOutput
+  DescribeDBParameterGroupsCommandOutput,
 } from "./commands/DescribeDBParameterGroupsCommand.ts";
 import {
   DescribeDBParametersCommandInput,
-  DescribeDBParametersCommandOutput
+  DescribeDBParametersCommandOutput,
 } from "./commands/DescribeDBParametersCommand.ts";
-import {
-  DescribeDBProxiesCommandInput,
-  DescribeDBProxiesCommandOutput
-} from "./commands/DescribeDBProxiesCommand.ts";
+import { DescribeDBProxiesCommandInput, DescribeDBProxiesCommandOutput } from "./commands/DescribeDBProxiesCommand.ts";
 import {
   DescribeDBProxyTargetGroupsCommandInput,
-  DescribeDBProxyTargetGroupsCommandOutput
+  DescribeDBProxyTargetGroupsCommandOutput,
 } from "./commands/DescribeDBProxyTargetGroupsCommand.ts";
 import {
   DescribeDBProxyTargetsCommandInput,
-  DescribeDBProxyTargetsCommandOutput
+  DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand.ts";
 import {
   DescribeDBSecurityGroupsCommandInput,
-  DescribeDBSecurityGroupsCommandOutput
+  DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand.ts";
 import {
   DescribeDBSnapshotAttributesCommandInput,
-  DescribeDBSnapshotAttributesCommandOutput
+  DescribeDBSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBSnapshotAttributesCommand.ts";
 import {
   DescribeDBSnapshotsCommandInput,
-  DescribeDBSnapshotsCommandOutput
+  DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand.ts";
 import {
   DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput
+  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand.ts";
 import {
   DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput
+  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand.ts";
 import {
   DescribeEngineDefaultParametersCommandInput,
-  DescribeEngineDefaultParametersCommandOutput
+  DescribeEngineDefaultParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultParametersCommand.ts";
 import {
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand.ts";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand.ts";
 import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand.ts";
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput,
+} from "./commands/DescribeExportTasksCommand.ts";
 import {
   DescribeGlobalClustersCommandInput,
-  DescribeGlobalClustersCommandOutput
+  DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand.ts";
 import {
   DescribeInstallationMediaCommandInput,
-  DescribeInstallationMediaCommandOutput
+  DescribeInstallationMediaCommandOutput,
 } from "./commands/DescribeInstallationMediaCommand.ts";
 import {
   DescribeOptionGroupOptionsCommandInput,
-  DescribeOptionGroupOptionsCommandOutput
+  DescribeOptionGroupOptionsCommandOutput,
 } from "./commands/DescribeOptionGroupOptionsCommand.ts";
 import {
   DescribeOptionGroupsCommandInput,
-  DescribeOptionGroupsCommandOutput
+  DescribeOptionGroupsCommandOutput,
 } from "./commands/DescribeOptionGroupsCommand.ts";
 import {
   DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput
+  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand.ts";
 import {
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand.ts";
 import {
   DescribeReservedDBInstancesCommandInput,
-  DescribeReservedDBInstancesCommandOutput
+  DescribeReservedDBInstancesCommandOutput,
 } from "./commands/DescribeReservedDBInstancesCommand.ts";
 import {
   DescribeReservedDBInstancesOfferingsCommandInput,
-  DescribeReservedDBInstancesOfferingsCommandOutput
+  DescribeReservedDBInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedDBInstancesOfferingsCommand.ts";
 import {
   DescribeSourceRegionsCommandInput,
-  DescribeSourceRegionsCommandOutput
+  DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand.ts";
 import {
   DescribeValidDBInstanceModificationsCommandInput,
-  DescribeValidDBInstanceModificationsCommandOutput
+  DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand.ts";
 import {
   DownloadDBLogFilePortionCommandInput,
-  DownloadDBLogFilePortionCommandOutput
+  DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand.ts";
-import {
-  FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput
-} from "./commands/FailoverDBClusterCommand.ts";
+import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand.ts";
 import {
   ImportInstallationMediaCommandInput,
-  ImportInstallationMediaCommandOutput
+  ImportInstallationMediaCommandOutput,
 } from "./commands/ImportInstallationMediaCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyCertificatesCommandInput,
-  ModifyCertificatesCommandOutput
+  ModifyCertificatesCommandOutput,
 } from "./commands/ModifyCertificatesCommand.ts";
 import {
   ModifyCurrentDBClusterCapacityCommandInput,
-  ModifyCurrentDBClusterCapacityCommandOutput
+  ModifyCurrentDBClusterCapacityCommandOutput,
 } from "./commands/ModifyCurrentDBClusterCapacityCommand.ts";
-import {
-  ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput
-} from "./commands/ModifyDBClusterCommand.ts";
+import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand.ts";
 import {
   ModifyDBClusterEndpointCommandInput,
-  ModifyDBClusterEndpointCommandOutput
+  ModifyDBClusterEndpointCommandOutput,
 } from "./commands/ModifyDBClusterEndpointCommand.ts";
 import {
   ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput
+  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand.ts";
 import {
   ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput
+  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand.ts";
-import {
-  ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput
-} from "./commands/ModifyDBInstanceCommand.ts";
+import { ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput } from "./commands/ModifyDBInstanceCommand.ts";
 import {
   ModifyDBParameterGroupCommandInput,
-  ModifyDBParameterGroupCommandOutput
+  ModifyDBParameterGroupCommandOutput,
 } from "./commands/ModifyDBParameterGroupCommand.ts";
-import {
-  ModifyDBProxyCommandInput,
-  ModifyDBProxyCommandOutput
-} from "./commands/ModifyDBProxyCommand.ts";
+import { ModifyDBProxyCommandInput, ModifyDBProxyCommandOutput } from "./commands/ModifyDBProxyCommand.ts";
 import {
   ModifyDBProxyTargetGroupCommandInput,
-  ModifyDBProxyTargetGroupCommandOutput
+  ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand.ts";
 import {
   ModifyDBSnapshotAttributeCommandInput,
-  ModifyDBSnapshotAttributeCommandOutput
+  ModifyDBSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBSnapshotAttributeCommand.ts";
-import {
-  ModifyDBSnapshotCommandInput,
-  ModifyDBSnapshotCommandOutput
-} from "./commands/ModifyDBSnapshotCommand.ts";
+import { ModifyDBSnapshotCommandInput, ModifyDBSnapshotCommandOutput } from "./commands/ModifyDBSnapshotCommand.ts";
 import {
   ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput
+  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand.ts";
 import {
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand.ts";
 import {
   ModifyGlobalClusterCommandInput,
-  ModifyGlobalClusterCommandOutput
+  ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand.ts";
-import {
-  ModifyOptionGroupCommandInput,
-  ModifyOptionGroupCommandOutput
-} from "./commands/ModifyOptionGroupCommand.ts";
+import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "./commands/ModifyOptionGroupCommand.ts";
 import {
   PromoteReadReplicaCommandInput,
-  PromoteReadReplicaCommandOutput
+  PromoteReadReplicaCommandOutput,
 } from "./commands/PromoteReadReplicaCommand.ts";
 import {
   PromoteReadReplicaDBClusterCommandInput,
-  PromoteReadReplicaDBClusterCommandOutput
+  PromoteReadReplicaDBClusterCommandOutput,
 } from "./commands/PromoteReadReplicaDBClusterCommand.ts";
 import {
   PurchaseReservedDBInstancesOfferingCommandInput,
-  PurchaseReservedDBInstancesOfferingCommandOutput
+  PurchaseReservedDBInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand.ts";
-import {
-  RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput
-} from "./commands/RebootDBInstanceCommand.ts";
+import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand.ts";
 import {
   RegisterDBProxyTargetsCommandInput,
-  RegisterDBProxyTargetsCommandOutput
+  RegisterDBProxyTargetsCommandOutput,
 } from "./commands/RegisterDBProxyTargetsCommand.ts";
 import {
   RemoveFromGlobalClusterCommandInput,
-  RemoveFromGlobalClusterCommandOutput
+  RemoveFromGlobalClusterCommandOutput,
 } from "./commands/RemoveFromGlobalClusterCommand.ts";
 import {
   RemoveRoleFromDBClusterCommandInput,
-  RemoveRoleFromDBClusterCommandOutput
+  RemoveRoleFromDBClusterCommandOutput,
 } from "./commands/RemoveRoleFromDBClusterCommand.ts";
 import {
   RemoveRoleFromDBInstanceCommandInput,
-  RemoveRoleFromDBInstanceCommandOutput
+  RemoveRoleFromDBInstanceCommandOutput,
 } from "./commands/RemoveRoleFromDBInstanceCommand.ts";
 import {
   RemoveSourceIdentifierFromSubscriptionCommandInput,
-  RemoveSourceIdentifierFromSubscriptionCommandOutput
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
 } from "./commands/RemoveSourceIdentifierFromSubscriptionCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput
+  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand.ts";
 import {
   ResetDBParameterGroupCommandInput,
-  ResetDBParameterGroupCommandOutput
+  ResetDBParameterGroupCommandOutput,
 } from "./commands/ResetDBParameterGroupCommand.ts";
 import {
   RestoreDBClusterFromS3CommandInput,
-  RestoreDBClusterFromS3CommandOutput
+  RestoreDBClusterFromS3CommandOutput,
 } from "./commands/RestoreDBClusterFromS3Command.ts";
 import {
   RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput
+  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand.ts";
 import {
   RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput
+  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand.ts";
 import {
   RestoreDBInstanceFromDBSnapshotCommandInput,
-  RestoreDBInstanceFromDBSnapshotCommandOutput
+  RestoreDBInstanceFromDBSnapshotCommandOutput,
 } from "./commands/RestoreDBInstanceFromDBSnapshotCommand.ts";
 import {
   RestoreDBInstanceFromS3CommandInput,
-  RestoreDBInstanceFromS3CommandOutput
+  RestoreDBInstanceFromS3CommandOutput,
 } from "./commands/RestoreDBInstanceFromS3Command.ts";
 import {
   RestoreDBInstanceToPointInTimeCommandInput,
-  RestoreDBInstanceToPointInTimeCommandOutput
+  RestoreDBInstanceToPointInTimeCommandOutput,
 } from "./commands/RestoreDBInstanceToPointInTimeCommand.ts";
 import {
   RevokeDBSecurityGroupIngressCommandInput,
-  RevokeDBSecurityGroupIngressCommandOutput
+  RevokeDBSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeDBSecurityGroupIngressCommand.ts";
 import {
   StartActivityStreamCommandInput,
-  StartActivityStreamCommandOutput
+  StartActivityStreamCommandOutput,
 } from "./commands/StartActivityStreamCommand.ts";
-import {
-  StartDBClusterCommandInput,
-  StartDBClusterCommandOutput
-} from "./commands/StartDBClusterCommand.ts";
-import {
-  StartDBInstanceCommandInput,
-  StartDBInstanceCommandOutput
-} from "./commands/StartDBInstanceCommand.ts";
+import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand.ts";
+import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand.ts";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand.ts";
 import {
   StopActivityStreamCommandInput,
-  StopActivityStreamCommandOutput
+  StopActivityStreamCommandOutput,
 } from "./commands/StopActivityStreamCommand.ts";
-import {
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput
-} from "./commands/StopDBClusterCommand.ts";
-import {
-  StopDBInstanceCommandInput,
-  StopDBInstanceCommandOutput
-} from "./commands/StopDBInstanceCommand.ts";
+import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand.ts";
+import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -513,38 +441,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -553,9 +477,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -566,6 +491,7 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | AuthorizeDBSecurityGroupIngressCommandInput
   | BacktrackDBClusterCommandInput
+  | CancelExportTaskCommandInput
   | CopyDBClusterParameterGroupCommandInput
   | CopyDBClusterSnapshotCommandInput
   | CopyDBParameterGroupCommandInput
@@ -631,6 +557,7 @@ export type ServiceInputTypes =
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeExportTasksCommandInput
   | DescribeGlobalClustersCommandInput
   | DescribeInstallationMediaCommandInput
   | DescribeOptionGroupOptionsCommandInput
@@ -683,6 +610,7 @@ export type ServiceInputTypes =
   | StartActivityStreamCommandInput
   | StartDBClusterCommandInput
   | StartDBInstanceCommandInput
+  | StartExportTaskCommandInput
   | StopActivityStreamCommandInput
   | StopDBClusterCommandInput
   | StopDBInstanceCommandInput;
@@ -695,6 +623,7 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | AuthorizeDBSecurityGroupIngressCommandOutput
   | BacktrackDBClusterCommandOutput
+  | CancelExportTaskCommandOutput
   | CopyDBClusterParameterGroupCommandOutput
   | CopyDBClusterSnapshotCommandOutput
   | CopyDBParameterGroupCommandOutput
@@ -760,6 +689,7 @@ export type ServiceOutputTypes =
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeExportTasksCommandOutput
   | DescribeGlobalClustersCommandOutput
   | DescribeInstallationMediaCommandOutput
   | DescribeOptionGroupOptionsCommandOutput
@@ -812,12 +742,12 @@ export type ServiceOutputTypes =
   | StartActivityStreamCommandOutput
   | StartDBClusterCommandOutput
   | StartDBInstanceCommandOutput
+  | StartExportTaskCommandOutput
   | StopActivityStreamCommandOutput
   | StopDBClusterCommandOutput
   | StopDBInstanceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -891,14 +821,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -906,9 +841,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RDSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RDSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -917,9 +850,7 @@ export type RDSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -943,7 +874,7 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<
  *           application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for
  *           the resources you use.</p>
  *          <p>This interface reference for Amazon RDS contains documentation for a programming or command line interface
- *           you can use to manage Amazon RDS. Note that Amazon RDS is asynchronous, which means that some interfaces might
+ *           you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
  *           require techniques such as polling or callback functions to determine when a command has been applied. In this
  *           reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
  *           or during the maintenance window. The reference structure is as follows, and we list following some related topics
@@ -998,7 +929,7 @@ export class RDSClient extends __Client<
   constructor(configuration: RDSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -1013,6 +944,7 @@ export class RDSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

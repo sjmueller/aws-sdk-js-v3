@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client.ts";
-import {
-  DeleteEmailIdentityRequest,
-  DeleteEmailIdentityResponse
-} from "../models/index.ts";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
+import { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteEmailIdentityCommand,
-  serializeAws_restJson1DeleteEmailIdentityCommand
+  serializeAws_restJson1DeleteEmailIdentityCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteEmailIdentityCommandInput = DeleteEmailIdentityRequest;
-export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse &
-  __MetadataBearer;
+export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse & __MetadataBearer;
 
 export class DeleteEmailIdentityCommand extends $Command<
   DeleteEmailIdentityCommandInput,
@@ -49,18 +38,16 @@ export class DeleteEmailIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEmailIdentityCommandInput,
-    DeleteEmailIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEmailIdentityCommandInput, DeleteEmailIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteEmailIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEmailIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteEmailIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEmailIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteEmailIdentityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEmailIdentityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailIdentityCommandOutput> {
     return deserializeAws_restJson1DeleteEmailIdentityCommand(output, context);
   }
 

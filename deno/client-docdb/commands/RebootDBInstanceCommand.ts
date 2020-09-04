@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  RebootDBInstanceMessage,
-  RebootDBInstanceResult
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
-  serializeAws_queryRebootDBInstanceCommand
+  serializeAws_queryRebootDBInstanceCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
-export type RebootDBInstanceCommandOutput = RebootDBInstanceResult &
-  __MetadataBearer;
+export type RebootDBInstanceCommandOutput = RebootDBInstanceResult & __MetadataBearer;
 
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,
@@ -50,14 +39,15 @@ export class RebootDBInstanceCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RebootDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class RebootDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RebootDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRebootDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RebootDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
     return deserializeAws_queryRebootDBInstanceCommand(output, context);
   }
 

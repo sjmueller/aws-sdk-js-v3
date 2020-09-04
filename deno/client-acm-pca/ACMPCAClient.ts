@@ -1,82 +1,61 @@
 import {
   CreateCertificateAuthorityAuditReportCommandInput,
-  CreateCertificateAuthorityAuditReportCommandOutput
+  CreateCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/CreateCertificateAuthorityAuditReportCommand.ts";
 import {
   CreateCertificateAuthorityCommandInput,
-  CreateCertificateAuthorityCommandOutput
+  CreateCertificateAuthorityCommandOutput,
 } from "./commands/CreateCertificateAuthorityCommand.ts";
-import {
-  CreatePermissionCommandInput,
-  CreatePermissionCommandOutput
-} from "./commands/CreatePermissionCommand.ts";
+import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand.ts";
 import {
   DeleteCertificateAuthorityCommandInput,
-  DeleteCertificateAuthorityCommandOutput
+  DeleteCertificateAuthorityCommandOutput,
 } from "./commands/DeleteCertificateAuthorityCommand.ts";
-import {
-  DeletePermissionCommandInput,
-  DeletePermissionCommandOutput
-} from "./commands/DeletePermissionCommand.ts";
+import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand.ts";
 import {
   DescribeCertificateAuthorityAuditReportCommandInput,
-  DescribeCertificateAuthorityAuditReportCommandOutput
+  DescribeCertificateAuthorityAuditReportCommandOutput,
 } from "./commands/DescribeCertificateAuthorityAuditReportCommand.ts";
 import {
   DescribeCertificateAuthorityCommandInput,
-  DescribeCertificateAuthorityCommandOutput
+  DescribeCertificateAuthorityCommandOutput,
 } from "./commands/DescribeCertificateAuthorityCommand.ts";
 import {
   GetCertificateAuthorityCertificateCommandInput,
-  GetCertificateAuthorityCertificateCommandOutput
+  GetCertificateAuthorityCertificateCommandOutput,
 } from "./commands/GetCertificateAuthorityCertificateCommand.ts";
 import {
   GetCertificateAuthorityCsrCommandInput,
-  GetCertificateAuthorityCsrCommandOutput
+  GetCertificateAuthorityCsrCommandOutput,
 } from "./commands/GetCertificateAuthorityCsrCommand.ts";
-import {
-  GetCertificateCommandInput,
-  GetCertificateCommandOutput
-} from "./commands/GetCertificateCommand.ts";
+import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand.ts";
 import {
   ImportCertificateAuthorityCertificateCommandInput,
-  ImportCertificateAuthorityCertificateCommandOutput
+  ImportCertificateAuthorityCertificateCommandOutput,
 } from "./commands/ImportCertificateAuthorityCertificateCommand.ts";
-import {
-  IssueCertificateCommandInput,
-  IssueCertificateCommandOutput
-} from "./commands/IssueCertificateCommand.ts";
+import { IssueCertificateCommandInput, IssueCertificateCommandOutput } from "./commands/IssueCertificateCommand.ts";
 import {
   ListCertificateAuthoritiesCommandInput,
-  ListCertificateAuthoritiesCommandOutput
+  ListCertificateAuthoritiesCommandOutput,
 } from "./commands/ListCertificateAuthoritiesCommand.ts";
-import {
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
-} from "./commands/ListPermissionsCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   RestoreCertificateAuthorityCommandInput,
-  RestoreCertificateAuthorityCommandOutput
+  RestoreCertificateAuthorityCommandOutput,
 } from "./commands/RestoreCertificateAuthorityCommand.ts";
-import {
-  RevokeCertificateCommandInput,
-  RevokeCertificateCommandOutput
-} from "./commands/RevokeCertificateCommand.ts";
+import { RevokeCertificateCommandInput, RevokeCertificateCommandOutput } from "./commands/RevokeCertificateCommand.ts";
 import {
   TagCertificateAuthorityCommandInput,
-  TagCertificateAuthorityCommandOutput
+  TagCertificateAuthorityCommandOutput,
 } from "./commands/TagCertificateAuthorityCommand.ts";
 import {
   UntagCertificateAuthorityCommandInput,
-  UntagCertificateAuthorityCommandOutput
+  UntagCertificateAuthorityCommandOutput,
 } from "./commands/UntagCertificateAuthorityCommand.ts";
 import {
   UpdateCertificateAuthorityCommandInput,
-  UpdateCertificateAuthorityCommandOutput
+  UpdateCertificateAuthorityCommandOutput,
 } from "./commands/UpdateCertificateAuthorityCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -85,38 +64,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -125,9 +100,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -174,8 +150,7 @@ export type ServiceOutputTypes =
   | UntagCertificateAuthorityCommandOutput
   | UpdateCertificateAuthorityCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -249,14 +224,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -264,9 +244,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ACMPCAClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ACMPCAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -275,9 +253,7 @@ export type ACMPCAClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -312,7 +288,7 @@ export class ACMPCAClient extends __Client<
   constructor(configuration: ACMPCAClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -327,6 +303,7 @@ export class ACMPCAClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient.ts";
-import {
-  ListLoggerDefinitionVersionsRequest,
-  ListLoggerDefinitionVersionsResponse
-} from "../models/index.ts";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
+import { ListLoggerDefinitionVersionsRequest, ListLoggerDefinitionVersionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListLoggerDefinitionVersionsCommand,
-  serializeAws_restJson1ListLoggerDefinitionVersionsCommand
+  serializeAws_restJson1ListLoggerDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListLoggerDefinitionVersionsCommandInput = ListLoggerDefinitionVersionsRequest;
-export type ListLoggerDefinitionVersionsCommandOutput = ListLoggerDefinitionVersionsResponse &
-  __MetadataBearer;
+export type ListLoggerDefinitionVersionsCommandOutput = ListLoggerDefinitionVersionsResponse & __MetadataBearer;
 
 export class ListLoggerDefinitionVersionsCommand extends $Command<
   ListLoggerDefinitionVersionsCommandInput,
@@ -49,18 +38,16 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLoggerDefinitionVersionsCommandInput,
-    ListLoggerDefinitionVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLoggerDefinitionVersionsCommandInput, ListLoggerDefinitionVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListLoggerDefinitionVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLoggerDefinitionVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListLoggerDefinitionVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLoggerDefinitionVersionsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListLoggerDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListLoggerDefinitionVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggerDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1ListLoggerDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

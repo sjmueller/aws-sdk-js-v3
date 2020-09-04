@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
-import {
-  ListBucketInventoryConfigurationsOutput,
-  ListBucketInventoryConfigurationsRequest
-} from "../models/index.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
+import { ListBucketInventoryConfigurationsOutput, ListBucketInventoryConfigurationsRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlListBucketInventoryConfigurationsCommand,
-  serializeAws_restXmlListBucketInventoryConfigurationsCommand
+  serializeAws_restXmlListBucketInventoryConfigurationsCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListBucketInventoryConfigurationsCommandInput = ListBucketInventoryConfigurationsRequest;
-export type ListBucketInventoryConfigurationsCommandOutput = ListBucketInventoryConfigurationsOutput &
-  __MetadataBearer;
+export type ListBucketInventoryConfigurationsCommandOutput = ListBucketInventoryConfigurationsOutput & __MetadataBearer;
 
 export class ListBucketInventoryConfigurationsCommand extends $Command<
   ListBucketInventoryConfigurationsCommandInput,
@@ -50,19 +39,17 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBucketInventoryConfigurationsCommandInput,
-    ListBucketInventoryConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBucketInventoryConfigurationsCommandInput, ListBucketInventoryConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +63,14 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
     input: ListBucketInventoryConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketInventoryConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListBucketInventoryConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketInventoryConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListBucketInventoryConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

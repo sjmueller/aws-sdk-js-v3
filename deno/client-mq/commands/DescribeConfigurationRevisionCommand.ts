@@ -1,21 +1,11 @@
-import {
-  DescribeConfigurationRevisionRequest,
-  DescribeConfigurationRevisionResponse
-} from "../models/index.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient.ts";
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
+import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeConfigurationRevisionCommand,
-  serializeAws_restJson1DescribeConfigurationRevisionCommand
+  serializeAws_restJson1DescribeConfigurationRevisionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeConfigurationRevisionCommandInput = DescribeConfigurationRevisionRequest;
-export type DescribeConfigurationRevisionCommandOutput = DescribeConfigurationRevisionResponse &
-  __MetadataBearer;
+export type DescribeConfigurationRevisionCommandOutput = DescribeConfigurationRevisionResponse & __MetadataBearer;
 
 export class DescribeConfigurationRevisionCommand extends $Command<
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +36,18 @@ export class DescribeConfigurationRevisionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationRevisionCommandInput,
-    DescribeConfigurationRevisionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationRevisionCommandInput, DescribeConfigurationRevisionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConfigurationRevisionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConfigurationRevisionCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeConfigurationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeConfigurationRevisionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationRevisionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeConfigurationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

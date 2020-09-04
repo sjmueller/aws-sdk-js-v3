@@ -1,21 +1,14 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SupportClientResolvedConfig
-} from "../SupportClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
 import {
   DescribeTrustedAdvisorCheckResultRequest,
-  DescribeTrustedAdvisorCheckResultResponse
+  DescribeTrustedAdvisorCheckResultResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand
+  serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTrustedAdvisorCheckResultCommandInput = DescribeTrustedAdvisorCheckResultRequest;
@@ -49,18 +42,16 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTrustedAdvisorCheckResultCommandInput,
-    DescribeTrustedAdvisorCheckResultCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTrustedAdvisorCheckResultCommandInput, DescribeTrustedAdvisorCheckResultCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckResultRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckResultResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     input: DescribeTrustedAdvisorCheckResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(output, context);
   }
 
   // Start section: command_body_extra

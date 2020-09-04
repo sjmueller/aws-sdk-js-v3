@@ -2,393 +2,382 @@ import { WAFClient } from "./WAFClient.ts";
 import {
   CreateByteMatchSetCommand,
   CreateByteMatchSetCommandInput,
-  CreateByteMatchSetCommandOutput
+  CreateByteMatchSetCommandOutput,
 } from "./commands/CreateByteMatchSetCommand.ts";
 import {
   CreateGeoMatchSetCommand,
   CreateGeoMatchSetCommandInput,
-  CreateGeoMatchSetCommandOutput
+  CreateGeoMatchSetCommandOutput,
 } from "./commands/CreateGeoMatchSetCommand.ts";
 import {
   CreateIPSetCommand,
   CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
+  CreateIPSetCommandOutput,
 } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateRateBasedRuleCommand,
   CreateRateBasedRuleCommandInput,
-  CreateRateBasedRuleCommandOutput
+  CreateRateBasedRuleCommandOutput,
 } from "./commands/CreateRateBasedRuleCommand.ts";
 import {
   CreateRegexMatchSetCommand,
   CreateRegexMatchSetCommandInput,
-  CreateRegexMatchSetCommandOutput
+  CreateRegexMatchSetCommandOutput,
 } from "./commands/CreateRegexMatchSetCommand.ts";
 import {
   CreateRegexPatternSetCommand,
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput
+  CreateRegexPatternSetCommandOutput,
 } from "./commands/CreateRegexPatternSetCommand.ts";
-import {
-  CreateRuleCommand,
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand.ts";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand.ts";
 import {
   CreateRuleGroupCommand,
   CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
+  CreateRuleGroupCommandOutput,
 } from "./commands/CreateRuleGroupCommand.ts";
 import {
   CreateSizeConstraintSetCommand,
   CreateSizeConstraintSetCommandInput,
-  CreateSizeConstraintSetCommandOutput
+  CreateSizeConstraintSetCommandOutput,
 } from "./commands/CreateSizeConstraintSetCommand.ts";
 import {
   CreateSqlInjectionMatchSetCommand,
   CreateSqlInjectionMatchSetCommandInput,
-  CreateSqlInjectionMatchSetCommandOutput
+  CreateSqlInjectionMatchSetCommandOutput,
 } from "./commands/CreateSqlInjectionMatchSetCommand.ts";
 import {
   CreateWebACLCommand,
   CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
+  CreateWebACLCommandOutput,
 } from "./commands/CreateWebACLCommand.ts";
+import {
+  CreateWebACLMigrationStackCommand,
+  CreateWebACLMigrationStackCommandInput,
+  CreateWebACLMigrationStackCommandOutput,
+} from "./commands/CreateWebACLMigrationStackCommand.ts";
 import {
   CreateXssMatchSetCommand,
   CreateXssMatchSetCommandInput,
-  CreateXssMatchSetCommandOutput
+  CreateXssMatchSetCommandOutput,
 } from "./commands/CreateXssMatchSetCommand.ts";
 import {
   DeleteByteMatchSetCommand,
   DeleteByteMatchSetCommandInput,
-  DeleteByteMatchSetCommandOutput
+  DeleteByteMatchSetCommandOutput,
 } from "./commands/DeleteByteMatchSetCommand.ts";
 import {
   DeleteGeoMatchSetCommand,
   DeleteGeoMatchSetCommandInput,
-  DeleteGeoMatchSetCommandOutput
+  DeleteGeoMatchSetCommandOutput,
 } from "./commands/DeleteGeoMatchSetCommand.ts";
 import {
   DeleteIPSetCommand,
   DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
+  DeleteIPSetCommandOutput,
 } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput
+  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand.ts";
 import {
   DeletePermissionPolicyCommand,
   DeletePermissionPolicyCommandInput,
-  DeletePermissionPolicyCommandOutput
+  DeletePermissionPolicyCommandOutput,
 } from "./commands/DeletePermissionPolicyCommand.ts";
 import {
   DeleteRateBasedRuleCommand,
   DeleteRateBasedRuleCommandInput,
-  DeleteRateBasedRuleCommandOutput
+  DeleteRateBasedRuleCommandOutput,
 } from "./commands/DeleteRateBasedRuleCommand.ts";
 import {
   DeleteRegexMatchSetCommand,
   DeleteRegexMatchSetCommandInput,
-  DeleteRegexMatchSetCommandOutput
+  DeleteRegexMatchSetCommandOutput,
 } from "./commands/DeleteRegexMatchSetCommand.ts";
 import {
   DeleteRegexPatternSetCommand,
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput
+  DeleteRegexPatternSetCommandOutput,
 } from "./commands/DeleteRegexPatternSetCommand.ts";
-import {
-  DeleteRuleCommand,
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand.ts";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
 import {
   DeleteRuleGroupCommand,
   DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
+  DeleteRuleGroupCommandOutput,
 } from "./commands/DeleteRuleGroupCommand.ts";
 import {
   DeleteSizeConstraintSetCommand,
   DeleteSizeConstraintSetCommandInput,
-  DeleteSizeConstraintSetCommandOutput
+  DeleteSizeConstraintSetCommandOutput,
 } from "./commands/DeleteSizeConstraintSetCommand.ts";
 import {
   DeleteSqlInjectionMatchSetCommand,
   DeleteSqlInjectionMatchSetCommandInput,
-  DeleteSqlInjectionMatchSetCommandOutput
+  DeleteSqlInjectionMatchSetCommandOutput,
 } from "./commands/DeleteSqlInjectionMatchSetCommand.ts";
 import {
   DeleteWebACLCommand,
   DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
+  DeleteWebACLCommandOutput,
 } from "./commands/DeleteWebACLCommand.ts";
 import {
   DeleteXssMatchSetCommand,
   DeleteXssMatchSetCommandInput,
-  DeleteXssMatchSetCommandOutput
+  DeleteXssMatchSetCommandOutput,
 } from "./commands/DeleteXssMatchSetCommand.ts";
 import {
   GetByteMatchSetCommand,
   GetByteMatchSetCommandInput,
-  GetByteMatchSetCommandOutput
+  GetByteMatchSetCommandOutput,
 } from "./commands/GetByteMatchSetCommand.ts";
 import {
   GetChangeTokenCommand,
   GetChangeTokenCommandInput,
-  GetChangeTokenCommandOutput
+  GetChangeTokenCommandOutput,
 } from "./commands/GetChangeTokenCommand.ts";
 import {
   GetChangeTokenStatusCommand,
   GetChangeTokenStatusCommandInput,
-  GetChangeTokenStatusCommandOutput
+  GetChangeTokenStatusCommandOutput,
 } from "./commands/GetChangeTokenStatusCommand.ts";
 import {
   GetGeoMatchSetCommand,
   GetGeoMatchSetCommandInput,
-  GetGeoMatchSetCommandOutput
+  GetGeoMatchSetCommandOutput,
 } from "./commands/GetGeoMatchSetCommand.ts";
-import {
-  GetIPSetCommand,
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand.ts";
+import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand.ts";
 import {
   GetLoggingConfigurationCommand,
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput
+  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand.ts";
 import {
   GetPermissionPolicyCommand,
   GetPermissionPolicyCommandInput,
-  GetPermissionPolicyCommandOutput
+  GetPermissionPolicyCommandOutput,
 } from "./commands/GetPermissionPolicyCommand.ts";
 import {
   GetRateBasedRuleCommand,
   GetRateBasedRuleCommandInput,
-  GetRateBasedRuleCommandOutput
+  GetRateBasedRuleCommandOutput,
 } from "./commands/GetRateBasedRuleCommand.ts";
 import {
   GetRateBasedRuleManagedKeysCommand,
   GetRateBasedRuleManagedKeysCommandInput,
-  GetRateBasedRuleManagedKeysCommandOutput
+  GetRateBasedRuleManagedKeysCommandOutput,
 } from "./commands/GetRateBasedRuleManagedKeysCommand.ts";
 import {
   GetRegexMatchSetCommand,
   GetRegexMatchSetCommandInput,
-  GetRegexMatchSetCommandOutput
+  GetRegexMatchSetCommandOutput,
 } from "./commands/GetRegexMatchSetCommand.ts";
 import {
   GetRegexPatternSetCommand,
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
+  GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand.ts";
-import {
-  GetRuleCommand,
-  GetRuleCommandInput,
-  GetRuleCommandOutput
-} from "./commands/GetRuleCommand.ts";
+import { GetRuleCommand, GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand.ts";
 import {
   GetRuleGroupCommand,
   GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
+  GetRuleGroupCommandOutput,
 } from "./commands/GetRuleGroupCommand.ts";
 import {
   GetSampledRequestsCommand,
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
+  GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand.ts";
 import {
   GetSizeConstraintSetCommand,
   GetSizeConstraintSetCommandInput,
-  GetSizeConstraintSetCommandOutput
+  GetSizeConstraintSetCommandOutput,
 } from "./commands/GetSizeConstraintSetCommand.ts";
 import {
   GetSqlInjectionMatchSetCommand,
   GetSqlInjectionMatchSetCommandInput,
-  GetSqlInjectionMatchSetCommandOutput
+  GetSqlInjectionMatchSetCommandOutput,
 } from "./commands/GetSqlInjectionMatchSetCommand.ts";
-import {
-  GetWebACLCommand,
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand.ts";
+import { GetWebACLCommand, GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand.ts";
 import {
   GetXssMatchSetCommand,
   GetXssMatchSetCommandInput,
-  GetXssMatchSetCommandOutput
+  GetXssMatchSetCommandOutput,
 } from "./commands/GetXssMatchSetCommand.ts";
 import {
   ListActivatedRulesInRuleGroupCommand,
   ListActivatedRulesInRuleGroupCommandInput,
-  ListActivatedRulesInRuleGroupCommandOutput
+  ListActivatedRulesInRuleGroupCommandOutput,
 } from "./commands/ListActivatedRulesInRuleGroupCommand.ts";
 import {
   ListByteMatchSetsCommand,
   ListByteMatchSetsCommandInput,
-  ListByteMatchSetsCommandOutput
+  ListByteMatchSetsCommandOutput,
 } from "./commands/ListByteMatchSetsCommand.ts";
 import {
   ListGeoMatchSetsCommand,
   ListGeoMatchSetsCommandInput,
-  ListGeoMatchSetsCommandOutput
+  ListGeoMatchSetsCommandOutput,
 } from "./commands/ListGeoMatchSetsCommand.ts";
-import {
-  ListIPSetsCommand,
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand.ts";
+import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand.ts";
 import {
   ListLoggingConfigurationsCommand,
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput
+  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand.ts";
 import {
   ListRateBasedRulesCommand,
   ListRateBasedRulesCommandInput,
-  ListRateBasedRulesCommandOutput
+  ListRateBasedRulesCommandOutput,
 } from "./commands/ListRateBasedRulesCommand.ts";
 import {
   ListRegexMatchSetsCommand,
   ListRegexMatchSetsCommandInput,
-  ListRegexMatchSetsCommandOutput
+  ListRegexMatchSetsCommandOutput,
 } from "./commands/ListRegexMatchSetsCommand.ts";
 import {
   ListRegexPatternSetsCommand,
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput
+  ListRegexPatternSetsCommandOutput,
 } from "./commands/ListRegexPatternSetsCommand.ts";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
+  ListRuleGroupsCommandOutput,
 } from "./commands/ListRuleGroupsCommand.ts";
-import {
-  ListRulesCommand,
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand.ts";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand.ts";
 import {
   ListSizeConstraintSetsCommand,
   ListSizeConstraintSetsCommandInput,
-  ListSizeConstraintSetsCommandOutput
+  ListSizeConstraintSetsCommandOutput,
 } from "./commands/ListSizeConstraintSetsCommand.ts";
 import {
   ListSqlInjectionMatchSetsCommand,
   ListSqlInjectionMatchSetsCommandInput,
-  ListSqlInjectionMatchSetsCommandOutput
+  ListSqlInjectionMatchSetsCommandOutput,
 } from "./commands/ListSqlInjectionMatchSetsCommand.ts";
 import {
   ListSubscribedRuleGroupsCommand,
   ListSubscribedRuleGroupsCommandInput,
-  ListSubscribedRuleGroupsCommandOutput
+  ListSubscribedRuleGroupsCommandOutput,
 } from "./commands/ListSubscribedRuleGroupsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWebACLsCommand,
   ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
+  ListWebACLsCommandOutput,
 } from "./commands/ListWebACLsCommand.ts";
 import {
   ListXssMatchSetsCommand,
   ListXssMatchSetsCommandInput,
-  ListXssMatchSetsCommandOutput
+  ListXssMatchSetsCommandOutput,
 } from "./commands/ListXssMatchSetsCommand.ts";
 import {
   PutLoggingConfigurationCommand,
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput
+  PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand.ts";
 import {
   PutPermissionPolicyCommand,
   PutPermissionPolicyCommandInput,
-  PutPermissionPolicyCommandOutput
+  PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateByteMatchSetCommand,
   UpdateByteMatchSetCommandInput,
-  UpdateByteMatchSetCommandOutput
+  UpdateByteMatchSetCommandOutput,
 } from "./commands/UpdateByteMatchSetCommand.ts";
 import {
   UpdateGeoMatchSetCommand,
   UpdateGeoMatchSetCommandInput,
-  UpdateGeoMatchSetCommandOutput
+  UpdateGeoMatchSetCommandOutput,
 } from "./commands/UpdateGeoMatchSetCommand.ts";
 import {
   UpdateIPSetCommand,
   UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
+  UpdateIPSetCommandOutput,
 } from "./commands/UpdateIPSetCommand.ts";
 import {
   UpdateRateBasedRuleCommand,
   UpdateRateBasedRuleCommandInput,
-  UpdateRateBasedRuleCommandOutput
+  UpdateRateBasedRuleCommandOutput,
 } from "./commands/UpdateRateBasedRuleCommand.ts";
 import {
   UpdateRegexMatchSetCommand,
   UpdateRegexMatchSetCommandInput,
-  UpdateRegexMatchSetCommandOutput
+  UpdateRegexMatchSetCommandOutput,
 } from "./commands/UpdateRegexMatchSetCommand.ts";
 import {
   UpdateRegexPatternSetCommand,
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput
+  UpdateRegexPatternSetCommandOutput,
 } from "./commands/UpdateRegexPatternSetCommand.ts";
-import {
-  UpdateRuleCommand,
-  UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
-} from "./commands/UpdateRuleCommand.ts";
+import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand.ts";
 import {
   UpdateRuleGroupCommand,
   UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
+  UpdateRuleGroupCommandOutput,
 } from "./commands/UpdateRuleGroupCommand.ts";
 import {
   UpdateSizeConstraintSetCommand,
   UpdateSizeConstraintSetCommandInput,
-  UpdateSizeConstraintSetCommandOutput
+  UpdateSizeConstraintSetCommandOutput,
 } from "./commands/UpdateSizeConstraintSetCommand.ts";
 import {
   UpdateSqlInjectionMatchSetCommand,
   UpdateSqlInjectionMatchSetCommandInput,
-  UpdateSqlInjectionMatchSetCommandOutput
+  UpdateSqlInjectionMatchSetCommandOutput,
 } from "./commands/UpdateSqlInjectionMatchSetCommand.ts";
 import {
   UpdateWebACLCommand,
   UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
+  UpdateWebACLCommandOutput,
 } from "./commands/UpdateWebACLCommand.ts";
 import {
   UpdateXssMatchSetCommand,
   UpdateXssMatchSetCommandInput,
-  UpdateXssMatchSetCommandOutput
+  UpdateXssMatchSetCommandOutput,
 } from "./commands/UpdateXssMatchSetCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <p>This is the <i>AWS WAF API Reference</i> for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed in the reference are available for protecting Amazon CloudFront distributions. You can use these actions and data types via the endpoint <i>waf.amazonaws.com</i>. This guide is for developers who need detailed information about the AWS WAF API actions,
- * 			data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * <note>
+ *             <p>This is <b>AWS WAF Classic</b> documentation. For
+ *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+ *       WAF Classic</a> in the developer guide.</p>
+ *             <p>
+ *                <b>For the latest version of AWS
+ *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+ *          </note>
+ * 	        <p>This is the <i>AWS WAF Classic API Reference</i> for using AWS WAF Classic with Amazon CloudFront. The AWS WAF Classic actions and data types listed in the reference are available for protecting Amazon CloudFront distributions. You can use these actions and data types via the endpoint <i>waf.amazonaws.com</i>. This guide is for developers who need detailed information about the AWS WAF Classic API actions,
+ * 	      data types, and errors. For detailed information about AWS WAF Classic features and an overview of how to use the AWS WAF Classic API, see the
+ * 	      <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS WAF Classic</a> in the developer guide.</p>
  */
 export class WAF extends WAFClient {
   /**
-   * <p>Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify the part of a
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates a <code>ByteMatchSet</code>. You then use <a>UpdateByteMatchSet</a> to identify the part of a
    * 			web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
    * 			For example, you can create a <code>ByteMatchSet</code> that matches any requests with <code>User-Agent</code> headers
    * 			that contain the string <code>BadBot</code>. You can then configure AWS WAF to reject those requests.</p>
@@ -428,17 +417,14 @@ export class WAF extends WAFClient {
   ): void;
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateByteMatchSetCommandOutput) => void
   ): Promise<CreateByteMatchSetCommandOutput> | void {
     const command = new CreateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -446,7 +432,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want to allow or block based on the country
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want to allow or block based on the country
    * 			that the requests originate from. For example, if you're receiving a lot of requests from one or more countries and you want to block the requests, you can create an <code>GeoMatchSet</code> that contains those countries and then configure AWS WAF to block the requests. </p>
    * 		       <p>To create and configure a <code>GeoMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -483,17 +477,14 @@ export class WAF extends WAFClient {
   ): void;
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateGeoMatchSetCommandOutput) => void
   ): Promise<CreateGeoMatchSetCommandOutput> | void {
     const command = new CreateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -501,7 +492,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates an <a>IPSet</a>, which you use to specify which web requests
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates an <a>IPSet</a>, which you use to specify which web requests
    *          that
    *          you want to allow or block based on the IP addresses that the requests
    *          originate from. For example, if you're receiving a lot of requests from one or more
@@ -528,14 +527,8 @@ export class WAF extends WAFClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateIPSetCommandOutput>;
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    cb: (err: any, data?: CreateIPSetCommandOutput) => void
-  ): void;
+  public createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
+  public createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -543,17 +536,14 @@ export class WAF extends WAFClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -561,16 +551,24 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a
    *             <code>RateLimit</code>, which specifies the maximum number of requests that AWS WAF allows
-   *          from a specified IP address in a five-minute period. The <code>RateBasedRule</code> also
+   *                 from a specified IP address in a five-minute period.
+   *                 The <code>RateBasedRule</code> also
    *          contains the <code>IPSet</code> objects, <code>ByteMatchSet</code> objects, and other
    *          predicates that identify the requests that you want to count or block if these requests
    *          exceed the <code>RateLimit</code>.</p>
    *          <p>If you add more than one predicate to a <code>RateBasedRule</code>, a request not
    *          only must exceed the <code>RateLimit</code>, but it also must match all the
-   *          specifications
-   *          to be counted or blocked. For example, suppose you add the following to a
+   *          conditions to be counted or blocked. For example, suppose you add the following to a
    *             <code>RateBasedRule</code>:</p>
    *          <ul>
    *             <li>
@@ -582,14 +580,14 @@ export class WAF extends WAFClient {
    *                   <code>User-Agent</code> header</p>
    *             </li>
    *          </ul>
-   *          <p>Further, you specify a <code>RateLimit</code> of 15,000.</p>
+   *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
    *          <p>You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that
    *          you want to block requests that meet the conditions in the rule. For a request to be
    *          blocked, it must come from the IP address 192.0.2.44 <i>and</i> the
    *             <code>User-Agent</code> header in the request must contain the value
    *          <code>BadBot</code>. Further, requests that match these two conditions must be received at
-   *          a rate of more than 15,000 requests every five minutes. If both conditions are met and the
-   *          rate is exceeded, AWS WAF blocks the requests. If the rate drops below 15,000 for a
+   *          a rate of more than 1,000 requests every five minutes. If both conditions are met and the
+   *          rate is exceeded, AWS WAF blocks the requests. If the rate drops below 1,000 for a
    *          five-minute period, AWS WAF no longer blocks the requests.</p>
    *
    * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
@@ -610,7 +608,7 @@ export class WAF extends WAFClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Further, you specify a <code>RateLimit</code> of 15,000.</p>
+   *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
    *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
    *
    *
@@ -663,17 +661,14 @@ export class WAF extends WAFClient {
   ): void;
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRateBasedRuleCommandOutput) => void
   ): Promise<CreateRateBasedRuleCommandOutput> | void {
     const command = new CreateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -681,7 +676,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a
    *          web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string.
    *          For example, you can create a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks for any requests with <code>User-Agent</code> headers
    *          that match a <code>RegexPatternSet</code> with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
@@ -721,17 +724,14 @@ export class WAF extends WAFClient {
   ): void;
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexMatchSetCommandOutput) => void
   ): Promise<CreateRegexMatchSetCommandOutput> | void {
     const command = new CreateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -739,7 +739,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a> to specify the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a> to specify the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
    * 		       <p>To create and configure a <code>RegexPatternSet</code>, perform the following steps:</p>
    *          <ol>
    *             <li>
@@ -775,17 +783,14 @@ export class WAF extends WAFClient {
   ): void;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): Promise<CreateRegexPatternSetCommandOutput> | void {
     const command = new CreateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -793,7 +798,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects,
    *             <code>ByteMatchSet</code> objects, and other predicates that identify the requests that
    *          you want to block. If you add more than one predicate to a <code>Rule</code>, a request
    *          must match all of the specifications to be allowed or blocked. For example, suppose
@@ -838,14 +851,8 @@ export class WAF extends WAFClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public createRule(
-    args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRuleCommandOutput>;
-  public createRule(
-    args: CreateRuleCommandInput,
-    cb: (err: any, data?: CreateRuleCommandOutput) => void
-  ): void;
+  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
   public createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -853,17 +860,14 @@ export class WAF extends WAFClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -871,7 +875,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Creates a <code>RuleGroup</code>. A rule group is a collection of predefined rules that you add to a web ACL. You use <a>UpdateRuleGroup</a> to add rules to the rule group.</p>
    * 	        <p>Rule groups are subject to the following limits:</p>
    * 	        <ul>
    *             <li>
@@ -902,17 +914,14 @@ export class WAF extends WAFClient {
   ): void;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): Promise<CreateRuleGroupCommandOutput> | void {
     const command = new CreateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -920,7 +929,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <code>SizeConstraintSet</code>. You then use <a>UpdateSizeConstraintSet</a> to identify the part of a
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates a <code>SizeConstraintSet</code>. You then use <a>UpdateSizeConstraintSet</a> to identify the part of a
    * 			web request that you want AWS WAF to check for length, such as the length of the <code>User-Agent</code> header or the length of the query string.
    * 			For example, you can create a <code>SizeConstraintSet</code> that matches any requests that have a query string that is longer than 100 bytes.
    * 			You can then configure AWS WAF to reject those requests.</p>
@@ -960,17 +977,14 @@ export class WAF extends WAFClient {
   ): void;
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSizeConstraintSetCommandOutput) => void
   ): Promise<CreateSizeConstraintSetCommandOutput> | void {
     const command = new CreateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -978,7 +992,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <a>SqlInjectionMatchSet</a>, which you use to allow, block, or count requests that contain snippets of SQL code in a
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates a <a>SqlInjectionMatchSet</a>, which you use to allow, block, or count requests that contain snippets of SQL code in a
    * 			specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.</p>
    * 		       <p>To create and configure a <code>SqlInjectionMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -1016,17 +1038,14 @@ export class WAF extends WAFClient {
   ): void;
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> | void {
     const command = new CreateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1034,7 +1053,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates a <code>WebACL</code>, which contains the <code>Rules</code> that identify the CloudFront web requests that you want to allow, block, or count.
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates a <code>WebACL</code>, which contains the <code>Rules</code> that identify the CloudFront web requests that you want to allow, block, or count.
    * 			AWS WAF evaluates <code>Rules</code> in order based on the value of <code>Priority</code> for each <code>Rule</code>.</p>
    * 		       <p>You also specify a default action, either <code>ALLOW</code> or <code>BLOCK</code>. If a web request doesn't match
    * 			any of the <code>Rules</code> in a <code>WebACL</code>, AWS WAF responds to the request with the default action. </p>
@@ -1071,10 +1098,7 @@ export class WAF extends WAFClient {
     args: CreateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWebACLCommandOutput>;
-  public createWebACL(
-    args: CreateWebACLCommandInput,
-    cb: (err: any, data?: CreateWebACLCommandOutput) => void
-  ): void;
+  public createWebACL(args: CreateWebACLCommandInput, cb: (err: any, data?: CreateWebACLCommandOutput) => void): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -1082,17 +1106,14 @@ export class WAF extends WAFClient {
   ): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLCommandOutput) => void),
     cb?: (err: any, data?: CreateWebACLCommandOutput) => void
   ): Promise<CreateWebACLCommandOutput> | void {
     const command = new CreateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1100,7 +1121,54 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Creates an <a>XssMatchSet</a>, which you use to allow, block, or count requests that contain cross-site scripting attacks
+   * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
+   *            Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
+   *            Use this to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.</p>
+   *          <p>This is part of a larger migration procedure for web ACLs from AWS WAF Classic to the latest version of AWS WAF.
+   *            For the full procedure, including caveats and manual steps to complete
+   *            the migration and switch over to the new web ACL, see
+   *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-migrating-from-classic.html">Migrating your AWS WAF Classic resources to AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF
+   *   Developer Guide</a>.  </p>
+   */
+  public createWebACLMigrationStack(
+    args: CreateWebACLMigrationStackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebACLMigrationStackCommandOutput>;
+  public createWebACLMigrationStack(
+    args: CreateWebACLMigrationStackCommandInput,
+    cb: (err: any, data?: CreateWebACLMigrationStackCommandOutput) => void
+  ): void;
+  public createWebACLMigrationStack(
+    args: CreateWebACLMigrationStackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWebACLMigrationStackCommandOutput) => void
+  ): void;
+  public createWebACLMigrationStack(
+    args: CreateWebACLMigrationStackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLMigrationStackCommandOutput) => void),
+    cb?: (err: any, data?: CreateWebACLMigrationStackCommandOutput) => void
+  ): Promise<CreateWebACLMigrationStackCommandOutput> | void {
+    const command = new CreateWebACLMigrationStackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Creates an <a>XssMatchSet</a>, which you use to allow, block, or count requests that contain cross-site scripting attacks
    * 			in the specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.</p>
    * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
@@ -1138,17 +1206,14 @@ export class WAF extends WAFClient {
   ): void;
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateXssMatchSetCommandOutput) => void
   ): Promise<CreateXssMatchSetCommandOutput> | void {
     const command = new CreateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1156,7 +1221,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
    * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>ByteMatchSet</code>, perform the following steps:</p>
@@ -1188,17 +1261,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteByteMatchSetCommandOutput) => void
   ): Promise<DeleteByteMatchSetCommandOutput> | void {
     const command = new DeleteByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1206,7 +1276,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code> if it's still used in any <code>Rules</code> or
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code> if it's still used in any <code>Rules</code> or
    * 			if it still includes any countries.</p>
    * 		       <p>If you just want to remove a <code>GeoMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>GeoMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -1238,17 +1316,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteGeoMatchSetCommandOutput) => void
   ): Promise<DeleteGeoMatchSetCommandOutput> | void {
     const command = new DeleteGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1256,7 +1331,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes an <a>IPSet</a>. You can't delete an <code>IPSet</code> if it's still used in any <code>Rules</code> or
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes an <a>IPSet</a>. You can't delete an <code>IPSet</code> if it's still used in any <code>Rules</code> or
    * 			if it still includes any IP addresses.</p>
    * 		       <p>If you just want to remove an <code>IPSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete an <code>IPSet</code> from AWS WAF, perform the following steps:</p>
@@ -1273,14 +1356,8 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    */
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteIPSetCommandOutput>;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): void;
+  public deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
+  public deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1288,17 +1365,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1306,7 +1380,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
    *          ACL.</p>
    */
   public deleteLoggingConfiguration(
@@ -1324,17 +1406,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
     const command = new DeleteLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1342,7 +1421,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes an IAM policy from the specified RuleGroup.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes an IAM policy from the specified RuleGroup.</p>
    *          <p>The user making the request must be the owner of the RuleGroup.</p>
    */
   public deletePermissionPolicy(
@@ -1360,17 +1447,14 @@ export class WAF extends WAFClient {
   ): void;
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
   ): Promise<DeletePermissionPolicyCommandOutput> | void {
     const command = new DeletePermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1378,7 +1462,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if
    *          it's still used in any <code>WebACL</code> objects or if it still includes any predicates,
    *          such as <code>ByteMatchSet</code> objects.</p>
    *          <p>If you just want to remove a rule from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
@@ -1414,17 +1506,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRateBasedRuleCommandOutput) => void
   ): Promise<DeleteRateBasedRuleCommandOutput> | void {
     const command = new DeleteRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1432,7 +1521,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code>
    *         or if it still includes any <code>RegexMatchTuples</code> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>RegexMatchSet</code>, perform the following steps:</p>
@@ -1464,17 +1561,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexMatchSetCommandOutput) => void
   ): Promise<DeleteRegexMatchSetCommandOutput> | void {
     const command = new DeleteRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1482,7 +1576,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code>
    *          or if the <code>RegexPatternSet</code> is not empty. </p>
    */
   public deleteRegexPatternSet(
@@ -1500,17 +1602,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): Promise<DeleteRegexPatternSetCommandOutput> | void {
     const command = new DeleteRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1518,7 +1617,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>Rule</a>. You can't delete a <code>Rule</code> if it's still used in any <code>WebACL</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes a <a>Rule</a>. You can't delete a <code>Rule</code> if it's still used in any <code>WebACL</code>
    * 			objects or if it still includes any predicates, such as <code>ByteMatchSet</code> objects.</p>
    * 		       <p>If you just want to remove a <code>Rule</code> from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
    * 		       <p>To permanently delete a <code>Rule</code> from AWS WAF, perform the following steps:</p>
@@ -1535,14 +1642,8 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    */
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRuleCommandOutput>;
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    cb: (err: any, data?: DeleteRuleCommandOutput) => void
-  ): void;
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1550,17 +1651,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1568,7 +1666,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>RuleGroup</a>. You can't delete a <code>RuleGroup</code> if it's still used in any <code>WebACL</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Permanently deletes a <a>RuleGroup</a>. You can't delete a <code>RuleGroup</code> if it's still used in any <code>WebACL</code>
    *          objects or if it still includes any rules.</p>
    *          <p>If you just want to remove a <code>RuleGroup</code> from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p>
    *          <p>To permanently delete a <code>RuleGroup</code> from AWS WAF, perform the following steps:</p>
@@ -1600,17 +1706,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1618,7 +1721,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
    * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>
    * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>SizeConstraintSet</code>, perform the following steps:</p>
@@ -1650,17 +1761,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSizeConstraintSetCommandOutput) => void
   ): Promise<DeleteSizeConstraintSetCommandOutput> | void {
     const command = new DeleteSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1668,7 +1776,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <code>SqlInjectionMatchSet</code> if it's
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes a <a>SqlInjectionMatchSet</a>. You can't delete a <code>SqlInjectionMatchSet</code> if it's
    * 			still used in any <code>Rules</code> or if it still contains any <a>SqlInjectionMatchTuple</a> objects.</p>
    * 		       <p>If you just want to remove a <code>SqlInjectionMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete a <code>SqlInjectionMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -1701,17 +1817,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput> | void {
     const command = new DeleteSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1719,7 +1832,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes a <a>WebACL</a>. You can't delete a <code>WebACL</code> if it still contains any <code>Rules</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes a <a>WebACL</a>. You can't delete a <code>WebACL</code> if it still contains any <code>Rules</code>.</p>
    * 		       <p>To delete a <code>WebACL</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1738,10 +1859,7 @@ export class WAF extends WAFClient {
     args: DeleteWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWebACLCommandOutput>;
-  public deleteWebACL(
-    args: DeleteWebACLCommandInput,
-    cb: (err: any, data?: DeleteWebACLCommandOutput) => void
-  ): void;
+  public deleteWebACL(args: DeleteWebACLCommandInput, cb: (err: any, data?: DeleteWebACLCommandOutput) => void): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -1749,17 +1867,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebACLCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): Promise<DeleteWebACLCommandOutput> | void {
     const command = new DeleteWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1767,7 +1882,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code> if it's
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code> if it's
    * 			still used in any <code>Rules</code> or if it still contains any <a>XssMatchTuple</a> objects.</p>
    * 		       <p>If you just want to remove an <code>XssMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
    * 		       <p>To permanently delete an <code>XssMatchSet</code> from AWS WAF, perform the following steps:</p>
@@ -1800,17 +1923,14 @@ export class WAF extends WAFClient {
   ): void;
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteXssMatchSetCommandOutput) => void
   ): Promise<DeleteXssMatchSetCommandOutput> | void {
     const command = new DeleteXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1818,7 +1938,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
    */
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
@@ -1835,17 +1963,14 @@ export class WAF extends WAFClient {
   ): void;
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetByteMatchSetCommandOutput) => void
   ): Promise<GetByteMatchSetCommandOutput> | void {
     const command = new GetByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1853,7 +1978,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn't submit conflicting requests to AWS WAF.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn't submit conflicting requests to AWS WAF.</p>
    * 		       <p>Each create, update, or delete request must use a unique change token. If your application submits a <code>GetChangeToken</code> request
    * 			and then submits a second <code>GetChangeToken</code> request before submitting a create, update, or delete request, the second
    * 			<code>GetChangeToken</code> request returns the same value as the first <code>GetChangeToken</code> request.</p>
@@ -1876,17 +2009,14 @@ export class WAF extends WAFClient {
   ): void;
   public getChangeToken(
     args: GetChangeTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenCommandOutput) => void
   ): Promise<GetChangeTokenCommandOutput> | void {
     const command = new GetChangeTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1894,7 +2024,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
    * 			one of the following values:</p>
    * 		       <ul>
    *             <li>
@@ -1927,17 +2065,14 @@ export class WAF extends WAFClient {
   ): void;
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenStatusCommandOutput) => void
   ): Promise<GetChangeTokenStatusCommandOutput> | void {
     const command = new GetChangeTokenStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1945,7 +2080,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.</p>
    */
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
@@ -1962,17 +2105,14 @@ export class WAF extends WAFClient {
   ): void;
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetGeoMatchSetCommandOutput) => void
   ): Promise<GetGeoMatchSetCommandOutput> | void {
     const command = new GetGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1980,16 +2120,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
    */
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIPSetCommandOutput>;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    cb: (err: any, data?: GetIPSetCommandOutput) => void
-  ): void;
+  public getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
+  public getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
   public getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1997,17 +2139,14 @@ export class WAF extends WAFClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2015,7 +2154,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -2032,17 +2179,14 @@ export class WAF extends WAFClient {
   ): void;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): Promise<GetLoggingConfigurationCommandOutput> | void {
     const command = new GetLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2050,7 +2194,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the IAM policy attached to the RuleGroup.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the IAM policy attached to the RuleGroup.</p>
    */
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -2067,17 +2219,14 @@ export class WAF extends WAFClient {
   ): void;
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPermissionPolicyCommandOutput) => void
   ): Promise<GetPermissionPolicyCommandOutput> | void {
     const command = new GetPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2085,7 +2234,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>RateBasedRule</a> that is specified by the
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the <a>RateBasedRule</a> that is specified by the
    *             <code>RuleId</code> that you included in the <code>GetRateBasedRule</code>
    *          request.</p>
    */
@@ -2104,17 +2261,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleCommandOutput) => void
   ): Promise<GetRateBasedRuleCommandOutput> | void {
     const command = new GetRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2122,7 +2276,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a> that is specified by the <code>RuleId</code>. The maximum
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a> that is specified by the <code>RuleId</code>. The maximum
    *          number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed
    *          the rate limit, the 10,000 addresses with the highest rates will be blocked.</p>
    */
@@ -2141,17 +2303,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> | void {
     const command = new GetRateBasedRuleManagedKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2159,7 +2318,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.</p>
    */
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
@@ -2176,17 +2343,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexMatchSetCommandOutput) => void
   ): Promise<GetRegexMatchSetCommandOutput> | void {
     const command = new GetRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2194,7 +2358,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *         <p>Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.</p>
    */
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -2211,17 +2383,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): Promise<GetRegexPatternSetCommandOutput> | void {
     const command = new GetRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2229,16 +2398,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
    */
-  public getRule(
-    args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRuleCommandOutput>;
-  public getRule(
-    args: GetRuleCommandInput,
-    cb: (err: any, data?: GetRuleCommandOutput) => void
-  ): void;
+  public getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
+  public getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
   public getRule(
     args: GetRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -2246,17 +2417,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRule(
     args: GetRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRuleCommandOutput) => void
   ): Promise<GetRuleCommandOutput> | void {
     const command = new GetRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2264,17 +2432,22 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>RuleGroup</a> that is specified by the <code>RuleGroupId</code> that you included in the <code>GetRuleGroup</code> request.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns the <a>RuleGroup</a> that is specified by the <code>RuleGroupId</code> that you included in the <code>GetRuleGroup</code> request.</p>
    * 	        <p>To view the rules in a rule group, use <a>ListActivatedRulesInRuleGroup</a>.</p>
    */
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRuleGroupCommandOutput>;
-  public getRuleGroup(
-    args: GetRuleGroupCommandInput,
-    cb: (err: any, data?: GetRuleGroupCommandOutput) => void
-  ): void;
+  public getRuleGroup(args: GetRuleGroupCommandInput, cb: (err: any, data?: GetRuleGroupCommandOutput) => void): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2282,17 +2455,14 @@ export class WAF extends WAFClient {
   ): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): Promise<GetRuleGroupCommandOutput> | void {
     const command = new GetRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2300,7 +2470,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
    * 		       <p>
    *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
    * 			(such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
@@ -2321,17 +2499,14 @@ export class WAF extends WAFClient {
   ): void;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
     cb?: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): Promise<GetSampledRequestsCommandOutput> | void {
     const command = new GetSampledRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2339,7 +2514,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
    */
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
@@ -2356,17 +2539,14 @@ export class WAF extends WAFClient {
   ): void;
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: GetSizeConstraintSetCommandOutput) => void
   ): Promise<GetSizeConstraintSetCommandOutput> | void {
     const command = new GetSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2374,7 +2554,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
    */
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
@@ -2391,17 +2579,14 @@ export class WAF extends WAFClient {
   ): void;
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void
   ): Promise<GetSqlInjectionMatchSetCommandOutput> | void {
     const command = new GetSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2409,16 +2594,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
    */
-  public getWebACL(
-    args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWebACLCommandOutput>;
-  public getWebACL(
-    args: GetWebACLCommandInput,
-    cb: (err: any, data?: GetWebACLCommandOutput) => void
-  ): void;
+  public getWebACL(args: GetWebACLCommandInput, options?: __HttpHandlerOptions): Promise<GetWebACLCommandOutput>;
+  public getWebACL(args: GetWebACLCommandInput, cb: (err: any, data?: GetWebACLCommandOutput) => void): void;
   public getWebACL(
     args: GetWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -2426,17 +2613,14 @@ export class WAF extends WAFClient {
   ): void;
   public getWebACL(
     args: GetWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLCommandOutput) => void
   ): Promise<GetWebACLCommandOutput> | void {
     const command = new GetWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2444,7 +2628,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
    */
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
@@ -2461,17 +2653,14 @@ export class WAF extends WAFClient {
   ): void;
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetXssMatchSetCommandOutput) => void
   ): Promise<GetXssMatchSetCommandOutput> | void {
     const command = new GetXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2479,7 +2668,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>ActivatedRule</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>ActivatedRule</a> objects.</p>
    */
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
@@ -2496,17 +2693,14 @@ export class WAF extends WAFClient {
   ): void;
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> | void {
     const command = new ListActivatedRulesInRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2514,7 +2708,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
    */
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
@@ -2531,17 +2733,14 @@ export class WAF extends WAFClient {
   ): void;
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListByteMatchSetsCommandOutput) => void
   ): Promise<ListByteMatchSetsCommandOutput> | void {
     const command = new ListByteMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2549,7 +2748,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>GeoMatchSetSummary</a> objects in the response.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>GeoMatchSetSummary</a> objects in the response.</p>
    */
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
@@ -2566,17 +2773,14 @@ export class WAF extends WAFClient {
   ): void;
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoMatchSetsCommandOutput) => void
   ): Promise<ListGeoMatchSetsCommandOutput> | void {
     const command = new ListGeoMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2584,16 +2788,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
    */
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIPSetsCommandOutput>;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    cb: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): void;
+  public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
+  public listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -2601,17 +2807,14 @@ export class WAF extends WAFClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2619,7 +2822,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
    */
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -2636,17 +2847,14 @@ export class WAF extends WAFClient {
   ): void;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): Promise<ListLoggingConfigurationsCommandOutput> | void {
     const command = new ListLoggingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2654,7 +2862,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RuleSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>RuleSummary</a> objects.</p>
    */
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
@@ -2671,17 +2887,14 @@ export class WAF extends WAFClient {
   ): void;
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRateBasedRulesCommandOutput) => void
   ): Promise<ListRateBasedRulesCommandOutput> | void {
     const command = new ListRateBasedRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2689,7 +2902,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RegexMatchSetSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>RegexMatchSetSummary</a> objects.</p>
    */
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
@@ -2706,17 +2927,14 @@ export class WAF extends WAFClient {
   ): void;
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexMatchSetsCommandOutput) => void
   ): Promise<ListRegexMatchSetsCommandOutput> | void {
     const command = new ListRegexMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2724,7 +2942,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RegexPatternSetSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>RegexPatternSetSummary</a> objects.</p>
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -2741,17 +2967,14 @@ export class WAF extends WAFClient {
   ): void;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): Promise<ListRegexPatternSetsCommandOutput> | void {
     const command = new ListRegexPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2759,7 +2982,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RuleGroup</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>RuleGroup</a> objects.</p>
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -2776,17 +3007,14 @@ export class WAF extends WAFClient {
   ): void;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): Promise<ListRuleGroupsCommandOutput> | void {
     const command = new ListRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2794,16 +3022,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RuleSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>RuleSummary</a> objects.</p>
    */
-  public listRules(
-    args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRulesCommandOutput>;
-  public listRules(
-    args: ListRulesCommandInput,
-    cb: (err: any, data?: ListRulesCommandOutput) => void
-  ): void;
+  public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   public listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -2811,17 +3041,14 @@ export class WAF extends WAFClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2829,7 +3056,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
    */
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
@@ -2846,17 +3081,14 @@ export class WAF extends WAFClient {
   ): void;
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSizeConstraintSetsCommandOutput) => void
   ): Promise<ListSizeConstraintSetsCommandOutput> | void {
     const command = new ListSizeConstraintSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2864,7 +3096,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
    */
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
@@ -2881,17 +3121,14 @@ export class WAF extends WAFClient {
   ): void;
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void
   ): Promise<ListSqlInjectionMatchSetsCommandOutput> | void {
     const command = new ListSqlInjectionMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2899,7 +3136,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>RuleGroup</a> objects that you are subscribed to.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Returns an array of <a>RuleGroup</a> objects that you are subscribed to.</p>
    */
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
@@ -2916,23 +3161,32 @@ export class WAF extends WAFClient {
   ): void;
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void
   ): Promise<ListSubscribedRuleGroupsCommandOutput> | void {
     const command = new ListSubscribedRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
 
+  /**
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *         <p>Retrieves the tags associated with the specified AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+   *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
+   */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -2948,17 +3202,14 @@ export class WAF extends WAFClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2966,16 +3217,18 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
    */
-  public listWebACLs(
-    args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWebACLsCommandOutput>;
-  public listWebACLs(
-    args: ListWebACLsCommandInput,
-    cb: (err: any, data?: ListWebACLsCommandOutput) => void
-  ): void;
+  public listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
+  public listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
     options: __HttpHandlerOptions,
@@ -2983,17 +3236,14 @@ export class WAF extends WAFClient {
   ): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebACLsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebACLsCommandOutput) => void),
     cb?: (err: any, data?: ListWebACLsCommandOutput) => void
   ): Promise<ListWebACLsCommandOutput> | void {
     const command = new ListWebACLsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3001,7 +3251,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Returns an array of <a>XssMatchSet</a> objects.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Returns an array of <a>XssMatchSet</a> objects.</p>
    */
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
@@ -3018,17 +3276,14 @@ export class WAF extends WAFClient {
   ): void;
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListXssMatchSetsCommandOutput) => void
   ): Promise<ListXssMatchSetsCommandOutput> | void {
     const command = new ListXssMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3036,7 +3291,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Associates a <a>LoggingConfiguration</a> with a specified web ACL.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Associates a <a>LoggingConfiguration</a> with a specified web ACL.</p>
    * 	        <p>You can access information about all traffic that AWS WAF inspects using the following
    *          steps:</p>
    * 	        <ol>
@@ -3070,17 +3333,14 @@ export class WAF extends WAFClient {
   ): void;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): Promise<PutLoggingConfigurationCommandOutput> | void {
     const command = new PutLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3088,7 +3348,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Attaches a IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Attaches an IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.</p>
    *          <p>The <code>PutPermissionPolicy</code> is subject to the following restrictions:</p>
    *          <ul>
    *             <li>
@@ -3137,31 +3405,34 @@ export class WAF extends WAFClient {
   ): void;
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionPolicyCommandOutput) => void
   ): Promise<PutPermissionPolicyCommandOutput> | void {
     const command = new PutPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
 
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  /**
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *         <p>Associates tags with the specified AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+   *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can use this action to tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3169,23 +3440,31 @@ export class WAF extends WAFClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
 
+  /**
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p></p>
+   */
   public untagResource(
     args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -3201,17 +3480,14 @@ export class WAF extends WAFClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3219,7 +3495,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>ByteMatchTuple</a> objects (filters) in a <a>ByteMatchSet</a>. For each <code>ByteMatchTuple</code> object,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>ByteMatchTuple</a> objects (filters) in a <a>ByteMatchSet</a>. For each <code>ByteMatchTuple</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3274,17 +3558,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateByteMatchSetCommandOutput) => void
   ): Promise<UpdateByteMatchSetCommandOutput> | void {
     const command = new UpdateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3292,7 +3573,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>. For each <code>GeoMatchConstraint</code> object,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>. For each <code>GeoMatchConstraint</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3339,17 +3628,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateGeoMatchSetCommandOutput) => void
   ): Promise<UpdateGeoMatchSetCommandOutput> | void {
     const command = new UpdateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3357,7 +3643,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>IPSetDescriptor</a> objects in an
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <a>IPSetDescriptor</a> objects in an
    *          <code>IPSet</code>. For each <code>IPSetDescriptor</code> object, you specify the following
    *          values: </p>
    *          <ul>
@@ -3424,14 +3718,8 @@ export class WAF extends WAFClient {
    *          requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF
    *             Developer Guide</a>.</p>
    */
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateIPSetCommandOutput>;
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
-  ): void;
+  public updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
+  public updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -3439,17 +3727,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3457,7 +3742,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the
    *             <code>RateLimit</code> in the rule. </p>
    *          <p>Each <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests
    *          that you want to block or count. The <code>RateLimit</code> specifies the number of
@@ -3476,12 +3769,12 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ul>
    *          <p>Further, you specify a
-   *             <code>RateLimit</code> of 15,000.</p>
+   *             <code>RateLimit</code> of 1,000.</p>
    *          <p>You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that
    *          you want to block requests that satisfy the rule. For a request to be blocked, it must come
    *          from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code> header
    *          in the request must contain the value <code>BadBot</code>. Further, requests that match
-   *          these two conditions much be received at a rate of more than 15,000 every five minutes. If
+   *          these two conditions much be received at a rate of more than 1,000 every five minutes. If
    *          the rate drops below this limit, AWS WAF no longer blocks the requests.</p>
    *
    * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
@@ -3502,7 +3795,7 @@ export class WAF extends WAFClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>Further, you specify a <code>RateLimit</code> of 15,000.</p>
+   *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
    *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
    */
   public updateRateBasedRule(
@@ -3520,17 +3813,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRateBasedRuleCommandOutput) => void
   ): Promise<UpdateRateBasedRuleCommandOutput> | void {
     const command = new UpdateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3538,7 +3828,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>. For each <code>RegexMatchSetUpdate</code> object,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>. For each <code>RegexMatchSetUpdate</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3589,17 +3887,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexMatchSetCommandOutput) => void
   ): Promise<UpdateRegexMatchSetCommandOutput> | void {
     const command = new UpdateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3607,7 +3902,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>. For each <code>RegexPatternString</code> object,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>. For each <code>RegexPatternString</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3663,17 +3966,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): Promise<UpdateRegexPatternSetCommandOutput> | void {
     const command = new UpdateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3681,7 +3981,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>Predicate</a> objects in a <code>Rule</code>. Each
    *             <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests
    *          that you want to allow, block, or count. If you add more than one predicate to a
    *             <code>Rule</code>, a request must match all of the specifications to be allowed,
@@ -3724,14 +4032,8 @@ export class WAF extends WAFClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public updateRule(
-    args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRuleCommandOutput>;
-  public updateRule(
-    args: UpdateRuleCommandInput,
-    cb: (err: any, data?: UpdateRuleCommandOutput) => void
-  ): void;
+  public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
+  public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
   public updateRule(
     args: UpdateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -3739,17 +4041,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateRule(
     args: UpdateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleCommandOutput) => void
   ): Promise<UpdateRuleCommandOutput> | void {
     const command = new UpdateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3757,7 +4056,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   *          <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
    * 	        <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
    *          <p>You can have a maximum of ten rules per rule group.</p>
    *
@@ -3798,17 +4105,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): Promise<UpdateRuleGroupCommandOutput> | void {
     const command = new UpdateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3816,7 +4120,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>SizeConstraint</a> objects (filters) in a <a>SizeConstraintSet</a>. For each <code>SizeConstraint</code> object,
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>SizeConstraint</a> objects (filters) in a <a>SizeConstraintSet</a>. For each <code>SizeConstraint</code> object,
    * 			you specify the following values: </p>
    * 		       <ul>
    *             <li>
@@ -3875,17 +4187,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSizeConstraintSetCommandOutput) => void
   ): Promise<UpdateSizeConstraintSetCommandOutput> | void {
     const command = new UpdateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3893,7 +4202,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>SqlInjectionMatchTuple</a> objects (filters) in a <a>SqlInjectionMatchSet</a>.
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>SqlInjectionMatchTuple</a> objects (filters) in a <a>SqlInjectionMatchSet</a>.
    * 			For each <code>SqlInjectionMatchTuple</code> object, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -3951,17 +4268,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput> | void {
     const command = new UpdateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3969,7 +4283,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies
    * 			web requests that you want to allow, block, or count. When you update a <code>WebACL</code>, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -4025,7 +4347,8 @@ export class WAF extends WAFClient {
    *                and to associate the <code>WebACL</code> with a CloudFront distribution. </p>
    *                <p>The <code>ActivatedRule</code> can be a rule group. If you specify a rule group
    *                as your
-   *                <code>ActivatedRule</code>,
+   *                <code>ActivatedRule</code>
+   *                ,
    *                you can exclude specific rules from that rule group.</p>
    *                <p>If you already have a rule group associated with a web ACL and want to submit
    *                an <code>UpdateWebACL</code> request to exclude certain rules from that rule group,
@@ -4033,7 +4356,8 @@ export class WAF extends WAFClient {
    *                specifying the excluded rules.
    *                For details,
    *                see
-   *                   <a>ActivatedRule$ExcludedRules</a>.
+   *                   <a>ActivatedRule$ExcludedRules</a>
+   *                .
    *                </p>
    *             </li>
    *          </ol>
@@ -4044,10 +4368,7 @@ export class WAF extends WAFClient {
     args: UpdateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWebACLCommandOutput>;
-  public updateWebACL(
-    args: UpdateWebACLCommandInput,
-    cb: (err: any, data?: UpdateWebACLCommandOutput) => void
-  ): void;
+  public updateWebACL(args: UpdateWebACLCommandInput, cb: (err: any, data?: UpdateWebACLCommandOutput) => void): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -4055,17 +4376,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebACLCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): Promise<UpdateWebACLCommandOutput> | void {
     const command = new UpdateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4073,7 +4391,15 @@ export class WAF extends WAFClient {
   }
 
   /**
-   * <p>Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
+   * <note>
+   *             <p>This is <b>AWS WAF Classic</b> documentation. For
+   *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+   *       WAF Classic</a> in the developer guide.</p>
+   *             <p>
+   *                <b>For the latest version of AWS
+   *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
+   *          </note>
+   * 		       <p>Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
    * 			For each <code>XssMatchTuple</code> object, you specify the following values:</p>
    * 		       <ul>
    *             <li>
@@ -4133,17 +4459,14 @@ export class WAF extends WAFClient {
   ): void;
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateXssMatchSetCommandOutput) => void
   ): Promise<UpdateXssMatchSetCommandOutput> | void {
     const command = new UpdateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

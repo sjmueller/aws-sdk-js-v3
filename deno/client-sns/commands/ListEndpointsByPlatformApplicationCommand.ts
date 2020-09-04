@@ -1,21 +1,14 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient.ts";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import {
   ListEndpointsByPlatformApplicationInput,
-  ListEndpointsByPlatformApplicationResponse
+  ListEndpointsByPlatformApplicationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_queryListEndpointsByPlatformApplicationCommand,
-  serializeAws_queryListEndpointsByPlatformApplicationCommand
+  serializeAws_queryListEndpointsByPlatformApplicationCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListEndpointsByPlatformApplicationCommandInput = ListEndpointsByPlatformApplicationInput;
@@ -49,18 +42,16 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEndpointsByPlatformApplicationCommandInput,
-    ListEndpointsByPlatformApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEndpointsByPlatformApplicationCommandInput, ListEndpointsByPlatformApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     input: ListEndpointsByPlatformApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListEndpointsByPlatformApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListEndpointsByPlatformApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

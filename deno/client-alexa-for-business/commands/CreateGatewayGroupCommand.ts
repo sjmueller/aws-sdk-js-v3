@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  CreateGatewayGroupRequest,
-  CreateGatewayGroupResponse
-} from "../models/index.ts";
+import { CreateGatewayGroupRequest, CreateGatewayGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateGatewayGroupCommand,
-  serializeAws_json1_1CreateGatewayGroupCommand
+  serializeAws_json1_1CreateGatewayGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateGatewayGroupCommandInput = CreateGatewayGroupRequest;
-export type CreateGatewayGroupCommandOutput = CreateGatewayGroupResponse &
-  __MetadataBearer;
+export type CreateGatewayGroupCommandOutput = CreateGatewayGroupResponse & __MetadataBearer;
 
 export class CreateGatewayGroupCommand extends $Command<
   CreateGatewayGroupCommandInput,
@@ -50,14 +43,15 @@ export class CreateGatewayGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGatewayGroupCommandInput, CreateGatewayGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateGatewayGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGatewayGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class CreateGatewayGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateGatewayGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateGatewayGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGatewayGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateGatewayGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayGroupCommandOutput> {
     return deserializeAws_json1_1CreateGatewayGroupCommand(output, context);
   }
 

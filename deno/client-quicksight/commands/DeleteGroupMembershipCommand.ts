@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient.ts";
-import {
-  DeleteGroupMembershipRequest,
-  DeleteGroupMembershipResponse
-} from "../models/index.ts";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
+import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteGroupMembershipCommand,
-  serializeAws_restJson1DeleteGroupMembershipCommand
+  serializeAws_restJson1DeleteGroupMembershipCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteGroupMembershipCommandInput = DeleteGroupMembershipRequest;
-export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse &
-  __MetadataBearer;
+export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse & __MetadataBearer;
 
 export class DeleteGroupMembershipCommand extends $Command<
   DeleteGroupMembershipCommandInput,
@@ -49,18 +38,16 @@ export class DeleteGroupMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGroupMembershipCommandInput,
-    DeleteGroupMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGroupMembershipCommandInput, DeleteGroupMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteGroupMembershipRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGroupMembershipResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DeleteGroupMembershipCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGroupMembershipCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteGroupMembershipCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteGroupMembershipCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupMembershipCommandOutput> {
+    return deserializeAws_restJson1DeleteGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  UpdateVoiceTemplateRequest,
-  UpdateVoiceTemplateResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { UpdateVoiceTemplateRequest, UpdateVoiceTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateVoiceTemplateCommand,
-  serializeAws_restJson1UpdateVoiceTemplateCommand
+  serializeAws_restJson1UpdateVoiceTemplateCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateVoiceTemplateCommandInput = UpdateVoiceTemplateRequest;
-export type UpdateVoiceTemplateCommandOutput = UpdateVoiceTemplateResponse &
-  __MetadataBearer;
+export type UpdateVoiceTemplateCommandOutput = UpdateVoiceTemplateResponse & __MetadataBearer;
 
 export class UpdateVoiceTemplateCommand extends $Command<
   UpdateVoiceTemplateCommandInput,
@@ -49,18 +38,16 @@ export class UpdateVoiceTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVoiceTemplateCommandInput,
-    UpdateVoiceTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVoiceTemplateCommandInput, UpdateVoiceTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateVoiceTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVoiceTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateVoiceTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVoiceTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateVoiceTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVoiceTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceTemplateCommandOutput> {
     return deserializeAws_restJson1UpdateVoiceTemplateCommand(output, context);
   }
 

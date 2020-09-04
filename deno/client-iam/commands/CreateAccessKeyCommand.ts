@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  CreateAccessKeyRequest,
-  CreateAccessKeyResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryCreateAccessKeyCommand,
-  serializeAws_queryCreateAccessKeyCommand
+  serializeAws_queryCreateAccessKeyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateAccessKeyCommandInput = CreateAccessKeyRequest;
-export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse &
-  __MetadataBearer;
+export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse & __MetadataBearer;
 
 export class CreateAccessKeyCommand extends $Command<
   CreateAccessKeyCommandInput,
@@ -50,14 +39,15 @@ export class CreateAccessKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateAccessKeyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAccessKeyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateAccessKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateAccessKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateAccessKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateAccessKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessKeyCommandOutput> {
     return deserializeAws_queryCreateAccessKeyCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  MergePullRequestByFastForwardInput,
-  MergePullRequestByFastForwardOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1MergePullRequestByFastForwardCommand,
-  serializeAws_json1_1MergePullRequestByFastForwardCommand
+  serializeAws_json1_1MergePullRequestByFastForwardCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type MergePullRequestByFastForwardCommandInput = MergePullRequestByFastForwardInput;
-export type MergePullRequestByFastForwardCommandOutput = MergePullRequestByFastForwardOutput &
-  __MetadataBearer;
+export type MergePullRequestByFastForwardCommandOutput = MergePullRequestByFastForwardOutput & __MetadataBearer;
 
 export class MergePullRequestByFastForwardCommand extends $Command<
   MergePullRequestByFastForwardCommandInput,
@@ -49,18 +38,16 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergePullRequestByFastForwardCommandInput,
-    MergePullRequestByFastForwardCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergePullRequestByFastForwardCommandInput, MergePullRequestByFastForwardCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: MergePullRequestByFastForwardCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestByFastForwardCommand(
-      input,
-      context
-    );
+  private serialize(input: MergePullRequestByFastForwardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1MergePullRequestByFastForwardCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestByFastForwardCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestByFastForwardCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergePullRequestByFastForwardCommand(output, context);
   }
 
   // Start section: command_body_extra

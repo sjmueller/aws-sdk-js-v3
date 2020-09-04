@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient.ts";
-import {
-  GetRequestValidatorsRequest,
-  RequestValidators
-} from "../models/index.ts";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
+import { GetRequestValidatorsRequest, RequestValidators } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetRequestValidatorsCommand,
-  serializeAws_restJson1GetRequestValidatorsCommand
+  serializeAws_restJson1GetRequestValidatorsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRequestValidatorsCommandInput = GetRequestValidatorsRequest;
-export type GetRequestValidatorsCommandOutput = RequestValidators &
-  __MetadataBearer;
+export type GetRequestValidatorsCommandOutput = RequestValidators & __MetadataBearer;
 
 export class GetRequestValidatorsCommand extends $Command<
   GetRequestValidatorsCommandInput,
@@ -49,18 +38,16 @@ export class GetRequestValidatorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRequestValidatorsCommandInput,
-    GetRequestValidatorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRequestValidatorsCommandInput, GetRequestValidatorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRequestValidatorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestValidators.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetRequestValidatorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRequestValidatorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRequestValidatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRequestValidatorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRequestValidatorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRequestValidatorsCommandOutput> {
     return deserializeAws_restJson1GetRequestValidatorsCommand(output, context);
   }
 

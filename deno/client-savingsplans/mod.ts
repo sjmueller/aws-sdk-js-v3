@@ -1,5 +1,5 @@
-export * from "./savingsplansClient.ts";
-export * from "./savingsplans.ts";
+export * from "./SavingsplansClient.ts";
+export * from "./Savingsplans.ts";
 export * from "./commands/CreateSavingsPlanCommand.ts";
 export * from "./commands/DescribeSavingsPlanRatesCommand.ts";
 export * from "./commands/DescribeSavingsPlansCommand.ts";

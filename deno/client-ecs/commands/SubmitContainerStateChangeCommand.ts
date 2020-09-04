@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient.ts";
-import {
-  SubmitContainerStateChangeRequest,
-  SubmitContainerStateChangeResponse
-} from "../models/index.ts";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
+import { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1SubmitContainerStateChangeCommand,
-  serializeAws_json1_1SubmitContainerStateChangeCommand
+  serializeAws_json1_1SubmitContainerStateChangeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SubmitContainerStateChangeCommandInput = SubmitContainerStateChangeRequest;
-export type SubmitContainerStateChangeCommandOutput = SubmitContainerStateChangeResponse &
-  __MetadataBearer;
+export type SubmitContainerStateChangeCommandOutput = SubmitContainerStateChangeResponse & __MetadataBearer;
 
 export class SubmitContainerStateChangeCommand extends $Command<
   SubmitContainerStateChangeCommandInput,
@@ -49,18 +38,16 @@ export class SubmitContainerStateChangeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SubmitContainerStateChangeCommandInput,
-    SubmitContainerStateChangeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SubmitContainerStateChangeCommandInput, SubmitContainerStateChangeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SubmitContainerStateChangeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SubmitContainerStateChangeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class SubmitContainerStateChangeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubmitContainerStateChangeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitContainerStateChangeCommand(
-      input,
-      context
-    );
+  private serialize(input: SubmitContainerStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1SubmitContainerStateChangeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitContainerStateChangeCommandOutput> {
-    return deserializeAws_json1_1SubmitContainerStateChangeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SubmitContainerStateChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

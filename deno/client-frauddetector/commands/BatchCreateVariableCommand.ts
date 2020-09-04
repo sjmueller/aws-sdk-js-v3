@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient.ts";
-import {
-  BatchCreateVariableRequest,
-  BatchCreateVariableResult
-} from "../models/index.ts";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
+import { BatchCreateVariableRequest, BatchCreateVariableResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchCreateVariableCommand,
-  serializeAws_json1_1BatchCreateVariableCommand
+  serializeAws_json1_1BatchCreateVariableCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchCreateVariableCommandInput = BatchCreateVariableRequest;
-export type BatchCreateVariableCommandOutput = BatchCreateVariableResult &
-  __MetadataBearer;
+export type BatchCreateVariableCommandOutput = BatchCreateVariableResult & __MetadataBearer;
 
 export class BatchCreateVariableCommand extends $Command<
   BatchCreateVariableCommandInput,
@@ -49,18 +38,16 @@ export class BatchCreateVariableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchCreateVariableCommandInput,
-    BatchCreateVariableCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchCreateVariableCommandInput, BatchCreateVariableCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchCreateVariableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateVariableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class BatchCreateVariableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchCreateVariableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchCreateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchCreateVariableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchCreateVariableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateVariableCommandOutput> {
     return deserializeAws_json1_1BatchCreateVariableCommand(output, context);
   }
 

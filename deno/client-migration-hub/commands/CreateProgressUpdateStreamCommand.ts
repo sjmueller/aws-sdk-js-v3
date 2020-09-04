@@ -1,21 +1,11 @@
-import {
-  MigrationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MigrationHubClient.ts";
-import {
-  CreateProgressUpdateStreamRequest,
-  CreateProgressUpdateStreamResult
-} from "../models/index.ts";
+import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
+import { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateProgressUpdateStreamCommand,
-  serializeAws_json1_1CreateProgressUpdateStreamCommand
+  serializeAws_json1_1CreateProgressUpdateStreamCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateProgressUpdateStreamCommandInput = CreateProgressUpdateStreamRequest;
-export type CreateProgressUpdateStreamCommandOutput = CreateProgressUpdateStreamResult &
-  __MetadataBearer;
+export type CreateProgressUpdateStreamCommandOutput = CreateProgressUpdateStreamResult & __MetadataBearer;
 
 export class CreateProgressUpdateStreamCommand extends $Command<
   CreateProgressUpdateStreamCommandInput,
@@ -49,18 +38,16 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProgressUpdateStreamCommandInput,
-    CreateProgressUpdateStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProgressUpdateStreamCommandInput, CreateProgressUpdateStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateProgressUpdateStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProgressUpdateStreamCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateProgressUpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateProgressUpdateStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProgressUpdateStreamCommandOutput> {
-    return deserializeAws_json1_1CreateProgressUpdateStreamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateProgressUpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  RegisterTaskWithMaintenanceWindowRequest,
-  RegisterTaskWithMaintenanceWindowResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { RegisterTaskWithMaintenanceWindowRequest, RegisterTaskWithMaintenanceWindowResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand,
-  serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand
+  serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterTaskWithMaintenanceWindowCommandInput = RegisterTaskWithMaintenanceWindowRequest;
-export type RegisterTaskWithMaintenanceWindowCommandOutput = RegisterTaskWithMaintenanceWindowResult &
-  __MetadataBearer;
+export type RegisterTaskWithMaintenanceWindowCommandOutput = RegisterTaskWithMaintenanceWindowResult & __MetadataBearer;
 
 export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
   RegisterTaskWithMaintenanceWindowCommandInput,
@@ -49,18 +38,16 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterTaskWithMaintenanceWindowCommandInput,
-    RegisterTaskWithMaintenanceWindowCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterTaskWithMaintenanceWindowCommandInput, RegisterTaskWithMaintenanceWindowCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterTaskWithMaintenanceWindowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTaskWithMaintenanceWindowResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
     input: RegisterTaskWithMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

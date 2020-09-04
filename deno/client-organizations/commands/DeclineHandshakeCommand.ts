@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient.ts";
-import {
-  DeclineHandshakeRequest,
-  DeclineHandshakeResponse
-} from "../models/index.ts";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
+import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeclineHandshakeCommand,
-  serializeAws_json1_1DeclineHandshakeCommand
+  serializeAws_json1_1DeclineHandshakeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
-export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse &
-  __MetadataBearer;
+export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse & __MetadataBearer;
 
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,
@@ -50,14 +39,15 @@ export class DeclineHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeclineHandshakeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeclineHandshakeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeclineHandshakeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeclineHandshakeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeclineHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeclineHandshakeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeclineHandshakeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineHandshakeCommandOutput> {
     return deserializeAws_json1_1DeclineHandshakeCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  DetectStackResourceDriftInput,
-  DetectStackResourceDriftOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { DetectStackResourceDriftInput, DetectStackResourceDriftOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDetectStackResourceDriftCommand,
-  serializeAws_queryDetectStackResourceDriftCommand
+  serializeAws_queryDetectStackResourceDriftCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DetectStackResourceDriftCommandInput = DetectStackResourceDriftInput;
-export type DetectStackResourceDriftCommandOutput = DetectStackResourceDriftOutput &
-  __MetadataBearer;
+export type DetectStackResourceDriftCommandOutput = DetectStackResourceDriftOutput & __MetadataBearer;
 
 export class DetectStackResourceDriftCommand extends $Command<
   DetectStackResourceDriftCommandInput,
@@ -49,18 +38,16 @@ export class DetectStackResourceDriftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetectStackResourceDriftCommandInput,
-    DetectStackResourceDriftCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetectStackResourceDriftCommandInput, DetectStackResourceDriftCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DetectStackResourceDriftInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectStackResourceDriftOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DetectStackResourceDriftCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectStackResourceDriftCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectStackResourceDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackResourceDriftCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectStackResourceDriftCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackResourceDriftCommandOutput> {
     return deserializeAws_queryDetectStackResourceDriftCommand(output, context);
   }
 

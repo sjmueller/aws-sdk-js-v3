@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DeleteNetworkInterfacePermissionRequest,
-  DeleteNetworkInterfacePermissionResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DeleteNetworkInterfacePermissionRequest, DeleteNetworkInterfacePermissionResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteNetworkInterfacePermissionCommand,
-  serializeAws_ec2DeleteNetworkInterfacePermissionCommand
+  serializeAws_ec2DeleteNetworkInterfacePermissionCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteNetworkInterfacePermissionCommandInput = DeleteNetworkInterfacePermissionRequest;
-export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult &
-  __MetadataBearer;
+export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult & __MetadataBearer;
 
 export class DeleteNetworkInterfacePermissionCommand extends $Command<
   DeleteNetworkInterfacePermissionCommandInput,
@@ -49,18 +38,16 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNetworkInterfacePermissionCommandInput,
-    DeleteNetworkInterfacePermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNetworkInterfacePermissionCommandInput, DeleteNetworkInterfacePermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteNetworkInterfacePermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNetworkInterfacePermissionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
     input: DeleteNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInterfacePermissionCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteNetworkInterfacePermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInterfacePermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteNetworkInterfacePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  CreateDiskFromSnapshotRequest,
-  CreateDiskFromSnapshotResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { CreateDiskFromSnapshotRequest, CreateDiskFromSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDiskFromSnapshotCommand,
-  serializeAws_json1_1CreateDiskFromSnapshotCommand
+  serializeAws_json1_1CreateDiskFromSnapshotCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDiskFromSnapshotCommandInput = CreateDiskFromSnapshotRequest;
-export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult &
-  __MetadataBearer;
+export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult & __MetadataBearer;
 
 export class CreateDiskFromSnapshotCommand extends $Command<
   CreateDiskFromSnapshotCommandInput,
@@ -49,18 +38,16 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDiskFromSnapshotCommandInput,
-    CreateDiskFromSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDiskFromSnapshotCommandInput, CreateDiskFromSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDiskFromSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDiskFromSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDiskFromSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDiskFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDiskFromSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDiskFromSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiskFromSnapshotCommandOutput> {
     return deserializeAws_json1_1CreateDiskFromSnapshotCommand(output, context);
   }
 

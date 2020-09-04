@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
-import {
-  AcknowledgeThirdPartyJobInput,
-  AcknowledgeThirdPartyJobOutput
-} from "../models/index.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
+import { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1AcknowledgeThirdPartyJobCommand,
-  serializeAws_json1_1AcknowledgeThirdPartyJobCommand
+  serializeAws_json1_1AcknowledgeThirdPartyJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AcknowledgeThirdPartyJobCommandInput = AcknowledgeThirdPartyJobInput;
-export type AcknowledgeThirdPartyJobCommandOutput = AcknowledgeThirdPartyJobOutput &
-  __MetadataBearer;
+export type AcknowledgeThirdPartyJobCommandOutput = AcknowledgeThirdPartyJobOutput & __MetadataBearer;
 
 export class AcknowledgeThirdPartyJobCommand extends $Command<
   AcknowledgeThirdPartyJobCommandInput,
@@ -49,18 +38,16 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AcknowledgeThirdPartyJobCommandInput,
-    AcknowledgeThirdPartyJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AcknowledgeThirdPartyJobCommandInput, AcknowledgeThirdPartyJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AcknowledgeThirdPartyJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AcknowledgeThirdPartyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AcknowledgeThirdPartyJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AcknowledgeThirdPartyJobCommandOutput> {
-    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeThirdPartyJobCommandOutput> {
+    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AccessAnalyzerClient.ts";
+import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
 import { ListAnalyzersRequest, ListAnalyzersResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListAnalyzersCommand,
-  serializeAws_restJson1ListAnalyzersCommand
+  serializeAws_restJson1ListAnalyzersCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListAnalyzersCommandInput = ListAnalyzersRequest;
-export type ListAnalyzersCommandOutput = ListAnalyzersResponse &
-  __MetadataBearer;
+export type ListAnalyzersCommandOutput = ListAnalyzersResponse & __MetadataBearer;
 
 export class ListAnalyzersCommand extends $Command<
   ListAnalyzersCommandInput,
@@ -47,14 +39,15 @@ export class ListAnalyzersCommand extends $Command<
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAnalyzersCommandInput, ListAnalyzersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListAnalyzersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAnalyzersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListAnalyzersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAnalyzersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAnalyzersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListAnalyzersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAnalyzersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnalyzersCommandOutput> {
     return deserializeAws_restJson1ListAnalyzersCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient.ts";
-import {
-  GetAppReplicationConfigurationRequest,
-  GetAppReplicationConfigurationResponse
-} from "../models/index.ts";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
+import { GetAppReplicationConfigurationRequest, GetAppReplicationConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAppReplicationConfigurationCommand,
-  serializeAws_json1_1GetAppReplicationConfigurationCommand
+  serializeAws_json1_1GetAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAppReplicationConfigurationCommandInput = GetAppReplicationConfigurationRequest;
-export type GetAppReplicationConfigurationCommandOutput = GetAppReplicationConfigurationResponse &
-  __MetadataBearer;
+export type GetAppReplicationConfigurationCommandOutput = GetAppReplicationConfigurationResponse & __MetadataBearer;
 
 export class GetAppReplicationConfigurationCommand extends $Command<
   GetAppReplicationConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAppReplicationConfigurationCommandInput,
-    GetAppReplicationConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAppReplicationConfigurationCommandInput, GetAppReplicationConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAppReplicationConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAppReplicationConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetAppReplicationConfigurationCommand extends $Command<
     input: GetAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppReplicationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetAppReplicationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAppReplicationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

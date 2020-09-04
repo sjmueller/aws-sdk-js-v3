@@ -1,335 +1,266 @@
 import {
   AcceptPortfolioShareCommandInput,
-  AcceptPortfolioShareCommandOutput
+  AcceptPortfolioShareCommandOutput,
 } from "./commands/AcceptPortfolioShareCommand.ts";
 import {
   AssociateBudgetWithResourceCommandInput,
-  AssociateBudgetWithResourceCommandOutput
+  AssociateBudgetWithResourceCommandOutput,
 } from "./commands/AssociateBudgetWithResourceCommand.ts";
 import {
   AssociatePrincipalWithPortfolioCommandInput,
-  AssociatePrincipalWithPortfolioCommandOutput
+  AssociatePrincipalWithPortfolioCommandOutput,
 } from "./commands/AssociatePrincipalWithPortfolioCommand.ts";
 import {
   AssociateProductWithPortfolioCommandInput,
-  AssociateProductWithPortfolioCommandOutput
+  AssociateProductWithPortfolioCommandOutput,
 } from "./commands/AssociateProductWithPortfolioCommand.ts";
 import {
   AssociateServiceActionWithProvisioningArtifactCommandInput,
-  AssociateServiceActionWithProvisioningArtifactCommandOutput
+  AssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/AssociateServiceActionWithProvisioningArtifactCommand.ts";
 import {
   AssociateTagOptionWithResourceCommandInput,
-  AssociateTagOptionWithResourceCommandOutput
+  AssociateTagOptionWithResourceCommandOutput,
 } from "./commands/AssociateTagOptionWithResourceCommand.ts";
 import {
   BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+  BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
 } from "./commands/BatchAssociateServiceActionWithProvisioningArtifactCommand.ts";
 import {
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
+  BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand.ts";
-import {
-  CopyProductCommandInput,
-  CopyProductCommandOutput
-} from "./commands/CopyProductCommand.ts";
-import {
-  CreateConstraintCommandInput,
-  CreateConstraintCommandOutput
-} from "./commands/CreateConstraintCommand.ts";
-import {
-  CreatePortfolioCommandInput,
-  CreatePortfolioCommandOutput
-} from "./commands/CreatePortfolioCommand.ts";
+import { CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand.ts";
+import { CreateConstraintCommandInput, CreateConstraintCommandOutput } from "./commands/CreateConstraintCommand.ts";
+import { CreatePortfolioCommandInput, CreatePortfolioCommandOutput } from "./commands/CreatePortfolioCommand.ts";
 import {
   CreatePortfolioShareCommandInput,
-  CreatePortfolioShareCommandOutput
+  CreatePortfolioShareCommandOutput,
 } from "./commands/CreatePortfolioShareCommand.ts";
-import {
-  CreateProductCommandInput,
-  CreateProductCommandOutput
-} from "./commands/CreateProductCommand.ts";
+import { CreateProductCommandInput, CreateProductCommandOutput } from "./commands/CreateProductCommand.ts";
 import {
   CreateProvisionedProductPlanCommandInput,
-  CreateProvisionedProductPlanCommandOutput
+  CreateProvisionedProductPlanCommandOutput,
 } from "./commands/CreateProvisionedProductPlanCommand.ts";
 import {
   CreateProvisioningArtifactCommandInput,
-  CreateProvisioningArtifactCommandOutput
+  CreateProvisioningArtifactCommandOutput,
 } from "./commands/CreateProvisioningArtifactCommand.ts";
 import {
   CreateServiceActionCommandInput,
-  CreateServiceActionCommandOutput
+  CreateServiceActionCommandOutput,
 } from "./commands/CreateServiceActionCommand.ts";
-import {
-  CreateTagOptionCommandInput,
-  CreateTagOptionCommandOutput
-} from "./commands/CreateTagOptionCommand.ts";
-import {
-  DeleteConstraintCommandInput,
-  DeleteConstraintCommandOutput
-} from "./commands/DeleteConstraintCommand.ts";
-import {
-  DeletePortfolioCommandInput,
-  DeletePortfolioCommandOutput
-} from "./commands/DeletePortfolioCommand.ts";
+import { CreateTagOptionCommandInput, CreateTagOptionCommandOutput } from "./commands/CreateTagOptionCommand.ts";
+import { DeleteConstraintCommandInput, DeleteConstraintCommandOutput } from "./commands/DeleteConstraintCommand.ts";
+import { DeletePortfolioCommandInput, DeletePortfolioCommandOutput } from "./commands/DeletePortfolioCommand.ts";
 import {
   DeletePortfolioShareCommandInput,
-  DeletePortfolioShareCommandOutput
+  DeletePortfolioShareCommandOutput,
 } from "./commands/DeletePortfolioShareCommand.ts";
-import {
-  DeleteProductCommandInput,
-  DeleteProductCommandOutput
-} from "./commands/DeleteProductCommand.ts";
+import { DeleteProductCommandInput, DeleteProductCommandOutput } from "./commands/DeleteProductCommand.ts";
 import {
   DeleteProvisionedProductPlanCommandInput,
-  DeleteProvisionedProductPlanCommandOutput
+  DeleteProvisionedProductPlanCommandOutput,
 } from "./commands/DeleteProvisionedProductPlanCommand.ts";
 import {
   DeleteProvisioningArtifactCommandInput,
-  DeleteProvisioningArtifactCommandOutput
+  DeleteProvisioningArtifactCommandOutput,
 } from "./commands/DeleteProvisioningArtifactCommand.ts";
 import {
   DeleteServiceActionCommandInput,
-  DeleteServiceActionCommandOutput
+  DeleteServiceActionCommandOutput,
 } from "./commands/DeleteServiceActionCommand.ts";
-import {
-  DeleteTagOptionCommandInput,
-  DeleteTagOptionCommandOutput
-} from "./commands/DeleteTagOptionCommand.ts";
+import { DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput } from "./commands/DeleteTagOptionCommand.ts";
 import {
   DescribeConstraintCommandInput,
-  DescribeConstraintCommandOutput
+  DescribeConstraintCommandOutput,
 } from "./commands/DescribeConstraintCommand.ts";
 import {
   DescribeCopyProductStatusCommandInput,
-  DescribeCopyProductStatusCommandOutput
+  DescribeCopyProductStatusCommandOutput,
 } from "./commands/DescribeCopyProductStatusCommand.ts";
-import {
-  DescribePortfolioCommandInput,
-  DescribePortfolioCommandOutput
-} from "./commands/DescribePortfolioCommand.ts";
+import { DescribePortfolioCommandInput, DescribePortfolioCommandOutput } from "./commands/DescribePortfolioCommand.ts";
 import {
   DescribePortfolioShareStatusCommandInput,
-  DescribePortfolioShareStatusCommandOutput
+  DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand.ts";
 import {
   DescribeProductAsAdminCommandInput,
-  DescribeProductAsAdminCommandOutput
+  DescribeProductAsAdminCommandOutput,
 } from "./commands/DescribeProductAsAdminCommand.ts";
-import {
-  DescribeProductCommandInput,
-  DescribeProductCommandOutput
-} from "./commands/DescribeProductCommand.ts";
+import { DescribeProductCommandInput, DescribeProductCommandOutput } from "./commands/DescribeProductCommand.ts";
 import {
   DescribeProductViewCommandInput,
-  DescribeProductViewCommandOutput
+  DescribeProductViewCommandOutput,
 } from "./commands/DescribeProductViewCommand.ts";
 import {
   DescribeProvisionedProductCommandInput,
-  DescribeProvisionedProductCommandOutput
+  DescribeProvisionedProductCommandOutput,
 } from "./commands/DescribeProvisionedProductCommand.ts";
 import {
   DescribeProvisionedProductPlanCommandInput,
-  DescribeProvisionedProductPlanCommandOutput
+  DescribeProvisionedProductPlanCommandOutput,
 } from "./commands/DescribeProvisionedProductPlanCommand.ts";
 import {
   DescribeProvisioningArtifactCommandInput,
-  DescribeProvisioningArtifactCommandOutput
+  DescribeProvisioningArtifactCommandOutput,
 } from "./commands/DescribeProvisioningArtifactCommand.ts";
 import {
   DescribeProvisioningParametersCommandInput,
-  DescribeProvisioningParametersCommandOutput
+  DescribeProvisioningParametersCommandOutput,
 } from "./commands/DescribeProvisioningParametersCommand.ts";
-import {
-  DescribeRecordCommandInput,
-  DescribeRecordCommandOutput
-} from "./commands/DescribeRecordCommand.ts";
+import { DescribeRecordCommandInput, DescribeRecordCommandOutput } from "./commands/DescribeRecordCommand.ts";
 import {
   DescribeServiceActionCommandInput,
-  DescribeServiceActionCommandOutput
+  DescribeServiceActionCommandOutput,
 } from "./commands/DescribeServiceActionCommand.ts";
 import {
   DescribeServiceActionExecutionParametersCommandInput,
-  DescribeServiceActionExecutionParametersCommandOutput
+  DescribeServiceActionExecutionParametersCommandOutput,
 } from "./commands/DescribeServiceActionExecutionParametersCommand.ts";
-import {
-  DescribeTagOptionCommandInput,
-  DescribeTagOptionCommandOutput
-} from "./commands/DescribeTagOptionCommand.ts";
+import { DescribeTagOptionCommandInput, DescribeTagOptionCommandOutput } from "./commands/DescribeTagOptionCommand.ts";
 import {
   DisableAWSOrganizationsAccessCommandInput,
-  DisableAWSOrganizationsAccessCommandOutput
+  DisableAWSOrganizationsAccessCommandOutput,
 } from "./commands/DisableAWSOrganizationsAccessCommand.ts";
 import {
   DisassociateBudgetFromResourceCommandInput,
-  DisassociateBudgetFromResourceCommandOutput
+  DisassociateBudgetFromResourceCommandOutput,
 } from "./commands/DisassociateBudgetFromResourceCommand.ts";
 import {
   DisassociatePrincipalFromPortfolioCommandInput,
-  DisassociatePrincipalFromPortfolioCommandOutput
+  DisassociatePrincipalFromPortfolioCommandOutput,
 } from "./commands/DisassociatePrincipalFromPortfolioCommand.ts";
 import {
   DisassociateProductFromPortfolioCommandInput,
-  DisassociateProductFromPortfolioCommandOutput
+  DisassociateProductFromPortfolioCommandOutput,
 } from "./commands/DisassociateProductFromPortfolioCommand.ts";
 import {
   DisassociateServiceActionFromProvisioningArtifactCommandInput,
-  DisassociateServiceActionFromProvisioningArtifactCommandOutput
+  DisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/DisassociateServiceActionFromProvisioningArtifactCommand.ts";
 import {
   DisassociateTagOptionFromResourceCommandInput,
-  DisassociateTagOptionFromResourceCommandOutput
+  DisassociateTagOptionFromResourceCommandOutput,
 } from "./commands/DisassociateTagOptionFromResourceCommand.ts";
 import {
   EnableAWSOrganizationsAccessCommandInput,
-  EnableAWSOrganizationsAccessCommandOutput
+  EnableAWSOrganizationsAccessCommandOutput,
 } from "./commands/EnableAWSOrganizationsAccessCommand.ts";
 import {
   ExecuteProvisionedProductPlanCommandInput,
-  ExecuteProvisionedProductPlanCommandOutput
+  ExecuteProvisionedProductPlanCommandOutput,
 } from "./commands/ExecuteProvisionedProductPlanCommand.ts";
 import {
   ExecuteProvisionedProductServiceActionCommandInput,
-  ExecuteProvisionedProductServiceActionCommandOutput
+  ExecuteProvisionedProductServiceActionCommandOutput,
 } from "./commands/ExecuteProvisionedProductServiceActionCommand.ts";
 import {
   GetAWSOrganizationsAccessStatusCommandInput,
-  GetAWSOrganizationsAccessStatusCommandOutput
+  GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand.ts";
 import {
   ListAcceptedPortfolioSharesCommandInput,
-  ListAcceptedPortfolioSharesCommandOutput
+  ListAcceptedPortfolioSharesCommandOutput,
 } from "./commands/ListAcceptedPortfolioSharesCommand.ts";
 import {
   ListBudgetsForResourceCommandInput,
-  ListBudgetsForResourceCommandOutput
+  ListBudgetsForResourceCommandOutput,
 } from "./commands/ListBudgetsForResourceCommand.ts";
 import {
   ListConstraintsForPortfolioCommandInput,
-  ListConstraintsForPortfolioCommandOutput
+  ListConstraintsForPortfolioCommandOutput,
 } from "./commands/ListConstraintsForPortfolioCommand.ts";
-import {
-  ListLaunchPathsCommandInput,
-  ListLaunchPathsCommandOutput
-} from "./commands/ListLaunchPathsCommand.ts";
+import { ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput } from "./commands/ListLaunchPathsCommand.ts";
 import {
   ListOrganizationPortfolioAccessCommandInput,
-  ListOrganizationPortfolioAccessCommandOutput
+  ListOrganizationPortfolioAccessCommandOutput,
 } from "./commands/ListOrganizationPortfolioAccessCommand.ts";
 import {
   ListPortfolioAccessCommandInput,
-  ListPortfolioAccessCommandOutput
+  ListPortfolioAccessCommandOutput,
 } from "./commands/ListPortfolioAccessCommand.ts";
-import {
-  ListPortfoliosCommandInput,
-  ListPortfoliosCommandOutput
-} from "./commands/ListPortfoliosCommand.ts";
+import { ListPortfoliosCommandInput, ListPortfoliosCommandOutput } from "./commands/ListPortfoliosCommand.ts";
 import {
   ListPortfoliosForProductCommandInput,
-  ListPortfoliosForProductCommandOutput
+  ListPortfoliosForProductCommandOutput,
 } from "./commands/ListPortfoliosForProductCommand.ts";
 import {
   ListPrincipalsForPortfolioCommandInput,
-  ListPrincipalsForPortfolioCommandOutput
+  ListPrincipalsForPortfolioCommandOutput,
 } from "./commands/ListPrincipalsForPortfolioCommand.ts";
 import {
   ListProvisionedProductPlansCommandInput,
-  ListProvisionedProductPlansCommandOutput
+  ListProvisionedProductPlansCommandOutput,
 } from "./commands/ListProvisionedProductPlansCommand.ts";
 import {
   ListProvisioningArtifactsCommandInput,
-  ListProvisioningArtifactsCommandOutput
+  ListProvisioningArtifactsCommandOutput,
 } from "./commands/ListProvisioningArtifactsCommand.ts";
 import {
   ListProvisioningArtifactsForServiceActionCommandInput,
-  ListProvisioningArtifactsForServiceActionCommandOutput
+  ListProvisioningArtifactsForServiceActionCommandOutput,
 } from "./commands/ListProvisioningArtifactsForServiceActionCommand.ts";
-import {
-  ListRecordHistoryCommandInput,
-  ListRecordHistoryCommandOutput
-} from "./commands/ListRecordHistoryCommand.ts";
+import { ListRecordHistoryCommandInput, ListRecordHistoryCommandOutput } from "./commands/ListRecordHistoryCommand.ts";
 import {
   ListResourcesForTagOptionCommandInput,
-  ListResourcesForTagOptionCommandOutput
+  ListResourcesForTagOptionCommandOutput,
 } from "./commands/ListResourcesForTagOptionCommand.ts";
 import {
   ListServiceActionsCommandInput,
-  ListServiceActionsCommandOutput
+  ListServiceActionsCommandOutput,
 } from "./commands/ListServiceActionsCommand.ts";
 import {
   ListServiceActionsForProvisioningArtifactCommandInput,
-  ListServiceActionsForProvisioningArtifactCommandOutput
+  ListServiceActionsForProvisioningArtifactCommandOutput,
 } from "./commands/ListServiceActionsForProvisioningArtifactCommand.ts";
 import {
   ListStackInstancesForProvisionedProductCommandInput,
-  ListStackInstancesForProvisionedProductCommandOutput
+  ListStackInstancesForProvisionedProductCommandOutput,
 } from "./commands/ListStackInstancesForProvisionedProductCommand.ts";
-import {
-  ListTagOptionsCommandInput,
-  ListTagOptionsCommandOutput
-} from "./commands/ListTagOptionsCommand.ts";
-import {
-  ProvisionProductCommandInput,
-  ProvisionProductCommandOutput
-} from "./commands/ProvisionProductCommand.ts";
+import { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "./commands/ListTagOptionsCommand.ts";
+import { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "./commands/ProvisionProductCommand.ts";
 import {
   RejectPortfolioShareCommandInput,
-  RejectPortfolioShareCommandOutput
+  RejectPortfolioShareCommandOutput,
 } from "./commands/RejectPortfolioShareCommand.ts";
 import {
   ScanProvisionedProductsCommandInput,
-  ScanProvisionedProductsCommandOutput
+  ScanProvisionedProductsCommandOutput,
 } from "./commands/ScanProvisionedProductsCommand.ts";
 import {
   SearchProductsAsAdminCommandInput,
-  SearchProductsAsAdminCommandOutput
+  SearchProductsAsAdminCommandOutput,
 } from "./commands/SearchProductsAsAdminCommand.ts";
-import {
-  SearchProductsCommandInput,
-  SearchProductsCommandOutput
-} from "./commands/SearchProductsCommand.ts";
+import { SearchProductsCommandInput, SearchProductsCommandOutput } from "./commands/SearchProductsCommand.ts";
 import {
   SearchProvisionedProductsCommandInput,
-  SearchProvisionedProductsCommandOutput
+  SearchProvisionedProductsCommandOutput,
 } from "./commands/SearchProvisionedProductsCommand.ts";
 import {
   TerminateProvisionedProductCommandInput,
-  TerminateProvisionedProductCommandOutput
+  TerminateProvisionedProductCommandOutput,
 } from "./commands/TerminateProvisionedProductCommand.ts";
-import {
-  UpdateConstraintCommandInput,
-  UpdateConstraintCommandOutput
-} from "./commands/UpdateConstraintCommand.ts";
-import {
-  UpdatePortfolioCommandInput,
-  UpdatePortfolioCommandOutput
-} from "./commands/UpdatePortfolioCommand.ts";
-import {
-  UpdateProductCommandInput,
-  UpdateProductCommandOutput
-} from "./commands/UpdateProductCommand.ts";
+import { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "./commands/UpdateConstraintCommand.ts";
+import { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "./commands/UpdatePortfolioCommand.ts";
+import { UpdateProductCommandInput, UpdateProductCommandOutput } from "./commands/UpdateProductCommand.ts";
 import {
   UpdateProvisionedProductCommandInput,
-  UpdateProvisionedProductCommandOutput
+  UpdateProvisionedProductCommandOutput,
 } from "./commands/UpdateProvisionedProductCommand.ts";
 import {
   UpdateProvisionedProductPropertiesCommandInput,
-  UpdateProvisionedProductPropertiesCommandOutput
+  UpdateProvisionedProductPropertiesCommandOutput,
 } from "./commands/UpdateProvisionedProductPropertiesCommand.ts";
 import {
   UpdateProvisioningArtifactCommandInput,
-  UpdateProvisioningArtifactCommandOutput
+  UpdateProvisioningArtifactCommandOutput,
 } from "./commands/UpdateProvisioningArtifactCommand.ts";
 import {
   UpdateServiceActionCommandInput,
-  UpdateServiceActionCommandOutput
+  UpdateServiceActionCommandOutput,
 } from "./commands/UpdateServiceActionCommand.ts";
-import {
-  UpdateTagOptionCommandInput,
-  UpdateTagOptionCommandOutput
-} from "./commands/UpdateTagOptionCommand.ts";
+import { UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput } from "./commands/UpdateTagOptionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -337,38 +268,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -377,9 +304,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -552,8 +480,7 @@ export type ServiceOutputTypes =
   | UpdateServiceActionCommandOutput
   | UpdateTagOptionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -627,14 +554,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -642,9 +574,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServiceCatalogClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServiceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -653,9 +583,7 @@ export type ServiceCatalogClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -683,7 +611,7 @@ export class ServiceCatalogClient extends __Client<
   constructor(configuration: ServiceCatalogClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -698,6 +626,7 @@ export class ServiceCatalogClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

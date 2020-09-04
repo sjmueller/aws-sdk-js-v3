@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  StopThingRegistrationTaskRequest,
-  StopThingRegistrationTaskResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { StopThingRegistrationTaskRequest, StopThingRegistrationTaskResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StopThingRegistrationTaskCommand,
-  serializeAws_restJson1StopThingRegistrationTaskCommand
+  serializeAws_restJson1StopThingRegistrationTaskCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopThingRegistrationTaskCommandInput = StopThingRegistrationTaskRequest;
-export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse &
-  __MetadataBearer;
+export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse & __MetadataBearer;
 
 export class StopThingRegistrationTaskCommand extends $Command<
   StopThingRegistrationTaskCommandInput,
@@ -49,18 +38,16 @@ export class StopThingRegistrationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopThingRegistrationTaskCommandInput,
-    StopThingRegistrationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopThingRegistrationTaskCommandInput, StopThingRegistrationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopThingRegistrationTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopThingRegistrationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class StopThingRegistrationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopThingRegistrationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopThingRegistrationTaskCommand(
-      input,
-      context
-    );
+  private serialize(input: StopThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StopThingRegistrationTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1StopThingRegistrationTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StopThingRegistrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

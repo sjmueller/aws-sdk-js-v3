@@ -1,21 +1,15 @@
 import {
   CloudWatchEventsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudWatchEventsClient.ts";
-import {
-  DescribeEventBusRequest,
-  DescribeEventBusResponse
-} from "../models/index.ts";
+import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventBusCommand,
-  serializeAws_json1_1DescribeEventBusCommand
+  serializeAws_json1_1DescribeEventBusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventBusCommandInput = DescribeEventBusRequest;
-export type DescribeEventBusCommandOutput = DescribeEventBusResponse &
-  __MetadataBearer;
+export type DescribeEventBusCommandOutput = DescribeEventBusResponse & __MetadataBearer;
 
 export class DescribeEventBusCommand extends $Command<
   DescribeEventBusCommandInput,
@@ -50,14 +43,12 @@ export class DescribeEventBusCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventBusCommandInput, DescribeEventBusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +58,11 @@ export class DescribeEventBusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventBusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventBusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventBusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventBusCommandOutput> {
     return deserializeAws_json1_1DescribeEventBusCommand(output, context);
   }
 

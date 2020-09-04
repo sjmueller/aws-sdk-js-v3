@@ -1,21 +1,11 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient.ts";
-import {
-  DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesResponse
-} from "../models/index.ts";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
+import { DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEntityAggregatesCommand,
-  serializeAws_json1_1DescribeEntityAggregatesCommand
+  serializeAws_json1_1DescribeEntityAggregatesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEntityAggregatesCommandInput = DescribeEntityAggregatesRequest;
-export type DescribeEntityAggregatesCommandOutput = DescribeEntityAggregatesResponse &
-  __MetadataBearer;
+export type DescribeEntityAggregatesCommandOutput = DescribeEntityAggregatesResponse & __MetadataBearer;
 
 export class DescribeEntityAggregatesCommand extends $Command<
   DescribeEntityAggregatesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEntityAggregatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEntityAggregatesCommandInput,
-    DescribeEntityAggregatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEntityAggregatesCommandInput, DescribeEntityAggregatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEntityAggregatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEntityAggregatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeEntityAggregatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEntityAggregatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEntityAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntityAggregatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEntityAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityAggregatesCommandOutput> {
+    return deserializeAws_json1_1DescribeEntityAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

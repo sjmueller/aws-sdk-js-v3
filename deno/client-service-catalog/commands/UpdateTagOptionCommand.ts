@@ -1,18 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
 import { UpdateTagOptionInput, UpdateTagOptionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateTagOptionCommand,
-  serializeAws_json1_1UpdateTagOptionCommand
+  serializeAws_json1_1UpdateTagOptionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateTagOptionCommandInput = UpdateTagOptionInput;
-export type UpdateTagOptionCommandOutput = UpdateTagOptionOutput &
-  __MetadataBearer;
+export type UpdateTagOptionCommandOutput = UpdateTagOptionOutput & __MetadataBearer;
 
 export class UpdateTagOptionCommand extends $Command<
   UpdateTagOptionCommandInput,
@@ -47,14 +39,15 @@ export class UpdateTagOptionCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateTagOptionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTagOptionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class UpdateTagOptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTagOptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTagOptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTagOptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagOptionCommandOutput> {
     return deserializeAws_json1_1UpdateTagOptionCommand(output, context);
   }
 

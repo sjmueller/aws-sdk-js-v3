@@ -1,21 +1,11 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient.ts";
-import {
-  UpdateS3ResourcesRequest,
-  UpdateS3ResourcesResult
-} from "../models/index.ts";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient.ts";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateS3ResourcesCommand,
-  serializeAws_json1_1UpdateS3ResourcesCommand
+  serializeAws_json1_1UpdateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateS3ResourcesCommandInput = UpdateS3ResourcesRequest;
-export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult &
-  __MetadataBearer;
+export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult & __MetadataBearer;
 
 export class UpdateS3ResourcesCommand extends $Command<
   UpdateS3ResourcesCommandInput,
@@ -50,14 +39,15 @@ export class UpdateS3ResourcesCommand extends $Command<
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateS3ResourcesCommandInput, UpdateS3ResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateS3ResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateS3ResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateS3ResourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateS3ResourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateS3ResourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateS3ResourcesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1UpdateS3ResourcesCommand(output, context);
   }
 

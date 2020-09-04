@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -18,28 +12,23 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
- * <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
+ * <p>In order to grant the necessary access to the DDoS Response Team (DRT), the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  */
-export interface AccessDeniedForDependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedForDependencyException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedForDependencyException {
-  export const filterSensitiveLog = (
-    obj: AccessDeniedForDependencyException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AccessDeniedForDependencyException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AccessDeniedForDependencyException =>
     __isa(o, "AccessDeniedForDependencyException");
@@ -54,13 +43,10 @@ export interface AssociateDRTLogBucketRequest {
 }
 
 export namespace AssociateDRTLogBucketRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateDRTLogBucketRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateDRTLogBucketRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateDRTLogBucketRequest =>
-    __isa(o, "AssociateDRTLogBucketRequest");
+  export const isa = (o: any): o is AssociateDRTLogBucketRequest => __isa(o, "AssociateDRTLogBucketRequest");
 }
 
 export interface AssociateDRTLogBucketResponse {
@@ -68,13 +54,10 @@ export interface AssociateDRTLogBucketResponse {
 }
 
 export namespace AssociateDRTLogBucketResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateDRTLogBucketResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateDRTLogBucketResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateDRTLogBucketResponse =>
-    __isa(o, "AssociateDRTLogBucketResponse");
+  export const isa = (o: any): o is AssociateDRTLogBucketResponse => __isa(o, "AssociateDRTLogBucketResponse");
 }
 
 export interface AssociateDRTRoleRequest {
@@ -88,10 +71,9 @@ export interface AssociateDRTRoleRequest {
 
 export namespace AssociateDRTRoleRequest {
   export const filterSensitiveLog = (obj: AssociateDRTRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateDRTRoleRequest =>
-    __isa(o, "AssociateDRTRoleRequest");
+  export const isa = (o: any): o is AssociateDRTRoleRequest => __isa(o, "AssociateDRTRoleRequest");
 }
 
 export interface AssociateDRTRoleResponse {
@@ -100,10 +82,72 @@ export interface AssociateDRTRoleResponse {
 
 export namespace AssociateDRTRoleResponse {
   export const filterSensitiveLog = (obj: AssociateDRTRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateDRTRoleResponse =>
-    __isa(o, "AssociateDRTRoleResponse");
+  export const isa = (o: any): o is AssociateDRTRoleResponse => __isa(o, "AssociateDRTRoleResponse");
+}
+
+export interface AssociateHealthCheckRequest {
+  __type?: "AssociateHealthCheckRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
+   */
+  ProtectionId: string | undefined;
+}
+
+export namespace AssociateHealthCheckRequest {
+  export const filterSensitiveLog = (obj: AssociateHealthCheckRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateHealthCheckRequest => __isa(o, "AssociateHealthCheckRequest");
+}
+
+export interface AssociateHealthCheckResponse {
+  __type?: "AssociateHealthCheckResponse";
+}
+
+export namespace AssociateHealthCheckResponse {
+  export const filterSensitiveLog = (obj: AssociateHealthCheckResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateHealthCheckResponse => __isa(o, "AssociateHealthCheckResponse");
+}
+
+export interface AssociateProactiveEngagementDetailsRequest {
+  __type?: "AssociateProactiveEngagementDetailsRequest";
+  /**
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support. </p>
+   *          <p>To enable proactive engagement, the contact list must include at least one phone number.</p>
+   *          <note>
+   *             <p>The contacts that you provide here replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it here.  </p>
+   *          </note>
+   */
+  EmergencyContactList: EmergencyContact[] | undefined;
+}
+
+export namespace AssociateProactiveEngagementDetailsRequest {
+  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateProactiveEngagementDetailsRequest =>
+    __isa(o, "AssociateProactiveEngagementDetailsRequest");
+}
+
+export interface AssociateProactiveEngagementDetailsResponse {
+  __type?: "AssociateProactiveEngagementDetailsResponse";
+}
+
+export namespace AssociateProactiveEngagementDetailsResponse {
+  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is AssociateProactiveEngagementDetailsResponse =>
+    __isa(o, "AssociateProactiveEngagementDetailsResponse");
 }
 
 /**
@@ -111,36 +155,6 @@ export namespace AssociateDRTRoleResponse {
  */
 export interface AttackDetail {
   __type?: "AttackDetail";
-  /**
-   * <p>List of counters that describe the attack for the specified time period.</p>
-   */
-  AttackCounters?: SummarizedCounter[];
-
-  /**
-   * <p>The unique identifier (ID) of the attack.</p>
-   */
-  AttackId?: string;
-
-  /**
-   * <p>The array of <a>AttackProperty</a> objects.</p>
-   */
-  AttackProperties?: AttackProperty[];
-
-  /**
-   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>List of mitigation actions taken for the attack.</p>
-   */
-  Mitigations?: Mitigation[];
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
-   */
-  ResourceArn?: string;
-
   /**
    * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
@@ -151,18 +165,48 @@ export interface AttackDetail {
    *          address or URL.</p>
    */
   SubResources?: SubResourceSummary[];
+
+  /**
+   * <p>The array of <a>AttackProperty</a> objects.</p>
+   */
+  AttackProperties?: AttackProperty[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The unique identifier (ID) of the attack.</p>
+   */
+  AttackId?: string;
+
+  /**
+   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>List of counters that describe the attack for the specified time period.</p>
+   */
+  AttackCounters?: SummarizedCounter[];
+
+  /**
+   * <p>List of mitigation actions taken for the attack.</p>
+   */
+  Mitigations?: Mitigation[];
 }
 
 export namespace AttackDetail {
   export const filterSensitiveLog = (obj: AttackDetail): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AttackDetail => __isa(o, "AttackDetail");
 }
 
 export enum AttackLayer {
   APPLICATION = "APPLICATION",
-  NETWORK = "NETWORK"
+  NETWORK = "NETWORK",
 }
 
 /**
@@ -171,11 +215,21 @@ export enum AttackLayer {
 export interface AttackProperty {
   __type?: "AttackProperty";
   /**
+   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
+   */
+  Total?: number;
+
+  /**
    * <p>The type of distributed denial of service (DDoS) event that was observed.
    *             <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>
    *          indicates layer 7 events.</p>
    */
   AttackLayer?: AttackLayer | string;
+
+  /**
+   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   */
+  Unit?: Unit | string;
 
   /**
    * <p>Defines the DDoS attack property information that is provided. The
@@ -188,24 +242,13 @@ export interface AttackProperty {
    * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
    */
   TopContributors?: Contributor[];
-
-  /**
-   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
-   */
-  Total?: number;
-
-  /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
-   */
-  Unit?: Unit | string;
 }
 
 export namespace AttackProperty {
   export const filterSensitiveLog = (obj: AttackProperty): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttackProperty =>
-    __isa(o, "AttackProperty");
+  export const isa = (o: any): o is AttackProperty => __isa(o, "AttackProperty");
 }
 
 export enum AttackPropertyIdentifier {
@@ -216,7 +259,7 @@ export enum AttackPropertyIdentifier {
   SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
   SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
   WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE"
+  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE",
 }
 
 /**
@@ -235,11 +278,6 @@ export interface AttackSummary {
   AttackVectors?: AttackVectorDescription[];
 
   /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    */
   ResourceArn?: string;
@@ -248,11 +286,16 @@ export interface AttackSummary {
    * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace AttackSummary {
   export const filterSensitiveLog = (obj: AttackSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AttackSummary => __isa(o, "AttackSummary");
 }
@@ -326,15 +369,14 @@ export interface AttackVectorDescription {
 
 export namespace AttackVectorDescription {
   export const filterSensitiveLog = (obj: AttackVectorDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttackVectorDescription =>
-    __isa(o, "AttackVectorDescription");
+  export const isa = (o: any): o is AttackVectorDescription => __isa(o, "AttackVectorDescription");
 }
 
 export enum AutoRenew {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -355,18 +397,13 @@ export interface Contributor {
 
 export namespace Contributor {
   export const filterSensitiveLog = (obj: Contributor): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Contributor => __isa(o, "Contributor");
 }
 
 export interface CreateProtectionRequest {
   __type?: "CreateProtectionRequest";
-  /**
-   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
    *          <p>The ARN should be in one of the following formats:</p>
@@ -404,31 +441,33 @@ export interface CreateProtectionRequest {
    *          </ul>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Friendly name for the <code>Protection</code> you are creating.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateProtectionRequest {
   export const filterSensitiveLog = (obj: CreateProtectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProtectionRequest =>
-    __isa(o, "CreateProtectionRequest");
+  export const isa = (o: any): o is CreateProtectionRequest => __isa(o, "CreateProtectionRequest");
 }
 
 export interface CreateProtectionResponse {
   __type?: "CreateProtectionResponse";
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
-   *          created.</p>
+   * <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
    */
   ProtectionId?: string;
 }
 
 export namespace CreateProtectionResponse {
   export const filterSensitiveLog = (obj: CreateProtectionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProtectionResponse =>
-    __isa(o, "CreateProtectionResponse");
+  export const isa = (o: any): o is CreateProtectionResponse => __isa(o, "CreateProtectionResponse");
 }
 
 export interface CreateSubscriptionRequest {
@@ -437,10 +476,9 @@ export interface CreateSubscriptionRequest {
 
 export namespace CreateSubscriptionRequest {
   export const filterSensitiveLog = (obj: CreateSubscriptionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionRequest =>
-    __isa(o, "CreateSubscriptionRequest");
+  export const isa = (o: any): o is CreateSubscriptionRequest => __isa(o, "CreateSubscriptionRequest");
 }
 
 export interface CreateSubscriptionResponse {
@@ -449,10 +487,9 @@ export interface CreateSubscriptionResponse {
 
 export namespace CreateSubscriptionResponse {
   export const filterSensitiveLog = (obj: CreateSubscriptionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSubscriptionResponse =>
-    __isa(o, "CreateSubscriptionResponse");
+  export const isa = (o: any): o is CreateSubscriptionResponse => __isa(o, "CreateSubscriptionResponse");
 }
 
 export interface DeleteProtectionRequest {
@@ -466,10 +503,9 @@ export interface DeleteProtectionRequest {
 
 export namespace DeleteProtectionRequest {
   export const filterSensitiveLog = (obj: DeleteProtectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProtectionRequest =>
-    __isa(o, "DeleteProtectionRequest");
+  export const isa = (o: any): o is DeleteProtectionRequest => __isa(o, "DeleteProtectionRequest");
 }
 
 export interface DeleteProtectionResponse {
@@ -478,10 +514,9 @@ export interface DeleteProtectionResponse {
 
 export namespace DeleteProtectionResponse {
   export const filterSensitiveLog = (obj: DeleteProtectionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProtectionResponse =>
-    __isa(o, "DeleteProtectionResponse");
+  export const isa = (o: any): o is DeleteProtectionResponse => __isa(o, "DeleteProtectionResponse");
 }
 
 export interface DeleteSubscriptionRequest {
@@ -490,10 +525,9 @@ export interface DeleteSubscriptionRequest {
 
 export namespace DeleteSubscriptionRequest {
   export const filterSensitiveLog = (obj: DeleteSubscriptionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriptionRequest =>
-    __isa(o, "DeleteSubscriptionRequest");
+  export const isa = (o: any): o is DeleteSubscriptionRequest => __isa(o, "DeleteSubscriptionRequest");
 }
 
 export interface DeleteSubscriptionResponse {
@@ -502,10 +536,9 @@ export interface DeleteSubscriptionResponse {
 
 export namespace DeleteSubscriptionResponse {
   export const filterSensitiveLog = (obj: DeleteSubscriptionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSubscriptionResponse =>
-    __isa(o, "DeleteSubscriptionResponse");
+  export const isa = (o: any): o is DeleteSubscriptionResponse => __isa(o, "DeleteSubscriptionResponse");
 }
 
 export interface DescribeAttackRequest {
@@ -518,10 +551,9 @@ export interface DescribeAttackRequest {
 
 export namespace DescribeAttackRequest {
   export const filterSensitiveLog = (obj: DescribeAttackRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAttackRequest =>
-    __isa(o, "DescribeAttackRequest");
+  export const isa = (o: any): o is DescribeAttackRequest => __isa(o, "DescribeAttackRequest");
 }
 
 export interface DescribeAttackResponse {
@@ -534,10 +566,9 @@ export interface DescribeAttackResponse {
 
 export namespace DescribeAttackResponse {
   export const filterSensitiveLog = (obj: DescribeAttackResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAttackResponse =>
-    __isa(o, "DescribeAttackResponse");
+  export const isa = (o: any): o is DescribeAttackResponse => __isa(o, "DescribeAttackResponse");
 }
 
 export interface DescribeDRTAccessRequest {
@@ -546,31 +577,29 @@ export interface DescribeDRTAccessRequest {
 
 export namespace DescribeDRTAccessRequest {
   export const filterSensitiveLog = (obj: DescribeDRTAccessRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDRTAccessRequest =>
-    __isa(o, "DescribeDRTAccessRequest");
+  export const isa = (o: any): o is DescribeDRTAccessRequest => __isa(o, "DescribeDRTAccessRequest");
 }
 
 export interface DescribeDRTAccessResponse {
   __type?: "DescribeDRTAccessResponse";
   /**
-   * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
-   */
-  LogBucketList?: string[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
+   */
+  LogBucketList?: string[];
 }
 
 export namespace DescribeDRTAccessResponse {
   export const filterSensitiveLog = (obj: DescribeDRTAccessResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDRTAccessResponse =>
-    __isa(o, "DescribeDRTAccessResponse");
+  export const isa = (o: any): o is DescribeDRTAccessResponse => __isa(o, "DescribeDRTAccessResponse");
 }
 
 export interface DescribeEmergencyContactSettingsRequest {
@@ -578,10 +607,8 @@ export interface DescribeEmergencyContactSettingsRequest {
 }
 
 export namespace DescribeEmergencyContactSettingsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeEmergencyContactSettingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEmergencyContactSettingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEmergencyContactSettingsRequest =>
     __isa(o, "DescribeEmergencyContactSettingsRequest");
@@ -590,16 +617,14 @@ export namespace DescribeEmergencyContactSettingsRequest {
 export interface DescribeEmergencyContactSettingsResponse {
   __type?: "DescribeEmergencyContactSettingsResponse";
   /**
-   * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
    */
   EmergencyContactList?: EmergencyContact[];
 }
 
 export namespace DescribeEmergencyContactSettingsResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeEmergencyContactSettingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEmergencyContactSettingsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeEmergencyContactSettingsResponse =>
     __isa(o, "DescribeEmergencyContactSettingsResponse");
@@ -608,24 +633,23 @@ export namespace DescribeEmergencyContactSettingsResponse {
 export interface DescribeProtectionRequest {
   __type?: "DescribeProtectionRequest";
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
-   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
-   */
-  ProtectionId?: string;
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object that is
    *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
    */
   ResourceArn?: string;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
+   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
+   */
+  ProtectionId?: string;
 }
 
 export namespace DescribeProtectionRequest {
   export const filterSensitiveLog = (obj: DescribeProtectionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeProtectionRequest =>
-    __isa(o, "DescribeProtectionRequest");
+  export const isa = (o: any): o is DescribeProtectionRequest => __isa(o, "DescribeProtectionRequest");
 }
 
 export interface DescribeProtectionResponse {
@@ -638,10 +662,9 @@ export interface DescribeProtectionResponse {
 
 export namespace DescribeProtectionResponse {
   export const filterSensitiveLog = (obj: DescribeProtectionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeProtectionResponse =>
-    __isa(o, "DescribeProtectionResponse");
+  export const isa = (o: any): o is DescribeProtectionResponse => __isa(o, "DescribeProtectionResponse");
 }
 
 export interface DescribeSubscriptionRequest {
@@ -649,13 +672,10 @@ export interface DescribeSubscriptionRequest {
 }
 
 export namespace DescribeSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSubscriptionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscriptionRequest =>
-    __isa(o, "DescribeSubscriptionRequest");
+  export const isa = (o: any): o is DescribeSubscriptionRequest => __isa(o, "DescribeSubscriptionRequest");
 }
 
 export interface DescribeSubscriptionResponse {
@@ -667,13 +687,33 @@ export interface DescribeSubscriptionResponse {
 }
 
 export namespace DescribeSubscriptionResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeSubscriptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSubscriptionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscriptionResponse =>
-    __isa(o, "DescribeSubscriptionResponse");
+  export const isa = (o: any): o is DescribeSubscriptionResponse => __isa(o, "DescribeSubscriptionResponse");
+}
+
+export interface DisableProactiveEngagementRequest {
+  __type?: "DisableProactiveEngagementRequest";
+}
+
+export namespace DisableProactiveEngagementRequest {
+  export const filterSensitiveLog = (obj: DisableProactiveEngagementRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisableProactiveEngagementRequest => __isa(o, "DisableProactiveEngagementRequest");
+}
+
+export interface DisableProactiveEngagementResponse {
+  __type?: "DisableProactiveEngagementResponse";
+}
+
+export namespace DisableProactiveEngagementResponse {
+  export const filterSensitiveLog = (obj: DisableProactiveEngagementResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisableProactiveEngagementResponse =>
+    __isa(o, "DisableProactiveEngagementResponse");
 }
 
 export interface DisassociateDRTLogBucketRequest {
@@ -685,13 +725,10 @@ export interface DisassociateDRTLogBucketRequest {
 }
 
 export namespace DisassociateDRTLogBucketRequest {
-  export const filterSensitiveLog = (
-    obj: DisassociateDRTLogBucketRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateDRTLogBucketRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateDRTLogBucketRequest =>
-    __isa(o, "DisassociateDRTLogBucketRequest");
+  export const isa = (o: any): o is DisassociateDRTLogBucketRequest => __isa(o, "DisassociateDRTLogBucketRequest");
 }
 
 export interface DisassociateDRTLogBucketResponse {
@@ -699,13 +736,10 @@ export interface DisassociateDRTLogBucketResponse {
 }
 
 export namespace DisassociateDRTLogBucketResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateDRTLogBucketResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateDRTLogBucketResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateDRTLogBucketResponse =>
-    __isa(o, "DisassociateDRTLogBucketResponse");
+  export const isa = (o: any): o is DisassociateDRTLogBucketResponse => __isa(o, "DisassociateDRTLogBucketResponse");
 }
 
 export interface DisassociateDRTRoleRequest {
@@ -714,10 +748,9 @@ export interface DisassociateDRTRoleRequest {
 
 export namespace DisassociateDRTRoleRequest {
   export const filterSensitiveLog = (obj: DisassociateDRTRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateDRTRoleRequest =>
-    __isa(o, "DisassociateDRTRoleRequest");
+  export const isa = (o: any): o is DisassociateDRTRoleRequest => __isa(o, "DisassociateDRTRoleRequest");
 }
 
 export interface DisassociateDRTRoleResponse {
@@ -725,32 +758,91 @@ export interface DisassociateDRTRoleResponse {
 }
 
 export namespace DisassociateDRTRoleResponse {
-  export const filterSensitiveLog = (
-    obj: DisassociateDRTRoleResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisassociateDRTRoleResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateDRTRoleResponse =>
-    __isa(o, "DisassociateDRTRoleResponse");
+  export const isa = (o: any): o is DisassociateDRTRoleResponse => __isa(o, "DisassociateDRTRoleResponse");
+}
+
+export interface DisassociateHealthCheckRequest {
+  __type?: "DisassociateHealthCheckRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
+   */
+  HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
+   */
+  ProtectionId: string | undefined;
+}
+
+export namespace DisassociateHealthCheckRequest {
+  export const filterSensitiveLog = (obj: DisassociateHealthCheckRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisassociateHealthCheckRequest => __isa(o, "DisassociateHealthCheckRequest");
+}
+
+export interface DisassociateHealthCheckResponse {
+  __type?: "DisassociateHealthCheckResponse";
+}
+
+export namespace DisassociateHealthCheckResponse {
+  export const filterSensitiveLog = (obj: DisassociateHealthCheckResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DisassociateHealthCheckResponse => __isa(o, "DisassociateHealthCheckResponse");
 }
 
 /**
- * <p>Contact information that the DRT can use to contact you during a suspected attack.</p>
+ * <p>Contact information that the DRT can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
  */
 export interface EmergencyContact {
   __type?: "EmergencyContact";
   /**
-   * <p>An email address that the DRT can use to contact you during a suspected attack.</p>
+   * <p>The phone number for the contact.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The email address for the contact.</p>
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>Additional notes regarding the contact. </p>
+   */
+  ContactNotes?: string;
 }
 
 export namespace EmergencyContact {
   export const filterSensitiveLog = (obj: EmergencyContact): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EmergencyContact =>
-    __isa(o, "EmergencyContact");
+  export const isa = (o: any): o is EmergencyContact => __isa(o, "EmergencyContact");
+}
+
+export interface EnableProactiveEngagementRequest {
+  __type?: "EnableProactiveEngagementRequest";
+}
+
+export namespace EnableProactiveEngagementRequest {
+  export const filterSensitiveLog = (obj: EnableProactiveEngagementRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EnableProactiveEngagementRequest => __isa(o, "EnableProactiveEngagementRequest");
+}
+
+export interface EnableProactiveEngagementResponse {
+  __type?: "EnableProactiveEngagementResponse";
+}
+
+export namespace EnableProactiveEngagementResponse {
+  export const filterSensitiveLog = (obj: EnableProactiveEngagementResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is EnableProactiveEngagementResponse => __isa(o, "EnableProactiveEngagementResponse");
 }
 
 export interface GetSubscriptionStateRequest {
@@ -758,13 +850,10 @@ export interface GetSubscriptionStateRequest {
 }
 
 export namespace GetSubscriptionStateRequest {
-  export const filterSensitiveLog = (
-    obj: GetSubscriptionStateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSubscriptionStateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionStateRequest =>
-    __isa(o, "GetSubscriptionStateRequest");
+  export const isa = (o: any): o is GetSubscriptionStateRequest => __isa(o, "GetSubscriptionStateRequest");
 }
 
 export interface GetSubscriptionStateResponse {
@@ -776,22 +865,17 @@ export interface GetSubscriptionStateResponse {
 }
 
 export namespace GetSubscriptionStateResponse {
-  export const filterSensitiveLog = (
-    obj: GetSubscriptionStateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSubscriptionStateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSubscriptionStateResponse =>
-    __isa(o, "GetSubscriptionStateResponse");
+  export const isa = (o: any): o is GetSubscriptionStateResponse => __isa(o, "GetSubscriptionStateResponse");
 }
 
 /**
  * <p>Exception that indicates that a problem occurred with the service infrastructure. You
  *          can retry the request.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
@@ -799,18 +883,15 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -818,39 +899,31 @@ export interface InvalidOperationException
 
 export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
+  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
  * <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>
  */
-export interface InvalidPaginationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidPaginationTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidPaginationTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException =>
-    __isa(o, "InvalidPaginationTokenException");
+  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
  * <p>Exception that indicates that the parameters passed to the API are invalid. </p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -858,18 +931,15 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  */
-export interface InvalidResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceException";
   $fault: "client";
   message?: string;
@@ -877,10 +947,9 @@ export interface InvalidResourceException
 
 export namespace InvalidResourceException {
   export const filterSensitiveLog = (obj: InvalidResourceException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceException =>
-    __isa(o, "InvalidResourceException");
+  export const isa = (o: any): o is InvalidResourceException => __isa(o, "InvalidResourceException");
 }
 
 /**
@@ -889,19 +958,19 @@ export namespace InvalidResourceException {
 export interface Limit {
   __type?: "Limit";
   /**
-   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
-   */
-  Max?: number;
-
-  /**
    * <p>The type of protection.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
+   */
+  Max?: number;
 }
 
 export namespace Limit {
   export const filterSensitiveLog = (obj: Limit): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Limit => __isa(o, "Limit");
 }
@@ -913,9 +982,7 @@ export namespace Limit {
  *          <p>
  *             <code>Limit</code> is the threshold that would be exceeded.</p>
  */
-export interface LimitsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
   Limit?: number;
@@ -925,25 +992,13 @@ export interface LimitsExceededException
 
 export namespace LimitsExceededException {
   export const filterSensitiveLog = (obj: LimitsExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitsExceededException =>
-    __isa(o, "LimitsExceededException");
+  export const isa = (o: any): o is LimitsExceededException => __isa(o, "LimitsExceededException");
 }
 
 export interface ListAttacksRequest {
   __type?: "ListAttacksRequest";
-  /**
-   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
-   */
-  EndTime?: TimeRange;
-
-  /**
-   * <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>
-   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
    */
@@ -956,6 +1011,17 @@ export interface ListAttacksRequest {
   ResourceArns?: string[];
 
   /**
+   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   */
+  EndTime?: TimeRange;
+
+  /**
+   * <p>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned.</p>
+   *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>AttackSummary</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
    */
   StartTime?: TimeRange;
@@ -963,19 +1029,13 @@ export interface ListAttacksRequest {
 
 export namespace ListAttacksRequest {
   export const filterSensitiveLog = (obj: ListAttacksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttacksRequest =>
-    __isa(o, "ListAttacksRequest");
+  export const isa = (o: any): o is ListAttacksRequest => __isa(o, "ListAttacksRequest");
 }
 
 export interface ListAttacksResponse {
   __type?: "ListAttacksResponse";
-  /**
-   * <p>The attack information for the specified time range.</p>
-   */
-  AttackSummaries?: AttackSummary[];
-
   /**
    * <p>The token returned by a previous call to indicate that there is more data available.
    *          If not null, more results are available. Pass this value for the <code>NextMarker</code>
@@ -984,37 +1044,40 @@ export interface ListAttacksResponse {
    *          <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The attack information for the specified time range.</p>
+   */
+  AttackSummaries?: AttackSummary[];
 }
 
 export namespace ListAttacksResponse {
   export const filterSensitiveLog = (obj: ListAttacksResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAttacksResponse =>
-    __isa(o, "ListAttacksResponse");
+  export const isa = (o: any): o is ListAttacksResponse => __isa(o, "ListAttacksResponse");
 }
 
 export interface ListProtectionsRequest {
   __type?: "ListProtectionsRequest";
+  /**
+   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The maximum number of <a>Protection</a> objects to be returned. If this is
    *          left blank the first 20 results will be returned.</p>
    *          <p>This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of <a>Protection</a> objects returned could be less than <code>MaxResults</code>, even if there are still more <a>Protection</a> objects yet to return. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListProtectionsRequest {
   export const filterSensitiveLog = (obj: ListProtectionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProtectionsRequest =>
-    __isa(o, "ListProtectionsRequest");
+  export const isa = (o: any): o is ListProtectionsRequest => __isa(o, "ListProtectionsRequest");
 }
 
 export interface ListProtectionsResponse {
@@ -1033,31 +1096,25 @@ export interface ListProtectionsResponse {
 
 export namespace ListProtectionsResponse {
   export const filterSensitiveLog = (obj: ListProtectionsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProtectionsResponse =>
-    __isa(o, "ListProtectionsResponse");
+  export const isa = (o: any): o is ListProtectionsResponse => __isa(o, "ListProtectionsResponse");
 }
 
 /**
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  */
-export interface LockedSubscriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LockedSubscriptionException extends __SmithyException, $MetadataBearer {
   name: "LockedSubscriptionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LockedSubscriptionException {
-  export const filterSensitiveLog = (
-    obj: LockedSubscriptionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LockedSubscriptionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is LockedSubscriptionException =>
-    __isa(o, "LockedSubscriptionException");
+  export const isa = (o: any): o is LockedSubscriptionException => __isa(o, "LockedSubscriptionException");
 }
 
 /**
@@ -1073,7 +1130,7 @@ export interface Mitigation {
 
 export namespace Mitigation {
   export const filterSensitiveLog = (obj: Mitigation): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Mitigation => __isa(o, "Mitigation");
 }
@@ -1081,9 +1138,7 @@ export namespace Mitigation {
 /**
  * <p>The ARN of the role that you specifed does not exist.</p>
  */
-export interface NoAssociatedRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAssociatedRoleException extends __SmithyException, $MetadataBearer {
   name: "NoAssociatedRoleException";
   $fault: "client";
   message?: string;
@@ -1091,19 +1146,16 @@ export interface NoAssociatedRoleException
 
 export namespace NoAssociatedRoleException {
   export const filterSensitiveLog = (obj: NoAssociatedRoleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NoAssociatedRoleException =>
-    __isa(o, "NoAssociatedRoleException");
+  export const isa = (o: any): o is NoAssociatedRoleException => __isa(o, "NoAssociatedRoleException");
 }
 
 /**
- * <p>Exception that indicates that the protection state has been modified by another
- *          client. You can retry the request.</p>
+ * <p>Exception that indicates that the resource state has been modified by another
+ *          client. Retrieve the resource and then retry your request.</p>
  */
-export interface OptimisticLockException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OptimisticLockException extends __SmithyException, $MetadataBearer {
   name: "OptimisticLockException";
   $fault: "client";
   message?: string;
@@ -1111,10 +1163,15 @@ export interface OptimisticLockException
 
 export namespace OptimisticLockException {
   export const filterSensitiveLog = (obj: OptimisticLockException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OptimisticLockException =>
-    __isa(o, "OptimisticLockException");
+  export const isa = (o: any): o is OptimisticLockException => __isa(o, "OptimisticLockException");
+}
+
+export enum ProactiveEngagementStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  PENDING = "PENDING",
 }
 
 /**
@@ -1123,9 +1180,14 @@ export namespace OptimisticLockException {
 export interface Protection {
   __type?: "Protection";
   /**
-   * <p>The unique identifier (ID) of the protection.</p>
+   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    */
-  Id?: string;
+  HealthCheckIds?: string[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
+   */
+  ResourceArn?: string;
 
   /**
    * <p>The friendly name of the protection. For example, <code>My CloudFront distributions</code>.</p>
@@ -1133,14 +1195,14 @@ export interface Protection {
   Name?: string;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
+   * <p>The unique identifier (ID) of the protection.</p>
    */
-  ResourceArn?: string;
+  Id?: string;
 }
 
 export namespace Protection {
   export const filterSensitiveLog = (obj: Protection): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Protection => __isa(o, "Protection");
 }
@@ -1148,30 +1210,23 @@ export namespace Protection {
 /**
  * <p>Exception indicating the specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>Exception indicating the specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1179,10 +1234,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1191,37 +1245,36 @@ export namespace ResourceNotFoundException {
 export interface SubResourceSummary {
   __type?: "SubResourceSummary";
   /**
-   * <p>The list of attack types and associated counters.</p>
-   */
-  AttackVectors?: SummarizedAttackVector[];
-
-  /**
    * <p>The counters that describe the details of the attack.</p>
    */
   Counters?: SummarizedCounter[];
 
   /**
-   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The <code>SubResource</code> type.</p>
    */
   Type?: SubResourceType | string;
+
+  /**
+   * <p>The list of attack types and associated counters.</p>
+   */
+  AttackVectors?: SummarizedAttackVector[];
+
+  /**
+   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
+   */
+  Id?: string;
 }
 
 export namespace SubResourceSummary {
   export const filterSensitiveLog = (obj: SubResourceSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubResourceSummary =>
-    __isa(o, "SubResourceSummary");
+  export const isa = (o: any): o is SubResourceSummary => __isa(o, "SubResourceSummary");
 }
 
 export enum SubResourceType {
   IP = "IP",
-  URL = "URL"
+  URL = "URL",
 }
 
 /**
@@ -1229,6 +1282,16 @@ export enum SubResourceType {
  */
 export interface Subscription {
   __type?: "Subscription";
+  /**
+   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Specifies how many protections of a given type you can create.</p>
+   */
+  Limits?: Limit[];
+
   /**
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
@@ -1241,31 +1304,28 @@ export interface Subscription {
   EndTime?: Date;
 
   /**
-   * <p>Specifies how many protections of a given type you can create.</p>
-   */
-  Limits?: Limit[];
-
-  /**
-   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  StartTime?: Date;
-
-  /**
    * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
    */
   TimeCommitmentInSeconds?: number;
+
+  /**
+   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
+   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
+   */
+  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
 }
 
 export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
 
 export enum SubscriptionState {
   ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
+  INACTIVE = "INACTIVE",
 }
 
 /**
@@ -1286,10 +1346,9 @@ export interface SummarizedAttackVector {
 
 export namespace SummarizedAttackVector {
   export const filterSensitiveLog = (obj: SummarizedAttackVector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SummarizedAttackVector =>
-    __isa(o, "SummarizedAttackVector");
+  export const isa = (o: any): o is SummarizedAttackVector => __isa(o, "SummarizedAttackVector");
 }
 
 /**
@@ -1297,6 +1356,16 @@ export namespace SummarizedAttackVector {
  */
 export interface SummarizedCounter {
   __type?: "SummarizedCounter";
+  /**
+   * <p>The number of counters for a specified time period.</p>
+   */
+  N?: number;
+
+  /**
+   * <p>The unit of the counters.</p>
+   */
+  Unit?: string;
+
   /**
    * <p>The average value of the counter for a specified time period.</p>
    */
@@ -1308,32 +1377,21 @@ export interface SummarizedCounter {
   Max?: number;
 
   /**
-   * <p>The number of counters for a specified time period.</p>
-   */
-  N?: number;
-
-  /**
-   * <p>The counter name.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The total of counter values for a specified time period.</p>
    */
   Sum?: number;
 
   /**
-   * <p>The unit of the counters.</p>
+   * <p>The counter name.</p>
    */
-  Unit?: string;
+  Name?: string;
 }
 
 export namespace SummarizedCounter {
   export const filterSensitiveLog = (obj: SummarizedCounter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SummarizedCounter =>
-    __isa(o, "SummarizedCounter");
+  export const isa = (o: any): o is SummarizedCounter => __isa(o, "SummarizedCounter");
 }
 
 /**
@@ -1354,7 +1412,7 @@ export interface TimeRange {
 
 export namespace TimeRange {
   export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TimeRange => __isa(o, "TimeRange");
 }
@@ -1363,22 +1421,21 @@ export enum Unit {
   BITS = "BITS",
   BYTES = "BYTES",
   PACKETS = "PACKETS",
-  REQUESTS = "REQUESTS"
+  REQUESTS = "REQUESTS",
 }
 
 export interface UpdateEmergencyContactSettingsRequest {
   __type?: "UpdateEmergencyContactSettingsRequest";
   /**
-   * <p>A list of email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If you have proactive engagement enabled, the contact list must include at least one phone number.</p>
    */
   EmergencyContactList?: EmergencyContact[];
 }
 
 export namespace UpdateEmergencyContactSettingsRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateEmergencyContactSettingsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateEmergencyContactSettingsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateEmergencyContactSettingsRequest =>
     __isa(o, "UpdateEmergencyContactSettingsRequest");
@@ -1389,10 +1446,8 @@ export interface UpdateEmergencyContactSettingsResponse {
 }
 
 export namespace UpdateEmergencyContactSettingsResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateEmergencyContactSettingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateEmergencyContactSettingsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is UpdateEmergencyContactSettingsResponse =>
     __isa(o, "UpdateEmergencyContactSettingsResponse");
@@ -1408,10 +1463,9 @@ export interface UpdateSubscriptionRequest {
 
 export namespace UpdateSubscriptionRequest {
   export const filterSensitiveLog = (obj: UpdateSubscriptionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriptionRequest =>
-    __isa(o, "UpdateSubscriptionRequest");
+  export const isa = (o: any): o is UpdateSubscriptionRequest => __isa(o, "UpdateSubscriptionRequest");
 }
 
 export interface UpdateSubscriptionResponse {
@@ -1420,8 +1474,7 @@ export interface UpdateSubscriptionResponse {
 
 export namespace UpdateSubscriptionResponse {
   export const filterSensitiveLog = (obj: UpdateSubscriptionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSubscriptionResponse =>
-    __isa(o, "UpdateSubscriptionResponse");
+  export const isa = (o: any): o is UpdateSubscriptionResponse => __isa(o, "UpdateSubscriptionResponse");
 }

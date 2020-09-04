@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  CreateSMBFileShareInput,
-  CreateSMBFileShareOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateSMBFileShareCommand,
-  serializeAws_json1_1CreateSMBFileShareCommand
+  serializeAws_json1_1CreateSMBFileShareCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSMBFileShareCommandInput = CreateSMBFileShareInput;
-export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput &
-  __MetadataBearer;
+export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput & __MetadataBearer;
 
 export class CreateSMBFileShareCommand extends $Command<
   CreateSMBFileShareCommandInput,
@@ -50,14 +39,15 @@ export class CreateSMBFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSMBFileShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSMBFileShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateSMBFileShareCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSMBFileShareCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSMBFileShareCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSMBFileShareCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSMBFileShareCommandOutput> {
     return deserializeAws_json1_1CreateSMBFileShareCommand(output, context);
   }
 

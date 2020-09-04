@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
-  serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand
+  serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateOpenIDConnectProviderThumbprintCommandInput = UpdateOpenIDConnectProviderThumbprintRequest;
@@ -35,9 +28,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput
-  ) {
+  constructor(readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -47,18 +38,16 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateOpenIDConnectProviderThumbprintCommandInput,
-    UpdateOpenIDConnectProviderThumbprintCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateOpenIDConnectProviderThumbprintCommandInput, UpdateOpenIDConnectProviderThumbprintCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateOpenIDConnectProviderThumbprintRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +61,14 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     input: UpdateOpenIDConnectProviderThumbprintCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> {
-    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(output, context);
   }
 
   // Start section: command_body_extra

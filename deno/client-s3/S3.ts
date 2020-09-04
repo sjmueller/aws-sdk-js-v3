@@ -2,422 +2,394 @@ import { S3Client } from "./S3Client.ts";
 import {
   AbortMultipartUploadCommand,
   AbortMultipartUploadCommandInput,
-  AbortMultipartUploadCommandOutput
+  AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand.ts";
 import {
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput
+  CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand.ts";
-import {
-  CopyObjectCommand,
-  CopyObjectCommandInput,
-  CopyObjectCommandOutput
-} from "./commands/CopyObjectCommand.ts";
+import { CopyObjectCommand, CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand.ts";
 import {
   CreateBucketCommand,
   CreateBucketCommandInput,
-  CreateBucketCommandOutput
+  CreateBucketCommandOutput,
 } from "./commands/CreateBucketCommand.ts";
 import {
   CreateMultipartUploadCommand,
   CreateMultipartUploadCommandInput,
-  CreateMultipartUploadCommandOutput
+  CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand.ts";
 import {
   DeleteBucketAnalyticsConfigurationCommand,
   DeleteBucketAnalyticsConfigurationCommandInput,
-  DeleteBucketAnalyticsConfigurationCommandOutput
+  DeleteBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/DeleteBucketAnalyticsConfigurationCommand.ts";
 import {
   DeleteBucketCommand,
   DeleteBucketCommandInput,
-  DeleteBucketCommandOutput
+  DeleteBucketCommandOutput,
 } from "./commands/DeleteBucketCommand.ts";
 import {
   DeleteBucketCorsCommand,
   DeleteBucketCorsCommandInput,
-  DeleteBucketCorsCommandOutput
+  DeleteBucketCorsCommandOutput,
 } from "./commands/DeleteBucketCorsCommand.ts";
 import {
   DeleteBucketEncryptionCommand,
   DeleteBucketEncryptionCommandInput,
-  DeleteBucketEncryptionCommandOutput
+  DeleteBucketEncryptionCommandOutput,
 } from "./commands/DeleteBucketEncryptionCommand.ts";
 import {
   DeleteBucketInventoryConfigurationCommand,
   DeleteBucketInventoryConfigurationCommandInput,
-  DeleteBucketInventoryConfigurationCommandOutput
+  DeleteBucketInventoryConfigurationCommandOutput,
 } from "./commands/DeleteBucketInventoryConfigurationCommand.ts";
 import {
   DeleteBucketLifecycleCommand,
   DeleteBucketLifecycleCommandInput,
-  DeleteBucketLifecycleCommandOutput
+  DeleteBucketLifecycleCommandOutput,
 } from "./commands/DeleteBucketLifecycleCommand.ts";
 import {
   DeleteBucketMetricsConfigurationCommand,
   DeleteBucketMetricsConfigurationCommandInput,
-  DeleteBucketMetricsConfigurationCommandOutput
+  DeleteBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetricsConfigurationCommand.ts";
 import {
   DeleteBucketPolicyCommand,
   DeleteBucketPolicyCommandInput,
-  DeleteBucketPolicyCommandOutput
+  DeleteBucketPolicyCommandOutput,
 } from "./commands/DeleteBucketPolicyCommand.ts";
 import {
   DeleteBucketReplicationCommand,
   DeleteBucketReplicationCommandInput,
-  DeleteBucketReplicationCommandOutput
+  DeleteBucketReplicationCommandOutput,
 } from "./commands/DeleteBucketReplicationCommand.ts";
 import {
   DeleteBucketTaggingCommand,
   DeleteBucketTaggingCommandInput,
-  DeleteBucketTaggingCommandOutput
+  DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand.ts";
 import {
   DeleteBucketWebsiteCommand,
   DeleteBucketWebsiteCommandInput,
-  DeleteBucketWebsiteCommandOutput
+  DeleteBucketWebsiteCommandOutput,
 } from "./commands/DeleteBucketWebsiteCommand.ts";
 import {
   DeleteObjectCommand,
   DeleteObjectCommandInput,
-  DeleteObjectCommandOutput
+  DeleteObjectCommandOutput,
 } from "./commands/DeleteObjectCommand.ts";
 import {
   DeleteObjectTaggingCommand,
   DeleteObjectTaggingCommandInput,
-  DeleteObjectTaggingCommandOutput
+  DeleteObjectTaggingCommandOutput,
 } from "./commands/DeleteObjectTaggingCommand.ts";
 import {
   DeleteObjectsCommand,
   DeleteObjectsCommandInput,
-  DeleteObjectsCommandOutput
+  DeleteObjectsCommandOutput,
 } from "./commands/DeleteObjectsCommand.ts";
 import {
   DeletePublicAccessBlockCommand,
   DeletePublicAccessBlockCommandInput,
-  DeletePublicAccessBlockCommandOutput
+  DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand.ts";
 import {
   GetBucketAccelerateConfigurationCommand,
   GetBucketAccelerateConfigurationCommandInput,
-  GetBucketAccelerateConfigurationCommandOutput
+  GetBucketAccelerateConfigurationCommandOutput,
 } from "./commands/GetBucketAccelerateConfigurationCommand.ts";
 import {
   GetBucketAclCommand,
   GetBucketAclCommandInput,
-  GetBucketAclCommandOutput
+  GetBucketAclCommandOutput,
 } from "./commands/GetBucketAclCommand.ts";
 import {
   GetBucketAnalyticsConfigurationCommand,
   GetBucketAnalyticsConfigurationCommandInput,
-  GetBucketAnalyticsConfigurationCommandOutput
+  GetBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/GetBucketAnalyticsConfigurationCommand.ts";
 import {
   GetBucketCorsCommand,
   GetBucketCorsCommandInput,
-  GetBucketCorsCommandOutput
+  GetBucketCorsCommandOutput,
 } from "./commands/GetBucketCorsCommand.ts";
 import {
   GetBucketEncryptionCommand,
   GetBucketEncryptionCommandInput,
-  GetBucketEncryptionCommandOutput
+  GetBucketEncryptionCommandOutput,
 } from "./commands/GetBucketEncryptionCommand.ts";
 import {
   GetBucketInventoryConfigurationCommand,
   GetBucketInventoryConfigurationCommandInput,
-  GetBucketInventoryConfigurationCommandOutput
+  GetBucketInventoryConfigurationCommandOutput,
 } from "./commands/GetBucketInventoryConfigurationCommand.ts";
 import {
   GetBucketLifecycleConfigurationCommand,
   GetBucketLifecycleConfigurationCommandInput,
-  GetBucketLifecycleConfigurationCommandOutput
+  GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand.ts";
 import {
   GetBucketLocationCommand,
   GetBucketLocationCommandInput,
-  GetBucketLocationCommandOutput
+  GetBucketLocationCommandOutput,
 } from "./commands/GetBucketLocationCommand.ts";
 import {
   GetBucketLoggingCommand,
   GetBucketLoggingCommandInput,
-  GetBucketLoggingCommandOutput
+  GetBucketLoggingCommandOutput,
 } from "./commands/GetBucketLoggingCommand.ts";
 import {
   GetBucketMetricsConfigurationCommand,
   GetBucketMetricsConfigurationCommandInput,
-  GetBucketMetricsConfigurationCommandOutput
+  GetBucketMetricsConfigurationCommandOutput,
 } from "./commands/GetBucketMetricsConfigurationCommand.ts";
 import {
   GetBucketNotificationConfigurationCommand,
   GetBucketNotificationConfigurationCommandInput,
-  GetBucketNotificationConfigurationCommandOutput
+  GetBucketNotificationConfigurationCommandOutput,
 } from "./commands/GetBucketNotificationConfigurationCommand.ts";
 import {
   GetBucketPolicyCommand,
   GetBucketPolicyCommandInput,
-  GetBucketPolicyCommandOutput
+  GetBucketPolicyCommandOutput,
 } from "./commands/GetBucketPolicyCommand.ts";
 import {
   GetBucketPolicyStatusCommand,
   GetBucketPolicyStatusCommandInput,
-  GetBucketPolicyStatusCommandOutput
+  GetBucketPolicyStatusCommandOutput,
 } from "./commands/GetBucketPolicyStatusCommand.ts";
 import {
   GetBucketReplicationCommand,
   GetBucketReplicationCommandInput,
-  GetBucketReplicationCommandOutput
+  GetBucketReplicationCommandOutput,
 } from "./commands/GetBucketReplicationCommand.ts";
 import {
   GetBucketRequestPaymentCommand,
   GetBucketRequestPaymentCommandInput,
-  GetBucketRequestPaymentCommandOutput
+  GetBucketRequestPaymentCommandOutput,
 } from "./commands/GetBucketRequestPaymentCommand.ts";
 import {
   GetBucketTaggingCommand,
   GetBucketTaggingCommandInput,
-  GetBucketTaggingCommandOutput
+  GetBucketTaggingCommandOutput,
 } from "./commands/GetBucketTaggingCommand.ts";
 import {
   GetBucketVersioningCommand,
   GetBucketVersioningCommandInput,
-  GetBucketVersioningCommandOutput
+  GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand.ts";
 import {
   GetBucketWebsiteCommand,
   GetBucketWebsiteCommandInput,
-  GetBucketWebsiteCommandOutput
+  GetBucketWebsiteCommandOutput,
 } from "./commands/GetBucketWebsiteCommand.ts";
 import {
   GetObjectAclCommand,
   GetObjectAclCommandInput,
-  GetObjectAclCommandOutput
+  GetObjectAclCommandOutput,
 } from "./commands/GetObjectAclCommand.ts";
-import {
-  GetObjectCommand,
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "./commands/GetObjectCommand.ts";
+import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand.ts";
 import {
   GetObjectLegalHoldCommand,
   GetObjectLegalHoldCommandInput,
-  GetObjectLegalHoldCommandOutput
+  GetObjectLegalHoldCommandOutput,
 } from "./commands/GetObjectLegalHoldCommand.ts";
 import {
   GetObjectLockConfigurationCommand,
   GetObjectLockConfigurationCommandInput,
-  GetObjectLockConfigurationCommandOutput
+  GetObjectLockConfigurationCommandOutput,
 } from "./commands/GetObjectLockConfigurationCommand.ts";
 import {
   GetObjectRetentionCommand,
   GetObjectRetentionCommandInput,
-  GetObjectRetentionCommandOutput
+  GetObjectRetentionCommandOutput,
 } from "./commands/GetObjectRetentionCommand.ts";
 import {
   GetObjectTaggingCommand,
   GetObjectTaggingCommandInput,
-  GetObjectTaggingCommandOutput
+  GetObjectTaggingCommandOutput,
 } from "./commands/GetObjectTaggingCommand.ts";
 import {
   GetObjectTorrentCommand,
   GetObjectTorrentCommandInput,
-  GetObjectTorrentCommandOutput
+  GetObjectTorrentCommandOutput,
 } from "./commands/GetObjectTorrentCommand.ts";
 import {
   GetPublicAccessBlockCommand,
   GetPublicAccessBlockCommandInput,
-  GetPublicAccessBlockCommandOutput
+  GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand.ts";
-import {
-  HeadBucketCommand,
-  HeadBucketCommandInput,
-  HeadBucketCommandOutput
-} from "./commands/HeadBucketCommand.ts";
-import {
-  HeadObjectCommand,
-  HeadObjectCommandInput,
-  HeadObjectCommandOutput
-} from "./commands/HeadObjectCommand.ts";
+import { HeadBucketCommand, HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand.ts";
+import { HeadObjectCommand, HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand.ts";
 import {
   ListBucketAnalyticsConfigurationsCommand,
   ListBucketAnalyticsConfigurationsCommandInput,
-  ListBucketAnalyticsConfigurationsCommandOutput
+  ListBucketAnalyticsConfigurationsCommandOutput,
 } from "./commands/ListBucketAnalyticsConfigurationsCommand.ts";
 import {
   ListBucketInventoryConfigurationsCommand,
   ListBucketInventoryConfigurationsCommandInput,
-  ListBucketInventoryConfigurationsCommandOutput
+  ListBucketInventoryConfigurationsCommandOutput,
 } from "./commands/ListBucketInventoryConfigurationsCommand.ts";
 import {
   ListBucketMetricsConfigurationsCommand,
   ListBucketMetricsConfigurationsCommandInput,
-  ListBucketMetricsConfigurationsCommandOutput
+  ListBucketMetricsConfigurationsCommandOutput,
 } from "./commands/ListBucketMetricsConfigurationsCommand.ts";
 import {
   ListBucketsCommand,
   ListBucketsCommandInput,
-  ListBucketsCommandOutput
+  ListBucketsCommandOutput,
 } from "./commands/ListBucketsCommand.ts";
 import {
   ListMultipartUploadsCommand,
   ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput
+  ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand.ts";
 import {
   ListObjectVersionsCommand,
   ListObjectVersionsCommandInput,
-  ListObjectVersionsCommandOutput
+  ListObjectVersionsCommandOutput,
 } from "./commands/ListObjectVersionsCommand.ts";
 import {
   ListObjectsCommand,
   ListObjectsCommandInput,
-  ListObjectsCommandOutput
+  ListObjectsCommandOutput,
 } from "./commands/ListObjectsCommand.ts";
 import {
   ListObjectsV2Command,
   ListObjectsV2CommandInput,
-  ListObjectsV2CommandOutput
+  ListObjectsV2CommandOutput,
 } from "./commands/ListObjectsV2Command.ts";
-import {
-  ListPartsCommand,
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand.ts";
+import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand.ts";
 import {
   PutBucketAccelerateConfigurationCommand,
   PutBucketAccelerateConfigurationCommandInput,
-  PutBucketAccelerateConfigurationCommandOutput
+  PutBucketAccelerateConfigurationCommandOutput,
 } from "./commands/PutBucketAccelerateConfigurationCommand.ts";
 import {
   PutBucketAclCommand,
   PutBucketAclCommandInput,
-  PutBucketAclCommandOutput
+  PutBucketAclCommandOutput,
 } from "./commands/PutBucketAclCommand.ts";
 import {
   PutBucketAnalyticsConfigurationCommand,
   PutBucketAnalyticsConfigurationCommandInput,
-  PutBucketAnalyticsConfigurationCommandOutput
+  PutBucketAnalyticsConfigurationCommandOutput,
 } from "./commands/PutBucketAnalyticsConfigurationCommand.ts";
 import {
   PutBucketCorsCommand,
   PutBucketCorsCommandInput,
-  PutBucketCorsCommandOutput
+  PutBucketCorsCommandOutput,
 } from "./commands/PutBucketCorsCommand.ts";
 import {
   PutBucketEncryptionCommand,
   PutBucketEncryptionCommandInput,
-  PutBucketEncryptionCommandOutput
+  PutBucketEncryptionCommandOutput,
 } from "./commands/PutBucketEncryptionCommand.ts";
 import {
   PutBucketInventoryConfigurationCommand,
   PutBucketInventoryConfigurationCommandInput,
-  PutBucketInventoryConfigurationCommandOutput
+  PutBucketInventoryConfigurationCommandOutput,
 } from "./commands/PutBucketInventoryConfigurationCommand.ts";
 import {
   PutBucketLifecycleConfigurationCommand,
   PutBucketLifecycleConfigurationCommandInput,
-  PutBucketLifecycleConfigurationCommandOutput
+  PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand.ts";
 import {
   PutBucketLoggingCommand,
   PutBucketLoggingCommandInput,
-  PutBucketLoggingCommandOutput
+  PutBucketLoggingCommandOutput,
 } from "./commands/PutBucketLoggingCommand.ts";
 import {
   PutBucketMetricsConfigurationCommand,
   PutBucketMetricsConfigurationCommandInput,
-  PutBucketMetricsConfigurationCommandOutput
+  PutBucketMetricsConfigurationCommandOutput,
 } from "./commands/PutBucketMetricsConfigurationCommand.ts";
 import {
   PutBucketNotificationConfigurationCommand,
   PutBucketNotificationConfigurationCommandInput,
-  PutBucketNotificationConfigurationCommandOutput
+  PutBucketNotificationConfigurationCommandOutput,
 } from "./commands/PutBucketNotificationConfigurationCommand.ts";
 import {
   PutBucketPolicyCommand,
   PutBucketPolicyCommandInput,
-  PutBucketPolicyCommandOutput
+  PutBucketPolicyCommandOutput,
 } from "./commands/PutBucketPolicyCommand.ts";
 import {
   PutBucketReplicationCommand,
   PutBucketReplicationCommandInput,
-  PutBucketReplicationCommandOutput
+  PutBucketReplicationCommandOutput,
 } from "./commands/PutBucketReplicationCommand.ts";
 import {
   PutBucketRequestPaymentCommand,
   PutBucketRequestPaymentCommandInput,
-  PutBucketRequestPaymentCommandOutput
+  PutBucketRequestPaymentCommandOutput,
 } from "./commands/PutBucketRequestPaymentCommand.ts";
 import {
   PutBucketTaggingCommand,
   PutBucketTaggingCommandInput,
-  PutBucketTaggingCommandOutput
+  PutBucketTaggingCommandOutput,
 } from "./commands/PutBucketTaggingCommand.ts";
 import {
   PutBucketVersioningCommand,
   PutBucketVersioningCommandInput,
-  PutBucketVersioningCommandOutput
+  PutBucketVersioningCommandOutput,
 } from "./commands/PutBucketVersioningCommand.ts";
 import {
   PutBucketWebsiteCommand,
   PutBucketWebsiteCommandInput,
-  PutBucketWebsiteCommandOutput
+  PutBucketWebsiteCommandOutput,
 } from "./commands/PutBucketWebsiteCommand.ts";
 import {
   PutObjectAclCommand,
   PutObjectAclCommandInput,
-  PutObjectAclCommandOutput
+  PutObjectAclCommandOutput,
 } from "./commands/PutObjectAclCommand.ts";
-import {
-  PutObjectCommand,
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "./commands/PutObjectCommand.ts";
+import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand.ts";
 import {
   PutObjectLegalHoldCommand,
   PutObjectLegalHoldCommandInput,
-  PutObjectLegalHoldCommandOutput
+  PutObjectLegalHoldCommandOutput,
 } from "./commands/PutObjectLegalHoldCommand.ts";
 import {
   PutObjectLockConfigurationCommand,
   PutObjectLockConfigurationCommandInput,
-  PutObjectLockConfigurationCommandOutput
+  PutObjectLockConfigurationCommandOutput,
 } from "./commands/PutObjectLockConfigurationCommand.ts";
 import {
   PutObjectRetentionCommand,
   PutObjectRetentionCommandInput,
-  PutObjectRetentionCommandOutput
+  PutObjectRetentionCommandOutput,
 } from "./commands/PutObjectRetentionCommand.ts";
 import {
   PutObjectTaggingCommand,
   PutObjectTaggingCommandInput,
-  PutObjectTaggingCommandOutput
+  PutObjectTaggingCommandOutput,
 } from "./commands/PutObjectTaggingCommand.ts";
 import {
   PutPublicAccessBlockCommand,
   PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput
+  PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand.ts";
 import {
   RestoreObjectCommand,
   RestoreObjectCommandInput,
-  RestoreObjectCommandOutput
+  RestoreObjectCommandOutput,
 } from "./commands/RestoreObjectCommand.ts";
 import {
   SelectObjectContentCommand,
   SelectObjectContentCommandInput,
-  SelectObjectContentCommandOutput
+  SelectObjectContentCommandOutput,
 } from "./commands/SelectObjectContentCommand.ts";
-import {
-  UploadPartCommand,
-  UploadPartCommandInput,
-  UploadPartCommandOutput
-} from "./commands/UploadPartCommand.ts";
+import { UploadPartCommand, UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand.ts";
 import {
   UploadPartCopyCommand,
   UploadPartCopyCommandInput,
-  UploadPartCopyCommandOutput
+  UploadPartCopyCommandOutput,
 } from "./commands/UploadPartCopyCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -476,17 +448,14 @@ export class S3 extends S3Client {
   ): void;
   public abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AbortMultipartUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: AbortMultipartUploadCommandOutput) => void
   ): Promise<AbortMultipartUploadCommandOutput> | void {
     const command = new AbortMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -568,7 +537,7 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -612,17 +581,14 @@ export class S3 extends S3Client {
   ): void;
   public completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CompleteMultipartUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: CompleteMultipartUploadCommandOutput) => void
   ): Promise<CompleteMultipartUploadCommandOutput> | void {
     const command = new CompleteMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,255 +599,159 @@ export class S3 extends S3Client {
    * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
    *          <note>
    *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your object
-   *             up to 5 GB in size in a single atomic operation using this API. However, for copying an
+   *             up to 5 GB in size in a single atomic operation using this API. However, to copy an
    *             object greater than 5 GB, you must use the multipart upload Upload Part - Copy API. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST Multipart Upload API</a>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy
+   *                Object Using the REST Multipart Upload API</a>.</p>
    *          </note>
-   *          <p>When copying an object, you can preserve all metadata (default) or specify new metadata. However, the ACL is not preserved and is set to private for the user making the request. To override the default ACL setting, specify a new ACL when generating a copy request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>.</p>
-   *          <important>
-   *             <p>Amazon S3 transfer acceleration does not support cross-region copies. If you request a
-   *             cross-region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
-   *                Request</code> error. For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
-   *          </important>
    *          <p>All copy requests must be authenticated. Additionally, you must have <i>read</i> access to the source object and <i>write</i> access to the destination bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>. Both the Region that you want to copy the object from and the Region that you want to copy the object to must be enabled for your account.</p>
+   *          <p>A copy request might return an error when Amazon S3 receives the copy request or while
+   *          Amazon S3 is copying the files. If the error occurs before the copy operation starts, you
+   *          receive a standard Amazon S3 error. If the error occurs during the copy operation, the
+   *
+   *          error response is embedded in the <code>200 OK</code> response. This means that a <code>200
+   *             OK</code> response can contain either a success or an error. Design your application to
+   *          parse the contents of the response and handle it appropriately.</p>
+   *          <p>If the copy is successful, you receive a response with information about the copied
+   *          object.</p>
+   *          <note>
+   *             <p>If the request is an HTTP 1.1 request, the response is chunk encoded. If it were not,
+   *             it would not contain the content-length, and you would need to read the entire
+   *             body.</p>
+   *          </note>
+   *          <p>The copy request charge is based on the storage class and Region that you specify for
+   *          the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
+   *          <important>
+   *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
+   *             cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
+   *                Request</code> error. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
+   *          </important>
+   *          <p>
+   *             <b>Metadata</b>
+   *          </p>
+   *          <p>When copying an object, you can preserve all metadata (default) or specify new metadata.
+   *          However, the ACL is not preserved and is set to private for the user making the request. To
+   *          override the default ACL setting, specify a new ACL when generating a copy request. For
+   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. </p>
+   *          <p>To specify whether you want the object metadata copied from the source object or
+   *          replaced with metadata provided in the request, you can optionally add the
+   *             <code>x-amz-metadata-directive</code> header. When you grant permissions, you can use
+   *          the <code>s3:x-amz-metadata-directive</code> condition key to enforce certain metadata
+   *          behavior when objects are uploaded. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html">Specifying Conditions in a
+   *             Policy</a> in the <i>Amazon S3 Developer Guide</i>. For a complete list of
+   *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
+   *             Amazon S3</a>.</p>
+   *          <p>
+   *             <b>
+   *                <code>x-amz-copy-source-if</code> Headers</b>
+   *          </p>
    *          <p>To only copy an object under certain conditions, such as whether the <code>Etag</code>
    *          matches or whether the object was modified before or after a specified date, use the
-   *          request parameters <code>x-amz-copy-source-if-match</code>,
-   *             <code>x-amz-copy-source-if-none-match</code>,
-   *             <code>x-amz-copy-source-if-unmodified-since</code>, or <code>
-   *             x-amz-copy-source-if-modified-since</code>.</p>
+   *          following request parameters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-match</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-none-match</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-unmodified-since</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-modified-since</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p> If both the <code>x-amz-copy-source-if-match</code> and
+   *                   <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
+   *
+   *            request and evaluate as follows, Amazon S3 returns <code>200 OK</code> and copies the
+   *                data:</p>
+   *            <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-match</code> condition evaluates to true</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>If both the <code>x-amz-copy-source-if-none-match</code> and
+   *
+   *                   <code>x-amz-copy-source-if-modified-since</code> headers are present in the
+   *                request and evaluate as follows, Amazon S3 returns the <code>412 Precondition
+   *                   Failed</code> response code:</p>
+   *            <ul>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-none-match</code> condition evaluates to false</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true</p>
+   *             </li>
+   *          </ul>
+   *
    *          <note>
    *             <p>All headers with the <code>x-amz-</code> prefix, including <code>x-amz-copy-source</code>,
    *             must be signed.</p>
    *          </note>
-   *          <p>You can use this operation to change the storage class of an object that is already
-   *          stored in Amazon S3 using the <code>StorageClass</code> parameter. For more information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
-   *          <p>The source object that you are copying can be encrypted or unencrypted. If the source
-   *          object is encrypted, it can be encrypted by server-side encryption using AWS managed
-   *          encryption keys or by using a customer-provided encryption key. When copying an object, you
-   *          can request that Amazon S3 encrypt the target object by using either the AWS managed
-   *          encryption keys or by using your own encryption key. You can do this regardless of the form
-   *          of server-side encryption that was used to encrypt the source, or even if the source object
-   *          was not encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using Server-Side Encryption</a>.</p>
-   *          <p>A copy request might return an error when Amazon S3 receives the copy request or while
-   *          Amazon S3 is copying the files. If the error occurs before the copy operation starts, you
-   *          receive a standard Amazon S3 error. If the error occurs during the copy operation, the
-   *          error response is embedded in the <code>200 OK</code> response. This means that a <code>200
-   *             OK</code> response can contain either a success or an error. Design your application to
-   *          parse the contents of the response and handle it appropriately.</p>
-   *          <p>If the copy is successful, you receive a response with information about the copied object.</p>
-   *          <note>
-   *             <p>If the request is an HTTP 1.1 request, the response is chunk encoded. If it were not, it would not contain the content-length, and you would need to read the entire body.</p>
-   *          </note>
+   *          <p>
+   *             <b>Encryption</b>
+   *          </p>
+   *          <p>The source object that you are copying can be encrypted or unencrypted. The source object
+   *          can be encrypted with server-side encryption using AWS managed encryption keys (SSE-S3 or
+   *          SSE-KMS) or by using a customer-provided encryption key. With server-side encryption, Amazon S3
+   *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
+   *          you access it. </p>
+   *          <p>You can optionally use the appropriate encryption-related headers to request server-side
+   *          encryption for the target object. You have the option to provide your own encryption key or
+   *          use SSE-S3 or SSE-KMS, regardless of the form of server-side encryption that was used to
+   *          encrypt the source object. You can even request encryption if the source object was not
+   *          encrypted. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+   *             Server-Side Encryption</a>.</p>
+   *          <p>
+   *             <b>Access Control List (ACL)-Specific Request Headers</b>
+   *          </p>
+   *          <p>When copying an object, you can optionally use headers to grant ACL-based permissions. By
+   *          default, all objects are private. Only the owner has full access control. When adding a new
+   *          object, you can grant permissions to individual AWS accounts or to predefined groups
+   *          defined by Amazon S3. These permissions are then added to the ACL on the object. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
+   *             API</a>. </p>
    *
-   *          <p>Consider the following when using request headers:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Consideration 1 – If both the <code>x-amz-copy-source-if-match</code> and
-   *                   <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
-   *                request and evaluate as follows, Amazon S3 returns 200 OK and copies the data:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-match</code> condition evaluates to true</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p> Consideration 2 – If both of the <code>x-amz-copy-source-if-none-match</code> and
-   *                   <code>x-amz-copy-source-if-modified-since</code> headers are present in the
-   *                request and evaluate as follows, Amazon S3 returns the <code>412 Precondition
-   *                   Failed</code> response code:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-none-match</code> condition evaluates to false</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>x-amz-copy-source-if-modified-since</code> condition evaluates to true</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>The copy request charge is based on the storage class and Region you specify for the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon S3 Pricing</a>.</p>
-   *          <p>Following are other considerations when using <code>CopyObject</code>:</p>
-   *
-   *
-   *          <dl>
-   *             <dt>Versioning</dt>
-   *             <dd>
-   *                <p>By default, <code>x-amz-copy-source</code> identifies the current version of an object to copy. (If the current version is a delete marker, Amazon S3 behaves as if the object was deleted.) To copy a different version, use the <code>versionId</code> subresource.</p>
-   *
-   *               <p>If you enable versioning on the target bucket, Amazon S3 generates a unique
-   *                   version ID for the object being copied. This version ID is different from the
-   *                   version ID of the source object. Amazon S3 returns the version ID of the copied
-   *                   object in the <code>x-amz-version-id</code> response header in the
-   *                   response.</p>
-   *               <p>If you do not enable versioning or suspend it on the target bucket, the version ID that Amazon S3 generates is always null.</p>
-   *               <p>If the source object's storage class is GLACIER, you must restore a copy of this
-   *                   object before you can use it as a source object for the copy operation. For more
-   *                   information, see .</p>
-   *
-   *            </dd>
-   *             <dt>Access Permissions</dt>
-   *             <dd>
-   *                <p>When copying an object, you can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p>
-   *               <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information,
-   *                     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
-   *                   </li>
-   *                </ul>
-   *               <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>To encrypt the target object, you must provide the appropriate encryption-related request
-   *                   headers. The one you use depends on whether you want to use AWS managed encryption
-   *                   keys or provide your own encryption key. </p>
-   *               <ul>
-   *                   <li>
-   *                      <p>To encrypt the target object using server-side encryption with an AWS managed encryption key,
-   *                         provide the following request headers, as appropriate.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side​-encryption</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>x-amz-server-side-encryption-context</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                     <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                        <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                        uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                     <p>To encrypt the target object using server-side encryption with an encryption key that you provide, use the following headers.</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                     <p>If the source object is encrypted using server-side encryption with customer-provided encryption keys, you must use the following headers.</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-copy-source​-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-copy-source​-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-copy-source-​server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *
-   *                     <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in Amazon
-   *                            KMS</a>.</p>
-   *                  </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Access-Control-List (ACL)-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You also can use the following access control–related headers with this operation. By default,
-   *                   all objects are private. Only the owner has full access control. When adding a new
-   *                   object, you can grant permissions to individual AWS accounts or to predefined
-   *                   groups defined by Amazon S3. These permissions are then added to the access
-   *                   control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions
-   *                   using one of the following two methods:</p>
-   *               <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs,
-   *                         known as <i>canned ACLs</i>. Each canned ACL has a predefined
-   *                         set of grantees and permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly — To explicitly grant access permissions to specific AWS
-   *                         accounts or groups, use the following headers. Each header maps to specific
-   *                         permissions that Amazon S3 supports in an ACL. For more information, see
-   *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a
-   *                         list of grantees who get the specific permission. To grant permissions
-   *                         explicitly, use:</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>x-amz-grant-read</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-read-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-full-control</p>
-   *                         </li>
-   *                      </ul>
-   *                     <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
-   *                     <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
-   *                         </li>
-   *                      </ul>
-   *                     <p>For example, the following <code>x-amz-grant-read</code> header grants the
-   *                         AWS accounts identified by email addresses permissions to read object data
-   *                         and its metadata:</p>
-   *                     <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                     </code>
-   *                      </p>
-   *
-   *                  </li>
-   *                </ul>
-   *
-   *            </dd>
-   *          </dl>
+   *          <p>
+   *             <b>Storage Class Options</b>
+   *          </p>
+   *          <p>You can use the <code>CopyObject</code> operation to change the storage class of an
+   *          object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *             Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
+   *          <p>
+   *             <b>Versioning</b>
+   *          </p>
+   *          <p>By default, <code>x-amz-copy-source</code> identifies the current version of an object
+   *          to copy. If the current version is a delete marker, Amazon S3 behaves as if the object was
+   *          deleted. To copy a different version, use the <code>versionId</code> subresource.</p>
+   *          <p>If you enable versioning on the target bucket, Amazon S3 generates a unique version ID
+   *          for the object being copied. This version ID is different from the version ID of the source
+   *          object. Amazon S3 returns the version ID of the copied object in the
+   *             <code>x-amz-version-id</code> response header in the response.</p>
+   *          <p>If you do not enable versioning or suspend it on the target bucket, the version ID that
+   *          Amazon S3 generates is always null.</p>
+   *          <p>If the source object's storage class is GLACIER, you must restore a copy of this object
+   *          before you can use it as a source object for the copy operation. For more information, see
+   *             .</p>
    *          <p>The following operations are related to <code>CopyObject</code>:</p>
    *          <ul>
    *             <li>
@@ -897,14 +767,8 @@ export class S3 extends S3Client {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying Objects</a>.</p>
    */
-  public copyObject(
-    args: CopyObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CopyObjectCommandOutput>;
-  public copyObject(
-    args: CopyObjectCommandInput,
-    cb: (err: any, data?: CopyObjectCommandOutput) => void
-  ): void;
+  public copyObject(args: CopyObjectCommandInput, options?: __HttpHandlerOptions): Promise<CopyObjectCommandOutput>;
+  public copyObject(args: CopyObjectCommandInput, cb: (err: any, data?: CopyObjectCommandOutput) => void): void;
   public copyObject(
     args: CopyObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -912,17 +776,14 @@ export class S3 extends S3Client {
   ): void;
   public copyObject(
     args: CopyObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyObjectCommandOutput) => void),
     cb?: (err: any, data?: CopyObjectCommandOutput) => void
   ): Promise<CopyObjectCommandOutput> | void {
     const command = new CopyObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -935,7 +796,7 @@ export class S3 extends S3Client {
    *          <p>By default, the bucket is created in the US East (N. Virginia) Region. You can
    *          optionally specify a Region in the request body. You might choose a Region to optimize
    *          latency, minimize costs, or address regulatory requirements. For example, if you reside in
-   *          Europe, you will probably find it advantageous to create buckets in the EU (Ireland)
+   *          Europe, you will probably find it advantageous to create buckets in the Europe (Ireland)
    *          Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">How to Select a Region for Your Buckets</a>.</p>
    *          <note>
    *             <p>If you send your create bucket request to the <code>s3.amazonaws.com</code> endpoint, the
@@ -964,24 +825,51 @@ export class S3 extends S3Client {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                   account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
+   *                   </li>
    *                </ul>
-   *                <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS
-   *                accounts identified by email addresses permissions to read object data and its
-   *                metadata:</p>
+   *                <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
    *                <p>
-   *                   <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *             </code>
+   *                   <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
    *                </p>
    *
    *             </li>
@@ -1009,10 +897,7 @@ export class S3 extends S3Client {
     args: CreateBucketCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBucketCommandOutput>;
-  public createBucket(
-    args: CreateBucketCommandInput,
-    cb: (err: any, data?: CreateBucketCommandOutput) => void
-  ): void;
+  public createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
   public createBucket(
     args: CreateBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1020,17 +905,14 @@ export class S3 extends S3Client {
   ): void;
   public createBucket(
     args: CreateBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBucketCommandOutput) => void),
     cb?: (err: any, data?: CreateBucketCommandOutput) => void
   ): Promise<CreateBucketCommandOutput> | void {
     const command = new CreateBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1171,26 +1053,52 @@ export class S3 extends S3Client {
    *                      <ul>
    *                         <li>
    *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
    *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                         </li>
    *                         <li>
    *                            <p>
    *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                         </li>
+   *                         <li>
+   *                            <p>
+   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                            account</p>
+   *                            <note>
+   *                               <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                               <ul>
+   *                                  <li>
+   *                                     <p>US East (N. Virginia)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>US West (N. California)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p> US West (Oregon)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p> Asia Pacific (Singapore)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Asia Pacific (Sydney)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Asia Pacific (Tokyo)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>Europe (Ireland)</p>
+   *                                  </li>
+   *                                  <li>
+   *                                     <p>South America (São Paulo)</p>
+   *                                  </li>
+   *                               </ul>
+   *                               <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                            </note>
+   *                         </li>
    *                      </ul>
-   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants
-   *                         the AWS accounts identified by email addresses permissions to read object
-   *                         data and its metadata:</p>
+   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants the AWS accounts identified by account IDs permissions to read object data and its metadata:</p>
    *                      <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                      </code>
+   *                         <code>x-amz-grant-read: id="11112222333", id="444455556666" </code>
    *                      </p>
-   *
    *                   </li>
    *                </ul>
    *
@@ -1241,17 +1149,14 @@ export class S3 extends S3Client {
   ): void;
   public createMultipartUpload(
     args: CreateMultipartUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMultipartUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: CreateMultipartUploadCommandOutput) => void
   ): Promise<CreateMultipartUploadCommandOutput> | void {
     const command = new CreateMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1282,10 +1187,7 @@ export class S3 extends S3Client {
     args: DeleteBucketCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBucketCommandOutput>;
-  public deleteBucket(
-    args: DeleteBucketCommandInput,
-    cb: (err: any, data?: DeleteBucketCommandOutput) => void
-  ): void;
+  public deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
   public deleteBucket(
     args: DeleteBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1293,17 +1195,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucket(
     args: DeleteBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketCommandOutput) => void
   ): Promise<DeleteBucketCommandOutput> | void {
     const command = new DeleteBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1315,7 +1214,7 @@ export class S3 extends S3Client {
    *          <p>To use this operation, you must have permissions to perform the
    *             <code>s3:PutAnalyticsConfiguration</code> action. The bucket owner has this permission
    *          by default. The bucket owner can grant this permission to others. For more information
-   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
    *             Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
    *          <p>For information about the Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon S3 Analytics – Storage Class Analysis</a>. </p>
@@ -1345,38 +1244,23 @@ export class S3 extends S3Client {
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput>;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketAnalyticsConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new DeleteBucketAnalyticsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1421,17 +1305,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketCors(
     args: DeleteBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketCorsCommandOutput) => void
   ): Promise<DeleteBucketCorsCommandOutput> | void {
     const command = new DeleteBucketCorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1440,12 +1321,12 @@ export class S3 extends S3Client {
 
   /**
    * <p>This implementation of the DELETE operation removes default encryption from the bucket. For information about the Amazon S3
-   *         default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
+   *         default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
    *         <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutEncryptionConfiguration</code> action. The bucket owner
    *         has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
-   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to your Amazon S3
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
+   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to your Amazon S3
    *               Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *
    *          <p class="title">
@@ -1479,17 +1360,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketEncryption(
     args: DeleteBucketEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketEncryptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketEncryptionCommandOutput) => void
   ): Promise<DeleteBucketEncryptionCommandOutput> | void {
     const command = new DeleteBucketEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1525,38 +1403,23 @@ export class S3 extends S3Client {
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput>;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): void;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): void;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketInventoryConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> | void {
     const command = new DeleteBucketInventoryConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1599,17 +1462,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketLifecycle(
     args: DeleteBucketLifecycleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketLifecycleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketLifecycleCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketLifecycleCommandOutput) => void
   ): Promise<DeleteBucketLifecycleCommandOutput> | void {
     const command = new DeleteBucketLifecycleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1663,23 +1523,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketMetricsConfiguration(
     args: DeleteBucketMetricsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketMetricsConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketMetricsConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketMetricsConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketMetricsConfigurationCommandOutput) => void
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> | void {
     const command = new DeleteBucketMetricsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1737,17 +1588,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
   ): Promise<DeleteBucketPolicyCommandOutput> | void {
     const command = new DeleteBucketPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1794,17 +1642,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketReplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketReplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
   ): Promise<DeleteBucketReplicationCommandOutput> | void {
     const command = new DeleteBucketReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1845,17 +1690,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketTaggingCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
   ): Promise<DeleteBucketTaggingCommandOutput> | void {
     const command = new DeleteBucketTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1899,17 +1741,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketWebsite(
     args: DeleteBucketWebsiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketWebsiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketWebsiteCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketWebsiteCommandOutput) => void
   ): Promise<DeleteBucketWebsiteCommandOutput> | void {
     const command = new DeleteBucketWebsiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1951,10 +1790,7 @@ export class S3 extends S3Client {
     args: DeleteObjectCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteObjectCommandOutput>;
-  public deleteObject(
-    args: DeleteObjectCommandInput,
-    cb: (err: any, data?: DeleteObjectCommandOutput) => void
-  ): void;
+  public deleteObject(args: DeleteObjectCommandInput, cb: (err: any, data?: DeleteObjectCommandOutput) => void): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1962,17 +1798,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2049,17 +1882,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteObjects(
     args: DeleteObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectsCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectsCommandOutput) => void
   ): Promise<DeleteObjectsCommandOutput> | void {
     const command = new DeleteObjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2108,17 +1938,14 @@ export class S3 extends S3Client {
   ): void;
   public deleteObjectTagging(
     args: DeleteObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectTaggingCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
   ): Promise<DeleteObjectTaggingCommandOutput> | void {
     const command = new DeleteObjectTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2128,7 +1955,7 @@ export class S3 extends S3Client {
   /**
    * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>DeletePublicAccessBlock</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2167,17 +1994,14 @@ export class S3 extends S3Client {
   ): void;
   public deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: DeletePublicAccessBlockCommandOutput) => void
   ): Promise<DeletePublicAccessBlockCommandOutput> | void {
     const command = new DeletePublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2191,7 +2015,7 @@ export class S3 extends S3Client {
    *          <p>To use this operation, you must have permission to perform the
    *             <code>s3:GetAccelerateConfiguration</code> action. The bucket owner has this permission
    *          by default. The bucket owner can grant this permission to others. For more information
-   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to your Amazon S3
+   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to your Amazon S3
    *             Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>You set the Transfer Acceleration state of an existing bucket to <code>Enabled</code> or <code>Suspended</code> by using
    *         the <a>PutBucketAccelerateConfiguration</a> operation. </p>
@@ -2199,7 +2023,7 @@ export class S3 extends S3Client {
    *          no transfer acceleration state. A bucket has no Transfer Acceleration state if a state has
    *          never been set on the bucket. </p>
    *
-   *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//transfer-acceleration.html">Transfer Acceleration</a> in the
+   *          <p>For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a> in the
    *          Amazon Simple Storage Service Developer Guide.</p>
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -2227,23 +2051,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketAccelerateConfiguration(
     args: GetBucketAccelerateConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketAccelerateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetBucketAccelerateConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketAccelerateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketAccelerateConfigurationCommandOutput) => void
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> | void {
     const command = new GetBucketAccelerateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2270,10 +2085,7 @@ export class S3 extends S3Client {
     args: GetBucketAclCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBucketAclCommandOutput>;
-  public getBucketAcl(
-    args: GetBucketAclCommandInput,
-    cb: (err: any, data?: GetBucketAclCommandOutput) => void
-  ): void;
+  public getBucketAcl(args: GetBucketAclCommandInput, cb: (err: any, data?: GetBucketAclCommandOutput) => void): void;
   public getBucketAcl(
     args: GetBucketAclCommandInput,
     options: __HttpHandlerOptions,
@@ -2281,17 +2093,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketAcl(
     args: GetBucketAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketAclCommandOutput) => void),
     cb?: (err: any, data?: GetBucketAclCommandOutput) => void
   ): Promise<GetBucketAclCommandOutput> | void {
     const command = new GetBucketAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2345,20 +2154,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketAnalyticsConfiguration(
     args: GetBucketAnalyticsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketAnalyticsConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketAnalyticsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new GetBucketAnalyticsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2402,17 +2205,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketCors(
     args: GetBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: GetBucketCorsCommandOutput) => void
   ): Promise<GetBucketCorsCommandOutput> | void {
     const command = new GetBucketCorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2452,17 +2252,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketEncryption(
     args: GetBucketEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketEncryptionCommandOutput) => void),
     cb?: (err: any, data?: GetBucketEncryptionCommandOutput) => void
   ): Promise<GetBucketEncryptionCommandOutput> | void {
     const command = new GetBucketEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2510,20 +2307,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketInventoryConfiguration(
     args: GetBucketInventoryConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketInventoryConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketInventoryConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketInventoryConfigurationCommandOutput) => void
   ): Promise<GetBucketInventoryConfigurationCommandOutput> | void {
     const command = new GetBucketInventoryConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2558,7 +2349,7 @@ export class S3 extends S3Client {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:</p>
+   *          <p>The following operations are related to <code>GetBucketLifecycleConfiguration</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2592,20 +2383,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketLifecycleConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> | void {
     const command = new GetBucketLifecycleConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2648,17 +2433,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketLocation(
     args: GetBucketLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketLocationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketLocationCommandOutput) => void
   ): Promise<GetBucketLocationCommandOutput> | void {
     const command = new GetBucketLocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2697,17 +2479,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketLogging(
     args: GetBucketLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketLoggingCommandOutput) => void),
     cb?: (err: any, data?: GetBucketLoggingCommandOutput) => void
   ): Promise<GetBucketLoggingCommandOutput> | void {
     const command = new GetBucketLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2760,17 +2539,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketMetricsConfiguration(
     args: GetBucketMetricsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketMetricsConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketMetricsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketMetricsConfigurationCommandOutput) => void
   ): Promise<GetBucketMetricsConfigurationCommandOutput> | void {
     const command = new GetBucketMetricsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2800,38 +2576,23 @@ export class S3 extends S3Client {
   ): Promise<GetBucketNotificationConfigurationCommandOutput>;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketNotificationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): Promise<GetBucketNotificationConfigurationCommandOutput> | void {
     const command = new GetBucketNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2873,17 +2634,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetBucketPolicyCommandOutput) => void
   ): Promise<GetBucketPolicyCommandOutput> | void {
     const command = new GetBucketPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2934,17 +2692,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketPolicyStatus(
     args: GetBucketPolicyStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketPolicyStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketPolicyStatusCommandOutput) => void),
     cb?: (err: any, data?: GetBucketPolicyStatusCommandOutput) => void
   ): Promise<GetBucketPolicyStatusCommandOutput> | void {
     const command = new GetBucketPolicyStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2998,17 +2753,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketReplication(
     args: GetBucketReplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketReplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketReplicationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketReplicationCommandOutput) => void
   ): Promise<GetBucketReplicationCommandOutput> | void {
     const command = new GetBucketReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3044,17 +2796,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketRequestPayment(
     args: GetBucketRequestPaymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketRequestPaymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketRequestPaymentCommandOutput) => void),
     cb?: (err: any, data?: GetBucketRequestPaymentCommandOutput) => void
   ): Promise<GetBucketRequestPaymentCommandOutput> | void {
     const command = new GetBucketRequestPaymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3108,17 +2857,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketTaggingCommandOutput) => void),
     cb?: (err: any, data?: GetBucketTaggingCommandOutput) => void
   ): Promise<GetBucketTaggingCommandOutput> | void {
     const command = new GetBucketTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3167,17 +2913,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketVersioning(
     args: GetBucketVersioningCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketVersioningCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketVersioningCommandOutput) => void),
     cb?: (err: any, data?: GetBucketVersioningCommandOutput) => void
   ): Promise<GetBucketVersioningCommandOutput> | void {
     const command = new GetBucketVersioningCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3217,17 +2960,14 @@ export class S3 extends S3Client {
   ): void;
   public getBucketWebsite(
     args: GetBucketWebsiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketWebsiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketWebsiteCommandOutput) => void),
     cb?: (err: any, data?: GetBucketWebsiteCommandOutput) => void
   ): Promise<GetBucketWebsiteCommandOutput> | void {
     const command = new GetBucketWebsiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3362,14 +3102,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public getObject(
-    args: GetObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetObjectCommandOutput>;
-  public getObject(
-    args: GetObjectCommandInput,
-    cb: (err: any, data?: GetObjectCommandOutput) => void
-  ): void;
+  public getObject(args: GetObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectCommandOutput>;
+  public getObject(args: GetObjectCommandInput, cb: (err: any, data?: GetObjectCommandOutput) => void): void;
   public getObject(
     args: GetObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -3377,17 +3111,14 @@ export class S3 extends S3Client {
   ): void;
   public getObject(
     args: GetObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectCommandOutput) => void),
     cb?: (err: any, data?: GetObjectCommandOutput) => void
   ): Promise<GetObjectCommandOutput> | void {
     const command = new GetObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3425,10 +3156,7 @@ export class S3 extends S3Client {
     args: GetObjectAclCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetObjectAclCommandOutput>;
-  public getObjectAcl(
-    args: GetObjectAclCommandInput,
-    cb: (err: any, data?: GetObjectAclCommandOutput) => void
-  ): void;
+  public getObjectAcl(args: GetObjectAclCommandInput, cb: (err: any, data?: GetObjectAclCommandOutput) => void): void;
   public getObjectAcl(
     args: GetObjectAclCommandInput,
     options: __HttpHandlerOptions,
@@ -3436,17 +3164,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectAcl(
     args: GetObjectAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectAclCommandOutput) => void),
     cb?: (err: any, data?: GetObjectAclCommandOutput) => void
   ): Promise<GetObjectAclCommandOutput> | void {
     const command = new GetObjectAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3472,17 +3197,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectLegalHold(
     args: GetObjectLegalHoldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectLegalHoldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectLegalHoldCommandOutput) => void),
     cb?: (err: any, data?: GetObjectLegalHoldCommandOutput) => void
   ): Promise<GetObjectLegalHoldCommandOutput> | void {
     const command = new GetObjectLegalHoldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3507,17 +3229,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectLockConfiguration(
     args: GetObjectLockConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectLockConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectLockConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetObjectLockConfigurationCommandOutput) => void
   ): Promise<GetObjectLockConfigurationCommandOutput> | void {
     const command = new GetObjectLockConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3542,17 +3261,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectRetention(
     args: GetObjectRetentionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectRetentionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectRetentionCommandOutput) => void),
     cb?: (err: any, data?: GetObjectRetentionCommandOutput) => void
   ): Promise<GetObjectRetentionCommandOutput> | void {
     const command = new GetObjectRetentionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3592,17 +3308,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectTagging(
     args: GetObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectTaggingCommandOutput) => void),
     cb?: (err: any, data?: GetObjectTaggingCommandOutput) => void
   ): Promise<GetObjectTaggingCommandOutput> | void {
     const command = new GetObjectTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3644,17 +3357,14 @@ export class S3 extends S3Client {
   ): void;
   public getObjectTorrent(
     args: GetObjectTorrentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectTorrentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectTorrentCommandOutput) => void),
     cb?: (err: any, data?: GetObjectTorrentCommandOutput) => void
   ): Promise<GetObjectTorrentCommandOutput> | void {
     const command = new GetObjectTorrentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3711,17 +3421,14 @@ export class S3 extends S3Client {
   ): void;
   public getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: GetPublicAccessBlockCommandOutput) => void
   ): Promise<GetPublicAccessBlockCommandOutput> | void {
     const command = new GetPublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3733,14 +3440,8 @@ export class S3 extends S3Client {
    *
    *          <p>To use this operation, you must have permissions to perform the <code>s3:ListBucket</code> action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    */
-  public headBucket(
-    args: HeadBucketCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<HeadBucketCommandOutput>;
-  public headBucket(
-    args: HeadBucketCommandInput,
-    cb: (err: any, data?: HeadBucketCommandOutput) => void
-  ): void;
+  public headBucket(args: HeadBucketCommandInput, options?: __HttpHandlerOptions): Promise<HeadBucketCommandOutput>;
+  public headBucket(args: HeadBucketCommandInput, cb: (err: any, data?: HeadBucketCommandOutput) => void): void;
   public headBucket(
     args: HeadBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -3748,17 +3449,14 @@ export class S3 extends S3Client {
   ): void;
   public headBucket(
     args: HeadBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: HeadBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HeadBucketCommandOutput) => void),
     cb?: (err: any, data?: HeadBucketCommandOutput) => void
   ): Promise<HeadBucketCommandOutput> | void {
     const command = new HeadBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3853,14 +3551,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public headObject(
-    args: HeadObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<HeadObjectCommandOutput>;
-  public headObject(
-    args: HeadObjectCommandInput,
-    cb: (err: any, data?: HeadObjectCommandOutput) => void
-  ): void;
+  public headObject(args: HeadObjectCommandInput, options?: __HttpHandlerOptions): Promise<HeadObjectCommandOutput>;
+  public headObject(args: HeadObjectCommandInput, cb: (err: any, data?: HeadObjectCommandOutput) => void): void;
   public headObject(
     args: HeadObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -3868,17 +3560,14 @@ export class S3 extends S3Client {
   ): void;
   public headObject(
     args: HeadObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: HeadObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HeadObjectCommandOutput) => void),
     cb?: (err: any, data?: HeadObjectCommandOutput) => void
   ): Promise<HeadObjectCommandOutput> | void {
     const command = new HeadObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3919,38 +3608,23 @@ export class S3 extends S3Client {
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput>;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): void;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): void;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketAnalyticsConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> | void {
     const command = new ListBucketAnalyticsConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3992,38 +3666,23 @@ export class S3 extends S3Client {
   ): Promise<ListBucketInventoryConfigurationsCommandOutput>;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): void;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): void;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketInventoryConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> | void {
     const command = new ListBucketInventoryConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4073,20 +3732,14 @@ export class S3 extends S3Client {
   ): void;
   public listBucketMetricsConfigurations(
     args: ListBucketMetricsConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketMetricsConfigurationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBucketMetricsConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListBucketMetricsConfigurationsCommandOutput) => void
   ): Promise<ListBucketMetricsConfigurationsCommandOutput> | void {
     const command = new ListBucketMetricsConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4096,14 +3749,8 @@ export class S3 extends S3Client {
   /**
    * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
    */
-  public listBuckets(
-    args: ListBucketsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBucketsCommandOutput>;
-  public listBuckets(
-    args: ListBucketsCommandInput,
-    cb: (err: any, data?: ListBucketsCommandOutput) => void
-  ): void;
+  public listBuckets(args: ListBucketsCommandInput, options?: __HttpHandlerOptions): Promise<ListBucketsCommandOutput>;
+  public listBuckets(args: ListBucketsCommandInput, cb: (err: any, data?: ListBucketsCommandOutput) => void): void;
   public listBuckets(
     args: ListBucketsCommandInput,
     options: __HttpHandlerOptions,
@@ -4111,17 +3758,14 @@ export class S3 extends S3Client {
   ): void;
   public listBuckets(
     args: ListBucketsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBucketsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBucketsCommandOutput) => void),
     cb?: (err: any, data?: ListBucketsCommandOutput) => void
   ): Promise<ListBucketsCommandOutput> | void {
     const command = new ListBucketsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4183,17 +3827,14 @@ export class S3 extends S3Client {
   ): void;
   public listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMultipartUploadsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMultipartUploadsCommandOutput) => void),
     cb?: (err: any, data?: ListMultipartUploadsCommandOutput) => void
   ): Promise<ListMultipartUploadsCommandOutput> | void {
     const command = new ListMultipartUploadsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4239,14 +3880,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public listObjects(
-    args: ListObjectsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListObjectsCommandOutput>;
-  public listObjects(
-    args: ListObjectsCommandInput,
-    cb: (err: any, data?: ListObjectsCommandOutput) => void
-  ): void;
+  public listObjects(args: ListObjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListObjectsCommandOutput>;
+  public listObjects(args: ListObjectsCommandInput, cb: (err: any, data?: ListObjectsCommandOutput) => void): void;
   public listObjects(
     args: ListObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -4254,17 +3889,14 @@ export class S3 extends S3Client {
   ): void;
   public listObjects(
     args: ListObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectsCommandOutput) => void),
     cb?: (err: any, data?: ListObjectsCommandOutput) => void
   ): Promise<ListObjectsCommandOutput> | void {
     const command = new ListObjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4317,17 +3949,14 @@ export class S3 extends S3Client {
   ): void;
   public listObjectsV2(
     args: ListObjectsV2CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectsV2CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectsV2CommandOutput) => void),
     cb?: (err: any, data?: ListObjectsV2CommandOutput) => void
   ): Promise<ListObjectsV2CommandOutput> | void {
     const command = new ListObjectsV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4381,17 +4010,14 @@ export class S3 extends S3Client {
   ): void;
   public listObjectVersions(
     args: ListObjectVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListObjectVersionsCommandOutput) => void
   ): Promise<ListObjectVersionsCommandOutput> | void {
     const command = new ListObjectVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4434,14 +4060,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public listParts(
-    args: ListPartsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPartsCommandOutput>;
-  public listParts(
-    args: ListPartsCommandInput,
-    cb: (err: any, data?: ListPartsCommandOutput) => void
-  ): void;
+  public listParts(args: ListPartsCommandInput, options?: __HttpHandlerOptions): Promise<ListPartsCommandOutput>;
+  public listParts(args: ListPartsCommandInput, cb: (err: any, data?: ListPartsCommandOutput) => void): void;
   public listParts(
     args: ListPartsCommandInput,
     options: __HttpHandlerOptions,
@@ -4449,17 +4069,14 @@ export class S3 extends S3Client {
   ): void;
   public listParts(
     args: ListPartsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPartsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartsCommandOutput) => void),
     cb?: (err: any, data?: ListPartsCommandOutput) => void
   ): Promise<ListPartsCommandOutput> | void {
     const command = new ListPartsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4519,23 +4136,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketAccelerateConfiguration(
     args: PutBucketAccelerateConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketAccelerateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutBucketAccelerateConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketAccelerateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketAccelerateConfigurationCommandOutput) => void
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> | void {
     const command = new PutBucketAccelerateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4590,23 +4198,53 @@ export class S3 extends S3Client {
    *                      <ul>
    *                   <li>
    *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                            account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
+   *                   </li>
    *                </ul>
    *                      <p>For example, the following <code>x-amz-grant-write</code> header grants
    *                create, overwrite, and delete objects permission to LogDelivery group predefined by
    *                Amazon S3 and two AWS accounts identified by their email addresses.</p>
    *                      <p>
-   *                   <code>x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
+   *                   <code>x-amz-grant-write: uri="http://acs.amazonaws.com/groups/s3/LogDelivery", id="111122223333", id="555566667777"
    *                      </code>
    *                </p>
    *
@@ -4618,13 +4256,6 @@ export class S3 extends S3Client {
    *          </p>
    *          <p>You can specify the person (grantee) to whom you're assigning access rights (using request elements) in the following ways:</p>
    *          <ul>
-   *             <li>
-   *                <p>By Email address:</p>
-   *                <p>
-   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
-   *                </p>
-   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
-   *             </li>
    *             <li>
    *                <p>By the person's ID:</p>
    *                <p>
@@ -4638,6 +4269,44 @@ export class S3 extends S3Client {
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
    *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By Email address:</p>
+   *                <p>
+   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+   *                </p>
+   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.
+   *             </p>
+   *                <note>
+   *                   <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>US East (N. Virginia)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>US West (N. California)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> US West (Oregon)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> Asia Pacific (Singapore)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Sydney)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Tokyo)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Europe (Ireland)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>South America (São Paulo)</p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                </note>
    *             </li>
    *          </ul>
    *
@@ -4667,10 +4336,7 @@ export class S3 extends S3Client {
     args: PutBucketAclCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutBucketAclCommandOutput>;
-  public putBucketAcl(
-    args: PutBucketAclCommandInput,
-    cb: (err: any, data?: PutBucketAclCommandOutput) => void
-  ): void;
+  public putBucketAcl(args: PutBucketAclCommandInput, cb: (err: any, data?: PutBucketAclCommandOutput) => void): void;
   public putBucketAcl(
     args: PutBucketAclCommandInput,
     options: __HttpHandlerOptions,
@@ -4678,17 +4344,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketAcl(
     args: PutBucketAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketAclCommandOutput) => void),
     cb?: (err: any, data?: PutBucketAclCommandOutput) => void
   ): Promise<PutBucketAclCommandOutput> | void {
     const command = new PutBucketAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4817,20 +4480,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketAnalyticsConfiguration(
     args: PutBucketAnalyticsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketAnalyticsConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketAnalyticsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<PutBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new PutBucketAnalyticsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4906,17 +4563,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketCors(
     args: PutBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: PutBucketCorsCommandOutput) => void
   ): Promise<PutBucketCorsCommandOutput> | void {
     const command = new PutBucketCorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4928,7 +4582,7 @@ export class S3 extends S3Client {
    *         state of an existing bucket.</p>
    *          <p>This implementation of the <code>PUT</code> operation sets default encryption for a
    *          bucket using server-side encryption with Amazon S3-managed keys SSE-S3 or AWS KMS customer
-   *          master keys (CMKs) (SSE-KMS).</p>
+   *          master keys (CMKs) (SSE-KMS). For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a>.</p>
    *          <important>
    *             <p>This operation requires AWS Signature Version 4. For more information, see <a href="sig-v4-authenticating-requests.html">
    *         Authenticating Requests (AWS Signature Version 4)</a>.
@@ -4972,17 +4626,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketEncryption(
     args: PutBucketEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketEncryptionCommandOutput) => void),
     cb?: (err: any, data?: PutBucketEncryptionCommandOutput) => void
   ): Promise<PutBucketEncryptionCommandOutput> | void {
     const command = new PutBucketEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5000,17 +4651,17 @@ export class S3 extends S3Client {
    *          <p>When you configure an inventory for a <i>source</i> bucket, you specify the <i>destination</i> bucket
    *         where you want the inventory to be stored, and whether to generate the inventory daily or weekly. You can also configure what object
    *         metadata to include and whether to inventory all object versions or only current versions. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//storage-inventory.html">Amazon S3 Inventory</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a> in the Amazon Simple Storage Service Developer Guide.</p>
    *          <important>
-   *             <p>You must create a bucket policy on the <i>destination</i> bucket to grant permissions to Amazon S3 to write objects to the bucket in the
-   *         defined location. For an example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
-   *            Granting Permissions for Amazon S3 Inventory and Storage Class Analysis.</a>
-   *             </p>
+   *             <p>You must create a bucket policy on the <i>destination</i> bucket to grant
+   *             permissions to Amazon S3 to write objects to the bucket in the defined location. For an
+   *             example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
+   *                Granting Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.</p>
    *          </important>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutInventoryConfiguration</code> action. The bucket
    *         owner has this permission by default and can grant this permission to others. For more information about permissions, see
-   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
-   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev//s3-access-control.html">Managing Access Permissions to Your
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to
+   *            Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your
    *               Amazon S3 Resources</a> in the Amazon Simple Storage Service Developer Guide.</p>
    *
    *          <p class="title">
@@ -5059,8 +4710,9 @@ export class S3 extends S3Client {
    *                  </li>
    *                   <li>
    *                     <p>
-   *                         <i>Cause:</i> You are not the owner of the specified bucket, or you do not have the <code>s3:PutInventoryConfiguration</code>
-   *                        bucket permission to set the configuration on the bucket </p>
+   *                         <i>Cause:</i> You are not the owner of the specified bucket,
+   *                      or you do not have the <code>s3:PutInventoryConfiguration</code> bucket
+   *                      permission to set the configuration on the bucket. </p>
    *                  </li>
    *                </ul>
    *            </li>
@@ -5102,20 +4754,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketInventoryConfiguration(
     args: PutBucketInventoryConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketInventoryConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketInventoryConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketInventoryConfigurationCommandOutput) => void
   ): Promise<PutBucketInventoryConfigurationCommandOutput> | void {
     const command = new PutBucketInventoryConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5208,20 +4854,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketLifecycleConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> | void {
     const command = new PutBucketLifecycleConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5315,17 +4955,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketLogging(
     args: PutBucketLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketLoggingCommandOutput) => void),
     cb?: (err: any, data?: PutBucketLoggingCommandOutput) => void
   ): Promise<PutBucketLoggingCommandOutput> | void {
     const command = new PutBucketLoggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5400,17 +5037,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketMetricsConfiguration(
     args: PutBucketMetricsConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketMetricsConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketMetricsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketMetricsConfigurationCommandOutput) => void
   ): Promise<PutBucketMetricsConfigurationCommandOutput> | void {
     const command = new PutBucketMetricsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5467,38 +5101,23 @@ export class S3 extends S3Client {
   ): Promise<PutBucketNotificationConfigurationCommandOutput>;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketNotificationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): Promise<PutBucketNotificationConfigurationCommandOutput> | void {
     const command = new PutBucketNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5508,7 +5127,7 @@ export class S3 extends S3Client {
   /**
    * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must have the <code>PutBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.</p>
    *
-   *          <p>If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
+   *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
    *
    *          <important>
    *             <p> As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy explicitly denies the root user the ability to perform this action.
@@ -5547,17 +5166,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutBucketPolicyCommandOutput) => void
   ): Promise<PutBucketPolicyCommandOutput> | void {
     const command = new PutBucketPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5619,17 +5235,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketReplication(
     args: PutBucketReplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketReplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketReplicationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketReplicationCommandOutput) => void
   ): Promise<PutBucketReplicationCommandOutput> | void {
     const command = new PutBucketReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5668,17 +5281,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketRequestPayment(
     args: PutBucketRequestPaymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketRequestPaymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketRequestPaymentCommandOutput) => void),
     cb?: (err: any, data?: PutBucketRequestPaymentCommandOutput) => void
   ): Promise<PutBucketRequestPaymentCommandOutput> | void {
     const command = new PutBucketRequestPaymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5694,9 +5304,6 @@ export class S3 extends S3Client {
    *          </note>
    *          <p>To use this operation, you must have permissions to perform the <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
-   *
-   *
-   *
    *          <p>
    *             <code>PutBucketTagging</code> has the following special errors:</p>
    *          <ul>
@@ -5705,7 +5312,7 @@ export class S3 extends S3Client {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//allocation-tag-restrictions.html">User-Defined Tag Restrictions</a>  and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//aws-tag-restrictions.html">AWS-Generated Cost Allocation Tag Restrictions</a>.</p>
+   *                      <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a>  and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated Cost Allocation Tag Restrictions</a>.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5768,17 +5375,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketTaggingCommandOutput) => void),
     cb?: (err: any, data?: PutBucketTaggingCommandOutput) => void
   ): Promise<PutBucketTaggingCommandOutput> | void {
     const command = new PutBucketTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5842,17 +5446,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketVersioning(
     args: PutBucketVersioningCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketVersioningCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketVersioningCommandOutput) => void),
     cb?: (err: any, data?: PutBucketVersioningCommandOutput) => void
   ): Promise<PutBucketVersioningCommandOutput> | void {
     const command = new PutBucketVersioningCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5971,6 +5572,10 @@ export class S3 extends S3Client {
    *                </p>
    *             </li>
    *          </ul>
+   *
+   *          <p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more
+   *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an Object Redirect</a> in the
+   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   public putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
@@ -5987,17 +5592,14 @@ export class S3 extends S3Client {
   ): void;
   public putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketWebsiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketWebsiteCommandOutput) => void),
     cb?: (err: any, data?: PutBucketWebsiteCommandOutput) => void
   ): Promise<PutBucketWebsiteCommandOutput> | void {
     const command = new PutBucketWebsiteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6007,247 +5609,56 @@ export class S3 extends S3Client {
   /**
    * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object to it.</p>
    *
+   *
    *          <p>Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the entire object to the bucket.</p>
    *
    *          <p>Amazon S3 is a distributed system. If it receives multiple write requests for the same object simultaneously, it overwrites all but the last object written. Amazon S3 does not provide object locking; if you need this, make sure to build it into your application layer or use versioning instead.</p>
    *
    *          <p>To ensure that data is not corrupted traversing the network, use the <code>Content-MD5</code> header. When you use this header, Amazon S3 checks the object against the provided MD5 value and, if they do not match, returns an error. Additionally, you can calculate the MD5 while putting an object to Amazon S3 and compare the returned ETag to the calculated MD5 value.</p>
-   *
    *          <note>
-   *             <p>To configure your application to send the request headers before sending the request body, use the <code>100-continue</code> HTTP status code. For PUT operations, this helps you avoid sending the message body if the message is rejected based on the headers (for example, because authentication fails or a redirect occurs). For more information on the <code>100-continue</code> HTTP status code, see Section 8.2.3 of <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>.</p>
+   *             <p>
+   *             The <code>Content-MD5</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information about Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+   *          </p>
    *          </note>
    *
-   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon
-   *          S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
+   *
+   *          <p>
+   *             <b>Server-side Encryption</b>
+   *          </p>
+   *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
    *          when you access it. You have the option to provide your own encryption key or use AWS
-   *          managed encryption keys. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a>.</p>
-   *
-   *
-   *
-   *          <dl>
-   *             <dt>Access Permissions</dt>
-   *             <dd>
-   *                <p>You can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>, <code>x-amz-grant-read-acp</code>, <code>x-amz-grant-write-acp</code>, and <code>x-amz-grant-full-control</code> headers. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption.
-   *                   Server-side encryption is for data encryption at rest. Amazon S3 encrypts your
-   *                   data as it writes it to disks in its data centers and decrypts it when you access
-   *                   it. The option you use depends on whether you want to use AWS managed encryption
-   *                   keys or provide your own encryption key. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored in AWS Key
-   *                         Management Service (AWS KMS) – If you want AWS to manage the keys used to
-   *                         encrypt data, specify the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-context</p>
-   *                         </li>
-   *                      </ul>
-   *                      <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                         uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                            AWS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Use customer-provided encryption keys – If you want to manage your own encryption keys, provide all the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For more information about server-side encryption with CMKs stored in KMS
-   *                         (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in
-   *                         AWS</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Access-Control-List (ACL)-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You also can use the following access control–related headers with this operation. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These permissions are then added to the Access Control List (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions using one of the following two methods:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of predefined ACLs,
-   *                         known as canned ACLs. Each canned ACL has a predefined set of grantees and
-   *                         permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Specify access permissions explicitly — To explicitly grant access permissions to specific AWS accounts or groups, use the following headers. Each header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. In the header, you specify a list of grantees who get the specific permission. To grant permissions explicitly use:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-grant-read</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-read-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-write-acp</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-grant-full-control</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>
-   *                               <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                               account</p>
-   *                            <important>
-   *                               <p>Using email addresses to specify a grantee is only supported in the following AWS Regions:
-   *                            </p>
-   *                               <ul>
-   *                                  <li>
-   *                                     <p>US East (N. Virginia)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>US West (N. California)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p> US West (Oregon)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p> Asia Pacific (Singapore)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>Asia Pacific (Sydney)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>Asia Pacific (Tokyo)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>EU (Ireland)</p>
-   *                                  </li>
-   *                                  <li>
-   *                                     <p>South America (São Paulo)</p>
-   *                                  </li>
-   *                               </ul>
-   *                               <p>For a list of all the Amazon S3 supported Regions and endpoints,
-   *                                  see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General
-   *                                  Reference</p>
-   *                            </important>
-   *
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>
-   *                               <code>uri</code> – if you are granting permissions to a predefined group</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For example, the following <code>x-amz-grant-read</code> header grants
-   *                         the AWS accounts identified by email addresses permissions to read object
-   *                         data and its metadata:</p>
-   *                      <p>
-   *                         <code>x-amz-grant-read: emailAddress="xyz@amazon.com", emailAddress="abc@amazon.com"
-   *                      </code>
-   *                      </p>
-   *
-   *                   </li>
-   *                </ul>
-   *
-   *             </dd>
-   *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
-   *             <dd>
-   *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption. Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. The option you use depends on whether you want to use AWS-managed encryption keys or provide your own encryption key. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Use encryption keys managed by Amazon S3 or customer master keys (CMKs) stored in AWS Key
-   *                         Management Service (AWS KMS) – If you want AWS to manage the keys used to
-   *                         encrypt data, specify the following headers in the request.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side-encryption-context</p>
-   *                         </li>
-   *                      </ul>
-   *                      <note>
-   *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but don't provide
-   *                         <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3
-   *                         uses the AWS managed CMK in AWS KMS to protect the data. If you want to use a customer managed AWS KMS CMK, you must provide the <code>x-amz-server-side-encryption-aws-kms-key-id</code> of the symmetric customer managed CMK. Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   *                      </note>
-   *                      <important>
-   *                         <p>All GET and PUT requests for an object protected by AWS KMS fail if you don't make them with SSL or by using SigV4.</p>
-   *                      </important>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Use customer-provided encryption keys – If you want to manage your own encryption keys, provide all the following headers in the request.</p>
-   *                      <note>
-   *                         <p>If you use this feature, the ETag value that Amazon S3 returns in the response is not the MD5 of the object.</p>
-   *                      </note>
-   *                      <ul>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-algorithm</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key</p>
-   *                         </li>
-   *                         <li>
-   *                            <p>x-amz-server-side​-encryption​-customer-key-MD5</p>
-   *                         </li>
-   *                      </ul>
-   *                      <p>For more information about server-side encryption with CMKs stored in AWS
-   *                         KMS (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with CMKs stored in AWS
-   *                            KMS</a>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *          </dl>
+   *          managed encryption keys. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+   *          Encryption</a>.</p>
+   *          <p>
+   *             <b>Access Control List (ACL)-Specific Request Headers</b>
+   *          </p>
+   *          <p>You can use headers to grant ACL- based permissions. By default, all objects are
+   *          private. Only the owner has full access control. When adding a new object, you can grant
+   *          permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These
+   *          permissions are then added to the ACL on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List
+   *             (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST
+   *             API</a>. </p>
    *
    *          <p>
    *             <b>Storage Class Options</b>
    *          </p>
-   *          <p>By default, Amazon S3 uses the Standard storage class to store newly created objects. The Standard storage class provides high durability and high availability. You can specify other storage classes depending on the performance needs. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   *          <p>By default, Amazon S3 uses the STANDARD storage class to store newly created objects.
+   *          The STANDARD storage class provides high durability and high availability. Depending on
+   *          performance needs, you can specify a different storage class. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+   *             <i>Amazon S3 Service Developer Guide</i>.</p>
    *
    *          <p>
    *             <b>Versioning</b>
    *          </p>
-   *          <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. Amazon S3 returns this ID in the response using the <code>x-amz-version-id response</code> header. If versioning is suspended, Amazon S3 always uses null as the version ID for the object stored. For more information about returning the versioning state of a bucket, see <a>GetBucketVersioning</a>.
+   *          <p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique
+   *          version ID for the object being stored. Amazon S3 returns this ID in the response. When you
+   *          enable versioning for a bucket, if Amazon S3 receives multiple write requests for the
+   *          same object simultaneously, it stores all of the objects.</p>
+   *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
+   *             Versioning Enabled Buckets</a>. For information about returning the versioning state
+   *          of a bucket, see <a>GetBucketVersioning</a>. </p>
    *
-   *          If you enable versioning for a bucket, when Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of the objects.</p>
    *
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -6265,14 +5676,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public putObject(
-    args: PutObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutObjectCommandOutput>;
-  public putObject(
-    args: PutObjectCommandInput,
-    cb: (err: any, data?: PutObjectCommandOutput) => void
-  ): void;
+  public putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;
+  public putObject(args: PutObjectCommandInput, cb: (err: any, data?: PutObjectCommandOutput) => void): void;
   public putObject(
     args: PutObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -6280,17 +5685,14 @@ export class S3 extends S3Client {
   ): void;
   public putObject(
     args: PutObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectCommandOutput) => void),
     cb?: (err: any, data?: PutObjectCommandOutput) => void
   ): Promise<PutObjectCommandOutput> | void {
     const command = new PutObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6304,7 +5706,8 @@ export class S3 extends S3Client {
    *          <p>Depending on your application needs, you can choose to set the ACL on an object using
    *          either the request body or the headers. For example, if you have an existing application
    *          that updates a bucket ACL using the request body, you can continue to use that
-   *          approach.</p>
+   *          approach. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    *
    *
    *
@@ -6327,15 +5730,12 @@ export class S3 extends S3Client {
    *                specify explicit access permissions and grantees (AWS accounts or Amazon S3 groups)
    *                who will receive the permission. If you use these ACL-specific headers, you cannot
    *                use <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the
+   *
    *                set of permissions that Amazon S3 supports in an ACL. For more information, see
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
+   *
    *                <p>You specify each grantee as a type=value pair, where the type is one of the following:</p>
    *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
-   *                      account</p>
-   *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>id</code> – if the value specified is the canonical user ID of an AWS account</p>
@@ -6343,6 +5743,41 @@ export class S3 extends S3Client {
    *                   <li>
    *                      <p>
    *                         <code>uri</code> – if you are granting permissions to a predefined group</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>emailAddress</code> – if the value specified is the email address of an AWS
+   *                      account</p>
+   *                      <note>
+   *                         <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                         <ul>
+   *                            <li>
+   *                               <p>US East (N. Virginia)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>US West (N. California)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> US West (Oregon)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p> Asia Pacific (Singapore)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Sydney)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Asia Pacific (Tokyo)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>Europe (Ireland)</p>
+   *                            </li>
+   *                            <li>
+   *                               <p>South America (São Paulo)</p>
+   *                            </li>
+   *                         </ul>
+   *                         <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                      </note>
    *                   </li>
    *                </ul>
    *                <p>For example, the following <code>x-amz-grant-read</code> header grants list
@@ -6362,13 +5797,6 @@ export class S3 extends S3Client {
    *          <p>You can specify the person (grantee) to whom you're assigning access rights (using request elements) in the following ways:</p>
    *          <ul>
    *             <li>
-   *                <p>By Email address:</p>
-   *                <p>
-   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
-   *                </p>
-   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
-   *             </li>
-   *             <li>
    *                <p>By the person's ID:</p>
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
@@ -6381,6 +5809,43 @@ export class S3 extends S3Client {
    *                <p>
    *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
    *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By Email address:</p>
+   *                <p>
+   *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+   *                </p>
+   *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p>
+   *                <note>
+   *                   <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>US East (N. Virginia)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>US West (N. California)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> US West (Oregon)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p> Asia Pacific (Singapore)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Sydney)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Asia Pacific (Tokyo)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>Europe (Ireland)</p>
+   *                      </li>
+   *                      <li>
+   *                         <p>South America (São Paulo)</p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>For a list of all the Amazon S3 supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the AWS General Reference.</p>
+   *                </note>
    *             </li>
    *          </ul>
    *          <p>
@@ -6407,10 +5872,7 @@ export class S3 extends S3Client {
     args: PutObjectAclCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutObjectAclCommandOutput>;
-  public putObjectAcl(
-    args: PutObjectAclCommandInput,
-    cb: (err: any, data?: PutObjectAclCommandOutput) => void
-  ): void;
+  public putObjectAcl(args: PutObjectAclCommandInput, cb: (err: any, data?: PutObjectAclCommandOutput) => void): void;
   public putObjectAcl(
     args: PutObjectAclCommandInput,
     options: __HttpHandlerOptions,
@@ -6418,17 +5880,14 @@ export class S3 extends S3Client {
   ): void;
   public putObjectAcl(
     args: PutObjectAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectAclCommandOutput) => void),
     cb?: (err: any, data?: PutObjectAclCommandOutput) => void
   ): Promise<PutObjectAclCommandOutput> | void {
     const command = new PutObjectAclCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6463,17 +5922,14 @@ export class S3 extends S3Client {
   ): void;
   public putObjectLegalHold(
     args: PutObjectLegalHoldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectLegalHoldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectLegalHoldCommandOutput) => void),
     cb?: (err: any, data?: PutObjectLegalHoldCommandOutput) => void
   ): Promise<PutObjectLegalHoldCommandOutput> | void {
     const command = new PutObjectLegalHoldCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6512,17 +5968,14 @@ export class S3 extends S3Client {
   ): void;
   public putObjectLockConfiguration(
     args: PutObjectLockConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectLockConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectLockConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutObjectLockConfigurationCommandOutput) => void
   ): Promise<PutObjectLockConfigurationCommandOutput> | void {
     const command = new PutObjectLockConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6557,17 +6010,14 @@ export class S3 extends S3Client {
   ): void;
   public putObjectRetention(
     args: PutObjectRetentionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectRetentionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectRetentionCommandOutput) => void),
     cb?: (err: any, data?: PutObjectRetentionCommandOutput) => void
   ): Promise<PutObjectRetentionCommandOutput> | void {
     const command = new PutObjectRetentionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6575,7 +6025,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
+   * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
    *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see <a>GetObjectTagging</a>.</p>
    *
    *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.</p>
@@ -6686,17 +6136,14 @@ export class S3 extends S3Client {
   ): void;
   public putObjectTagging(
     args: PutObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectTaggingCommandOutput) => void),
     cb?: (err: any, data?: PutObjectTaggingCommandOutput) => void
   ): Promise<PutObjectTaggingCommandOutput> | void {
     const command = new PutObjectTaggingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6763,17 +6210,14 @@ export class S3 extends S3Client {
   ): void;
   public putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPublicAccessBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPublicAccessBlockCommandOutput) => void),
     cb?: (err: any, data?: PutPublicAccessBlockCommandOutput) => void
   ): Promise<PutPublicAccessBlockCommandOutput> | void {
     const command = new PutPublicAccessBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6794,7 +6238,7 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *          <p>To use this operation, you must have permissions to perform the
-   *             <code>s3:RestoreObject</code> and <code>s3:GetObject</code> actions. The bucket owner
+   *             <code>s3:RestoreObject</code> action. The bucket owner
    *          has this permission by default and can grant this permission to others. For more
    *          information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
    *             Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
@@ -6870,8 +6314,8 @@ export class S3 extends S3Client {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>For more information about using SQL with Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for Amazon S3 Select and
-   *             Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+   *          <p>For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for Amazon S3 Select and
+   *         S3 Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
    *          <p>When making a select request, you can also do the following:</p>
    *          <ul>
    *             <li>
@@ -6932,10 +6376,10 @@ export class S3 extends S3Client {
    *                <p>
    *                   <b>
    *                      <code>Standard</code>
-   *                   </b> - Standard retrievals allow
+   *                   </b> - S3 Standard retrievals allow
    *                you to access any of your archived objects within several hours. This is the default
    *                option for the GLACIER and DEEP_ARCHIVE retrieval requests that do not specify the
-   *                retrieval option. Standard retrievals typically complete within 3-5 hours from the
+   *                retrieval option. S3 Standard retrievals typically complete within 3-5 hours from the
    *                GLACIER storage class and typically complete within 12 hours from the DEEP_ARCHIVE
    *                storage class. </p>
    *             </li>
@@ -7036,10 +6480,10 @@ export class S3 extends S3Client {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <i>Cause: Glacier expedited retrievals are currently not available.
+   *                         <i>Cause: S3 Glacier expedited retrievals are currently not available.
    *                         Try again later. (Returned if there is insufficient capacity to process the
    *                         Expedited request. This error applies only to Expedited retrievals and not
-   *                         to Standard or Bulk retrievals.)</i>
+   *                         to S3 Standard or Bulk retrievals.)</i>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -7073,7 +6517,7 @@ export class S3 extends S3Client {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for
-   *                   Amazon S3 Select and Glacier Select </a> in the <i>Amazon Simple Storage Service Developer Guide</i>
+   *                Amazon S3 Select and S3 Glacier Select </a> in the <i>Amazon Simple Storage Service Developer Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -7093,17 +6537,14 @@ export class S3 extends S3Client {
   ): void;
   public restoreObject(
     args: RestoreObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreObjectCommandOutput) => void),
     cb?: (err: any, data?: RestoreObjectCommandOutput) => void
   ): Promise<RestoreObjectCommandOutput> | void {
     const command = new RestoreObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7121,7 +6562,7 @@ export class S3 extends S3Client {
    *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from Objects</a>
    *         in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>For more information about using SQL with Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html"> SQL Reference for Amazon S3
-   *         Select and Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *         Select and S3 Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *         <p></p>
    *          <p>
    *             <b>Permissions</b>
@@ -7191,8 +6632,9 @@ export class S3 extends S3Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Range</code>: While you can specify a scan range for a Amazon S3 Select request, see <a>SelectObjectContentRequest$ScanRange</a> in the request parameters below, you cannot specify the range of bytes of an object to return.
-   *            </p>
+   *                   <code>Range</code>: Although you can specify a scan range for an Amazon S3 Select request
+   *                (see <a>SelectObjectContentRequest$ScanRange</a> in the request
+   *                parameters), you cannot specify the range of bytes of an object to return. </p>
    *             </li>
    *             <li>
    *                <p>GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You
@@ -7206,8 +6648,8 @@ export class S3 extends S3Client {
    *          <p>
    *             <b>Special Errors</b>
    *          </p>
-   *          <p>For a list of special errors for this operation and for general information about Amazon S3 errors
-   *         and a list of error codes, see <a>ErrorResponses</a>
+   *
+   *          <p>For a list of special errors for this operation, see <a>SelectObjectContentErrorCodeList</a>
    *          </p>
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -7245,17 +6687,14 @@ export class S3 extends S3Client {
   ): void;
   public selectObjectContent(
     args: SelectObjectContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SelectObjectContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SelectObjectContentCommandOutput) => void),
     cb?: (err: any, data?: SelectObjectContentCommandOutput) => void
   ): Promise<SelectObjectContentCommandOutput> | void {
     const command = new SelectObjectContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7394,14 +6833,8 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    */
-  public uploadPart(
-    args: UploadPartCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UploadPartCommandOutput>;
-  public uploadPart(
-    args: UploadPartCommandInput,
-    cb: (err: any, data?: UploadPartCommandOutput) => void
-  ): void;
+  public uploadPart(args: UploadPartCommandInput, options?: __HttpHandlerOptions): Promise<UploadPartCommandOutput>;
+  public uploadPart(args: UploadPartCommandInput, cb: (err: any, data?: UploadPartCommandOutput) => void): void;
   public uploadPart(
     args: UploadPartCommandInput,
     options: __HttpHandlerOptions,
@@ -7409,17 +6842,14 @@ export class S3 extends S3Client {
   ): void;
   public uploadPart(
     args: UploadPartCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadPartCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadPartCommandOutput) => void),
     cb?: (err: any, data?: UploadPartCommandOutput) => void
   ): Promise<UploadPartCommandOutput> | void {
     const command = new UploadPartCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7626,17 +7056,14 @@ export class S3 extends S3Client {
   ): void;
   public uploadPartCopy(
     args: UploadPartCopyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadPartCopyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadPartCopyCommandOutput) => void),
     cb?: (err: any, data?: UploadPartCopyCommandOutput) => void
   ): Promise<UploadPartCopyCommandOutput> | void {
     const command = new UploadPartCopyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

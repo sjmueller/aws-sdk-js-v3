@@ -1,378 +1,331 @@
 import {
   AssociatePhoneNumberWithUserCommandInput,
-  AssociatePhoneNumberWithUserCommandOutput
+  AssociatePhoneNumberWithUserCommandOutput,
 } from "./commands/AssociatePhoneNumberWithUserCommand.ts";
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorCommandOutput
+  AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorCommand.ts";
 import {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand.ts";
 import {
   AssociateSigninDelegateGroupsWithAccountCommandInput,
-  AssociateSigninDelegateGroupsWithAccountCommandOutput
+  AssociateSigninDelegateGroupsWithAccountCommandOutput,
 } from "./commands/AssociateSigninDelegateGroupsWithAccountCommand.ts";
 import {
   BatchCreateAttendeeCommandInput,
-  BatchCreateAttendeeCommandOutput
+  BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand.ts";
 import {
   BatchCreateRoomMembershipCommandInput,
-  BatchCreateRoomMembershipCommandOutput
+  BatchCreateRoomMembershipCommandOutput,
 } from "./commands/BatchCreateRoomMembershipCommand.ts";
 import {
   BatchDeletePhoneNumberCommandInput,
-  BatchDeletePhoneNumberCommandOutput
+  BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand.ts";
-import {
-  BatchSuspendUserCommandInput,
-  BatchSuspendUserCommandOutput
-} from "./commands/BatchSuspendUserCommand.ts";
+import { BatchSuspendUserCommandInput, BatchSuspendUserCommandOutput } from "./commands/BatchSuspendUserCommand.ts";
 import {
   BatchUnsuspendUserCommandInput,
-  BatchUnsuspendUserCommandOutput
+  BatchUnsuspendUserCommandOutput,
 } from "./commands/BatchUnsuspendUserCommand.ts";
 import {
   BatchUpdatePhoneNumberCommandInput,
-  BatchUpdatePhoneNumberCommandOutput
+  BatchUpdatePhoneNumberCommandOutput,
 } from "./commands/BatchUpdatePhoneNumberCommand.ts";
+import { BatchUpdateUserCommandInput, BatchUpdateUserCommandOutput } from "./commands/BatchUpdateUserCommand.ts";
+import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand.ts";
+import { CreateAttendeeCommandInput, CreateAttendeeCommandOutput } from "./commands/CreateAttendeeCommand.ts";
+import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand.ts";
+import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand.ts";
 import {
-  BatchUpdateUserCommandInput,
-  BatchUpdateUserCommandOutput
-} from "./commands/BatchUpdateUserCommand.ts";
-import {
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput
-} from "./commands/CreateAccountCommand.ts";
-import {
-  CreateAttendeeCommandInput,
-  CreateAttendeeCommandOutput
-} from "./commands/CreateAttendeeCommand.ts";
-import {
-  CreateBotCommandInput,
-  CreateBotCommandOutput
-} from "./commands/CreateBotCommand.ts";
-import {
-  CreateMeetingCommandInput,
-  CreateMeetingCommandOutput
-} from "./commands/CreateMeetingCommand.ts";
+  CreateMeetingWithAttendeesCommandInput,
+  CreateMeetingWithAttendeesCommandOutput,
+} from "./commands/CreateMeetingWithAttendeesCommand.ts";
 import {
   CreatePhoneNumberOrderCommandInput,
-  CreatePhoneNumberOrderCommandOutput
+  CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand.ts";
 import {
-  CreateRoomCommandInput,
-  CreateRoomCommandOutput
-} from "./commands/CreateRoomCommand.ts";
+  CreateProxySessionCommandInput,
+  CreateProxySessionCommandOutput,
+} from "./commands/CreateProxySessionCommand.ts";
+import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand.ts";
 import {
   CreateRoomMembershipCommandInput,
-  CreateRoomMembershipCommandOutput
+  CreateRoomMembershipCommandOutput,
 } from "./commands/CreateRoomMembershipCommand.ts";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   CreateVoiceConnectorCommandInput,
-  CreateVoiceConnectorCommandOutput
+  CreateVoiceConnectorCommandOutput,
 } from "./commands/CreateVoiceConnectorCommand.ts";
 import {
   CreateVoiceConnectorGroupCommandInput,
-  CreateVoiceConnectorGroupCommandOutput
+  CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand.ts";
-import {
-  DeleteAccountCommandInput,
-  DeleteAccountCommandOutput
-} from "./commands/DeleteAccountCommand.ts";
-import {
-  DeleteAttendeeCommandInput,
-  DeleteAttendeeCommandOutput
-} from "./commands/DeleteAttendeeCommand.ts";
+import { DeleteAccountCommandInput, DeleteAccountCommandOutput } from "./commands/DeleteAccountCommand.ts";
+import { DeleteAttendeeCommandInput, DeleteAttendeeCommandOutput } from "./commands/DeleteAttendeeCommand.ts";
 import {
   DeleteEventsConfigurationCommandInput,
-  DeleteEventsConfigurationCommandOutput
+  DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand.ts";
+import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand.ts";
+import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand.ts";
 import {
-  DeleteMeetingCommandInput,
-  DeleteMeetingCommandOutput
-} from "./commands/DeleteMeetingCommand.ts";
-import {
-  DeletePhoneNumberCommandInput,
-  DeletePhoneNumberCommandOutput
-} from "./commands/DeletePhoneNumberCommand.ts";
-import {
-  DeleteRoomCommandInput,
-  DeleteRoomCommandOutput
-} from "./commands/DeleteRoomCommand.ts";
+  DeleteProxySessionCommandInput,
+  DeleteProxySessionCommandOutput,
+} from "./commands/DeleteProxySessionCommand.ts";
+import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand.ts";
 import {
   DeleteRoomMembershipCommandInput,
-  DeleteRoomMembershipCommandOutput
+  DeleteRoomMembershipCommandOutput,
 } from "./commands/DeleteRoomMembershipCommand.ts";
 import {
   DeleteVoiceConnectorCommandInput,
-  DeleteVoiceConnectorCommandOutput
+  DeleteVoiceConnectorCommandOutput,
 } from "./commands/DeleteVoiceConnectorCommand.ts";
 import {
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/DeleteVoiceConnectorEmergencyCallingConfigurationCommand.ts";
+import {
   DeleteVoiceConnectorGroupCommandInput,
-  DeleteVoiceConnectorGroupCommandOutput
+  DeleteVoiceConnectorGroupCommandOutput,
 } from "./commands/DeleteVoiceConnectorGroupCommand.ts";
 import {
   DeleteVoiceConnectorOriginationCommandInput,
-  DeleteVoiceConnectorOriginationCommandOutput
+  DeleteVoiceConnectorOriginationCommandOutput,
 } from "./commands/DeleteVoiceConnectorOriginationCommand.ts";
 import {
+  DeleteVoiceConnectorProxyCommandInput,
+  DeleteVoiceConnectorProxyCommandOutput,
+} from "./commands/DeleteVoiceConnectorProxyCommand.ts";
+import {
   DeleteVoiceConnectorStreamingConfigurationCommandInput,
-  DeleteVoiceConnectorStreamingConfigurationCommandOutput
+  DeleteVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/DeleteVoiceConnectorStreamingConfigurationCommand.ts";
 import {
   DeleteVoiceConnectorTerminationCommandInput,
-  DeleteVoiceConnectorTerminationCommandOutput
+  DeleteVoiceConnectorTerminationCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCommand.ts";
 import {
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
-  DeleteVoiceConnectorTerminationCredentialsCommandOutput
+  DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand.ts";
 import {
   DisassociatePhoneNumberFromUserCommandInput,
-  DisassociatePhoneNumberFromUserCommandOutput
+  DisassociatePhoneNumberFromUserCommandOutput,
 } from "./commands/DisassociatePhoneNumberFromUserCommand.ts";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
+  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorCommand.ts";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
 } from "./commands/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand.ts";
 import {
   DisassociateSigninDelegateGroupsFromAccountCommandInput,
-  DisassociateSigninDelegateGroupsFromAccountCommandOutput
+  DisassociateSigninDelegateGroupsFromAccountCommandOutput,
 } from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand.ts";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand.ts";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand.ts";
 import {
   GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
+  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand.ts";
-import {
-  GetAttendeeCommandInput,
-  GetAttendeeCommandOutput
-} from "./commands/GetAttendeeCommand.ts";
-import {
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand.ts";
+import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand.ts";
+import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand.ts";
 import {
   GetEventsConfigurationCommandInput,
-  GetEventsConfigurationCommandOutput
+  GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand.ts";
-import {
-  GetGlobalSettingsCommandInput,
-  GetGlobalSettingsCommandOutput
-} from "./commands/GetGlobalSettingsCommand.ts";
-import {
-  GetMeetingCommandInput,
-  GetMeetingCommandOutput
-} from "./commands/GetMeetingCommand.ts";
-import {
-  GetPhoneNumberCommandInput,
-  GetPhoneNumberCommandOutput
-} from "./commands/GetPhoneNumberCommand.ts";
+import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand.ts";
+import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand.ts";
+import { GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput } from "./commands/GetPhoneNumberCommand.ts";
 import {
   GetPhoneNumberOrderCommandInput,
-  GetPhoneNumberOrderCommandOutput
+  GetPhoneNumberOrderCommandOutput,
 } from "./commands/GetPhoneNumberOrderCommand.ts";
 import {
   GetPhoneNumberSettingsCommandInput,
-  GetPhoneNumberSettingsCommandOutput
+  GetPhoneNumberSettingsCommandOutput,
 } from "./commands/GetPhoneNumberSettingsCommand.ts";
+import { GetProxySessionCommandInput, GetProxySessionCommandOutput } from "./commands/GetProxySessionCommand.ts";
 import {
-  GetRoomCommandInput,
-  GetRoomCommandOutput
-} from "./commands/GetRoomCommand.ts";
+  GetRetentionSettingsCommandInput,
+  GetRetentionSettingsCommandOutput,
+} from "./commands/GetRetentionSettingsCommand.ts";
+import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand.ts";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand.ts";
+import { GetUserSettingsCommandInput, GetUserSettingsCommandOutput } from "./commands/GetUserSettingsCommand.ts";
+import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "./commands/GetVoiceConnectorCommand.ts";
 import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand.ts";
-import {
-  GetUserSettingsCommandInput,
-  GetUserSettingsCommandOutput
-} from "./commands/GetUserSettingsCommand.ts";
-import {
-  GetVoiceConnectorCommandInput,
-  GetVoiceConnectorCommandOutput
-} from "./commands/GetVoiceConnectorCommand.ts";
+  GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  GetVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/GetVoiceConnectorEmergencyCallingConfigurationCommand.ts";
 import {
   GetVoiceConnectorGroupCommandInput,
-  GetVoiceConnectorGroupCommandOutput
+  GetVoiceConnectorGroupCommandOutput,
 } from "./commands/GetVoiceConnectorGroupCommand.ts";
 import {
   GetVoiceConnectorLoggingConfigurationCommandInput,
-  GetVoiceConnectorLoggingConfigurationCommandOutput
+  GetVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorLoggingConfigurationCommand.ts";
 import {
   GetVoiceConnectorOriginationCommandInput,
-  GetVoiceConnectorOriginationCommandOutput
+  GetVoiceConnectorOriginationCommandOutput,
 } from "./commands/GetVoiceConnectorOriginationCommand.ts";
 import {
+  GetVoiceConnectorProxyCommandInput,
+  GetVoiceConnectorProxyCommandOutput,
+} from "./commands/GetVoiceConnectorProxyCommand.ts";
+import {
   GetVoiceConnectorStreamingConfigurationCommandInput,
-  GetVoiceConnectorStreamingConfigurationCommandOutput
+  GetVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/GetVoiceConnectorStreamingConfigurationCommand.ts";
 import {
   GetVoiceConnectorTerminationCommandInput,
-  GetVoiceConnectorTerminationCommandOutput
+  GetVoiceConnectorTerminationCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationCommand.ts";
 import {
   GetVoiceConnectorTerminationHealthCommandInput,
-  GetVoiceConnectorTerminationHealthCommandOutput
+  GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand.ts";
-import {
-  InviteUsersCommandInput,
-  InviteUsersCommandOutput
-} from "./commands/InviteUsersCommand.ts";
-import {
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput
-} from "./commands/ListAccountsCommand.ts";
-import {
-  ListAttendeesCommandInput,
-  ListAttendeesCommandOutput
-} from "./commands/ListAttendeesCommand.ts";
-import {
-  ListBotsCommandInput,
-  ListBotsCommandOutput
-} from "./commands/ListBotsCommand.ts";
-import {
-  ListMeetingsCommandInput,
-  ListMeetingsCommandOutput
-} from "./commands/ListMeetingsCommand.ts";
+import { InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand.ts";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand.ts";
+import { ListAttendeeTagsCommandInput, ListAttendeeTagsCommandOutput } from "./commands/ListAttendeeTagsCommand.ts";
+import { ListAttendeesCommandInput, ListAttendeesCommandOutput } from "./commands/ListAttendeesCommand.ts";
+import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand.ts";
+import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "./commands/ListMeetingTagsCommand.ts";
+import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand.ts";
 import {
   ListPhoneNumberOrdersCommandInput,
-  ListPhoneNumberOrdersCommandOutput
+  ListPhoneNumberOrdersCommandOutput,
 } from "./commands/ListPhoneNumberOrdersCommand.ts";
-import {
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
-} from "./commands/ListPhoneNumbersCommand.ts";
+import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand.ts";
+import { ListProxySessionsCommandInput, ListProxySessionsCommandOutput } from "./commands/ListProxySessionsCommand.ts";
 import {
   ListRoomMembershipsCommandInput,
-  ListRoomMembershipsCommandOutput
+  ListRoomMembershipsCommandOutput,
 } from "./commands/ListRoomMembershipsCommand.ts";
+import { ListRoomsCommandInput, ListRoomsCommandOutput } from "./commands/ListRoomsCommand.ts";
 import {
-  ListRoomsCommandInput,
-  ListRoomsCommandOutput
-} from "./commands/ListRoomsCommand.ts";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   ListVoiceConnectorGroupsCommandInput,
-  ListVoiceConnectorGroupsCommandOutput
+  ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand.ts";
 import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
-  ListVoiceConnectorTerminationCredentialsCommandOutput
+  ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand.ts";
 import {
   ListVoiceConnectorsCommandInput,
-  ListVoiceConnectorsCommandOutput
+  ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand.ts";
-import {
-  LogoutUserCommandInput,
-  LogoutUserCommandOutput
-} from "./commands/LogoutUserCommand.ts";
+import { LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand.ts";
 import {
   PutEventsConfigurationCommandInput,
-  PutEventsConfigurationCommandOutput
+  PutEventsConfigurationCommandOutput,
 } from "./commands/PutEventsConfigurationCommand.ts";
 import {
+  PutRetentionSettingsCommandInput,
+  PutRetentionSettingsCommandOutput,
+} from "./commands/PutRetentionSettingsCommand.ts";
+import {
+  PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+  PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
+} from "./commands/PutVoiceConnectorEmergencyCallingConfigurationCommand.ts";
+import {
   PutVoiceConnectorLoggingConfigurationCommandInput,
-  PutVoiceConnectorLoggingConfigurationCommandOutput
+  PutVoiceConnectorLoggingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorLoggingConfigurationCommand.ts";
 import {
   PutVoiceConnectorOriginationCommandInput,
-  PutVoiceConnectorOriginationCommandOutput
+  PutVoiceConnectorOriginationCommandOutput,
 } from "./commands/PutVoiceConnectorOriginationCommand.ts";
 import {
+  PutVoiceConnectorProxyCommandInput,
+  PutVoiceConnectorProxyCommandOutput,
+} from "./commands/PutVoiceConnectorProxyCommand.ts";
+import {
   PutVoiceConnectorStreamingConfigurationCommandInput,
-  PutVoiceConnectorStreamingConfigurationCommandOutput
+  PutVoiceConnectorStreamingConfigurationCommandOutput,
 } from "./commands/PutVoiceConnectorStreamingConfigurationCommand.ts";
 import {
   PutVoiceConnectorTerminationCommandInput,
-  PutVoiceConnectorTerminationCommandOutput
+  PutVoiceConnectorTerminationCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCommand.ts";
 import {
   PutVoiceConnectorTerminationCredentialsCommandInput,
-  PutVoiceConnectorTerminationCredentialsCommandOutput
+  PutVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/PutVoiceConnectorTerminationCredentialsCommand.ts";
 import {
-  RegenerateSecurityTokenCommandInput,
-  RegenerateSecurityTokenCommandOutput
-} from "./commands/RegenerateSecurityTokenCommand.ts";
+  RedactConversationMessageCommandInput,
+  RedactConversationMessageCommandOutput,
+} from "./commands/RedactConversationMessageCommand.ts";
+import { RedactRoomMessageCommandInput, RedactRoomMessageCommandOutput } from "./commands/RedactRoomMessageCommand.ts";
 import {
-  ResetPersonalPINCommandInput,
-  ResetPersonalPINCommandOutput
-} from "./commands/ResetPersonalPINCommand.ts";
+  RegenerateSecurityTokenCommandInput,
+  RegenerateSecurityTokenCommandOutput,
+} from "./commands/RegenerateSecurityTokenCommand.ts";
+import { ResetPersonalPINCommandInput, ResetPersonalPINCommandOutput } from "./commands/ResetPersonalPINCommand.ts";
 import {
   RestorePhoneNumberCommandInput,
-  RestorePhoneNumberCommandOutput
+  RestorePhoneNumberCommandOutput,
 } from "./commands/RestorePhoneNumberCommand.ts";
 import {
   SearchAvailablePhoneNumbersCommandInput,
-  SearchAvailablePhoneNumbersCommandOutput
+  SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand.ts";
-import {
-  UpdateAccountCommandInput,
-  UpdateAccountCommandOutput
-} from "./commands/UpdateAccountCommand.ts";
+import { TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand.ts";
+import { TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagAttendeeCommandInput, UntagAttendeeCommandOutput } from "./commands/UntagAttendeeCommand.ts";
+import { UntagMeetingCommandInput, UntagMeetingCommandOutput } from "./commands/UntagMeetingCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAccountCommandInput, UpdateAccountCommandOutput } from "./commands/UpdateAccountCommand.ts";
 import {
   UpdateAccountSettingsCommandInput,
-  UpdateAccountSettingsCommandOutput
+  UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand.ts";
-import {
-  UpdateBotCommandInput,
-  UpdateBotCommandOutput
-} from "./commands/UpdateBotCommand.ts";
+import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand.ts";
 import {
   UpdateGlobalSettingsCommandInput,
-  UpdateGlobalSettingsCommandOutput
+  UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand.ts";
-import {
-  UpdatePhoneNumberCommandInput,
-  UpdatePhoneNumberCommandOutput
-} from "./commands/UpdatePhoneNumberCommand.ts";
+import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand.ts";
 import {
   UpdatePhoneNumberSettingsCommandInput,
-  UpdatePhoneNumberSettingsCommandOutput
+  UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand.ts";
 import {
-  UpdateRoomCommandInput,
-  UpdateRoomCommandOutput
-} from "./commands/UpdateRoomCommand.ts";
+  UpdateProxySessionCommandInput,
+  UpdateProxySessionCommandOutput,
+} from "./commands/UpdateProxySessionCommand.ts";
+import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand.ts";
 import {
   UpdateRoomMembershipCommandInput,
-  UpdateRoomMembershipCommandOutput
+  UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand.ts";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand.ts";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import {
   UpdateUserSettingsCommandInput,
-  UpdateUserSettingsCommandOutput
+  UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand.ts";
 import {
   UpdateVoiceConnectorCommandInput,
-  UpdateVoiceConnectorCommandOutput
+  UpdateVoiceConnectorCommandOutput,
 } from "./commands/UpdateVoiceConnectorCommand.ts";
 import {
   UpdateVoiceConnectorGroupCommandInput,
-  UpdateVoiceConnectorGroupCommandOutput
+  UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -381,38 +334,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -421,9 +370,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -442,7 +392,9 @@ export type ServiceInputTypes =
   | CreateAttendeeCommandInput
   | CreateBotCommandInput
   | CreateMeetingCommandInput
+  | CreateMeetingWithAttendeesCommandInput
   | CreatePhoneNumberOrderCommandInput
+  | CreateProxySessionCommandInput
   | CreateRoomCommandInput
   | CreateRoomMembershipCommandInput
   | CreateUserCommandInput
@@ -453,11 +405,14 @@ export type ServiceInputTypes =
   | DeleteEventsConfigurationCommandInput
   | DeleteMeetingCommandInput
   | DeletePhoneNumberCommandInput
+  | DeleteProxySessionCommandInput
   | DeleteRoomCommandInput
   | DeleteRoomMembershipCommandInput
   | DeleteVoiceConnectorCommandInput
+  | DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput
   | DeleteVoiceConnectorGroupCommandInput
   | DeleteVoiceConnectorOriginationCommandInput
+  | DeleteVoiceConnectorProxyCommandInput
   | DeleteVoiceConnectorStreamingConfigurationCommandInput
   | DeleteVoiceConnectorTerminationCommandInput
   | DeleteVoiceConnectorTerminationCredentialsCommandInput
@@ -475,46 +430,66 @@ export type ServiceInputTypes =
   | GetPhoneNumberCommandInput
   | GetPhoneNumberOrderCommandInput
   | GetPhoneNumberSettingsCommandInput
+  | GetProxySessionCommandInput
+  | GetRetentionSettingsCommandInput
   | GetRoomCommandInput
   | GetUserCommandInput
   | GetUserSettingsCommandInput
   | GetVoiceConnectorCommandInput
+  | GetVoiceConnectorEmergencyCallingConfigurationCommandInput
   | GetVoiceConnectorGroupCommandInput
   | GetVoiceConnectorLoggingConfigurationCommandInput
   | GetVoiceConnectorOriginationCommandInput
+  | GetVoiceConnectorProxyCommandInput
   | GetVoiceConnectorStreamingConfigurationCommandInput
   | GetVoiceConnectorTerminationCommandInput
   | GetVoiceConnectorTerminationHealthCommandInput
   | InviteUsersCommandInput
   | ListAccountsCommandInput
+  | ListAttendeeTagsCommandInput
   | ListAttendeesCommandInput
   | ListBotsCommandInput
+  | ListMeetingTagsCommandInput
   | ListMeetingsCommandInput
   | ListPhoneNumberOrdersCommandInput
   | ListPhoneNumbersCommandInput
+  | ListProxySessionsCommandInput
   | ListRoomMembershipsCommandInput
   | ListRoomsCommandInput
+  | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | ListVoiceConnectorGroupsCommandInput
   | ListVoiceConnectorTerminationCredentialsCommandInput
   | ListVoiceConnectorsCommandInput
   | LogoutUserCommandInput
   | PutEventsConfigurationCommandInput
+  | PutRetentionSettingsCommandInput
+  | PutVoiceConnectorEmergencyCallingConfigurationCommandInput
   | PutVoiceConnectorLoggingConfigurationCommandInput
   | PutVoiceConnectorOriginationCommandInput
+  | PutVoiceConnectorProxyCommandInput
   | PutVoiceConnectorStreamingConfigurationCommandInput
   | PutVoiceConnectorTerminationCommandInput
   | PutVoiceConnectorTerminationCredentialsCommandInput
+  | RedactConversationMessageCommandInput
+  | RedactRoomMessageCommandInput
   | RegenerateSecurityTokenCommandInput
   | ResetPersonalPINCommandInput
   | RestorePhoneNumberCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | TagAttendeeCommandInput
+  | TagMeetingCommandInput
+  | TagResourceCommandInput
+  | UntagAttendeeCommandInput
+  | UntagMeetingCommandInput
+  | UntagResourceCommandInput
   | UpdateAccountCommandInput
   | UpdateAccountSettingsCommandInput
   | UpdateBotCommandInput
   | UpdateGlobalSettingsCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberSettingsCommandInput
+  | UpdateProxySessionCommandInput
   | UpdateRoomCommandInput
   | UpdateRoomMembershipCommandInput
   | UpdateUserCommandInput
@@ -538,7 +513,9 @@ export type ServiceOutputTypes =
   | CreateAttendeeCommandOutput
   | CreateBotCommandOutput
   | CreateMeetingCommandOutput
+  | CreateMeetingWithAttendeesCommandOutput
   | CreatePhoneNumberOrderCommandOutput
+  | CreateProxySessionCommandOutput
   | CreateRoomCommandOutput
   | CreateRoomMembershipCommandOutput
   | CreateUserCommandOutput
@@ -549,11 +526,14 @@ export type ServiceOutputTypes =
   | DeleteEventsConfigurationCommandOutput
   | DeleteMeetingCommandOutput
   | DeletePhoneNumberCommandOutput
+  | DeleteProxySessionCommandOutput
   | DeleteRoomCommandOutput
   | DeleteRoomMembershipCommandOutput
   | DeleteVoiceConnectorCommandOutput
+  | DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | DeleteVoiceConnectorGroupCommandOutput
   | DeleteVoiceConnectorOriginationCommandOutput
+  | DeleteVoiceConnectorProxyCommandOutput
   | DeleteVoiceConnectorStreamingConfigurationCommandOutput
   | DeleteVoiceConnectorTerminationCommandOutput
   | DeleteVoiceConnectorTerminationCredentialsCommandOutput
@@ -571,46 +551,66 @@ export type ServiceOutputTypes =
   | GetPhoneNumberCommandOutput
   | GetPhoneNumberOrderCommandOutput
   | GetPhoneNumberSettingsCommandOutput
+  | GetProxySessionCommandOutput
+  | GetRetentionSettingsCommandOutput
   | GetRoomCommandOutput
   | GetUserCommandOutput
   | GetUserSettingsCommandOutput
   | GetVoiceConnectorCommandOutput
+  | GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | GetVoiceConnectorGroupCommandOutput
   | GetVoiceConnectorLoggingConfigurationCommandOutput
   | GetVoiceConnectorOriginationCommandOutput
+  | GetVoiceConnectorProxyCommandOutput
   | GetVoiceConnectorStreamingConfigurationCommandOutput
   | GetVoiceConnectorTerminationCommandOutput
   | GetVoiceConnectorTerminationHealthCommandOutput
   | InviteUsersCommandOutput
   | ListAccountsCommandOutput
+  | ListAttendeeTagsCommandOutput
   | ListAttendeesCommandOutput
   | ListBotsCommandOutput
+  | ListMeetingTagsCommandOutput
   | ListMeetingsCommandOutput
   | ListPhoneNumberOrdersCommandOutput
   | ListPhoneNumbersCommandOutput
+  | ListProxySessionsCommandOutput
   | ListRoomMembershipsCommandOutput
   | ListRoomsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | ListVoiceConnectorGroupsCommandOutput
   | ListVoiceConnectorTerminationCredentialsCommandOutput
   | ListVoiceConnectorsCommandOutput
   | LogoutUserCommandOutput
   | PutEventsConfigurationCommandOutput
+  | PutRetentionSettingsCommandOutput
+  | PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
   | PutVoiceConnectorLoggingConfigurationCommandOutput
   | PutVoiceConnectorOriginationCommandOutput
+  | PutVoiceConnectorProxyCommandOutput
   | PutVoiceConnectorStreamingConfigurationCommandOutput
   | PutVoiceConnectorTerminationCommandOutput
   | PutVoiceConnectorTerminationCredentialsCommandOutput
+  | RedactConversationMessageCommandOutput
+  | RedactRoomMessageCommandOutput
   | RegenerateSecurityTokenCommandOutput
   | ResetPersonalPINCommandOutput
   | RestorePhoneNumberCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | TagAttendeeCommandOutput
+  | TagMeetingCommandOutput
+  | TagResourceCommandOutput
+  | UntagAttendeeCommandOutput
+  | UntagMeetingCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAccountCommandOutput
   | UpdateAccountSettingsCommandOutput
   | UpdateBotCommandOutput
   | UpdateGlobalSettingsCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberSettingsCommandOutput
+  | UpdateProxySessionCommandOutput
   | UpdateRoomCommandOutput
   | UpdateRoomMembershipCommandOutput
   | UpdateUserCommandOutput
@@ -618,8 +618,7 @@ export type ServiceOutputTypes =
   | UpdateVoiceConnectorCommandOutput
   | UpdateVoiceConnectorGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -693,14 +692,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -708,9 +712,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ChimeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ChimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -719,9 +721,7 @@ export type ChimeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -780,7 +780,7 @@ export class ChimeClient extends __Client<
   constructor(configuration: ChimeClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -795,6 +795,7 @@ export class ChimeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

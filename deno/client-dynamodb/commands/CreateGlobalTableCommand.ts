@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient.ts";
-import {
-  CreateGlobalTableInput,
-  CreateGlobalTableOutput
-} from "../models/index.ts";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
+import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0CreateGlobalTableCommand,
-  serializeAws_json1_0CreateGlobalTableCommand
+  serializeAws_json1_0CreateGlobalTableCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateGlobalTableCommandInput = CreateGlobalTableInput;
-export type CreateGlobalTableCommandOutput = CreateGlobalTableOutput &
-  __MetadataBearer;
+export type CreateGlobalTableCommandOutput = CreateGlobalTableOutput & __MetadataBearer;
 
 export class CreateGlobalTableCommand extends $Command<
   CreateGlobalTableCommandInput,
@@ -50,14 +39,15 @@ export class CreateGlobalTableCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateGlobalTableInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateGlobalTableOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateGlobalTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateGlobalTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateGlobalTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateGlobalTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalTableCommandOutput> {
     return deserializeAws_json1_0CreateGlobalTableCommand(output, context);
   }
 

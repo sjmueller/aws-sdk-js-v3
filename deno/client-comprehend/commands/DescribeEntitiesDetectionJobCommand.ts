@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
-import {
-  DescribeEntitiesDetectionJobRequest,
-  DescribeEntitiesDetectionJobResponse
-} from "../models/index.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
+import { DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEntitiesDetectionJobCommand,
-  serializeAws_json1_1DescribeEntitiesDetectionJobCommand
+  serializeAws_json1_1DescribeEntitiesDetectionJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEntitiesDetectionJobCommandInput = DescribeEntitiesDetectionJobRequest;
-export type DescribeEntitiesDetectionJobCommandOutput = DescribeEntitiesDetectionJobResponse &
-  __MetadataBearer;
+export type DescribeEntitiesDetectionJobCommandOutput = DescribeEntitiesDetectionJobResponse & __MetadataBearer;
 
 export class DescribeEntitiesDetectionJobCommand extends $Command<
   DescribeEntitiesDetectionJobCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEntitiesDetectionJobCommandInput,
-    DescribeEntitiesDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEntitiesDetectionJobCommandInput, DescribeEntitiesDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEntitiesDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEntitiesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeEntitiesDetectionJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEntitiesDetectionJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitiesDetectionJobCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeEntitiesDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

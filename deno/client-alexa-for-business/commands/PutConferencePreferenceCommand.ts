@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  PutConferencePreferenceRequest,
-  PutConferencePreferenceResponse
-} from "../models/index.ts";
+import { PutConferencePreferenceRequest, PutConferencePreferenceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutConferencePreferenceCommand,
-  serializeAws_json1_1PutConferencePreferenceCommand
+  serializeAws_json1_1PutConferencePreferenceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutConferencePreferenceCommandInput = PutConferencePreferenceRequest;
-export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse &
-  __MetadataBearer;
+export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse & __MetadataBearer;
 
 export class PutConferencePreferenceCommand extends $Command<
   PutConferencePreferenceCommandInput,
@@ -49,18 +42,16 @@ export class PutConferencePreferenceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConferencePreferenceCommandInput,
-    PutConferencePreferenceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConferencePreferenceCommandInput, PutConferencePreferenceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutConferencePreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutConferencePreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class PutConferencePreferenceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutConferencePreferenceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConferencePreferenceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1PutConferencePreferenceCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConferencePreferenceCommandOutput> {
+    return deserializeAws_json1_1PutConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

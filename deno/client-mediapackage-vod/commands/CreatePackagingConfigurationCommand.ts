@@ -1,21 +1,15 @@
 import {
   MediaPackageVodClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageVodClient.ts";
-import {
-  CreatePackagingConfigurationRequest,
-  CreatePackagingConfigurationResponse
-} from "../models/index.ts";
+import { CreatePackagingConfigurationRequest, CreatePackagingConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreatePackagingConfigurationCommand,
-  serializeAws_restJson1CreatePackagingConfigurationCommand
+  serializeAws_restJson1CreatePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePackagingConfigurationCommandInput = CreatePackagingConfigurationRequest;
-export type CreatePackagingConfigurationCommandOutput = CreatePackagingConfigurationResponse &
-  __MetadataBearer;
+export type CreatePackagingConfigurationCommandOutput = CreatePackagingConfigurationResponse & __MetadataBearer;
 
 export class CreatePackagingConfigurationCommand extends $Command<
   CreatePackagingConfigurationCommandInput,
@@ -49,18 +42,16 @@ export class CreatePackagingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePackagingConfigurationCommandInput,
-    CreatePackagingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePackagingConfigurationCommandInput, CreatePackagingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePackagingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePackagingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class CreatePackagingConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePackagingConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePackagingConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: CreatePackagingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreatePackagingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreatePackagingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreatePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

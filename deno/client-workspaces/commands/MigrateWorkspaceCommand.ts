@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient.ts";
-import {
-  MigrateWorkspaceRequest,
-  MigrateWorkspaceResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
+import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1MigrateWorkspaceCommand,
-  serializeAws_json1_1MigrateWorkspaceCommand
+  serializeAws_json1_1MigrateWorkspaceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type MigrateWorkspaceCommandInput = MigrateWorkspaceRequest;
-export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult &
-  __MetadataBearer;
+export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult & __MetadataBearer;
 
 export class MigrateWorkspaceCommand extends $Command<
   MigrateWorkspaceCommandInput,
@@ -50,14 +39,15 @@ export class MigrateWorkspaceCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: MigrateWorkspaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MigrateWorkspaceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class MigrateWorkspaceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: MigrateWorkspaceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: MigrateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MigrateWorkspaceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<MigrateWorkspaceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MigrateWorkspaceCommandOutput> {
     return deserializeAws_json1_1MigrateWorkspaceCommand(output, context);
   }
 

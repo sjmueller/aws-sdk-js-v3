@@ -1,18 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient.ts";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
 import { ListLocationsRequest, ListLocationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListLocationsCommand,
-  serializeAws_json1_1ListLocationsCommand
+  serializeAws_json1_1ListLocationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListLocationsCommandInput = ListLocationsRequest;
-export type ListLocationsCommandOutput = ListLocationsResponse &
-  __MetadataBearer;
+export type ListLocationsCommandOutput = ListLocationsResponse & __MetadataBearer;
 
 export class ListLocationsCommand extends $Command<
   ListLocationsCommandInput,
@@ -47,14 +39,15 @@ export class ListLocationsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLocationsCommandInput, ListLocationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListLocationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLocationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListLocationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListLocationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLocationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListLocationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
     return deserializeAws_json1_1ListLocationsCommand(output, context);
   }
 

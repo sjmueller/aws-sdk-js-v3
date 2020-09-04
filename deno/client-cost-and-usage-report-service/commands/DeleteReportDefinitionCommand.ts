@@ -1,21 +1,15 @@
 import {
-  CostandUsageReportServiceClientResolvedConfig,
+  CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CostandUsageReportServiceClient.ts";
-import {
-  DeleteReportDefinitionRequest,
-  DeleteReportDefinitionResponse
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../CostAndUsageReportServiceClient.ts";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteReportDefinitionCommand,
-  serializeAws_json1_1DeleteReportDefinitionCommand
+  serializeAws_json1_1DeleteReportDefinitionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteReportDefinitionCommandInput = DeleteReportDefinitionRequest;
-export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse &
-  __MetadataBearer;
+export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse & __MetadataBearer;
 
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,
   DeleteReportDefinitionCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
+  CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DeleteReportDefinitionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostandUsageReportServiceClientResolvedConfig,
+    configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReportDefinitionCommandInput,
-    DeleteReportDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteReportDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReportDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DeleteReportDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteReportDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReportDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteReportDefinitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
     return deserializeAws_json1_1DeleteReportDefinitionCommand(output, context);
   }
 

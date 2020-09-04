@@ -1,21 +1,14 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient.ts";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
 import {
   DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationResponse
+  DescribeSubscribersForNotificationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSubscribersForNotificationCommand,
-  serializeAws_json1_1DescribeSubscribersForNotificationCommand
+  serializeAws_json1_1DescribeSubscribersForNotificationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSubscribersForNotificationCommandInput = DescribeSubscribersForNotificationRequest;
@@ -49,18 +42,16 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSubscribersForNotificationCommandInput,
-    DescribeSubscribersForNotificationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSubscribersForNotificationCommandInput, DescribeSubscribersForNotificationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSubscribersForNotificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubscribersForNotificationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     input: DescribeSubscribersForNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribersForNotificationCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

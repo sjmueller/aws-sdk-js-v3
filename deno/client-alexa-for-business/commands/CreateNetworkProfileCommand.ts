@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  CreateNetworkProfileRequest,
-  CreateNetworkProfileResponse
-} from "../models/index.ts";
+import { CreateNetworkProfileRequest, CreateNetworkProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateNetworkProfileCommand,
-  serializeAws_json1_1CreateNetworkProfileCommand
+  serializeAws_json1_1CreateNetworkProfileCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateNetworkProfileCommandInput = CreateNetworkProfileRequest;
-export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResponse &
-  __MetadataBearer;
+export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResponse & __MetadataBearer;
 
 export class CreateNetworkProfileCommand extends $Command<
   CreateNetworkProfileCommandInput,
@@ -49,18 +42,16 @@ export class CreateNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNetworkProfileCommandInput,
-    CreateNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNetworkProfileCommandInput, CreateNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateNetworkProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreateNetworkProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateNetworkProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateNetworkProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateNetworkProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkProfileCommandOutput> {
     return deserializeAws_json1_1CreateNetworkProfileCommand(output, context);
   }
 

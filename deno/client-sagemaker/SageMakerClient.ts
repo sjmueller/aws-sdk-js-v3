@@ -1,535 +1,350 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand.ts";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
 import {
   AssociateTrialComponentCommandInput,
-  AssociateTrialComponentCommandOutput
+  AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand.ts";
-import {
-  CreateAlgorithmCommandInput,
-  CreateAlgorithmCommandOutput
-} from "./commands/CreateAlgorithmCommand.ts";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand.ts";
-import {
-  CreateAutoMLJobCommandInput,
-  CreateAutoMLJobCommandOutput
-} from "./commands/CreateAutoMLJobCommand.ts";
+import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand.ts";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
+import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand.ts";
 import {
   CreateCodeRepositoryCommandInput,
-  CreateCodeRepositoryCommandOutput
+  CreateCodeRepositoryCommandOutput,
 } from "./commands/CreateCodeRepositoryCommand.ts";
 import {
   CreateCompilationJobCommandInput,
-  CreateCompilationJobCommandOutput
+  CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand.ts";
-import {
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput
-} from "./commands/CreateDomainCommand.ts";
-import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand.ts";
+import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand.ts";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand.ts";
 import {
   CreateEndpointConfigCommandInput,
-  CreateEndpointConfigCommandOutput
+  CreateEndpointConfigCommandOutput,
 } from "./commands/CreateEndpointConfigCommand.ts";
-import {
-  CreateExperimentCommandInput,
-  CreateExperimentCommandOutput
-} from "./commands/CreateExperimentCommand.ts";
+import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "./commands/CreateExperimentCommand.ts";
 import {
   CreateFlowDefinitionCommandInput,
-  CreateFlowDefinitionCommandOutput
+  CreateFlowDefinitionCommandOutput,
 } from "./commands/CreateFlowDefinitionCommand.ts";
-import {
-  CreateHumanTaskUiCommandInput,
-  CreateHumanTaskUiCommandOutput
-} from "./commands/CreateHumanTaskUiCommand.ts";
+import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "./commands/CreateHumanTaskUiCommand.ts";
 import {
   CreateHyperParameterTuningJobCommandInput,
-  CreateHyperParameterTuningJobCommandOutput
+  CreateHyperParameterTuningJobCommandOutput,
 } from "./commands/CreateHyperParameterTuningJobCommand.ts";
-import {
-  CreateLabelingJobCommandInput,
-  CreateLabelingJobCommandOutput
-} from "./commands/CreateLabelingJobCommand.ts";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand.ts";
+import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand.ts";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand.ts";
 import {
   CreateModelPackageCommandInput,
-  CreateModelPackageCommandOutput
+  CreateModelPackageCommandOutput,
 } from "./commands/CreateModelPackageCommand.ts";
 import {
   CreateMonitoringScheduleCommandInput,
-  CreateMonitoringScheduleCommandOutput
+  CreateMonitoringScheduleCommandOutput,
 } from "./commands/CreateMonitoringScheduleCommand.ts";
 import {
   CreateNotebookInstanceCommandInput,
-  CreateNotebookInstanceCommandOutput
+  CreateNotebookInstanceCommandOutput,
 } from "./commands/CreateNotebookInstanceCommand.ts";
 import {
   CreateNotebookInstanceLifecycleConfigCommandInput,
-  CreateNotebookInstanceLifecycleConfigCommandOutput
+  CreateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand.ts";
 import {
   CreatePresignedDomainUrlCommandInput,
-  CreatePresignedDomainUrlCommandOutput
+  CreatePresignedDomainUrlCommandOutput,
 } from "./commands/CreatePresignedDomainUrlCommand.ts";
 import {
   CreatePresignedNotebookInstanceUrlCommandInput,
-  CreatePresignedNotebookInstanceUrlCommandOutput
+  CreatePresignedNotebookInstanceUrlCommandOutput,
 } from "./commands/CreatePresignedNotebookInstanceUrlCommand.ts";
 import {
   CreateProcessingJobCommandInput,
-  CreateProcessingJobCommandOutput
+  CreateProcessingJobCommandOutput,
 } from "./commands/CreateProcessingJobCommand.ts";
-import {
-  CreateTrainingJobCommandInput,
-  CreateTrainingJobCommandOutput
-} from "./commands/CreateTrainingJobCommand.ts";
+import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "./commands/CreateTrainingJobCommand.ts";
 import {
   CreateTransformJobCommandInput,
-  CreateTransformJobCommandOutput
+  CreateTransformJobCommandOutput,
 } from "./commands/CreateTransformJobCommand.ts";
-import {
-  CreateTrialCommandInput,
-  CreateTrialCommandOutput
-} from "./commands/CreateTrialCommand.ts";
+import { CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand.ts";
 import {
   CreateTrialComponentCommandInput,
-  CreateTrialComponentCommandOutput
+  CreateTrialComponentCommandOutput,
 } from "./commands/CreateTrialComponentCommand.ts";
-import {
-  CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
-} from "./commands/CreateUserProfileCommand.ts";
-import {
-  CreateWorkteamCommandInput,
-  CreateWorkteamCommandOutput
-} from "./commands/CreateWorkteamCommand.ts";
-import {
-  DeleteAlgorithmCommandInput,
-  DeleteAlgorithmCommandOutput
-} from "./commands/DeleteAlgorithmCommand.ts";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand.ts";
+import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand.ts";
+import { CreateWorkforceCommandInput, CreateWorkforceCommandOutput } from "./commands/CreateWorkforceCommand.ts";
+import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./commands/CreateWorkteamCommand.ts";
+import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand.ts";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand.ts";
 import {
   DeleteCodeRepositoryCommandInput,
-  DeleteCodeRepositoryCommandOutput
+  DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand.ts";
-import {
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
-} from "./commands/DeleteDomainCommand.ts";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand.ts";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand.ts";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand.ts";
 import {
   DeleteEndpointConfigCommandInput,
-  DeleteEndpointConfigCommandOutput
+  DeleteEndpointConfigCommandOutput,
 } from "./commands/DeleteEndpointConfigCommand.ts";
-import {
-  DeleteExperimentCommandInput,
-  DeleteExperimentCommandOutput
-} from "./commands/DeleteExperimentCommand.ts";
+import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand.ts";
 import {
   DeleteFlowDefinitionCommandInput,
-  DeleteFlowDefinitionCommandOutput
+  DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand.ts";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand.ts";
+import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand.ts";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand.ts";
 import {
   DeleteModelPackageCommandInput,
-  DeleteModelPackageCommandOutput
+  DeleteModelPackageCommandOutput,
 } from "./commands/DeleteModelPackageCommand.ts";
 import {
   DeleteMonitoringScheduleCommandInput,
-  DeleteMonitoringScheduleCommandOutput
+  DeleteMonitoringScheduleCommandOutput,
 } from "./commands/DeleteMonitoringScheduleCommand.ts";
 import {
   DeleteNotebookInstanceCommandInput,
-  DeleteNotebookInstanceCommandOutput
+  DeleteNotebookInstanceCommandOutput,
 } from "./commands/DeleteNotebookInstanceCommand.ts";
 import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
-  DeleteNotebookInstanceLifecycleConfigCommandOutput
+  DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
-import {
-  DeleteTrialCommandInput,
-  DeleteTrialCommandOutput
-} from "./commands/DeleteTrialCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
+import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand.ts";
 import {
   DeleteTrialComponentCommandInput,
-  DeleteTrialComponentCommandOutput
+  DeleteTrialComponentCommandOutput,
 } from "./commands/DeleteTrialComponentCommand.ts";
-import {
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
-} from "./commands/DeleteUserProfileCommand.ts";
-import {
-  DeleteWorkteamCommandInput,
-  DeleteWorkteamCommandOutput
-} from "./commands/DeleteWorkteamCommand.ts";
-import {
-  DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput
-} from "./commands/DescribeAlgorithmCommand.ts";
-import {
-  DescribeAppCommandInput,
-  DescribeAppCommandOutput
-} from "./commands/DescribeAppCommand.ts";
-import {
-  DescribeAutoMLJobCommandInput,
-  DescribeAutoMLJobCommandOutput
-} from "./commands/DescribeAutoMLJobCommand.ts";
+import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand.ts";
+import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "./commands/DeleteWorkforceCommand.ts";
+import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand.ts";
+import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand.ts";
+import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand.ts";
+import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand.ts";
 import {
   DescribeCodeRepositoryCommandInput,
-  DescribeCodeRepositoryCommandOutput
+  DescribeCodeRepositoryCommandOutput,
 } from "./commands/DescribeCodeRepositoryCommand.ts";
 import {
   DescribeCompilationJobCommandInput,
-  DescribeCompilationJobCommandOutput
+  DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand.ts";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand.ts";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand.ts";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand.ts";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand.ts";
 import {
   DescribeEndpointConfigCommandInput,
-  DescribeEndpointConfigCommandOutput
+  DescribeEndpointConfigCommandOutput,
 } from "./commands/DescribeEndpointConfigCommand.ts";
 import {
   DescribeExperimentCommandInput,
-  DescribeExperimentCommandOutput
+  DescribeExperimentCommandOutput,
 } from "./commands/DescribeExperimentCommand.ts";
 import {
   DescribeFlowDefinitionCommandInput,
-  DescribeFlowDefinitionCommandOutput
+  DescribeFlowDefinitionCommandOutput,
 } from "./commands/DescribeFlowDefinitionCommand.ts";
 import {
   DescribeHumanTaskUiCommandInput,
-  DescribeHumanTaskUiCommandOutput
+  DescribeHumanTaskUiCommandOutput,
 } from "./commands/DescribeHumanTaskUiCommand.ts";
 import {
   DescribeHyperParameterTuningJobCommandInput,
-  DescribeHyperParameterTuningJobCommandOutput
+  DescribeHyperParameterTuningJobCommandOutput,
 } from "./commands/DescribeHyperParameterTuningJobCommand.ts";
 import {
   DescribeLabelingJobCommandInput,
-  DescribeLabelingJobCommandOutput
+  DescribeLabelingJobCommandOutput,
 } from "./commands/DescribeLabelingJobCommand.ts";
-import {
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput
-} from "./commands/DescribeModelCommand.ts";
+import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand.ts";
 import {
   DescribeModelPackageCommandInput,
-  DescribeModelPackageCommandOutput
+  DescribeModelPackageCommandOutput,
 } from "./commands/DescribeModelPackageCommand.ts";
 import {
   DescribeMonitoringScheduleCommandInput,
-  DescribeMonitoringScheduleCommandOutput
+  DescribeMonitoringScheduleCommandOutput,
 } from "./commands/DescribeMonitoringScheduleCommand.ts";
 import {
   DescribeNotebookInstanceCommandInput,
-  DescribeNotebookInstanceCommandOutput
+  DescribeNotebookInstanceCommandOutput,
 } from "./commands/DescribeNotebookInstanceCommand.ts";
 import {
   DescribeNotebookInstanceLifecycleConfigCommandInput,
-  DescribeNotebookInstanceLifecycleConfigCommandOutput
+  DescribeNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand.ts";
 import {
   DescribeProcessingJobCommandInput,
-  DescribeProcessingJobCommandOutput
+  DescribeProcessingJobCommandOutput,
 } from "./commands/DescribeProcessingJobCommand.ts";
 import {
   DescribeSubscribedWorkteamCommandInput,
-  DescribeSubscribedWorkteamCommandOutput
+  DescribeSubscribedWorkteamCommandOutput,
 } from "./commands/DescribeSubscribedWorkteamCommand.ts";
 import {
   DescribeTrainingJobCommandInput,
-  DescribeTrainingJobCommandOutput
+  DescribeTrainingJobCommandOutput,
 } from "./commands/DescribeTrainingJobCommand.ts";
 import {
   DescribeTransformJobCommandInput,
-  DescribeTransformJobCommandOutput
+  DescribeTransformJobCommandOutput,
 } from "./commands/DescribeTransformJobCommand.ts";
-import {
-  DescribeTrialCommandInput,
-  DescribeTrialCommandOutput
-} from "./commands/DescribeTrialCommand.ts";
+import { DescribeTrialCommandInput, DescribeTrialCommandOutput } from "./commands/DescribeTrialCommand.ts";
 import {
   DescribeTrialComponentCommandInput,
-  DescribeTrialComponentCommandOutput
+  DescribeTrialComponentCommandOutput,
 } from "./commands/DescribeTrialComponentCommand.ts";
 import {
   DescribeUserProfileCommandInput,
-  DescribeUserProfileCommandOutput
+  DescribeUserProfileCommandOutput,
 } from "./commands/DescribeUserProfileCommand.ts";
-import {
-  DescribeWorkforceCommandInput,
-  DescribeWorkforceCommandOutput
-} from "./commands/DescribeWorkforceCommand.ts";
-import {
-  DescribeWorkteamCommandInput,
-  DescribeWorkteamCommandOutput
-} from "./commands/DescribeWorkteamCommand.ts";
+import { DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput } from "./commands/DescribeWorkforceCommand.ts";
+import { DescribeWorkteamCommandInput, DescribeWorkteamCommandOutput } from "./commands/DescribeWorkteamCommand.ts";
 import {
   DisassociateTrialComponentCommandInput,
-  DisassociateTrialComponentCommandOutput
+  DisassociateTrialComponentCommandOutput,
 } from "./commands/DisassociateTrialComponentCommand.ts";
 import {
   GetSearchSuggestionsCommandInput,
-  GetSearchSuggestionsCommandOutput
+  GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand.ts";
-import {
-  ListAlgorithmsCommandInput,
-  ListAlgorithmsCommandOutput
-} from "./commands/ListAlgorithmsCommand.ts";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand.ts";
-import {
-  ListAutoMLJobsCommandInput,
-  ListAutoMLJobsCommandOutput
-} from "./commands/ListAutoMLJobsCommand.ts";
+import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand.ts";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand.ts";
+import { ListAutoMLJobsCommandInput, ListAutoMLJobsCommandOutput } from "./commands/ListAutoMLJobsCommand.ts";
 import {
   ListCandidatesForAutoMLJobCommandInput,
-  ListCandidatesForAutoMLJobCommandOutput
+  ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand.ts";
 import {
   ListCodeRepositoriesCommandInput,
-  ListCodeRepositoriesCommandOutput
+  ListCodeRepositoriesCommandOutput,
 } from "./commands/ListCodeRepositoriesCommand.ts";
 import {
   ListCompilationJobsCommandInput,
-  ListCompilationJobsCommandOutput
+  ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand.ts";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand.ts";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import {
   ListEndpointConfigsCommandInput,
-  ListEndpointConfigsCommandOutput
+  ListEndpointConfigsCommandOutput,
 } from "./commands/ListEndpointConfigsCommand.ts";
-import {
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput
-} from "./commands/ListEndpointsCommand.ts";
-import {
-  ListExperimentsCommandInput,
-  ListExperimentsCommandOutput
-} from "./commands/ListExperimentsCommand.ts";
+import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand.ts";
+import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand.ts";
 import {
   ListFlowDefinitionsCommandInput,
-  ListFlowDefinitionsCommandOutput
+  ListFlowDefinitionsCommandOutput,
 } from "./commands/ListFlowDefinitionsCommand.ts";
-import {
-  ListHumanTaskUisCommandInput,
-  ListHumanTaskUisCommandOutput
-} from "./commands/ListHumanTaskUisCommand.ts";
+import { ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput } from "./commands/ListHumanTaskUisCommand.ts";
 import {
   ListHyperParameterTuningJobsCommandInput,
-  ListHyperParameterTuningJobsCommandOutput
+  ListHyperParameterTuningJobsCommandOutput,
 } from "./commands/ListHyperParameterTuningJobsCommand.ts";
-import {
-  ListLabelingJobsCommandInput,
-  ListLabelingJobsCommandOutput
-} from "./commands/ListLabelingJobsCommand.ts";
+import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand.ts";
 import {
   ListLabelingJobsForWorkteamCommandInput,
-  ListLabelingJobsForWorkteamCommandOutput
+  ListLabelingJobsForWorkteamCommandOutput,
 } from "./commands/ListLabelingJobsForWorkteamCommand.ts";
-import {
-  ListModelPackagesCommandInput,
-  ListModelPackagesCommandOutput
-} from "./commands/ListModelPackagesCommand.ts";
-import {
-  ListModelsCommandInput,
-  ListModelsCommandOutput
-} from "./commands/ListModelsCommand.ts";
+import { ListModelPackagesCommandInput, ListModelPackagesCommandOutput } from "./commands/ListModelPackagesCommand.ts";
+import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand.ts";
 import {
   ListMonitoringExecutionsCommandInput,
-  ListMonitoringExecutionsCommandOutput
+  ListMonitoringExecutionsCommandOutput,
 } from "./commands/ListMonitoringExecutionsCommand.ts";
 import {
   ListMonitoringSchedulesCommandInput,
-  ListMonitoringSchedulesCommandOutput
+  ListMonitoringSchedulesCommandOutput,
 } from "./commands/ListMonitoringSchedulesCommand.ts";
 import {
   ListNotebookInstanceLifecycleConfigsCommandInput,
-  ListNotebookInstanceLifecycleConfigsCommandOutput
+  ListNotebookInstanceLifecycleConfigsCommandOutput,
 } from "./commands/ListNotebookInstanceLifecycleConfigsCommand.ts";
 import {
   ListNotebookInstancesCommandInput,
-  ListNotebookInstancesCommandOutput
+  ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand.ts";
 import {
   ListProcessingJobsCommandInput,
-  ListProcessingJobsCommandOutput
+  ListProcessingJobsCommandOutput,
 } from "./commands/ListProcessingJobsCommand.ts";
 import {
   ListSubscribedWorkteamsCommandInput,
-  ListSubscribedWorkteamsCommandOutput
+  ListSubscribedWorkteamsCommandOutput,
 } from "./commands/ListSubscribedWorkteamsCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
-import {
-  ListTrainingJobsCommandInput,
-  ListTrainingJobsCommandOutput
-} from "./commands/ListTrainingJobsCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
+import { ListTrainingJobsCommandInput, ListTrainingJobsCommandOutput } from "./commands/ListTrainingJobsCommand.ts";
 import {
   ListTrainingJobsForHyperParameterTuningJobCommandInput,
-  ListTrainingJobsForHyperParameterTuningJobCommandOutput
+  ListTrainingJobsForHyperParameterTuningJobCommandOutput,
 } from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand.ts";
-import {
-  ListTransformJobsCommandInput,
-  ListTransformJobsCommandOutput
-} from "./commands/ListTransformJobsCommand.ts";
+import { ListTransformJobsCommandInput, ListTransformJobsCommandOutput } from "./commands/ListTransformJobsCommand.ts";
 import {
   ListTrialComponentsCommandInput,
-  ListTrialComponentsCommandOutput
+  ListTrialComponentsCommandOutput,
 } from "./commands/ListTrialComponentsCommand.ts";
-import {
-  ListTrialsCommandInput,
-  ListTrialsCommandOutput
-} from "./commands/ListTrialsCommand.ts";
-import {
-  ListUserProfilesCommandInput,
-  ListUserProfilesCommandOutput
-} from "./commands/ListUserProfilesCommand.ts";
-import {
-  ListWorkteamsCommandInput,
-  ListWorkteamsCommandOutput
-} from "./commands/ListWorkteamsCommand.ts";
-import {
-  RenderUiTemplateCommandInput,
-  RenderUiTemplateCommandOutput
-} from "./commands/RenderUiTemplateCommand.ts";
-import {
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand.ts";
+import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand.ts";
+import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand.ts";
+import { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand.ts";
+import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand.ts";
+import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand.ts";
+import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand.ts";
 import {
   StartMonitoringScheduleCommandInput,
-  StartMonitoringScheduleCommandOutput
+  StartMonitoringScheduleCommandOutput,
 } from "./commands/StartMonitoringScheduleCommand.ts";
 import {
   StartNotebookInstanceCommandInput,
-  StartNotebookInstanceCommandOutput
+  StartNotebookInstanceCommandOutput,
 } from "./commands/StartNotebookInstanceCommand.ts";
-import {
-  StopAutoMLJobCommandInput,
-  StopAutoMLJobCommandOutput
-} from "./commands/StopAutoMLJobCommand.ts";
+import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand.ts";
 import {
   StopCompilationJobCommandInput,
-  StopCompilationJobCommandOutput
+  StopCompilationJobCommandOutput,
 } from "./commands/StopCompilationJobCommand.ts";
 import {
   StopHyperParameterTuningJobCommandInput,
-  StopHyperParameterTuningJobCommandOutput
+  StopHyperParameterTuningJobCommandOutput,
 } from "./commands/StopHyperParameterTuningJobCommand.ts";
-import {
-  StopLabelingJobCommandInput,
-  StopLabelingJobCommandOutput
-} from "./commands/StopLabelingJobCommand.ts";
+import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "./commands/StopLabelingJobCommand.ts";
 import {
   StopMonitoringScheduleCommandInput,
-  StopMonitoringScheduleCommandOutput
+  StopMonitoringScheduleCommandOutput,
 } from "./commands/StopMonitoringScheduleCommand.ts";
 import {
   StopNotebookInstanceCommandInput,
-  StopNotebookInstanceCommandOutput
+  StopNotebookInstanceCommandOutput,
 } from "./commands/StopNotebookInstanceCommand.ts";
-import {
-  StopProcessingJobCommandInput,
-  StopProcessingJobCommandOutput
-} from "./commands/StopProcessingJobCommand.ts";
-import {
-  StopTrainingJobCommandInput,
-  StopTrainingJobCommandOutput
-} from "./commands/StopTrainingJobCommand.ts";
-import {
-  StopTransformJobCommandInput,
-  StopTransformJobCommandOutput
-} from "./commands/StopTransformJobCommand.ts";
+import { StopProcessingJobCommandInput, StopProcessingJobCommandOutput } from "./commands/StopProcessingJobCommand.ts";
+import { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "./commands/StopTrainingJobCommand.ts";
+import { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "./commands/StopTransformJobCommand.ts";
 import {
   UpdateCodeRepositoryCommandInput,
-  UpdateCodeRepositoryCommandOutput
+  UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand.ts";
-import {
-  UpdateDomainCommandInput,
-  UpdateDomainCommandOutput
-} from "./commands/UpdateDomainCommand.ts";
-import {
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
-} from "./commands/UpdateEndpointCommand.ts";
+import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand.ts";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand.ts";
 import {
   UpdateEndpointWeightsAndCapacitiesCommandInput,
-  UpdateEndpointWeightsAndCapacitiesCommandOutput
+  UpdateEndpointWeightsAndCapacitiesCommandOutput,
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand.ts";
-import {
-  UpdateExperimentCommandInput,
-  UpdateExperimentCommandOutput
-} from "./commands/UpdateExperimentCommand.ts";
+import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand.ts";
 import {
   UpdateMonitoringScheduleCommandInput,
-  UpdateMonitoringScheduleCommandOutput
+  UpdateMonitoringScheduleCommandOutput,
 } from "./commands/UpdateMonitoringScheduleCommand.ts";
 import {
   UpdateNotebookInstanceCommandInput,
-  UpdateNotebookInstanceCommandOutput
+  UpdateNotebookInstanceCommandOutput,
 } from "./commands/UpdateNotebookInstanceCommand.ts";
 import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
-  UpdateNotebookInstanceLifecycleConfigCommandOutput
+  UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand.ts";
-import {
-  UpdateTrialCommandInput,
-  UpdateTrialCommandOutput
-} from "./commands/UpdateTrialCommand.ts";
+import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand.ts";
 import {
   UpdateTrialComponentCommandInput,
-  UpdateTrialComponentCommandOutput
+  UpdateTrialComponentCommandOutput,
 } from "./commands/UpdateTrialComponentCommand.ts";
-import {
-  UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
-} from "./commands/UpdateUserProfileCommand.ts";
-import {
-  UpdateWorkforceCommandInput,
-  UpdateWorkforceCommandOutput
-} from "./commands/UpdateWorkforceCommand.ts";
-import {
-  UpdateWorkteamCommandInput,
-  UpdateWorkteamCommandOutput
-} from "./commands/UpdateWorkteamCommand.ts";
+import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand.ts";
+import { UpdateWorkforceCommandInput, UpdateWorkforceCommandOutput } from "./commands/UpdateWorkforceCommand.ts";
+import { UpdateWorkteamCommandInput, UpdateWorkteamCommandOutput } from "./commands/UpdateWorkteamCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -537,38 +352,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -577,9 +388,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -611,6 +423,7 @@ export type ServiceInputTypes =
   | CreateTrialCommandInput
   | CreateTrialComponentCommandInput
   | CreateUserProfileCommandInput
+  | CreateWorkforceCommandInput
   | CreateWorkteamCommandInput
   | DeleteAlgorithmCommandInput
   | DeleteAppCommandInput
@@ -620,6 +433,7 @@ export type ServiceInputTypes =
   | DeleteEndpointConfigCommandInput
   | DeleteExperimentCommandInput
   | DeleteFlowDefinitionCommandInput
+  | DeleteHumanTaskUiCommandInput
   | DeleteModelCommandInput
   | DeleteModelPackageCommandInput
   | DeleteMonitoringScheduleCommandInput
@@ -629,6 +443,7 @@ export type ServiceInputTypes =
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
   | DeleteUserProfileCommandInput
+  | DeleteWorkforceCommandInput
   | DeleteWorkteamCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
@@ -689,6 +504,7 @@ export type ServiceInputTypes =
   | ListTrialComponentsCommandInput
   | ListTrialsCommandInput
   | ListUserProfilesCommandInput
+  | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
   | RenderUiTemplateCommandInput
   | SearchCommandInput
@@ -746,6 +562,7 @@ export type ServiceOutputTypes =
   | CreateTrialCommandOutput
   | CreateTrialComponentCommandOutput
   | CreateUserProfileCommandOutput
+  | CreateWorkforceCommandOutput
   | CreateWorkteamCommandOutput
   | DeleteAlgorithmCommandOutput
   | DeleteAppCommandOutput
@@ -755,6 +572,7 @@ export type ServiceOutputTypes =
   | DeleteEndpointConfigCommandOutput
   | DeleteExperimentCommandOutput
   | DeleteFlowDefinitionCommandOutput
+  | DeleteHumanTaskUiCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelPackageCommandOutput
   | DeleteMonitoringScheduleCommandOutput
@@ -764,6 +582,7 @@ export type ServiceOutputTypes =
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
   | DeleteUserProfileCommandOutput
+  | DeleteWorkforceCommandOutput
   | DeleteWorkteamCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
@@ -824,6 +643,7 @@ export type ServiceOutputTypes =
   | ListTrialComponentsCommandOutput
   | ListTrialsCommandOutput
   | ListUserProfilesCommandOutput
+  | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
   | RenderUiTemplateCommandOutput
   | SearchCommandOutput
@@ -852,8 +672,7 @@ export type ServiceOutputTypes =
   | UpdateWorkforceCommandOutput
   | UpdateWorkteamCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -927,14 +746,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -942,9 +766,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SageMakerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SageMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -953,9 +775,7 @@ export type SageMakerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -965,7 +785,22 @@ export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>Provides APIs for creating and managing Amazon SageMaker resources.</p>
+ * <p>Provides APIs for creating and managing Amazon SageMaker resources. </p>
+ *         <p>Other Resources:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">Amazon SageMaker Developer
+ *                         Guide</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI
+ *                         Runtime API Reference</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class SageMakerClient extends __Client<
   __HttpHandlerOptions,
@@ -978,7 +813,7 @@ export class SageMakerClient extends __Client<
   constructor(configuration: SageMakerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -993,6 +828,7 @@ export class SageMakerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

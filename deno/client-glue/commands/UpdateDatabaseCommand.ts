@@ -1,18 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateDatabaseCommand,
-  serializeAws_json1_1UpdateDatabaseCommand
+  serializeAws_json1_1UpdateDatabaseCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDatabaseCommandInput = UpdateDatabaseRequest;
-export type UpdateDatabaseCommandOutput = UpdateDatabaseResponse &
-  __MetadataBearer;
+export type UpdateDatabaseCommandOutput = UpdateDatabaseResponse & __MetadataBearer;
 
 export class UpdateDatabaseCommand extends $Command<
   UpdateDatabaseCommandInput,
@@ -47,14 +39,15 @@ export class UpdateDatabaseCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDatabaseResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class UpdateDatabaseCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDatabaseCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDatabaseCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDatabaseCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatabaseCommandOutput> {
     return deserializeAws_json1_1UpdateDatabaseCommand(output, context);
   }
 

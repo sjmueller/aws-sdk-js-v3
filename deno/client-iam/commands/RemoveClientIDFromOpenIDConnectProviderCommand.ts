@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/index.ts";
 import {
   deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
-  serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand
+  serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RemoveClientIDFromOpenIDConnectProviderCommandInput = RemoveClientIDFromOpenIDConnectProviderRequest;
@@ -35,9 +28,7 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: RemoveClientIDFromOpenIDConnectProviderCommandInput
-  ) {
+  constructor(readonly input: RemoveClientIDFromOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,14 +42,15 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     RemoveClientIDFromOpenIDConnectProviderCommandInput,
     RemoveClientIDFromOpenIDConnectProviderCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RemoveClientIDFromOpenIDConnectProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +64,14 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,299 +1,170 @@
-import {
-  AssignInstanceCommandInput,
-  AssignInstanceCommandOutput
-} from "./commands/AssignInstanceCommand.ts";
-import {
-  AssignVolumeCommandInput,
-  AssignVolumeCommandOutput
-} from "./commands/AssignVolumeCommand.ts";
+import { AssignInstanceCommandInput, AssignInstanceCommandOutput } from "./commands/AssignInstanceCommand.ts";
+import { AssignVolumeCommandInput, AssignVolumeCommandOutput } from "./commands/AssignVolumeCommand.ts";
 import {
   AssociateElasticIpCommandInput,
-  AssociateElasticIpCommandOutput
+  AssociateElasticIpCommandOutput,
 } from "./commands/AssociateElasticIpCommand.ts";
 import {
   AttachElasticLoadBalancerCommandInput,
-  AttachElasticLoadBalancerCommandOutput
+  AttachElasticLoadBalancerCommandOutput,
 } from "./commands/AttachElasticLoadBalancerCommand.ts";
-import {
-  CloneStackCommandInput,
-  CloneStackCommandOutput
-} from "./commands/CloneStackCommand.ts";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand.ts";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand.ts";
-import {
-  CreateInstanceCommandInput,
-  CreateInstanceCommandOutput
-} from "./commands/CreateInstanceCommand.ts";
-import {
-  CreateLayerCommandInput,
-  CreateLayerCommandOutput
-} from "./commands/CreateLayerCommand.ts";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand.ts";
-import {
-  CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
-} from "./commands/CreateUserProfileCommand.ts";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand.ts";
-import {
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput
-} from "./commands/DeleteInstanceCommand.ts";
-import {
-  DeleteLayerCommandInput,
-  DeleteLayerCommandOutput
-} from "./commands/DeleteLayerCommand.ts";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand.ts";
-import {
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
-} from "./commands/DeleteUserProfileCommand.ts";
+import { CloneStackCommandInput, CloneStackCommandOutput } from "./commands/CloneStackCommand.ts";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand.ts";
+import { CreateLayerCommandInput, CreateLayerCommandOutput } from "./commands/CreateLayerCommand.ts";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand.ts";
+import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand.ts";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand.ts";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand.ts";
+import { DeleteLayerCommandInput, DeleteLayerCommandOutput } from "./commands/DeleteLayerCommand.ts";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand.ts";
+import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand.ts";
 import {
   DeregisterEcsClusterCommandInput,
-  DeregisterEcsClusterCommandOutput
+  DeregisterEcsClusterCommandOutput,
 } from "./commands/DeregisterEcsClusterCommand.ts";
 import {
   DeregisterElasticIpCommandInput,
-  DeregisterElasticIpCommandOutput
+  DeregisterElasticIpCommandOutput,
 } from "./commands/DeregisterElasticIpCommand.ts";
 import {
   DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput
+  DeregisterInstanceCommandOutput,
 } from "./commands/DeregisterInstanceCommand.ts";
 import {
   DeregisterRdsDbInstanceCommandInput,
-  DeregisterRdsDbInstanceCommandOutput
+  DeregisterRdsDbInstanceCommandOutput,
 } from "./commands/DeregisterRdsDbInstanceCommand.ts";
-import {
-  DeregisterVolumeCommandInput,
-  DeregisterVolumeCommandOutput
-} from "./commands/DeregisterVolumeCommand.ts";
+import { DeregisterVolumeCommandInput, DeregisterVolumeCommandOutput } from "./commands/DeregisterVolumeCommand.ts";
 import {
   DescribeAgentVersionsCommandInput,
-  DescribeAgentVersionsCommandOutput
+  DescribeAgentVersionsCommandOutput,
 } from "./commands/DescribeAgentVersionsCommand.ts";
-import {
-  DescribeAppsCommandInput,
-  DescribeAppsCommandOutput
-} from "./commands/DescribeAppsCommand.ts";
-import {
-  DescribeCommandsCommandInput,
-  DescribeCommandsCommandOutput
-} from "./commands/DescribeCommandsCommand.ts";
+import { DescribeAppsCommandInput, DescribeAppsCommandOutput } from "./commands/DescribeAppsCommand.ts";
+import { DescribeCommandsCommandInput, DescribeCommandsCommandOutput } from "./commands/DescribeCommandsCommand.ts";
 import {
   DescribeDeploymentsCommandInput,
-  DescribeDeploymentsCommandOutput
+  DescribeDeploymentsCommandOutput,
 } from "./commands/DescribeDeploymentsCommand.ts";
 import {
   DescribeEcsClustersCommandInput,
-  DescribeEcsClustersCommandOutput
+  DescribeEcsClustersCommandOutput,
 } from "./commands/DescribeEcsClustersCommand.ts";
 import {
   DescribeElasticIpsCommandInput,
-  DescribeElasticIpsCommandOutput
+  DescribeElasticIpsCommandOutput,
 } from "./commands/DescribeElasticIpsCommand.ts";
 import {
   DescribeElasticLoadBalancersCommandInput,
-  DescribeElasticLoadBalancersCommandOutput
+  DescribeElasticLoadBalancersCommandOutput,
 } from "./commands/DescribeElasticLoadBalancersCommand.ts";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand.ts";
-import {
-  DescribeLayersCommandInput,
-  DescribeLayersCommandOutput
-} from "./commands/DescribeLayersCommand.ts";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand.ts";
+import { DescribeLayersCommandInput, DescribeLayersCommandOutput } from "./commands/DescribeLayersCommand.ts";
 import {
   DescribeLoadBasedAutoScalingCommandInput,
-  DescribeLoadBasedAutoScalingCommandOutput
+  DescribeLoadBasedAutoScalingCommandOutput,
 } from "./commands/DescribeLoadBasedAutoScalingCommand.ts";
 import {
   DescribeMyUserProfileCommandInput,
-  DescribeMyUserProfileCommandOutput
+  DescribeMyUserProfileCommandOutput,
 } from "./commands/DescribeMyUserProfileCommand.ts";
 import {
   DescribeOperatingSystemsCommandInput,
-  DescribeOperatingSystemsCommandOutput
+  DescribeOperatingSystemsCommandOutput,
 } from "./commands/DescribeOperatingSystemsCommand.ts";
 import {
   DescribePermissionsCommandInput,
-  DescribePermissionsCommandOutput
+  DescribePermissionsCommandOutput,
 } from "./commands/DescribePermissionsCommand.ts";
 import {
   DescribeRaidArraysCommandInput,
-  DescribeRaidArraysCommandOutput
+  DescribeRaidArraysCommandOutput,
 } from "./commands/DescribeRaidArraysCommand.ts";
 import {
   DescribeRdsDbInstancesCommandInput,
-  DescribeRdsDbInstancesCommandOutput
+  DescribeRdsDbInstancesCommandOutput,
 } from "./commands/DescribeRdsDbInstancesCommand.ts";
 import {
   DescribeServiceErrorsCommandInput,
-  DescribeServiceErrorsCommandOutput
+  DescribeServiceErrorsCommandOutput,
 } from "./commands/DescribeServiceErrorsCommand.ts";
 import {
   DescribeStackProvisioningParametersCommandInput,
-  DescribeStackProvisioningParametersCommandOutput
+  DescribeStackProvisioningParametersCommandOutput,
 } from "./commands/DescribeStackProvisioningParametersCommand.ts";
 import {
   DescribeStackSummaryCommandInput,
-  DescribeStackSummaryCommandOutput
+  DescribeStackSummaryCommandOutput,
 } from "./commands/DescribeStackSummaryCommand.ts";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand.ts";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand.ts";
 import {
   DescribeTimeBasedAutoScalingCommandInput,
-  DescribeTimeBasedAutoScalingCommandOutput
+  DescribeTimeBasedAutoScalingCommandOutput,
 } from "./commands/DescribeTimeBasedAutoScalingCommand.ts";
 import {
   DescribeUserProfilesCommandInput,
-  DescribeUserProfilesCommandOutput
+  DescribeUserProfilesCommandOutput,
 } from "./commands/DescribeUserProfilesCommand.ts";
-import {
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
-} from "./commands/DescribeVolumesCommand.ts";
+import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand.ts";
 import {
   DetachElasticLoadBalancerCommandInput,
-  DetachElasticLoadBalancerCommandOutput
+  DetachElasticLoadBalancerCommandOutput,
 } from "./commands/DetachElasticLoadBalancerCommand.ts";
 import {
   DisassociateElasticIpCommandInput,
-  DisassociateElasticIpCommandOutput
+  DisassociateElasticIpCommandOutput,
 } from "./commands/DisassociateElasticIpCommand.ts";
 import {
   GetHostnameSuggestionCommandInput,
-  GetHostnameSuggestionCommandOutput
+  GetHostnameSuggestionCommandOutput,
 } from "./commands/GetHostnameSuggestionCommand.ts";
-import {
-  GrantAccessCommandInput,
-  GrantAccessCommandOutput
-} from "./commands/GrantAccessCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
-import {
-  RebootInstanceCommandInput,
-  RebootInstanceCommandOutput
-} from "./commands/RebootInstanceCommand.ts";
+import { GrantAccessCommandInput, GrantAccessCommandOutput } from "./commands/GrantAccessCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
+import { RebootInstanceCommandInput, RebootInstanceCommandOutput } from "./commands/RebootInstanceCommand.ts";
 import {
   RegisterEcsClusterCommandInput,
-  RegisterEcsClusterCommandOutput
+  RegisterEcsClusterCommandOutput,
 } from "./commands/RegisterEcsClusterCommand.ts";
-import {
-  RegisterElasticIpCommandInput,
-  RegisterElasticIpCommandOutput
-} from "./commands/RegisterElasticIpCommand.ts";
-import {
-  RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput
-} from "./commands/RegisterInstanceCommand.ts";
+import { RegisterElasticIpCommandInput, RegisterElasticIpCommandOutput } from "./commands/RegisterElasticIpCommand.ts";
+import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./commands/RegisterInstanceCommand.ts";
 import {
   RegisterRdsDbInstanceCommandInput,
-  RegisterRdsDbInstanceCommandOutput
+  RegisterRdsDbInstanceCommandOutput,
 } from "./commands/RegisterRdsDbInstanceCommand.ts";
-import {
-  RegisterVolumeCommandInput,
-  RegisterVolumeCommandOutput
-} from "./commands/RegisterVolumeCommand.ts";
+import { RegisterVolumeCommandInput, RegisterVolumeCommandOutput } from "./commands/RegisterVolumeCommand.ts";
 import {
   SetLoadBasedAutoScalingCommandInput,
-  SetLoadBasedAutoScalingCommandOutput
+  SetLoadBasedAutoScalingCommandOutput,
 } from "./commands/SetLoadBasedAutoScalingCommand.ts";
-import {
-  SetPermissionCommandInput,
-  SetPermissionCommandOutput
-} from "./commands/SetPermissionCommand.ts";
+import { SetPermissionCommandInput, SetPermissionCommandOutput } from "./commands/SetPermissionCommand.ts";
 import {
   SetTimeBasedAutoScalingCommandInput,
-  SetTimeBasedAutoScalingCommandOutput
+  SetTimeBasedAutoScalingCommandOutput,
 } from "./commands/SetTimeBasedAutoScalingCommand.ts";
-import {
-  StartInstanceCommandInput,
-  StartInstanceCommandOutput
-} from "./commands/StartInstanceCommand.ts";
-import {
-  StartStackCommandInput,
-  StartStackCommandOutput
-} from "./commands/StartStackCommand.ts";
-import {
-  StopInstanceCommandInput,
-  StopInstanceCommandOutput
-} from "./commands/StopInstanceCommand.ts";
-import {
-  StopStackCommandInput,
-  StopStackCommandOutput
-} from "./commands/StopStackCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UnassignInstanceCommandInput,
-  UnassignInstanceCommandOutput
-} from "./commands/UnassignInstanceCommand.ts";
-import {
-  UnassignVolumeCommandInput,
-  UnassignVolumeCommandOutput
-} from "./commands/UnassignVolumeCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand.ts";
-import {
-  UpdateElasticIpCommandInput,
-  UpdateElasticIpCommandOutput
-} from "./commands/UpdateElasticIpCommand.ts";
-import {
-  UpdateInstanceCommandInput,
-  UpdateInstanceCommandOutput
-} from "./commands/UpdateInstanceCommand.ts";
-import {
-  UpdateLayerCommandInput,
-  UpdateLayerCommandOutput
-} from "./commands/UpdateLayerCommand.ts";
+import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand.ts";
+import { StartStackCommandInput, StartStackCommandOutput } from "./commands/StartStackCommand.ts";
+import { StopInstanceCommandInput, StopInstanceCommandOutput } from "./commands/StopInstanceCommand.ts";
+import { StopStackCommandInput, StopStackCommandOutput } from "./commands/StopStackCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UnassignInstanceCommandInput, UnassignInstanceCommandOutput } from "./commands/UnassignInstanceCommand.ts";
+import { UnassignVolumeCommandInput, UnassignVolumeCommandOutput } from "./commands/UnassignVolumeCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand.ts";
+import { UpdateElasticIpCommandInput, UpdateElasticIpCommandOutput } from "./commands/UpdateElasticIpCommand.ts";
+import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand.ts";
+import { UpdateLayerCommandInput, UpdateLayerCommandOutput } from "./commands/UpdateLayerCommand.ts";
 import {
   UpdateMyUserProfileCommandInput,
-  UpdateMyUserProfileCommandOutput
+  UpdateMyUserProfileCommandOutput,
 } from "./commands/UpdateMyUserProfileCommand.ts";
 import {
   UpdateRdsDbInstanceCommandInput,
-  UpdateRdsDbInstanceCommandOutput
+  UpdateRdsDbInstanceCommandOutput,
 } from "./commands/UpdateRdsDbInstanceCommand.ts";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand.ts";
-import {
-  UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
-} from "./commands/UpdateUserProfileCommand.ts";
-import {
-  UpdateVolumeCommandInput,
-  UpdateVolumeCommandOutput
-} from "./commands/UpdateVolumeCommand.ts";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand.ts";
+import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand.ts";
+import { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "./commands/UpdateVolumeCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -301,38 +172,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -341,9 +208,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -498,8 +366,7 @@ export type ServiceOutputTypes =
   | UpdateUserProfileCommandOutput
   | UpdateVolumeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -573,14 +440,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -588,9 +460,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OpsWorksClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OpsWorksClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -599,9 +469,7 @@ export type OpsWorksClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -738,7 +606,7 @@ export class OpsWorksClient extends __Client<
   constructor(configuration: OpsWorksClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -753,6 +621,7 @@ export class OpsWorksClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

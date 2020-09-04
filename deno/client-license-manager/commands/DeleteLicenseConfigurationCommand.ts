@@ -1,21 +1,11 @@
-import {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LicenseManagerClient.ts";
-import {
-  DeleteLicenseConfigurationRequest,
-  DeleteLicenseConfigurationResponse
-} from "../models/index.ts";
+import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient.ts";
+import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteLicenseConfigurationCommand,
-  serializeAws_json1_1DeleteLicenseConfigurationCommand
+  serializeAws_json1_1DeleteLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteLicenseConfigurationCommandInput = DeleteLicenseConfigurationRequest;
-export type DeleteLicenseConfigurationCommandOutput = DeleteLicenseConfigurationResponse &
-  __MetadataBearer;
+export type DeleteLicenseConfigurationCommandOutput = DeleteLicenseConfigurationResponse & __MetadataBearer;
 
 export class DeleteLicenseConfigurationCommand extends $Command<
   DeleteLicenseConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLicenseConfigurationCommandInput,
-    DeleteLicenseConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLicenseConfigurationCommandInput, DeleteLicenseConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteLicenseConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLicenseConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLicenseConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteLicenseConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

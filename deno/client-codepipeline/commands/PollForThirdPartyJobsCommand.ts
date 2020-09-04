@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
-import {
-  PollForThirdPartyJobsInput,
-  PollForThirdPartyJobsOutput
-} from "../models/index.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
+import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1PollForThirdPartyJobsCommand,
-  serializeAws_json1_1PollForThirdPartyJobsCommand
+  serializeAws_json1_1PollForThirdPartyJobsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PollForThirdPartyJobsCommandInput = PollForThirdPartyJobsInput;
-export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput &
-  __MetadataBearer;
+export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput & __MetadataBearer;
 
 export class PollForThirdPartyJobsCommand extends $Command<
   PollForThirdPartyJobsCommandInput,
@@ -49,18 +38,16 @@ export class PollForThirdPartyJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PollForThirdPartyJobsCommandInput,
-    PollForThirdPartyJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PollForThirdPartyJobsCommandInput, PollForThirdPartyJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PollForThirdPartyJobsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class PollForThirdPartyJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PollForThirdPartyJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PollForThirdPartyJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PollForThirdPartyJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PollForThirdPartyJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForThirdPartyJobsCommandOutput> {
     return deserializeAws_json1_1PollForThirdPartyJobsCommand(output, context);
   }
 

@@ -1,19 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetBucketPolicyCommand,
-  serializeAws_restXmlGetBucketPolicyCommand
+  serializeAws_restXmlGetBucketPolicyCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -22,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBucketPolicyCommandInput = GetBucketPolicyRequest;
-export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput &
-  __MetadataBearer;
+export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput & __MetadataBearer;
 
 export class GetBucketPolicyCommand extends $Command<
   GetBucketPolicyCommandInput,
@@ -48,15 +40,16 @@ export class GetBucketPolicyCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBucketPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,17 +59,11 @@ export class GetBucketPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBucketPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBucketPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
     return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
   }
 

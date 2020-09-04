@@ -1,21 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient.ts";
-import {
-  RotateChannelCredentialsRequest,
-  RotateChannelCredentialsResponse
-} from "../models/index.ts";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
+import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1RotateChannelCredentialsCommand,
-  serializeAws_restJson1RotateChannelCredentialsCommand
+  serializeAws_restJson1RotateChannelCredentialsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RotateChannelCredentialsCommandInput = RotateChannelCredentialsRequest;
-export type RotateChannelCredentialsCommandOutput = RotateChannelCredentialsResponse &
-  __MetadataBearer;
+export type RotateChannelCredentialsCommandOutput = RotateChannelCredentialsResponse & __MetadataBearer;
 
 export class RotateChannelCredentialsCommand extends $Command<
   RotateChannelCredentialsCommandInput,
@@ -49,18 +38,16 @@ export class RotateChannelCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RotateChannelCredentialsCommandInput,
-    RotateChannelCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RotateChannelCredentialsCommandInput, RotateChannelCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RotateChannelCredentialsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RotateChannelCredentialsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,12 @@ export class RotateChannelCredentialsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RotateChannelCredentialsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RotateChannelCredentialsCommand(
-      input,
-      context
-    );
+  private serialize(input: RotateChannelCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1RotateChannelCredentialsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RotateChannelCredentialsCommandOutput> {
-    return deserializeAws_restJson1RotateChannelCredentialsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateChannelCredentialsCommandOutput> {
+    return deserializeAws_restJson1RotateChannelCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

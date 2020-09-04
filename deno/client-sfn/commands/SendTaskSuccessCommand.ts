@@ -1,18 +1,11 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient.ts";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
 import { SendTaskSuccessInput, SendTaskSuccessOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0SendTaskSuccessCommand,
-  serializeAws_json1_0SendTaskSuccessCommand
+  serializeAws_json1_0SendTaskSuccessCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendTaskSuccessCommandInput = SendTaskSuccessInput;
-export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput &
-  __MetadataBearer;
+export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput & __MetadataBearer;
 
 export class SendTaskSuccessCommand extends $Command<
   SendTaskSuccessCommandInput,
@@ -47,14 +39,15 @@ export class SendTaskSuccessCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendTaskSuccessInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SendTaskSuccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class SendTaskSuccessCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendTaskSuccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendTaskSuccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTaskSuccessCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendTaskSuccessCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskSuccessCommandOutput> {
     return deserializeAws_json1_0SendTaskSuccessCommand(output, context);
   }
 

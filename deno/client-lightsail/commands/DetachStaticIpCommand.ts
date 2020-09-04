@@ -1,18 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { DetachStaticIpRequest, DetachStaticIpResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DetachStaticIpCommand,
-  serializeAws_json1_1DetachStaticIpCommand
+  serializeAws_json1_1DetachStaticIpCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DetachStaticIpCommandInput = DetachStaticIpRequest;
-export type DetachStaticIpCommandOutput = DetachStaticIpResult &
-  __MetadataBearer;
+export type DetachStaticIpCommandOutput = DetachStaticIpResult & __MetadataBearer;
 
 export class DetachStaticIpCommand extends $Command<
   DetachStaticIpCommandInput,
@@ -47,14 +39,15 @@ export class DetachStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachStaticIpCommandInput, DetachStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DetachStaticIpRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetachStaticIpResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DetachStaticIpCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetachStaticIpCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetachStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetachStaticIpCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetachStaticIpCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachStaticIpCommandOutput> {
     return deserializeAws_json1_1DetachStaticIpCommand(output, context);
   }
 

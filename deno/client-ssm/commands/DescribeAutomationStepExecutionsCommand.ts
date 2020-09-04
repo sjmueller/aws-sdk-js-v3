@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  DescribeAutomationStepExecutionsRequest,
-  DescribeAutomationStepExecutionsResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAutomationStepExecutionsCommand,
-  serializeAws_json1_1DescribeAutomationStepExecutionsCommand
+  serializeAws_json1_1DescribeAutomationStepExecutionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAutomationStepExecutionsCommandInput = DescribeAutomationStepExecutionsRequest;
-export type DescribeAutomationStepExecutionsCommandOutput = DescribeAutomationStepExecutionsResult &
-  __MetadataBearer;
+export type DescribeAutomationStepExecutionsCommandOutput = DescribeAutomationStepExecutionsResult & __MetadataBearer;
 
 export class DescribeAutomationStepExecutionsCommand extends $Command<
   DescribeAutomationStepExecutionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAutomationStepExecutionsCommandInput,
-    DescribeAutomationStepExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAutomationStepExecutionsCommandInput, DescribeAutomationStepExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAutomationStepExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAutomationStepExecutionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     input: DescribeAutomationStepExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

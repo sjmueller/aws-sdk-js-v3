@@ -1,21 +1,11 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client.ts";
-import {
-  CreateEnvironmentMembershipRequest,
-  CreateEnvironmentMembershipResult
-} from "../models/index.ts";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
+import { CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateEnvironmentMembershipCommand,
-  serializeAws_json1_1CreateEnvironmentMembershipCommand
+  serializeAws_json1_1CreateEnvironmentMembershipCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateEnvironmentMembershipCommandInput = CreateEnvironmentMembershipRequest;
-export type CreateEnvironmentMembershipCommandOutput = CreateEnvironmentMembershipResult &
-  __MetadataBearer;
+export type CreateEnvironmentMembershipCommandOutput = CreateEnvironmentMembershipResult & __MetadataBearer;
 
 export class CreateEnvironmentMembershipCommand extends $Command<
   CreateEnvironmentMembershipCommandInput,
@@ -49,18 +38,16 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEnvironmentMembershipCommandInput,
-    CreateEnvironmentMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEnvironmentMembershipCommandInput, CreateEnvironmentMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateEnvironmentMembershipRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEnvironmentMembershipResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEnvironmentMembershipCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEnvironmentMembershipCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateEnvironmentMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateEnvironmentMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1CreateEnvironmentMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

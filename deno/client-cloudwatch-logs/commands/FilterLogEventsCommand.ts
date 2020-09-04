@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient.ts";
-import {
-  FilterLogEventsRequest,
-  FilterLogEventsResponse
-} from "../models/index.ts";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
+import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1FilterLogEventsCommand,
-  serializeAws_json1_1FilterLogEventsCommand
+  serializeAws_json1_1FilterLogEventsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type FilterLogEventsCommandInput = FilterLogEventsRequest;
-export type FilterLogEventsCommandOutput = FilterLogEventsResponse &
-  __MetadataBearer;
+export type FilterLogEventsCommandOutput = FilterLogEventsResponse & __MetadataBearer;
 
 export class FilterLogEventsCommand extends $Command<
   FilterLogEventsCommandInput,
@@ -50,14 +39,15 @@ export class FilterLogEventsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FilterLogEventsCommandInput, FilterLogEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: FilterLogEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: FilterLogEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class FilterLogEventsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: FilterLogEventsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: FilterLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1FilterLogEventsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<FilterLogEventsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FilterLogEventsCommandOutput> {
     return deserializeAws_json1_1FilterLogEventsCommand(output, context);
   }
 

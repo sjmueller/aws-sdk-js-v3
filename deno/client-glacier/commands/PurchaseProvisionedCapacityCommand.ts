@@ -1,21 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient.ts";
-import {
-  PurchaseProvisionedCapacityInput,
-  PurchaseProvisionedCapacityOutput
-} from "../models/index.ts";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
+import { PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1PurchaseProvisionedCapacityCommand,
-  serializeAws_restJson1PurchaseProvisionedCapacityCommand
+  serializeAws_restJson1PurchaseProvisionedCapacityCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PurchaseProvisionedCapacityCommandInput = PurchaseProvisionedCapacityInput;
-export type PurchaseProvisionedCapacityCommandOutput = PurchaseProvisionedCapacityOutput &
-  __MetadataBearer;
+export type PurchaseProvisionedCapacityCommandOutput = PurchaseProvisionedCapacityOutput & __MetadataBearer;
 
 export class PurchaseProvisionedCapacityCommand extends $Command<
   PurchaseProvisionedCapacityCommandInput,
@@ -49,18 +38,16 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PurchaseProvisionedCapacityCommandInput,
-    PurchaseProvisionedCapacityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PurchaseProvisionedCapacityCommandInput, PurchaseProvisionedCapacityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PurchaseProvisionedCapacityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseProvisionedCapacityCommand(
-      input,
-      context
-    );
+  private serialize(input: PurchaseProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PurchaseProvisionedCapacityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1PurchaseProvisionedCapacityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PurchaseProvisionedCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

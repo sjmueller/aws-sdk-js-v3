@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -18,21 +12,16 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
- * <p>The request
- * 			contains invalid parameters for the ARN or tags. This exception also occurs when you
- * 			call a tagging API on a cancelled signing
- * 			profile.</p>
+ * <p>The request contains invalid parameters for the ARN or tags. This exception also
+ * 			occurs when you call a tagging API on a cancelled signing profile.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -40,10 +29,9 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CancelSigningProfileRequest {
@@ -55,13 +43,10 @@ export interface CancelSigningProfileRequest {
 }
 
 export namespace CancelSigningProfileRequest {
-  export const filterSensitiveLog = (
-    obj: CancelSigningProfileRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CancelSigningProfileRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CancelSigningProfileRequest =>
-    __isa(o, "CancelSigningProfileRequest");
+  export const isa = (o: any): o is CancelSigningProfileRequest => __isa(o, "CancelSigningProfileRequest");
 }
 
 export type Category = "AWSIoT";
@@ -76,23 +61,17 @@ export interface DescribeSigningJobRequest {
 
 export namespace DescribeSigningJobRequest {
   export const filterSensitiveLog = (obj: DescribeSigningJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSigningJobRequest =>
-    __isa(o, "DescribeSigningJobRequest");
+  export const isa = (o: any): o is DescribeSigningJobRequest => __isa(o, "DescribeSigningJobRequest");
 }
 
 export interface DescribeSigningJobResponse {
   __type?: "DescribeSigningJobResponse";
   /**
-   * <p>Date and time that the signing job was completed.</p>
+   * <p>The object that contains the name of your S3 bucket or your raw code.</p>
    */
-  completedAt?: Date;
-
-  /**
-   * <p>Date and time that the signing job was created.</p>
-   */
-  createdAt?: Date;
+  source?: Source;
 
   /**
    * <p>The ID of the signing job on output.</p>
@@ -100,9 +79,9 @@ export interface DescribeSigningJobResponse {
   jobId?: string;
 
   /**
-   * <p>A list of any overrides that were applied to the signing operation.</p>
+   * <p>The Amazon Resource Name (ARN) of your code signing certificate.</p>
    */
-  overrides?: SigningPlatformOverrides;
+  signingMaterial?: SigningMaterial;
 
   /**
    * <p>The microcontroller platform to which your signed code image will be
@@ -111,14 +90,9 @@ export interface DescribeSigningJobResponse {
   platformId?: string;
 
   /**
-   * <p>The name of the profile that initiated the signing operation.</p>
+   * <p>Status of the signing job.</p>
    */
-  profileName?: string;
-
-  /**
-   * <p>The IAM principal that requested the signing job.</p>
-   */
-  requestedBy?: string;
+  status?: SigningStatus | string;
 
   /**
    * <p>Name of the S3 bucket where the signed code image is saved by code signing.</p>
@@ -126,9 +100,24 @@ export interface DescribeSigningJobResponse {
   signedObject?: SignedObject;
 
   /**
-   * <p>Amazon Resource Name (ARN) of your code signing certificate.</p>
+   * <p>String value that contains the status reason.</p>
    */
-  signingMaterial?: SigningMaterial;
+  statusReason?: string;
+
+  /**
+   * <p>The IAM principal that requested the signing job.</p>
+   */
+  requestedBy?: string;
+
+  /**
+   * <p>Date and time that the signing job was completed.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>A list of any overrides that were applied to the signing operation.</p>
+   */
+  overrides?: SigningPlatformOverrides;
 
   /**
    * <p>Map of user-assigned key-value pairs used during signing. These values contain any
@@ -137,27 +126,21 @@ export interface DescribeSigningJobResponse {
   signingParameters?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the name of your S3 bucket or your raw code.</p>
+   * <p>Date and time that the signing job was created.</p>
    */
-  source?: Source;
+  createdAt?: Date;
 
   /**
-   * <p>Status of the signing job.</p>
+   * <p>The name of the profile that initiated the signing operation.</p>
    */
-  status?: SigningStatus | string;
-
-  /**
-   * <p>String value that contains the status reason.</p>
-   */
-  statusReason?: string;
+  profileName?: string;
 }
 
 export namespace DescribeSigningJobResponse {
   export const filterSensitiveLog = (obj: DescribeSigningJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSigningJobResponse =>
-    __isa(o, "DescribeSigningJobResponse");
+  export const isa = (o: any): o is DescribeSigningJobResponse => __isa(o, "DescribeSigningJobResponse");
 }
 
 /**
@@ -174,7 +157,7 @@ export interface Destination {
 
 export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
@@ -187,22 +170,21 @@ export type EncryptionAlgorithm = "ECDSA" | "RSA";
 export interface EncryptionAlgorithmOptions {
   __type?: "EncryptionAlgorithmOptions";
   /**
-   * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
-   */
-  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
-
-  /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
    */
   defaultValue: EncryptionAlgorithm | string | undefined;
+
+  /**
+   * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
+   */
+  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
 }
 
 export namespace EncryptionAlgorithmOptions {
   export const filterSensitiveLog = (obj: EncryptionAlgorithmOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionAlgorithmOptions =>
-    __isa(o, "EncryptionAlgorithmOptions");
+  export const isa = (o: any): o is EncryptionAlgorithmOptions => __isa(o, "EncryptionAlgorithmOptions");
 }
 
 export interface GetSigningPlatformRequest {
@@ -215,30 +197,13 @@ export interface GetSigningPlatformRequest {
 
 export namespace GetSigningPlatformRequest {
   export const filterSensitiveLog = (obj: GetSigningPlatformRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSigningPlatformRequest =>
-    __isa(o, "GetSigningPlatformRequest");
+  export const isa = (o: any): o is GetSigningPlatformRequest => __isa(o, "GetSigningPlatformRequest");
 }
 
 export interface GetSigningPlatformResponse {
   __type?: "GetSigningPlatformResponse";
-  /**
-   * <p>The category type of the target signing platform.</p>
-   */
-  category?: Category | string;
-
-  /**
-   * <p>The display name of the target signing platform.</p>
-   */
-  displayName?: string;
-
-  /**
-   * <p>The maximum size (in MB) of the payload that can be signed by the target
-   * 			platform.</p>
-   */
-  maxSizeInMB?: number;
-
   /**
    * <p>A list of partner entities that use the target signing platform.</p>
    */
@@ -255,22 +220,37 @@ export interface GetSigningPlatformResponse {
   signingConfiguration?: SigningConfiguration;
 
   /**
+   * <p>The category type of the target signing platform.</p>
+   */
+  category?: Category | string;
+
+  /**
    * <p>The format of the target platform's signing image.</p>
    */
   signingImageFormat?: SigningImageFormat;
 
   /**
+   * <p>The maximum size (in MB) of the payload that can be signed by the target
+   * 			platform.</p>
+   */
+  maxSizeInMB?: number;
+
+  /**
    * <p>The validation template that is used by the target signing platform.</p>
    */
   target?: string;
+
+  /**
+   * <p>The display name of the target signing platform.</p>
+   */
+  displayName?: string;
 }
 
 export namespace GetSigningPlatformResponse {
   export const filterSensitiveLog = (obj: GetSigningPlatformResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSigningPlatformResponse =>
-    __isa(o, "GetSigningPlatformResponse");
+  export const isa = (o: any): o is GetSigningPlatformResponse => __isa(o, "GetSigningPlatformResponse");
 }
 
 export interface GetSigningProfileRequest {
@@ -283,21 +263,13 @@ export interface GetSigningProfileRequest {
 
 export namespace GetSigningProfileRequest {
   export const filterSensitiveLog = (obj: GetSigningProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSigningProfileRequest =>
-    __isa(o, "GetSigningProfileRequest");
+  export const isa = (o: any): o is GetSigningProfileRequest => __isa(o, "GetSigningProfileRequest");
 }
 
 export interface GetSigningProfileResponse {
   __type?: "GetSigningProfileResponse";
-  /**
-   * <p>The Amazon
-   * 			Resource Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  arn?: string;
-
   /**
    * <p>A list of overrides applied by the target signing profile for signing
    * 			operations.</p>
@@ -305,19 +277,9 @@ export interface GetSigningProfileResponse {
   overrides?: SigningPlatformOverrides;
 
   /**
-   * <p>The ID of the platform that is used by the target signing profile.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
-  platformId?: string;
-
-  /**
-   * <p>The name of the target signing profile.</p>
-   */
-  profileName?: string;
-
-  /**
-   * <p>The ARN of the certificate that the target profile uses for signing operations.</p>
-   */
-  signingMaterial?: SigningMaterial;
+  arn?: string;
 
   /**
    * <p>A map of key-value pairs for signing operations that is attached to the target signing
@@ -326,24 +288,36 @@ export interface GetSigningProfileResponse {
   signingParameters?: { [key: string]: string };
 
   /**
+   * <p>The ARN of the certificate that the target profile uses for signing operations.</p>
+   */
+  signingMaterial?: SigningMaterial;
+
+  /**
+   * <p>The ID of the platform that is used by the target signing profile.</p>
+   */
+  platformId?: string;
+
+  /**
+   * <p>A list of tags associated with the signing profile.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The status of the target signing profile.</p>
    */
   status?: SigningProfileStatus | string;
 
   /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
+   * <p>The name of the target signing profile.</p>
    */
-  tags?: { [key: string]: string };
+  profileName?: string;
 }
 
 export namespace GetSigningProfileResponse {
   export const filterSensitiveLog = (obj: GetSigningProfileResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSigningProfileResponse =>
-    __isa(o, "GetSigningProfileResponse");
+  export const isa = (o: any): o is GetSigningProfileResponse => __isa(o, "GetSigningProfileResponse");
 }
 
 export type HashAlgorithm = "SHA1" | "SHA256";
@@ -366,37 +340,37 @@ export interface HashAlgorithmOptions {
 
 export namespace HashAlgorithmOptions {
   export const filterSensitiveLog = (obj: HashAlgorithmOptions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HashAlgorithmOptions =>
-    __isa(o, "HashAlgorithmOptions");
+  export const isa = (o: any): o is HashAlgorithmOptions => __isa(o, "HashAlgorithmOptions");
 }
 
-export type ImageFormat = "JSON";
+export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
 
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServiceErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 export interface ListSigningJobsRequest {
   __type?: "ListSigningJobsRequest";
+  /**
+   * <p>The ID of microcontroller platform that you specified for the distribution of your
+   * 			code image.</p>
+   */
+  platformId?: string;
+
   /**
    * <p>Specifies the maximum number of items to return in the response. Use this parameter
    * 			when paginating results. If additional items exist beyond the number you specify, the
@@ -414,12 +388,6 @@ export interface ListSigningJobsRequest {
   nextToken?: string;
 
   /**
-   * <p>The ID of microcontroller platform that you specified for the distribution of your
-   * 			code image.</p>
-   */
-  platformId?: string;
-
-  /**
    * <p>The IAM principal that requested the signing job.</p>
    */
   requestedBy?: string;
@@ -432,51 +400,44 @@ export interface ListSigningJobsRequest {
 
 export namespace ListSigningJobsRequest {
   export const filterSensitiveLog = (obj: ListSigningJobsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningJobsRequest =>
-    __isa(o, "ListSigningJobsRequest");
+  export const isa = (o: any): o is ListSigningJobsRequest => __isa(o, "ListSigningJobsRequest");
 }
 
 export interface ListSigningJobsResponse {
   __type?: "ListSigningJobsResponse";
   /**
-   * <p>A list of your signing jobs.</p>
-   */
-  jobs?: SigningJob[];
-
-  /**
    * <p>String for specifying the next set of paginated results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of your signing jobs.</p>
+   */
+  jobs?: SigningJob[];
 }
 
 export namespace ListSigningJobsResponse {
   export const filterSensitiveLog = (obj: ListSigningJobsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningJobsResponse =>
-    __isa(o, "ListSigningJobsResponse");
+  export const isa = (o: any): o is ListSigningJobsResponse => __isa(o, "ListSigningJobsResponse");
 }
 
 export interface ListSigningPlatformsRequest {
   __type?: "ListSigningPlatformsRequest";
-  /**
-   * <p>The category type of a signing platform.</p>
-   */
-  category?: string;
-
-  /**
-   * <p>The maximum number of results to be returned by this operation.</p>
-   */
-  maxResults?: number;
-
   /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
    * 			response with truncated results, use this parameter in a subsequent request. Set it to
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned by this operation.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>Any partner entities connected to a signing platform.</p>
@@ -487,16 +448,18 @@ export interface ListSigningPlatformsRequest {
    * <p>The validation template that is used by the target signing platform.</p>
    */
   target?: string;
+
+  /**
+   * <p>The category type of a signing platform.</p>
+   */
+  category?: string;
 }
 
 export namespace ListSigningPlatformsRequest {
-  export const filterSensitiveLog = (
-    obj: ListSigningPlatformsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSigningPlatformsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningPlatformsRequest =>
-    __isa(o, "ListSigningPlatformsRequest");
+  export const isa = (o: any): o is ListSigningPlatformsRequest => __isa(o, "ListSigningPlatformsRequest");
 }
 
 export interface ListSigningPlatformsResponse {
@@ -513,13 +476,10 @@ export interface ListSigningPlatformsResponse {
 }
 
 export namespace ListSigningPlatformsResponse {
-  export const filterSensitiveLog = (
-    obj: ListSigningPlatformsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSigningPlatformsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningPlatformsResponse =>
-    __isa(o, "ListSigningPlatformsResponse");
+  export const isa = (o: any): o is ListSigningPlatformsResponse => __isa(o, "ListSigningPlatformsResponse");
 }
 
 export interface ListSigningProfilesRequest {
@@ -531,93 +491,79 @@ export interface ListSigningProfilesRequest {
   includeCanceled?: boolean;
 
   /**
-   * <p>The maximum number of profiles to be returned.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
    * 			response with truncated results, use this parameter in a subsequent request. Set it to
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of profiles to be returned.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListSigningProfilesRequest {
   export const filterSensitiveLog = (obj: ListSigningProfilesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningProfilesRequest =>
-    __isa(o, "ListSigningProfilesRequest");
+  export const isa = (o: any): o is ListSigningProfilesRequest => __isa(o, "ListSigningProfilesRequest");
 }
 
 export interface ListSigningProfilesResponse {
   __type?: "ListSigningProfilesResponse";
-  /**
-   * <p>Value for specifying the next set of paginated results to return.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>A list of profiles that are available in the AWS account. This includes profiles with
    * 			the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set
    * 			to <code>true</code>.</p>
    */
   profiles?: SigningProfile[];
+
+  /**
+   * <p>Value for specifying the next set of paginated results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListSigningProfilesResponse {
-  export const filterSensitiveLog = (
-    obj: ListSigningProfilesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListSigningProfilesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListSigningProfilesResponse =>
-    __isa(o, "ListSigningProfilesResponse");
+  export const isa = (o: any): o is ListSigningProfilesResponse => __isa(o, "ListSigningProfilesResponse");
 }
 
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
-   * <p>The Amazon
-   * 			Resource Name (ARN) for the signing
-   * 			profile.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
   resourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
+   * <p>A list of tags associated with the signing profile.</p>
    */
   tags?: { [key: string]: string };
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
- * <p>The signing
- * 			profile was not
- * 			found.</p>
+ * <p>The signing profile was not found.</p>
  */
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
@@ -627,14 +573,23 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface PutSigningProfileRequest {
   __type?: "PutSigningProfileRequest";
+  /**
+   * <p>Tags to be associated with the signing profile that is being created.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the signing profile to be created.</p>
+   */
+  profileName: string | undefined;
+
   /**
    * <p>A subfield of <code>platform</code>. This specifies any different configuration
    * 			options that you want to apply to the chosen platform (such as a different
@@ -643,41 +598,28 @@ export interface PutSigningProfileRequest {
   overrides?: SigningPlatformOverrides;
 
   /**
-   * <p>The ID of the signing profile to be created.</p>
-   */
-  platformId: string | undefined;
-
-  /**
-   * <p>The name of the signing profile to be created.</p>
-   */
-  profileName: string | undefined;
-
-  /**
-   * <p>The AWS Certificate Manager certificate that will be used to sign code with the new signing
-   * 			profile.</p>
-   */
-  signingMaterial: SigningMaterial | undefined;
-
-  /**
    * <p>Map of key-value pairs for signing. These can include any information that you want to
    * 			use during signing.</p>
    */
   signingParameters?: { [key: string]: string };
 
   /**
-   * <p>Tags to be
-   * 			associated with the signing profile being
-   * 			created.</p>
+   * <p>The ID of the signing platform to be created.</p>
    */
-  tags?: { [key: string]: string };
+  platformId: string | undefined;
+
+  /**
+   * <p>The AWS Certificate Manager certificate that will be used to sign code with the new signing
+   * 			profile.</p>
+   */
+  signingMaterial: SigningMaterial | undefined;
 }
 
 export namespace PutSigningProfileRequest {
   export const filterSensitiveLog = (obj: PutSigningProfileRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutSigningProfileRequest =>
-    __isa(o, "PutSigningProfileRequest");
+  export const isa = (o: any): o is PutSigningProfileRequest => __isa(o, "PutSigningProfileRequest");
 }
 
 export interface PutSigningProfileResponse {
@@ -690,18 +632,15 @@ export interface PutSigningProfileResponse {
 
 export namespace PutSigningProfileResponse {
   export const filterSensitiveLog = (obj: PutSigningProfileResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutSigningProfileResponse =>
-    __isa(o, "PutSigningProfileResponse");
+  export const isa = (o: any): o is PutSigningProfileResponse => __isa(o, "PutSigningProfileResponse");
 }
 
 /**
  * <p>A specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -709,10 +648,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -734,7 +672,7 @@ export interface S3Destination {
 
 export namespace S3Destination {
   export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
@@ -757,10 +695,9 @@ export interface S3SignedObject {
 
 export namespace S3SignedObject {
   export const filterSensitiveLog = (obj: S3SignedObject): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is S3SignedObject =>
-    __isa(o, "S3SignedObject");
+  export const isa = (o: any): o is S3SignedObject => __isa(o, "S3SignedObject");
 }
 
 /**
@@ -774,19 +711,19 @@ export interface S3Source {
   bucketName: string | undefined;
 
   /**
-   * <p>Key name of the bucket object that contains your unsigned code.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>Version of your source image in your version enabled S3 bucket.</p>
    */
   version: string | undefined;
+
+  /**
+   * <p>Key name of the bucket object that contains your unsigned code.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace S3Source {
   export const filterSensitiveLog = (obj: S3Source): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Source => __isa(o, "S3Source");
 }
@@ -805,7 +742,7 @@ export interface SignedObject {
 
 export namespace SignedObject {
   export const filterSensitiveLog = (obj: SignedObject): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SignedObject => __isa(o, "SignedObject");
 }
@@ -821,17 +758,16 @@ export interface SigningConfiguration {
   encryptionAlgorithmOptions: EncryptionAlgorithmOptions | undefined;
 
   /**
-   * <p>The hash algorithm options that are available for a a code signing job.</p>
+   * <p>The hash algorithm options that are available for a code signing job.</p>
    */
   hashAlgorithmOptions: HashAlgorithmOptions | undefined;
 }
 
 export namespace SigningConfiguration {
   export const filterSensitiveLog = (obj: SigningConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningConfiguration =>
-    __isa(o, "SigningConfiguration");
+  export const isa = (o: any): o is SigningConfiguration => __isa(o, "SigningConfiguration");
 }
 
 /**
@@ -854,13 +790,10 @@ export interface SigningConfigurationOverrides {
 }
 
 export namespace SigningConfigurationOverrides {
-  export const filterSensitiveLog = (
-    obj: SigningConfigurationOverrides
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SigningConfigurationOverrides): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SigningConfigurationOverrides =>
-    __isa(o, "SigningConfigurationOverrides");
+  export const isa = (o: any): o is SigningConfigurationOverrides => __isa(o, "SigningConfigurationOverrides");
 }
 
 /**
@@ -869,22 +802,21 @@ export namespace SigningConfigurationOverrides {
 export interface SigningImageFormat {
   __type?: "SigningImageFormat";
   /**
-   * <p>The default format of a code signing signing image.</p>
+   * <p>The default format of a code signing image.</p>
    */
   defaultFormat: ImageFormat | string | undefined;
 
   /**
-   * <p>The supported formats of a code signing signing image.</p>
+   * <p>The supported formats of a code signing image.</p>
    */
   supportedFormats: (ImageFormat | string)[] | undefined;
 }
 
 export namespace SigningImageFormat {
   export const filterSensitiveLog = (obj: SigningImageFormat): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningImageFormat =>
-    __isa(o, "SigningImageFormat");
+  export const isa = (o: any): o is SigningImageFormat => __isa(o, "SigningImageFormat");
 }
 
 /**
@@ -893,26 +825,9 @@ export namespace SigningImageFormat {
 export interface SigningJob {
   __type?: "SigningJob";
   /**
-   * <p>The date and time that the signing job was created.</p>
+   * <p>The status of the signing job.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>The ID of the signing job.</p>
-   */
-  jobId?: string;
-
-  /**
-   * <p>A <code>SignedObject</code> structure that contains information about a signing job's
-   * 			signed code image.</p>
-   */
-  signedObject?: SignedObject;
-
-  /**
-   * <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of
-   * 			the certificate used for the signing job.</p>
-   */
-  signingMaterial?: SigningMaterial;
+  status?: SigningStatus | string;
 
   /**
    * <p>A <code>Source</code> that contains information about a signing job's code image
@@ -921,14 +836,31 @@ export interface SigningJob {
   source?: Source;
 
   /**
-   * <p>The status of the signing job.</p>
+   * <p>The ID of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  jobId?: string;
+
+  /**
+   * <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of
+   * 			the certificate used for the signing job.</p>
+   */
+  signingMaterial?: SigningMaterial;
+
+  /**
+   * <p>The date and time that the signing job was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>A <code>SignedObject</code> structure that contains information about a signing job's
+   * 			signed code image.</p>
+   */
+  signedObject?: SignedObject;
 }
 
 export namespace SigningJob {
   export const filterSensitiveLog = (obj: SigningJob): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SigningJob => __isa(o, "SigningJob");
 }
@@ -947,42 +879,26 @@ export interface SigningMaterial {
 
 export namespace SigningMaterial {
   export const filterSensitiveLog = (obj: SigningMaterial): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningMaterial =>
-    __isa(o, "SigningMaterial");
+  export const isa = (o: any): o is SigningMaterial => __isa(o, "SigningMaterial");
 }
 
 /**
- * <p>Contains information about the signing configurations and parameters that is used to
+ * <p>Contains information about the signing configurations and parameters that are used to
  * 			perform a code signing job.</p>
  */
 export interface SigningPlatform {
   __type?: "SigningPlatform";
   /**
-   * <p>The category of a code signing platform.</p>
+   * <p>The types of targets that can be signed by a code signing platform.</p>
    */
-  category?: Category | string;
+  target?: string;
 
   /**
    * <p>The display name of a code signing platform.</p>
    */
   displayName?: string;
-
-  /**
-   * <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>
-   */
-  maxSizeInMB?: number;
-
-  /**
-   * <p>Any partner entities linked to a code signing platform.</p>
-   */
-  partner?: string;
-
-  /**
-   * <p>The ID of a code signing; platform.</p>
-   */
-  platformId?: string;
 
   /**
    * <p>The configuration of a code signing platform. This includes the designated hash algorithm
@@ -996,17 +912,31 @@ export interface SigningPlatform {
   signingImageFormat?: SigningImageFormat;
 
   /**
-   * <p>The types of targets that can be signed by a code signing platform.</p>
+   * <p>The ID of a code signing; platform.</p>
    */
-  target?: string;
+  platformId?: string;
+
+  /**
+   * <p>The category of a code signing platform.</p>
+   */
+  category?: Category | string;
+
+  /**
+   * <p>Any partner entities linked to a code signing platform.</p>
+   */
+  partner?: string;
+
+  /**
+   * <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>
+   */
+  maxSizeInMB?: number;
 }
 
 export namespace SigningPlatform {
   export const filterSensitiveLog = (obj: SigningPlatform): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningPlatform =>
-    __isa(o, "SigningPlatform");
+  export const isa = (o: any): o is SigningPlatform => __isa(o, "SigningPlatform");
 }
 
 /**
@@ -1020,41 +950,31 @@ export interface SigningPlatformOverrides {
    * 			signing job.</p>
    */
   signingConfiguration?: SigningConfigurationOverrides;
+
+  /**
+   * <p>A signed image is a JSON object. When overriding the default signing platform configuration,
+   * 			a customer can select either of two signing formats, <code>JSONEmbedded</code> or
+   * 				<code>JSONDetached</code>.  (A third format value, <code>JSON</code>, is reserved
+   * 			for future use.) With <code>JSONEmbedded</code>, the signing image has the payload
+   * 			embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the
+   * 			signing image.</p>
+   */
+  signingImageFormat?: ImageFormat | string;
 }
 
 export namespace SigningPlatformOverrides {
   export const filterSensitiveLog = (obj: SigningPlatformOverrides): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningPlatformOverrides =>
-    __isa(o, "SigningPlatformOverrides");
+  export const isa = (o: any): o is SigningPlatformOverrides => __isa(o, "SigningPlatformOverrides");
 }
 
 /**
- * <p>Contains information about the ACM certificates and code signing configuration parameters
- * 			that can be used by a given code signing user.</p>
+ * <p>Contains information about the ACM certificates and code signing configuration parameters that
+ * 			can be used by a given code signing user.</p>
  */
 export interface SigningProfile {
   __type?: "SigningProfile";
-  /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The ID of a platform that is available for use by a signing profile.</p>
-   */
-  platformId?: string;
-
-  /**
-   * <p>The name of the
-   * 			signing
-   * 			profile.</p>
-   */
-  profileName?: string;
-
   /**
    * <p>The ACM certificate that is available for use by a signing profile.</p>
    */
@@ -1066,24 +986,36 @@ export interface SigningProfile {
   signingParameters?: { [key: string]: string };
 
   /**
+   * <p>The name of the signing profile.</p>
+   */
+  profileName?: string;
+
+  /**
+   * <p>The ID of a platform that is available for use by a signing profile.</p>
+   */
+  platformId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>A list of tags associated with the signing profile.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The status of a code signing profile.</p>
    */
   status?: SigningProfileStatus | string;
-
-  /**
-   * <p>A list of tags
-   * 			associated with the signing
-   * 			profile.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace SigningProfile {
   export const filterSensitiveLog = (obj: SigningProfile): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SigningProfile =>
-    __isa(o, "SigningProfile");
+  export const isa = (o: any): o is SigningProfile => __isa(o, "SigningProfile");
 }
 
 export type SigningProfileStatus = "Active" | "Canceled";
@@ -1104,7 +1036,7 @@ export interface Source {
 
 export namespace Source {
   export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Source => __isa(o, "Source");
 }
@@ -1112,35 +1044,34 @@ export namespace Source {
 export interface StartSigningJobRequest {
   __type?: "StartSigningJobRequest";
   /**
+   * <p>The name of the signing profile.</p>
+   */
+  profileName?: string;
+
+  /**
    * <p>String that identifies the signing request. All calls after the first that use this
    * 			token return the same response as the first call.</p>
    */
   clientRequestToken?: string;
 
   /**
-   * <p>The S3 bucket in which to save your signed object. The destination contains the name
-   * 			of your bucket and an optional prefix.</p>
-   */
-  destination: Destination | undefined;
-
-  /**
-   * <p>The name of the signing profile.</p>
-   */
-  profileName?: string;
-
-  /**
    * <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw
    * 			code.</p>
    */
   source: Source | undefined;
+
+  /**
+   * <p>The S3 bucket in which to save your signed object. The destination contains the name
+   * 			of your bucket and an optional prefix.</p>
+   */
+  destination: Destination | undefined;
 }
 
 export namespace StartSigningJobRequest {
   export const filterSensitiveLog = (obj: StartSigningJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartSigningJobRequest =>
-    __isa(o, "StartSigningJobRequest");
+  export const isa = (o: any): o is StartSigningJobRequest => __isa(o, "StartSigningJobRequest");
 }
 
 export interface StartSigningJobResponse {
@@ -1153,35 +1084,29 @@ export interface StartSigningJobResponse {
 
 export namespace StartSigningJobResponse {
   export const filterSensitiveLog = (obj: StartSigningJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartSigningJobResponse =>
-    __isa(o, "StartSigningJobResponse");
+  export const isa = (o: any): o is StartSigningJobResponse => __isa(o, "StartSigningJobResponse");
 }
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing
-   * 			profile.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>One or more tags
-   * 			to be associated with the signing
-   * 			profile.</p>
+   * <p>One or more tags to be associated with the signing profile.</p>
    */
   tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1190,18 +1115,15 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>The signing job has been throttled.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -1209,35 +1131,29 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>Amazon Resource
-   * 			Name (ARN) for the signing profile
-   * 			.</p>
+   * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tag keys
-   * 			to be removed from the signing profile
-   * 			.</p>
+   * <p>A list of tag keys to be removed from the signing profile.</p>
    */
   tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1246,18 +1162,15 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>You signing certificate could not be validated.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message?: string;
@@ -1265,8 +1178,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

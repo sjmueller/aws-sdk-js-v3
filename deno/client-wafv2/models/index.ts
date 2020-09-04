@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -10,6 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>Specifies that AWS WAF should allow requests.</p>
+ *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
 export interface AllowAction {
   __type?: "AllowAction";
@@ -17,7 +14,7 @@ export interface AllowAction {
 
 export namespace AllowAction {
   export const filterSensitiveLog = (obj: AllowAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AllowAction => __isa(o, "AllowAction");
 }
@@ -27,6 +24,7 @@ export namespace AllowAction {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>All query arguments of a web request. </p>
+ *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface AllQueryArguments {
   __type?: "AllQueryArguments";
@@ -34,10 +32,9 @@ export interface AllQueryArguments {
 
 export namespace AllQueryArguments {
   export const filterSensitiveLog = (obj: AllQueryArguments): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AllQueryArguments =>
-    __isa(o, "AllQueryArguments");
+  export const isa = (o: any): o is AllQueryArguments => __isa(o, "AllQueryArguments");
 }
 
 /**
@@ -56,7 +53,7 @@ export interface AndStatement {
 
 export namespace AndStatement {
   export const filterSensitiveLog = (obj: AndStatement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AndStatement => __isa(o, "AndStatement");
 }
@@ -64,41 +61,35 @@ export namespace AndStatement {
 export interface AssociateWebACLRequest {
   __type?: "AssociateWebACLRequest";
   /**
+   * <p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>
+   */
+  WebACLArn: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </p>
    *
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>For a CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:                   <i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>       /<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>            ::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
    *                   </code>
    *                </p>
    *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>
-   */
-  WebACLArn: string | undefined;
 }
 
 export namespace AssociateWebACLRequest {
   export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLRequest =>
-    __isa(o, "AssociateWebACLRequest");
+  export const isa = (o: any): o is AssociateWebACLRequest => __isa(o, "AssociateWebACLRequest");
 }
 
 export interface AssociateWebACLResponse {
@@ -107,10 +98,9 @@ export interface AssociateWebACLResponse {
 
 export namespace AssociateWebACLResponse {
   export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLResponse =>
-    __isa(o, "AssociateWebACLResponse");
+  export const isa = (o: any): o is AssociateWebACLResponse => __isa(o, "AssociateWebACLResponse");
 }
 
 /**
@@ -118,6 +108,7 @@ export namespace AssociateWebACLResponse {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>Specifies that AWS WAF should block requests.</p>
+ *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
 export interface BlockAction {
   __type?: "BlockAction";
@@ -125,7 +116,7 @@ export interface BlockAction {
 
 export namespace BlockAction {
   export const filterSensitiveLog = (obj: BlockAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BlockAction => __isa(o, "BlockAction");
 }
@@ -135,6 +126,7 @@ export namespace BlockAction {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>The body of a web request. This immediately follows the request headers.</p>
+ *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface Body {
   __type?: "Body";
@@ -142,7 +134,7 @@ export interface Body {
 
 export namespace Body {
   export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Body => __isa(o, "Body");
 }
@@ -155,6 +147,13 @@ export namespace Body {
  */
 export interface ByteMatchStatement {
   __type?: "ByteMatchStatement";
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+
   /**
    * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
@@ -203,7 +202,7 @@ export interface ByteMatchStatement {
 
   /**
    * <p>A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in <a>FieldToMatch</a>. The maximum length of the value is 50 bytes.</p>
-   *          <p>Valid values depend on the areas that you specify for inspection in <code>FieldToMatch</code>:</p>
+   *          <p>Valid values depend on the component that you specify for inspection in <code>FieldToMatch</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -234,21 +233,13 @@ export interface ByteMatchStatement {
    *          <p>The value that you want AWS WAF to search for. The SDK automatically base64 encodes the value.</p>
    */
   SearchString: Uint8Array | undefined;
-
-  /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
-   *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
-   */
-  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace ByteMatchStatement {
   export const filterSensitiveLog = (obj: ByteMatchStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ByteMatchStatement =>
-    __isa(o, "ByteMatchStatement");
+  export const isa = (o: any): o is ByteMatchStatement => __isa(o, "ByteMatchStatement");
 }
 
 export interface CheckCapacityRequest {
@@ -263,7 +254,7 @@ export interface CheckCapacityRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -275,10 +266,9 @@ export interface CheckCapacityRequest {
 
 export namespace CheckCapacityRequest {
   export const filterSensitiveLog = (obj: CheckCapacityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CheckCapacityRequest =>
-    __isa(o, "CheckCapacityRequest");
+  export const isa = (o: any): o is CheckCapacityRequest => __isa(o, "CheckCapacityRequest");
 }
 
 export interface CheckCapacityResponse {
@@ -291,10 +281,9 @@ export interface CheckCapacityResponse {
 
 export namespace CheckCapacityResponse {
   export const filterSensitiveLog = (obj: CheckCapacityResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CheckCapacityResponse =>
-    __isa(o, "CheckCapacityResponse");
+  export const isa = (o: any): o is CheckCapacityResponse => __isa(o, "CheckCapacityResponse");
 }
 
 export enum ComparisonOperator {
@@ -303,7 +292,7 @@ export enum ComparisonOperator {
   GT = "GT",
   LE = "LE",
   LT = "LT",
-  NE = "NE"
+  NE = "NE",
 }
 
 /**
@@ -311,6 +300,7 @@ export enum ComparisonOperator {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>Specifies that AWS WAF should count requests.</p>
+ *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
 export interface CountAction {
   __type?: "CountAction";
@@ -318,7 +308,7 @@ export interface CountAction {
 
 export namespace CountAction {
   export const filterSensitiveLog = (obj: CountAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is CountAction => __isa(o, "CountAction");
 }
@@ -572,11 +562,30 @@ export enum CountryCode {
   YT = "YT",
   ZA = "ZA",
   ZM = "ZM",
-  ZW = "ZW"
+  ZW = "ZW",
 }
 
 export interface CreateIPSetRequest {
   __type?: "CreateIPSetRequest";
+  /**
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
   /**
    * <p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>
    *          <p>Examples: </p>
@@ -601,7 +610,12 @@ export interface CreateIPSetRequest {
   Addresses: string[] | undefined;
 
   /**
-   * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
+   * <p>An array of key:value pairs to associate with the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>
    */
   Description?: string;
 
@@ -609,38 +623,13 @@ export interface CreateIPSetRequest {
    * <p>Specify IPV4 or IPV6. </p>
    */
   IPAddressVersion: IPAddressVersion | string | undefined;
-
-  /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
-   */
-  Scope: Scope | string | undefined;
-
-  /**
-   * <p>An array of key:value pairs to associate with the resource.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateIPSetRequest {
   export const filterSensitiveLog = (obj: CreateIPSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetRequest =>
-    __isa(o, "CreateIPSetRequest");
+  export const isa = (o: any): o is CreateIPSetRequest => __isa(o, "CreateIPSetRequest");
 }
 
 export interface CreateIPSetResponse {
@@ -653,23 +642,22 @@ export interface CreateIPSetResponse {
 
 export namespace CreateIPSetResponse {
   export const filterSensitiveLog = (obj: CreateIPSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetResponse =>
-    __isa(o, "CreateIPSetResponse");
+  export const isa = (o: any): o is CreateIPSetResponse => __isa(o, "CreateIPSetResponse");
 }
 
 export interface CreateRegexPatternSetRequest {
   __type?: "CreateRegexPatternSetRequest";
   /**
-   * <p>A friendly description of the set. You cannot change the description of a set after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A friendly name of the set. You cannot change the name after you create the set.</p>
+   * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>An array of key:value pairs to associate with the resource.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>Array of regular expression strings. </p>
@@ -681,7 +669,51 @@ export interface CreateRegexPatternSetRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
+  /**
+   * <p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>
+   */
+  Description?: string;
+}
+
+export namespace CreateRegexPatternSetRequest {
+  export const filterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateRegexPatternSetRequest => __isa(o, "CreateRegexPatternSetRequest");
+}
+
+export interface CreateRegexPatternSetResponse {
+  __type?: "CreateRegexPatternSetResponse";
+  /**
+   * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
+   */
+  Summary?: RegexPatternSetSummary;
+}
+
+export namespace CreateRegexPatternSetResponse {
+  export const filterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateRegexPatternSetResponse => __isa(o, "CreateRegexPatternSetResponse");
+}
+
+export interface CreateRuleGroupRequest {
+  __type?: "CreateRuleGroupRequest";
+  /**
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -694,38 +726,12 @@ export interface CreateRegexPatternSetRequest {
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
-}
 
-export namespace CreateRegexPatternSetRequest {
-  export const filterSensitiveLog = (
-    obj: CreateRegexPatternSetRequest
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateRegexPatternSetRequest =>
-    __isa(o, "CreateRegexPatternSetRequest");
-}
-
-export interface CreateRegexPatternSetResponse {
-  __type?: "CreateRegexPatternSetResponse";
   /**
-   * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
+   * <p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>
    */
-  Summary?: RegexPatternSetSummary;
-}
+  Description?: string;
 
-export namespace CreateRegexPatternSetResponse {
-  export const filterSensitiveLog = (
-    obj: CreateRegexPatternSetResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is CreateRegexPatternSetResponse =>
-    __isa(o, "CreateRegexPatternSetResponse");
-}
-
-export interface CreateRuleGroupRequest {
-  __type?: "CreateRuleGroupRequest";
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
    *           <p>When you create your own rule group, you define this, and you cannot change it after creation.
@@ -743,12 +749,12 @@ export interface CreateRuleGroupRequest {
   Capacity: number | undefined;
 
   /**
-   * <p>A friendly description of the rule group. You cannot change the description of a rule group after you create it.</p>
+   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
    */
-  Description?: string;
+  VisibilityConfig: VisibilityConfig | undefined;
 
   /**
-   * <p>A friendly name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
    */
   Name: string | undefined;
 
@@ -759,38 +765,13 @@ export interface CreateRuleGroupRequest {
    *       </p>
    */
   Rules?: Rule[];
-
-  /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
-   */
-  Scope: Scope | string | undefined;
-
-  /**
-   * <p>An array of key:value pairs to associate with the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
-   */
-  VisibilityConfig: VisibilityConfig | undefined;
 }
 
 export namespace CreateRuleGroupRequest {
   export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupRequest =>
-    __isa(o, "CreateRuleGroupRequest");
+  export const isa = (o: any): o is CreateRuleGroupRequest => __isa(o, "CreateRuleGroupRequest");
 }
 
 export interface CreateRuleGroupResponse {
@@ -803,43 +784,44 @@ export interface CreateRuleGroupResponse {
 
 export namespace CreateRuleGroupResponse {
   export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupResponse =>
-    __isa(o, "CreateRuleGroupResponse");
+  export const isa = (o: any): o is CreateRuleGroupResponse => __isa(o, "CreateRuleGroupResponse");
 }
 
 export interface CreateWebACLRequest {
   __type?: "CreateWebACLRequest";
+  /**
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
+   */
+  VisibilityConfig: VisibilityConfig | undefined;
+
   /**
    * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
    */
   DefaultAction: DefaultAction | undefined;
 
   /**
-   * <p>A friendly description of the Web ACL. You cannot change the description of a Web ACL after you create it.</p>
+   * <p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>
    */
   Description?: string;
 
   /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   * <p>An array of key:value pairs to associate with the resource.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
-   *          web requests, and parameters that govern how AWS WAF handles them.
-   *       </p>
-   */
-  Rules?: Rule[];
+  Tags?: Tag[];
 
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -849,22 +831,19 @@ export interface CreateWebACLRequest {
   Scope: Scope | string | undefined;
 
   /**
-   * <p>An array of key:value pairs to associate with the resource.</p>
+   * <p>The <a>Rule</a> statements used to identify the web requests that you
+   *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
+   *          web requests, and parameters that govern how AWS WAF handles them.
+   *       </p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
-   */
-  VisibilityConfig: VisibilityConfig | undefined;
+  Rules?: Rule[];
 }
 
 export namespace CreateWebACLRequest {
   export const filterSensitiveLog = (obj: CreateWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLRequest =>
-    __isa(o, "CreateWebACLRequest");
+  export const isa = (o: any): o is CreateWebACLRequest => __isa(o, "CreateWebACLRequest");
 }
 
 export interface CreateWebACLResponse {
@@ -877,17 +856,16 @@ export interface CreateWebACLResponse {
 
 export namespace CreateWebACLResponse {
   export const filterSensitiveLog = (obj: CreateWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLResponse =>
-    __isa(o, "CreateWebACLResponse");
+  export const isa = (o: any): o is CreateWebACLResponse => __isa(o, "CreateWebACLResponse");
 }
 
 /**
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *          <p>In a <code>WebACL</code>, this is the action that you want AWS WAF
+ *          <p>In a <a>WebACL</a>, this is the action that you want AWS WAF
  *          to perform when a web request doesn't match any of the rules in the <code>WebACL</code>. The default action must be a terminating action, so count is not allowed.</p>
  */
 export interface DefaultAction {
@@ -905,34 +883,61 @@ export interface DefaultAction {
 
 export namespace DefaultAction {
   export const filterSensitiveLog = (obj: DefaultAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DefaultAction => __isa(o, "DefaultAction");
 }
 
+export interface DeleteFirewallManagerRuleGroupsRequest {
+  __type?: "DeleteFirewallManagerRuleGroupsRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL.</p>
+   */
+  WebACLArn: string | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  WebACLLockToken: string | undefined;
+}
+
+export namespace DeleteFirewallManagerRuleGroupsRequest {
+  export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteFirewallManagerRuleGroupsRequest =>
+    __isa(o, "DeleteFirewallManagerRuleGroupsRequest");
+}
+
+export interface DeleteFirewallManagerRuleGroupsResponse {
+  __type?: "DeleteFirewallManagerRuleGroupsResponse";
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  NextWebACLLockToken?: string;
+}
+
+export namespace DeleteFirewallManagerRuleGroupsResponse {
+  export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteFirewallManagerRuleGroupsResponse =>
+    __isa(o, "DeleteFirewallManagerRuleGroupsResponse");
+}
+
 export interface DeleteIPSetRequest {
   __type?: "DeleteIPSetRequest";
-  /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
   LockToken: string | undefined;
 
   /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -940,14 +945,23 @@ export interface DeleteIPSetRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace DeleteIPSetRequest {
   export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetRequest =>
-    __isa(o, "DeleteIPSetRequest");
+  export const isa = (o: any): o is DeleteIPSetRequest => __isa(o, "DeleteIPSetRequest");
 }
 
 export interface DeleteIPSetResponse {
@@ -956,10 +970,9 @@ export interface DeleteIPSetResponse {
 
 export namespace DeleteIPSetResponse {
   export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetResponse =>
-    __isa(o, "DeleteIPSetResponse");
+  export const isa = (o: any): o is DeleteIPSetResponse => __isa(o, "DeleteIPSetResponse");
 }
 
 export interface DeleteLoggingConfigurationRequest {
@@ -971,13 +984,10 @@ export interface DeleteLoggingConfigurationRequest {
 }
 
 export namespace DeleteLoggingConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteLoggingConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggingConfigurationRequest =>
-    __isa(o, "DeleteLoggingConfigurationRequest");
+  export const isa = (o: any): o is DeleteLoggingConfigurationRequest => __isa(o, "DeleteLoggingConfigurationRequest");
 }
 
 export interface DeleteLoggingConfigurationResponse {
@@ -985,29 +995,44 @@ export interface DeleteLoggingConfigurationResponse {
 }
 
 export namespace DeleteLoggingConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteLoggingConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteLoggingConfigurationResponse =>
     __isa(o, "DeleteLoggingConfigurationResponse");
 }
 
+export interface DeletePermissionPolicyRequest {
+  __type?: "DeletePermissionPolicyRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
+   *         <p>You must be the owner of the rule group to perform this operation.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DeletePermissionPolicyRequest {
+  export const filterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeletePermissionPolicyRequest => __isa(o, "DeletePermissionPolicyRequest");
+}
+
+export interface DeletePermissionPolicyResponse {
+  __type?: "DeletePermissionPolicyResponse";
+}
+
+export namespace DeletePermissionPolicyResponse {
+  export const filterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeletePermissionPolicyResponse => __isa(o, "DeletePermissionPolicyResponse");
+}
+
 export interface DeleteRegexPatternSetRequest {
   __type?: "DeleteRegexPatternSetRequest";
   /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken: string | undefined;
-
-  /**
-   * <p>A friendly name of the set. You cannot change the name after you create the set.</p>
+   * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
   Name: string | undefined;
 
@@ -1016,7 +1041,7 @@ export interface DeleteRegexPatternSetRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1024,16 +1049,23 @@ export interface DeleteRegexPatternSetRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken: string | undefined;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace DeleteRegexPatternSetRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteRegexPatternSetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetRequest =>
-    __isa(o, "DeleteRegexPatternSetRequest");
+  export const isa = (o: any): o is DeleteRegexPatternSetRequest => __isa(o, "DeleteRegexPatternSetRequest");
 }
 
 export interface DeleteRegexPatternSetResponse {
@@ -1041,29 +1073,16 @@ export interface DeleteRegexPatternSetResponse {
 }
 
 export namespace DeleteRegexPatternSetResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteRegexPatternSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetResponse =>
-    __isa(o, "DeleteRegexPatternSetResponse");
+  export const isa = (o: any): o is DeleteRegexPatternSetResponse => __isa(o, "DeleteRegexPatternSetResponse");
 }
 
 export interface DeleteRuleGroupRequest {
   __type?: "DeleteRuleGroupRequest";
   /**
-   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken: string | undefined;
-
-  /**
-   * <p>A friendly name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
    */
   Name: string | undefined;
 
@@ -1072,7 +1091,7 @@ export interface DeleteRuleGroupRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1080,14 +1099,23 @@ export interface DeleteRuleGroupRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace DeleteRuleGroupRequest {
   export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupRequest =>
-    __isa(o, "DeleteRuleGroupRequest");
+  export const isa = (o: any): o is DeleteRuleGroupRequest => __isa(o, "DeleteRuleGroupRequest");
 }
 
 export interface DeleteRuleGroupResponse {
@@ -1096,10 +1124,9 @@ export interface DeleteRuleGroupResponse {
 
 export namespace DeleteRuleGroupResponse {
   export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupResponse =>
-    __isa(o, "DeleteRuleGroupResponse");
+  export const isa = (o: any): o is DeleteRuleGroupResponse => __isa(o, "DeleteRuleGroupResponse");
 }
 
 export interface DeleteWebACLRequest {
@@ -1115,16 +1142,11 @@ export interface DeleteWebACLRequest {
   LockToken: string | undefined;
 
   /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1132,14 +1154,18 @@ export interface DeleteWebACLRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DeleteWebACLRequest {
   export const filterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLRequest =>
-    __isa(o, "DeleteWebACLRequest");
+  export const isa = (o: any): o is DeleteWebACLRequest => __isa(o, "DeleteWebACLRequest");
 }
 
 export interface DeleteWebACLResponse {
@@ -1148,10 +1174,9 @@ export interface DeleteWebACLResponse {
 
 export namespace DeleteWebACLResponse {
   export const filterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLResponse =>
-    __isa(o, "DeleteWebACLResponse");
+  export const isa = (o: any): o is DeleteWebACLResponse => __isa(o, "DeleteWebACLResponse");
 }
 
 export interface DescribeManagedRuleGroupRequest {
@@ -1166,7 +1191,7 @@ export interface DescribeManagedRuleGroupRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1182,13 +1207,10 @@ export interface DescribeManagedRuleGroupRequest {
 }
 
 export namespace DescribeManagedRuleGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeManagedRuleGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeManagedRuleGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedRuleGroupRequest =>
-    __isa(o, "DescribeManagedRuleGroupRequest");
+  export const isa = (o: any): o is DescribeManagedRuleGroupRequest => __isa(o, "DescribeManagedRuleGroupRequest");
 }
 
 export interface DescribeManagedRuleGroupResponse {
@@ -1211,13 +1233,10 @@ export interface DescribeManagedRuleGroupResponse {
 }
 
 export namespace DescribeManagedRuleGroupResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeManagedRuleGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeManagedRuleGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedRuleGroupResponse =>
-    __isa(o, "DescribeManagedRuleGroupResponse");
+  export const isa = (o: any): o is DescribeManagedRuleGroupResponse => __isa(o, "DescribeManagedRuleGroupResponse");
 }
 
 export interface DisassociateWebACLRequest {
@@ -1228,17 +1247,12 @@ export interface DisassociateWebACLRequest {
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>For a CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:                   <i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>       /<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>            ::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -1249,10 +1263,9 @@ export interface DisassociateWebACLRequest {
 
 export namespace DisassociateWebACLRequest {
   export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLRequest =>
-    __isa(o, "DisassociateWebACLRequest");
+  export const isa = (o: any): o is DisassociateWebACLRequest => __isa(o, "DisassociateWebACLRequest");
 }
 
 export interface DisassociateWebACLResponse {
@@ -1261,10 +1274,9 @@ export interface DisassociateWebACLResponse {
 
 export namespace DisassociateWebACLResponse {
   export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLResponse =>
-    __isa(o, "DisassociateWebACLResponse");
+  export const isa = (o: any): o is DisassociateWebACLResponse => __isa(o, "DisassociateWebACLResponse");
 }
 
 /**
@@ -1285,35 +1297,45 @@ export interface ExcludedRule {
 
 export namespace ExcludedRule {
   export const filterSensitiveLog = (obj: ExcludedRule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ExcludedRule => __isa(o, "ExcludedRule");
+}
+
+export enum FallbackBehavior {
+  MATCH = "MATCH",
+  NO_MATCH = "NO_MATCH",
 }
 
 /**
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *          <p>The part of a web request that you want AWS WAF to inspect. Include the <code>FieldToMatch</code> types that you want to inspect, with additional specifications as needed, according to the type. </p>
+ *          <p>The part of a web request that you want AWS WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.</p>
  */
 export interface FieldToMatch {
   __type?: "FieldToMatch";
+  /**
+   * <p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any
+   *          additional data that you want to send to your web server as the HTTP request body, such as data from a form. </p>
+   *          <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection by the underlying host service. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>, with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>
+   */
+  Body?: Body;
+
   /**
    * <p>Inspect all query arguments. </p>
    */
   AllQueryArguments?: AllQueryArguments;
 
   /**
-   * <p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any
-   *          additional data that you want to send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to AWS WAF for inspection. If you don't need to inspect more than 8 KB, you can guarantee that you don't allow additional bytes in by combining a statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>, with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the body of the request. AWS WAF doesn't support inspecting the entire contents of web requests whose bodies exceed the 8 KB limit.</p>
-   */
-  Body?: Body;
-
-  /**
    * <p>Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. </p>
    */
   Method?: Method;
+
+  /**
+   * <p>Inspect the request URI path. This is the part of a web request that identifies a resource, for example, <code>/images/daily-ad.jpg</code>.</p>
+   */
+  UriPath?: UriPath;
 
   /**
    * <p>Inspect the query string. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
@@ -1327,20 +1349,157 @@ export interface FieldToMatch {
 
   /**
    * <p>Inspect a single query argument. Provide the name of the query argument to inspect, such as <i>UserName</i> or <i>SalesRegion</i>. The name can be up to 30 characters long and isn't case sensitive. </p>
+   *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
    */
   SingleQueryArgument?: SingleQueryArgument;
-
-  /**
-   * <p>Inspect the request URI path. This is the part of a web request that identifies a resource, for example, <code>/images/daily-ad.jpg</code>.</p>
-   */
-  UriPath?: UriPath;
 }
 
 export namespace FieldToMatch {
   export const filterSensitiveLog = (obj: FieldToMatch): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FieldToMatch => __isa(o, "FieldToMatch");
+}
+
+/**
+ * <p>A rule group that's defined for an AWS Firewall Manager WAF policy.</p>
+ */
+export interface FirewallManagerRuleGroup {
+  __type?: "FirewallManagerRuleGroup";
+  /**
+   * <p>If you define more than one rule group in the first or last Firewall Manager rule groups,
+   *           AWS WAF evaluates each request against the rule groups in order, starting from the lowest priority setting.
+   *          The priorities don't need to be consecutive, but they must all be different.</p>
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The processing guidance for an AWS Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a rule group reference.</p>
+   */
+  FirewallManagerStatement: FirewallManagerStatement | undefined;
+
+  /**
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <note>
+   *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+   *          </note>
+   *          <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
+   */
+  VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
+   *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
+   *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
+   *             </li>
+   *             <li>
+   *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
+   *             </li>
+   *          </ul>
+   */
+  OverrideAction: OverrideAction | undefined;
+}
+
+export namespace FirewallManagerRuleGroup {
+  export const filterSensitiveLog = (obj: FirewallManagerRuleGroup): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FirewallManagerRuleGroup => __isa(o, "FirewallManagerRuleGroup");
+}
+
+/**
+ * <p>The processing guidance for an AWS Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a rule group reference.</p>
+ */
+export interface FirewallManagerStatement {
+  __type?: "FirewallManagerStatement";
+  /**
+   * <note>
+   *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+   *          </note>
+   *          <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   */
+  RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
+
+  /**
+   * <note>
+   *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+   *          </note>
+   *          <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
+   *          <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   */
+  ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
+}
+
+export namespace FirewallManagerStatement {
+  export const filterSensitiveLog = (obj: FirewallManagerStatement): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FirewallManagerStatement => __isa(o, "FirewallManagerStatement");
+}
+
+/**
+ * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+ *
+ *          <note>
+ *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+ *          </note>
+ *
+ *
+ *          <p>This configuration is used for <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>.
+ *            For <a>IPSetReferenceStatement</a>, use <a>IPSetForwardedIPConfig</a> instead.  </p>
+ *          <p>AWS WAF only evaluates the first IP address found in the specified HTTP header. </p>
+ */
+export interface ForwardedIPConfig {
+  __type?: "ForwardedIPConfig";
+  /**
+   * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   */
+  HeaderName: string | undefined;
+
+  /**
+   * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   *
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>MATCH - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>NO_MATCH - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  FallbackBehavior: FallbackBehavior | string | undefined;
+}
+
+export namespace ForwardedIPConfig {
+  export const filterSensitiveLog = (obj: ForwardedIPConfig): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ForwardedIPConfig => __isa(o, "ForwardedIPConfig");
+}
+
+export enum ForwardedIPPosition {
+  ANY = "ANY",
+  FIRST = "FIRST",
+  LAST = "LAST",
 }
 
 /**
@@ -1355,14 +1514,22 @@ export interface GeoMatchStatement {
    * <p>An array of two-character country codes, for example, <code>[ "US", "CN" ]</code>, from the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    */
   CountryCodes?: (CountryCode | string)[];
+
+  /**
+   * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   */
+  ForwardedIPConfig?: ForwardedIPConfig;
 }
 
 export namespace GeoMatchStatement {
   export const filterSensitiveLog = (obj: GeoMatchStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GeoMatchStatement =>
-    __isa(o, "GeoMatchStatement");
+  export const isa = (o: any): o is GeoMatchStatement => __isa(o, "GeoMatchStatement");
 }
 
 export interface GetIPSetRequest {
@@ -1373,7 +1540,7 @@ export interface GetIPSetRequest {
   Id: string | undefined;
 
   /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
    */
   Name: string | undefined;
 
@@ -1382,7 +1549,7 @@ export interface GetIPSetRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1394,10 +1561,9 @@ export interface GetIPSetRequest {
 
 export namespace GetIPSetRequest {
   export const filterSensitiveLog = (obj: GetIPSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetIPSetRequest =>
-    __isa(o, "GetIPSetRequest");
+  export const isa = (o: any): o is GetIPSetRequest => __isa(o, "GetIPSetRequest");
 }
 
 export interface GetIPSetResponse {
@@ -1415,10 +1581,9 @@ export interface GetIPSetResponse {
 
 export namespace GetIPSetResponse {
   export const filterSensitiveLog = (obj: GetIPSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetIPSetResponse =>
-    __isa(o, "GetIPSetResponse");
+  export const isa = (o: any): o is GetIPSetResponse => __isa(o, "GetIPSetResponse");
 }
 
 export interface GetLoggingConfigurationRequest {
@@ -1430,13 +1595,10 @@ export interface GetLoggingConfigurationRequest {
 }
 
 export namespace GetLoggingConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: GetLoggingConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationRequest =>
-    __isa(o, "GetLoggingConfigurationRequest");
+  export const isa = (o: any): o is GetLoggingConfigurationRequest => __isa(o, "GetLoggingConfigurationRequest");
 }
 
 export interface GetLoggingConfigurationResponse {
@@ -1448,13 +1610,40 @@ export interface GetLoggingConfigurationResponse {
 }
 
 export namespace GetLoggingConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: GetLoggingConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationResponse =>
-    __isa(o, "GetLoggingConfigurationResponse");
+  export const isa = (o: any): o is GetLoggingConfigurationResponse => __isa(o, "GetLoggingConfigurationResponse");
+}
+
+export interface GetPermissionPolicyRequest {
+  __type?: "GetPermissionPolicyRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule group for which you want to get the policy.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace GetPermissionPolicyRequest {
+  export const filterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetPermissionPolicyRequest => __isa(o, "GetPermissionPolicyRequest");
+}
+
+export interface GetPermissionPolicyResponse {
+  __type?: "GetPermissionPolicyResponse";
+  /**
+   * <p>The IAM policy that is attached to the specified rule group.</p>
+   */
+  Policy?: string;
+}
+
+export namespace GetPermissionPolicyResponse {
+  export const filterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetPermissionPolicyResponse => __isa(o, "GetPermissionPolicyResponse");
 }
 
 export interface GetRateBasedStatementManagedKeysRequest {
@@ -1469,7 +1658,7 @@ export interface GetRateBasedStatementManagedKeysRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1484,16 +1673,14 @@ export interface GetRateBasedStatementManagedKeysRequest {
   WebACLId: string | undefined;
 
   /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
   WebACLName: string | undefined;
 }
 
 export namespace GetRateBasedStatementManagedKeysRequest {
-  export const filterSensitiveLog = (
-    obj: GetRateBasedStatementManagedKeysRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetRateBasedStatementManagedKeysRequest =>
     __isa(o, "GetRateBasedStatementManagedKeysRequest");
@@ -1502,21 +1689,19 @@ export namespace GetRateBasedStatementManagedKeysRequest {
 export interface GetRateBasedStatementManagedKeysResponse {
   __type?: "GetRateBasedStatementManagedKeysResponse";
   /**
-   * <p>The keys that are of Internet Protocol version 4 (IPv4). </p>
-   */
-  ManagedKeysIPV4?: RateBasedStatementManagedKeysIPSet;
-
-  /**
    * <p>The keys that are of Internet Protocol version 6 (IPv6). </p>
    */
   ManagedKeysIPV6?: RateBasedStatementManagedKeysIPSet;
+
+  /**
+   * <p>The keys that are of Internet Protocol version 4 (IPv4). </p>
+   */
+  ManagedKeysIPV4?: RateBasedStatementManagedKeysIPSet;
 }
 
 export namespace GetRateBasedStatementManagedKeysResponse {
-  export const filterSensitiveLog = (
-    obj: GetRateBasedStatementManagedKeysResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetRateBasedStatementManagedKeysResponse =>
     __isa(o, "GetRateBasedStatementManagedKeysResponse");
@@ -1525,21 +1710,11 @@ export namespace GetRateBasedStatementManagedKeysResponse {
 export interface GetRegexPatternSetRequest {
   __type?: "GetRegexPatternSetRequest";
   /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A friendly name of the set. You cannot change the name after you create the set.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1547,14 +1722,23 @@ export interface GetRegexPatternSetRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>The name of the set. You cannot change the name after you create the set.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace GetRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetRequest =>
-    __isa(o, "GetRegexPatternSetRequest");
+  export const isa = (o: any): o is GetRegexPatternSetRequest => __isa(o, "GetRegexPatternSetRequest");
 }
 
 export interface GetRegexPatternSetResponse {
@@ -1572,10 +1756,9 @@ export interface GetRegexPatternSetResponse {
 
 export namespace GetRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetResponse =>
-    __isa(o, "GetRegexPatternSetResponse");
+  export const isa = (o: any): o is GetRegexPatternSetResponse => __isa(o, "GetRegexPatternSetResponse");
 }
 
 export interface GetRuleGroupRequest {
@@ -1586,7 +1769,7 @@ export interface GetRuleGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>A friendly name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
    */
   Name: string | undefined;
 
@@ -1595,7 +1778,7 @@ export interface GetRuleGroupRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1607,35 +1790,44 @@ export interface GetRuleGroupRequest {
 
 export namespace GetRuleGroupRequest {
   export const filterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupRequest =>
-    __isa(o, "GetRuleGroupRequest");
+  export const isa = (o: any): o is GetRuleGroupRequest => __isa(o, "GetRuleGroupRequest");
 }
 
 export interface GetRuleGroupResponse {
   __type?: "GetRuleGroupResponse";
   /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken?: string;
-
-  /**
    * <p></p>
    */
   RuleGroup?: RuleGroup;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken?: string;
 }
 
 export namespace GetRuleGroupResponse {
   export const filterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupResponse =>
-    __isa(o, "GetRuleGroupResponse");
+  export const isa = (o: any): o is GetRuleGroupResponse => __isa(o, "GetRuleGroupResponse");
 }
 
 export interface GetSampledRequestsRequest {
   __type?: "GetSampledRequestsRequest";
+  /**
+   * <p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>
+   */
+  WebAclArn: string | undefined;
+
+  /**
+   * <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a
+   *           sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
+   */
+  TimeWindow: TimeWindow | undefined;
+
   /**
    * <p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received
    *          during the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code>
@@ -1653,7 +1845,7 @@ export interface GetSampledRequestsRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1661,30 +1853,24 @@ export interface GetSampledRequestsRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
-
-  /**
-   * <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a
-   *          sample of requests. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the
-   *          previous three hours.</p>
-   */
-  TimeWindow: TimeWindow | undefined;
-
-  /**
-   * <p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>
-   */
-  WebAclArn: string | undefined;
 }
 
 export namespace GetSampledRequestsRequest {
   export const filterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsRequest =>
-    __isa(o, "GetSampledRequestsRequest");
+  export const isa = (o: any): o is GetSampledRequestsRequest => __isa(o, "GetSampledRequestsRequest");
 }
 
 export interface GetSampledRequestsResponse {
   __type?: "GetSampledRequestsResponse";
+  /**
+   * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request.
+   *             However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
+   *          <code>GetSampledRequests</code> returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.</p>
+   */
+  TimeWindow?: TimeWindow;
+
   /**
    * <p>The total number of requests from which <code>GetSampledRequests</code> got a sample of <code>MaxItems</code> requests.
    *          If <code>PopulationSize</code> is less than <code>MaxItems</code>, the sample includes every request that your AWS resource
@@ -1696,21 +1882,13 @@ export interface GetSampledRequestsResponse {
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
    */
   SampledRequests?: SampledHTTPRequest[];
-
-  /**
-   * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
-   *          if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
-   *          <code>GetSampledRequests</code> returns the time range for the first 5,000 requests.</p>
-   */
-  TimeWindow?: TimeWindow;
 }
 
 export namespace GetSampledRequestsResponse {
   export const filterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsResponse =>
-    __isa(o, "GetSampledRequestsResponse");
+  export const isa = (o: any): o is GetSampledRequestsResponse => __isa(o, "GetSampledRequestsResponse");
 }
 
 export interface GetWebACLForResourceRequest {
@@ -1722,13 +1900,10 @@ export interface GetWebACLForResourceRequest {
 }
 
 export namespace GetWebACLForResourceRequest {
-  export const filterSensitiveLog = (
-    obj: GetWebACLForResourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceRequest =>
-    __isa(o, "GetWebACLForResourceRequest");
+  export const isa = (o: any): o is GetWebACLForResourceRequest => __isa(o, "GetWebACLForResourceRequest");
 }
 
 export interface GetWebACLForResourceResponse {
@@ -1740,24 +1915,16 @@ export interface GetWebACLForResourceResponse {
 }
 
 export namespace GetWebACLForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: GetWebACLForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceResponse =>
-    __isa(o, "GetWebACLForResourceResponse");
+  export const isa = (o: any): o is GetWebACLForResourceResponse => __isa(o, "GetWebACLForResourceResponse");
 }
 
 export interface GetWebACLRequest {
   __type?: "GetWebACLRequest";
   /**
-   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
   Name: string | undefined;
 
@@ -1766,7 +1933,7 @@ export interface GetWebACLRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -1774,14 +1941,18 @@ export interface GetWebACLRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace GetWebACLRequest {
   export const filterSensitiveLog = (obj: GetWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetWebACLRequest =>
-    __isa(o, "GetWebACLRequest");
+  export const isa = (o: any): o is GetWebACLRequest => __isa(o, "GetWebACLRequest");
 }
 
 export interface GetWebACLResponse {
@@ -1799,10 +1970,9 @@ export interface GetWebACLResponse {
 
 export namespace GetWebACLResponse {
   export const filterSensitiveLog = (obj: GetWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetWebACLResponse =>
-    __isa(o, "GetWebACLResponse");
+  export const isa = (o: any): o is GetWebACLResponse => __isa(o, "GetWebACLResponse");
 }
 
 /**
@@ -1816,19 +1986,19 @@ export namespace GetWebACLResponse {
 export interface HTTPHeader {
   __type?: "HTTPHeader";
   /**
-   * <p>The name of the HTTP header.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The value of the HTTP header.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The name of the HTTP header.</p>
+   */
+  Name?: string;
 }
 
 export namespace HTTPHeader {
   export const filterSensitiveLog = (obj: HTTPHeader): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HTTPHeader => __isa(o, "HTTPHeader");
 }
@@ -1843,6 +2013,22 @@ export namespace HTTPHeader {
  */
 export interface HTTPRequest {
   __type?: "HTTPRequest";
+  /**
+   * <p>The HTTP method specified in the sampled web request. </p>
+   */
+  Method?: string;
+
+  /**
+   * <p>The two-letter country code for the country that the request originated from. For a current list of country codes,
+   *          see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+   */
+  Country?: string;
+
+  /**
+   * <p>A complex type that contains the name and value for each header in the sampled web request.</p>
+   */
+  Headers?: HTTPHeader[];
+
   /**
    * <p>The IP address that the request originated from. If the web ACL is associated with a CloudFront distribution,
    *          this is the value of one of the following fields in CloudFront access logs:</p>
@@ -1860,25 +2046,9 @@ export interface HTTPRequest {
   ClientIP?: string;
 
   /**
-   * <p>The two-letter country code for the country that the request originated from. For a current list of country codes,
-   *          see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-   */
-  Country?: string;
-
-  /**
    * <p>The HTTP version specified in the sampled web request, for example, <code>HTTP/1.1</code>.</p>
    */
   HTTPVersion?: string;
-
-  /**
-   * <p>A complex type that contains the name and value for each header in the sampled web request.</p>
-   */
-  Headers?: HTTPHeader[];
-
-  /**
-   * <p>The HTTP method specified in the sampled web request. </p>
-   */
-  Method?: string;
 
   /**
    * <p>The URI path of the request, which identifies the resource, for example, <code>/images/daily-ad.jpg</code>.</p>
@@ -1888,14 +2058,14 @@ export interface HTTPRequest {
 
 export namespace HTTPRequest {
   export const filterSensitiveLog = (obj: HTTPRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HTTPRequest => __isa(o, "HTTPRequest");
 }
 
 export enum IPAddressVersion {
   IPV4 = "IPV4",
-  IPV6 = "IPV6"
+  IPV6 = "IPV6",
 }
 
 /**
@@ -1908,6 +2078,26 @@ export enum IPAddressVersion {
  */
 export interface IPSet {
   __type?: "IPSet";
+  /**
+   * <p>Specify IPV4 or IPV6. </p>
+   */
+  IPAddressVersion: IPAddressVersion | string | undefined;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   */
+  Name: string | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
@@ -1935,33 +2125,78 @@ export interface IPSet {
    *          Inter-Domain Routing</a>.</p>
    */
   Addresses: string[] | undefined;
-
-  /**
-   * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specify IPV4 or IPV6. </p>
-   */
-  IPAddressVersion: IPAddressVersion | string | undefined;
-
-  /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace IPSet {
   export const filterSensitiveLog = (obj: IPSet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IPSet => __isa(o, "IPSet");
+}
+
+/**
+ * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+ *
+ *          <note>
+ *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+ *          </note>
+ *
+ *
+ *          <p>This configuration is used only for <a>IPSetReferenceStatement</a>. For <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>, use <a>ForwardedIPConfig</a> instead.  </p>
+ */
+export interface IPSetForwardedIPConfig {
+  __type?: "IPSetForwardedIPConfig";
+  /**
+   * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   */
+  HeaderName: string | undefined;
+
+  /**
+   * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   *
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>MATCH - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>NO_MATCH - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  FallbackBehavior: FallbackBehavior | string | undefined;
+
+  /**
+   * <p>The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be <code>10.1.1.1, 127.0.0.0, 10.10.10.10</code> where the first IP address identifies the original client and the rest identify proxies that the request went through. </p>
+   *          <p>The options for this setting are the following: </p>
+   *          <ul>
+   *             <li>
+   *                <p>FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.</p>
+   *             </li>
+   *             <li>
+   *                <p>LAST - Inspect the last IP address in the list of IP addresses in the header.</p>
+   *             </li>
+   *             <li>
+   *                <p>ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.</p>
+   *             </li>
+   *          </ul>
+   */
+  Position: ForwardedIPPosition | string | undefined;
+}
+
+export namespace IPSetForwardedIPConfig {
+  export const filterSensitiveLog = (obj: IPSetForwardedIPConfig): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is IPSetForwardedIPConfig => __isa(o, "IPSetForwardedIPConfig");
 }
 
 /**
@@ -1977,14 +2212,22 @@ export interface IPSetReferenceStatement {
    * <p>The Amazon Resource Name (ARN) of the <a>IPSet</a> that this statement references.</p>
    */
   ARN: string | undefined;
+
+  /**
+   * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   */
+  IPSetForwardedIPConfig?: IPSetForwardedIPConfig;
 }
 
 export namespace IPSetReferenceStatement {
   export const filterSensitiveLog = (obj: IPSetReferenceStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IPSetReferenceStatement =>
-    __isa(o, "IPSetReferenceStatement");
+  export const isa = (o: any): o is IPSetReferenceStatement => __isa(o, "IPSetReferenceStatement");
 }
 
 /**
@@ -1996,14 +2239,9 @@ export namespace IPSetReferenceStatement {
 export interface IPSetSummary {
   __type?: "IPSetSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
-  ARN?: string;
-
-  /**
-   * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
-   */
-  Description?: string;
+  LockToken?: string;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -2011,25 +2249,44 @@ export interface IPSetSummary {
   Id?: string;
 
   /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken?: string;
-
-  /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
    */
   Name?: string;
+
+  /**
+   * <p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   */
+  ARN?: string;
 }
 
 export namespace IPSetSummary {
   export const filterSensitiveLog = (obj: IPSetSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IPSetSummary => __isa(o, "IPSetSummary");
 }
 
 export interface ListAvailableManagedRuleGroupsRequest {
   __type?: "ListAvailableManagedRuleGroupsRequest";
+  /**
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2043,27 +2300,11 @@ export interface ListAvailableManagedRuleGroupsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
-   */
-  Scope: Scope | string | undefined;
 }
 
 export namespace ListAvailableManagedRuleGroupsRequest {
-  export const filterSensitiveLog = (
-    obj: ListAvailableManagedRuleGroupsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAvailableManagedRuleGroupsRequest =>
     __isa(o, "ListAvailableManagedRuleGroupsRequest");
@@ -2085,10 +2326,8 @@ export interface ListAvailableManagedRuleGroupsResponse {
 }
 
 export namespace ListAvailableManagedRuleGroupsResponse {
-  export const filterSensitiveLog = (
-    obj: ListAvailableManagedRuleGroupsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListAvailableManagedRuleGroupsResponse =>
     __isa(o, "ListAvailableManagedRuleGroupsResponse");
@@ -2115,7 +2354,7 @@ export interface ListIPSetsRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -2127,10 +2366,9 @@ export interface ListIPSetsRequest {
 
 export namespace ListIPSetsRequest {
   export const filterSensitiveLog = (obj: ListIPSetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsRequest =>
-    __isa(o, "ListIPSetsRequest");
+  export const isa = (o: any): o is ListIPSetsRequest => __isa(o, "ListIPSetsRequest");
 }
 
 export interface ListIPSetsResponse {
@@ -2150,10 +2388,9 @@ export interface ListIPSetsResponse {
 
 export namespace ListIPSetsResponse {
   export const filterSensitiveLog = (obj: ListIPSetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsResponse =>
-    __isa(o, "ListIPSetsResponse");
+  export const isa = (o: any): o is ListIPSetsResponse => __isa(o, "ListIPSetsResponse");
 }
 
 export interface ListLoggingConfigurationsRequest {
@@ -2177,7 +2414,7 @@ export interface ListLoggingConfigurationsRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -2188,42 +2425,50 @@ export interface ListLoggingConfigurationsRequest {
 }
 
 export namespace ListLoggingConfigurationsRequest {
-  export const filterSensitiveLog = (
-    obj: ListLoggingConfigurationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsRequest =>
-    __isa(o, "ListLoggingConfigurationsRequest");
+  export const isa = (o: any): o is ListLoggingConfigurationsRequest => __isa(o, "ListLoggingConfigurationsRequest");
 }
 
 export interface ListLoggingConfigurationsResponse {
   __type?: "ListLoggingConfigurationsResponse";
-  /**
-   * <p></p>
-   */
-  LoggingConfigurations?: LoggingConfiguration[];
-
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p></p>
+   */
+  LoggingConfigurations?: LoggingConfiguration[];
 }
 
 export namespace ListLoggingConfigurationsResponse {
-  export const filterSensitiveLog = (
-    obj: ListLoggingConfigurationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsResponse =>
-    __isa(o, "ListLoggingConfigurationsResponse");
+  export const isa = (o: any): o is ListLoggingConfigurationsResponse => __isa(o, "ListLoggingConfigurationsResponse");
 }
 
 export interface ListRegexPatternSetsRequest {
   __type?: "ListRegexPatternSetsRequest";
+  /**
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2237,30 +2482,13 @@ export interface ListRegexPatternSetsRequest {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
-   */
-  Scope: Scope | string | undefined;
 }
 
 export namespace ListRegexPatternSetsRequest {
-  export const filterSensitiveLog = (
-    obj: ListRegexPatternSetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsRequest =>
-    __isa(o, "ListRegexPatternSetsRequest");
+  export const isa = (o: any): o is ListRegexPatternSetsRequest => __isa(o, "ListRegexPatternSetsRequest");
 }
 
 export interface ListRegexPatternSetsResponse {
@@ -2279,36 +2507,30 @@ export interface ListRegexPatternSetsResponse {
 }
 
 export namespace ListRegexPatternSetsResponse {
-  export const filterSensitiveLog = (
-    obj: ListRegexPatternSetsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsResponse =>
-    __isa(o, "ListRegexPatternSetsResponse");
+  export const isa = (o: any): o is ListRegexPatternSetsResponse => __isa(o, "ListRegexPatternSetsResponse");
 }
 
 export interface ListResourcesForWebACLRequest {
   __type?: "ListResourcesForWebACLRequest";
   /**
-   * <p>Used for web ACLs that are scoped for regional applications. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage. </p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the Web ACL.</p>
    */
   WebACLArn: string | undefined;
+
+  /**
+   * <p>Used for web ACLs that are scoped for regional applications. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage. </p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace ListResourcesForWebACLRequest {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForWebACLRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLRequest =>
-    __isa(o, "ListResourcesForWebACLRequest");
+  export const isa = (o: any): o is ListResourcesForWebACLRequest => __isa(o, "ListResourcesForWebACLRequest");
 }
 
 export interface ListResourcesForWebACLResponse {
@@ -2320,23 +2542,27 @@ export interface ListResourcesForWebACLResponse {
 }
 
 export namespace ListResourcesForWebACLResponse {
-  export const filterSensitiveLog = (
-    obj: ListResourcesForWebACLResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLResponse =>
-    __isa(o, "ListResourcesForWebACLResponse");
+  export const isa = (o: any): o is ListResourcesForWebACLResponse => __isa(o, "ListResourcesForWebACLResponse");
 }
 
 export interface ListRuleGroupsRequest {
   __type?: "ListRuleGroupsRequest";
   /**
-   * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
-   *           objects are available, in the response, AWS WAF provides a
-   *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
    */
-  Limit?: number;
+  Scope: Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -2346,26 +2572,18 @@ export interface ListRuleGroupsRequest {
   NextMarker?: string;
 
   /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
+   * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
+   *           objects are available, in the response, AWS WAF provides a
+   *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    */
-  Scope: Scope | string | undefined;
+  Limit?: number;
 }
 
 export namespace ListRuleGroupsRequest {
   export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsRequest =>
-    __isa(o, "ListRuleGroupsRequest");
+  export const isa = (o: any): o is ListRuleGroupsRequest => __isa(o, "ListRuleGroupsRequest");
 }
 
 export interface ListRuleGroupsResponse {
@@ -2385,10 +2603,9 @@ export interface ListRuleGroupsResponse {
 
 export namespace ListRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsResponse =>
-    __isa(o, "ListRuleGroupsResponse");
+  export const isa = (o: any): o is ListRuleGroupsResponse => __isa(o, "ListRuleGroupsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2401,49 +2618,45 @@ export interface ListTagsForResourceRequest {
   Limit?: number;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceARN: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
+   * <p>The collection of tagging definitions for the resource. </p>
+   */
+  TagInfoForResource?: TagInfoForResource;
+
+  /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>The collection of tagging definitions for the resource. </p>
-   */
-  TagInfoForResource?: TagInfoForResource;
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListWebACLsRequest {
@@ -2467,7 +2680,7 @@ export interface ListWebACLsRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -2479,33 +2692,31 @@ export interface ListWebACLsRequest {
 
 export namespace ListWebACLsRequest {
   export const filterSensitiveLog = (obj: ListWebACLsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsRequest =>
-    __isa(o, "ListWebACLsRequest");
+  export const isa = (o: any): o is ListWebACLsRequest => __isa(o, "ListWebACLsRequest");
 }
 
 export interface ListWebACLsResponse {
   __type?: "ListWebACLsResponse";
+  /**
+   * <p></p>
+   */
+  WebACLs?: WebACLSummary[];
+
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p></p>
-   */
-  WebACLs?: WebACLSummary[];
 }
 
 export namespace ListWebACLsResponse {
   export const filterSensitiveLog = (obj: ListWebACLsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsResponse =>
-    __isa(o, "ListWebACLsResponse");
+  export const isa = (o: any): o is ListWebACLsResponse => __isa(o, "ListWebACLsResponse");
 }
 
 /**
@@ -2540,10 +2751,9 @@ export interface LoggingConfiguration {
 
 export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration =>
-    __isa(o, "LoggingConfiguration");
+  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 /**
@@ -2556,14 +2766,14 @@ export namespace LoggingConfiguration {
 export interface ManagedRuleGroupStatement {
   __type?: "ManagedRuleGroupStatement";
   /**
-   * <p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the action that is set on the rule. This effectively excludes the rule from acting on web requests.  </p>
-   */
-  ExcludedRules?: ExcludedRule[];
-
-  /**
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the action that is set on the rule. This effectively excludes the rule from acting on web requests.  </p>
+   */
+  ExcludedRules?: ExcludedRule[];
 
   /**
    * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
@@ -2573,22 +2783,26 @@ export interface ManagedRuleGroupStatement {
 
 export namespace ManagedRuleGroupStatement {
   export const filterSensitiveLog = (obj: ManagedRuleGroupStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ManagedRuleGroupStatement =>
-    __isa(o, "ManagedRuleGroupStatement");
+  export const isa = (o: any): o is ManagedRuleGroupStatement => __isa(o, "ManagedRuleGroupStatement");
 }
 
 /**
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *          <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include AWS managed rule groups, which are free of charge to AWS WAF customers, and AWS Marketplace managed rule groups, which you can subscribe to through AWS Marketplace. </p>
+ *          <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include AWS Managed Rules rule groups, which are free of charge to AWS WAF customers, and AWS Marketplace managed rule groups, which you can subscribe to through AWS Marketplace. </p>
  */
 export interface ManagedRuleGroupSummary {
   __type?: "ManagedRuleGroupSummary";
   /**
-   * <p>The description of the managed rule group, provided by AWS or the AWS Marketplace seller who manages it.</p>
+   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
+   */
+  VendorName?: string;
+
+  /**
+   * <p>The description of the managed rule group, provided by AWS Managed Rules or the AWS Marketplace seller who manages it.</p>
    */
   Description?: string;
 
@@ -2596,19 +2810,13 @@ export interface ManagedRuleGroupSummary {
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
-   */
-  VendorName?: string;
 }
 
 export namespace ManagedRuleGroupSummary {
   export const filterSensitiveLog = (obj: ManagedRuleGroupSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ManagedRuleGroupSummary =>
-    __isa(o, "ManagedRuleGroupSummary");
+  export const isa = (o: any): o is ManagedRuleGroupSummary => __isa(o, "ManagedRuleGroupSummary");
 }
 
 /**
@@ -2616,6 +2824,7 @@ export namespace ManagedRuleGroupSummary {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
+ *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface Method {
   __type?: "Method";
@@ -2623,7 +2832,7 @@ export interface Method {
 
 export namespace Method {
   export const filterSensitiveLog = (obj: Method): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Method => __isa(o, "Method");
 }
@@ -2632,7 +2841,8 @@ export namespace Method {
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *          <p>Specifies that AWS WAF should do nothing. This is generally used to try out a rule without performing any actions. You set the <code>OverrideAction</code> on the <a>Rule</a>, and override the actions that are set at the statement level. </p>
+ *          <p>Specifies that AWS WAF should do nothing. This is generally used to try out a rule without performing any actions. You set the <code>OverrideAction</code> on the <a>Rule</a>. </p>
+ *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
 export interface NoneAction {
   __type?: "NoneAction";
@@ -2640,7 +2850,7 @@ export interface NoneAction {
 
 export namespace NoneAction {
   export const filterSensitiveLog = (obj: NoneAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NoneAction => __isa(o, "NoneAction");
 }
@@ -2661,7 +2871,7 @@ export interface NotStatement {
 
 export namespace NotStatement {
   export const filterSensitiveLog = (obj: NotStatement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NotStatement => __isa(o, "NotStatement");
 }
@@ -2682,36 +2892,43 @@ export interface OrStatement {
 
 export namespace OrStatement {
   export const filterSensitiveLog = (obj: OrStatement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OrStatement => __isa(o, "OrStatement");
 }
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>The action to use to override the rule's <code>Action</code> setting. You can use no override action, in which case the rule action is in effect, or count, in which case, if the rule matches a web request, it only counts the match.</p>
+ * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
+ *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+ *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
+ *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
+ *             </li>
+ *             <li>
+ *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
+ *             </li>
+ *          </ul>
  */
 export interface OverrideAction {
   __type?: "OverrideAction";
   /**
-   * <p>Override the rule action setting to count.</p>
-   */
-  Count?: CountAction;
-
-  /**
    * <p>Don't override the rule action setting.</p>
    */
   None?: NoneAction;
+
+  /**
+   * <p>Override the rule action setting to count.</p>
+   */
+  Count?: CountAction;
 }
 
 export namespace OverrideAction {
   export const filterSensitiveLog = (obj: OverrideAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OverrideAction =>
-    __isa(o, "OverrideAction");
+  export const isa = (o: any): o is OverrideAction => __isa(o, "OverrideAction");
 }
 
 export enum ParameterExceptionField {
@@ -2720,17 +2937,24 @@ export enum ParameterExceptionField {
   DEFAULT_ACTION = "DEFAULT_ACTION",
   ENTITY_LIMIT = "ENTITY_LIMIT",
   EXCLUDED_RULE = "EXCLUDED_RULE",
+  FALLBACK_BEHAVIOR = "FALLBACK_BEHAVIOR",
   FIELD_TO_MATCH = "FIELD_TO_MATCH",
+  FIREWALL_MANAGER_STATEMENT = "FIREWALL_MANAGER_STATEMENT",
+  FORWARDED_IP_CONFIG = "FORWARDED_IP_CONFIG",
   GEO_MATCH_STATEMENT = "GEO_MATCH_STATEMENT",
+  HEADER_NAME = "HEADER_NAME",
   IP_ADDRESS = "IP_ADDRESS",
   IP_ADDRESS_VERSION = "IP_ADDRESS_VERSION",
   IP_SET = "IP_SET",
+  IP_SET_FORWARDED_IP_CONFIG = "IP_SET_FORWARDED_IP_CONFIG",
   IP_SET_REFERENCE_STATEMENT = "IP_SET_REFERENCE_STATEMENT",
   MANAGED_RULE_SET = "MANAGED_RULE_SET",
   MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT",
+  METRIC_NAME = "METRIC_NAME",
   NOT_STATEMENT = "NOT_STATEMENT",
   OR_STATEMENT = "OR_STATEMENT",
   OVERRIDE_ACTION = "OVERRIDE_ACTION",
+  POSITION = "POSITION",
   RATE_BASED_STATEMENT = "RATE_BASED_STATEMENT",
   REGEX_PATTERN_REFERENCE_STATEMENT = "REGEX_PATTERN_REFERENCE_STATEMENT",
   REGEX_PATTERN_SET = "REGEX_PATTERN_SET",
@@ -2750,7 +2974,7 @@ export enum ParameterExceptionField {
   TAG_KEYS = "TAG_KEYS",
   TEXT_TRANSFORMATION = "TEXT_TRANSFORMATION",
   WEB_ACL = "WEB_ACL",
-  XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT"
+  XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT",
 }
 
 export enum PositionalConstraint {
@@ -2758,7 +2982,7 @@ export enum PositionalConstraint {
   CONTAINS_WORD = "CONTAINS_WORD",
   ENDS_WITH = "ENDS_WITH",
   EXACTLY = "EXACTLY",
-  STARTS_WITH = "STARTS_WITH"
+  STARTS_WITH = "STARTS_WITH",
 }
 
 export interface PutLoggingConfigurationRequest {
@@ -2770,13 +2994,10 @@ export interface PutLoggingConfigurationRequest {
 }
 
 export namespace PutLoggingConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: PutLoggingConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationRequest =>
-    __isa(o, "PutLoggingConfigurationRequest");
+  export const isa = (o: any): o is PutLoggingConfigurationRequest => __isa(o, "PutLoggingConfigurationRequest");
 }
 
 export interface PutLoggingConfigurationResponse {
@@ -2788,13 +3009,63 @@ export interface PutLoggingConfigurationResponse {
 }
 
 export namespace PutLoggingConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: PutLoggingConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationResponse =>
-    __isa(o, "PutLoggingConfigurationResponse");
+  export const isa = (o: any): o is PutLoggingConfigurationResponse => __isa(o, "PutLoggingConfigurationResponse");
+}
+
+export interface PutPermissionPolicyRequest {
+  __type?: "PutPermissionPolicyRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <a>RuleGroup</a> to which you want to attach the policy.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy to attach to the specified rule group. </p>
+   *
+   *          <p>The policy specifications must conform to the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
+   *             </li>
+   *             <li>
+   *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Effect</code> must specify <code>Allow</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code>. AWS WAF rejects any extra actions or wildcard actions in the policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>The policy must not include a <code>Resource</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
+   */
+  Policy: string | undefined;
+}
+
+export namespace PutPermissionPolicyRequest {
+  export const filterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutPermissionPolicyRequest => __isa(o, "PutPermissionPolicyRequest");
+}
+
+export interface PutPermissionPolicyResponse {
+  __type?: "PutPermissionPolicyResponse";
+}
+
+export namespace PutPermissionPolicyResponse {
+  export const filterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PutPermissionPolicyResponse => __isa(o, "PutPermissionPolicyResponse");
 }
 
 /**
@@ -2802,6 +3073,7 @@ export namespace PutLoggingConfigurationResponse {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>The query string of a web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
+ *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface QueryString {
   __type?: "QueryString";
@@ -2809,7 +3081,7 @@ export interface QueryString {
 
 export namespace QueryString {
   export const filterSensitiveLog = (obj: QueryString): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is QueryString => __isa(o, "QueryString");
 }
@@ -2835,12 +3107,7 @@ export namespace QueryString {
 export interface RateBasedStatement {
   __type?: "RateBasedStatement";
   /**
-   * <p>Setting that indicates how to aggregate the request counts. Currently, you must set this to <code>IP</code>. The request counts are aggregated on IP addresses. </p>
-   */
-  AggregateKeyType: RateBasedStatementAggregateKeyType | string | undefined;
-
-  /**
-   * <p>The limit on requests per 5-minute period for a single originating IP address. If the statement includes a <code>ScopDownStatement</code>, this limit is applied only to the requests that match the statement.</p>
+   * <p>The limit on requests per 5-minute period for a single originating IP address. If the statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the requests that match the statement.</p>
    */
   Limit: number | undefined;
 
@@ -2848,18 +3115,43 @@ export interface RateBasedStatement {
    * <p>An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement.</p>
    */
   ScopeDownStatement?: Statement;
+
+  /**
+   * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
+   *
+   *          <note>
+   *             <p>If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.</p>
+   *          </note>
+   *
+   *
+   *          <p>This is required if <code>AggregateKeyType</code> is set to <code>FORWARDED_IP</code>.</p>
+   */
+  ForwardedIPConfig?: ForwardedIPConfig;
+
+  /**
+   * <p>Setting that indicates how to aggregate the request counts. The options are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>IP - Aggregate the request counts on the IP address from the web request origin.</p>
+   *             </li>
+   *             <li>
+   *                <p>FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the <code>ForwardedIPConfig</code>, to specify the header to use. </p>
+   *             </li>
+   *          </ul>
+   */
+  AggregateKeyType: RateBasedStatementAggregateKeyType | string | undefined;
 }
 
 export namespace RateBasedStatement {
   export const filterSensitiveLog = (obj: RateBasedStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RateBasedStatement =>
-    __isa(o, "RateBasedStatement");
+  export const isa = (o: any): o is RateBasedStatement => __isa(o, "RateBasedStatement");
 }
 
 export enum RateBasedStatementAggregateKeyType {
-  IP = "IP"
+  FORWARDED_IP = "FORWARDED_IP",
+  IP = "IP",
 }
 
 /**
@@ -2870,19 +3162,16 @@ export enum RateBasedStatementAggregateKeyType {
  */
 export interface RateBasedStatementManagedKeysIPSet {
   __type?: "RateBasedStatementManagedKeysIPSet";
+  IPAddressVersion?: IPAddressVersion | string;
   /**
    * <p>The IP addresses that are currently blocked.</p>
    */
   Addresses?: string[];
-
-  IPAddressVersion?: IPAddressVersion | string;
 }
 
 export namespace RateBasedStatementManagedKeysIPSet {
-  export const filterSensitiveLog = (
-    obj: RateBasedStatementManagedKeysIPSet
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RateBasedStatementManagedKeysIPSet): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RateBasedStatementManagedKeysIPSet =>
     __isa(o, "RateBasedStatementManagedKeysIPSet");
@@ -2904,7 +3193,7 @@ export interface Regex {
 
 export namespace Regex {
   export const filterSensitiveLog = (obj: Regex): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Regex => __isa(o, "Regex");
 }
@@ -2919,12 +3208,17 @@ export namespace Regex {
 export interface RegexPatternSet {
   __type?: "RegexPatternSet";
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
-  ARN?: string;
+  Name?: string;
 
   /**
-   * <p>A friendly description of the set. You cannot change the description of a set after you create it.</p>
+   * <p>The regular expression patterns in the set.</p>
+   */
+  RegularExpressionList?: Regex[];
+
+  /**
+   * <p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>
    */
   Description?: string;
 
@@ -2934,22 +3228,16 @@ export interface RegexPatternSet {
   Id?: string;
 
   /**
-   * <p>A friendly name of the set. You cannot change the name after you create the set.</p>
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The regular expression patterns in the set.</p>
-   */
-  RegularExpressionList?: Regex[];
+  ARN?: string;
 }
 
 export namespace RegexPatternSet {
   export const filterSensitiveLog = (obj: RegexPatternSet): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSet =>
-    __isa(o, "RegexPatternSet");
+  export const isa = (o: any): o is RegexPatternSet => __isa(o, "RegexPatternSet");
 }
 
 /**
@@ -2967,26 +3255,23 @@ export interface RegexPatternSetReferenceStatement {
   ARN: string | undefined;
 
   /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+
+  /**
    * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
-
-  /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
-   *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
-   */
-  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace RegexPatternSetReferenceStatement {
-  export const filterSensitiveLog = (
-    obj: RegexPatternSetReferenceStatement
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegexPatternSetReferenceStatement): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetReferenceStatement =>
-    __isa(o, "RegexPatternSetReferenceStatement");
+  export const isa = (o: any): o is RegexPatternSetReferenceStatement => __isa(o, "RegexPatternSetReferenceStatement");
 }
 
 /**
@@ -2998,12 +3283,17 @@ export namespace RegexPatternSetReferenceStatement {
 export interface RegexPatternSetSummary {
   __type?: "RegexPatternSetSummary";
   /**
+   * <p>The name of the data type instance. You cannot change the name after you create the instance.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
   ARN?: string;
 
   /**
-   * <p>A friendly description of the set. You cannot change the description of a set after you create it.</p>
+   * <p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>
    */
   Description?: string;
 
@@ -3016,24 +3306,18 @@ export interface RegexPatternSetSummary {
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
   LockToken?: string;
-
-  /**
-   * <p>A friendly name of the data type instance. You cannot change the name after you create the instance.</p>
-   */
-  Name?: string;
 }
 
 export namespace RegexPatternSetSummary {
   export const filterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetSummary =>
-    __isa(o, "RegexPatternSetSummary");
+  export const isa = (o: any): o is RegexPatternSetSummary => __isa(o, "RegexPatternSetSummary");
 }
 
 export enum ResourceType {
   API_GATEWAY = "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER"
+  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
 }
 
 /**
@@ -3048,27 +3332,48 @@ export enum ResourceType {
 export interface Rule {
   __type?: "Rule";
   /**
-   * <p>The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting. </p>
-   */
-  Action?: RuleAction;
-
-  /**
-   * <p>A friendly name of the rule. You can't change the name of a <code>Rule</code> after you create it. </p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The action to use to override the rule's <code>Action</code> setting. You can use no override action, in which case the rule action is in effect, or count action, in which case, if the rule matches a web request, it only counts the match.</p>
-   */
-  OverrideAction?: OverrideAction;
-
-  /**
    * <p>If you define more than one <code>Rule</code> in a
    *          <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code>
    *          in order based on the value of <code>Priority</code>.
    *          AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.</p>
    */
   Priority: number | undefined;
+
+  /**
+   * <p>The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting. </p>
+   *         <p>This is used only for rules whose statements do not reference a rule group. Rule statements that reference a rule group include <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *          <p>You must specify either this <code>Action</code> setting or the rule <code>OverrideAction</code> setting, but not both:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the rule statement does not reference a rule group, use this rule action setting and not the rule override action setting. </p>
+   *             </li>
+   *             <li>
+   *                <p>If the rule statement references a rule group, use the override action setting and not this action setting.  </p>
+   *             </li>
+   *          </ul>
+   */
+  Action?: RuleAction;
+
+  /**
+   * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
+   *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
+   *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
+   *             </li>
+   *             <li>
+   *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
+   *             </li>
+   *          </ul>
+   */
+  OverrideAction?: OverrideAction;
+
+  /**
+   * <p>The name of the rule. You can't change the name of a <code>Rule</code> after you create it. </p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The AWS WAF processing statement for the rule, for example <a>ByteMatchStatement</a> or <a>SizeConstraintStatement</a>. </p>
@@ -3083,7 +3388,7 @@ export interface Rule {
 
 export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
@@ -3102,19 +3407,19 @@ export interface RuleAction {
   Allow?: AllowAction;
 
   /**
-   * <p>Instructs AWS WAF to block the web request.</p>
-   */
-  Block?: BlockAction;
-
-  /**
    * <p>Instructs AWS WAF to count the web request and allow it.</p>
    */
   Count?: CountAction;
+
+  /**
+   * <p>Instructs AWS WAF to block the web request.</p>
+   */
+  Block?: BlockAction;
 }
 
 export namespace RuleAction {
   export const filterSensitiveLog = (obj: RuleAction): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RuleAction => __isa(o, "RuleAction");
 }
@@ -3128,9 +3433,37 @@ export namespace RuleAction {
 export interface RuleGroup {
   __type?: "RuleGroup";
   /**
+   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
   ARN: string | undefined;
+
+  /**
+   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
+   */
+  VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>The <a>Rule</a> statements used to identify the web requests that you
+   *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
+   *          web requests, and parameters that govern how AWS WAF handles them.
+   *       </p>
+   */
+  Rules?: Rule[];
+
+  /**
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
@@ -3147,39 +3480,11 @@ export interface RuleGroup {
    *          The WCU limit for web ACLs is 1,500.  </p>
    */
   Capacity: number | undefined;
-
-  /**
-   * <p>A friendly description of the rule group. You cannot change the description of a rule group after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A friendly name of the rule group. You cannot change the name of a rule group after you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The <a>Rule</a> statements used to identify the web requests that you
-   *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
-   *          web requests, and parameters that govern how AWS WAF handles them.
-   *       </p>
-   */
-  Rules?: Rule[];
-
-  /**
-   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
-   */
-  VisibilityConfig: VisibilityConfig | undefined;
 }
 
 export namespace RuleGroup {
   export const filterSensitiveLog = (obj: RuleGroup): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RuleGroup => __isa(o, "RuleGroup");
 }
@@ -3205,13 +3510,10 @@ export interface RuleGroupReferenceStatement {
 }
 
 export namespace RuleGroupReferenceStatement {
-  export const filterSensitiveLog = (
-    obj: RuleGroupReferenceStatement
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RuleGroupReferenceStatement): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RuleGroupReferenceStatement =>
-    __isa(o, "RuleGroupReferenceStatement");
+  export const isa = (o: any): o is RuleGroupReferenceStatement => __isa(o, "RuleGroupReferenceStatement");
 }
 
 /**
@@ -3223,14 +3525,9 @@ export namespace RuleGroupReferenceStatement {
 export interface RuleGroupSummary {
   __type?: "RuleGroupSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
-  ARN?: string;
-
-  /**
-   * <p>A friendly description of the rule group. You cannot change the description of a rule group after you create it.</p>
-   */
-  Description?: string;
+  LockToken?: string;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3238,22 +3535,26 @@ export interface RuleGroupSummary {
   Id?: string;
 
   /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   * <p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>
    */
-  LockToken?: string;
+  Description?: string;
 
   /**
-   * <p>A friendly name of the data type instance. You cannot change the name after you create the instance.</p>
+   * <p>The name of the data type instance. You cannot change the name after you create the instance.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   */
+  ARN?: string;
 }
 
 export namespace RuleGroupSummary {
   export const filterSensitiveLog = (obj: RuleGroupSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RuleGroupSummary =>
-    __isa(o, "RuleGroupSummary");
+  export const isa = (o: any): o is RuleGroupSummary => __isa(o, "RuleGroupSummary");
 }
 
 /**
@@ -3280,7 +3581,7 @@ export interface RuleSummary {
 
 export namespace RuleSummary {
   export const filterSensitiveLog = (obj: RuleSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RuleSummary => __isa(o, "RuleSummary");
 }
@@ -3295,14 +3596,23 @@ export namespace RuleSummary {
 export interface SampledHTTPRequest {
   __type?: "SampledHTTPRequest";
   /**
+   * <p>A complex type that contains detailed information about the request.</p>
+   */
+  Request: HTTPRequest | undefined;
+
+  /**
    * <p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p>
    */
   Action?: string;
 
   /**
-   * <p>A complex type that contains detailed information about the request.</p>
+   * <p>A value that indicates how one result in the response relates
+   *          proportionally to other results in the response.
+   *          For example, a result that has a weight of <code>2</code> represents roughly twice
+   *          as many web requests as a result
+   *          that has a weight of <code>1</code>.</p>
    */
-  Request: HTTPRequest | undefined;
+  Weight: number | undefined;
 
   /**
    * <p>The name of the <code>Rule</code> that the request matched. For managed rule groups, the format for this name is <code><vendor name>#<managed rule group name>#<rule name></code>. For your own rule
@@ -3315,28 +3625,18 @@ export interface SampledHTTPRequest {
    * <p>The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).</p>
    */
   Timestamp?: Date;
-
-  /**
-   * <p>A value that indicates how one result in the response relates
-   *          proportionally to other results in the response.
-   *          For example, a result that has a weight of <code>2</code> represents roughly twice
-   *          as many web requests as a result
-   *          that has a weight of <code>1</code>.</p>
-   */
-  Weight: number | undefined;
 }
 
 export namespace SampledHTTPRequest {
   export const filterSensitiveLog = (obj: SampledHTTPRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SampledHTTPRequest =>
-    __isa(o, "SampledHTTPRequest");
+  export const isa = (o: any): o is SampledHTTPRequest => __isa(o, "SampledHTTPRequest");
 }
 
 export enum Scope {
   CLOUDFRONT = "CLOUDFRONT",
-  REGIONAL = "REGIONAL"
+  REGIONAL = "REGIONAL",
 }
 
 /**
@@ -3344,6 +3644,7 @@ export enum Scope {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>One of the headers in a web request, identified by name, for example, <code>User-Agent</code> or <code>Referer</code>. This setting isn't case sensitive.</p>
+ *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface SingleHeader {
   __type?: "SingleHeader";
@@ -3355,7 +3656,7 @@ export interface SingleHeader {
 
 export namespace SingleHeader {
   export const filterSensitiveLog = (obj: SingleHeader): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SingleHeader => __isa(o, "SingleHeader");
 }
@@ -3376,10 +3677,9 @@ export interface SingleQueryArgument {
 
 export namespace SingleQueryArgument {
   export const filterSensitiveLog = (obj: SingleQueryArgument): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SingleQueryArgument =>
-    __isa(o, "SingleQueryArgument");
+  export const isa = (o: any): o is SingleQueryArgument => __isa(o, "SingleQueryArgument");
 }
 
 /**
@@ -3393,34 +3693,33 @@ export namespace SingleQueryArgument {
 export interface SizeConstraintStatement {
   __type?: "SizeConstraintStatement";
   /**
-   * <p>The operator to use to compare the request part to the size setting. </p>
-   */
-  ComparisonOperator: ComparisonOperator | string | undefined;
-
-  /**
-   * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
-   */
-  FieldToMatch: FieldToMatch | undefined;
-
-  /**
    * <p>The size, in byte, to compare to the request part, after any transformations.</p>
    */
   Size: number | undefined;
 
   /**
+   * <p>The operator to use to compare the request part to the size setting. </p>
+   */
+  ComparisonOperator: ComparisonOperator | string | undefined;
+
+  /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
-   *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   */
+  FieldToMatch: FieldToMatch | undefined;
 }
 
 export namespace SizeConstraintStatement {
   export const filterSensitiveLog = (obj: SizeConstraintStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SizeConstraintStatement =>
-    __isa(o, "SizeConstraintStatement");
+  export const isa = (o: any): o is SizeConstraintStatement => __isa(o, "SizeConstraintStatement");
 }
 
 /**
@@ -3432,24 +3731,23 @@ export namespace SizeConstraintStatement {
 export interface SqliMatchStatement {
   __type?: "SqliMatchStatement";
   /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+
+  /**
    * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
-
-  /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
-   *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
-   */
-  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace SqliMatchStatement {
   export const filterSensitiveLog = (obj: SqliMatchStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SqliMatchStatement =>
-    __isa(o, "SqliMatchStatement");
+  export const isa = (o: any): o is SqliMatchStatement => __isa(o, "SqliMatchStatement");
 }
 
 /**
@@ -3461,9 +3759,16 @@ export namespace SqliMatchStatement {
 export interface Statement {
   __type?: "Statement";
   /**
-   * <p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>
+   * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
+   *          <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
    */
-  AndStatement?: AndStatement;
+  ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
+
+  /**
+   * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   */
+  RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
 
   /**
    * <p>A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.</p>
@@ -3471,31 +3776,9 @@ export interface Statement {
   ByteMatchStatement?: ByteMatchStatement;
 
   /**
-   * <p>A rule statement used to identify web requests based on country of origin.  </p>
+   * <p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>
    */
-  GeoMatchStatement?: GeoMatchStatement;
-
-  /**
-   * <p>A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an <a>IPSet</a> that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see <a>CreateIPSet</a>.</p>
-   *          <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>
-   */
-  IPSetReferenceStatement?: IPSetReferenceStatement;
-
-  /**
-   * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
-   *          <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
-   */
-  ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
-
-  /**
-   * <p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>
-   */
-  NotStatement?: NotStatement;
-
-  /**
-   * <p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>
-   */
-  OrStatement?: OrStatement;
+  AndStatement?: AndStatement;
 
   /**
    * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests.</p>
@@ -3515,28 +3798,36 @@ export interface Statement {
   RateBasedStatement?: RateBasedStatement;
 
   /**
+   * <p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>
+   */
+  NotStatement?: NotStatement;
+
+  /**
+   * <p>A rule statement used to identify web requests based on country of origin.  </p>
+   */
+  GeoMatchStatement?: GeoMatchStatement;
+
+  /**
+   * <p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>
+   */
+  OrStatement?: OrStatement;
+
+  /**
+   * <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
+   */
+  SqliMatchStatement?: SqliMatchStatement;
+
+  /**
    * <p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p>
    *          <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>
    */
   RegexPatternSetReferenceStatement?: RegexPatternSetReferenceStatement;
 
   /**
-   * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
-   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   * <p>A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an <a>IPSet</a> that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see <a>CreateIPSet</a>.</p>
+   *          <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>
    */
-  RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
-
-  /**
-   * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
-   *          <p>If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p>
-   *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
-   */
-  SizeConstraintStatement?: SizeConstraintStatement;
-
-  /**
-   * <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
-   */
-  SqliMatchStatement?: SqliMatchStatement;
+  IPSetReferenceStatement?: IPSetReferenceStatement;
 
   /**
    * <p>A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests.
@@ -3546,11 +3837,18 @@ export interface Statement {
    *          to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings. </p>
    */
   XssMatchStatement?: XssMatchStatement;
+
+  /**
+   * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
+   *          <p>If you configure AWS WAF to inspect the request body, AWS WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p>
+   *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
+   */
+  SizeConstraintStatement?: SizeConstraintStatement;
 }
 
 export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
@@ -3559,24 +3857,27 @@ export namespace Statement {
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *          <p>A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.  </p>
+ *         <p>A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a
+ *   specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ *         <p>You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups, IP
+ *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
  */
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -3585,7 +3886,10 @@ export namespace Tag {
  * <note>
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
- *         <p>The collection of tagging definitions for an AWS resource. </p>
+ *         <p>The collection of tagging definitions for an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a
+ *   specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ *         <p>You can tag the AWS resources that you manage through AWS WAF: web ACLs, rule groups, IP
+ *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
  */
 export interface TagInfoForResource {
   __type?: "TagInfoForResource";
@@ -3602,31 +3906,29 @@ export interface TagInfoForResource {
 
 export namespace TagInfoForResource {
   export const filterSensitiveLog = (obj: TagInfoForResource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagInfoForResource =>
-    __isa(o, "TagInfoForResource");
+  export const isa = (o: any): o is TagInfoForResource => __isa(o, "TagInfoForResource");
 }
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3635,10 +3937,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3754,10 +4055,9 @@ export interface TextTransformation {
 
 export namespace TextTransformation {
   export const filterSensitiveLog = (obj: TextTransformation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TextTransformation =>
-    __isa(o, "TextTransformation");
+  export const isa = (o: any): o is TextTransformation => __isa(o, "TextTransformation");
 }
 
 export enum TextTransformationType {
@@ -3766,7 +4066,7 @@ export enum TextTransformationType {
   HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
   LOWERCASE = "LOWERCASE",
   NONE = "NONE",
-  URL_DECODE = "URL_DECODE"
+  URL_DECODE = "URL_DECODE",
 }
 
 /**
@@ -3775,30 +4075,31 @@ export enum TextTransformationType {
  *          </note>
  *          <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range
  *          for which you want AWS WAF to return a sample of web requests.</p>
+ *          <p>You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
  *          <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range
  *          for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first
  *          5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000
  *          requests during that period, AWS WAF stops sampling after the 5,000th request. In that case, <code>EndTime</code>
- *          is the time that AWS WAF received the 5,000th request. </p>
+ *          is the time that AWS WAF received the 5,000th request.</p>
  */
 export interface TimeWindow {
   __type?: "TimeWindow";
   /**
-   * <p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
-   *          AWS resource received. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
    * <p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
-   *          AWS resource received. Specify the date and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
+   *          AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
    */
   StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
+   *          AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
+   */
+  EndTime: Date | undefined;
 }
 
 export namespace TimeWindow {
   export const filterSensitiveLog = (obj: TimeWindow): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TimeWindow => __isa(o, "TimeWindow");
 }
@@ -3818,10 +4119,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3830,14 +4130,28 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateIPSetRequest {
   __type?: "UpdateIPSetRequest";
+  /**
+   * <p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken: string | undefined;
+
   /**
    * <p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6. </p>
    *          <p>Examples: </p>
@@ -3862,31 +4176,11 @@ export interface UpdateIPSetRequest {
   Addresses: string[] | undefined;
 
   /**
-   * <p>A friendly description of the IP set. You cannot change the description of an IP set after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken: string | undefined;
-
-  /**
-   * <p>A friendly name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -3894,14 +4188,18 @@ export interface UpdateIPSetRequest {
    *          </ul>
    */
   Scope: Scope | string | undefined;
+
+  /**
+   * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace UpdateIPSetRequest {
   export const filterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetRequest =>
-    __isa(o, "UpdateIPSetRequest");
+  export const isa = (o: any): o is UpdateIPSetRequest => __isa(o, "UpdateIPSetRequest");
 }
 
 export interface UpdateIPSetResponse {
@@ -3914,33 +4212,17 @@ export interface UpdateIPSetResponse {
 
 export namespace UpdateIPSetResponse {
   export const filterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetResponse =>
-    __isa(o, "UpdateIPSetResponse");
+  export const isa = (o: any): o is UpdateIPSetResponse => __isa(o, "UpdateIPSetResponse");
 }
 
 export interface UpdateRegexPatternSetRequest {
   __type?: "UpdateRegexPatternSetRequest";
   /**
-   * <p>A friendly description of the set. You cannot change the description of a set after you create it.</p>
+   * <p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>
    */
   Description?: string;
-
-  /**
-   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken: string | undefined;
-
-  /**
-   * <p>A friendly name of the set. You cannot change the name after you create the set.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p></p>
@@ -3948,11 +4230,26 @@ export interface UpdateRegexPatternSetRequest {
   RegularExpressionList: Regex[] | undefined;
 
   /**
+   * <p>The name of the set. You cannot change the name after you create the set.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken: string | undefined;
+
+  /**
+   * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -3963,13 +4260,10 @@ export interface UpdateRegexPatternSetRequest {
 }
 
 export namespace UpdateRegexPatternSetRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateRegexPatternSetRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetRequest =>
-    __isa(o, "UpdateRegexPatternSetRequest");
+  export const isa = (o: any): o is UpdateRegexPatternSetRequest => __isa(o, "UpdateRegexPatternSetRequest");
 }
 
 export interface UpdateRegexPatternSetResponse {
@@ -3981,37 +4275,14 @@ export interface UpdateRegexPatternSetResponse {
 }
 
 export namespace UpdateRegexPatternSetResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateRegexPatternSetResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetResponse =>
-    __isa(o, "UpdateRegexPatternSetResponse");
+  export const isa = (o: any): o is UpdateRegexPatternSetResponse => __isa(o, "UpdateRegexPatternSetResponse");
 }
 
 export interface UpdateRuleGroupRequest {
   __type?: "UpdateRuleGroupRequest";
-  /**
-   * <p>A friendly description of the rule group. You cannot change the description of a rule group after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
-   */
-  LockToken: string | undefined;
-
-  /**
-   * <p>A friendly name of the rule group. You cannot change the name of a rule group after you create it.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
    *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
@@ -4025,7 +4296,7 @@ export interface UpdateRuleGroupRequest {
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
    *             </li>
    *             <li>
    *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
@@ -4035,17 +4306,36 @@ export interface UpdateRuleGroupRequest {
   Scope: Scope | string | undefined;
 
   /**
+   * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
+   */
+  LockToken: string | undefined;
+
+  /**
+   * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
    */
   VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A description of the rule group that helps with identification. You cannot change the description of a rule group after you create it.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateRuleGroupRequest {
   export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupRequest =>
-    __isa(o, "UpdateRuleGroupRequest");
+  export const isa = (o: any): o is UpdateRuleGroupRequest => __isa(o, "UpdateRuleGroupRequest");
 }
 
 export interface UpdateRuleGroupResponse {
@@ -4058,28 +4348,17 @@ export interface UpdateRuleGroupResponse {
 
 export namespace UpdateRuleGroupResponse {
   export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupResponse =>
-    __isa(o, "UpdateRuleGroupResponse");
+  export const isa = (o: any): o is UpdateRuleGroupResponse => __isa(o, "UpdateRuleGroupResponse");
 }
 
 export interface UpdateWebACLRequest {
   __type?: "UpdateWebACLRequest";
   /**
-   * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
-  DefaultAction: DefaultAction | undefined;
-
-  /**
-   * <p>A friendly description of the Web ACL. You cannot change the description of a Web ACL after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id: string | undefined;
+  Name: string | undefined;
 
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
@@ -4087,9 +4366,23 @@ export interface UpdateWebACLRequest {
   LockToken: string | undefined;
 
   /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
    */
-  Name: string | undefined;
+  Scope: Scope | string | undefined;
+
+  /**
+   * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
+   */
+  DefaultAction: DefaultAction | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -4100,18 +4393,14 @@ export interface UpdateWebACLRequest {
   Rules?: Rule[];
 
   /**
-   * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
-   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
-   *          <ul>
-   *             <li>
-   *                <p>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
-   *             </li>
-   *          </ul>
+   * <p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>
    */
-  Scope: Scope | string | undefined;
+  Description?: string;
+
+  /**
+   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id: string | undefined;
 
   /**
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
@@ -4121,10 +4410,9 @@ export interface UpdateWebACLRequest {
 
 export namespace UpdateWebACLRequest {
   export const filterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLRequest =>
-    __isa(o, "UpdateWebACLRequest");
+  export const isa = (o: any): o is UpdateWebACLRequest => __isa(o, "UpdateWebACLRequest");
 }
 
 export interface UpdateWebACLResponse {
@@ -4137,10 +4425,9 @@ export interface UpdateWebACLResponse {
 
 export namespace UpdateWebACLResponse {
   export const filterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLResponse =>
-    __isa(o, "UpdateWebACLResponse");
+  export const isa = (o: any): o is UpdateWebACLResponse => __isa(o, "UpdateWebACLResponse");
 }
 
 /**
@@ -4148,6 +4435,7 @@ export namespace UpdateWebACLResponse {
  *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
  *          </note>
  *          <p>The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, <code>/images/daily-ad.jpg</code>.</p>
+ *          <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface UriPath {
   __type?: "UriPath";
@@ -4155,7 +4443,7 @@ export interface UriPath {
 
 export namespace UriPath {
   export const filterSensitiveLog = (obj: UriPath): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UriPath => __isa(o, "UriPath");
 }
@@ -4169,38 +4457,35 @@ export namespace UriPath {
 export interface VisibilityConfig {
   __type?: "VisibilityConfig";
   /**
-   * <p>A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">AWS WAF Metrics</a>.</p>
-   */
-  CloudWatchMetricsEnabled: boolean | undefined;
-
-  /**
-   * <p>A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain
-   *          whitespace or metric names reserved for AWS WAF, for example "All" and "Default_Action." You can't change a <code>MetricName</code> after you create a <code>VisibilityConfig</code>.</p>
-   */
-  MetricName: string | undefined;
-
-  /**
    * <p>A boolean indicating whether AWS WAF should store a sampling of the web
    *            requests that match the rules. You can view the sampled requests through the
    *            AWS WAF console. </p>
    */
   SampledRequestsEnabled: boolean | undefined;
+
+  /**
+   * <p>A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">AWS WAF Metrics</a>.</p>
+   */
+  CloudWatchMetricsEnabled: boolean | undefined;
+
+  /**
+   * <p>A name of the CloudWatch metric. The name can contain only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't contain
+   *          whitespace or metric names reserved for AWS WAF, for example "All" and "Default_Action." You can't change a <code>MetricName</code> after you create a <code>VisibilityConfig</code>.</p>
+   */
+  MetricName: string | undefined;
 }
 
 export namespace VisibilityConfig {
   export const filterSensitiveLog = (obj: VisibilityConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VisibilityConfig =>
-    __isa(o, "VisibilityConfig");
+  export const isa = (o: any): o is VisibilityConfig => __isa(o, "VisibilityConfig");
 }
 
 /**
  * <p>AWS WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
  */
-export interface WAFAssociatedItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFAssociatedItemException extends __SmithyException, $MetadataBearer {
   name: "WAFAssociatedItemException";
   $fault: "client";
   Message?: string;
@@ -4208,18 +4493,15 @@ export interface WAFAssociatedItemException
 
 export namespace WAFAssociatedItemException {
   export const filterSensitiveLog = (obj: WAFAssociatedItemException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFAssociatedItemException =>
-    __isa(o, "WAFAssociatedItemException");
+  export const isa = (o: any): o is WAFAssociatedItemException => __isa(o, "WAFAssociatedItemException");
 }
 
 /**
  * <p>AWS WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
  */
-export interface WAFDuplicateItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFDuplicateItemException extends __SmithyException, $MetadataBearer {
   name: "WAFDuplicateItemException";
   $fault: "client";
   Message?: string;
@@ -4227,18 +4509,15 @@ export interface WAFDuplicateItemException
 
 export namespace WAFDuplicateItemException {
   export const filterSensitiveLog = (obj: WAFDuplicateItemException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFDuplicateItemException =>
-    __isa(o, "WAFDuplicateItemException");
+  export const isa = (o: any): o is WAFDuplicateItemException => __isa(o, "WAFDuplicateItemException");
 }
 
 /**
  * <p>Your request is valid, but AWS WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
  */
-export interface WAFInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFInternalErrorException";
   $fault: "server";
   Message?: string;
@@ -4246,10 +4525,25 @@ export interface WAFInternalErrorException
 
 export namespace WAFInternalErrorException {
   export const filterSensitiveLog = (obj: WAFInternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFInternalErrorException =>
-    __isa(o, "WAFInternalErrorException");
+  export const isa = (o: any): o is WAFInternalErrorException => __isa(o, "WAFInternalErrorException");
+}
+
+/**
+ * <p>The operation isn't valid. </p>
+ */
+export interface WAFInvalidOperationException extends __SmithyException, $MetadataBearer {
+  name: "WAFInvalidOperationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace WAFInvalidOperationException {
+  export const filterSensitiveLog = (obj: WAFInvalidOperationException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WAFInvalidOperationException => __isa(o, "WAFInvalidOperationException");
 }
 
 /**
@@ -4270,46 +4564,75 @@ export namespace WAFInternalErrorException {
  *             </li>
  *          </ul>
  */
-export interface WAFInvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidParameterException";
   $fault: "client";
-  Field?: ParameterExceptionField | string;
-  Parameter?: string;
   Reason?: string;
   message?: string;
+  Field?: ParameterExceptionField | string;
+  Parameter?: string;
 }
 
 export namespace WAFInvalidParameterException {
-  export const filterSensitiveLog = (
-    obj: WAFInvalidParameterException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFInvalidParameterException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidParameterException =>
-    __isa(o, "WAFInvalidParameterException");
+  export const isa = (o: any): o is WAFInvalidParameterException => __isa(o, "WAFInvalidParameterException");
+}
+
+/**
+ * <p>The operation failed because the specified policy isn't in the proper format. </p>
+ *
+ *          <p>The policy specifications must conform to the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
+ *             </li>
+ *             <li>
+ *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Effect</code> must specify <code>Allow</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code>. AWS WAF rejects any extra actions or wildcard actions in the policy.</p>
+ *             </li>
+ *             <li>
+ *                <p>The policy must not include a <code>Resource</code> parameter.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
+ */
+export interface WAFInvalidPermissionPolicyException extends __SmithyException, $MetadataBearer {
+  name: "WAFInvalidPermissionPolicyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace WAFInvalidPermissionPolicyException {
+  export const filterSensitiveLog = (obj: WAFInvalidPermissionPolicyException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WAFInvalidPermissionPolicyException =>
+    __isa(o, "WAFInvalidPermissionPolicyException");
 }
 
 /**
  * <p>AWS WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
  */
-export interface WAFInvalidResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidResourceException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidResourceException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace WAFInvalidResourceException {
-  export const filterSensitiveLog = (
-    obj: WAFInvalidResourceException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFInvalidResourceException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidResourceException =>
-    __isa(o, "WAFInvalidResourceException");
+  export const isa = (o: any): o is WAFInvalidResourceException => __isa(o, "WAFInvalidResourceException");
 }
 
 /**
@@ -4317,9 +4640,7 @@ export namespace WAFInvalidResourceException {
  *          for an AWS account. For more information, see
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
-export interface WAFLimitsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFLimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "WAFLimitsExceededException";
   $fault: "client";
   Message?: string;
@@ -4327,39 +4648,31 @@ export interface WAFLimitsExceededException
 
 export namespace WAFLimitsExceededException {
   export const filterSensitiveLog = (obj: WAFLimitsExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFLimitsExceededException =>
-    __isa(o, "WAFLimitsExceededException");
+  export const isa = (o: any): o is WAFLimitsExceededException => __isa(o, "WAFLimitsExceededException");
 }
 
 /**
  * <p>AWS WAF couldn’t perform the operation because your resource doesn’t exist. </p>
  */
-export interface WAFNonexistentItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFNonexistentItemException extends __SmithyException, $MetadataBearer {
   name: "WAFNonexistentItemException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace WAFNonexistentItemException {
-  export const filterSensitiveLog = (
-    obj: WAFNonexistentItemException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFNonexistentItemException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WAFNonexistentItemException =>
-    __isa(o, "WAFNonexistentItemException");
+  export const isa = (o: any): o is WAFNonexistentItemException => __isa(o, "WAFNonexistentItemException");
 }
 
 /**
  * <p>AWS WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
  */
-export interface WAFOptimisticLockException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFOptimisticLockException extends __SmithyException, $MetadataBearer {
   name: "WAFOptimisticLockException";
   $fault: "client";
   Message?: string;
@@ -4367,39 +4680,48 @@ export interface WAFOptimisticLockException
 
 export namespace WAFOptimisticLockException {
   export const filterSensitiveLog = (obj: WAFOptimisticLockException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFOptimisticLockException =>
-    __isa(o, "WAFOptimisticLockException");
+  export const isa = (o: any): o is WAFOptimisticLockException => __isa(o, "WAFOptimisticLockException");
 }
 
 /**
  * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a call to <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  */
-export interface WAFServiceLinkedRoleErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFServiceLinkedRoleErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace WAFServiceLinkedRoleErrorException {
-  export const filterSensitiveLog = (
-    obj: WAFServiceLinkedRoleErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFServiceLinkedRoleErrorException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WAFServiceLinkedRoleErrorException =>
     __isa(o, "WAFServiceLinkedRoleErrorException");
 }
 
 /**
+ * <p></p>
+ */
+export interface WAFSubscriptionNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "WAFSubscriptionNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace WAFSubscriptionNotFoundException {
+  export const filterSensitiveLog = (obj: WAFSubscriptionNotFoundException): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is WAFSubscriptionNotFoundException => __isa(o, "WAFSubscriptionNotFoundException");
+}
+
+/**
  * <p>An error occurred during the tagging operation. Retry your request.</p>
  */
-export interface WAFTagOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationException";
   $fault: "client";
   Message?: string;
@@ -4407,28 +4729,23 @@ export interface WAFTagOperationException
 
 export namespace WAFTagOperationException {
   export const filterSensitiveLog = (obj: WAFTagOperationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WAFTagOperationException =>
-    __isa(o, "WAFTagOperationException");
+  export const isa = (o: any): o is WAFTagOperationException => __isa(o, "WAFTagOperationException");
 }
 
 /**
  * <p>AWS WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
  */
-export interface WAFTagOperationInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace WAFTagOperationInternalErrorException {
-  export const filterSensitiveLog = (
-    obj: WAFTagOperationInternalErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFTagOperationInternalErrorException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is WAFTagOperationInternalErrorException =>
     __isa(o, "WAFTagOperationInternalErrorException");
@@ -4437,22 +4754,17 @@ export namespace WAFTagOperationInternalErrorException {
 /**
  * <p>AWS WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
  */
-export interface WAFUnavailableEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFUnavailableEntityException extends __SmithyException, $MetadataBearer {
   name: "WAFUnavailableEntityException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace WAFUnavailableEntityException {
-  export const filterSensitiveLog = (
-    obj: WAFUnavailableEntityException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: WAFUnavailableEntityException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is WAFUnavailableEntityException =>
-    __isa(o, "WAFUnavailableEntityException");
+  export const isa = (o: any): o is WAFUnavailableEntityException => __isa(o, "WAFUnavailableEntityException");
 }
 
 /**
@@ -4464,9 +4776,39 @@ export namespace WAFUnavailableEntityException {
 export interface WebACL {
   __type?: "WebACL";
   /**
-   * <p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
-  ARN: string | undefined;
+  Name: string | undefined;
+
+  /**
+   * <p>The last set of rules for AWS WAF to process in the web ACL. This is defined in an AWS Firewall Manager WAF policy and
+   *            contains only rule group references. You can't alter these. Any rules and rule groups that you define for the web ACL are
+   *            prioritized before these. </p>
+   *          <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run first in the web ACL
+   *            and a set of rule groups to run last. Within each set, the administrator prioritizes the rule groups, to
+   *           determine their relative processing order.</p>
+   */
+  PostProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[];
+
+  /**
+   * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
+   */
+  DefaultAction: DefaultAction | undefined;
+
+  /**
+   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
+   */
+  VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>A unique identifier for the <code>WebACL</code>. This ID is returned in the responses to create and list commands. You use this ID to do things like get, update, and delete a <code>WebACL</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The web ACL capacity units (WCUs) currently being used by this web ACL. </p>
@@ -4482,24 +4824,24 @@ export interface WebACL {
   Capacity?: number;
 
   /**
-   * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
+   * <p>The first set of rules for AWS WAF to process in the web ACL. This is defined in an AWS Firewall Manager WAF policy and
+   *            contains only rule group references. You can't alter these. Any rules and rule groups that you define for the web ACL are
+   *            prioritized after these. </p>
+   *          <p>In the Firewall Manager WAF policy, the Firewall Manager administrator can define a set of rule groups to run first in the web ACL
+   *            and a set of rule groups to run last. Within each set, the administrator prioritizes the rule groups, to
+   *           determine their relative processing order.</p>
    */
-  DefaultAction: DefaultAction | undefined;
+  PreProcessFirewallManagerRuleGroups?: FirewallManagerRuleGroup[];
 
   /**
-   * <p>A friendly description of the Web ACL. You cannot change the description of a Web ACL after you create it.</p>
+   * <p>Indicates whether this web ACL is managed by AWS Firewall Manager. If true, then only AWS Firewall Manager can delete the web ACL or any Firewall Manager rule groups in the web ACL. </p>
    */
-  Description?: string;
+  ManagedByFirewallManager?: boolean;
 
   /**
-   * <p>A unique identifier for the <code>WebACL</code>. This ID is returned in the responses to create and list commands. You use this ID to do things like get, update, and delete a <code>WebACL</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>
    */
-  Id: string | undefined;
-
-  /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
-   */
-  Name: string | undefined;
+  ARN: string | undefined;
 
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
@@ -4508,16 +4850,11 @@ export interface WebACL {
    *       </p>
    */
   Rules?: Rule[];
-
-  /**
-   * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
-   */
-  VisibilityConfig: VisibilityConfig | undefined;
 }
 
 export namespace WebACL {
   export const filterSensitiveLog = (obj: WebACL): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is WebACL => __isa(o, "WebACL");
 }
@@ -4531,19 +4868,9 @@ export namespace WebACL {
 export interface WebACLSummary {
   __type?: "WebACLSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
-  ARN?: string;
-
-  /**
-   * <p>A friendly description of the Web ACL. You cannot change the description of a Web ACL after you create it.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
-   */
-  Id?: string;
+  Name?: string;
 
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
@@ -4551,14 +4878,24 @@ export interface WebACLSummary {
   LockToken?: string;
 
   /**
-   * <p>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
+   * <p>A description of the Web ACL that helps with identification. You cannot change the description of a Web ACL after you create it.</p>
    */
-  Name?: string;
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
+   */
+  Id?: string;
 }
 
 export namespace WebACLSummary {
   export const filterSensitiveLog = (obj: WebACLSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is WebACLSummary => __isa(o, "WebACLSummary");
 }
@@ -4576,22 +4913,21 @@ export namespace WebACLSummary {
 export interface XssMatchStatement {
   __type?: "XssMatchStatement";
   /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
+   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+
+  /**
    * <p>The part of a web request that you want AWS WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
-
-  /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
-   *          content identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
-   */
-  TextTransformations: TextTransformation[] | undefined;
 }
 
 export namespace XssMatchStatement {
   export const filterSensitiveLog = (obj: XssMatchStatement): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is XssMatchStatement =>
-    __isa(o, "XssMatchStatement");
+  export const isa = (o: any): o is XssMatchStatement => __isa(o, "XssMatchStatement");
 }

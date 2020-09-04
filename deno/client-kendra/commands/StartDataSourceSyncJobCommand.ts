@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient.ts";
-import {
-  StartDataSourceSyncJobRequest,
-  StartDataSourceSyncJobResponse
-} from "../models/index.ts";
+import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
+import { StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartDataSourceSyncJobCommand,
-  serializeAws_json1_1StartDataSourceSyncJobCommand
+  serializeAws_json1_1StartDataSourceSyncJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartDataSourceSyncJobCommandInput = StartDataSourceSyncJobRequest;
-export type StartDataSourceSyncJobCommandOutput = StartDataSourceSyncJobResponse &
-  __MetadataBearer;
+export type StartDataSourceSyncJobCommandOutput = StartDataSourceSyncJobResponse & __MetadataBearer;
 
 export class StartDataSourceSyncJobCommand extends $Command<
   StartDataSourceSyncJobCommandInput,
   StartDataSourceSyncJobCommandOutput,
-  kendraClientResolvedConfig
+  KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +36,18 @@ export class StartDataSourceSyncJobCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: kendraClientResolvedConfig,
+    configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartDataSourceSyncJobCommandInput,
-    StartDataSourceSyncJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartDataSourceSyncJobCommandInput, StartDataSourceSyncJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartDataSourceSyncJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartDataSourceSyncJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class StartDataSourceSyncJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDataSourceSyncJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartDataSourceSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDataSourceSyncJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDataSourceSyncJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDataSourceSyncJobCommandOutput> {
     return deserializeAws_json1_1StartDataSourceSyncJobCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  CodeStarClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarClient.ts";
+import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
 import { TagProjectRequest, TagProjectResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1TagProjectCommand,
-  serializeAws_json1_1TagProjectCommand
+  serializeAws_json1_1TagProjectCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type TagProjectCommandInput = TagProjectRequest;
@@ -46,14 +39,15 @@ export class TagProjectCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagProjectCommandInput, TagProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: TagProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TagProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class TagProjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TagProjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TagProjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TagProjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagProjectCommandOutput> {
     return deserializeAws_json1_1TagProjectCommand(output, context);
   }
 

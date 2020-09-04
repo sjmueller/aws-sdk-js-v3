@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient.ts";
-import {
-  CreateDeliverabilityTestReportRequest,
-  CreateDeliverabilityTestReportResponse
-} from "../models/index.ts";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
+import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
-  serializeAws_restJson1CreateDeliverabilityTestReportCommand
+  serializeAws_restJson1CreateDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDeliverabilityTestReportCommandInput = CreateDeliverabilityTestReportRequest;
-export type CreateDeliverabilityTestReportCommandOutput = CreateDeliverabilityTestReportResponse &
-  __MetadataBearer;
+export type CreateDeliverabilityTestReportCommandOutput = CreateDeliverabilityTestReportResponse & __MetadataBearer;
 
 export class CreateDeliverabilityTestReportCommand extends $Command<
   CreateDeliverabilityTestReportCommandInput,
@@ -49,18 +38,16 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeliverabilityTestReportCommandInput,
-    CreateDeliverabilityTestReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeliverabilityTestReportCommandInput, CreateDeliverabilityTestReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDeliverabilityTestReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeliverabilityTestReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeliverabilityTestReportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateDeliverabilityTestReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1CreateDeliverabilityTestReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

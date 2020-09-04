@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand
+  serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeVpcClassicLinkDnsSupportCommandInput = DescribeVpcClassicLinkDnsSupportRequest;
-export type DescribeVpcClassicLinkDnsSupportCommandOutput = DescribeVpcClassicLinkDnsSupportResult &
-  __MetadataBearer;
+export type DescribeVpcClassicLinkDnsSupportCommandOutput = DescribeVpcClassicLinkDnsSupportResult & __MetadataBearer;
 
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
   DescribeVpcClassicLinkDnsSupportCommandInput,
@@ -49,18 +38,16 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpcClassicLinkDnsSupportCommandInput,
-    DescribeVpcClassicLinkDnsSupportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpcClassicLinkDnsSupportCommandInput, DescribeVpcClassicLinkDnsSupportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

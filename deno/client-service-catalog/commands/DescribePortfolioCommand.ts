@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DescribePortfolioInput,
-  DescribePortfolioOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribePortfolioCommand,
-  serializeAws_json1_1DescribePortfolioCommand
+  serializeAws_json1_1DescribePortfolioCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribePortfolioCommandInput = DescribePortfolioInput;
-export type DescribePortfolioCommandOutput = DescribePortfolioOutput &
-  __MetadataBearer;
+export type DescribePortfolioCommandOutput = DescribePortfolioOutput & __MetadataBearer;
 
 export class DescribePortfolioCommand extends $Command<
   DescribePortfolioCommandInput,
@@ -50,14 +39,15 @@ export class DescribePortfolioCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePortfolioCommandInput, DescribePortfolioCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribePortfolioInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePortfolioOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribePortfolioCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePortfolioCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePortfolioCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioCommandOutput> {
     return deserializeAws_json1_1DescribePortfolioCommand(output, context);
   }
 

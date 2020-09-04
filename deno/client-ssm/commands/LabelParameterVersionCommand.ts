@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  LabelParameterVersionRequest,
-  LabelParameterVersionResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1LabelParameterVersionCommand,
-  serializeAws_json1_1LabelParameterVersionCommand
+  serializeAws_json1_1LabelParameterVersionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type LabelParameterVersionCommandInput = LabelParameterVersionRequest;
-export type LabelParameterVersionCommandOutput = LabelParameterVersionResult &
-  __MetadataBearer;
+export type LabelParameterVersionCommandOutput = LabelParameterVersionResult & __MetadataBearer;
 
 export class LabelParameterVersionCommand extends $Command<
   LabelParameterVersionCommandInput,
@@ -49,18 +38,16 @@ export class LabelParameterVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    LabelParameterVersionCommandInput,
-    LabelParameterVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<LabelParameterVersionCommandInput, LabelParameterVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: LabelParameterVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: LabelParameterVersionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class LabelParameterVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: LabelParameterVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: LabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LabelParameterVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<LabelParameterVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LabelParameterVersionCommandOutput> {
     return deserializeAws_json1_1LabelParameterVersionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  StopStackSetOperationInput,
-  StopStackSetOperationOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/index.ts";
 import {
   deserializeAws_queryStopStackSetOperationCommand,
-  serializeAws_queryStopStackSetOperationCommand
+  serializeAws_queryStopStackSetOperationCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
-export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput &
-  __MetadataBearer;
+export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput & __MetadataBearer;
 
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,
@@ -49,18 +38,16 @@ export class StopStackSetOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopStackSetOperationCommandInput,
-    StopStackSetOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopStackSetOperationCommandInput, StopStackSetOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopStackSetOperationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StopStackSetOperationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class StopStackSetOperationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopStackSetOperationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopStackSetOperationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopStackSetOperationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
     return deserializeAws_queryStopStackSetOperationCommand(output, context);
   }
 

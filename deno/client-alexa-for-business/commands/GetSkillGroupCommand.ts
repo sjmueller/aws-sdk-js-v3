@@ -1,18 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
 import { GetSkillGroupRequest, GetSkillGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetSkillGroupCommand,
-  serializeAws_json1_1GetSkillGroupCommand
+  serializeAws_json1_1GetSkillGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetSkillGroupCommandInput = GetSkillGroupRequest;
-export type GetSkillGroupCommandOutput = GetSkillGroupResponse &
-  __MetadataBearer;
+export type GetSkillGroupCommandOutput = GetSkillGroupResponse & __MetadataBearer;
 
 export class GetSkillGroupCommand extends $Command<
   GetSkillGroupCommandInput,
@@ -47,14 +43,15 @@ export class GetSkillGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSkillGroupCommandInput, GetSkillGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetSkillGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSkillGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class GetSkillGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSkillGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSkillGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSkillGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSkillGroupCommandOutput> {
     return deserializeAws_json1_1GetSkillGroupCommand(output, context);
   }
 

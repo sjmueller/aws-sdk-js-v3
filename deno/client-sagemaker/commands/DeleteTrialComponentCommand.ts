@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DeleteTrialComponentRequest,
-  DeleteTrialComponentResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteTrialComponentCommand,
-  serializeAws_json1_1DeleteTrialComponentCommand
+  serializeAws_json1_1DeleteTrialComponentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteTrialComponentCommandInput = DeleteTrialComponentRequest;
-export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse &
-  __MetadataBearer;
+export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse & __MetadataBearer;
 
 export class DeleteTrialComponentCommand extends $Command<
   DeleteTrialComponentCommandInput,
@@ -49,18 +38,16 @@ export class DeleteTrialComponentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTrialComponentCommandInput,
-    DeleteTrialComponentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTrialComponentCommandInput, DeleteTrialComponentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteTrialComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrialComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteTrialComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteTrialComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrialComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteTrialComponentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialComponentCommandOutput> {
     return deserializeAws_json1_1DeleteTrialComponentCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient.ts";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateJobQueueCommand,
-  serializeAws_restJson1CreateJobQueueCommand
+  serializeAws_restJson1CreateJobQueueCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateJobQueueCommandInput = CreateJobQueueRequest;
-export type CreateJobQueueCommandOutput = CreateJobQueueResponse &
-  __MetadataBearer;
+export type CreateJobQueueCommandOutput = CreateJobQueueResponse & __MetadataBearer;
 
 export class CreateJobQueueCommand extends $Command<
   CreateJobQueueCommandInput,
@@ -47,14 +39,15 @@ export class CreateJobQueueCommand extends $Command<
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobQueueCommandInput, CreateJobQueueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateJobQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateJobQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateJobQueueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateJobQueueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateJobQueueCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateJobQueueCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobQueueCommandOutput> {
     return deserializeAws_restJson1CreateJobQueueCommand(output, context);
   }
 

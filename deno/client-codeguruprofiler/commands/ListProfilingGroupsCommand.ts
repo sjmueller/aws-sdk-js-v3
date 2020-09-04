@@ -1,21 +1,15 @@
 import {
   CodeGuruProfilerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeGuruProfilerClient.ts";
-import {
-  ListProfilingGroupsRequest,
-  ListProfilingGroupsResponse
-} from "../models/index.ts";
+import { ListProfilingGroupsRequest, ListProfilingGroupsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListProfilingGroupsCommand,
-  serializeAws_restJson1ListProfilingGroupsCommand
+  serializeAws_restJson1ListProfilingGroupsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListProfilingGroupsCommandInput = ListProfilingGroupsRequest;
-export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse &
-  __MetadataBearer;
+export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse & __MetadataBearer;
 
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,
@@ -49,18 +42,16 @@ export class ListProfilingGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProfilingGroupsCommandInput,
-    ListProfilingGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProfilingGroupsCommandInput, ListProfilingGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListProfilingGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProfilingGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class ListProfilingGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListProfilingGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListProfilingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListProfilingGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListProfilingGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilingGroupsCommandOutput> {
     return deserializeAws_restJson1ListProfilingGroupsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DescribeDomainConfigurationRequest,
-  DescribeDomainConfigurationResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeDomainConfigurationCommand,
-  serializeAws_restJson1DescribeDomainConfigurationCommand
+  serializeAws_restJson1DescribeDomainConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDomainConfigurationCommandInput = DescribeDomainConfigurationRequest;
-export type DescribeDomainConfigurationCommandOutput = DescribeDomainConfigurationResponse &
-  __MetadataBearer;
+export type DescribeDomainConfigurationCommandOutput = DescribeDomainConfigurationResponse & __MetadataBearer;
 
 export class DescribeDomainConfigurationCommand extends $Command<
   DescribeDomainConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class DescribeDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDomainConfigurationCommandInput,
-    DescribeDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDomainConfigurationCommandInput, DescribeDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDomainConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeDomainConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDomainConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

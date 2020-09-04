@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient.ts";
-import {
-  DescribeDomainsRequest,
-  DescribeDomainsResponse
-} from "../models/index.ts";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
+import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDomainsCommand,
-  serializeAws_queryDescribeDomainsCommand
+  serializeAws_queryDescribeDomainsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDomainsCommandInput = DescribeDomainsRequest;
-export type DescribeDomainsCommandOutput = DescribeDomainsResponse &
-  __MetadataBearer;
+export type DescribeDomainsCommandOutput = DescribeDomainsResponse & __MetadataBearer;
 
 export class DescribeDomainsCommand extends $Command<
   DescribeDomainsCommandInput,
@@ -50,14 +39,15 @@ export class DescribeDomainsCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainsCommandInput, DescribeDomainsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDomainsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeDomainsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDomainsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDomainsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDomainsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
     return deserializeAws_queryDescribeDomainsCommand(output, context);
   }
 

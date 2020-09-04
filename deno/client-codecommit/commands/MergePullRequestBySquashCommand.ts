@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  MergePullRequestBySquashInput,
-  MergePullRequestBySquashOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1MergePullRequestBySquashCommand,
-  serializeAws_json1_1MergePullRequestBySquashCommand
+  serializeAws_json1_1MergePullRequestBySquashCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type MergePullRequestBySquashCommandInput = MergePullRequestBySquashInput;
-export type MergePullRequestBySquashCommandOutput = MergePullRequestBySquashOutput &
-  __MetadataBearer;
+export type MergePullRequestBySquashCommandOutput = MergePullRequestBySquashOutput & __MetadataBearer;
 
 export class MergePullRequestBySquashCommand extends $Command<
   MergePullRequestBySquashCommandInput,
@@ -49,18 +38,16 @@ export class MergePullRequestBySquashCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergePullRequestBySquashCommandInput,
-    MergePullRequestBySquashCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergePullRequestBySquashCommandInput, MergePullRequestBySquashCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: MergePullRequestBySquashInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestBySquashOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class MergePullRequestBySquashCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: MergePullRequestBySquashCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: MergePullRequestBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1MergePullRequestBySquashCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<MergePullRequestBySquashCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestBySquashCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergePullRequestBySquashCommandOutput> {
+    return deserializeAws_json1_1MergePullRequestBySquashCommand(output, context);
   }
 
   // Start section: command_body_extra

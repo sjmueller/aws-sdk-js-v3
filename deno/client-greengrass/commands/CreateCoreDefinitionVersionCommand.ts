@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient.ts";
-import {
-  CreateCoreDefinitionVersionRequest,
-  CreateCoreDefinitionVersionResponse
-} from "../models/index.ts";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
+import { CreateCoreDefinitionVersionRequest, CreateCoreDefinitionVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateCoreDefinitionVersionCommand,
-  serializeAws_restJson1CreateCoreDefinitionVersionCommand
+  serializeAws_restJson1CreateCoreDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateCoreDefinitionVersionCommandInput = CreateCoreDefinitionVersionRequest;
-export type CreateCoreDefinitionVersionCommandOutput = CreateCoreDefinitionVersionResponse &
-  __MetadataBearer;
+export type CreateCoreDefinitionVersionCommandOutput = CreateCoreDefinitionVersionResponse & __MetadataBearer;
 
 export class CreateCoreDefinitionVersionCommand extends $Command<
   CreateCoreDefinitionVersionCommandInput,
@@ -49,18 +38,16 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCoreDefinitionVersionCommandInput,
-    CreateCoreDefinitionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCoreDefinitionVersionCommandInput, CreateCoreDefinitionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateCoreDefinitionVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCoreDefinitionVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCoreDefinitionVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCoreDefinitionVersionCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateCoreDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCoreDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateCoreDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateCoreDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

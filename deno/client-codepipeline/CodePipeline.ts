@@ -2,187 +2,183 @@ import { CodePipelineClient } from "./CodePipelineClient.ts";
 import {
   AcknowledgeJobCommand,
   AcknowledgeJobCommandInput,
-  AcknowledgeJobCommandOutput
+  AcknowledgeJobCommandOutput,
 } from "./commands/AcknowledgeJobCommand.ts";
 import {
   AcknowledgeThirdPartyJobCommand,
   AcknowledgeThirdPartyJobCommandInput,
-  AcknowledgeThirdPartyJobCommandOutput
+  AcknowledgeThirdPartyJobCommandOutput,
 } from "./commands/AcknowledgeThirdPartyJobCommand.ts";
 import {
   CreateCustomActionTypeCommand,
   CreateCustomActionTypeCommandInput,
-  CreateCustomActionTypeCommandOutput
+  CreateCustomActionTypeCommandOutput,
 } from "./commands/CreateCustomActionTypeCommand.ts";
 import {
   CreatePipelineCommand,
   CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
+  CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand.ts";
 import {
   DeleteCustomActionTypeCommand,
   DeleteCustomActionTypeCommandInput,
-  DeleteCustomActionTypeCommandOutput
+  DeleteCustomActionTypeCommandOutput,
 } from "./commands/DeleteCustomActionTypeCommand.ts";
 import {
   DeletePipelineCommand,
   DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
+  DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand.ts";
 import {
   DeleteWebhookCommand,
   DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
+  DeleteWebhookCommandOutput,
 } from "./commands/DeleteWebhookCommand.ts";
 import {
   DeregisterWebhookWithThirdPartyCommand,
   DeregisterWebhookWithThirdPartyCommandInput,
-  DeregisterWebhookWithThirdPartyCommandOutput
+  DeregisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/DeregisterWebhookWithThirdPartyCommand.ts";
 import {
   DisableStageTransitionCommand,
   DisableStageTransitionCommandInput,
-  DisableStageTransitionCommandOutput
+  DisableStageTransitionCommandOutput,
 } from "./commands/DisableStageTransitionCommand.ts";
 import {
   EnableStageTransitionCommand,
   EnableStageTransitionCommandInput,
-  EnableStageTransitionCommandOutput
+  EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand.ts";
 import {
   GetJobDetailsCommand,
   GetJobDetailsCommandInput,
-  GetJobDetailsCommandOutput
+  GetJobDetailsCommandOutput,
 } from "./commands/GetJobDetailsCommand.ts";
 import {
   GetPipelineCommand,
   GetPipelineCommandInput,
-  GetPipelineCommandOutput
+  GetPipelineCommandOutput,
 } from "./commands/GetPipelineCommand.ts";
 import {
   GetPipelineExecutionCommand,
   GetPipelineExecutionCommandInput,
-  GetPipelineExecutionCommandOutput
+  GetPipelineExecutionCommandOutput,
 } from "./commands/GetPipelineExecutionCommand.ts";
 import {
   GetPipelineStateCommand,
   GetPipelineStateCommandInput,
-  GetPipelineStateCommandOutput
+  GetPipelineStateCommandOutput,
 } from "./commands/GetPipelineStateCommand.ts";
 import {
   GetThirdPartyJobDetailsCommand,
   GetThirdPartyJobDetailsCommandInput,
-  GetThirdPartyJobDetailsCommandOutput
+  GetThirdPartyJobDetailsCommandOutput,
 } from "./commands/GetThirdPartyJobDetailsCommand.ts";
 import {
   ListActionExecutionsCommand,
   ListActionExecutionsCommandInput,
-  ListActionExecutionsCommandOutput
+  ListActionExecutionsCommandOutput,
 } from "./commands/ListActionExecutionsCommand.ts";
 import {
   ListActionTypesCommand,
   ListActionTypesCommandInput,
-  ListActionTypesCommandOutput
+  ListActionTypesCommandOutput,
 } from "./commands/ListActionTypesCommand.ts";
 import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
-  ListPipelineExecutionsCommandOutput
+  ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand.ts";
 import {
   ListPipelinesCommand,
   ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
+  ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWebhooksCommand,
   ListWebhooksCommandInput,
-  ListWebhooksCommandOutput
+  ListWebhooksCommandOutput,
 } from "./commands/ListWebhooksCommand.ts";
 import {
   PollForJobsCommand,
   PollForJobsCommandInput,
-  PollForJobsCommandOutput
+  PollForJobsCommandOutput,
 } from "./commands/PollForJobsCommand.ts";
 import {
   PollForThirdPartyJobsCommand,
   PollForThirdPartyJobsCommandInput,
-  PollForThirdPartyJobsCommandOutput
+  PollForThirdPartyJobsCommandOutput,
 } from "./commands/PollForThirdPartyJobsCommand.ts";
 import {
   PutActionRevisionCommand,
   PutActionRevisionCommandInput,
-  PutActionRevisionCommandOutput
+  PutActionRevisionCommandOutput,
 } from "./commands/PutActionRevisionCommand.ts";
 import {
   PutApprovalResultCommand,
   PutApprovalResultCommandInput,
-  PutApprovalResultCommandOutput
+  PutApprovalResultCommandOutput,
 } from "./commands/PutApprovalResultCommand.ts";
 import {
   PutJobFailureResultCommand,
   PutJobFailureResultCommandInput,
-  PutJobFailureResultCommandOutput
+  PutJobFailureResultCommandOutput,
 } from "./commands/PutJobFailureResultCommand.ts";
 import {
   PutJobSuccessResultCommand,
   PutJobSuccessResultCommandInput,
-  PutJobSuccessResultCommandOutput
+  PutJobSuccessResultCommandOutput,
 } from "./commands/PutJobSuccessResultCommand.ts";
 import {
   PutThirdPartyJobFailureResultCommand,
   PutThirdPartyJobFailureResultCommandInput,
-  PutThirdPartyJobFailureResultCommandOutput
+  PutThirdPartyJobFailureResultCommandOutput,
 } from "./commands/PutThirdPartyJobFailureResultCommand.ts";
 import {
   PutThirdPartyJobSuccessResultCommand,
   PutThirdPartyJobSuccessResultCommandInput,
-  PutThirdPartyJobSuccessResultCommandOutput
+  PutThirdPartyJobSuccessResultCommandOutput,
 } from "./commands/PutThirdPartyJobSuccessResultCommand.ts";
-import {
-  PutWebhookCommand,
-  PutWebhookCommandInput,
-  PutWebhookCommandOutput
-} from "./commands/PutWebhookCommand.ts";
+import { PutWebhookCommand, PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand.ts";
 import {
   RegisterWebhookWithThirdPartyCommand,
   RegisterWebhookWithThirdPartyCommandInput,
-  RegisterWebhookWithThirdPartyCommandOutput
+  RegisterWebhookWithThirdPartyCommandOutput,
 } from "./commands/RegisterWebhookWithThirdPartyCommand.ts";
 import {
   RetryStageExecutionCommand,
   RetryStageExecutionCommandInput,
-  RetryStageExecutionCommandOutput
+  RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand.ts";
 import {
   StartPipelineExecutionCommand,
   StartPipelineExecutionCommandInput,
-  StartPipelineExecutionCommandOutput
+  StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand.ts";
 import {
   StopPipelineExecutionCommand,
   StopPipelineExecutionCommandInput,
-  StopPipelineExecutionCommandOutput
+  StopPipelineExecutionCommandOutput,
 } from "./commands/StopPipelineExecutionCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdatePipelineCommand,
   UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
+  UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -403,17 +399,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public acknowledgeJob(
     args: AcknowledgeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcknowledgeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcknowledgeJobCommandOutput) => void),
     cb?: (err: any, data?: AcknowledgeJobCommandOutput) => void
   ): Promise<AcknowledgeJobCommandOutput> | void {
     const command = new AcknowledgeJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -439,17 +432,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public acknowledgeThirdPartyJob(
     args: AcknowledgeThirdPartyJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcknowledgeThirdPartyJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcknowledgeThirdPartyJobCommandOutput) => void),
     cb?: (err: any, data?: AcknowledgeThirdPartyJobCommandOutput) => void
   ): Promise<AcknowledgeThirdPartyJobCommandOutput> | void {
     const command = new AcknowledgeThirdPartyJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,17 +465,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public createCustomActionType(
     args: CreateCustomActionTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCustomActionTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomActionTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomActionTypeCommandOutput) => void
   ): Promise<CreateCustomActionTypeCommandOutput> | void {
     const command = new CreateCustomActionTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -516,17 +503,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -559,17 +543,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deleteCustomActionType(
     args: DeleteCustomActionTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCustomActionTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomActionTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomActionTypeCommandOutput) => void
   ): Promise<DeleteCustomActionTypeCommandOutput> | void {
     const command = new DeleteCustomActionTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -594,17 +575,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,17 +611,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -670,20 +645,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deregisterWebhookWithThirdParty(
     args: DeregisterWebhookWithThirdPartyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterWebhookWithThirdPartyCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterWebhookWithThirdPartyCommandOutput) => void),
     cb?: (err: any, data?: DeregisterWebhookWithThirdPartyCommandOutput) => void
   ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> | void {
     const command = new DeregisterWebhookWithThirdPartyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -709,17 +678,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public disableStageTransition(
     args: DisableStageTransitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableStageTransitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableStageTransitionCommandOutput) => void),
     cb?: (err: any, data?: DisableStageTransitionCommandOutput) => void
   ): Promise<DisableStageTransitionCommandOutput> | void {
     const command = new DisableStageTransitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -744,17 +710,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public enableStageTransition(
     args: EnableStageTransitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableStageTransitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableStageTransitionCommandOutput) => void),
     cb?: (err: any, data?: EnableStageTransitionCommandOutput) => void
   ): Promise<EnableStageTransitionCommandOutput> | void {
     const command = new EnableStageTransitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -785,17 +748,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getJobDetails(
     args: GetJobDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetJobDetailsCommandOutput) => void
   ): Promise<GetJobDetailsCommandOutput> | void {
     const command = new GetJobDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -807,14 +767,8 @@ export class CodePipeline extends CodePipelineClient {
    *             return the entire structure of a pipeline in JSON format, which can then be modified and
    *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
    */
-  public getPipeline(
-    args: GetPipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPipelineCommandOutput>;
-  public getPipeline(
-    args: GetPipelineCommandInput,
-    cb: (err: any, data?: GetPipelineCommandOutput) => void
-  ): void;
+  public getPipeline(args: GetPipelineCommandInput, options?: __HttpHandlerOptions): Promise<GetPipelineCommandOutput>;
+  public getPipeline(args: GetPipelineCommandInput, cb: (err: any, data?: GetPipelineCommandOutput) => void): void;
   public getPipeline(
     args: GetPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -822,17 +776,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getPipeline(
     args: GetPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPipelineCommandOutput) => void),
     cb?: (err: any, data?: GetPipelineCommandOutput) => void
   ): Promise<GetPipelineCommandOutput> | void {
     const command = new GetPipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -859,17 +810,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getPipelineExecution(
     args: GetPipelineExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPipelineExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPipelineExecutionCommandOutput) => void),
     cb?: (err: any, data?: GetPipelineExecutionCommandOutput) => void
   ): Promise<GetPipelineExecutionCommandOutput> | void {
     const command = new GetPipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -900,17 +848,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getPipelineState(
     args: GetPipelineStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPipelineStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPipelineStateCommandOutput) => void),
     cb?: (err: any, data?: GetPipelineStateCommandOutput) => void
   ): Promise<GetPipelineStateCommandOutput> | void {
     const command = new GetPipelineStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -942,17 +887,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getThirdPartyJobDetails(
     args: GetThirdPartyJobDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetThirdPartyJobDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetThirdPartyJobDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetThirdPartyJobDetailsCommandOutput) => void
   ): Promise<GetThirdPartyJobDetailsCommandOutput> | void {
     const command = new GetThirdPartyJobDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -977,17 +919,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listActionExecutions(
     args: ListActionExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActionExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActionExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListActionExecutionsCommandOutput) => void
   ): Promise<ListActionExecutionsCommandOutput> | void {
     const command = new ListActionExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1013,17 +952,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listActionTypes(
     args: ListActionTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActionTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActionTypesCommandOutput) => void),
     cb?: (err: any, data?: ListActionTypesCommandOutput) => void
   ): Promise<ListActionTypesCommandOutput> | void {
     const command = new ListActionTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1048,17 +984,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listPipelineExecutions(
     args: ListPipelineExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelineExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelineExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
   ): Promise<ListPipelineExecutionsCommandOutput> | void {
     const command = new ListPipelineExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1083,17 +1016,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1119,17 +1049,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1145,10 +1072,7 @@ export class CodePipeline extends CodePipelineClient {
     args: ListWebhooksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWebhooksCommandOutput>;
-  public listWebhooks(
-    args: ListWebhooksCommandInput,
-    cb: (err: any, data?: ListWebhooksCommandOutput) => void
-  ): void;
+  public listWebhooks(args: ListWebhooksCommandInput, cb: (err: any, data?: ListWebhooksCommandOutput) => void): void;
   public listWebhooks(
     args: ListWebhooksCommandInput,
     options: __HttpHandlerOptions,
@@ -1156,17 +1080,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listWebhooks(
     args: ListWebhooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebhooksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebhooksCommandOutput) => void),
     cb?: (err: any, data?: ListWebhooksCommandOutput) => void
   ): Promise<ListWebhooksCommandOutput> | void {
     const command = new ListWebhooksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1185,14 +1106,8 @@ export class CodePipeline extends CodePipelineClient {
    *                 values defined for the action.</p>
    *         </important>
    */
-  public pollForJobs(
-    args: PollForJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PollForJobsCommandOutput>;
-  public pollForJobs(
-    args: PollForJobsCommandInput,
-    cb: (err: any, data?: PollForJobsCommandOutput) => void
-  ): void;
+  public pollForJobs(args: PollForJobsCommandInput, options?: __HttpHandlerOptions): Promise<PollForJobsCommandOutput>;
+  public pollForJobs(args: PollForJobsCommandInput, cb: (err: any, data?: PollForJobsCommandOutput) => void): void;
   public pollForJobs(
     args: PollForJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1200,17 +1115,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public pollForJobs(
     args: PollForJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForJobsCommandOutput) => void),
     cb?: (err: any, data?: PollForJobsCommandOutput) => void
   ): Promise<PollForJobsCommandOutput> | void {
     const command = new PollForJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1241,17 +1153,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public pollForThirdPartyJobs(
     args: PollForThirdPartyJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForThirdPartyJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForThirdPartyJobsCommandOutput) => void),
     cb?: (err: any, data?: PollForThirdPartyJobsCommandOutput) => void
   ): Promise<PollForThirdPartyJobsCommandOutput> | void {
     const command = new PollForThirdPartyJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1276,17 +1185,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putActionRevision(
     args: PutActionRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutActionRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutActionRevisionCommandOutput) => void),
     cb?: (err: any, data?: PutActionRevisionCommandOutput) => void
   ): Promise<PutActionRevisionCommandOutput> | void {
     const command = new PutActionRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1312,17 +1218,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putApprovalResult(
     args: PutApprovalResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutApprovalResultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutApprovalResultCommandOutput) => void),
     cb?: (err: any, data?: PutApprovalResultCommandOutput) => void
   ): Promise<PutApprovalResultCommandOutput> | void {
     const command = new PutApprovalResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1348,17 +1251,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putJobFailureResult(
     args: PutJobFailureResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutJobFailureResultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutJobFailureResultCommandOutput) => void),
     cb?: (err: any, data?: PutJobFailureResultCommandOutput) => void
   ): Promise<PutJobFailureResultCommandOutput> | void {
     const command = new PutJobFailureResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1384,17 +1284,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putJobSuccessResult(
     args: PutJobSuccessResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutJobSuccessResultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutJobSuccessResultCommandOutput) => void),
     cb?: (err: any, data?: PutJobSuccessResultCommandOutput) => void
   ): Promise<PutJobSuccessResultCommandOutput> | void {
     const command = new PutJobSuccessResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1420,17 +1317,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putThirdPartyJobFailureResult(
     args: PutThirdPartyJobFailureResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutThirdPartyJobFailureResultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutThirdPartyJobFailureResultCommandOutput) => void),
     cb?: (err: any, data?: PutThirdPartyJobFailureResultCommandOutput) => void
   ): Promise<PutThirdPartyJobFailureResultCommandOutput> | void {
     const command = new PutThirdPartyJobFailureResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1456,17 +1350,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putThirdPartyJobSuccessResult(
     args: PutThirdPartyJobSuccessResultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutThirdPartyJobSuccessResultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutThirdPartyJobSuccessResultCommandOutput) => void),
     cb?: (err: any, data?: PutThirdPartyJobSuccessResultCommandOutput) => void
   ): Promise<PutThirdPartyJobSuccessResultCommandOutput> | void {
     const command = new PutThirdPartyJobSuccessResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1482,14 +1373,8 @@ export class CodePipeline extends CodePipelineClient {
    *             and DeregisterWebhookWithThirdParty APIs can be used to automatically configure
    *             supported third parties to call the generated webhook URL.</p>
    */
-  public putWebhook(
-    args: PutWebhookCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutWebhookCommandOutput>;
-  public putWebhook(
-    args: PutWebhookCommandInput,
-    cb: (err: any, data?: PutWebhookCommandOutput) => void
-  ): void;
+  public putWebhook(args: PutWebhookCommandInput, options?: __HttpHandlerOptions): Promise<PutWebhookCommandOutput>;
+  public putWebhook(args: PutWebhookCommandInput, cb: (err: any, data?: PutWebhookCommandOutput) => void): void;
   public putWebhook(
     args: PutWebhookCommandInput,
     options: __HttpHandlerOptions,
@@ -1497,17 +1382,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putWebhook(
     args: PutWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutWebhookCommandOutput) => void),
     cb?: (err: any, data?: PutWebhookCommandOutput) => void
   ): Promise<PutWebhookCommandOutput> | void {
     const command = new PutWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1533,17 +1415,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public registerWebhookWithThirdParty(
     args: RegisterWebhookWithThirdPartyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterWebhookWithThirdPartyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterWebhookWithThirdPartyCommandOutput) => void),
     cb?: (err: any, data?: RegisterWebhookWithThirdPartyCommandOutput) => void
   ): Promise<RegisterWebhookWithThirdPartyCommandOutput> | void {
     const command = new RegisterWebhookWithThirdPartyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1571,17 +1450,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public retryStageExecution(
     args: RetryStageExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetryStageExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryStageExecutionCommandOutput) => void),
     cb?: (err: any, data?: RetryStageExecutionCommandOutput) => void
   ): Promise<RetryStageExecutionCommandOutput> | void {
     const command = new RetryStageExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1607,17 +1483,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public startPipelineExecution(
     args: StartPipelineExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartPipelineExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPipelineExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartPipelineExecutionCommandOutput) => void
   ): Promise<StartPipelineExecutionCommandOutput> | void {
     const command = new StartPipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1647,17 +1520,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public stopPipelineExecution(
     args: StopPipelineExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopPipelineExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopPipelineExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopPipelineExecutionCommandOutput) => void
   ): Promise<StopPipelineExecutionCommandOutput> | void {
     const command = new StopPipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1668,14 +1538,8 @@ export class CodePipeline extends CodePipelineClient {
    * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
    *             to manage a resource. </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1683,17 +1547,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1718,17 +1579,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1756,17 +1614,14 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

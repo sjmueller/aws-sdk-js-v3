@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  BatchDeleteClusterSnapshotsRequest,
-  BatchDeleteClusterSnapshotsResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { BatchDeleteClusterSnapshotsRequest, BatchDeleteClusterSnapshotsResult } from "../models/index.ts";
 import {
   deserializeAws_queryBatchDeleteClusterSnapshotsCommand,
-  serializeAws_queryBatchDeleteClusterSnapshotsCommand
+  serializeAws_queryBatchDeleteClusterSnapshotsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDeleteClusterSnapshotsCommandInput = BatchDeleteClusterSnapshotsRequest;
-export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult &
-  __MetadataBearer;
+export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult & __MetadataBearer;
 
 export class BatchDeleteClusterSnapshotsCommand extends $Command<
   BatchDeleteClusterSnapshotsCommandInput,
@@ -49,18 +38,16 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteClusterSnapshotsCommandInput,
-    BatchDeleteClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteClusterSnapshotsCommandInput, BatchDeleteClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDeleteClusterSnapshotsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteClusterSnapshotsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteClusterSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchDeleteClusterSnapshotsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

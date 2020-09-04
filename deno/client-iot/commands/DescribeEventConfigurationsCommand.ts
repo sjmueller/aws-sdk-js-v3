@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DescribeEventConfigurationsRequest,
-  DescribeEventConfigurationsResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeEventConfigurationsCommand,
-  serializeAws_restJson1DescribeEventConfigurationsCommand
+  serializeAws_restJson1DescribeEventConfigurationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventConfigurationsCommandInput = DescribeEventConfigurationsRequest;
-export type DescribeEventConfigurationsCommandOutput = DescribeEventConfigurationsResponse &
-  __MetadataBearer;
+export type DescribeEventConfigurationsCommandOutput = DescribeEventConfigurationsResponse & __MetadataBearer;
 
 export class DescribeEventConfigurationsCommand extends $Command<
   DescribeEventConfigurationsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEventConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventConfigurationsCommandInput,
-    DescribeEventConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventConfigurationsCommandInput, DescribeEventConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeEventConfigurationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventConfigurationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEventConfigurationsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeEventConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DescribeEventConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

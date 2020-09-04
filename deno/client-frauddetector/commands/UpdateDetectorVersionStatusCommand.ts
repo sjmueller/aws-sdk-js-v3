@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient.ts";
-import {
-  UpdateDetectorVersionStatusRequest,
-  UpdateDetectorVersionStatusResult
-} from "../models/index.ts";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
+import { UpdateDetectorVersionStatusRequest, UpdateDetectorVersionStatusResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateDetectorVersionStatusCommand,
-  serializeAws_json1_1UpdateDetectorVersionStatusCommand
+  serializeAws_json1_1UpdateDetectorVersionStatusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDetectorVersionStatusCommandInput = UpdateDetectorVersionStatusRequest;
-export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult &
-  __MetadataBearer;
+export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult & __MetadataBearer;
 
 export class UpdateDetectorVersionStatusCommand extends $Command<
   UpdateDetectorVersionStatusCommandInput,
@@ -49,18 +38,16 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDetectorVersionStatusCommandInput,
-    UpdateDetectorVersionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDetectorVersionStatusCommandInput, UpdateDetectorVersionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDetectorVersionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorVersionStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDetectorVersionStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDetectorVersionStatusCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateDetectorVersionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateDetectorVersionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorVersionStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateDetectorVersionStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDetectorVersionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

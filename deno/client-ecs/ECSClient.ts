@@ -1,195 +1,127 @@
 import {
   CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput
+  CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand.ts";
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand.ts";
-import {
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput
-} from "./commands/CreateServiceCommand.ts";
-import {
-  CreateTaskSetCommandInput,
-  CreateTaskSetCommandOutput
-} from "./commands/CreateTaskSetCommand.ts";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
+import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand.ts";
+import { CreateTaskSetCommandInput, CreateTaskSetCommandOutput } from "./commands/CreateTaskSetCommand.ts";
 import {
   DeleteAccountSettingCommandInput,
-  DeleteAccountSettingCommandOutput
+  DeleteAccountSettingCommandOutput,
 } from "./commands/DeleteAccountSettingCommand.ts";
+import { DeleteAttributesCommandInput, DeleteAttributesCommandOutput } from "./commands/DeleteAttributesCommand.ts";
 import {
-  DeleteAttributesCommandInput,
-  DeleteAttributesCommandOutput
-} from "./commands/DeleteAttributesCommand.ts";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand.ts";
-import {
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput
-} from "./commands/DeleteServiceCommand.ts";
-import {
-  DeleteTaskSetCommandInput,
-  DeleteTaskSetCommandOutput
-} from "./commands/DeleteTaskSetCommand.ts";
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand.ts";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand.ts";
+import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand.ts";
+import { DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput } from "./commands/DeleteTaskSetCommand.ts";
 import {
   DeregisterContainerInstanceCommandInput,
-  DeregisterContainerInstanceCommandOutput
+  DeregisterContainerInstanceCommandOutput,
 } from "./commands/DeregisterContainerInstanceCommand.ts";
 import {
   DeregisterTaskDefinitionCommandInput,
-  DeregisterTaskDefinitionCommandOutput
+  DeregisterTaskDefinitionCommandOutput,
 } from "./commands/DeregisterTaskDefinitionCommand.ts";
 import {
   DescribeCapacityProvidersCommandInput,
-  DescribeCapacityProvidersCommandOutput
+  DescribeCapacityProvidersCommandOutput,
 } from "./commands/DescribeCapacityProvidersCommand.ts";
-import {
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
-} from "./commands/DescribeClustersCommand.ts";
+import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand.ts";
 import {
   DescribeContainerInstancesCommandInput,
-  DescribeContainerInstancesCommandOutput
+  DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand.ts";
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "./commands/DescribeServicesCommand.ts";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand.ts";
 import {
   DescribeTaskDefinitionCommandInput,
-  DescribeTaskDefinitionCommandOutput
+  DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand.ts";
-import {
-  DescribeTaskSetsCommandInput,
-  DescribeTaskSetsCommandOutput
-} from "./commands/DescribeTaskSetsCommand.ts";
-import {
-  DescribeTasksCommandInput,
-  DescribeTasksCommandOutput
-} from "./commands/DescribeTasksCommand.ts";
+import { DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput } from "./commands/DescribeTaskSetsCommand.ts";
+import { DescribeTasksCommandInput, DescribeTasksCommandOutput } from "./commands/DescribeTasksCommand.ts";
 import {
   DiscoverPollEndpointCommandInput,
-  DiscoverPollEndpointCommandOutput
+  DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand.ts";
 import {
   ListAccountSettingsCommandInput,
-  ListAccountSettingsCommandOutput
+  ListAccountSettingsCommandOutput,
 } from "./commands/ListAccountSettingsCommand.ts";
-import {
-  ListAttributesCommandInput,
-  ListAttributesCommandOutput
-} from "./commands/ListAttributesCommand.ts";
-import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand.ts";
+import { ListAttributesCommandInput, ListAttributesCommandOutput } from "./commands/ListAttributesCommand.ts";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand.ts";
 import {
   ListContainerInstancesCommandInput,
-  ListContainerInstancesCommandOutput
+  ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand.ts";
-import {
-  ListServicesCommandInput,
-  ListServicesCommandOutput
-} from "./commands/ListServicesCommand.ts";
+import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTaskDefinitionFamiliesCommandInput,
-  ListTaskDefinitionFamiliesCommandOutput
+  ListTaskDefinitionFamiliesCommandOutput,
 } from "./commands/ListTaskDefinitionFamiliesCommand.ts";
 import {
   ListTaskDefinitionsCommandInput,
-  ListTaskDefinitionsCommandOutput
+  ListTaskDefinitionsCommandOutput,
 } from "./commands/ListTaskDefinitionsCommand.ts";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand.ts";
-import {
-  PutAccountSettingCommandInput,
-  PutAccountSettingCommandOutput
-} from "./commands/PutAccountSettingCommand.ts";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand.ts";
+import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "./commands/PutAccountSettingCommand.ts";
 import {
   PutAccountSettingDefaultCommandInput,
-  PutAccountSettingDefaultCommandOutput
+  PutAccountSettingDefaultCommandOutput,
 } from "./commands/PutAccountSettingDefaultCommand.ts";
-import {
-  PutAttributesCommandInput,
-  PutAttributesCommandOutput
-} from "./commands/PutAttributesCommand.ts";
+import { PutAttributesCommandInput, PutAttributesCommandOutput } from "./commands/PutAttributesCommand.ts";
 import {
   PutClusterCapacityProvidersCommandInput,
-  PutClusterCapacityProvidersCommandOutput
+  PutClusterCapacityProvidersCommandOutput,
 } from "./commands/PutClusterCapacityProvidersCommand.ts";
 import {
   RegisterContainerInstanceCommandInput,
-  RegisterContainerInstanceCommandOutput
+  RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand.ts";
 import {
   RegisterTaskDefinitionCommandInput,
-  RegisterTaskDefinitionCommandOutput
+  RegisterTaskDefinitionCommandOutput,
 } from "./commands/RegisterTaskDefinitionCommand.ts";
-import {
-  RunTaskCommandInput,
-  RunTaskCommandOutput
-} from "./commands/RunTaskCommand.ts";
-import {
-  StartTaskCommandInput,
-  StartTaskCommandOutput
-} from "./commands/StartTaskCommand.ts";
-import {
-  StopTaskCommandInput,
-  StopTaskCommandOutput
-} from "./commands/StopTaskCommand.ts";
+import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand.ts";
+import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand.ts";
+import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand.ts";
 import {
   SubmitAttachmentStateChangesCommandInput,
-  SubmitAttachmentStateChangesCommandOutput
+  SubmitAttachmentStateChangesCommandOutput,
 } from "./commands/SubmitAttachmentStateChangesCommand.ts";
 import {
   SubmitContainerStateChangeCommandInput,
-  SubmitContainerStateChangeCommandOutput
+  SubmitContainerStateChangeCommandOutput,
 } from "./commands/SubmitContainerStateChangeCommand.ts";
 import {
   SubmitTaskStateChangeCommandInput,
-  SubmitTaskStateChangeCommandOutput
+  SubmitTaskStateChangeCommandOutput,
 } from "./commands/SubmitTaskStateChangeCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateClusterSettingsCommandInput,
-  UpdateClusterSettingsCommandOutput
+  UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand.ts";
 import {
   UpdateContainerAgentCommandInput,
-  UpdateContainerAgentCommandOutput
+  UpdateContainerAgentCommandOutput,
 } from "./commands/UpdateContainerAgentCommand.ts";
 import {
   UpdateContainerInstancesStateCommandInput,
-  UpdateContainerInstancesStateCommandOutput
+  UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand.ts";
-import {
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput
-} from "./commands/UpdateServiceCommand.ts";
+import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand.ts";
 import {
   UpdateServicePrimaryTaskSetCommandInput,
-  UpdateServicePrimaryTaskSetCommandOutput
+  UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand.ts";
-import {
-  UpdateTaskSetCommandInput,
-  UpdateTaskSetCommandOutput
-} from "./commands/UpdateTaskSetCommand.ts";
+import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -197,38 +129,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -237,9 +165,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -249,6 +178,7 @@ export type ServiceInputTypes =
   | CreateTaskSetCommandInput
   | DeleteAccountSettingCommandInput
   | DeleteAttributesCommandInput
+  | DeleteCapacityProviderCommandInput
   | DeleteClusterCommandInput
   | DeleteServiceCommandInput
   | DeleteTaskSetCommandInput
@@ -299,6 +229,7 @@ export type ServiceOutputTypes =
   | CreateTaskSetCommandOutput
   | DeleteAccountSettingCommandOutput
   | DeleteAttributesCommandOutput
+  | DeleteCapacityProviderCommandOutput
   | DeleteClusterCommandOutput
   | DeleteServiceCommandOutput
   | DeleteTaskSetCommandOutput
@@ -342,8 +273,7 @@ export type ServiceOutputTypes =
   | UpdateServicePrimaryTaskSetCommandOutput
   | UpdateTaskSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -417,14 +347,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -432,9 +367,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ECSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ECSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -443,9 +376,7 @@ export type ECSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -482,7 +413,7 @@ export class ECSClient extends __Client<
   constructor(configuration: ECSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -497,6 +428,7 @@ export class ECSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

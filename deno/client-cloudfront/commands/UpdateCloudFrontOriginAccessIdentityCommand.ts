@@ -1,21 +1,14 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import {
   UpdateCloudFrontOriginAccessIdentityRequest,
-  UpdateCloudFrontOriginAccessIdentityResult
+  UpdateCloudFrontOriginAccessIdentityResult,
 } from "../models/index.ts";
 import {
   deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand
+  serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateCloudFrontOriginAccessIdentityCommandInput = UpdateCloudFrontOriginAccessIdentityRequest;
@@ -39,9 +32,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput
-  ) {
+  constructor(readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCloudFrontOriginAccessIdentityCommandInput,
-    UpdateCloudFrontOriginAccessIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCloudFrontOriginAccessIdentityCommandInput, UpdateCloudFrontOriginAccessIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCloudFrontOriginAccessIdentityResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     input: UpdateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

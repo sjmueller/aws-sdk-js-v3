@@ -1,1599 +1,1368 @@
 import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
-  AcceptReservedInstancesExchangeQuoteCommandOutput
+  AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand.ts";
 import {
   AcceptTransitGatewayPeeringAttachmentCommandInput,
-  AcceptTransitGatewayPeeringAttachmentCommandOutput
+  AcceptTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayPeeringAttachmentCommand.ts";
 import {
   AcceptTransitGatewayVpcAttachmentCommandInput,
-  AcceptTransitGatewayVpcAttachmentCommandOutput
+  AcceptTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayVpcAttachmentCommand.ts";
 import {
   AcceptVpcEndpointConnectionsCommandInput,
-  AcceptVpcEndpointConnectionsCommandOutput
+  AcceptVpcEndpointConnectionsCommandOutput,
 } from "./commands/AcceptVpcEndpointConnectionsCommand.ts";
 import {
   AcceptVpcPeeringConnectionCommandInput,
-  AcceptVpcPeeringConnectionCommandOutput
+  AcceptVpcPeeringConnectionCommandOutput,
 } from "./commands/AcceptVpcPeeringConnectionCommand.ts";
 import {
   AdvertiseByoipCidrCommandInput,
-  AdvertiseByoipCidrCommandOutput
+  AdvertiseByoipCidrCommandOutput,
 } from "./commands/AdvertiseByoipCidrCommand.ts";
-import {
-  AllocateAddressCommandInput,
-  AllocateAddressCommandOutput
-} from "./commands/AllocateAddressCommand.ts";
-import {
-  AllocateHostsCommandInput,
-  AllocateHostsCommandOutput
-} from "./commands/AllocateHostsCommand.ts";
+import { AllocateAddressCommandInput, AllocateAddressCommandOutput } from "./commands/AllocateAddressCommand.ts";
+import { AllocateHostsCommandInput, AllocateHostsCommandOutput } from "./commands/AllocateHostsCommand.ts";
 import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
-  ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
+  ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput,
 } from "./commands/ApplySecurityGroupsToClientVpnTargetNetworkCommand.ts";
 import {
   AssignIpv6AddressesCommandInput,
-  AssignIpv6AddressesCommandOutput
+  AssignIpv6AddressesCommandOutput,
 } from "./commands/AssignIpv6AddressesCommand.ts";
 import {
   AssignPrivateIpAddressesCommandInput,
-  AssignPrivateIpAddressesCommandOutput
+  AssignPrivateIpAddressesCommandOutput,
 } from "./commands/AssignPrivateIpAddressesCommand.ts";
-import {
-  AssociateAddressCommandInput,
-  AssociateAddressCommandOutput
-} from "./commands/AssociateAddressCommand.ts";
+import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "./commands/AssociateAddressCommand.ts";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
-  AssociateClientVpnTargetNetworkCommandOutput
+  AssociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/AssociateClientVpnTargetNetworkCommand.ts";
 import {
   AssociateDhcpOptionsCommandInput,
-  AssociateDhcpOptionsCommandOutput
+  AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand.ts";
 import {
   AssociateIamInstanceProfileCommandInput,
-  AssociateIamInstanceProfileCommandOutput
+  AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand.ts";
 import {
   AssociateRouteTableCommandInput,
-  AssociateRouteTableCommandOutput
+  AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand.ts";
 import {
   AssociateSubnetCidrBlockCommandInput,
-  AssociateSubnetCidrBlockCommandOutput
+  AssociateSubnetCidrBlockCommandOutput,
 } from "./commands/AssociateSubnetCidrBlockCommand.ts";
 import {
   AssociateTransitGatewayMulticastDomainCommandInput,
-  AssociateTransitGatewayMulticastDomainCommandOutput
+  AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/AssociateTransitGatewayMulticastDomainCommand.ts";
 import {
   AssociateTransitGatewayRouteTableCommandInput,
-  AssociateTransitGatewayRouteTableCommandOutput
+  AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand.ts";
 import {
   AssociateVpcCidrBlockCommandInput,
-  AssociateVpcCidrBlockCommandOutput
+  AssociateVpcCidrBlockCommandOutput,
 } from "./commands/AssociateVpcCidrBlockCommand.ts";
 import {
   AttachClassicLinkVpcCommandInput,
-  AttachClassicLinkVpcCommandOutput
+  AttachClassicLinkVpcCommandOutput,
 } from "./commands/AttachClassicLinkVpcCommand.ts";
 import {
   AttachInternetGatewayCommandInput,
-  AttachInternetGatewayCommandOutput
+  AttachInternetGatewayCommandOutput,
 } from "./commands/AttachInternetGatewayCommand.ts";
 import {
   AttachNetworkInterfaceCommandInput,
-  AttachNetworkInterfaceCommandOutput
+  AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand.ts";
-import {
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput
-} from "./commands/AttachVolumeCommand.ts";
-import {
-  AttachVpnGatewayCommandInput,
-  AttachVpnGatewayCommandOutput
-} from "./commands/AttachVpnGatewayCommand.ts";
+import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand.ts";
+import { AttachVpnGatewayCommandInput, AttachVpnGatewayCommandOutput } from "./commands/AttachVpnGatewayCommand.ts";
 import {
   AuthorizeClientVpnIngressCommandInput,
-  AuthorizeClientVpnIngressCommandOutput
+  AuthorizeClientVpnIngressCommandOutput,
 } from "./commands/AuthorizeClientVpnIngressCommand.ts";
 import {
   AuthorizeSecurityGroupEgressCommandInput,
-  AuthorizeSecurityGroupEgressCommandOutput
+  AuthorizeSecurityGroupEgressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupEgressCommand.ts";
 import {
   AuthorizeSecurityGroupIngressCommandInput,
-  AuthorizeSecurityGroupIngressCommandOutput
+  AuthorizeSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupIngressCommand.ts";
-import {
-  BundleInstanceCommandInput,
-  BundleInstanceCommandOutput
-} from "./commands/BundleInstanceCommand.ts";
-import {
-  CancelBundleTaskCommandInput,
-  CancelBundleTaskCommandOutput
-} from "./commands/CancelBundleTaskCommand.ts";
+import { BundleInstanceCommandInput, BundleInstanceCommandOutput } from "./commands/BundleInstanceCommand.ts";
+import { CancelBundleTaskCommandInput, CancelBundleTaskCommandOutput } from "./commands/CancelBundleTaskCommand.ts";
 import {
   CancelCapacityReservationCommandInput,
-  CancelCapacityReservationCommandOutput
+  CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand.ts";
 import {
   CancelConversionTaskCommandInput,
-  CancelConversionTaskCommandOutput
+  CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand.ts";
-import {
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
-} from "./commands/CancelExportTaskCommand.ts";
-import {
-  CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput
-} from "./commands/CancelImportTaskCommand.ts";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand.ts";
+import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand.ts";
 import {
   CancelReservedInstancesListingCommandInput,
-  CancelReservedInstancesListingCommandOutput
+  CancelReservedInstancesListingCommandOutput,
 } from "./commands/CancelReservedInstancesListingCommand.ts";
 import {
   CancelSpotFleetRequestsCommandInput,
-  CancelSpotFleetRequestsCommandOutput
+  CancelSpotFleetRequestsCommandOutput,
 } from "./commands/CancelSpotFleetRequestsCommand.ts";
 import {
   CancelSpotInstanceRequestsCommandInput,
-  CancelSpotInstanceRequestsCommandOutput
+  CancelSpotInstanceRequestsCommandOutput,
 } from "./commands/CancelSpotInstanceRequestsCommand.ts";
 import {
   ConfirmProductInstanceCommandInput,
-  ConfirmProductInstanceCommandOutput
+  ConfirmProductInstanceCommandOutput,
 } from "./commands/ConfirmProductInstanceCommand.ts";
-import {
-  CopyFpgaImageCommandInput,
-  CopyFpgaImageCommandOutput
-} from "./commands/CopyFpgaImageCommand.ts";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand.ts";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand.ts";
+import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "./commands/CopyFpgaImageCommand.ts";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand.ts";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand.ts";
 import {
   CreateCapacityReservationCommandInput,
-  CreateCapacityReservationCommandOutput
+  CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand.ts";
 import {
   CreateClientVpnEndpointCommandInput,
-  CreateClientVpnEndpointCommandOutput
+  CreateClientVpnEndpointCommandOutput,
 } from "./commands/CreateClientVpnEndpointCommand.ts";
 import {
   CreateClientVpnRouteCommandInput,
-  CreateClientVpnRouteCommandOutput
+  CreateClientVpnRouteCommandOutput,
 } from "./commands/CreateClientVpnRouteCommand.ts";
 import {
   CreateCustomerGatewayCommandInput,
-  CreateCustomerGatewayCommandOutput
+  CreateCustomerGatewayCommandOutput,
 } from "./commands/CreateCustomerGatewayCommand.ts";
 import {
   CreateDefaultSubnetCommandInput,
-  CreateDefaultSubnetCommandOutput
+  CreateDefaultSubnetCommandOutput,
 } from "./commands/CreateDefaultSubnetCommand.ts";
-import {
-  CreateDefaultVpcCommandInput,
-  CreateDefaultVpcCommandOutput
-} from "./commands/CreateDefaultVpcCommand.ts";
-import {
-  CreateDhcpOptionsCommandInput,
-  CreateDhcpOptionsCommandOutput
-} from "./commands/CreateDhcpOptionsCommand.ts";
+import { CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput } from "./commands/CreateDefaultVpcCommand.ts";
+import { CreateDhcpOptionsCommandInput, CreateDhcpOptionsCommandOutput } from "./commands/CreateDhcpOptionsCommand.ts";
 import {
   CreateEgressOnlyInternetGatewayCommandInput,
-  CreateEgressOnlyInternetGatewayCommandOutput
+  CreateEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/CreateEgressOnlyInternetGatewayCommand.ts";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand.ts";
-import {
-  CreateFlowLogsCommandInput,
-  CreateFlowLogsCommandOutput
-} from "./commands/CreateFlowLogsCommand.ts";
-import {
-  CreateFpgaImageCommandInput,
-  CreateFpgaImageCommandOutput
-} from "./commands/CreateFpgaImageCommand.ts";
-import {
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand.ts";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
+import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "./commands/CreateFlowLogsCommand.ts";
+import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "./commands/CreateFpgaImageCommand.ts";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand.ts";
 import {
   CreateInstanceExportTaskCommandInput,
-  CreateInstanceExportTaskCommandOutput
+  CreateInstanceExportTaskCommandOutput,
 } from "./commands/CreateInstanceExportTaskCommand.ts";
 import {
   CreateInternetGatewayCommandInput,
-  CreateInternetGatewayCommandOutput
+  CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand.ts";
-import {
-  CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput
-} from "./commands/CreateKeyPairCommand.ts";
+import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand.ts";
 import {
   CreateLaunchTemplateCommandInput,
-  CreateLaunchTemplateCommandOutput
+  CreateLaunchTemplateCommandOutput,
 } from "./commands/CreateLaunchTemplateCommand.ts";
 import {
   CreateLaunchTemplateVersionCommandInput,
-  CreateLaunchTemplateVersionCommandOutput
+  CreateLaunchTemplateVersionCommandOutput,
 } from "./commands/CreateLaunchTemplateVersionCommand.ts";
 import {
   CreateLocalGatewayRouteCommandInput,
-  CreateLocalGatewayRouteCommandOutput
+  CreateLocalGatewayRouteCommandOutput,
 } from "./commands/CreateLocalGatewayRouteCommand.ts";
 import {
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
-  CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  CreateLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand.ts";
 import {
-  CreateNatGatewayCommandInput,
-  CreateNatGatewayCommandOutput
-} from "./commands/CreateNatGatewayCommand.ts";
-import {
-  CreateNetworkAclCommandInput,
-  CreateNetworkAclCommandOutput
-} from "./commands/CreateNetworkAclCommand.ts";
+  CreateManagedPrefixListCommandInput,
+  CreateManagedPrefixListCommandOutput,
+} from "./commands/CreateManagedPrefixListCommand.ts";
+import { CreateNatGatewayCommandInput, CreateNatGatewayCommandOutput } from "./commands/CreateNatGatewayCommand.ts";
+import { CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput } from "./commands/CreateNetworkAclCommand.ts";
 import {
   CreateNetworkAclEntryCommandInput,
-  CreateNetworkAclEntryCommandOutput
+  CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand.ts";
 import {
   CreateNetworkInterfaceCommandInput,
-  CreateNetworkInterfaceCommandOutput
+  CreateNetworkInterfaceCommandOutput,
 } from "./commands/CreateNetworkInterfaceCommand.ts";
 import {
   CreateNetworkInterfacePermissionCommandInput,
-  CreateNetworkInterfacePermissionCommandOutput
+  CreateNetworkInterfacePermissionCommandOutput,
 } from "./commands/CreateNetworkInterfacePermissionCommand.ts";
 import {
   CreatePlacementGroupCommandInput,
-  CreatePlacementGroupCommandOutput
+  CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand.ts";
 import {
   CreateReservedInstancesListingCommandInput,
-  CreateReservedInstancesListingCommandOutput
+  CreateReservedInstancesListingCommandOutput,
 } from "./commands/CreateReservedInstancesListingCommand.ts";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand.ts";
-import {
-  CreateRouteTableCommandInput,
-  CreateRouteTableCommandOutput
-} from "./commands/CreateRouteTableCommand.ts";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand.ts";
+import { CreateRouteTableCommandInput, CreateRouteTableCommandOutput } from "./commands/CreateRouteTableCommand.ts";
 import {
   CreateSecurityGroupCommandInput,
-  CreateSecurityGroupCommandOutput
+  CreateSecurityGroupCommandOutput,
 } from "./commands/CreateSecurityGroupCommand.ts";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand.ts";
-import {
-  CreateSnapshotsCommandInput,
-  CreateSnapshotsCommandOutput
-} from "./commands/CreateSnapshotsCommand.ts";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand.ts";
+import { CreateSnapshotsCommandInput, CreateSnapshotsCommandOutput } from "./commands/CreateSnapshotsCommand.ts";
 import {
   CreateSpotDatafeedSubscriptionCommandInput,
-  CreateSpotDatafeedSubscriptionCommandOutput
+  CreateSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/CreateSpotDatafeedSubscriptionCommand.ts";
-import {
-  CreateSubnetCommandInput,
-  CreateSubnetCommandOutput
-} from "./commands/CreateSubnetCommand.ts";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand.ts";
+import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "./commands/CreateSubnetCommand.ts";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
 import {
   CreateTrafficMirrorFilterCommandInput,
-  CreateTrafficMirrorFilterCommandOutput
+  CreateTrafficMirrorFilterCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterCommand.ts";
 import {
   CreateTrafficMirrorFilterRuleCommandInput,
-  CreateTrafficMirrorFilterRuleCommandOutput
+  CreateTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/CreateTrafficMirrorFilterRuleCommand.ts";
 import {
   CreateTrafficMirrorSessionCommandInput,
-  CreateTrafficMirrorSessionCommandOutput
+  CreateTrafficMirrorSessionCommandOutput,
 } from "./commands/CreateTrafficMirrorSessionCommand.ts";
 import {
   CreateTrafficMirrorTargetCommandInput,
-  CreateTrafficMirrorTargetCommandOutput
+  CreateTrafficMirrorTargetCommandOutput,
 } from "./commands/CreateTrafficMirrorTargetCommand.ts";
 import {
   CreateTransitGatewayCommandInput,
-  CreateTransitGatewayCommandOutput
+  CreateTransitGatewayCommandOutput,
 } from "./commands/CreateTransitGatewayCommand.ts";
 import {
   CreateTransitGatewayMulticastDomainCommandInput,
-  CreateTransitGatewayMulticastDomainCommandOutput
+  CreateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/CreateTransitGatewayMulticastDomainCommand.ts";
 import {
   CreateTransitGatewayPeeringAttachmentCommandInput,
-  CreateTransitGatewayPeeringAttachmentCommandOutput
+  CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand.ts";
 import {
   CreateTransitGatewayRouteCommandInput,
-  CreateTransitGatewayRouteCommandOutput
+  CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand.ts";
 import {
   CreateTransitGatewayRouteTableCommandInput,
-  CreateTransitGatewayRouteTableCommandOutput
+  CreateTransitGatewayRouteTableCommandOutput,
 } from "./commands/CreateTransitGatewayRouteTableCommand.ts";
 import {
   CreateTransitGatewayVpcAttachmentCommandInput,
-  CreateTransitGatewayVpcAttachmentCommandOutput
+  CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand.ts";
-import {
-  CreateVolumeCommandInput,
-  CreateVolumeCommandOutput
-} from "./commands/CreateVolumeCommand.ts";
-import {
-  CreateVpcCommandInput,
-  CreateVpcCommandOutput
-} from "./commands/CreateVpcCommand.ts";
-import {
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput
-} from "./commands/CreateVpcEndpointCommand.ts";
+import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand.ts";
+import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand.ts";
+import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand.ts";
 import {
   CreateVpcEndpointConnectionNotificationCommandInput,
-  CreateVpcEndpointConnectionNotificationCommandOutput
+  CreateVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/CreateVpcEndpointConnectionNotificationCommand.ts";
 import {
   CreateVpcEndpointServiceConfigurationCommandInput,
-  CreateVpcEndpointServiceConfigurationCommandOutput
+  CreateVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/CreateVpcEndpointServiceConfigurationCommand.ts";
 import {
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand.ts";
 import {
   CreateVpnConnectionCommandInput,
-  CreateVpnConnectionCommandOutput
+  CreateVpnConnectionCommandOutput,
 } from "./commands/CreateVpnConnectionCommand.ts";
 import {
   CreateVpnConnectionRouteCommandInput,
-  CreateVpnConnectionRouteCommandOutput
+  CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand.ts";
-import {
-  CreateVpnGatewayCommandInput,
-  CreateVpnGatewayCommandOutput
-} from "./commands/CreateVpnGatewayCommand.ts";
+import { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "./commands/CreateVpnGatewayCommand.ts";
 import {
   DeleteClientVpnEndpointCommandInput,
-  DeleteClientVpnEndpointCommandOutput
+  DeleteClientVpnEndpointCommandOutput,
 } from "./commands/DeleteClientVpnEndpointCommand.ts";
 import {
   DeleteClientVpnRouteCommandInput,
-  DeleteClientVpnRouteCommandOutput
+  DeleteClientVpnRouteCommandOutput,
 } from "./commands/DeleteClientVpnRouteCommand.ts";
 import {
   DeleteCustomerGatewayCommandInput,
-  DeleteCustomerGatewayCommandOutput
+  DeleteCustomerGatewayCommandOutput,
 } from "./commands/DeleteCustomerGatewayCommand.ts";
-import {
-  DeleteDhcpOptionsCommandInput,
-  DeleteDhcpOptionsCommandOutput
-} from "./commands/DeleteDhcpOptionsCommand.ts";
+import { DeleteDhcpOptionsCommandInput, DeleteDhcpOptionsCommandOutput } from "./commands/DeleteDhcpOptionsCommand.ts";
 import {
   DeleteEgressOnlyInternetGatewayCommandInput,
-  DeleteEgressOnlyInternetGatewayCommandOutput
+  DeleteEgressOnlyInternetGatewayCommandOutput,
 } from "./commands/DeleteEgressOnlyInternetGatewayCommand.ts";
-import {
-  DeleteFleetsCommandInput,
-  DeleteFleetsCommandOutput
-} from "./commands/DeleteFleetsCommand.ts";
-import {
-  DeleteFlowLogsCommandInput,
-  DeleteFlowLogsCommandOutput
-} from "./commands/DeleteFlowLogsCommand.ts";
-import {
-  DeleteFpgaImageCommandInput,
-  DeleteFpgaImageCommandOutput
-} from "./commands/DeleteFpgaImageCommand.ts";
+import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "./commands/DeleteFleetsCommand.ts";
+import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "./commands/DeleteFlowLogsCommand.ts";
+import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "./commands/DeleteFpgaImageCommand.ts";
 import {
   DeleteInternetGatewayCommandInput,
-  DeleteInternetGatewayCommandOutput
+  DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand.ts";
-import {
-  DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput
-} from "./commands/DeleteKeyPairCommand.ts";
+import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand.ts";
 import {
   DeleteLaunchTemplateCommandInput,
-  DeleteLaunchTemplateCommandOutput
+  DeleteLaunchTemplateCommandOutput,
 } from "./commands/DeleteLaunchTemplateCommand.ts";
 import {
   DeleteLaunchTemplateVersionsCommandInput,
-  DeleteLaunchTemplateVersionsCommandOutput
+  DeleteLaunchTemplateVersionsCommandOutput,
 } from "./commands/DeleteLaunchTemplateVersionsCommand.ts";
 import {
   DeleteLocalGatewayRouteCommandInput,
-  DeleteLocalGatewayRouteCommandOutput
+  DeleteLocalGatewayRouteCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteCommand.ts";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-  DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  DeleteLocalGatewayRouteTableVpcAssociationCommandOutput,
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand.ts";
 import {
-  DeleteNatGatewayCommandInput,
-  DeleteNatGatewayCommandOutput
-} from "./commands/DeleteNatGatewayCommand.ts";
-import {
-  DeleteNetworkAclCommandInput,
-  DeleteNetworkAclCommandOutput
-} from "./commands/DeleteNetworkAclCommand.ts";
+  DeleteManagedPrefixListCommandInput,
+  DeleteManagedPrefixListCommandOutput,
+} from "./commands/DeleteManagedPrefixListCommand.ts";
+import { DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput } from "./commands/DeleteNatGatewayCommand.ts";
+import { DeleteNetworkAclCommandInput, DeleteNetworkAclCommandOutput } from "./commands/DeleteNetworkAclCommand.ts";
 import {
   DeleteNetworkAclEntryCommandInput,
-  DeleteNetworkAclEntryCommandOutput
+  DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand.ts";
 import {
   DeleteNetworkInterfaceCommandInput,
-  DeleteNetworkInterfaceCommandOutput
+  DeleteNetworkInterfaceCommandOutput,
 } from "./commands/DeleteNetworkInterfaceCommand.ts";
 import {
   DeleteNetworkInterfacePermissionCommandInput,
-  DeleteNetworkInterfacePermissionCommandOutput
+  DeleteNetworkInterfacePermissionCommandOutput,
 } from "./commands/DeleteNetworkInterfacePermissionCommand.ts";
 import {
   DeletePlacementGroupCommandInput,
-  DeletePlacementGroupCommandOutput
+  DeletePlacementGroupCommandOutput,
 } from "./commands/DeletePlacementGroupCommand.ts";
 import {
   DeleteQueuedReservedInstancesCommandInput,
-  DeleteQueuedReservedInstancesCommandOutput
+  DeleteQueuedReservedInstancesCommandOutput,
 } from "./commands/DeleteQueuedReservedInstancesCommand.ts";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand.ts";
-import {
-  DeleteRouteTableCommandInput,
-  DeleteRouteTableCommandOutput
-} from "./commands/DeleteRouteTableCommand.ts";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand.ts";
+import { DeleteRouteTableCommandInput, DeleteRouteTableCommandOutput } from "./commands/DeleteRouteTableCommand.ts";
 import {
   DeleteSecurityGroupCommandInput,
-  DeleteSecurityGroupCommandOutput
+  DeleteSecurityGroupCommandOutput,
 } from "./commands/DeleteSecurityGroupCommand.ts";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand.ts";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand.ts";
 import {
   DeleteSpotDatafeedSubscriptionCommandInput,
-  DeleteSpotDatafeedSubscriptionCommandOutput
+  DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand.ts";
-import {
-  DeleteSubnetCommandInput,
-  DeleteSubnetCommandOutput
-} from "./commands/DeleteSubnetCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
+import { DeleteSubnetCommandInput, DeleteSubnetCommandOutput } from "./commands/DeleteSubnetCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import {
   DeleteTrafficMirrorFilterCommandInput,
-  DeleteTrafficMirrorFilterCommandOutput
+  DeleteTrafficMirrorFilterCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterCommand.ts";
 import {
   DeleteTrafficMirrorFilterRuleCommandInput,
-  DeleteTrafficMirrorFilterRuleCommandOutput
+  DeleteTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/DeleteTrafficMirrorFilterRuleCommand.ts";
 import {
   DeleteTrafficMirrorSessionCommandInput,
-  DeleteTrafficMirrorSessionCommandOutput
+  DeleteTrafficMirrorSessionCommandOutput,
 } from "./commands/DeleteTrafficMirrorSessionCommand.ts";
 import {
   DeleteTrafficMirrorTargetCommandInput,
-  DeleteTrafficMirrorTargetCommandOutput
+  DeleteTrafficMirrorTargetCommandOutput,
 } from "./commands/DeleteTrafficMirrorTargetCommand.ts";
 import {
   DeleteTransitGatewayCommandInput,
-  DeleteTransitGatewayCommandOutput
+  DeleteTransitGatewayCommandOutput,
 } from "./commands/DeleteTransitGatewayCommand.ts";
 import {
   DeleteTransitGatewayMulticastDomainCommandInput,
-  DeleteTransitGatewayMulticastDomainCommandOutput
+  DeleteTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DeleteTransitGatewayMulticastDomainCommand.ts";
 import {
   DeleteTransitGatewayPeeringAttachmentCommandInput,
-  DeleteTransitGatewayPeeringAttachmentCommandOutput
+  DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand.ts";
 import {
   DeleteTransitGatewayRouteCommandInput,
-  DeleteTransitGatewayRouteCommandOutput
+  DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand.ts";
 import {
   DeleteTransitGatewayRouteTableCommandInput,
-  DeleteTransitGatewayRouteTableCommandOutput
+  DeleteTransitGatewayRouteTableCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteTableCommand.ts";
 import {
   DeleteTransitGatewayVpcAttachmentCommandInput,
-  DeleteTransitGatewayVpcAttachmentCommandOutput
+  DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand.ts";
-import {
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput
-} from "./commands/DeleteVolumeCommand.ts";
-import {
-  DeleteVpcCommandInput,
-  DeleteVpcCommandOutput
-} from "./commands/DeleteVpcCommand.ts";
+import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand.ts";
+import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand.ts";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
-  DeleteVpcEndpointConnectionNotificationsCommandOutput
+  DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DeleteVpcEndpointConnectionNotificationsCommand.ts";
 import {
   DeleteVpcEndpointServiceConfigurationsCommandInput,
-  DeleteVpcEndpointServiceConfigurationsCommandOutput
+  DeleteVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DeleteVpcEndpointServiceConfigurationsCommand.ts";
 import {
   DeleteVpcEndpointsCommandInput,
-  DeleteVpcEndpointsCommandOutput
+  DeleteVpcEndpointsCommandOutput,
 } from "./commands/DeleteVpcEndpointsCommand.ts";
 import {
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand.ts";
 import {
   DeleteVpnConnectionCommandInput,
-  DeleteVpnConnectionCommandOutput
+  DeleteVpnConnectionCommandOutput,
 } from "./commands/DeleteVpnConnectionCommand.ts";
 import {
   DeleteVpnConnectionRouteCommandInput,
-  DeleteVpnConnectionRouteCommandOutput
+  DeleteVpnConnectionRouteCommandOutput,
 } from "./commands/DeleteVpnConnectionRouteCommand.ts";
-import {
-  DeleteVpnGatewayCommandInput,
-  DeleteVpnGatewayCommandOutput
-} from "./commands/DeleteVpnGatewayCommand.ts";
+import { DeleteVpnGatewayCommandInput, DeleteVpnGatewayCommandOutput } from "./commands/DeleteVpnGatewayCommand.ts";
 import {
   DeprovisionByoipCidrCommandInput,
-  DeprovisionByoipCidrCommandOutput
+  DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand.ts";
+import { DeregisterImageCommandInput, DeregisterImageCommandOutput } from "./commands/DeregisterImageCommand.ts";
 import {
-  DeregisterImageCommandInput,
-  DeregisterImageCommandOutput
-} from "./commands/DeregisterImageCommand.ts";
+  DeregisterInstanceEventNotificationAttributesCommandInput,
+  DeregisterInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/DeregisterInstanceEventNotificationAttributesCommand.ts";
 import {
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,
-  DeregisterTransitGatewayMulticastGroupMembersCommandOutput
+  DeregisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupMembersCommand.ts";
 import {
   DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-  DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
+  DeregisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/DeregisterTransitGatewayMulticastGroupSourcesCommand.ts";
 import {
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
-import {
-  DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput
-} from "./commands/DescribeAddressesCommand.ts";
+import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand.ts";
 import {
   DescribeAggregateIdFormatCommandInput,
-  DescribeAggregateIdFormatCommandOutput
+  DescribeAggregateIdFormatCommandOutput,
 } from "./commands/DescribeAggregateIdFormatCommand.ts";
 import {
   DescribeAvailabilityZonesCommandInput,
-  DescribeAvailabilityZonesCommandOutput
+  DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand.ts";
 import {
   DescribeBundleTasksCommandInput,
-  DescribeBundleTasksCommandOutput
+  DescribeBundleTasksCommandOutput,
 } from "./commands/DescribeBundleTasksCommand.ts";
 import {
   DescribeByoipCidrsCommandInput,
-  DescribeByoipCidrsCommandOutput
+  DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand.ts";
 import {
   DescribeCapacityReservationsCommandInput,
-  DescribeCapacityReservationsCommandOutput
+  DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand.ts";
 import {
   DescribeClassicLinkInstancesCommandInput,
-  DescribeClassicLinkInstancesCommandOutput
+  DescribeClassicLinkInstancesCommandOutput,
 } from "./commands/DescribeClassicLinkInstancesCommand.ts";
 import {
   DescribeClientVpnAuthorizationRulesCommandInput,
-  DescribeClientVpnAuthorizationRulesCommandOutput
+  DescribeClientVpnAuthorizationRulesCommandOutput,
 } from "./commands/DescribeClientVpnAuthorizationRulesCommand.ts";
 import {
   DescribeClientVpnConnectionsCommandInput,
-  DescribeClientVpnConnectionsCommandOutput
+  DescribeClientVpnConnectionsCommandOutput,
 } from "./commands/DescribeClientVpnConnectionsCommand.ts";
 import {
   DescribeClientVpnEndpointsCommandInput,
-  DescribeClientVpnEndpointsCommandOutput
+  DescribeClientVpnEndpointsCommandOutput,
 } from "./commands/DescribeClientVpnEndpointsCommand.ts";
 import {
   DescribeClientVpnRoutesCommandInput,
-  DescribeClientVpnRoutesCommandOutput
+  DescribeClientVpnRoutesCommandOutput,
 } from "./commands/DescribeClientVpnRoutesCommand.ts";
 import {
   DescribeClientVpnTargetNetworksCommandInput,
-  DescribeClientVpnTargetNetworksCommandOutput
+  DescribeClientVpnTargetNetworksCommandOutput,
 } from "./commands/DescribeClientVpnTargetNetworksCommand.ts";
-import {
-  DescribeCoipPoolsCommandInput,
-  DescribeCoipPoolsCommandOutput
-} from "./commands/DescribeCoipPoolsCommand.ts";
+import { DescribeCoipPoolsCommandInput, DescribeCoipPoolsCommandOutput } from "./commands/DescribeCoipPoolsCommand.ts";
 import {
   DescribeConversionTasksCommandInput,
-  DescribeConversionTasksCommandOutput
+  DescribeConversionTasksCommandOutput,
 } from "./commands/DescribeConversionTasksCommand.ts";
 import {
   DescribeCustomerGatewaysCommandInput,
-  DescribeCustomerGatewaysCommandOutput
+  DescribeCustomerGatewaysCommandOutput,
 } from "./commands/DescribeCustomerGatewaysCommand.ts";
 import {
   DescribeDhcpOptionsCommandInput,
-  DescribeDhcpOptionsCommandOutput
+  DescribeDhcpOptionsCommandOutput,
 } from "./commands/DescribeDhcpOptionsCommand.ts";
 import {
   DescribeEgressOnlyInternetGatewaysCommandInput,
-  DescribeEgressOnlyInternetGatewaysCommandOutput
+  DescribeEgressOnlyInternetGatewaysCommandOutput,
 } from "./commands/DescribeEgressOnlyInternetGatewaysCommand.ts";
 import {
   DescribeElasticGpusCommandInput,
-  DescribeElasticGpusCommandOutput
+  DescribeElasticGpusCommandOutput,
 } from "./commands/DescribeElasticGpusCommand.ts";
 import {
   DescribeExportImageTasksCommandInput,
-  DescribeExportImageTasksCommandOutput
+  DescribeExportImageTasksCommandOutput,
 } from "./commands/DescribeExportImageTasksCommand.ts";
 import {
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand.ts";
 import {
   DescribeFastSnapshotRestoresCommandInput,
-  DescribeFastSnapshotRestoresCommandOutput
+  DescribeFastSnapshotRestoresCommandOutput,
 } from "./commands/DescribeFastSnapshotRestoresCommand.ts";
 import {
   DescribeFleetHistoryCommandInput,
-  DescribeFleetHistoryCommandOutput
+  DescribeFleetHistoryCommandOutput,
 } from "./commands/DescribeFleetHistoryCommand.ts";
 import {
   DescribeFleetInstancesCommandInput,
-  DescribeFleetInstancesCommandOutput
+  DescribeFleetInstancesCommandOutput,
 } from "./commands/DescribeFleetInstancesCommand.ts";
-import {
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
-} from "./commands/DescribeFleetsCommand.ts";
-import {
-  DescribeFlowLogsCommandInput,
-  DescribeFlowLogsCommandOutput
-} from "./commands/DescribeFlowLogsCommand.ts";
+import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand.ts";
+import { DescribeFlowLogsCommandInput, DescribeFlowLogsCommandOutput } from "./commands/DescribeFlowLogsCommand.ts";
 import {
   DescribeFpgaImageAttributeCommandInput,
-  DescribeFpgaImageAttributeCommandOutput
+  DescribeFpgaImageAttributeCommandOutput,
 } from "./commands/DescribeFpgaImageAttributeCommand.ts";
 import {
   DescribeFpgaImagesCommandInput,
-  DescribeFpgaImagesCommandOutput
+  DescribeFpgaImagesCommandOutput,
 } from "./commands/DescribeFpgaImagesCommand.ts";
 import {
   DescribeHostReservationOfferingsCommandInput,
-  DescribeHostReservationOfferingsCommandOutput
+  DescribeHostReservationOfferingsCommandOutput,
 } from "./commands/DescribeHostReservationOfferingsCommand.ts";
 import {
   DescribeHostReservationsCommandInput,
-  DescribeHostReservationsCommandOutput
+  DescribeHostReservationsCommandOutput,
 } from "./commands/DescribeHostReservationsCommand.ts";
-import {
-  DescribeHostsCommandInput,
-  DescribeHostsCommandOutput
-} from "./commands/DescribeHostsCommand.ts";
+import { DescribeHostsCommandInput, DescribeHostsCommandOutput } from "./commands/DescribeHostsCommand.ts";
 import {
   DescribeIamInstanceProfileAssociationsCommandInput,
-  DescribeIamInstanceProfileAssociationsCommandOutput
+  DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand.ts";
-import {
-  DescribeIdFormatCommandInput,
-  DescribeIdFormatCommandOutput
-} from "./commands/DescribeIdFormatCommand.ts";
+import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "./commands/DescribeIdFormatCommand.ts";
 import {
   DescribeIdentityIdFormatCommandInput,
-  DescribeIdentityIdFormatCommandOutput
+  DescribeIdentityIdFormatCommandOutput,
 } from "./commands/DescribeIdentityIdFormatCommand.ts";
 import {
   DescribeImageAttributeCommandInput,
-  DescribeImageAttributeCommandOutput
+  DescribeImageAttributeCommandOutput,
 } from "./commands/DescribeImageAttributeCommand.ts";
-import {
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
-} from "./commands/DescribeImagesCommand.ts";
+import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand.ts";
 import {
   DescribeImportImageTasksCommandInput,
-  DescribeImportImageTasksCommandOutput
+  DescribeImportImageTasksCommandOutput,
 } from "./commands/DescribeImportImageTasksCommand.ts";
 import {
   DescribeImportSnapshotTasksCommandInput,
-  DescribeImportSnapshotTasksCommandOutput
+  DescribeImportSnapshotTasksCommandOutput,
 } from "./commands/DescribeImportSnapshotTasksCommand.ts";
 import {
   DescribeInstanceAttributeCommandInput,
-  DescribeInstanceAttributeCommandOutput
+  DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand.ts";
 import {
   DescribeInstanceCreditSpecificationsCommandInput,
-  DescribeInstanceCreditSpecificationsCommandOutput
+  DescribeInstanceCreditSpecificationsCommandOutput,
 } from "./commands/DescribeInstanceCreditSpecificationsCommand.ts";
 import {
+  DescribeInstanceEventNotificationAttributesCommandInput,
+  DescribeInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/DescribeInstanceEventNotificationAttributesCommand.ts";
+import {
   DescribeInstanceStatusCommandInput,
-  DescribeInstanceStatusCommandOutput
+  DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand.ts";
 import {
   DescribeInstanceTypeOfferingsCommandInput,
-  DescribeInstanceTypeOfferingsCommandOutput
+  DescribeInstanceTypeOfferingsCommandOutput,
 } from "./commands/DescribeInstanceTypeOfferingsCommand.ts";
 import {
   DescribeInstanceTypesCommandInput,
-  DescribeInstanceTypesCommandOutput
+  DescribeInstanceTypesCommandOutput,
 } from "./commands/DescribeInstanceTypesCommand.ts";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand.ts";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand.ts";
 import {
   DescribeInternetGatewaysCommandInput,
-  DescribeInternetGatewaysCommandOutput
+  DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand.ts";
-import {
-  DescribeIpv6PoolsCommandInput,
-  DescribeIpv6PoolsCommandOutput
-} from "./commands/DescribeIpv6PoolsCommand.ts";
-import {
-  DescribeKeyPairsCommandInput,
-  DescribeKeyPairsCommandOutput
-} from "./commands/DescribeKeyPairsCommand.ts";
+import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "./commands/DescribeIpv6PoolsCommand.ts";
+import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "./commands/DescribeKeyPairsCommand.ts";
 import {
   DescribeLaunchTemplateVersionsCommandInput,
-  DescribeLaunchTemplateVersionsCommandOutput
+  DescribeLaunchTemplateVersionsCommandOutput,
 } from "./commands/DescribeLaunchTemplateVersionsCommand.ts";
 import {
   DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput
+  DescribeLaunchTemplatesCommandOutput,
 } from "./commands/DescribeLaunchTemplatesCommand.ts";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand.ts";
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-  DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
+  DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand.ts";
 import {
   DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput
+  DescribeLocalGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeLocalGatewayRouteTablesCommand.ts";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
-  DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
+  DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfaceGroupsCommand.ts";
 import {
   DescribeLocalGatewayVirtualInterfacesCommandInput,
-  DescribeLocalGatewayVirtualInterfacesCommandOutput
+  DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand.ts";
 import {
   DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput
+  DescribeLocalGatewaysCommandOutput,
 } from "./commands/DescribeLocalGatewaysCommand.ts";
 import {
+  DescribeManagedPrefixListsCommandInput,
+  DescribeManagedPrefixListsCommandOutput,
+} from "./commands/DescribeManagedPrefixListsCommand.ts";
+import {
   DescribeMovingAddressesCommandInput,
-  DescribeMovingAddressesCommandOutput
+  DescribeMovingAddressesCommandOutput,
 } from "./commands/DescribeMovingAddressesCommand.ts";
 import {
   DescribeNatGatewaysCommandInput,
-  DescribeNatGatewaysCommandOutput
+  DescribeNatGatewaysCommandOutput,
 } from "./commands/DescribeNatGatewaysCommand.ts";
 import {
   DescribeNetworkAclsCommandInput,
-  DescribeNetworkAclsCommandOutput
+  DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand.ts";
 import {
   DescribeNetworkInterfaceAttributeCommandInput,
-  DescribeNetworkInterfaceAttributeCommandOutput
+  DescribeNetworkInterfaceAttributeCommandOutput,
 } from "./commands/DescribeNetworkInterfaceAttributeCommand.ts";
 import {
   DescribeNetworkInterfacePermissionsCommandInput,
-  DescribeNetworkInterfacePermissionsCommandOutput
+  DescribeNetworkInterfacePermissionsCommandOutput,
 } from "./commands/DescribeNetworkInterfacePermissionsCommand.ts";
 import {
   DescribeNetworkInterfacesCommandInput,
-  DescribeNetworkInterfacesCommandOutput
+  DescribeNetworkInterfacesCommandOutput,
 } from "./commands/DescribeNetworkInterfacesCommand.ts";
 import {
   DescribePlacementGroupsCommandInput,
-  DescribePlacementGroupsCommandOutput
+  DescribePlacementGroupsCommandOutput,
 } from "./commands/DescribePlacementGroupsCommand.ts";
 import {
   DescribePrefixListsCommandInput,
-  DescribePrefixListsCommandOutput
+  DescribePrefixListsCommandOutput,
 } from "./commands/DescribePrefixListsCommand.ts";
 import {
   DescribePrincipalIdFormatCommandInput,
-  DescribePrincipalIdFormatCommandOutput
+  DescribePrincipalIdFormatCommandOutput,
 } from "./commands/DescribePrincipalIdFormatCommand.ts";
 import {
   DescribePublicIpv4PoolsCommandInput,
-  DescribePublicIpv4PoolsCommandOutput
+  DescribePublicIpv4PoolsCommandOutput,
 } from "./commands/DescribePublicIpv4PoolsCommand.ts";
-import {
-  DescribeRegionsCommandInput,
-  DescribeRegionsCommandOutput
-} from "./commands/DescribeRegionsCommand.ts";
+import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand.ts";
 import {
   DescribeReservedInstancesCommandInput,
-  DescribeReservedInstancesCommandOutput
+  DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand.ts";
 import {
   DescribeReservedInstancesListingsCommandInput,
-  DescribeReservedInstancesListingsCommandOutput
+  DescribeReservedInstancesListingsCommandOutput,
 } from "./commands/DescribeReservedInstancesListingsCommand.ts";
 import {
   DescribeReservedInstancesModificationsCommandInput,
-  DescribeReservedInstancesModificationsCommandOutput
+  DescribeReservedInstancesModificationsCommandOutput,
 } from "./commands/DescribeReservedInstancesModificationsCommand.ts";
 import {
   DescribeReservedInstancesOfferingsCommandInput,
-  DescribeReservedInstancesOfferingsCommandOutput
+  DescribeReservedInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstancesOfferingsCommand.ts";
 import {
   DescribeRouteTablesCommandInput,
-  DescribeRouteTablesCommandOutput
+  DescribeRouteTablesCommandOutput,
 } from "./commands/DescribeRouteTablesCommand.ts";
 import {
   DescribeScheduledInstanceAvailabilityCommandInput,
-  DescribeScheduledInstanceAvailabilityCommandOutput
+  DescribeScheduledInstanceAvailabilityCommandOutput,
 } from "./commands/DescribeScheduledInstanceAvailabilityCommand.ts";
 import {
   DescribeScheduledInstancesCommandInput,
-  DescribeScheduledInstancesCommandOutput
+  DescribeScheduledInstancesCommandOutput,
 } from "./commands/DescribeScheduledInstancesCommand.ts";
 import {
   DescribeSecurityGroupReferencesCommandInput,
-  DescribeSecurityGroupReferencesCommandOutput
+  DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand.ts";
 import {
   DescribeSecurityGroupsCommandInput,
-  DescribeSecurityGroupsCommandOutput
+  DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand.ts";
 import {
   DescribeSnapshotAttributeCommandInput,
-  DescribeSnapshotAttributeCommandOutput
+  DescribeSnapshotAttributeCommandOutput,
 } from "./commands/DescribeSnapshotAttributeCommand.ts";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand.ts";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand.ts";
 import {
   DescribeSpotDatafeedSubscriptionCommandInput,
-  DescribeSpotDatafeedSubscriptionCommandOutput
+  DescribeSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DescribeSpotDatafeedSubscriptionCommand.ts";
 import {
   DescribeSpotFleetInstancesCommandInput,
-  DescribeSpotFleetInstancesCommandOutput
+  DescribeSpotFleetInstancesCommandOutput,
 } from "./commands/DescribeSpotFleetInstancesCommand.ts";
 import {
   DescribeSpotFleetRequestHistoryCommandInput,
-  DescribeSpotFleetRequestHistoryCommandOutput
+  DescribeSpotFleetRequestHistoryCommandOutput,
 } from "./commands/DescribeSpotFleetRequestHistoryCommand.ts";
 import {
   DescribeSpotFleetRequestsCommandInput,
-  DescribeSpotFleetRequestsCommandOutput
+  DescribeSpotFleetRequestsCommandOutput,
 } from "./commands/DescribeSpotFleetRequestsCommand.ts";
 import {
   DescribeSpotInstanceRequestsCommandInput,
-  DescribeSpotInstanceRequestsCommandOutput
+  DescribeSpotInstanceRequestsCommandOutput,
 } from "./commands/DescribeSpotInstanceRequestsCommand.ts";
 import {
   DescribeSpotPriceHistoryCommandInput,
-  DescribeSpotPriceHistoryCommandOutput
+  DescribeSpotPriceHistoryCommandOutput,
 } from "./commands/DescribeSpotPriceHistoryCommand.ts";
 import {
   DescribeStaleSecurityGroupsCommandInput,
-  DescribeStaleSecurityGroupsCommandOutput
+  DescribeStaleSecurityGroupsCommandOutput,
 } from "./commands/DescribeStaleSecurityGroupsCommand.ts";
-import {
-  DescribeSubnetsCommandInput,
-  DescribeSubnetsCommandOutput
-} from "./commands/DescribeSubnetsCommand.ts";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
+import { DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput } from "./commands/DescribeSubnetsCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
   DescribeTrafficMirrorFiltersCommandInput,
-  DescribeTrafficMirrorFiltersCommandOutput
+  DescribeTrafficMirrorFiltersCommandOutput,
 } from "./commands/DescribeTrafficMirrorFiltersCommand.ts";
 import {
   DescribeTrafficMirrorSessionsCommandInput,
-  DescribeTrafficMirrorSessionsCommandOutput
+  DescribeTrafficMirrorSessionsCommandOutput,
 } from "./commands/DescribeTrafficMirrorSessionsCommand.ts";
 import {
   DescribeTrafficMirrorTargetsCommandInput,
-  DescribeTrafficMirrorTargetsCommandOutput
+  DescribeTrafficMirrorTargetsCommandOutput,
 } from "./commands/DescribeTrafficMirrorTargetsCommand.ts";
 import {
   DescribeTransitGatewayAttachmentsCommandInput,
-  DescribeTransitGatewayAttachmentsCommandOutput
+  DescribeTransitGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayAttachmentsCommand.ts";
 import {
   DescribeTransitGatewayMulticastDomainsCommandInput,
-  DescribeTransitGatewayMulticastDomainsCommandOutput
+  DescribeTransitGatewayMulticastDomainsCommandOutput,
 } from "./commands/DescribeTransitGatewayMulticastDomainsCommand.ts";
 import {
   DescribeTransitGatewayPeeringAttachmentsCommandInput,
-  DescribeTransitGatewayPeeringAttachmentsCommandOutput
+  DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand.ts";
 import {
   DescribeTransitGatewayRouteTablesCommandInput,
-  DescribeTransitGatewayRouteTablesCommandOutput
+  DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand.ts";
 import {
   DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput
+  DescribeTransitGatewayVpcAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayVpcAttachmentsCommand.ts";
 import {
   DescribeTransitGatewaysCommandInput,
-  DescribeTransitGatewaysCommandOutput
+  DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand.ts";
 import {
   DescribeVolumeAttributeCommandInput,
-  DescribeVolumeAttributeCommandOutput
+  DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand.ts";
 import {
   DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput
+  DescribeVolumeStatusCommandOutput,
 } from "./commands/DescribeVolumeStatusCommand.ts";
-import {
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
-} from "./commands/DescribeVolumesCommand.ts";
+import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand.ts";
 import {
   DescribeVolumesModificationsCommandInput,
-  DescribeVolumesModificationsCommandOutput
+  DescribeVolumesModificationsCommandOutput,
 } from "./commands/DescribeVolumesModificationsCommand.ts";
 import {
   DescribeVpcAttributeCommandInput,
-  DescribeVpcAttributeCommandOutput
+  DescribeVpcAttributeCommandOutput,
 } from "./commands/DescribeVpcAttributeCommand.ts";
 import {
   DescribeVpcClassicLinkCommandInput,
-  DescribeVpcClassicLinkCommandOutput
+  DescribeVpcClassicLinkCommandOutput,
 } from "./commands/DescribeVpcClassicLinkCommand.ts";
 import {
   DescribeVpcClassicLinkDnsSupportCommandInput,
-  DescribeVpcClassicLinkDnsSupportCommandOutput
+  DescribeVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DescribeVpcClassicLinkDnsSupportCommand.ts";
 import {
   DescribeVpcEndpointConnectionNotificationsCommandInput,
-  DescribeVpcEndpointConnectionNotificationsCommandOutput
+  DescribeVpcEndpointConnectionNotificationsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionNotificationsCommand.ts";
 import {
   DescribeVpcEndpointConnectionsCommandInput,
-  DescribeVpcEndpointConnectionsCommandOutput
+  DescribeVpcEndpointConnectionsCommandOutput,
 } from "./commands/DescribeVpcEndpointConnectionsCommand.ts";
 import {
   DescribeVpcEndpointServiceConfigurationsCommandInput,
-  DescribeVpcEndpointServiceConfigurationsCommandOutput
+  DescribeVpcEndpointServiceConfigurationsCommandOutput,
 } from "./commands/DescribeVpcEndpointServiceConfigurationsCommand.ts";
 import {
   DescribeVpcEndpointServicePermissionsCommandInput,
-  DescribeVpcEndpointServicePermissionsCommandOutput
+  DescribeVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/DescribeVpcEndpointServicePermissionsCommand.ts";
 import {
   DescribeVpcEndpointServicesCommandInput,
-  DescribeVpcEndpointServicesCommandOutput
+  DescribeVpcEndpointServicesCommandOutput,
 } from "./commands/DescribeVpcEndpointServicesCommand.ts";
 import {
   DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput
+  DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand.ts";
 import {
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand.ts";
-import {
-  DescribeVpcsCommandInput,
-  DescribeVpcsCommandOutput
-} from "./commands/DescribeVpcsCommand.ts";
+import { DescribeVpcsCommandInput, DescribeVpcsCommandOutput } from "./commands/DescribeVpcsCommand.ts";
 import {
   DescribeVpnConnectionsCommandInput,
-  DescribeVpnConnectionsCommandOutput
+  DescribeVpnConnectionsCommandOutput,
 } from "./commands/DescribeVpnConnectionsCommand.ts";
 import {
   DescribeVpnGatewaysCommandInput,
-  DescribeVpnGatewaysCommandOutput
+  DescribeVpnGatewaysCommandOutput,
 } from "./commands/DescribeVpnGatewaysCommand.ts";
 import {
   DetachClassicLinkVpcCommandInput,
-  DetachClassicLinkVpcCommandOutput
+  DetachClassicLinkVpcCommandOutput,
 } from "./commands/DetachClassicLinkVpcCommand.ts";
 import {
   DetachInternetGatewayCommandInput,
-  DetachInternetGatewayCommandOutput
+  DetachInternetGatewayCommandOutput,
 } from "./commands/DetachInternetGatewayCommand.ts";
 import {
   DetachNetworkInterfaceCommandInput,
-  DetachNetworkInterfaceCommandOutput
+  DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand.ts";
-import {
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput
-} from "./commands/DetachVolumeCommand.ts";
-import {
-  DetachVpnGatewayCommandInput,
-  DetachVpnGatewayCommandOutput
-} from "./commands/DetachVpnGatewayCommand.ts";
+import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand.ts";
+import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "./commands/DetachVpnGatewayCommand.ts";
 import {
   DisableEbsEncryptionByDefaultCommandInput,
-  DisableEbsEncryptionByDefaultCommandOutput
+  DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand.ts";
 import {
   DisableFastSnapshotRestoresCommandInput,
-  DisableFastSnapshotRestoresCommandOutput
+  DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand.ts";
 import {
   DisableTransitGatewayRouteTablePropagationCommandInput,
-  DisableTransitGatewayRouteTablePropagationCommandOutput
+  DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/DisableTransitGatewayRouteTablePropagationCommand.ts";
 import {
   DisableVgwRoutePropagationCommandInput,
-  DisableVgwRoutePropagationCommandOutput
+  DisableVgwRoutePropagationCommandOutput,
 } from "./commands/DisableVgwRoutePropagationCommand.ts";
 import {
   DisableVpcClassicLinkCommandInput,
-  DisableVpcClassicLinkCommandOutput
+  DisableVpcClassicLinkCommandOutput,
 } from "./commands/DisableVpcClassicLinkCommand.ts";
 import {
   DisableVpcClassicLinkDnsSupportCommandInput,
-  DisableVpcClassicLinkDnsSupportCommandOutput
+  DisableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/DisableVpcClassicLinkDnsSupportCommand.ts";
 import {
   DisassociateAddressCommandInput,
-  DisassociateAddressCommandOutput
+  DisassociateAddressCommandOutput,
 } from "./commands/DisassociateAddressCommand.ts";
 import {
   DisassociateClientVpnTargetNetworkCommandInput,
-  DisassociateClientVpnTargetNetworkCommandOutput
+  DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand.ts";
 import {
   DisassociateIamInstanceProfileCommandInput,
-  DisassociateIamInstanceProfileCommandOutput
+  DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand.ts";
 import {
   DisassociateRouteTableCommandInput,
-  DisassociateRouteTableCommandOutput
+  DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand.ts";
 import {
   DisassociateSubnetCidrBlockCommandInput,
-  DisassociateSubnetCidrBlockCommandOutput
+  DisassociateSubnetCidrBlockCommandOutput,
 } from "./commands/DisassociateSubnetCidrBlockCommand.ts";
 import {
   DisassociateTransitGatewayMulticastDomainCommandInput,
-  DisassociateTransitGatewayMulticastDomainCommandOutput
+  DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DisassociateTransitGatewayMulticastDomainCommand.ts";
 import {
   DisassociateTransitGatewayRouteTableCommandInput,
-  DisassociateTransitGatewayRouteTableCommandOutput
+  DisassociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayRouteTableCommand.ts";
 import {
   DisassociateVpcCidrBlockCommandInput,
-  DisassociateVpcCidrBlockCommandOutput
+  DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand.ts";
 import {
   EnableEbsEncryptionByDefaultCommandInput,
-  EnableEbsEncryptionByDefaultCommandOutput
+  EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand.ts";
 import {
   EnableFastSnapshotRestoresCommandInput,
-  EnableFastSnapshotRestoresCommandOutput
+  EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand.ts";
 import {
   EnableTransitGatewayRouteTablePropagationCommandInput,
-  EnableTransitGatewayRouteTablePropagationCommandOutput
+  EnableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/EnableTransitGatewayRouteTablePropagationCommand.ts";
 import {
   EnableVgwRoutePropagationCommandInput,
-  EnableVgwRoutePropagationCommandOutput
+  EnableVgwRoutePropagationCommandOutput,
 } from "./commands/EnableVgwRoutePropagationCommand.ts";
-import {
-  EnableVolumeIOCommandInput,
-  EnableVolumeIOCommandOutput
-} from "./commands/EnableVolumeIOCommand.ts";
+import { EnableVolumeIOCommandInput, EnableVolumeIOCommandOutput } from "./commands/EnableVolumeIOCommand.ts";
 import {
   EnableVpcClassicLinkCommandInput,
-  EnableVpcClassicLinkCommandOutput
+  EnableVpcClassicLinkCommandOutput,
 } from "./commands/EnableVpcClassicLinkCommand.ts";
 import {
   EnableVpcClassicLinkDnsSupportCommandInput,
-  EnableVpcClassicLinkDnsSupportCommandOutput
+  EnableVpcClassicLinkDnsSupportCommandOutput,
 } from "./commands/EnableVpcClassicLinkDnsSupportCommand.ts";
 import {
   ExportClientVpnClientCertificateRevocationListCommandInput,
-  ExportClientVpnClientCertificateRevocationListCommandOutput
+  ExportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ExportClientVpnClientCertificateRevocationListCommand.ts";
 import {
   ExportClientVpnClientConfigurationCommandInput,
-  ExportClientVpnClientConfigurationCommandOutput
+  ExportClientVpnClientConfigurationCommandOutput,
 } from "./commands/ExportClientVpnClientConfigurationCommand.ts";
-import {
-  ExportImageCommandInput,
-  ExportImageCommandOutput
-} from "./commands/ExportImageCommand.ts";
+import { ExportImageCommandInput, ExportImageCommandOutput } from "./commands/ExportImageCommand.ts";
 import {
   ExportTransitGatewayRoutesCommandInput,
-  ExportTransitGatewayRoutesCommandOutput
+  ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand.ts";
 import {
   GetAssociatedIpv6PoolCidrsCommandInput,
-  GetAssociatedIpv6PoolCidrsCommandOutput
+  GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand.ts";
 import {
   GetCapacityReservationUsageCommandInput,
-  GetCapacityReservationUsageCommandOutput
+  GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand.ts";
-import {
-  GetCoipPoolUsageCommandInput,
-  GetCoipPoolUsageCommandOutput
-} from "./commands/GetCoipPoolUsageCommand.ts";
-import {
-  GetConsoleOutputCommandInput,
-  GetConsoleOutputCommandOutput
-} from "./commands/GetConsoleOutputCommand.ts";
+import { GetCoipPoolUsageCommandInput, GetCoipPoolUsageCommandOutput } from "./commands/GetCoipPoolUsageCommand.ts";
+import { GetConsoleOutputCommandInput, GetConsoleOutputCommandOutput } from "./commands/GetConsoleOutputCommand.ts";
 import {
   GetConsoleScreenshotCommandInput,
-  GetConsoleScreenshotCommandOutput
+  GetConsoleScreenshotCommandOutput,
 } from "./commands/GetConsoleScreenshotCommand.ts";
 import {
   GetDefaultCreditSpecificationCommandInput,
-  GetDefaultCreditSpecificationCommandOutput
+  GetDefaultCreditSpecificationCommandOutput,
 } from "./commands/GetDefaultCreditSpecificationCommand.ts";
 import {
   GetEbsDefaultKmsKeyIdCommandInput,
-  GetEbsDefaultKmsKeyIdCommandOutput
+  GetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/GetEbsDefaultKmsKeyIdCommand.ts";
 import {
   GetEbsEncryptionByDefaultCommandInput,
-  GetEbsEncryptionByDefaultCommandOutput
+  GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand.ts";
 import {
+  GetGroupsForCapacityReservationCommandInput,
+  GetGroupsForCapacityReservationCommandOutput,
+} from "./commands/GetGroupsForCapacityReservationCommand.ts";
+import {
   GetHostReservationPurchasePreviewCommandInput,
-  GetHostReservationPurchasePreviewCommandOutput
+  GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand.ts";
 import {
   GetLaunchTemplateDataCommandInput,
-  GetLaunchTemplateDataCommandOutput
+  GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand.ts";
 import {
-  GetPasswordDataCommandInput,
-  GetPasswordDataCommandOutput
-} from "./commands/GetPasswordDataCommand.ts";
+  GetManagedPrefixListAssociationsCommandInput,
+  GetManagedPrefixListAssociationsCommandOutput,
+} from "./commands/GetManagedPrefixListAssociationsCommand.ts";
+import {
+  GetManagedPrefixListEntriesCommandInput,
+  GetManagedPrefixListEntriesCommandOutput,
+} from "./commands/GetManagedPrefixListEntriesCommand.ts";
+import { GetPasswordDataCommandInput, GetPasswordDataCommandOutput } from "./commands/GetPasswordDataCommand.ts";
 import {
   GetReservedInstancesExchangeQuoteCommandInput,
-  GetReservedInstancesExchangeQuoteCommandOutput
+  GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand.ts";
 import {
   GetTransitGatewayAttachmentPropagationsCommandInput,
-  GetTransitGatewayAttachmentPropagationsCommandOutput
+  GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand.ts";
 import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
-  GetTransitGatewayMulticastDomainAssociationsCommandOutput
+  GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand.ts";
 import {
   GetTransitGatewayRouteTableAssociationsCommandInput,
-  GetTransitGatewayRouteTableAssociationsCommandOutput
+  GetTransitGatewayRouteTableAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTableAssociationsCommand.ts";
 import {
   GetTransitGatewayRouteTablePropagationsCommandInput,
-  GetTransitGatewayRouteTablePropagationsCommandOutput
+  GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand.ts";
 import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
-  ImportClientVpnClientCertificateRevocationListCommandOutput
+  ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand.ts";
+import { ImportImageCommandInput, ImportImageCommandOutput } from "./commands/ImportImageCommand.ts";
+import { ImportInstanceCommandInput, ImportInstanceCommandOutput } from "./commands/ImportInstanceCommand.ts";
+import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand.ts";
+import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand.ts";
+import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand.ts";
 import {
-  ImportImageCommandInput,
-  ImportImageCommandOutput
-} from "./commands/ImportImageCommand.ts";
-import {
-  ImportInstanceCommandInput,
-  ImportInstanceCommandOutput
-} from "./commands/ImportInstanceCommand.ts";
-import {
-  ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput
-} from "./commands/ImportKeyPairCommand.ts";
-import {
-  ImportSnapshotCommandInput,
-  ImportSnapshotCommandOutput
-} from "./commands/ImportSnapshotCommand.ts";
-import {
-  ImportVolumeCommandInput,
-  ImportVolumeCommandOutput
-} from "./commands/ImportVolumeCommand.ts";
+  ModifyAvailabilityZoneGroupCommandInput,
+  ModifyAvailabilityZoneGroupCommandOutput,
+} from "./commands/ModifyAvailabilityZoneGroupCommand.ts";
 import {
   ModifyCapacityReservationCommandInput,
-  ModifyCapacityReservationCommandOutput
+  ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand.ts";
 import {
   ModifyClientVpnEndpointCommandInput,
-  ModifyClientVpnEndpointCommandOutput
+  ModifyClientVpnEndpointCommandOutput,
 } from "./commands/ModifyClientVpnEndpointCommand.ts";
 import {
   ModifyDefaultCreditSpecificationCommandInput,
-  ModifyDefaultCreditSpecificationCommandOutput
+  ModifyDefaultCreditSpecificationCommandOutput,
 } from "./commands/ModifyDefaultCreditSpecificationCommand.ts";
 import {
   ModifyEbsDefaultKmsKeyIdCommandInput,
-  ModifyEbsDefaultKmsKeyIdCommandOutput
+  ModifyEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ModifyEbsDefaultKmsKeyIdCommand.ts";
-import {
-  ModifyFleetCommandInput,
-  ModifyFleetCommandOutput
-} from "./commands/ModifyFleetCommand.ts";
+import { ModifyFleetCommandInput, ModifyFleetCommandOutput } from "./commands/ModifyFleetCommand.ts";
 import {
   ModifyFpgaImageAttributeCommandInput,
-  ModifyFpgaImageAttributeCommandOutput
+  ModifyFpgaImageAttributeCommandOutput,
 } from "./commands/ModifyFpgaImageAttributeCommand.ts";
-import {
-  ModifyHostsCommandInput,
-  ModifyHostsCommandOutput
-} from "./commands/ModifyHostsCommand.ts";
-import {
-  ModifyIdFormatCommandInput,
-  ModifyIdFormatCommandOutput
-} from "./commands/ModifyIdFormatCommand.ts";
+import { ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand.ts";
+import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "./commands/ModifyIdFormatCommand.ts";
 import {
   ModifyIdentityIdFormatCommandInput,
-  ModifyIdentityIdFormatCommandOutput
+  ModifyIdentityIdFormatCommandOutput,
 } from "./commands/ModifyIdentityIdFormatCommand.ts";
 import {
   ModifyImageAttributeCommandInput,
-  ModifyImageAttributeCommandOutput
+  ModifyImageAttributeCommandOutput,
 } from "./commands/ModifyImageAttributeCommand.ts";
 import {
   ModifyInstanceAttributeCommandInput,
-  ModifyInstanceAttributeCommandOutput
+  ModifyInstanceAttributeCommandOutput,
 } from "./commands/ModifyInstanceAttributeCommand.ts";
 import {
   ModifyInstanceCapacityReservationAttributesCommandInput,
-  ModifyInstanceCapacityReservationAttributesCommandOutput
+  ModifyInstanceCapacityReservationAttributesCommandOutput,
 } from "./commands/ModifyInstanceCapacityReservationAttributesCommand.ts";
 import {
   ModifyInstanceCreditSpecificationCommandInput,
-  ModifyInstanceCreditSpecificationCommandOutput
+  ModifyInstanceCreditSpecificationCommandOutput,
 } from "./commands/ModifyInstanceCreditSpecificationCommand.ts";
 import {
   ModifyInstanceEventStartTimeCommandInput,
-  ModifyInstanceEventStartTimeCommandOutput
+  ModifyInstanceEventStartTimeCommandOutput,
 } from "./commands/ModifyInstanceEventStartTimeCommand.ts";
 import {
   ModifyInstanceMetadataOptionsCommandInput,
-  ModifyInstanceMetadataOptionsCommandOutput
+  ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand.ts";
 import {
   ModifyInstancePlacementCommandInput,
-  ModifyInstancePlacementCommandOutput
+  ModifyInstancePlacementCommandOutput,
 } from "./commands/ModifyInstancePlacementCommand.ts";
 import {
   ModifyLaunchTemplateCommandInput,
-  ModifyLaunchTemplateCommandOutput
+  ModifyLaunchTemplateCommandOutput,
 } from "./commands/ModifyLaunchTemplateCommand.ts";
 import {
+  ModifyManagedPrefixListCommandInput,
+  ModifyManagedPrefixListCommandOutput,
+} from "./commands/ModifyManagedPrefixListCommand.ts";
+import {
   ModifyNetworkInterfaceAttributeCommandInput,
-  ModifyNetworkInterfaceAttributeCommandOutput
+  ModifyNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ModifyNetworkInterfaceAttributeCommand.ts";
 import {
   ModifyReservedInstancesCommandInput,
-  ModifyReservedInstancesCommandOutput
+  ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand.ts";
 import {
   ModifySnapshotAttributeCommandInput,
-  ModifySnapshotAttributeCommandOutput
+  ModifySnapshotAttributeCommandOutput,
 } from "./commands/ModifySnapshotAttributeCommand.ts";
 import {
   ModifySpotFleetRequestCommandInput,
-  ModifySpotFleetRequestCommandOutput
+  ModifySpotFleetRequestCommandOutput,
 } from "./commands/ModifySpotFleetRequestCommand.ts";
 import {
   ModifySubnetAttributeCommandInput,
-  ModifySubnetAttributeCommandOutput
+  ModifySubnetAttributeCommandOutput,
 } from "./commands/ModifySubnetAttributeCommand.ts";
 import {
   ModifyTrafficMirrorFilterNetworkServicesCommandInput,
-  ModifyTrafficMirrorFilterNetworkServicesCommandOutput
+  ModifyTrafficMirrorFilterNetworkServicesCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterNetworkServicesCommand.ts";
 import {
   ModifyTrafficMirrorFilterRuleCommandInput,
-  ModifyTrafficMirrorFilterRuleCommandOutput
+  ModifyTrafficMirrorFilterRuleCommandOutput,
 } from "./commands/ModifyTrafficMirrorFilterRuleCommand.ts";
 import {
   ModifyTrafficMirrorSessionCommandInput,
-  ModifyTrafficMirrorSessionCommandOutput
+  ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand.ts";
 import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
-  ModifyTransitGatewayVpcAttachmentCommandOutput
+  ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand.ts";
 import {
   ModifyVolumeAttributeCommandInput,
-  ModifyVolumeAttributeCommandOutput
+  ModifyVolumeAttributeCommandOutput,
 } from "./commands/ModifyVolumeAttributeCommand.ts";
-import {
-  ModifyVolumeCommandInput,
-  ModifyVolumeCommandOutput
-} from "./commands/ModifyVolumeCommand.ts";
+import { ModifyVolumeCommandInput, ModifyVolumeCommandOutput } from "./commands/ModifyVolumeCommand.ts";
 import {
   ModifyVpcAttributeCommandInput,
-  ModifyVpcAttributeCommandOutput
+  ModifyVpcAttributeCommandOutput,
 } from "./commands/ModifyVpcAttributeCommand.ts";
-import {
-  ModifyVpcEndpointCommandInput,
-  ModifyVpcEndpointCommandOutput
-} from "./commands/ModifyVpcEndpointCommand.ts";
+import { ModifyVpcEndpointCommandInput, ModifyVpcEndpointCommandOutput } from "./commands/ModifyVpcEndpointCommand.ts";
 import {
   ModifyVpcEndpointConnectionNotificationCommandInput,
-  ModifyVpcEndpointConnectionNotificationCommandOutput
+  ModifyVpcEndpointConnectionNotificationCommandOutput,
 } from "./commands/ModifyVpcEndpointConnectionNotificationCommand.ts";
 import {
   ModifyVpcEndpointServiceConfigurationCommandInput,
-  ModifyVpcEndpointServiceConfigurationCommandOutput
+  ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand.ts";
 import {
   ModifyVpcEndpointServicePermissionsCommandInput,
-  ModifyVpcEndpointServicePermissionsCommandOutput
+  ModifyVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/ModifyVpcEndpointServicePermissionsCommand.ts";
 import {
   ModifyVpcPeeringConnectionOptionsCommandInput,
-  ModifyVpcPeeringConnectionOptionsCommandOutput
+  ModifyVpcPeeringConnectionOptionsCommandOutput,
 } from "./commands/ModifyVpcPeeringConnectionOptionsCommand.ts";
-import {
-  ModifyVpcTenancyCommandInput,
-  ModifyVpcTenancyCommandOutput
-} from "./commands/ModifyVpcTenancyCommand.ts";
+import { ModifyVpcTenancyCommandInput, ModifyVpcTenancyCommandOutput } from "./commands/ModifyVpcTenancyCommand.ts";
 import {
   ModifyVpnConnectionCommandInput,
-  ModifyVpnConnectionCommandOutput
+  ModifyVpnConnectionCommandOutput,
 } from "./commands/ModifyVpnConnectionCommand.ts";
 import {
   ModifyVpnTunnelCertificateCommandInput,
-  ModifyVpnTunnelCertificateCommandOutput
+  ModifyVpnTunnelCertificateCommandOutput,
 } from "./commands/ModifyVpnTunnelCertificateCommand.ts";
 import {
   ModifyVpnTunnelOptionsCommandInput,
-  ModifyVpnTunnelOptionsCommandOutput
+  ModifyVpnTunnelOptionsCommandOutput,
 } from "./commands/ModifyVpnTunnelOptionsCommand.ts";
-import {
-  MonitorInstancesCommandInput,
-  MonitorInstancesCommandOutput
-} from "./commands/MonitorInstancesCommand.ts";
-import {
-  MoveAddressToVpcCommandInput,
-  MoveAddressToVpcCommandOutput
-} from "./commands/MoveAddressToVpcCommand.ts";
+import { MonitorInstancesCommandInput, MonitorInstancesCommandOutput } from "./commands/MonitorInstancesCommand.ts";
+import { MoveAddressToVpcCommandInput, MoveAddressToVpcCommandOutput } from "./commands/MoveAddressToVpcCommand.ts";
 import {
   ProvisionByoipCidrCommandInput,
-  ProvisionByoipCidrCommandOutput
+  ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand.ts";
 import {
   PurchaseHostReservationCommandInput,
-  PurchaseHostReservationCommandOutput
+  PurchaseHostReservationCommandOutput,
 } from "./commands/PurchaseHostReservationCommand.ts";
 import {
   PurchaseReservedInstancesOfferingCommandInput,
-  PurchaseReservedInstancesOfferingCommandOutput
+  PurchaseReservedInstancesOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstancesOfferingCommand.ts";
 import {
   PurchaseScheduledInstancesCommandInput,
-  PurchaseScheduledInstancesCommandOutput
+  PurchaseScheduledInstancesCommandOutput,
 } from "./commands/PurchaseScheduledInstancesCommand.ts";
+import { RebootInstancesCommandInput, RebootInstancesCommandOutput } from "./commands/RebootInstancesCommand.ts";
+import { RegisterImageCommandInput, RegisterImageCommandOutput } from "./commands/RegisterImageCommand.ts";
 import {
-  RebootInstancesCommandInput,
-  RebootInstancesCommandOutput
-} from "./commands/RebootInstancesCommand.ts";
-import {
-  RegisterImageCommandInput,
-  RegisterImageCommandOutput
-} from "./commands/RegisterImageCommand.ts";
+  RegisterInstanceEventNotificationAttributesCommandInput,
+  RegisterInstanceEventNotificationAttributesCommandOutput,
+} from "./commands/RegisterInstanceEventNotificationAttributesCommand.ts";
 import {
   RegisterTransitGatewayMulticastGroupMembersCommandInput,
-  RegisterTransitGatewayMulticastGroupMembersCommandOutput
+  RegisterTransitGatewayMulticastGroupMembersCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupMembersCommand.ts";
 import {
   RegisterTransitGatewayMulticastGroupSourcesCommandInput,
-  RegisterTransitGatewayMulticastGroupSourcesCommandOutput
+  RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand.ts";
 import {
   RejectTransitGatewayPeeringAttachmentCommandInput,
-  RejectTransitGatewayPeeringAttachmentCommandOutput
+  RejectTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayPeeringAttachmentCommand.ts";
 import {
   RejectTransitGatewayVpcAttachmentCommandInput,
-  RejectTransitGatewayVpcAttachmentCommandOutput
+  RejectTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayVpcAttachmentCommand.ts";
 import {
   RejectVpcEndpointConnectionsCommandInput,
-  RejectVpcEndpointConnectionsCommandOutput
+  RejectVpcEndpointConnectionsCommandOutput,
 } from "./commands/RejectVpcEndpointConnectionsCommand.ts";
 import {
   RejectVpcPeeringConnectionCommandInput,
-  RejectVpcPeeringConnectionCommandOutput
+  RejectVpcPeeringConnectionCommandOutput,
 } from "./commands/RejectVpcPeeringConnectionCommand.ts";
-import {
-  ReleaseAddressCommandInput,
-  ReleaseAddressCommandOutput
-} from "./commands/ReleaseAddressCommand.ts";
-import {
-  ReleaseHostsCommandInput,
-  ReleaseHostsCommandOutput
-} from "./commands/ReleaseHostsCommand.ts";
+import { ReleaseAddressCommandInput, ReleaseAddressCommandOutput } from "./commands/ReleaseAddressCommand.ts";
+import { ReleaseHostsCommandInput, ReleaseHostsCommandOutput } from "./commands/ReleaseHostsCommand.ts";
 import {
   ReplaceIamInstanceProfileAssociationCommandInput,
-  ReplaceIamInstanceProfileAssociationCommandOutput
+  ReplaceIamInstanceProfileAssociationCommandOutput,
 } from "./commands/ReplaceIamInstanceProfileAssociationCommand.ts";
 import {
   ReplaceNetworkAclAssociationCommandInput,
-  ReplaceNetworkAclAssociationCommandOutput
+  ReplaceNetworkAclAssociationCommandOutput,
 } from "./commands/ReplaceNetworkAclAssociationCommand.ts";
 import {
   ReplaceNetworkAclEntryCommandInput,
-  ReplaceNetworkAclEntryCommandOutput
+  ReplaceNetworkAclEntryCommandOutput,
 } from "./commands/ReplaceNetworkAclEntryCommand.ts";
-import {
-  ReplaceRouteCommandInput,
-  ReplaceRouteCommandOutput
-} from "./commands/ReplaceRouteCommand.ts";
+import { ReplaceRouteCommandInput, ReplaceRouteCommandOutput } from "./commands/ReplaceRouteCommand.ts";
 import {
   ReplaceRouteTableAssociationCommandInput,
-  ReplaceRouteTableAssociationCommandOutput
+  ReplaceRouteTableAssociationCommandOutput,
 } from "./commands/ReplaceRouteTableAssociationCommand.ts";
 import {
   ReplaceTransitGatewayRouteCommandInput,
-  ReplaceTransitGatewayRouteCommandOutput
+  ReplaceTransitGatewayRouteCommandOutput,
 } from "./commands/ReplaceTransitGatewayRouteCommand.ts";
 import {
   ReportInstanceStatusCommandInput,
-  ReportInstanceStatusCommandOutput
+  ReportInstanceStatusCommandOutput,
 } from "./commands/ReportInstanceStatusCommand.ts";
-import {
-  RequestSpotFleetCommandInput,
-  RequestSpotFleetCommandOutput
-} from "./commands/RequestSpotFleetCommand.ts";
+import { RequestSpotFleetCommandInput, RequestSpotFleetCommandOutput } from "./commands/RequestSpotFleetCommand.ts";
 import {
   RequestSpotInstancesCommandInput,
-  RequestSpotInstancesCommandOutput
+  RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand.ts";
 import {
   ResetEbsDefaultKmsKeyIdCommandInput,
-  ResetEbsDefaultKmsKeyIdCommandOutput
+  ResetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ResetEbsDefaultKmsKeyIdCommand.ts";
 import {
   ResetFpgaImageAttributeCommandInput,
-  ResetFpgaImageAttributeCommandOutput
+  ResetFpgaImageAttributeCommandOutput,
 } from "./commands/ResetFpgaImageAttributeCommand.ts";
 import {
   ResetImageAttributeCommandInput,
-  ResetImageAttributeCommandOutput
+  ResetImageAttributeCommandOutput,
 } from "./commands/ResetImageAttributeCommand.ts";
 import {
   ResetInstanceAttributeCommandInput,
-  ResetInstanceAttributeCommandOutput
+  ResetInstanceAttributeCommandOutput,
 } from "./commands/ResetInstanceAttributeCommand.ts";
 import {
   ResetNetworkInterfaceAttributeCommandInput,
-  ResetNetworkInterfaceAttributeCommandOutput
+  ResetNetworkInterfaceAttributeCommandOutput,
 } from "./commands/ResetNetworkInterfaceAttributeCommand.ts";
 import {
   ResetSnapshotAttributeCommandInput,
-  ResetSnapshotAttributeCommandOutput
+  ResetSnapshotAttributeCommandOutput,
 } from "./commands/ResetSnapshotAttributeCommand.ts";
 import {
   RestoreAddressToClassicCommandInput,
-  RestoreAddressToClassicCommandOutput
+  RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand.ts";
 import {
+  RestoreManagedPrefixListVersionCommandInput,
+  RestoreManagedPrefixListVersionCommandOutput,
+} from "./commands/RestoreManagedPrefixListVersionCommand.ts";
+import {
   RevokeClientVpnIngressCommandInput,
-  RevokeClientVpnIngressCommandOutput
+  RevokeClientVpnIngressCommandOutput,
 } from "./commands/RevokeClientVpnIngressCommand.ts";
 import {
   RevokeSecurityGroupEgressCommandInput,
-  RevokeSecurityGroupEgressCommandOutput
+  RevokeSecurityGroupEgressCommandOutput,
 } from "./commands/RevokeSecurityGroupEgressCommand.ts";
 import {
   RevokeSecurityGroupIngressCommandInput,
-  RevokeSecurityGroupIngressCommandOutput
+  RevokeSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeSecurityGroupIngressCommand.ts";
-import {
-  RunInstancesCommandInput,
-  RunInstancesCommandOutput
-} from "./commands/RunInstancesCommand.ts";
+import { RunInstancesCommandInput, RunInstancesCommandOutput } from "./commands/RunInstancesCommand.ts";
 import {
   RunScheduledInstancesCommandInput,
-  RunScheduledInstancesCommandOutput
+  RunScheduledInstancesCommandOutput,
 } from "./commands/RunScheduledInstancesCommand.ts";
 import {
   SearchLocalGatewayRoutesCommandInput,
-  SearchLocalGatewayRoutesCommandOutput
+  SearchLocalGatewayRoutesCommandOutput,
 } from "./commands/SearchLocalGatewayRoutesCommand.ts";
 import {
   SearchTransitGatewayMulticastGroupsCommandInput,
-  SearchTransitGatewayMulticastGroupsCommandOutput
+  SearchTransitGatewayMulticastGroupsCommandOutput,
 } from "./commands/SearchTransitGatewayMulticastGroupsCommand.ts";
 import {
   SearchTransitGatewayRoutesCommandInput,
-  SearchTransitGatewayRoutesCommandOutput
+  SearchTransitGatewayRoutesCommandOutput,
 } from "./commands/SearchTransitGatewayRoutesCommand.ts";
 import {
   SendDiagnosticInterruptCommandInput,
-  SendDiagnosticInterruptCommandOutput
+  SendDiagnosticInterruptCommandOutput,
 } from "./commands/SendDiagnosticInterruptCommand.ts";
-import {
-  StartInstancesCommandInput,
-  StartInstancesCommandOutput
-} from "./commands/StartInstancesCommand.ts";
+import { StartInstancesCommandInput, StartInstancesCommandOutput } from "./commands/StartInstancesCommand.ts";
 import {
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-  StartVpcEndpointServicePrivateDnsVerificationCommandOutput
+  StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
 } from "./commands/StartVpcEndpointServicePrivateDnsVerificationCommand.ts";
-import {
-  StopInstancesCommandInput,
-  StopInstancesCommandOutput
-} from "./commands/StopInstancesCommand.ts";
+import { StopInstancesCommandInput, StopInstancesCommandOutput } from "./commands/StopInstancesCommand.ts";
 import {
   TerminateClientVpnConnectionsCommandInput,
-  TerminateClientVpnConnectionsCommandOutput
+  TerminateClientVpnConnectionsCommandOutput,
 } from "./commands/TerminateClientVpnConnectionsCommand.ts";
 import {
   TerminateInstancesCommandInput,
-  TerminateInstancesCommandOutput
+  TerminateInstancesCommandOutput,
 } from "./commands/TerminateInstancesCommand.ts";
 import {
   UnassignIpv6AddressesCommandInput,
-  UnassignIpv6AddressesCommandOutput
+  UnassignIpv6AddressesCommandOutput,
 } from "./commands/UnassignIpv6AddressesCommand.ts";
 import {
   UnassignPrivateIpAddressesCommandInput,
-  UnassignPrivateIpAddressesCommandOutput
+  UnassignPrivateIpAddressesCommandOutput,
 } from "./commands/UnassignPrivateIpAddressesCommand.ts";
 import {
   UnmonitorInstancesCommandInput,
-  UnmonitorInstancesCommandOutput
+  UnmonitorInstancesCommandOutput,
 } from "./commands/UnmonitorInstancesCommand.ts";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
+  UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand.ts";
 import {
   UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-  UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
+  UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand.ts";
-import {
-  WithdrawByoipCidrCommandInput,
-  WithdrawByoipCidrCommandOutput
-} from "./commands/WithdrawByoipCidrCommand.ts";
+import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "./commands/WithdrawByoipCidrCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -1601,38 +1370,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -1641,9 +1406,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -1707,6 +1473,7 @@ export type ServiceInputTypes =
   | CreateLaunchTemplateVersionCommandInput
   | CreateLocalGatewayRouteCommandInput
   | CreateLocalGatewayRouteTableVpcAssociationCommandInput
+  | CreateManagedPrefixListCommandInput
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
   | CreateNetworkAclEntryCommandInput
@@ -1755,6 +1522,7 @@ export type ServiceInputTypes =
   | DeleteLaunchTemplateVersionsCommandInput
   | DeleteLocalGatewayRouteCommandInput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandInput
+  | DeleteManagedPrefixListCommandInput
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
   | DeleteNetworkAclEntryCommandInput
@@ -1790,6 +1558,7 @@ export type ServiceInputTypes =
   | DeleteVpnGatewayCommandInput
   | DeprovisionByoipCidrCommandInput
   | DeregisterImageCommandInput
+  | DeregisterInstanceEventNotificationAttributesCommandInput
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
@@ -1832,6 +1601,7 @@ export type ServiceInputTypes =
   | DescribeImportSnapshotTasksCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCreditSpecificationsCommandInput
+  | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceStatusCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
   | DescribeInstanceTypesCommandInput
@@ -1847,6 +1617,7 @@ export type ServiceInputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
   | DescribeLocalGatewayVirtualInterfacesCommandInput
   | DescribeLocalGatewaysCommandInput
+  | DescribeManagedPrefixListsCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
   | DescribeNetworkAclsCommandInput
@@ -1942,8 +1713,11 @@ export type ServiceInputTypes =
   | GetDefaultCreditSpecificationCommandInput
   | GetEbsDefaultKmsKeyIdCommandInput
   | GetEbsEncryptionByDefaultCommandInput
+  | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetLaunchTemplateDataCommandInput
+  | GetManagedPrefixListAssociationsCommandInput
+  | GetManagedPrefixListEntriesCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
@@ -1956,6 +1730,7 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
+  | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyClientVpnEndpointCommandInput
   | ModifyDefaultCreditSpecificationCommandInput
@@ -1973,6 +1748,7 @@ export type ServiceInputTypes =
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyLaunchTemplateCommandInput
+  | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyReservedInstancesCommandInput
   | ModifySnapshotAttributeCommandInput
@@ -2002,6 +1778,7 @@ export type ServiceInputTypes =
   | PurchaseScheduledInstancesCommandInput
   | RebootInstancesCommandInput
   | RegisterImageCommandInput
+  | RegisterInstanceEventNotificationAttributesCommandInput
   | RegisterTransitGatewayMulticastGroupMembersCommandInput
   | RegisterTransitGatewayMulticastGroupSourcesCommandInput
   | RejectTransitGatewayPeeringAttachmentCommandInput
@@ -2026,6 +1803,7 @@ export type ServiceInputTypes =
   | ResetNetworkInterfaceAttributeCommandInput
   | ResetSnapshotAttributeCommandInput
   | RestoreAddressToClassicCommandInput
+  | RestoreManagedPrefixListVersionCommandInput
   | RevokeClientVpnIngressCommandInput
   | RevokeSecurityGroupEgressCommandInput
   | RevokeSecurityGroupIngressCommandInput
@@ -2108,6 +1886,7 @@ export type ServiceOutputTypes =
   | CreateLaunchTemplateVersionCommandOutput
   | CreateLocalGatewayRouteCommandOutput
   | CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  | CreateManagedPrefixListCommandOutput
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
   | CreateNetworkAclEntryCommandOutput
@@ -2156,6 +1935,7 @@ export type ServiceOutputTypes =
   | DeleteLaunchTemplateVersionsCommandOutput
   | DeleteLocalGatewayRouteCommandOutput
   | DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  | DeleteManagedPrefixListCommandOutput
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
   | DeleteNetworkAclEntryCommandOutput
@@ -2191,6 +1971,7 @@ export type ServiceOutputTypes =
   | DeleteVpnGatewayCommandOutput
   | DeprovisionByoipCidrCommandOutput
   | DeregisterImageCommandOutput
+  | DeregisterInstanceEventNotificationAttributesCommandOutput
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
@@ -2233,6 +2014,7 @@ export type ServiceOutputTypes =
   | DescribeImportSnapshotTasksCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCreditSpecificationsCommandOutput
+  | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceStatusCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput
   | DescribeInstanceTypesCommandOutput
@@ -2248,6 +2030,7 @@ export type ServiceOutputTypes =
   | DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
   | DescribeLocalGatewayVirtualInterfacesCommandOutput
   | DescribeLocalGatewaysCommandOutput
+  | DescribeManagedPrefixListsCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
   | DescribeNetworkAclsCommandOutput
@@ -2343,8 +2126,11 @@ export type ServiceOutputTypes =
   | GetDefaultCreditSpecificationCommandOutput
   | GetEbsDefaultKmsKeyIdCommandOutput
   | GetEbsEncryptionByDefaultCommandOutput
+  | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetLaunchTemplateDataCommandOutput
+  | GetManagedPrefixListAssociationsCommandOutput
+  | GetManagedPrefixListEntriesCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
@@ -2357,6 +2143,7 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
+  | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyClientVpnEndpointCommandOutput
   | ModifyDefaultCreditSpecificationCommandOutput
@@ -2374,6 +2161,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyLaunchTemplateCommandOutput
+  | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyReservedInstancesCommandOutput
   | ModifySnapshotAttributeCommandOutput
@@ -2403,6 +2191,7 @@ export type ServiceOutputTypes =
   | PurchaseScheduledInstancesCommandOutput
   | RebootInstancesCommandOutput
   | RegisterImageCommandOutput
+  | RegisterInstanceEventNotificationAttributesCommandOutput
   | RegisterTransitGatewayMulticastGroupMembersCommandOutput
   | RegisterTransitGatewayMulticastGroupSourcesCommandOutput
   | RejectTransitGatewayPeeringAttachmentCommandOutput
@@ -2427,6 +2216,7 @@ export type ServiceOutputTypes =
   | ResetNetworkInterfaceAttributeCommandOutput
   | ResetSnapshotAttributeCommandOutput
   | RestoreAddressToClassicCommandOutput
+  | RestoreManagedPrefixListVersionCommandOutput
   | RevokeClientVpnIngressCommandOutput
   | RevokeSecurityGroupEgressCommandOutput
   | RevokeSecurityGroupIngressCommandOutput
@@ -2448,8 +2238,7 @@ export type ServiceOutputTypes =
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   | WithdrawByoipCidrCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -2523,14 +2312,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -2538,9 +2332,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EC2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EC2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -2549,9 +2341,7 @@ export type EC2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -2596,7 +2386,7 @@ export class EC2Client extends __Client<
   constructor(configuration: EC2ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -2611,6 +2401,7 @@ export class EC2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

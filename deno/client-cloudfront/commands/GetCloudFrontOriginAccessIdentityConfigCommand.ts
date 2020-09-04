@@ -1,21 +1,14 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
-  GetCloudFrontOriginAccessIdentityConfigResult
+  GetCloudFrontOriginAccessIdentityConfigResult,
 } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
-  serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand
+  serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetCloudFrontOriginAccessIdentityConfigCommandInput = GetCloudFrontOriginAccessIdentityConfigRequest;
@@ -39,9 +32,7 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetCloudFrontOriginAccessIdentityConfigCommandInput
-  ) {
+  constructor(readonly input: GetCloudFrontOriginAccessIdentityConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     GetCloudFrontOriginAccessIdentityConfigCommandInput,
     GetCloudFrontOriginAccessIdentityConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
     input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> {
-    return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

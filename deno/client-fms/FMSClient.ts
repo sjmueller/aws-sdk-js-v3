@@ -1,71 +1,68 @@
 import {
   AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput
+  AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand.ts";
+import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand.ts";
 import {
   DeleteNotificationChannelCommandInput,
-  DeleteNotificationChannelCommandOutput
+  DeleteNotificationChannelCommandOutput,
 } from "./commands/DeleteNotificationChannelCommand.ts";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand.ts";
 import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand.ts";
+  DeleteProtocolsListCommandInput,
+  DeleteProtocolsListCommandOutput,
+} from "./commands/DeleteProtocolsListCommand.ts";
 import {
   DisassociateAdminAccountCommandInput,
-  DisassociateAdminAccountCommandOutput
+  DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand.ts";
-import {
-  GetAdminAccountCommandInput,
-  GetAdminAccountCommandOutput
-} from "./commands/GetAdminAccountCommand.ts";
+import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand.ts";
+import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand.ts";
 import {
   GetComplianceDetailCommandInput,
-  GetComplianceDetailCommandOutput
+  GetComplianceDetailCommandOutput,
 } from "./commands/GetComplianceDetailCommand.ts";
 import {
   GetNotificationChannelCommandInput,
-  GetNotificationChannelCommandOutput
+  GetNotificationChannelCommandOutput,
 } from "./commands/GetNotificationChannelCommand.ts";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
 import {
   GetProtectionStatusCommandInput,
-  GetProtectionStatusCommandOutput
+  GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand.ts";
+import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand.ts";
+import {
+  GetViolationDetailsCommandInput,
+  GetViolationDetailsCommandOutput,
+} from "./commands/GetViolationDetailsCommand.ts";
+import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand.ts";
 import {
   ListComplianceStatusCommandInput,
-  ListComplianceStatusCommandOutput
+  ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand.ts";
 import {
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
+  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand.ts";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand.ts";
 import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand.ts";
+  ListProtocolsListsCommandInput,
+  ListProtocolsListsCommandOutput,
+} from "./commands/ListProtocolsListsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand.ts";
 import {
   PutNotificationChannelCommandInput,
-  PutNotificationChannelCommandOutput
+  PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand.ts";
-import {
-  PutPolicyCommandInput,
-  PutPolicyCommandOutput
-} from "./commands/PutPolicyCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand.ts";
+import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -73,38 +70,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -113,51 +106,69 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
+  | DeleteAppsListCommandInput
   | DeleteNotificationChannelCommandInput
   | DeletePolicyCommandInput
+  | DeleteProtocolsListCommandInput
   | DisassociateAdminAccountCommandInput
   | GetAdminAccountCommandInput
+  | GetAppsListCommandInput
   | GetComplianceDetailCommandInput
   | GetNotificationChannelCommandInput
   | GetPolicyCommandInput
   | GetProtectionStatusCommandInput
+  | GetProtocolsListCommandInput
+  | GetViolationDetailsCommandInput
+  | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
   | ListMemberAccountsCommandInput
   | ListPoliciesCommandInput
+  | ListProtocolsListsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
+  | PutProtocolsListCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
+  | DeleteAppsListCommandOutput
   | DeleteNotificationChannelCommandOutput
   | DeletePolicyCommandOutput
+  | DeleteProtocolsListCommandOutput
   | DisassociateAdminAccountCommandOutput
   | GetAdminAccountCommandOutput
+  | GetAppsListCommandOutput
   | GetComplianceDetailCommandOutput
   | GetNotificationChannelCommandOutput
   | GetPolicyCommandOutput
   | GetProtectionStatusCommandOutput
+  | GetProtocolsListCommandOutput
+  | GetViolationDetailsCommandOutput
+  | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
   | ListMemberAccountsCommandOutput
   | ListPoliciesCommandOutput
+  | ListProtocolsListsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
+  | PutProtocolsListCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -231,14 +242,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -246,9 +262,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -257,9 +271,7 @@ export type FMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -273,8 +285,7 @@ export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<
  *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the AWS Firewall Manager API actions, data
  *       types, and errors. For detailed information about AWS Firewall Manager features, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall
- *         Manager Developer Guide</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager Developer Guide</a>.</p>
  */
 export class FMSClient extends __Client<
   __HttpHandlerOptions,
@@ -287,7 +298,7 @@ export class FMSClient extends __Client<
   constructor(configuration: FMSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -302,6 +313,7 @@ export class FMSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

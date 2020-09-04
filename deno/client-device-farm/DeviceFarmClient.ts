@@ -1,310 +1,190 @@
-import {
-  CreateDevicePoolCommandInput,
-  CreateDevicePoolCommandOutput
-} from "./commands/CreateDevicePoolCommand.ts";
+import { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "./commands/CreateDevicePoolCommand.ts";
 import {
   CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput
+  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand.ts";
 import {
   CreateNetworkProfileCommandInput,
-  CreateNetworkProfileCommandOutput
+  CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand.ts";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand.ts";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
 import {
   CreateRemoteAccessSessionCommandInput,
-  CreateRemoteAccessSessionCommandOutput
+  CreateRemoteAccessSessionCommandOutput,
 } from "./commands/CreateRemoteAccessSessionCommand.ts";
 import {
   CreateTestGridProjectCommandInput,
-  CreateTestGridProjectCommandOutput
+  CreateTestGridProjectCommandOutput,
 } from "./commands/CreateTestGridProjectCommand.ts";
-import {
-  CreateTestGridUrlCommandInput,
-  CreateTestGridUrlCommandOutput
-} from "./commands/CreateTestGridUrlCommand.ts";
-import {
-  CreateUploadCommandInput,
-  CreateUploadCommandOutput
-} from "./commands/CreateUploadCommand.ts";
+import { CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput } from "./commands/CreateTestGridUrlCommand.ts";
+import { CreateUploadCommandInput, CreateUploadCommandOutput } from "./commands/CreateUploadCommand.ts";
 import {
   CreateVPCEConfigurationCommandInput,
-  CreateVPCEConfigurationCommandOutput
+  CreateVPCEConfigurationCommandOutput,
 } from "./commands/CreateVPCEConfigurationCommand.ts";
-import {
-  DeleteDevicePoolCommandInput,
-  DeleteDevicePoolCommandOutput
-} from "./commands/DeleteDevicePoolCommand.ts";
+import { DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput } from "./commands/DeleteDevicePoolCommand.ts";
 import {
   DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput
+  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand.ts";
 import {
   DeleteNetworkProfileCommandInput,
-  DeleteNetworkProfileCommandOutput
+  DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand.ts";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand.ts";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand.ts";
 import {
   DeleteRemoteAccessSessionCommandInput,
-  DeleteRemoteAccessSessionCommandOutput
+  DeleteRemoteAccessSessionCommandOutput,
 } from "./commands/DeleteRemoteAccessSessionCommand.ts";
-import {
-  DeleteRunCommandInput,
-  DeleteRunCommandOutput
-} from "./commands/DeleteRunCommand.ts";
+import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand.ts";
 import {
   DeleteTestGridProjectCommandInput,
-  DeleteTestGridProjectCommandOutput
+  DeleteTestGridProjectCommandOutput,
 } from "./commands/DeleteTestGridProjectCommand.ts";
-import {
-  DeleteUploadCommandInput,
-  DeleteUploadCommandOutput
-} from "./commands/DeleteUploadCommand.ts";
+import { DeleteUploadCommandInput, DeleteUploadCommandOutput } from "./commands/DeleteUploadCommand.ts";
 import {
   DeleteVPCEConfigurationCommandInput,
-  DeleteVPCEConfigurationCommandOutput
+  DeleteVPCEConfigurationCommandOutput,
 } from "./commands/DeleteVPCEConfigurationCommand.ts";
 import {
   GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
+  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand.ts";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand.ts";
-import {
-  GetDeviceInstanceCommandInput,
-  GetDeviceInstanceCommandOutput
-} from "./commands/GetDeviceInstanceCommand.ts";
-import {
-  GetDevicePoolCommandInput,
-  GetDevicePoolCommandOutput
-} from "./commands/GetDevicePoolCommand.ts";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
+import { GetDeviceInstanceCommandInput, GetDeviceInstanceCommandOutput } from "./commands/GetDeviceInstanceCommand.ts";
+import { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "./commands/GetDevicePoolCommand.ts";
 import {
   GetDevicePoolCompatibilityCommandInput,
-  GetDevicePoolCompatibilityCommandOutput
+  GetDevicePoolCompatibilityCommandOutput,
 } from "./commands/GetDevicePoolCompatibilityCommand.ts";
 import {
   GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
+  GetInstanceProfileCommandOutput,
 } from "./commands/GetInstanceProfileCommand.ts";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand.ts";
-import {
-  GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
-} from "./commands/GetNetworkProfileCommand.ts";
-import {
-  GetOfferingStatusCommandInput,
-  GetOfferingStatusCommandOutput
-} from "./commands/GetOfferingStatusCommand.ts";
-import {
-  GetProjectCommandInput,
-  GetProjectCommandOutput
-} from "./commands/GetProjectCommand.ts";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
+import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand.ts";
+import { GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput } from "./commands/GetOfferingStatusCommand.ts";
+import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand.ts";
 import {
   GetRemoteAccessSessionCommandInput,
-  GetRemoteAccessSessionCommandOutput
+  GetRemoteAccessSessionCommandOutput,
 } from "./commands/GetRemoteAccessSessionCommand.ts";
-import {
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "./commands/GetRunCommand.ts";
-import {
-  GetSuiteCommandInput,
-  GetSuiteCommandOutput
-} from "./commands/GetSuiteCommand.ts";
-import {
-  GetTestCommandInput,
-  GetTestCommandOutput
-} from "./commands/GetTestCommand.ts";
+import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand.ts";
+import { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand.ts";
+import { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand.ts";
 import {
   GetTestGridProjectCommandInput,
-  GetTestGridProjectCommandOutput
+  GetTestGridProjectCommandOutput,
 } from "./commands/GetTestGridProjectCommand.ts";
 import {
   GetTestGridSessionCommandInput,
-  GetTestGridSessionCommandOutput
+  GetTestGridSessionCommandOutput,
 } from "./commands/GetTestGridSessionCommand.ts";
-import {
-  GetUploadCommandInput,
-  GetUploadCommandOutput
-} from "./commands/GetUploadCommand.ts";
+import { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand.ts";
 import {
   GetVPCEConfigurationCommandInput,
-  GetVPCEConfigurationCommandOutput
+  GetVPCEConfigurationCommandOutput,
 } from "./commands/GetVPCEConfigurationCommand.ts";
 import {
   InstallToRemoteAccessSessionCommandInput,
-  InstallToRemoteAccessSessionCommandOutput
+  InstallToRemoteAccessSessionCommandOutput,
 } from "./commands/InstallToRemoteAccessSessionCommand.ts";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "./commands/ListArtifactsCommand.ts";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand.ts";
 import {
   ListDeviceInstancesCommandInput,
-  ListDeviceInstancesCommandOutput
+  ListDeviceInstancesCommandOutput,
 } from "./commands/ListDeviceInstancesCommand.ts";
-import {
-  ListDevicePoolsCommandInput,
-  ListDevicePoolsCommandOutput
-} from "./commands/ListDevicePoolsCommand.ts";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand.ts";
+import { ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput } from "./commands/ListDevicePoolsCommand.ts";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
 import {
   ListInstanceProfilesCommandInput,
-  ListInstanceProfilesCommandOutput
+  ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   ListNetworkProfilesCommandInput,
-  ListNetworkProfilesCommandOutput
+  ListNetworkProfilesCommandOutput,
 } from "./commands/ListNetworkProfilesCommand.ts";
 import {
   ListOfferingPromotionsCommandInput,
-  ListOfferingPromotionsCommandOutput
+  ListOfferingPromotionsCommandOutput,
 } from "./commands/ListOfferingPromotionsCommand.ts";
 import {
   ListOfferingTransactionsCommandInput,
-  ListOfferingTransactionsCommandOutput
+  ListOfferingTransactionsCommandOutput,
 } from "./commands/ListOfferingTransactionsCommand.ts";
-import {
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
-} from "./commands/ListOfferingsCommand.ts";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand.ts";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand.ts";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand.ts";
 import {
   ListRemoteAccessSessionsCommandInput,
-  ListRemoteAccessSessionsCommandOutput
+  ListRemoteAccessSessionsCommandOutput,
 } from "./commands/ListRemoteAccessSessionsCommand.ts";
-import {
-  ListRunsCommandInput,
-  ListRunsCommandOutput
-} from "./commands/ListRunsCommand.ts";
-import {
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput
-} from "./commands/ListSamplesCommand.ts";
-import {
-  ListSuitesCommandInput,
-  ListSuitesCommandOutput
-} from "./commands/ListSuitesCommand.ts";
+import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand.ts";
+import { ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand.ts";
+import { ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTestGridProjectsCommandInput,
-  ListTestGridProjectsCommandOutput
+  ListTestGridProjectsCommandOutput,
 } from "./commands/ListTestGridProjectsCommand.ts";
 import {
   ListTestGridSessionActionsCommandInput,
-  ListTestGridSessionActionsCommandOutput
+  ListTestGridSessionActionsCommandOutput,
 } from "./commands/ListTestGridSessionActionsCommand.ts";
 import {
   ListTestGridSessionArtifactsCommandInput,
-  ListTestGridSessionArtifactsCommandOutput
+  ListTestGridSessionArtifactsCommandOutput,
 } from "./commands/ListTestGridSessionArtifactsCommand.ts";
 import {
   ListTestGridSessionsCommandInput,
-  ListTestGridSessionsCommandOutput
+  ListTestGridSessionsCommandOutput,
 } from "./commands/ListTestGridSessionsCommand.ts";
-import {
-  ListTestsCommandInput,
-  ListTestsCommandOutput
-} from "./commands/ListTestsCommand.ts";
+import { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand.ts";
 import {
   ListUniqueProblemsCommandInput,
-  ListUniqueProblemsCommandOutput
+  ListUniqueProblemsCommandOutput,
 } from "./commands/ListUniqueProblemsCommand.ts";
-import {
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput
-} from "./commands/ListUploadsCommand.ts";
+import { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand.ts";
 import {
   ListVPCEConfigurationsCommandInput,
-  ListVPCEConfigurationsCommandOutput
+  ListVPCEConfigurationsCommandOutput,
 } from "./commands/ListVPCEConfigurationsCommand.ts";
-import {
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
-} from "./commands/PurchaseOfferingCommand.ts";
-import {
-  RenewOfferingCommandInput,
-  RenewOfferingCommandOutput
-} from "./commands/RenewOfferingCommand.ts";
-import {
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput
-} from "./commands/ScheduleRunCommand.ts";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand.ts";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand.ts";
+import { RenewOfferingCommandInput, RenewOfferingCommandOutput } from "./commands/RenewOfferingCommand.ts";
+import { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand.ts";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand.ts";
 import {
   StopRemoteAccessSessionCommandInput,
-  StopRemoteAccessSessionCommandOutput
+  StopRemoteAccessSessionCommandOutput,
 } from "./commands/StopRemoteAccessSessionCommand.ts";
-import {
-  StopRunCommandInput,
-  StopRunCommandOutput
-} from "./commands/StopRunCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateDeviceInstanceCommandInput,
-  UpdateDeviceInstanceCommandOutput
+  UpdateDeviceInstanceCommandOutput,
 } from "./commands/UpdateDeviceInstanceCommand.ts";
-import {
-  UpdateDevicePoolCommandInput,
-  UpdateDevicePoolCommandOutput
-} from "./commands/UpdateDevicePoolCommand.ts";
+import { UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput } from "./commands/UpdateDevicePoolCommand.ts";
 import {
   UpdateInstanceProfileCommandInput,
-  UpdateInstanceProfileCommandOutput
+  UpdateInstanceProfileCommandOutput,
 } from "./commands/UpdateInstanceProfileCommand.ts";
 import {
   UpdateNetworkProfileCommandInput,
-  UpdateNetworkProfileCommandOutput
+  UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand.ts";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand.ts";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand.ts";
 import {
   UpdateTestGridProjectCommandInput,
-  UpdateTestGridProjectCommandOutput
+  UpdateTestGridProjectCommandOutput,
 } from "./commands/UpdateTestGridProjectCommand.ts";
-import {
-  UpdateUploadCommandInput,
-  UpdateUploadCommandOutput
-} from "./commands/UpdateUploadCommand.ts";
+import { UpdateUploadCommandInput, UpdateUploadCommandOutput } from "./commands/UpdateUploadCommand.ts";
 import {
   UpdateVPCEConfigurationCommandInput,
-  UpdateVPCEConfigurationCommandOutput
+  UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -313,38 +193,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -353,9 +229,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -516,8 +393,7 @@ export type ServiceOutputTypes =
   | UpdateUploadCommandOutput
   | UpdateVPCEConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -591,14 +467,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -606,9 +487,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DeviceFarmClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DeviceFarmClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -617,9 +496,7 @@ export type DeviceFarmClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -656,7 +533,7 @@ export class DeviceFarmClient extends __Client<
   constructor(configuration: DeviceFarmClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -671,6 +548,7 @@ export class DeviceFarmClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

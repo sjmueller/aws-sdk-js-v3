@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/index.ts";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
-  serializeAws_queryPromoteReadReplicaCommand
+  serializeAws_queryPromoteReadReplicaCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult &
-  __MetadataBearer;
+export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult & __MetadataBearer;
 
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,
@@ -50,14 +39,15 @@ export class PromoteReadReplicaCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PromoteReadReplicaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PromoteReadReplicaResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PromoteReadReplicaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PromoteReadReplicaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PromoteReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PromoteReadReplicaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteReadReplicaCommandOutput> {
     return deserializeAws_queryPromoteReadReplicaCommand(output, context);
   }
 

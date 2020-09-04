@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  DescribeIdentityProviderRequest,
-  DescribeIdentityProviderResponse
-} from "../models/index.ts";
+import { DescribeIdentityProviderRequest, DescribeIdentityProviderResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeIdentityProviderCommand,
-  serializeAws_json1_1DescribeIdentityProviderCommand
+  serializeAws_json1_1DescribeIdentityProviderCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeIdentityProviderCommandInput = DescribeIdentityProviderRequest;
-export type DescribeIdentityProviderCommandOutput = DescribeIdentityProviderResponse &
-  __MetadataBearer;
+export type DescribeIdentityProviderCommandOutput = DescribeIdentityProviderResponse & __MetadataBearer;
 
 export class DescribeIdentityProviderCommand extends $Command<
   DescribeIdentityProviderCommandInput,
@@ -49,18 +42,16 @@ export class DescribeIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIdentityProviderCommandInput,
-    DescribeIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIdentityProviderCommandInput, DescribeIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeIdentityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class DescribeIdentityProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeIdentityProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeIdentityProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1DescribeIdentityProviderCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityProviderCommandOutput> {
+    return deserializeAws_json1_1DescribeIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

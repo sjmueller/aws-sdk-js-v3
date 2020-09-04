@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  DeleteHostedZoneRequest,
-  DeleteHostedZoneResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlDeleteHostedZoneCommand,
-  serializeAws_restXmlDeleteHostedZoneCommand
+  serializeAws_restXmlDeleteHostedZoneCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getIdNormalizerPlugin } from "../../middleware-sdk-route53/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteHostedZoneCommandInput = DeleteHostedZoneRequest;
-export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse &
-  __MetadataBearer;
+export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse & __MetadataBearer;
 
 export class DeleteHostedZoneCommand extends $Command<
   DeleteHostedZoneCommandInput,
@@ -51,15 +40,16 @@ export class DeleteHostedZoneCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteHostedZoneRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHostedZoneResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,17 +59,11 @@ export class DeleteHostedZoneCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteHostedZoneCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteHostedZoneCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteHostedZoneCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostedZoneCommandOutput> {
     return deserializeAws_restXmlDeleteHostedZoneCommand(output, context);
   }
 

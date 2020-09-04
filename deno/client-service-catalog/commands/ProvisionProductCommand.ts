@@ -1,18 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
 import { ProvisionProductInput, ProvisionProductOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ProvisionProductCommand,
-  serializeAws_json1_1ProvisionProductCommand
+  serializeAws_json1_1ProvisionProductCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ProvisionProductCommandInput = ProvisionProductInput;
-export type ProvisionProductCommandOutput = ProvisionProductOutput &
-  __MetadataBearer;
+export type ProvisionProductCommandOutput = ProvisionProductOutput & __MetadataBearer;
 
 export class ProvisionProductCommand extends $Command<
   ProvisionProductCommandInput,
@@ -47,14 +39,15 @@ export class ProvisionProductCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ProvisionProductCommandInput, ProvisionProductCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ProvisionProductInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ProvisionProductOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ProvisionProductCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ProvisionProductCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ProvisionProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ProvisionProductCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ProvisionProductCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionProductCommandOutput> {
     return deserializeAws_json1_1ProvisionProductCommand(output, context);
   }
 

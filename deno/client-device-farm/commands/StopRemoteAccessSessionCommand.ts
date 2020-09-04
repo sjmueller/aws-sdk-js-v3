@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  StopRemoteAccessSessionRequest,
-  StopRemoteAccessSessionResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { StopRemoteAccessSessionRequest, StopRemoteAccessSessionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StopRemoteAccessSessionCommand,
-  serializeAws_json1_1StopRemoteAccessSessionCommand
+  serializeAws_json1_1StopRemoteAccessSessionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopRemoteAccessSessionCommandInput = StopRemoteAccessSessionRequest;
-export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult &
-  __MetadataBearer;
+export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult & __MetadataBearer;
 
 export class StopRemoteAccessSessionCommand extends $Command<
   StopRemoteAccessSessionCommandInput,
@@ -49,18 +38,16 @@ export class StopRemoteAccessSessionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopRemoteAccessSessionCommandInput,
-    StopRemoteAccessSessionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopRemoteAccessSessionCommandInput, StopRemoteAccessSessionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopRemoteAccessSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopRemoteAccessSessionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class StopRemoteAccessSessionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopRemoteAccessSessionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRemoteAccessSessionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1StopRemoteAccessSessionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRemoteAccessSessionCommandOutput> {
+    return deserializeAws_json1_1StopRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

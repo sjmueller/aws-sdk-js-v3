@@ -1,18 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import { SendBonusRequest, SendBonusResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1SendBonusCommand,
-  serializeAws_json1_1SendBonusCommand
+  serializeAws_json1_1SendBonusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendBonusCommandInput = SendBonusRequest;
@@ -46,14 +39,15 @@ export class SendBonusCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendBonusCommandInput, SendBonusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendBonusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendBonusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class SendBonusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendBonusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendBonusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendBonusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendBonusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBonusCommandOutput> {
     return deserializeAws_json1_1SendBonusCommand(output, context);
   }
 

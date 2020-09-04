@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DescribeSecurityProfileRequest,
-  DescribeSecurityProfileResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeSecurityProfileCommand,
-  serializeAws_restJson1DescribeSecurityProfileCommand
+  serializeAws_restJson1DescribeSecurityProfileCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSecurityProfileCommandInput = DescribeSecurityProfileRequest;
-export type DescribeSecurityProfileCommandOutput = DescribeSecurityProfileResponse &
-  __MetadataBearer;
+export type DescribeSecurityProfileCommandOutput = DescribeSecurityProfileResponse & __MetadataBearer;
 
 export class DescribeSecurityProfileCommand extends $Command<
   DescribeSecurityProfileCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSecurityProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSecurityProfileCommandInput,
-    DescribeSecurityProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSecurityProfileCommandInput, DescribeSecurityProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSecurityProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSecurityProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeSecurityProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSecurityProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSecurityProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeSecurityProfileCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityProfileCommandOutput> {
+    return deserializeAws_restJson1DescribeSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

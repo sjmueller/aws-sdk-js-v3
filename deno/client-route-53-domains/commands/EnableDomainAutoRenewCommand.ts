@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
-import {
-  EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewResponse
-} from "../models/index.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
+import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1EnableDomainAutoRenewCommand,
-  serializeAws_json1_1EnableDomainAutoRenewCommand
+  serializeAws_json1_1EnableDomainAutoRenewCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type EnableDomainAutoRenewCommandInput = EnableDomainAutoRenewRequest;
-export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse &
-  __MetadataBearer;
+export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse & __MetadataBearer;
 
 export class EnableDomainAutoRenewCommand extends $Command<
   EnableDomainAutoRenewCommandInput,
@@ -49,18 +38,16 @@ export class EnableDomainAutoRenewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableDomainAutoRenewCommandInput,
-    EnableDomainAutoRenewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: EnableDomainAutoRenewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableDomainAutoRenewResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class EnableDomainAutoRenewCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableDomainAutoRenewCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableDomainAutoRenewCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableDomainAutoRenewCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainAutoRenewCommandOutput> {
     return deserializeAws_json1_1EnableDomainAutoRenewCommand(output, context);
   }
 

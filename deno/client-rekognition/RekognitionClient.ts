@@ -1,166 +1,127 @@
-import {
-  CompareFacesCommandInput,
-  CompareFacesCommandOutput
-} from "./commands/CompareFacesCommand.ts";
-import {
-  CreateCollectionCommandInput,
-  CreateCollectionCommandOutput
-} from "./commands/CreateCollectionCommand.ts";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand.ts";
+import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand.ts";
+import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand.ts";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
 import {
   CreateProjectVersionCommandInput,
-  CreateProjectVersionCommandOutput
+  CreateProjectVersionCommandOutput,
 } from "./commands/CreateProjectVersionCommand.ts";
 import {
   CreateStreamProcessorCommandInput,
-  CreateStreamProcessorCommandOutput
+  CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand.ts";
+import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand.ts";
+import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand.ts";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand.ts";
 import {
-  DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput
-} from "./commands/DeleteCollectionCommand.ts";
-import {
-  DeleteFacesCommandInput,
-  DeleteFacesCommandOutput
-} from "./commands/DeleteFacesCommand.ts";
+  DeleteProjectVersionCommandInput,
+  DeleteProjectVersionCommandOutput,
+} from "./commands/DeleteProjectVersionCommand.ts";
 import {
   DeleteStreamProcessorCommandInput,
-  DeleteStreamProcessorCommandOutput
+  DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand.ts";
 import {
   DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput
+  DescribeCollectionCommandOutput,
 } from "./commands/DescribeCollectionCommand.ts";
 import {
   DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput
+  DescribeProjectVersionsCommandOutput,
 } from "./commands/DescribeProjectVersionsCommand.ts";
-import {
-  DescribeProjectsCommandInput,
-  DescribeProjectsCommandOutput
-} from "./commands/DescribeProjectsCommand.ts";
+import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand.ts";
 import {
   DescribeStreamProcessorCommandInput,
-  DescribeStreamProcessorCommandOutput
+  DescribeStreamProcessorCommandOutput,
 } from "./commands/DescribeStreamProcessorCommand.ts";
 import {
   DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput
+  DetectCustomLabelsCommandOutput,
 } from "./commands/DetectCustomLabelsCommand.ts";
-import {
-  DetectFacesCommandInput,
-  DetectFacesCommandOutput
-} from "./commands/DetectFacesCommand.ts";
-import {
-  DetectLabelsCommandInput,
-  DetectLabelsCommandOutput
-} from "./commands/DetectLabelsCommand.ts";
+import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand.ts";
+import { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand.ts";
 import {
   DetectModerationLabelsCommandInput,
-  DetectModerationLabelsCommandOutput
+  DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand.ts";
-import {
-  DetectTextCommandInput,
-  DetectTextCommandOutput
-} from "./commands/DetectTextCommand.ts";
-import {
-  GetCelebrityInfoCommandInput,
-  GetCelebrityInfoCommandOutput
-} from "./commands/GetCelebrityInfoCommand.ts";
+import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand.ts";
+import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand.ts";
 import {
   GetCelebrityRecognitionCommandInput,
-  GetCelebrityRecognitionCommandOutput
+  GetCelebrityRecognitionCommandOutput,
 } from "./commands/GetCelebrityRecognitionCommand.ts";
 import {
   GetContentModerationCommandInput,
-  GetContentModerationCommandOutput
+  GetContentModerationCommandOutput,
 } from "./commands/GetContentModerationCommand.ts";
+import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand.ts";
+import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand.ts";
+import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand.ts";
+import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand.ts";
 import {
-  GetFaceDetectionCommandInput,
-  GetFaceDetectionCommandOutput
-} from "./commands/GetFaceDetectionCommand.ts";
-import {
-  GetFaceSearchCommandInput,
-  GetFaceSearchCommandOutput
-} from "./commands/GetFaceSearchCommand.ts";
-import {
-  GetLabelDetectionCommandInput,
-  GetLabelDetectionCommandOutput
-} from "./commands/GetLabelDetectionCommand.ts";
-import {
-  GetPersonTrackingCommandInput,
-  GetPersonTrackingCommandOutput
-} from "./commands/GetPersonTrackingCommand.ts";
-import {
-  IndexFacesCommandInput,
-  IndexFacesCommandOutput
-} from "./commands/IndexFacesCommand.ts";
-import {
-  ListCollectionsCommandInput,
-  ListCollectionsCommandOutput
-} from "./commands/ListCollectionsCommand.ts";
-import {
-  ListFacesCommandInput,
-  ListFacesCommandOutput
-} from "./commands/ListFacesCommand.ts";
+  GetSegmentDetectionCommandInput,
+  GetSegmentDetectionCommandOutput,
+} from "./commands/GetSegmentDetectionCommand.ts";
+import { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "./commands/GetTextDetectionCommand.ts";
+import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand.ts";
+import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand.ts";
+import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand.ts";
 import {
   ListStreamProcessorsCommandInput,
-  ListStreamProcessorsCommandOutput
+  ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand.ts";
 import {
   RecognizeCelebritiesCommandInput,
-  RecognizeCelebritiesCommandOutput
+  RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand.ts";
 import {
   SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput
+  SearchFacesByImageCommandOutput,
 } from "./commands/SearchFacesByImageCommand.ts";
-import {
-  SearchFacesCommandInput,
-  SearchFacesCommandOutput
-} from "./commands/SearchFacesCommand.ts";
+import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand.ts";
 import {
   StartCelebrityRecognitionCommandInput,
-  StartCelebrityRecognitionCommandOutput
+  StartCelebrityRecognitionCommandOutput,
 } from "./commands/StartCelebrityRecognitionCommand.ts";
 import {
   StartContentModerationCommandInput,
-  StartContentModerationCommandOutput
+  StartContentModerationCommandOutput,
 } from "./commands/StartContentModerationCommand.ts";
 import {
   StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput
+  StartFaceDetectionCommandOutput,
 } from "./commands/StartFaceDetectionCommand.ts";
-import {
-  StartFaceSearchCommandInput,
-  StartFaceSearchCommandOutput
-} from "./commands/StartFaceSearchCommand.ts";
+import { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand.ts";
 import {
   StartLabelDetectionCommandInput,
-  StartLabelDetectionCommandOutput
+  StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand.ts";
 import {
   StartPersonTrackingCommandInput,
-  StartPersonTrackingCommandOutput
+  StartPersonTrackingCommandOutput,
 } from "./commands/StartPersonTrackingCommand.ts";
 import {
   StartProjectVersionCommandInput,
-  StartProjectVersionCommandOutput
+  StartProjectVersionCommandOutput,
 } from "./commands/StartProjectVersionCommand.ts";
 import {
+  StartSegmentDetectionCommandInput,
+  StartSegmentDetectionCommandOutput,
+} from "./commands/StartSegmentDetectionCommand.ts";
+import {
   StartStreamProcessorCommandInput,
-  StartStreamProcessorCommandOutput
+  StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand.ts";
 import {
+  StartTextDetectionCommandInput,
+  StartTextDetectionCommandOutput,
+} from "./commands/StartTextDetectionCommand.ts";
+import {
   StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput
+  StopProjectVersionCommandOutput,
 } from "./commands/StopProjectVersionCommand.ts";
 import {
   StopStreamProcessorCommandInput,
-  StopStreamProcessorCommandOutput
+  StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -169,38 +130,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -209,9 +166,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -222,6 +180,8 @@ export type ServiceInputTypes =
   | CreateStreamProcessorCommandInput
   | DeleteCollectionCommandInput
   | DeleteFacesCommandInput
+  | DeleteProjectCommandInput
+  | DeleteProjectVersionCommandInput
   | DeleteStreamProcessorCommandInput
   | DescribeCollectionCommandInput
   | DescribeProjectVersionsCommandInput
@@ -239,6 +199,8 @@ export type ServiceInputTypes =
   | GetFaceSearchCommandInput
   | GetLabelDetectionCommandInput
   | GetPersonTrackingCommandInput
+  | GetSegmentDetectionCommandInput
+  | GetTextDetectionCommandInput
   | IndexFacesCommandInput
   | ListCollectionsCommandInput
   | ListFacesCommandInput
@@ -253,7 +215,9 @@ export type ServiceInputTypes =
   | StartLabelDetectionCommandInput
   | StartPersonTrackingCommandInput
   | StartProjectVersionCommandInput
+  | StartSegmentDetectionCommandInput
   | StartStreamProcessorCommandInput
+  | StartTextDetectionCommandInput
   | StopProjectVersionCommandInput
   | StopStreamProcessorCommandInput;
 
@@ -265,6 +229,8 @@ export type ServiceOutputTypes =
   | CreateStreamProcessorCommandOutput
   | DeleteCollectionCommandOutput
   | DeleteFacesCommandOutput
+  | DeleteProjectCommandOutput
+  | DeleteProjectVersionCommandOutput
   | DeleteStreamProcessorCommandOutput
   | DescribeCollectionCommandOutput
   | DescribeProjectVersionsCommandOutput
@@ -282,6 +248,8 @@ export type ServiceOutputTypes =
   | GetFaceSearchCommandOutput
   | GetLabelDetectionCommandOutput
   | GetPersonTrackingCommandOutput
+  | GetSegmentDetectionCommandOutput
+  | GetTextDetectionCommandOutput
   | IndexFacesCommandOutput
   | ListCollectionsCommandOutput
   | ListFacesCommandOutput
@@ -296,12 +264,13 @@ export type ServiceOutputTypes =
   | StartLabelDetectionCommandOutput
   | StartPersonTrackingCommandOutput
   | StartProjectVersionCommandOutput
+  | StartSegmentDetectionCommandOutput
   | StartStreamProcessorCommandOutput
+  | StartTextDetectionCommandOutput
   | StopProjectVersionCommandOutput
   | StopStreamProcessorCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -375,14 +344,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -390,9 +364,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RekognitionClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -401,9 +373,7 @@ export type RekognitionClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -426,7 +396,7 @@ export class RekognitionClient extends __Client<
   constructor(configuration: RekognitionClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -441,6 +411,7 @@ export class RekognitionClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

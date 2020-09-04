@@ -1,21 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient.ts";
-import {
-  ListResourceTagsRequest,
-  ListResourceTagsResponse
-} from "../models/index.ts";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
+import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListResourceTagsCommand,
-  serializeAws_json1_1ListResourceTagsCommand
+  serializeAws_json1_1ListResourceTagsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListResourceTagsCommandInput = ListResourceTagsRequest;
-export type ListResourceTagsCommandOutput = ListResourceTagsResponse &
-  __MetadataBearer;
+export type ListResourceTagsCommandOutput = ListResourceTagsResponse & __MetadataBearer;
 
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,
@@ -50,14 +39,15 @@ export class ListResourceTagsCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResourceTagsCommandInput, ListResourceTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListResourceTagsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceTagsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListResourceTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListResourceTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListResourceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceTagsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListResourceTagsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTagsCommandOutput> {
     return deserializeAws_json1_1ListResourceTagsCommand(output, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -27,36 +23,13 @@ export interface AssumedRoleUser {
 
 export namespace AssumedRoleUser {
   export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumedRoleUser =>
-    __isa(o, "AssumedRoleUser");
+  export const isa = (o: any): o is AssumedRoleUser => __isa(o, "AssumedRoleUser");
 }
 
 export interface AssumeRoleRequest {
   __type?: "AssumeRoleRequest";
-  /**
-   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
-   *          minutes) up to the maximum session duration setting for the role. This setting can have a
-   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
-   *          operation fails. For example, if you specify a session duration of 12 hours, but your
-   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
-   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
-   *          <note>
-   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
-   *             session that you might request using the returned credentials. The request to the
-   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
-   *             parameter that specifies the maximum length of the console session. For more
-   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
-   *                that Enables Federated Users to Access the AWS Management Console</a> in the
-   *                <i>IAM User Guide</i>.</p>
-   *          </note>
-   */
-  DurationSeconds?: number;
-
   /**
    * <p>A unique identifier that might be required when you assume a role in another account. If
    *          the administrator of the account to which the role belongs provided you with an external
@@ -75,31 +48,17 @@ export interface AssumeRoleRequest {
   ExternalId?: string;
 
   /**
-   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
-   *          <p>This parameter is optional. Passing policies to this operation returns new
-   *          temporary credentials. The resulting session's permissions are the intersection of the
-   *          role's identity-based policy and the session policies. You can use the role's temporary
-   *          credentials in subsequent AWS API calls to access resources in the account that owns
-   *          the role. You cannot use session policies to grant more permissions than those allowed
-   *          by the identity-based policy of the role that is being assumed. For more information, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
-   *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>The plain text that you use for both inline and managed session policies can't exceed
-   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
-   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
-   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
-   *          characters.</p>
-   *
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
+   * <p>The identification number of the MFA device that is associated with the user who is
+   *          making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role
+   *          being assumed includes a condition that requires MFA authentication. The value is either
+   *          the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon
+   *          Resource Name (ARN) for a virtual device (such as
+   *             <code>arn:aws:iam::123456789012:mfa/user</code>).</p>
+   *          <p>The regex used to validate this parameter is a string of characters
+   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+   *     also include underscores or any of the following characters: =,.@-</p>
    */
-  Policy?: string;
+  SerialNumber?: string;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
@@ -130,9 +89,16 @@ export interface AssumeRoleRequest {
   PolicyArns?: PolicyDescriptorType[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
+   * <p>A list of keys for session tags that you want to set as transitive. If you set a tag key
+   *          as transitive, the corresponding key and value passes to subsequent sessions in a role
+   *          chain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining">Chaining Roles
+   *             with Session Tags</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>This parameter is optional. When you set session tags as transitive, the session policy
+   *          and session tags packed binary limit is not affected.</p>
+   *          <p>If you choose not to specify a transitive tag key, then no tags are passed from this
+   *          session to any subsequent sessions.</p>
    */
-  RoleArn: string | undefined;
+  TransitiveTagKeys?: string[];
 
   /**
    * <p>An identifier for the assumed role session.</p>
@@ -149,17 +115,63 @@ export interface AssumeRoleRequest {
   RoleSessionName: string | undefined;
 
   /**
-   * <p>The identification number of the MFA device that is associated with the user who is
-   *          making the <code>AssumeRole</code> call. Specify this value if the trust policy of the role
-   *          being assumed includes a condition that requires MFA authentication. The value is either
-   *          the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon
-   *          Resource Name (ARN) for a virtual device (such as
-   *             <code>arn:aws:iam::123456789012:mfa/user</code>).</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
+   * <p>The value provided by the MFA device, if the trust policy of the role being assumed
+   *          requires MFA (that is, if the policy includes a condition that tests for MFA). If the role
+   *          being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,
+   *          the <code>AssumeRole</code> call returns an "access denied" error.</p>
+   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
+   *          numeric digits.</p>
    */
-  SerialNumber?: string;
+  TokenCode?: string;
+
+  /**
+   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
+   *          <p>This parameter is optional. Passing policies to this operation returns new
+   *          temporary credentials. The resulting session's permissions are the intersection of the
+   *          role's identity-based policy and the session policies. You can use the role's temporary
+   *          credentials in subsequent AWS API calls to access resources in the account that owns
+   *          the role. You cannot use session policies to grant more permissions than those allowed
+   *          by the identity-based policy of the role that is being assumed. For more information, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             Policies</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The plain text that you use for both inline and managed session policies can't exceed
+   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
+   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
+   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
+   *          characters.</p>
+   *
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   */
+  Policy?: string;
+
+  /**
+   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
+   *          minutes) up to the maximum session duration setting for the role. This setting can have a
+   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
+   *          operation fails. For example, if you specify a session duration of 12 hours, but your
+   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
+   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
+   *             Maximum Session Duration Setting for a Role</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
+   *          <note>
+   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
+   *             session that you might request using the returned credentials. The request to the
+   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
+   *             parameter that specifies the maximum length of the console session. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
+   *                that Enables Federated Users to Access the AWS Management Console</a> in the
+   *                <i>IAM User Guide</i>.</p>
+   *          </note>
+   */
+  DurationSeconds?: number;
 
   /**
    * <p>A list of session tags that you want to pass. Each session tag consists of a key name
@@ -196,34 +208,16 @@ export interface AssumeRoleRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The value provided by the MFA device, if the trust policy of the role being assumed
-   *          requires MFA (that is, if the policy includes a condition that tests for MFA). If the role
-   *          being assumed requires MFA and if the <code>TokenCode</code> value is missing or expired,
-   *          the <code>AssumeRole</code> call returns an "access denied" error.</p>
-   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
-   *          numeric digits.</p>
+   * <p>The Amazon Resource Name (ARN) of the role to assume.</p>
    */
-  TokenCode?: string;
-
-  /**
-   * <p>A list of keys for session tags that you want to set as transitive. If you set a tag key
-   *          as transitive, the corresponding key and value passes to subsequent sessions in a role
-   *          chain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining">Chaining Roles
-   *             with Session Tags</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. When you set session tags as transitive, the session policy
-   *          and session tags packed binary limit is not affected.</p>
-   *          <p>If you choose not to specify a transitive tag key, then no tags are passed from this
-   *          session to any subsequent sessions.</p>
-   */
-  TransitiveTagKeys?: string[];
+  RoleArn: string | undefined;
 }
 
 export namespace AssumeRoleRequest {
   export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleRequest =>
-    __isa(o, "AssumeRoleRequest");
+  export const isa = (o: any): o is AssumeRoleRequest => __isa(o, "AssumeRoleRequest");
 }
 
 /**
@@ -232,15 +226,6 @@ export namespace AssumeRoleRequest {
  */
 export interface AssumeRoleResponse {
   __type?: "AssumeRoleResponse";
-  /**
-   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
-   *          can use to refer to the resulting temporary security credentials. For example, you can
-   *          reference these credentials as a principal in a resource-based policy by using the ARN or
-   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
-   *          when you called <code>AssumeRole</code>. </p>
-   */
-  AssumedRoleUser?: AssumedRoleUser;
-
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
@@ -252,6 +237,15 @@ export interface AssumeRoleResponse {
   Credentials?: Credentials;
 
   /**
+   * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
+   *          can use to refer to the resulting temporary security credentials. For example, you can
+   *          reference these credentials as a principal in a resource-based policy by using the ARN or
+   *          assumed role ID. The ARN and ID include the <code>RoleSessionName</code> that you specified
+   *          when you called <code>AssumeRole</code>. </p>
+   */
+  AssumedRoleUser?: AssumedRoleUser;
+
+  /**
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
    *       which means the policies and tags exceeded the allowed space.</p>
@@ -261,38 +255,45 @@ export interface AssumeRoleResponse {
 
 export namespace AssumeRoleResponse {
   export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleResponse =>
-    __isa(o, "AssumeRoleResponse");
+  export const isa = (o: any): o is AssumeRoleResponse => __isa(o, "AssumeRoleResponse");
 }
 
 export interface AssumeRoleWithSAMLRequest {
   __type?: "AssumeRoleWithSAMLRequest";
   /**
-   * <p>The duration, in seconds, of the role session. Your role session lasts for the duration
-   *          that you specify for the <code>DurationSeconds</code> parameter, or until the time
-   *          specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,
-   *          whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds
-   *          (15 minutes) up to the maximum session duration setting for the role. This setting can have
-   *          a value from 1 hour to 12 hours. If you specify a value higher than this setting, the
-   *          operation fails. For example, if you specify a session duration of 12 hours, but your
-   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
-   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
-   *          <note>
-   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
-   *             session that you might request using the returned credentials. The request to the
-   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
-   *             parameter that specifies the maximum length of the console session. For more
-   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
-   *                that Enables Federated Users to Access the AWS Management Console</a> in the
-   *                <i>IAM User Guide</i>.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the
+   *          IdP.</p>
    */
-  DurationSeconds?: number;
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
+   *          managed session policies. The policies must exist in the same account as the role.</p>
+   *          <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the
+   *          plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
+   *             Service Namespaces</a> in the AWS General Reference.</p>
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   *
+   *          <p>Passing policies to this operation returns new
+   *          temporary credentials. The resulting session's permissions are the intersection of the
+   *          role's identity-based policy and the session policies. You can use the role's temporary
+   *          credentials in subsequent AWS API calls to access resources in the account that owns
+   *          the role. You cannot use session policies to grant more permissions than those allowed
+   *          by the identity-based policy of the role that is being assumed. For more information, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             Policies</a> in the <i>IAM User Guide</i>.</p>
+   */
+  PolicyArns?: PolicyDescriptorType[];
 
   /**
    * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
@@ -321,39 +322,6 @@ export interface AssumeRoleWithSAMLRequest {
   Policy?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
-   *          managed session policies. The policies must exist in the same account as the role.</p>
-   *          <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the
-   *          plain text that you use for both inline and managed session policies can't exceed 2,048
-   *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *             Service Namespaces</a> in the AWS General Reference.</p>
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
-   *
-   *          <p>Passing policies to this operation returns new
-   *          temporary credentials. The resulting session's permissions are the intersection of the
-   *          role's identity-based policy and the session policies. You can use the role's temporary
-   *          credentials in subsequent AWS API calls to access resources in the account that owns
-   *          the role. You cannot use session policies to grant more permissions than those allowed
-   *          by the identity-based policy of the role that is being assumed. For more information, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
-   *             Policies</a> in the <i>IAM User Guide</i>.</p>
-   */
-  PolicyArns?: PolicyDescriptorType[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the
-   *          IdP.</p>
-   */
-  PrincipalArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
    */
   RoleArn: string | undefined;
@@ -364,14 +332,39 @@ export interface AssumeRoleWithSAMLRequest {
    *             Adding Claims</a> in the <i>IAM User Guide</i>. </p>
    */
   SAMLAssertion: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, of the role session. Your role session lasts for the duration
+   *          that you specify for the <code>DurationSeconds</code> parameter, or until the time
+   *          specified in the SAML authentication response's <code>SessionNotOnOrAfter</code> value,
+   *          whichever is shorter. You can provide a <code>DurationSeconds</code> value from 900 seconds
+   *          (15 minutes) up to the maximum session duration setting for the role. This setting can have
+   *          a value from 1 hour to 12 hours. If you specify a value higher than this setting, the
+   *          operation fails. For example, if you specify a session duration of 12 hours, but your
+   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
+   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
+   *             Maximum Session Duration Setting for a Role</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
+   *          <note>
+   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
+   *             session that you might request using the returned credentials. The request to the
+   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
+   *             parameter that specifies the maximum length of the console session. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
+   *                that Enables Federated Users to Access the AWS Management Console</a> in the
+   *                <i>IAM User Guide</i>.</p>
+   *          </note>
+   */
+  DurationSeconds?: number;
 }
 
 export namespace AssumeRoleWithSAMLRequest {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-    ...obj
+    ...obj,
+    ...(obj.SAMLAssertion && { SAMLAssertion: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLRequest =>
-    __isa(o, "AssumeRoleWithSAMLRequest");
+  export const isa = (o: any): o is AssumeRoleWithSAMLRequest => __isa(o, "AssumeRoleWithSAMLRequest");
 }
 
 /**
@@ -381,26 +374,35 @@ export namespace AssumeRoleWithSAMLRequest {
 export interface AssumeRoleWithSAMLResponse {
   __type?: "AssumeRoleWithSAMLResponse";
   /**
-   * <p>The identifiers for the temporary security credentials that the operation
-   *          returns.</p>
-   */
-  AssumedRoleUser?: AssumedRoleUser;
-
-  /**
    * <p> The value of the <code>Recipient</code> attribute of the
    *             <code>SubjectConfirmationData</code> element of the SAML assertion. </p>
    */
   Audience?: string;
 
   /**
-   * <p>The temporary security credentials, which include an access key ID, a secret access key,
-   *          and a security (or session) token.</p>
-   *          <note>
-   *             <p>The size of the security token that STS API operations return is not fixed. We
-   *         strongly recommend that you make no assumptions about the maximum size.</p>
-   *          </note>
+   * <p>A percentage value that indicates the packed size of the session policies and session
+   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
+   *       which means the policies and tags exceeded the allowed space.</p>
    */
-  Credentials?: Credentials;
+  PackedPolicySize?: number;
+
+  /**
+   * <p> The format of the name ID, as defined by the <code>Format</code> attribute in the
+   *             <code>NameID</code> element of the SAML assertion. Typical examples of the format are
+   *             <code>transient</code> or <code>persistent</code>. </p>
+   *          <p> If the format includes the prefix
+   *             <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For
+   *          example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as
+   *             <code>transient</code>. If the format includes any other prefix, the format is returned
+   *          with no modifications.</p>
+   */
+  SubjectType?: string;
+
+  /**
+   * <p>The identifiers for the temporary security credentials that the operation
+   *          returns.</p>
+   */
+  AssumedRoleUser?: AssumedRoleUser;
 
   /**
    * <p>The value of the <code>Issuer</code> element of the SAML assertion.</p>
@@ -420,62 +422,35 @@ export interface AssumeRoleWithSAMLResponse {
   NameQualifier?: string;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The temporary security credentials, which include an access key ID, a secret access key,
+   *          and a security (or session) token.</p>
+   *          <note>
+   *             <p>The size of the security token that STS API operations return is not fixed. We
+   *         strongly recommend that you make no assumptions about the maximum size.</p>
+   *          </note>
    */
-  PackedPolicySize?: number;
+  Credentials?: Credentials;
 
   /**
    * <p>The value of the <code>NameID</code> element in the <code>Subject</code> element of the
    *          SAML assertion.</p>
    */
   Subject?: string;
-
-  /**
-   * <p> The format of the name ID, as defined by the <code>Format</code> attribute in the
-   *             <code>NameID</code> element of the SAML assertion. Typical examples of the format are
-   *             <code>transient</code> or <code>persistent</code>. </p>
-   *          <p> If the format includes the prefix
-   *             <code>urn:oasis:names:tc:SAML:2.0:nameid-format</code>, that prefix is removed. For
-   *          example, <code>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</code> is returned as
-   *             <code>transient</code>. If the format includes any other prefix, the format is returned
-   *          with no modifications.</p>
-   */
-  SubjectType?: string;
 }
 
 export namespace AssumeRoleWithSAMLResponse {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithSAMLResponse =>
-    __isa(o, "AssumeRoleWithSAMLResponse");
+  export const isa = (o: any): o is AssumeRoleWithSAMLResponse => __isa(o, "AssumeRoleWithSAMLResponse");
 }
 
 export interface AssumeRoleWithWebIdentityRequest {
   __type?: "AssumeRoleWithWebIdentityRequest";
   /**
-   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
-   *          minutes) up to the maximum session duration setting for the role. This setting can have a
-   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
-   *          operation fails. For example, if you specify a session duration of 12 hours, but your
-   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
-   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
-   *          <note>
-   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
-   *             session that you might request using the returned credentials. The request to the
-   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
-   *             parameter that specifies the maximum length of the console session. For more
-   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
-   *                that Enables Federated Users to Access the AWS Management Console</a> in the
-   *                <i>IAM User Guide</i>.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
    */
-  DurationSeconds?: number;
+  RoleArn: string | undefined;
 
   /**
    * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
@@ -504,6 +479,40 @@ export interface AssumeRoleWithWebIdentityRequest {
   Policy?: string;
 
   /**
+   * <p>An identifier for the assumed role session. Typically, you pass the name or identifier
+   *          that is associated with the user who is using your application. That way, the temporary
+   *          security credentials that your application will use are associated with that user. This
+   *          session name is included as part of the ARN and assumed role ID in the
+   *             <code>AssumedRoleUser</code> response element.</p>
+   *          <p>The regex used to validate this parameter is a string of characters
+   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+   *     also include underscores or any of the following characters: =,.@-</p>
+   */
+  RoleSessionName: string | undefined;
+
+  /**
+   * <p>The duration, in seconds, of the role session. The value can range from 900 seconds (15
+   *          minutes) up to the maximum session duration setting for the role. This setting can have a
+   *          value from 1 hour to 12 hours. If you specify a value higher than this setting, the
+   *          operation fails. For example, if you specify a session duration of 12 hours, but your
+   *          administrator set the maximum session duration to 6 hours, your operation fails. To learn
+   *          how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
+   *             Maximum Session Duration Setting for a Role</a> in the
+   *             <i>IAM User Guide</i>.</p>
+   *          <p>By default, the value is set to <code>3600</code> seconds. </p>
+   *          <note>
+   *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
+   *             session that you might request using the returned credentials. The request to the
+   *             federation endpoint for a console sign-in token takes a <code>SessionDuration</code>
+   *             parameter that specifies the maximum length of the console session. For more
+   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating a URL
+   *                that Enables Federated Users to Access the AWS Management Console</a> in the
+   *                <i>IAM User Guide</i>.</p>
+   *          </note>
+   */
+  DurationSeconds?: number;
+
+  /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as
    *          managed session policies. The policies must exist in the same account as the role.</p>
    *          <p>This parameter is optional. You can provide up to 10 managed policy ARNs. However, the
@@ -531,6 +540,14 @@ export interface AssumeRoleWithWebIdentityRequest {
   PolicyArns?: PolicyDescriptorType[];
 
   /**
+   * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
+   *          provider. Your application must get this token by authenticating the user who is using your
+   *          application with a web identity provider before the application makes an
+   *             <code>AssumeRoleWithWebIdentity</code> call. </p>
+   */
+  WebIdentityToken: string | undefined;
+
+  /**
    * <p>The fully qualified host component of the domain name of the identity provider.</p>
    *          <p>Specify this value only for OAuth 2.0 access tokens. Currently
    *             <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only supported
@@ -539,41 +556,14 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          <p>Do not specify this value for OpenID Connect ID tokens.</p>
    */
   ProviderId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>An identifier for the assumed role session. Typically, you pass the name or identifier
-   *          that is associated with the user who is using your application. That way, the temporary
-   *          security credentials that your application will use are associated with that user. This
-   *          session name is included as part of the ARN and assumed role ID in the
-   *             <code>AssumedRoleUser</code> response element.</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
-   */
-  RoleSessionName: string | undefined;
-
-  /**
-   * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
-   *          provider. Your application must get this token by authenticating the user who is using your
-   *          application with a web identity provider before the application makes an
-   *             <code>AssumeRoleWithWebIdentity</code> call. </p>
-   */
-  WebIdentityToken: string | undefined;
 }
 
 export namespace AssumeRoleWithWebIdentityRequest {
-  export const filterSensitiveLog = (
-    obj: AssumeRoleWithWebIdentityRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
+    ...obj,
+    ...(obj.WebIdentityToken && { WebIdentityToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest =>
-    __isa(o, "AssumeRoleWithWebIdentityRequest");
+  export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest => __isa(o, "AssumeRoleWithWebIdentityRequest");
 }
 
 /**
@@ -582,6 +572,28 @@ export namespace AssumeRoleWithWebIdentityRequest {
  */
 export interface AssumeRoleWithWebIdentityResponse {
   __type?: "AssumeRoleWithWebIdentityResponse";
+  /**
+   * <p>A percentage value that indicates the packed size of the session policies and session
+   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
+   *       which means the policies and tags exceeded the allowed space.</p>
+   */
+  PackedPolicySize?: number;
+
+  /**
+   * <p>The intended audience (also known as client ID) of the web identity token. This is
+   *          traditionally the client identifier issued to the application that requested the web
+   *          identity token.</p>
+   */
+  Audience?: string;
+
+  /**
+   * <p> The issuing authority of the web identity token presented. For OpenID Connect ID
+   *          tokens, this contains the value of the <code>iss</code> field. For OAuth 2.0 access tokens,
+   *          this contains the value of the <code>ProviderId</code> parameter that was passed in the
+   *             <code>AssumeRoleWithWebIdentity</code> request.</p>
+   */
+  Provider?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
    *          can use to refer to the resulting temporary security credentials. For example, you can
@@ -592,13 +604,6 @@ export interface AssumeRoleWithWebIdentityResponse {
   AssumedRoleUser?: AssumedRoleUser;
 
   /**
-   * <p>The intended audience (also known as client ID) of the web identity token. This is
-   *          traditionally the client identifier issued to the application that requested the web
-   *          identity token.</p>
-   */
-  Audience?: string;
-
-  /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security token.</p>
    *          <note>
@@ -607,21 +612,6 @@ export interface AssumeRoleWithWebIdentityResponse {
    *          </note>
    */
   Credentials?: Credentials;
-
-  /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
-   */
-  PackedPolicySize?: number;
-
-  /**
-   * <p> The issuing authority of the web identity token presented. For OpenID Connect ID
-   *          tokens, this contains the value of the <code>iss</code> field. For OAuth 2.0 access tokens,
-   *          this contains the value of the <code>ProviderId</code> parameter that was passed in the
-   *             <code>AssumeRoleWithWebIdentity</code> request.</p>
-   */
-  Provider?: string;
 
   /**
    * <p>The unique user identifier that is returned by the identity provider. This identifier is
@@ -635,13 +625,10 @@ export interface AssumeRoleWithWebIdentityResponse {
 }
 
 export namespace AssumeRoleWithWebIdentityResponse {
-  export const filterSensitiveLog = (
-    obj: AssumeRoleWithWebIdentityResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse =>
-    __isa(o, "AssumeRoleWithWebIdentityResponse");
+  export const isa = (o: any): o is AssumeRoleWithWebIdentityResponse => __isa(o, "AssumeRoleWithWebIdentityResponse");
 }
 
 /**
@@ -655,9 +642,10 @@ export interface Credentials {
   AccessKeyId: string | undefined;
 
   /**
-   * <p>The date on which the current credentials expire.</p>
+   * <p>The token that users must pass to the service API to use the temporary
+   *          credentials.</p>
    */
-  Expiration: Date | undefined;
+  SessionToken: string | undefined;
 
   /**
    * <p>The secret access key that can be used to sign requests.</p>
@@ -665,15 +653,14 @@ export interface Credentials {
   SecretAccessKey: string | undefined;
 
   /**
-   * <p>The token that users must pass to the service API to use the temporary
-   *          credentials.</p>
+   * <p>The date on which the current credentials expire.</p>
    */
-  SessionToken: string | undefined;
+  Expiration: Date | undefined;
 }
 
 export namespace Credentials {
   export const filterSensitiveLog = (obj: Credentials): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
@@ -687,13 +674,10 @@ export interface DecodeAuthorizationMessageRequest {
 }
 
 export namespace DecodeAuthorizationMessageRequest {
-  export const filterSensitiveLog = (
-    obj: DecodeAuthorizationMessageRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DecodeAuthorizationMessageRequest =>
-    __isa(o, "DecodeAuthorizationMessageRequest");
+  export const isa = (o: any): o is DecodeAuthorizationMessageRequest => __isa(o, "DecodeAuthorizationMessageRequest");
 }
 
 /**
@@ -709,10 +693,8 @@ export interface DecodeAuthorizationMessageResponse {
 }
 
 export namespace DecodeAuthorizationMessageResponse {
-  export const filterSensitiveLog = (
-    obj: DecodeAuthorizationMessageResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecodeAuthorizationMessageResponse =>
     __isa(o, "DecodeAuthorizationMessageResponse");
@@ -722,9 +704,7 @@ export namespace DecodeAuthorizationMessageResponse {
  * <p>The web identity token that was passed is expired or is not valid. Get a new identity
  *             token from the identity provider and then retry the request.</p>
  */
-export interface ExpiredTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -732,10 +712,9 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredTokenException =>
-    __isa(o, "ExpiredTokenException");
+  export const isa = (o: any): o is ExpiredTokenException => __isa(o, "ExpiredTokenException");
 }
 
 /**
@@ -759,7 +738,7 @@ export interface FederatedUser {
 
 export namespace FederatedUser {
   export const filterSensitiveLog = (obj: FederatedUser): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FederatedUser => __isa(o, "FederatedUser");
 }
@@ -776,10 +755,9 @@ export interface GetAccessKeyInfoRequest {
 
 export namespace GetAccessKeyInfoRequest {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoRequest =>
-    __isa(o, "GetAccessKeyInfoRequest");
+  export const isa = (o: any): o is GetAccessKeyInfoRequest => __isa(o, "GetAccessKeyInfoRequest");
 }
 
 export interface GetAccessKeyInfoResponse {
@@ -792,10 +770,9 @@ export interface GetAccessKeyInfoResponse {
 
 export namespace GetAccessKeyInfoResponse {
   export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccessKeyInfoResponse =>
-    __isa(o, "GetAccessKeyInfoResponse");
+  export const isa = (o: any): o is GetAccessKeyInfoResponse => __isa(o, "GetAccessKeyInfoResponse");
 }
 
 export interface GetCallerIdentityRequest {
@@ -804,10 +781,9 @@ export interface GetCallerIdentityRequest {
 
 export namespace GetCallerIdentityRequest {
   export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityRequest =>
-    __isa(o, "GetCallerIdentityRequest");
+  export const isa = (o: any): o is GetCallerIdentityRequest => __isa(o, "GetCallerIdentityRequest");
 }
 
 /**
@@ -817,15 +793,15 @@ export namespace GetCallerIdentityRequest {
 export interface GetCallerIdentityResponse {
   __type?: "GetCallerIdentityResponse";
   /**
+   * <p>The AWS ARN associated with the calling entity.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The AWS account ID number of the account that owns or contains the calling
    *          entity.</p>
    */
   Account?: string;
-
-  /**
-   * <p>The AWS ARN associated with the calling entity.</p>
-   */
-  Arn?: string;
 
   /**
    * <p>The unique identifier of the calling entity. The exact value depends on the type of
@@ -838,10 +814,9 @@ export interface GetCallerIdentityResponse {
 
 export namespace GetCallerIdentityResponse {
   export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetCallerIdentityResponse =>
-    __isa(o, "GetCallerIdentityResponse");
+  export const isa = (o: any): o is GetCallerIdentityResponse => __isa(o, "GetCallerIdentityResponse");
 }
 
 export interface GetFederationTokenRequest {
@@ -865,41 +840,6 @@ export interface GetFederationTokenRequest {
    *     also include underscores or any of the following characters: =,.@-</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
-   *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
-   *          this operation. You can pass a single JSON policy document to use as an inline session
-   *          policy. You can also specify up to 10 managed policies to use as managed session
-   *          policies.</p>
-   *          <p>This parameter is optional. However, if you do not pass any session policies, then the
-   *          resulting federated user session has no permissions.</p>
-   *          <p>When you pass session policies, the session permissions are the intersection of the
-   *          IAM user policies and the session policies that you pass. This gives you a way to further
-   *          restrict the permissions for a federated user. You cannot use session policies to grant
-   *          more permissions than those that are defined in the permissions policy of the IAM user.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
-   *          the <i>IAM User Guide</i>.</p>
-   *          <p>The resulting credentials can be used to access a resource that has a resource-based
-   *          policy. If that policy specifically references the federated user session in the
-   *             <code>Principal</code> element of the policy, the session has the permissions allowed by
-   *          the policy. These permissions are granted in addition to the permissions that are granted
-   *          by the session policies.</p>
-   *          <p>The plain text that you use for both inline and managed session policies can't exceed
-   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
-   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
-   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
-   *          characters.</p>
-   *          <note>
-   *             <p>An AWS conversion compresses the passed session policies and session tags into a
-   *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
-   *             response element indicates by percentage how close the policies and tags for your
-   *             request are to the upper size limit.
-   *             </p>
-   *          </note>
-   */
-  Policy?: string;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as a
@@ -964,14 +904,48 @@ export interface GetFederationTokenRequest {
    *          the request takes precedence over the role tag.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
+   *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
+   *          this operation. You can pass a single JSON policy document to use as an inline session
+   *          policy. You can also specify up to 10 managed policies to use as managed session
+   *          policies.</p>
+   *          <p>This parameter is optional. However, if you do not pass any session policies, then the
+   *          resulting federated user session has no permissions.</p>
+   *          <p>When you pass session policies, the session permissions are the intersection of the
+   *          IAM user policies and the session policies that you pass. This gives you a way to further
+   *          restrict the permissions for a federated user. You cannot use session policies to grant
+   *          more permissions than those that are defined in the permissions policy of the IAM user.
+   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
+   *          the <i>IAM User Guide</i>.</p>
+   *          <p>The resulting credentials can be used to access a resource that has a resource-based
+   *          policy. If that policy specifically references the federated user session in the
+   *             <code>Principal</code> element of the policy, the session has the permissions allowed by
+   *          the policy. These permissions are granted in addition to the permissions that are granted
+   *          by the session policies.</p>
+   *          <p>The plain text that you use for both inline and managed session policies can't exceed
+   *          2,048 characters. The JSON policy characters can be any ASCII character from the space
+   *          character to the end of the valid character list (\u0020 through \u00FF). It can also
+   *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
+   *          characters.</p>
+   *          <note>
+   *             <p>An AWS conversion compresses the passed session policies and session tags into a
+   *             packed binary format that has a separate limit. Your request can fail for this limit
+   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             response element indicates by percentage how close the policies and tags for your
+   *             request are to the upper size limit.
+   *             </p>
+   *          </note>
+   */
+  Policy?: string;
 }
 
 export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenRequest =>
-    __isa(o, "GetFederationTokenRequest");
+  export const isa = (o: any): o is GetFederationTokenRequest => __isa(o, "GetFederationTokenRequest");
 }
 
 /**
@@ -980,6 +954,14 @@ export namespace GetFederationTokenRequest {
  */
 export interface GetFederationTokenResponse {
   __type?: "GetFederationTokenResponse";
+  /**
+   * <p>Identifiers for the federated user associated with the credentials (such as
+   *             <code>arn:aws:sts::123456789012:federated-user/Bob</code> or
+   *             <code>123456789012:Bob</code>). You can use the federated user's ARN in your
+   *          resource-based policies, such as an Amazon S3 bucket policy. </p>
+   */
+  FederatedUser?: FederatedUser;
+
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
    *          and a security (or session) token.</p>
@@ -991,14 +973,6 @@ export interface GetFederationTokenResponse {
   Credentials?: Credentials;
 
   /**
-   * <p>Identifiers for the federated user associated with the credentials (such as
-   *             <code>arn:aws:sts::123456789012:federated-user/Bob</code> or
-   *             <code>123456789012:Bob</code>). You can use the federated user's ARN in your
-   *          resource-based policies, such as an Amazon S3 bucket policy. </p>
-   */
-  FederatedUser?: FederatedUser;
-
-  /**
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
    *       which means the policies and tags exceeded the allowed space.</p>
@@ -1008,14 +982,24 @@ export interface GetFederationTokenResponse {
 
 export namespace GetFederationTokenResponse {
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenResponse =>
-    __isa(o, "GetFederationTokenResponse");
+  export const isa = (o: any): o is GetFederationTokenResponse => __isa(o, "GetFederationTokenResponse");
 }
 
 export interface GetSessionTokenRequest {
   __type?: "GetSessionTokenRequest";
+  /**
+   * <p>The value provided by the MFA device, if MFA is required. If any policy requires the
+   *          IAM user to submit an MFA code, specify this value. If MFA authentication is required,
+   *          the user must provide a code when requesting a set of temporary security credentials. A
+   *          user who fails to provide the code receives an "access denied" response when requesting
+   *          resources that require MFA authentication.</p>
+   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
+   *          numeric digits.</p>
+   */
+  TokenCode?: string;
+
   /**
    * <p>The duration, in seconds, that the credentials should remain valid. Acceptable durations
    *          for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours),
@@ -1038,25 +1022,13 @@ export interface GetSessionTokenRequest {
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
   SerialNumber?: string;
-
-  /**
-   * <p>The value provided by the MFA device, if MFA is required. If any policy requires the
-   *          IAM user to submit an MFA code, specify this value. If MFA authentication is required,
-   *          the user must provide a code when requesting a set of temporary security credentials. A
-   *          user who fails to provide the code receives an "access denied" response when requesting
-   *          resources that require MFA authentication.</p>
-   *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
-   *          numeric digits.</p>
-   */
-  TokenCode?: string;
 }
 
 export namespace GetSessionTokenRequest {
   export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenRequest =>
-    __isa(o, "GetSessionTokenRequest");
+  export const isa = (o: any): o is GetSessionTokenRequest => __isa(o, "GetSessionTokenRequest");
 }
 
 /**
@@ -1078,10 +1050,9 @@ export interface GetSessionTokenResponse {
 
 export namespace GetSessionTokenResponse {
   export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSessionTokenResponse =>
-    __isa(o, "GetSessionTokenResponse");
+  export const isa = (o: any): o is GetSessionTokenResponse => __isa(o, "GetSessionTokenResponse");
 }
 
 /**
@@ -1091,22 +1062,17 @@ export namespace GetSessionTokenResponse {
  *             times so that you don't exceed the request rate. If the error persists, the
  *             identity provider might be down or not responding.</p>
  */
-export interface IDPCommunicationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IDPCommunicationErrorException extends __SmithyException, $MetadataBearer {
   name: "IDPCommunicationErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace IDPCommunicationErrorException {
-  export const filterSensitiveLog = (
-    obj: IDPCommunicationErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IDPCommunicationErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IDPCommunicationErrorException =>
-    __isa(o, "IDPCommunicationErrorException");
+  export const isa = (o: any): o is IDPCommunicationErrorException => __isa(o, "IDPCommunicationErrorException");
 }
 
 /**
@@ -1115,9 +1081,7 @@ export namespace IDPCommunicationErrorException {
  *         <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
  *             can also mean that the claim has expired or has been explicitly revoked. </p>
  */
-export interface IDPRejectedClaimException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IDPRejectedClaimException extends __SmithyException, $MetadataBearer {
   name: "IDPRejectedClaimException";
   $fault: "client";
   message?: string;
@@ -1125,10 +1089,9 @@ export interface IDPRejectedClaimException
 
 export namespace IDPRejectedClaimException {
   export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IDPRejectedClaimException =>
-    __isa(o, "IDPRejectedClaimException");
+  export const isa = (o: any): o is IDPRejectedClaimException => __isa(o, "IDPRejectedClaimException");
 }
 
 /**
@@ -1136,19 +1099,15 @@ export namespace IDPRejectedClaimException {
  *             was invalid. This can happen if the token contains invalid characters, such as
  *             linebreaks. </p>
  */
-export interface InvalidAuthorizationMessageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthorizationMessageException extends __SmithyException, $MetadataBearer {
   name: "InvalidAuthorizationMessageException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidAuthorizationMessageException {
-  export const filterSensitiveLog = (
-    obj: InvalidAuthorizationMessageException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidAuthorizationMessageException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidAuthorizationMessageException =>
     __isa(o, "InvalidAuthorizationMessageException");
@@ -1158,44 +1117,34 @@ export namespace InvalidAuthorizationMessageException {
  * <p>The web identity token that was passed could not be validated by AWS. Get a new
  *             identity token from the identity provider and then retry the request.</p>
  */
-export interface InvalidIdentityTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIdentityTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidIdentityTokenException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidIdentityTokenException {
-  export const filterSensitiveLog = (
-    obj: InvalidIdentityTokenException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidIdentityTokenException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidIdentityTokenException =>
-    __isa(o, "InvalidIdentityTokenException");
+  export const isa = (o: any): o is InvalidIdentityTokenException => __isa(o, "InvalidIdentityTokenException");
 }
 
 /**
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedPolicyDocumentException {
-  export const filterSensitiveLog = (
-    obj: MalformedPolicyDocumentException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException =>
-    __isa(o, "MalformedPolicyDocumentException");
+  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -1209,22 +1158,17 @@ export namespace MalformedPolicyDocumentException {
  *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">IAM and STS Entity
  *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
  */
-export interface PackedPolicyTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PackedPolicyTooLargeException extends __SmithyException, $MetadataBearer {
   name: "PackedPolicyTooLargeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PackedPolicyTooLargeException {
-  export const filterSensitiveLog = (
-    obj: PackedPolicyTooLargeException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PackedPolicyTooLargeException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is PackedPolicyTooLargeException =>
-    __isa(o, "PackedPolicyTooLargeException");
+  export const isa = (o: any): o is PackedPolicyTooLargeException => __isa(o, "PackedPolicyTooLargeException");
 }
 
 /**
@@ -1243,10 +1187,9 @@ export interface PolicyDescriptorType {
 
 export namespace PolicyDescriptorType {
   export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PolicyDescriptorType =>
-    __isa(o, "PolicyDescriptorType");
+  export const isa = (o: any): o is PolicyDescriptorType => __isa(o, "PolicyDescriptorType");
 }
 
 /**
@@ -1256,9 +1199,7 @@ export namespace PolicyDescriptorType {
  *                 Deactivating AWS STS in an AWS Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  */
-export interface RegionDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RegionDisabledException extends __SmithyException, $MetadataBearer {
   name: "RegionDisabledException";
   $fault: "client";
   message?: string;
@@ -1266,10 +1207,9 @@ export interface RegionDisabledException
 
 export namespace RegionDisabledException {
   export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RegionDisabledException =>
-    __isa(o, "RegionDisabledException");
+  export const isa = (o: any): o is RegionDisabledException => __isa(o, "RegionDisabledException");
 }
 
 /**
@@ -1281,25 +1221,25 @@ export namespace RegionDisabledException {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key for a session tag.</p>
-   *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
-   *          characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
-   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The value for a session tag.</p>
    *          <p>You can pass up to 50 session tags. The plain text session tag values can’t exceed 256
    *          characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The key for a session tag.</p>
+   *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
+   *          characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
+   *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }

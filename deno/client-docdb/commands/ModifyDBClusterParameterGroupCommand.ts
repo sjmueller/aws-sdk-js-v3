@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  DBClusterParameterGroupNameMessage,
-  ModifyDBClusterParameterGroupMessage
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBClusterParameterGroupCommand,
-  serializeAws_queryModifyDBClusterParameterGroupCommand
+  serializeAws_queryModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyDBClusterParameterGroupCommandInput = ModifyDBClusterParameterGroupMessage;
-export type ModifyDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage &
-  __MetadataBearer;
+export type ModifyDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage & __MetadataBearer;
 
 export class ModifyDBClusterParameterGroupCommand extends $Command<
   ModifyDBClusterParameterGroupCommandInput,
@@ -49,18 +38,16 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDBClusterParameterGroupCommandInput,
-    ModifyDBClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDBClusterParameterGroupCommandInput, ModifyDBClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBClusterParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  SetIdentityMailFromDomainRequest,
-  SetIdentityMailFromDomainResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/index.ts";
 import {
   deserializeAws_querySetIdentityMailFromDomainCommand,
-  serializeAws_querySetIdentityMailFromDomainCommand
+  serializeAws_querySetIdentityMailFromDomainCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SetIdentityMailFromDomainCommandInput = SetIdentityMailFromDomainRequest;
-export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse &
-  __MetadataBearer;
+export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse & __MetadataBearer;
 
 export class SetIdentityMailFromDomainCommand extends $Command<
   SetIdentityMailFromDomainCommandInput,
@@ -49,18 +38,16 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetIdentityMailFromDomainCommandInput,
-    SetIdentityMailFromDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetIdentityMailFromDomainCommandInput, SetIdentityMailFromDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SetIdentityMailFromDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityMailFromDomainResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetIdentityMailFromDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetIdentityMailFromDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityMailFromDomainCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityMailFromDomainCommandOutput> {
-    return deserializeAws_querySetIdentityMailFromDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityMailFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

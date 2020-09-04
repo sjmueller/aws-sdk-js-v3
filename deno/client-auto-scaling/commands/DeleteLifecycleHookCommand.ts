@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
-import {
-  DeleteLifecycleHookAnswer,
-  DeleteLifecycleHookType
-} from "../models/index.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
+import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteLifecycleHookCommand,
-  serializeAws_queryDeleteLifecycleHookCommand
+  serializeAws_queryDeleteLifecycleHookCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteLifecycleHookCommandInput = DeleteLifecycleHookType;
-export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer &
-  __MetadataBearer;
+export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer & __MetadataBearer;
 
 export class DeleteLifecycleHookCommand extends $Command<
   DeleteLifecycleHookCommandInput,
@@ -49,18 +38,16 @@ export class DeleteLifecycleHookCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLifecycleHookCommandInput,
-    DeleteLifecycleHookCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLifecycleHookCommandInput, DeleteLifecycleHookCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteLifecycleHookType.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteLifecycleHookCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLifecycleHookCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLifecycleHookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLifecycleHookCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLifecycleHookCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLifecycleHookCommandOutput> {
     return deserializeAws_queryDeleteLifecycleHookCommand(output, context);
   }
 

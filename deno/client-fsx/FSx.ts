@@ -2,72 +2,72 @@ import { FSxClient } from "./FSxClient.ts";
 import {
   CancelDataRepositoryTaskCommand,
   CancelDataRepositoryTaskCommandInput,
-  CancelDataRepositoryTaskCommandOutput
+  CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand.ts";
 import {
   CreateBackupCommand,
   CreateBackupCommandInput,
-  CreateBackupCommandOutput
+  CreateBackupCommandOutput,
 } from "./commands/CreateBackupCommand.ts";
 import {
   CreateDataRepositoryTaskCommand,
   CreateDataRepositoryTaskCommandInput,
-  CreateDataRepositoryTaskCommandOutput
+  CreateDataRepositoryTaskCommandOutput,
 } from "./commands/CreateDataRepositoryTaskCommand.ts";
 import {
   CreateFileSystemCommand,
   CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput
+  CreateFileSystemCommandOutput,
 } from "./commands/CreateFileSystemCommand.ts";
 import {
   CreateFileSystemFromBackupCommand,
   CreateFileSystemFromBackupCommandInput,
-  CreateFileSystemFromBackupCommandOutput
+  CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand.ts";
 import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
+  DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand.ts";
 import {
   DeleteFileSystemCommand,
   DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput
+  DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand.ts";
 import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput
+  DescribeBackupsCommandOutput,
 } from "./commands/DescribeBackupsCommand.ts";
 import {
   DescribeDataRepositoryTasksCommand,
   DescribeDataRepositoryTasksCommandInput,
-  DescribeDataRepositoryTasksCommandOutput
+  DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand.ts";
 import {
   DescribeFileSystemsCommand,
   DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput
+  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateFileSystemCommand,
   UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput
+  UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -106,17 +106,14 @@ export class FSx extends FSxClient {
   ): void;
   public cancelDataRepositoryTask(
     args: CancelDataRepositoryTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelDataRepositoryTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelDataRepositoryTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelDataRepositoryTaskCommandOutput) => void
   ): Promise<CancelDataRepositoryTaskCommandOutput> | void {
     const command = new CancelDataRepositoryTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -124,10 +121,23 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a backup of an existing Amazon FSx for Windows File Server file system.
-   *             Creating regular backups for your file system is a best practice that complements the
-   *             replication that Amazon FSx for Windows File Server performs for your file system. It
-   *             also enables you to restore from user modification of data.</p>
+   * <p>Creates a backup of an existing Amazon FSx file system.
+   *             Creating regular backups for your file system is a best practice, enabling you to restore a file system
+   *             from a backup if an issue arises with the original file system.</p>
+   *         <p>For Amazon FSx for Lustre file systems, you can create a backup only
+   *             for file systems with the following configuration:</p>
+   *         <ul>
+   *             <li>
+   *                <p>a Persistent deployment type</p>
+   *             </li>
+   *             <li>
+   *                <p>is <i>not</i> linked to an Amazon S3 data respository.</p>
+   *             </li>
+   *          </ul>
+   *             <p>For more information about backing up Amazon FSx for Lustre file systems,
+   *                 see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for Lustre backups</a>.</p>
+   *         <p>For more information about backing up Amazon FSx for Lustre file systems,
+   *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for Windows backups</a>.</p>
    *
    *         <p>If a backup with the specified client request token exists, and the parameters
    *             match, this operation returns the description of the existing backup. If a backup
@@ -151,23 +161,16 @@ export class FSx extends FSxClient {
    *             you use the same client request token and the initial call created a backup, the
    *             operation returns a successful result because all the parameters are the same.</p>
    *
-   *         <p>The <code>CreateFileSystem</code> operation returns while the backup's
-   *             lifecycle state is still <code>CREATING</code>. You can check the file system creation
+   *         <p>The <code>CreateBackup</code> operation returns while the backup's
+   *             lifecycle state is still <code>CREATING</code>. You can check the backup creation
    *             status by calling the <a>DescribeBackups</a> operation, which returns the
    *             backup state along with other information.</p>
-   *
-   *         <note>
-   *             <p></p>
-   *         </note>
    */
   public createBackup(
     args: CreateBackupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBackupCommandOutput>;
-  public createBackup(
-    args: CreateBackupCommandInput,
-    cb: (err: any, data?: CreateBackupCommandOutput) => void
-  ): void;
+  public createBackup(args: CreateBackupCommandInput, cb: (err: any, data?: CreateBackupCommandOutput) => void): void;
   public createBackup(
     args: CreateBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -175,17 +178,14 @@ export class FSx extends FSxClient {
   ): void;
   public createBackup(
     args: CreateBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupCommandOutput) => void
   ): Promise<CreateBackupCommandOutput> | void {
     const command = new CreateBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -201,7 +201,7 @@ export class FSx extends FSxClient {
    *             linked to the FSx file system. To learn more about data repository tasks, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Using Data Repository Tasks</a>.
    *             To learn more about linking a data repository to your file system, see
-   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started-step1.html">Step 1: Create Your Amazon FSx for Lustre File System</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repository.html#export-prefix">Setting the Export Prefix</a>.</p>
    */
   public createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
@@ -218,17 +218,14 @@ export class FSx extends FSxClient {
   ): void;
   public createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataRepositoryTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataRepositoryTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateDataRepositoryTaskCommandOutput) => void
   ): Promise<CreateDataRepositoryTaskCommandOutput> | void {
     const command = new CreateDataRepositoryTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -285,17 +282,14 @@ export class FSx extends FSxClient {
   ): void;
   public createFileSystem(
     args: CreateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): Promise<CreateFileSystemCommandOutput> | void {
     const command = new CreateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -303,8 +297,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a new Amazon FSx file system from an existing Amazon FSx for Windows File
-   *             Server backup.</p>
+   * <p>Creates a new Amazon FSx file system from an existing Amazon FSx backup.</p>
    *
    *         <p>If a file system with the specified client request token exists and the parameters
    *             match, this operation returns the description of the file system. If a client
@@ -356,17 +349,14 @@ export class FSx extends FSxClient {
   ): void;
   public createFileSystemFromBackup(
     args: CreateFileSystemFromBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFileSystemFromBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFileSystemFromBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateFileSystemFromBackupCommandOutput) => void
   ): Promise<CreateFileSystemFromBackupCommandOutput> | void {
     const command = new CreateFileSystemFromBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -374,8 +364,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes an Amazon FSx for Windows File Server backup, deleting its contents. After
-   *             deletion, the backup no longer exists, and its data is gone.</p>
+   * <p>Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no longer exists, and its data is gone.</p>
    *
    *         <p>The <code>DeleteBackup</code> call returns instantly. The backup will not show up
    *             in later <code>DescribeBackups</code> calls.</p>
@@ -389,10 +378,7 @@ export class FSx extends FSxClient {
     args: DeleteBackupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBackupCommandOutput>;
-  public deleteBackup(
-    args: DeleteBackupCommandInput,
-    cb: (err: any, data?: DeleteBackupCommandOutput) => void
-  ): void;
+  public deleteBackup(args: DeleteBackupCommandInput, cb: (err: any, data?: DeleteBackupCommandOutput) => void): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
     options: __HttpHandlerOptions,
@@ -400,17 +386,14 @@ export class FSx extends FSxClient {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -457,17 +440,14 @@ export class FSx extends FSxClient {
   ): void;
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): Promise<DeleteFileSystemCommandOutput> | void {
     const command = new DeleteFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -475,7 +455,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Returns the description of specific Amazon FSx for Windows File Server backups, if
+   * <p>Returns the description of specific Amazon FSx backups, if
    *             a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
    *             backups owned by your AWS account in the AWS Region of the endpoint that you're
    *             calling.</p>
@@ -522,17 +502,14 @@ export class FSx extends FSxClient {
   ): void;
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -567,17 +544,14 @@ export class FSx extends FSxClient {
   ): void;
   public describeDataRepositoryTasks(
     args: DescribeDataRepositoryTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataRepositoryTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataRepositoryTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataRepositoryTasksCommandOutput) => void
   ): Promise<DescribeDataRepositoryTasksCommandOutput> | void {
     const command = new DescribeDataRepositoryTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,17 +607,14 @@ export class FSx extends FSxClient {
   ): void;
   public describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): Promise<DescribeFileSystemsCommandOutput> | void {
     const command = new DescribeFileSystemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -696,17 +667,14 @@ export class FSx extends FSxClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -716,14 +684,8 @@ export class FSx extends FSxClient {
   /**
    * <p>Tags an Amazon FSx resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -731,17 +693,14 @@ export class FSx extends FSxClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -766,17 +725,14 @@ export class FSx extends FSxClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -784,7 +740,46 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Updates a file system configuration.</p>
+   * <p>Use this operation to update the configuration of an existing Amazon FSx file system.
+   *       You can update multiple properties in a single request.</p>
+   *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+   *     properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AutomaticBackupRetentionDays</p>
+   *             </li>
+   *             <li>
+   *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>SelfManagedActiveDirectoryConfiguration</p>
+   *             </li>
+   *             <li>
+   *                <p>StorageCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>ThroughputCapacity</p>
+   *             </li>
+   *             <li>
+   *                <p>WeeklyMaintenanceStartTime</p>
+   *             </li>
+   *          </ul>
+   *          <p>For Amazon FSx for Lustre file systems, you can update the following
+   *       properties:</p>
+   *          <ul>
+   *             <li>
+   *                <p>AutoImportPolicy</p>
+   *             </li>
+   *             <li>
+   *                <p>AutomaticBackupRetentionDays</p>
+   *             </li>
+   *             <li>
+   *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>WeeklyMaintenanceStartTime</p>
+   *             </li>
+   *          </ul>
    */
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
@@ -801,17 +796,14 @@ export class FSx extends FSxClient {
   ): void;
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): Promise<UpdateFileSystemCommandOutput> | void {
     const command = new UpdateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

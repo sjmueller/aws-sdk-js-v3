@@ -1,21 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient.ts";
-import {
-  BatchGetDeploymentGroupsInput,
-  BatchGetDeploymentGroupsOutput
-} from "../models/index.ts";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
+import { BatchGetDeploymentGroupsInput, BatchGetDeploymentGroupsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchGetDeploymentGroupsCommand,
-  serializeAws_json1_1BatchGetDeploymentGroupsCommand
+  serializeAws_json1_1BatchGetDeploymentGroupsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchGetDeploymentGroupsCommandInput = BatchGetDeploymentGroupsInput;
-export type BatchGetDeploymentGroupsCommandOutput = BatchGetDeploymentGroupsOutput &
-  __MetadataBearer;
+export type BatchGetDeploymentGroupsCommandOutput = BatchGetDeploymentGroupsOutput & __MetadataBearer;
 
 export class BatchGetDeploymentGroupsCommand extends $Command<
   BatchGetDeploymentGroupsCommandInput,
@@ -49,18 +38,16 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetDeploymentGroupsCommandInput,
-    BatchGetDeploymentGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetDeploymentGroupsCommandInput, BatchGetDeploymentGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchGetDeploymentGroupsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetDeploymentGroupsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetDeploymentGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchGetDeploymentGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetDeploymentGroupsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDeploymentGroupsCommandOutput> {
+    return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

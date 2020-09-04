@@ -1,83 +1,59 @@
 import {
   CreateIdentityPoolCommandInput,
-  CreateIdentityPoolCommandOutput
+  CreateIdentityPoolCommandOutput,
 } from "./commands/CreateIdentityPoolCommand.ts";
-import {
-  DeleteIdentitiesCommandInput,
-  DeleteIdentitiesCommandOutput
-} from "./commands/DeleteIdentitiesCommand.ts";
+import { DeleteIdentitiesCommandInput, DeleteIdentitiesCommandOutput } from "./commands/DeleteIdentitiesCommand.ts";
 import {
   DeleteIdentityPoolCommandInput,
-  DeleteIdentityPoolCommandOutput
+  DeleteIdentityPoolCommandOutput,
 } from "./commands/DeleteIdentityPoolCommand.ts";
-import {
-  DescribeIdentityCommandInput,
-  DescribeIdentityCommandOutput
-} from "./commands/DescribeIdentityCommand.ts";
+import { DescribeIdentityCommandInput, DescribeIdentityCommandOutput } from "./commands/DescribeIdentityCommand.ts";
 import {
   DescribeIdentityPoolCommandInput,
-  DescribeIdentityPoolCommandOutput
+  DescribeIdentityPoolCommandOutput,
 } from "./commands/DescribeIdentityPoolCommand.ts";
 import {
   GetCredentialsForIdentityCommandInput,
-  GetCredentialsForIdentityCommandOutput
+  GetCredentialsForIdentityCommandOutput,
 } from "./commands/GetCredentialsForIdentityCommand.ts";
 import { GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand.ts";
 import {
   GetIdentityPoolRolesCommandInput,
-  GetIdentityPoolRolesCommandOutput
+  GetIdentityPoolRolesCommandOutput,
 } from "./commands/GetIdentityPoolRolesCommand.ts";
-import {
-  GetOpenIdTokenCommandInput,
-  GetOpenIdTokenCommandOutput
-} from "./commands/GetOpenIdTokenCommand.ts";
+import { GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput } from "./commands/GetOpenIdTokenCommand.ts";
 import {
   GetOpenIdTokenForDeveloperIdentityCommandInput,
-  GetOpenIdTokenForDeveloperIdentityCommandOutput
+  GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "./commands/GetOpenIdTokenForDeveloperIdentityCommand.ts";
-import {
-  ListIdentitiesCommandInput,
-  ListIdentitiesCommandOutput
-} from "./commands/ListIdentitiesCommand.ts";
-import {
-  ListIdentityPoolsCommandInput,
-  ListIdentityPoolsCommandOutput
-} from "./commands/ListIdentityPoolsCommand.ts";
+import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "./commands/ListIdentitiesCommand.ts";
+import { ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput } from "./commands/ListIdentityPoolsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   LookupDeveloperIdentityCommandInput,
-  LookupDeveloperIdentityCommandOutput
+  LookupDeveloperIdentityCommandOutput,
 } from "./commands/LookupDeveloperIdentityCommand.ts";
 import {
   MergeDeveloperIdentitiesCommandInput,
-  MergeDeveloperIdentitiesCommandOutput
+  MergeDeveloperIdentitiesCommandOutput,
 } from "./commands/MergeDeveloperIdentitiesCommand.ts";
 import {
   SetIdentityPoolRolesCommandInput,
-  SetIdentityPoolRolesCommandOutput
+  SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UnlinkDeveloperIdentityCommandInput,
-  UnlinkDeveloperIdentityCommandOutput
+  UnlinkDeveloperIdentityCommandOutput,
 } from "./commands/UnlinkDeveloperIdentityCommand.ts";
-import {
-  UnlinkIdentityCommandInput,
-  UnlinkIdentityCommandOutput
-} from "./commands/UnlinkIdentityCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { UnlinkIdentityCommandInput, UnlinkIdentityCommandOutput } from "./commands/UnlinkIdentityCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateIdentityPoolCommandInput,
-  UpdateIdentityPoolCommandOutput
+  UpdateIdentityPoolCommandOutput,
 } from "./commands/UpdateIdentityPoolCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -86,37 +62,29 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  resolveAwsAuthConfig
-} from "../middleware-signing/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
+import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -125,9 +93,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -176,8 +145,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateIdentityPoolCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -251,14 +219,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -266,9 +239,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoIdentityClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoIdentityClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,9 +248,7 @@ export type CognitoIdentityClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -315,7 +284,7 @@ export class CognitoIdentityClient extends __Client<
   constructor(configuration: CognitoIdentityClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -329,6 +298,7 @@ export class CognitoIdentityClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,11 @@
-import {
-  CodeStarClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarClient.ts";
-import {
-  DescribeUserProfileRequest,
-  DescribeUserProfileResult
-} from "../models/index.ts";
+import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
+import { DescribeUserProfileRequest, DescribeUserProfileResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeUserProfileCommand,
-  serializeAws_json1_1DescribeUserProfileCommand
+  serializeAws_json1_1DescribeUserProfileCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
-export type DescribeUserProfileCommandOutput = DescribeUserProfileResult &
-  __MetadataBearer;
+export type DescribeUserProfileCommandOutput = DescribeUserProfileResult & __MetadataBearer;
 
 export class DescribeUserProfileCommand extends $Command<
   DescribeUserProfileCommandInput,
@@ -49,18 +38,16 @@ export class DescribeUserProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserProfileCommandInput,
-    DescribeUserProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserProfileCommandInput, DescribeUserProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeUserProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeUserProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeUserProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeUserProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfileCommandOutput> {
     return deserializeAws_json1_1DescribeUserProfileCommand(output, context);
   }
 

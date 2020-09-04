@@ -1,18 +1,15 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient.ts";
 import { DescribeMLModelsInput, DescribeMLModelsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeMLModelsCommand,
-  serializeAws_json1_1DescribeMLModelsCommand
+  serializeAws_json1_1DescribeMLModelsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeMLModelsCommandInput = DescribeMLModelsInput;
-export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput &
-  __MetadataBearer;
+export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput & __MetadataBearer;
 
 export class DescribeMLModelsCommand extends $Command<
   DescribeMLModelsCommandInput,
@@ -47,14 +43,15 @@ export class DescribeMLModelsCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeMLModelsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMLModelsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class DescribeMLModelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeMLModelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeMLModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMLModelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMLModelsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMLModelsCommandOutput> {
     return deserializeAws_json1_1DescribeMLModelsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudTrailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudTrailClient.ts";
-import {
-  PutEventSelectorsRequest,
-  PutEventSelectorsResponse
-} from "../models/index.ts";
+import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
+import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutEventSelectorsCommand,
-  serializeAws_json1_1PutEventSelectorsCommand
+  serializeAws_json1_1PutEventSelectorsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutEventSelectorsCommandInput = PutEventSelectorsRequest;
-export type PutEventSelectorsCommandOutput = PutEventSelectorsResponse &
-  __MetadataBearer;
+export type PutEventSelectorsCommandOutput = PutEventSelectorsResponse & __MetadataBearer;
 
 export class PutEventSelectorsCommand extends $Command<
   PutEventSelectorsCommandInput,
@@ -50,14 +39,15 @@ export class PutEventSelectorsCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutEventSelectorsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutEventSelectorsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutEventSelectorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutEventSelectorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutEventSelectorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutEventSelectorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventSelectorsCommandOutput> {
     return deserializeAws_json1_1PutEventSelectorsCommand(output, context);
   }
 

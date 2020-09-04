@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DescribeSourceRegionsMessage,
-  SourceRegionMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
-  serializeAws_queryDescribeSourceRegionsCommand
+  serializeAws_queryDescribeSourceRegionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSourceRegionsCommandInput = DescribeSourceRegionsMessage;
-export type DescribeSourceRegionsCommandOutput = SourceRegionMessage &
-  __MetadataBearer;
+export type DescribeSourceRegionsCommandOutput = SourceRegionMessage & __MetadataBearer;
 
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSourceRegionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSourceRegionsCommandInput,
-    DescribeSourceRegionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSourceRegionsCommandInput, DescribeSourceRegionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSourceRegionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: SourceRegionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeSourceRegionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSourceRegionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSourceRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSourceRegionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSourceRegionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceRegionsCommandOutput> {
     return deserializeAws_queryDescribeSourceRegionsCommand(output, context);
   }
 

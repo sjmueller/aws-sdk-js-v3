@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient.ts";
-import {
-  DeleteIAMPolicyAssignmentRequest,
-  DeleteIAMPolicyAssignmentResponse
-} from "../models/index.ts";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
+import { DeleteIAMPolicyAssignmentRequest, DeleteIAMPolicyAssignmentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
-  serializeAws_restJson1DeleteIAMPolicyAssignmentCommand
+  serializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteIAMPolicyAssignmentCommandInput = DeleteIAMPolicyAssignmentRequest;
-export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse &
-  __MetadataBearer;
+export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse & __MetadataBearer;
 
 export class DeleteIAMPolicyAssignmentCommand extends $Command<
   DeleteIAMPolicyAssignmentCommandInput,
@@ -49,18 +38,16 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIAMPolicyAssignmentCommandInput,
-    DeleteIAMPolicyAssignmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIAMPolicyAssignmentCommandInput, DeleteIAMPolicyAssignmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteIAMPolicyAssignmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIAMPolicyAssignmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteIAMPolicyAssignmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIAMPolicyAssignmentCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteIAMPolicyAssignmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

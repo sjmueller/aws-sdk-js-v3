@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  CreateFlowTemplateRequest,
-  CreateFlowTemplateResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { CreateFlowTemplateRequest, CreateFlowTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateFlowTemplateCommand,
-  serializeAws_json1_1CreateFlowTemplateCommand
+  serializeAws_json1_1CreateFlowTemplateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateFlowTemplateCommandInput = CreateFlowTemplateRequest;
-export type CreateFlowTemplateCommandOutput = CreateFlowTemplateResponse &
-  __MetadataBearer;
+export type CreateFlowTemplateCommandOutput = CreateFlowTemplateResponse & __MetadataBearer;
 
 export class CreateFlowTemplateCommand extends $Command<
   CreateFlowTemplateCommandInput,
@@ -50,14 +39,15 @@ export class CreateFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateFlowTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFlowTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateFlowTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateFlowTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFlowTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateFlowTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1CreateFlowTemplateCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  S3ControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3ControlClient.ts";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
 import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand
+  serializeAws_restXmlUpdateJobStatusCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateJobStatusCommandInput = UpdateJobStatusRequest;
-export type UpdateJobStatusCommandOutput = UpdateJobStatusResult &
-  __MetadataBearer;
+export type UpdateJobStatusCommandOutput = UpdateJobStatusResult & __MetadataBearer;
 
 export class UpdateJobStatusCommand extends $Command<
   UpdateJobStatusCommandInput,
@@ -47,14 +39,15 @@ export class UpdateJobStatusCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateJobStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateJobStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateJobStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateJobStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
     return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
   }
 

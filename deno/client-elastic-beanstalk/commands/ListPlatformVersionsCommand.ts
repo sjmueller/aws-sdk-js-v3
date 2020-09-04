@@ -1,21 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
-import {
-  ListPlatformVersionsRequest,
-  ListPlatformVersionsResult
-} from "../models/index.ts";
+import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/index.ts";
 import {
   deserializeAws_queryListPlatformVersionsCommand,
-  serializeAws_queryListPlatformVersionsCommand
+  serializeAws_queryListPlatformVersionsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPlatformVersionsCommandInput = ListPlatformVersionsRequest;
-export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult &
-  __MetadataBearer;
+export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult & __MetadataBearer;
 
 export class ListPlatformVersionsCommand extends $Command<
   ListPlatformVersionsCommandInput,
@@ -49,18 +42,16 @@ export class ListPlatformVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPlatformVersionsCommandInput,
-    ListPlatformVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPlatformVersionsCommandInput, ListPlatformVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPlatformVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPlatformVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class ListPlatformVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPlatformVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPlatformVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPlatformVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformVersionsCommandOutput> {
     return deserializeAws_queryListPlatformVersionsCommand(output, context);
   }
 

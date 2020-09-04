@@ -1,18 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetDiskSnapshotRequest, GetDiskSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDiskSnapshotCommand,
-  serializeAws_json1_1GetDiskSnapshotCommand
+  serializeAws_json1_1GetDiskSnapshotCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDiskSnapshotCommandInput = GetDiskSnapshotRequest;
-export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult &
-  __MetadataBearer;
+export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult & __MetadataBearer;
 
 export class GetDiskSnapshotCommand extends $Command<
   GetDiskSnapshotCommandInput,
@@ -47,14 +39,15 @@ export class GetDiskSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDiskSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDiskSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetDiskSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDiskSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDiskSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotCommandOutput> {
     return deserializeAws_json1_1GetDiskSnapshotCommand(output, context);
   }
 

@@ -2,197 +2,204 @@ import { CloudWatchLogsClient } from "./CloudWatchLogsClient.ts";
 import {
   AssociateKmsKeyCommand,
   AssociateKmsKeyCommandInput,
-  AssociateKmsKeyCommandOutput
+  AssociateKmsKeyCommandOutput,
 } from "./commands/AssociateKmsKeyCommand.ts";
 import {
   CancelExportTaskCommand,
   CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
+  CancelExportTaskCommandOutput,
 } from "./commands/CancelExportTaskCommand.ts";
 import {
   CreateExportTaskCommand,
   CreateExportTaskCommandInput,
-  CreateExportTaskCommandOutput
+  CreateExportTaskCommandOutput,
 } from "./commands/CreateExportTaskCommand.ts";
 import {
   CreateLogGroupCommand,
   CreateLogGroupCommandInput,
-  CreateLogGroupCommandOutput
+  CreateLogGroupCommandOutput,
 } from "./commands/CreateLogGroupCommand.ts";
 import {
   CreateLogStreamCommand,
   CreateLogStreamCommandInput,
-  CreateLogStreamCommandOutput
+  CreateLogStreamCommandOutput,
 } from "./commands/CreateLogStreamCommand.ts";
 import {
   DeleteDestinationCommand,
   DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput
+  DeleteDestinationCommandOutput,
 } from "./commands/DeleteDestinationCommand.ts";
 import {
   DeleteLogGroupCommand,
   DeleteLogGroupCommandInput,
-  DeleteLogGroupCommandOutput
+  DeleteLogGroupCommandOutput,
 } from "./commands/DeleteLogGroupCommand.ts";
 import {
   DeleteLogStreamCommand,
   DeleteLogStreamCommandInput,
-  DeleteLogStreamCommandOutput
+  DeleteLogStreamCommandOutput,
 } from "./commands/DeleteLogStreamCommand.ts";
 import {
   DeleteMetricFilterCommand,
   DeleteMetricFilterCommandInput,
-  DeleteMetricFilterCommandOutput
+  DeleteMetricFilterCommandOutput,
 } from "./commands/DeleteMetricFilterCommand.ts";
+import {
+  DeleteQueryDefinitionCommand,
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "./commands/DeleteQueryDefinitionCommand.ts";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteRetentionPolicyCommand,
   DeleteRetentionPolicyCommandInput,
-  DeleteRetentionPolicyCommandOutput
+  DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand.ts";
 import {
   DeleteSubscriptionFilterCommand,
   DeleteSubscriptionFilterCommandInput,
-  DeleteSubscriptionFilterCommandOutput
+  DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand.ts";
 import {
   DescribeDestinationsCommand,
   DescribeDestinationsCommandInput,
-  DescribeDestinationsCommandOutput
+  DescribeDestinationsCommandOutput,
 } from "./commands/DescribeDestinationsCommand.ts";
 import {
   DescribeExportTasksCommand,
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand.ts";
 import {
   DescribeLogGroupsCommand,
   DescribeLogGroupsCommandInput,
-  DescribeLogGroupsCommandOutput
+  DescribeLogGroupsCommandOutput,
 } from "./commands/DescribeLogGroupsCommand.ts";
 import {
   DescribeLogStreamsCommand,
   DescribeLogStreamsCommandInput,
-  DescribeLogStreamsCommandOutput
+  DescribeLogStreamsCommandOutput,
 } from "./commands/DescribeLogStreamsCommand.ts";
 import {
   DescribeMetricFiltersCommand,
   DescribeMetricFiltersCommandInput,
-  DescribeMetricFiltersCommandOutput
+  DescribeMetricFiltersCommandOutput,
 } from "./commands/DescribeMetricFiltersCommand.ts";
 import {
   DescribeQueriesCommand,
   DescribeQueriesCommandInput,
-  DescribeQueriesCommandOutput
+  DescribeQueriesCommandOutput,
 } from "./commands/DescribeQueriesCommand.ts";
+import {
+  DescribeQueryDefinitionsCommand,
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "./commands/DescribeQueryDefinitionsCommand.ts";
 import {
   DescribeResourcePoliciesCommand,
   DescribeResourcePoliciesCommandInput,
-  DescribeResourcePoliciesCommandOutput
+  DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand.ts";
 import {
   DescribeSubscriptionFiltersCommand,
   DescribeSubscriptionFiltersCommandInput,
-  DescribeSubscriptionFiltersCommandOutput
+  DescribeSubscriptionFiltersCommandOutput,
 } from "./commands/DescribeSubscriptionFiltersCommand.ts";
 import {
   DisassociateKmsKeyCommand,
   DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput
+  DisassociateKmsKeyCommandOutput,
 } from "./commands/DisassociateKmsKeyCommand.ts";
 import {
   FilterLogEventsCommand,
   FilterLogEventsCommandInput,
-  FilterLogEventsCommandOutput
+  FilterLogEventsCommandOutput,
 } from "./commands/FilterLogEventsCommand.ts";
 import {
   GetLogEventsCommand,
   GetLogEventsCommandInput,
-  GetLogEventsCommandOutput
+  GetLogEventsCommandOutput,
 } from "./commands/GetLogEventsCommand.ts";
 import {
   GetLogGroupFieldsCommand,
   GetLogGroupFieldsCommandInput,
-  GetLogGroupFieldsCommandOutput
+  GetLogGroupFieldsCommandOutput,
 } from "./commands/GetLogGroupFieldsCommand.ts";
 import {
   GetLogRecordCommand,
   GetLogRecordCommandInput,
-  GetLogRecordCommandOutput
+  GetLogRecordCommandOutput,
 } from "./commands/GetLogRecordCommand.ts";
 import {
   GetQueryResultsCommand,
   GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
+  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand.ts";
 import {
   ListTagsLogGroupCommand,
   ListTagsLogGroupCommandInput,
-  ListTagsLogGroupCommandOutput
+  ListTagsLogGroupCommandOutput,
 } from "./commands/ListTagsLogGroupCommand.ts";
 import {
   PutDestinationCommand,
   PutDestinationCommandInput,
-  PutDestinationCommandOutput
+  PutDestinationCommandOutput,
 } from "./commands/PutDestinationCommand.ts";
 import {
   PutDestinationPolicyCommand,
   PutDestinationPolicyCommandInput,
-  PutDestinationPolicyCommandOutput
+  PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand.ts";
 import {
   PutLogEventsCommand,
   PutLogEventsCommandInput,
-  PutLogEventsCommandOutput
+  PutLogEventsCommandOutput,
 } from "./commands/PutLogEventsCommand.ts";
 import {
   PutMetricFilterCommand,
   PutMetricFilterCommandInput,
-  PutMetricFilterCommandOutput
+  PutMetricFilterCommandOutput,
 } from "./commands/PutMetricFilterCommand.ts";
+import {
+  PutQueryDefinitionCommand,
+  PutQueryDefinitionCommandInput,
+  PutQueryDefinitionCommandOutput,
+} from "./commands/PutQueryDefinitionCommand.ts";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
+  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand.ts";
 import {
   PutRetentionPolicyCommand,
   PutRetentionPolicyCommandInput,
-  PutRetentionPolicyCommandOutput
+  PutRetentionPolicyCommandOutput,
 } from "./commands/PutRetentionPolicyCommand.ts";
 import {
   PutSubscriptionFilterCommand,
   PutSubscriptionFilterCommandInput,
-  PutSubscriptionFilterCommandOutput
+  PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand.ts";
-import {
-  StartQueryCommand,
-  StartQueryCommandInput,
-  StartQueryCommandOutput
-} from "./commands/StartQueryCommand.ts";
-import {
-  StopQueryCommand,
-  StopQueryCommandInput,
-  StopQueryCommandOutput
-} from "./commands/StopQueryCommand.ts";
+import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand.ts";
+import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand.ts";
 import {
   TagLogGroupCommand,
   TagLogGroupCommandInput,
-  TagLogGroupCommandOutput
+  TagLogGroupCommandOutput,
 } from "./commands/TagLogGroupCommand.ts";
 import {
   TestMetricFilterCommand,
   TestMetricFilterCommandInput,
-  TestMetricFilterCommandOutput
+  TestMetricFilterCommandOutput,
 } from "./commands/TestMetricFilterCommand.ts";
 import {
   UntagLogGroupCommand,
   UntagLogGroupCommandInput,
-  UntagLogGroupCommandOutput
+  UntagLogGroupCommandOutput,
 } from "./commands/UntagLogGroupCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -264,17 +271,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public associateKmsKey(
     args: AssociateKmsKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateKmsKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateKmsKeyCommandOutput) => void),
     cb?: (err: any, data?: AssociateKmsKeyCommandOutput) => void
   ): Promise<AssociateKmsKeyCommandOutput> | void {
     const command = new AssociateKmsKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -300,17 +304,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public cancelExportTask(
     args: CancelExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): Promise<CancelExportTaskCommandOutput> | void {
     const command = new CancelExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -322,9 +323,9 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    *       log group to an Amazon S3 bucket.</p>
    *          <p>This is an asynchronous call. If all the required information is provided, this
    *       operation initiates an export task and responds with the ID of the task. After the task has started,
-   *       you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can
+   *       you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can
    *       only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time.
-   *       To cancel an export task, use <a>CancelExportTask</a>.</p>
+   *       To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p>
    *          <p>You can export logs from multiple log groups or multiple time ranges to the same S3
    *       bucket. To separate out log data for each export task, you can specify a prefix to be used as
    *       the Amazon S3 key prefix for all exported objects.</p>
@@ -346,17 +347,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createExportTask(
     args: CreateExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateExportTaskCommandOutput) => void
   ): Promise<CreateExportTaskCommandOutput> | void {
     const command = new CreateExportTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -406,17 +404,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createLogGroup(
     args: CreateLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateLogGroupCommandOutput) => void
   ): Promise<CreateLogGroupCommandOutput> | void {
     const command = new CreateLogGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -455,17 +450,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createLogStream(
     args: CreateLogStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateLogStreamCommandOutput) => void
   ): Promise<CreateLogStreamCommandOutput> | void {
     const command = new CreateLogStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -492,17 +484,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteDestination(
     args: DeleteDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDestinationCommandOutput) => void),
     cb?: (err: any, data?: DeleteDestinationCommandOutput) => void
   ): Promise<DeleteDestinationCommandOutput> | void {
     const command = new DeleteDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -528,17 +517,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteLogGroup(
     args: DeleteLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogGroupCommandOutput) => void
   ): Promise<DeleteLogGroupCommandOutput> | void {
     const command = new DeleteLogGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -564,17 +550,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteLogStream(
     args: DeleteLogStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogStreamCommandOutput) => void
   ): Promise<DeleteLogStreamCommandOutput> | void {
     const command = new DeleteLogStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -599,17 +582,43 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteMetricFilter(
     args: DeleteMetricFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMetricFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMetricFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteMetricFilterCommandOutput) => void
   ): Promise<DeleteMetricFilterCommandOutput> | void {
     const command = new DeleteMetricFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueryDefinitionCommandOutput>;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    cb: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): void;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): void;
+  public deleteQueryDefinition(
+    args: DeleteQueryDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueryDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
+  ): Promise<DeleteQueryDefinitionCommandOutput> | void {
+    const command = new DeleteQueryDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -635,17 +644,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -671,17 +677,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteRetentionPolicy(
     args: DeleteRetentionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRetentionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRetentionPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteRetentionPolicyCommandOutput) => void
   ): Promise<DeleteRetentionPolicyCommandOutput> | void {
     const command = new DeleteRetentionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -706,17 +709,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteSubscriptionFilter(
     args: DeleteSubscriptionFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriptionFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriptionFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriptionFilterCommandOutput) => void
   ): Promise<DeleteSubscriptionFilterCommandOutput> | void {
     const command = new DeleteSubscriptionFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -741,17 +741,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeDestinations(
     args: DescribeDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDestinationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDestinationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDestinationsCommandOutput) => void
   ): Promise<DescribeDestinationsCommandOutput> | void {
     const command = new DescribeDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -777,17 +774,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): Promise<DescribeExportTasksCommandOutput> | void {
     const command = new DescribeExportTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -813,17 +807,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeLogGroups(
     args: DescribeLogGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLogGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLogGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLogGroupsCommandOutput) => void
   ): Promise<DescribeLogGroupsCommandOutput> | void {
     const command = new DescribeLogGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -851,17 +842,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeLogStreams(
     args: DescribeLogStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLogStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLogStreamsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLogStreamsCommandOutput) => void
   ): Promise<DescribeLogStreamsCommandOutput> | void {
     const command = new DescribeLogStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -889,17 +877,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeMetricFilters(
     args: DescribeMetricFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMetricFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMetricFiltersCommandOutput) => void),
     cb?: (err: any, data?: DescribeMetricFiltersCommandOutput) => void
   ): Promise<DescribeMetricFiltersCommandOutput> | void {
     const command = new DescribeMetricFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -925,17 +910,43 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeQueries(
     args: DescribeQueriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeQueriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeQueriesCommandOutput) => void
   ): Promise<DescribeQueriesCommandOutput> | void {
     const command = new DescribeQueriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueryDefinitionsCommandOutput>;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): void;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): void;
+  public describeQueryDefinitions(
+    args: DescribeQueryDefinitionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueryDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
+  ): Promise<DescribeQueryDefinitionsCommandOutput> | void {
+    const command = new DescribeQueryDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -960,17 +971,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeResourcePolicies(
     args: DescribeResourcePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourcePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourcePoliciesCommandOutput) => void
   ): Promise<DescribeResourcePoliciesCommandOutput> | void {
     const command = new DescribeResourcePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -996,17 +1004,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeSubscriptionFilters(
     args: DescribeSubscriptionFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubscriptionFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubscriptionFiltersCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubscriptionFiltersCommandOutput) => void
   ): Promise<DescribeSubscriptionFiltersCommandOutput> | void {
     const command = new DescribeSubscriptionFiltersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1034,17 +1039,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public disassociateKmsKey(
     args: DisassociateKmsKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateKmsKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateKmsKeyCommandOutput) => void),
     cb?: (err: any, data?: DisassociateKmsKeyCommandOutput) => void
   ): Promise<DisassociateKmsKeyCommandOutput> | void {
     const command = new DisassociateKmsKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1074,17 +1076,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public filterLogEvents(
     args: FilterLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FilterLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FilterLogEventsCommandOutput) => void),
     cb?: (err: any, data?: FilterLogEventsCommandOutput) => void
   ): Promise<FilterLogEventsCommandOutput> | void {
     const command = new FilterLogEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1102,10 +1101,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     args: GetLogEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLogEventsCommandOutput>;
-  public getLogEvents(
-    args: GetLogEventsCommandInput,
-    cb: (err: any, data?: GetLogEventsCommandOutput) => void
-  ): void;
+  public getLogEvents(args: GetLogEventsCommandInput, cb: (err: any, data?: GetLogEventsCommandOutput) => void): void;
   public getLogEvents(
     args: GetLogEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -1113,17 +1109,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getLogEvents(
     args: GetLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogEventsCommandOutput) => void),
     cb?: (err: any, data?: GetLogEventsCommandOutput) => void
   ): Promise<GetLogEventsCommandOutput> | void {
     const command = new GetLogEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1134,7 +1127,9 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    * <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events
    *     that contain each field. The search is limited to a time period that you specify.</p>
    *          <p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For
-   *       example, <code>@timestamp</code> is the timestamp of each log event.</p>
+   *       example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are
+   *       generated by CloudWatch logs, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
    *          <p>The response results are sorted by the frequency percentage, starting
    *     with the highest percentage.</p>
    */
@@ -1153,17 +1148,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getLogGroupFields(
     args: GetLogGroupFieldsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLogGroupFieldsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogGroupFieldsCommandOutput) => void),
     cb?: (err: any, data?: GetLogGroupFieldsCommandOutput) => void
   ): Promise<GetLogGroupFieldsCommandOutput> | void {
     const command = new GetLogGroupFieldsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1180,10 +1172,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     args: GetLogRecordCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLogRecordCommandOutput>;
-  public getLogRecord(
-    args: GetLogRecordCommandInput,
-    cb: (err: any, data?: GetLogRecordCommandOutput) => void
-  ): void;
+  public getLogRecord(args: GetLogRecordCommandInput, cb: (err: any, data?: GetLogRecordCommandOutput) => void): void;
   public getLogRecord(
     args: GetLogRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -1191,17 +1180,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getLogRecord(
     args: GetLogRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLogRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogRecordCommandOutput) => void),
     cb?: (err: any, data?: GetLogRecordCommandOutput) => void
   ): Promise<GetLogRecordCommandOutput> | void {
     const command = new GetLogRecordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1211,11 +1197,11 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Returns the results from the specified query.</p>
    *          <p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which
-   *       is the identifier for the log record. You can use the value of <code>@ptr</code> in a  operation
+   *         is the identifier for the log record. You can use the value of <code>@ptr</code> in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a> operation
    *     to get the full log record.</p>
    *          <p>
    *             <code>GetQueryResults</code>
-   *       does not start a query execution. To run a query, use .</p>
+   *       does not start a query execution. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.</p>
    *          <p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation
    *       returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status,
    *       you can retry the operation later to see the final results. </p>
@@ -1235,17 +1221,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1270,17 +1253,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsLogGroupCommandOutput) => void),
     cb?: (err: any, data?: ListTagsLogGroupCommandOutput) => void
   ): Promise<ListTagsLogGroupCommandOutput> | void {
     const command = new ListTagsLogGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1291,11 +1271,11 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
    *          <p>A destination encapsulates a physical resource (such
    *       as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events
-   *       for a different account, ingested using <a>PutLogEvents</a>.</p>
+   *       for a different account, ingested using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
    *          <p>Through an access policy, a destination controls what is written to it.
    *       By default, <code>PutDestination</code> does not set any access policy with the destination,
-   *       which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against
-   *       this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+   *       which means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against
+   *       this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
    */
   public putDestination(
     args: PutDestinationCommandInput,
@@ -1312,17 +1292,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putDestination(
     args: PutDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDestinationCommandOutput) => void),
     cb?: (err: any, data?: PutDestinationCommandOutput) => void
   ): Promise<PutDestinationCommandOutput> | void {
     const command = new PutDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1349,17 +1326,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putDestinationPolicy(
     args: PutDestinationPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDestinationPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDestinationPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutDestinationPolicyCommandOutput) => void
   ): Promise<PutDestinationPolicyCommandOutput> | void {
     const command = new PutDestinationPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1410,10 +1384,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
     args: PutLogEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutLogEventsCommandOutput>;
-  public putLogEvents(
-    args: PutLogEventsCommandInput,
-    cb: (err: any, data?: PutLogEventsCommandOutput) => void
-  ): void;
+  public putLogEvents(args: PutLogEventsCommandInput, cb: (err: any, data?: PutLogEventsCommandOutput) => void): void;
   public putLogEvents(
     args: PutLogEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -1421,17 +1392,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putLogEvents(
     args: PutLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLogEventsCommandOutput) => void),
     cb?: (err: any, data?: PutLogEventsCommandOutput) => void
   ): Promise<PutLogEventsCommandOutput> | void {
     const command = new PutLogEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1441,7 +1409,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Creates or updates a metric filter and associates it with the specified log group.
    *       Metric filters allow you to configure rules to extract metric data from log events ingested
-   *       through <a>PutLogEvents</a>.</p>
+   *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
    *          <p>The maximum number of metric filters that can be associated with a log group is
    *       100.</p>
    */
@@ -1460,17 +1428,43 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putMetricFilter(
     args: PutMetricFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricFilterCommandOutput) => void),
     cb?: (err: any, data?: PutMetricFilterCommandOutput) => void
   ): Promise<PutMetricFilterCommandOutput> | void {
     const command = new PutMetricFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutQueryDefinitionCommandOutput>;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    cb: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): void;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): void;
+  public putQueryDefinition(
+    args: PutQueryDefinitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutQueryDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: PutQueryDefinitionCommandOutput) => void
+  ): Promise<PutQueryDefinitionCommandOutput> | void {
+    const command = new PutQueryDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1496,17 +1490,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): Promise<PutResourcePolicyCommandOutput> | void {
     const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1533,17 +1524,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putRetentionPolicy(
     args: PutRetentionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRetentionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRetentionPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutRetentionPolicyCommandOutput) => void
   ): Promise<PutRetentionPolicyCommandOutput> | void {
     const command = new PutRetentionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1553,7 +1541,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   /**
    * <p>Creates or updates a subscription filter and associates it with the specified log
    *       group. Subscription filters allow you to subscribe to a real-time stream of log events
-   *       ingested through <a>PutLogEvents</a> and have them delivered to a specific
+   *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific
    *       destination. Currently, the supported destinations are:</p>
    *          <ul>
    *             <li>
@@ -1592,17 +1580,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putSubscriptionFilter(
     args: PutSubscriptionFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSubscriptionFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSubscriptionFilterCommandOutput) => void),
     cb?: (err: any, data?: PutSubscriptionFilterCommandOutput) => void
   ): Promise<PutSubscriptionFilterCommandOutput> | void {
     const command = new PutSubscriptionFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1617,14 +1602,8 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    *          <p>Queries time out after 15 minutes of execution. If your queries are timing out,
    *       reduce the time range being searched, or partition your query into a number of queries.</p>
    */
-  public startQuery(
-    args: StartQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartQueryCommandOutput>;
-  public startQuery(
-    args: StartQueryCommandInput,
-    cb: (err: any, data?: StartQueryCommandOutput) => void
-  ): void;
+  public startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
+  public startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
   public startQuery(
     args: StartQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1632,17 +1611,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public startQuery(
     args: StartQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryCommandOutput) => void),
     cb?: (err: any, data?: StartQueryCommandOutput) => void
   ): Promise<StartQueryCommandOutput> | void {
     const command = new StartQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1653,14 +1629,8 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
    * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
    *     returns an error indicating that the specified query is not running.</p>
    */
-  public stopQuery(
-    args: StopQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopQueryCommandOutput>;
-  public stopQuery(
-    args: StopQueryCommandInput,
-    cb: (err: any, data?: StopQueryCommandOutput) => void
-  ): void;
+  public stopQuery(args: StopQueryCommandInput, options?: __HttpHandlerOptions): Promise<StopQueryCommandOutput>;
+  public stopQuery(args: StopQueryCommandInput, cb: (err: any, data?: StopQueryCommandOutput) => void): void;
   public stopQuery(
     args: StopQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1668,17 +1638,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public stopQuery(
     args: StopQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopQueryCommandOutput) => void),
     cb?: (err: any, data?: StopQueryCommandOutput) => void
   ): Promise<StopQueryCommandOutput> | void {
     const command = new StopQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1687,19 +1654,13 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
 
   /**
    * <p>Adds or updates the specified tags for the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>.
-   *       To remove tags, use <a>UntagLogGroup</a>.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+   *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
    *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
    */
-  public tagLogGroup(
-    args: TagLogGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagLogGroupCommandOutput>;
-  public tagLogGroup(
-    args: TagLogGroupCommandInput,
-    cb: (err: any, data?: TagLogGroupCommandOutput) => void
-  ): void;
+  public tagLogGroup(args: TagLogGroupCommandInput, options?: __HttpHandlerOptions): Promise<TagLogGroupCommandOutput>;
+  public tagLogGroup(args: TagLogGroupCommandInput, cb: (err: any, data?: TagLogGroupCommandOutput) => void): void;
   public tagLogGroup(
     args: TagLogGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1707,17 +1668,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public tagLogGroup(
     args: TagLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagLogGroupCommandOutput) => void),
     cb?: (err: any, data?: TagLogGroupCommandOutput) => void
   ): Promise<TagLogGroupCommandOutput> | void {
     const command = new TagLogGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1743,17 +1701,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public testMetricFilter(
     args: TestMetricFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestMetricFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestMetricFilterCommandOutput) => void),
     cb?: (err: any, data?: TestMetricFilterCommandOutput) => void
   ): Promise<TestMetricFilterCommandOutput> | void {
     const command = new TestMetricFilterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1762,8 +1717,8 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
 
   /**
    * <p>Removes the specified tags from the specified log group.</p>
-   *          <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>.
-   *       To add tags, use <a>UntagLogGroup</a>.</p>
+   *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
+   *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
    */
   public untagLogGroup(
     args: UntagLogGroupCommandInput,
@@ -1780,17 +1735,14 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public untagLogGroup(
     args: UntagLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagLogGroupCommandOutput) => void),
     cb?: (err: any, data?: UntagLogGroupCommandOutput) => void
   ): Promise<UntagLogGroupCommandOutput> | void {
     const command = new UntagLogGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,286 +1,235 @@
 import {
   CloneReceiptRuleSetCommandInput,
-  CloneReceiptRuleSetCommandOutput
+  CloneReceiptRuleSetCommandOutput,
 } from "./commands/CloneReceiptRuleSetCommand.ts";
 import {
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand.ts";
 import {
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand.ts";
 import {
   CreateConfigurationSetTrackingOptionsCommandInput,
-  CreateConfigurationSetTrackingOptionsCommandOutput
+  CreateConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/CreateConfigurationSetTrackingOptionsCommand.ts";
 import {
   CreateCustomVerificationEmailTemplateCommandInput,
-  CreateCustomVerificationEmailTemplateCommandOutput
+  CreateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/CreateCustomVerificationEmailTemplateCommand.ts";
 import {
   CreateReceiptFilterCommandInput,
-  CreateReceiptFilterCommandOutput
+  CreateReceiptFilterCommandOutput,
 } from "./commands/CreateReceiptFilterCommand.ts";
-import {
-  CreateReceiptRuleCommandInput,
-  CreateReceiptRuleCommandOutput
-} from "./commands/CreateReceiptRuleCommand.ts";
+import { CreateReceiptRuleCommandInput, CreateReceiptRuleCommandOutput } from "./commands/CreateReceiptRuleCommand.ts";
 import {
   CreateReceiptRuleSetCommandInput,
-  CreateReceiptRuleSetCommandOutput
+  CreateReceiptRuleSetCommandOutput,
 } from "./commands/CreateReceiptRuleSetCommand.ts";
-import {
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput
-} from "./commands/CreateTemplateCommand.ts";
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand.ts";
 import {
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand.ts";
 import {
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand.ts";
 import {
   DeleteConfigurationSetTrackingOptionsCommandInput,
-  DeleteConfigurationSetTrackingOptionsCommandOutput
+  DeleteConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/DeleteConfigurationSetTrackingOptionsCommand.ts";
 import {
   DeleteCustomVerificationEmailTemplateCommandInput,
-  DeleteCustomVerificationEmailTemplateCommandOutput
+  DeleteCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/DeleteCustomVerificationEmailTemplateCommand.ts";
-import {
-  DeleteIdentityCommandInput,
-  DeleteIdentityCommandOutput
-} from "./commands/DeleteIdentityCommand.ts";
+import { DeleteIdentityCommandInput, DeleteIdentityCommandOutput } from "./commands/DeleteIdentityCommand.ts";
 import {
   DeleteIdentityPolicyCommandInput,
-  DeleteIdentityPolicyCommandOutput
+  DeleteIdentityPolicyCommandOutput,
 } from "./commands/DeleteIdentityPolicyCommand.ts";
 import {
   DeleteReceiptFilterCommandInput,
-  DeleteReceiptFilterCommandOutput
+  DeleteReceiptFilterCommandOutput,
 } from "./commands/DeleteReceiptFilterCommand.ts";
-import {
-  DeleteReceiptRuleCommandInput,
-  DeleteReceiptRuleCommandOutput
-} from "./commands/DeleteReceiptRuleCommand.ts";
+import { DeleteReceiptRuleCommandInput, DeleteReceiptRuleCommandOutput } from "./commands/DeleteReceiptRuleCommand.ts";
 import {
   DeleteReceiptRuleSetCommandInput,
-  DeleteReceiptRuleSetCommandOutput
+  DeleteReceiptRuleSetCommandOutput,
 } from "./commands/DeleteReceiptRuleSetCommand.ts";
-import {
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput
-} from "./commands/DeleteTemplateCommand.ts";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand.ts";
 import {
   DeleteVerifiedEmailAddressCommandInput,
-  DeleteVerifiedEmailAddressCommandOutput
+  DeleteVerifiedEmailAddressCommandOutput,
 } from "./commands/DeleteVerifiedEmailAddressCommand.ts";
 import {
   DescribeActiveReceiptRuleSetCommandInput,
-  DescribeActiveReceiptRuleSetCommandOutput
+  DescribeActiveReceiptRuleSetCommandOutput,
 } from "./commands/DescribeActiveReceiptRuleSetCommand.ts";
 import {
   DescribeConfigurationSetCommandInput,
-  DescribeConfigurationSetCommandOutput
+  DescribeConfigurationSetCommandOutput,
 } from "./commands/DescribeConfigurationSetCommand.ts";
 import {
   DescribeReceiptRuleCommandInput,
-  DescribeReceiptRuleCommandOutput
+  DescribeReceiptRuleCommandOutput,
 } from "./commands/DescribeReceiptRuleCommand.ts";
 import {
   DescribeReceiptRuleSetCommandInput,
-  DescribeReceiptRuleSetCommandOutput
+  DescribeReceiptRuleSetCommandOutput,
 } from "./commands/DescribeReceiptRuleSetCommand.ts";
 import {
   GetAccountSendingEnabledCommandInput,
-  GetAccountSendingEnabledCommandOutput
+  GetAccountSendingEnabledCommandOutput,
 } from "./commands/GetAccountSendingEnabledCommand.ts";
 import {
   GetCustomVerificationEmailTemplateCommandInput,
-  GetCustomVerificationEmailTemplateCommandOutput
+  GetCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/GetCustomVerificationEmailTemplateCommand.ts";
 import {
   GetIdentityDkimAttributesCommandInput,
-  GetIdentityDkimAttributesCommandOutput
+  GetIdentityDkimAttributesCommandOutput,
 } from "./commands/GetIdentityDkimAttributesCommand.ts";
 import {
   GetIdentityMailFromDomainAttributesCommandInput,
-  GetIdentityMailFromDomainAttributesCommandOutput
+  GetIdentityMailFromDomainAttributesCommandOutput,
 } from "./commands/GetIdentityMailFromDomainAttributesCommand.ts";
 import {
   GetIdentityNotificationAttributesCommandInput,
-  GetIdentityNotificationAttributesCommandOutput
+  GetIdentityNotificationAttributesCommandOutput,
 } from "./commands/GetIdentityNotificationAttributesCommand.ts";
 import {
   GetIdentityPoliciesCommandInput,
-  GetIdentityPoliciesCommandOutput
+  GetIdentityPoliciesCommandOutput,
 } from "./commands/GetIdentityPoliciesCommand.ts";
 import {
   GetIdentityVerificationAttributesCommandInput,
-  GetIdentityVerificationAttributesCommandOutput
+  GetIdentityVerificationAttributesCommandOutput,
 } from "./commands/GetIdentityVerificationAttributesCommand.ts";
-import {
-  GetSendQuotaCommandInput,
-  GetSendQuotaCommandOutput
-} from "./commands/GetSendQuotaCommand.ts";
-import {
-  GetSendStatisticsCommandInput,
-  GetSendStatisticsCommandOutput
-} from "./commands/GetSendStatisticsCommand.ts";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand.ts";
+import { GetSendQuotaCommandInput, GetSendQuotaCommandOutput } from "./commands/GetSendQuotaCommand.ts";
+import { GetSendStatisticsCommandInput, GetSendStatisticsCommandOutput } from "./commands/GetSendStatisticsCommand.ts";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand.ts";
 import {
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand.ts";
 import {
   ListCustomVerificationEmailTemplatesCommandInput,
-  ListCustomVerificationEmailTemplatesCommandOutput
+  ListCustomVerificationEmailTemplatesCommandOutput,
 } from "./commands/ListCustomVerificationEmailTemplatesCommand.ts";
-import {
-  ListIdentitiesCommandInput,
-  ListIdentitiesCommandOutput
-} from "./commands/ListIdentitiesCommand.ts";
+import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "./commands/ListIdentitiesCommand.ts";
 import {
   ListIdentityPoliciesCommandInput,
-  ListIdentityPoliciesCommandOutput
+  ListIdentityPoliciesCommandOutput,
 } from "./commands/ListIdentityPoliciesCommand.ts";
 import {
   ListReceiptFiltersCommandInput,
-  ListReceiptFiltersCommandOutput
+  ListReceiptFiltersCommandOutput,
 } from "./commands/ListReceiptFiltersCommand.ts";
 import {
   ListReceiptRuleSetsCommandInput,
-  ListReceiptRuleSetsCommandOutput
+  ListReceiptRuleSetsCommandOutput,
 } from "./commands/ListReceiptRuleSetsCommand.ts";
-import {
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
-} from "./commands/ListTemplatesCommand.ts";
+import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand.ts";
 import {
   ListVerifiedEmailAddressesCommandInput,
-  ListVerifiedEmailAddressesCommandOutput
+  ListVerifiedEmailAddressesCommandOutput,
 } from "./commands/ListVerifiedEmailAddressesCommand.ts";
 import {
   PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput
+  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand.ts";
-import {
-  PutIdentityPolicyCommandInput,
-  PutIdentityPolicyCommandOutput
-} from "./commands/PutIdentityPolicyCommand.ts";
+import { PutIdentityPolicyCommandInput, PutIdentityPolicyCommandOutput } from "./commands/PutIdentityPolicyCommand.ts";
 import {
   ReorderReceiptRuleSetCommandInput,
-  ReorderReceiptRuleSetCommandOutput
+  ReorderReceiptRuleSetCommandOutput,
 } from "./commands/ReorderReceiptRuleSetCommand.ts";
-import {
-  SendBounceCommandInput,
-  SendBounceCommandOutput
-} from "./commands/SendBounceCommand.ts";
+import { SendBounceCommandInput, SendBounceCommandOutput } from "./commands/SendBounceCommand.ts";
 import {
   SendBulkTemplatedEmailCommandInput,
-  SendBulkTemplatedEmailCommandOutput
+  SendBulkTemplatedEmailCommandOutput,
 } from "./commands/SendBulkTemplatedEmailCommand.ts";
 import {
   SendCustomVerificationEmailCommandInput,
-  SendCustomVerificationEmailCommandOutput
+  SendCustomVerificationEmailCommandOutput,
 } from "./commands/SendCustomVerificationEmailCommand.ts";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand.ts";
-import {
-  SendRawEmailCommandInput,
-  SendRawEmailCommandOutput
-} from "./commands/SendRawEmailCommand.ts";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand.ts";
+import { SendRawEmailCommandInput, SendRawEmailCommandOutput } from "./commands/SendRawEmailCommand.ts";
 import {
   SendTemplatedEmailCommandInput,
-  SendTemplatedEmailCommandOutput
+  SendTemplatedEmailCommandOutput,
 } from "./commands/SendTemplatedEmailCommand.ts";
 import {
   SetActiveReceiptRuleSetCommandInput,
-  SetActiveReceiptRuleSetCommandOutput
+  SetActiveReceiptRuleSetCommandOutput,
 } from "./commands/SetActiveReceiptRuleSetCommand.ts";
 import {
   SetIdentityDkimEnabledCommandInput,
-  SetIdentityDkimEnabledCommandOutput
+  SetIdentityDkimEnabledCommandOutput,
 } from "./commands/SetIdentityDkimEnabledCommand.ts";
 import {
   SetIdentityFeedbackForwardingEnabledCommandInput,
-  SetIdentityFeedbackForwardingEnabledCommandOutput
+  SetIdentityFeedbackForwardingEnabledCommandOutput,
 } from "./commands/SetIdentityFeedbackForwardingEnabledCommand.ts";
 import {
   SetIdentityHeadersInNotificationsEnabledCommandInput,
-  SetIdentityHeadersInNotificationsEnabledCommandOutput
+  SetIdentityHeadersInNotificationsEnabledCommandOutput,
 } from "./commands/SetIdentityHeadersInNotificationsEnabledCommand.ts";
 import {
   SetIdentityMailFromDomainCommandInput,
-  SetIdentityMailFromDomainCommandOutput
+  SetIdentityMailFromDomainCommandOutput,
 } from "./commands/SetIdentityMailFromDomainCommand.ts";
 import {
   SetIdentityNotificationTopicCommandInput,
-  SetIdentityNotificationTopicCommandOutput
+  SetIdentityNotificationTopicCommandOutput,
 } from "./commands/SetIdentityNotificationTopicCommand.ts";
 import {
   SetReceiptRulePositionCommandInput,
-  SetReceiptRulePositionCommandOutput
+  SetReceiptRulePositionCommandOutput,
 } from "./commands/SetReceiptRulePositionCommand.ts";
 import {
   TestRenderTemplateCommandInput,
-  TestRenderTemplateCommandOutput
+  TestRenderTemplateCommandOutput,
 } from "./commands/TestRenderTemplateCommand.ts";
 import {
   UpdateAccountSendingEnabledCommandInput,
-  UpdateAccountSendingEnabledCommandOutput
+  UpdateAccountSendingEnabledCommandOutput,
 } from "./commands/UpdateAccountSendingEnabledCommand.ts";
 import {
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand.ts";
 import {
   UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-  UpdateConfigurationSetReputationMetricsEnabledCommandOutput
+  UpdateConfigurationSetReputationMetricsEnabledCommandOutput,
 } from "./commands/UpdateConfigurationSetReputationMetricsEnabledCommand.ts";
 import {
   UpdateConfigurationSetSendingEnabledCommandInput,
-  UpdateConfigurationSetSendingEnabledCommandOutput
+  UpdateConfigurationSetSendingEnabledCommandOutput,
 } from "./commands/UpdateConfigurationSetSendingEnabledCommand.ts";
 import {
   UpdateConfigurationSetTrackingOptionsCommandInput,
-  UpdateConfigurationSetTrackingOptionsCommandOutput
+  UpdateConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/UpdateConfigurationSetTrackingOptionsCommand.ts";
 import {
   UpdateCustomVerificationEmailTemplateCommandInput,
-  UpdateCustomVerificationEmailTemplateCommandOutput
+  UpdateCustomVerificationEmailTemplateCommandOutput,
 } from "./commands/UpdateCustomVerificationEmailTemplateCommand.ts";
-import {
-  UpdateReceiptRuleCommandInput,
-  UpdateReceiptRuleCommandOutput
-} from "./commands/UpdateReceiptRuleCommand.ts";
-import {
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput
-} from "./commands/UpdateTemplateCommand.ts";
-import {
-  VerifyDomainDkimCommandInput,
-  VerifyDomainDkimCommandOutput
-} from "./commands/VerifyDomainDkimCommand.ts";
+import { UpdateReceiptRuleCommandInput, UpdateReceiptRuleCommandOutput } from "./commands/UpdateReceiptRuleCommand.ts";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand.ts";
+import { VerifyDomainDkimCommandInput, VerifyDomainDkimCommandOutput } from "./commands/VerifyDomainDkimCommand.ts";
 import {
   VerifyDomainIdentityCommandInput,
-  VerifyDomainIdentityCommandOutput
+  VerifyDomainIdentityCommandOutput,
 } from "./commands/VerifyDomainIdentityCommand.ts";
 import {
   VerifyEmailAddressCommandInput,
-  VerifyEmailAddressCommandOutput
+  VerifyEmailAddressCommandOutput,
 } from "./commands/VerifyEmailAddressCommand.ts";
 import {
   VerifyEmailIdentityCommandInput,
-  VerifyEmailIdentityCommandOutput
+  VerifyEmailIdentityCommandOutput,
 } from "./commands/VerifyEmailIdentityCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -289,38 +238,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -329,9 +274,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -480,8 +426,7 @@ export type ServiceOutputTypes =
   | VerifyEmailAddressCommandOutput
   | VerifyEmailIdentityCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -555,14 +500,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -570,9 +520,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SESClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SESClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -581,9 +529,7 @@ export type SESClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SESClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SESClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -614,7 +560,7 @@ export class SESClient extends __Client<
   constructor(configuration: SESClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -629,6 +575,7 @@ export class SESClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

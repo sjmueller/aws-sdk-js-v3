@@ -2,212 +2,212 @@ import { DocDBClient } from "./DocDBClient.ts";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommand,
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand.ts";
 import {
   CopyDBClusterParameterGroupCommand,
   CopyDBClusterParameterGroupCommandInput,
-  CopyDBClusterParameterGroupCommandOutput
+  CopyDBClusterParameterGroupCommandOutput,
 } from "./commands/CopyDBClusterParameterGroupCommand.ts";
 import {
   CopyDBClusterSnapshotCommand,
   CopyDBClusterSnapshotCommandInput,
-  CopyDBClusterSnapshotCommandOutput
+  CopyDBClusterSnapshotCommandOutput,
 } from "./commands/CopyDBClusterSnapshotCommand.ts";
 import {
   CreateDBClusterCommand,
   CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput
+  CreateDBClusterCommandOutput,
 } from "./commands/CreateDBClusterCommand.ts";
 import {
   CreateDBClusterParameterGroupCommand,
   CreateDBClusterParameterGroupCommandInput,
-  CreateDBClusterParameterGroupCommandOutput
+  CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand.ts";
 import {
   CreateDBClusterSnapshotCommand,
   CreateDBClusterSnapshotCommandInput,
-  CreateDBClusterSnapshotCommandOutput
+  CreateDBClusterSnapshotCommandOutput,
 } from "./commands/CreateDBClusterSnapshotCommand.ts";
 import {
   CreateDBInstanceCommand,
   CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput
+  CreateDBInstanceCommandOutput,
 } from "./commands/CreateDBInstanceCommand.ts";
 import {
   CreateDBSubnetGroupCommand,
   CreateDBSubnetGroupCommandInput,
-  CreateDBSubnetGroupCommandOutput
+  CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand.ts";
 import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput
+  DeleteDBClusterCommandOutput,
 } from "./commands/DeleteDBClusterCommand.ts";
 import {
   DeleteDBClusterParameterGroupCommand,
   DeleteDBClusterParameterGroupCommandInput,
-  DeleteDBClusterParameterGroupCommandOutput
+  DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand.ts";
 import {
   DeleteDBClusterSnapshotCommand,
   DeleteDBClusterSnapshotCommandInput,
-  DeleteDBClusterSnapshotCommandOutput
+  DeleteDBClusterSnapshotCommandOutput,
 } from "./commands/DeleteDBClusterSnapshotCommand.ts";
 import {
   DeleteDBInstanceCommand,
   DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput
+  DeleteDBInstanceCommandOutput,
 } from "./commands/DeleteDBInstanceCommand.ts";
 import {
   DeleteDBSubnetGroupCommand,
   DeleteDBSubnetGroupCommandInput,
-  DeleteDBSubnetGroupCommandOutput
+  DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand.ts";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand.ts";
 import {
   DescribeDBClusterParameterGroupsCommand,
   DescribeDBClusterParameterGroupsCommandInput,
-  DescribeDBClusterParameterGroupsCommandOutput
+  DescribeDBClusterParameterGroupsCommandOutput,
 } from "./commands/DescribeDBClusterParameterGroupsCommand.ts";
 import {
   DescribeDBClusterParametersCommand,
   DescribeDBClusterParametersCommandInput,
-  DescribeDBClusterParametersCommandOutput
+  DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand.ts";
 import {
   DescribeDBClusterSnapshotAttributesCommand,
   DescribeDBClusterSnapshotAttributesCommandInput,
-  DescribeDBClusterSnapshotAttributesCommandOutput
+  DescribeDBClusterSnapshotAttributesCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotAttributesCommand.ts";
 import {
   DescribeDBClusterSnapshotsCommand,
   DescribeDBClusterSnapshotsCommandInput,
-  DescribeDBClusterSnapshotsCommandOutput
+  DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand.ts";
 import {
   DescribeDBClustersCommand,
   DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput
+  DescribeDBClustersCommandOutput,
 } from "./commands/DescribeDBClustersCommand.ts";
 import {
   DescribeDBEngineVersionsCommand,
   DescribeDBEngineVersionsCommandInput,
-  DescribeDBEngineVersionsCommandOutput
+  DescribeDBEngineVersionsCommandOutput,
 } from "./commands/DescribeDBEngineVersionsCommand.ts";
 import {
   DescribeDBInstancesCommand,
   DescribeDBInstancesCommandInput,
-  DescribeDBInstancesCommandOutput
+  DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand.ts";
 import {
   DescribeDBSubnetGroupsCommand,
   DescribeDBSubnetGroupsCommandInput,
-  DescribeDBSubnetGroupsCommandOutput
+  DescribeDBSubnetGroupsCommandOutput,
 } from "./commands/DescribeDBSubnetGroupsCommand.ts";
 import {
   DescribeEngineDefaultClusterParametersCommand,
   DescribeEngineDefaultClusterParametersCommandInput,
-  DescribeEngineDefaultClusterParametersCommandOutput
+  DescribeEngineDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeEngineDefaultClusterParametersCommand.ts";
 import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand.ts";
 import {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribeOrderableDBInstanceOptionsCommandInput,
-  DescribeOrderableDBInstanceOptionsCommandOutput
+  DescribeOrderableDBInstanceOptionsCommandOutput,
 } from "./commands/DescribeOrderableDBInstanceOptionsCommand.ts";
 import {
   DescribePendingMaintenanceActionsCommand,
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand.ts";
 import {
   FailoverDBClusterCommand,
   FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput
+  FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyDBClusterCommand,
   ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput
+  ModifyDBClusterCommandOutput,
 } from "./commands/ModifyDBClusterCommand.ts";
 import {
   ModifyDBClusterParameterGroupCommand,
   ModifyDBClusterParameterGroupCommandInput,
-  ModifyDBClusterParameterGroupCommandOutput
+  ModifyDBClusterParameterGroupCommandOutput,
 } from "./commands/ModifyDBClusterParameterGroupCommand.ts";
 import {
   ModifyDBClusterSnapshotAttributeCommand,
   ModifyDBClusterSnapshotAttributeCommandInput,
-  ModifyDBClusterSnapshotAttributeCommandOutput
+  ModifyDBClusterSnapshotAttributeCommandOutput,
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand.ts";
 import {
   ModifyDBInstanceCommand,
   ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput
+  ModifyDBInstanceCommandOutput,
 } from "./commands/ModifyDBInstanceCommand.ts";
 import {
   ModifyDBSubnetGroupCommand,
   ModifyDBSubnetGroupCommandInput,
-  ModifyDBSubnetGroupCommandOutput
+  ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand.ts";
 import {
   RebootDBInstanceCommand,
   RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput
+  RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand.ts";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetDBClusterParameterGroupCommand,
   ResetDBClusterParameterGroupCommandInput,
-  ResetDBClusterParameterGroupCommandOutput
+  ResetDBClusterParameterGroupCommandOutput,
 } from "./commands/ResetDBClusterParameterGroupCommand.ts";
 import {
   RestoreDBClusterFromSnapshotCommand,
   RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput
+  RestoreDBClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreDBClusterFromSnapshotCommand.ts";
 import {
   RestoreDBClusterToPointInTimeCommand,
   RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput
+  RestoreDBClusterToPointInTimeCommandOutput,
 } from "./commands/RestoreDBClusterToPointInTimeCommand.ts";
 import {
   StartDBClusterCommand,
   StartDBClusterCommandInput,
-  StartDBClusterCommandOutput
+  StartDBClusterCommandOutput,
 } from "./commands/StartDBClusterCommand.ts";
 import {
   StopDBClusterCommand,
   StopDBClusterCommandInput,
-  StopDBClusterCommandOutput
+  StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -236,17 +236,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -272,17 +269,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
     cb?: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> | void {
     const command = new ApplyPendingMaintenanceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -290,7 +284,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Copies the specified DB cluster parameter group.</p>
+   * <p>Copies the specified cluster parameter group.</p>
    */
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -307,17 +301,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void
   ): Promise<CopyDBClusterParameterGroupCommandOutput> | void {
     const command = new CopyDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -325,11 +316,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Copies a snapshot of a DB cluster.</p>
-   *         <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
+   * <p>Copies a snapshot of a cluster.</p>
+   *         <p>To copy a cluster snapshot from a shared manual cluster snapshot,
    *                 <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name
-   *             (ARN) of the shared DB cluster snapshot.</p>
-   *         <p>To cancel the copy operation after it is in progress, delete the target DB cluster
+   *             (ARN) of the shared cluster snapshot.</p>
+   *         <p>To cancel the copy operation after it is in progress, delete the target cluster
    *             snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB
    *             cluster snapshot is in the <i>copying</i> status.</p>
    */
@@ -348,17 +339,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopyDBClusterSnapshotCommandOutput) => void
   ): Promise<CopyDBClusterSnapshotCommandOutput> | void {
     const command = new CopyDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -366,7 +354,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a new Amazon DocumentDB DB cluster.</p>
+   * <p>Creates a new Amazon DocumentDB cluster.</p>
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -383,17 +371,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public createDBCluster(
     args: CreateDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): Promise<CreateDBClusterCommandOutput> | void {
     const command = new CreateDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -401,22 +386,22 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a new DB cluster parameter group.</p>
-   *         <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
+   * <p>Creates a new cluster parameter group.</p>
+   *         <p>Parameters in a cluster parameter group apply to all of the instances in a DB
    *             cluster.</p>
-   *         <p>A DB cluster parameter group is initially created with the default parameters for the
-   *             database engine used by instances in the DB cluster. To provide custom values for any of
+   *         <p>A cluster parameter group is initially created with the default parameters for the
+   *             database engine used by instances in the cluster. To provide custom values for any of
    *             the parameters, you must modify the group after you create it. After you create a DB
-   *             cluster parameter group, you must associate it with your DB cluster. For the new DB
+   *             cluster parameter group, you must associate it with your cluster. For the new DB
    *             cluster parameter group and associated settings to take effect, you must then reboot the
-   *             DB instances in the DB cluster without failover.</p>
+   *             instances in the cluster without failover.</p>
    *         <important>
-   *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
-   *                 before creating your first DB cluster that uses that DB cluster parameter group as
+   *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
+   *                 before creating your first cluster that uses that cluster parameter group as
    *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
-   *                 before the DB cluster parameter group is used as the default for a new DB cluster.
+   *                 before the cluster parameter group is used as the default for a new cluster.
    *                 This step is especially important for parameters that are critical when creating the
-   *                 default database for a DB cluster, such as the character set for the default
+   *                 default database for a cluster, such as the character set for the default
    *                 database defined by the <code>character_set_database</code> parameter.</p>
    *         </important>
    */
@@ -435,17 +420,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void
   ): Promise<CreateDBClusterParameterGroupCommandOutput> | void {
     const command = new CreateDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -453,7 +435,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a snapshot of a DB cluster. </p>
+   * <p>Creates a snapshot of a cluster. </p>
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -470,17 +452,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterSnapshotCommandOutput) => void
   ): Promise<CreateDBClusterSnapshotCommandOutput> | void {
     const command = new CreateDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -488,7 +467,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a new DB instance.</p>
+   * <p>Creates a new instance.</p>
    */
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -505,17 +484,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): Promise<CreateDBInstanceCommandOutput> | void {
     const command = new CreateDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -523,7 +499,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
+   * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
    *             least two Availability Zones in the AWS Region.</p>
    */
   public createDBSubnetGroup(
@@ -541,17 +517,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDBSubnetGroupCommandOutput) => void
   ): Promise<CreateDBSubnetGroupCommandOutput> | void {
     const command = new CreateDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -559,9 +532,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a previously provisioned DB cluster. When you delete a DB cluster, all
-   *             automated backups for that DB cluster are deleted and can't be recovered. Manual DB
-   *             cluster snapshots of the specified DB cluster are not deleted.</p>
+   * <p>Deletes a previously provisioned cluster. When you delete a cluster, all
+   *             automated backups for that cluster are deleted and can't be recovered. Manual DB
+   *             cluster snapshots of the specified cluster are not deleted.</p>
    *         <p></p>
    */
   public deleteDBCluster(
@@ -579,17 +552,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): Promise<DeleteDBClusterCommandOutput> | void {
     const command = new DeleteDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -597,8 +567,8 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
-   *             deleted can't be associated with any DB clusters.</p>
+   * <p>Deletes a specified cluster parameter group. The cluster parameter group to be
+   *             deleted can't be associated with any clusters.</p>
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -615,17 +585,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> | void {
     const command = new DeleteDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,10 +600,10 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
+   * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is
    *             terminated.</p>
    *         <note>
-   *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
+   *             <p>The cluster snapshot must be in the <code>available</code> state to be
    *                 deleted.</p>
    *         </note>
    */
@@ -655,17 +622,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void
   ): Promise<DeleteDBClusterSnapshotCommandOutput> | void {
     const command = new DeleteDBClusterSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -673,7 +637,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a previously provisioned DB instance.
+   * <p>Deletes a previously provisioned instance.
    *             </p>
    */
   public deleteDBInstance(
@@ -691,17 +655,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): Promise<DeleteDBInstanceCommandOutput> | void {
     const command = new DeleteDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -709,7 +670,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Deletes a DB subnet group.</p>
+   * <p>Deletes a subnet group.</p>
    *         <note>
    *             <p>The specified database subnet group must not be associated with any DB
    *                 instances.</p>
@@ -730,17 +691,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBSubnetGroupCommandOutput) => void
   ): Promise<DeleteDBSubnetGroupCommandOutput> | void {
     const command = new DeleteDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,7 +706,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon RDS for
+   * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for
    *             this AWS account.</p>
    */
   public describeCertificates(
@@ -766,17 +724,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): Promise<DescribeCertificatesCommandOutput> | void {
     const command = new DescribeCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -786,7 +741,7 @@ export class DocDB extends DocDBClient {
   /**
    * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
    *                 <code>DBClusterParameterGroupName</code> parameter is specified, the list contains
-   *             only the description of the specified DB cluster parameter group. </p>
+   *             only the description of the specified cluster parameter group. </p>
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -803,23 +758,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterParameterGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterParameterGroupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeDBClusterParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -827,7 +773,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns the detailed parameter list for a particular DB cluster parameter
+   * <p>Returns the detailed parameter list for a particular cluster parameter
    *             group.</p>
    */
   public describeDBClusterParameters(
@@ -845,17 +791,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterParametersCommandOutput) => void
   ): Promise<DescribeDBClusterParametersCommandOutput> | void {
     const command = new DescribeDBClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -863,8 +806,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns information about provisioned Amazon DocumentDB DB clusters. This API operation supports
-   *             pagination.</p>
+   * <p>Returns information about provisioned Amazon DocumentDB clusters. This API
+   *             operation supports pagination. For certain management features
+   *             such as cluster and instance lifecycle management, Amazon DocumentDB leverages
+   *             operational technology that is shared with Amazon RDS and Amazon
+   *             Neptune. Use the <code>filterName=engine,Values=docdb</code> filter
+   *             parameter to return only Amazon DocumentDB clusters.</p>
    */
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -881,17 +828,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClustersCommandOutput) => void
   ): Promise<DescribeDBClustersCommandOutput> | void {
     const command = new DescribeDBClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -899,13 +843,13 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB
+   * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
    *             cluster snapshot.</p>
    *         <p>When you share snapshots with other AWS accounts,
    *                 <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code>
    *             attribute and a list of IDs for the AWS accounts that are authorized to copy or restore
-   *             the manual DB cluster snapshot. If <code>all</code> is included in the list of values
-   *             for the <code>restore</code> attribute, then the manual DB cluster snapshot is public
+   *             the manual cluster snapshot. If <code>all</code> is included in the list of values
+   *             for the <code>restore</code> attribute, then the manual cluster snapshot is public
    *             and can be copied or restored by all AWS accounts.</p>
    */
   public describeDBClusterSnapshotAttributes(
@@ -914,38 +858,23 @@ export class DocDB extends DocDBClient {
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterSnapshotAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -953,7 +882,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns information about DB cluster snapshots. This API operation supports
+   * <p>Returns information about cluster snapshots. This API operation supports
    *             pagination.</p>
    */
   public describeDBClusterSnapshots(
@@ -971,17 +900,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -989,7 +915,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of the available DB engines.</p>
+   * <p>Returns a list of the available engines.</p>
    */
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -1006,17 +932,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBEngineVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBEngineVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBEngineVersionsCommandOutput) => void
   ): Promise<DescribeDBEngineVersionsCommandOutput> | void {
     const command = new DescribeDBEngineVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1042,17 +965,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBInstancesCommandOutput) => void
   ): Promise<DescribeDBInstancesCommandOutput> | void {
     const command = new DescribeDBInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1079,17 +999,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void
   ): Promise<DescribeDBSubnetGroupsCommandOutput> | void {
     const command = new DescribeDBSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,38 +1023,25 @@ export class DocDB extends DocDBClient {
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1163,17 +1067,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): Promise<DescribeEventCategoriesCommandOutput> | void {
     const command = new DescribeEventCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1181,9 +1082,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB
+   * <p>Returns events related to instances, security groups, snapshots, and DB
    *             parameter groups for the past 14 days. You can obtain events specific to a particular DB
-   *             instance, DB security group, DB snapshot, or DB parameter group by providing the name as
+   *             instance, security group, snapshot, or parameter group by providing the name as
    *             a parameter. By default, the events of the past hour are returned.</p>
    */
   public describeEvents(
@@ -1201,17 +1102,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1219,7 +1117,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of orderable DB instance options for the specified engine.</p>
+   * <p>Returns a list of orderable instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -1227,38 +1125,23 @@ export class DocDB extends DocDBClient {
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableDBInstanceOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> | void {
     const command = new DescribeOrderableDBInstanceOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1266,7 +1149,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Returns a list of resources (for example, DB instances) that have at least one pending
+   * <p>Returns a list of resources (for example, instances) that have at least one pending
    *             maintenance action.</p>
    */
   public describePendingMaintenanceActions(
@@ -1275,38 +1158,23 @@ export class DocDB extends DocDBClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1314,9 +1182,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Forces a failover for a DB cluster.</p>
-   *         <p>A failover for a DB cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
-   *             in the DB cluster to be the primary instance (the cluster writer).</p>
+   * <p>Forces a failover for a cluster.</p>
+   *         <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances)
+   *             in the cluster to be the primary instance (the cluster writer).</p>
    *         <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica,
    *             if one exists. You can force a failover when you want to simulate a failure of a primary
    *             instance for
@@ -1337,17 +1205,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FailoverDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverDBClusterCommandOutput) => void),
     cb?: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): Promise<FailoverDBClusterCommandOutput> | void {
     const command = new FailoverDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1372,17 +1237,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1390,7 +1252,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies a setting for an Amazon DocumentDB DB cluster. You can change one or more database
+   * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
    *             configuration parameters by specifying these parameters and the new values in the
    *             request. </p>
    */
@@ -1409,17 +1271,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): Promise<ModifyDBClusterCommandOutput> | void {
     const command = new ModifyDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1427,7 +1286,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p> Modifies the parameters of a DB cluster parameter group. To modify more than one
+   * <p> Modifies the parameters of a cluster parameter group. To modify more than one
    *             parameter, submit a list of the following: <code>ParameterName</code>,
    *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
    *             parameters can be modified in a single request. </p>
@@ -1438,12 +1297,12 @@ export class DocDB extends DocDBClient {
    *                 before the change can take effect.</p>
    *         </note>
    *         <important>
-   *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
-   *                 before creating your first DB cluster that uses that DB cluster parameter group as
+   *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
+   *                 before creating your first cluster that uses that cluster parameter group as
    *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
-   *                 before the parameter group is used as the default for a new DB cluster. This step is
+   *                 before the parameter group is used as the default for a new cluster. This step is
    *                 especially important for parameters that are critical when creating the default
-   *                 database for a DB cluster, such as the character set for the default database
+   *                 database for a cluster, such as the character set for the default database
    *                 defined by the <code>character_set_database</code> parameter.</p>
    *         </important>
    */
@@ -1462,17 +1321,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> | void {
     const command = new ModifyDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1482,14 +1338,14 @@ export class DocDB extends DocDBClient {
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
    *             cluster snapshot.</p>
-   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+   *         <p>To share a manual cluster snapshot with other AWS accounts, specify
    *                 <code>restore</code> as the <code>AttributeName</code>, and use the
    *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
-   *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
-   *             make the manual DB cluster snapshot public, which means that it can be copied or
+   *             authorized to restore the manual cluster snapshot. Use the value <code>all</code> to
+   *             make the manual cluster snapshot public, which means that it can be copied or
    *             restored by all AWS accounts. Do not add the <code>all</code> value for any manual DB
    *             cluster snapshots that contain private information that you don't want available to all
-   *             AWS accounts. If a manual DB cluster snapshot is encrypted, it can be shared, but only
+   *             AWS accounts. If a manual cluster snapshot is encrypted, it can be shared, but only
    *             by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
    *             parameter. You can't use <code>all</code> as a value for that parameter in this
    *             case.</p>
@@ -1509,23 +1365,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDBClusterSnapshotAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDBClusterSnapshotAttributeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> | void {
     const command = new ModifyDBClusterSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1533,7 +1380,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies settings for a DB instance. You can change one or more database configuration
+   * <p>Modifies settings for an instance. You can change one or more database configuration
    *             parameters by specifying these parameters and the new values in the request.</p>
    */
   public modifyDBInstance(
@@ -1551,17 +1398,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): Promise<ModifyDBInstanceCommandOutput> | void {
     const command = new ModifyDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1569,7 +1413,7 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one
+   * <p>Modifies an existing subnet group. subnet groups must contain at least one
    *             subnet in at least two Availability Zones in the AWS Region.</p>
    */
   public modifyDBSubnetGroup(
@@ -1587,17 +1431,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBSubnetGroupCommandOutput) => void
   ): Promise<ModifyDBSubnetGroupCommandOutput> | void {
     const command = new ModifyDBSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1605,12 +1446,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>You might need to reboot your DB instance, usually for maintenance reasons. For
-   *             example, if you make certain changes, or if you change the DB cluster parameter group
-   *             that is associated with the DB instance, you must reboot the instance for the changes to
+   * <p>You might need to reboot your instance, usually for maintenance reasons. For
+   *             example, if you make certain changes, or if you change the cluster parameter group
+   *             that is associated with the instance, you must reboot the instance for the changes to
    *             take effect. </p>
-   *         <p>Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
-   *             results in a momentary outage, during which the DB instance status is set to
+   *         <p>Rebooting an instance restarts the database engine service. Rebooting an instance
+   *             results in a momentary outage, during which the instance status is set to
    *                 <i>rebooting</i>. </p>
    */
   public rebootDBInstance(
@@ -1628,17 +1469,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1663,17 +1501,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1681,9 +1516,9 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p> Modifies the parameters of a DB cluster parameter group to the default value. To
+   * <p> Modifies the parameters of a cluster parameter group to the default value. To
    *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
-   *             and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
+   *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
    *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
    *             parameters. </p>
    *         <p> When you reset the entire group, dynamic parameters are updated immediately and
@@ -1705,17 +1540,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void),
     cb?: (err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void
   ): Promise<ResetDBClusterParameterGroupCommandOutput> | void {
     const command = new ResetDBClusterParameterGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1723,12 +1555,12 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
-   *         <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
+   * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>
+   *         <p>If a snapshot is specified, the target cluster is created from the source DB
    *             snapshot with a default configuration and default security group.</p>
-   *         <p>If a DB cluster snapshot is specified, the target DB cluster is created from the
-   *             source DB cluster restore point with the same configuration as the original source DB
-   *             cluster, except that the new DB cluster is created with the default security
+   *         <p>If a cluster snapshot is specified, the target cluster is created from the
+   *             source cluster restore point with the same configuration as the original source DB
+   *             cluster, except that the new cluster is created with the default security
    *             group.</p>
    */
   public restoreDBClusterFromSnapshot(
@@ -1746,17 +1578,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> | void {
     const command = new RestoreDBClusterFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1764,11 +1593,11 @@ export class DocDB extends DocDBClient {
   }
 
   /**
-   * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
+   * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
    *             time before <code>LatestRestorableTime</code> for up to
-   *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
-   *             source DB cluster with the same configuration as the original DB cluster, except that
-   *             the new DB cluster is created with the default DB security group. </p>
+   *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
+   *             source cluster with the same configuration as the original cluster, except that
+   *             the new cluster is created with the default security group. </p>
    */
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
@@ -1785,17 +1614,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> | void {
     const command = new RestoreDBClusterToPointInTimeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1822,17 +1648,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public startDBCluster(
     args: StartDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StartDBClusterCommandOutput) => void
   ): Promise<StartDBClusterCommandOutput> | void {
     const command = new StartDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1860,17 +1683,14 @@ export class DocDB extends DocDBClient {
   ): void;
   public stopDBCluster(
     args: StopDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StopDBClusterCommandOutput) => void
   ): Promise<StopDBClusterCommandOutput> | void {
     const command = new StopDBClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

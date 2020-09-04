@@ -1,22 +1,16 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  TranscribeStreamingClientResolvedConfig
+  TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient.ts";
-import {
-  StartStreamTranscriptionRequest,
-  StartStreamTranscriptionResponse
-} from "../models/index.ts";
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartStreamTranscriptionCommand,
-  serializeAws_restJson1StartStreamTranscriptionCommand
+  serializeAws_restJson1StartStreamTranscriptionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getEventStreamPlugin } from "../../middleware-eventstream/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -26,12 +20,11 @@ import {
   EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
-export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse &
-  __MetadataBearer;
+export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse & __MetadataBearer;
 
 export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandInput,
@@ -51,19 +44,17 @@ export class StartStreamTranscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartStreamTranscriptionCommandInput,
-    StartStreamTranscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartStreamTranscriptionCommandInput, StartStreamTranscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartStreamTranscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartStreamTranscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -77,20 +68,14 @@ export class StartStreamTranscriptionCommand extends $Command<
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStreamTranscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1StartStreamTranscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartStreamTranscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

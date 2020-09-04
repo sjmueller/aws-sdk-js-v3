@@ -2,396 +2,474 @@ import { GameLiftClient } from "./GameLiftClient.ts";
 import {
   AcceptMatchCommand,
   AcceptMatchCommandInput,
-  AcceptMatchCommandOutput
+  AcceptMatchCommandOutput,
 } from "./commands/AcceptMatchCommand.ts";
+import {
+  ClaimGameServerCommand,
+  ClaimGameServerCommandInput,
+  ClaimGameServerCommandOutput,
+} from "./commands/ClaimGameServerCommand.ts";
 import {
   CreateAliasCommand,
   CreateAliasCommandInput,
-  CreateAliasCommandOutput
+  CreateAliasCommandOutput,
 } from "./commands/CreateAliasCommand.ts";
 import {
   CreateBuildCommand,
   CreateBuildCommandInput,
-  CreateBuildCommandOutput
+  CreateBuildCommandOutput,
 } from "./commands/CreateBuildCommand.ts";
 import {
   CreateFleetCommand,
   CreateFleetCommandInput,
-  CreateFleetCommandOutput
+  CreateFleetCommandOutput,
 } from "./commands/CreateFleetCommand.ts";
+import {
+  CreateGameServerGroupCommand,
+  CreateGameServerGroupCommandInput,
+  CreateGameServerGroupCommandOutput,
+} from "./commands/CreateGameServerGroupCommand.ts";
 import {
   CreateGameSessionCommand,
   CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput
+  CreateGameSessionCommandOutput,
 } from "./commands/CreateGameSessionCommand.ts";
 import {
   CreateGameSessionQueueCommand,
   CreateGameSessionQueueCommandInput,
-  CreateGameSessionQueueCommandOutput
+  CreateGameSessionQueueCommandOutput,
 } from "./commands/CreateGameSessionQueueCommand.ts";
 import {
   CreateMatchmakingConfigurationCommand,
   CreateMatchmakingConfigurationCommandInput,
-  CreateMatchmakingConfigurationCommandOutput
+  CreateMatchmakingConfigurationCommandOutput,
 } from "./commands/CreateMatchmakingConfigurationCommand.ts";
 import {
   CreateMatchmakingRuleSetCommand,
   CreateMatchmakingRuleSetCommandInput,
-  CreateMatchmakingRuleSetCommandOutput
+  CreateMatchmakingRuleSetCommandOutput,
 } from "./commands/CreateMatchmakingRuleSetCommand.ts";
 import {
   CreatePlayerSessionCommand,
   CreatePlayerSessionCommandInput,
-  CreatePlayerSessionCommandOutput
+  CreatePlayerSessionCommandOutput,
 } from "./commands/CreatePlayerSessionCommand.ts";
 import {
   CreatePlayerSessionsCommand,
   CreatePlayerSessionsCommandInput,
-  CreatePlayerSessionsCommandOutput
+  CreatePlayerSessionsCommandOutput,
 } from "./commands/CreatePlayerSessionsCommand.ts";
 import {
   CreateScriptCommand,
   CreateScriptCommandInput,
-  CreateScriptCommandOutput
+  CreateScriptCommandOutput,
 } from "./commands/CreateScriptCommand.ts";
 import {
   CreateVpcPeeringAuthorizationCommand,
   CreateVpcPeeringAuthorizationCommandInput,
-  CreateVpcPeeringAuthorizationCommandOutput
+  CreateVpcPeeringAuthorizationCommandOutput,
 } from "./commands/CreateVpcPeeringAuthorizationCommand.ts";
 import {
   CreateVpcPeeringConnectionCommand,
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand.ts";
 import {
   DeleteAliasCommand,
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
+  DeleteAliasCommandOutput,
 } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteBuildCommand,
   DeleteBuildCommandInput,
-  DeleteBuildCommandOutput
+  DeleteBuildCommandOutput,
 } from "./commands/DeleteBuildCommand.ts";
 import {
   DeleteFleetCommand,
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
+  DeleteFleetCommandOutput,
 } from "./commands/DeleteFleetCommand.ts";
+import {
+  DeleteGameServerGroupCommand,
+  DeleteGameServerGroupCommandInput,
+  DeleteGameServerGroupCommandOutput,
+} from "./commands/DeleteGameServerGroupCommand.ts";
 import {
   DeleteGameSessionQueueCommand,
   DeleteGameSessionQueueCommandInput,
-  DeleteGameSessionQueueCommandOutput
+  DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand.ts";
 import {
   DeleteMatchmakingConfigurationCommand,
   DeleteMatchmakingConfigurationCommandInput,
-  DeleteMatchmakingConfigurationCommandOutput
+  DeleteMatchmakingConfigurationCommandOutput,
 } from "./commands/DeleteMatchmakingConfigurationCommand.ts";
 import {
   DeleteMatchmakingRuleSetCommand,
   DeleteMatchmakingRuleSetCommandInput,
-  DeleteMatchmakingRuleSetCommandOutput
+  DeleteMatchmakingRuleSetCommandOutput,
 } from "./commands/DeleteMatchmakingRuleSetCommand.ts";
 import {
   DeleteScalingPolicyCommand,
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand.ts";
 import {
   DeleteScriptCommand,
   DeleteScriptCommandInput,
-  DeleteScriptCommandOutput
+  DeleteScriptCommandOutput,
 } from "./commands/DeleteScriptCommand.ts";
 import {
   DeleteVpcPeeringAuthorizationCommand,
   DeleteVpcPeeringAuthorizationCommandInput,
-  DeleteVpcPeeringAuthorizationCommandOutput
+  DeleteVpcPeeringAuthorizationCommandOutput,
 } from "./commands/DeleteVpcPeeringAuthorizationCommand.ts";
 import {
   DeleteVpcPeeringConnectionCommand,
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand.ts";
+import {
+  DeregisterGameServerCommand,
+  DeregisterGameServerCommandInput,
+  DeregisterGameServerCommandOutput,
+} from "./commands/DeregisterGameServerCommand.ts";
 import {
   DescribeAliasCommand,
   DescribeAliasCommandInput,
-  DescribeAliasCommandOutput
+  DescribeAliasCommandOutput,
 } from "./commands/DescribeAliasCommand.ts";
 import {
   DescribeBuildCommand,
   DescribeBuildCommandInput,
-  DescribeBuildCommandOutput
+  DescribeBuildCommandOutput,
 } from "./commands/DescribeBuildCommand.ts";
 import {
   DescribeEC2InstanceLimitsCommand,
   DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput
+  DescribeEC2InstanceLimitsCommandOutput,
 } from "./commands/DescribeEC2InstanceLimitsCommand.ts";
 import {
   DescribeFleetAttributesCommand,
   DescribeFleetAttributesCommandInput,
-  DescribeFleetAttributesCommandOutput
+  DescribeFleetAttributesCommandOutput,
 } from "./commands/DescribeFleetAttributesCommand.ts";
 import {
   DescribeFleetCapacityCommand,
   DescribeFleetCapacityCommandInput,
-  DescribeFleetCapacityCommandOutput
+  DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand.ts";
 import {
   DescribeFleetEventsCommand,
   DescribeFleetEventsCommandInput,
-  DescribeFleetEventsCommandOutput
+  DescribeFleetEventsCommandOutput,
 } from "./commands/DescribeFleetEventsCommand.ts";
 import {
   DescribeFleetPortSettingsCommand,
   DescribeFleetPortSettingsCommandInput,
-  DescribeFleetPortSettingsCommandOutput
+  DescribeFleetPortSettingsCommandOutput,
 } from "./commands/DescribeFleetPortSettingsCommand.ts";
 import {
   DescribeFleetUtilizationCommand,
   DescribeFleetUtilizationCommandInput,
-  DescribeFleetUtilizationCommandOutput
+  DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand.ts";
+import {
+  DescribeGameServerCommand,
+  DescribeGameServerCommandInput,
+  DescribeGameServerCommandOutput,
+} from "./commands/DescribeGameServerCommand.ts";
+import {
+  DescribeGameServerGroupCommand,
+  DescribeGameServerGroupCommandInput,
+  DescribeGameServerGroupCommandOutput,
+} from "./commands/DescribeGameServerGroupCommand.ts";
 import {
   DescribeGameSessionDetailsCommand,
   DescribeGameSessionDetailsCommandInput,
-  DescribeGameSessionDetailsCommandOutput
+  DescribeGameSessionDetailsCommandOutput,
 } from "./commands/DescribeGameSessionDetailsCommand.ts";
 import {
   DescribeGameSessionPlacementCommand,
   DescribeGameSessionPlacementCommandInput,
-  DescribeGameSessionPlacementCommandOutput
+  DescribeGameSessionPlacementCommandOutput,
 } from "./commands/DescribeGameSessionPlacementCommand.ts";
 import {
   DescribeGameSessionQueuesCommand,
   DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput
+  DescribeGameSessionQueuesCommandOutput,
 } from "./commands/DescribeGameSessionQueuesCommand.ts";
 import {
   DescribeGameSessionsCommand,
   DescribeGameSessionsCommandInput,
-  DescribeGameSessionsCommandOutput
+  DescribeGameSessionsCommandOutput,
 } from "./commands/DescribeGameSessionsCommand.ts";
 import {
   DescribeInstancesCommand,
   DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
+  DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand.ts";
 import {
   DescribeMatchmakingCommand,
   DescribeMatchmakingCommandInput,
-  DescribeMatchmakingCommandOutput
+  DescribeMatchmakingCommandOutput,
 } from "./commands/DescribeMatchmakingCommand.ts";
 import {
   DescribeMatchmakingConfigurationsCommand,
   DescribeMatchmakingConfigurationsCommandInput,
-  DescribeMatchmakingConfigurationsCommandOutput
+  DescribeMatchmakingConfigurationsCommandOutput,
 } from "./commands/DescribeMatchmakingConfigurationsCommand.ts";
 import {
   DescribeMatchmakingRuleSetsCommand,
   DescribeMatchmakingRuleSetsCommandInput,
-  DescribeMatchmakingRuleSetsCommandOutput
+  DescribeMatchmakingRuleSetsCommandOutput,
 } from "./commands/DescribeMatchmakingRuleSetsCommand.ts";
 import {
   DescribePlayerSessionsCommand,
   DescribePlayerSessionsCommandInput,
-  DescribePlayerSessionsCommandOutput
+  DescribePlayerSessionsCommandOutput,
 } from "./commands/DescribePlayerSessionsCommand.ts";
 import {
   DescribeRuntimeConfigurationCommand,
   DescribeRuntimeConfigurationCommandInput,
-  DescribeRuntimeConfigurationCommandOutput
+  DescribeRuntimeConfigurationCommandOutput,
 } from "./commands/DescribeRuntimeConfigurationCommand.ts";
 import {
   DescribeScalingPoliciesCommand,
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand.ts";
 import {
   DescribeScriptCommand,
   DescribeScriptCommandInput,
-  DescribeScriptCommandOutput
+  DescribeScriptCommandOutput,
 } from "./commands/DescribeScriptCommand.ts";
 import {
   DescribeVpcPeeringAuthorizationsCommand,
   DescribeVpcPeeringAuthorizationsCommandInput,
-  DescribeVpcPeeringAuthorizationsCommandOutput
+  DescribeVpcPeeringAuthorizationsCommandOutput,
 } from "./commands/DescribeVpcPeeringAuthorizationsCommand.ts";
 import {
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand.ts";
 import {
   GetGameSessionLogUrlCommand,
   GetGameSessionLogUrlCommandInput,
-  GetGameSessionLogUrlCommandOutput
+  GetGameSessionLogUrlCommandOutput,
 } from "./commands/GetGameSessionLogUrlCommand.ts";
 import {
   GetInstanceAccessCommand,
   GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput
+  GetInstanceAccessCommandOutput,
 } from "./commands/GetInstanceAccessCommand.ts";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
-  ListAliasesCommandOutput
+  ListAliasesCommandOutput,
 } from "./commands/ListAliasesCommand.ts";
+import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand.ts";
+import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
-  ListBuildsCommand,
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand.ts";
+  ListGameServerGroupsCommand,
+  ListGameServerGroupsCommandInput,
+  ListGameServerGroupsCommandOutput,
+} from "./commands/ListGameServerGroupsCommand.ts";
 import {
-  ListFleetsCommand,
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand.ts";
+  ListGameServersCommand,
+  ListGameServersCommandInput,
+  ListGameServersCommandOutput,
+} from "./commands/ListGameServersCommand.ts";
 import {
   ListScriptsCommand,
   ListScriptsCommandInput,
-  ListScriptsCommandOutput
+  ListScriptsCommandOutput,
 } from "./commands/ListScriptsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "./commands/PutScalingPolicyCommand.ts";
+import {
+  RegisterGameServerCommand,
+  RegisterGameServerCommandInput,
+  RegisterGameServerCommandOutput,
+} from "./commands/RegisterGameServerCommand.ts";
 import {
   RequestUploadCredentialsCommand,
   RequestUploadCredentialsCommandInput,
-  RequestUploadCredentialsCommandOutput
+  RequestUploadCredentialsCommandOutput,
 } from "./commands/RequestUploadCredentialsCommand.ts";
 import {
   ResolveAliasCommand,
   ResolveAliasCommandInput,
-  ResolveAliasCommandOutput
+  ResolveAliasCommandOutput,
 } from "./commands/ResolveAliasCommand.ts";
+import {
+  ResumeGameServerGroupCommand,
+  ResumeGameServerGroupCommandInput,
+  ResumeGameServerGroupCommandOutput,
+} from "./commands/ResumeGameServerGroupCommand.ts";
 import {
   SearchGameSessionsCommand,
   SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput
+  SearchGameSessionsCommandOutput,
 } from "./commands/SearchGameSessionsCommand.ts";
 import {
   StartFleetActionsCommand,
   StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput
+  StartFleetActionsCommandOutput,
 } from "./commands/StartFleetActionsCommand.ts";
 import {
   StartGameSessionPlacementCommand,
   StartGameSessionPlacementCommandInput,
-  StartGameSessionPlacementCommandOutput
+  StartGameSessionPlacementCommandOutput,
 } from "./commands/StartGameSessionPlacementCommand.ts";
 import {
   StartMatchBackfillCommand,
   StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput
+  StartMatchBackfillCommandOutput,
 } from "./commands/StartMatchBackfillCommand.ts";
 import {
   StartMatchmakingCommand,
   StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput
+  StartMatchmakingCommandOutput,
 } from "./commands/StartMatchmakingCommand.ts";
 import {
   StopFleetActionsCommand,
   StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput
+  StopFleetActionsCommandOutput,
 } from "./commands/StopFleetActionsCommand.ts";
 import {
   StopGameSessionPlacementCommand,
   StopGameSessionPlacementCommandInput,
-  StopGameSessionPlacementCommandOutput
+  StopGameSessionPlacementCommandOutput,
 } from "./commands/StopGameSessionPlacementCommand.ts";
 import {
   StopMatchmakingCommand,
   StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput
+  StopMatchmakingCommandOutput,
 } from "./commands/StopMatchmakingCommand.ts";
+import {
+  SuspendGameServerGroupCommand,
+  SuspendGameServerGroupCommandInput,
+  SuspendGameServerGroupCommandOutput,
+} from "./commands/SuspendGameServerGroupCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAliasCommand,
   UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
+  UpdateAliasCommandOutput,
 } from "./commands/UpdateAliasCommand.ts";
 import {
   UpdateBuildCommand,
   UpdateBuildCommandInput,
-  UpdateBuildCommandOutput
+  UpdateBuildCommandOutput,
 } from "./commands/UpdateBuildCommand.ts";
 import {
   UpdateFleetAttributesCommand,
   UpdateFleetAttributesCommandInput,
-  UpdateFleetAttributesCommandOutput
+  UpdateFleetAttributesCommandOutput,
 } from "./commands/UpdateFleetAttributesCommand.ts";
 import {
   UpdateFleetCapacityCommand,
   UpdateFleetCapacityCommandInput,
-  UpdateFleetCapacityCommandOutput
+  UpdateFleetCapacityCommandOutput,
 } from "./commands/UpdateFleetCapacityCommand.ts";
 import {
   UpdateFleetPortSettingsCommand,
   UpdateFleetPortSettingsCommandInput,
-  UpdateFleetPortSettingsCommandOutput
+  UpdateFleetPortSettingsCommandOutput,
 } from "./commands/UpdateFleetPortSettingsCommand.ts";
+import {
+  UpdateGameServerCommand,
+  UpdateGameServerCommandInput,
+  UpdateGameServerCommandOutput,
+} from "./commands/UpdateGameServerCommand.ts";
+import {
+  UpdateGameServerGroupCommand,
+  UpdateGameServerGroupCommandInput,
+  UpdateGameServerGroupCommandOutput,
+} from "./commands/UpdateGameServerGroupCommand.ts";
 import {
   UpdateGameSessionCommand,
   UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput
+  UpdateGameSessionCommandOutput,
 } from "./commands/UpdateGameSessionCommand.ts";
 import {
   UpdateGameSessionQueueCommand,
   UpdateGameSessionQueueCommandInput,
-  UpdateGameSessionQueueCommandOutput
+  UpdateGameSessionQueueCommandOutput,
 } from "./commands/UpdateGameSessionQueueCommand.ts";
 import {
   UpdateMatchmakingConfigurationCommand,
   UpdateMatchmakingConfigurationCommandInput,
-  UpdateMatchmakingConfigurationCommandOutput
+  UpdateMatchmakingConfigurationCommandOutput,
 } from "./commands/UpdateMatchmakingConfigurationCommand.ts";
 import {
   UpdateRuntimeConfigurationCommand,
   UpdateRuntimeConfigurationCommandInput,
-  UpdateRuntimeConfigurationCommandOutput
+  UpdateRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateRuntimeConfigurationCommand.ts";
 import {
   UpdateScriptCommand,
   UpdateScriptCommandInput,
-  UpdateScriptCommandOutput
+  UpdateScriptCommandOutput,
 } from "./commands/UpdateScriptCommand.ts";
 import {
   ValidateMatchmakingRuleSetCommand,
   ValidateMatchmakingRuleSetCommandInput,
-  ValidateMatchmakingRuleSetCommandOutput
+  ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <fullname>Amazon GameLift Service</fullname>
- *         <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server
- *             solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing
- *             resources and deploy your game servers, (2) run game sessions and get players into
- *             games, (3) automatically scale your resources to meet player demand and manage costs,
- *             and (4) track in-depth metrics on game server performance and player usage.</p>
+ *         <p> Amazon GameLift provides a range of multiplayer game hosting solutions. As a fully managed
+ *             service, GameLift helps you:</p>
+ *         <ul>
+ *             <li>
+ *                <p>Set up EC2-based computing resources and use GameLift FleetIQ to and deploy your game
+ *                 servers on low-cost, reliable Spot instances.</p>
+ *             </li>
+ *             <li>
+ *                <p>Track game server availability and route players into game sessions to minimize latency.</p>
+ *             </li>
+ *             <li>
+ *                <p>Automatically scale your resources to meet player demand and manage costs</p>
+ *             </li>
+ *             <li>
+ *                <p>Optionally add FlexMatch matchmaking.</p>
+ *             </li>
+ *          </ul>
  *
- *         <p>When setting up hosting resources, you can deploy your custom game server or use the
- *             Amazon GameLift Realtime Servers. Realtime Servers gives you the ability to quickly stand up lightweight, efficient
- *             game servers with the core Amazon GameLift infrastructure already built in.</p>
+ *         <p>With GameLift as a managed service, you have the option to deploy your custom game
+ *             server or use Amazon GameLift Realtime Servers to quickly stand up lightweight game servers for your game.
+ *             Realtime Servers provides an efficient game server framework with core Amazon GameLift infrastructure
+ *             already built in.</p>
+ *
+ *         <p>
+ *             <b>Now in Public Preview:</b>
+ *          </p>
+ *         <p>Use GameLift FleetIQ as a standalone feature with EC2 instances and Auto Scaling groups. GameLift FleetIQ
+ *             provides optimizations that make low-cost Spot instances viable for game hosting. This
+ *             extension of GameLift FleetIQ gives you access to these optimizations while managing your EC2
+ *             instances and Auto Scaling groups within your own AWS account.</p>
  *
  *         <p>
  *             <b>Get Amazon GameLift Tools and Resources</b>
@@ -487,14 +565,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public acceptMatch(
-    args: AcceptMatchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AcceptMatchCommandOutput>;
-  public acceptMatch(
-    args: AcceptMatchCommandInput,
-    cb: (err: any, data?: AcceptMatchCommandOutput) => void
-  ): void;
+  public acceptMatch(args: AcceptMatchCommandInput, options?: __HttpHandlerOptions): Promise<AcceptMatchCommandOutput>;
+  public acceptMatch(args: AcceptMatchCommandInput, cb: (err: any, data?: AcceptMatchCommandOutput) => void): void;
   public acceptMatch(
     args: AcceptMatchCommandInput,
     options: __HttpHandlerOptions,
@@ -502,17 +574,116 @@ export class GameLift extends GameLiftClient {
   ): void;
   public acceptMatch(
     args: AcceptMatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptMatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptMatchCommandOutput) => void),
     cb?: (err: any, data?: AcceptMatchCommandOutput) => void
   ): Promise<AcceptMatchCommandOutput> | void {
     const command = new AcceptMatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Locates an available game server and temporarily reserves it to host gameplay and
+   *             players. This action is called by a game client or client service (such as a matchmaker)
+   *             to request hosting resources for a new game session. In response, GameLift FleetIQ searches for an
+   *             available game server in the specified game server group, places the game server in
+   *             "claimed" status for 60 seconds, and returns connection information back to the
+   *             requester so that players can connect to the game server. </p>
+   *         <p>There are two ways you can claim a game server. For the first option, you provide a
+   *             game server group ID only, which prompts GameLift FleetIQ to search for an available game server in
+   *             the specified group and claim it. With this option, GameLift FleetIQ attempts to consolidate
+   *             gameplay on as few instances as possible to minimize hosting costs. For the second
+   *             option, you request a specific game server by its ID. This option results in a less
+   *             efficient claiming process because it does not take advantage of consolidation and may
+   *             fail if the requested game server is unavailable. </p>
+   *         <p>To claim a game server, identify a game server group and (optionally) a game server
+   *             ID. If your game requires that game data be provided to the game server at the start of
+   *             a game, such as a game map or player information, you can provide it in your claim
+   *             request. </p>
+   *         <p>When a game server is successfully claimed, connection information is returned. A
+   *             claimed game server's utilization status remains AVAILABLE, while the claim status is
+   *             set to CLAIMED for up to 60 seconds. This time period allows the game server to be
+   *             prompted to update its status to UTILIZED (using <a>UpdateGameServer</a>). If
+   *             the game server's status is not updated within 60 seconds, the game server reverts to
+   *             unclaimed status and is available to be claimed by another request.</p>
+   *         <p>If you try to claim a specific game server, this request will fail in the following
+   *             cases: (1) if the game server utilization status is UTILIZED, (2) if the game server
+   *             claim status is CLAIMED, or (3) if the instance that the game server is running on is
+   *             flagged as draining.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public claimGameServer(
+    args: ClaimGameServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ClaimGameServerCommandOutput>;
+  public claimGameServer(
+    args: ClaimGameServerCommandInput,
+    cb: (err: any, data?: ClaimGameServerCommandOutput) => void
+  ): void;
+  public claimGameServer(
+    args: ClaimGameServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ClaimGameServerCommandOutput) => void
+  ): void;
+  public claimGameServer(
+    args: ClaimGameServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClaimGameServerCommandOutput) => void),
+    cb?: (err: any, data?: ClaimGameServerCommandOutput) => void
+  ): Promise<ClaimGameServerCommandOutput> | void {
+    const command = new ClaimGameServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -567,14 +738,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -582,17 +747,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,47 +762,46 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Creates a new Amazon GameLift build record for your game server binary files and points to
-   *             the location of your game server build files in an Amazon Simple Storage Service (Amazon S3)
-   *             location. </p>
-   *         <p>Game server binaries must be combined into a zip file for use with
-   *             Amazon GameLift. </p>
+   * <p>Creates a new Amazon GameLift build resource for your game server binary files. Game server
+   *             binaries must be combined into a zip file for use with Amazon GameLift. </p>
    *         <important>
-   *             <p>To create new builds directly from a file directory, use the AWS CLI command <b>
+   *             <p>When setting up a new game build for GameLift, we recommend using the AWS CLI
+   *                 command <b>
    *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a>
-   *                </b>. This helper command uploads build files and
-   *                 creates a new build record in one step, and automatically handles the necessary
-   *                 permissions. </p>
+   *                </b>. This helper command combines two tasks: (1) it
+   *                 uploads your build files from a file directory to a GameLift Amazon S3 location, and (2)
+   *                 it creates a new build resource. </p>
    *         </important>
-   *         <p>The <code>CreateBuild</code> operation should be used only in the following scenarios:</p>
+   *         <p>The <code>CreateBuild</code> operation can used in the following scenarios:</p>
    *         <ul>
    *             <li>
-   *                 <p>To create a new game build with build files that are in an Amazon S3 bucket under your own AWS account. To use
-   *                     this option, you must first give Amazon GameLift access to that Amazon S3 bucket. Then call <code>CreateBuild</code>
-   *                     and specify a build name, operating system, and the Amazon S3 storage location of your
-   *                     game build.</p>
+   *                 <p>To create a new game build with build files that are in an S3 location under
+   *                     an AWS account that you control. To use this option, you must first give Amazon GameLift
+   *                     access to the S3 bucket. With permissions in place, call
+   *                         <code>CreateBuild</code> and specify a build name, operating system, and the
+   *                     S3 storage location of your game build.</p>
    *             </li>
    *             <li>
-   *                 <p>To upload build files directly to Amazon GameLift's Amazon S3 account. To use this option,
-   *                     first call <code>CreateBuild</code> and specify a build name and operating system.
-   *                     This action creates a new build record and returns an Amazon S3 storage location
-   *                     (bucket and key only) and temporary access credentials. Use the credentials to
-   *                     manually upload your build file to the provided storage location (see the Amazon S3 topic
-   *                         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a>). You can upload build files to the GameLift Amazon S3 location only once.
-   *                 </p>
+   *                 <p>To directly upload your build files to a GameLift S3 location. To use this
+   *                     option, first call <code>CreateBuild</code> and specify a build name and
+   *                     operating system. This action creates a new build resource and also returns an
+   *                     S3 location with temporary access credentials. Use the credentials to manually
+   *                     upload your build files to the specified S3 location. For more information,
+   *                     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a> in the <i>Amazon S3 Developer
+   *                         Guide</i>. Build files can be uploaded to the GameLift S3 location
+   *                     once only; that can't be updated. </p>
    *             </li>
    *          </ul>
-   *         <p>If successful, this operation creates a new build record with a unique build ID and
-   *             places it in <code>INITIALIZED</code> status. You can use <a>DescribeBuild</a> to check the status of your build. A build must be in <code>READY</code> status
-   *             before it can be used to create fleets.</p>
+   *         <p>If successful, this operation creates a new build resource with a unique build ID and
+   *             places it in <code>INITIALIZED</code> status. A build must be in <code>READY</code>
+   *             status before you can create fleets with it.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading Your
    *                 Game</a>
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html</a>
-   *         </p>
+   *          </p>
    *         <p>
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build"> Create a Build with Files in Amazon S3</a>
    *          </p>
@@ -675,14 +836,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public createBuild(
-    args: CreateBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateBuildCommandOutput>;
-  public createBuild(
-    args: CreateBuildCommandInput,
-    cb: (err: any, data?: CreateBuildCommandOutput) => void
-  ): void;
+  public createBuild(args: CreateBuildCommandInput, options?: __HttpHandlerOptions): Promise<CreateBuildCommandOutput>;
+  public createBuild(args: CreateBuildCommandInput, cb: (err: any, data?: CreateBuildCommandOutput) => void): void;
   public createBuild(
     args: CreateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -690,17 +845,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createBuild(
     args: CreateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBuildCommandOutput) => void),
     cb?: (err: any, data?: CreateBuildCommandOutput) => void
   ): Promise<CreateBuildCommandOutput> | void {
     const command = new CreateBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -713,17 +865,17 @@ export class GameLift extends GameLiftClient {
    *             (Amazon EC2) instances, each of which can host multiple game sessions. When creating a
    *             fleet, you choose the hardware specifications, set some configuration options, and
    *             specify the game server to deploy on the new fleet. </p>
-   *         <p>To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2
-   *             instance type and fleet type (spot or on-demand), (3) the build ID for your game build
-   *             or script ID if using Realtime Servers, and (4) a runtime configuration, which determines how game
-   *             servers will run on each instance in the fleet. </p>
+   *         <p>To create a new fleet, provide the following: (1) a fleet name, (2) an EC2 instance
+   *             type and fleet type (spot or on-demand), (3) the build ID for your game build or script
+   *             ID if using Realtime Servers, and (4) a runtime configuration, which determines how game servers
+   *             will run on each instance in the fleet. </p>
    *
    *         <p>If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
    *             tasks. You can track the process of a fleet by checking the fleet status or by
    *             monitoring fleet creation events:</p>
    *         <ul>
    *             <li>
-   *                 <p>Creates a fleet record. Status: <code>NEW</code>.</p>
+   *                 <p>Creates a fleet resource. Status: <code>NEW</code>.</p>
    *             </li>
    *             <li>
    *                 <p>Begins writing events to the fleet event log, which can be accessed in the
@@ -752,12 +904,10 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Setting Up Fleets</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting Up Fleets</a>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation"> Debug Fleet
-   *                 Creation Issues</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug Fleet Creation Issues</a>
    *          </p>
    *         <p>
    *             <b>Related operations</b>
@@ -789,30 +939,14 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
-  public createFleet(
-    args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFleetCommandOutput>;
-  public createFleet(
-    args: CreateFleetCommandInput,
-    cb: (err: any, data?: CreateFleetCommandOutput) => void
-  ): void;
+  public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
   public createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -820,17 +954,129 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Creates a GameLift FleetIQ game server group to manage a collection of EC2 instances for game
+   *             hosting. In addition to creating the game server group, this action also creates an Auto
+   *             Scaling group in your AWS account and establishes a link between the two groups. You
+   *             have full control over configuration of the Auto Scaling group, but GameLift FleetIQ routinely
+   *             certain Auto Scaling group properties in order to optimize the group's instances for
+   *             low-cost game hosting. You can view the status of your game server groups in the GameLift
+   *             Console. Game server group metrics and events are emitted to Amazon CloudWatch.</p>
+   *         <p>Prior creating a new game server group, you must set up the following: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>An EC2 launch template. The template provides configuration settings for a set of
+   *                     EC2 instances and includes the game server build that you want to
+   *                     deploy and run on each instance. For more information on creating a launch template,
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">
+   *                         Launching an Instance from a Launch Template</a> in the
+   *                     <i>Amazon EC2 User Guide</i>. </p>
+   *             </li>
+   *             <li>
+   *                <p>An IAM role. The role sets up limited access to your AWS account, allowing GameLift FleetIQ to
+   *                     create and manage the EC2 Auto Scaling group, get instance data, and emit
+   *                     metrics and events to CloudWatch. For more information on setting up an IAM
+   *                     permissions policy with principal access for GameLift, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-bucket-user-policy-specifying-principal-intro.html"> Specifying a Principal in a Policy</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>To create a new game server group, provide a name and specify the IAM role and EC2
+   *             launch template. You also need to provide a list of instance types to be used in the
+   *             group and set initial maximum and minimum limits on the group's instance count. You can
+   *             optionally set an autoscaling policy with target tracking based on a GameLift FleetIQ metric.</p>
+   *         <p>Once the game server group and corresponding Auto Scaling group are created, you have
+   *             full access to change the Auto Scaling group's configuration as needed. Keep in mind,
+   *             however, that some properties are periodically updated by GameLift FleetIQ as it balances the
+   *             group's instances based on availability and cost.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-asgroups.html">Updating a GameLift FleetIQ-Linked Auto Scaling Group</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public createGameServerGroup(
+    args: CreateGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGameServerGroupCommandOutput>;
+  public createGameServerGroup(
+    args: CreateGameServerGroupCommandInput,
+    cb: (err: any, data?: CreateGameServerGroupCommandOutput) => void
+  ): void;
+  public createGameServerGroup(
+    args: CreateGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGameServerGroupCommandOutput) => void
+  ): void;
+  public createGameServerGroup(
+    args: CreateGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateGameServerGroupCommandOutput) => void
+  ): Promise<CreateGameServerGroupCommandOutput> | void {
+    const command = new CreateGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -935,17 +1181,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createGameSession(
     args: CreateGameSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGameSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGameSessionCommandOutput) => void),
     cb?: (err: any, data?: CreateGameSessionCommandOutput) => void
   ): Promise<CreateGameSessionCommandOutput> | void {
     const command = new CreateGameSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -981,6 +1224,20 @@ export class GameLift extends GameLiftClient {
    *         <p>To create a new queue, provide a name, timeout value, a list of destinations and,
    *             if desired, a set of latency policies. If successful, a new queue object is
    *             returned.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
+   *             Design a Game Session Queue</a>
+   *         </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
+   *             Create a Game Session Queue</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
    *         <ul>
    *             <li>
    *                <p>
@@ -1019,17 +1276,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createGameSessionQueue(
     args: CreateGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateGameSessionQueueCommandOutput) => void
   ): Promise<CreateGameSessionQueueCommandOutput> | void {
     const command = new CreateGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1125,20 +1379,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createMatchmakingConfiguration(
     args: CreateMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void
   ): Promise<CreateMatchmakingConfigurationCommandOutput> | void {
     const command = new CreateMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1240,17 +1488,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createMatchmakingRuleSet(
     args: CreateMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: CreateMatchmakingRuleSetCommandOutput) => void
   ): Promise<CreateMatchmakingRuleSetCommandOutput> | void {
     const command = new CreateMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1324,17 +1569,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createPlayerSession(
     args: CreatePlayerSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlayerSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlayerSessionCommandOutput) => void),
     cb?: (err: any, data?: CreatePlayerSessionCommandOutput) => void
   ): Promise<CreatePlayerSessionCommandOutput> | void {
     const command = new CreatePlayerSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1408,17 +1650,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createPlayerSessions(
     args: CreatePlayerSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlayerSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlayerSessionsCommandOutput) => void),
     cb?: (err: any, data?: CreatePlayerSessionsCommandOutput) => void
   ): Promise<CreatePlayerSessionsCommandOutput> | void {
     const command = new CreatePlayerSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1494,10 +1733,7 @@ export class GameLift extends GameLiftClient {
     args: CreateScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateScriptCommandOutput>;
-  public createScript(
-    args: CreateScriptCommandInput,
-    cb: (err: any, data?: CreateScriptCommandOutput) => void
-  ): void;
+  public createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
   public createScript(
     args: CreateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -1505,17 +1741,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createScript(
     args: CreateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScriptCommandOutput) => void),
     cb?: (err: any, data?: CreateScriptCommandOutput) => void
   ): Promise<CreateScriptCommandOutput> | void {
     const command = new CreateScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1593,17 +1826,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createVpcPeeringAuthorization(
     args: CreateVpcPeeringAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcPeeringAuthorizationCommandOutput) => void
   ): Promise<CreateVpcPeeringAuthorizationCommandOutput> | void {
     const command = new CreateVpcPeeringAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1678,17 +1908,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createVpcPeeringConnection(
     args: CreateVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcPeeringConnectionCommandOutput) => void
   ): Promise<CreateVpcPeeringConnectionCommandOutput> | void {
     const command = new CreateVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1732,14 +1959,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAliasCommandOutput>;
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    cb: (err: any, data?: DeleteAliasCommandOutput) => void
-  ): void;
+  public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
+  public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -1747,17 +1968,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1765,17 +1983,16 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Deletes a build. This action permanently deletes the build record and any uploaded
-   *             build files.</p>
-   *         <p>To delete a build, specify its ID. Deleting a build does not affect the status of
-   *             any active fleets using the build, but you can no longer create new fleets with the
-   *             deleted build.</p>
+   * <p>Deletes a build. This action permanently deletes the build resource and any uploaded
+   *             build files. Deleting a build does not affect the status of any active fleets using the
+   *             build, but you can no longer create new fleets with the deleted build.</p>
+   *         <p>To delete a build, specify the build ID. </p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
-   *                 Working with Builds</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+   *                 Upload a Custom Server Build</a>
    *          </p>
    *         <p>
    *             <b>Related operations</b>
@@ -1808,14 +2025,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public deleteBuild(
-    args: DeleteBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteBuildCommandOutput>;
-  public deleteBuild(
-    args: DeleteBuildCommandInput,
-    cb: (err: any, data?: DeleteBuildCommandOutput) => void
-  ): void;
+  public deleteBuild(args: DeleteBuildCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBuildCommandOutput>;
+  public deleteBuild(args: DeleteBuildCommandInput, cb: (err: any, data?: DeleteBuildCommandOutput) => void): void;
   public deleteBuild(
     args: DeleteBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1823,17 +2034,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteBuild(
     args: DeleteBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBuildCommandOutput) => void),
     cb?: (err: any, data?: DeleteBuildCommandOutput) => void
   ): Promise<DeleteBuildCommandOutput> | void {
     const command = new DeleteBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1847,14 +2055,14 @@ export class GameLift extends GameLiftClient {
    *             valid authorization (good for 24 hours) by calling <a>CreateVpcPeeringAuthorization</a>.
    *             You do not need to explicitly delete the VPC peering connection--this is done as part of the
    *             delete fleet process.</p>
-   *         <p>This action removes the fleet's resources and the fleet record. Once a fleet is
-   *             deleted, you can no longer use that fleet.</p>
+   *         <p>This action removes the fleet and its resources. Once a fleet is deleted, you can no
+   *             longer use any of the resource in that fleet.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -1885,30 +2093,14 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFleetCommandOutput>;
-  public deleteFleet(
-    args: DeleteFleetCommandInput,
-    cb: (err: any, data?: DeleteFleetCommandOutput) => void
-  ): void;
+  public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
+  public deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1916,17 +2108,108 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Terminates a game server group and permanently deletes the game server group record.
+   *             You have several options for how these resources are impacted when deleting the game
+   *             server group. Depending on the type of delete action selected, this action may affect
+   *             three types of resources: the game server group, the corresponding Auto Scaling group,
+   *             and all game servers currently running in the group. </p>
+   *         <p>To delete a game server group, identify the game server group to delete and specify
+   *             the type of delete action to initiate. Game server groups can only be deleted if they
+   *             are in ACTIVE or ERROR status.</p>
+   *         <p>If the delete request is successful, a series of actions are kicked off. The game
+   *             server group status is changed to DELETE_SCHEDULED, which prevents new game servers from
+   *             being registered and stops autoscaling activity. Once all game servers in the game
+   *             server group are de-registered, GameLift FleetIQ can begin deleting resources. If any of the delete
+   *             actions fail, the game server group is placed in ERROR status.</p>
+   *         <p>GameLift FleetIQ emits delete events to Amazon CloudWatch.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteGameServerGroup(
+    args: DeleteGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGameServerGroupCommandOutput>;
+  public deleteGameServerGroup(
+    args: DeleteGameServerGroupCommandInput,
+    cb: (err: any, data?: DeleteGameServerGroupCommandOutput) => void
+  ): void;
+  public deleteGameServerGroup(
+    args: DeleteGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGameServerGroupCommandOutput) => void
+  ): void;
+  public deleteGameServerGroup(
+    args: DeleteGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGameServerGroupCommandOutput) => void
+  ): Promise<DeleteGameServerGroupCommandOutput> | void {
+    const command = new DeleteGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1936,6 +2219,16 @@ export class GameLift extends GameLiftClient {
   /**
    * <p>Deletes a game session queue. This action means that any <a>StartGameSessionPlacement</a> requests that reference this queue will fail.
    *             To delete a queue, specify the queue name.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
+   *             Using Multi-Region Queues</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
    *         <ul>
    *             <li>
    *                <p>
@@ -1974,17 +2267,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteGameSessionQueue(
     args: DeleteGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteGameSessionQueueCommandOutput) => void
   ): Promise<DeleteGameSessionQueueCommandOutput> | void {
     const command = new DeleteGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2056,20 +2346,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteMatchmakingConfiguration(
     args: DeleteMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> | void {
     const command = new DeleteMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2152,17 +2436,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteMatchmakingRuleSet(
     args: DeleteMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteMatchmakingRuleSetCommandOutput) => void
   ): Promise<DeleteMatchmakingRuleSetCommandOutput> | void {
     const command = new DeleteMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2240,17 +2521,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteScalingPolicyCommandOutput) => void
   ): Promise<DeleteScalingPolicyCommandOutput> | void {
     const command = new DeleteScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2306,10 +2584,7 @@ export class GameLift extends GameLiftClient {
     args: DeleteScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteScriptCommandOutput>;
-  public deleteScript(
-    args: DeleteScriptCommandInput,
-    cb: (err: any, data?: DeleteScriptCommandOutput) => void
-  ): void;
+  public deleteScript(args: DeleteScriptCommandInput, cb: (err: any, data?: DeleteScriptCommandOutput) => void): void;
   public deleteScript(
     args: DeleteScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -2317,17 +2592,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteScript(
     args: DeleteScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScriptCommandOutput) => void),
     cb?: (err: any, data?: DeleteScriptCommandOutput) => void
   ): Promise<DeleteScriptCommandOutput> | void {
     const command = new DeleteScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2385,17 +2657,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteVpcPeeringAuthorization(
     args: DeleteVpcPeeringAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcPeeringAuthorizationCommandOutput) => void
   ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> | void {
     const command = new DeleteVpcPeeringAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2458,17 +2727,95 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteVpcPeeringConnection(
     args: DeleteVpcPeeringConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> | void {
     const command = new DeleteVpcPeeringConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Removes the game server resource from the game server group. As a result of this
+   *             action, the de-registered game server can no longer be claimed and will not returned in
+   *             a list of active game servers. </p>
+   *         <p>To de-register a game server, specify the game server group and game server ID. If
+   *             successful, this action emits a CloudWatch event with termination time stamp and
+   *             reason.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deregisterGameServer(
+    args: DeregisterGameServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterGameServerCommandOutput>;
+  public deregisterGameServer(
+    args: DeregisterGameServerCommandInput,
+    cb: (err: any, data?: DeregisterGameServerCommandOutput) => void
+  ): void;
+  public deregisterGameServer(
+    args: DeregisterGameServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterGameServerCommandOutput) => void
+  ): void;
+  public deregisterGameServer(
+    args: DeregisterGameServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterGameServerCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterGameServerCommandOutput) => void
+  ): Promise<DeregisterGameServerCommandOutput> | void {
+    const command = new DeregisterGameServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2528,17 +2875,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeAlias(
     args: DescribeAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAliasCommandOutput) => void),
     cb?: (err: any, data?: DescribeAliasCommandOutput) => void
   ): Promise<DescribeAliasCommandOutput> | void {
     const command = new DescribeAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2546,14 +2890,14 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves properties for a build. To request a build record, specify a build ID. If
-   *             successful, an object containing the build properties is returned.</p>
+   * <p>Retrieves properties for a custom game build. To request a build resource, specify a
+   *             build ID. If successful, an object containing the build properties is returned.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
-   *                 Working with Builds</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+   *             Upload a Custom Server Build</a>
    *          </p>
    *         <p>
    *             <b>Related operations</b>
@@ -2601,17 +2945,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeBuild(
     args: DescribeBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBuildCommandOutput) => void),
     cb?: (err: any, data?: DescribeBuildCommandOutput) => void
   ): Promise<DescribeBuildCommandOutput> | void {
     const command = new DescribeBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2623,22 +2964,20 @@ export class GameLift extends GameLiftClient {
    *             type:</p>
    *         <ul>
    *             <li>
-   *                 <p>maximum number of instances allowed per AWS account (service
-   *                     limit)</p>
+   *                 <p>Maximum number of instances allowed per AWS account (service limit).</p>
    *             </li>
    *             <li>
-   *                 <p>current usage level for the AWS account</p>
+   *                 <p>Current usage for the AWS account.</p>
    *             </li>
    *          </ul>
-   *         <p>Service limits vary depending on Region. Available Regions for Amazon GameLift can be found
-   *             in the AWS Management Console for Amazon GameLift (see the drop-down list in the upper right
-   *             corner).</p>
+   *         <p>To learn more about the capabilities of each instance type, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
+   *             Types</a>. Note that the instance types offered may vary depending on the region.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -2659,84 +2998,19 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Describe fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetUtilization</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeEC2InstanceLimits</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetEvents</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>DescribeFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Update fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>UpdateFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2755,17 +3029,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeEC2InstanceLimits(
     args: DescribeEC2InstanceLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEC2InstanceLimitsCommandOutput) => void
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> | void {
     const command = new DescribeEC2InstanceLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2773,23 +3044,23 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves fleet properties, including metadata, status, and configuration, for one
-   *             or more fleets. You can request attributes for all fleets, or specify a list of one or
-   *             more fleet IDs. When requesting multiple fleets, use the pagination parameters to
-   *             retrieve results as a set of sequential pages. If successful, a <a>FleetAttributes</a> object is returned for each requested fleet ID. When
-   *             specifying a list of fleet IDs, attribute objects are returned only for fleets that
-   *             currently exist. </p>
+   * <p>Retrieves core properties, including configuration, status, and metadata, for a fleet. </p>
+   *         <p>To get attributes for one or more fleets, provide a list of fleet IDs or fleet ARNs.
+   *             To get attributes for all fleets, do not specify a fleet identifier. When requesting
+   *             attributes for multiple fleets, use the pagination parameters to retrieve results as a
+   *             set of sequential pages. If successful, a <a>FleetAttributes</a> object is
+   *             returned for each fleet requested, unless the fleet identifier is not found.</p>
    *         <note>
    *             <p>Some API actions may limit the number of fleet IDs allowed in one request. If a
    *                 request exceeds this limit, the request fails and the error message includes the
-   *                 maximum allowed.</p>
+   *                 maximum allowed number.</p>
    *         </note>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -2855,19 +3126,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2886,17 +3147,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetAttributes(
     args: DescribeFleetAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetAttributesCommandOutput) => void
   ): Promise<DescribeFleetAttributesCommandOutput> | void {
     const command = new DescribeFleetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2904,13 +3162,14 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves the current status of fleet capacity for one or more fleets. This
-   *             information includes the number of instances that have been requested for the fleet and
-   *             the number currently active. You can request capacity for all fleets, or specify a list
-   *             of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters
-   *             to retrieve results as a set of sequential pages. If successful, a <a>FleetCapacity</a> object is returned for each requested fleet ID. When
-   *             specifying a list of fleet IDs, attribute objects are returned only for fleets that
-   *             currently exist. </p>
+   * <p>Retrieves the current capacity statistics for one or more fleets. These statistics
+   *             present a snapshot of the fleet's instances and provide insight on current or imminent
+   *             scaling activity. To get statistics on game hosting activity in the fleet, see <a>DescribeFleetUtilization</a>.</p>
+   *         <p>You can request capacity for all fleets or specify a list of one or more fleet
+   *             identifiers. When requesting multiple fleets, use the pagination parameters to retrieve
+   *             results as a set of sequential pages. If successful, a <a>FleetCapacity</a>
+   *             object is returned for each requested fleet ID. When a list of fleet IDs is provided,
+   *             attribute objects are returned only for fleets that currently exist.</p>
    *         <note>
    *             <p>Some API actions may limit the number of fleet IDs allowed in one request. If a
    *                 request exceeds this limit, the request fails and the error message includes the
@@ -2920,8 +3179,11 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -2987,19 +3249,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3018,17 +3270,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetCapacity(
     args: DescribeFleetCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetCapacityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetCapacityCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetCapacityCommandOutput) => void
   ): Promise<DescribeFleetCapacityCommandOutput> | void {
     const command = new DescribeFleetCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3044,8 +3293,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -3111,19 +3360,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3142,17 +3381,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetEvents(
     args: DescribeFleetEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetEventsCommandOutput) => void
   ): Promise<DescribeFleetEventsCommandOutput> | void {
     const command = new DescribeFleetEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3160,18 +3396,20 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves the inbound connection permissions for a fleet. Connection permissions
-   *             include a range of IP addresses and port settings that incoming traffic can use to
-   *             access server processes in the fleet. To get a fleet's inbound connection permissions,
-   *             specify a fleet ID. If successful, a collection of <a>IpPermission</a>
-   *             objects is returned for the requested fleet ID. If the requested fleet has been deleted,
-   *             the result set is empty.</p>
+   * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
+   *             range of IP addresses and port settings that incoming traffic can use to access server
+   *             processes in the fleet. Game sessions that are running on instances in the fleet use
+   *             connections that fall in this range. </p>
+   *         <p>To get a fleet's inbound connection permissions, specify the fleet's unique
+   *             identifier. If successful, a collection of <a>IpPermission</a> objects is
+   *             returned for the requested fleet ID. If the requested fleet has been deleted, the result
+   *             set is empty.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -3237,19 +3475,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3268,17 +3496,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetPortSettings(
     args: DescribeFleetPortSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetPortSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetPortSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetPortSettingsCommandOutput) => void
   ): Promise<DescribeFleetPortSettingsCommandOutput> | void {
     const command = new DescribeFleetPortSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3286,12 +3511,13 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves utilization statistics for one or more fleets. You can request
-   *             utilization data for all fleets, or specify a list of one or more fleet IDs. When
-   *             requesting multiple fleets, use the pagination parameters to retrieve results as a set
-   *             of sequential pages. If successful, a <a>FleetUtilization</a> object is
-   *             returned for each requested fleet ID. When specifying a list of fleet IDs, utilization
-   *             objects are returned only for fleets that currently exist. </p>
+   * <p>Retrieves utilization statistics for one or more fleets. These statistics provide
+   *             insight into how available hosting resources are currently being used. To get statistics
+   *             on available hosting resources, see <a>DescribeFleetCapacity</a>.</p>
+   *         <p>You can request utilization data for all fleets, or specify a list of one or more
+   *             fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve
+   *             results as a set of sequential pages. If successful, a <a>FleetUtilization</a> object is returned for each requested fleet ID, unless the fleet identifier is not
+   *             found.  </p>
    *         <note>
    *             <p>Some API actions may limit the number of fleet IDs allowed in one request. If a
    *                 request exceeds this limit, the request fails and the error message includes the
@@ -3301,8 +3527,11 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -3368,19 +3597,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3399,17 +3618,176 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeFleetUtilization(
     args: DescribeFleetUtilizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetUtilizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetUtilizationCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetUtilizationCommandOutput) => void
   ): Promise<DescribeFleetUtilizationCommandOutput> | void {
     const command = new DescribeFleetUtilizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Retrieves information for a game server resource. Information includes the game server
+   *             statuses, health check info, and the instance the game server is running on. </p>
+   *         <p>To retrieve game server information, specify the game server ID. If successful, the
+   *             requested game server object is returned. </p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeGameServer(
+    args: DescribeGameServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGameServerCommandOutput>;
+  public describeGameServer(
+    args: DescribeGameServerCommandInput,
+    cb: (err: any, data?: DescribeGameServerCommandOutput) => void
+  ): void;
+  public describeGameServer(
+    args: DescribeGameServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGameServerCommandOutput) => void
+  ): void;
+  public describeGameServer(
+    args: DescribeGameServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameServerCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGameServerCommandOutput) => void
+  ): Promise<DescribeGameServerCommandOutput> | void {
+    const command = new DescribeGameServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Retrieves information on a game server group. </p>
+   *         <p>To get attributes for a game server group, provide a group name or ARN value. If
+   *             successful, a <a>GameServerGroup</a> object is returned.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public describeGameServerGroup(
+    args: DescribeGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGameServerGroupCommandOutput>;
+  public describeGameServerGroup(
+    args: DescribeGameServerGroupCommandInput,
+    cb: (err: any, data?: DescribeGameServerGroupCommandOutput) => void
+  ): void;
+  public describeGameServerGroup(
+    args: DescribeGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGameServerGroupCommandOutput) => void
+  ): void;
+  public describeGameServerGroup(
+    args: DescribeGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGameServerGroupCommandOutput) => void
+  ): Promise<DescribeGameServerGroupCommandOutput> | void {
+    const command = new DescribeGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3495,17 +3873,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionDetails(
     args: DescribeGameSessionDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionDetailsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionDetailsCommandOutput) => void
   ): Promise<DescribeGameSessionDetailsCommandOutput> | void {
     const command = new DescribeGameSessionDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3583,17 +3958,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionPlacement(
     args: DescribeGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionPlacementCommandOutput) => void
   ): Promise<DescribeGameSessionPlacementCommandOutput> | void {
     const command = new DescribeGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3606,6 +3978,16 @@ export class GameLift extends GameLiftClient {
    *             sequential pages. If successful, a <a>GameSessionQueue</a> object is returned
    *             for each requested queue. When specifying a list of queues, objects are returned only
    *             for queues that currently exist in the Region.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
+   *            View Your Queues</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
    *         <ul>
    *             <li>
    *                <p>
@@ -3644,17 +4026,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessionQueues(
     args: DescribeGameSessionQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionQueuesCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionQueuesCommandOutput) => void
   ): Promise<DescribeGameSessionQueuesCommandOutput> | void {
     const command = new DescribeGameSessionQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3741,17 +4120,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeGameSessions(
     args: DescribeGameSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGameSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGameSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGameSessionsCommandOutput) => void
   ): Promise<DescribeGameSessionsCommandOutput> | void {
     const command = new DescribeGameSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3766,6 +4142,30 @@ export class GameLift extends GameLiftClient {
    *             in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
    *             as a set of sequential pages. If successful, an <a>Instance</a> object is
    *             returned for each result.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet Instances</a>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet Issues</a>
+   *          </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeInstances</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>GetInstanceAccess</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public describeInstances(
     args: DescribeInstancesCommandInput,
@@ -3782,17 +4182,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeInstances(
     args: DescribeInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancesCommandOutput) => void
   ): Promise<DescribeInstancesCommandOutput> | void {
     const command = new DescribeInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3867,17 +4264,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeMatchmaking(
     args: DescribeMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: DescribeMatchmakingCommandOutput) => void
   ): Promise<DescribeMatchmakingCommandOutput> | void {
     const command = new DescribeMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3951,38 +4345,23 @@ export class GameLift extends GameLiftClient {
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput>;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMatchmakingConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput> | void {
     const command = new DescribeMatchmakingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4066,17 +4445,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeMatchmakingRuleSets(
     args: DescribeMatchmakingRuleSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMatchmakingRuleSetsCommandOutput) => void
   ): Promise<DescribeMatchmakingRuleSetsCommandOutput> | void {
     const command = new DescribeMatchmakingRuleSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4151,17 +4527,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describePlayerSessions(
     args: DescribePlayerSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlayerSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePlayerSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribePlayerSessionsCommandOutput) => void
   ): Promise<DescribePlayerSessionsCommandOutput> | void {
     const command = new DescribePlayerSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4169,15 +4542,20 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves the current runtime configuration for the specified fleet. The runtime
-   *             configuration tells Amazon GameLift how to launch server processes on instances in the
-   *             fleet.</p>
+   * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
+   *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
+   *         <p>To get a runtime configuration, specify the fleet's unique identifier. If successful,
+   *             a <a>RuntimeConfiguration</a> object is returned for the requested fleet. If the requested fleet has been
+   *             deleted, the result set is empty.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running Multiple Processes on a Fleet</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -4243,19 +4621,9 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -4274,17 +4642,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeRuntimeConfiguration(
     args: DescribeRuntimeConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeRuntimeConfigurationCommandOutput) => void
   ): Promise<DescribeRuntimeConfigurationCommandOutput> | void {
     const command = new DescribeRuntimeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4366,17 +4731,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScalingPoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribeScalingPoliciesCommandOutput) => void
   ): Promise<DescribeScalingPoliciesCommandOutput> | void {
     const command = new DescribeScalingPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4439,17 +4801,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeScript(
     args: DescribeScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScriptCommandOutput) => void),
     cb?: (err: any, data?: DescribeScriptCommandOutput) => void
   ): Promise<DescribeScriptCommandOutput> | void {
     const command = new DescribeScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4508,23 +4867,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeVpcPeeringAuthorizations(
     args: DescribeVpcPeeringAuthorizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcPeeringAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcPeeringAuthorizationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> | void {
     const command = new DescribeVpcPeeringAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4587,17 +4937,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeVpcPeeringConnections(
     args: DescribeVpcPeeringConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcPeeringConnectionsCommandOutput) => void
   ): Promise<DescribeVpcPeeringConnectionsCommandOutput> | void {
     const command = new DescribeVpcPeeringConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4681,17 +5028,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public getGameSessionLogUrl(
     args: GetGameSessionLogUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGameSessionLogUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGameSessionLogUrlCommandOutput) => void),
     cb?: (err: any, data?: GetGameSessionLogUrlCommandOutput) => void
   ): Promise<GetGameSessionLogUrlCommandOutput> | void {
     const command = new GetGameSessionLogUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4700,20 +5044,45 @@ export class GameLift extends GameLiftClient {
 
   /**
    * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
-   *             gathering benchmarking data, or watching activity in real time. </p>
-   *         <p>Access requires credentials that match the operating system of the instance. For a
-   *             Windows instance, Amazon GameLift returns a user name and password as strings for use with a
-   *             Windows Remote Desktop client. For a Linux instance, Amazon GameLift returns a user name and RSA
-   *             private key, also as strings, for use with an SSH client. The private key must be saved
-   *             in the proper format to a <code>.pem</code> file before using. If you're making this
-   *             request using the AWS CLI, saving the secret can be handled as part of the
-   *             GetInstanceAccess request. (See the example later in this topic). For more information
-   *             on remote access, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Accessing an
-   *                 Instance</a>.</p>
-   *         <p>To request access to a specific instance, specify the IDs of both the instance and
-   *             the fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>. If successful, an <a>InstanceAccess</a>
-   *             object is returned containing the instance's IP address and a set of
+   *             gathering benchmarking data, or observing activity in real time. </p>
+   *         <p>To remotely access an instance, you need credentials that match the operating system
+   *             of the instance. For a Windows instance, Amazon GameLift returns a user name and password as
+   *             strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift
+   *             returns a user name and RSA private key, also as strings, for use with an SSH client.
+   *             The private key must be saved in the proper format to a <code>.pem</code> file before
+   *             using. If you're making this request using the AWS CLI, saving the secret can be handled
+   *             as part of the GetInstanceAccess request, as shown in one of the examples for this
+   *             action. </p>
+   *         <p>To request access to a specific instance, specify the IDs of both the instance and the
+   *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>. If successful, an <a>InstanceAccess</a>
+   *             object is returned that contains the instance's IP address and a set of
    *             credentials.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
+   *                 Instances</a>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
+   *                 Issues</a>
+   *          </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeInstances</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>GetInstanceAccess</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getInstanceAccess(
     args: GetInstanceAccessCommandInput,
@@ -4730,17 +5099,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public getInstanceAccess(
     args: GetInstanceAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceAccessCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceAccessCommandOutput) => void
   ): Promise<GetInstanceAccessCommandOutput> | void {
     const command = new GetInstanceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4787,14 +5153,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listAliases(
-    args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAliasesCommandOutput>;
-  public listAliases(
-    args: ListAliasesCommandInput,
-    cb: (err: any, data?: ListAliasesCommandOutput) => void
-  ): void;
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   public listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -4802,17 +5162,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4820,19 +5177,19 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves build records for all builds associated with the AWS account in use.
-   *             You can limit results to builds that are in a specific status by using the
+   * <p>Retrieves build resources for all builds associated with the AWS account in use. You
+   *             can limit results to builds that are in a specific status by using the
    *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
    *             a set of sequential pages. </p>
    *         <note>
-   *             <p>Build records are not listed in any particular order.</p>
+   *             <p>Build resources are not listed in any particular order.</p>
    *         </note>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
-   *                 Working with Builds</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+   *             Upload a Custom Server Build</a>
    *          </p>
    *         <p>
    *             <b>Related operations</b>
@@ -4865,14 +5222,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBuildsCommandOutput>;
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    cb: (err: any, data?: ListBuildsCommandOutput) => void
-  ): void;
+  public listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
+  public listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
   public listBuilds(
     args: ListBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -4880,17 +5231,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4898,19 +5246,18 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Retrieves a collection of fleet records for this AWS account. You can filter the
+   * <p>Retrieves a collection of fleet resources for this AWS account. You can filter the
    *             result set to find only those fleets that are deployed with a specific build or script.
-   *             Use the pagination parameters to retrieve results in sequential
-   *             pages.</p>
+   *             Use the pagination parameters to retrieve results in sequential pages.</p>
    *         <note>
-   *             <p>Fleet records are not listed in a particular order.</p>
+   *             <p>Fleet resources are not listed in a particular order.</p>
    *         </note>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Set Up Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -4941,30 +5288,14 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
-  public listFleets(
-    args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFleetsCommandOutput>;
-  public listFleets(
-    args: ListFleetsCommandInput,
-    cb: (err: any, data?: ListFleetsCommandOutput) => void
-  ): void;
+  public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
+  public listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   public listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -4972,17 +5303,176 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Retrieves information on all game servers groups that exist in the current AWS account
+   *             for the selected region. Use the pagination parameters to retrieve results in a set of
+   *             sequential pages. </p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listGameServerGroups(
+    args: ListGameServerGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGameServerGroupsCommandOutput>;
+  public listGameServerGroups(
+    args: ListGameServerGroupsCommandInput,
+    cb: (err: any, data?: ListGameServerGroupsCommandOutput) => void
+  ): void;
+  public listGameServerGroups(
+    args: ListGameServerGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGameServerGroupsCommandOutput) => void
+  ): void;
+  public listGameServerGroups(
+    args: ListGameServerGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGameServerGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListGameServerGroupsCommandOutput) => void
+  ): Promise<ListGameServerGroupsCommandOutput> | void {
+    const command = new ListGameServerGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Retrieves information on all game servers that are currently running in a specified
+   *             game server group. If there are custom key sort values for your game servers, you can
+   *             opt to have the returned list sorted based on these values. Use the pagination
+   *             parameters to retrieve results in a set of sequential pages. </p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listGameServers(
+    args: ListGameServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGameServersCommandOutput>;
+  public listGameServers(
+    args: ListGameServersCommandInput,
+    cb: (err: any, data?: ListGameServersCommandOutput) => void
+  ): void;
+  public listGameServers(
+    args: ListGameServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGameServersCommandOutput) => void
+  ): void;
+  public listGameServers(
+    args: ListGameServersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGameServersCommandOutput) => void),
+    cb?: (err: any, data?: ListGameServersCommandOutput) => void
+  ): Promise<ListGameServersCommandOutput> | void {
+    const command = new ListGameServersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5028,14 +5518,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public listScripts(
-    args: ListScriptsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListScriptsCommandOutput>;
-  public listScripts(
-    args: ListScriptsCommandInput,
-    cb: (err: any, data?: ListScriptsCommandOutput) => void
-  ): void;
+  public listScripts(args: ListScriptsCommandInput, options?: __HttpHandlerOptions): Promise<ListScriptsCommandOutput>;
+  public listScripts(args: ListScriptsCommandInput, cb: (err: any, data?: ListScriptsCommandOutput) => void): void;
   public listScripts(
     args: ListScriptsCommandInput,
     options: __HttpHandlerOptions,
@@ -5043,17 +5527,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listScripts(
     args: ListScriptsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListScriptsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScriptsCommandOutput) => void),
     cb?: (err: any, data?: ListScriptsCommandOutput) => void
   ): Promise<ListScriptsCommandOutput> | void {
     const command = new ListScriptsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5137,17 +5618,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5283,17 +5761,102 @@ export class GameLift extends GameLiftClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Creates a new game server resource and notifies GameLift FleetIQ that the game server is ready
+   *             to host gameplay and players. This action is called by a game server process that is
+   *             running on an instance in a game server group. Registering game servers enables GameLift FleetIQ to
+   *             track available game servers and enables game clients and services to claim a game
+   *             server for a new game session. </p>
+   *         <p>To register a game server, identify the game server group and instance where the game
+   *             server is running, and provide a unique identifier for the game server. You can also
+   *             include connection and game server data; when a game client or service requests a game
+   *             server by calling <a>ClaimGameServer</a>, this information is returned in
+   *             response.</p>
+   *         <p>Once a game server is successfully registered, it is put in status AVAILABLE. A
+   *             request to register a game server may fail if the instance it is in the process of
+   *             shutting down as part of instance rebalancing or scale-down activity. </p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public registerGameServer(
+    args: RegisterGameServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterGameServerCommandOutput>;
+  public registerGameServer(
+    args: RegisterGameServerCommandInput,
+    cb: (err: any, data?: RegisterGameServerCommandOutput) => void
+  ): void;
+  public registerGameServer(
+    args: RegisterGameServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterGameServerCommandOutput) => void
+  ): void;
+  public registerGameServer(
+    args: RegisterGameServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterGameServerCommandOutput) => void),
+    cb?: (err: any, data?: RegisterGameServerCommandOutput) => void
+  ): Promise<RegisterGameServerCommandOutput> | void {
+    const command = new RegisterGameServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5311,8 +5874,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading Your
-   *                 Game</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
+   *             Create a Build with Files in S3</a>
    *         </p>
    *         <p>
    *             <b>Related operations</b>
@@ -5360,17 +5923,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public requestUploadCredentials(
     args: RequestUploadCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestUploadCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestUploadCredentialsCommandOutput) => void),
     cb?: (err: any, data?: RequestUploadCredentialsCommandOutput) => void
   ): Promise<RequestUploadCredentialsCommandOutput> | void {
     const command = new RequestUploadCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5416,10 +5976,7 @@ export class GameLift extends GameLiftClient {
     args: ResolveAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResolveAliasCommandOutput>;
-  public resolveAlias(
-    args: ResolveAliasCommandInput,
-    cb: (err: any, data?: ResolveAliasCommandOutput) => void
-  ): void;
+  public resolveAlias(args: ResolveAliasCommandInput, cb: (err: any, data?: ResolveAliasCommandOutput) => void): void;
   public resolveAlias(
     args: ResolveAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -5427,17 +5984,101 @@ export class GameLift extends GameLiftClient {
   ): void;
   public resolveAlias(
     args: ResolveAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveAliasCommandOutput) => void),
     cb?: (err: any, data?: ResolveAliasCommandOutput) => void
   ): Promise<ResolveAliasCommandOutput> | void {
     const command = new ResolveAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Reinstates activity on a game server group after it has been suspended. A game server
+   *             group may be suspended by calling <a>SuspendGameServerGroup</a>, or it may
+   *             have been involuntarily suspended due to a configuration problem. You can manually
+   *             resume activity on the group once the configuration problem has been resolved. Refer to
+   *             the game server group status and status reason for more information on why group
+   *             activity is suspended.</p>
+   *         <p>To resume activity, specify a game server group ARN and the type of activity to be resumed.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public resumeGameServerGroup(
+    args: ResumeGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeGameServerGroupCommandOutput>;
+  public resumeGameServerGroup(
+    args: ResumeGameServerGroupCommandInput,
+    cb: (err: any, data?: ResumeGameServerGroupCommandOutput) => void
+  ): void;
+  public resumeGameServerGroup(
+    args: ResumeGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeGameServerGroupCommandOutput) => void
+  ): void;
+  public resumeGameServerGroup(
+    args: ResumeGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: ResumeGameServerGroupCommandOutput) => void
+  ): Promise<ResumeGameServerGroupCommandOutput> | void {
+    const command = new ResumeGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5581,17 +6222,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public searchGameSessions(
     args: SearchGameSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchGameSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchGameSessionsCommandOutput) => void),
     cb?: (err: any, data?: SearchGameSessionsCommandOutput) => void
   ): Promise<SearchGameSessionsCommandOutput> | void {
     const command = new SearchGameSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5610,8 +6248,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -5632,84 +6270,19 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Describe fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetUtilization</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeEC2InstanceLimits</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetEvents</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>DescribeFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Update fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>UpdateFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -5728,17 +6301,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startFleetActions(
     args: StartFleetActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartFleetActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFleetActionsCommandOutput) => void),
     cb?: (err: any, data?: StartFleetActionsCommandOutput) => void
   ): Promise<StartFleetActionsCommandOutput> | void {
     const command = new StartFleetActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5854,17 +6424,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startGameSessionPlacement(
     args: StartGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: StartGameSessionPlacementCommandOutput) => void
   ): Promise<StartGameSessionPlacementCommandOutput> | void {
     const command = new StartGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5948,17 +6515,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startMatchBackfill(
     args: StartMatchBackfillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMatchBackfillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMatchBackfillCommandOutput) => void),
     cb?: (err: any, data?: StartMatchBackfillCommandOutput) => void
   ): Promise<StartMatchBackfillCommandOutput> | void {
     const command = new StartMatchBackfillCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6100,17 +6664,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startMatchmaking(
     args: StartMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StartMatchmakingCommandOutput) => void
   ): Promise<StartMatchmakingCommandOutput> | void {
     const command = new StartMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6119,19 +6680,17 @@ export class GameLift extends GameLiftClient {
 
   /**
    * <p>Suspends activity on a fleet. Currently, this operation is used to stop a fleet's
-   *             auto-scaling activity. It is used to temporarily stop scaling events triggered by the
-   *             fleet's scaling policies. The policies can be retained and auto-scaling activity can be
-   *             restarted using <a>StartFleetActions</a>. You can view a fleet's stopped
-   *             actions using <a>DescribeFleetAttributes</a>.</p>
+   *             auto-scaling activity. It is used to temporarily stop triggering scaling events. The
+   *             policies can be retained and auto-scaling activity can be restarted using <a>StartFleetActions</a>. You can view a fleet's stopped actions using <a>DescribeFleetAttributes</a>.</p>
    *         <p>To stop fleet actions, specify the fleet ID and the type of actions to suspend. When
-   *             auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events
-   *             except to maintain the fleet's desired instances setting (<a>FleetCapacity</a>. Changes to the fleet's capacity must be done manually using <a>UpdateFleetCapacity</a>. </p>
+   *             auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events except
+   *             in response to manual changes using <a>UpdateFleetCapacity</a>. </p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -6152,84 +6711,19 @@ export class GameLift extends GameLiftClient {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Describe fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetUtilization</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeEC2InstanceLimits</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>DescribeFleetEvents</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>DescribeFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Update fleets:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetAttributes</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetCapacity</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateFleetPortSettings</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>UpdateRuntimeConfiguration</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>UpdateFleetAttributes</a>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -6248,17 +6742,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopFleetActions(
     args: StopFleetActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopFleetActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFleetActionsCommandOutput) => void),
     cb?: (err: any, data?: StopFleetActionsCommandOutput) => void
   ): Promise<StopFleetActionsCommandOutput> | void {
     const command = new StopFleetActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6337,17 +6828,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopGameSessionPlacement(
     args: StopGameSessionPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopGameSessionPlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopGameSessionPlacementCommandOutput) => void),
     cb?: (err: any, data?: StopGameSessionPlacementCommandOutput) => void
   ): Promise<StopGameSessionPlacementCommandOutput> | void {
     const command = new StopGameSessionPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6420,17 +6908,109 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopMatchmaking(
     args: StopMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StopMatchmakingCommandOutput) => void
   ): Promise<StopMatchmakingCommandOutput> | void {
     const command = new StopMatchmakingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Temporarily stops activity on a game server group without terminating instances or the
+   *             game server group. Activity can be restarted by calling <a>ResumeGameServerGroup</a>. Activities that can suspended are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Instance type replacement. This activity evaluates the current Spot viability
+   *                     of all instance types that are defined for the game server group. It updates the
+   *                     Auto Scaling group to remove nonviable Spot instance types (which have a higher
+   *                     chance of game server interruptions) and rebalances capacity across the
+   *                     remaining viable Spot instance types. When this activity is suspended, the Auto
+   *                     Scaling group continues with its current balance, regardless of viability.
+   *                     Instance protection, utilization metrics, and capacity autoscaling activities
+   *                     continue to be active. </p>
+   *             </li>
+   *          </ul>
+   *         <p>To suspend activity, specify a game server group ARN and the type of activity to be suspended.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public suspendGameServerGroup(
+    args: SuspendGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SuspendGameServerGroupCommandOutput>;
+  public suspendGameServerGroup(
+    args: SuspendGameServerGroupCommandInput,
+    cb: (err: any, data?: SuspendGameServerGroupCommandOutput) => void
+  ): void;
+  public suspendGameServerGroup(
+    args: SuspendGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SuspendGameServerGroupCommandOutput) => void
+  ): void;
+  public suspendGameServerGroup(
+    args: SuspendGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuspendGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: SuspendGameServerGroupCommandOutput) => void
+  ): Promise<SuspendGameServerGroupCommandOutput> | void {
+    const command = new SuspendGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6467,8 +7047,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    *         <p>To add a tag to a resource, specify the unique ARN value for the resource and provide
-   *             a trig list containing one or more tags. The operation succeeds even if the list
-   *             includes tags that are already assigned to the specified resource. </p>
+   *             a tag list containing one or more tags. The operation succeeds even if the list includes
+   *             tags that are already assigned to the specified resource. </p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
@@ -6501,14 +7081,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -6516,17 +7090,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6612,17 +7183,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6667,14 +7235,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAliasCommandOutput>;
-  public updateAlias(
-    args: UpdateAliasCommandInput,
-    cb: (err: any, data?: UpdateAliasCommandOutput) => void
-  ): void;
+  public updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
+  public updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -6682,17 +7244,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6700,15 +7259,15 @@ export class GameLift extends GameLiftClient {
   }
 
   /**
-   * <p>Updates metadata in a build record, including the build name and version. To update
+   * <p>Updates metadata in a build resource, including the build name and version. To update
    *             the metadata, specify the build ID to update and provide the new values. If successful,
    *             a build object containing the updated metadata is returned.</p>
    *         <p>
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
-   *                 Working with Builds</a>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+   *             Upload a Custom Server Build</a>
    *          </p>
    *         <p>
    *             <b>Related operations</b>
@@ -6741,14 +7300,8 @@ export class GameLift extends GameLiftClient {
    *             </li>
    *          </ul>
    */
-  public updateBuild(
-    args: UpdateBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateBuildCommandOutput>;
-  public updateBuild(
-    args: UpdateBuildCommandInput,
-    cb: (err: any, data?: UpdateBuildCommandOutput) => void
-  ): void;
+  public updateBuild(args: UpdateBuildCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBuildCommandOutput>;
+  public updateBuild(args: UpdateBuildCommandInput, cb: (err: any, data?: UpdateBuildCommandOutput) => void): void;
   public updateBuild(
     args: UpdateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -6756,17 +7309,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateBuild(
     args: UpdateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBuildCommandOutput) => void),
     cb?: (err: any, data?: UpdateBuildCommandOutput) => void
   ): Promise<UpdateBuildCommandOutput> | void {
     const command = new UpdateBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6781,8 +7331,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -6833,19 +7383,9 @@ export class GameLift extends GameLiftClient {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -6864,17 +7404,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetAttributes(
     args: UpdateFleetAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetAttributesCommandOutput) => void
   ): Promise<UpdateFleetAttributesCommandOutput> | void {
     const command = new UpdateFleetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6900,8 +7437,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -6952,19 +7489,9 @@ export class GameLift extends GameLiftClient {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -6983,17 +7510,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetCapacity(
     args: UpdateFleetCapacityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetCapacityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetCapacityCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetCapacityCommandOutput) => void
   ): Promise<UpdateFleetCapacityCommandOutput> | void {
     const command = new UpdateFleetCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7011,8 +7535,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -7063,19 +7587,9 @@ export class GameLift extends GameLiftClient {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -7094,17 +7608,209 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateFleetPortSettings(
     args: UpdateFleetPortSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetPortSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetPortSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetPortSettingsCommandOutput) => void
   ): Promise<UpdateFleetPortSettingsCommandOutput> | void {
     const command = new UpdateFleetPortSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Updates information about a registered game server. This action is called by a game
+   *             server process that is running on an instance in a game server group. There are three
+   *             reasons to update game server information: (1) to change the utilization status of the
+   *             game server, (2) to report game server health status, and (3) to change game server
+   *             metadata. A registered game server should regularly report health and should update
+   *             utilization status when it is supporting gameplay so that GameLift FleetIQ can accurately track
+   *             game server availability. You can make all three types of updates in the same
+   *             request.</p>
+   *         <ul>
+   *             <li>
+   *                <p>To update the game server's utilization status, identify the game server and game server group
+   *                     and specify the current utilization status. Use this status to identify when
+   *                     game servers are currently hosting games and when they are available to be
+   *                     claimed.  </p>
+   *             </li>
+   *             <li>
+   *                <p>To report health status, identify the game server and game server group and set health check
+   *                     to HEALTHY. If a game server does not report health status for a certain length
+   *                     of time, the game server is no longer considered healthy and will be eventually
+   *                     de-registered from the game server group to avoid affecting utilization metrics.
+   *                     The best practice is to report health every 60 seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>To change game server metadata, provide updated game server data and custom sort key
+   *                     values.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Once a game server is successfully updated, the relevant statuses and timestamps are updated.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>RegisterGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServers</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ClaimGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServer</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeregisterGameServer</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public updateGameServer(
+    args: UpdateGameServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGameServerCommandOutput>;
+  public updateGameServer(
+    args: UpdateGameServerCommandInput,
+    cb: (err: any, data?: UpdateGameServerCommandOutput) => void
+  ): void;
+  public updateGameServer(
+    args: UpdateGameServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGameServerCommandOutput) => void
+  ): void;
+  public updateGameServer(
+    args: UpdateGameServerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameServerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGameServerCommandOutput) => void
+  ): Promise<UpdateGameServerCommandOutput> | void {
+    const command = new UpdateGameServerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <b>This action is part of Amazon GameLift FleetIQ with game server groups, which is in preview release and is subject to change.</b>
+   *          </p>
+   *         <p>Updates GameLift FleetIQ-specific properties for a game server group. These properties include
+   *             instance rebalancing and game server protection. Many Auto Scaling
+   *             group properties are updated directly. These include autoscaling policies,
+   *             minimum/maximum/desired instance counts, and launch template. </p>
+   *         <p>To update the game server group, specify the game server group ID and provide the
+   *             updated values.</p>
+   *         <p>Updated properties are validated to ensure that GameLift FleetIQ can continue to perform
+   *             its core instance rebalancing activity. When you change Auto Scaling group properties directly and
+   *             the changes cause errors with GameLift FleetIQ activities, an alert is sent.</p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+   *         </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-asgroups.html">Updating a GameLift FleetIQ-Linked Auto Scaling Group</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <a>CreateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ListGameServerGroups</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DescribeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>UpdateGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>DeleteGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>ResumeGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a>SuspendGameServerGroup</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public updateGameServerGroup(
+    args: UpdateGameServerGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGameServerGroupCommandOutput>;
+  public updateGameServerGroup(
+    args: UpdateGameServerGroupCommandInput,
+    cb: (err: any, data?: UpdateGameServerGroupCommandOutput) => void
+  ): void;
+  public updateGameServerGroup(
+    args: UpdateGameServerGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGameServerGroupCommandOutput) => void
+  ): void;
+  public updateGameServerGroup(
+    args: UpdateGameServerGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameServerGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGameServerGroupCommandOutput) => void
+  ): Promise<UpdateGameServerGroupCommandOutput> | void {
+    const command = new UpdateGameServerGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7186,17 +7892,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateGameSession(
     args: UpdateGameSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGameSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameSessionCommandOutput) => void),
     cb?: (err: any, data?: UpdateGameSessionCommandOutput) => void
   ): Promise<UpdateGameSessionCommandOutput> | void {
     const command = new UpdateGameSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7208,6 +7911,16 @@ export class GameLift extends GameLiftClient {
    *             requests in the queue are processed. To update settings, specify the queue name to be
    *             updated and provide the new settings. When updating destinations, provide a complete
    *             list of destinations. </p>
+   *         <p>
+   *             <b>Learn more</b>
+   *          </p>
+   *         <p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
+   *             Using Multi-Region Queues</a>
+   *         </p>
+   *         <p>
+   *             <b>Related operations</b>
+   *          </p>
    *         <ul>
    *             <li>
    *                <p>
@@ -7246,17 +7959,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateGameSessionQueue(
     args: UpdateGameSessionQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGameSessionQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGameSessionQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateGameSessionQueueCommandOutput) => void
   ): Promise<UpdateGameSessionQueueCommandOutput> | void {
     const command = new UpdateGameSessionQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7335,20 +8045,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateMatchmakingConfiguration(
     args: UpdateMatchmakingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateMatchmakingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void
   ): Promise<UpdateMatchmakingConfigurationCommandOutput> | void {
     const command = new UpdateMatchmakingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7372,8 +8076,8 @@ export class GameLift extends GameLiftClient {
    *             <b>Learn more</b>
    *          </p>
    *         <p>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-   *                 Working with Fleets</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+   *          </p>
    *         <p>
    *             <b>Related operations</b>
    *          </p>
@@ -7424,19 +8128,9 @@ export class GameLift extends GameLiftClient {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Manage fleet actions:</p>
-   *                         <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a>StartFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a>StopFleetActions</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>
+   *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -7455,17 +8149,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateRuntimeConfiguration(
     args: UpdateRuntimeConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuntimeConfigurationCommandOutput) => void
   ): Promise<UpdateRuntimeConfigurationCommandOutput> | void {
     const command = new UpdateRuntimeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7524,10 +8215,7 @@ export class GameLift extends GameLiftClient {
     args: UpdateScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateScriptCommandOutput>;
-  public updateScript(
-    args: UpdateScriptCommandInput,
-    cb: (err: any, data?: UpdateScriptCommandOutput) => void
-  ): void;
+  public updateScript(args: UpdateScriptCommandInput, cb: (err: any, data?: UpdateScriptCommandOutput) => void): void;
   public updateScript(
     args: UpdateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -7535,17 +8223,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateScript(
     args: UpdateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScriptCommandOutput) => void),
     cb?: (err: any, data?: UpdateScriptCommandOutput) => void
   ): Promise<UpdateScriptCommandOutput> | void {
     const command = new UpdateScriptCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7628,17 +8313,14 @@ export class GameLift extends GameLiftClient {
   ): void;
   public validateMatchmakingRuleSet(
     args: ValidateMatchmakingRuleSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void),
     cb?: (err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> | void {
     const command = new ValidateMatchmakingRuleSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

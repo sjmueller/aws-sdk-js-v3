@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DescribeDBProxiesRequest,
-  DescribeDBProxiesResponse
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DescribeDBProxiesRequest, DescribeDBProxiesResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDBProxiesCommand,
-  serializeAws_queryDescribeDBProxiesCommand
+  serializeAws_queryDescribeDBProxiesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDBProxiesCommandInput = DescribeDBProxiesRequest;
-export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse &
-  __MetadataBearer;
+export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse & __MetadataBearer;
 
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,
@@ -50,14 +39,15 @@ export class DescribeDBProxiesCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBProxiesCommandInput, DescribeDBProxiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDBProxiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDBProxiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeDBProxiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDBProxiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDBProxiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBProxiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDBProxiesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBProxiesCommandOutput> {
     return deserializeAws_queryDescribeDBProxiesCommand(output, context);
   }
 

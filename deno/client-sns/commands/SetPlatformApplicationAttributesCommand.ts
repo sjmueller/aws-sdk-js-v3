@@ -1,18 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient.ts";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { SetPlatformApplicationAttributesInput } from "../models/index.ts";
 import {
   deserializeAws_querySetPlatformApplicationAttributesCommand,
-  serializeAws_querySetPlatformApplicationAttributesCommand
+  serializeAws_querySetPlatformApplicationAttributesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SetPlatformApplicationAttributesCommandInput = SetPlatformApplicationAttributesInput;
@@ -45,18 +38,16 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetPlatformApplicationAttributesCommandInput,
-    SetPlatformApplicationAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetPlatformApplicationAttributesCommandInput, SetPlatformApplicationAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SetPlatformApplicationAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,20 +61,14 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     input: SetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetPlatformApplicationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetPlatformApplicationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPlatformApplicationAttributesCommandOutput> {
-    return deserializeAws_querySetPlatformApplicationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetPlatformApplicationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

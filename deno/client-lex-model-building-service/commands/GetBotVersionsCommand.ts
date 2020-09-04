@@ -1,18 +1,15 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
 import { GetBotVersionsRequest, GetBotVersionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetBotVersionsCommand,
-  serializeAws_restJson1GetBotVersionsCommand
+  serializeAws_restJson1GetBotVersionsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBotVersionsCommandInput = GetBotVersionsRequest;
-export type GetBotVersionsCommandOutput = GetBotVersionsResponse &
-  __MetadataBearer;
+export type GetBotVersionsCommandOutput = GetBotVersionsResponse & __MetadataBearer;
 
 export class GetBotVersionsCommand extends $Command<
   GetBotVersionsCommandInput,
@@ -47,14 +43,15 @@ export class GetBotVersionsCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBotVersionsCommandInput, GetBotVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBotVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBotVersionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class GetBotVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBotVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBotVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetBotVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBotVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotVersionsCommandOutput> {
     return deserializeAws_restJson1GetBotVersionsCommand(output, context);
   }
 

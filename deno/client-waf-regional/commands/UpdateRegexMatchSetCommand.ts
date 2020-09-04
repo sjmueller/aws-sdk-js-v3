@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
-} from "../WAFRegionalClient.ts";
-import {
-  UpdateRegexMatchSetRequest,
-  UpdateRegexMatchSetResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
+import { UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateRegexMatchSetCommand,
-  serializeAws_json1_1UpdateRegexMatchSetCommand
+  serializeAws_json1_1UpdateRegexMatchSetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateRegexMatchSetCommandInput = UpdateRegexMatchSetRequest;
-export type UpdateRegexMatchSetCommandOutput = UpdateRegexMatchSetResponse &
-  __MetadataBearer;
+export type UpdateRegexMatchSetCommandOutput = UpdateRegexMatchSetResponse & __MetadataBearer;
 
 export class UpdateRegexMatchSetCommand extends $Command<
   UpdateRegexMatchSetCommandInput,
@@ -49,18 +38,16 @@ export class UpdateRegexMatchSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRegexMatchSetCommandInput,
-    UpdateRegexMatchSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRegexMatchSetCommandInput, UpdateRegexMatchSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateRegexMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRegexMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateRegexMatchSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRegexMatchSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRegexMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRegexMatchSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRegexMatchSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateRegexMatchSetCommand(output, context);
   }
 

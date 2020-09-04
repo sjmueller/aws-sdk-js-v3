@@ -1,1 +1,0 @@
-type Buffer = Deno.Buffer

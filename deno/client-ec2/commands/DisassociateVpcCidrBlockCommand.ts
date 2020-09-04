@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DisassociateVpcCidrBlockRequest,
-  DisassociateVpcCidrBlockResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DisassociateVpcCidrBlockCommand,
-  serializeAws_ec2DisassociateVpcCidrBlockCommand
+  serializeAws_ec2DisassociateVpcCidrBlockCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateVpcCidrBlockCommandInput = DisassociateVpcCidrBlockRequest;
-export type DisassociateVpcCidrBlockCommandOutput = DisassociateVpcCidrBlockResult &
-  __MetadataBearer;
+export type DisassociateVpcCidrBlockCommandOutput = DisassociateVpcCidrBlockResult & __MetadataBearer;
 
 export class DisassociateVpcCidrBlockCommand extends $Command<
   DisassociateVpcCidrBlockCommandInput,
@@ -49,18 +38,16 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateVpcCidrBlockCommandInput,
-    DisassociateVpcCidrBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateVpcCidrBlockCommandInput, DisassociateVpcCidrBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateVpcCidrBlockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateVpcCidrBlockResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateVpcCidrBlockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateVpcCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateVpcCidrBlockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateVpcCidrBlockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVpcCidrBlockCommandOutput> {
     return deserializeAws_ec2DisassociateVpcCidrBlockCommand(output, context);
   }
 

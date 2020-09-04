@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient.ts";
-import {
-  DeleteVirtualRouterInput,
-  DeleteVirtualRouterOutput
-} from "../models/index.ts";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
+import { DeleteVirtualRouterInput, DeleteVirtualRouterOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteVirtualRouterCommand,
-  serializeAws_restJson1DeleteVirtualRouterCommand
+  serializeAws_restJson1DeleteVirtualRouterCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteVirtualRouterCommandInput = DeleteVirtualRouterInput;
-export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput &
-  __MetadataBearer;
+export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput & __MetadataBearer;
 
 export class DeleteVirtualRouterCommand extends $Command<
   DeleteVirtualRouterCommandInput,
@@ -49,18 +38,16 @@ export class DeleteVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVirtualRouterCommandInput,
-    DeleteVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVirtualRouterCommandInput, DeleteVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteVirtualRouterInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualRouterOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteVirtualRouterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteVirtualRouterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteVirtualRouterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteVirtualRouterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualRouterCommandOutput> {
     return deserializeAws_restJson1DeleteVirtualRouterCommand(output, context);
   }
 

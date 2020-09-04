@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { ActivitiesType, DescribeScalingActivitiesType } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeScalingActivitiesCommand,
-  serializeAws_queryDescribeScalingActivitiesCommand
+  serializeAws_queryDescribeScalingActivitiesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeScalingActivitiesCommandInput = DescribeScalingActivitiesType;
-export type DescribeScalingActivitiesCommandOutput = ActivitiesType &
-  __MetadataBearer;
+export type DescribeScalingActivitiesCommandOutput = ActivitiesType & __MetadataBearer;
 
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,
@@ -46,18 +38,16 @@ export class DescribeScalingActivitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingActivitiesCommandInput,
-    DescribeScalingActivitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingActivitiesCommandInput, DescribeScalingActivitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeScalingActivitiesType.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivitiesType.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,10 +57,7 @@ export class DescribeScalingActivitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeScalingActivitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeScalingActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingActivitiesCommand(input, context);
   }
 
@@ -78,10 +65,7 @@ export class DescribeScalingActivitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingActivitiesCommandOutput> {
-    return deserializeAws_queryDescribeScalingActivitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

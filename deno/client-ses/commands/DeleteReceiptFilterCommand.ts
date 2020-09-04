@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  DeleteReceiptFilterRequest,
-  DeleteReceiptFilterResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteReceiptFilterCommand,
-  serializeAws_queryDeleteReceiptFilterCommand
+  serializeAws_queryDeleteReceiptFilterCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteReceiptFilterCommandInput = DeleteReceiptFilterRequest;
-export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse &
-  __MetadataBearer;
+export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse & __MetadataBearer;
 
 export class DeleteReceiptFilterCommand extends $Command<
   DeleteReceiptFilterCommandInput,
@@ -49,18 +38,16 @@ export class DeleteReceiptFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReceiptFilterCommandInput,
-    DeleteReceiptFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReceiptFilterCommandInput, DeleteReceiptFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteReceiptFilterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReceiptFilterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteReceiptFilterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteReceiptFilterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReceiptFilterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteReceiptFilterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptFilterCommandOutput> {
     return deserializeAws_queryDeleteReceiptFilterCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  GetOrganizationsAccessReportRequest,
-  GetOrganizationsAccessReportResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetOrganizationsAccessReportCommand,
-  serializeAws_queryGetOrganizationsAccessReportCommand
+  serializeAws_queryGetOrganizationsAccessReportCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetOrganizationsAccessReportCommandInput = GetOrganizationsAccessReportRequest;
-export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessReportResponse &
-  __MetadataBearer;
+export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessReportResponse & __MetadataBearer;
 
 export class GetOrganizationsAccessReportCommand extends $Command<
   GetOrganizationsAccessReportCommandInput,
@@ -49,18 +38,16 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOrganizationsAccessReportCommandInput,
-    GetOrganizationsAccessReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOrganizationsAccessReportCommandInput, GetOrganizationsAccessReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetOrganizationsAccessReportRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationsAccessReportResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetOrganizationsAccessReportCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryGetOrganizationsAccessReportCommand(
-      input,
-      context
-    );
+  private serialize(input: GetOrganizationsAccessReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryGetOrganizationsAccessReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGetOrganizationsAccessReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

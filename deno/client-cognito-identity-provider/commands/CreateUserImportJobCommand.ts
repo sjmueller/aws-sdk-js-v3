@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  CreateUserImportJobRequest,
-  CreateUserImportJobResponse
-} from "../models/index.ts";
+import { CreateUserImportJobRequest, CreateUserImportJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateUserImportJobCommand,
-  serializeAws_json1_1CreateUserImportJobCommand
+  serializeAws_json1_1CreateUserImportJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateUserImportJobCommandInput = CreateUserImportJobRequest;
-export type CreateUserImportJobCommandOutput = CreateUserImportJobResponse &
-  __MetadataBearer;
+export type CreateUserImportJobCommandOutput = CreateUserImportJobResponse & __MetadataBearer;
 
 export class CreateUserImportJobCommand extends $Command<
   CreateUserImportJobCommandInput,
@@ -49,18 +42,16 @@ export class CreateUserImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateUserImportJobCommandInput,
-    CreateUserImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateUserImportJobCommandInput, CreateUserImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateUserImportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateUserImportJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreateUserImportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateUserImportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserImportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateUserImportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserImportJobCommandOutput> {
     return deserializeAws_json1_1CreateUserImportJobCommand(output, context);
   }
 

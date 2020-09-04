@@ -1,21 +1,15 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient.ts";
-import {
-  CreateRealtimeEndpointInput,
-  CreateRealtimeEndpointOutput
-} from "../models/index.ts";
+import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateRealtimeEndpointCommand,
-  serializeAws_json1_1CreateRealtimeEndpointCommand
+  serializeAws_json1_1CreateRealtimeEndpointCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateRealtimeEndpointCommandInput = CreateRealtimeEndpointInput;
-export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput &
-  __MetadataBearer;
+export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput & __MetadataBearer;
 
 export class CreateRealtimeEndpointCommand extends $Command<
   CreateRealtimeEndpointCommandInput,
@@ -49,18 +42,16 @@ export class CreateRealtimeEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRealtimeEndpointCommandInput,
-    CreateRealtimeEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRealtimeEndpointCommandInput, CreateRealtimeEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateRealtimeEndpointInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreateRealtimeEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRealtimeEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRealtimeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRealtimeEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRealtimeEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeEndpointCommandOutput> {
     return deserializeAws_json1_1CreateRealtimeEndpointCommand(output, context);
   }
 

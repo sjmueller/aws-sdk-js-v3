@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import {
-  DeleteScalingPolicyRequest,
-  DeleteScalingPolicyResponse
-} from "../models/index.ts";
+import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
-  serializeAws_json1_1DeleteScalingPolicyCommand
+  serializeAws_json1_1DeleteScalingPolicyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyRequest;
-export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse &
-  __MetadataBearer;
+export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse & __MetadataBearer;
 
 export class DeleteScalingPolicyCommand extends $Command<
   DeleteScalingPolicyCommandInput,
@@ -49,18 +42,16 @@ export class DeleteScalingPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteScalingPolicyCommandInput,
-    DeleteScalingPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteScalingPolicyCommandInput, DeleteScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteScalingPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScalingPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DeleteScalingPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteScalingPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteScalingPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
   }
 

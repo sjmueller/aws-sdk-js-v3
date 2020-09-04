@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DescribeModelPackageInput,
-  DescribeModelPackageOutput
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeModelPackageCommand,
-  serializeAws_json1_1DescribeModelPackageCommand
+  serializeAws_json1_1DescribeModelPackageCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeModelPackageCommandInput = DescribeModelPackageInput;
-export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput &
-  __MetadataBearer;
+export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput & __MetadataBearer;
 
 export class DescribeModelPackageCommand extends $Command<
   DescribeModelPackageCommandInput,
@@ -49,18 +38,16 @@ export class DescribeModelPackageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeModelPackageCommandInput,
-    DescribeModelPackageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeModelPackageCommandInput, DescribeModelPackageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeModelPackageInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeModelPackageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeModelPackageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeModelPackageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeModelPackageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeModelPackageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelPackageCommandOutput> {
     return deserializeAws_json1_1DescribeModelPackageCommand(output, context);
   }
 

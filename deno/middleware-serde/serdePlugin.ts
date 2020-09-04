@@ -1,26 +1,27 @@
 import {
-  RequestSerializer,
-  ResponseDeserializer,
-  Pluggable,
+  DeserializeHandlerOptions,
+  EndpointBearer,
   MetadataBearer,
   MiddlewareStack,
-  EndpointBearer,
-  DeserializeHandlerOptions,
-  SerializeHandlerOptions
+  Pluggable,
+  RequestSerializer,
+  ResponseDeserializer,
+  SerializeHandlerOptions,
 } from "../types/mod.ts";
+
 import { deserializerMiddleware } from "./deserializerMiddleware.ts";
 import { serializerMiddleware } from "./serializerMiddleware.ts";
 
 export const deserializerMiddlewareOption: DeserializeHandlerOptions = {
   name: "deserializerMiddleware",
   step: "deserialize",
-  tags: ["DESERIALIZER"]
+  tags: ["DESERIALIZER"],
 };
 
 export const serializerMiddlewareOption: SerializeHandlerOptions = {
   name: "serializerMiddleware",
   step: "serialize",
-  tags: ["SERIALIZER"]
+  tags: ["SERIALIZER"],
 };
 
 export function getSerdePlugin<
@@ -34,14 +35,8 @@ export function getSerdePlugin<
 ): Pluggable<InputType, OutputType> {
   return {
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
-      commandStack.add(
-        deserializerMiddleware(config, deserializer),
-        deserializerMiddlewareOption
-      );
-      commandStack.add(
-        serializerMiddleware(config, serializer),
-        serializerMiddlewareOption
-      );
-    }
+      commandStack.add(deserializerMiddleware(config, deserializer), deserializerMiddlewareOption);
+      commandStack.add(serializerMiddleware(config, serializer), serializerMiddlewareOption);
+    },
   };
 }

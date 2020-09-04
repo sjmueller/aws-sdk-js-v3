@@ -1,99 +1,91 @@
 import {
+  AcceptDomainTransferFromAnotherAwsAccountCommandInput,
+  AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand.ts";
+import {
+  CancelDomainTransferToAnotherAwsAccountCommandInput,
+  CancelDomainTransferToAnotherAwsAccountCommandOutput,
+} from "./commands/CancelDomainTransferToAnotherAwsAccountCommand.ts";
+import {
   CheckDomainAvailabilityCommandInput,
-  CheckDomainAvailabilityCommandOutput
+  CheckDomainAvailabilityCommandOutput,
 } from "./commands/CheckDomainAvailabilityCommand.ts";
 import {
   CheckDomainTransferabilityCommandInput,
-  CheckDomainTransferabilityCommandOutput
+  CheckDomainTransferabilityCommandOutput,
 } from "./commands/CheckDomainTransferabilityCommand.ts";
 import {
   DeleteTagsForDomainCommandInput,
-  DeleteTagsForDomainCommandOutput
+  DeleteTagsForDomainCommandOutput,
 } from "./commands/DeleteTagsForDomainCommand.ts";
 import {
   DisableDomainAutoRenewCommandInput,
-  DisableDomainAutoRenewCommandOutput
+  DisableDomainAutoRenewCommandOutput,
 } from "./commands/DisableDomainAutoRenewCommand.ts";
 import {
   DisableDomainTransferLockCommandInput,
-  DisableDomainTransferLockCommandOutput
+  DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand.ts";
 import {
   EnableDomainAutoRenewCommandInput,
-  EnableDomainAutoRenewCommandOutput
+  EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand.ts";
 import {
   EnableDomainTransferLockCommandInput,
-  EnableDomainTransferLockCommandOutput
+  EnableDomainTransferLockCommandOutput,
 } from "./commands/EnableDomainTransferLockCommand.ts";
 import {
   GetContactReachabilityStatusCommandInput,
-  GetContactReachabilityStatusCommandOutput
+  GetContactReachabilityStatusCommandOutput,
 } from "./commands/GetContactReachabilityStatusCommand.ts";
-import {
-  GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput
-} from "./commands/GetDomainDetailCommand.ts";
+import { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "./commands/GetDomainDetailCommand.ts";
 import {
   GetDomainSuggestionsCommandInput,
-  GetDomainSuggestionsCommandOutput
+  GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand.ts";
 import {
   GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput
+  GetOperationDetailCommandOutput,
 } from "./commands/GetOperationDetailCommand.ts";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
+import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand.ts";
+import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand.ts";
+import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand.ts";
 import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand.ts";
-import {
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput
-} from "./commands/ListOperationsCommand.ts";
-import {
-  ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput
-} from "./commands/ListTagsForDomainCommand.ts";
-import {
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
-} from "./commands/RegisterDomainCommand.ts";
-import {
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput
-} from "./commands/RenewDomainCommand.ts";
+  RejectDomainTransferFromAnotherAwsAccountCommandInput,
+  RejectDomainTransferFromAnotherAwsAccountCommandOutput,
+} from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand.ts";
+import { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand.ts";
 import {
   ResendContactReachabilityEmailCommandInput,
-  ResendContactReachabilityEmailCommandOutput
+  ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand.ts";
 import {
   RetrieveDomainAuthCodeCommandInput,
-  RetrieveDomainAuthCodeCommandOutput
+  RetrieveDomainAuthCodeCommandOutput,
 } from "./commands/RetrieveDomainAuthCodeCommand.ts";
+import { TransferDomainCommandInput, TransferDomainCommandOutput } from "./commands/TransferDomainCommand.ts";
 import {
-  TransferDomainCommandInput,
-  TransferDomainCommandOutput
-} from "./commands/TransferDomainCommand.ts";
+  TransferDomainToAnotherAwsAccountCommandInput,
+  TransferDomainToAnotherAwsAccountCommandOutput,
+} from "./commands/TransferDomainToAnotherAwsAccountCommand.ts";
 import {
   UpdateDomainContactCommandInput,
-  UpdateDomainContactCommandOutput
+  UpdateDomainContactCommandOutput,
 } from "./commands/UpdateDomainContactCommand.ts";
 import {
   UpdateDomainContactPrivacyCommandInput,
-  UpdateDomainContactPrivacyCommandOutput
+  UpdateDomainContactPrivacyCommandOutput,
 } from "./commands/UpdateDomainContactPrivacyCommand.ts";
 import {
   UpdateDomainNameserversCommandInput,
-  UpdateDomainNameserversCommandOutput
+  UpdateDomainNameserversCommandOutput,
 } from "./commands/UpdateDomainNameserversCommand.ts";
 import {
   UpdateTagsForDomainCommandInput,
-  UpdateTagsForDomainCommandOutput
+  UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand.ts";
-import {
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput
-} from "./commands/ViewBillingCommand.ts";
+import { ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -101,38 +93,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -141,12 +129,15 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | AcceptDomainTransferFromAnotherAwsAccountCommandInput
+  | CancelDomainTransferToAnotherAwsAccountCommandInput
   | CheckDomainAvailabilityCommandInput
   | CheckDomainTransferabilityCommandInput
   | DeleteTagsForDomainCommandInput
@@ -162,10 +153,12 @@ export type ServiceInputTypes =
   | ListOperationsCommandInput
   | ListTagsForDomainCommandInput
   | RegisterDomainCommandInput
+  | RejectDomainTransferFromAnotherAwsAccountCommandInput
   | RenewDomainCommandInput
   | ResendContactReachabilityEmailCommandInput
   | RetrieveDomainAuthCodeCommandInput
   | TransferDomainCommandInput
+  | TransferDomainToAnotherAwsAccountCommandInput
   | UpdateDomainContactCommandInput
   | UpdateDomainContactPrivacyCommandInput
   | UpdateDomainNameserversCommandInput
@@ -173,6 +166,8 @@ export type ServiceInputTypes =
   | ViewBillingCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptDomainTransferFromAnotherAwsAccountCommandOutput
+  | CancelDomainTransferToAnotherAwsAccountCommandOutput
   | CheckDomainAvailabilityCommandOutput
   | CheckDomainTransferabilityCommandOutput
   | DeleteTagsForDomainCommandOutput
@@ -188,18 +183,19 @@ export type ServiceOutputTypes =
   | ListOperationsCommandOutput
   | ListTagsForDomainCommandOutput
   | RegisterDomainCommandOutput
+  | RejectDomainTransferFromAnotherAwsAccountCommandOutput
   | RenewDomainCommandOutput
   | ResendContactReachabilityEmailCommandOutput
   | RetrieveDomainAuthCodeCommandOutput
   | TransferDomainCommandOutput
+  | TransferDomainToAnotherAwsAccountCommandOutput
   | UpdateDomainContactCommandOutput
   | UpdateDomainContactPrivacyCommandOutput
   | UpdateDomainNameserversCommandOutput
   | UpdateTagsForDomainCommandOutput
   | ViewBillingCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -273,14 +269,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -288,9 +289,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53DomainsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53DomainsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -299,9 +298,7 @@ export type Route53DomainsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -324,7 +321,7 @@ export class Route53DomainsClient extends __Client<
   constructor(configuration: Route53DomainsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -339,6 +336,7 @@ export class Route53DomainsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

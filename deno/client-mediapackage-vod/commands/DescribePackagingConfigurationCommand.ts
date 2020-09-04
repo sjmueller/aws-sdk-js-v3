@@ -1,21 +1,15 @@
 import {
   MediaPackageVodClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageVodClient.ts";
-import {
-  DescribePackagingConfigurationRequest,
-  DescribePackagingConfigurationResponse
-} from "../models/index.ts";
+import { DescribePackagingConfigurationRequest, DescribePackagingConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribePackagingConfigurationCommand,
-  serializeAws_restJson1DescribePackagingConfigurationCommand
+  serializeAws_restJson1DescribePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribePackagingConfigurationCommandInput = DescribePackagingConfigurationRequest;
-export type DescribePackagingConfigurationCommandOutput = DescribePackagingConfigurationResponse &
-  __MetadataBearer;
+export type DescribePackagingConfigurationCommandOutput = DescribePackagingConfigurationResponse & __MetadataBearer;
 
 export class DescribePackagingConfigurationCommand extends $Command<
   DescribePackagingConfigurationCommandInput,
@@ -49,18 +42,16 @@ export class DescribePackagingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePackagingConfigurationCommandInput,
-    DescribePackagingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePackagingConfigurationCommandInput, DescribePackagingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribePackagingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePackagingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribePackagingConfigurationCommand extends $Command<
     input: DescribePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackagingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribePackagingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribePackagingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,8 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient.ts";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
 import { QueryInput, QueryOutput } from "../models/index.ts";
-import {
-  deserializeAws_json1_0QueryCommand,
-  serializeAws_json1_0QueryCommand
-} from "../protocols/Aws_json1_0.ts";
+import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +11,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type QueryCommandInput = QueryInput;
 export type QueryCommandOutput = QueryOutput & __MetadataBearer;
 
-export class QueryCommand extends $Command<
-  QueryCommandInput,
-  QueryCommandOutput,
-  DynamoDBClientResolvedConfig
-> {
+export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +32,15 @@ export class QueryCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: QueryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: QueryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +50,11 @@ export class QueryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: QueryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0QueryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<QueryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
     return deserializeAws_json1_0QueryCommand(output, context);
   }
 

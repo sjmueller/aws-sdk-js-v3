@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  DeleteNetworkProfileRequest,
-  DeleteNetworkProfileResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { DeleteNetworkProfileRequest, DeleteNetworkProfileResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteNetworkProfileCommand,
-  serializeAws_json1_1DeleteNetworkProfileCommand
+  serializeAws_json1_1DeleteNetworkProfileCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteNetworkProfileCommandInput = DeleteNetworkProfileRequest;
-export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResult &
-  __MetadataBearer;
+export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResult & __MetadataBearer;
 
 export class DeleteNetworkProfileCommand extends $Command<
   DeleteNetworkProfileCommandInput,
@@ -49,18 +38,16 @@ export class DeleteNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNetworkProfileCommandInput,
-    DeleteNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNetworkProfileCommandInput, DeleteNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteNetworkProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNetworkProfileResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteNetworkProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteNetworkProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteNetworkProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteNetworkProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkProfileCommandOutput> {
     return deserializeAws_json1_1DeleteNetworkProfileCommand(output, context);
   }
 

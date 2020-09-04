@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  UpdateFleetAttributesInput,
-  UpdateFleetAttributesOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateFleetAttributesCommand,
-  serializeAws_json1_1UpdateFleetAttributesCommand
+  serializeAws_json1_1UpdateFleetAttributesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateFleetAttributesCommandInput = UpdateFleetAttributesInput;
-export type UpdateFleetAttributesCommandOutput = UpdateFleetAttributesOutput &
-  __MetadataBearer;
+export type UpdateFleetAttributesCommandOutput = UpdateFleetAttributesOutput & __MetadataBearer;
 
 export class UpdateFleetAttributesCommand extends $Command<
   UpdateFleetAttributesCommandInput,
@@ -49,18 +38,16 @@ export class UpdateFleetAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFleetAttributesCommandInput,
-    UpdateFleetAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFleetAttributesCommandInput, UpdateFleetAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateFleetAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFleetAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateFleetAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateFleetAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateFleetAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetAttributesCommandOutput> {
     return deserializeAws_json1_1UpdateFleetAttributesCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeSpotInstanceRequestsRequest,
-  DescribeSpotInstanceRequestsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeSpotInstanceRequestsRequest, DescribeSpotInstanceRequestsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeSpotInstanceRequestsCommand,
-  serializeAws_ec2DescribeSpotInstanceRequestsCommand
+  serializeAws_ec2DescribeSpotInstanceRequestsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSpotInstanceRequestsCommandInput = DescribeSpotInstanceRequestsRequest;
-export type DescribeSpotInstanceRequestsCommandOutput = DescribeSpotInstanceRequestsResult &
-  __MetadataBearer;
+export type DescribeSpotInstanceRequestsCommandOutput = DescribeSpotInstanceRequestsResult & __MetadataBearer;
 
 export class DescribeSpotInstanceRequestsCommand extends $Command<
   DescribeSpotInstanceRequestsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSpotInstanceRequestsCommandInput,
-    DescribeSpotInstanceRequestsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSpotInstanceRequestsCommandInput, DescribeSpotInstanceRequestsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSpotInstanceRequestsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSpotInstanceRequestsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSpotInstanceRequestsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSpotInstanceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotInstanceRequestsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotInstanceRequestsCommandOutput> {
-    return deserializeAws_ec2DescribeSpotInstanceRequestsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeSpotInstanceRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

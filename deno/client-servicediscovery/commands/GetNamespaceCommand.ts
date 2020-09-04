@@ -1,18 +1,15 @@
 import {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServiceDiscoveryClient.ts";
 import { GetNamespaceRequest, GetNamespaceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetNamespaceCommand,
-  serializeAws_json1_1GetNamespaceCommand
+  serializeAws_json1_1GetNamespaceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetNamespaceCommandInput = GetNamespaceRequest;
@@ -46,14 +43,15 @@ export class GetNamespaceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetNamespaceCommandInput, GetNamespaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetNamespaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetNamespaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class GetNamespaceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetNamespaceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNamespaceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetNamespaceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamespaceCommandOutput> {
     return deserializeAws_json1_1GetNamespaceCommand(output, context);
   }
 

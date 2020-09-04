@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
-  serializeAws_queryModifyEventSubscriptionCommand
+  serializeAws_queryModifyEventSubscriptionCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult &
-  __MetadataBearer;
+export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
 
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
@@ -49,18 +38,16 @@ export class ModifyEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyEventSubscriptionCommandInput,
-    ModifyEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyEventSubscriptionCommandInput, ModifyEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyEventSubscriptionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyEventSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyEventSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyEventSubscriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
     return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
   }
 

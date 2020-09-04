@@ -1,228 +1,298 @@
 import { CloudFrontClient } from "./CloudFrontClient.ts";
 import {
+  CreateCachePolicyCommand,
+  CreateCachePolicyCommandInput,
+  CreateCachePolicyCommandOutput,
+} from "./commands/CreateCachePolicyCommand.ts";
+import {
   CreateCloudFrontOriginAccessIdentityCommand,
   CreateCloudFrontOriginAccessIdentityCommandInput,
-  CreateCloudFrontOriginAccessIdentityCommandOutput
+  CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand.ts";
 import {
   CreateDistributionCommand,
   CreateDistributionCommandInput,
-  CreateDistributionCommandOutput
+  CreateDistributionCommandOutput,
 } from "./commands/CreateDistributionCommand.ts";
 import {
   CreateDistributionWithTagsCommand,
   CreateDistributionWithTagsCommandInput,
-  CreateDistributionWithTagsCommandOutput
+  CreateDistributionWithTagsCommandOutput,
 } from "./commands/CreateDistributionWithTagsCommand.ts";
 import {
   CreateFieldLevelEncryptionConfigCommand,
   CreateFieldLevelEncryptionConfigCommandInput,
-  CreateFieldLevelEncryptionConfigCommandOutput
+  CreateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionConfigCommand.ts";
 import {
   CreateFieldLevelEncryptionProfileCommand,
   CreateFieldLevelEncryptionProfileCommandInput,
-  CreateFieldLevelEncryptionProfileCommandOutput
+  CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand.ts";
 import {
   CreateInvalidationCommand,
   CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput
+  CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand.ts";
+import {
+  CreateOriginRequestPolicyCommand,
+  CreateOriginRequestPolicyCommandInput,
+  CreateOriginRequestPolicyCommandOutput,
+} from "./commands/CreateOriginRequestPolicyCommand.ts";
 import {
   CreatePublicKeyCommand,
   CreatePublicKeyCommandInput,
-  CreatePublicKeyCommandOutput
+  CreatePublicKeyCommandOutput,
 } from "./commands/CreatePublicKeyCommand.ts";
 import {
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionCommandInput,
-  CreateStreamingDistributionCommandOutput
+  CreateStreamingDistributionCommandOutput,
 } from "./commands/CreateStreamingDistributionCommand.ts";
 import {
   CreateStreamingDistributionWithTagsCommand,
   CreateStreamingDistributionWithTagsCommandInput,
-  CreateStreamingDistributionWithTagsCommandOutput
+  CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand.ts";
+import {
+  DeleteCachePolicyCommand,
+  DeleteCachePolicyCommandInput,
+  DeleteCachePolicyCommandOutput,
+} from "./commands/DeleteCachePolicyCommand.ts";
 import {
   DeleteCloudFrontOriginAccessIdentityCommand,
   DeleteCloudFrontOriginAccessIdentityCommandInput,
-  DeleteCloudFrontOriginAccessIdentityCommandOutput
+  DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand.ts";
 import {
   DeleteDistributionCommand,
   DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput
+  DeleteDistributionCommandOutput,
 } from "./commands/DeleteDistributionCommand.ts";
 import {
   DeleteFieldLevelEncryptionConfigCommand,
   DeleteFieldLevelEncryptionConfigCommandInput,
-  DeleteFieldLevelEncryptionConfigCommandOutput
+  DeleteFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionConfigCommand.ts";
 import {
   DeleteFieldLevelEncryptionProfileCommand,
   DeleteFieldLevelEncryptionProfileCommandInput,
-  DeleteFieldLevelEncryptionProfileCommandOutput
+  DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand.ts";
+import {
+  DeleteOriginRequestPolicyCommand,
+  DeleteOriginRequestPolicyCommandInput,
+  DeleteOriginRequestPolicyCommandOutput,
+} from "./commands/DeleteOriginRequestPolicyCommand.ts";
 import {
   DeletePublicKeyCommand,
   DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput
+  DeletePublicKeyCommandOutput,
 } from "./commands/DeletePublicKeyCommand.ts";
 import {
   DeleteStreamingDistributionCommand,
   DeleteStreamingDistributionCommandInput,
-  DeleteStreamingDistributionCommandOutput
+  DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand.ts";
+import {
+  GetCachePolicyCommand,
+  GetCachePolicyCommandInput,
+  GetCachePolicyCommandOutput,
+} from "./commands/GetCachePolicyCommand.ts";
+import {
+  GetCachePolicyConfigCommand,
+  GetCachePolicyConfigCommandInput,
+  GetCachePolicyConfigCommandOutput,
+} from "./commands/GetCachePolicyConfigCommand.ts";
 import {
   GetCloudFrontOriginAccessIdentityCommand,
   GetCloudFrontOriginAccessIdentityCommandInput,
-  GetCloudFrontOriginAccessIdentityCommandOutput
+  GetCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityCommand.ts";
 import {
   GetCloudFrontOriginAccessIdentityConfigCommand,
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
-  GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand.ts";
 import {
   GetDistributionCommand,
   GetDistributionCommandInput,
-  GetDistributionCommandOutput
+  GetDistributionCommandOutput,
 } from "./commands/GetDistributionCommand.ts";
 import {
   GetDistributionConfigCommand,
   GetDistributionConfigCommandInput,
-  GetDistributionConfigCommandOutput
+  GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand.ts";
 import {
   GetFieldLevelEncryptionCommand,
   GetFieldLevelEncryptionCommandInput,
-  GetFieldLevelEncryptionCommandOutput
+  GetFieldLevelEncryptionCommandOutput,
 } from "./commands/GetFieldLevelEncryptionCommand.ts";
 import {
   GetFieldLevelEncryptionConfigCommand,
   GetFieldLevelEncryptionConfigCommandInput,
-  GetFieldLevelEncryptionConfigCommandOutput
+  GetFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionConfigCommand.ts";
 import {
   GetFieldLevelEncryptionProfileCommand,
   GetFieldLevelEncryptionProfileCommandInput,
-  GetFieldLevelEncryptionProfileCommandOutput
+  GetFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileCommand.ts";
 import {
   GetFieldLevelEncryptionProfileConfigCommand,
   GetFieldLevelEncryptionProfileConfigCommandInput,
-  GetFieldLevelEncryptionProfileConfigCommandOutput
+  GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand.ts";
 import {
   GetInvalidationCommand,
   GetInvalidationCommandInput,
-  GetInvalidationCommandOutput
+  GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand.ts";
+import {
+  GetOriginRequestPolicyCommand,
+  GetOriginRequestPolicyCommandInput,
+  GetOriginRequestPolicyCommandOutput,
+} from "./commands/GetOriginRequestPolicyCommand.ts";
+import {
+  GetOriginRequestPolicyConfigCommand,
+  GetOriginRequestPolicyConfigCommandInput,
+  GetOriginRequestPolicyConfigCommandOutput,
+} from "./commands/GetOriginRequestPolicyConfigCommand.ts";
 import {
   GetPublicKeyCommand,
   GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
+  GetPublicKeyCommandOutput,
 } from "./commands/GetPublicKeyCommand.ts";
 import {
   GetPublicKeyConfigCommand,
   GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput
+  GetPublicKeyConfigCommandOutput,
 } from "./commands/GetPublicKeyConfigCommand.ts";
 import {
   GetStreamingDistributionCommand,
   GetStreamingDistributionCommandInput,
-  GetStreamingDistributionCommandOutput
+  GetStreamingDistributionCommandOutput,
 } from "./commands/GetStreamingDistributionCommand.ts";
 import {
   GetStreamingDistributionConfigCommand,
   GetStreamingDistributionConfigCommandInput,
-  GetStreamingDistributionConfigCommandOutput
+  GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand.ts";
+import {
+  ListCachePoliciesCommand,
+  ListCachePoliciesCommandInput,
+  ListCachePoliciesCommandOutput,
+} from "./commands/ListCachePoliciesCommand.ts";
 import {
   ListCloudFrontOriginAccessIdentitiesCommand,
   ListCloudFrontOriginAccessIdentitiesCommandInput,
-  ListCloudFrontOriginAccessIdentitiesCommandOutput
+  ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand.ts";
+import {
+  ListDistributionsByCachePolicyIdCommand,
+  ListDistributionsByCachePolicyIdCommandInput,
+  ListDistributionsByCachePolicyIdCommandOutput,
+} from "./commands/ListDistributionsByCachePolicyIdCommand.ts";
+import {
+  ListDistributionsByOriginRequestPolicyIdCommand,
+  ListDistributionsByOriginRequestPolicyIdCommandInput,
+  ListDistributionsByOriginRequestPolicyIdCommandOutput,
+} from "./commands/ListDistributionsByOriginRequestPolicyIdCommand.ts";
 import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
-  ListDistributionsByWebACLIdCommandOutput
+  ListDistributionsByWebACLIdCommandOutput,
 } from "./commands/ListDistributionsByWebACLIdCommand.ts";
 import {
   ListDistributionsCommand,
   ListDistributionsCommandInput,
-  ListDistributionsCommandOutput
+  ListDistributionsCommandOutput,
 } from "./commands/ListDistributionsCommand.ts";
 import {
   ListFieldLevelEncryptionConfigsCommand,
   ListFieldLevelEncryptionConfigsCommandInput,
-  ListFieldLevelEncryptionConfigsCommandOutput
+  ListFieldLevelEncryptionConfigsCommandOutput,
 } from "./commands/ListFieldLevelEncryptionConfigsCommand.ts";
 import {
   ListFieldLevelEncryptionProfilesCommand,
   ListFieldLevelEncryptionProfilesCommandInput,
-  ListFieldLevelEncryptionProfilesCommandOutput
+  ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand.ts";
 import {
   ListInvalidationsCommand,
   ListInvalidationsCommandInput,
-  ListInvalidationsCommandOutput
+  ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand.ts";
+import {
+  ListOriginRequestPoliciesCommand,
+  ListOriginRequestPoliciesCommandInput,
+  ListOriginRequestPoliciesCommandOutput,
+} from "./commands/ListOriginRequestPoliciesCommand.ts";
 import {
   ListPublicKeysCommand,
   ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
+  ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand.ts";
 import {
   ListStreamingDistributionsCommand,
   ListStreamingDistributionsCommandInput,
-  ListStreamingDistributionsCommandOutput
+  ListStreamingDistributionsCommandOutput,
 } from "./commands/ListStreamingDistributionsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
+import {
+  UpdateCachePolicyCommand,
+  UpdateCachePolicyCommandInput,
+  UpdateCachePolicyCommandOutput,
+} from "./commands/UpdateCachePolicyCommand.ts";
 import {
   UpdateCloudFrontOriginAccessIdentityCommand,
   UpdateCloudFrontOriginAccessIdentityCommandInput,
-  UpdateCloudFrontOriginAccessIdentityCommandOutput
+  UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand.ts";
 import {
   UpdateDistributionCommand,
   UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput
+  UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand.ts";
 import {
   UpdateFieldLevelEncryptionConfigCommand,
   UpdateFieldLevelEncryptionConfigCommandInput,
-  UpdateFieldLevelEncryptionConfigCommandOutput
+  UpdateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionConfigCommand.ts";
 import {
   UpdateFieldLevelEncryptionProfileCommand,
   UpdateFieldLevelEncryptionProfileCommandInput,
-  UpdateFieldLevelEncryptionProfileCommandOutput
+  UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand.ts";
+import {
+  UpdateOriginRequestPolicyCommand,
+  UpdateOriginRequestPolicyCommandInput,
+  UpdateOriginRequestPolicyCommandOutput,
+} from "./commands/UpdateOriginRequestPolicyCommand.ts";
 import {
   UpdatePublicKeyCommand,
   UpdatePublicKeyCommandInput,
-  UpdatePublicKeyCommandOutput
+  UpdatePublicKeyCommandOutput,
 } from "./commands/UpdatePublicKeyCommand.ts";
 import {
   UpdateStreamingDistributionCommand,
   UpdateStreamingDistributionCommandInput,
-  UpdateStreamingDistributionCommandOutput
+  UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -232,6 +302,58 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFront extends CloudFrontClient {
+  /**
+   * <p>Creates a cache policy.</p>
+   * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it’s
+   * 			attached to a cache behavior, the cache policy determines the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The values that CloudFront includes in the <i>cache key</i>. These values can
+   * 					include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to
+   * 					find an object in its cache that it can return to the viewer.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay
+   * 					in the CloudFront cache.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>The headers, cookies, and query strings that are included in the cache key are automatically
+   * 			included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t
+   * 			find an object in its cache that matches the request’s cache key. If you want to send
+   * 			values to the origin but <i>not</i> include them in the cache key, use
+   * 			<code>CreateOriginRequestPolicy</code>.</p>
+   * 		       <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCachePolicyCommandOutput>;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    cb: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): void;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): void;
+  public createCachePolicy(
+    args: CreateCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateCachePolicyCommandOutput) => void
+  ): Promise<CreateCachePolicyCommandOutput> | void {
+    const command = new CreateCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
    * 			use an origin access identity to require users to access your content using a CloudFront URL instead
@@ -244,38 +366,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput>;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new CreateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -312,17 +419,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createDistribution(
     args: CreateDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDistributionCommandOutput) => void),
     cb?: (err: any, data?: CreateDistributionCommandOutput) => void
   ): Promise<CreateDistributionCommandOutput> | void {
     const command = new CreateDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -347,17 +451,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createDistributionWithTags(
     args: CreateDistributionWithTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDistributionWithTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDistributionWithTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateDistributionWithTagsCommandOutput) => void
   ): Promise<CreateDistributionWithTagsCommandOutput> | void {
     const command = new CreateDistributionWithTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -382,23 +483,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateFieldLevelEncryptionConfigCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new CreateFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -414,38 +506,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput>;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new CreateFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -470,17 +547,70 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createInvalidation(
     args: CreateInvalidationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInvalidationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInvalidationCommandOutput) => void),
     cb?: (err: any, data?: CreateInvalidationCommandOutput) => void
   ): Promise<CreateInvalidationCommandOutput> | void {
     const command = new CreateInvalidationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an origin request policy.</p>
+   * 		       <p>After you create an origin request policy, you can attach it to one or more cache behaviors.
+   * 			When it’s attached to a cache behavior, the origin request policy determines the values
+   * 			that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends
+   * 			to the origin includes the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The request body and the URL path (without the domain name) from the viewer
+   * 					request.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The headers that CloudFront automatically includes in every origin request, including
+   * 					<code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or
+   * 					the origin request policy. These can include items from the viewer request and,
+   * 					in the case of headers, additional ones that are added by CloudFront.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>CloudFront sends a request when it can’t find a valid object in its cache that matches the
+   * 			request. If you want to send values to the origin and also include them in the cache
+   * 			key, use <code>CreateCachePolicy</code>.</p>
+   * 		       <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOriginRequestPolicyCommandOutput>;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public createOriginRequestPolicy(
+    args: CreateOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
+  ): Promise<CreateOriginRequestPolicyCommandOutput> | void {
+    const command = new CreateOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,17 +635,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createPublicKey(
     args: CreatePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: CreatePublicKeyCommandOutput) => void
   ): Promise<CreatePublicKeyCommandOutput> | void {
     const command = new CreatePublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -564,17 +691,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createStreamingDistribution(
     args: CreateStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamingDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamingDistributionCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamingDistributionCommandOutput) => void
   ): Promise<CreateStreamingDistributionCommandOutput> | void {
     const command = new CreateStreamingDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -590,38 +714,61 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput>;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
-    cb: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): void;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): void;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateStreamingDistributionWithTagsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void),
+    cb?: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> | void {
     const command = new CreateStreamingDistributionWithTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a cache policy.</p>
+   * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update your
+   * 			distributions to remove the cache policy from all cache behaviors, then delete the cache
+   * 			policy.</p>
+   * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
+   * 			values, you can use <code>ListCachePolicies</code> or
+   * 			<code>GetCachePolicy</code>.</p>
+   */
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCachePolicyCommandOutput>;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    cb: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): void;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): void;
+  public deleteCachePolicy(
+    args: DeleteCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCachePolicyCommandOutput) => void
+  ): Promise<DeleteCachePolicyCommandOutput> | void {
+    const command = new DeleteCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -637,38 +784,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput>;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new DeleteCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -693,17 +825,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public deleteDistribution(
     args: DeleteDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDistributionCommandOutput) => void),
     cb?: (err: any, data?: DeleteDistributionCommandOutput) => void
   ): Promise<DeleteDistributionCommandOutput> | void {
     const command = new DeleteDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -728,23 +857,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionConfigCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new DeleteFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -760,38 +880,61 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput>;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new DeleteFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an origin request policy.</p>
+   * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
+   * 			update your distributions to remove the origin request policy from all cache behaviors,
+   * 			then delete the origin request policy.</p>
+   * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
+   * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+   * 			<code>GetOriginRequestPolicy</code>.</p>
+   */
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOriginRequestPolicyCommandOutput>;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public deleteOriginRequestPolicy(
+    args: DeleteOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
+  ): Promise<DeleteOriginRequestPolicyCommandOutput> | void {
+    const command = new DeleteOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -816,17 +959,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public deletePublicKey(
     args: DeletePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: DeletePublicKeyCommandOutput) => void
   ): Promise<DeletePublicKeyCommandOutput> | void {
     const command = new DeletePublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -898,17 +1038,96 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public deleteStreamingDistribution(
     args: DeleteStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamingDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamingDistributionCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
   ): Promise<DeleteStreamingDistributionCommandOutput> | void {
     const command = new DeleteStreamingDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a cache policy, including the following metadata:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The policy’s identifier.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The date and time when the policy was last modified.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>To get a cache policy, you must provide the policy’s identifier. If the cache policy is
+   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
+   * 			not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCachePolicyCommandOutput>;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    cb: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): void;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): void;
+  public getCachePolicy(
+    args: GetCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetCachePolicyCommandOutput) => void
+  ): Promise<GetCachePolicyCommandOutput> | void {
+    const command = new GetCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a cache policy configuration.</p>
+   * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the cache
+   * 			policy is attached to a distribution’s cache behavior, you can get the policy’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			cache policy is not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCachePolicyConfigCommandOutput>;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    cb: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): void;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): void;
+  public getCachePolicyConfig(
+    args: GetCachePolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCachePolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
+  ): Promise<GetCachePolicyConfigCommandOutput> | void {
+    const command = new GetCachePolicyConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -924,38 +1143,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput>;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new GetCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -971,38 +1175,25 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput>;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+      | ((err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> | void {
     const command = new GetCloudFrontOriginAccessIdentityConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1027,17 +1218,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getDistribution(
     args: GetDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDistributionCommandOutput) => void),
     cb?: (err: any, data?: GetDistributionCommandOutput) => void
   ): Promise<GetDistributionCommandOutput> | void {
     const command = new GetDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1062,17 +1250,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getDistributionConfig(
     args: GetDistributionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDistributionConfigCommandOutput) => void),
     cb?: (err: any, data?: GetDistributionConfigCommandOutput) => void
   ): Promise<GetDistributionConfigCommandOutput> | void {
     const command = new GetDistributionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1097,17 +1282,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getFieldLevelEncryption(
     args: GetFieldLevelEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFieldLevelEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFieldLevelEncryptionCommandOutput) => void),
     cb?: (err: any, data?: GetFieldLevelEncryptionCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionCommandOutput> | void {
     const command = new GetFieldLevelEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1132,17 +1314,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void),
     cb?: (err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new GetFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1167,20 +1346,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetFieldLevelEncryptionProfileCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void),
     cb?: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new GetFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1196,38 +1369,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput>;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): void;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): void;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> | void {
     const command = new GetFieldLevelEncryptionProfileConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1252,17 +1410,97 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getInvalidation(
     args: GetInvalidationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInvalidationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInvalidationCommandOutput) => void),
     cb?: (err: any, data?: GetInvalidationCommandOutput) => void
   ): Promise<GetInvalidationCommandOutput> | void {
     const command = new GetInvalidationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an origin request policy, including the following metadata:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The policy’s identifier.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The date and time when the policy was last modified.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the origin
+   * 			request policy is attached to a distribution’s cache behavior, you can get the policy’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			origin request policy is not attached to a cache behavior, you can get the identifier
+   * 			using <code>ListOriginRequestPolicies</code>.</p>
+   */
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginRequestPolicyCommandOutput>;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicy(
+    args: GetOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
+  ): Promise<GetOriginRequestPolicyCommandOutput> | void {
+    const command = new GetOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an origin request policy configuration.</p>
+   * 		       <p>To get an origin request policy configuration, you must provide the policy’s identifier. If
+   * 			the origin request policy is attached to a distribution’s cache behavior, you can get
+   * 			the policy’s identifier using <code>ListDistributions</code> or
+   * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
+   * 			behavior, you can get the identifier using
+   * 			<code>ListOriginRequestPolicies</code>.</p>
+   */
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOriginRequestPolicyConfigCommandOutput>;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    cb: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): void;
+  public getOriginRequestPolicyConfig(
+    args: GetOriginRequestPolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
+  ): Promise<GetOriginRequestPolicyConfigCommandOutput> | void {
+    const command = new GetOriginRequestPolicyConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1276,10 +1514,7 @@ export class CloudFront extends CloudFrontClient {
     args: GetPublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPublicKeyCommandOutput>;
-  public getPublicKey(
-    args: GetPublicKeyCommandInput,
-    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
-  ): void;
+  public getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -1287,17 +1522,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): Promise<GetPublicKeyCommandOutput> | void {
     const command = new GetPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1322,17 +1554,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyConfigCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
   ): Promise<GetPublicKeyConfigCommandOutput> | void {
     const command = new GetPublicKeyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1357,17 +1586,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getStreamingDistribution(
     args: GetStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStreamingDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamingDistributionCommandOutput) => void),
     cb?: (err: any, data?: GetStreamingDistributionCommandOutput) => void
   ): Promise<GetStreamingDistributionCommandOutput> | void {
     const command = new GetStreamingDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1392,20 +1618,53 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetStreamingDistributionConfigCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamingDistributionConfigCommandOutput) => void),
     cb?: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
   ): Promise<GetStreamingDistributionConfigCommandOutput> | void {
     const command = new GetStreamingDistributionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of cache policies.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
+   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCachePoliciesCommandOutput>;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    cb: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): void;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): void;
+  public listCachePolicies(
+    args: ListCachePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCachePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListCachePoliciesCommandOutput) => void
+  ): Promise<ListCachePoliciesCommandOutput> | void {
+    const command = new ListCachePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1421,38 +1680,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
-    cb: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): void;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): void;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void),
+    cb?: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> | void {
     const command = new ListCloudFrontOriginAccessIdentitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1477,17 +1721,92 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listDistributions(
     args: ListDistributionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDistributionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsCommandOutput) => void),
     cb?: (err: any, data?: ListDistributionsCommandOutput) => void
   ): Promise<ListDistributionsCommandOutput> | void {
     const command = new ListDistributionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+   * 			associated with the specified cache policy.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByCachePolicyIdCommandOutput>;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByCachePolicyId(
+    args: ListDistributionsByCachePolicyIdCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): Promise<ListDistributionsByCachePolicyIdCommandOutput> | void {
+    const command = new ListDistributionsByCachePolicyIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+   * 			associated with the specified origin request policy.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput>;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByOriginRequestPolicyId(
+    args: ListDistributionsByOriginRequestPolicyIdCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> | void {
+    const command = new ListDistributionsByOriginRequestPolicyIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1512,17 +1831,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void),
     cb?: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
   ): Promise<ListDistributionsByWebACLIdCommandOutput> | void {
     const command = new ListDistributionsByWebACLIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1547,20 +1863,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionConfigsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
   ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> | void {
     const command = new ListFieldLevelEncryptionConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1585,23 +1895,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionProfilesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListFieldLevelEncryptionProfilesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void
   ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> | void {
     const command = new ListFieldLevelEncryptionProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1626,17 +1927,53 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listInvalidations(
     args: ListInvalidationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvalidationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvalidationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvalidationsCommandOutput) => void
   ): Promise<ListInvalidationsCommandOutput> | void {
     const command = new ListInvalidationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of origin request policies.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
+   * 			only the custom policies created in your AWS account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOriginRequestPoliciesCommandOutput>;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    cb: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): void;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): void;
+  public listOriginRequestPolicies(
+    args: ListOriginRequestPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOriginRequestPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
+  ): Promise<ListOriginRequestPoliciesCommandOutput> | void {
+    const command = new ListOriginRequestPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1661,17 +1998,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listPublicKeys(
     args: ListPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublicKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublicKeysCommandOutput) => void),
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1696,17 +2030,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listStreamingDistributions(
     args: ListStreamingDistributionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamingDistributionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamingDistributionsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamingDistributionsCommandOutput) => void
   ): Promise<ListStreamingDistributionsCommandOutput> | void {
     const command = new ListStreamingDistributionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1731,17 +2062,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1751,14 +2079,8 @@ export class CloudFront extends CloudFrontClient {
   /**
    * <p>Add tags to a CloudFront resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1766,17 +2088,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1801,17 +2120,63 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a cache policy configuration.</p>
+   * 		       <p>When you update a cache policy configuration, all the fields are updated with the
+   * 			values provided in the request. You cannot update some fields independent of others. To
+   * 			update a cache policy configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetCachePolicyConfig</code> to get the current configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the cache policy configuration that you want to
+   * 					update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateCachePolicy</code> by providing the entire cache policy
+   * 					configuration, including the fields that you modified and those that you
+   * 					didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCachePolicyCommandOutput>;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    cb: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): void;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): void;
+  public updateCachePolicy(
+    args: UpdateCachePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCachePolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCachePolicyCommandOutput) => void
+  ): Promise<UpdateCachePolicyCommandOutput> | void {
+    const command = new UpdateCachePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1827,38 +2192,23 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput>;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new UpdateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1961,17 +2311,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public updateDistribution(
     args: UpdateDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDistributionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDistributionCommandOutput) => void
   ): Promise<UpdateDistributionCommandOutput> | void {
     const command = new UpdateDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1996,23 +2343,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionConfigCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2028,38 +2366,72 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput>;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an origin request policy configuration.</p>
+   * 		       <p>When you update an origin request policy configuration, all the fields are updated
+   * 			with the values provided in the request. You cannot update some fields independent of
+   * 			others. To update an origin request policy configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the origin request policy configuration that you
+   * 					want to update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateOriginRequestPolicy</code> by providing the entire origin
+   * 					request policy configuration, including the fields that you modified and those
+   * 					that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOriginRequestPolicyCommandOutput>;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    cb: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): void;
+  public updateOriginRequestPolicy(
+    args: UpdateOriginRequestPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
+  ): Promise<UpdateOriginRequestPolicyCommandOutput> | void {
+    const command = new UpdateOriginRequestPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2084,17 +2456,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public updatePublicKey(
     args: UpdatePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdatePublicKeyCommandOutput) => void
   ): Promise<UpdatePublicKeyCommandOutput> | void {
     const command = new UpdatePublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2119,17 +2488,14 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public updateStreamingDistribution(
     args: UpdateStreamingDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStreamingDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStreamingDistributionCommandOutput) => void),
     cb?: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
   ): Promise<UpdateStreamingDistributionCommandOutput> | void {
     const command = new UpdateStreamingDistributionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,5 +1,4 @@
 import { AbortSignal } from "./abort.ts";
-type Readable = any;
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */

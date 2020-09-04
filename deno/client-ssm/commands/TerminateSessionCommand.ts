@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  TerminateSessionRequest,
-  TerminateSessionResponse
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1TerminateSessionCommand,
-  serializeAws_json1_1TerminateSessionCommand
+  serializeAws_json1_1TerminateSessionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type TerminateSessionCommandInput = TerminateSessionRequest;
-export type TerminateSessionCommandOutput = TerminateSessionResponse &
-  __MetadataBearer;
+export type TerminateSessionCommandOutput = TerminateSessionResponse & __MetadataBearer;
 
 export class TerminateSessionCommand extends $Command<
   TerminateSessionCommandInput,
@@ -50,14 +39,15 @@ export class TerminateSessionCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateSessionCommandInput, TerminateSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: TerminateSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class TerminateSessionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TerminateSessionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TerminateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TerminateSessionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TerminateSessionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateSessionCommandOutput> {
     return deserializeAws_json1_1TerminateSessionCommand(output, context);
   }
 

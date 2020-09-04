@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeIdentityIdFormatRequest,
-  DescribeIdentityIdFormatResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeIdentityIdFormatCommand,
-  serializeAws_ec2DescribeIdentityIdFormatCommand
+  serializeAws_ec2DescribeIdentityIdFormatCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeIdentityIdFormatCommandInput = DescribeIdentityIdFormatRequest;
-export type DescribeIdentityIdFormatCommandOutput = DescribeIdentityIdFormatResult &
-  __MetadataBearer;
+export type DescribeIdentityIdFormatCommandOutput = DescribeIdentityIdFormatResult & __MetadataBearer;
 
 export class DescribeIdentityIdFormatCommand extends $Command<
   DescribeIdentityIdFormatCommandInput,
@@ -49,18 +38,16 @@ export class DescribeIdentityIdFormatCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIdentityIdFormatCommandInput,
-    DescribeIdentityIdFormatCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIdentityIdFormatCommandInput, DescribeIdentityIdFormatCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeIdentityIdFormatRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityIdFormatResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeIdentityIdFormatCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeIdentityIdFormatCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeIdentityIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIdentityIdFormatCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeIdentityIdFormatCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityIdFormatCommandOutput> {
     return deserializeAws_ec2DescribeIdentityIdFormatCommand(output, context);
   }
 

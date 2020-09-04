@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DescribePortfolioShareStatusInput,
-  DescribePortfolioShareStatusOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribePortfolioShareStatusCommand,
-  serializeAws_json1_1DescribePortfolioShareStatusCommand
+  serializeAws_json1_1DescribePortfolioShareStatusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribePortfolioShareStatusCommandInput = DescribePortfolioShareStatusInput;
-export type DescribePortfolioShareStatusCommandOutput = DescribePortfolioShareStatusOutput &
-  __MetadataBearer;
+export type DescribePortfolioShareStatusCommandOutput = DescribePortfolioShareStatusOutput & __MetadataBearer;
 
 export class DescribePortfolioShareStatusCommand extends $Command<
   DescribePortfolioShareStatusCommandInput,
@@ -49,18 +38,16 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePortfolioShareStatusCommandInput,
-    DescribePortfolioShareStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePortfolioShareStatusCommandInput, DescribePortfolioShareStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribePortfolioShareStatusInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePortfolioShareStatusOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePortfolioShareStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePortfolioShareStatusCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribePortfolioShareStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribePortfolioShareStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePortfolioShareStatusCommandOutput> {
-    return deserializeAws_json1_1DescribePortfolioShareStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePortfolioShareStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

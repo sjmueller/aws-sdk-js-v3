@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  CreateReplicationGroupMessage,
-  CreateReplicationGroupResult
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { CreateReplicationGroupMessage, CreateReplicationGroupResult } from "../models/index.ts";
 import {
   deserializeAws_queryCreateReplicationGroupCommand,
-  serializeAws_queryCreateReplicationGroupCommand
+  serializeAws_queryCreateReplicationGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateReplicationGroupCommandInput = CreateReplicationGroupMessage;
-export type CreateReplicationGroupCommandOutput = CreateReplicationGroupResult &
-  __MetadataBearer;
+export type CreateReplicationGroupCommandOutput = CreateReplicationGroupResult & __MetadataBearer;
 
 export class CreateReplicationGroupCommand extends $Command<
   CreateReplicationGroupCommandInput,
@@ -49,18 +38,16 @@ export class CreateReplicationGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationGroupCommandInput,
-    CreateReplicationGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationGroupCommandInput, CreateReplicationGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateReplicationGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationGroupResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateReplicationGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateReplicationGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateReplicationGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateReplicationGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationGroupCommandOutput> {
     return deserializeAws_queryCreateReplicationGroupCommand(output, context);
   }
 

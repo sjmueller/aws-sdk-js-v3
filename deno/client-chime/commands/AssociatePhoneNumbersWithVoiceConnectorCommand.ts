@@ -1,21 +1,14 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
-  AssociatePhoneNumbersWithVoiceConnectorResponse
+  AssociatePhoneNumbersWithVoiceConnectorResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand
+  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociatePhoneNumbersWithVoiceConnectorCommandInput = AssociatePhoneNumbersWithVoiceConnectorRequest;
@@ -39,9 +32,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput
-  ) {
+  constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     AssociatePhoneNumbersWithVoiceConnectorCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

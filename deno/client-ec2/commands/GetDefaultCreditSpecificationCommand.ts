@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  GetDefaultCreditSpecificationRequest,
-  GetDefaultCreditSpecificationResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/index.ts";
 import {
   deserializeAws_ec2GetDefaultCreditSpecificationCommand,
-  serializeAws_ec2GetDefaultCreditSpecificationCommand
+  serializeAws_ec2GetDefaultCreditSpecificationCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDefaultCreditSpecificationCommandInput = GetDefaultCreditSpecificationRequest;
-export type GetDefaultCreditSpecificationCommandOutput = GetDefaultCreditSpecificationResult &
-  __MetadataBearer;
+export type GetDefaultCreditSpecificationCommandOutput = GetDefaultCreditSpecificationResult & __MetadataBearer;
 
 export class GetDefaultCreditSpecificationCommand extends $Command<
   GetDefaultCreditSpecificationCommandInput,
@@ -49,18 +38,16 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDefaultCreditSpecificationCommandInput,
-    GetDefaultCreditSpecificationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDefaultCreditSpecificationCommandInput, GetDefaultCreditSpecificationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDefaultCreditSpecificationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDefaultCreditSpecificationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDefaultCreditSpecificationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDefaultCreditSpecificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetDefaultCreditSpecificationCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2GetDefaultCreditSpecificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2GetDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

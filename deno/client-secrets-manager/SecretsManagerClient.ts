@@ -1,75 +1,37 @@
 import {
   CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput
+  CancelRotateSecretCommandOutput,
 } from "./commands/CancelRotateSecretCommand.ts";
-import {
-  CreateSecretCommandInput,
-  CreateSecretCommandOutput
-} from "./commands/CreateSecretCommand.ts";
+import { CreateSecretCommandInput, CreateSecretCommandOutput } from "./commands/CreateSecretCommand.ts";
 import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
-import {
-  DeleteSecretCommandInput,
-  DeleteSecretCommandOutput
-} from "./commands/DeleteSecretCommand.ts";
-import {
-  DescribeSecretCommandInput,
-  DescribeSecretCommandOutput
-} from "./commands/DescribeSecretCommand.ts";
-import {
-  GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput
-} from "./commands/GetRandomPasswordCommand.ts";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand.ts";
-import {
-  GetSecretValueCommandInput,
-  GetSecretValueCommandOutput
-} from "./commands/GetSecretValueCommand.ts";
+import { DeleteSecretCommandInput, DeleteSecretCommandOutput } from "./commands/DeleteSecretCommand.ts";
+import { DescribeSecretCommandInput, DescribeSecretCommandOutput } from "./commands/DescribeSecretCommand.ts";
+import { GetRandomPasswordCommandInput, GetRandomPasswordCommandOutput } from "./commands/GetRandomPasswordCommand.ts";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand.ts";
+import { GetSecretValueCommandInput, GetSecretValueCommandOutput } from "./commands/GetSecretValueCommand.ts";
 import {
   ListSecretVersionIdsCommandInput,
-  ListSecretVersionIdsCommandOutput
+  ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand.ts";
-import {
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput
-} from "./commands/ListSecretsCommand.ts";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand.ts";
-import {
-  PutSecretValueCommandInput,
-  PutSecretValueCommandOutput
-} from "./commands/PutSecretValueCommand.ts";
-import {
-  RestoreSecretCommandInput,
-  RestoreSecretCommandOutput
-} from "./commands/RestoreSecretCommand.ts";
-import {
-  RotateSecretCommandInput,
-  RotateSecretCommandOutput
-} from "./commands/RotateSecretCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateSecretCommandInput,
-  UpdateSecretCommandOutput
-} from "./commands/UpdateSecretCommand.ts";
+import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand.ts";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand.ts";
+import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "./commands/PutSecretValueCommand.ts";
+import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "./commands/RestoreSecretCommand.ts";
+import { RotateSecretCommandInput, RotateSecretCommandOutput } from "./commands/RotateSecretCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "./commands/UpdateSecretCommand.ts";
 import {
   UpdateSecretVersionStageCommandInput,
-  UpdateSecretVersionStageCommandOutput
+  UpdateSecretVersionStageCommandOutput,
 } from "./commands/UpdateSecretVersionStageCommand.ts";
+import {
+  ValidateResourcePolicyCommandInput,
+  ValidateResourcePolicyCommandOutput,
+} from "./commands/ValidateResourcePolicyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -77,38 +39,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -117,9 +75,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -140,7 +99,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateSecretCommandInput
-  | UpdateSecretVersionStageCommandInput;
+  | UpdateSecretVersionStageCommandInput
+  | ValidateResourcePolicyCommandInput;
 
 export type ServiceOutputTypes =
   | CancelRotateSecretCommandOutput
@@ -160,10 +120,10 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateSecretCommandOutput
-  | UpdateSecretVersionStageCommandOutput;
+  | UpdateSecretVersionStageCommandOutput
+  | ValidateResourcePolicyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -237,14 +197,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -252,9 +217,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecretsManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -263,9 +226,7 @@ export type SecretsManagerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -276,8 +237,7 @@ export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <fullname>AWS Secrets Manager API Reference</fullname>
- *          <p>AWS Secrets Manager is a web service that enables you to store, manage, and retrieve,
- *       secrets.</p>
+ *          <p>AWS Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
  *
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
  *       service, see the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html">AWS Secrets Manager User Guide</a>.</p>
@@ -288,21 +248,20 @@ export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
  *
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
  *          <note>
- *             <p>As an alternative to using the API directly, you can use one of the AWS SDKs, which
- *         consist of libraries and sample code for various programming languages and platforms (such
- *         as Java, Ruby, .NET, iOS, and Android). The SDKs provide a convenient way to create
- *         programmatic access to AWS Secrets Manager. For example, the SDKs take care of cryptographically
- *         signing requests, managing errors, and retrying requests automatically. For more information
- *         about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+ *             <p>As an alternative to using the API, you can use one of the AWS SDKs, which consist of
+ *         libraries and sample code for various programming languages and platforms such as Java,
+ *         Ruby, .NET, iOS, and Android. The SDKs provide a convenient way to create programmatic
+ *         access to AWS Secrets Manager. For example, the SDKs provide cryptographically signing requests,
+ *         managing errors, and retrying requests automatically. For more information about the AWS
+ *         SDKs, including downloading and installing them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *          <p>We recommend that you use the AWS SDKs to make programmatic API calls to Secrets Manager. However,
- *       you also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To
- *       learn more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
+ *          <p>We recommend you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you
+ *       also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn
+ *       more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
  *         <i>AWS Secrets Manager User Guide</i>. </p>
- *          <p>Secrets Manager supports GET and POST requests for all actions. That is, the API doesn't require you
- *       to use GET for some actions and POST for others. However, GET requests are subject to the
- *       limitation size of a URL. Therefore, for operations that require larger sizes, use a POST
- *       request.</p>
+ *          <p>Secrets Manager API supports GET and POST requests for all actions, and doesn't require you to use
+ *       GET for some actions and POST for others. However, GET requests are subject to the limitation
+ *       size of a URL. Therefore, for operations that require larger sizes, use a POST request.</p>
  *
  *
  *
@@ -322,12 +281,12 @@ export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
  *             <b>How examples are presented</b>
  *          </p>
  *
- *          <p>The JSON that AWS Secrets Manager expects as your request parameters and that the service returns as
- *       a response to HTTP query requests are single, long strings without line breaks or white space
- *       formatting. The JSON shown in the examples is formatted with both line breaks and white space
- *       to improve readability. When example input parameters would also result in long strings that
- *       extend beyond the screen, we insert line breaks to enhance readability. You should always
- *       submit the input as a single JSON text string.</p>
+ *          <p>The JSON that AWS Secrets Manager expects as your request parameters and the service returns as a
+ *       response to HTTP query requests contain single, long strings without line breaks or white
+ *       space formatting. The JSON shown in the examples displays the code formatted with both line
+ *       breaks and white space to improve readability. When example input parameters can also cause
+ *       long strings extending beyond the screen, you can insert line breaks to enhance readability.
+ *       You should always submit the input as a single JSON text string.</p>
  *
  *
  *          <p>
@@ -335,12 +294,11 @@ export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
  *          </p>
  *          <p>AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS
  *       account and delivers log files to an Amazon S3 bucket. By using information that's collected
- *       by AWS CloudTrail, you can determine which requests were successfully made to Secrets Manager, who
- *       made the request, when it was made, and so on. For more about AWS Secrets Manager and its support for
- *       AWS CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
+ *       by AWS CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the
+ *       request, when it was made, and so on. For more about AWS Secrets Manager and support for AWS
+ *       CloudTrail, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
  *         AWS Secrets Manager Events with AWS CloudTrail</a> in the <i>AWS Secrets Manager User Guide</i>.
- *       To learn more about CloudTrail, including how to turn it on and find your log files, see the
- *         <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
+ *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
  */
 export class SecretsManagerClient extends __Client<
   __HttpHandlerOptions,
@@ -353,7 +311,7 @@ export class SecretsManagerClient extends __Client<
   constructor(configuration: SecretsManagerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -368,6 +326,7 @@ export class SecretsManagerClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

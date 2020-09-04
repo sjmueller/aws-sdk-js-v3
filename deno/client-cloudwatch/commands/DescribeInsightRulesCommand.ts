@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  DescribeInsightRulesInput,
-  DescribeInsightRulesOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeInsightRulesCommand,
-  serializeAws_queryDescribeInsightRulesCommand
+  serializeAws_queryDescribeInsightRulesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeInsightRulesCommandInput = DescribeInsightRulesInput;
-export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput &
-  __MetadataBearer;
+export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput & __MetadataBearer;
 
 export class DescribeInsightRulesCommand extends $Command<
   DescribeInsightRulesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeInsightRulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInsightRulesCommandInput,
-    DescribeInsightRulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInsightRulesCommandInput, DescribeInsightRulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeInsightRulesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInsightRulesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeInsightRulesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInsightRulesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInsightRulesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeInsightRulesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightRulesCommandOutput> {
     return deserializeAws_queryDescribeInsightRulesCommand(output, context);
   }
 

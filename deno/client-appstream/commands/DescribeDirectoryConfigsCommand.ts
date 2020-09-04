@@ -1,21 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient.ts";
-import {
-  DescribeDirectoryConfigsRequest,
-  DescribeDirectoryConfigsResult
-} from "../models/index.ts";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
+import { DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeDirectoryConfigsCommand,
-  serializeAws_json1_1DescribeDirectoryConfigsCommand
+  serializeAws_json1_1DescribeDirectoryConfigsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDirectoryConfigsCommandInput = DescribeDirectoryConfigsRequest;
-export type DescribeDirectoryConfigsCommandOutput = DescribeDirectoryConfigsResult &
-  __MetadataBearer;
+export type DescribeDirectoryConfigsCommandOutput = DescribeDirectoryConfigsResult & __MetadataBearer;
 
 export class DescribeDirectoryConfigsCommand extends $Command<
   DescribeDirectoryConfigsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDirectoryConfigsCommandInput,
-    DescribeDirectoryConfigsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDirectoryConfigsCommandInput, DescribeDirectoryConfigsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDirectoryConfigsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectoryConfigsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDirectoryConfigsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDirectoryConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDirectoryConfigsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDirectoryConfigsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDirectoryConfigsCommandOutput> {
+    return deserializeAws_json1_1DescribeDirectoryConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

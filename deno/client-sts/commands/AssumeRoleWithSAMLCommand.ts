@@ -1,21 +1,11 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient.ts";
-import {
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLResponse
-} from "../models/index.ts";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/index.ts";
 import {
   deserializeAws_queryAssumeRoleWithSAMLCommand,
-  serializeAws_queryAssumeRoleWithSAMLCommand
+  serializeAws_queryAssumeRoleWithSAMLCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssumeRoleWithSAMLCommandInput = AssumeRoleWithSAMLRequest;
-export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse &
-  __MetadataBearer;
+export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __MetadataBearer;
 
 export class AssumeRoleWithSAMLCommand extends $Command<
   AssumeRoleWithSAMLCommandInput,
@@ -50,14 +39,15 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssumeRoleWithSAMLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssumeRoleWithSAMLResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssumeRoleWithSAMLCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssumeRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleWithSAMLCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssumeRoleWithSAMLCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
     return deserializeAws_queryAssumeRoleWithSAMLCommand(output, context);
   }
 

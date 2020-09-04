@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -10,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
  *             Account Action is required in order to continue the request.
  *         </p>
  */
-export interface AccountActionRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountActionRequiredException extends __SmithyException, $MetadataBearer {
   name: "AccountActionRequiredException";
   $fault: "client";
   /**
@@ -24,13 +18,10 @@ export interface AccountActionRequiredException
 }
 
 export namespace AccountActionRequiredException {
-  export const filterSensitiveLog = (
-    obj: AccountActionRequiredException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AccountActionRequiredException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AccountActionRequiredException =>
-    __isa(o, "AccountActionRequiredException");
+  export const isa = (o: any): o is AccountActionRequiredException => __isa(o, "AccountActionRequiredException");
 }
 
 /**
@@ -39,9 +30,7 @@ export namespace AccountActionRequiredException {
  *             state prevents the operation from being performed.
  *         </p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -54,10 +43,9 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -76,13 +64,6 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Unique bundle identifier.
-   *         </p>
-   */
-  bundleId?: string;
-
-  /**
-   * <p>
    *             Description of the download bundle.
    *         </p>
    */
@@ -90,10 +71,10 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Icon for the download bundle.
+   *             Unique bundle identifier.
    *         </p>
    */
-  iconUrl?: string;
+  bundleId?: string;
 
   /**
    * <p>
@@ -101,6 +82,13 @@ export interface BundleDetails {
    *         </p>
    */
   title?: string;
+
+  /**
+   * <p>
+   *             Icon for the download bundle.
+   *         </p>
+   */
+  iconUrl?: string;
 
   /**
    * <p>
@@ -112,7 +100,7 @@ export interface BundleDetails {
 
 export namespace BundleDetails {
   export const filterSensitiveLog = (obj: BundleDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is BundleDetails => __isa(o, "BundleDetails");
 }
@@ -126,6 +114,13 @@ export interface CreateProjectRequest {
   __type?: "CreateProjectRequest";
   /**
    * <p>
+   *             Default region where project resources should be created.
+   *         </p>
+   */
+  region?: string;
+
+  /**
+   * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
    *             in an export project operation.
@@ -135,33 +130,25 @@ export interface CreateProjectRequest {
 
   /**
    * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
-   *             Default region where project resources should be created.
-   *         </p>
-   */
-  region?: string;
-
-  /**
-   * <p>
    *             Unique identifier for an exported snapshot of project configuration. This
    *             snapshot identifier is included in the share URL when a project is exported.
    *         </p>
    */
   snapshotId?: string;
+
+  /**
+   * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
 }
 
 export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest =>
-    __isa(o, "CreateProjectRequest");
+  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 /**
@@ -181,10 +168,9 @@ export interface CreateProjectResult {
 
 export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult =>
-    __isa(o, "CreateProjectResult");
+  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 /**
@@ -204,10 +190,9 @@ export interface DeleteProjectRequest {
 
 export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest =>
-    __isa(o, "DeleteProjectRequest");
+  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 /**
@@ -235,10 +220,9 @@ export interface DeleteProjectResult {
 
 export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult =>
-    __isa(o, "DeleteProjectResult");
+  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 /**
@@ -258,10 +242,9 @@ export interface DescribeBundleRequest {
 
 export namespace DescribeBundleRequest {
   export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleRequest =>
-    __isa(o, "DescribeBundleRequest");
+  export const isa = (o: any): o is DescribeBundleRequest => __isa(o, "DescribeBundleRequest");
 }
 
 /**
@@ -281,10 +264,9 @@ export interface DescribeBundleResult {
 
 export namespace DescribeBundleResult {
   export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleResult =>
-    __isa(o, "DescribeBundleResult");
+  export const isa = (o: any): o is DescribeBundleResult => __isa(o, "DescribeBundleResult");
 }
 
 /**
@@ -311,10 +293,9 @@ export interface DescribeProjectRequest {
 
 export namespace DescribeProjectRequest {
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectRequest =>
-    __isa(o, "DescribeProjectRequest");
+  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 /**
@@ -334,10 +315,9 @@ export interface DescribeProjectResult {
 
 export namespace DescribeProjectResult {
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectResult =>
-    __isa(o, "DescribeProjectResult");
+  export const isa = (o: any): o is DescribeProjectResult => __isa(o, "DescribeProjectResult");
 }
 
 /**
@@ -348,6 +328,13 @@ export namespace DescribeProjectResult {
  */
 export interface ExportBundleRequest {
   __type?: "ExportBundleRequest";
+  /**
+   * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
+
   /**
    * <p>
    *             Unique bundle identifier.
@@ -361,21 +348,13 @@ export interface ExportBundleRequest {
    *         </p>
    */
   platform?: Platform | string;
-
-  /**
-   * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
 }
 
 export namespace ExportBundleRequest {
   export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportBundleRequest =>
-    __isa(o, "ExportBundleRequest");
+  export const isa = (o: any): o is ExportBundleRequest => __isa(o, "ExportBundleRequest");
 }
 
 /**
@@ -399,10 +378,9 @@ export interface ExportBundleResult {
 
 export namespace ExportBundleResult {
   export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportBundleResult =>
-    __isa(o, "ExportBundleResult");
+  export const isa = (o: any): o is ExportBundleResult => __isa(o, "ExportBundleResult");
 }
 
 /**
@@ -422,10 +400,9 @@ export interface ExportProjectRequest {
 
 export namespace ExportProjectRequest {
   export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportProjectRequest =>
-    __isa(o, "ExportProjectRequest");
+  export const isa = (o: any): o is ExportProjectRequest => __isa(o, "ExportProjectRequest");
 }
 
 /**
@@ -435,6 +412,14 @@ export namespace ExportProjectRequest {
  */
 export interface ExportProjectResult {
   __type?: "ExportProjectResult";
+  /**
+   * <p>
+   *             Unique identifier for the exported snapshot of the project configuration. This
+   *             snapshot identifier is included in the share URL.
+   *         </p>
+   */
+  snapshotId?: string;
+
   /**
    * <p>
    *             URL which can be used to download the exported project configuation file(s).
@@ -453,22 +438,13 @@ export interface ExportProjectResult {
    *         </p>
    */
   shareUrl?: string;
-
-  /**
-   * <p>
-   *             Unique identifier for the exported snapshot of the project configuration. This
-   *             snapshot identifier is included in the share URL.
-   *         </p>
-   */
-  snapshotId?: string;
 }
 
 export namespace ExportProjectResult {
   export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExportProjectResult =>
-    __isa(o, "ExportProjectResult");
+  export const isa = (o: any): o is ExportProjectResult => __isa(o, "ExportProjectResult");
 }
 
 /**
@@ -477,9 +453,7 @@ export namespace ExportProjectResult {
  *             servicing the request.
  *         </p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -492,10 +466,9 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -506,9 +479,7 @@ export namespace InternalFailureException {
  *             your request.
  *         </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -528,10 +499,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -560,10 +530,9 @@ export interface ListBundlesRequest {
 
 export namespace ListBundlesRequest {
   export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBundlesRequest =>
-    __isa(o, "ListBundlesRequest");
+  export const isa = (o: any): o is ListBundlesRequest => __isa(o, "ListBundlesRequest");
 }
 
 /**
@@ -575,26 +544,25 @@ export interface ListBundlesResult {
   __type?: "ListBundlesResult";
   /**
    * <p>
-   *             A list of bundles.
-   *         </p>
-   */
-  bundleList?: BundleDetails[];
-
-  /**
-   * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
    *             then pass its value in another request to fetch more entries.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             A list of bundles.
+   *         </p>
+   */
+  bundleList?: BundleDetails[];
 }
 
 export namespace ListBundlesResult {
   export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListBundlesResult =>
-    __isa(o, "ListBundlesResult");
+  export const isa = (o: any): o is ListBundlesResult => __isa(o, "ListBundlesResult");
 }
 
 /**
@@ -623,10 +591,9 @@ export interface ListProjectsRequest {
 
 export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest =>
-    __isa(o, "ListProjectsRequest");
+  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 /**
@@ -655,10 +622,9 @@ export interface ListProjectsResult {
 
 export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult =>
-    __isa(o, "ListProjectsResult");
+  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 /**
@@ -679,10 +645,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Platform {
@@ -692,7 +657,7 @@ export enum Platform {
   OBJC = "OBJC",
   OSX = "OSX",
   SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS"
+  WINDOWS = "WINDOWS",
 }
 
 /**
@@ -704,24 +669,10 @@ export interface ProjectDetails {
   __type?: "ProjectDetails";
   /**
    * <p>
-   *             Website URL for this project in the AWS Mobile Hub console.
+   *             List of AWS resources associated with a project.
    *         </p>
    */
-  consoleUrl?: string;
-
-  /**
-   * <p>
-   *             Date the project was created.
-   *         </p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>
-   *             Date of the last modification of the project.
-   *         </p>
-   */
-  lastUpdatedDate?: Date;
+  resources?: Resource[];
 
   /**
    * <p>
@@ -739,6 +690,13 @@ export interface ProjectDetails {
 
   /**
    * <p>
+   *             Synchronization state for a project.
+   *         </p>
+   */
+  state?: ProjectState | string;
+
+  /**
+   * <p>
    *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
    *         </p>
    */
@@ -746,31 +704,37 @@ export interface ProjectDetails {
 
   /**
    * <p>
-   *             List of AWS resources associated with a project.
+   *             Date the project was created.
    *         </p>
    */
-  resources?: Resource[];
+  createdDate?: Date;
 
   /**
    * <p>
-   *             Synchronization state for a project.
+   *             Website URL for this project in the AWS Mobile Hub console.
    *         </p>
    */
-  state?: ProjectState | string;
+  consoleUrl?: string;
+
+  /**
+   * <p>
+   *             Date of the last modification of the project.
+   *         </p>
+   */
+  lastUpdatedDate?: Date;
 }
 
 export namespace ProjectDetails {
   export const filterSensitiveLog = (obj: ProjectDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectDetails =>
-    __isa(o, "ProjectDetails");
+  export const isa = (o: any): o is ProjectDetails => __isa(o, "ProjectDetails");
 }
 
 export enum ProjectState {
   IMPORTING = "IMPORTING",
   NORMAL = "NORMAL",
-  SYNCING = "SYNCING"
+  SYNCING = "SYNCING",
 }
 
 /**
@@ -782,25 +746,24 @@ export interface ProjectSummary {
   __type?: "ProjectSummary";
   /**
    * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *             Unique project identifier.
    *         </p>
    */
   projectId?: string;
+
+  /**
+   * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
 }
 
 export namespace ProjectSummary {
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ProjectSummary =>
-    __isa(o, "ProjectSummary");
+  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
@@ -812,10 +775,10 @@ export interface Resource {
   __type?: "Resource";
   /**
    * <p>
-   *             AWS resource name which uniquely identifies the resource in AWS systems.
+   *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
    *         </p>
    */
-  arn?: string;
+  feature?: string;
 
   /**
    * <p>
@@ -826,17 +789,17 @@ export interface Resource {
 
   /**
    * <p>
-   *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
-   *         </p>
-   */
-  feature?: string;
-
-  /**
-   * <p>
    *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
    *         </p>
    */
   name?: string;
+
+  /**
+   * <p>
+   *             AWS resource name which uniquely identifies the resource in AWS systems.
+   *         </p>
+   */
+  arn?: string;
 
   /**
    * <p>
@@ -848,7 +811,7 @@ export interface Resource {
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -859,9 +822,7 @@ export namespace Resource {
  *             time delay.
  *         </p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -880,13 +841,10 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -895,9 +853,7 @@ export namespace ServiceUnavailableException {
  *             request should be retried after some time delay.
  *         </p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -905,22 +861,21 @@ export interface TooManyRequestsException
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 }
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -928,9 +883,7 @@ export namespace TooManyRequestsException {
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   /**
@@ -943,10 +896,9 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -975,10 +927,9 @@ export interface UpdateProjectRequest {
 
 export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectRequest =>
-    __isa(o, "UpdateProjectRequest");
+  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 /**
@@ -998,8 +949,7 @@ export interface UpdateProjectResult {
 
 export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult =>
-    __isa(o, "UpdateProjectResult");
+  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }

@@ -1,18 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import { DeleteStreamingDistributionRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlDeleteStreamingDistributionCommand,
-  serializeAws_restXmlDeleteStreamingDistributionCommand
+  serializeAws_restXmlDeleteStreamingDistributionCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteStreamingDistributionCommandInput = DeleteStreamingDistributionRequest;
@@ -45,18 +38,16 @@ export class DeleteStreamingDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteStreamingDistributionCommandInput,
-    DeleteStreamingDistributionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteStreamingDistributionCommandInput, DeleteStreamingDistributionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteStreamingDistributionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class DeleteStreamingDistributionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteStreamingDistributionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStreamingDistributionCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlDeleteStreamingDistributionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlDeleteStreamingDistributionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

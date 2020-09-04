@@ -1,21 +1,14 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient.ts";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
 import {
   DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersResult
+  DescribeStackProvisioningParametersResult,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeStackProvisioningParametersCommand,
-  serializeAws_json1_1DescribeStackProvisioningParametersCommand
+  serializeAws_json1_1DescribeStackProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeStackProvisioningParametersCommandInput = DescribeStackProvisioningParametersRequest;
@@ -49,18 +42,16 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackProvisioningParametersCommandInput,
-    DescribeStackProvisioningParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackProvisioningParametersCommandInput, DescribeStackProvisioningParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     input: DescribeStackProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

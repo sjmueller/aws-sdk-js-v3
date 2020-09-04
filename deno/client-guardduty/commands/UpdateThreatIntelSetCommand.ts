@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient.ts";
-import {
-  UpdateThreatIntelSetRequest,
-  UpdateThreatIntelSetResponse
-} from "../models/index.ts";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
+import { UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateThreatIntelSetCommand,
-  serializeAws_restJson1UpdateThreatIntelSetCommand
+  serializeAws_restJson1UpdateThreatIntelSetCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateThreatIntelSetCommandInput = UpdateThreatIntelSetRequest;
-export type UpdateThreatIntelSetCommandOutput = UpdateThreatIntelSetResponse &
-  __MetadataBearer;
+export type UpdateThreatIntelSetCommandOutput = UpdateThreatIntelSetResponse & __MetadataBearer;
 
 export class UpdateThreatIntelSetCommand extends $Command<
   UpdateThreatIntelSetCommandInput,
@@ -49,18 +38,16 @@ export class UpdateThreatIntelSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateThreatIntelSetCommandInput,
-    UpdateThreatIntelSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateThreatIntelSetCommandInput, UpdateThreatIntelSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateThreatIntelSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThreatIntelSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateThreatIntelSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateThreatIntelSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateThreatIntelSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateThreatIntelSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThreatIntelSetCommandOutput> {
     return deserializeAws_restJson1UpdateThreatIntelSetCommand(output, context);
   }
 

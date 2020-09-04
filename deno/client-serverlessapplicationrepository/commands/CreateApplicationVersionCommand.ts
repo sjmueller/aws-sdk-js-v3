@@ -1,21 +1,15 @@
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import {
-  CreateApplicationVersionRequest,
-  CreateApplicationVersionResponse
-} from "../models/index.ts";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateApplicationVersionCommand,
-  serializeAws_restJson1CreateApplicationVersionCommand
+  serializeAws_restJson1CreateApplicationVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateApplicationVersionCommandInput = CreateApplicationVersionRequest;
-export type CreateApplicationVersionCommandOutput = CreateApplicationVersionResponse &
-  __MetadataBearer;
+export type CreateApplicationVersionCommandOutput = CreateApplicationVersionResponse & __MetadataBearer;
 
 export class CreateApplicationVersionCommand extends $Command<
   CreateApplicationVersionCommandInput,
@@ -49,18 +42,16 @@ export class CreateApplicationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateApplicationVersionCommandInput,
-    CreateApplicationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateApplicationVersionCommandInput, CreateApplicationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateApplicationVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,12 @@ export class CreateApplicationVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateApplicationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationVersionCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateApplicationVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationVersionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
+    return deserializeAws_restJson1CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

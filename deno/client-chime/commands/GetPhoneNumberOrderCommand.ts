@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
-import {
-  GetPhoneNumberOrderRequest,
-  GetPhoneNumberOrderResponse
-} from "../models/index.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
+import { GetPhoneNumberOrderRequest, GetPhoneNumberOrderResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetPhoneNumberOrderCommand,
-  serializeAws_restJson1GetPhoneNumberOrderCommand
+  serializeAws_restJson1GetPhoneNumberOrderCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetPhoneNumberOrderCommandInput = GetPhoneNumberOrderRequest;
-export type GetPhoneNumberOrderCommandOutput = GetPhoneNumberOrderResponse &
-  __MetadataBearer;
+export type GetPhoneNumberOrderCommandOutput = GetPhoneNumberOrderResponse & __MetadataBearer;
 
 export class GetPhoneNumberOrderCommand extends $Command<
   GetPhoneNumberOrderCommandInput,
@@ -49,18 +38,16 @@ export class GetPhoneNumberOrderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPhoneNumberOrderCommandInput,
-    GetPhoneNumberOrderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPhoneNumberOrderCommandInput, GetPhoneNumberOrderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetPhoneNumberOrderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPhoneNumberOrderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetPhoneNumberOrderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPhoneNumberOrderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetPhoneNumberOrderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPhoneNumberOrderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberOrderCommandOutput> {
     return deserializeAws_restJson1GetPhoneNumberOrderCommand(output, context);
   }
 

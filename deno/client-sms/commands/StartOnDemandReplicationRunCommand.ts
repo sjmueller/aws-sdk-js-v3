@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient.ts";
-import {
-  StartOnDemandReplicationRunRequest,
-  StartOnDemandReplicationRunResponse
-} from "../models/index.ts";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
+import { StartOnDemandReplicationRunRequest, StartOnDemandReplicationRunResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartOnDemandReplicationRunCommand,
-  serializeAws_json1_1StartOnDemandReplicationRunCommand
+  serializeAws_json1_1StartOnDemandReplicationRunCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartOnDemandReplicationRunCommandInput = StartOnDemandReplicationRunRequest;
-export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse &
-  __MetadataBearer;
+export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse & __MetadataBearer;
 
 export class StartOnDemandReplicationRunCommand extends $Command<
   StartOnDemandReplicationRunCommandInput,
@@ -49,18 +38,16 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartOnDemandReplicationRunCommandInput,
-    StartOnDemandReplicationRunCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartOnDemandReplicationRunCommandInput, StartOnDemandReplicationRunCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartOnDemandReplicationRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOnDemandReplicationRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartOnDemandReplicationRunCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandReplicationRunCommand(
-      input,
-      context
-    );
+  private serialize(input: StartOnDemandReplicationRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StartOnDemandReplicationRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandReplicationRunCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

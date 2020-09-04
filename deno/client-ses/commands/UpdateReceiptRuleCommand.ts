@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  UpdateReceiptRuleRequest,
-  UpdateReceiptRuleResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { UpdateReceiptRuleRequest, UpdateReceiptRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateReceiptRuleCommand,
-  serializeAws_queryUpdateReceiptRuleCommand
+  serializeAws_queryUpdateReceiptRuleCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateReceiptRuleCommandInput = UpdateReceiptRuleRequest;
-export type UpdateReceiptRuleCommandOutput = UpdateReceiptRuleResponse &
-  __MetadataBearer;
+export type UpdateReceiptRuleCommandOutput = UpdateReceiptRuleResponse & __MetadataBearer;
 
 export class UpdateReceiptRuleCommand extends $Command<
   UpdateReceiptRuleCommandInput,
@@ -50,14 +39,15 @@ export class UpdateReceiptRuleCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateReceiptRuleCommandInput, UpdateReceiptRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateReceiptRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateReceiptRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateReceiptRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateReceiptRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateReceiptRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateReceiptRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateReceiptRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReceiptRuleCommandOutput> {
     return deserializeAws_queryUpdateReceiptRuleCommand(output, context);
   }
 

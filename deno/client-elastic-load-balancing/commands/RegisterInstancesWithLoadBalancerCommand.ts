@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import {
-  RegisterEndPointsInput,
-  RegisterEndPointsOutput
-} from "../models/index.ts";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/index.ts";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
-  serializeAws_queryRegisterInstancesWithLoadBalancerCommand
+  serializeAws_queryRegisterInstancesWithLoadBalancerCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterInstancesWithLoadBalancerCommandInput = RegisterEndPointsInput;
-export type RegisterInstancesWithLoadBalancerCommandOutput = RegisterEndPointsOutput &
-  __MetadataBearer;
+export type RegisterInstancesWithLoadBalancerCommandOutput = RegisterEndPointsOutput & __MetadataBearer;
 
 export class RegisterInstancesWithLoadBalancerCommand extends $Command<
   RegisterInstancesWithLoadBalancerCommandInput,
@@ -49,18 +42,16 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterInstancesWithLoadBalancerCommandInput,
-    RegisterInstancesWithLoadBalancerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterInstancesWithLoadBalancerCommandInput, RegisterInstancesWithLoadBalancerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterEndPointsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterEndPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     input: RegisterInstancesWithLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
-    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

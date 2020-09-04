@@ -1,182 +1,190 @@
+import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand.ts";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
-  CreateCloudFrontOriginAccessIdentityCommandOutput
+  CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand.ts";
 import {
   CreateDistributionCommandInput,
-  CreateDistributionCommandOutput
+  CreateDistributionCommandOutput,
 } from "./commands/CreateDistributionCommand.ts";
 import {
   CreateDistributionWithTagsCommandInput,
-  CreateDistributionWithTagsCommandOutput
+  CreateDistributionWithTagsCommandOutput,
 } from "./commands/CreateDistributionWithTagsCommand.ts";
 import {
   CreateFieldLevelEncryptionConfigCommandInput,
-  CreateFieldLevelEncryptionConfigCommandOutput
+  CreateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionConfigCommand.ts";
 import {
   CreateFieldLevelEncryptionProfileCommandInput,
-  CreateFieldLevelEncryptionProfileCommandOutput
+  CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand.ts";
 import {
   CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput
+  CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand.ts";
 import {
-  CreatePublicKeyCommandInput,
-  CreatePublicKeyCommandOutput
-} from "./commands/CreatePublicKeyCommand.ts";
+  CreateOriginRequestPolicyCommandInput,
+  CreateOriginRequestPolicyCommandOutput,
+} from "./commands/CreateOriginRequestPolicyCommand.ts";
+import { CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput } from "./commands/CreatePublicKeyCommand.ts";
 import {
   CreateStreamingDistributionCommandInput,
-  CreateStreamingDistributionCommandOutput
+  CreateStreamingDistributionCommandOutput,
 } from "./commands/CreateStreamingDistributionCommand.ts";
 import {
   CreateStreamingDistributionWithTagsCommandInput,
-  CreateStreamingDistributionWithTagsCommandOutput
+  CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand.ts";
+import { DeleteCachePolicyCommandInput, DeleteCachePolicyCommandOutput } from "./commands/DeleteCachePolicyCommand.ts";
 import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
-  DeleteCloudFrontOriginAccessIdentityCommandOutput
+  DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand.ts";
 import {
   DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput
+  DeleteDistributionCommandOutput,
 } from "./commands/DeleteDistributionCommand.ts";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
-  DeleteFieldLevelEncryptionConfigCommandOutput
+  DeleteFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionConfigCommand.ts";
 import {
   DeleteFieldLevelEncryptionProfileCommandInput,
-  DeleteFieldLevelEncryptionProfileCommandOutput
+  DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand.ts";
 import {
-  DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput
-} from "./commands/DeletePublicKeyCommand.ts";
+  DeleteOriginRequestPolicyCommandInput,
+  DeleteOriginRequestPolicyCommandOutput,
+} from "./commands/DeleteOriginRequestPolicyCommand.ts";
+import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand.ts";
 import {
   DeleteStreamingDistributionCommandInput,
-  DeleteStreamingDistributionCommandOutput
+  DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand.ts";
+import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand.ts";
+import {
+  GetCachePolicyConfigCommandInput,
+  GetCachePolicyConfigCommandOutput,
+} from "./commands/GetCachePolicyConfigCommand.ts";
 import {
   GetCloudFrontOriginAccessIdentityCommandInput,
-  GetCloudFrontOriginAccessIdentityCommandOutput
+  GetCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityCommand.ts";
 import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
-  GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand.ts";
-import {
-  GetDistributionCommandInput,
-  GetDistributionCommandOutput
-} from "./commands/GetDistributionCommand.ts";
+import { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand.ts";
 import {
   GetDistributionConfigCommandInput,
-  GetDistributionConfigCommandOutput
+  GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand.ts";
 import {
   GetFieldLevelEncryptionCommandInput,
-  GetFieldLevelEncryptionCommandOutput
+  GetFieldLevelEncryptionCommandOutput,
 } from "./commands/GetFieldLevelEncryptionCommand.ts";
 import {
   GetFieldLevelEncryptionConfigCommandInput,
-  GetFieldLevelEncryptionConfigCommandOutput
+  GetFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionConfigCommand.ts";
 import {
   GetFieldLevelEncryptionProfileCommandInput,
-  GetFieldLevelEncryptionProfileCommandOutput
+  GetFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileCommand.ts";
 import {
   GetFieldLevelEncryptionProfileConfigCommandInput,
-  GetFieldLevelEncryptionProfileConfigCommandOutput
+  GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand.ts";
+import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand.ts";
 import {
-  GetInvalidationCommandInput,
-  GetInvalidationCommandOutput
-} from "./commands/GetInvalidationCommand.ts";
+  GetOriginRequestPolicyCommandInput,
+  GetOriginRequestPolicyCommandOutput,
+} from "./commands/GetOriginRequestPolicyCommand.ts";
 import {
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
-} from "./commands/GetPublicKeyCommand.ts";
+  GetOriginRequestPolicyConfigCommandInput,
+  GetOriginRequestPolicyConfigCommandOutput,
+} from "./commands/GetOriginRequestPolicyConfigCommand.ts";
+import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand.ts";
 import {
   GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput
+  GetPublicKeyConfigCommandOutput,
 } from "./commands/GetPublicKeyConfigCommand.ts";
 import {
   GetStreamingDistributionCommandInput,
-  GetStreamingDistributionCommandOutput
+  GetStreamingDistributionCommandOutput,
 } from "./commands/GetStreamingDistributionCommand.ts";
 import {
   GetStreamingDistributionConfigCommandInput,
-  GetStreamingDistributionConfigCommandOutput
+  GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand.ts";
+import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "./commands/ListCachePoliciesCommand.ts";
 import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
-  ListCloudFrontOriginAccessIdentitiesCommandOutput
+  ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand.ts";
 import {
-  ListDistributionsByWebACLIdCommandInput,
-  ListDistributionsByWebACLIdCommandOutput
-} from "./commands/ListDistributionsByWebACLIdCommand.ts";
+  ListDistributionsByCachePolicyIdCommandInput,
+  ListDistributionsByCachePolicyIdCommandOutput,
+} from "./commands/ListDistributionsByCachePolicyIdCommand.ts";
 import {
-  ListDistributionsCommandInput,
-  ListDistributionsCommandOutput
-} from "./commands/ListDistributionsCommand.ts";
+  ListDistributionsByOriginRequestPolicyIdCommandInput,
+  ListDistributionsByOriginRequestPolicyIdCommandOutput,
+} from "./commands/ListDistributionsByOriginRequestPolicyIdCommand.ts";
+import {
+  ListDistributionsByWebACLIdCommandInput,
+  ListDistributionsByWebACLIdCommandOutput,
+} from "./commands/ListDistributionsByWebACLIdCommand.ts";
+import { ListDistributionsCommandInput, ListDistributionsCommandOutput } from "./commands/ListDistributionsCommand.ts";
 import {
   ListFieldLevelEncryptionConfigsCommandInput,
-  ListFieldLevelEncryptionConfigsCommandOutput
+  ListFieldLevelEncryptionConfigsCommandOutput,
 } from "./commands/ListFieldLevelEncryptionConfigsCommand.ts";
 import {
   ListFieldLevelEncryptionProfilesCommandInput,
-  ListFieldLevelEncryptionProfilesCommandOutput
+  ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand.ts";
+import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand.ts";
 import {
-  ListInvalidationsCommandInput,
-  ListInvalidationsCommandOutput
-} from "./commands/ListInvalidationsCommand.ts";
-import {
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
-} from "./commands/ListPublicKeysCommand.ts";
+  ListOriginRequestPoliciesCommandInput,
+  ListOriginRequestPoliciesCommandOutput,
+} from "./commands/ListOriginRequestPoliciesCommand.ts";
+import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand.ts";
 import {
   ListStreamingDistributionsCommandInput,
-  ListStreamingDistributionsCommandOutput
+  ListStreamingDistributionsCommandOutput,
 } from "./commands/ListStreamingDistributionsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput } from "./commands/UpdateCachePolicyCommand.ts";
 import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
-  UpdateCloudFrontOriginAccessIdentityCommandOutput
+  UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand.ts";
 import {
   UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput
+  UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand.ts";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
-  UpdateFieldLevelEncryptionConfigCommandOutput
+  UpdateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionConfigCommand.ts";
 import {
   UpdateFieldLevelEncryptionProfileCommandInput,
-  UpdateFieldLevelEncryptionProfileCommandOutput
+  UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand.ts";
 import {
-  UpdatePublicKeyCommandInput,
-  UpdatePublicKeyCommandOutput
-} from "./commands/UpdatePublicKeyCommand.ts";
+  UpdateOriginRequestPolicyCommandInput,
+  UpdateOriginRequestPolicyCommandOutput,
+} from "./commands/UpdateOriginRequestPolicyCommand.ts";
+import { UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput } from "./commands/UpdatePublicKeyCommand.ts";
 import {
   UpdateStreamingDistributionCommandInput,
-  UpdateStreamingDistributionCommandOutput
+  UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -185,38 +193,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -225,27 +229,34 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
   | CreateDistributionCommandInput
   | CreateDistributionWithTagsCommandInput
   | CreateFieldLevelEncryptionConfigCommandInput
   | CreateFieldLevelEncryptionProfileCommandInput
   | CreateInvalidationCommandInput
+  | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
   | CreateStreamingDistributionCommandInput
   | CreateStreamingDistributionWithTagsCommandInput
+  | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
+  | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteStreamingDistributionCommandInput
+  | GetCachePolicyCommandInput
+  | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
   | GetCloudFrontOriginAccessIdentityConfigCommandInput
   | GetDistributionCommandInput
@@ -255,44 +266,58 @@ export type ServiceInputTypes =
   | GetFieldLevelEncryptionProfileCommandInput
   | GetFieldLevelEncryptionProfileConfigCommandInput
   | GetInvalidationCommandInput
+  | GetOriginRequestPolicyCommandInput
+  | GetOriginRequestPolicyConfigCommandInput
   | GetPublicKeyCommandInput
   | GetPublicKeyConfigCommandInput
   | GetStreamingDistributionCommandInput
   | GetStreamingDistributionConfigCommandInput
+  | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
+  | ListDistributionsByCachePolicyIdCommandInput
+  | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
   | ListFieldLevelEncryptionProfilesCommandInput
   | ListInvalidationsCommandInput
+  | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
   | UpdateDistributionCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
+  | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
   | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
   | CreateDistributionCommandOutput
   | CreateDistributionWithTagsCommandOutput
   | CreateFieldLevelEncryptionConfigCommandOutput
   | CreateFieldLevelEncryptionProfileCommandOutput
   | CreateInvalidationCommandOutput
+  | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
   | CreateStreamingDistributionCommandOutput
   | CreateStreamingDistributionWithTagsCommandOutput
+  | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
+  | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteStreamingDistributionCommandOutput
+  | GetCachePolicyCommandOutput
+  | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
   | GetCloudFrontOriginAccessIdentityConfigCommandOutput
   | GetDistributionCommandOutput
@@ -302,30 +327,37 @@ export type ServiceOutputTypes =
   | GetFieldLevelEncryptionProfileCommandOutput
   | GetFieldLevelEncryptionProfileConfigCommandOutput
   | GetInvalidationCommandOutput
+  | GetOriginRequestPolicyCommandOutput
+  | GetOriginRequestPolicyConfigCommandOutput
   | GetPublicKeyCommandOutput
   | GetPublicKeyConfigCommandOutput
   | GetStreamingDistributionCommandOutput
   | GetStreamingDistributionConfigCommandOutput
+  | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
+  | ListDistributionsByCachePolicyIdCommandOutput
+  | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
   | ListFieldLevelEncryptionProfilesCommandOutput
   | ListInvalidationsCommandOutput
+  | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
   | UpdateDistributionCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
+  | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
   | UpdateStreamingDistributionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -399,14 +431,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -414,9 +451,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFrontClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFrontClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -425,9 +460,7 @@ export type CloudFrontClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -452,7 +485,7 @@ export class CloudFrontClient extends __Client<
   constructor(configuration: CloudFrontClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -467,6 +500,7 @@ export class CloudFrontClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

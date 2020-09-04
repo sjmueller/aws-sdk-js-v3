@@ -1,21 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient.ts";
-import {
-  CreateImageBuilderStreamingURLRequest,
-  CreateImageBuilderStreamingURLResult
-} from "../models/index.ts";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
+import { CreateImageBuilderStreamingURLRequest, CreateImageBuilderStreamingURLResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateImageBuilderStreamingURLCommand,
-  serializeAws_json1_1CreateImageBuilderStreamingURLCommand
+  serializeAws_json1_1CreateImageBuilderStreamingURLCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateImageBuilderStreamingURLCommandInput = CreateImageBuilderStreamingURLRequest;
-export type CreateImageBuilderStreamingURLCommandOutput = CreateImageBuilderStreamingURLResult &
-  __MetadataBearer;
+export type CreateImageBuilderStreamingURLCommandOutput = CreateImageBuilderStreamingURLResult & __MetadataBearer;
 
 export class CreateImageBuilderStreamingURLCommand extends $Command<
   CreateImageBuilderStreamingURLCommandInput,
@@ -49,18 +38,16 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateImageBuilderStreamingURLCommandInput,
-    CreateImageBuilderStreamingURLCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateImageBuilderStreamingURLCommandInput, CreateImageBuilderStreamingURLCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateImageBuilderStreamingURLRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateImageBuilderStreamingURLResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     input: CreateImageBuilderStreamingURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateImageBuilderStreamingURLCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateImageBuilderStreamingURLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateImageBuilderStreamingURLCommandOutput> {
-    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommand(output, context);
   }
 
   // Start section: command_body_extra

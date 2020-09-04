@@ -1,21 +1,11 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient.ts";
-import {
-  RequestCertificateRequest,
-  RequestCertificateResponse
-} from "../models/index.ts";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient.ts";
+import { RequestCertificateRequest, RequestCertificateResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RequestCertificateCommand,
-  serializeAws_json1_1RequestCertificateCommand
+  serializeAws_json1_1RequestCertificateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RequestCertificateCommandInput = RequestCertificateRequest;
-export type RequestCertificateCommandOutput = RequestCertificateResponse &
-  __MetadataBearer;
+export type RequestCertificateCommandOutput = RequestCertificateResponse & __MetadataBearer;
 
 export class RequestCertificateCommand extends $Command<
   RequestCertificateCommandInput,
@@ -50,14 +39,15 @@ export class RequestCertificateCommand extends $Command<
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RequestCertificateCommandInput, RequestCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RequestCertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RequestCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class RequestCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RequestCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RequestCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RequestCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RequestCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestCertificateCommandOutput> {
     return deserializeAws_json1_1RequestCertificateCommand(output, context);
   }
 

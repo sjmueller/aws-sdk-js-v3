@@ -1,21 +1,15 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient.ts";
-import {
-  DeleteResolverEndpointRequest,
-  DeleteResolverEndpointResponse
-} from "../models/index.ts";
+import { DeleteResolverEndpointRequest, DeleteResolverEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteResolverEndpointCommand,
-  serializeAws_json1_1DeleteResolverEndpointCommand
+  serializeAws_json1_1DeleteResolverEndpointCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteResolverEndpointCommandInput = DeleteResolverEndpointRequest;
-export type DeleteResolverEndpointCommandOutput = DeleteResolverEndpointResponse &
-  __MetadataBearer;
+export type DeleteResolverEndpointCommandOutput = DeleteResolverEndpointResponse & __MetadataBearer;
 
 export class DeleteResolverEndpointCommand extends $Command<
   DeleteResolverEndpointCommandInput,
@@ -49,18 +42,16 @@ export class DeleteResolverEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResolverEndpointCommandInput,
-    DeleteResolverEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResolverEndpointCommandInput, DeleteResolverEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteResolverEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResolverEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DeleteResolverEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteResolverEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResolverEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteResolverEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverEndpointCommandOutput> {
     return deserializeAws_json1_1DeleteResolverEndpointCommand(output, context);
   }
 

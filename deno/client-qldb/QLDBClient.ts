@@ -1,63 +1,46 @@
 import {
-  CreateLedgerCommandInput,
-  CreateLedgerCommandOutput
-} from "./commands/CreateLedgerCommand.ts";
+  CancelJournalKinesisStreamCommandInput,
+  CancelJournalKinesisStreamCommandOutput,
+} from "./commands/CancelJournalKinesisStreamCommand.ts";
+import { CreateLedgerCommandInput, CreateLedgerCommandOutput } from "./commands/CreateLedgerCommand.ts";
+import { DeleteLedgerCommandInput, DeleteLedgerCommandOutput } from "./commands/DeleteLedgerCommand.ts";
 import {
-  DeleteLedgerCommandInput,
-  DeleteLedgerCommandOutput
-} from "./commands/DeleteLedgerCommand.ts";
+  DescribeJournalKinesisStreamCommandInput,
+  DescribeJournalKinesisStreamCommandOutput,
+} from "./commands/DescribeJournalKinesisStreamCommand.ts";
 import {
   DescribeJournalS3ExportCommandInput,
-  DescribeJournalS3ExportCommandOutput
+  DescribeJournalS3ExportCommandOutput,
 } from "./commands/DescribeJournalS3ExportCommand.ts";
+import { DescribeLedgerCommandInput, DescribeLedgerCommandOutput } from "./commands/DescribeLedgerCommand.ts";
+import { ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput } from "./commands/ExportJournalToS3Command.ts";
+import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand.ts";
+import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand.ts";
+import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand.ts";
 import {
-  DescribeLedgerCommandInput,
-  DescribeLedgerCommandOutput
-} from "./commands/DescribeLedgerCommand.ts";
-import {
-  ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput
-} from "./commands/ExportJournalToS3Command.ts";
-import {
-  GetBlockCommandInput,
-  GetBlockCommandOutput
-} from "./commands/GetBlockCommand.ts";
-import {
-  GetDigestCommandInput,
-  GetDigestCommandOutput
-} from "./commands/GetDigestCommand.ts";
-import {
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput
-} from "./commands/GetRevisionCommand.ts";
+  ListJournalKinesisStreamsForLedgerCommandInput,
+  ListJournalKinesisStreamsForLedgerCommandOutput,
+} from "./commands/ListJournalKinesisStreamsForLedgerCommand.ts";
 import {
   ListJournalS3ExportsCommandInput,
-  ListJournalS3ExportsCommandOutput
+  ListJournalS3ExportsCommandOutput,
 } from "./commands/ListJournalS3ExportsCommand.ts";
 import {
   ListJournalS3ExportsForLedgerCommandInput,
-  ListJournalS3ExportsForLedgerCommandOutput
+  ListJournalS3ExportsForLedgerCommandOutput,
 } from "./commands/ListJournalS3ExportsForLedgerCommand.ts";
-import {
-  ListLedgersCommandInput,
-  ListLedgersCommandOutput
-} from "./commands/ListLedgersCommand.ts";
+import { ListLedgersCommandInput, ListLedgersCommandOutput } from "./commands/ListLedgersCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput
-} from "./commands/UpdateLedgerCommand.ts";
+  StreamJournalToKinesisCommandInput,
+  StreamJournalToKinesisCommandOutput,
+} from "./commands/StreamJournalToKinesisCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -65,38 +48,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -105,47 +84,55 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CancelJournalKinesisStreamCommandInput
   | CreateLedgerCommandInput
   | DeleteLedgerCommandInput
+  | DescribeJournalKinesisStreamCommandInput
   | DescribeJournalS3ExportCommandInput
   | DescribeLedgerCommandInput
   | ExportJournalToS3CommandInput
   | GetBlockCommandInput
   | GetDigestCommandInput
   | GetRevisionCommandInput
+  | ListJournalKinesisStreamsForLedgerCommandInput
   | ListJournalS3ExportsCommandInput
   | ListJournalS3ExportsForLedgerCommandInput
   | ListLedgersCommandInput
   | ListTagsForResourceCommandInput
+  | StreamJournalToKinesisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLedgerCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelJournalKinesisStreamCommandOutput
   | CreateLedgerCommandOutput
   | DeleteLedgerCommandOutput
+  | DescribeJournalKinesisStreamCommandOutput
   | DescribeJournalS3ExportCommandOutput
   | DescribeLedgerCommandOutput
   | ExportJournalToS3CommandOutput
   | GetBlockCommandOutput
   | GetDigestCommandOutput
   | GetRevisionCommandOutput
+  | ListJournalKinesisStreamsForLedgerCommandOutput
   | ListJournalS3ExportsCommandOutput
   | ListJournalS3ExportsForLedgerCommandOutput
   | ListLedgersCommandOutput
   | ListTagsForResourceCommandOutput
+  | StreamJournalToKinesisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLedgerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -219,14 +206,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -234,9 +226,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QLDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -245,9 +235,7 @@ export type QLDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -270,7 +258,7 @@ export class QLDBClient extends __Client<
   constructor(configuration: QLDBClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -285,6 +273,7 @@ export class QLDBClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

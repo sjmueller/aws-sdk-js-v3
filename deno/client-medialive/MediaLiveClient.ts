@@ -1,175 +1,98 @@
 import {
   BatchUpdateScheduleCommandInput,
-  BatchUpdateScheduleCommandOutput
+  BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand.ts";
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "./commands/CreateChannelCommand.ts";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand.ts";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand.ts";
 import {
   CreateInputSecurityGroupCommandInput,
-  CreateInputSecurityGroupCommandOutput
+  CreateInputSecurityGroupCommandOutput,
 } from "./commands/CreateInputSecurityGroupCommand.ts";
-import {
-  CreateMultiplexCommandInput,
-  CreateMultiplexCommandOutput
-} from "./commands/CreateMultiplexCommand.ts";
+import { CreateMultiplexCommandInput, CreateMultiplexCommandOutput } from "./commands/CreateMultiplexCommand.ts";
 import {
   CreateMultiplexProgramCommandInput,
-  CreateMultiplexProgramCommandOutput
+  CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand.ts";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand.ts";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "./commands/DeleteChannelCommand.ts";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand.ts";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand.ts";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
 import {
   DeleteInputSecurityGroupCommandInput,
-  DeleteInputSecurityGroupCommandOutput
+  DeleteInputSecurityGroupCommandOutput,
 } from "./commands/DeleteInputSecurityGroupCommand.ts";
-import {
-  DeleteMultiplexCommandInput,
-  DeleteMultiplexCommandOutput
-} from "./commands/DeleteMultiplexCommand.ts";
+import { DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput } from "./commands/DeleteMultiplexCommand.ts";
 import {
   DeleteMultiplexProgramCommandInput,
-  DeleteMultiplexProgramCommandOutput
+  DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand.ts";
+import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "./commands/DeleteReservationCommand.ts";
+import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand.ts";
+import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand.ts";
 import {
-  DeleteReservationCommandInput,
-  DeleteReservationCommandOutput
-} from "./commands/DeleteReservationCommand.ts";
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "./commands/DescribeInputDeviceCommand.ts";
 import {
-  DeleteScheduleCommandInput,
-  DeleteScheduleCommandOutput
-} from "./commands/DeleteScheduleCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "./commands/DescribeChannelCommand.ts";
-import {
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput
-} from "./commands/DescribeInputCommand.ts";
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "./commands/DescribeInputDeviceThumbnailCommand.ts";
 import {
   DescribeInputSecurityGroupCommandInput,
-  DescribeInputSecurityGroupCommandOutput
+  DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand.ts";
-import {
-  DescribeMultiplexCommandInput,
-  DescribeMultiplexCommandOutput
-} from "./commands/DescribeMultiplexCommand.ts";
+import { DescribeMultiplexCommandInput, DescribeMultiplexCommandOutput } from "./commands/DescribeMultiplexCommand.ts";
 import {
   DescribeMultiplexProgramCommandInput,
-  DescribeMultiplexProgramCommandOutput
+  DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand.ts";
-import {
-  DescribeOfferingCommandInput,
-  DescribeOfferingCommandOutput
-} from "./commands/DescribeOfferingCommand.ts";
+import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand.ts";
 import {
   DescribeReservationCommandInput,
-  DescribeReservationCommandOutput
+  DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand.ts";
-import {
-  DescribeScheduleCommandInput,
-  DescribeScheduleCommandOutput
-} from "./commands/DescribeScheduleCommand.ts";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "./commands/ListChannelsCommand.ts";
+import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand.ts";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand.ts";
+import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand.ts";
 import {
   ListInputSecurityGroupsCommandInput,
-  ListInputSecurityGroupsCommandOutput
+  ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand.ts";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand.ts";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand.ts";
 import {
   ListMultiplexProgramsCommandInput,
-  ListMultiplexProgramsCommandOutput
+  ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand.ts";
-import {
-  ListMultiplexesCommandInput,
-  ListMultiplexesCommandOutput
-} from "./commands/ListMultiplexesCommand.ts";
-import {
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
-} from "./commands/ListOfferingsCommand.ts";
-import {
-  ListReservationsCommandInput,
-  ListReservationsCommandOutput
-} from "./commands/ListReservationsCommand.ts";
+import { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "./commands/ListMultiplexesCommand.ts";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand.ts";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
-} from "./commands/PurchaseOfferingCommand.ts";
-import {
-  StartChannelCommandInput,
-  StartChannelCommandOutput
-} from "./commands/StartChannelCommand.ts";
-import {
-  StartMultiplexCommandInput,
-  StartMultiplexCommandOutput
-} from "./commands/StartMultiplexCommand.ts";
-import {
-  StopChannelCommandInput,
-  StopChannelCommandOutput
-} from "./commands/StopChannelCommand.ts";
-import {
-  StopMultiplexCommandInput,
-  StopMultiplexCommandOutput
-} from "./commands/StopMultiplexCommand.ts";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand.ts";
+import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand.ts";
+import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand.ts";
+import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand.ts";
+import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand.ts";
 import {
   UpdateChannelClassCommandInput,
-  UpdateChannelClassCommandOutput
+  UpdateChannelClassCommandOutput,
 } from "./commands/UpdateChannelClassCommand.ts";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "./commands/UpdateChannelCommand.ts";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand.ts";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand.ts";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand.ts";
+import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "./commands/UpdateInputDeviceCommand.ts";
 import {
   UpdateInputSecurityGroupCommandInput,
-  UpdateInputSecurityGroupCommandOutput
+  UpdateInputSecurityGroupCommandOutput,
 } from "./commands/UpdateInputSecurityGroupCommand.ts";
-import {
-  UpdateMultiplexCommandInput,
-  UpdateMultiplexCommandOutput
-} from "./commands/UpdateMultiplexCommand.ts";
+import { UpdateMultiplexCommandInput, UpdateMultiplexCommandOutput } from "./commands/UpdateMultiplexCommand.ts";
 import {
   UpdateMultiplexProgramCommandInput,
-  UpdateMultiplexProgramCommandOutput
+  UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand.ts";
-import {
-  UpdateReservationCommandInput,
-  UpdateReservationCommandOutput
-} from "./commands/UpdateReservationCommand.ts";
+import { UpdateReservationCommandInput, UpdateReservationCommandOutput } from "./commands/UpdateReservationCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -177,38 +100,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -217,9 +136,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -240,6 +160,8 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DescribeChannelCommandInput
   | DescribeInputCommandInput
+  | DescribeInputDeviceCommandInput
+  | DescribeInputDeviceThumbnailCommandInput
   | DescribeInputSecurityGroupCommandInput
   | DescribeMultiplexCommandInput
   | DescribeMultiplexProgramCommandInput
@@ -247,6 +169,7 @@ export type ServiceInputTypes =
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
   | ListChannelsCommandInput
+  | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
   | ListInputsCommandInput
   | ListMultiplexProgramsCommandInput
@@ -262,6 +185,7 @@ export type ServiceInputTypes =
   | UpdateChannelClassCommandInput
   | UpdateChannelCommandInput
   | UpdateInputCommandInput
+  | UpdateInputDeviceCommandInput
   | UpdateInputSecurityGroupCommandInput
   | UpdateMultiplexCommandInput
   | UpdateMultiplexProgramCommandInput
@@ -285,6 +209,8 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DescribeChannelCommandOutput
   | DescribeInputCommandOutput
+  | DescribeInputDeviceCommandOutput
+  | DescribeInputDeviceThumbnailCommandOutput
   | DescribeInputSecurityGroupCommandOutput
   | DescribeMultiplexCommandOutput
   | DescribeMultiplexProgramCommandOutput
@@ -292,6 +218,7 @@ export type ServiceOutputTypes =
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
   | ListChannelsCommandOutput
+  | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
   | ListInputsCommandOutput
   | ListMultiplexProgramsCommandOutput
@@ -307,13 +234,13 @@ export type ServiceOutputTypes =
   | UpdateChannelClassCommandOutput
   | UpdateChannelCommandOutput
   | UpdateInputCommandOutput
+  | UpdateInputDeviceCommandOutput
   | UpdateInputSecurityGroupCommandOutput
   | UpdateMultiplexCommandOutput
   | UpdateMultiplexProgramCommandOutput
   | UpdateReservationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -387,14 +314,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -402,9 +334,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaLiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaLiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -413,9 +343,7 @@ export type MediaLiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -438,7 +366,7 @@ export class MediaLiveClient extends __Client<
   constructor(configuration: MediaLiveClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -453,6 +381,7 @@ export class MediaLiveClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

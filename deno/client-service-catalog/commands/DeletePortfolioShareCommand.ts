@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DeletePortfolioShareInput,
-  DeletePortfolioShareOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeletePortfolioShareCommand,
-  serializeAws_json1_1DeletePortfolioShareCommand
+  serializeAws_json1_1DeletePortfolioShareCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeletePortfolioShareCommandInput = DeletePortfolioShareInput;
-export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput &
-  __MetadataBearer;
+export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput & __MetadataBearer;
 
 export class DeletePortfolioShareCommand extends $Command<
   DeletePortfolioShareCommandInput,
@@ -49,18 +38,16 @@ export class DeletePortfolioShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePortfolioShareCommandInput,
-    DeletePortfolioShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePortfolioShareCommandInput, DeletePortfolioShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeletePortfolioShareInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePortfolioShareOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeletePortfolioShareCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePortfolioShareCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeletePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePortfolioShareCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeletePortfolioShareCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioShareCommandOutput> {
     return deserializeAws_json1_1DeletePortfolioShareCommand(output, context);
   }
 

@@ -1,159 +1,96 @@
-import {
-  AssociateKmsKeyCommandInput,
-  AssociateKmsKeyCommandOutput
-} from "./commands/AssociateKmsKeyCommand.ts";
-import {
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
-} from "./commands/CancelExportTaskCommand.ts";
-import {
-  CreateExportTaskCommandInput,
-  CreateExportTaskCommandOutput
-} from "./commands/CreateExportTaskCommand.ts";
-import {
-  CreateLogGroupCommandInput,
-  CreateLogGroupCommandOutput
-} from "./commands/CreateLogGroupCommand.ts";
-import {
-  CreateLogStreamCommandInput,
-  CreateLogStreamCommandOutput
-} from "./commands/CreateLogStreamCommand.ts";
-import {
-  DeleteDestinationCommandInput,
-  DeleteDestinationCommandOutput
-} from "./commands/DeleteDestinationCommand.ts";
-import {
-  DeleteLogGroupCommandInput,
-  DeleteLogGroupCommandOutput
-} from "./commands/DeleteLogGroupCommand.ts";
-import {
-  DeleteLogStreamCommandInput,
-  DeleteLogStreamCommandOutput
-} from "./commands/DeleteLogStreamCommand.ts";
+import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./commands/AssociateKmsKeyCommand.ts";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand.ts";
+import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand.ts";
+import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand.ts";
+import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand.ts";
+import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand.ts";
+import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand.ts";
+import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand.ts";
 import {
   DeleteMetricFilterCommandInput,
-  DeleteMetricFilterCommandOutput
+  DeleteMetricFilterCommandOutput,
 } from "./commands/DeleteMetricFilterCommand.ts";
 import {
+  DeleteQueryDefinitionCommandInput,
+  DeleteQueryDefinitionCommandOutput,
+} from "./commands/DeleteQueryDefinitionCommand.ts";
+import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteRetentionPolicyCommandInput,
-  DeleteRetentionPolicyCommandOutput
+  DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand.ts";
 import {
   DeleteSubscriptionFilterCommandInput,
-  DeleteSubscriptionFilterCommandOutput
+  DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand.ts";
 import {
   DescribeDestinationsCommandInput,
-  DescribeDestinationsCommandOutput
+  DescribeDestinationsCommandOutput,
 } from "./commands/DescribeDestinationsCommand.ts";
 import {
   DescribeExportTasksCommandInput,
-  DescribeExportTasksCommandOutput
+  DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand.ts";
-import {
-  DescribeLogGroupsCommandInput,
-  DescribeLogGroupsCommandOutput
-} from "./commands/DescribeLogGroupsCommand.ts";
+import { DescribeLogGroupsCommandInput, DescribeLogGroupsCommandOutput } from "./commands/DescribeLogGroupsCommand.ts";
 import {
   DescribeLogStreamsCommandInput,
-  DescribeLogStreamsCommandOutput
+  DescribeLogStreamsCommandOutput,
 } from "./commands/DescribeLogStreamsCommand.ts";
 import {
   DescribeMetricFiltersCommandInput,
-  DescribeMetricFiltersCommandOutput
+  DescribeMetricFiltersCommandOutput,
 } from "./commands/DescribeMetricFiltersCommand.ts";
+import { DescribeQueriesCommandInput, DescribeQueriesCommandOutput } from "./commands/DescribeQueriesCommand.ts";
 import {
-  DescribeQueriesCommandInput,
-  DescribeQueriesCommandOutput
-} from "./commands/DescribeQueriesCommand.ts";
+  DescribeQueryDefinitionsCommandInput,
+  DescribeQueryDefinitionsCommandOutput,
+} from "./commands/DescribeQueryDefinitionsCommand.ts";
 import {
   DescribeResourcePoliciesCommandInput,
-  DescribeResourcePoliciesCommandOutput
+  DescribeResourcePoliciesCommandOutput,
 } from "./commands/DescribeResourcePoliciesCommand.ts";
 import {
   DescribeSubscriptionFiltersCommandInput,
-  DescribeSubscriptionFiltersCommandOutput
+  DescribeSubscriptionFiltersCommandOutput,
 } from "./commands/DescribeSubscriptionFiltersCommand.ts";
 import {
   DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput
+  DisassociateKmsKeyCommandOutput,
 } from "./commands/DisassociateKmsKeyCommand.ts";
-import {
-  FilterLogEventsCommandInput,
-  FilterLogEventsCommandOutput
-} from "./commands/FilterLogEventsCommand.ts";
-import {
-  GetLogEventsCommandInput,
-  GetLogEventsCommandOutput
-} from "./commands/GetLogEventsCommand.ts";
-import {
-  GetLogGroupFieldsCommandInput,
-  GetLogGroupFieldsCommandOutput
-} from "./commands/GetLogGroupFieldsCommand.ts";
-import {
-  GetLogRecordCommandInput,
-  GetLogRecordCommandOutput
-} from "./commands/GetLogRecordCommand.ts";
-import {
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
-} from "./commands/GetQueryResultsCommand.ts";
-import {
-  ListTagsLogGroupCommandInput,
-  ListTagsLogGroupCommandOutput
-} from "./commands/ListTagsLogGroupCommand.ts";
-import {
-  PutDestinationCommandInput,
-  PutDestinationCommandOutput
-} from "./commands/PutDestinationCommand.ts";
+import { FilterLogEventsCommandInput, FilterLogEventsCommandOutput } from "./commands/FilterLogEventsCommand.ts";
+import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand.ts";
+import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand.ts";
+import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand.ts";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand.ts";
+import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "./commands/ListTagsLogGroupCommand.ts";
+import { PutDestinationCommandInput, PutDestinationCommandOutput } from "./commands/PutDestinationCommand.ts";
 import {
   PutDestinationPolicyCommandInput,
-  PutDestinationPolicyCommandOutput
+  PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand.ts";
+import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand.ts";
+import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand.ts";
 import {
-  PutLogEventsCommandInput,
-  PutLogEventsCommandOutput
-} from "./commands/PutLogEventsCommand.ts";
-import {
-  PutMetricFilterCommandInput,
-  PutMetricFilterCommandOutput
-} from "./commands/PutMetricFilterCommand.ts";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand.ts";
+  PutQueryDefinitionCommandInput,
+  PutQueryDefinitionCommandOutput,
+} from "./commands/PutQueryDefinitionCommand.ts";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand.ts";
 import {
   PutRetentionPolicyCommandInput,
-  PutRetentionPolicyCommandOutput
+  PutRetentionPolicyCommandOutput,
 } from "./commands/PutRetentionPolicyCommand.ts";
 import {
   PutSubscriptionFilterCommandInput,
-  PutSubscriptionFilterCommandOutput
+  PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand.ts";
-import {
-  StartQueryCommandInput,
-  StartQueryCommandOutput
-} from "./commands/StartQueryCommand.ts";
-import {
-  StopQueryCommandInput,
-  StopQueryCommandOutput
-} from "./commands/StopQueryCommand.ts";
-import {
-  TagLogGroupCommandInput,
-  TagLogGroupCommandOutput
-} from "./commands/TagLogGroupCommand.ts";
-import {
-  TestMetricFilterCommandInput,
-  TestMetricFilterCommandOutput
-} from "./commands/TestMetricFilterCommand.ts";
-import {
-  UntagLogGroupCommandInput,
-  UntagLogGroupCommandOutput
-} from "./commands/UntagLogGroupCommand.ts";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand.ts";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand.ts";
+import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand.ts";
+import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand.ts";
+import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -161,38 +98,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -201,9 +134,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -216,6 +150,7 @@ export type ServiceInputTypes =
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
   | DeleteMetricFilterCommandInput
+  | DeleteQueryDefinitionCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
@@ -225,6 +160,7 @@ export type ServiceInputTypes =
   | DescribeLogStreamsCommandInput
   | DescribeMetricFiltersCommandInput
   | DescribeQueriesCommandInput
+  | DescribeQueryDefinitionsCommandInput
   | DescribeResourcePoliciesCommandInput
   | DescribeSubscriptionFiltersCommandInput
   | DisassociateKmsKeyCommandInput
@@ -238,6 +174,7 @@ export type ServiceInputTypes =
   | PutDestinationPolicyCommandInput
   | PutLogEventsCommandInput
   | PutMetricFilterCommandInput
+  | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
@@ -257,6 +194,7 @@ export type ServiceOutputTypes =
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
   | DeleteMetricFilterCommandOutput
+  | DeleteQueryDefinitionCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
@@ -266,6 +204,7 @@ export type ServiceOutputTypes =
   | DescribeLogStreamsCommandOutput
   | DescribeMetricFiltersCommandOutput
   | DescribeQueriesCommandOutput
+  | DescribeQueryDefinitionsCommandOutput
   | DescribeResourcePoliciesCommandOutput
   | DescribeSubscriptionFiltersCommandOutput
   | DisassociateKmsKeyCommandOutput
@@ -279,6 +218,7 @@ export type ServiceOutputTypes =
   | PutDestinationPolicyCommandOutput
   | PutLogEventsCommandOutput
   | PutMetricFilterCommandOutput
+  | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
@@ -288,8 +228,7 @@ export type ServiceOutputTypes =
   | TestMetricFilterCommandOutput
   | UntagLogGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -363,14 +302,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -378,9 +322,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchLogsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchLogsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -389,9 +331,7 @@ export type CloudWatchLogsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -447,7 +387,7 @@ export class CloudWatchLogsClient extends __Client<
   constructor(configuration: CloudWatchLogsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -462,6 +402,7 @@ export class CloudWatchLogsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

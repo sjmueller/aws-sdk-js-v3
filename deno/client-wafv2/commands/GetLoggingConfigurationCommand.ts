@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client.ts";
-import {
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client.ts";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetLoggingConfigurationCommand,
-  serializeAws_json1_1GetLoggingConfigurationCommand
+  serializeAws_json1_1GetLoggingConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLoggingConfigurationCommandInput = GetLoggingConfigurationRequest;
-export type GetLoggingConfigurationCommandOutput = GetLoggingConfigurationResponse &
-  __MetadataBearer;
+export type GetLoggingConfigurationCommandOutput = GetLoggingConfigurationResponse & __MetadataBearer;
 
 export class GetLoggingConfigurationCommand extends $Command<
   GetLoggingConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class GetLoggingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLoggingConfigurationCommandInput,
-    GetLoggingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLoggingConfigurationCommandInput, GetLoggingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLoggingConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLoggingConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetLoggingConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLoggingConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoggingConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLoggingConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
+    return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,47 +1,21 @@
-import {
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
-} from "./commands/AcceptInvitationCommand.ts";
-import {
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput
-} from "./commands/CreateGraphCommand.ts";
-import {
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput
-} from "./commands/CreateMembersCommand.ts";
-import {
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput
-} from "./commands/DeleteGraphCommand.ts";
-import {
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
-} from "./commands/DeleteMembersCommand.ts";
+import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand.ts";
+import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand.ts";
+import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand.ts";
+import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand.ts";
+import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand.ts";
 import {
   DisassociateMembershipCommandInput,
-  DisassociateMembershipCommandOutput
+  DisassociateMembershipCommandOutput,
 } from "./commands/DisassociateMembershipCommand.ts";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand.ts";
+import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand.ts";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand.ts";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand.ts";
+import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand.ts";
 import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand.ts";
-import {
-  ListGraphsCommandInput,
-  ListGraphsCommandOutput
-} from "./commands/ListGraphsCommand.ts";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "./commands/ListInvitationsCommand.ts";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand.ts";
-import {
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput
-} from "./commands/RejectInvitationCommand.ts";
+  StartMonitoringMemberCommandInput,
+  StartMonitoringMemberCommandOutput,
+} from "./commands/StartMonitoringMemberCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -49,38 +23,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -89,9 +59,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -105,7 +76,8 @@ export type ServiceInputTypes =
   | ListGraphsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
-  | RejectInvitationCommandInput;
+  | RejectInvitationCommandInput
+  | StartMonitoringMemberCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -118,10 +90,10 @@ export type ServiceOutputTypes =
   | ListGraphsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
-  | RejectInvitationCommandOutput;
+  | RejectInvitationCommandOutput
+  | StartMonitoringMemberCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -195,14 +167,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -210,9 +187,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DetectiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DetectiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -221,9 +196,7 @@ export type DetectiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -233,11 +206,7 @@ export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <important>
- *             <p>Amazon Detective is currently in preview. The Detective API can only be used by accounts that
- *             are admitted into the preview.</p>
- *          </important>
- *          <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
+ * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
  *          investigate security issues across your Amazon Web Services (AWS) workloads. Detective automatically
  *          extracts time-based events such as login attempts, API calls, and network traffic from
  *          AWS CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
@@ -290,7 +259,7 @@ export class DetectiveClient extends __Client<
   constructor(configuration: DetectiveClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -305,6 +274,7 @@ export class DetectiveClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

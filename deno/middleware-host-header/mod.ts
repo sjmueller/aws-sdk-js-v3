@@ -1,11 +1,5 @@
 import { HttpRequest } from "../protocol-http/mod.ts";
-import {
-  RequestHandler,
-  BuildMiddleware,
-  BuildHandlerOptions,
-  AbsoluteLocation,
-  Pluggable
-} from "../types/mod.ts";
+import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable, RequestHandler } from "../types/mod.ts";
 
 export interface HostHeaderInputConfig {}
 interface PreviouslyResolved {
@@ -20,12 +14,9 @@ export function resolveHostHeaderConfig<T>(
   return input;
 }
 
-export const hostHeaderMiddleware = <
-  Input extends object,
-  Output extends object
->(
+export const hostHeaderMiddleware = <Input extends object, Output extends object>(
   options: HostHeaderResolvedConfig
-): BuildMiddleware<Input, Output> => next => async args => {
+): BuildMiddleware<Input, Output> => (next) => async (args) => {
   if (!HttpRequest.isInstance(args.request)) return next(args);
   const { request } = args;
   const { handlerProtocol = "" } = options.requestHandler.metadata || {};
@@ -41,17 +32,14 @@ export const hostHeaderMiddleware = <
   return next(args);
 };
 
-export const hostHeaderMiddlewareOptions: BuildHandlerOptions &
-  AbsoluteLocation = {
+export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "hostHeaderMiddleware",
   step: "build",
-  tags: ["HOST"]
+  tags: ["HOST"],
 };
 
-export const getHostHeaderPlugin = (
-  options: HostHeaderResolvedConfig
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+export const getHostHeaderPlugin = (options: HostHeaderResolvedConfig): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
     clientStack.add(hostHeaderMiddleware(options), hostHeaderMiddlewareOptions);
-  }
+  },
 });

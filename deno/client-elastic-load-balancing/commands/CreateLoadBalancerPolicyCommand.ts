@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import {
-  CreateLoadBalancerPolicyInput,
-  CreateLoadBalancerPolicyOutput
-} from "../models/index.ts";
+import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/index.ts";
 import {
   deserializeAws_queryCreateLoadBalancerPolicyCommand,
-  serializeAws_queryCreateLoadBalancerPolicyCommand
+  serializeAws_queryCreateLoadBalancerPolicyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateLoadBalancerPolicyCommandInput = CreateLoadBalancerPolicyInput;
-export type CreateLoadBalancerPolicyCommandOutput = CreateLoadBalancerPolicyOutput &
-  __MetadataBearer;
+export type CreateLoadBalancerPolicyCommandOutput = CreateLoadBalancerPolicyOutput & __MetadataBearer;
 
 export class CreateLoadBalancerPolicyCommand extends $Command<
   CreateLoadBalancerPolicyCommandInput,
@@ -49,18 +42,16 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLoadBalancerPolicyCommandInput,
-    CreateLoadBalancerPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLoadBalancerPolicyCommandInput, CreateLoadBalancerPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateLoadBalancerPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoadBalancerPolicyOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLoadBalancerPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLoadBalancerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLoadBalancerPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerPolicyCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerPolicyCommand(output, context);
   }
 

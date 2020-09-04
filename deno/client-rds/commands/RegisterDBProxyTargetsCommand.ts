@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  RegisterDBProxyTargetsRequest,
-  RegisterDBProxyTargetsResponse
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryRegisterDBProxyTargetsCommand,
-  serializeAws_queryRegisterDBProxyTargetsCommand
+  serializeAws_queryRegisterDBProxyTargetsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RegisterDBProxyTargetsCommandInput = RegisterDBProxyTargetsRequest;
-export type RegisterDBProxyTargetsCommandOutput = RegisterDBProxyTargetsResponse &
-  __MetadataBearer;
+export type RegisterDBProxyTargetsCommandOutput = RegisterDBProxyTargetsResponse & __MetadataBearer;
 
 export class RegisterDBProxyTargetsCommand extends $Command<
   RegisterDBProxyTargetsCommandInput,
@@ -49,18 +38,16 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterDBProxyTargetsCommandInput,
-    RegisterDBProxyTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterDBProxyTargetsCommandInput, RegisterDBProxyTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RegisterDBProxyTargetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDBProxyTargetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterDBProxyTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRegisterDBProxyTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterDBProxyTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDBProxyTargetsCommandOutput> {
     return deserializeAws_queryRegisterDBProxyTargetsCommand(output, context);
   }
 

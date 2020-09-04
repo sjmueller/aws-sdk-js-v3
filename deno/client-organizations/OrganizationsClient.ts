@@ -1,191 +1,135 @@
-import {
-  AcceptHandshakeCommandInput,
-  AcceptHandshakeCommandOutput
-} from "./commands/AcceptHandshakeCommand.ts";
-import {
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput
-} from "./commands/AttachPolicyCommand.ts";
-import {
-  CancelHandshakeCommandInput,
-  CancelHandshakeCommandOutput
-} from "./commands/CancelHandshakeCommand.ts";
-import {
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput
-} from "./commands/CreateAccountCommand.ts";
+import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand.ts";
+import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand.ts";
+import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand.ts";
+import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand.ts";
 import {
   CreateGovCloudAccountCommandInput,
-  CreateGovCloudAccountCommandOutput
+  CreateGovCloudAccountCommandOutput,
 } from "./commands/CreateGovCloudAccountCommand.ts";
 import {
   CreateOrganizationCommandInput,
-  CreateOrganizationCommandOutput
+  CreateOrganizationCommandOutput,
 } from "./commands/CreateOrganizationCommand.ts";
 import {
   CreateOrganizationalUnitCommandInput,
-  CreateOrganizationalUnitCommandOutput
+  CreateOrganizationalUnitCommandOutput,
 } from "./commands/CreateOrganizationalUnitCommand.ts";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand.ts";
-import {
-  DeclineHandshakeCommandInput,
-  DeclineHandshakeCommandOutput
-} from "./commands/DeclineHandshakeCommand.ts";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand.ts";
+import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand.ts";
 import {
   DeleteOrganizationCommandInput,
-  DeleteOrganizationCommandOutput
+  DeleteOrganizationCommandOutput,
 } from "./commands/DeleteOrganizationCommand.ts";
 import {
   DeleteOrganizationalUnitCommandInput,
-  DeleteOrganizationalUnitCommandOutput
+  DeleteOrganizationalUnitCommandOutput,
 } from "./commands/DeleteOrganizationalUnitCommand.ts";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand.ts";
 import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand.ts";
-import {
-  DescribeAccountCommandInput,
-  DescribeAccountCommandOutput
-} from "./commands/DescribeAccountCommand.ts";
+  DeregisterDelegatedAdministratorCommandInput,
+  DeregisterDelegatedAdministratorCommandOutput,
+} from "./commands/DeregisterDelegatedAdministratorCommand.ts";
+import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand.ts";
 import {
   DescribeCreateAccountStatusCommandInput,
-  DescribeCreateAccountStatusCommandOutput
+  DescribeCreateAccountStatusCommandOutput,
 } from "./commands/DescribeCreateAccountStatusCommand.ts";
 import {
   DescribeEffectivePolicyCommandInput,
-  DescribeEffectivePolicyCommandOutput
+  DescribeEffectivePolicyCommandOutput,
 } from "./commands/DescribeEffectivePolicyCommand.ts";
-import {
-  DescribeHandshakeCommandInput,
-  DescribeHandshakeCommandOutput
-} from "./commands/DescribeHandshakeCommand.ts";
+import { DescribeHandshakeCommandInput, DescribeHandshakeCommandOutput } from "./commands/DescribeHandshakeCommand.ts";
 import {
   DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput
+  DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand.ts";
 import {
   DescribeOrganizationalUnitCommandInput,
-  DescribeOrganizationalUnitCommandOutput
+  DescribeOrganizationalUnitCommandOutput,
 } from "./commands/DescribeOrganizationalUnitCommand.ts";
-import {
-  DescribePolicyCommandInput,
-  DescribePolicyCommandOutput
-} from "./commands/DescribePolicyCommand.ts";
-import {
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput
-} from "./commands/DetachPolicyCommand.ts";
+import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand.ts";
+import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand.ts";
 import {
   DisableAWSServiceAccessCommandInput,
-  DisableAWSServiceAccessCommandOutput
+  DisableAWSServiceAccessCommandOutput,
 } from "./commands/DisableAWSServiceAccessCommand.ts";
-import {
-  DisablePolicyTypeCommandInput,
-  DisablePolicyTypeCommandOutput
-} from "./commands/DisablePolicyTypeCommand.ts";
+import { DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput } from "./commands/DisablePolicyTypeCommand.ts";
 import {
   EnableAWSServiceAccessCommandInput,
-  EnableAWSServiceAccessCommandOutput
+  EnableAWSServiceAccessCommandOutput,
 } from "./commands/EnableAWSServiceAccessCommand.ts";
-import {
-  EnableAllFeaturesCommandInput,
-  EnableAllFeaturesCommandOutput
-} from "./commands/EnableAllFeaturesCommand.ts";
-import {
-  EnablePolicyTypeCommandInput,
-  EnablePolicyTypeCommandOutput
-} from "./commands/EnablePolicyTypeCommand.ts";
+import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "./commands/EnableAllFeaturesCommand.ts";
+import { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "./commands/EnablePolicyTypeCommand.ts";
 import {
   InviteAccountToOrganizationCommandInput,
-  InviteAccountToOrganizationCommandOutput
+  InviteAccountToOrganizationCommandOutput,
 } from "./commands/InviteAccountToOrganizationCommand.ts";
-import {
-  LeaveOrganizationCommandInput,
-  LeaveOrganizationCommandOutput
-} from "./commands/LeaveOrganizationCommand.ts";
+import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "./commands/LeaveOrganizationCommand.ts";
 import {
   ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput
+  ListAWSServiceAccessForOrganizationCommandOutput,
 } from "./commands/ListAWSServiceAccessForOrganizationCommand.ts";
-import {
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput
-} from "./commands/ListAccountsCommand.ts";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand.ts";
 import {
   ListAccountsForParentCommandInput,
-  ListAccountsForParentCommandOutput
+  ListAccountsForParentCommandOutput,
 } from "./commands/ListAccountsForParentCommand.ts";
-import {
-  ListChildrenCommandInput,
-  ListChildrenCommandOutput
-} from "./commands/ListChildrenCommand.ts";
+import { ListChildrenCommandInput, ListChildrenCommandOutput } from "./commands/ListChildrenCommand.ts";
 import {
   ListCreateAccountStatusCommandInput,
-  ListCreateAccountStatusCommandOutput
+  ListCreateAccountStatusCommandOutput,
 } from "./commands/ListCreateAccountStatusCommand.ts";
 import {
+  ListDelegatedAdministratorsCommandInput,
+  ListDelegatedAdministratorsCommandOutput,
+} from "./commands/ListDelegatedAdministratorsCommand.ts";
+import {
+  ListDelegatedServicesForAccountCommandInput,
+  ListDelegatedServicesForAccountCommandOutput,
+} from "./commands/ListDelegatedServicesForAccountCommand.ts";
+import {
   ListHandshakesForAccountCommandInput,
-  ListHandshakesForAccountCommandOutput
+  ListHandshakesForAccountCommandOutput,
 } from "./commands/ListHandshakesForAccountCommand.ts";
 import {
   ListHandshakesForOrganizationCommandInput,
-  ListHandshakesForOrganizationCommandOutput
+  ListHandshakesForOrganizationCommandOutput,
 } from "./commands/ListHandshakesForOrganizationCommand.ts";
 import {
   ListOrganizationalUnitsForParentCommandInput,
-  ListOrganizationalUnitsForParentCommandOutput
+  ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand.ts";
-import {
-  ListParentsCommandInput,
-  ListParentsCommandOutput
-} from "./commands/ListParentsCommand.ts";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand.ts";
+import { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand.ts";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand.ts";
 import {
   ListPoliciesForTargetCommandInput,
-  ListPoliciesForTargetCommandOutput
+  ListPoliciesForTargetCommandOutput,
 } from "./commands/ListPoliciesForTargetCommand.ts";
-import {
-  ListRootsCommandInput,
-  ListRootsCommandOutput
-} from "./commands/ListRootsCommand.ts";
+import { ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput
+  ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand.ts";
+import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand.ts";
 import {
-  MoveAccountCommandInput,
-  MoveAccountCommandOutput
-} from "./commands/MoveAccountCommand.ts";
+  RegisterDelegatedAdministratorCommandInput,
+  RegisterDelegatedAdministratorCommandOutput,
+} from "./commands/RegisterDelegatedAdministratorCommand.ts";
 import {
   RemoveAccountFromOrganizationCommandInput,
-  RemoveAccountFromOrganizationCommandOutput
+  RemoveAccountFromOrganizationCommandOutput,
 } from "./commands/RemoveAccountFromOrganizationCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateOrganizationalUnitCommandInput,
-  UpdateOrganizationalUnitCommandOutput
+  UpdateOrganizationalUnitCommandOutput,
 } from "./commands/UpdateOrganizationalUnitCommand.ts";
-import {
-  UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput
-} from "./commands/UpdatePolicyCommand.ts";
+import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -193,38 +137,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -233,9 +173,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -251,6 +192,7 @@ export type ServiceInputTypes =
   | DeleteOrganizationCommandInput
   | DeleteOrganizationalUnitCommandInput
   | DeletePolicyCommandInput
+  | DeregisterDelegatedAdministratorCommandInput
   | DescribeAccountCommandInput
   | DescribeCreateAccountStatusCommandInput
   | DescribeEffectivePolicyCommandInput
@@ -271,6 +213,8 @@ export type ServiceInputTypes =
   | ListAccountsForParentCommandInput
   | ListChildrenCommandInput
   | ListCreateAccountStatusCommandInput
+  | ListDelegatedAdministratorsCommandInput
+  | ListDelegatedServicesForAccountCommandInput
   | ListHandshakesForAccountCommandInput
   | ListHandshakesForOrganizationCommandInput
   | ListOrganizationalUnitsForParentCommandInput
@@ -281,6 +225,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTargetsForPolicyCommandInput
   | MoveAccountCommandInput
+  | RegisterDelegatedAdministratorCommandInput
   | RemoveAccountFromOrganizationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -300,6 +245,7 @@ export type ServiceOutputTypes =
   | DeleteOrganizationCommandOutput
   | DeleteOrganizationalUnitCommandOutput
   | DeletePolicyCommandOutput
+  | DeregisterDelegatedAdministratorCommandOutput
   | DescribeAccountCommandOutput
   | DescribeCreateAccountStatusCommandOutput
   | DescribeEffectivePolicyCommandOutput
@@ -320,6 +266,8 @@ export type ServiceOutputTypes =
   | ListAccountsForParentCommandOutput
   | ListChildrenCommandOutput
   | ListCreateAccountStatusCommandOutput
+  | ListDelegatedAdministratorsCommandOutput
+  | ListDelegatedServicesForAccountCommandOutput
   | ListHandshakesForAccountCommandOutput
   | ListHandshakesForOrganizationCommandOutput
   | ListOrganizationalUnitsForParentCommandOutput
@@ -330,14 +278,14 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTargetsForPolicyCommandOutput
   | MoveAccountCommandOutput
+  | RegisterDelegatedAdministratorCommandOutput
   | RemoveAccountFromOrganizationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateOrganizationalUnitCommandOutput
   | UpdatePolicyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -411,14 +359,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -426,9 +379,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OrganizationsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OrganizationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -437,9 +388,7 @@ export type OrganizationsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -462,7 +411,7 @@ export class OrganizationsClient extends __Client<
   constructor(configuration: OrganizationsClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -477,6 +426,7 @@ export class OrganizationsClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

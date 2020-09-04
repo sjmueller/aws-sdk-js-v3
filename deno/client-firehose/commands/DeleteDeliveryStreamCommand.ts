@@ -1,21 +1,11 @@
-import {
-  FirehoseClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FirehoseClient.ts";
-import {
-  DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamOutput
-} from "../models/index.ts";
+import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
+import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteDeliveryStreamCommand,
-  serializeAws_json1_1DeleteDeliveryStreamCommand
+  serializeAws_json1_1DeleteDeliveryStreamCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDeliveryStreamCommandInput = DeleteDeliveryStreamInput;
-export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput &
-  __MetadataBearer;
+export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput & __MetadataBearer;
 
 export class DeleteDeliveryStreamCommand extends $Command<
   DeleteDeliveryStreamCommandInput,
@@ -49,18 +38,16 @@ export class DeleteDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDeliveryStreamCommandInput,
-    DeleteDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDeliveryStreamCommandInput, DeleteDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDeliveryStreamInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeliveryStreamOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteDeliveryStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDeliveryStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDeliveryStreamCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDeliveryStreamCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1DeleteDeliveryStreamCommand(output, context);
   }
 

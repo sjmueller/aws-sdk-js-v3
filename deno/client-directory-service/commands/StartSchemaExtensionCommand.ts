@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  StartSchemaExtensionRequest,
-  StartSchemaExtensionResult
-} from "../models/index.ts";
+import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartSchemaExtensionCommand,
-  serializeAws_json1_1StartSchemaExtensionCommand
+  serializeAws_json1_1StartSchemaExtensionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartSchemaExtensionCommandInput = StartSchemaExtensionRequest;
-export type StartSchemaExtensionCommandOutput = StartSchemaExtensionResult &
-  __MetadataBearer;
+export type StartSchemaExtensionCommandOutput = StartSchemaExtensionResult & __MetadataBearer;
 
 export class StartSchemaExtensionCommand extends $Command<
   StartSchemaExtensionCommandInput,
@@ -49,18 +42,16 @@ export class StartSchemaExtensionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartSchemaExtensionCommandInput,
-    StartSchemaExtensionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartSchemaExtensionCommandInput, StartSchemaExtensionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartSchemaExtensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartSchemaExtensionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class StartSchemaExtensionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartSchemaExtensionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartSchemaExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSchemaExtensionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartSchemaExtensionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSchemaExtensionCommandOutput> {
     return deserializeAws_json1_1StartSchemaExtensionCommand(output, context);
   }
 

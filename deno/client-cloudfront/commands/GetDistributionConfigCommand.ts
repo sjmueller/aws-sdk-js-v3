@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
-import {
-  GetDistributionConfigRequest,
-  GetDistributionConfigResult
-} from "../models/index.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
+import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetDistributionConfigCommand,
-  serializeAws_restXmlGetDistributionConfigCommand
+  serializeAws_restXmlGetDistributionConfigCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDistributionConfigCommandInput = GetDistributionConfigRequest;
-export type GetDistributionConfigCommandOutput = GetDistributionConfigResult &
-  __MetadataBearer;
+export type GetDistributionConfigCommandOutput = GetDistributionConfigResult & __MetadataBearer;
 
 export class GetDistributionConfigCommand extends $Command<
   GetDistributionConfigCommandInput,
@@ -49,18 +38,16 @@ export class GetDistributionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDistributionConfigCommandInput,
-    GetDistributionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDistributionConfigCommandInput, GetDistributionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDistributionConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDistributionConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetDistributionConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDistributionConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDistributionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetDistributionConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDistributionConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionConfigCommandOutput> {
     return deserializeAws_restXmlGetDistributionConfigCommand(output, context);
   }
 

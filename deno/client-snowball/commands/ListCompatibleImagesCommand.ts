@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowballClientResolvedConfig
-} from "../SnowballClient.ts";
-import {
-  ListCompatibleImagesRequest,
-  ListCompatibleImagesResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
+import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListCompatibleImagesCommand,
-  serializeAws_json1_1ListCompatibleImagesCommand
+  serializeAws_json1_1ListCompatibleImagesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListCompatibleImagesCommandInput = ListCompatibleImagesRequest;
-export type ListCompatibleImagesCommandOutput = ListCompatibleImagesResult &
-  __MetadataBearer;
+export type ListCompatibleImagesCommandOutput = ListCompatibleImagesResult & __MetadataBearer;
 
 export class ListCompatibleImagesCommand extends $Command<
   ListCompatibleImagesCommandInput,
@@ -49,18 +38,16 @@ export class ListCompatibleImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCompatibleImagesCommandInput,
-    ListCompatibleImagesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCompatibleImagesCommandInput, ListCompatibleImagesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListCompatibleImagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListCompatibleImagesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListCompatibleImagesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListCompatibleImagesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListCompatibleImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCompatibleImagesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListCompatibleImagesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompatibleImagesCommandOutput> {
     return deserializeAws_json1_1ListCompatibleImagesCommand(output, context);
   }
 

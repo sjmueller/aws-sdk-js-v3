@@ -1,5 +1,5 @@
-import { CredentialProvider } from "../types/mod.ts";
 import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialProvider } from "../types/mod.ts";
 
 export const ENV_KEY = "AWS_ACCESS_KEY_ID";
 export const ENV_SECRET = "AWS_SECRET_ACCESS_KEY";
@@ -21,12 +21,10 @@ export function fromEnv(): CredentialProvider {
         accessKeyId,
         secretAccessKey,
         sessionToken: process.env[ENV_SESSION],
-        expiration: expiry ? new Date(expiry) : undefined
+        expiration: expiry ? new Date(expiry) : undefined,
       });
     }
 
-    return Promise.reject(
-      new ProviderError("Unable to find environment variable credentials.")
-    );
+    return Promise.reject(new ProviderError("Unable to find environment variable credentials."));
   };
 }

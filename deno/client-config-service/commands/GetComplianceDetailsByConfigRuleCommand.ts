@@ -1,21 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient.ts";
-import {
-  GetComplianceDetailsByConfigRuleRequest,
-  GetComplianceDetailsByConfigRuleResponse
-} from "../models/index.ts";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
+import { GetComplianceDetailsByConfigRuleRequest, GetComplianceDetailsByConfigRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand,
-  serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand
+  serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetComplianceDetailsByConfigRuleCommandInput = GetComplianceDetailsByConfigRuleRequest;
-export type GetComplianceDetailsByConfigRuleCommandOutput = GetComplianceDetailsByConfigRuleResponse &
-  __MetadataBearer;
+export type GetComplianceDetailsByConfigRuleCommandOutput = GetComplianceDetailsByConfigRuleResponse & __MetadataBearer;
 
 export class GetComplianceDetailsByConfigRuleCommand extends $Command<
   GetComplianceDetailsByConfigRuleCommandInput,
@@ -49,18 +38,16 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetComplianceDetailsByConfigRuleCommandInput,
-    GetComplianceDetailsByConfigRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetComplianceDetailsByConfigRuleCommandInput, GetComplianceDetailsByConfigRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetComplianceDetailsByConfigRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceDetailsByConfigRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetComplianceDetailsByConfigRuleCommand extends $Command<
     input: GetComplianceDetailsByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComplianceDetailsByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

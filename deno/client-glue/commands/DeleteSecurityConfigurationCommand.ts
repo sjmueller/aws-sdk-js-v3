@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  DeleteSecurityConfigurationRequest,
-  DeleteSecurityConfigurationResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteSecurityConfigurationCommand,
-  serializeAws_json1_1DeleteSecurityConfigurationCommand
+  serializeAws_json1_1DeleteSecurityConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteSecurityConfigurationCommandInput = DeleteSecurityConfigurationRequest;
-export type DeleteSecurityConfigurationCommandOutput = DeleteSecurityConfigurationResponse &
-  __MetadataBearer;
+export type DeleteSecurityConfigurationCommandOutput = DeleteSecurityConfigurationResponse & __MetadataBearer;
 
 export class DeleteSecurityConfigurationCommand extends $Command<
   DeleteSecurityConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSecurityConfigurationCommandInput,
-    DeleteSecurityConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSecurityConfigurationCommandInput, DeleteSecurityConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteSecurityConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSecurityConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSecurityConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSecurityConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteSecurityConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

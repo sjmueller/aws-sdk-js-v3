@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  DescribeBandwidthRateLimitInput,
-  DescribeBandwidthRateLimitOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeBandwidthRateLimitCommand,
-  serializeAws_json1_1DescribeBandwidthRateLimitCommand
+  serializeAws_json1_1DescribeBandwidthRateLimitCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeBandwidthRateLimitCommandInput = DescribeBandwidthRateLimitInput;
-export type DescribeBandwidthRateLimitCommandOutput = DescribeBandwidthRateLimitOutput &
-  __MetadataBearer;
+export type DescribeBandwidthRateLimitCommandOutput = DescribeBandwidthRateLimitOutput & __MetadataBearer;
 
 export class DescribeBandwidthRateLimitCommand extends $Command<
   DescribeBandwidthRateLimitCommandInput,
@@ -49,18 +38,16 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBandwidthRateLimitCommandInput,
-    DescribeBandwidthRateLimitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBandwidthRateLimitCommandInput, DescribeBandwidthRateLimitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeBandwidthRateLimitInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBandwidthRateLimitOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeBandwidthRateLimitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBandwidthRateLimitCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeBandwidthRateLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeBandwidthRateLimitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

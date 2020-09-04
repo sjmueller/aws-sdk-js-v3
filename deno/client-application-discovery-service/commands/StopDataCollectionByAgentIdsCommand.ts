@@ -1,21 +1,15 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import {
-  StopDataCollectionByAgentIdsRequest,
-  StopDataCollectionByAgentIdsResponse
-} from "../models/index.ts";
+import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1StopDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StopDataCollectionByAgentIdsCommand
+  serializeAws_json1_1StopDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopDataCollectionByAgentIdsCommandInput = StopDataCollectionByAgentIdsRequest;
-export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse &
-  __MetadataBearer;
+export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse & __MetadataBearer;
 
 export class StopDataCollectionByAgentIdsCommand extends $Command<
   StopDataCollectionByAgentIdsCommandInput,
@@ -49,18 +42,16 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopDataCollectionByAgentIdsCommandInput,
-    StopDataCollectionByAgentIdsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopDataCollectionByAgentIdsCommandInput, StopDataCollectionByAgentIdsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopDataCollectionByAgentIdsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopDataCollectionByAgentIdsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopDataCollectionByAgentIdsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
-      input,
-      context
-    );
+  private serialize(input: StopDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

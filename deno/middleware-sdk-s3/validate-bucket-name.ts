@@ -5,8 +5,9 @@ import {
   InitializeHandlerOutput,
   InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "../types/mod.ts";
+import { validate as validateArn } from "../util-arn-parser/mod.ts";
 
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
@@ -14,11 +15,11 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   ): InitializeHandler<any, Output> => async (
     args: InitializeHandlerArguments<any>
   ): Promise<InitializeHandlerOutput<Output>> => {
-    const { input } = args;
-    if (typeof input.Bucket === "string" && input.Bucket.indexOf("/") >= 0) {
-      const err = new Error(
-        `Bucket name shouldn't contain '/', received '${input.Bucket}'`
-      );
+    const {
+      input: { Bucket },
+    } = args;
+    if (typeof Bucket === "string" && !validateArn(Bucket) && Bucket.indexOf("/") >= 0) {
+      const err = new Error(`Bucket name shouldn't contain '/', received '${Bucket}'`);
       err.name = "InvalidBucketName";
       throw err;
     }
@@ -29,16 +30,12 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
 export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
-  name: "validateBucketNameMiddleware"
+  name: "validateBucketNameMiddleware",
 };
 
-export const getValidateBucketNamePlugin = (
-  unused: any
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      validateBucketNameMiddleware(),
-      validateBucketNameMiddlewareOptions
-    );
-  }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
+  applyToStack: (clientStack) => {
+    clientStack.add(validateBucketNameMiddleware(), validateBucketNameMiddlewareOptions);
+  },
 });

@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeClientResolvedConfig
-} from "../TranscribeClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient.ts";
 import { GetVocabularyRequest, GetVocabularyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetVocabularyCommand,
-  serializeAws_json1_1GetVocabularyCommand
+  serializeAws_json1_1GetVocabularyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetVocabularyCommandInput = GetVocabularyRequest;
-export type GetVocabularyCommandOutput = GetVocabularyResponse &
-  __MetadataBearer;
+export type GetVocabularyCommandOutput = GetVocabularyResponse & __MetadataBearer;
 
 export class GetVocabularyCommand extends $Command<
   GetVocabularyCommandInput,
@@ -47,14 +39,15 @@ export class GetVocabularyCommand extends $Command<
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVocabularyCommandInput, GetVocabularyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetVocabularyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetVocabularyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetVocabularyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetVocabularyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetVocabularyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVocabularyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVocabularyCommandOutput> {
     return deserializeAws_json1_1GetVocabularyCommand(output, context);
   }
 

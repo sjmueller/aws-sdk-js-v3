@@ -1,22 +1,24 @@
-import {
-  DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE,
-  INITIAL_RETRY_TOKENS
-} from "./constants.ts";
-import { defaultDelayDecider } from "./delayDecider.ts";
-import { defaultRetryDecider } from "./retryDecider.ts";
+import { HttpRequest } from "../protocol-http/mod.ts";
 import { isThrottlingError } from "../service-error-classification/mod.ts";
 import { SdkError } from "../smithy-client/mod.ts";
-import {
-  FinalizeHandler,
-  MetadataBearer,
-  FinalizeHandlerArguments,
-  RetryStrategy,
-  Provider
-} from "../types/mod.ts";
-import { getDefaultRetryQuota } from "./defaultRetryQuota.ts";
-import { HttpRequest } from "../protocol-http/mod.ts";
+import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "../types/mod.ts";
 import { v4 } from "../uuid/mod.ts";
+
+import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants.ts";
+import { getDefaultRetryQuota } from "./defaultRetryQuota.ts";
+import { defaultDelayDecider } from "./delayDecider.ts";
+import { defaultRetryDecider } from "./retryDecider.ts";
+
+/**
+ * The default value for how many HTTP requests an SDK should make for a
+ * single SDK operation invocation before giving up
+ */
+export const DEFAULT_MAX_ATTEMPTS = 3;
+
+/**
+ * The default retry algorithm to use.
+ */
+export const DEFAULT_RETRY_MODE = "standard";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -73,33 +75,24 @@ export class StandardRetryStrategy implements RetryStrategy {
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
 
-  constructor(
-    private readonly maxAttemptsProvider: Provider<string>,
-    options?: StandardRetryStrategyOptions
-  ) {
+  constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
     this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
-    this.retryQuota =
-      options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
+    this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
   private shouldRetry(error: SdkError, attempts: number, maxAttempts: number) {
-    return (
-      attempts < maxAttempts &&
-      this.retryDecider(error) &&
-      this.retryQuota.hasRetryTokens(error)
-    );
+    return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
   }
 
   private async getMaxAttempts() {
-    let maxAttemptsStr;
+    let maxAttempts: number;
     try {
-      maxAttemptsStr = await this.maxAttemptsProvider();
+      maxAttempts = await this.maxAttemptsProvider();
     } catch (error) {
-      maxAttemptsStr = "3";
+      maxAttempts = DEFAULT_MAX_ATTEMPTS;
     }
-    const maxAttempts = parseInt(maxAttemptsStr);
-    return Number.isNaN(maxAttempts) ? 3 : maxAttempts;
+    return maxAttempts;
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
@@ -120,9 +113,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     while (true) {
       try {
         if (HttpRequest.isInstance(request)) {
-          request.headers["amz-sdk-request"] = `attempt=${
-            attempts + 1
-          }; max=${maxAttempts}`;
+          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
         const { response, output } = await next(args);
 
@@ -136,14 +127,12 @@ export class StandardRetryStrategy implements RetryStrategy {
         if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
           const delay = this.delayDecider(
-            isThrottlingError(err)
-              ? THROTTLING_RETRY_DELAY_BASE
-              : DEFAULT_RETRY_DELAY_BASE,
+            isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
             attempts
           );
           totalDelay += delay;
 
-          await new Promise(resolve => setTimeout(resolve, delay));
+          await new Promise((resolve) => setTimeout(resolve, delay));
           continue;
         }
 

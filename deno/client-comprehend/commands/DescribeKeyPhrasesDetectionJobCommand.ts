@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
-import {
-  DescribeKeyPhrasesDetectionJobRequest,
-  DescribeKeyPhrasesDetectionJobResponse
-} from "../models/index.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
+import { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand
+  serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeKeyPhrasesDetectionJobCommandInput = DescribeKeyPhrasesDetectionJobRequest;
-export type DescribeKeyPhrasesDetectionJobCommandOutput = DescribeKeyPhrasesDetectionJobResponse &
-  __MetadataBearer;
+export type DescribeKeyPhrasesDetectionJobCommandOutput = DescribeKeyPhrasesDetectionJobResponse & __MetadataBearer;
 
 export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
   DescribeKeyPhrasesDetectionJobCommandInput,
@@ -49,18 +38,16 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeKeyPhrasesDetectionJobCommandInput,
-    DescribeKeyPhrasesDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeKeyPhrasesDetectionJobCommandInput, DescribeKeyPhrasesDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeKeyPhrasesDetectionJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeKeyPhrasesDetectionJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     input: DescribeKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

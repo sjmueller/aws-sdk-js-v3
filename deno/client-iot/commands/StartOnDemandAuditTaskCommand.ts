@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  StartOnDemandAuditTaskRequest,
-  StartOnDemandAuditTaskResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartOnDemandAuditTaskCommand,
-  serializeAws_restJson1StartOnDemandAuditTaskCommand
+  serializeAws_restJson1StartOnDemandAuditTaskCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartOnDemandAuditTaskCommandInput = StartOnDemandAuditTaskRequest;
-export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse &
-  __MetadataBearer;
+export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse & __MetadataBearer;
 
 export class StartOnDemandAuditTaskCommand extends $Command<
   StartOnDemandAuditTaskCommandInput,
@@ -49,18 +38,16 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartOnDemandAuditTaskCommandInput,
-    StartOnDemandAuditTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartOnDemandAuditTaskCommandInput, StartOnDemandAuditTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartOnDemandAuditTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartOnDemandAuditTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartOnDemandAuditTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartOnDemandAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StartOnDemandAuditTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartOnDemandAuditTaskCommandOutput> {
-    return deserializeAws_restJson1StartOnDemandAuditTaskCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartOnDemandAuditTaskCommandOutput> {
+    return deserializeAws_restJson1StartOnDemandAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

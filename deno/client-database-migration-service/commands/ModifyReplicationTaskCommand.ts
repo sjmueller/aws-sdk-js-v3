@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  ModifyReplicationTaskMessage,
-  ModifyReplicationTaskResponse
-} from "../models/index.ts";
+import { ModifyReplicationTaskMessage, ModifyReplicationTaskResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ModifyReplicationTaskCommand,
-  serializeAws_json1_1ModifyReplicationTaskCommand
+  serializeAws_json1_1ModifyReplicationTaskCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyReplicationTaskCommandInput = ModifyReplicationTaskMessage;
-export type ModifyReplicationTaskCommandOutput = ModifyReplicationTaskResponse &
-  __MetadataBearer;
+export type ModifyReplicationTaskCommandOutput = ModifyReplicationTaskResponse & __MetadataBearer;
 
 export class ModifyReplicationTaskCommand extends $Command<
   ModifyReplicationTaskCommandInput,
@@ -49,18 +42,16 @@ export class ModifyReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReplicationTaskCommandInput,
-    ModifyReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyReplicationTaskCommandInput, ModifyReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyReplicationTaskMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationTaskResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class ModifyReplicationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyReplicationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReplicationTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyReplicationTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationTaskCommandOutput> {
     return deserializeAws_json1_1ModifyReplicationTaskCommand(output, context);
   }
 

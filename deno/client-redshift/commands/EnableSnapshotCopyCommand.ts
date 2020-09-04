@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/index.ts";
 import {
   deserializeAws_queryEnableSnapshotCopyCommand,
-  serializeAws_queryEnableSnapshotCopyCommand
+  serializeAws_queryEnableSnapshotCopyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type EnableSnapshotCopyCommandInput = EnableSnapshotCopyMessage;
-export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult &
-  __MetadataBearer;
+export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult & __MetadataBearer;
 
 export class EnableSnapshotCopyCommand extends $Command<
   EnableSnapshotCopyCommandInput,
@@ -50,14 +39,15 @@ export class EnableSnapshotCopyCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: EnableSnapshotCopyMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableSnapshotCopyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class EnableSnapshotCopyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableSnapshotCopyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryEnableSnapshotCopyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSnapshotCopyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSnapshotCopyCommandOutput> {
     return deserializeAws_queryEnableSnapshotCopyCommand(output, context);
   }
 

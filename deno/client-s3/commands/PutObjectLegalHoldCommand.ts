@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
-import {
-  PutObjectLegalHoldOutput,
-  PutObjectLegalHoldRequest
-} from "../models/index.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
+import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlPutObjectLegalHoldCommand,
-  serializeAws_restXmlPutObjectLegalHoldCommand
+  serializeAws_restXmlPutObjectLegalHoldCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutObjectLegalHoldCommandInput = PutObjectLegalHoldRequest;
-export type PutObjectLegalHoldCommandOutput = PutObjectLegalHoldOutput &
-  __MetadataBearer;
+export type PutObjectLegalHoldCommandOutput = PutObjectLegalHoldOutput & __MetadataBearer;
 
 export class PutObjectLegalHoldCommand extends $Command<
   PutObjectLegalHoldCommandInput,
@@ -51,15 +40,16 @@ export class PutObjectLegalHoldCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutObjectLegalHoldRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectLegalHoldOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,17 +59,11 @@ export class PutObjectLegalHoldCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutObjectLegalHoldCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectLegalHoldCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutObjectLegalHoldCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectLegalHoldCommandOutput> {
     return deserializeAws_restXmlPutObjectLegalHoldCommand(output, context);
   }
 

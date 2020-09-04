@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient.ts";
-import {
-  SetRepositoryPolicyRequest,
-  SetRepositoryPolicyResponse
-} from "../models/index.ts";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
+import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1SetRepositoryPolicyCommand,
-  serializeAws_json1_1SetRepositoryPolicyCommand
+  serializeAws_json1_1SetRepositoryPolicyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SetRepositoryPolicyCommandInput = SetRepositoryPolicyRequest;
-export type SetRepositoryPolicyCommandOutput = SetRepositoryPolicyResponse &
-  __MetadataBearer;
+export type SetRepositoryPolicyCommandOutput = SetRepositoryPolicyResponse & __MetadataBearer;
 
 export class SetRepositoryPolicyCommand extends $Command<
   SetRepositoryPolicyCommandInput,
@@ -49,18 +38,16 @@ export class SetRepositoryPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetRepositoryPolicyCommandInput,
-    SetRepositoryPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetRepositoryPolicyCommandInput, SetRepositoryPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SetRepositoryPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SetRepositoryPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class SetRepositoryPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetRepositoryPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetRepositoryPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetRepositoryPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRepositoryPolicyCommandOutput> {
     return deserializeAws_json1_1SetRepositoryPolicyCommand(output, context);
   }
 

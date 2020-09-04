@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  DescribeServiceUpdatesMessage,
-  ServiceUpdatesMessage
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeServiceUpdatesCommand,
-  serializeAws_queryDescribeServiceUpdatesCommand
+  serializeAws_queryDescribeServiceUpdatesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeServiceUpdatesCommandInput = DescribeServiceUpdatesMessage;
-export type DescribeServiceUpdatesCommandOutput = ServiceUpdatesMessage &
-  __MetadataBearer;
+export type DescribeServiceUpdatesCommandOutput = ServiceUpdatesMessage & __MetadataBearer;
 
 export class DescribeServiceUpdatesCommand extends $Command<
   DescribeServiceUpdatesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeServiceUpdatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeServiceUpdatesCommandInput,
-    DescribeServiceUpdatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeServiceUpdatesCommandInput, DescribeServiceUpdatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeServiceUpdatesMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ServiceUpdatesMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeServiceUpdatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeServiceUpdatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeServiceUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeServiceUpdatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeServiceUpdatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceUpdatesCommandOutput> {
     return deserializeAws_queryDescribeServiceUpdatesCommand(output, context);
   }
 

@@ -1,21 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
-import {
-  DescribeTargetHealthInput,
-  DescribeTargetHealthOutput
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
+import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeTargetHealthCommand,
-  serializeAws_queryDescribeTargetHealthCommand
+  serializeAws_queryDescribeTargetHealthCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTargetHealthCommandInput = DescribeTargetHealthInput;
-export type DescribeTargetHealthCommandOutput = DescribeTargetHealthOutput &
-  __MetadataBearer;
+export type DescribeTargetHealthCommandOutput = DescribeTargetHealthOutput & __MetadataBearer;
 
 export class DescribeTargetHealthCommand extends $Command<
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DescribeTargetHealthCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTargetHealthCommandInput,
-    DescribeTargetHealthCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTargetHealthCommandInput, DescribeTargetHealthCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTargetHealthInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTargetHealthOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DescribeTargetHealthCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTargetHealthCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTargetHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTargetHealthCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTargetHealthCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTargetHealthCommandOutput> {
     return deserializeAws_queryDescribeTargetHealthCommand(output, context);
   }
 

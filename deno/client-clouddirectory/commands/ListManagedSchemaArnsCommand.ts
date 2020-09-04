@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  ListManagedSchemaArnsRequest,
-  ListManagedSchemaArnsResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListManagedSchemaArnsCommand,
-  serializeAws_restJson1ListManagedSchemaArnsCommand
+  serializeAws_restJson1ListManagedSchemaArnsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListManagedSchemaArnsCommandInput = ListManagedSchemaArnsRequest;
-export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse &
-  __MetadataBearer;
+export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse & __MetadataBearer;
 
 export class ListManagedSchemaArnsCommand extends $Command<
   ListManagedSchemaArnsCommandInput,
@@ -49,18 +38,16 @@ export class ListManagedSchemaArnsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListManagedSchemaArnsCommandInput,
-    ListManagedSchemaArnsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListManagedSchemaArnsCommandInput, ListManagedSchemaArnsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListManagedSchemaArnsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListManagedSchemaArnsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListManagedSchemaArnsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListManagedSchemaArnsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListManagedSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListManagedSchemaArnsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListManagedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListManagedSchemaArnsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedSchemaArnsCommandOutput> {
+    return deserializeAws_restJson1ListManagedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

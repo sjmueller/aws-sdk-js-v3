@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  GetLoadBalancerMetricDataRequest,
-  GetLoadBalancerMetricDataResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetLoadBalancerMetricDataCommand,
-  serializeAws_json1_1GetLoadBalancerMetricDataCommand
+  serializeAws_json1_1GetLoadBalancerMetricDataCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLoadBalancerMetricDataCommandInput = GetLoadBalancerMetricDataRequest;
-export type GetLoadBalancerMetricDataCommandOutput = GetLoadBalancerMetricDataResult &
-  __MetadataBearer;
+export type GetLoadBalancerMetricDataCommandOutput = GetLoadBalancerMetricDataResult & __MetadataBearer;
 
 export class GetLoadBalancerMetricDataCommand extends $Command<
   GetLoadBalancerMetricDataCommandInput,
@@ -49,18 +38,16 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLoadBalancerMetricDataCommandInput,
-    GetLoadBalancerMetricDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLoadBalancerMetricDataCommandInput, GetLoadBalancerMetricDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLoadBalancerMetricDataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLoadBalancerMetricDataResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLoadBalancerMetricDataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLoadBalancerMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoadBalancerMetricDataCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoadBalancerMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient.ts";
-import {
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
+import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteRuleGroupCommand,
-  serializeAws_json1_1DeleteRuleGroupCommand
+  serializeAws_json1_1DeleteRuleGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteRuleGroupCommandInput = DeleteRuleGroupRequest;
-export type DeleteRuleGroupCommandOutput = DeleteRuleGroupResponse &
-  __MetadataBearer;
+export type DeleteRuleGroupCommandOutput = DeleteRuleGroupResponse & __MetadataBearer;
 
 export class DeleteRuleGroupCommand extends $Command<
   DeleteRuleGroupCommandInput,
@@ -50,14 +39,15 @@ export class DeleteRuleGroupCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteRuleGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRuleGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteRuleGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRuleGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRuleGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteRuleGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleGroupCommandOutput> {
     return deserializeAws_json1_1DeleteRuleGroupCommand(output, context);
   }
 

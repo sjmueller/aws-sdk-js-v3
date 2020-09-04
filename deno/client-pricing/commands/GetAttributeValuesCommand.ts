@@ -1,21 +1,11 @@
-import {
-  PricingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PricingClient.ts";
-import {
-  GetAttributeValuesRequest,
-  GetAttributeValuesResponse
-} from "../models/index.ts";
+import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient.ts";
+import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetAttributeValuesCommand,
-  serializeAws_json1_1GetAttributeValuesCommand
+  serializeAws_json1_1GetAttributeValuesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAttributeValuesCommandInput = GetAttributeValuesRequest;
-export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse &
-  __MetadataBearer;
+export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse & __MetadataBearer;
 
 export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandInput,
@@ -50,14 +39,15 @@ export class GetAttributeValuesCommand extends $Command<
     configuration: PricingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAttributeValuesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAttributeValuesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetAttributeValuesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAttributeValuesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAttributeValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAttributeValuesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAttributeValuesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput> {
     return deserializeAws_json1_1GetAttributeValuesCommand(output, context);
   }
 

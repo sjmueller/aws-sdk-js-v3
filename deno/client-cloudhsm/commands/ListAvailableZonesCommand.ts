@@ -1,21 +1,11 @@
-import {
-  CloudHSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMClient.ts";
-import {
-  ListAvailableZonesRequest,
-  ListAvailableZonesResponse
-} from "../models/index.ts";
+import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
-  serializeAws_json1_1ListAvailableZonesCommand
+  serializeAws_json1_1ListAvailableZonesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
-export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse &
-  __MetadataBearer;
+export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse & __MetadataBearer;
 
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,
@@ -50,14 +39,15 @@ export class ListAvailableZonesCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAvailableZonesCommandInput, ListAvailableZonesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListAvailableZonesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAvailableZonesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListAvailableZonesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAvailableZonesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAvailableZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableZonesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAvailableZonesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAvailableZonesCommandOutput> {
     return deserializeAws_json1_1ListAvailableZonesCommand(output, context);
   }
 

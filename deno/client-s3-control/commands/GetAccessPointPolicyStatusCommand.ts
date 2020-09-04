@@ -1,21 +1,11 @@
-import {
-  S3ControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3ControlClient.ts";
-import {
-  GetAccessPointPolicyStatusRequest,
-  GetAccessPointPolicyStatusResult
-} from "../models/index.ts";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
+import { GetAccessPointPolicyStatusRequest, GetAccessPointPolicyStatusResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetAccessPointPolicyStatusCommand,
-  serializeAws_restXmlGetAccessPointPolicyStatusCommand
+  serializeAws_restXmlGetAccessPointPolicyStatusCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetAccessPointPolicyStatusCommandInput = GetAccessPointPolicyStatusRequest;
-export type GetAccessPointPolicyStatusCommandOutput = GetAccessPointPolicyStatusResult &
-  __MetadataBearer;
+export type GetAccessPointPolicyStatusCommandOutput = GetAccessPointPolicyStatusResult & __MetadataBearer;
 
 export class GetAccessPointPolicyStatusCommand extends $Command<
   GetAccessPointPolicyStatusCommandInput,
@@ -49,18 +38,16 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAccessPointPolicyStatusCommandInput,
-    GetAccessPointPolicyStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAccessPointPolicyStatusCommandInput, GetAccessPointPolicyStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetAccessPointPolicyStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessPointPolicyStatusResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccessPointPolicyStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointPolicyStatusCommand(
-      input,
-      context
-    );
+  private serialize(input: GetAccessPointPolicyStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetAccessPointPolicyStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointPolicyStatusCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetAccessPointPolicyStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

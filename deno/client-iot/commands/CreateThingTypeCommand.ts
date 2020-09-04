@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  CreateThingTypeRequest,
-  CreateThingTypeResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { CreateThingTypeRequest, CreateThingTypeResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateThingTypeCommand,
-  serializeAws_restJson1CreateThingTypeCommand
+  serializeAws_restJson1CreateThingTypeCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateThingTypeCommandInput = CreateThingTypeRequest;
-export type CreateThingTypeCommandOutput = CreateThingTypeResponse &
-  __MetadataBearer;
+export type CreateThingTypeCommandOutput = CreateThingTypeResponse & __MetadataBearer;
 
 export class CreateThingTypeCommand extends $Command<
   CreateThingTypeCommandInput,
@@ -50,14 +39,15 @@ export class CreateThingTypeCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateThingTypeCommandInput, CreateThingTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateThingTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateThingTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateThingTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateThingTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateThingTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateThingTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingTypeCommandOutput> {
     return deserializeAws_restJson1CreateThingTypeCommand(output, context);
   }
 

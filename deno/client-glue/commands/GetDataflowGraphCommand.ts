@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  GetDataflowGraphRequest,
-  GetDataflowGraphResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDataflowGraphCommand,
-  serializeAws_json1_1GetDataflowGraphCommand
+  serializeAws_json1_1GetDataflowGraphCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
-export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse &
-  __MetadataBearer;
+export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse & __MetadataBearer;
 
 export class GetDataflowGraphCommand extends $Command<
   GetDataflowGraphCommandInput,
@@ -50,14 +39,15 @@ export class GetDataflowGraphCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetDataflowGraphCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataflowGraphCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDataflowGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataflowGraphCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataflowGraphCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowGraphCommandOutput> {
     return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
   }
 

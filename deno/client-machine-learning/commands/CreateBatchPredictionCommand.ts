@@ -1,21 +1,15 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient.ts";
-import {
-  CreateBatchPredictionInput,
-  CreateBatchPredictionOutput
-} from "../models/index.ts";
+import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateBatchPredictionCommand,
-  serializeAws_json1_1CreateBatchPredictionCommand
+  serializeAws_json1_1CreateBatchPredictionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateBatchPredictionCommandInput = CreateBatchPredictionInput;
-export type CreateBatchPredictionCommandOutput = CreateBatchPredictionOutput &
-  __MetadataBearer;
+export type CreateBatchPredictionCommandOutput = CreateBatchPredictionOutput & __MetadataBearer;
 
 export class CreateBatchPredictionCommand extends $Command<
   CreateBatchPredictionCommandInput,
@@ -49,18 +42,16 @@ export class CreateBatchPredictionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBatchPredictionCommandInput,
-    CreateBatchPredictionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBatchPredictionCommandInput, CreateBatchPredictionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateBatchPredictionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBatchPredictionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreateBatchPredictionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBatchPredictionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBatchPredictionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBatchPredictionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchPredictionCommandOutput> {
     return deserializeAws_json1_1CreateBatchPredictionCommand(output, context);
   }
 

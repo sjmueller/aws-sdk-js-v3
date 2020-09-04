@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient.ts";
-import {
-  DescribeCACertificateRequest,
-  DescribeCACertificateResponse
-} from "../models/index.ts";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
+import { DescribeCACertificateRequest, DescribeCACertificateResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeCACertificateCommand,
-  serializeAws_restJson1DescribeCACertificateCommand
+  serializeAws_restJson1DescribeCACertificateCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeCACertificateCommandInput = DescribeCACertificateRequest;
-export type DescribeCACertificateCommandOutput = DescribeCACertificateResponse &
-  __MetadataBearer;
+export type DescribeCACertificateCommandOutput = DescribeCACertificateResponse & __MetadataBearer;
 
 export class DescribeCACertificateCommand extends $Command<
   DescribeCACertificateCommandInput,
@@ -49,18 +38,16 @@ export class DescribeCACertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCACertificateCommandInput,
-    DescribeCACertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCACertificateCommandInput, DescribeCACertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeCACertificateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCACertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeCACertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCACertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCACertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeCACertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCACertificateCommandOutput> {
-    return deserializeAws_restJson1DescribeCACertificateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCACertificateCommandOutput> {
+    return deserializeAws_restJson1DescribeCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

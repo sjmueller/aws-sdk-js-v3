@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient.ts";
-import {
-  DescribeOrganizationalUnitRequest,
-  DescribeOrganizationalUnitResponse
-} from "../models/index.ts";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
+import { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeOrganizationalUnitCommand,
-  serializeAws_json1_1DescribeOrganizationalUnitCommand
+  serializeAws_json1_1DescribeOrganizationalUnitCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeOrganizationalUnitCommandInput = DescribeOrganizationalUnitRequest;
-export type DescribeOrganizationalUnitCommandOutput = DescribeOrganizationalUnitResponse &
-  __MetadataBearer;
+export type DescribeOrganizationalUnitCommandOutput = DescribeOrganizationalUnitResponse & __MetadataBearer;
 
 export class DescribeOrganizationalUnitCommand extends $Command<
   DescribeOrganizationalUnitCommandInput,
@@ -49,18 +38,16 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOrganizationalUnitCommandInput,
-    DescribeOrganizationalUnitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOrganizationalUnitCommandInput, DescribeOrganizationalUnitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeOrganizationalUnitRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrganizationalUnitResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeOrganizationalUnitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationalUnitCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeOrganizationalUnitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

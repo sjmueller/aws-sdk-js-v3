@@ -1,21 +1,11 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient.ts";
-import {
-  ListMemberAccountsRequest,
-  ListMemberAccountsResponse
-} from "../models/index.ts";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
+import { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
-  serializeAws_json1_1ListMemberAccountsCommand
+  serializeAws_json1_1ListMemberAccountsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse &
-  __MetadataBearer;
+export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse & __MetadataBearer;
 
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,
@@ -50,14 +39,15 @@ export class ListMemberAccountsCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListMemberAccountsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMemberAccountsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListMemberAccountsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMemberAccountsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMemberAccountsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMemberAccountsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
     return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
   }
 

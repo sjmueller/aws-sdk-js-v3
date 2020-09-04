@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { DeleteUserPermissionsBoundaryRequest } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteUserPermissionsBoundaryCommand,
-  serializeAws_queryDeleteUserPermissionsBoundaryCommand
+  serializeAws_queryDeleteUserPermissionsBoundaryCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteUserPermissionsBoundaryCommandInput = DeleteUserPermissionsBoundaryRequest;
@@ -45,18 +38,16 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteUserPermissionsBoundaryCommandInput,
-    DeleteUserPermissionsBoundaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteUserPermissionsBoundaryCommandInput, DeleteUserPermissionsBoundaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteUserPermissionsBoundaryRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteUserPermissionsBoundaryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserPermissionsBoundaryCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDeleteUserPermissionsBoundaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryDeleteUserPermissionsBoundaryCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

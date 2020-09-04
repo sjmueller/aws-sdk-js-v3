@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
-import {
-  RetryStageExecutionInput,
-  RetryStageExecutionOutput
-} from "../models/index.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
+import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1RetryStageExecutionCommand,
-  serializeAws_json1_1RetryStageExecutionCommand
+  serializeAws_json1_1RetryStageExecutionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
-export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput &
-  __MetadataBearer;
+export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput & __MetadataBearer;
 
 export class RetryStageExecutionCommand extends $Command<
   RetryStageExecutionCommandInput,
@@ -49,18 +38,16 @@ export class RetryStageExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RetryStageExecutionCommandInput,
-    RetryStageExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RetryStageExecutionCommandInput, RetryStageExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RetryStageExecutionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RetryStageExecutionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RetryStageExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RetryStageExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RetryStageExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RetryStageExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RetryStageExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryStageExecutionCommandOutput> {
     return deserializeAws_json1_1RetryStageExecutionCommand(output, context);
   }
 

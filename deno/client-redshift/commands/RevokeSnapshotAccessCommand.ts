@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  RevokeSnapshotAccessMessage,
-  RevokeSnapshotAccessResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/index.ts";
 import {
   deserializeAws_queryRevokeSnapshotAccessCommand,
-  serializeAws_queryRevokeSnapshotAccessCommand
+  serializeAws_queryRevokeSnapshotAccessCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RevokeSnapshotAccessCommandInput = RevokeSnapshotAccessMessage;
-export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult &
-  __MetadataBearer;
+export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult & __MetadataBearer;
 
 export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandInput,
@@ -49,18 +38,16 @@ export class RevokeSnapshotAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeSnapshotAccessCommandInput,
-    RevokeSnapshotAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeSnapshotAccessCommandInput, RevokeSnapshotAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: RevokeSnapshotAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RevokeSnapshotAccessCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeSnapshotAccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RevokeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRevokeSnapshotAccessCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RevokeSnapshotAccessCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSnapshotAccessCommandOutput> {
     return deserializeAws_queryRevokeSnapshotAccessCommand(output, context);
   }
 

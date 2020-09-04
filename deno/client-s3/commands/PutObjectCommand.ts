@@ -1,21 +1,13 @@
-import { Buffer } from "../../buffer/mod.ts";
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { PutObjectOutput, PutObjectRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlPutObjectCommand,
-  serializeAws_restXmlPutObjectCommand
+  serializeAws_restXmlPutObjectCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { getSsecPlugin } from "../../middleware-ssec/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +16,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
@@ -32,11 +24,7 @@ export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
 };
 export type PutObjectCommandOutput = PutObjectOutput & __MetadataBearer;
 
-export class PutObjectCommand extends $Command<
-  PutObjectCommandInput,
-  PutObjectCommandOutput,
-  S3ClientResolvedConfig
-> {
+export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,16 +39,17 @@ export class PutObjectCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutObjectCommandInput, PutObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutObjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +59,11 @@ export class PutObjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutObjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutObjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return deserializeAws_restXmlPutObjectCommand(output, context);
   }
 

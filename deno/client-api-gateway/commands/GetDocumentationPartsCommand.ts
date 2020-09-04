@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient.ts";
-import {
-  DocumentationParts,
-  GetDocumentationPartsRequest
-} from "../models/index.ts";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
+import { DocumentationParts, GetDocumentationPartsRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDocumentationPartsCommand,
-  serializeAws_restJson1GetDocumentationPartsCommand
+  serializeAws_restJson1GetDocumentationPartsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDocumentationPartsCommandInput = GetDocumentationPartsRequest;
-export type GetDocumentationPartsCommandOutput = DocumentationParts &
-  __MetadataBearer;
+export type GetDocumentationPartsCommandOutput = DocumentationParts & __MetadataBearer;
 
 export class GetDocumentationPartsCommand extends $Command<
   GetDocumentationPartsCommandInput,
@@ -49,18 +38,16 @@ export class GetDocumentationPartsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDocumentationPartsCommandInput,
-    GetDocumentationPartsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDocumentationPartsCommandInput, GetDocumentationPartsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDocumentationPartsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DocumentationParts.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class GetDocumentationPartsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDocumentationPartsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDocumentationPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetDocumentationPartsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDocumentationPartsCommandOutput> {
-    return deserializeAws_restJson1GetDocumentationPartsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentationPartsCommandOutput> {
+    return deserializeAws_restJson1GetDocumentationPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

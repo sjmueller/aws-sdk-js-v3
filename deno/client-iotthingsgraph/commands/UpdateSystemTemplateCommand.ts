@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  UpdateSystemTemplateRequest,
-  UpdateSystemTemplateResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { UpdateSystemTemplateRequest, UpdateSystemTemplateResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateSystemTemplateCommand,
-  serializeAws_json1_1UpdateSystemTemplateCommand
+  serializeAws_json1_1UpdateSystemTemplateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateSystemTemplateCommandInput = UpdateSystemTemplateRequest;
-export type UpdateSystemTemplateCommandOutput = UpdateSystemTemplateResponse &
-  __MetadataBearer;
+export type UpdateSystemTemplateCommandOutput = UpdateSystemTemplateResponse & __MetadataBearer;
 
 export class UpdateSystemTemplateCommand extends $Command<
   UpdateSystemTemplateCommandInput,
@@ -49,18 +38,16 @@ export class UpdateSystemTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSystemTemplateCommandInput,
-    UpdateSystemTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSystemTemplateCommandInput, UpdateSystemTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateSystemTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSystemTemplateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateSystemTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateSystemTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSystemTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateSystemTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSystemTemplateCommandOutput> {
     return deserializeAws_json1_1UpdateSystemTemplateCommand(output, context);
   }
 

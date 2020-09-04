@@ -1,21 +1,11 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient.ts";
-import {
-  AssumeRoleWithWebIdentityRequest,
-  AssumeRoleWithWebIdentityResponse
-} from "../models/index.ts";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
+import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/index.ts";
 import {
   deserializeAws_queryAssumeRoleWithWebIdentityCommand,
-  serializeAws_queryAssumeRoleWithWebIdentityCommand
+  serializeAws_queryAssumeRoleWithWebIdentityCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssumeRoleWithWebIdentityCommandInput = AssumeRoleWithWebIdentityRequest;
-export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityResponse &
-  __MetadataBearer;
+export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityResponse & __MetadataBearer;
 
 export class AssumeRoleWithWebIdentityCommand extends $Command<
   AssumeRoleWithWebIdentityCommandInput,
@@ -49,18 +38,16 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssumeRoleWithWebIdentityCommandInput,
-    AssumeRoleWithWebIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssumeRoleWithWebIdentityCommandInput, AssumeRoleWithWebIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssumeRoleWithWebIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssumeRoleWithWebIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleWithWebIdentityCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

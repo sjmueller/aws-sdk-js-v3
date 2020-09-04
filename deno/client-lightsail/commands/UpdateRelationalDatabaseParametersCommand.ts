@@ -1,21 +1,14 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import {
   UpdateRelationalDatabaseParametersRequest,
-  UpdateRelationalDatabaseParametersResult
+  UpdateRelationalDatabaseParametersResult,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
-  serializeAws_json1_1UpdateRelationalDatabaseParametersCommand
+  serializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateRelationalDatabaseParametersCommandInput = UpdateRelationalDatabaseParametersRequest;
@@ -49,18 +42,16 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRelationalDatabaseParametersCommandInput,
-    UpdateRelationalDatabaseParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRelationalDatabaseParametersCommandInput, UpdateRelationalDatabaseParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     input: UpdateRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

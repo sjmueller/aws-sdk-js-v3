@@ -2,763 +2,643 @@ import { IAMClient } from "./IAMClient.ts";
 import {
   AddClientIDToOpenIDConnectProviderCommand,
   AddClientIDToOpenIDConnectProviderCommandInput,
-  AddClientIDToOpenIDConnectProviderCommandOutput
+  AddClientIDToOpenIDConnectProviderCommandOutput,
 } from "./commands/AddClientIDToOpenIDConnectProviderCommand.ts";
 import {
   AddRoleToInstanceProfileCommand,
   AddRoleToInstanceProfileCommandInput,
-  AddRoleToInstanceProfileCommandOutput
+  AddRoleToInstanceProfileCommandOutput,
 } from "./commands/AddRoleToInstanceProfileCommand.ts";
 import {
   AddUserToGroupCommand,
   AddUserToGroupCommandInput,
-  AddUserToGroupCommandOutput
+  AddUserToGroupCommandOutput,
 } from "./commands/AddUserToGroupCommand.ts";
 import {
   AttachGroupPolicyCommand,
   AttachGroupPolicyCommandInput,
-  AttachGroupPolicyCommandOutput
+  AttachGroupPolicyCommandOutput,
 } from "./commands/AttachGroupPolicyCommand.ts";
 import {
   AttachRolePolicyCommand,
   AttachRolePolicyCommandInput,
-  AttachRolePolicyCommandOutput
+  AttachRolePolicyCommandOutput,
 } from "./commands/AttachRolePolicyCommand.ts";
 import {
   AttachUserPolicyCommand,
   AttachUserPolicyCommandInput,
-  AttachUserPolicyCommandOutput
+  AttachUserPolicyCommandOutput,
 } from "./commands/AttachUserPolicyCommand.ts";
 import {
   ChangePasswordCommand,
   ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
+  ChangePasswordCommandOutput,
 } from "./commands/ChangePasswordCommand.ts";
 import {
   CreateAccessKeyCommand,
   CreateAccessKeyCommandInput,
-  CreateAccessKeyCommandOutput
+  CreateAccessKeyCommandOutput,
 } from "./commands/CreateAccessKeyCommand.ts";
 import {
   CreateAccountAliasCommand,
   CreateAccountAliasCommandInput,
-  CreateAccountAliasCommandOutput
+  CreateAccountAliasCommandOutput,
 } from "./commands/CreateAccountAliasCommand.ts";
 import {
   CreateGroupCommand,
   CreateGroupCommandInput,
-  CreateGroupCommandOutput
+  CreateGroupCommandOutput,
 } from "./commands/CreateGroupCommand.ts";
 import {
   CreateInstanceProfileCommand,
   CreateInstanceProfileCommandInput,
-  CreateInstanceProfileCommandOutput
+  CreateInstanceProfileCommandOutput,
 } from "./commands/CreateInstanceProfileCommand.ts";
 import {
   CreateLoginProfileCommand,
   CreateLoginProfileCommandInput,
-  CreateLoginProfileCommandOutput
+  CreateLoginProfileCommandOutput,
 } from "./commands/CreateLoginProfileCommand.ts";
 import {
   CreateOpenIDConnectProviderCommand,
   CreateOpenIDConnectProviderCommandInput,
-  CreateOpenIDConnectProviderCommandOutput
+  CreateOpenIDConnectProviderCommandOutput,
 } from "./commands/CreateOpenIDConnectProviderCommand.ts";
 import {
   CreatePolicyCommand,
   CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
+  CreatePolicyCommandOutput,
 } from "./commands/CreatePolicyCommand.ts";
 import {
   CreatePolicyVersionCommand,
   CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput
+  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand.ts";
-import {
-  CreateRoleCommand,
-  CreateRoleCommandInput,
-  CreateRoleCommandOutput
-} from "./commands/CreateRoleCommand.ts";
+import { CreateRoleCommand, CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand.ts";
 import {
   CreateSAMLProviderCommand,
   CreateSAMLProviderCommandInput,
-  CreateSAMLProviderCommandOutput
+  CreateSAMLProviderCommandOutput,
 } from "./commands/CreateSAMLProviderCommand.ts";
 import {
   CreateServiceLinkedRoleCommand,
   CreateServiceLinkedRoleCommandInput,
-  CreateServiceLinkedRoleCommandOutput
+  CreateServiceLinkedRoleCommandOutput,
 } from "./commands/CreateServiceLinkedRoleCommand.ts";
 import {
   CreateServiceSpecificCredentialCommand,
   CreateServiceSpecificCredentialCommandInput,
-  CreateServiceSpecificCredentialCommandOutput
+  CreateServiceSpecificCredentialCommandOutput,
 } from "./commands/CreateServiceSpecificCredentialCommand.ts";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   CreateVirtualMFADeviceCommand,
   CreateVirtualMFADeviceCommandInput,
-  CreateVirtualMFADeviceCommandOutput
+  CreateVirtualMFADeviceCommandOutput,
 } from "./commands/CreateVirtualMFADeviceCommand.ts";
 import {
   DeactivateMFADeviceCommand,
   DeactivateMFADeviceCommandInput,
-  DeactivateMFADeviceCommandOutput
+  DeactivateMFADeviceCommandOutput,
 } from "./commands/DeactivateMFADeviceCommand.ts";
 import {
   DeleteAccessKeyCommand,
   DeleteAccessKeyCommandInput,
-  DeleteAccessKeyCommandOutput
+  DeleteAccessKeyCommandOutput,
 } from "./commands/DeleteAccessKeyCommand.ts";
 import {
   DeleteAccountAliasCommand,
   DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput
+  DeleteAccountAliasCommandOutput,
 } from "./commands/DeleteAccountAliasCommand.ts";
 import {
   DeleteAccountPasswordPolicyCommand,
   DeleteAccountPasswordPolicyCommandInput,
-  DeleteAccountPasswordPolicyCommandOutput
+  DeleteAccountPasswordPolicyCommandOutput,
 } from "./commands/DeleteAccountPasswordPolicyCommand.ts";
 import {
   DeleteGroupCommand,
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
+  DeleteGroupCommandOutput,
 } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteGroupPolicyCommand,
   DeleteGroupPolicyCommandInput,
-  DeleteGroupPolicyCommandOutput
+  DeleteGroupPolicyCommandOutput,
 } from "./commands/DeleteGroupPolicyCommand.ts";
 import {
   DeleteInstanceProfileCommand,
   DeleteInstanceProfileCommandInput,
-  DeleteInstanceProfileCommandOutput
+  DeleteInstanceProfileCommandOutput,
 } from "./commands/DeleteInstanceProfileCommand.ts";
 import {
   DeleteLoginProfileCommand,
   DeleteLoginProfileCommandInput,
-  DeleteLoginProfileCommandOutput
+  DeleteLoginProfileCommandOutput,
 } from "./commands/DeleteLoginProfileCommand.ts";
 import {
   DeleteOpenIDConnectProviderCommand,
   DeleteOpenIDConnectProviderCommandInput,
-  DeleteOpenIDConnectProviderCommandOutput
+  DeleteOpenIDConnectProviderCommandOutput,
 } from "./commands/DeleteOpenIDConnectProviderCommand.ts";
 import {
   DeletePolicyCommand,
   DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
+  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand.ts";
 import {
   DeletePolicyVersionCommand,
   DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput
+  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand.ts";
-import {
-  DeleteRoleCommand,
-  DeleteRoleCommandInput,
-  DeleteRoleCommandOutput
-} from "./commands/DeleteRoleCommand.ts";
+import { DeleteRoleCommand, DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand.ts";
 import {
   DeleteRolePermissionsBoundaryCommand,
   DeleteRolePermissionsBoundaryCommandInput,
-  DeleteRolePermissionsBoundaryCommandOutput
+  DeleteRolePermissionsBoundaryCommandOutput,
 } from "./commands/DeleteRolePermissionsBoundaryCommand.ts";
 import {
   DeleteRolePolicyCommand,
   DeleteRolePolicyCommandInput,
-  DeleteRolePolicyCommandOutput
+  DeleteRolePolicyCommandOutput,
 } from "./commands/DeleteRolePolicyCommand.ts";
 import {
   DeleteSAMLProviderCommand,
   DeleteSAMLProviderCommandInput,
-  DeleteSAMLProviderCommandOutput
+  DeleteSAMLProviderCommandOutput,
 } from "./commands/DeleteSAMLProviderCommand.ts";
 import {
   DeleteSSHPublicKeyCommand,
   DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput
+  DeleteSSHPublicKeyCommandOutput,
 } from "./commands/DeleteSSHPublicKeyCommand.ts";
 import {
   DeleteServerCertificateCommand,
   DeleteServerCertificateCommandInput,
-  DeleteServerCertificateCommandOutput
+  DeleteServerCertificateCommandOutput,
 } from "./commands/DeleteServerCertificateCommand.ts";
 import {
   DeleteServiceLinkedRoleCommand,
   DeleteServiceLinkedRoleCommandInput,
-  DeleteServiceLinkedRoleCommandOutput
+  DeleteServiceLinkedRoleCommandOutput,
 } from "./commands/DeleteServiceLinkedRoleCommand.ts";
 import {
   DeleteServiceSpecificCredentialCommand,
   DeleteServiceSpecificCredentialCommandInput,
-  DeleteServiceSpecificCredentialCommandOutput
+  DeleteServiceSpecificCredentialCommandOutput,
 } from "./commands/DeleteServiceSpecificCredentialCommand.ts";
 import {
   DeleteSigningCertificateCommand,
   DeleteSigningCertificateCommandInput,
-  DeleteSigningCertificateCommandOutput
+  DeleteSigningCertificateCommandOutput,
 } from "./commands/DeleteSigningCertificateCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeleteUserPermissionsBoundaryCommand,
   DeleteUserPermissionsBoundaryCommandInput,
-  DeleteUserPermissionsBoundaryCommandOutput
+  DeleteUserPermissionsBoundaryCommandOutput,
 } from "./commands/DeleteUserPermissionsBoundaryCommand.ts";
 import {
   DeleteUserPolicyCommand,
   DeleteUserPolicyCommandInput,
-  DeleteUserPolicyCommandOutput
+  DeleteUserPolicyCommandOutput,
 } from "./commands/DeleteUserPolicyCommand.ts";
 import {
   DeleteVirtualMFADeviceCommand,
   DeleteVirtualMFADeviceCommandInput,
-  DeleteVirtualMFADeviceCommandOutput
+  DeleteVirtualMFADeviceCommandOutput,
 } from "./commands/DeleteVirtualMFADeviceCommand.ts";
 import {
   DetachGroupPolicyCommand,
   DetachGroupPolicyCommandInput,
-  DetachGroupPolicyCommandOutput
+  DetachGroupPolicyCommandOutput,
 } from "./commands/DetachGroupPolicyCommand.ts";
 import {
   DetachRolePolicyCommand,
   DetachRolePolicyCommandInput,
-  DetachRolePolicyCommandOutput
+  DetachRolePolicyCommandOutput,
 } from "./commands/DetachRolePolicyCommand.ts";
 import {
   DetachUserPolicyCommand,
   DetachUserPolicyCommandInput,
-  DetachUserPolicyCommandOutput
+  DetachUserPolicyCommandOutput,
 } from "./commands/DetachUserPolicyCommand.ts";
 import {
   EnableMFADeviceCommand,
   EnableMFADeviceCommandInput,
-  EnableMFADeviceCommandOutput
+  EnableMFADeviceCommandOutput,
 } from "./commands/EnableMFADeviceCommand.ts";
 import {
   GenerateCredentialReportCommand,
   GenerateCredentialReportCommandInput,
-  GenerateCredentialReportCommandOutput
+  GenerateCredentialReportCommandOutput,
 } from "./commands/GenerateCredentialReportCommand.ts";
 import {
   GenerateOrganizationsAccessReportCommand,
   GenerateOrganizationsAccessReportCommandInput,
-  GenerateOrganizationsAccessReportCommandOutput
+  GenerateOrganizationsAccessReportCommandOutput,
 } from "./commands/GenerateOrganizationsAccessReportCommand.ts";
 import {
   GenerateServiceLastAccessedDetailsCommand,
   GenerateServiceLastAccessedDetailsCommandInput,
-  GenerateServiceLastAccessedDetailsCommandOutput
+  GenerateServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GenerateServiceLastAccessedDetailsCommand.ts";
 import {
   GetAccessKeyLastUsedCommand,
   GetAccessKeyLastUsedCommandInput,
-  GetAccessKeyLastUsedCommandOutput
+  GetAccessKeyLastUsedCommandOutput,
 } from "./commands/GetAccessKeyLastUsedCommand.ts";
 import {
   GetAccountAuthorizationDetailsCommand,
   GetAccountAuthorizationDetailsCommandInput,
-  GetAccountAuthorizationDetailsCommandOutput
+  GetAccountAuthorizationDetailsCommandOutput,
 } from "./commands/GetAccountAuthorizationDetailsCommand.ts";
 import {
   GetAccountPasswordPolicyCommand,
   GetAccountPasswordPolicyCommandInput,
-  GetAccountPasswordPolicyCommandOutput
+  GetAccountPasswordPolicyCommandOutput,
 } from "./commands/GetAccountPasswordPolicyCommand.ts";
 import {
   GetAccountSummaryCommand,
   GetAccountSummaryCommandInput,
-  GetAccountSummaryCommandOutput
+  GetAccountSummaryCommandOutput,
 } from "./commands/GetAccountSummaryCommand.ts";
 import {
   GetContextKeysForCustomPolicyCommand,
   GetContextKeysForCustomPolicyCommandInput,
-  GetContextKeysForCustomPolicyCommandOutput
+  GetContextKeysForCustomPolicyCommandOutput,
 } from "./commands/GetContextKeysForCustomPolicyCommand.ts";
 import {
   GetContextKeysForPrincipalPolicyCommand,
   GetContextKeysForPrincipalPolicyCommandInput,
-  GetContextKeysForPrincipalPolicyCommandOutput
+  GetContextKeysForPrincipalPolicyCommandOutput,
 } from "./commands/GetContextKeysForPrincipalPolicyCommand.ts";
 import {
   GetCredentialReportCommand,
   GetCredentialReportCommandInput,
-  GetCredentialReportCommandOutput
+  GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand.ts";
-import {
-  GetGroupCommand,
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
+import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import {
   GetGroupPolicyCommand,
   GetGroupPolicyCommandInput,
-  GetGroupPolicyCommandOutput
+  GetGroupPolicyCommandOutput,
 } from "./commands/GetGroupPolicyCommand.ts";
 import {
   GetInstanceProfileCommand,
   GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
+  GetInstanceProfileCommandOutput,
 } from "./commands/GetInstanceProfileCommand.ts";
 import {
   GetLoginProfileCommand,
   GetLoginProfileCommandInput,
-  GetLoginProfileCommandOutput
+  GetLoginProfileCommandOutput,
 } from "./commands/GetLoginProfileCommand.ts";
 import {
   GetOpenIDConnectProviderCommand,
   GetOpenIDConnectProviderCommandInput,
-  GetOpenIDConnectProviderCommandOutput
+  GetOpenIDConnectProviderCommandOutput,
 } from "./commands/GetOpenIDConnectProviderCommand.ts";
 import {
   GetOrganizationsAccessReportCommand,
   GetOrganizationsAccessReportCommandInput,
-  GetOrganizationsAccessReportCommandOutput
+  GetOrganizationsAccessReportCommandOutput,
 } from "./commands/GetOrganizationsAccessReportCommand.ts";
-import {
-  GetPolicyCommand,
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
 import {
   GetPolicyVersionCommand,
   GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
+  GetPolicyVersionCommandOutput,
 } from "./commands/GetPolicyVersionCommand.ts";
-import {
-  GetRoleCommand,
-  GetRoleCommandInput,
-  GetRoleCommandOutput
-} from "./commands/GetRoleCommand.ts";
+import { GetRoleCommand, GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand.ts";
 import {
   GetRolePolicyCommand,
   GetRolePolicyCommandInput,
-  GetRolePolicyCommandOutput
+  GetRolePolicyCommandOutput,
 } from "./commands/GetRolePolicyCommand.ts";
 import {
   GetSAMLProviderCommand,
   GetSAMLProviderCommandInput,
-  GetSAMLProviderCommandOutput
+  GetSAMLProviderCommandOutput,
 } from "./commands/GetSAMLProviderCommand.ts";
 import {
   GetSSHPublicKeyCommand,
   GetSSHPublicKeyCommandInput,
-  GetSSHPublicKeyCommandOutput
+  GetSSHPublicKeyCommandOutput,
 } from "./commands/GetSSHPublicKeyCommand.ts";
 import {
   GetServerCertificateCommand,
   GetServerCertificateCommandInput,
-  GetServerCertificateCommandOutput
+  GetServerCertificateCommandOutput,
 } from "./commands/GetServerCertificateCommand.ts";
 import {
   GetServiceLastAccessedDetailsCommand,
   GetServiceLastAccessedDetailsCommandInput,
-  GetServiceLastAccessedDetailsCommandOutput
+  GetServiceLastAccessedDetailsCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsCommand.ts";
 import {
   GetServiceLastAccessedDetailsWithEntitiesCommand,
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-  GetServiceLastAccessedDetailsWithEntitiesCommandOutput
+  GetServiceLastAccessedDetailsWithEntitiesCommandOutput,
 } from "./commands/GetServiceLastAccessedDetailsWithEntitiesCommand.ts";
 import {
   GetServiceLinkedRoleDeletionStatusCommand,
   GetServiceLinkedRoleDeletionStatusCommandInput,
-  GetServiceLinkedRoleDeletionStatusCommandOutput
+  GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand.ts";
-import {
-  GetUserCommand,
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand.ts";
+import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand.ts";
 import {
   GetUserPolicyCommand,
   GetUserPolicyCommandInput,
-  GetUserPolicyCommandOutput
+  GetUserPolicyCommandOutput,
 } from "./commands/GetUserPolicyCommand.ts";
 import {
   ListAccessKeysCommand,
   ListAccessKeysCommandInput,
-  ListAccessKeysCommandOutput
+  ListAccessKeysCommandOutput,
 } from "./commands/ListAccessKeysCommand.ts";
 import {
   ListAccountAliasesCommand,
   ListAccountAliasesCommandInput,
-  ListAccountAliasesCommandOutput
+  ListAccountAliasesCommandOutput,
 } from "./commands/ListAccountAliasesCommand.ts";
 import {
   ListAttachedGroupPoliciesCommand,
   ListAttachedGroupPoliciesCommandInput,
-  ListAttachedGroupPoliciesCommandOutput
+  ListAttachedGroupPoliciesCommandOutput,
 } from "./commands/ListAttachedGroupPoliciesCommand.ts";
 import {
   ListAttachedRolePoliciesCommand,
   ListAttachedRolePoliciesCommandInput,
-  ListAttachedRolePoliciesCommandOutput
+  ListAttachedRolePoliciesCommandOutput,
 } from "./commands/ListAttachedRolePoliciesCommand.ts";
 import {
   ListAttachedUserPoliciesCommand,
   ListAttachedUserPoliciesCommandInput,
-  ListAttachedUserPoliciesCommandOutput
+  ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand.ts";
 import {
   ListEntitiesForPolicyCommand,
   ListEntitiesForPolicyCommandInput,
-  ListEntitiesForPolicyCommandOutput
+  ListEntitiesForPolicyCommandOutput,
 } from "./commands/ListEntitiesForPolicyCommand.ts";
 import {
   ListGroupPoliciesCommand,
   ListGroupPoliciesCommandInput,
-  ListGroupPoliciesCommandOutput
+  ListGroupPoliciesCommandOutput,
 } from "./commands/ListGroupPoliciesCommand.ts";
-import {
-  ListGroupsCommand,
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListGroupsForUserCommand,
   ListGroupsForUserCommandInput,
-  ListGroupsForUserCommandOutput
+  ListGroupsForUserCommandOutput,
 } from "./commands/ListGroupsForUserCommand.ts";
 import {
   ListInstanceProfilesCommand,
   ListInstanceProfilesCommandInput,
-  ListInstanceProfilesCommandOutput
+  ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand.ts";
 import {
   ListInstanceProfilesForRoleCommand,
   ListInstanceProfilesForRoleCommandInput,
-  ListInstanceProfilesForRoleCommandOutput
+  ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand.ts";
 import {
   ListMFADevicesCommand,
   ListMFADevicesCommandInput,
-  ListMFADevicesCommandOutput
+  ListMFADevicesCommandOutput,
 } from "./commands/ListMFADevicesCommand.ts";
 import {
   ListOpenIDConnectProvidersCommand,
   ListOpenIDConnectProvidersCommandInput,
-  ListOpenIDConnectProvidersCommandOutput
+  ListOpenIDConnectProvidersCommandOutput,
 } from "./commands/ListOpenIDConnectProvidersCommand.ts";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
+  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand.ts";
 import {
   ListPoliciesGrantingServiceAccessCommand,
   ListPoliciesGrantingServiceAccessCommandInput,
-  ListPoliciesGrantingServiceAccessCommandOutput
+  ListPoliciesGrantingServiceAccessCommandOutput,
 } from "./commands/ListPoliciesGrantingServiceAccessCommand.ts";
 import {
   ListPolicyVersionsCommand,
   ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
+  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand.ts";
 import {
   ListRolePoliciesCommand,
   ListRolePoliciesCommandInput,
-  ListRolePoliciesCommandOutput
+  ListRolePoliciesCommandOutput,
 } from "./commands/ListRolePoliciesCommand.ts";
 import {
   ListRoleTagsCommand,
   ListRoleTagsCommandInput,
-  ListRoleTagsCommandOutput
+  ListRoleTagsCommandOutput,
 } from "./commands/ListRoleTagsCommand.ts";
-import {
-  ListRolesCommand,
-  ListRolesCommandInput,
-  ListRolesCommandOutput
-} from "./commands/ListRolesCommand.ts";
+import { ListRolesCommand, ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand.ts";
 import {
   ListSAMLProvidersCommand,
   ListSAMLProvidersCommandInput,
-  ListSAMLProvidersCommandOutput
+  ListSAMLProvidersCommandOutput,
 } from "./commands/ListSAMLProvidersCommand.ts";
 import {
   ListSSHPublicKeysCommand,
   ListSSHPublicKeysCommandInput,
-  ListSSHPublicKeysCommandOutput
+  ListSSHPublicKeysCommandOutput,
 } from "./commands/ListSSHPublicKeysCommand.ts";
 import {
   ListServerCertificatesCommand,
   ListServerCertificatesCommandInput,
-  ListServerCertificatesCommandOutput
+  ListServerCertificatesCommandOutput,
 } from "./commands/ListServerCertificatesCommand.ts";
 import {
   ListServiceSpecificCredentialsCommand,
   ListServiceSpecificCredentialsCommandInput,
-  ListServiceSpecificCredentialsCommandOutput
+  ListServiceSpecificCredentialsCommandOutput,
 } from "./commands/ListServiceSpecificCredentialsCommand.ts";
 import {
   ListSigningCertificatesCommand,
   ListSigningCertificatesCommandInput,
-  ListSigningCertificatesCommandOutput
+  ListSigningCertificatesCommandOutput,
 } from "./commands/ListSigningCertificatesCommand.ts";
 import {
   ListUserPoliciesCommand,
   ListUserPoliciesCommandInput,
-  ListUserPoliciesCommandOutput
+  ListUserPoliciesCommandOutput,
 } from "./commands/ListUserPoliciesCommand.ts";
 import {
   ListUserTagsCommand,
   ListUserTagsCommandInput,
-  ListUserTagsCommandOutput
+  ListUserTagsCommandOutput,
 } from "./commands/ListUserTagsCommand.ts";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   ListVirtualMFADevicesCommand,
   ListVirtualMFADevicesCommandInput,
-  ListVirtualMFADevicesCommandOutput
+  ListVirtualMFADevicesCommandOutput,
 } from "./commands/ListVirtualMFADevicesCommand.ts";
 import {
   PutGroupPolicyCommand,
   PutGroupPolicyCommandInput,
-  PutGroupPolicyCommandOutput
+  PutGroupPolicyCommandOutput,
 } from "./commands/PutGroupPolicyCommand.ts";
 import {
   PutRolePermissionsBoundaryCommand,
   PutRolePermissionsBoundaryCommandInput,
-  PutRolePermissionsBoundaryCommandOutput
+  PutRolePermissionsBoundaryCommandOutput,
 } from "./commands/PutRolePermissionsBoundaryCommand.ts";
 import {
   PutRolePolicyCommand,
   PutRolePolicyCommandInput,
-  PutRolePolicyCommandOutput
+  PutRolePolicyCommandOutput,
 } from "./commands/PutRolePolicyCommand.ts";
 import {
   PutUserPermissionsBoundaryCommand,
   PutUserPermissionsBoundaryCommandInput,
-  PutUserPermissionsBoundaryCommandOutput
+  PutUserPermissionsBoundaryCommandOutput,
 } from "./commands/PutUserPermissionsBoundaryCommand.ts";
 import {
   PutUserPolicyCommand,
   PutUserPolicyCommandInput,
-  PutUserPolicyCommandOutput
+  PutUserPolicyCommandOutput,
 } from "./commands/PutUserPolicyCommand.ts";
 import {
   RemoveClientIDFromOpenIDConnectProviderCommand,
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
-  RemoveClientIDFromOpenIDConnectProviderCommandOutput
+  RemoveClientIDFromOpenIDConnectProviderCommandOutput,
 } from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand.ts";
 import {
   RemoveRoleFromInstanceProfileCommand,
   RemoveRoleFromInstanceProfileCommandInput,
-  RemoveRoleFromInstanceProfileCommandOutput
+  RemoveRoleFromInstanceProfileCommandOutput,
 } from "./commands/RemoveRoleFromInstanceProfileCommand.ts";
 import {
   RemoveUserFromGroupCommand,
   RemoveUserFromGroupCommandInput,
-  RemoveUserFromGroupCommandOutput
+  RemoveUserFromGroupCommandOutput,
 } from "./commands/RemoveUserFromGroupCommand.ts";
 import {
   ResetServiceSpecificCredentialCommand,
   ResetServiceSpecificCredentialCommandInput,
-  ResetServiceSpecificCredentialCommandOutput
+  ResetServiceSpecificCredentialCommandOutput,
 } from "./commands/ResetServiceSpecificCredentialCommand.ts";
 import {
   ResyncMFADeviceCommand,
   ResyncMFADeviceCommandInput,
-  ResyncMFADeviceCommandOutput
+  ResyncMFADeviceCommandOutput,
 } from "./commands/ResyncMFADeviceCommand.ts";
 import {
   SetDefaultPolicyVersionCommand,
   SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput
+  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand.ts";
 import {
   SetSecurityTokenServicePreferencesCommand,
   SetSecurityTokenServicePreferencesCommandInput,
-  SetSecurityTokenServicePreferencesCommandOutput
+  SetSecurityTokenServicePreferencesCommandOutput,
 } from "./commands/SetSecurityTokenServicePreferencesCommand.ts";
 import {
   SimulateCustomPolicyCommand,
   SimulateCustomPolicyCommandInput,
-  SimulateCustomPolicyCommandOutput
+  SimulateCustomPolicyCommandOutput,
 } from "./commands/SimulateCustomPolicyCommand.ts";
 import {
   SimulatePrincipalPolicyCommand,
   SimulatePrincipalPolicyCommandInput,
-  SimulatePrincipalPolicyCommandOutput
+  SimulatePrincipalPolicyCommandOutput,
 } from "./commands/SimulatePrincipalPolicyCommand.ts";
-import {
-  TagRoleCommand,
-  TagRoleCommandInput,
-  TagRoleCommandOutput
-} from "./commands/TagRoleCommand.ts";
-import {
-  TagUserCommand,
-  TagUserCommandInput,
-  TagUserCommandOutput
-} from "./commands/TagUserCommand.ts";
-import {
-  UntagRoleCommand,
-  UntagRoleCommandInput,
-  UntagRoleCommandOutput
-} from "./commands/UntagRoleCommand.ts";
-import {
-  UntagUserCommand,
-  UntagUserCommandInput,
-  UntagUserCommandOutput
-} from "./commands/UntagUserCommand.ts";
+import { TagRoleCommand, TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand.ts";
+import { TagUserCommand, TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand.ts";
+import { UntagRoleCommand, UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand.ts";
+import { UntagUserCommand, UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand.ts";
 import {
   UpdateAccessKeyCommand,
   UpdateAccessKeyCommandInput,
-  UpdateAccessKeyCommandOutput
+  UpdateAccessKeyCommandOutput,
 } from "./commands/UpdateAccessKeyCommand.ts";
 import {
   UpdateAccountPasswordPolicyCommand,
   UpdateAccountPasswordPolicyCommandInput,
-  UpdateAccountPasswordPolicyCommandOutput
+  UpdateAccountPasswordPolicyCommandOutput,
 } from "./commands/UpdateAccountPasswordPolicyCommand.ts";
 import {
   UpdateAssumeRolePolicyCommand,
   UpdateAssumeRolePolicyCommandInput,
-  UpdateAssumeRolePolicyCommandOutput
+  UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand.ts";
 import {
   UpdateGroupCommand,
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
+  UpdateGroupCommandOutput,
 } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoginProfileCommand,
   UpdateLoginProfileCommandInput,
-  UpdateLoginProfileCommandOutput
+  UpdateLoginProfileCommandOutput,
 } from "./commands/UpdateLoginProfileCommand.ts";
 import {
   UpdateOpenIDConnectProviderThumbprintCommand,
   UpdateOpenIDConnectProviderThumbprintCommandInput,
-  UpdateOpenIDConnectProviderThumbprintCommandOutput
+  UpdateOpenIDConnectProviderThumbprintCommandOutput,
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand.ts";
-import {
-  UpdateRoleCommand,
-  UpdateRoleCommandInput,
-  UpdateRoleCommandOutput
-} from "./commands/UpdateRoleCommand.ts";
+import { UpdateRoleCommand, UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand.ts";
 import {
   UpdateRoleDescriptionCommand,
   UpdateRoleDescriptionCommandInput,
-  UpdateRoleDescriptionCommandOutput
+  UpdateRoleDescriptionCommandOutput,
 } from "./commands/UpdateRoleDescriptionCommand.ts";
 import {
   UpdateSAMLProviderCommand,
   UpdateSAMLProviderCommandInput,
-  UpdateSAMLProviderCommandOutput
+  UpdateSAMLProviderCommandOutput,
 } from "./commands/UpdateSAMLProviderCommand.ts";
 import {
   UpdateSSHPublicKeyCommand,
   UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput
+  UpdateSSHPublicKeyCommandOutput,
 } from "./commands/UpdateSSHPublicKeyCommand.ts";
 import {
   UpdateServerCertificateCommand,
   UpdateServerCertificateCommandInput,
-  UpdateServerCertificateCommandOutput
+  UpdateServerCertificateCommandOutput,
 } from "./commands/UpdateServerCertificateCommand.ts";
 import {
   UpdateServiceSpecificCredentialCommand,
   UpdateServiceSpecificCredentialCommandInput,
-  UpdateServiceSpecificCredentialCommandOutput
+  UpdateServiceSpecificCredentialCommandOutput,
 } from "./commands/UpdateServiceSpecificCredentialCommand.ts";
 import {
   UpdateSigningCertificateCommand,
   UpdateSigningCertificateCommandInput,
-  UpdateSigningCertificateCommandOutput
+  UpdateSigningCertificateCommandOutput,
 } from "./commands/UpdateSigningCertificateCommand.ts";
-import {
-  UpdateUserCommand,
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand.ts";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import {
   UploadSSHPublicKeyCommand,
   UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput
+  UploadSSHPublicKeyCommandOutput,
 } from "./commands/UploadSSHPublicKeyCommand.ts";
 import {
   UploadServerCertificateCommand,
   UploadServerCertificateCommandInput,
-  UploadServerCertificateCommandOutput
+  UploadServerCertificateCommandOutput,
 } from "./commands/UploadServerCertificateCommand.ts";
 import {
   UploadSigningCertificateCommand,
   UploadSigningCertificateCommandInput,
-  UploadSigningCertificateCommandOutput
+  UploadSigningCertificateCommandOutput,
 } from "./commands/UploadSigningCertificateCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <fullname>AWS Identity and Access Management</fullname>
- *          <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage
- *       users and user permissions under your AWS account. This guide provides descriptions of IAM
- *       actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user
- *       guide for IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">Using IAM</a>. </p>
- *          <note>
- *             <p>AWS provides SDKs that consist of libraries and sample code for various programming
- *         languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a
- *         convenient way to create programmatic access to IAM and AWS. For example, the SDKs take care
- *         of tasks such as cryptographically signing requests (see below), managing errors, and
- *         retrying requests automatically. For information about the AWS SDKs, including how to
- *         download and install them, see the <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
- *           Services</a> page. </p>
- *          </note>
- *          <p>We recommend that you use the AWS SDKs to make programmatic API calls to IAM. However,
- *       you can also use the IAM Query API to make direct calls to the IAM web service. To learn more
- *       about the IAM Query API, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the
- *         <i>Using IAM</i> guide. IAM supports GET and POST requests for all actions.
- *       That is, the API does not require you to use GET for some actions and POST for others.
- *       However, GET requests are subject to the limitation size of a URL. Therefore, for operations
- *       that require larger sizes, use a POST request. </p>
- *          <p>
- *             <b>Signing Requests</b>
- *          </p>
- *          <p>Requests must be signed using an access key ID and a secret access key. We strongly
- *       recommend that you do not use your AWS account access key ID and secret access key for
- *       everyday work with IAM. You can use the access key ID and secret access key for an IAM user or
- *       you can use the AWS Security Token Service to generate temporary security credentials and use
- *       those to sign requests.</p>
- *          <p>To sign requests, we recommend that you use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>. If you have an
- *       existing application that uses Signature Version 2, you do not have to update it to use
- *       Signature Version 4. However, some operations now require Signature Version 4. The
- *       documentation for operations that require version 4 indicate this requirement. </p>
- *          <p>
- *             <b>Additional Resources</b>
- *          </p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS
- *             Security Credentials</a>. This topic provides general information about the types of
- *           credentials used for accessing AWS. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html">IAM Best
- *             Practices</a>. This topic presents a list of suggestions for using the IAM service
- *           to help secure your AWS resources. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
- *             AWS API Requests</a>. This set of topics walk you through the process of signing a
- *           request using an access key ID and secret access key. </p>
- *             </li>
- *          </ul>
+ *          <p>AWS Identity and Access Management (IAM) is a web service for securely controlling
+ *       access to AWS services. With IAM, you can centrally manage users, security credentials
+ *       such as access keys, and permissions that control which AWS resources users and
+ *       applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">AWS Identity and Access Management User Guide</a>.</p>
  */
 export class IAM extends IAMClient {
   /**
@@ -773,38 +653,23 @@ export class IAM extends IAMClient {
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput>;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
-    cb: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): void;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): void;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddClientIDToOpenIDConnectProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void),
+    cb?: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> | void {
     const command = new AddClientIDToOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -813,7 +678,7 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Adds the specified IAM role to the specified instance profile. An instance profile can
-   *          contain only one role, and this limit cannot be increased. You can remove the existing role
+   *          contain only one role. (The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.) You can remove the existing role
    *          and then add a different role to an instance profile. You must then wait for the change to
    *          appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>.
    *          To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
@@ -841,17 +706,14 @@ export class IAM extends IAMClient {
   ): void;
   public addRoleToInstanceProfile(
     args: AddRoleToInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddRoleToInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddRoleToInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: AddRoleToInstanceProfileCommandOutput) => void
   ): Promise<AddRoleToInstanceProfileCommandOutput> | void {
     const command = new AddRoleToInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -876,17 +738,14 @@ export class IAM extends IAMClient {
   ): void;
   public addUserToGroup(
     args: AddUserToGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddUserToGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddUserToGroupCommandOutput) => void),
     cb?: (err: any, data?: AddUserToGroupCommandOutput) => void
   ): Promise<AddUserToGroupCommandOutput> | void {
     const command = new AddUserToGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -915,17 +774,14 @@ export class IAM extends IAMClient {
   ): void;
   public attachGroupPolicy(
     args: AttachGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachGroupPolicyCommandOutput) => void
   ): Promise<AttachGroupPolicyCommandOutput> | void {
     const command = new AttachGroupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -961,17 +817,14 @@ export class IAM extends IAMClient {
   ): void;
   public attachRolePolicy(
     args: AttachRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachRolePolicyCommandOutput) => void
   ): Promise<AttachRolePolicyCommandOutput> | void {
     const command = new AttachRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1000,17 +853,14 @@ export class IAM extends IAMClient {
   ): void;
   public attachUserPolicy(
     args: AttachUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachUserPolicyCommandOutput) => void
   ): Promise<AttachUserPolicyCommandOutput> | void {
     const command = new AttachUserPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1039,17 +889,14 @@ export class IAM extends IAMClient {
   ): void;
   public changePassword(
     args: ChangePasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangePasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangePasswordCommandOutput) => void),
     cb?: (err: any, data?: ChangePasswordCommandOutput) => void
   ): Promise<ChangePasswordCommandOutput> | void {
     const command = new ChangePasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1063,8 +910,7 @@ export class IAM extends IAMClient {
    *          the AWS access key ID signing the request. This operation works for access keys under the
    *          AWS account. Consequently, you can use this operation to manage AWS account root user
    *          credentials. This is true even if the AWS account has no associated users.</p>
-   *          <p> For information about limits on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    *          <important>
    *             <p>To ensure the security of your AWS account, the secret access key is accessible
    *             only during key and user creation. You must save the key (for example, in a text file)
@@ -1087,17 +933,14 @@ export class IAM extends IAMClient {
   ): void;
   public createAccessKey(
     args: CreateAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateAccessKeyCommandOutput) => void
   ): Promise<CreateAccessKeyCommandOutput> | void {
     const command = new CreateAccessKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1125,17 +968,14 @@ export class IAM extends IAMClient {
   ): void;
   public createAccountAlias(
     args: CreateAccountAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccountAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAccountAliasCommandOutput) => void
   ): Promise<CreateAccountAliasCommandOutput> | void {
     const command = new CreateAccountAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1144,17 +984,10 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Creates a new group.</p>
-   *          <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
   public createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1162,17 +995,14 @@ export class IAM extends IAMClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1182,8 +1012,7 @@ export class IAM extends IAMClient {
   /**
    * <p> Creates a new instance profile. For information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
    *             Profiles</a>.</p>
-   *          <p> For information about the number of instance profiles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -1200,17 +1029,14 @@ export class IAM extends IAMClient {
   ): void;
   public createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceProfileCommandOutput) => void
   ): Promise<CreateInstanceProfileCommandOutput> | void {
     const command = new CreateInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1237,17 +1063,14 @@ export class IAM extends IAMClient {
   ): void;
   public createLoginProfile(
     args: CreateLoginProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLoginProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoginProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateLoginProfileCommandOutput) => void
   ): Promise<CreateLoginProfileCommandOutput> | void {
     const command = new CreateLoginProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1269,7 +1092,7 @@ export class IAM extends IAMClient {
    *                applications that are allowed to authenticate using the OIDC provider</p>
    *             </li>
    *             <li>
-   *                <p>A list of thumbprints of the server certificate(s) that the IdP uses</p>
+   *                <p>A list of thumbprints of one or more server certificates that the IdP uses</p>
    *             </li>
    *          </ul>
    *          <p>You get all of this information from the OIDC IdP that you want to use to access
@@ -1294,17 +1117,14 @@ export class IAM extends IAMClient {
   ): void;
   public createOpenIDConnectProvider(
     args: CreateOpenIDConnectProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOpenIDConnectProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpenIDConnectProviderCommandOutput) => void),
     cb?: (err: any, data?: CreateOpenIDConnectProviderCommandOutput) => void
   ): Promise<CreateOpenIDConnectProviderCommandOutput> | void {
     const command = new CreateOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1324,10 +1144,7 @@ export class IAM extends IAMClient {
     args: CreatePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePolicyCommandOutput>;
-  public createPolicy(
-    args: CreatePolicyCommandInput,
-    cb: (err: any, data?: CreatePolicyCommandOutput) => void
-  ): void;
+  public createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1335,17 +1152,14 @@ export class IAM extends IAMClient {
   ): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyCommandOutput) => void
   ): Promise<CreatePolicyCommandOutput> | void {
     const command = new CreatePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1377,17 +1191,14 @@ export class IAM extends IAMClient {
   ): void;
   public createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyVersionCommandOutput) => void
   ): Promise<CreatePolicyVersionCommandOutput> | void {
     const command = new CreatePolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1397,18 +1208,10 @@ export class IAM extends IAMClient {
   /**
    * <p>Creates a new role for your AWS account. For more information about roles, go to
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-   *             Roles</a>. For information about limitations on role names and the number of roles
-   *          you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
-   *          the <i>IAM User Guide</i>.</p>
+   *                Roles</a>. The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
-  public createRole(
-    args: CreateRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRoleCommandOutput>;
-  public createRole(
-    args: CreateRoleCommandInput,
-    cb: (err: any, data?: CreateRoleCommandOutput) => void
-  ): void;
+  public createRole(args: CreateRoleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoleCommandOutput>;
+  public createRole(args: CreateRoleCommandInput, cb: (err: any, data?: CreateRoleCommandOutput) => void): void;
   public createRole(
     args: CreateRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -1416,17 +1219,14 @@ export class IAM extends IAMClient {
   ): void;
   public createRole(
     args: CreateRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoleCommandOutput) => void),
     cb?: (err: any, data?: CreateRoleCommandOutput) => void
   ): Promise<CreateRoleCommandOutput> | void {
     const command = new CreateRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1468,17 +1268,14 @@ export class IAM extends IAMClient {
   ): void;
   public createSAMLProvider(
     args: CreateSAMLProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSAMLProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSAMLProviderCommandOutput) => void),
     cb?: (err: any, data?: CreateSAMLProviderCommandOutput) => void
   ): Promise<CreateSAMLProviderCommandOutput> | void {
     const command = new CreateSAMLProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1511,17 +1308,14 @@ export class IAM extends IAMClient {
   ): void;
   public createServiceLinkedRole(
     args: CreateServiceLinkedRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceLinkedRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceLinkedRoleCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceLinkedRoleCommandOutput) => void
   ): Promise<CreateServiceLinkedRoleCommandOutput> | void {
     const command = new CreateServiceLinkedRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1555,20 +1349,14 @@ export class IAM extends IAMClient {
   ): void;
   public createServiceSpecificCredential(
     args: CreateServiceSpecificCredentialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateServiceSpecificCredentialCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceSpecificCredentialCommandOutput) => void
   ): Promise<CreateServiceSpecificCredentialCommandOutput> | void {
     const command = new CreateServiceSpecificCredentialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1577,18 +1365,10 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Creates a new IAM user for your AWS account.</p>
-   *          <p> For information about limitations on the number of IAM users you can create, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-   *             on IAM Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1596,17 +1376,14 @@ export class IAM extends IAMClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1618,8 +1395,7 @@ export class IAM extends IAMClient {
    *          use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more
    *          information about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a Virtual MFA
    *             Device</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>For information about limits on the number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on
-   *             Entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    *          <important>
    *             <p>The seed information contained in the QR code and the Base32 string should be treated
    *             like any other secret access information. In other words, protect the seed information
@@ -1643,17 +1419,14 @@ export class IAM extends IAMClient {
   ): void;
   public createVirtualMFADevice(
     args: CreateVirtualMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVirtualMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVirtualMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: CreateVirtualMFADeviceCommandOutput) => void
   ): Promise<CreateVirtualMFADeviceCommandOutput> | void {
     const command = new CreateVirtualMFADeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1682,17 +1455,14 @@ export class IAM extends IAMClient {
   ): void;
   public deactivateMFADevice(
     args: DeactivateMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeactivateMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: DeactivateMFADeviceCommandOutput) => void
   ): Promise<DeactivateMFADeviceCommandOutput> | void {
     const command = new DeactivateMFADeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1721,17 +1491,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccessKeyCommandOutput) => void
   ): Promise<DeleteAccessKeyCommandOutput> | void {
     const command = new DeleteAccessKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1759,17 +1526,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccountAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccountAliasCommandOutput) => void
   ): Promise<DeleteAccountAliasCommandOutput> | void {
     const command = new DeleteAccountAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1794,17 +1558,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccountPasswordPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountPasswordPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccountPasswordPolicyCommandOutput) => void
   ): Promise<DeleteAccountPasswordPolicyCommandOutput> | void {
     const command = new DeleteAccountPasswordPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1815,14 +1576,8 @@ export class IAM extends IAMClient {
    * <p>Deletes the specified IAM group. The group must not contain any users or have any
    *          attached policies.</p>
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1830,17 +1585,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1871,17 +1623,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteGroupPolicy(
     args: DeleteGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupPolicyCommandOutput) => void
   ): Promise<DeleteGroupPolicyCommandOutput> | void {
     const command = new DeleteGroupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1913,17 +1662,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
   ): Promise<DeleteInstanceProfileCommandOutput> | void {
     const command = new DeleteInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1955,17 +1701,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoginProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoginProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoginProfileCommandOutput) => void
   ): Promise<DeleteLoginProfileCommandOutput> | void {
     const command = new DeleteLoginProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1995,17 +1738,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteOpenIDConnectProvider(
     args: DeleteOpenIDConnectProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteOpenIDConnectProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOpenIDConnectProviderCommandOutput) => void),
     cb?: (err: any, data?: DeleteOpenIDConnectProviderCommandOutput) => void
   ): Promise<DeleteOpenIDConnectProviderCommandOutput> | void {
     const command = new DeleteOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2042,10 +1782,7 @@ export class IAM extends IAMClient {
     args: DeletePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePolicyCommandOutput>;
-  public deletePolicy(
-    args: DeletePolicyCommandInput,
-    cb: (err: any, data?: DeletePolicyCommandOutput) => void
-  ): void;
+  public deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2053,17 +1790,14 @@ export class IAM extends IAMClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2093,17 +1827,14 @@ export class IAM extends IAMClient {
   ): void;
   public deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyVersionCommandOutput) => void
   ): Promise<DeletePolicyVersionCommandOutput> | void {
     const command = new DeletePolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2119,14 +1850,8 @@ export class IAM extends IAMClient {
    *             instance will break any applications running on the instance.</p>
    *          </important>
    */
-  public deleteRole(
-    args: DeleteRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRoleCommandOutput>;
-  public deleteRole(
-    args: DeleteRoleCommandInput,
-    cb: (err: any, data?: DeleteRoleCommandOutput) => void
-  ): void;
+  public deleteRole(args: DeleteRoleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoleCommandOutput>;
+  public deleteRole(args: DeleteRoleCommandInput, cb: (err: any, data?: DeleteRoleCommandOutput) => void): void;
   public deleteRole(
     args: DeleteRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -2134,17 +1859,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteRole(
     args: DeleteRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoleCommandOutput) => void
   ): Promise<DeleteRoleCommandOutput> | void {
     const command = new DeleteRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2174,17 +1896,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteRolePermissionsBoundary(
     args: DeleteRolePermissionsBoundaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRolePermissionsBoundaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRolePermissionsBoundaryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRolePermissionsBoundaryCommandOutput) => void
   ): Promise<DeleteRolePermissionsBoundaryCommandOutput> | void {
     const command = new DeleteRolePermissionsBoundaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2214,17 +1933,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteRolePolicyCommandOutput) => void
   ): Promise<DeleteRolePolicyCommandOutput> | void {
     const command = new DeleteRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2255,17 +1971,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteSAMLProvider(
     args: DeleteSAMLProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSAMLProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSAMLProviderCommandOutput) => void),
     cb?: (err: any, data?: DeleteSAMLProviderCommandOutput) => void
   ): Promise<DeleteSAMLProviderCommandOutput> | void {
     const command = new DeleteSAMLProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2303,17 +2016,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteServerCertificate(
     args: DeleteServerCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServerCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCertificateCommandOutput) => void
   ): Promise<DeleteServerCertificateCommandOutput> | void {
     const command = new DeleteServerCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2352,17 +2062,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteServiceLinkedRole(
     args: DeleteServiceLinkedRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceLinkedRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceLinkedRoleCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceLinkedRoleCommandOutput) => void
   ): Promise<DeleteServiceLinkedRoleCommandOutput> | void {
     const command = new DeleteServiceLinkedRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2387,20 +2094,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteServiceSpecificCredential(
     args: DeleteServiceSpecificCredentialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteServiceSpecificCredentialCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceSpecificCredentialCommandOutput) => void
   ): Promise<DeleteServiceSpecificCredentialCommandOutput> | void {
     const command = new DeleteServiceSpecificCredentialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2429,17 +2130,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSigningCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSigningCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeleteSigningCertificateCommandOutput) => void
   ): Promise<DeleteSigningCertificateCommandOutput> | void {
     const command = new DeleteSigningCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2468,17 +2166,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteSSHPublicKey(
     args: DeleteSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
   ): Promise<DeleteSSHPublicKeyCommandOutput> | void {
     const command = new DeleteSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2521,14 +2216,8 @@ export class IAM extends IAMClient {
    *             </li>
    *          </ul>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2536,17 +2225,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2576,17 +2262,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteUserPermissionsBoundary(
     args: DeleteUserPermissionsBoundaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPermissionsBoundaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPermissionsBoundaryCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPermissionsBoundaryCommandOutput) => void
   ): Promise<DeleteUserPermissionsBoundaryCommandOutput> | void {
     const command = new DeleteUserPermissionsBoundaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2616,17 +2299,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPolicyCommandOutput) => void
   ): Promise<DeleteUserPolicyCommandOutput> | void {
     const command = new DeleteUserPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2656,17 +2336,14 @@ export class IAM extends IAMClient {
   ): void;
   public deleteVirtualMFADevice(
     args: DeleteVirtualMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVirtualMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: DeleteVirtualMFADeviceCommandOutput) => void
   ): Promise<DeleteVirtualMFADeviceCommandOutput> | void {
     const command = new DeleteVirtualMFADeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2695,17 +2372,14 @@ export class IAM extends IAMClient {
   ): void;
   public detachGroupPolicy(
     args: DetachGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachGroupPolicyCommandOutput) => void
   ): Promise<DetachGroupPolicyCommandOutput> | void {
     const command = new DetachGroupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2734,17 +2408,14 @@ export class IAM extends IAMClient {
   ): void;
   public detachRolePolicy(
     args: DetachRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachRolePolicyCommandOutput) => void
   ): Promise<DetachRolePolicyCommandOutput> | void {
     const command = new DetachRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2773,17 +2444,14 @@ export class IAM extends IAMClient {
   ): void;
   public detachUserPolicy(
     args: DetachUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachUserPolicyCommandOutput) => void
   ): Promise<DetachUserPolicyCommandOutput> | void {
     const command = new DetachUserPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2810,17 +2478,14 @@ export class IAM extends IAMClient {
   ): void;
   public enableMFADevice(
     args: EnableMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: EnableMFADeviceCommandOutput) => void
   ): Promise<EnableMFADeviceCommandOutput> | void {
     const command = new EnableMFADeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2847,17 +2512,14 @@ export class IAM extends IAMClient {
   ): void;
   public generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateCredentialReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateCredentialReportCommandOutput) => void),
     cb?: (err: any, data?: GenerateCredentialReportCommandOutput) => void
   ): Promise<GenerateCredentialReportCommandOutput> | void {
     const command = new GenerateCredentialReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2998,38 +2660,23 @@ export class IAM extends IAMClient {
   ): Promise<GenerateOrganizationsAccessReportCommandOutput>;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): void;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): void;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateOrganizationsAccessReportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void),
+    cb?: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> | void {
     const command = new GenerateOrganizationsAccessReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3061,7 +2708,10 @@ export class IAM extends IAMClient {
    *                   <a>GetServiceLastAccessedDetails</a> – Use this operation for
    *                users, groups, roles, or policies to list every AWS service that the resource could
    *                access using permissions policies. For each service, the response includes
-   *                information about the most recent access attempt. </p>
+   *                information about the most recent access attempt.</p>
+   *                <p>The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code>
+   *                must be used by the same role within a session, or by the same user when used to call
+   *                   <code>GetServiceLastAccessedDetail</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3082,8 +2732,9 @@ export class IAM extends IAMClient {
    *             and AWS STS assume role policies. It only applies permissions policy logic. For more
    *             about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating Policies</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
-   *          <p>For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing Policy Scope by
-   *             Viewing User Activity</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+   *             Permissions Using Service Last Accessed Data</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
@@ -3091,38 +2742,23 @@ export class IAM extends IAMClient {
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput>;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): void;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): void;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateServiceLastAccessedDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> | void {
     const command = new GenerateServiceLastAccessedDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3149,17 +2785,14 @@ export class IAM extends IAMClient {
   ): void;
   public getAccessKeyLastUsed(
     args: GetAccessKeyLastUsedCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessKeyLastUsedCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessKeyLastUsedCommandOutput) => void),
     cb?: (err: any, data?: GetAccessKeyLastUsedCommandOutput) => void
   ): Promise<GetAccessKeyLastUsedCommandOutput> | void {
     const command = new GetAccessKeyLastUsedCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3197,20 +2830,14 @@ export class IAM extends IAMClient {
   ): void;
   public getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAccountAuthorizationDetailsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountAuthorizationDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetAccountAuthorizationDetailsCommandOutput) => void
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> | void {
     const command = new GetAccountAuthorizationDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3237,17 +2864,14 @@ export class IAM extends IAMClient {
   ): void;
   public getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountPasswordPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountPasswordPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetAccountPasswordPolicyCommandOutput) => void
   ): Promise<GetAccountPasswordPolicyCommandOutput> | void {
     const command = new GetAccountPasswordPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3257,8 +2881,7 @@ export class IAM extends IAMClient {
   /**
    * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
    *          account.</p>
-   *          <p> For information about limitations on IAM entities, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
-   *          the <i>IAM User Guide</i>.</p>
+   *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
    */
   public getAccountSummary(
     args: GetAccountSummaryCommandInput,
@@ -3275,17 +2898,14 @@ export class IAM extends IAMClient {
   ): void;
   public getAccountSummary(
     args: GetAccountSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetAccountSummaryCommandOutput) => void
   ): Promise<GetAccountSummaryCommandOutput> | void {
     const command = new GetAccountSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3318,17 +2938,14 @@ export class IAM extends IAMClient {
   ): void;
   public getContextKeysForCustomPolicy(
     args: GetContextKeysForCustomPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContextKeysForCustomPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContextKeysForCustomPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetContextKeysForCustomPolicyCommandOutput) => void
   ): Promise<GetContextKeysForCustomPolicyCommandOutput> | void {
     const command = new GetContextKeysForCustomPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3368,23 +2985,14 @@ export class IAM extends IAMClient {
   ): void;
   public getContextKeysForPrincipalPolicy(
     args: GetContextKeysForPrincipalPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetContextKeysForPrincipalPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetContextKeysForPrincipalPolicyCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContextKeysForPrincipalPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetContextKeysForPrincipalPolicyCommandOutput) => void
   ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> | void {
     const command = new GetContextKeysForPrincipalPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3411,17 +3019,14 @@ export class IAM extends IAMClient {
   ): void;
   public getCredentialReport(
     args: GetCredentialReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCredentialReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCredentialReportCommandOutput) => void),
     cb?: (err: any, data?: GetCredentialReportCommandOutput) => void
   ): Promise<GetCredentialReportCommandOutput> | void {
     const command = new GetCredentialReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3432,14 +3037,8 @@ export class IAM extends IAMClient {
    * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
    *          the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
    */
-  public getGroup(
-    args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupCommandOutput>;
-  public getGroup(
-    args: GetGroupCommandInput,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
-  ): void;
+  public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
+  public getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
   public getGroup(
     args: GetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -3447,17 +3046,14 @@ export class IAM extends IAMClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3495,17 +3091,14 @@ export class IAM extends IAMClient {
   ): void;
   public getGroupPolicy(
     args: GetGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetGroupPolicyCommandOutput) => void
   ): Promise<GetGroupPolicyCommandOutput> | void {
     const command = new GetGroupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3533,17 +3126,14 @@ export class IAM extends IAMClient {
   ): void;
   public getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceProfileCommandOutput) => void
   ): Promise<GetInstanceProfileCommandOutput> | void {
     const command = new GetInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3570,17 +3160,14 @@ export class IAM extends IAMClient {
   ): void;
   public getLoginProfile(
     args: GetLoginProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoginProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoginProfileCommandOutput) => void),
     cb?: (err: any, data?: GetLoginProfileCommandOutput) => void
   ): Promise<GetLoginProfileCommandOutput> | void {
     const command = new GetLoginProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3606,17 +3193,14 @@ export class IAM extends IAMClient {
   ): void;
   public getOpenIDConnectProvider(
     args: GetOpenIDConnectProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpenIDConnectProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpenIDConnectProviderCommandOutput) => void),
     cb?: (err: any, data?: GetOpenIDConnectProviderCommandOutput) => void
   ): Promise<GetOpenIDConnectProviderCommandOutput> | void {
     const command = new GetOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3657,17 +3241,14 @@ export class IAM extends IAMClient {
   ): void;
   public getOrganizationsAccessReport(
     args: GetOrganizationsAccessReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOrganizationsAccessReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOrganizationsAccessReportCommandOutput) => void),
     cb?: (err: any, data?: GetOrganizationsAccessReportCommandOutput) => void
   ): Promise<GetOrganizationsAccessReportCommandOutput> | void {
     const command = new GetOrganizationsAccessReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3686,14 +3267,8 @@ export class IAM extends IAMClient {
    *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPolicyCommandOutput>;
-  public getPolicy(
-    args: GetPolicyCommandInput,
-    cb: (err: any, data?: GetPolicyCommandOutput) => void
-  ): void;
+  public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
   public getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3701,17 +3276,14 @@ export class IAM extends IAMClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3752,17 +3324,14 @@ export class IAM extends IAMClient {
   ): void;
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): Promise<GetPolicyVersionCommandOutput> | void {
     const command = new GetPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3781,14 +3350,8 @@ export class IAM extends IAMClient {
    *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
    *          </note>
    */
-  public getRole(
-    args: GetRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRoleCommandOutput>;
-  public getRole(
-    args: GetRoleCommandInput,
-    cb: (err: any, data?: GetRoleCommandOutput) => void
-  ): void;
+  public getRole(args: GetRoleCommandInput, options?: __HttpHandlerOptions): Promise<GetRoleCommandOutput>;
+  public getRole(args: GetRoleCommandInput, cb: (err: any, data?: GetRoleCommandOutput) => void): void;
   public getRole(
     args: GetRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -3796,17 +3359,14 @@ export class IAM extends IAMClient {
   ): void;
   public getRole(
     args: GetRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoleCommandOutput) => void),
     cb?: (err: any, data?: GetRoleCommandOutput) => void
   ): Promise<GetRoleCommandOutput> | void {
     const command = new GetRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3845,17 +3405,14 @@ export class IAM extends IAMClient {
   ): void;
   public getRolePolicy(
     args: GetRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetRolePolicyCommandOutput) => void
   ): Promise<GetRolePolicyCommandOutput> | void {
     const command = new GetRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3884,17 +3441,14 @@ export class IAM extends IAMClient {
   ): void;
   public getSAMLProvider(
     args: GetSAMLProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSAMLProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSAMLProviderCommandOutput) => void),
     cb?: (err: any, data?: GetSAMLProviderCommandOutput) => void
   ): Promise<GetSAMLProviderCommandOutput> | void {
     const command = new GetSAMLProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3923,17 +3477,14 @@ export class IAM extends IAMClient {
   ): void;
   public getServerCertificate(
     args: GetServerCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServerCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServerCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetServerCertificateCommandOutput) => void
   ): Promise<GetServerCertificateCommandOutput> | void {
     const command = new GetServerCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3986,6 +3537,13 @@ export class IAM extends IAMClient {
    *             </li>
    *          </ul>
    *          <p>By default, the list is sorted by service namespace.</p>
+   *          <p>If you specified <code>ACTION_LEVEL</code> granularity when you generated the report,
+   *          this operation returns service and action last accessed data. This includes the most recent
+   *          access attempt for each tracked action within a service. Otherwise, this operation returns
+   *          only service data.</p>
+   *          <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+   *             Permissions Using Service Last Accessed Data</a> in the
+   *             <i>IAM User Guide</i>.</p>
    */
   public getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
@@ -4002,17 +3560,14 @@ export class IAM extends IAMClient {
   ): void;
   public getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceLastAccessedDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceLastAccessedDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetServiceLastAccessedDetailsCommandOutput) => void
   ): Promise<GetServiceLastAccessedDetailsCommandOutput> | void {
     const command = new GetServiceLastAccessedDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4052,38 +3607,25 @@ export class IAM extends IAMClient {
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput>;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): void;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): void;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+      | ((err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> | void {
     const command = new GetServiceLastAccessedDetailsWithEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4103,38 +3645,23 @@ export class IAM extends IAMClient {
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput>;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): void;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): void;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> | void {
     const command = new GetServiceLinkedRoleDeletionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4163,17 +3690,14 @@ export class IAM extends IAMClient {
   ): void;
   public getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
   ): Promise<GetSSHPublicKeyCommandOutput> | void {
     const command = new GetSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4186,14 +3710,8 @@ export class IAM extends IAMClient {
    *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
    *          the AWS access key ID used to sign the request to this API.</p>
    */
-  public getUser(
-    args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUserCommandOutput>;
-  public getUser(
-    args: GetUserCommandInput,
-    cb: (err: any, data?: GetUserCommandOutput) => void
-  ): void;
+  public getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
+  public getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
   public getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -4201,17 +3719,14 @@ export class IAM extends IAMClient {
   ): void;
   public getUser(
     args: GetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
     cb?: (err: any, data?: GetUserCommandOutput) => void
   ): Promise<GetUserCommandOutput> | void {
     const command = new GetUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4248,17 +3763,14 @@ export class IAM extends IAMClient {
   ): void;
   public getUserPolicy(
     args: GetUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetUserPolicyCommandOutput) => void
   ): Promise<GetUserPolicyCommandOutput> | void {
     const command = new GetUserPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4295,17 +3807,14 @@ export class IAM extends IAMClient {
   ): void;
   public listAccessKeys(
     args: ListAccessKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccessKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessKeysCommandOutput) => void),
     cb?: (err: any, data?: ListAccessKeysCommandOutput) => void
   ): Promise<ListAccessKeysCommandOutput> | void {
     const command = new ListAccessKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4332,17 +3841,14 @@ export class IAM extends IAMClient {
   ): void;
   public listAccountAliases(
     args: ListAccountAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAccountAliasesCommandOutput) => void
   ): Promise<ListAccountAliasesCommandOutput> | void {
     const command = new ListAccountAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4376,17 +3882,14 @@ export class IAM extends IAMClient {
   ): void;
   public listAttachedGroupPolicies(
     args: ListAttachedGroupPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttachedGroupPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttachedGroupPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListAttachedGroupPoliciesCommandOutput) => void
   ): Promise<ListAttachedGroupPoliciesCommandOutput> | void {
     const command = new ListAttachedGroupPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4420,17 +3923,14 @@ export class IAM extends IAMClient {
   ): void;
   public listAttachedRolePolicies(
     args: ListAttachedRolePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttachedRolePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttachedRolePoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListAttachedRolePoliciesCommandOutput) => void
   ): Promise<ListAttachedRolePoliciesCommandOutput> | void {
     const command = new ListAttachedRolePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4464,17 +3964,14 @@ export class IAM extends IAMClient {
   ): void;
   public listAttachedUserPolicies(
     args: ListAttachedUserPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttachedUserPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttachedUserPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListAttachedUserPoliciesCommandOutput) => void
   ): Promise<ListAttachedUserPoliciesCommandOutput> | void {
     const command = new ListAttachedUserPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4506,17 +4003,14 @@ export class IAM extends IAMClient {
   ): void;
   public listEntitiesForPolicy(
     args: ListEntitiesForPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesForPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesForPolicyCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesForPolicyCommandOutput) => void
   ): Promise<ListEntitiesForPolicyCommandOutput> | void {
     const command = new ListEntitiesForPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4549,17 +4043,14 @@ export class IAM extends IAMClient {
   ): void;
   public listGroupPolicies(
     args: ListGroupPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListGroupPoliciesCommandOutput) => void
   ): Promise<ListGroupPoliciesCommandOutput> | void {
     const command = new ListGroupPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4571,14 +4062,8 @@ export class IAM extends IAMClient {
    *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   public listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -4586,17 +4071,14 @@ export class IAM extends IAMClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4623,17 +4105,14 @@ export class IAM extends IAMClient {
   ): void;
   public listGroupsForUser(
     args: ListGroupsForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsForUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsForUserCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsForUserCommandOutput) => void
   ): Promise<ListGroupsForUserCommandOutput> | void {
     const command = new ListGroupsForUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4662,17 +4141,14 @@ export class IAM extends IAMClient {
   ): void;
   public listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstanceProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListInstanceProfilesCommandOutput) => void
   ): Promise<ListInstanceProfilesCommandOutput> | void {
     const command = new ListInstanceProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4702,17 +4178,14 @@ export class IAM extends IAMClient {
   ): void;
   public listInstanceProfilesForRole(
     args: ListInstanceProfilesForRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstanceProfilesForRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceProfilesForRoleCommandOutput) => void),
     cb?: (err: any, data?: ListInstanceProfilesForRoleCommandOutput) => void
   ): Promise<ListInstanceProfilesForRoleCommandOutput> | void {
     const command = new ListInstanceProfilesForRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4742,17 +4215,14 @@ export class IAM extends IAMClient {
   ): void;
   public listMFADevices(
     args: ListMFADevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMFADevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMFADevicesCommandOutput) => void),
     cb?: (err: any, data?: ListMFADevicesCommandOutput) => void
   ): Promise<ListMFADevicesCommandOutput> | void {
     const command = new ListMFADevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4778,17 +4248,14 @@ export class IAM extends IAMClient {
   ): void;
   public listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOpenIDConnectProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpenIDConnectProvidersCommandOutput) => void),
     cb?: (err: any, data?: ListOpenIDConnectProvidersCommandOutput) => void
   ): Promise<ListOpenIDConnectProvidersCommandOutput> | void {
     const command = new ListOpenIDConnectProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4812,10 +4279,7 @@ export class IAM extends IAMClient {
     args: ListPoliciesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPoliciesCommandOutput>;
-  public listPolicies(
-    args: ListPoliciesCommandInput,
-    cb: (err: any, data?: ListPoliciesCommandOutput) => void
-  ): void;
+  public listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -4823,17 +4287,14 @@ export class IAM extends IAMClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4888,38 +4349,23 @@ export class IAM extends IAMClient {
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput>;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
-    cb: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+    cb: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): void;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+    cb: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): void;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPoliciesGrantingServiceAccessCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void),
+    cb?: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> | void {
     const command = new ListPoliciesGrantingServiceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4947,17 +4393,14 @@ export class IAM extends IAMClient {
   ): void;
   public listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPolicyVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPolicyVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListPolicyVersionsCommandOutput) => void
   ): Promise<ListPolicyVersionsCommandOutput> | void {
     const command = new ListPolicyVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4990,17 +4433,14 @@ export class IAM extends IAMClient {
   ): void;
   public listRolePolicies(
     args: ListRolePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRolePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRolePoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListRolePoliciesCommandOutput) => void
   ): Promise<ListRolePoliciesCommandOutput> | void {
     const command = new ListRolePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5014,14 +4454,8 @@ export class IAM extends IAMClient {
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
    */
-  public listRoles(
-    args: ListRolesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRolesCommandOutput>;
-  public listRoles(
-    args: ListRolesCommandInput,
-    cb: (err: any, data?: ListRolesCommandOutput) => void
-  ): void;
+  public listRoles(args: ListRolesCommandInput, options?: __HttpHandlerOptions): Promise<ListRolesCommandOutput>;
+  public listRoles(args: ListRolesCommandInput, cb: (err: any, data?: ListRolesCommandOutput) => void): void;
   public listRoles(
     args: ListRolesCommandInput,
     options: __HttpHandlerOptions,
@@ -5029,17 +4463,14 @@ export class IAM extends IAMClient {
   ): void;
   public listRoles(
     args: ListRolesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRolesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRolesCommandOutput) => void),
     cb?: (err: any, data?: ListRolesCommandOutput) => void
   ): Promise<ListRolesCommandOutput> | void {
     const command = new ListRolesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5055,10 +4486,7 @@ export class IAM extends IAMClient {
     args: ListRoleTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRoleTagsCommandOutput>;
-  public listRoleTags(
-    args: ListRoleTagsCommandInput,
-    cb: (err: any, data?: ListRoleTagsCommandOutput) => void
-  ): void;
+  public listRoleTags(args: ListRoleTagsCommandInput, cb: (err: any, data?: ListRoleTagsCommandOutput) => void): void;
   public listRoleTags(
     args: ListRoleTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -5066,17 +4494,14 @@ export class IAM extends IAMClient {
   ): void;
   public listRoleTags(
     args: ListRoleTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoleTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoleTagsCommandOutput) => void),
     cb?: (err: any, data?: ListRoleTagsCommandOutput) => void
   ): Promise<ListRoleTagsCommandOutput> | void {
     const command = new ListRoleTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5104,17 +4529,14 @@ export class IAM extends IAMClient {
   ): void;
   public listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSAMLProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSAMLProvidersCommandOutput) => void),
     cb?: (err: any, data?: ListSAMLProvidersCommandOutput) => void
   ): Promise<ListSAMLProvidersCommandOutput> | void {
     const command = new ListSAMLProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5146,17 +4568,14 @@ export class IAM extends IAMClient {
   ): void;
   public listServerCertificates(
     args: ListServerCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServerCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServerCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListServerCertificatesCommandOutput) => void
   ): Promise<ListServerCertificatesCommandOutput> | void {
     const command = new ListServerCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5186,20 +4605,14 @@ export class IAM extends IAMClient {
   ): void;
   public listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceSpecificCredentialsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceSpecificCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ListServiceSpecificCredentialsCommandOutput) => void
   ): Promise<ListServiceSpecificCredentialsCommandOutput> | void {
     const command = new ListServiceSpecificCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5233,17 +4646,14 @@ export class IAM extends IAMClient {
   ): void;
   public listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSigningCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSigningCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListSigningCertificatesCommandOutput) => void
   ): Promise<ListSigningCertificatesCommandOutput> | void {
     const command = new ListSigningCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5275,17 +4685,14 @@ export class IAM extends IAMClient {
   ): void;
   public listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSSHPublicKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSSHPublicKeysCommandOutput) => void),
     cb?: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
   ): Promise<ListSSHPublicKeysCommandOutput> | void {
     const command = new ListSSHPublicKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5317,17 +4724,14 @@ export class IAM extends IAMClient {
   ): void;
   public listUserPolicies(
     args: ListUserPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListUserPoliciesCommandOutput) => void
   ): Promise<ListUserPoliciesCommandOutput> | void {
     const command = new ListUserPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5341,14 +4745,8 @@ export class IAM extends IAMClient {
    *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *          parameters.</p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -5356,17 +4754,14 @@ export class IAM extends IAMClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5382,10 +4777,7 @@ export class IAM extends IAMClient {
     args: ListUserTagsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUserTagsCommandOutput>;
-  public listUserTags(
-    args: ListUserTagsCommandInput,
-    cb: (err: any, data?: ListUserTagsCommandOutput) => void
-  ): void;
+  public listUserTags(args: ListUserTagsCommandInput, cb: (err: any, data?: ListUserTagsCommandOutput) => void): void;
   public listUserTags(
     args: ListUserTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -5393,17 +4785,14 @@ export class IAM extends IAMClient {
   ): void;
   public listUserTags(
     args: ListUserTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserTagsCommandOutput) => void),
     cb?: (err: any, data?: ListUserTagsCommandOutput) => void
   ): Promise<ListUserTagsCommandOutput> | void {
     const command = new ListUserTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5433,17 +4822,14 @@ export class IAM extends IAMClient {
   ): void;
   public listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVirtualMFADevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualMFADevicesCommandOutput) => void),
     cb?: (err: any, data?: ListVirtualMFADevicesCommandOutput) => void
   ): Promise<ListVirtualMFADevicesCommandOutput> | void {
     const command = new ListVirtualMFADevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5482,17 +4868,14 @@ export class IAM extends IAMClient {
   ): void;
   public putGroupPolicy(
     args: PutGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutGroupPolicyCommandOutput) => void
   ): Promise<PutGroupPolicyCommandOutput> | void {
     const command = new PutGroupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5528,17 +4911,14 @@ export class IAM extends IAMClient {
   ): void;
   public putRolePermissionsBoundary(
     args: PutRolePermissionsBoundaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRolePermissionsBoundaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRolePermissionsBoundaryCommandOutput) => void),
     cb?: (err: any, data?: PutRolePermissionsBoundaryCommandOutput) => void
   ): Promise<PutRolePermissionsBoundaryCommandOutput> | void {
     const command = new PutRolePermissionsBoundaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5583,17 +4963,14 @@ export class IAM extends IAMClient {
   ): void;
   public putRolePolicy(
     args: PutRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutRolePolicyCommandOutput) => void
   ): Promise<PutRolePolicyCommandOutput> | void {
     const command = new PutRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5628,17 +5005,14 @@ export class IAM extends IAMClient {
   ): void;
   public putUserPermissionsBoundary(
     args: PutUserPermissionsBoundaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutUserPermissionsBoundaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutUserPermissionsBoundaryCommandOutput) => void),
     cb?: (err: any, data?: PutUserPermissionsBoundaryCommandOutput) => void
   ): Promise<PutUserPermissionsBoundaryCommandOutput> | void {
     const command = new PutUserPermissionsBoundaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5678,17 +5052,14 @@ export class IAM extends IAMClient {
   ): void;
   public putUserPolicy(
     args: PutUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutUserPolicyCommandOutput) => void
   ): Promise<PutUserPolicyCommandOutput> | void {
     const command = new PutUserPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5707,38 +5078,25 @@ export class IAM extends IAMClient {
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput>;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): void;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): void;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void),
+    cb?: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> | void {
     const command = new RemoveClientIDFromOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5771,17 +5129,14 @@ export class IAM extends IAMClient {
   ): void;
   public removeRoleFromInstanceProfile(
     args: RemoveRoleFromInstanceProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveRoleFromInstanceProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveRoleFromInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: RemoveRoleFromInstanceProfileCommandOutput) => void
   ): Promise<RemoveRoleFromInstanceProfileCommandOutput> | void {
     const command = new RemoveRoleFromInstanceProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5806,17 +5161,14 @@ export class IAM extends IAMClient {
   ): void;
   public removeUserFromGroup(
     args: RemoveUserFromGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveUserFromGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveUserFromGroupCommandOutput) => void),
     cb?: (err: any, data?: RemoveUserFromGroupCommandOutput) => void
   ): Promise<RemoveUserFromGroupCommandOutput> | void {
     const command = new RemoveUserFromGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5843,20 +5195,14 @@ export class IAM extends IAMClient {
   ): void;
   public resetServiceSpecificCredential(
     args: ResetServiceSpecificCredentialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResetServiceSpecificCredentialCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: ResetServiceSpecificCredentialCommandOutput) => void
   ): Promise<ResetServiceSpecificCredentialCommandOutput> | void {
     const command = new ResetServiceSpecificCredentialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5884,17 +5230,14 @@ export class IAM extends IAMClient {
   ): void;
   public resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResyncMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResyncMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: ResyncMFADeviceCommandOutput) => void
   ): Promise<ResyncMFADeviceCommandOutput> | void {
     const command = new ResyncMFADeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5924,17 +5267,14 @@ export class IAM extends IAMClient {
   ): void;
   public setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetDefaultPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetDefaultPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
   ): Promise<SetDefaultPolicyVersionCommandOutput> | void {
     const command = new SetDefaultPolicyVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5965,38 +5305,23 @@ export class IAM extends IAMClient {
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput>;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
-    cb: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+    cb: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): void;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+    cb: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): void;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetSecurityTokenServicePreferencesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void),
+    cb?: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> | void {
     const command = new SetSecurityTokenServicePreferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6009,12 +5334,12 @@ export class IAM extends IAMClient {
    *          permissions. The policies are provided as strings.</p>
    *          <p>The simulation does not perform the API operations; it only checks the authorization to
    *          determine if the simulated policies allow or deny the operations.</p>
-   *          <p>If you want to simulate existing policies attached to an IAM user, group, or role, use
-   *             <a>SimulatePrincipalPolicy</a> instead.</p>
-   *          <p>Context keys are variables maintained by AWS and its services that provide details
-   *          about the context of an API query request. You can use the <code>Condition</code> element
-   *          of an IAM policy to evaluate context keys. To get the list of context keys that the
-   *          policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
+   *          <p>If you want to simulate existing policies that are attached to an IAM user, group, or
+   *          role, use <a>SimulatePrincipalPolicy</a> instead.</p>
+   *          <p>Context keys are variables that are maintained by AWS and its services and which
+   *          provide details about the context of an API query request. You can use the
+   *             <code>Condition</code> element of an IAM policy to evaluate context keys. To get the
+   *          list of context keys that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.</p>
    *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
    *          parameters to paginate the results.</p>
    */
@@ -6033,17 +5358,14 @@ export class IAM extends IAMClient {
   ): void;
   public simulateCustomPolicy(
     args: SimulateCustomPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SimulateCustomPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SimulateCustomPolicyCommandOutput) => void),
     cb?: (err: any, data?: SimulateCustomPolicyCommandOutput) => void
   ): Promise<SimulateCustomPolicyCommandOutput> | void {
     const command = new SimulateCustomPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6089,17 +5411,14 @@ export class IAM extends IAMClient {
   ): void;
   public simulatePrincipalPolicy(
     args: SimulatePrincipalPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SimulatePrincipalPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SimulatePrincipalPolicyCommandOutput) => void),
     cb?: (err: any, data?: SimulatePrincipalPolicyCommandOutput) => void
   ): Promise<SimulatePrincipalPolicyCommandOutput> | void {
     const command = new SimulatePrincipalPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6153,14 +5472,8 @@ export class IAM extends IAMClient {
    *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
    */
-  public tagRole(
-    args: TagRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagRoleCommandOutput>;
-  public tagRole(
-    args: TagRoleCommandInput,
-    cb: (err: any, data?: TagRoleCommandOutput) => void
-  ): void;
+  public tagRole(args: TagRoleCommandInput, options?: __HttpHandlerOptions): Promise<TagRoleCommandOutput>;
+  public tagRole(args: TagRoleCommandInput, cb: (err: any, data?: TagRoleCommandOutput) => void): void;
   public tagRole(
     args: TagRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -6168,17 +5481,14 @@ export class IAM extends IAMClient {
   ): void;
   public tagRole(
     args: TagRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagRoleCommandOutput) => void),
     cb?: (err: any, data?: TagRoleCommandOutput) => void
   ): Promise<TagRoleCommandOutput> | void {
     const command = new TagRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6232,14 +5542,8 @@ export class IAM extends IAMClient {
    *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
    *         <i>IAM User Guide</i>.</p>
    */
-  public tagUser(
-    args: TagUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagUserCommandOutput>;
-  public tagUser(
-    args: TagUserCommandInput,
-    cb: (err: any, data?: TagUserCommandOutput) => void
-  ): void;
+  public tagUser(args: TagUserCommandInput, options?: __HttpHandlerOptions): Promise<TagUserCommandOutput>;
+  public tagUser(args: TagUserCommandInput, cb: (err: any, data?: TagUserCommandOutput) => void): void;
   public tagUser(
     args: TagUserCommandInput,
     options: __HttpHandlerOptions,
@@ -6247,17 +5551,14 @@ export class IAM extends IAMClient {
   ): void;
   public tagUser(
     args: TagUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagUserCommandOutput) => void),
     cb?: (err: any, data?: TagUserCommandOutput) => void
   ): Promise<TagUserCommandOutput> | void {
     const command = new TagUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6269,14 +5570,8 @@ export class IAM extends IAMClient {
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
    *       in the <i>IAM User Guide</i>.</p>
    */
-  public untagRole(
-    args: UntagRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagRoleCommandOutput>;
-  public untagRole(
-    args: UntagRoleCommandInput,
-    cb: (err: any, data?: UntagRoleCommandOutput) => void
-  ): void;
+  public untagRole(args: UntagRoleCommandInput, options?: __HttpHandlerOptions): Promise<UntagRoleCommandOutput>;
+  public untagRole(args: UntagRoleCommandInput, cb: (err: any, data?: UntagRoleCommandOutput) => void): void;
   public untagRole(
     args: UntagRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -6284,17 +5579,14 @@ export class IAM extends IAMClient {
   ): void;
   public untagRole(
     args: UntagRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagRoleCommandOutput) => void),
     cb?: (err: any, data?: UntagRoleCommandOutput) => void
   ): Promise<UntagRoleCommandOutput> | void {
     const command = new UntagRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6306,14 +5598,8 @@ export class IAM extends IAMClient {
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
    *       in the <i>IAM User Guide</i>.</p>
    */
-  public untagUser(
-    args: UntagUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagUserCommandOutput>;
-  public untagUser(
-    args: UntagUserCommandInput,
-    cb: (err: any, data?: UntagUserCommandOutput) => void
-  ): void;
+  public untagUser(args: UntagUserCommandInput, options?: __HttpHandlerOptions): Promise<UntagUserCommandOutput>;
+  public untagUser(args: UntagUserCommandInput, cb: (err: any, data?: UntagUserCommandOutput) => void): void;
   public untagUser(
     args: UntagUserCommandInput,
     options: __HttpHandlerOptions,
@@ -6321,17 +5607,14 @@ export class IAM extends IAMClient {
   ): void;
   public untagUser(
     args: UntagUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagUserCommandOutput) => void),
     cb?: (err: any, data?: UntagUserCommandOutput) => void
   ): Promise<UntagUserCommandOutput> | void {
     const command = new UntagUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6364,17 +5647,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateAccessKey(
     args: UpdateAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccessKeyCommandOutput) => void
   ): Promise<UpdateAccessKeyCommandOutput> | void {
     const command = new UpdateAccessKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6413,17 +5693,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAccountPasswordPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountPasswordPolicyCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccountPasswordPolicyCommandOutput) => void
   ): Promise<UpdateAccountPasswordPolicyCommandOutput> | void {
     const command = new UpdateAccountPasswordPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6451,17 +5728,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateAssumeRolePolicy(
     args: UpdateAssumeRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssumeRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssumeRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssumeRolePolicyCommandOutput) => void
   ): Promise<UpdateAssumeRolePolicyCommandOutput> | void {
     const command = new UpdateAssumeRolePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6484,14 +5758,8 @@ export class IAM extends IAMClient {
    *             fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>. </p>
    *          </note>
    */
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
+  public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -6499,17 +5767,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6537,17 +5802,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateLoginProfile(
     args: UpdateLoginProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLoginProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLoginProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateLoginProfileCommandOutput) => void
   ): Promise<UpdateLoginProfileCommandOutput> | void {
     const command = new UpdateLoginProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6576,38 +5838,25 @@ export class IAM extends IAMClient {
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput>;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): void;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): void;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> | void {
     const command = new UpdateOpenIDConnectProviderThumbprintCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6617,14 +5866,8 @@ export class IAM extends IAMClient {
   /**
    * <p>Updates the description or maximum session duration setting of a role.</p>
    */
-  public updateRole(
-    args: UpdateRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRoleCommandOutput>;
-  public updateRole(
-    args: UpdateRoleCommandInput,
-    cb: (err: any, data?: UpdateRoleCommandOutput) => void
-  ): void;
+  public updateRole(args: UpdateRoleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoleCommandOutput>;
+  public updateRole(args: UpdateRoleCommandInput, cb: (err: any, data?: UpdateRoleCommandOutput) => void): void;
   public updateRole(
     args: UpdateRoleCommandInput,
     options: __HttpHandlerOptions,
@@ -6632,17 +5875,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateRole(
     args: UpdateRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoleCommandOutput) => void
   ): Promise<UpdateRoleCommandOutput> | void {
     const command = new UpdateRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6669,17 +5909,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateRoleDescription(
     args: UpdateRoleDescriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoleDescriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoleDescriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoleDescriptionCommandOutput) => void
   ): Promise<UpdateRoleDescriptionCommandOutput> | void {
     const command = new UpdateRoleDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6707,17 +5944,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateSAMLProvider(
     args: UpdateSAMLProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSAMLProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSAMLProviderCommandOutput) => void),
     cb?: (err: any, data?: UpdateSAMLProviderCommandOutput) => void
   ): Promise<UpdateSAMLProviderCommandOutput> | void {
     const command = new UpdateSAMLProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6762,17 +5996,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateServerCertificate(
     args: UpdateServerCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServerCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerCertificateCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerCertificateCommandOutput) => void
   ): Promise<UpdateServerCertificateCommandOutput> | void {
     const command = new UpdateServerCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6800,20 +6031,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateServiceSpecificCredential(
     args: UpdateServiceSpecificCredentialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateServiceSpecificCredentialCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceSpecificCredentialCommandOutput) => void
   ): Promise<UpdateServiceSpecificCredentialCommandOutput> | void {
     const command = new UpdateServiceSpecificCredentialCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6845,17 +6070,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSigningCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSigningCertificateCommandOutput) => void),
     cb?: (err: any, data?: UpdateSigningCertificateCommandOutput) => void
   ): Promise<UpdateSigningCertificateCommandOutput> | void {
     const command = new UpdateSigningCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6886,17 +6108,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateSSHPublicKey(
     args: UpdateSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
   ): Promise<UpdateSSHPublicKeyCommandOutput> | void {
     const command = new UpdateSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6919,14 +6138,8 @@ export class IAM extends IAMClient {
    *          </p>
    *          </note>
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
+  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
   public updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -6934,17 +6147,14 @@ export class IAM extends IAMClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -6992,17 +6202,14 @@ export class IAM extends IAMClient {
   ): void;
   public uploadServerCertificate(
     args: UploadServerCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadServerCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadServerCertificateCommandOutput) => void),
     cb?: (err: any, data?: UploadServerCertificateCommandOutput) => void
   ): Promise<UploadServerCertificateCommandOutput> | void {
     const command = new UploadServerCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7043,17 +6250,14 @@ export class IAM extends IAMClient {
   ): void;
   public uploadSigningCertificate(
     args: UploadSigningCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadSigningCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadSigningCertificateCommandOutput) => void),
     cb?: (err: any, data?: UploadSigningCertificateCommandOutput) => void
   ): Promise<UploadSigningCertificateCommandOutput> | void {
     const command = new UploadSigningCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -7082,17 +6286,14 @@ export class IAM extends IAMClient {
   ): void;
   public uploadSSHPublicKey(
     args: UploadSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
   ): Promise<UploadSSHPublicKeyCommandOutput> | void {
     const command = new UploadSSHPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

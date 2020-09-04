@@ -1,24 +1,4 @@
-import {
-  Provider,
-  UrlParser,
-  Endpoint,
-  RegionInfoProvider,
-  RegionInfo
-} from "../types/mod.ts";
-
-export function normalizeEndpoint(
-  endpoint?: string | Endpoint | Provider<Endpoint>,
-  urlParser?: UrlParser
-): Provider<Endpoint> {
-  if (typeof endpoint === "string") {
-    const promisified = Promise.resolve(urlParser!(endpoint));
-    return () => promisified;
-  } else if (typeof endpoint === "object") {
-    const promisified = Promise.resolve(endpoint);
-    return () => promisified;
-  }
-  return endpoint!;
-}
+import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "../types/mod.ts";
 
 export interface EndpointsInputConfig {
   /**
@@ -31,37 +11,50 @@ export interface EndpointsInputConfig {
    */
   tls?: boolean;
 }
+
 interface PreviouslyResolved {
   regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
   region: Provider<string>;
 }
-export interface EndpointsResolvedConfig
-  extends Required<EndpointsInputConfig> {
+
+export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
   endpoint: Provider<Endpoint>;
 }
-export function resolveEndpointsConfig<T>(
+
+export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
-): T & EndpointsResolvedConfig {
-  const tls = input.tls === undefined ? true : input.tls;
-  const endpoint: Provider<Endpoint> = input.endpoint
-    ? normalizeEndpoint(input.endpoint, input.urlParser)
-    : () =>
-        input.region().then(async region => {
-          const hostname = (
-            (await input.regionInfoProvider(region)) || ({} as RegionInfo)
-          ).hostname;
-          if (!hostname) {
-            throw new Error("Cannot resolve hostname from client config");
-          }
-          const endpoint = input.urlParser(
-            `${tls ? "https:" : "http:"}//${hostname}`
-          );
-          return endpoint;
-        });
-  return {
-    ...input,
-    endpoint,
-    tls
-  };
-}
+): T & EndpointsResolvedConfig => ({
+  ...input,
+  tls: input.tls ?? true,
+  endpoint: input.endpoint ? normalizeEndpoint(input) : () => getEndPointFromRegion(input),
+});
+
+const normalizeEndpoint = (input: EndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {
+  const { endpoint, urlParser } = input;
+  if (typeof endpoint === "string") {
+    const promisified = Promise.resolve(urlParser(endpoint));
+    return () => promisified;
+  } else if (typeof endpoint === "object") {
+    const promisified = Promise.resolve(endpoint);
+    return () => promisified;
+  }
+  return endpoint!;
+};
+
+const getEndPointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
+  const { tls = true } = input;
+  const region = await input.region();
+
+  const dnsHostRegex = new RegExp(/^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])$/);
+  if (!dnsHostRegex.test(region)) {
+    throw new Error("Invalid region in client config");
+  }
+
+  const { hostname } = (await input.regionInfoProvider(region)) ?? {};
+  if (!hostname) {
+    throw new Error("Cannot resolve hostname from client config");
+  }
+
+  return input.urlParser(`${tls ? "https:" : "http:"}//${hostname}`);
+};

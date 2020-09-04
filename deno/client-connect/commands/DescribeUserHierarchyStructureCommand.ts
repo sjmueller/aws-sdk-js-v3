@@ -1,21 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient.ts";
-import {
-  DescribeUserHierarchyStructureRequest,
-  DescribeUserHierarchyStructureResponse
-} from "../models/index.ts";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
+import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
-  serializeAws_restJson1DescribeUserHierarchyStructureCommand
+  serializeAws_restJson1DescribeUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeUserHierarchyStructureCommandInput = DescribeUserHierarchyStructureRequest;
-export type DescribeUserHierarchyStructureCommandOutput = DescribeUserHierarchyStructureResponse &
-  __MetadataBearer;
+export type DescribeUserHierarchyStructureCommandOutput = DescribeUserHierarchyStructureResponse & __MetadataBearer;
 
 export class DescribeUserHierarchyStructureCommand extends $Command<
   DescribeUserHierarchyStructureCommandInput,
@@ -49,18 +38,16 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserHierarchyStructureCommandInput,
-    DescribeUserHierarchyStructureCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserHierarchyStructureCommandInput, DescribeUserHierarchyStructureCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeUserHierarchyStructureRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserHierarchyStructureResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     input: DescribeUserHierarchyStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUserHierarchyStructureCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeUserHierarchyStructureCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyStructureCommandOutput> {
-    return deserializeAws_restJson1DescribeUserHierarchyStructureCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeUserHierarchyStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient.ts";
-import {
-  DeploySystemInstanceRequest,
-  DeploySystemInstanceResponse
-} from "../models/index.ts";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
+import { DeploySystemInstanceRequest, DeploySystemInstanceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeploySystemInstanceCommand,
-  serializeAws_json1_1DeploySystemInstanceCommand
+  serializeAws_json1_1DeploySystemInstanceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeploySystemInstanceCommandInput = DeploySystemInstanceRequest;
-export type DeploySystemInstanceCommandOutput = DeploySystemInstanceResponse &
-  __MetadataBearer;
+export type DeploySystemInstanceCommandOutput = DeploySystemInstanceResponse & __MetadataBearer;
 
 export class DeploySystemInstanceCommand extends $Command<
   DeploySystemInstanceCommandInput,
@@ -49,18 +38,16 @@ export class DeploySystemInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeploySystemInstanceCommandInput,
-    DeploySystemInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeploySystemInstanceCommandInput, DeploySystemInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeploySystemInstanceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeploySystemInstanceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeploySystemInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeploySystemInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeploySystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeploySystemInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeploySystemInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeploySystemInstanceCommandOutput> {
     return deserializeAws_json1_1DeploySystemInstanceCommand(output, context);
   }
 

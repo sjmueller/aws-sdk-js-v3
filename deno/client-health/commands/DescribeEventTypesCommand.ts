@@ -1,21 +1,11 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient.ts";
-import {
-  DescribeEventTypesRequest,
-  DescribeEventTypesResponse
-} from "../models/index.ts";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
+import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventTypesCommand,
-  serializeAws_json1_1DescribeEventTypesCommand
+  serializeAws_json1_1DescribeEventTypesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventTypesCommandInput = DescribeEventTypesRequest;
-export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse &
-  __MetadataBearer;
+export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse & __MetadataBearer;
 
 export class DescribeEventTypesCommand extends $Command<
   DescribeEventTypesCommandInput,
@@ -50,14 +39,15 @@ export class DescribeEventTypesCommand extends $Command<
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeEventTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventTypesCommandOutput> {
     return deserializeAws_json1_1DescribeEventTypesCommand(output, context);
   }
 

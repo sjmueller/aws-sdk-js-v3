@@ -1,21 +1,15 @@
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient.ts";
-import {
-  GetRecommendationsRequest,
-  GetRecommendationsResponse
-} from "../models/index.ts";
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand
+  serializeAws_restJson1GetRecommendationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRecommendationsCommandInput = GetRecommendationsRequest;
-export type GetRecommendationsCommandOutput = GetRecommendationsResponse &
-  __MetadataBearer;
+export type GetRecommendationsCommandOutput = GetRecommendationsResponse & __MetadataBearer;
 
 export class GetRecommendationsCommand extends $Command<
   GetRecommendationsCommandInput,
@@ -50,14 +43,15 @@ export class GetRecommendationsCommand extends $Command<
     configuration: PersonalizeRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationsCommandInput, GetRecommendationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRecommendationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommendationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRecommendationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRecommendationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
     return deserializeAws_restJson1GetRecommendationsCommand(output, context);
   }
 

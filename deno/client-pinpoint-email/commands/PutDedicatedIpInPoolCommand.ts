@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient.ts";
-import {
-  PutDedicatedIpInPoolRequest,
-  PutDedicatedIpInPoolResponse
-} from "../models/index.ts";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
+import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutDedicatedIpInPoolCommand,
-  serializeAws_restJson1PutDedicatedIpInPoolCommand
+  serializeAws_restJson1PutDedicatedIpInPoolCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutDedicatedIpInPoolCommandInput = PutDedicatedIpInPoolRequest;
-export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse &
-  __MetadataBearer;
+export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse & __MetadataBearer;
 
 export class PutDedicatedIpInPoolCommand extends $Command<
   PutDedicatedIpInPoolCommandInput,
@@ -49,18 +38,16 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDedicatedIpInPoolCommandInput,
-    PutDedicatedIpInPoolCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDedicatedIpInPoolCommandInput, PutDedicatedIpInPoolCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutDedicatedIpInPoolRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpInPoolResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutDedicatedIpInPoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutDedicatedIpInPoolCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
     return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
   }
 

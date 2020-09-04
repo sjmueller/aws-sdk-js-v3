@@ -1,21 +1,14 @@
-import {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LicenseManagerClient.ts";
+import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient.ts";
 import {
   ListFailuresForLicenseConfigurationOperationsRequest,
-  ListFailuresForLicenseConfigurationOperationsResponse
+  ListFailuresForLicenseConfigurationOperationsResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
-  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
+  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListFailuresForLicenseConfigurationOperationsCommandInput = ListFailuresForLicenseConfigurationOperationsRequest;
@@ -39,9 +32,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput
-  ) {
+  constructor(readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     ListFailuresForLicenseConfigurationOperationsCommandInput,
     ListFailuresForLicenseConfigurationOperationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
-    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,15 @@
 import {
   CodeGuruReviewerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeGuruReviewerClient.ts";
-import {
-  DescribeRepositoryAssociationRequest,
-  DescribeRepositoryAssociationResponse
-} from "../models/index.ts";
+import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeRepositoryAssociationCommand,
-  serializeAws_restJson1DescribeRepositoryAssociationCommand
+  serializeAws_restJson1DescribeRepositoryAssociationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRepositoryAssociationCommandInput = DescribeRepositoryAssociationRequest;
-export type DescribeRepositoryAssociationCommandOutput = DescribeRepositoryAssociationResponse &
-  __MetadataBearer;
+export type DescribeRepositoryAssociationCommandOutput = DescribeRepositoryAssociationResponse & __MetadataBearer;
 
 export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandInput,
@@ -49,18 +42,16 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRepositoryAssociationCommandInput,
-    DescribeRepositoryAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRepositoryAssociationCommandInput, DescribeRepositoryAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRepositoryAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRepositoryAssociationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRepositoryAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRepositoryAssociationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeRepositoryAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeRepositoryAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
-    return deserializeAws_restJson1DescribeRepositoryAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

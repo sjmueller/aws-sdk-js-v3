@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionResponse
-} from "../models/index.ts";
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ApplyPendingMaintenanceActionCommand,
-  serializeAws_json1_1ApplyPendingMaintenanceActionCommand
+  serializeAws_json1_1ApplyPendingMaintenanceActionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ApplyPendingMaintenanceActionCommandInput = ApplyPendingMaintenanceActionMessage;
-export type ApplyPendingMaintenanceActionCommandOutput = ApplyPendingMaintenanceActionResponse &
-  __MetadataBearer;
+export type ApplyPendingMaintenanceActionCommandOutput = ApplyPendingMaintenanceActionResponse & __MetadataBearer;
 
 export class ApplyPendingMaintenanceActionCommand extends $Command<
   ApplyPendingMaintenanceActionCommandInput,
@@ -49,18 +42,16 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ApplyPendingMaintenanceActionCommandInput,
-    ApplyPendingMaintenanceActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ApplyPendingMaintenanceActionCommandInput, ApplyPendingMaintenanceActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplyPendingMaintenanceActionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ApplyPendingMaintenanceActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApplyPendingMaintenanceActionCommand(
-      input,
-      context
-    );
+  private serialize(input: ApplyPendingMaintenanceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ApplyPendingMaintenanceActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
-    return deserializeAws_json1_1ApplyPendingMaintenanceActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ApplyPendingMaintenanceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

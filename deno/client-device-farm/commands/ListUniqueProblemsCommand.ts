@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  ListUniqueProblemsRequest,
-  ListUniqueProblemsResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListUniqueProblemsCommand,
-  serializeAws_json1_1ListUniqueProblemsCommand
+  serializeAws_json1_1ListUniqueProblemsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListUniqueProblemsCommandInput = ListUniqueProblemsRequest;
-export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult &
-  __MetadataBearer;
+export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult & __MetadataBearer;
 
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,
@@ -50,14 +39,15 @@ export class ListUniqueProblemsCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListUniqueProblemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListUniqueProblemsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListUniqueProblemsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListUniqueProblemsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListUniqueProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUniqueProblemsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListUniqueProblemsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUniqueProblemsCommandOutput> {
     return deserializeAws_json1_1ListUniqueProblemsCommand(output, context);
   }
 

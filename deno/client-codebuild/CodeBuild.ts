@@ -2,354 +2,388 @@ import { CodeBuildClient } from "./CodeBuildClient.ts";
 import {
   BatchDeleteBuildsCommand,
   BatchDeleteBuildsCommandInput,
-  BatchDeleteBuildsCommandOutput
+  BatchDeleteBuildsCommandOutput,
 } from "./commands/BatchDeleteBuildsCommand.ts";
+import {
+  BatchGetBuildBatchesCommand,
+  BatchGetBuildBatchesCommandInput,
+  BatchGetBuildBatchesCommandOutput,
+} from "./commands/BatchGetBuildBatchesCommand.ts";
 import {
   BatchGetBuildsCommand,
   BatchGetBuildsCommandInput,
-  BatchGetBuildsCommandOutput
+  BatchGetBuildsCommandOutput,
 } from "./commands/BatchGetBuildsCommand.ts";
 import {
   BatchGetProjectsCommand,
   BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput
+  BatchGetProjectsCommandOutput,
 } from "./commands/BatchGetProjectsCommand.ts";
 import {
   BatchGetReportGroupsCommand,
   BatchGetReportGroupsCommandInput,
-  BatchGetReportGroupsCommandOutput
+  BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand.ts";
 import {
   BatchGetReportsCommand,
   BatchGetReportsCommandInput,
-  BatchGetReportsCommandOutput
+  BatchGetReportsCommandOutput,
 } from "./commands/BatchGetReportsCommand.ts";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput
+  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand.ts";
 import {
   CreateReportGroupCommand,
   CreateReportGroupCommandInput,
-  CreateReportGroupCommandOutput
+  CreateReportGroupCommandOutput,
 } from "./commands/CreateReportGroupCommand.ts";
 import {
   CreateWebhookCommand,
   CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
+  CreateWebhookCommandOutput,
 } from "./commands/CreateWebhookCommand.ts";
+import {
+  DeleteBuildBatchCommand,
+  DeleteBuildBatchCommandInput,
+  DeleteBuildBatchCommandOutput,
+} from "./commands/DeleteBuildBatchCommand.ts";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
+  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand.ts";
 import {
   DeleteReportCommand,
   DeleteReportCommandInput,
-  DeleteReportCommandOutput
+  DeleteReportCommandOutput,
 } from "./commands/DeleteReportCommand.ts";
 import {
   DeleteReportGroupCommand,
   DeleteReportGroupCommandInput,
-  DeleteReportGroupCommandOutput
+  DeleteReportGroupCommandOutput,
 } from "./commands/DeleteReportGroupCommand.ts";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteSourceCredentialsCommand,
   DeleteSourceCredentialsCommandInput,
-  DeleteSourceCredentialsCommandOutput
+  DeleteSourceCredentialsCommandOutput,
 } from "./commands/DeleteSourceCredentialsCommand.ts";
 import {
   DeleteWebhookCommand,
   DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
+  DeleteWebhookCommandOutput,
 } from "./commands/DeleteWebhookCommand.ts";
+import {
+  DescribeCodeCoveragesCommand,
+  DescribeCodeCoveragesCommandInput,
+  DescribeCodeCoveragesCommandOutput,
+} from "./commands/DescribeCodeCoveragesCommand.ts";
 import {
   DescribeTestCasesCommand,
   DescribeTestCasesCommandInput,
-  DescribeTestCasesCommandOutput
+  DescribeTestCasesCommandOutput,
 } from "./commands/DescribeTestCasesCommand.ts";
 import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
+  GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand.ts";
 import {
   ImportSourceCredentialsCommand,
   ImportSourceCredentialsCommandInput,
-  ImportSourceCredentialsCommandOutput
+  ImportSourceCredentialsCommandOutput,
 } from "./commands/ImportSourceCredentialsCommand.ts";
 import {
   InvalidateProjectCacheCommand,
   InvalidateProjectCacheCommandInput,
-  InvalidateProjectCacheCommandOutput
+  InvalidateProjectCacheCommandOutput,
 } from "./commands/InvalidateProjectCacheCommand.ts";
 import {
-  ListBuildsCommand,
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand.ts";
+  ListBuildBatchesCommand,
+  ListBuildBatchesCommandInput,
+  ListBuildBatchesCommandOutput,
+} from "./commands/ListBuildBatchesCommand.ts";
+import {
+  ListBuildBatchesForProjectCommand,
+  ListBuildBatchesForProjectCommandInput,
+  ListBuildBatchesForProjectCommandOutput,
+} from "./commands/ListBuildBatchesForProjectCommand.ts";
+import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand.ts";
 import {
   ListBuildsForProjectCommand,
   ListBuildsForProjectCommandInput,
-  ListBuildsForProjectCommandOutput
+  ListBuildsForProjectCommandOutput,
 } from "./commands/ListBuildsForProjectCommand.ts";
 import {
   ListCuratedEnvironmentImagesCommand,
   ListCuratedEnvironmentImagesCommandInput,
-  ListCuratedEnvironmentImagesCommandOutput
+  ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand.ts";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
-  ListProjectsCommandOutput
+  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand.ts";
 import {
   ListReportGroupsCommand,
   ListReportGroupsCommandInput,
-  ListReportGroupsCommandOutput
+  ListReportGroupsCommandOutput,
 } from "./commands/ListReportGroupsCommand.ts";
 import {
   ListReportsCommand,
   ListReportsCommandInput,
-  ListReportsCommandOutput
+  ListReportsCommandOutput,
 } from "./commands/ListReportsCommand.ts";
 import {
   ListReportsForReportGroupCommand,
   ListReportsForReportGroupCommandInput,
-  ListReportsForReportGroupCommandOutput
+  ListReportsForReportGroupCommandOutput,
 } from "./commands/ListReportsForReportGroupCommand.ts";
 import {
   ListSharedProjectsCommand,
   ListSharedProjectsCommandInput,
-  ListSharedProjectsCommandOutput
+  ListSharedProjectsCommandOutput,
 } from "./commands/ListSharedProjectsCommand.ts";
 import {
   ListSharedReportGroupsCommand,
   ListSharedReportGroupsCommandInput,
-  ListSharedReportGroupsCommandOutput
+  ListSharedReportGroupsCommandOutput,
 } from "./commands/ListSharedReportGroupsCommand.ts";
 import {
   ListSourceCredentialsCommand,
   ListSourceCredentialsCommandInput,
-  ListSourceCredentialsCommandOutput
+  ListSourceCredentialsCommandOutput,
 } from "./commands/ListSourceCredentialsCommand.ts";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
+  PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand.ts";
 import {
-  StartBuildCommand,
-  StartBuildCommandInput,
-  StartBuildCommandOutput
-} from "./commands/StartBuildCommand.ts";
+  RetryBuildBatchCommand,
+  RetryBuildBatchCommandInput,
+  RetryBuildBatchCommandOutput,
+} from "./commands/RetryBuildBatchCommand.ts";
+import { RetryBuildCommand, RetryBuildCommandInput, RetryBuildCommandOutput } from "./commands/RetryBuildCommand.ts";
 import {
-  StopBuildCommand,
-  StopBuildCommandInput,
-  StopBuildCommandOutput
-} from "./commands/StopBuildCommand.ts";
+  StartBuildBatchCommand,
+  StartBuildBatchCommandInput,
+  StartBuildBatchCommandOutput,
+} from "./commands/StartBuildBatchCommand.ts";
+import { StartBuildCommand, StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand.ts";
+import {
+  StopBuildBatchCommand,
+  StopBuildBatchCommandInput,
+  StopBuildBatchCommandOutput,
+} from "./commands/StopBuildBatchCommand.ts";
+import { StopBuildCommand, StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand.ts";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
+  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand.ts";
 import {
   UpdateReportGroupCommand,
   UpdateReportGroupCommandInput,
-  UpdateReportGroupCommandOutput
+  UpdateReportGroupCommandOutput,
 } from "./commands/UpdateReportGroupCommand.ts";
 import {
   UpdateWebhookCommand,
   UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
+  UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <fullname>AWS CodeBuild</fullname>
- *          <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
- *          runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need
- *          to provision, manage, and scale your own build servers. It provides prepackaged build
- *          environments for the most popular programming languages and build tools, such as Apache
- *          Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use
- *          your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You pay only
- *          for the build time you consume. For more information about AWS CodeBuild, see the <i>
- *                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User Guide</a>.</i>
+ *         <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
+ *             runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the
+ *             need to provision, manage, and scale your own build servers. It provides prepackaged
+ *             build environments for the most popular programming languages and build tools, such as
+ *             Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild
+ *             to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You
+ *             pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>
+ *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">AWS CodeBuild User
+ *                     Guide</a>.</i>
  *          </p>
- *          <p>AWS CodeBuild supports these operations:</p>
- *          <ul>
+ *         <p>AWS CodeBuild supports these operations:</p>
+ *         <ul>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>BatchGetBuilds</code>: Gets information about one or more builds.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetProjects</code>: Gets information about one or more build projects.
- *                A <i>build project</i> defines how AWS CodeBuild runs a build. This includes
- *                information such as where to get the source code to build, the build environment to
- *                use, the build commands to run, and where to store the build output. A
- *                <i>build environment</i> is a representation of operating system,
- *                programming language runtime, and tools that AWS CodeBuild uses to run a build. You can add
- *                tags to build projects to help manage your resources and costs.</p>
+ *                 <p>
+ *                   <code>BatchGetProjects</code>: Gets information about one or more build
+ *                     projects. A <i>build project</i> defines how AWS CodeBuild runs a build.
+ *                     This includes information such as where to get the source code to build, the
+ *                     build environment to use, the build commands to run, and where to store the
+ *                     build output. A <i>build environment</i> is a representation of
+ *                     operating system, programming language runtime, and tools that AWS CodeBuild uses to run
+ *                     a build. You can add tags to build projects to help manage your resources and
+ *                     costs.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReportGroups</code>: Returns an array of report groups.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReportGroups</code>: Returns an array of report groups. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>BatchGetReports</code>: Returns an array of reports.
- *             </p>
+ *                 <p>
+ *                     <code>BatchGetReports</code>: Returns an array of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateProject</code>: Creates a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>CreateReportGroup</code>: Creates a report group. A report group contains a collection of reports.
- *             </p>
+ *                 <p>
+ *                     <code>CreateReportGroup</code>: Creates a report group. A report group contains
+ *                     a collection of reports. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
- *                rebuilding the source code every time a code change is pushed to the
- *                repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteProject</code>: Deletes a build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReport</code>: Deletes a report.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReport</code>: Deletes a report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteReportGroup</code>: Deletes a report group.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteReportGroup</code>: Deletes a report group. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>DeleteResourcePolicy</code>: Deletes a resource policy that is identified
+ *                     by its resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise,
- *                or Bitbucket source credentials.</p>
+ *                 <p>
+ *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub
+ *                     Enterprise, or Bitbucket source credentials.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its
- *                source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding
- *                the source code every time a code change is pushed to the repository.</p>
+ *                     source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from
+ *                     rebuilding the source code every time a code change is pushed to the
+ *                     repository.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.
- *             </p>
+ *                 <p>
+ *                     <code>DescribeTestCases</code>: Returns a list of details about test cases for a
+ *                     report. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.
- *             </p>
+ *                 <p>
+ *                     <code>GetResourcePolicy</code>: Gets a resource policy that is identified by its
+ *                     resource ARN. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ImportSourceCredentials</code>: Imports the source repository credentials for an AWS CodeBuild project that has its source code stored
- *                in a GitHub, GitHub Enterprise, or Bitbucket repository.</p>
+ *                 <p>
+ *                   <code>ImportSourceCredentials</code>: Imports the source repository
+ *                     credentials for an AWS CodeBuild project that has its source code stored in a
+ *                     GitHub, GitHub Enterprise, or Bitbucket repository.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>InvalidateProjectCache</code>: Resets the cache for a project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing
- *                a single build.</p>
+ *                 <p>
+ *                   <code>ListBuilds</code>: Gets a list of build IDs, with each build ID
+ *                     representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified
- *                build project, with each build ID representing a single build.</p>
+ *                     build project, with each build ID representing a single build.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images
- *                that are managed by AWS CodeBuild.</p>
+ *                 <p>
+ *                   <code>ListCuratedEnvironmentImages</code>: Gets information about Docker
+ *                     images that are managed by AWS CodeBuild.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>ListProjects</code>: Gets a list of build project names, with each build
- *                project name representing a single build project.</p>
+ *                     project name representing a single build project.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportGroups</code>: Gets a list ARNs for the report groups in the
+ *                     current AWS account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS account.
- *             </p>
+ *                 <p>
+ *                     <code>ListReports</code>: Gets a list ARNs for the reports in the current AWS
+ *                     account. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
- *             </p>
+ *                 <p>
+ *                     <code>ListReportsForReportGroup</code>: Returns a list of ARNs for the reports
+ *                     that belong to a <code>ReportGroup</code>. </p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>
+ *                 <p>
+ *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects
+ *                     shared with the current AWS account or user.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>
+ *                 <p>
+ *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with
+ *                     report groups shared with the current AWS account or user</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes
- *                the authentication type, token ARN, and type of source provider for one set of credentials.</p>
+ *                 <p>
+ *                   <code>ListSourceCredentials</code>: Returns a list of
+ *                         <code>SourceCredentialsInfo</code> objects. Each
+ *                         <code>SourceCredentialsInfo</code> object includes the authentication type,
+ *                     token ARN, and type of source provider for one set of credentials.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.
- *             </p>
+ *                 <p>
+ *                     <code>PutResourcePolicy</code>: Stores a resource policy for the ARN of a
+ *                         <code>Project</code> or <code>ReportGroup</code> object. </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StartBuild</code>: Starts running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>StopBuild</code>: Attempts to stop running a build.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateProject</code>: Changes the settings of an existing build
- *                project.</p>
+ *                     project.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>UpdateReportGroup</code>: Changes a report group.</p>
  *             </li>
  *             <li>
- *                <p>
- *                   <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>
+ *                 <p>
+ *                   <code>UpdateWebhook</code>: Changes the settings of an existing
+ *                     webhook.</p>
  *             </li>
  *          </ul>
  */
@@ -372,17 +406,46 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchDeleteBuilds(
     args: BatchDeleteBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteBuildsCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteBuildsCommandOutput) => void
   ): Promise<BatchDeleteBuildsCommandOutput> | void {
     const command = new BatchDeleteBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about one or more batch builds.</p>
+   */
+  public batchGetBuildBatches(
+    args: BatchGetBuildBatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetBuildBatchesCommandOutput>;
+  public batchGetBuildBatches(
+    args: BatchGetBuildBatchesCommandInput,
+    cb: (err: any, data?: BatchGetBuildBatchesCommandOutput) => void
+  ): void;
+  public batchGetBuildBatches(
+    args: BatchGetBuildBatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetBuildBatchesCommandOutput) => void
+  ): void;
+  public batchGetBuildBatches(
+    args: BatchGetBuildBatchesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetBuildBatchesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetBuildBatchesCommandOutput) => void
+  ): Promise<BatchGetBuildBatchesCommandOutput> | void {
+    const command = new BatchGetBuildBatchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -407,17 +470,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetBuildsCommandOutput) => void
   ): Promise<BatchGetBuildsCommandOutput> | void {
     const command = new BatchGetBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -442,17 +502,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetProjectsCommandOutput) => void
   ): Promise<BatchGetProjectsCommandOutput> | void {
     const command = new BatchGetProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -461,8 +518,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Returns an array of report groups.
-   *       </p>
+   *       Returns an array of report groups.
+   *     </p>
    */
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
@@ -479,17 +536,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetReportGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetReportGroupsCommandOutput) => void
   ): Promise<BatchGetReportGroupsCommandOutput> | void {
     const command = new BatchGetReportGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -498,8 +552,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Returns an array of reports.
-   *       </p>
+   *       Returns an array of reports.
+   *     </p>
    */
   public batchGetReports(
     args: BatchGetReportsCommandInput,
@@ -516,17 +570,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetReports(
     args: BatchGetReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetReportsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetReportsCommandOutput) => void
   ): Promise<BatchGetReportsCommandOutput> | void {
     const command = new BatchGetReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,17 +602,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -570,8 +618,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Creates a report group. A report group contains a collection of reports.
-   *       </p>
+   *       Creates a report group. A report group contains a collection of reports.
+   *     </p>
    */
   public createReportGroup(
     args: CreateReportGroupCommandInput,
@@ -588,17 +636,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createReportGroup(
     args: CreateReportGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReportGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReportGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateReportGroupCommandOutput) => void
   ): Promise<CreateReportGroupCommandOutput> | void {
     const command = new CreateReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,16 +652,15 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
-   *          Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code
-   *          change is pushed to the repository.</p>
+   *       Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a
+   *       code change is pushed to the repository.</p>
    *          <important>
-   *             <p>If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step
-   *             in AWS CodePipeline, then two identical builds are created for each commit. One build is triggered
-   *             through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you
-   *             are billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you
-   *             disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more
-   *             information, see step 5 in <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change a
-   *                Build Project's Settings</a>.</p>
+   *             <p>If you enable webhooks for an AWS CodeBuild project, and the project is used as a build
+   *         step in AWS CodePipeline, then two identical builds are created for each commit. One build is
+   *         triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build
+   *         basis, you are billed for both builds. Therefore, if you are using AWS CodePipeline, we
+   *         recommend that you disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the
+   *         Webhook box. For more information, see step 5 in <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change a Build Project's Settings</a>.</p>
    *          </important>
    */
   public createWebhook(
@@ -634,17 +678,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createWebhook(
     args: CreateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebhookCommandOutput) => void),
     cb?: (err: any, data?: CreateWebhookCommandOutput) => void
   ): Promise<CreateWebhookCommandOutput> | void {
     const command = new CreateWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -652,9 +693,40 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Deletes a build project. When you delete a project, its builds are not deleted.
-   *       </p>
+   * <p>Deletes a batch build.</p>
+   */
+  public deleteBuildBatch(
+    args: DeleteBuildBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBuildBatchCommandOutput>;
+  public deleteBuildBatch(
+    args: DeleteBuildBatchCommandInput,
+    cb: (err: any, data?: DeleteBuildBatchCommandOutput) => void
+  ): void;
+  public deleteBuildBatch(
+    args: DeleteBuildBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBuildBatchCommandOutput) => void
+  ): void;
+  public deleteBuildBatch(
+    args: DeleteBuildBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBuildBatchCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBuildBatchCommandOutput) => void
+  ): Promise<DeleteBuildBatchCommandOutput> | void {
+    const command = new DeleteBuildBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Deletes a build project. When you delete a project, its builds are not deleted.
+   *         </p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -671,17 +743,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -690,17 +759,14 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Deletes a report.
-   *       </p>
+   *       Deletes a report.
+   *     </p>
    */
   public deleteReport(
     args: DeleteReportCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReportCommandOutput>;
-  public deleteReport(
-    args: DeleteReportCommandInput,
-    cb: (err: any, data?: DeleteReportCommandOutput) => void
-  ): void;
+  public deleteReport(args: DeleteReportCommandInput, cb: (err: any, data?: DeleteReportCommandOutput) => void): void;
   public deleteReport(
     args: DeleteReportCommandInput,
     options: __HttpHandlerOptions,
@@ -708,17 +774,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteReport(
     args: DeleteReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportCommandOutput) => void
   ): Promise<DeleteReportCommandOutput> | void {
     const command = new DeleteReportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -728,10 +791,10 @@ export class CodeBuild extends CodeBuildClient {
   /**
    * <p>
    *             <code>DeleteReportGroup</code>: Deletes a report group. Before you delete a report group, you must
-   *          delete its reports. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a> to
-   *          get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a> to delete the reports. If you call
-   *          <code>DeleteReportGroup</code> for a report group that contains one or more reports, an exception is thrown.
-   *       </p>
+   *       delete its reports. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a> to
+   *       get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a> to delete the reports. If you call
+   *       <code>DeleteReportGroup</code> for a report group that contains one or more reports, an exception is thrown.
+   *     </p>
    */
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
@@ -748,17 +811,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReportGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportGroupCommandOutput) => void
   ): Promise<DeleteReportGroupCommandOutput> | void {
     const command = new DeleteReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -766,9 +826,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Deletes a resource policy that is identified by its resource ARN.
-   *       </p>
+   * <p> Deletes a resource policy that is identified by its resource ARN. </p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -785,17 +843,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -803,9 +858,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
-   *       </p>
+   * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
    */
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
@@ -822,17 +875,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSourceCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: DeleteSourceCredentialsCommandOutput) => void
   ): Promise<DeleteSourceCredentialsCommandOutput> | void {
     const command = new DeleteSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -841,8 +891,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
-   *          Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change
-   *          is pushed to the repository.</p>
+   *             Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code
+   *             change is pushed to the repository.</p>
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -859,17 +909,46 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves one or more code coverage reports.</p>
+   */
+  public describeCodeCoverages(
+    args: DescribeCodeCoveragesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCodeCoveragesCommandOutput>;
+  public describeCodeCoverages(
+    args: DescribeCodeCoveragesCommandInput,
+    cb: (err: any, data?: DescribeCodeCoveragesCommandOutput) => void
+  ): void;
+  public describeCodeCoverages(
+    args: DescribeCodeCoveragesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCodeCoveragesCommandOutput) => void
+  ): void;
+  public describeCodeCoverages(
+    args: DescribeCodeCoveragesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCodeCoveragesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCodeCoveragesCommandOutput) => void
+  ): Promise<DescribeCodeCoveragesCommandOutput> | void {
+    const command = new DescribeCodeCoveragesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -878,8 +957,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Returns a list of details about test cases for a report.
-   *       </p>
+   *       Returns a list of details about test cases for a report.
+   *     </p>
    */
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
@@ -896,17 +975,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTestCasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTestCasesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTestCasesCommandOutput) => void
   ): Promise<DescribeTestCasesCommandOutput> | void {
     const command = new DescribeTestCasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -914,9 +990,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Gets a resource policy that is identified by its resource ARN.
-   *       </p>
+   * <p> Gets a resource policy that is identified by its resource ARN. </p>
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -933,17 +1007,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): Promise<GetResourcePolicyCommandOutput> | void {
     const command = new GetResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -951,10 +1022,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Imports the source repository credentials for an AWS CodeBuild project that has its source code stored
-   *          in a GitHub, GitHub Enterprise, or Bitbucket repository.
-   *       </p>
+   * <p> Imports the source repository credentials for an AWS CodeBuild project that has its
+   *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
    */
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
@@ -971,17 +1040,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportSourceCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ImportSourceCredentialsCommandOutput) => void
   ): Promise<ImportSourceCredentialsCommandOutput> | void {
     const command = new ImportSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1006,17 +1072,78 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public invalidateProjectCache(
     args: InvalidateProjectCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvalidateProjectCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvalidateProjectCacheCommandOutput) => void),
     cb?: (err: any, data?: InvalidateProjectCacheCommandOutput) => void
   ): Promise<InvalidateProjectCacheCommandOutput> | void {
     const command = new InvalidateProjectCacheCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the identifiers of your build batches in the current region.</p>
+   */
+  public listBuildBatches(
+    args: ListBuildBatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBuildBatchesCommandOutput>;
+  public listBuildBatches(
+    args: ListBuildBatchesCommandInput,
+    cb: (err: any, data?: ListBuildBatchesCommandOutput) => void
+  ): void;
+  public listBuildBatches(
+    args: ListBuildBatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBuildBatchesCommandOutput) => void
+  ): void;
+  public listBuildBatches(
+    args: ListBuildBatchesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildBatchesCommandOutput) => void),
+    cb?: (err: any, data?: ListBuildBatchesCommandOutput) => void
+  ): Promise<ListBuildBatchesCommandOutput> | void {
+    const command = new ListBuildBatchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the identifiers of the build batches for a specific project.</p>
+   */
+  public listBuildBatchesForProject(
+    args: ListBuildBatchesForProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBuildBatchesForProjectCommandOutput>;
+  public listBuildBatchesForProject(
+    args: ListBuildBatchesForProjectCommandInput,
+    cb: (err: any, data?: ListBuildBatchesForProjectCommandOutput) => void
+  ): void;
+  public listBuildBatchesForProject(
+    args: ListBuildBatchesForProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBuildBatchesForProjectCommandOutput) => void
+  ): void;
+  public listBuildBatchesForProject(
+    args: ListBuildBatchesForProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildBatchesForProjectCommandOutput) => void),
+    cb?: (err: any, data?: ListBuildBatchesForProjectCommandOutput) => void
+  ): Promise<ListBuildBatchesForProjectCommandOutput> | void {
+    const command = new ListBuildBatchesForProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1026,14 +1153,8 @@ export class CodeBuild extends CodeBuildClient {
   /**
    * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
    */
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBuildsCommandOutput>;
-  public listBuilds(
-    args: ListBuildsCommandInput,
-    cb: (err: any, data?: ListBuildsCommandOutput) => void
-  ): void;
+  public listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
+  public listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
   public listBuilds(
     args: ListBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -1041,17 +1162,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1060,7 +1178,7 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>Gets a list of build IDs for the specified build project, with each build ID
-   *          representing a single build.</p>
+   *             representing a single build.</p>
    */
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
@@ -1077,17 +1195,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsForProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsForProjectCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsForProjectCommandOutput) => void
   ): Promise<ListBuildsForProjectCommandOutput> | void {
     const command = new ListBuildsForProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1112,17 +1227,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void),
     cb?: (err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> | void {
     const command = new ListCuratedEnvironmentImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1131,16 +1243,13 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>Gets a list of build project names, with each build project name representing a single
-   *          build project.</p>
+   *             build project.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListProjectsCommandOutput>;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
+  public listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   public listProjects(
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -1148,17 +1257,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1167,8 +1273,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Gets a list ARNs for the report groups in the current AWS account.
-   *       </p>
+   *       Gets a list ARNs for the report groups in the current AWS account.
+   *     </p>
    */
   public listReportGroups(
     args: ListReportGroupsCommandInput,
@@ -1185,17 +1291,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReportGroups(
     args: ListReportGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReportGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListReportGroupsCommandOutput) => void
   ): Promise<ListReportGroupsCommandOutput> | void {
     const command = new ListReportGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1204,17 +1307,11 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Returns a list of ARNs for the reports in the current AWS account.
-   *       </p>
+   *       Returns a list of ARNs for the reports in the current AWS account.
+   *     </p>
    */
-  public listReports(
-    args: ListReportsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListReportsCommandOutput>;
-  public listReports(
-    args: ListReportsCommandInput,
-    cb: (err: any, data?: ListReportsCommandOutput) => void
-  ): void;
+  public listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
+  public listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
   public listReports(
     args: ListReportsCommandInput,
     options: __HttpHandlerOptions,
@@ -1222,17 +1319,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReports(
     args: ListReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportsCommandOutput) => void),
     cb?: (err: any, data?: ListReportsCommandOutput) => void
   ): Promise<ListReportsCommandOutput> | void {
     const command = new ListReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1241,8 +1335,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
-   *       </p>
+   *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
+   *     </p>
    */
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
@@ -1259,17 +1353,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReportsForReportGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportsForReportGroupCommandOutput) => void),
     cb?: (err: any, data?: ListReportsForReportGroupCommandOutput) => void
   ): Promise<ListReportsForReportGroupCommandOutput> | void {
     const command = new ListReportsForReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1277,9 +1368,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Gets a list of projects that are shared with other AWS accounts or users.
-   *       </p>
+   * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>
    */
   public listSharedProjects(
     args: ListSharedProjectsCommandInput,
@@ -1296,17 +1385,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listSharedProjects(
     args: ListSharedProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSharedProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSharedProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListSharedProjectsCommandOutput) => void
   ): Promise<ListSharedProjectsCommandOutput> | void {
     const command = new ListSharedProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1314,9 +1400,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Gets a list of report groups that are shared with other AWS accounts or users.
-   *       </p>
+   * <p> Gets a list of report groups that are shared with other AWS accounts or users.
+   *         </p>
    */
   public listSharedReportGroups(
     args: ListSharedReportGroupsCommandInput,
@@ -1333,17 +1418,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listSharedReportGroups(
     args: ListSharedReportGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSharedReportGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSharedReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListSharedReportGroupsCommandOutput) => void
   ): Promise<ListSharedReportGroupsCommandOutput> | void {
     const command = new ListSharedReportGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1351,9 +1433,7 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Returns a list of <code>SourceCredentialsInfo</code> objects.
-   *       </p>
+   * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
    */
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
@@ -1370,17 +1450,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSourceCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ListSourceCredentialsCommandOutput) => void
   ): Promise<ListSourceCredentialsCommandOutput> | void {
     const command = new ListSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1388,10 +1465,8 @@ export class CodeBuild extends CodeBuildClient {
   }
 
   /**
-   * <p>
-   *          Stores a resource policy for the ARN of a <code>Project</code> or
-   *          <code>ReportGroup</code> object.
-   *       </p>
+   * <p> Stores a resource policy for the ARN of a <code>Project</code> or
+   *                 <code>ReportGroup</code> object. </p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1408,17 +1483,72 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): Promise<PutResourcePolicyCommandOutput> | void {
     const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restarts a build.</p>
+   */
+  public retryBuild(args: RetryBuildCommandInput, options?: __HttpHandlerOptions): Promise<RetryBuildCommandOutput>;
+  public retryBuild(args: RetryBuildCommandInput, cb: (err: any, data?: RetryBuildCommandOutput) => void): void;
+  public retryBuild(
+    args: RetryBuildCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetryBuildCommandOutput) => void
+  ): void;
+  public retryBuild(
+    args: RetryBuildCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryBuildCommandOutput) => void),
+    cb?: (err: any, data?: RetryBuildCommandOutput) => void
+  ): Promise<RetryBuildCommandOutput> | void {
+    const command = new RetryBuildCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restarts a batch build.</p>
+   */
+  public retryBuildBatch(
+    args: RetryBuildBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetryBuildBatchCommandOutput>;
+  public retryBuildBatch(
+    args: RetryBuildBatchCommandInput,
+    cb: (err: any, data?: RetryBuildBatchCommandOutput) => void
+  ): void;
+  public retryBuildBatch(
+    args: RetryBuildBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetryBuildBatchCommandOutput) => void
+  ): void;
+  public retryBuildBatch(
+    args: RetryBuildBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryBuildBatchCommandOutput) => void),
+    cb?: (err: any, data?: RetryBuildBatchCommandOutput) => void
+  ): Promise<RetryBuildBatchCommandOutput> | void {
+    const command = new RetryBuildBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1428,14 +1558,8 @@ export class CodeBuild extends CodeBuildClient {
   /**
    * <p>Starts running a build.</p>
    */
-  public startBuild(
-    args: StartBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartBuildCommandOutput>;
-  public startBuild(
-    args: StartBuildCommandInput,
-    cb: (err: any, data?: StartBuildCommandOutput) => void
-  ): void;
+  public startBuild(args: StartBuildCommandInput, options?: __HttpHandlerOptions): Promise<StartBuildCommandOutput>;
+  public startBuild(args: StartBuildCommandInput, cb: (err: any, data?: StartBuildCommandOutput) => void): void;
   public startBuild(
     args: StartBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1443,17 +1567,46 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public startBuild(
     args: StartBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBuildCommandOutput) => void),
     cb?: (err: any, data?: StartBuildCommandOutput) => void
   ): Promise<StartBuildCommandOutput> | void {
     const command = new StartBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a batch build for a project.</p>
+   */
+  public startBuildBatch(
+    args: StartBuildBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBuildBatchCommandOutput>;
+  public startBuildBatch(
+    args: StartBuildBatchCommandInput,
+    cb: (err: any, data?: StartBuildBatchCommandOutput) => void
+  ): void;
+  public startBuildBatch(
+    args: StartBuildBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBuildBatchCommandOutput) => void
+  ): void;
+  public startBuildBatch(
+    args: StartBuildBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBuildBatchCommandOutput) => void),
+    cb?: (err: any, data?: StartBuildBatchCommandOutput) => void
+  ): Promise<StartBuildBatchCommandOutput> | void {
+    const command = new StartBuildBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1463,14 +1616,8 @@ export class CodeBuild extends CodeBuildClient {
   /**
    * <p>Attempts to stop running a build.</p>
    */
-  public stopBuild(
-    args: StopBuildCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopBuildCommandOutput>;
-  public stopBuild(
-    args: StopBuildCommandInput,
-    cb: (err: any, data?: StopBuildCommandOutput) => void
-  ): void;
+  public stopBuild(args: StopBuildCommandInput, options?: __HttpHandlerOptions): Promise<StopBuildCommandOutput>;
+  public stopBuild(args: StopBuildCommandInput, cb: (err: any, data?: StopBuildCommandOutput) => void): void;
   public stopBuild(
     args: StopBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1478,17 +1625,46 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public stopBuild(
     args: StopBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBuildCommandOutput) => void),
     cb?: (err: any, data?: StopBuildCommandOutput) => void
   ): Promise<StopBuildCommandOutput> | void {
     const command = new StopBuildCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a running batch build.</p>
+   */
+  public stopBuildBatch(
+    args: StopBuildBatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBuildBatchCommandOutput>;
+  public stopBuildBatch(
+    args: StopBuildBatchCommandInput,
+    cb: (err: any, data?: StopBuildBatchCommandOutput) => void
+  ): void;
+  public stopBuildBatch(
+    args: StopBuildBatchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBuildBatchCommandOutput) => void
+  ): void;
+  public stopBuildBatch(
+    args: StopBuildBatchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBuildBatchCommandOutput) => void),
+    cb?: (err: any, data?: StopBuildBatchCommandOutput) => void
+  ): Promise<StopBuildBatchCommandOutput> | void {
+    const command = new StopBuildBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1513,17 +1689,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1532,8 +1705,8 @@ export class CodeBuild extends CodeBuildClient {
 
   /**
    * <p>
-   *          Updates a report group.
-   *       </p>
+   *       Updates a report group.
+   *     </p>
    */
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
@@ -1550,17 +1723,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateReportGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReportGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateReportGroupCommandOutput) => void
   ): Promise<UpdateReportGroupCommandOutput> | void {
     const command = new UpdateReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1571,7 +1741,7 @@ export class CodeBuild extends CodeBuildClient {
    * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>
    *          <note>
    *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
-   *          </p>
+   *       </p>
    *          </note>
    */
   public updateWebhook(
@@ -1589,17 +1759,14 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateWebhook(
     args: UpdateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebhookCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): Promise<UpdateWebhookCommandOutput> | void {
     const command = new UpdateWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  GetHostReservationPurchasePreviewRequest,
-  GetHostReservationPurchasePreviewResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/index.ts";
 import {
   deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
-  serializeAws_ec2GetHostReservationPurchasePreviewCommand
+  serializeAws_ec2GetHostReservationPurchasePreviewCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetHostReservationPurchasePreviewCommandInput = GetHostReservationPurchasePreviewRequest;
-export type GetHostReservationPurchasePreviewCommandOutput = GetHostReservationPurchasePreviewResult &
-  __MetadataBearer;
+export type GetHostReservationPurchasePreviewCommandOutput = GetHostReservationPurchasePreviewResult & __MetadataBearer;
 
 export class GetHostReservationPurchasePreviewCommand extends $Command<
   GetHostReservationPurchasePreviewCommandInput,
@@ -49,18 +38,16 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHostReservationPurchasePreviewCommandInput,
-    GetHostReservationPurchasePreviewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHostReservationPurchasePreviewCommandInput, GetHostReservationPurchasePreviewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetHostReservationPurchasePreviewRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetHostReservationPurchasePreviewResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     input: GetHostReservationPurchasePreviewCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
-    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

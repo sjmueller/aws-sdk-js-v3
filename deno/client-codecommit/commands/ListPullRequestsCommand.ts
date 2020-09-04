@@ -1,18 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPullRequestsCommand,
-  serializeAws_json1_1ListPullRequestsCommand
+  serializeAws_json1_1ListPullRequestsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPullRequestsCommandInput = ListPullRequestsInput;
-export type ListPullRequestsCommandOutput = ListPullRequestsOutput &
-  __MetadataBearer;
+export type ListPullRequestsCommandOutput = ListPullRequestsOutput & __MetadataBearer;
 
 export class ListPullRequestsCommand extends $Command<
   ListPullRequestsCommandInput,
@@ -47,14 +39,15 @@ export class ListPullRequestsCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPullRequestsCommandInput, ListPullRequestsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPullRequestsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPullRequestsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListPullRequestsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPullRequestsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPullRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPullRequestsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPullRequestsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPullRequestsCommandOutput> {
     return deserializeAws_json1_1ListPullRequestsCommand(output, context);
   }
 

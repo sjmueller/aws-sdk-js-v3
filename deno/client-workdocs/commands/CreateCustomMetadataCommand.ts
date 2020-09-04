@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient.ts";
-import {
-  CreateCustomMetadataRequest,
-  CreateCustomMetadataResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
+import { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateCustomMetadataCommand,
-  serializeAws_restJson1CreateCustomMetadataCommand
+  serializeAws_restJson1CreateCustomMetadataCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
-export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse &
-  __MetadataBearer;
+export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse & __MetadataBearer;
 
 export class CreateCustomMetadataCommand extends $Command<
   CreateCustomMetadataCommandInput,
@@ -49,18 +38,16 @@ export class CreateCustomMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomMetadataCommandInput,
-    CreateCustomMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomMetadataCommandInput, CreateCustomMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateCustomMetadataRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomMetadataResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateCustomMetadataCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCustomMetadataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateCustomMetadataCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCustomMetadataCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetadataCommandOutput> {
     return deserializeAws_restJson1CreateCustomMetadataCommand(output, context);
   }
 

@@ -1,21 +1,15 @@
 import {
   KinesisVideoSignalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient.ts";
-import {
-  SendAlexaOfferToMasterRequest,
-  SendAlexaOfferToMasterResponse
-} from "../models/index.ts";
+import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1SendAlexaOfferToMasterCommand,
-  serializeAws_restJson1SendAlexaOfferToMasterCommand
+  serializeAws_restJson1SendAlexaOfferToMasterCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendAlexaOfferToMasterCommandInput = SendAlexaOfferToMasterRequest;
-export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse &
-  __MetadataBearer;
+export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse & __MetadataBearer;
 
 export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandInput,
@@ -49,18 +42,16 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoSignalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendAlexaOfferToMasterCommandInput,
-    SendAlexaOfferToMasterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendAlexaOfferToMasterCommandInput, SendAlexaOfferToMasterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendAlexaOfferToMasterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendAlexaOfferToMasterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendAlexaOfferToMasterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendAlexaOfferToMasterCommandOutput> {
-    return deserializeAws_restJson1SendAlexaOfferToMasterCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAlexaOfferToMasterCommandOutput> {
+    return deserializeAws_restJson1SendAlexaOfferToMasterCommand(output, context);
   }
 
   // Start section: command_body_extra

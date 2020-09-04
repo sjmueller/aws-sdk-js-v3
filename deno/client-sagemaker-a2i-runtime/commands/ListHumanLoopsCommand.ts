@@ -1,18 +1,15 @@
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient.ts";
 import { ListHumanLoopsRequest, ListHumanLoopsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListHumanLoopsCommand,
-  serializeAws_restJson1ListHumanLoopsCommand
+  serializeAws_restJson1ListHumanLoopsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListHumanLoopsCommandInput = ListHumanLoopsRequest;
-export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse &
-  __MetadataBearer;
+export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse & __MetadataBearer;
 
 export class ListHumanLoopsCommand extends $Command<
   ListHumanLoopsCommandInput,
@@ -47,14 +43,15 @@ export class ListHumanLoopsCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListHumanLoopsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHumanLoopsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class ListHumanLoopsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHumanLoopsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHumanLoopsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListHumanLoopsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHumanLoopsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanLoopsCommandOutput> {
     return deserializeAws_restJson1ListHumanLoopsCommand(output, context);
   }
 

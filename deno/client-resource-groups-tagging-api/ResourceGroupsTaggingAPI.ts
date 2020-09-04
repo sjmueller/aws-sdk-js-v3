@@ -2,47 +2,44 @@ import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient
 import {
   DescribeReportCreationCommand,
   DescribeReportCreationCommandInput,
-  DescribeReportCreationCommandOutput
+  DescribeReportCreationCommandOutput,
 } from "./commands/DescribeReportCreationCommand.ts";
 import {
   GetComplianceSummaryCommand,
   GetComplianceSummaryCommandInput,
-  GetComplianceSummaryCommandOutput
+  GetComplianceSummaryCommandOutput,
 } from "./commands/GetComplianceSummaryCommand.ts";
 import {
   GetResourcesCommand,
   GetResourcesCommandInput,
-  GetResourcesCommandOutput
+  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand.ts";
-import {
-  GetTagKeysCommand,
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput
-} from "./commands/GetTagKeysCommand.ts";
+import { GetTagKeysCommand, GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand.ts";
 import {
   GetTagValuesCommand,
   GetTagValuesCommandInput,
-  GetTagValuesCommandOutput
+  GetTagValuesCommandOutput,
 } from "./commands/GetTagValuesCommand.ts";
 import {
   StartReportCreationCommand,
   StartReportCreationCommandInput,
-  StartReportCreationCommandOutput
+  StartReportCreationCommandOutput,
 } from "./commands/StartReportCreationCommand.ts";
 import {
   TagResourcesCommand,
   TagResourcesCommandInput,
-  TagResourcesCommandOutput
+  TagResourcesCommandOutput,
 } from "./commands/TagResourcesCommand.ts";
 import {
   UntagResourcesCommand,
   UntagResourcesCommandInput,
-  UntagResourcesCommandOutput
+  UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
  * <fullname>Resource Groups Tagging API</fullname>
+ *
  *         <p>This guide describes the API operations for the resource groups tagging.</p>
  *         <p>A tag is a label that you assign to an AWS resource. A tag consists of a key and a
  *             value, both of which you define. For example, if you have two Amazon EC2 instances, you might
@@ -52,6 +49,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             management, access management and cost allocation. </p>
  *         <p>You can use the resource groups tagging API operations to complete the following
  *             tasks:</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>Tag and untag supported resources located in the specified Region for the
@@ -70,8 +68,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *                     AWS account.</p>
  *             </li>
  *          </ul>
+ *
  *         <p>To use resource groups tagging API operations, you must add the following permissions
  *             to your IAM policy:</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>
@@ -99,12 +99,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *                </p>
  *             </li>
  *          </ul>
+ *
  *         <p>You'll also need permissions to access the resources of individual services so that
  *             you can tag and untag those resources.</p>
  *         <p>For more information on IAM policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html">Managing IAM
  *                 Policies</a> in the <i>IAM User Guide</i>.</p>
  *         <p>You can use the Resource Groups Tagging API to tag resources for the following AWS
  *             services.</p>
+ *
  *         <ul>
  *             <li>
  *                 <p>Alexa for Business (a4b)</p>
@@ -185,6 +187,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *                 <p>AWS Config</p>
  *             </li>
  *             <li>
+ *                 <p>AWS Data Exchange</p>
+ *             </li>
+ *             <li>
  *                 <p>AWS Data Pipeline</p>
  *             </li>
  *             <li>
@@ -192,6 +197,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             </li>
  *             <li>
  *                 <p>AWS DataSync</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS Device Farm</p>
  *             </li>
  *             <li>
  *                 <p>AWS Direct Connect</p>
@@ -213,6 +221,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             </li>
  *             <li>
  *                 <p>Amazon ECS</p>
+ *             </li>
+ *             <li>
+ *                 <p>Amazon EKS</p>
  *             </li>
  *             <li>
  *                 <p>AWS Elastic Beanstalk</p>
@@ -273,6 +284,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             </li>
  *             <li>
  *                 <p>AWS IoT Greengrass</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS IoT 1-Click</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS IoT Things Graph</p>
  *             </li>
  *             <li>
  *                 <p>AWS Key Management Service</p>
@@ -350,10 +367,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *                 <p>AWS Service Catalog</p>
  *             </li>
  *             <li>
+ *                 <p>Amazon Simple Email Service (SES)</p>
+ *             </li>
+ *             <li>
  *                 <p>Amazon Simple Notification Service (SNS)</p>
  *             </li>
  *             <li>
  *                 <p>Amazon Simple Queue Service (SQS)</p>
+ *             </li>
+ *             <li>
+ *                 <p>Amazon Simple Workflow Service</p>
  *             </li>
  *             <li>
  *                 <p>AWS Step Functions</p>
@@ -366,6 +389,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             </li>
  *             <li>
  *                 <p>AWS Transfer for SFTP</p>
+ *             </li>
+ *             <li>
+ *                 <p>AWS WAF Regional</p>
  *             </li>
  *             <li>
  *                 <p>Amazon VPC</p>
@@ -395,17 +421,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public describeReportCreation(
     args: DescribeReportCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReportCreationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReportCreationCommandOutput) => void),
     cb?: (err: any, data?: DescribeReportCreationCommandOutput) => void
   ): Promise<DescribeReportCreationCommandOutput> | void {
     const command = new DescribeReportCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -435,17 +458,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComplianceSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetComplianceSummaryCommandOutput) => void
   ): Promise<GetComplianceSummaryCommandOutput> | void {
     const command = new GetComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -483,10 +503,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: GetResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourcesCommandOutput>;
-  public getResources(
-    args: GetResourcesCommandInput,
-    cb: (err: any, data?: GetResourcesCommandOutput) => void
-  ): void;
+  public getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
   public getResources(
     args: GetResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -494,17 +511,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -514,14 +528,8 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   /**
    * <p>Returns all tag keys in the specified Region for the AWS account.</p>
    */
-  public getTagKeys(
-    args: GetTagKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTagKeysCommandOutput>;
-  public getTagKeys(
-    args: GetTagKeysCommandInput,
-    cb: (err: any, data?: GetTagKeysCommandOutput) => void
-  ): void;
+  public getTagKeys(args: GetTagKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetTagKeysCommandOutput>;
+  public getTagKeys(args: GetTagKeysCommandInput, cb: (err: any, data?: GetTagKeysCommandOutput) => void): void;
   public getTagKeys(
     args: GetTagKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -529,17 +537,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagKeys(
     args: GetTagKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagKeysCommandOutput) => void),
     cb?: (err: any, data?: GetTagKeysCommandOutput) => void
   ): Promise<GetTagKeysCommandOutput> | void {
     const command = new GetTagKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -554,10 +559,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: GetTagValuesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTagValuesCommandOutput>;
-  public getTagValues(
-    args: GetTagValuesCommandInput,
-    cb: (err: any, data?: GetTagValuesCommandOutput) => void
-  ): void;
+  public getTagValues(args: GetTagValuesCommandInput, cb: (err: any, data?: GetTagValuesCommandOutput) => void): void;
   public getTagValues(
     args: GetTagValuesCommandInput,
     options: __HttpHandlerOptions,
@@ -565,17 +567,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagValues(
     args: GetTagValuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagValuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagValuesCommandOutput) => void),
     cb?: (err: any, data?: GetTagValuesCommandOutput) => void
   ): Promise<GetTagValuesCommandOutput> | void {
     const command = new GetTagValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -607,17 +606,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public startReportCreation(
     args: StartReportCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartReportCreationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReportCreationCommandOutput) => void),
     cb?: (err: any, data?: StartReportCreationCommandOutput) => void
   ): Promise<StartReportCreationCommandOutput> | void {
     const command = new StartReportCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,8 +629,8 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
    *             </li>
    *             <li>
    *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage
-   *                         Conventions</a>
-   *                     in the <i>AWS General Reference.</i>
+   *                         Conventions</a> in the <i>AWS General
+   *                     Reference.</i>
    *                </p>
    *             </li>
    *             <li>
@@ -652,10 +648,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
     args: TagResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TagResourcesCommandOutput>;
-  public tagResources(
-    args: TagResourcesCommandInput,
-    cb: (err: any, data?: TagResourcesCommandOutput) => void
-  ): void;
+  public tagResources(args: TagResourcesCommandInput, cb: (err: any, data?: TagResourcesCommandOutput) => void): void;
   public tagResources(
     args: TagResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -663,17 +656,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public tagResources(
     args: TagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourcesCommandOutput) => void),
     cb?: (err: any, data?: TagResourcesCommandOutput) => void
   ): Promise<TagResourcesCommandOutput> | void {
     const command = new TagResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -712,17 +702,14 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public untagResources(
     args: UntagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourcesCommandOutput) => void),
     cb?: (err: any, data?: UntagResourcesCommandOutput) => void
   ): Promise<UntagResourcesCommandOutput> | void {
     const command = new UntagResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

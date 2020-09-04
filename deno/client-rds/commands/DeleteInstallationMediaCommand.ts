@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DeleteInstallationMediaMessage,
-  InstallationMedia
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DeleteInstallationMediaMessage, InstallationMedia } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteInstallationMediaCommand,
-  serializeAws_queryDeleteInstallationMediaCommand
+  serializeAws_queryDeleteInstallationMediaCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
-export type DeleteInstallationMediaCommandOutput = InstallationMedia &
-  __MetadataBearer;
+export type DeleteInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
 
 export class DeleteInstallationMediaCommand extends $Command<
   DeleteInstallationMediaCommandInput,
@@ -49,18 +38,16 @@ export class DeleteInstallationMediaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteInstallationMediaCommandInput,
-    DeleteInstallationMediaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteInstallationMediaCommandInput, DeleteInstallationMediaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteInstallationMediaMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: InstallationMedia.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteInstallationMediaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteInstallationMediaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteInstallationMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInstallationMediaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteInstallationMediaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstallationMediaCommandOutput> {
     return deserializeAws_queryDeleteInstallationMediaCommand(output, context);
   }
 

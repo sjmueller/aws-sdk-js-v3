@@ -2,217 +2,225 @@ import { MediaLiveClient } from "./MediaLiveClient.ts";
 import {
   BatchUpdateScheduleCommand,
   BatchUpdateScheduleCommandInput,
-  BatchUpdateScheduleCommandOutput
+  BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand.ts";
 import {
   CreateChannelCommand,
   CreateChannelCommandInput,
-  CreateChannelCommandOutput
+  CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand.ts";
 import {
   CreateInputCommand,
   CreateInputCommandInput,
-  CreateInputCommandOutput
+  CreateInputCommandOutput,
 } from "./commands/CreateInputCommand.ts";
 import {
   CreateInputSecurityGroupCommand,
   CreateInputSecurityGroupCommandInput,
-  CreateInputSecurityGroupCommandOutput
+  CreateInputSecurityGroupCommandOutput,
 } from "./commands/CreateInputSecurityGroupCommand.ts";
 import {
   CreateMultiplexCommand,
   CreateMultiplexCommandInput,
-  CreateMultiplexCommandOutput
+  CreateMultiplexCommandOutput,
 } from "./commands/CreateMultiplexCommand.ts";
 import {
   CreateMultiplexProgramCommand,
   CreateMultiplexProgramCommandInput,
-  CreateMultiplexProgramCommandOutput
+  CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand.ts";
-import {
-  CreateTagsCommand,
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand.ts";
+import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
 import {
   DeleteChannelCommand,
   DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
+  DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand.ts";
 import {
   DeleteInputCommand,
   DeleteInputCommandInput,
-  DeleteInputCommandOutput
+  DeleteInputCommandOutput,
 } from "./commands/DeleteInputCommand.ts";
 import {
   DeleteInputSecurityGroupCommand,
   DeleteInputSecurityGroupCommandInput,
-  DeleteInputSecurityGroupCommandOutput
+  DeleteInputSecurityGroupCommandOutput,
 } from "./commands/DeleteInputSecurityGroupCommand.ts";
 import {
   DeleteMultiplexCommand,
   DeleteMultiplexCommandInput,
-  DeleteMultiplexCommandOutput
+  DeleteMultiplexCommandOutput,
 } from "./commands/DeleteMultiplexCommand.ts";
 import {
   DeleteMultiplexProgramCommand,
   DeleteMultiplexProgramCommandInput,
-  DeleteMultiplexProgramCommandOutput
+  DeleteMultiplexProgramCommandOutput,
 } from "./commands/DeleteMultiplexProgramCommand.ts";
 import {
   DeleteReservationCommand,
   DeleteReservationCommandInput,
-  DeleteReservationCommandOutput
+  DeleteReservationCommandOutput,
 } from "./commands/DeleteReservationCommand.ts";
 import {
   DeleteScheduleCommand,
   DeleteScheduleCommandInput,
-  DeleteScheduleCommandOutput
+  DeleteScheduleCommandOutput,
 } from "./commands/DeleteScheduleCommand.ts";
-import {
-  DeleteTagsCommand,
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
+import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import {
   DescribeChannelCommand,
   DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
+  DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand.ts";
 import {
   DescribeInputCommand,
   DescribeInputCommandInput,
-  DescribeInputCommandOutput
+  DescribeInputCommandOutput,
 } from "./commands/DescribeInputCommand.ts";
+import {
+  DescribeInputDeviceCommand,
+  DescribeInputDeviceCommandInput,
+  DescribeInputDeviceCommandOutput,
+} from "./commands/DescribeInputDeviceCommand.ts";
+import {
+  DescribeInputDeviceThumbnailCommand,
+  DescribeInputDeviceThumbnailCommandInput,
+  DescribeInputDeviceThumbnailCommandOutput,
+} from "./commands/DescribeInputDeviceThumbnailCommand.ts";
 import {
   DescribeInputSecurityGroupCommand,
   DescribeInputSecurityGroupCommandInput,
-  DescribeInputSecurityGroupCommandOutput
+  DescribeInputSecurityGroupCommandOutput,
 } from "./commands/DescribeInputSecurityGroupCommand.ts";
 import {
   DescribeMultiplexCommand,
   DescribeMultiplexCommandInput,
-  DescribeMultiplexCommandOutput
+  DescribeMultiplexCommandOutput,
 } from "./commands/DescribeMultiplexCommand.ts";
 import {
   DescribeMultiplexProgramCommand,
   DescribeMultiplexProgramCommandInput,
-  DescribeMultiplexProgramCommandOutput
+  DescribeMultiplexProgramCommandOutput,
 } from "./commands/DescribeMultiplexProgramCommand.ts";
 import {
   DescribeOfferingCommand,
   DescribeOfferingCommandInput,
-  DescribeOfferingCommandOutput
+  DescribeOfferingCommandOutput,
 } from "./commands/DescribeOfferingCommand.ts";
 import {
   DescribeReservationCommand,
   DescribeReservationCommandInput,
-  DescribeReservationCommandOutput
+  DescribeReservationCommandOutput,
 } from "./commands/DescribeReservationCommand.ts";
 import {
   DescribeScheduleCommand,
   DescribeScheduleCommandInput,
-  DescribeScheduleCommandOutput
+  DescribeScheduleCommandOutput,
 } from "./commands/DescribeScheduleCommand.ts";
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
-  ListChannelsCommandOutput
+  ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand.ts";
+import {
+  ListInputDevicesCommand,
+  ListInputDevicesCommandInput,
+  ListInputDevicesCommandOutput,
+} from "./commands/ListInputDevicesCommand.ts";
 import {
   ListInputSecurityGroupsCommand,
   ListInputSecurityGroupsCommandInput,
-  ListInputSecurityGroupsCommandOutput
+  ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand.ts";
-import {
-  ListInputsCommand,
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand.ts";
+import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand.ts";
 import {
   ListMultiplexProgramsCommand,
   ListMultiplexProgramsCommandInput,
-  ListMultiplexProgramsCommandOutput
+  ListMultiplexProgramsCommandOutput,
 } from "./commands/ListMultiplexProgramsCommand.ts";
 import {
   ListMultiplexesCommand,
   ListMultiplexesCommandInput,
-  ListMultiplexesCommandOutput
+  ListMultiplexesCommandOutput,
 } from "./commands/ListMultiplexesCommand.ts";
 import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
+  ListOfferingsCommandOutput,
 } from "./commands/ListOfferingsCommand.ts";
 import {
   ListReservationsCommand,
   ListReservationsCommandInput,
-  ListReservationsCommandOutput
+  ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PurchaseOfferingCommand,
   PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
+  PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand.ts";
 import {
   StartChannelCommand,
   StartChannelCommandInput,
-  StartChannelCommandOutput
+  StartChannelCommandOutput,
 } from "./commands/StartChannelCommand.ts";
 import {
   StartMultiplexCommand,
   StartMultiplexCommandInput,
-  StartMultiplexCommandOutput
+  StartMultiplexCommandOutput,
 } from "./commands/StartMultiplexCommand.ts";
 import {
   StopChannelCommand,
   StopChannelCommandInput,
-  StopChannelCommandOutput
+  StopChannelCommandOutput,
 } from "./commands/StopChannelCommand.ts";
 import {
   StopMultiplexCommand,
   StopMultiplexCommandInput,
-  StopMultiplexCommandOutput
+  StopMultiplexCommandOutput,
 } from "./commands/StopMultiplexCommand.ts";
 import {
   UpdateChannelClassCommand,
   UpdateChannelClassCommandInput,
-  UpdateChannelClassCommandOutput
+  UpdateChannelClassCommandOutput,
 } from "./commands/UpdateChannelClassCommand.ts";
 import {
   UpdateChannelCommand,
   UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
+  UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand.ts";
 import {
   UpdateInputCommand,
   UpdateInputCommandInput,
-  UpdateInputCommandOutput
+  UpdateInputCommandOutput,
 } from "./commands/UpdateInputCommand.ts";
+import {
+  UpdateInputDeviceCommand,
+  UpdateInputDeviceCommandInput,
+  UpdateInputDeviceCommandOutput,
+} from "./commands/UpdateInputDeviceCommand.ts";
 import {
   UpdateInputSecurityGroupCommand,
   UpdateInputSecurityGroupCommandInput,
-  UpdateInputSecurityGroupCommandOutput
+  UpdateInputSecurityGroupCommandOutput,
 } from "./commands/UpdateInputSecurityGroupCommand.ts";
 import {
   UpdateMultiplexCommand,
   UpdateMultiplexCommandInput,
-  UpdateMultiplexCommandOutput
+  UpdateMultiplexCommandOutput,
 } from "./commands/UpdateMultiplexCommand.ts";
 import {
   UpdateMultiplexProgramCommand,
   UpdateMultiplexProgramCommandInput,
-  UpdateMultiplexProgramCommandOutput
+  UpdateMultiplexProgramCommandOutput,
 } from "./commands/UpdateMultiplexProgramCommand.ts";
 import {
   UpdateReservationCommand,
   UpdateReservationCommandInput,
-  UpdateReservationCommandOutput
+  UpdateReservationCommandOutput,
 } from "./commands/UpdateReservationCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -238,17 +246,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public batchUpdateSchedule(
     args: BatchUpdateScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchUpdateScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateScheduleCommandOutput) => void),
     cb?: (err: any, data?: BatchUpdateScheduleCommandOutput) => void
   ): Promise<BatchUpdateScheduleCommandOutput> | void {
     const command = new BatchUpdateScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -273,17 +278,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createChannel(
     args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -293,14 +295,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Create an input
    */
-  public createInput(
-    args: CreateInputCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateInputCommandOutput>;
-  public createInput(
-    args: CreateInputCommandInput,
-    cb: (err: any, data?: CreateInputCommandOutput) => void
-  ): void;
+  public createInput(args: CreateInputCommandInput, options?: __HttpHandlerOptions): Promise<CreateInputCommandOutput>;
+  public createInput(args: CreateInputCommandInput, cb: (err: any, data?: CreateInputCommandOutput) => void): void;
   public createInput(
     args: CreateInputCommandInput,
     options: __HttpHandlerOptions,
@@ -308,17 +304,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createInput(
     args: CreateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInputCommandOutput) => void),
     cb?: (err: any, data?: CreateInputCommandOutput) => void
   ): Promise<CreateInputCommandOutput> | void {
     const command = new CreateInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -343,17 +336,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createInputSecurityGroup(
     args: CreateInputSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInputSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInputSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateInputSecurityGroupCommandOutput) => void
   ): Promise<CreateInputSecurityGroupCommandOutput> | void {
     const command = new CreateInputSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -378,17 +368,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createMultiplex(
     args: CreateMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMultiplexCommandOutput) => void),
     cb?: (err: any, data?: CreateMultiplexCommandOutput) => void
   ): Promise<CreateMultiplexCommandOutput> | void {
     const command = new CreateMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -413,17 +400,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createMultiplexProgram(
     args: CreateMultiplexProgramCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMultiplexProgramCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMultiplexProgramCommandOutput) => void),
     cb?: (err: any, data?: CreateMultiplexProgramCommandOutput) => void
   ): Promise<CreateMultiplexProgramCommandOutput> | void {
     const command = new CreateMultiplexProgramCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -433,14 +417,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Create tags for a resource
    */
-  public createTags(
-    args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTagsCommandOutput>;
-  public createTags(
-    args: CreateTagsCommandInput,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
+  public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
+  public createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
   public createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -448,17 +426,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -483,17 +458,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteChannel(
     args: DeleteChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteChannelCommandOutput) => void
   ): Promise<DeleteChannelCommandOutput> | void {
     const command = new DeleteChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -503,14 +475,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Deletes the input end point
    */
-  public deleteInput(
-    args: DeleteInputCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteInputCommandOutput>;
-  public deleteInput(
-    args: DeleteInputCommandInput,
-    cb: (err: any, data?: DeleteInputCommandOutput) => void
-  ): void;
+  public deleteInput(args: DeleteInputCommandInput, options?: __HttpHandlerOptions): Promise<DeleteInputCommandOutput>;
+  public deleteInput(args: DeleteInputCommandInput, cb: (err: any, data?: DeleteInputCommandOutput) => void): void;
   public deleteInput(
     args: DeleteInputCommandInput,
     options: __HttpHandlerOptions,
@@ -518,17 +484,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteInput(
     args: DeleteInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInputCommandOutput) => void),
     cb?: (err: any, data?: DeleteInputCommandOutput) => void
   ): Promise<DeleteInputCommandOutput> | void {
     const command = new DeleteInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -553,17 +516,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteInputSecurityGroup(
     args: DeleteInputSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInputSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInputSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteInputSecurityGroupCommandOutput) => void
   ): Promise<DeleteInputSecurityGroupCommandOutput> | void {
     const command = new DeleteInputSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -588,17 +548,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteMultiplex(
     args: DeleteMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMultiplexCommandOutput) => void),
     cb?: (err: any, data?: DeleteMultiplexCommandOutput) => void
   ): Promise<DeleteMultiplexCommandOutput> | void {
     const command = new DeleteMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -623,17 +580,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteMultiplexProgram(
     args: DeleteMultiplexProgramCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMultiplexProgramCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMultiplexProgramCommandOutput) => void),
     cb?: (err: any, data?: DeleteMultiplexProgramCommandOutput) => void
   ): Promise<DeleteMultiplexProgramCommandOutput> | void {
     const command = new DeleteMultiplexProgramCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -658,17 +612,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteReservation(
     args: DeleteReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReservationCommandOutput) => void),
     cb?: (err: any, data?: DeleteReservationCommandOutput) => void
   ): Promise<DeleteReservationCommandOutput> | void {
     const command = new DeleteReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -693,17 +644,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteSchedule(
     args: DeleteScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduleCommandOutput) => void
   ): Promise<DeleteScheduleCommandOutput> | void {
     const command = new DeleteScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -713,14 +661,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Removes tags for a resource
    */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
+  public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -728,17 +670,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -763,17 +702,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeChannel(
     args: DescribeChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -798,17 +734,78 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeInput(
     args: DescribeInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputCommandOutput) => void),
     cb?: (err: any, data?: DescribeInputCommandOutput) => void
   ): Promise<DescribeInputCommandOutput> | void {
     const command = new DescribeInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Gets the details for the input device
+   */
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInputDeviceCommandOutput>;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    cb: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): void;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): void;
+  public describeInputDevice(
+    args: DescribeInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInputDeviceCommandOutput) => void
+  ): Promise<DescribeInputDeviceCommandOutput> | void {
+    const command = new DescribeInputDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Get the latest thumbnail data for the input device.
+   */
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInputDeviceThumbnailCommandOutput>;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    cb: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): void;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): void;
+  public describeInputDeviceThumbnail(
+    args: DescribeInputDeviceThumbnailCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
+  ): Promise<DescribeInputDeviceThumbnailCommandOutput> | void {
+    const command = new DescribeInputDeviceThumbnailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -833,17 +830,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeInputSecurityGroup(
     args: DescribeInputSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInputSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeInputSecurityGroupCommandOutput) => void
   ): Promise<DescribeInputSecurityGroupCommandOutput> | void {
     const command = new DescribeInputSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -868,17 +862,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeMultiplex(
     args: DescribeMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMultiplexCommandOutput) => void),
     cb?: (err: any, data?: DescribeMultiplexCommandOutput) => void
   ): Promise<DescribeMultiplexCommandOutput> | void {
     const command = new DescribeMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -903,17 +894,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeMultiplexProgram(
     args: DescribeMultiplexProgramCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMultiplexProgramCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMultiplexProgramCommandOutput) => void),
     cb?: (err: any, data?: DescribeMultiplexProgramCommandOutput) => void
   ): Promise<DescribeMultiplexProgramCommandOutput> | void {
     const command = new DescribeMultiplexProgramCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -938,17 +926,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeOffering(
     args: DescribeOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOfferingCommandOutput) => void),
     cb?: (err: any, data?: DescribeOfferingCommandOutput) => void
   ): Promise<DescribeOfferingCommandOutput> | void {
     const command = new DescribeOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -973,17 +958,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeReservation(
     args: DescribeReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservationCommandOutput) => void),
     cb?: (err: any, data?: DescribeReservationCommandOutput) => void
   ): Promise<DescribeReservationCommandOutput> | void {
     const command = new DescribeReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1008,17 +990,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeSchedule(
     args: DescribeScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduleCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduleCommandOutput) => void
   ): Promise<DescribeScheduleCommandOutput> | void {
     const command = new DescribeScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1032,10 +1011,7 @@ export class MediaLive extends MediaLiveClient {
     args: ListChannelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListChannelsCommandOutput>;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
+  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   public listChannels(
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1043,17 +1019,46 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listChannels(
     args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * List input devices
+   */
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInputDevicesCommandOutput>;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    cb: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): void;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): void;
+  public listInputDevices(
+    args: ListInputDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputDevicesCommandOutput) => void),
+    cb?: (err: any, data?: ListInputDevicesCommandOutput) => void
+  ): Promise<ListInputDevicesCommandOutput> | void {
+    const command = new ListInputDevicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1063,14 +1068,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Produces list of inputs that have been created
    */
-  public listInputs(
-    args: ListInputsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListInputsCommandOutput>;
-  public listInputs(
-    args: ListInputsCommandInput,
-    cb: (err: any, data?: ListInputsCommandOutput) => void
-  ): void;
+  public listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
+  public listInputs(args: ListInputsCommandInput, cb: (err: any, data?: ListInputsCommandOutput) => void): void;
   public listInputs(
     args: ListInputsCommandInput,
     options: __HttpHandlerOptions,
@@ -1078,17 +1077,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listInputs(
     args: ListInputsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputsCommandOutput) => void),
     cb?: (err: any, data?: ListInputsCommandOutput) => void
   ): Promise<ListInputsCommandOutput> | void {
     const command = new ListInputsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1113,17 +1109,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listInputSecurityGroups(
     args: ListInputSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputSecurityGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
   ): Promise<ListInputSecurityGroupsCommandOutput> | void {
     const command = new ListInputSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1148,17 +1141,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listMultiplexes(
     args: ListMultiplexesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMultiplexesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMultiplexesCommandOutput) => void),
     cb?: (err: any, data?: ListMultiplexesCommandOutput) => void
   ): Promise<ListMultiplexesCommandOutput> | void {
     const command = new ListMultiplexesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1183,17 +1173,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listMultiplexPrograms(
     args: ListMultiplexProgramsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMultiplexProgramsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMultiplexProgramsCommandOutput) => void),
     cb?: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
   ): Promise<ListMultiplexProgramsCommandOutput> | void {
     const command = new ListMultiplexProgramsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1218,17 +1205,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listOfferings(
     args: ListOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingsCommandOutput) => void
   ): Promise<ListOfferingsCommandOutput> | void {
     const command = new ListOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1253,17 +1237,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listReservations(
     args: ListReservationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReservationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReservationsCommandOutput) => void),
     cb?: (err: any, data?: ListReservationsCommandOutput) => void
   ): Promise<ListReservationsCommandOutput> | void {
     const command = new ListReservationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1288,17 +1269,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1323,17 +1301,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
     cb?: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): Promise<PurchaseOfferingCommandOutput> | void {
     const command = new PurchaseOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1347,10 +1322,7 @@ export class MediaLive extends MediaLiveClient {
     args: StartChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartChannelCommandOutput>;
-  public startChannel(
-    args: StartChannelCommandInput,
-    cb: (err: any, data?: StartChannelCommandOutput) => void
-  ): void;
+  public startChannel(args: StartChannelCommandInput, cb: (err: any, data?: StartChannelCommandOutput) => void): void;
   public startChannel(
     args: StartChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1358,17 +1330,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public startChannel(
     args: StartChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChannelCommandOutput) => void),
     cb?: (err: any, data?: StartChannelCommandOutput) => void
   ): Promise<StartChannelCommandOutput> | void {
     const command = new StartChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1393,17 +1362,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public startMultiplex(
     args: StartMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMultiplexCommandOutput) => void),
     cb?: (err: any, data?: StartMultiplexCommandOutput) => void
   ): Promise<StartMultiplexCommandOutput> | void {
     const command = new StartMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1413,14 +1379,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Stops a running channel
    */
-  public stopChannel(
-    args: StopChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopChannelCommandOutput>;
-  public stopChannel(
-    args: StopChannelCommandInput,
-    cb: (err: any, data?: StopChannelCommandOutput) => void
-  ): void;
+  public stopChannel(args: StopChannelCommandInput, options?: __HttpHandlerOptions): Promise<StopChannelCommandOutput>;
+  public stopChannel(args: StopChannelCommandInput, cb: (err: any, data?: StopChannelCommandOutput) => void): void;
   public stopChannel(
     args: StopChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,17 +1388,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public stopChannel(
     args: StopChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopChannelCommandOutput) => void),
     cb?: (err: any, data?: StopChannelCommandOutput) => void
   ): Promise<StopChannelCommandOutput> | void {
     const command = new StopChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1463,17 +1420,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public stopMultiplex(
     args: StopMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMultiplexCommandOutput) => void),
     cb?: (err: any, data?: StopMultiplexCommandOutput) => void
   ): Promise<StopMultiplexCommandOutput> | void {
     const command = new StopMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1498,17 +1452,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateChannel(
     args: UpdateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1533,17 +1484,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateChannelClass(
     args: UpdateChannelClassCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelClassCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelClassCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelClassCommandOutput) => void
   ): Promise<UpdateChannelClassCommandOutput> | void {
     const command = new UpdateChannelClassCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1553,14 +1501,8 @@ export class MediaLive extends MediaLiveClient {
   /**
    * Updates an input.
    */
-  public updateInput(
-    args: UpdateInputCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateInputCommandOutput>;
-  public updateInput(
-    args: UpdateInputCommandInput,
-    cb: (err: any, data?: UpdateInputCommandOutput) => void
-  ): void;
+  public updateInput(args: UpdateInputCommandInput, options?: __HttpHandlerOptions): Promise<UpdateInputCommandOutput>;
+  public updateInput(args: UpdateInputCommandInput, cb: (err: any, data?: UpdateInputCommandOutput) => void): void;
   public updateInput(
     args: UpdateInputCommandInput,
     options: __HttpHandlerOptions,
@@ -1568,17 +1510,46 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateInput(
     args: UpdateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputCommandOutput) => void),
     cb?: (err: any, data?: UpdateInputCommandOutput) => void
   ): Promise<UpdateInputCommandOutput> | void {
     const command = new UpdateInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates the parameters for the input device.
+   */
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInputDeviceCommandOutput>;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    cb: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): void;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): void;
+  public updateInputDevice(
+    args: UpdateInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInputDeviceCommandOutput) => void
+  ): Promise<UpdateInputDeviceCommandOutput> | void {
+    const command = new UpdateInputDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1603,17 +1574,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateInputSecurityGroup(
     args: UpdateInputSecurityGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInputSecurityGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputSecurityGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateInputSecurityGroupCommandOutput) => void
   ): Promise<UpdateInputSecurityGroupCommandOutput> | void {
     const command = new UpdateInputSecurityGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1638,17 +1606,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateMultiplex(
     args: UpdateMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMultiplexCommandOutput) => void),
     cb?: (err: any, data?: UpdateMultiplexCommandOutput) => void
   ): Promise<UpdateMultiplexCommandOutput> | void {
     const command = new UpdateMultiplexCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1673,17 +1638,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateMultiplexProgram(
     args: UpdateMultiplexProgramCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMultiplexProgramCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMultiplexProgramCommandOutput) => void),
     cb?: (err: any, data?: UpdateMultiplexProgramCommandOutput) => void
   ): Promise<UpdateMultiplexProgramCommandOutput> | void {
     const command = new UpdateMultiplexProgramCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1708,17 +1670,14 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateReservation(
     args: UpdateReservationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateReservationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReservationCommandOutput) => void),
     cb?: (err: any, data?: UpdateReservationCommandOutput) => void
   ): Promise<UpdateReservationCommandOutput> | void {
     const command = new UpdateReservationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

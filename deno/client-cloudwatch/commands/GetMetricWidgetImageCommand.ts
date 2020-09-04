@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  GetMetricWidgetImageInput,
-  GetMetricWidgetImageOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/index.ts";
 import {
   deserializeAws_queryGetMetricWidgetImageCommand,
-  serializeAws_queryGetMetricWidgetImageCommand
+  serializeAws_queryGetMetricWidgetImageCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetMetricWidgetImageCommandInput = GetMetricWidgetImageInput;
-export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput &
-  __MetadataBearer;
+export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput & __MetadataBearer;
 
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,
@@ -49,18 +38,16 @@ export class GetMetricWidgetImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMetricWidgetImageCommandInput,
-    GetMetricWidgetImageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMetricWidgetImageCommandInput, GetMetricWidgetImageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetMetricWidgetImageInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricWidgetImageOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetMetricWidgetImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMetricWidgetImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMetricWidgetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetMetricWidgetImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMetricWidgetImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricWidgetImageCommandOutput> {
     return deserializeAws_queryGetMetricWidgetImageCommand(output, context);
   }
 

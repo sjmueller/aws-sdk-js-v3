@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient.ts";
-import {
-  GetLayerVersionRequest,
-  GetLayerVersionResponse
-} from "../models/index.ts";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
+import { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetLayerVersionCommand,
-  serializeAws_restJson1GetLayerVersionCommand
+  serializeAws_restJson1GetLayerVersionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetLayerVersionCommandInput = GetLayerVersionRequest;
-export type GetLayerVersionCommandOutput = GetLayerVersionResponse &
-  __MetadataBearer;
+export type GetLayerVersionCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
 export class GetLayerVersionCommand extends $Command<
   GetLayerVersionCommandInput,
@@ -50,14 +39,15 @@ export class GetLayerVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLayerVersionCommandInput, GetLayerVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetLayerVersionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetLayerVersionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetLayerVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLayerVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetLayerVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLayerVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionCommandOutput> {
     return deserializeAws_restJson1GetLayerVersionCommand(output, context);
   }
 

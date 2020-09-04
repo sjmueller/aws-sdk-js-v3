@@ -1,21 +1,15 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient.ts";
-import {
-  ListResolverRuleAssociationsRequest,
-  ListResolverRuleAssociationsResponse
-} from "../models/index.ts";
+import { ListResolverRuleAssociationsRequest, ListResolverRuleAssociationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListResolverRuleAssociationsCommand,
-  serializeAws_json1_1ListResolverRuleAssociationsCommand
+  serializeAws_json1_1ListResolverRuleAssociationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListResolverRuleAssociationsCommandInput = ListResolverRuleAssociationsRequest;
-export type ListResolverRuleAssociationsCommandOutput = ListResolverRuleAssociationsResponse &
-  __MetadataBearer;
+export type ListResolverRuleAssociationsCommandOutput = ListResolverRuleAssociationsResponse & __MetadataBearer;
 
 export class ListResolverRuleAssociationsCommand extends $Command<
   ListResolverRuleAssociationsCommandInput,
@@ -49,18 +42,16 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResolverRuleAssociationsCommandInput,
-    ListResolverRuleAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResolverRuleAssociationsCommandInput, ListResolverRuleAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListResolverRuleAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverRuleAssociationsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListResolverRuleAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListResolverRuleAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverRuleAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListResolverRuleAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListResolverRuleAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

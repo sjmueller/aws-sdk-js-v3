@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  UpdateAdmChannelRequest,
-  UpdateAdmChannelResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateAdmChannelCommand,
-  serializeAws_restJson1UpdateAdmChannelCommand
+  serializeAws_restJson1UpdateAdmChannelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateAdmChannelCommandInput = UpdateAdmChannelRequest;
-export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse &
-  __MetadataBearer;
+export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse & __MetadataBearer;
 
 export class UpdateAdmChannelCommand extends $Command<
   UpdateAdmChannelCommandInput,
@@ -50,14 +39,15 @@ export class UpdateAdmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAdmChannelCommandInput, UpdateAdmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateAdmChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAdmChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateAdmChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAdmChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAdmChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
     return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
   }
 

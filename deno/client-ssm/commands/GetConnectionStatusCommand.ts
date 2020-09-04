@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  GetConnectionStatusRequest,
-  GetConnectionStatusResponse
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { GetConnectionStatusRequest, GetConnectionStatusResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetConnectionStatusCommand,
-  serializeAws_json1_1GetConnectionStatusCommand
+  serializeAws_json1_1GetConnectionStatusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
-export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse &
-  __MetadataBearer;
+export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse & __MetadataBearer;
 
 export class GetConnectionStatusCommand extends $Command<
   GetConnectionStatusCommandInput,
@@ -49,18 +38,16 @@ export class GetConnectionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConnectionStatusCommandInput,
-    GetConnectionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConnectionStatusCommandInput, GetConnectionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetConnectionStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetConnectionStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetConnectionStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetConnectionStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetConnectionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConnectionStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetConnectionStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionStatusCommandOutput> {
     return deserializeAws_json1_1GetConnectionStatusCommand(output, context);
   }
 

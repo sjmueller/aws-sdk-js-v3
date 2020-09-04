@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
-import {
-  GetBucketAccelerateConfigurationOutput,
-  GetBucketAccelerateConfigurationRequest
-} from "../models/index.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
+import { GetBucketAccelerateConfigurationOutput, GetBucketAccelerateConfigurationRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlGetBucketAccelerateConfigurationCommand
+  serializeAws_restXmlGetBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -25,12 +15,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetBucketAccelerateConfigurationCommandInput = GetBucketAccelerateConfigurationRequest;
-export type GetBucketAccelerateConfigurationCommandOutput = GetBucketAccelerateConfigurationOutput &
-  __MetadataBearer;
+export type GetBucketAccelerateConfigurationCommandOutput = GetBucketAccelerateConfigurationOutput & __MetadataBearer;
 
 export class GetBucketAccelerateConfigurationCommand extends $Command<
   GetBucketAccelerateConfigurationCommandInput,
@@ -50,19 +39,17 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketAccelerateConfigurationCommandInput,
-    GetBucketAccelerateConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketAccelerateConfigurationCommandInput, GetBucketAccelerateConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetBucketAccelerateConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketAccelerateConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +63,14 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     input: GetBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  DataPipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataPipelineClient.ts";
+import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
 import { ListPipelinesInput, ListPipelinesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPipelinesCommand,
-  serializeAws_json1_1ListPipelinesCommand
+  serializeAws_json1_1ListPipelinesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPipelinesCommandInput = ListPipelinesInput;
@@ -46,14 +39,15 @@ export class ListPipelinesCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPipelinesCommandInput, ListPipelinesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPipelinesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPipelinesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPipelinesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPipelinesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPipelinesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
     return deserializeAws_json1_1ListPipelinesCommand(output, context);
   }
 

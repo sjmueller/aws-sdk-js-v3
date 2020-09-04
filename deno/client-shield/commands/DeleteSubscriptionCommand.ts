@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient.ts";
-import {
-  DeleteSubscriptionRequest,
-  DeleteSubscriptionResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
+import { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteSubscriptionCommand,
-  serializeAws_json1_1DeleteSubscriptionCommand
+  serializeAws_json1_1DeleteSubscriptionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteSubscriptionCommandInput = DeleteSubscriptionRequest;
-export type DeleteSubscriptionCommandOutput = DeleteSubscriptionResponse &
-  __MetadataBearer;
+export type DeleteSubscriptionCommandOutput = DeleteSubscriptionResponse & __MetadataBearer;
 
 export class DeleteSubscriptionCommand extends $Command<
   DeleteSubscriptionCommandInput,
@@ -50,14 +39,15 @@ export class DeleteSubscriptionCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteSubscriptionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSubscriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionCommandOutput> {
     return deserializeAws_json1_1DeleteSubscriptionCommand(output, context);
   }
 

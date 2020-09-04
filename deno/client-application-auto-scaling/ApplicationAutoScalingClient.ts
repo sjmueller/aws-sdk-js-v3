@@ -1,42 +1,39 @@
 import {
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand.ts";
 import {
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand.ts";
 import {
   DeregisterScalableTargetCommandInput,
-  DeregisterScalableTargetCommandOutput
+  DeregisterScalableTargetCommandOutput,
 } from "./commands/DeregisterScalableTargetCommand.ts";
 import {
   DescribeScalableTargetsCommandInput,
-  DescribeScalableTargetsCommandOutput
+  DescribeScalableTargetsCommandOutput,
 } from "./commands/DescribeScalableTargetsCommand.ts";
 import {
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand.ts";
 import {
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand.ts";
 import {
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand.ts";
-import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand.ts";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand.ts";
 import {
   PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput
+  PutScheduledActionCommandOutput,
 } from "./commands/PutScheduledActionCommand.ts";
 import {
   RegisterScalableTargetCommandInput,
-  RegisterScalableTargetCommandOutput
+  RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -45,38 +42,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -85,9 +78,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -114,8 +108,7 @@ export type ServiceOutputTypes =
   | PutScheduledActionCommandOutput
   | RegisterScalableTargetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -189,14 +182,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -204,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApplicationAutoScalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApplicationAutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -215,9 +211,7 @@ export type ApplicationAutoScalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -260,6 +254,9 @@ export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfigu
  *             <li>
  *                <p>AWS Lambda function provisioned concurrency</p>
  *             </li>
+ *             <li>
+ *                <p>Amazon Keyspaces (for Apache Cassandra) tables</p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <b>API Summary</b>
@@ -278,10 +275,10 @@ export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfigu
  *             </li>
  *             <li>
  *                <p>Suspend and resume scaling - Temporarily suspend and later resume automatic
- *                scaling by calling the <a>RegisterScalableTarget</a> action for any
- *                Application Auto Scaling scalable target. You can suspend and resume, individually or in combination,
- *                scale-out activities triggered by a scaling policy, scale-in activities triggered by
- *                a scaling policy, and scheduled scaling. </p>
+ *                scaling by calling the <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html">RegisterScalableTarget</a> API action for any Application Auto Scaling scalable target. You
+ *                can suspend and resume (individually or in combination) scale-out activities that are
+ *                triggered by a scaling policy, scale-in activities that are triggered by a scaling
+ *                policy, and scheduled scaling.</p>
  *             </li>
  *          </ul>
  *
@@ -301,7 +298,7 @@ export class ApplicationAutoScalingClient extends __Client<
   constructor(configuration: ApplicationAutoScalingClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -316,6 +313,7 @@ export class ApplicationAutoScalingClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

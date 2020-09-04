@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  ListTestGridSessionsRequest,
-  ListTestGridSessionsResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListTestGridSessionsCommand,
-  serializeAws_json1_1ListTestGridSessionsCommand
+  serializeAws_json1_1ListTestGridSessionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListTestGridSessionsCommandInput = ListTestGridSessionsRequest;
-export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult &
-  __MetadataBearer;
+export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult & __MetadataBearer;
 
 export class ListTestGridSessionsCommand extends $Command<
   ListTestGridSessionsCommandInput,
@@ -49,18 +38,16 @@ export class ListTestGridSessionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTestGridSessionsCommandInput,
-    ListTestGridSessionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTestGridSessionsCommandInput, ListTestGridSessionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListTestGridSessionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTestGridSessionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListTestGridSessionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTestGridSessionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTestGridSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTestGridSessionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTestGridSessionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestGridSessionsCommandOutput> {
     return deserializeAws_json1_1ListTestGridSessionsCommand(output, context);
   }
 

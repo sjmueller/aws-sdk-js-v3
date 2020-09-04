@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CreateEgressOnlyInternetGatewayRequest,
-  CreateEgressOnlyInternetGatewayResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CreateEgressOnlyInternetGatewayRequest, CreateEgressOnlyInternetGatewayResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand,
-  serializeAws_ec2CreateEgressOnlyInternetGatewayCommand
+  serializeAws_ec2CreateEgressOnlyInternetGatewayCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateEgressOnlyInternetGatewayCommandInput = CreateEgressOnlyInternetGatewayRequest;
-export type CreateEgressOnlyInternetGatewayCommandOutput = CreateEgressOnlyInternetGatewayResult &
-  __MetadataBearer;
+export type CreateEgressOnlyInternetGatewayCommandOutput = CreateEgressOnlyInternetGatewayResult & __MetadataBearer;
 
 export class CreateEgressOnlyInternetGatewayCommand extends $Command<
   CreateEgressOnlyInternetGatewayCommandInput,
@@ -49,18 +38,16 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEgressOnlyInternetGatewayCommandInput,
-    CreateEgressOnlyInternetGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEgressOnlyInternetGatewayCommandInput, CreateEgressOnlyInternetGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateEgressOnlyInternetGatewayRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEgressOnlyInternetGatewayResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateEgressOnlyInternetGatewayCommand extends $Command<
     input: CreateEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateEgressOnlyInternetGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> {
-    return deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

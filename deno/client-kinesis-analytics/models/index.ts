@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AddApplicationCloudWatchLoggingOptionRequest {
@@ -13,27 +9,23 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
+   * <p>The version ID of the Kinesis Analytics application.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN.
    *             Note: To write application messages to CloudWatch, the IAM role that is used must have
    *             the <code>PutLogEvents</code> policy action enabled.</p>
    */
   CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
-
-  /**
-   * <p>The version ID of the Kinesis Analytics application.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionRequest {
-  export const filterSensitiveLog = (
-    obj: AddApplicationCloudWatchLoggingOptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationCloudWatchLoggingOptionRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AddApplicationCloudWatchLoggingOptionRequest =>
+  export const isa = (o: any): o is AddApplicationCloudWatchLoggingOptionRequest =>
     __isa(o, "AddApplicationCloudWatchLoggingOptionRequest");
 }
 
@@ -42,30 +34,26 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionResponse {
-  export const filterSensitiveLog = (
-    obj: AddApplicationCloudWatchLoggingOptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationCloudWatchLoggingOptionResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AddApplicationCloudWatchLoggingOptionResponse =>
+  export const isa = (o: any): o is AddApplicationCloudWatchLoggingOptionResponse =>
     __isa(o, "AddApplicationCloudWatchLoggingOptionResponse");
 }
 
 export interface AddApplicationInputProcessingConfigurationRequest {
   __type?: "AddApplicationInputProcessingConfigurationRequest";
   /**
-   * <p>Name of the application to which you want to add the input processing configuration.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Version of the application to which you want to add the input processing configuration. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
    *             operation to get the current application version.  If the version specified is not the current version, the
    *             <code>ConcurrentModificationException</code> is returned.</p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Name of the application to which you want to add the input processing configuration.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The ID of the input configuration to add the input processing configuration to. You
@@ -80,14 +68,10 @@ export interface AddApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace AddApplicationInputProcessingConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: AddApplicationInputProcessingConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationInputProcessingConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AddApplicationInputProcessingConfigurationRequest =>
+  export const isa = (o: any): o is AddApplicationInputProcessingConfigurationRequest =>
     __isa(o, "AddApplicationInputProcessingConfigurationRequest");
 }
 
@@ -96,14 +80,10 @@ export interface AddApplicationInputProcessingConfigurationResponse {
 }
 
 export namespace AddApplicationInputProcessingConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: AddApplicationInputProcessingConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationInputProcessingConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AddApplicationInputProcessingConfigurationResponse =>
+  export const isa = (o: any): o is AddApplicationInputProcessingConfigurationResponse =>
     __isa(o, "AddApplicationInputProcessingConfigurationResponse");
 }
 
@@ -113,15 +93,15 @@ export namespace AddApplicationInputProcessingConfigurationResponse {
 export interface AddApplicationInputRequest {
   __type?: "AddApplicationInputRequest";
   /**
-   * <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Current version of your Amazon Kinesis Analytics application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation
    *             to find the current application version.</p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html">Input</a> to add.</p>
@@ -131,10 +111,9 @@ export interface AddApplicationInputRequest {
 
 export namespace AddApplicationInputRequest {
   export const filterSensitiveLog = (obj: AddApplicationInputRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddApplicationInputRequest =>
-    __isa(o, "AddApplicationInputRequest");
+  export const isa = (o: any): o is AddApplicationInputRequest => __isa(o, "AddApplicationInputRequest");
 }
 
 /**
@@ -145,13 +124,10 @@ export interface AddApplicationInputResponse {
 }
 
 export namespace AddApplicationInputResponse {
-  export const filterSensitiveLog = (
-    obj: AddApplicationInputResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationInputResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddApplicationInputResponse =>
-    __isa(o, "AddApplicationInputResponse");
+  export const isa = (o: any): o is AddApplicationInputResponse => __isa(o, "AddApplicationInputResponse");
 }
 
 /**
@@ -160,17 +136,17 @@ export namespace AddApplicationInputResponse {
 export interface AddApplicationOutputRequest {
   __type?: "AddApplicationOutputRequest";
   /**
-   * <p>Name of the application to which you want to add the output configuration.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Version of the application to which you want to add the output configuration. You
    *             can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current
    *             application version. If the version specified is not the current version, the
    *                 <code>ConcurrentModificationException</code> is returned. </p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Name of the application to which you want to add the output configuration.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>An array of objects, each describing one output configuration. In the output
@@ -182,13 +158,10 @@ export interface AddApplicationOutputRequest {
 }
 
 export namespace AddApplicationOutputRequest {
-  export const filterSensitiveLog = (
-    obj: AddApplicationOutputRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationOutputRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddApplicationOutputRequest =>
-    __isa(o, "AddApplicationOutputRequest");
+  export const isa = (o: any): o is AddApplicationOutputRequest => __isa(o, "AddApplicationOutputRequest");
 }
 
 /**
@@ -199,13 +172,10 @@ export interface AddApplicationOutputResponse {
 }
 
 export namespace AddApplicationOutputResponse {
-  export const filterSensitiveLog = (
-    obj: AddApplicationOutputResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationOutputResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AddApplicationOutputResponse =>
-    __isa(o, "AddApplicationOutputResponse");
+  export const isa = (o: any): o is AddApplicationOutputResponse => __isa(o, "AddApplicationOutputResponse");
 }
 
 /**
@@ -213,11 +183,6 @@ export namespace AddApplicationOutputResponse {
  */
 export interface AddApplicationReferenceDataSourceRequest {
   __type?: "AddApplicationReferenceDataSourceRequest";
-  /**
-   * <p>Name of an existing application.</p>
-   */
-  ApplicationName: string | undefined;
-
   /**
    * <p>Version of the application for which you are adding the reference data source.
    *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
@@ -230,13 +195,16 @@ export interface AddApplicationReferenceDataSourceRequest {
    * <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.</p>
    */
   ReferenceDataSource: ReferenceDataSource | undefined;
+
+  /**
+   * <p>Name of an existing application.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace AddApplicationReferenceDataSourceRequest {
-  export const filterSensitiveLog = (
-    obj: AddApplicationReferenceDataSourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationReferenceDataSourceRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AddApplicationReferenceDataSourceRequest =>
     __isa(o, "AddApplicationReferenceDataSourceRequest");
@@ -250,10 +218,8 @@ export interface AddApplicationReferenceDataSourceResponse {
 }
 
 export namespace AddApplicationReferenceDataSourceResponse {
-  export const filterSensitiveLog = (
-    obj: AddApplicationReferenceDataSourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AddApplicationReferenceDataSourceResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AddApplicationReferenceDataSourceResponse =>
     __isa(o, "AddApplicationReferenceDataSourceResponse");
@@ -268,9 +234,38 @@ export namespace AddApplicationReferenceDataSourceResponse {
 export interface ApplicationDetail {
   __type?: "ApplicationDetail";
   /**
-   * <p>ARN of the application.</p>
+   * <p>Describes the application input configuration.
+   *             For more information,
+   *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
+   *
+   *         </p>
    */
-  ApplicationARN: string | undefined;
+  InputDescriptions?: InputDescription[];
+
+  /**
+   * <p>Name of the application.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>Time stamp when the application version was created.</p>
+   */
+  CreateTimestamp?: Date;
+
+  /**
+   * <p>Provides the current application version.</p>
+   */
+  ApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Time stamp when the application was last updated.</p>
+   */
+  LastUpdateTimestamp?: Date;
+
+  /**
+   * <p>Status of the application.</p>
+   */
+  ApplicationStatus: ApplicationStatus | string | undefined;
 
   /**
    * <p>Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.</p>
@@ -283,19 +278,19 @@ export interface ApplicationDetail {
   ApplicationDescription?: string;
 
   /**
-   * <p>Name of the application.</p>
+   * <p>Describes reference data sources configured for the application.
+   *
+   *             For more information,
+   *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
+   *
+   *         </p>
    */
-  ApplicationName: string | undefined;
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 
   /**
-   * <p>Status of the application.</p>
+   * <p>ARN of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
-
-  /**
-   * <p>Provides the current application version.</p>
-   */
-  ApplicationVersionId: number | undefined;
+  ApplicationARN: string | undefined;
 
   /**
    * <p>Describes the CloudWatch log streams that are configured to receive application
@@ -306,25 +301,6 @@ export interface ApplicationDetail {
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 
   /**
-   * <p>Time stamp when the application version was created.</p>
-   */
-  CreateTimestamp?: Date;
-
-  /**
-   * <p>Describes the application input configuration.
-   *             For more information,
-   *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
-   *
-   *         </p>
-   */
-  InputDescriptions?: InputDescription[];
-
-  /**
-   * <p>Time stamp when the application was last updated.</p>
-   */
-  LastUpdateTimestamp?: Date;
-
-  /**
    * <p>Describes the application output configuration.
    *             For more information,
    *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.
@@ -332,24 +308,13 @@ export interface ApplicationDetail {
    *         </p>
    */
   OutputDescriptions?: OutputDescription[];
-
-  /**
-   * <p>Describes reference data sources configured for the application.
-   *
-   *             For more information,
-   *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
-   *
-   *         </p>
-   */
-  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
 }
 
 export namespace ApplicationDetail {
   export const filterSensitiveLog = (obj: ApplicationDetail): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationDetail =>
-    __isa(o, "ApplicationDetail");
+  export const isa = (o: any): o is ApplicationDetail => __isa(o, "ApplicationDetail");
 }
 
 export enum ApplicationStatus {
@@ -358,7 +323,7 @@ export enum ApplicationStatus {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPING = "STOPPING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -375,22 +340,21 @@ export interface ApplicationSummary {
   ApplicationARN: string | undefined;
 
   /**
-   * <p>Name of the application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Status of the application.</p>
    */
   ApplicationStatus: ApplicationStatus | string | undefined;
+
+  /**
+   * <p>Name of the application.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace ApplicationSummary {
   export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationSummary =>
-    __isa(o, "ApplicationSummary");
+  export const isa = (o: any): o is ApplicationSummary => __isa(o, "ApplicationSummary");
 }
 
 /**
@@ -398,6 +362,11 @@ export namespace ApplicationSummary {
  */
 export interface ApplicationUpdate {
   __type?: "ApplicationUpdate";
+  /**
+   * <p>Describes application input configuration updates.</p>
+   */
+  InputUpdates?: InputUpdate[];
+
   /**
    * <p>Describes application code updates.</p>
    */
@@ -409,27 +378,21 @@ export interface ApplicationUpdate {
   CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 
   /**
-   * <p>Describes application input configuration updates.</p>
+   * <p>Describes application reference data source updates.</p>
    */
-  InputUpdates?: InputUpdate[];
+  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 
   /**
    * <p>Describes application output configuration updates.</p>
    */
   OutputUpdates?: OutputUpdate[];
-
-  /**
-   * <p>Describes application reference data source updates.</p>
-   */
-  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
 }
 
 export namespace ApplicationUpdate {
   export const filterSensitiveLog = (obj: ApplicationUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationUpdate =>
-    __isa(o, "ApplicationUpdate");
+  export const isa = (o: any): o is ApplicationUpdate => __isa(o, "ApplicationUpdate");
 }
 
 /**
@@ -453,10 +416,9 @@ export interface CloudWatchLoggingOption {
 
 export namespace CloudWatchLoggingOption {
   export const filterSensitiveLog = (obj: CloudWatchLoggingOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLoggingOption =>
-    __isa(o, "CloudWatchLoggingOption");
+  export const isa = (o: any): o is CloudWatchLoggingOption => __isa(o, "CloudWatchLoggingOption");
 }
 
 /**
@@ -465,14 +427,14 @@ export namespace CloudWatchLoggingOption {
 export interface CloudWatchLoggingOptionDescription {
   __type?: "CloudWatchLoggingOptionDescription";
   /**
-   * <p>ID of the CloudWatch logging option description.</p>
-   */
-  CloudWatchLoggingOptionId?: string;
-
-  /**
    * <p>ARN of the CloudWatch log to receive application messages.</p>
    */
   LogStreamARN: string | undefined;
+
+  /**
+   * <p>ID of the CloudWatch logging option description.</p>
+   */
+  CloudWatchLoggingOptionId?: string;
 
   /**
    * <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
@@ -481,10 +443,8 @@ export interface CloudWatchLoggingOptionDescription {
 }
 
 export namespace CloudWatchLoggingOptionDescription {
-  export const filterSensitiveLog = (
-    obj: CloudWatchLoggingOptionDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudWatchLoggingOptionDescription): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CloudWatchLoggingOptionDescription =>
     __isa(o, "CloudWatchLoggingOptionDescription");
@@ -496,9 +456,9 @@ export namespace CloudWatchLoggingOptionDescription {
 export interface CloudWatchLoggingOptionUpdate {
   __type?: "CloudWatchLoggingOptionUpdate";
   /**
-   * <p>ID of the CloudWatch logging option to update</p>
+   * <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
    */
-  CloudWatchLoggingOptionId: string | undefined;
+  RoleARNUpdate?: string;
 
   /**
    * <p>ARN of the CloudWatch log to receive application messages.</p>
@@ -506,27 +466,22 @@ export interface CloudWatchLoggingOptionUpdate {
   LogStreamARNUpdate?: string;
 
   /**
-   * <p>IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the <code>PutLogEvents</code> policy action enabled.</p>
+   * <p>ID of the CloudWatch logging option to update</p>
    */
-  RoleARNUpdate?: string;
+  CloudWatchLoggingOptionId: string | undefined;
 }
 
 export namespace CloudWatchLoggingOptionUpdate {
-  export const filterSensitiveLog = (
-    obj: CloudWatchLoggingOptionUpdate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CloudWatchLoggingOptionUpdate): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLoggingOptionUpdate =>
-    __isa(o, "CloudWatchLoggingOptionUpdate");
+  export const isa = (o: any): o is CloudWatchLoggingOptionUpdate => __isa(o, "CloudWatchLoggingOptionUpdate");
 }
 
 /**
  * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
  */
-export interface CodeValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CodeValidationException extends __SmithyException, $MetadataBearer {
   name: "CodeValidationException";
   $fault: "client";
   /**
@@ -537,18 +492,15 @@ export interface CodeValidationException
 
 export namespace CodeValidationException {
   export const filterSensitiveLog = (obj: CodeValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CodeValidationException =>
-    __isa(o, "CodeValidationException");
+  export const isa = (o: any): o is CodeValidationException => __isa(o, "CodeValidationException");
 }
 
 /**
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -558,13 +510,10 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -572,6 +521,11 @@ export namespace ConcurrentModificationException {
  */
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
+  /**
+   * <p>Summary description of the application.</p>
+   */
+  ApplicationDescription?: string;
+
   /**
    * <p>One or more SQL statements that read input data, transform it, and generate output.
    *             For example, you can write a SQL statement that reads data from one in-application
@@ -594,33 +548,6 @@ export interface CreateApplicationRequest {
   ApplicationCode?: string;
 
   /**
-   * <p>Summary description of the application.</p>
-   */
-  ApplicationDescription?: string;
-
-  /**
-   * <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
-   * <p>Use this parameter to configure a CloudWatch log stream to monitor application
-   *             configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
-   *                 CloudWatch Logs</a>.</p>
-   */
-  CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
-
-  /**
-   * <p>Use this parameter to configure the application input.</p>
-   *         <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p>
-   *         <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of
-   *             data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role
-   *             that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>
-   *         <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p>
-   */
-  Inputs?: Input[];
-
-  /**
    * <p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p>
    *         <p>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery
    *             streams, AWS Lambda destinations, or any combination of the three.</p>
@@ -637,14 +564,35 @@ export interface CreateApplicationRequest {
    *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Use this parameter to configure a CloudWatch log stream to monitor application
+   *             configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
+   *                 CloudWatch Logs</a>.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
+
+  /**
+   * <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>Use this parameter to configure the application input.</p>
+   *         <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p>
+   *         <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of
+   *             data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role
+   *             that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>
+   *         <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p>
+   */
+  Inputs?: Input[];
 }
 
 export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest =>
-    __isa(o, "CreateApplicationRequest");
+  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 /**
@@ -662,10 +610,9 @@ export interface CreateApplicationResponse {
 
 export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationResponse =>
-    __isa(o, "CreateApplicationResponse");
+  export const isa = (o: any): o is CreateApplicationResponse => __isa(o, "CreateApplicationResponse");
 }
 
 /**
@@ -696,14 +643,18 @@ export interface CSVMappingParameters {
 
 export namespace CSVMappingParameters {
   export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CSVMappingParameters =>
-    __isa(o, "CSVMappingParameters");
+  export const isa = (o: any): o is CSVMappingParameters => __isa(o, "CSVMappingParameters");
 }
 
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   __type?: "DeleteApplicationCloudWatchLoggingOptionRequest";
+  /**
+   * <p>The version ID of the Kinesis Analytics application.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
   /**
    * <p>The Kinesis Analytics application name.</p>
    */
@@ -714,22 +665,13 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
    *             delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation. </p>
    */
   CloudWatchLoggingOptionId: string | undefined;
-
-  /**
-   * <p>The version ID of the Kinesis Analytics application.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationCloudWatchLoggingOptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationCloudWatchLoggingOptionRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationCloudWatchLoggingOptionRequest =>
+  export const isa = (o: any): o is DeleteApplicationCloudWatchLoggingOptionRequest =>
     __isa(o, "DeleteApplicationCloudWatchLoggingOptionRequest");
 }
 
@@ -738,14 +680,10 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationCloudWatchLoggingOptionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationCloudWatchLoggingOptionResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationCloudWatchLoggingOptionResponse =>
+  export const isa = (o: any): o is DeleteApplicationCloudWatchLoggingOptionResponse =>
     __isa(o, "DeleteApplicationCloudWatchLoggingOptionResponse");
 }
 
@@ -769,14 +707,10 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationInputProcessingConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationInputProcessingConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationInputProcessingConfigurationRequest =>
+  export const isa = (o: any): o is DeleteApplicationInputProcessingConfigurationRequest =>
     __isa(o, "DeleteApplicationInputProcessingConfigurationRequest");
 }
 
@@ -785,14 +719,10 @@ export interface DeleteApplicationInputProcessingConfigurationResponse {
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationInputProcessingConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationInputProcessingConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationInputProcessingConfigurationResponse =>
+  export const isa = (o: any): o is DeleteApplicationInputProcessingConfigurationResponse =>
     __isa(o, "DeleteApplicationInputProcessingConfigurationResponse");
 }
 
@@ -802,11 +732,6 @@ export namespace DeleteApplicationInputProcessingConfigurationResponse {
 export interface DeleteApplicationOutputRequest {
   __type?: "DeleteApplicationOutputRequest";
   /**
-   * <p>Amazon Kinesis Analytics application name.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Amazon Kinesis Analytics application version.
    *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
    *             If the version specified is not the current version, the
@@ -814,6 +739,11 @@ export interface DeleteApplicationOutputRequest {
    *         </p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>Amazon Kinesis Analytics application name.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The ID of the configuration to delete.
@@ -829,13 +759,10 @@ export interface DeleteApplicationOutputRequest {
 }
 
 export namespace DeleteApplicationOutputRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationOutputRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationOutputRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationOutputRequest =>
-    __isa(o, "DeleteApplicationOutputRequest");
+  export const isa = (o: any): o is DeleteApplicationOutputRequest => __isa(o, "DeleteApplicationOutputRequest");
 }
 
 /**
@@ -846,13 +773,10 @@ export interface DeleteApplicationOutputResponse {
 }
 
 export namespace DeleteApplicationOutputResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationOutputResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationOutputResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationOutputResponse =>
-    __isa(o, "DeleteApplicationOutputResponse");
+  export const isa = (o: any): o is DeleteApplicationOutputResponse => __isa(o, "DeleteApplicationOutputResponse");
 }
 
 export interface DeleteApplicationReferenceDataSourceRequest {
@@ -863,14 +787,6 @@ export interface DeleteApplicationReferenceDataSourceRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>Version of the application.
-   *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
-   *             If the version specified
-   *             is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
-
-  /**
    * <p>ID of the reference data source. When you add a reference data source to your
    *             application using the
    *             <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a>, Amazon Kinesis Analytics assigns an ID.
@@ -878,17 +794,21 @@ export interface DeleteApplicationReferenceDataSourceRequest {
    *         </p>
    */
   ReferenceId: string | undefined;
+
+  /**
+   * <p>Version of the application.
+   *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to get the current application version.
+   *             If the version specified
+   *             is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace DeleteApplicationReferenceDataSourceRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationReferenceDataSourceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationReferenceDataSourceRequest): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationReferenceDataSourceRequest =>
+  export const isa = (o: any): o is DeleteApplicationReferenceDataSourceRequest =>
     __isa(o, "DeleteApplicationReferenceDataSourceRequest");
 }
 
@@ -897,14 +817,10 @@ export interface DeleteApplicationReferenceDataSourceResponse {
 }
 
 export namespace DeleteApplicationReferenceDataSourceResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteApplicationReferenceDataSourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteApplicationReferenceDataSourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationReferenceDataSourceResponse =>
+  export const isa = (o: any): o is DeleteApplicationReferenceDataSourceResponse =>
     __isa(o, "DeleteApplicationReferenceDataSourceResponse");
 }
 
@@ -914,24 +830,23 @@ export namespace DeleteApplicationReferenceDataSourceResponse {
 export interface DeleteApplicationRequest {
   __type?: "DeleteApplicationRequest";
   /**
-   * <p>Name of the Amazon Kinesis Analytics application to delete.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>
    *             You can use the <code>DescribeApplication</code> operation to get this value.
    *         </p>
    */
   CreateTimestamp: Date | undefined;
+
+  /**
+   * <p>Name of the Amazon Kinesis Analytics application to delete.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace DeleteApplicationRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationRequest =>
-    __isa(o, "DeleteApplicationRequest");
+  export const isa = (o: any): o is DeleteApplicationRequest => __isa(o, "DeleteApplicationRequest");
 }
 
 /**
@@ -943,10 +858,9 @@ export interface DeleteApplicationResponse {
 
 export namespace DeleteApplicationResponse {
   export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationResponse =>
-    __isa(o, "DeleteApplicationResponse");
+  export const isa = (o: any): o is DeleteApplicationResponse => __isa(o, "DeleteApplicationResponse");
 }
 
 /**
@@ -962,10 +876,9 @@ export interface DescribeApplicationRequest {
 
 export namespace DescribeApplicationRequest {
   export const filterSensitiveLog = (obj: DescribeApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationRequest =>
-    __isa(o, "DescribeApplicationRequest");
+  export const isa = (o: any): o is DescribeApplicationRequest => __isa(o, "DescribeApplicationRequest");
 }
 
 /**
@@ -980,13 +893,10 @@ export interface DescribeApplicationResponse {
 }
 
 export namespace DescribeApplicationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeApplicationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeApplicationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationResponse =>
-    __isa(o, "DescribeApplicationResponse");
+  export const isa = (o: any): o is DescribeApplicationResponse => __isa(o, "DescribeApplicationResponse");
 }
 
 /**
@@ -1007,14 +917,18 @@ export interface DestinationSchema {
 
 export namespace DestinationSchema {
   export const filterSensitiveLog = (obj: DestinationSchema): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DestinationSchema =>
-    __isa(o, "DestinationSchema");
+  export const isa = (o: any): o is DestinationSchema => __isa(o, "DestinationSchema");
 }
 
 export interface DiscoverInputSchemaRequest {
   __type?: "DiscoverInputSchemaRequest";
+  /**
+   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.</p>
+   */
+  RoleARN?: string;
+
   /**
    * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
    */
@@ -1026,28 +940,22 @@ export interface DiscoverInputSchemaRequest {
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the streaming source.</p>
-   */
-  ResourceARN?: string;
-
-  /**
-   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.</p>
-   */
-  RoleARN?: string;
-
-  /**
    * <p>Specify this parameter to discover a schema from data in an Amazon S3
    *             object.</p>
    */
   S3Configuration?: S3Configuration;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the streaming source.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace DiscoverInputSchemaRequest {
   export const filterSensitiveLog = (obj: DiscoverInputSchemaRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DiscoverInputSchemaRequest =>
-    __isa(o, "DiscoverInputSchemaRequest");
+  export const isa = (o: any): o is DiscoverInputSchemaRequest => __isa(o, "DiscoverInputSchemaRequest");
 }
 
 /**
@@ -1055,11 +963,6 @@ export namespace DiscoverInputSchemaRequest {
  */
 export interface DiscoverInputSchemaResponse {
   __type?: "DiscoverInputSchemaResponse";
-  /**
-   * <p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>
-   */
-  InputSchema?: SourceSchema;
-
   /**
    * <p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>
    */
@@ -1071,19 +974,21 @@ export interface DiscoverInputSchemaResponse {
   ProcessedInputRecords?: string[];
 
   /**
+   * <p>Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.</p>
+   */
+  InputSchema?: SourceSchema;
+
+  /**
    * <p>Raw stream data that was sampled to infer the schema.</p>
    */
   RawInputRecords?: string[];
 }
 
 export namespace DiscoverInputSchemaResponse {
-  export const filterSensitiveLog = (
-    obj: DiscoverInputSchemaResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DiscoverInputSchemaResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DiscoverInputSchemaResponse =>
-    __isa(o, "DiscoverInputSchemaResponse");
+  export const isa = (o: any): o is DiscoverInputSchemaResponse => __isa(o, "DiscoverInputSchemaResponse");
 }
 
 /**
@@ -1102,28 +1007,6 @@ export interface Input {
   InputParallelism?: InputParallelism;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> for the input. An input
-   *             processor transforms records as they are received from the stream, before the
-   *             application's SQL code executes. Currently, the only input processing configuration
-   *             available is <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a>.</p>
-   */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
-
-  /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.</p>
-   *         <p>Also used to describe the format of the reference data source.</p>
-   */
-  InputSchema: SourceSchema | undefined;
-
-  /**
-   * <p>If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies
-   *             the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to
-   *             access the stream on your behalf.</p>
-   *         <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>
-   */
-  KinesisFirehoseInput?: KinesisFirehoseInput;
-
-  /**
    * <p>If the streaming source is an Amazon Kinesis stream,
    *             identifies the stream's Amazon Resource Name (ARN) and an IAM role
    *             that enables Amazon Kinesis Analytics to access the stream on your behalf.</p>
@@ -1138,11 +1021,33 @@ export interface Input {
    *             names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. </p>
    */
   NamePrefix: string | undefined;
+
+  /**
+   * <p>If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies
+   *             the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to
+   *             access the stream on your behalf.</p>
+   *         <p>Note: Either <code>KinesisStreamsInput</code> or <code>KinesisFirehoseInput</code> is required.</p>
+   */
+  KinesisFirehoseInput?: KinesisFirehoseInput;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.</p>
+   *         <p>Also used to describe the format of the reference data source.</p>
+   */
+  InputSchema: SourceSchema | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> for the input. An input
+   *             processor transforms records as they are received from the stream, before the
+   *             application's SQL code executes. Currently, the only input processing configuration
+   *             available is <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a>.</p>
+   */
+  InputProcessingConfiguration?: InputProcessingConfiguration;
 }
 
 export namespace Input {
   export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Input => __isa(o, "Input");
 }
@@ -1164,17 +1069,14 @@ export interface InputConfiguration {
    * <p>Point at which you want the application to start processing
    *             records from the streaming source.</p>
    */
-  InputStartingPositionConfiguration:
-    | InputStartingPositionConfiguration
-    | undefined;
+  InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
 }
 
 export namespace InputConfiguration {
   export const filterSensitiveLog = (obj: InputConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputConfiguration =>
-    __isa(o, "InputConfiguration");
+  export const isa = (o: any): o is InputConfiguration => __isa(o, "InputConfiguration");
 }
 
 /**
@@ -1186,34 +1088,11 @@ export namespace InputConfiguration {
 export interface InputDescription {
   __type?: "InputDescription";
   /**
-   * <p>Returns the in-application stream names that are mapped to the
-   *             stream source.</p>
+   * <p>If an Amazon Kinesis stream is configured as streaming source, provides Amazon
+   *             Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis
+   *             Analytics to access the stream on your behalf.</p>
    */
-  InAppStreamNames?: string[];
-
-  /**
-   * <p>Input ID associated with the application input.
-   *             This is the ID that Amazon Kinesis Analytics assigns to each
-   *             input configuration you add to your application. </p>
-   */
-  InputId?: string;
-
-  /**
-   * <p>Describes the configured parallelism (number of in-application streams
-   *             mapped to the streaming source).</p>
-   */
-  InputParallelism?: InputParallelism;
-
-  /**
-   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
-   */
-  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
-
-  /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding
-   *             columns in the in-application stream that is being created. </p>
-   */
-  InputSchema?: SourceSchema;
+  KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
 
   /**
    * <p>Point at which the application is configured to read from the input stream.</p>
@@ -1228,24 +1107,46 @@ export interface InputDescription {
   KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
 
   /**
-   * <p>If an Amazon Kinesis stream is configured as streaming source, provides Amazon
-   *             Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis
-   *             Analytics to access the stream on your behalf.</p>
+   * <p>Returns the in-application stream names that are mapped to the
+   *             stream source.</p>
    */
-  KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
+  InAppStreamNames?: string[];
 
   /**
    * <p>In-application name prefix.</p>
    */
   NamePrefix?: string;
+
+  /**
+   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
+   */
+  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding
+   *             columns in the in-application stream that is being created. </p>
+   */
+  InputSchema?: SourceSchema;
+
+  /**
+   * <p>Input ID associated with the application input.
+   *             This is the ID that Amazon Kinesis Analytics assigns to each
+   *             input configuration you add to your application. </p>
+   */
+  InputId?: string;
+
+  /**
+   * <p>Describes the configured parallelism (number of in-application streams
+   *             mapped to the streaming source).</p>
+   */
+  InputParallelism?: InputParallelism;
 }
 
 export namespace InputDescription {
   export const filterSensitiveLog = (obj: InputDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputDescription =>
-    __isa(o, "InputDescription");
+  export const isa = (o: any): o is InputDescription => __isa(o, "InputDescription");
 }
 
 /**
@@ -1273,10 +1174,9 @@ export interface InputLambdaProcessor {
 
 export namespace InputLambdaProcessor {
   export const filterSensitiveLog = (obj: InputLambdaProcessor): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputLambdaProcessor =>
-    __isa(o, "InputLambdaProcessor");
+  export const isa = (o: any): o is InputLambdaProcessor => __isa(o, "InputLambdaProcessor");
 }
 
 /**
@@ -1298,13 +1198,10 @@ export interface InputLambdaProcessorDescription {
 }
 
 export namespace InputLambdaProcessorDescription {
-  export const filterSensitiveLog = (
-    obj: InputLambdaProcessorDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InputLambdaProcessorDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InputLambdaProcessorDescription =>
-    __isa(o, "InputLambdaProcessorDescription");
+  export const isa = (o: any): o is InputLambdaProcessorDescription => __isa(o, "InputLambdaProcessorDescription");
 }
 
 /**
@@ -1312,6 +1209,12 @@ export namespace InputLambdaProcessorDescription {
  */
 export interface InputLambdaProcessorUpdate {
   __type?: "InputLambdaProcessorUpdate";
+  /**
+   * <p>The ARN of the new IAM role that is used to access the AWS Lambda
+   *             function.</p>
+   */
+  RoleARNUpdate?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the new <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that
    *             is used to preprocess the records in the stream.</p>
@@ -1321,20 +1224,13 @@ export interface InputLambdaProcessorUpdate {
    *          </note>
    */
   ResourceARNUpdate?: string;
-
-  /**
-   * <p>The ARN of the new IAM role that is used to access the AWS Lambda
-   *             function.</p>
-   */
-  RoleARNUpdate?: string;
 }
 
 export namespace InputLambdaProcessorUpdate {
   export const filterSensitiveLog = (obj: InputLambdaProcessorUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputLambdaProcessorUpdate =>
-    __isa(o, "InputLambdaProcessorUpdate");
+  export const isa = (o: any): o is InputLambdaProcessorUpdate => __isa(o, "InputLambdaProcessorUpdate");
 }
 
 /**
@@ -1355,10 +1251,9 @@ export interface InputParallelism {
 
 export namespace InputParallelism {
   export const filterSensitiveLog = (obj: InputParallelism): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputParallelism =>
-    __isa(o, "InputParallelism");
+  export const isa = (o: any): o is InputParallelism => __isa(o, "InputParallelism");
 }
 
 /**
@@ -1375,10 +1270,9 @@ export interface InputParallelismUpdate {
 
 export namespace InputParallelismUpdate {
   export const filterSensitiveLog = (obj: InputParallelismUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputParallelismUpdate =>
-    __isa(o, "InputParallelismUpdate");
+  export const isa = (o: any): o is InputParallelismUpdate => __isa(o, "InputParallelismUpdate");
 }
 
 /**
@@ -1397,13 +1291,10 @@ export interface InputProcessingConfiguration {
 }
 
 export namespace InputProcessingConfiguration {
-  export const filterSensitiveLog = (
-    obj: InputProcessingConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InputProcessingConfiguration): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InputProcessingConfiguration =>
-    __isa(o, "InputProcessingConfiguration");
+  export const isa = (o: any): o is InputProcessingConfiguration => __isa(o, "InputProcessingConfiguration");
 }
 
 /**
@@ -1419,10 +1310,8 @@ export interface InputProcessingConfigurationDescription {
 }
 
 export namespace InputProcessingConfigurationDescription {
-  export const filterSensitiveLog = (
-    obj: InputProcessingConfigurationDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InputProcessingConfigurationDescription): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InputProcessingConfigurationDescription =>
     __isa(o, "InputProcessingConfigurationDescription");
@@ -1440,10 +1329,8 @@ export interface InputProcessingConfigurationUpdate {
 }
 
 export namespace InputProcessingConfigurationUpdate {
-  export const filterSensitiveLog = (
-    obj: InputProcessingConfigurationUpdate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InputProcessingConfigurationUpdate): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InputProcessingConfigurationUpdate =>
     __isa(o, "InputProcessingConfigurationUpdate");
@@ -1455,12 +1342,6 @@ export namespace InputProcessingConfigurationUpdate {
 export interface InputSchemaUpdate {
   __type?: "InputSchemaUpdate";
   /**
-   * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
-   *             of the streaming source element to the corresponding column in the in-application stream. </p>
-   */
-  RecordColumnUpdates?: RecordColumn[];
-
-  /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
    */
   RecordEncodingUpdate?: string;
@@ -1469,20 +1350,25 @@ export interface InputSchemaUpdate {
    * <p>Specifies the format of the records on the streaming source.</p>
    */
   RecordFormatUpdate?: RecordFormat;
+
+  /**
+   * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
+   *             of the streaming source element to the corresponding column in the in-application stream. </p>
+   */
+  RecordColumnUpdates?: RecordColumn[];
 }
 
 export namespace InputSchemaUpdate {
   export const filterSensitiveLog = (obj: InputSchemaUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputSchemaUpdate =>
-    __isa(o, "InputSchemaUpdate");
+  export const isa = (o: any): o is InputSchemaUpdate => __isa(o, "InputSchemaUpdate");
 }
 
 export enum InputStartingPosition {
   LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
   NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON"
+  TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
@@ -1517,10 +1403,8 @@ export interface InputStartingPositionConfiguration {
 }
 
 export namespace InputStartingPositionConfiguration {
-  export const filterSensitiveLog = (
-    obj: InputStartingPositionConfiguration
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InputStartingPositionConfiguration): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InputStartingPositionConfiguration =>
     __isa(o, "InputStartingPositionConfiguration");
@@ -1533,15 +1417,21 @@ export namespace InputStartingPositionConfiguration {
 export interface InputUpdate {
   __type?: "InputUpdate";
   /**
+   * <p>Name prefix for in-application streams that Amazon Kinesis Analytics creates
+   *             for the specific streaming source.</p>
+   */
+  NamePrefixUpdate?: string;
+
+  /**
    * <p>Input ID of the application input to be updated.</p>
    */
   InputId: string | undefined;
 
   /**
-   * <p>Describes the parallelism updates (the number in-application
-   *             streams Amazon Kinesis Analytics creates for the specific streaming source).</p>
+   * <p>If an Amazon Kinesis stream is the streaming source to be updated, provides an
+   *             updated stream Amazon Resource Name (ARN) and IAM role ARN.</p>
    */
-  InputParallelismUpdate?: InputParallelismUpdate;
+  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
 
   /**
    * <p>Describes updates for an input processing configuration.</p>
@@ -1561,21 +1451,15 @@ export interface InputUpdate {
   KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
 
   /**
-   * <p>If an Amazon Kinesis stream is the streaming source to be updated, provides an
-   *             updated stream Amazon Resource Name (ARN) and IAM role ARN.</p>
+   * <p>Describes the parallelism updates (the number in-application
+   *             streams Amazon Kinesis Analytics creates for the specific streaming source).</p>
    */
-  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
-
-  /**
-   * <p>Name prefix for in-application streams that Amazon Kinesis Analytics creates
-   *             for the specific streaming source.</p>
-   */
-  NamePrefixUpdate?: string;
+  InputParallelismUpdate?: InputParallelismUpdate;
 }
 
 export namespace InputUpdate {
   export const filterSensitiveLog = (obj: InputUpdate): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InputUpdate => __isa(o, "InputUpdate");
 }
@@ -1583,9 +1467,7 @@ export namespace InputUpdate {
 /**
  * <p>User-provided application configuration is not valid.</p>
  */
-export interface InvalidApplicationConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApplicationConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidApplicationConfigurationException";
   $fault: "client";
   /**
@@ -1595,10 +1477,8 @@ export interface InvalidApplicationConfigurationException
 }
 
 export namespace InvalidApplicationConfigurationException {
-  export const filterSensitiveLog = (
-    obj: InvalidApplicationConfigurationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidApplicationConfigurationException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidApplicationConfigurationException =>
     __isa(o, "InvalidApplicationConfigurationException");
@@ -1607,9 +1487,7 @@ export namespace InvalidApplicationConfigurationException {
 /**
  * <p>Specified input parameter value is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -1620,10 +1498,9 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -1639,10 +1516,9 @@ export interface JSONMappingParameters {
 
 export namespace JSONMappingParameters {
   export const filterSensitiveLog = (obj: JSONMappingParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JSONMappingParameters =>
-    __isa(o, "JSONMappingParameters");
+  export const isa = (o: any): o is JSONMappingParameters => __isa(o, "JSONMappingParameters");
 }
 
 /**
@@ -1667,10 +1543,9 @@ export interface KinesisFirehoseInput {
 
 export namespace KinesisFirehoseInput {
   export const filterSensitiveLog = (obj: KinesisFirehoseInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseInput =>
-    __isa(o, "KinesisFirehoseInput");
+  export const isa = (o: any): o is KinesisFirehoseInput => __isa(o, "KinesisFirehoseInput");
 }
 
 /**
@@ -1693,13 +1568,10 @@ export interface KinesisFirehoseInputDescription {
 }
 
 export namespace KinesisFirehoseInputDescription {
-  export const filterSensitiveLog = (
-    obj: KinesisFirehoseInputDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: KinesisFirehoseInputDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseInputDescription =>
-    __isa(o, "KinesisFirehoseInputDescription");
+  export const isa = (o: any): o is KinesisFirehoseInputDescription => __isa(o, "KinesisFirehoseInputDescription");
 }
 
 /**
@@ -1723,10 +1595,9 @@ export interface KinesisFirehoseInputUpdate {
 
 export namespace KinesisFirehoseInputUpdate {
   export const filterSensitiveLog = (obj: KinesisFirehoseInputUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseInputUpdate =>
-    __isa(o, "KinesisFirehoseInputUpdate");
+  export const isa = (o: any): o is KinesisFirehoseInputUpdate => __isa(o, "KinesisFirehoseInputUpdate");
 }
 
 /**
@@ -1738,22 +1609,21 @@ export namespace KinesisFirehoseInputUpdate {
 export interface KinesisFirehoseOutput {
   __type?: "KinesisFirehoseOutput";
   /**
-   * <p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the destination Amazon Kinesis Firehose delivery stream to write to.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisFirehoseOutput {
   export const filterSensitiveLog = (obj: KinesisFirehoseOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseOutput =>
-    __isa(o, "KinesisFirehoseOutput");
+  export const isa = (o: any): o is KinesisFirehoseOutput => __isa(o, "KinesisFirehoseOutput");
 }
 
 /**
@@ -1765,24 +1635,21 @@ export namespace KinesisFirehoseOutput {
 export interface KinesisFirehoseOutputDescription {
   __type?: "KinesisFirehoseOutputDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace KinesisFirehoseOutputDescription {
-  export const filterSensitiveLog = (
-    obj: KinesisFirehoseOutputDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: KinesisFirehoseOutputDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseOutputDescription =>
-    __isa(o, "KinesisFirehoseOutputDescription");
+  export const isa = (o: any): o is KinesisFirehoseOutputDescription => __isa(o, "KinesisFirehoseOutputDescription");
 }
 
 /**
@@ -1808,13 +1675,10 @@ export interface KinesisFirehoseOutputUpdate {
 }
 
 export namespace KinesisFirehoseOutputUpdate {
-  export const filterSensitiveLog = (
-    obj: KinesisFirehoseOutputUpdate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: KinesisFirehoseOutputUpdate): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseOutputUpdate =>
-    __isa(o, "KinesisFirehoseOutputUpdate");
+  export const isa = (o: any): o is KinesisFirehoseOutputUpdate => __isa(o, "KinesisFirehoseOutputUpdate");
 }
 
 /**
@@ -1825,22 +1689,21 @@ export namespace KinesisFirehoseOutputUpdate {
 export interface KinesisStreamsInput {
   __type?: "KinesisStreamsInput";
   /**
-   * <p>ARN of the input Amazon Kinesis stream to read.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
+
+  /**
+   * <p>ARN of the input Amazon Kinesis stream to read.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisStreamsInput {
   export const filterSensitiveLog = (obj: KinesisStreamsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsInput =>
-    __isa(o, "KinesisStreamsInput");
+  export const isa = (o: any): o is KinesisStreamsInput => __isa(o, "KinesisStreamsInput");
 }
 
 /**
@@ -1852,24 +1715,21 @@ export namespace KinesisStreamsInput {
 export interface KinesisStreamsInputDescription {
   __type?: "KinesisStreamsInputDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace KinesisStreamsInputDescription {
-  export const filterSensitiveLog = (
-    obj: KinesisStreamsInputDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: KinesisStreamsInputDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsInputDescription =>
-    __isa(o, "KinesisStreamsInputDescription");
+  export const isa = (o: any): o is KinesisStreamsInputDescription => __isa(o, "KinesisStreamsInputDescription");
 }
 
 /**
@@ -1879,22 +1739,21 @@ export namespace KinesisStreamsInputDescription {
 export interface KinesisStreamsInputUpdate {
   __type?: "KinesisStreamsInputUpdate";
   /**
-   * <p>Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read.</p>
-   */
-  ResourceARNUpdate?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARNUpdate?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read.</p>
+   */
+  ResourceARNUpdate?: string;
 }
 
 export namespace KinesisStreamsInputUpdate {
   export const filterSensitiveLog = (obj: KinesisStreamsInputUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsInputUpdate =>
-    __isa(o, "KinesisStreamsInputUpdate");
+  export const isa = (o: any): o is KinesisStreamsInputUpdate => __isa(o, "KinesisStreamsInputUpdate");
 }
 
 /**
@@ -1917,10 +1776,9 @@ export interface KinesisStreamsOutput {
 
 export namespace KinesisStreamsOutput {
   export const filterSensitiveLog = (obj: KinesisStreamsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsOutput =>
-    __isa(o, "KinesisStreamsOutput");
+  export const isa = (o: any): o is KinesisStreamsOutput => __isa(o, "KinesisStreamsOutput");
 }
 
 /**
@@ -1932,24 +1790,21 @@ export namespace KinesisStreamsOutput {
 export interface KinesisStreamsOutputDescription {
   __type?: "KinesisStreamsOutputDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the Amazon Kinesis stream.</p>
+   */
+  ResourceARN?: string;
 }
 
 export namespace KinesisStreamsOutputDescription {
-  export const filterSensitiveLog = (
-    obj: KinesisStreamsOutputDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: KinesisStreamsOutputDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsOutputDescription =>
-    __isa(o, "KinesisStreamsOutputDescription");
+  export const isa = (o: any): o is KinesisStreamsOutputDescription => __isa(o, "KinesisStreamsOutputDescription");
 }
 
 /**
@@ -1975,10 +1830,9 @@ export interface KinesisStreamsOutputUpdate {
 
 export namespace KinesisStreamsOutputUpdate {
   export const filterSensitiveLog = (obj: KinesisStreamsOutputUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KinesisStreamsOutputUpdate =>
-    __isa(o, "KinesisStreamsOutputUpdate");
+  export const isa = (o: any): o is KinesisStreamsOutputUpdate => __isa(o, "KinesisStreamsOutputUpdate");
 }
 
 /**
@@ -1989,6 +1843,11 @@ export namespace KinesisStreamsOutputUpdate {
 export interface LambdaOutput {
   __type?: "LambdaOutput";
   /**
+   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
+   */
+  RoleARN: string | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the destination Lambda function to write
    *             to.</p>
    *         <note>
@@ -1997,16 +1856,11 @@ export interface LambdaOutput {
    *          </note>
    */
   ResourceARN: string | undefined;
-
-  /**
-   * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
-   */
-  RoleARN: string | undefined;
 }
 
 export namespace LambdaOutput {
   export const filterSensitiveLog = (obj: LambdaOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LambdaOutput => __isa(o, "LambdaOutput");
 }
@@ -2030,10 +1884,9 @@ export interface LambdaOutputDescription {
 
 export namespace LambdaOutputDescription {
   export const filterSensitiveLog = (obj: LambdaOutputDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LambdaOutputDescription =>
-    __isa(o, "LambdaOutputDescription");
+  export const isa = (o: any): o is LambdaOutputDescription => __isa(o, "LambdaOutputDescription");
 }
 
 /**
@@ -2060,18 +1913,15 @@ export interface LambdaOutputUpdate {
 
 export namespace LambdaOutputUpdate {
   export const filterSensitiveLog = (obj: LambdaOutputUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LambdaOutputUpdate =>
-    __isa(o, "LambdaOutputUpdate");
+  export const isa = (o: any): o is LambdaOutputUpdate => __isa(o, "LambdaOutputUpdate");
 }
 
 /**
  * <p>Exceeded the number of applications allowed.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2082,10 +1932,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2094,22 +1943,21 @@ export namespace LimitExceededException {
 export interface ListApplicationsRequest {
   __type?: "ListApplicationsRequest";
   /**
-   * <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
-   */
-  ExclusiveStartApplicationName?: string;
-
-  /**
    * <p>Maximum number of applications to list.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.</p>
+   */
+  ExclusiveStartApplicationName?: string;
 }
 
 export namespace ListApplicationsRequest {
   export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 /**
@@ -2130,10 +1978,9 @@ export interface ListApplicationsResponse {
 
 export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsResponse =>
-    __isa(o, "ListApplicationsResponse");
+  export const isa = (o: any): o is ListApplicationsResponse => __isa(o, "ListApplicationsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2146,10 +1993,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -2161,13 +2007,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -2180,23 +2023,22 @@ export namespace ListTagsForResourceResponse {
 export interface MappingParameters {
   __type?: "MappingParameters";
   /**
+   * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
+   */
+  JSONMappingParameters?: JSONMappingParameters;
+
+  /**
    * <p>Provides additional mapping information when the record format uses delimiters
    *             (for example, CSV).</p>
    */
   CSVMappingParameters?: CSVMappingParameters;
-
-  /**
-   * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
-   */
-  JSONMappingParameters?: JSONMappingParameters;
 }
 
 export namespace MappingParameters {
   export const filterSensitiveLog = (obj: MappingParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MappingParameters =>
-    __isa(o, "MappingParameters");
+  export const isa = (o: any): o is MappingParameters => __isa(o, "MappingParameters");
 }
 
 /**
@@ -2216,14 +2058,19 @@ export namespace MappingParameters {
 export interface Output {
   __type?: "Output";
   /**
-   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
+   * <p>Name of the in-application stream.</p>
    */
-  DestinationSchema: DestinationSchema | undefined;
+  Name: string | undefined;
 
   /**
    * <p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>
    */
   KinesisFirehoseOutput?: KinesisFirehoseOutput;
+
+  /**
+   * <p>Identifies an AWS Lambda function as the destination.</p>
+   */
+  LambdaOutput?: LambdaOutput;
 
   /**
    * <p>Identifies an Amazon Kinesis stream
@@ -2232,19 +2079,14 @@ export interface Output {
   KinesisStreamsOutput?: KinesisStreamsOutput;
 
   /**
-   * <p>Identifies an AWS Lambda function as the destination.</p>
+   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
    */
-  LambdaOutput?: LambdaOutput;
-
-  /**
-   * <p>Name of the in-application stream.</p>
-   */
-  Name: string | undefined;
+  DestinationSchema: DestinationSchema | undefined;
 }
 
 export namespace Output {
   export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Output => __isa(o, "Output");
 }
@@ -2259,21 +2101,15 @@ export namespace Output {
 export interface OutputDescription {
   __type?: "OutputDescription";
   /**
-   * <p>Data format used for writing data to the destination.</p>
-   */
-  DestinationSchema?: DestinationSchema;
-
-  /**
    * <p>Describes the Amazon Kinesis Firehose delivery stream configured as the
    *             destination where output is written.</p>
    */
   KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
 
   /**
-   * <p>Describes Amazon Kinesis stream configured as the
-   *             destination where output is written.</p>
+   * <p>Name of the in-application stream configured as output.</p>
    */
-  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
+  Name?: string;
 
   /**
    * <p>Describes the AWS Lambda function configured as the destination where output is
@@ -2282,22 +2118,27 @@ export interface OutputDescription {
   LambdaOutputDescription?: LambdaOutputDescription;
 
   /**
-   * <p>Name of the in-application stream configured as output.</p>
+   * <p>Data format used for writing data to the destination.</p>
    */
-  Name?: string;
+  DestinationSchema?: DestinationSchema;
 
   /**
    * <p>A unique identifier for the output configuration.</p>
    */
   OutputId?: string;
+
+  /**
+   * <p>Describes Amazon Kinesis stream configured as the
+   *             destination where output is written.</p>
+   */
+  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
 }
 
 export namespace OutputDescription {
   export const filterSensitiveLog = (obj: OutputDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OutputDescription =>
-    __isa(o, "OutputDescription");
+  export const isa = (o: any): o is OutputDescription => __isa(o, "OutputDescription");
 }
 
 /**
@@ -2309,9 +2150,11 @@ export namespace OutputDescription {
 export interface OutputUpdate {
   __type?: "OutputUpdate";
   /**
-   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
+   * <p>If you want to specify a different in-application stream
+   *             for this output configuration, use this field to
+   *             specify the new in-application stream name.</p>
    */
-  DestinationSchemaUpdate?: DestinationSchema;
+  NameUpdate?: string;
 
   /**
    * <p>Describes an Amazon Kinesis Firehose delivery stream as the destination for the
@@ -2320,9 +2163,9 @@ export interface OutputUpdate {
   KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
 
   /**
-   * <p>Describes an Amazon Kinesis stream as the destination for the output.</p>
+   * <p>Describes the data format when records are written to the destination. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring Application Output</a>.</p>
    */
-  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
+  DestinationSchemaUpdate?: DestinationSchema;
 
   /**
    * <p>Describes an AWS Lambda function as the destination for the output.</p>
@@ -2330,11 +2173,9 @@ export interface OutputUpdate {
   LambdaOutputUpdate?: LambdaOutputUpdate;
 
   /**
-   * <p>If you want to specify a different in-application stream
-   *             for this output configuration, use this field to
-   *             specify the new in-application stream name.</p>
+   * <p>Describes an Amazon Kinesis stream as the destination for the output.</p>
    */
-  NameUpdate?: string;
+  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
 
   /**
    * <p>Identifies the specific output configuration that you want to update.</p>
@@ -2344,7 +2185,7 @@ export interface OutputUpdate {
 
 export namespace OutputUpdate {
   export const filterSensitiveLog = (obj: OutputUpdate): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OutputUpdate => __isa(o, "OutputUpdate");
 }
@@ -2375,7 +2216,7 @@ export interface RecordColumn {
 
 export namespace RecordColumn {
   export const filterSensitiveLog = (obj: RecordColumn): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RecordColumn => __isa(o, "RecordColumn");
 }
@@ -2401,14 +2242,14 @@ export interface RecordFormat {
 
 export namespace RecordFormat {
   export const filterSensitiveLog = (obj: RecordFormat): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RecordFormat => __isa(o, "RecordFormat");
 }
 
 export enum RecordFormatType {
   CSV = "CSV",
-  JSON = "JSON"
+  JSON = "JSON",
 }
 
 /**
@@ -2416,11 +2257,6 @@ export enum RecordFormatType {
  */
 export interface ReferenceDataSource {
   __type?: "ReferenceDataSource";
-  /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
-   */
-  ReferenceSchema: SourceSchema | undefined;
-
   /**
    * <p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.
    *
@@ -2432,14 +2268,18 @@ export interface ReferenceDataSource {
    * <p>Name of the in-application table to create.</p>
    */
   TableName: string | undefined;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
+   */
+  ReferenceSchema: SourceSchema | undefined;
 }
 
 export namespace ReferenceDataSource {
   export const filterSensitiveLog = (obj: ReferenceDataSource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReferenceDataSource =>
-    __isa(o, "ReferenceDataSource");
+  export const isa = (o: any): o is ReferenceDataSource => __isa(o, "ReferenceDataSource");
 }
 
 /**
@@ -2448,6 +2288,16 @@ export namespace ReferenceDataSource {
 export interface ReferenceDataSourceDescription {
   __type?: "ReferenceDataSourceDescription";
   /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
+   */
+  ReferenceSchema?: SourceSchema;
+
+  /**
+   * <p>The in-application table name created by the specific reference data source configuration.</p>
+   */
+  TableName: string | undefined;
+
+  /**
    * <p>ID of the reference data source. This is the ID
    *             that Amazon Kinesis Analytics assigns when you add the reference data source
    *             to your application using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a> operation.</p>
@@ -2455,31 +2305,16 @@ export interface ReferenceDataSourceDescription {
   ReferenceId: string | undefined;
 
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
-   */
-  ReferenceSchema?: SourceSchema;
-
-  /**
    * <p>Provides the S3 bucket name, the object key name that contains the reference data. It also provides the Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application reference table.</p>
    */
-  S3ReferenceDataSourceDescription:
-    | S3ReferenceDataSourceDescription
-    | undefined;
-
-  /**
-   * <p>The in-application table name created by the specific reference data source configuration.</p>
-   */
-  TableName: string | undefined;
+  S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
 }
 
 export namespace ReferenceDataSourceDescription {
-  export const filterSensitiveLog = (
-    obj: ReferenceDataSourceDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReferenceDataSourceDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReferenceDataSourceDescription =>
-    __isa(o, "ReferenceDataSourceDescription");
+  export const isa = (o: any): o is ReferenceDataSourceDescription => __isa(o, "ReferenceDataSourceDescription");
 }
 
 /**
@@ -2494,9 +2329,9 @@ export interface ReferenceDataSourceUpdate {
   ReferenceId: string | undefined;
 
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
+   * <p>In-application table name that is created by this update.</p>
    */
-  ReferenceSchemaUpdate?: SourceSchema;
+  TableNameUpdate?: string;
 
   /**
    * <p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
@@ -2504,25 +2339,22 @@ export interface ReferenceDataSourceUpdate {
   S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
 
   /**
-   * <p>In-application table name that is created by this update.</p>
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
    */
-  TableNameUpdate?: string;
+  ReferenceSchemaUpdate?: SourceSchema;
 }
 
 export namespace ReferenceDataSourceUpdate {
   export const filterSensitiveLog = (obj: ReferenceDataSourceUpdate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReferenceDataSourceUpdate =>
-    __isa(o, "ReferenceDataSourceUpdate");
+  export const isa = (o: any): o is ReferenceDataSourceUpdate => __isa(o, "ReferenceDataSourceUpdate");
 }
 
 /**
  * <p>Application is not available for this operation.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2533,18 +2365,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>Specified application can't be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2555,10 +2384,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2568,23 +2396,17 @@ export namespace ResourceNotFoundException {
  *             see <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
  *             in the Amazon Kinesis Streams API Reference.</p>
  */
-export interface ResourceProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceProvisionedThroughputExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceProvisionedThroughputExceededException {
-  export const filterSensitiveLog = (
-    obj: ResourceProvisionedThroughputExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceProvisionedThroughputExceededException): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is ResourceProvisionedThroughputExceededException =>
+  export const isa = (o: any): o is ResourceProvisionedThroughputExceededException =>
     __isa(o, "ResourceProvisionedThroughputExceededException");
 }
 
@@ -2613,10 +2435,9 @@ export interface S3Configuration {
 
 export namespace S3Configuration {
   export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is S3Configuration =>
-    __isa(o, "S3Configuration");
+  export const isa = (o: any): o is S3Configuration => __isa(o, "S3Configuration");
 }
 
 /**
@@ -2645,10 +2466,9 @@ export interface S3ReferenceDataSource {
 
 export namespace S3ReferenceDataSource {
   export const filterSensitiveLog = (obj: S3ReferenceDataSource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is S3ReferenceDataSource =>
-    __isa(o, "S3ReferenceDataSource");
+  export const isa = (o: any): o is S3ReferenceDataSource => __isa(o, "S3ReferenceDataSource");
 }
 
 /**
@@ -2657,14 +2477,14 @@ export namespace S3ReferenceDataSource {
 export interface S3ReferenceDataSourceDescription {
   __type?: "S3ReferenceDataSourceDescription";
   /**
-   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
-   */
-  BucketARN: string | undefined;
-
-  /**
    * <p>Amazon S3 object key name.</p>
    */
   FileKey: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARN: string | undefined;
 
   /**
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.</p>
@@ -2673,13 +2493,10 @@ export interface S3ReferenceDataSourceDescription {
 }
 
 export namespace S3ReferenceDataSourceDescription {
-  export const filterSensitiveLog = (
-    obj: S3ReferenceDataSourceDescription
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: S3ReferenceDataSourceDescription): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is S3ReferenceDataSourceDescription =>
-    __isa(o, "S3ReferenceDataSourceDescription");
+  export const isa = (o: any): o is S3ReferenceDataSourceDescription => __isa(o, "S3ReferenceDataSourceDescription");
 }
 
 /**
@@ -2704,34 +2521,26 @@ export interface S3ReferenceDataSourceUpdate {
 }
 
 export namespace S3ReferenceDataSourceUpdate {
-  export const filterSensitiveLog = (
-    obj: S3ReferenceDataSourceUpdate
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: S3ReferenceDataSourceUpdate): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is S3ReferenceDataSourceUpdate =>
-    __isa(o, "S3ReferenceDataSourceUpdate");
+  export const isa = (o: any): o is S3ReferenceDataSourceUpdate => __isa(o, "S3ReferenceDataSourceUpdate");
 }
 
 /**
  * <p>The service is unavailable. Back off and retry the operation. </p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -2740,14 +2549,14 @@ export namespace ServiceUnavailableException {
 export interface SourceSchema {
   __type?: "SourceSchema";
   /**
-   * <p>A list of <code>RecordColumn</code> objects.</p>
-   */
-  RecordColumns: RecordColumn[] | undefined;
-
-  /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
    */
   RecordEncoding?: string;
+
+  /**
+   * <p>A list of <code>RecordColumn</code> objects.</p>
+   */
+  RecordColumns: RecordColumn[] | undefined;
 
   /**
    * <p>Specifies the format of the records on the streaming source.</p>
@@ -2757,7 +2566,7 @@ export interface SourceSchema {
 
 export namespace SourceSchema {
   export const filterSensitiveLog = (obj: SourceSchema): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is SourceSchema => __isa(o, "SourceSchema");
 }
@@ -2768,22 +2577,21 @@ export namespace SourceSchema {
 export interface StartApplicationRequest {
   __type?: "StartApplicationRequest";
   /**
-   * <p>Name of the application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.</p>
    */
   InputConfigurations: InputConfiguration[] | undefined;
+
+  /**
+   * <p>Name of the application.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace StartApplicationRequest {
   export const filterSensitiveLog = (obj: StartApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartApplicationRequest =>
-    __isa(o, "StartApplicationRequest");
+  export const isa = (o: any): o is StartApplicationRequest => __isa(o, "StartApplicationRequest");
 }
 
 /**
@@ -2795,10 +2603,9 @@ export interface StartApplicationResponse {
 
 export namespace StartApplicationResponse {
   export const filterSensitiveLog = (obj: StartApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartApplicationResponse =>
-    __isa(o, "StartApplicationResponse");
+  export const isa = (o: any): o is StartApplicationResponse => __isa(o, "StartApplicationResponse");
 }
 
 /**
@@ -2814,10 +2621,9 @@ export interface StopApplicationRequest {
 
 export namespace StopApplicationRequest {
   export const filterSensitiveLog = (obj: StopApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopApplicationRequest =>
-    __isa(o, "StopApplicationRequest");
+  export const isa = (o: any): o is StopApplicationRequest => __isa(o, "StopApplicationRequest");
 }
 
 /**
@@ -2829,10 +2635,9 @@ export interface StopApplicationResponse {
 
 export namespace StopApplicationResponse {
   export const filterSensitiveLog = (obj: StopApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopApplicationResponse =>
-    __isa(o, "StopApplicationResponse");
+  export const isa = (o: any): o is StopApplicationResponse => __isa(o, "StopApplicationResponse");
 }
 
 /**
@@ -2855,7 +2660,7 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2875,10 +2680,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2887,18 +2691,15 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -2906,76 +2707,64 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
  * <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
  *             the given streaming source.</p>
  */
-export interface UnableToDetectSchemaException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnableToDetectSchemaException extends __SmithyException, $MetadataBearer {
   name: "UnableToDetectSchemaException";
   $fault: "client";
-  ProcessedInputRecords?: string[];
-  RawInputRecords?: string[];
   message?: string;
+  RawInputRecords?: string[];
+  ProcessedInputRecords?: string[];
 }
 
 export namespace UnableToDetectSchemaException {
-  export const filterSensitiveLog = (
-    obj: UnableToDetectSchemaException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnableToDetectSchemaException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnableToDetectSchemaException =>
-    __isa(o, "UnableToDetectSchemaException");
+  export const isa = (o: any): o is UnableToDetectSchemaException => __isa(o, "UnableToDetectSchemaException");
 }
 
 /**
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  */
-export interface UnsupportedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnsupportedOperationException {
-  export const filterSensitiveLog = (
-    obj: UnsupportedOperationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationException =>
-    __isa(o, "UnsupportedOperationException");
+  export const isa = (o: any): o is UnsupportedOperationException => __isa(o, "UnsupportedOperationException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>A list of keys of tags to remove from the specified application.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2984,10 +2773,9 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateApplicationRequest {
@@ -3011,10 +2799,9 @@ export interface UpdateApplicationRequest {
 
 export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest =>
-    __isa(o, "UpdateApplicationRequest");
+  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateApplicationResponse {
@@ -3023,8 +2810,7 @@ export interface UpdateApplicationResponse {
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResponse =>
-    __isa(o, "UpdateApplicationResponse");
+  export const isa = (o: any): o is UpdateApplicationResponse => __isa(o, "UpdateApplicationResponse");
 }

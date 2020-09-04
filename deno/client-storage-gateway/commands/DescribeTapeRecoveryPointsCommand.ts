@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
-import {
-  DescribeTapeRecoveryPointsInput,
-  DescribeTapeRecoveryPointsOutput
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
+import { DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeTapeRecoveryPointsCommand,
-  serializeAws_json1_1DescribeTapeRecoveryPointsCommand
+  serializeAws_json1_1DescribeTapeRecoveryPointsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTapeRecoveryPointsCommandInput = DescribeTapeRecoveryPointsInput;
-export type DescribeTapeRecoveryPointsCommandOutput = DescribeTapeRecoveryPointsOutput &
-  __MetadataBearer;
+export type DescribeTapeRecoveryPointsCommandOutput = DescribeTapeRecoveryPointsOutput & __MetadataBearer;
 
 export class DescribeTapeRecoveryPointsCommand extends $Command<
   DescribeTapeRecoveryPointsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTapeRecoveryPointsCommandInput,
-    DescribeTapeRecoveryPointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTapeRecoveryPointsCommandInput, DescribeTapeRecoveryPointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTapeRecoveryPointsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTapeRecoveryPointsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTapeRecoveryPointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTapeRecoveryPointsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeTapeRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeTapeRecoveryPointsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTapeRecoveryPointsCommandOutput> {
-    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

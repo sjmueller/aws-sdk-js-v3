@@ -1,123 +1,90 @@
-import {
-  AddInstanceFleetCommandInput,
-  AddInstanceFleetCommandOutput
-} from "./commands/AddInstanceFleetCommand.ts";
-import {
-  AddInstanceGroupsCommandInput,
-  AddInstanceGroupsCommandOutput
-} from "./commands/AddInstanceGroupsCommand.ts";
-import {
-  AddJobFlowStepsCommandInput,
-  AddJobFlowStepsCommandOutput
-} from "./commands/AddJobFlowStepsCommand.ts";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand.ts";
-import {
-  CancelStepsCommandInput,
-  CancelStepsCommandOutput
-} from "./commands/CancelStepsCommand.ts";
+import { AddInstanceFleetCommandInput, AddInstanceFleetCommandOutput } from "./commands/AddInstanceFleetCommand.ts";
+import { AddInstanceGroupsCommandInput, AddInstanceGroupsCommandOutput } from "./commands/AddInstanceGroupsCommand.ts";
+import { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "./commands/AddJobFlowStepsCommand.ts";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
+import { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand.ts";
 import {
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput
+  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand.ts";
 import {
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput
+  DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand.ts";
-import {
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
-} from "./commands/DescribeClusterCommand.ts";
-import {
-  DescribeJobFlowsCommandInput,
-  DescribeJobFlowsCommandOutput
-} from "./commands/DescribeJobFlowsCommand.ts";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand.ts";
+import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand.ts";
 import {
   DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput
+  DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand.ts";
-import {
-  DescribeStepCommandInput,
-  DescribeStepCommandOutput
-} from "./commands/DescribeStepCommand.ts";
+import { DescribeStepCommandInput, DescribeStepCommandOutput } from "./commands/DescribeStepCommand.ts";
 import {
   GetBlockPublicAccessConfigurationCommandInput,
-  GetBlockPublicAccessConfigurationCommandOutput
+  GetBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/GetBlockPublicAccessConfigurationCommand.ts";
 import {
-  ListBootstrapActionsCommandInput,
-  ListBootstrapActionsCommandOutput
-} from "./commands/ListBootstrapActionsCommand.ts";
+  GetManagedScalingPolicyCommandInput,
+  GetManagedScalingPolicyCommandOutput,
+} from "./commands/GetManagedScalingPolicyCommand.ts";
 import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand.ts";
+  ListBootstrapActionsCommandInput,
+  ListBootstrapActionsCommandOutput,
+} from "./commands/ListBootstrapActionsCommand.ts";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand.ts";
 import {
   ListInstanceFleetsCommandInput,
-  ListInstanceFleetsCommandOutput
+  ListInstanceFleetsCommandOutput,
 } from "./commands/ListInstanceFleetsCommand.ts";
 import {
   ListInstanceGroupsCommandInput,
-  ListInstanceGroupsCommandOutput
+  ListInstanceGroupsCommandOutput,
 } from "./commands/ListInstanceGroupsCommand.ts";
-import {
-  ListInstancesCommandInput,
-  ListInstancesCommandOutput
-} from "./commands/ListInstancesCommand.ts";
+import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand.ts";
 import {
   ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput
+  ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand.ts";
-import {
-  ListStepsCommandInput,
-  ListStepsCommandOutput
-} from "./commands/ListStepsCommand.ts";
-import {
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput
-} from "./commands/ModifyClusterCommand.ts";
+import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand.ts";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand.ts";
 import {
   ModifyInstanceFleetCommandInput,
-  ModifyInstanceFleetCommandOutput
+  ModifyInstanceFleetCommandOutput,
 } from "./commands/ModifyInstanceFleetCommand.ts";
 import {
   ModifyInstanceGroupsCommandInput,
-  ModifyInstanceGroupsCommandOutput
+  ModifyInstanceGroupsCommandOutput,
 } from "./commands/ModifyInstanceGroupsCommand.ts";
 import {
   PutAutoScalingPolicyCommandInput,
-  PutAutoScalingPolicyCommandOutput
+  PutAutoScalingPolicyCommandOutput,
 } from "./commands/PutAutoScalingPolicyCommand.ts";
 import {
   PutBlockPublicAccessConfigurationCommandInput,
-  PutBlockPublicAccessConfigurationCommandOutput
+  PutBlockPublicAccessConfigurationCommandOutput,
 } from "./commands/PutBlockPublicAccessConfigurationCommand.ts";
 import {
+  PutManagedScalingPolicyCommandInput,
+  PutManagedScalingPolicyCommandOutput,
+} from "./commands/PutManagedScalingPolicyCommand.ts";
+import {
   RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput
+  RemoveAutoScalingPolicyCommandOutput,
 } from "./commands/RemoveAutoScalingPolicyCommand.ts";
 import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand.ts";
-import {
-  RunJobFlowCommandInput,
-  RunJobFlowCommandOutput
-} from "./commands/RunJobFlowCommand.ts";
+  RemoveManagedScalingPolicyCommandInput,
+  RemoveManagedScalingPolicyCommandOutput,
+} from "./commands/RemoveManagedScalingPolicyCommand.ts";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand.ts";
+import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand.ts";
 import {
   SetTerminationProtectionCommandInput,
-  SetTerminationProtectionCommandOutput
+  SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand.ts";
 import {
   SetVisibleToAllUsersCommandInput,
-  SetVisibleToAllUsersCommandOutput
+  SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand.ts";
-import {
-  TerminateJobFlowsCommandInput,
-  TerminateJobFlowsCommandOutput
-} from "./commands/TerminateJobFlowsCommand.ts";
+import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -125,38 +92,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -165,9 +128,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -183,6 +147,7 @@ export type ServiceInputTypes =
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
+  | GetManagedScalingPolicyCommandInput
   | ListBootstrapActionsCommandInput
   | ListClustersCommandInput
   | ListInstanceFleetsCommandInput
@@ -195,7 +160,9 @@ export type ServiceInputTypes =
   | ModifyInstanceGroupsCommandInput
   | PutAutoScalingPolicyCommandInput
   | PutBlockPublicAccessConfigurationCommandInput
+  | PutManagedScalingPolicyCommandInput
   | RemoveAutoScalingPolicyCommandInput
+  | RemoveManagedScalingPolicyCommandInput
   | RemoveTagsCommandInput
   | RunJobFlowCommandInput
   | SetTerminationProtectionCommandInput
@@ -215,6 +182,7 @@ export type ServiceOutputTypes =
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
+  | GetManagedScalingPolicyCommandOutput
   | ListBootstrapActionsCommandOutput
   | ListClustersCommandOutput
   | ListInstanceFleetsCommandOutput
@@ -227,15 +195,16 @@ export type ServiceOutputTypes =
   | ModifyInstanceGroupsCommandOutput
   | PutAutoScalingPolicyCommandOutput
   | PutBlockPublicAccessConfigurationCommandOutput
+  | PutManagedScalingPolicyCommandOutput
   | RemoveAutoScalingPolicyCommandOutput
+  | RemoveManagedScalingPolicyCommandOutput
   | RemoveTagsCommandOutput
   | RunJobFlowCommandOutput
   | SetTerminationProtectionCommandOutput
   | SetVisibleToAllUsersCommandOutput
   | TerminateJobFlowsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -309,14 +278,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -324,9 +298,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EMRClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EMRClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -335,9 +307,7 @@ export type EMRClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -360,7 +330,7 @@ export class EMRClient extends __Client<
   constructor(configuration: EMRClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -375,6 +345,7 @@ export class EMRClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

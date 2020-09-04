@@ -1,21 +1,14 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
 import {
   DescribeDevicePolicyConfigurationRequest,
-  DescribeDevicePolicyConfigurationResponse
+  DescribeDevicePolicyConfigurationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand,
-  serializeAws_restJson1DescribeDevicePolicyConfigurationCommand
+  serializeAws_restJson1DescribeDevicePolicyConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDevicePolicyConfigurationCommandInput = DescribeDevicePolicyConfigurationRequest;
@@ -49,18 +42,16 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDevicePolicyConfigurationCommandInput,
-    DescribeDevicePolicyConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDevicePolicyConfigurationCommandInput, DescribeDevicePolicyConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     input: DescribeDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDevicePolicyConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1DescribeDevicePolicyConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

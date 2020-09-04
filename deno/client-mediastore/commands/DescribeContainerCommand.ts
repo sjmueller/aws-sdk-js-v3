@@ -1,21 +1,11 @@
-import {
-  MediaStoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaStoreClient.ts";
-import {
-  DescribeContainerInput,
-  DescribeContainerOutput
-} from "../models/index.ts";
+import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
+import { DescribeContainerInput, DescribeContainerOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeContainerCommand,
-  serializeAws_json1_1DescribeContainerCommand
+  serializeAws_json1_1DescribeContainerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeContainerCommandInput = DescribeContainerInput;
-export type DescribeContainerCommandOutput = DescribeContainerOutput &
-  __MetadataBearer;
+export type DescribeContainerCommandOutput = DescribeContainerOutput & __MetadataBearer;
 
 export class DescribeContainerCommand extends $Command<
   DescribeContainerCommandInput,
@@ -50,14 +39,15 @@ export class DescribeContainerCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeContainerCommandInput, DescribeContainerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeContainerInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeContainerOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeContainerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeContainerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeContainerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeContainerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContainerCommandOutput> {
     return deserializeAws_json1_1DescribeContainerCommand(output, context);
   }
 

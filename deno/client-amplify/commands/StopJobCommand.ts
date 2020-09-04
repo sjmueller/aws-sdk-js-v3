@@ -1,18 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient.ts";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
 import { StopJobRequest, StopJobResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1StopJobCommand,
-  serializeAws_restJson1StopJobCommand
+  serializeAws_restJson1StopJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopJobCommandInput = StopJobRequest;
 export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
 
-export class StopJobCommand extends $Command<
-  StopJobCommandInput,
-  StopJobCommandOutput,
-  AmplifyClientResolvedConfig
-> {
+export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +35,15 @@ export class StopJobCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopJobCommandInput, StopJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +53,11 @@ export class StopJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StopJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
     return deserializeAws_restJson1StopJobCommand(output, context);
   }
 

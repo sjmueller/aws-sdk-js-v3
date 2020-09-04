@@ -1,21 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
-import {
-  ApplyEnvironmentManagedActionRequest,
-  ApplyEnvironmentManagedActionResult
-} from "../models/index.ts";
+import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/index.ts";
 import {
   deserializeAws_queryApplyEnvironmentManagedActionCommand,
-  serializeAws_queryApplyEnvironmentManagedActionCommand
+  serializeAws_queryApplyEnvironmentManagedActionCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ApplyEnvironmentManagedActionCommandInput = ApplyEnvironmentManagedActionRequest;
-export type ApplyEnvironmentManagedActionCommandOutput = ApplyEnvironmentManagedActionResult &
-  __MetadataBearer;
+export type ApplyEnvironmentManagedActionCommandOutput = ApplyEnvironmentManagedActionResult & __MetadataBearer;
 
 export class ApplyEnvironmentManagedActionCommand extends $Command<
   ApplyEnvironmentManagedActionCommandInput,
@@ -49,18 +42,16 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ApplyEnvironmentManagedActionCommandInput,
-    ApplyEnvironmentManagedActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ApplyEnvironmentManagedActionCommandInput, ApplyEnvironmentManagedActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ApplyEnvironmentManagedActionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplyEnvironmentManagedActionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ApplyEnvironmentManagedActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryApplyEnvironmentManagedActionCommand(
-      input,
-      context
-    );
+  private serialize(input: ApplyEnvironmentManagedActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryApplyEnvironmentManagedActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> {
-    return deserializeAws_queryApplyEnvironmentManagedActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryApplyEnvironmentManagedActionCommand(output, context);
   }
 
   // Start section: command_body_extra

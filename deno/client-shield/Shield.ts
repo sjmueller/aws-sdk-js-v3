@@ -2,92 +2,117 @@ import { ShieldClient } from "./ShieldClient.ts";
 import {
   AssociateDRTLogBucketCommand,
   AssociateDRTLogBucketCommandInput,
-  AssociateDRTLogBucketCommandOutput
+  AssociateDRTLogBucketCommandOutput,
 } from "./commands/AssociateDRTLogBucketCommand.ts";
 import {
   AssociateDRTRoleCommand,
   AssociateDRTRoleCommandInput,
-  AssociateDRTRoleCommandOutput
+  AssociateDRTRoleCommandOutput,
 } from "./commands/AssociateDRTRoleCommand.ts";
+import {
+  AssociateHealthCheckCommand,
+  AssociateHealthCheckCommandInput,
+  AssociateHealthCheckCommandOutput,
+} from "./commands/AssociateHealthCheckCommand.ts";
+import {
+  AssociateProactiveEngagementDetailsCommand,
+  AssociateProactiveEngagementDetailsCommandInput,
+  AssociateProactiveEngagementDetailsCommandOutput,
+} from "./commands/AssociateProactiveEngagementDetailsCommand.ts";
 import {
   CreateProtectionCommand,
   CreateProtectionCommandInput,
-  CreateProtectionCommandOutput
+  CreateProtectionCommandOutput,
 } from "./commands/CreateProtectionCommand.ts";
 import {
   CreateSubscriptionCommand,
   CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput
+  CreateSubscriptionCommandOutput,
 } from "./commands/CreateSubscriptionCommand.ts";
 import {
   DeleteProtectionCommand,
   DeleteProtectionCommandInput,
-  DeleteProtectionCommandOutput
+  DeleteProtectionCommandOutput,
 } from "./commands/DeleteProtectionCommand.ts";
 import {
   DeleteSubscriptionCommand,
   DeleteSubscriptionCommandInput,
-  DeleteSubscriptionCommandOutput
+  DeleteSubscriptionCommandOutput,
 } from "./commands/DeleteSubscriptionCommand.ts";
 import {
   DescribeAttackCommand,
   DescribeAttackCommandInput,
-  DescribeAttackCommandOutput
+  DescribeAttackCommandOutput,
 } from "./commands/DescribeAttackCommand.ts";
 import {
   DescribeDRTAccessCommand,
   DescribeDRTAccessCommandInput,
-  DescribeDRTAccessCommandOutput
+  DescribeDRTAccessCommandOutput,
 } from "./commands/DescribeDRTAccessCommand.ts";
 import {
   DescribeEmergencyContactSettingsCommand,
   DescribeEmergencyContactSettingsCommandInput,
-  DescribeEmergencyContactSettingsCommandOutput
+  DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand.ts";
 import {
   DescribeProtectionCommand,
   DescribeProtectionCommandInput,
-  DescribeProtectionCommandOutput
+  DescribeProtectionCommandOutput,
 } from "./commands/DescribeProtectionCommand.ts";
 import {
   DescribeSubscriptionCommand,
   DescribeSubscriptionCommandInput,
-  DescribeSubscriptionCommandOutput
+  DescribeSubscriptionCommandOutput,
 } from "./commands/DescribeSubscriptionCommand.ts";
+import {
+  DisableProactiveEngagementCommand,
+  DisableProactiveEngagementCommandInput,
+  DisableProactiveEngagementCommandOutput,
+} from "./commands/DisableProactiveEngagementCommand.ts";
 import {
   DisassociateDRTLogBucketCommand,
   DisassociateDRTLogBucketCommandInput,
-  DisassociateDRTLogBucketCommandOutput
+  DisassociateDRTLogBucketCommandOutput,
 } from "./commands/DisassociateDRTLogBucketCommand.ts";
 import {
   DisassociateDRTRoleCommand,
   DisassociateDRTRoleCommandInput,
-  DisassociateDRTRoleCommandOutput
+  DisassociateDRTRoleCommandOutput,
 } from "./commands/DisassociateDRTRoleCommand.ts";
+import {
+  DisassociateHealthCheckCommand,
+  DisassociateHealthCheckCommandInput,
+  DisassociateHealthCheckCommandOutput,
+} from "./commands/DisassociateHealthCheckCommand.ts";
+import {
+  EnableProactiveEngagementCommand,
+  EnableProactiveEngagementCommandInput,
+  EnableProactiveEngagementCommandOutput,
+} from "./commands/EnableProactiveEngagementCommand.ts";
 import {
   GetSubscriptionStateCommand,
   GetSubscriptionStateCommandInput,
-  GetSubscriptionStateCommandOutput
+  GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand.ts";
 import {
   ListAttacksCommand,
   ListAttacksCommandInput,
-  ListAttacksCommandOutput
+  ListAttacksCommandOutput,
 } from "./commands/ListAttacksCommand.ts";
 import {
   ListProtectionsCommand,
   ListProtectionsCommandInput,
-  ListProtectionsCommandOutput
+  ListProtectionsCommandOutput,
 } from "./commands/ListProtectionsCommand.ts";
 import {
   UpdateEmergencyContactSettingsCommand,
   UpdateEmergencyContactSettingsCommandInput,
-  UpdateEmergencyContactSettingsCommandOutput
+  UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand.ts";
 import {
   UpdateSubscriptionCommand,
   UpdateSubscriptionCommandInput,
-  UpdateSubscriptionCommandOutput
+  UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -99,7 +124,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  */
 export class Shield extends ShieldClient {
   /**
-   * <p>Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
+   * <p>Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
    * 	        <p>To use the services of the DRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
    */
   public associateDRTLogBucket(
@@ -117,17 +142,14 @@ export class Shield extends ShieldClient {
   ): void;
   public associateDRTLogBucket(
     args: AssociateDRTLogBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDRTLogBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDRTLogBucketCommandOutput) => void),
     cb?: (err: any, data?: AssociateDRTLogBucketCommandOutput) => void
   ): Promise<AssociateDRTLogBucketCommandOutput> | void {
     const command = new AssociateDRTLogBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -135,7 +157,7 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Authorizes the DDoS Response team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>
+   * <p>Authorizes the DDoS Response Team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>
    *          <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>
    *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM JSON Policy Elements: Principal</a>.</p>
    *
@@ -158,17 +180,84 @@ export class Shield extends ShieldClient {
   ): void;
   public associateDRTRole(
     args: AssociateDRTRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
     cb?: (err: any, data?: AssociateDRTRoleCommandOutput) => void
   ): Promise<AssociateDRTRoleCommandOutput> | void {
     const command = new AssociateDRTRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation.  </p>
+   *          <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>. </p>
+   */
+  public associateHealthCheck(
+    args: AssociateHealthCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateHealthCheckCommandOutput>;
+  public associateHealthCheck(
+    args: AssociateHealthCheckCommandInput,
+    cb: (err: any, data?: AssociateHealthCheckCommandOutput) => void
+  ): void;
+  public associateHealthCheck(
+    args: AssociateHealthCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateHealthCheckCommandOutput) => void
+  ): void;
+  public associateHealthCheck(
+    args: AssociateHealthCheckCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateHealthCheckCommandOutput) => void),
+    cb?: (err: any, data?: AssociateHealthCheckCommandOutput) => void
+  ): Promise<AssociateHealthCheckCommandOutput> | void {
+    const command = new AssociateHealthCheckCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initializes proactive engagement and sets the list of contacts for the DDoS Response Team (DRT) to use. You must provide at least one phone number in the emergency contact list. </p>
+   *          <p>After you have initialized proactive engagement using this call, to disable or enable proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>.  </p>
+   *          <note>
+   *             <p>This call defines the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support.</p>
+   *             <p>The contacts that you provide in the request replace any contacts that were already defined. If you already have contacts defined and want to use them, retrieve the list using <code>DescribeEmergencyContactSettings</code> and then provide it to this call.  </p>
+   *          </note>
+   */
+  public associateProactiveEngagementDetails(
+    args: AssociateProactiveEngagementDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateProactiveEngagementDetailsCommandOutput>;
+  public associateProactiveEngagementDetails(
+    args: AssociateProactiveEngagementDetailsCommandInput,
+    cb: (err: any, data?: AssociateProactiveEngagementDetailsCommandOutput) => void
+  ): void;
+  public associateProactiveEngagementDetails(
+    args: AssociateProactiveEngagementDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateProactiveEngagementDetailsCommandOutput) => void
+  ): void;
+  public associateProactiveEngagementDetails(
+    args: AssociateProactiveEngagementDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateProactiveEngagementDetailsCommandOutput) => void),
+    cb?: (err: any, data?: AssociateProactiveEngagementDetailsCommandOutput) => void
+  ): Promise<AssociateProactiveEngagementDetailsCommandOutput> | void {
+    const command = new AssociateProactiveEngagementDetailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -195,17 +284,14 @@ export class Shield extends ShieldClient {
   ): void;
   public createProtection(
     args: CreateProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProtectionCommandOutput) => void),
     cb?: (err: any, data?: CreateProtectionCommandOutput) => void
   ): Promise<CreateProtectionCommandOutput> | void {
     const command = new CreateProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -214,10 +300,6 @@ export class Shield extends ShieldClient {
 
   /**
    * <p>Activates AWS Shield Advanced for an account.</p>
-   *          <p>As part of this request you can specify <code>EmergencySettings</code> that automaticaly grant the DDoS response team (DRT) needed permissions to assist you during a suspected DDoS attack. For more information see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/authorize-DRT.html">Authorize the DDoS Response Team to Create Rules and Web ACLs on Your Behalf</a>.</p>
-   *          <p>To use the services of the DRT, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support
-   *             plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise
-   *                Support plan</a>.</p>
    *
    *          <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>
    */
@@ -236,17 +318,14 @@ export class Shield extends ShieldClient {
   ): void;
   public createSubscription(
     args: CreateSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): Promise<CreateSubscriptionCommandOutput> | void {
     const command = new CreateSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -271,17 +350,14 @@ export class Shield extends ShieldClient {
   ): void;
   public deleteProtection(
     args: DeleteProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProtectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteProtectionCommandOutput) => void
   ): Promise<DeleteProtectionCommandOutput> | void {
     const command = new DeleteProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -306,17 +382,14 @@ export class Shield extends ShieldClient {
   ): void;
   public deleteSubscription(
     args: DeleteSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriptionCommandOutput) => void
   ): Promise<DeleteSubscriptionCommandOutput> | void {
     const command = new DeleteSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -341,17 +414,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeAttack(
     args: DescribeAttackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAttackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAttackCommandOutput) => void),
     cb?: (err: any, data?: DescribeAttackCommandOutput) => void
   ): Promise<DescribeAttackCommandOutput> | void {
     const command = new DescribeAttackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -359,7 +429,7 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response team (DRT) to access your AWS account while assisting with attack mitigation.</p>
+   * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.</p>
    */
   public describeDRTAccess(
     args: DescribeDRTAccessCommandInput,
@@ -376,17 +446,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeDRTAccess(
     args: DescribeDRTAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDRTAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDRTAccessCommandOutput) => void),
     cb?: (err: any, data?: DescribeDRTAccessCommandOutput) => void
   ): Promise<DescribeDRTAccessCommandOutput> | void {
     const command = new DescribeDRTAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -394,7 +461,7 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Lists the email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
    */
   public describeEmergencyContactSettings(
     args: DescribeEmergencyContactSettingsCommandInput,
@@ -411,23 +478,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeEmergencyContactSettings(
     args: DescribeEmergencyContactSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEmergencyContactSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEmergencyContactSettingsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void
   ): Promise<DescribeEmergencyContactSettingsCommandOutput> | void {
     const command = new DescribeEmergencyContactSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -452,17 +510,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeProtection(
     args: DescribeProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProtectionCommandOutput) => void),
     cb?: (err: any, data?: DescribeProtectionCommandOutput) => void
   ): Promise<DescribeProtectionCommandOutput> | void {
     const command = new DescribeProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -487,17 +542,14 @@ export class Shield extends ShieldClient {
   ): void;
   public describeSubscription(
     args: DescribeSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubscriptionCommandOutput) => void
   ): Promise<DescribeSubscriptionCommandOutput> | void {
     const command = new DescribeSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,7 +557,39 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>
+   * <p>Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   */
+  public disableProactiveEngagement(
+    args: DisableProactiveEngagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableProactiveEngagementCommandOutput>;
+  public disableProactiveEngagement(
+    args: DisableProactiveEngagementCommandInput,
+    cb: (err: any, data?: DisableProactiveEngagementCommandOutput) => void
+  ): void;
+  public disableProactiveEngagement(
+    args: DisableProactiveEngagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableProactiveEngagementCommandOutput) => void
+  ): void;
+  public disableProactiveEngagement(
+    args: DisableProactiveEngagementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableProactiveEngagementCommandOutput) => void),
+    cb?: (err: any, data?: DisableProactiveEngagementCommandOutput) => void
+  ): Promise<DisableProactiveEngagementCommandOutput> | void {
+    const command = new DisableProactiveEngagementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>
    * 	        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>
    */
   public disassociateDRTLogBucket(
@@ -523,17 +607,14 @@ export class Shield extends ShieldClient {
   ): void;
   public disassociateDRTLogBucket(
     args: DisassociateDRTLogBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDRTLogBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDRTLogBucketCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDRTLogBucketCommandOutput) => void
   ): Promise<DisassociateDRTLogBucketCommandOutput> | void {
     const command = new DisassociateDRTLogBucketCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -541,7 +622,7 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Removes the DDoS Response team's (DRT) access to your AWS account.</p>
+   * <p>Removes the DDoS Response Team's (DRT) access to your AWS account.</p>
    * 	        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>
    */
   public disassociateDRTRole(
@@ -559,17 +640,79 @@ export class Shield extends ShieldClient {
   ): void;
   public disassociateDRTRole(
     args: DisassociateDRTRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDRTRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDRTRoleCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDRTRoleCommandOutput) => void
   ): Promise<DisassociateDRTRoleCommandOutput> | void {
     const command = new DisassociateDRTRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation. </p>
+   *          <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option">Shield Advanced Health-Based Detection</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>. </p>
+   */
+  public disassociateHealthCheck(
+    args: DisassociateHealthCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateHealthCheckCommandOutput>;
+  public disassociateHealthCheck(
+    args: DisassociateHealthCheckCommandInput,
+    cb: (err: any, data?: DisassociateHealthCheckCommandOutput) => void
+  ): void;
+  public disassociateHealthCheck(
+    args: DisassociateHealthCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateHealthCheckCommandOutput) => void
+  ): void;
+  public disassociateHealthCheck(
+    args: DisassociateHealthCheckCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateHealthCheckCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateHealthCheckCommandOutput) => void
+  ): Promise<DisassociateHealthCheckCommandOutput> | void {
+    const command = new DisassociateHealthCheckCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   */
+  public enableProactiveEngagement(
+    args: EnableProactiveEngagementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableProactiveEngagementCommandOutput>;
+  public enableProactiveEngagement(
+    args: EnableProactiveEngagementCommandInput,
+    cb: (err: any, data?: EnableProactiveEngagementCommandOutput) => void
+  ): void;
+  public enableProactiveEngagement(
+    args: EnableProactiveEngagementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableProactiveEngagementCommandOutput) => void
+  ): void;
+  public enableProactiveEngagement(
+    args: EnableProactiveEngagementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableProactiveEngagementCommandOutput) => void),
+    cb?: (err: any, data?: EnableProactiveEngagementCommandOutput) => void
+  ): Promise<EnableProactiveEngagementCommandOutput> | void {
+    const command = new EnableProactiveEngagementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -594,17 +737,14 @@ export class Shield extends ShieldClient {
   ): void;
   public getSubscriptionState(
     args: GetSubscriptionStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSubscriptionStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubscriptionStateCommandOutput) => void),
     cb?: (err: any, data?: GetSubscriptionStateCommandOutput) => void
   ): Promise<GetSubscriptionStateCommandOutput> | void {
     const command = new GetSubscriptionStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -615,14 +755,8 @@ export class Shield extends ShieldClient {
    * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
    *          period.</p>
    */
-  public listAttacks(
-    args: ListAttacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAttacksCommandOutput>;
-  public listAttacks(
-    args: ListAttacksCommandInput,
-    cb: (err: any, data?: ListAttacksCommandOutput) => void
-  ): void;
+  public listAttacks(args: ListAttacksCommandInput, options?: __HttpHandlerOptions): Promise<ListAttacksCommandOutput>;
+  public listAttacks(args: ListAttacksCommandInput, cb: (err: any, data?: ListAttacksCommandOutput) => void): void;
   public listAttacks(
     args: ListAttacksCommandInput,
     options: __HttpHandlerOptions,
@@ -630,17 +764,14 @@ export class Shield extends ShieldClient {
   ): void;
   public listAttacks(
     args: ListAttacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttacksCommandOutput) => void),
     cb?: (err: any, data?: ListAttacksCommandOutput) => void
   ): Promise<ListAttacksCommandOutput> | void {
     const command = new ListAttacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -665,17 +796,14 @@ export class Shield extends ShieldClient {
   ): void;
   public listProtections(
     args: ListProtectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProtectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtectionsCommandOutput) => void),
     cb?: (err: any, data?: ListProtectionsCommandOutput) => void
   ): Promise<ListProtectionsCommandOutput> | void {
     const command = new ListProtectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,7 +811,7 @@ export class Shield extends ShieldClient {
   }
 
   /**
-   * <p>Updates the details of the list of email addresses that the DRT can use to contact you during a suspected attack.</p>
+   * <p>Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
    */
   public updateEmergencyContactSettings(
     args: UpdateEmergencyContactSettingsCommandInput,
@@ -700,20 +828,14 @@ export class Shield extends ShieldClient {
   ): void;
   public updateEmergencyContactSettings(
     args: UpdateEmergencyContactSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateEmergencyContactSettingsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> | void {
     const command = new UpdateEmergencyContactSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -738,17 +860,14 @@ export class Shield extends ShieldClient {
   ): void;
   public updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): Promise<UpdateSubscriptionCommandOutput> | void {
     const command = new UpdateSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

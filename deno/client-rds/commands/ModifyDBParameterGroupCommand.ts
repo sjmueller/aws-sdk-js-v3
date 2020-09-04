@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DBParameterGroupNameMessage,
-  ModifyDBParameterGroupMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBParameterGroupCommand,
-  serializeAws_queryModifyDBParameterGroupCommand
+  serializeAws_queryModifyDBParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyDBParameterGroupCommandInput = ModifyDBParameterGroupMessage;
-export type ModifyDBParameterGroupCommandOutput = DBParameterGroupNameMessage &
-  __MetadataBearer;
+export type ModifyDBParameterGroupCommandOutput = DBParameterGroupNameMessage & __MetadataBearer;
 
 export class ModifyDBParameterGroupCommand extends $Command<
   ModifyDBParameterGroupCommandInput,
@@ -49,18 +38,16 @@ export class ModifyDBParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDBParameterGroupCommandInput,
-    ModifyDBParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDBParameterGroupCommandInput, ModifyDBParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyDBParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyDBParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBParameterGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBParameterGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBParameterGroupCommandOutput> {
     return deserializeAws_queryModifyDBParameterGroupCommand(output, context);
   }
 

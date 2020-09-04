@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient.ts";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
 import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/index.ts";
 import {
   deserializeAws_json1_0ListWorkflowTypesCommand,
-  serializeAws_json1_0ListWorkflowTypesCommand
+  serializeAws_json1_0ListWorkflowTypesCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListWorkflowTypesCommandInput = ListWorkflowTypesInput;
-export type ListWorkflowTypesCommandOutput = WorkflowTypeInfos &
-  __MetadataBearer;
+export type ListWorkflowTypesCommandOutput = WorkflowTypeInfos & __MetadataBearer;
 
 export class ListWorkflowTypesCommand extends $Command<
   ListWorkflowTypesCommandInput,
@@ -47,14 +39,15 @@ export class ListWorkflowTypesCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkflowTypesCommandInput, ListWorkflowTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListWorkflowTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowTypeInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListWorkflowTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListWorkflowTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListWorkflowTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListWorkflowTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListWorkflowTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowTypesCommandOutput> {
     return deserializeAws_json1_0ListWorkflowTypesCommand(output, context);
   }
 

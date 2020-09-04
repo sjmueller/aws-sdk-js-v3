@@ -1,18 +1,15 @@
 import {
   ConnectParticipantClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
 import { SendMessageRequest, SendMessageResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1SendMessageCommand,
-  serializeAws_restJson1SendMessageCommand
+  serializeAws_restJson1SendMessageCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendMessageCommandInput = SendMessageRequest;
@@ -46,14 +43,15 @@ export class SendMessageCommand extends $Command<
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendMessageCommandInput, SendMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendMessageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendMessageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class SendMessageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendMessageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SendMessageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendMessageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
     return deserializeAws_restJson1SendMessageCommand(output, context);
   }
 

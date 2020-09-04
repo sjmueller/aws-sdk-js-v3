@@ -1,21 +1,18 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
 import {
   SetLoadBalancerListenerSSLCertificateInput,
-  SetLoadBalancerListenerSSLCertificateOutput
+  SetLoadBalancerListenerSSLCertificateOutput,
 } from "../models/index.ts";
 import {
   deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
-  serializeAws_querySetLoadBalancerListenerSSLCertificateCommand
+  serializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SetLoadBalancerListenerSSLCertificateCommandInput = SetLoadBalancerListenerSSLCertificateInput;
@@ -39,9 +36,7 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: SetLoadBalancerListenerSSLCertificateCommandInput
-  ) {
+  constructor(readonly input: SetLoadBalancerListenerSSLCertificateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +46,16 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetLoadBalancerListenerSSLCertificateCommandInput,
-    SetLoadBalancerListenerSSLCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetLoadBalancerListenerSSLCertificateCommandInput, SetLoadBalancerListenerSSLCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateInput.filterSensitiveLog,
+      outputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +69,14 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
     input: SetLoadBalancerListenerSSLCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerListenerSSLCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetLoadBalancerListenerSSLCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> {
-    return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,208 +2,192 @@ import { WorkDocsClient } from "./WorkDocsClient.ts";
 import {
   AbortDocumentVersionUploadCommand,
   AbortDocumentVersionUploadCommandInput,
-  AbortDocumentVersionUploadCommandOutput
+  AbortDocumentVersionUploadCommandOutput,
 } from "./commands/AbortDocumentVersionUploadCommand.ts";
 import {
   ActivateUserCommand,
   ActivateUserCommandInput,
-  ActivateUserCommandOutput
+  ActivateUserCommandOutput,
 } from "./commands/ActivateUserCommand.ts";
 import {
   AddResourcePermissionsCommand,
   AddResourcePermissionsCommandInput,
-  AddResourcePermissionsCommandOutput
+  AddResourcePermissionsCommandOutput,
 } from "./commands/AddResourcePermissionsCommand.ts";
 import {
   CreateCommentCommand,
   CreateCommentCommandInput,
-  CreateCommentCommandOutput
+  CreateCommentCommandOutput,
 } from "./commands/CreateCommentCommand.ts";
 import {
   CreateCustomMetadataCommand,
   CreateCustomMetadataCommandInput,
-  CreateCustomMetadataCommandOutput
+  CreateCustomMetadataCommandOutput,
 } from "./commands/CreateCustomMetadataCommand.ts";
 import {
   CreateFolderCommand,
   CreateFolderCommandInput,
-  CreateFolderCommandOutput
+  CreateFolderCommandOutput,
 } from "./commands/CreateFolderCommand.ts";
 import {
   CreateLabelsCommand,
   CreateLabelsCommandInput,
-  CreateLabelsCommandOutput
+  CreateLabelsCommandOutput,
 } from "./commands/CreateLabelsCommand.ts";
 import {
   CreateNotificationSubscriptionCommand,
   CreateNotificationSubscriptionCommandInput,
-  CreateNotificationSubscriptionCommandOutput
+  CreateNotificationSubscriptionCommandOutput,
 } from "./commands/CreateNotificationSubscriptionCommand.ts";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   DeactivateUserCommand,
   DeactivateUserCommandInput,
-  DeactivateUserCommandOutput
+  DeactivateUserCommandOutput,
 } from "./commands/DeactivateUserCommand.ts";
 import {
   DeleteCommentCommand,
   DeleteCommentCommandInput,
-  DeleteCommentCommandOutput
+  DeleteCommentCommandOutput,
 } from "./commands/DeleteCommentCommand.ts";
 import {
   DeleteCustomMetadataCommand,
   DeleteCustomMetadataCommandInput,
-  DeleteCustomMetadataCommandOutput
+  DeleteCustomMetadataCommandOutput,
 } from "./commands/DeleteCustomMetadataCommand.ts";
 import {
   DeleteDocumentCommand,
   DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput
+  DeleteDocumentCommandOutput,
 } from "./commands/DeleteDocumentCommand.ts";
 import {
   DeleteFolderCommand,
   DeleteFolderCommandInput,
-  DeleteFolderCommandOutput
+  DeleteFolderCommandOutput,
 } from "./commands/DeleteFolderCommand.ts";
 import {
   DeleteFolderContentsCommand,
   DeleteFolderContentsCommandInput,
-  DeleteFolderContentsCommandOutput
+  DeleteFolderContentsCommandOutput,
 } from "./commands/DeleteFolderContentsCommand.ts";
 import {
   DeleteLabelsCommand,
   DeleteLabelsCommandInput,
-  DeleteLabelsCommandOutput
+  DeleteLabelsCommandOutput,
 } from "./commands/DeleteLabelsCommand.ts";
 import {
   DeleteNotificationSubscriptionCommand,
   DeleteNotificationSubscriptionCommandInput,
-  DeleteNotificationSubscriptionCommandOutput
+  DeleteNotificationSubscriptionCommandOutput,
 } from "./commands/DeleteNotificationSubscriptionCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DescribeActivitiesCommand,
   DescribeActivitiesCommandInput,
-  DescribeActivitiesCommandOutput
+  DescribeActivitiesCommandOutput,
 } from "./commands/DescribeActivitiesCommand.ts";
 import {
   DescribeCommentsCommand,
   DescribeCommentsCommandInput,
-  DescribeCommentsCommandOutput
+  DescribeCommentsCommandOutput,
 } from "./commands/DescribeCommentsCommand.ts";
 import {
   DescribeDocumentVersionsCommand,
   DescribeDocumentVersionsCommandInput,
-  DescribeDocumentVersionsCommandOutput
+  DescribeDocumentVersionsCommandOutput,
 } from "./commands/DescribeDocumentVersionsCommand.ts";
 import {
   DescribeFolderContentsCommand,
   DescribeFolderContentsCommandInput,
-  DescribeFolderContentsCommandOutput
+  DescribeFolderContentsCommandOutput,
 } from "./commands/DescribeFolderContentsCommand.ts";
 import {
   DescribeGroupsCommand,
   DescribeGroupsCommandInput,
-  DescribeGroupsCommandOutput
+  DescribeGroupsCommandOutput,
 } from "./commands/DescribeGroupsCommand.ts";
 import {
   DescribeNotificationSubscriptionsCommand,
   DescribeNotificationSubscriptionsCommandInput,
-  DescribeNotificationSubscriptionsCommandOutput
+  DescribeNotificationSubscriptionsCommandOutput,
 } from "./commands/DescribeNotificationSubscriptionsCommand.ts";
 import {
   DescribeResourcePermissionsCommand,
   DescribeResourcePermissionsCommandInput,
-  DescribeResourcePermissionsCommandOutput
+  DescribeResourcePermissionsCommandOutput,
 } from "./commands/DescribeResourcePermissionsCommand.ts";
 import {
   DescribeRootFoldersCommand,
   DescribeRootFoldersCommandInput,
-  DescribeRootFoldersCommandOutput
+  DescribeRootFoldersCommandOutput,
 } from "./commands/DescribeRootFoldersCommand.ts";
 import {
   DescribeUsersCommand,
   DescribeUsersCommandInput,
-  DescribeUsersCommandOutput
+  DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand.ts";
 import {
   GetCurrentUserCommand,
   GetCurrentUserCommandInput,
-  GetCurrentUserCommandOutput
+  GetCurrentUserCommandOutput,
 } from "./commands/GetCurrentUserCommand.ts";
 import {
   GetDocumentCommand,
   GetDocumentCommandInput,
-  GetDocumentCommandOutput
+  GetDocumentCommandOutput,
 } from "./commands/GetDocumentCommand.ts";
 import {
   GetDocumentPathCommand,
   GetDocumentPathCommandInput,
-  GetDocumentPathCommandOutput
+  GetDocumentPathCommandOutput,
 } from "./commands/GetDocumentPathCommand.ts";
 import {
   GetDocumentVersionCommand,
   GetDocumentVersionCommandInput,
-  GetDocumentVersionCommandOutput
+  GetDocumentVersionCommandOutput,
 } from "./commands/GetDocumentVersionCommand.ts";
-import {
-  GetFolderCommand,
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "./commands/GetFolderCommand.ts";
+import { GetFolderCommand, GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand.ts";
 import {
   GetFolderPathCommand,
   GetFolderPathCommandInput,
-  GetFolderPathCommandOutput
+  GetFolderPathCommandOutput,
 } from "./commands/GetFolderPathCommand.ts";
 import {
   GetResourcesCommand,
   GetResourcesCommandInput,
-  GetResourcesCommandOutput
+  GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand.ts";
 import {
   InitiateDocumentVersionUploadCommand,
   InitiateDocumentVersionUploadCommandInput,
-  InitiateDocumentVersionUploadCommandOutput
+  InitiateDocumentVersionUploadCommandOutput,
 } from "./commands/InitiateDocumentVersionUploadCommand.ts";
 import {
   RemoveAllResourcePermissionsCommand,
   RemoveAllResourcePermissionsCommandInput,
-  RemoveAllResourcePermissionsCommandOutput
+  RemoveAllResourcePermissionsCommandOutput,
 } from "./commands/RemoveAllResourcePermissionsCommand.ts";
 import {
   RemoveResourcePermissionCommand,
   RemoveResourcePermissionCommandInput,
-  RemoveResourcePermissionCommandOutput
+  RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand.ts";
 import {
   UpdateDocumentCommand,
   UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput
+  UpdateDocumentCommandOutput,
 } from "./commands/UpdateDocumentCommand.ts";
 import {
   UpdateDocumentVersionCommand,
   UpdateDocumentVersionCommandInput,
-  UpdateDocumentVersionCommandOutput
+  UpdateDocumentVersionCommandOutput,
 } from "./commands/UpdateDocumentVersionCommand.ts";
 import {
   UpdateFolderCommand,
   UpdateFolderCommandInput,
-  UpdateFolderCommandOutput
+  UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand.ts";
-import {
-  UpdateUserCommand,
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand.ts";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
@@ -263,17 +247,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public abortDocumentVersionUpload(
     args: AbortDocumentVersionUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AbortDocumentVersionUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortDocumentVersionUploadCommandOutput) => void),
     cb?: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
   ): Promise<AbortDocumentVersionUploadCommandOutput> | void {
     const command = new AbortDocumentVersionUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -288,10 +269,7 @@ export class WorkDocs extends WorkDocsClient {
     args: ActivateUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ActivateUserCommandOutput>;
-  public activateUser(
-    args: ActivateUserCommandInput,
-    cb: (err: any, data?: ActivateUserCommandOutput) => void
-  ): void;
+  public activateUser(args: ActivateUserCommandInput, cb: (err: any, data?: ActivateUserCommandOutput) => void): void;
   public activateUser(
     args: ActivateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -299,17 +277,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public activateUser(
     args: ActivateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateUserCommandOutput) => void),
     cb?: (err: any, data?: ActivateUserCommandOutput) => void
   ): Promise<ActivateUserCommandOutput> | void {
     const command = new ActivateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -336,17 +311,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public addResourcePermissions(
     args: AddResourcePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddResourcePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddResourcePermissionsCommandOutput) => void),
     cb?: (err: any, data?: AddResourcePermissionsCommandOutput) => void
   ): Promise<AddResourcePermissionsCommandOutput> | void {
     const command = new AddResourcePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -371,17 +343,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createComment(
     args: CreateCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCommentCommandOutput) => void),
     cb?: (err: any, data?: CreateCommentCommandOutput) => void
   ): Promise<CreateCommentCommandOutput> | void {
     const command = new CreateCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -407,17 +376,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createCustomMetadata(
     args: CreateCustomMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCustomMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomMetadataCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomMetadataCommandOutput) => void
   ): Promise<CreateCustomMetadataCommandOutput> | void {
     const command = new CreateCustomMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -431,10 +397,7 @@ export class WorkDocs extends WorkDocsClient {
     args: CreateFolderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFolderCommandOutput>;
-  public createFolder(
-    args: CreateFolderCommandInput,
-    cb: (err: any, data?: CreateFolderCommandOutput) => void
-  ): void;
+  public createFolder(args: CreateFolderCommandInput, cb: (err: any, data?: CreateFolderCommandOutput) => void): void;
   public createFolder(
     args: CreateFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -442,17 +405,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createFolder(
     args: CreateFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFolderCommandOutput) => void),
     cb?: (err: any, data?: CreateFolderCommandOutput) => void
   ): Promise<CreateFolderCommandOutput> | void {
     const command = new CreateFolderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -467,10 +427,7 @@ export class WorkDocs extends WorkDocsClient {
     args: CreateLabelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLabelsCommandOutput>;
-  public createLabels(
-    args: CreateLabelsCommandInput,
-    cb: (err: any, data?: CreateLabelsCommandOutput) => void
-  ): void;
+  public createLabels(args: CreateLabelsCommandInput, cb: (err: any, data?: CreateLabelsCommandOutput) => void): void;
   public createLabels(
     args: CreateLabelsCommandInput,
     options: __HttpHandlerOptions,
@@ -478,17 +435,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createLabels(
     args: CreateLabelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLabelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelsCommandOutput) => void),
     cb?: (err: any, data?: CreateLabelsCommandOutput) => void
   ): Promise<CreateLabelsCommandOutput> | void {
     const command = new CreateLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -517,20 +471,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createNotificationSubscription(
     args: CreateNotificationSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateNotificationSubscriptionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotificationSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
   ): Promise<CreateNotificationSubscriptionCommandOutput> | void {
     const command = new CreateNotificationSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -541,14 +489,8 @@ export class WorkDocs extends WorkDocsClient {
    * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
    *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -556,17 +498,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -592,17 +531,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deactivateUser(
     args: DeactivateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeactivateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateUserCommandOutput) => void),
     cb?: (err: any, data?: DeactivateUserCommandOutput) => void
   ): Promise<DeactivateUserCommandOutput> | void {
     const command = new DeactivateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -627,17 +563,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteComment(
     args: DeleteCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCommentCommandOutput) => void),
     cb?: (err: any, data?: DeleteCommentCommandOutput) => void
   ): Promise<DeleteCommentCommandOutput> | void {
     const command = new DeleteCommentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -662,17 +595,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteCustomMetadata(
     args: DeleteCustomMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCustomMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomMetadataCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
   ): Promise<DeleteCustomMetadataCommandOutput> | void {
     const command = new DeleteCustomMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -697,17 +627,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteDocument(
     args: DeleteDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): Promise<DeleteDocumentCommandOutput> | void {
     const command = new DeleteDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -721,10 +648,7 @@ export class WorkDocs extends WorkDocsClient {
     args: DeleteFolderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFolderCommandOutput>;
-  public deleteFolder(
-    args: DeleteFolderCommandInput,
-    cb: (err: any, data?: DeleteFolderCommandOutput) => void
-  ): void;
+  public deleteFolder(args: DeleteFolderCommandInput, cb: (err: any, data?: DeleteFolderCommandOutput) => void): void;
   public deleteFolder(
     args: DeleteFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -732,17 +656,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteFolder(
     args: DeleteFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderCommandOutput) => void),
     cb?: (err: any, data?: DeleteFolderCommandOutput) => void
   ): Promise<DeleteFolderCommandOutput> | void {
     const command = new DeleteFolderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -767,17 +688,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteFolderContents(
     args: DeleteFolderContentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFolderContentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderContentsCommandOutput) => void),
     cb?: (err: any, data?: DeleteFolderContentsCommandOutput) => void
   ): Promise<DeleteFolderContentsCommandOutput> | void {
     const command = new DeleteFolderContentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -791,10 +709,7 @@ export class WorkDocs extends WorkDocsClient {
     args: DeleteLabelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLabelsCommandOutput>;
-  public deleteLabels(
-    args: DeleteLabelsCommandInput,
-    cb: (err: any, data?: DeleteLabelsCommandOutput) => void
-  ): void;
+  public deleteLabels(args: DeleteLabelsCommandInput, cb: (err: any, data?: DeleteLabelsCommandOutput) => void): void;
   public deleteLabels(
     args: DeleteLabelsCommandInput,
     options: __HttpHandlerOptions,
@@ -802,17 +717,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteLabels(
     args: DeleteLabelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLabelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelsCommandOutput) => void),
     cb?: (err: any, data?: DeleteLabelsCommandOutput) => void
   ): Promise<DeleteLabelsCommandOutput> | void {
     const command = new DeleteLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -837,20 +749,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteNotificationSubscription(
     args: DeleteNotificationSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNotificationSubscriptionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
   ): Promise<DeleteNotificationSubscriptionCommandOutput> | void {
     const command = new DeleteNotificationSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -860,14 +766,8 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -875,17 +775,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -910,17 +807,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeActivities(
     args: DescribeActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivitiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeActivitiesCommandOutput) => void
   ): Promise<DescribeActivitiesCommandOutput> | void {
     const command = new DescribeActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -945,17 +839,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeComments(
     args: DescribeCommentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCommentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCommentsCommandOutput) => void
   ): Promise<DescribeCommentsCommandOutput> | void {
     const command = new DescribeCommentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -981,17 +872,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeDocumentVersions(
     args: DescribeDocumentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDocumentVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
   ): Promise<DescribeDocumentVersionsCommandOutput> | void {
     const command = new DescribeDocumentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1021,17 +909,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeFolderContents(
     args: DescribeFolderContentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFolderContentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFolderContentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFolderContentsCommandOutput) => void
   ): Promise<DescribeFolderContentsCommandOutput> | void {
     const command = new DescribeFolderContentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1057,17 +942,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeGroups(
     args: DescribeGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupsCommandOutput) => void
   ): Promise<DescribeGroupsCommandOutput> | void {
     const command = new DescribeGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1083,38 +965,23 @@ export class WorkDocs extends WorkDocsClient {
   ): Promise<DescribeNotificationSubscriptionsCommandOutput>;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): void;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): void;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationSubscriptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> | void {
     const command = new DescribeNotificationSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1139,17 +1006,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeResourcePermissions(
     args: DescribeResourcePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourcePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
   ): Promise<DescribeResourcePermissionsCommandOutput> | void {
     const command = new DescribeResourcePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1182,17 +1046,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeRootFolders(
     args: DescribeRootFoldersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRootFoldersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRootFoldersCommandOutput) => void),
     cb?: (err: any, data?: DescribeRootFoldersCommandOutput) => void
   ): Promise<DescribeRootFoldersCommandOutput> | void {
     const command = new DescribeRootFoldersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1221,17 +1082,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeUsers(
     args: DescribeUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
     cb?: (err: any, data?: DescribeUsersCommandOutput) => void
   ): Promise<DescribeUsersCommandOutput> | void {
     const command = new DescribeUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1241,6 +1099,11 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves details of the current user for whom the authentication token was
    *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
+   *         <p>This action requires an authentication token. To get an authentication token,
+   *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
+   *                 Control for User Applications</a> in the
+   *             <i>Amazon
+   *                 WorkDocs Developer Guide</i>.</p>
    */
   public getCurrentUser(
     args: GetCurrentUserCommandInput,
@@ -1257,17 +1120,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getCurrentUser(
     args: GetCurrentUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCurrentUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCurrentUserCommandOutput) => void),
     cb?: (err: any, data?: GetCurrentUserCommandOutput) => void
   ): Promise<GetCurrentUserCommandOutput> | void {
     const command = new GetCurrentUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1277,14 +1137,8 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves details of a document.</p>
    */
-  public getDocument(
-    args: GetDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDocumentCommandOutput>;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    cb: (err: any, data?: GetDocumentCommandOutput) => void
-  ): void;
+  public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
+  public getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
   public getDocument(
     args: GetDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -1292,17 +1146,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getDocument(
     args: GetDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentCommandOutput) => void
   ): Promise<GetDocumentCommandOutput> | void {
     const command = new GetDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1332,17 +1183,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getDocumentPath(
     args: GetDocumentPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentPathCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentPathCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentPathCommandOutput) => void
   ): Promise<GetDocumentPathCommandOutput> | void {
     const command = new GetDocumentPathCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1367,17 +1215,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getDocumentVersion(
     args: GetDocumentVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentVersionCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentVersionCommandOutput) => void
   ): Promise<GetDocumentVersionCommandOutput> | void {
     const command = new GetDocumentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1387,14 +1232,8 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Retrieves the metadata of the specified folder.</p>
    */
-  public getFolder(
-    args: GetFolderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFolderCommandOutput>;
-  public getFolder(
-    args: GetFolderCommandInput,
-    cb: (err: any, data?: GetFolderCommandOutput) => void
-  ): void;
+  public getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
+  public getFolder(args: GetFolderCommandInput, cb: (err: any, data?: GetFolderCommandOutput) => void): void;
   public getFolder(
     args: GetFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -1402,17 +1241,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getFolder(
     args: GetFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderCommandOutput) => void),
     cb?: (err: any, data?: GetFolderCommandOutput) => void
   ): Promise<GetFolderCommandOutput> | void {
     const command = new GetFolderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1442,17 +1278,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getFolderPath(
     args: GetFolderPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderPathCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderPathCommandOutput) => void),
     cb?: (err: any, data?: GetFolderPathCommandOutput) => void
   ): Promise<GetFolderPathCommandOutput> | void {
     const command = new GetFolderPathCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1467,10 +1300,7 @@ export class WorkDocs extends WorkDocsClient {
     args: GetResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourcesCommandOutput>;
-  public getResources(
-    args: GetResourcesCommandInput,
-    cb: (err: any, data?: GetResourcesCommandOutput) => void
-  ): void;
+  public getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
   public getResources(
     args: GetResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -1478,17 +1308,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1518,17 +1345,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public initiateDocumentVersionUpload(
     args: InitiateDocumentVersionUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void),
     cb?: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
   ): Promise<InitiateDocumentVersionUploadCommandOutput> | void {
     const command = new InitiateDocumentVersionUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1553,17 +1377,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public removeAllResourcePermissions(
     args: RemoveAllResourcePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void),
     cb?: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
   ): Promise<RemoveAllResourcePermissionsCommandOutput> | void {
     const command = new RemoveAllResourcePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1589,17 +1410,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public removeResourcePermission(
     args: RemoveResourcePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveResourcePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveResourcePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
   ): Promise<RemoveResourcePermissionCommandOutput> | void {
     const command = new RemoveResourcePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1625,17 +1443,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateDocument(
     args: UpdateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
   ): Promise<UpdateDocumentCommandOutput> | void {
     const command = new UpdateDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1663,17 +1478,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateDocumentVersion(
     args: UpdateDocumentVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
   ): Promise<UpdateDocumentVersionCommandOutput> | void {
     const command = new UpdateDocumentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1688,10 +1500,7 @@ export class WorkDocs extends WorkDocsClient {
     args: UpdateFolderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFolderCommandOutput>;
-  public updateFolder(
-    args: UpdateFolderCommandInput,
-    cb: (err: any, data?: UpdateFolderCommandOutput) => void
-  ): void;
+  public updateFolder(args: UpdateFolderCommandInput, cb: (err: any, data?: UpdateFolderCommandOutput) => void): void;
   public updateFolder(
     args: UpdateFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -1699,17 +1508,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateFolder(
     args: UpdateFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFolderCommandOutput) => void),
     cb?: (err: any, data?: UpdateFolderCommandOutput) => void
   ): Promise<UpdateFolderCommandOutput> | void {
     const command = new UpdateFolderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1720,14 +1526,8 @@ export class WorkDocs extends WorkDocsClient {
    * <p>Updates the specified attributes of the specified user, and grants or revokes
    *             administrative privileges to the Amazon WorkDocs site.</p>
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
+  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
   public updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1735,17 +1535,14 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -2,167 +2,151 @@ import { WorkMailClient } from "./WorkMailClient.ts";
 import {
   AssociateDelegateToResourceCommand,
   AssociateDelegateToResourceCommandInput,
-  AssociateDelegateToResourceCommandOutput
+  AssociateDelegateToResourceCommandOutput,
 } from "./commands/AssociateDelegateToResourceCommand.ts";
 import {
   AssociateMemberToGroupCommand,
   AssociateMemberToGroupCommandInput,
-  AssociateMemberToGroupCommandOutput
+  AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand.ts";
 import {
   CreateAliasCommand,
   CreateAliasCommandInput,
-  CreateAliasCommandOutput
+  CreateAliasCommandOutput,
 } from "./commands/CreateAliasCommand.ts";
 import {
   CreateGroupCommand,
   CreateGroupCommandInput,
-  CreateGroupCommandOutput
+  CreateGroupCommandOutput,
 } from "./commands/CreateGroupCommand.ts";
 import {
   CreateResourceCommand,
   CreateResourceCommandInput,
-  CreateResourceCommandOutput
+  CreateResourceCommandOutput,
 } from "./commands/CreateResourceCommand.ts";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   DeleteAliasCommand,
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
+  DeleteAliasCommandOutput,
 } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteGroupCommand,
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
+  DeleteGroupCommandOutput,
 } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteMailboxPermissionsCommand,
   DeleteMailboxPermissionsCommandInput,
-  DeleteMailboxPermissionsCommandOutput
+  DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand.ts";
 import {
   DeleteResourceCommand,
   DeleteResourceCommandInput,
-  DeleteResourceCommandOutput
+  DeleteResourceCommandOutput,
 } from "./commands/DeleteResourceCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeregisterFromWorkMailCommand,
   DeregisterFromWorkMailCommandInput,
-  DeregisterFromWorkMailCommandOutput
+  DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand.ts";
 import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
+  DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand.ts";
 import {
   DescribeOrganizationCommand,
   DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput
+  DescribeOrganizationCommandOutput,
 } from "./commands/DescribeOrganizationCommand.ts";
 import {
   DescribeResourceCommand,
   DescribeResourceCommandInput,
-  DescribeResourceCommandOutput
+  DescribeResourceCommandOutput,
 } from "./commands/DescribeResourceCommand.ts";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
-  DescribeUserCommandOutput
+  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand.ts";
 import {
   DisassociateDelegateFromResourceCommand,
   DisassociateDelegateFromResourceCommandInput,
-  DisassociateDelegateFromResourceCommandOutput
+  DisassociateDelegateFromResourceCommandOutput,
 } from "./commands/DisassociateDelegateFromResourceCommand.ts";
 import {
   DisassociateMemberFromGroupCommand,
   DisassociateMemberFromGroupCommandInput,
-  DisassociateMemberFromGroupCommandOutput
+  DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand.ts";
 import {
   GetMailboxDetailsCommand,
   GetMailboxDetailsCommandInput,
-  GetMailboxDetailsCommandOutput
+  GetMailboxDetailsCommandOutput,
 } from "./commands/GetMailboxDetailsCommand.ts";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
-  ListAliasesCommandOutput
+  ListAliasesCommandOutput,
 } from "./commands/ListAliasesCommand.ts";
 import {
   ListGroupMembersCommand,
   ListGroupMembersCommandInput,
-  ListGroupMembersCommandOutput
+  ListGroupMembersCommandOutput,
 } from "./commands/ListGroupMembersCommand.ts";
-import {
-  ListGroupsCommand,
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListMailboxPermissionsCommand,
   ListMailboxPermissionsCommandInput,
-  ListMailboxPermissionsCommandOutput
+  ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand.ts";
 import {
   ListOrganizationsCommand,
   ListOrganizationsCommandInput,
-  ListOrganizationsCommandOutput
+  ListOrganizationsCommandOutput,
 } from "./commands/ListOrganizationsCommand.ts";
 import {
   ListResourceDelegatesCommand,
   ListResourceDelegatesCommandInput,
-  ListResourceDelegatesCommandOutput
+  ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand.ts";
 import {
   ListResourcesCommand,
   ListResourcesCommandInput,
-  ListResourcesCommandOutput
+  ListResourcesCommandOutput,
 } from "./commands/ListResourcesCommand.ts";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   PutMailboxPermissionsCommand,
   PutMailboxPermissionsCommandInput,
-  PutMailboxPermissionsCommandOutput
+  PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand.ts";
 import {
   RegisterToWorkMailCommand,
   RegisterToWorkMailCommandInput,
-  RegisterToWorkMailCommandOutput
+  RegisterToWorkMailCommandOutput,
 } from "./commands/RegisterToWorkMailCommand.ts";
 import {
   ResetPasswordCommand,
   ResetPasswordCommandInput,
-  ResetPasswordCommandOutput
+  ResetPasswordCommandOutput,
 } from "./commands/ResetPasswordCommand.ts";
 import {
   UpdateMailboxQuotaCommand,
   UpdateMailboxQuotaCommandInput,
-  UpdateMailboxQuotaCommandOutput
+  UpdateMailboxQuotaCommandOutput,
 } from "./commands/UpdateMailboxQuotaCommand.ts";
 import {
   UpdatePrimaryEmailAddressCommand,
   UpdatePrimaryEmailAddressCommandInput,
-  UpdatePrimaryEmailAddressCommandOutput
+  UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand.ts";
 import {
   UpdateResourceCommand,
   UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
+  UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -222,17 +206,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public associateDelegateToResource(
     args: AssociateDelegateToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDelegateToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDelegateToResourceCommandOutput) => void),
     cb?: (err: any, data?: AssociateDelegateToResourceCommandOutput) => void
   ): Promise<AssociateDelegateToResourceCommandOutput> | void {
     const command = new AssociateDelegateToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -257,17 +238,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public associateMemberToGroup(
     args: AssociateMemberToGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateMemberToGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateMemberToGroupCommandOutput) => void),
     cb?: (err: any, data?: AssociateMemberToGroupCommandOutput) => void
   ): Promise<AssociateMemberToGroupCommandOutput> | void {
     const command = new AssociateMemberToGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -277,14 +255,8 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
    */
-  public createAlias(
-    args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAliasCommandOutput>;
-  public createAlias(
-    args: CreateAliasCommandInput,
-    cb: (err: any, data?: CreateAliasCommandOutput) => void
-  ): void;
+  public createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
+  public createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
   public createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -292,17 +264,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -313,14 +282,8 @@ export class WorkMail extends WorkMailClient {
    * <p>Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
    *          operation.</p>
    */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
   public createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -328,17 +291,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -363,17 +323,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createResource(
     args: CreateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceCommandOutput) => void
   ): Promise<CreateResourceCommandOutput> | void {
     const command = new CreateResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -384,14 +341,8 @@ export class WorkMail extends WorkMailClient {
    * <p>Creates a user who can be used in Amazon WorkMail by calling the
    *             <a>RegisterToWorkMail</a> operation.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -399,17 +350,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -420,14 +368,8 @@ export class WorkMail extends WorkMailClient {
    * <p>Remove one or more specified aliases from a set of aliases for a given
    *          user.</p>
    */
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAliasCommandOutput>;
-  public deleteAlias(
-    args: DeleteAliasCommandInput,
-    cb: (err: any, data?: DeleteAliasCommandOutput) => void
-  ): void;
+  public deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
+  public deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -435,17 +377,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -455,14 +394,8 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Deletes a group from Amazon WorkMail.</p>
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -470,17 +403,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,17 +435,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteMailboxPermissions(
     args: DeleteMailboxPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMailboxPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMailboxPermissionsCommandOutput) => void),
     cb?: (err: any, data?: DeleteMailboxPermissionsCommandOutput) => void
   ): Promise<DeleteMailboxPermissionsCommandOutput> | void {
     const command = new DeleteMailboxPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -540,17 +467,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteResource(
     args: DeleteResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceCommandOutput) => void
   ): Promise<DeleteResourceCommandOutput> | void {
     const command = new DeleteResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -564,14 +488,8 @@ export class WorkMail extends WorkMailClient {
    *          <p>Deleting a user is permanent and cannot be undone.
    *          WorkMail archives user mailboxes for 30 days before they are permanently removed.</p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -579,17 +497,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -617,17 +532,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deregisterFromWorkMail(
     args: DeregisterFromWorkMailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterFromWorkMailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterFromWorkMailCommandOutput) => void),
     cb?: (err: any, data?: DeregisterFromWorkMailCommandOutput) => void
   ): Promise<DeregisterFromWorkMailCommandOutput> | void {
     const command = new DeregisterFromWorkMailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -652,17 +564,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeGroup(
     args: DescribeGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -687,17 +596,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeOrganization(
     args: DescribeOrganizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOrganizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrganizationCommandOutput) => void
   ): Promise<DescribeOrganizationCommandOutput> | void {
     const command = new DescribeOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -722,17 +628,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeResource(
     args: DescribeResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceCommandOutput) => void
   ): Promise<DescribeResourceCommandOutput> | void {
     const command = new DescribeResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -746,10 +649,7 @@ export class WorkMail extends WorkMailClient {
     args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
+  public describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
   public describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -757,17 +657,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -792,23 +689,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public disassociateDelegateFromResource(
     args: DisassociateDelegateFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDelegateFromResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateDelegateFromResourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDelegateFromResourceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateDelegateFromResourceCommandOutput) => void
   ): Promise<DisassociateDelegateFromResourceCommandOutput> | void {
     const command = new DisassociateDelegateFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -833,17 +721,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public disassociateMemberFromGroup(
     args: DisassociateMemberFromGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateMemberFromGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMemberFromGroupCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMemberFromGroupCommandOutput) => void
   ): Promise<DisassociateMemberFromGroupCommandOutput> | void {
     const command = new DisassociateMemberFromGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -868,17 +753,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public getMailboxDetails(
     args: GetMailboxDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMailboxDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMailboxDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetMailboxDetailsCommandOutput) => void
   ): Promise<GetMailboxDetailsCommandOutput> | void {
     const command = new GetMailboxDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -888,14 +770,8 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Creates a paginated call to list the aliases associated with a given entity.</p>
    */
-  public listAliases(
-    args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAliasesCommandOutput>;
-  public listAliases(
-    args: ListAliasesCommandInput,
-    cb: (err: any, data?: ListAliasesCommandOutput) => void
-  ): void;
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   public listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -903,17 +779,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -939,17 +812,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listGroupMembers(
     args: ListGroupMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupMembersCommandOutput) => void),
     cb?: (err: any, data?: ListGroupMembersCommandOutput) => void
   ): Promise<ListGroupMembersCommandOutput> | void {
     const command = new ListGroupMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -959,14 +829,8 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Returns summaries of the organization's groups.</p>
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   public listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -974,17 +838,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1010,17 +871,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listMailboxPermissions(
     args: ListMailboxPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMailboxPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMailboxPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListMailboxPermissionsCommandOutput) => void
   ): Promise<ListMailboxPermissionsCommandOutput> | void {
     const command = new ListMailboxPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,17 +903,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listOrganizations(
     args: ListOrganizationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOrganizationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationsCommandOutput) => void),
     cb?: (err: any, data?: ListOrganizationsCommandOutput) => void
   ): Promise<ListOrganizationsCommandOutput> | void {
     const command = new ListOrganizationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1081,17 +936,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listResourceDelegates(
     args: ListResourceDelegatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceDelegatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceDelegatesCommandOutput) => void),
     cb?: (err: any, data?: ListResourceDelegatesCommandOutput) => void
   ): Promise<ListResourceDelegatesCommandOutput> | void {
     const command = new ListResourceDelegatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1116,17 +968,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1136,14 +985,8 @@ export class WorkMail extends WorkMailClient {
   /**
    * <p>Returns summaries of the organization's users.</p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1151,17 +994,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1187,17 +1027,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public putMailboxPermissions(
     args: PutMailboxPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMailboxPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMailboxPermissionsCommandOutput) => void),
     cb?: (err: any, data?: PutMailboxPermissionsCommandOutput) => void
   ): Promise<PutMailboxPermissionsCommandOutput> | void {
     const command = new PutMailboxPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1228,17 +1065,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public registerToWorkMail(
     args: RegisterToWorkMailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterToWorkMailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterToWorkMailCommandOutput) => void),
     cb?: (err: any, data?: RegisterToWorkMailCommandOutput) => void
   ): Promise<RegisterToWorkMailCommandOutput> | void {
     const command = new RegisterToWorkMailCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1263,17 +1097,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public resetPassword(
     args: ResetPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetPasswordCommandOutput) => void),
     cb?: (err: any, data?: ResetPasswordCommandOutput) => void
   ): Promise<ResetPasswordCommandOutput> | void {
     const command = new ResetPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1298,17 +1129,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public updateMailboxQuota(
     args: UpdateMailboxQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMailboxQuotaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMailboxQuotaCommandOutput) => void),
     cb?: (err: any, data?: UpdateMailboxQuotaCommandOutput) => void
   ): Promise<UpdateMailboxQuotaCommandOutput> | void {
     const command = new UpdateMailboxQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1335,17 +1163,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public updatePrimaryEmailAddress(
     args: UpdatePrimaryEmailAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePrimaryEmailAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePrimaryEmailAddressCommandOutput) => void),
     cb?: (err: any, data?: UpdatePrimaryEmailAddressCommandOutput) => void
   ): Promise<UpdatePrimaryEmailAddressCommandOutput> | void {
     const command = new UpdatePrimaryEmailAddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1372,17 +1197,14 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public updateResource(
     args: UpdateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

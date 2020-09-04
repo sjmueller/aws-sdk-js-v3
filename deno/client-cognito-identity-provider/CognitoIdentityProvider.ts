@@ -2,502 +2,474 @@ import { CognitoIdentityProviderClient } from "./CognitoIdentityProviderClient.t
 import {
   AddCustomAttributesCommand,
   AddCustomAttributesCommandInput,
-  AddCustomAttributesCommandOutput
+  AddCustomAttributesCommandOutput,
 } from "./commands/AddCustomAttributesCommand.ts";
 import {
   AdminAddUserToGroupCommand,
   AdminAddUserToGroupCommandInput,
-  AdminAddUserToGroupCommandOutput
+  AdminAddUserToGroupCommandOutput,
 } from "./commands/AdminAddUserToGroupCommand.ts";
 import {
   AdminConfirmSignUpCommand,
   AdminConfirmSignUpCommandInput,
-  AdminConfirmSignUpCommandOutput
+  AdminConfirmSignUpCommandOutput,
 } from "./commands/AdminConfirmSignUpCommand.ts";
 import {
   AdminCreateUserCommand,
   AdminCreateUserCommandInput,
-  AdminCreateUserCommandOutput
+  AdminCreateUserCommandOutput,
 } from "./commands/AdminCreateUserCommand.ts";
 import {
   AdminDeleteUserAttributesCommand,
   AdminDeleteUserAttributesCommandInput,
-  AdminDeleteUserAttributesCommandOutput
+  AdminDeleteUserAttributesCommandOutput,
 } from "./commands/AdminDeleteUserAttributesCommand.ts";
 import {
   AdminDeleteUserCommand,
   AdminDeleteUserCommandInput,
-  AdminDeleteUserCommandOutput
+  AdminDeleteUserCommandOutput,
 } from "./commands/AdminDeleteUserCommand.ts";
 import {
   AdminDisableProviderForUserCommand,
   AdminDisableProviderForUserCommandInput,
-  AdminDisableProviderForUserCommandOutput
+  AdminDisableProviderForUserCommandOutput,
 } from "./commands/AdminDisableProviderForUserCommand.ts";
 import {
   AdminDisableUserCommand,
   AdminDisableUserCommandInput,
-  AdminDisableUserCommandOutput
+  AdminDisableUserCommandOutput,
 } from "./commands/AdminDisableUserCommand.ts";
 import {
   AdminEnableUserCommand,
   AdminEnableUserCommandInput,
-  AdminEnableUserCommandOutput
+  AdminEnableUserCommandOutput,
 } from "./commands/AdminEnableUserCommand.ts";
 import {
   AdminForgetDeviceCommand,
   AdminForgetDeviceCommandInput,
-  AdminForgetDeviceCommandOutput
+  AdminForgetDeviceCommandOutput,
 } from "./commands/AdminForgetDeviceCommand.ts";
 import {
   AdminGetDeviceCommand,
   AdminGetDeviceCommandInput,
-  AdminGetDeviceCommandOutput
+  AdminGetDeviceCommandOutput,
 } from "./commands/AdminGetDeviceCommand.ts";
 import {
   AdminGetUserCommand,
   AdminGetUserCommandInput,
-  AdminGetUserCommandOutput
+  AdminGetUserCommandOutput,
 } from "./commands/AdminGetUserCommand.ts";
 import {
   AdminInitiateAuthCommand,
   AdminInitiateAuthCommandInput,
-  AdminInitiateAuthCommandOutput
+  AdminInitiateAuthCommandOutput,
 } from "./commands/AdminInitiateAuthCommand.ts";
 import {
   AdminLinkProviderForUserCommand,
   AdminLinkProviderForUserCommandInput,
-  AdminLinkProviderForUserCommandOutput
+  AdminLinkProviderForUserCommandOutput,
 } from "./commands/AdminLinkProviderForUserCommand.ts";
 import {
   AdminListDevicesCommand,
   AdminListDevicesCommandInput,
-  AdminListDevicesCommandOutput
+  AdminListDevicesCommandOutput,
 } from "./commands/AdminListDevicesCommand.ts";
 import {
   AdminListGroupsForUserCommand,
   AdminListGroupsForUserCommandInput,
-  AdminListGroupsForUserCommandOutput
+  AdminListGroupsForUserCommandOutput,
 } from "./commands/AdminListGroupsForUserCommand.ts";
 import {
   AdminListUserAuthEventsCommand,
   AdminListUserAuthEventsCommandInput,
-  AdminListUserAuthEventsCommandOutput
+  AdminListUserAuthEventsCommandOutput,
 } from "./commands/AdminListUserAuthEventsCommand.ts";
 import {
   AdminRemoveUserFromGroupCommand,
   AdminRemoveUserFromGroupCommandInput,
-  AdminRemoveUserFromGroupCommandOutput
+  AdminRemoveUserFromGroupCommandOutput,
 } from "./commands/AdminRemoveUserFromGroupCommand.ts";
 import {
   AdminResetUserPasswordCommand,
   AdminResetUserPasswordCommandInput,
-  AdminResetUserPasswordCommandOutput
+  AdminResetUserPasswordCommandOutput,
 } from "./commands/AdminResetUserPasswordCommand.ts";
 import {
   AdminRespondToAuthChallengeCommand,
   AdminRespondToAuthChallengeCommandInput,
-  AdminRespondToAuthChallengeCommandOutput
+  AdminRespondToAuthChallengeCommandOutput,
 } from "./commands/AdminRespondToAuthChallengeCommand.ts";
 import {
   AdminSetUserMFAPreferenceCommand,
   AdminSetUserMFAPreferenceCommandInput,
-  AdminSetUserMFAPreferenceCommandOutput
+  AdminSetUserMFAPreferenceCommandOutput,
 } from "./commands/AdminSetUserMFAPreferenceCommand.ts";
 import {
   AdminSetUserPasswordCommand,
   AdminSetUserPasswordCommandInput,
-  AdminSetUserPasswordCommandOutput
+  AdminSetUserPasswordCommandOutput,
 } from "./commands/AdminSetUserPasswordCommand.ts";
 import {
   AdminSetUserSettingsCommand,
   AdminSetUserSettingsCommandInput,
-  AdminSetUserSettingsCommandOutput
+  AdminSetUserSettingsCommandOutput,
 } from "./commands/AdminSetUserSettingsCommand.ts";
 import {
   AdminUpdateAuthEventFeedbackCommand,
   AdminUpdateAuthEventFeedbackCommandInput,
-  AdminUpdateAuthEventFeedbackCommandOutput
+  AdminUpdateAuthEventFeedbackCommandOutput,
 } from "./commands/AdminUpdateAuthEventFeedbackCommand.ts";
 import {
   AdminUpdateDeviceStatusCommand,
   AdminUpdateDeviceStatusCommandInput,
-  AdminUpdateDeviceStatusCommandOutput
+  AdminUpdateDeviceStatusCommandOutput,
 } from "./commands/AdminUpdateDeviceStatusCommand.ts";
 import {
   AdminUpdateUserAttributesCommand,
   AdminUpdateUserAttributesCommandInput,
-  AdminUpdateUserAttributesCommandOutput
+  AdminUpdateUserAttributesCommandOutput,
 } from "./commands/AdminUpdateUserAttributesCommand.ts";
 import {
   AdminUserGlobalSignOutCommand,
   AdminUserGlobalSignOutCommandInput,
-  AdminUserGlobalSignOutCommandOutput
+  AdminUserGlobalSignOutCommandOutput,
 } from "./commands/AdminUserGlobalSignOutCommand.ts";
 import {
   AssociateSoftwareTokenCommand,
   AssociateSoftwareTokenCommandInput,
-  AssociateSoftwareTokenCommandOutput
+  AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand.ts";
 import {
   ChangePasswordCommand,
   ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
+  ChangePasswordCommandOutput,
 } from "./commands/ChangePasswordCommand.ts";
 import {
   ConfirmDeviceCommand,
   ConfirmDeviceCommandInput,
-  ConfirmDeviceCommandOutput
+  ConfirmDeviceCommandOutput,
 } from "./commands/ConfirmDeviceCommand.ts";
 import {
   ConfirmForgotPasswordCommand,
   ConfirmForgotPasswordCommandInput,
-  ConfirmForgotPasswordCommandOutput
+  ConfirmForgotPasswordCommandOutput,
 } from "./commands/ConfirmForgotPasswordCommand.ts";
 import {
   ConfirmSignUpCommand,
   ConfirmSignUpCommandInput,
-  ConfirmSignUpCommandOutput
+  ConfirmSignUpCommandOutput,
 } from "./commands/ConfirmSignUpCommand.ts";
 import {
   CreateGroupCommand,
   CreateGroupCommandInput,
-  CreateGroupCommandOutput
+  CreateGroupCommandOutput,
 } from "./commands/CreateGroupCommand.ts";
 import {
   CreateIdentityProviderCommand,
   CreateIdentityProviderCommandInput,
-  CreateIdentityProviderCommandOutput
+  CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand.ts";
 import {
   CreateResourceServerCommand,
   CreateResourceServerCommandInput,
-  CreateResourceServerCommandOutput
+  CreateResourceServerCommandOutput,
 } from "./commands/CreateResourceServerCommand.ts";
 import {
   CreateUserImportJobCommand,
   CreateUserImportJobCommandInput,
-  CreateUserImportJobCommandOutput
+  CreateUserImportJobCommandOutput,
 } from "./commands/CreateUserImportJobCommand.ts";
 import {
   CreateUserPoolClientCommand,
   CreateUserPoolClientCommandInput,
-  CreateUserPoolClientCommandOutput
+  CreateUserPoolClientCommandOutput,
 } from "./commands/CreateUserPoolClientCommand.ts";
 import {
   CreateUserPoolCommand,
   CreateUserPoolCommandInput,
-  CreateUserPoolCommandOutput
+  CreateUserPoolCommandOutput,
 } from "./commands/CreateUserPoolCommand.ts";
 import {
   CreateUserPoolDomainCommand,
   CreateUserPoolDomainCommandInput,
-  CreateUserPoolDomainCommandOutput
+  CreateUserPoolDomainCommandOutput,
 } from "./commands/CreateUserPoolDomainCommand.ts";
 import {
   DeleteGroupCommand,
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
+  DeleteGroupCommandOutput,
 } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteIdentityProviderCommand,
   DeleteIdentityProviderCommandInput,
-  DeleteIdentityProviderCommandOutput
+  DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand.ts";
 import {
   DeleteResourceServerCommand,
   DeleteResourceServerCommandInput,
-  DeleteResourceServerCommandOutput
+  DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand.ts";
 import {
   DeleteUserAttributesCommand,
   DeleteUserAttributesCommandInput,
-  DeleteUserAttributesCommandOutput
+  DeleteUserAttributesCommandOutput,
 } from "./commands/DeleteUserAttributesCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeleteUserPoolClientCommand,
   DeleteUserPoolClientCommandInput,
-  DeleteUserPoolClientCommandOutput
+  DeleteUserPoolClientCommandOutput,
 } from "./commands/DeleteUserPoolClientCommand.ts";
 import {
   DeleteUserPoolCommand,
   DeleteUserPoolCommandInput,
-  DeleteUserPoolCommandOutput
+  DeleteUserPoolCommandOutput,
 } from "./commands/DeleteUserPoolCommand.ts";
 import {
   DeleteUserPoolDomainCommand,
   DeleteUserPoolDomainCommandInput,
-  DeleteUserPoolDomainCommandOutput
+  DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand.ts";
 import {
   DescribeIdentityProviderCommand,
   DescribeIdentityProviderCommandInput,
-  DescribeIdentityProviderCommandOutput
+  DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand.ts";
 import {
   DescribeResourceServerCommand,
   DescribeResourceServerCommandInput,
-  DescribeResourceServerCommandOutput
+  DescribeResourceServerCommandOutput,
 } from "./commands/DescribeResourceServerCommand.ts";
 import {
   DescribeRiskConfigurationCommand,
   DescribeRiskConfigurationCommandInput,
-  DescribeRiskConfigurationCommandOutput
+  DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand.ts";
 import {
   DescribeUserImportJobCommand,
   DescribeUserImportJobCommandInput,
-  DescribeUserImportJobCommandOutput
+  DescribeUserImportJobCommandOutput,
 } from "./commands/DescribeUserImportJobCommand.ts";
 import {
   DescribeUserPoolClientCommand,
   DescribeUserPoolClientCommandInput,
-  DescribeUserPoolClientCommandOutput
+  DescribeUserPoolClientCommandOutput,
 } from "./commands/DescribeUserPoolClientCommand.ts";
 import {
   DescribeUserPoolCommand,
   DescribeUserPoolCommandInput,
-  DescribeUserPoolCommandOutput
+  DescribeUserPoolCommandOutput,
 } from "./commands/DescribeUserPoolCommand.ts";
 import {
   DescribeUserPoolDomainCommand,
   DescribeUserPoolDomainCommandInput,
-  DescribeUserPoolDomainCommandOutput
+  DescribeUserPoolDomainCommandOutput,
 } from "./commands/DescribeUserPoolDomainCommand.ts";
 import {
   ForgetDeviceCommand,
   ForgetDeviceCommandInput,
-  ForgetDeviceCommandOutput
+  ForgetDeviceCommandOutput,
 } from "./commands/ForgetDeviceCommand.ts";
 import {
   ForgotPasswordCommand,
   ForgotPasswordCommandInput,
-  ForgotPasswordCommandOutput
+  ForgotPasswordCommandOutput,
 } from "./commands/ForgotPasswordCommand.ts";
 import {
   GetCSVHeaderCommand,
   GetCSVHeaderCommandInput,
-  GetCSVHeaderCommandOutput
+  GetCSVHeaderCommandOutput,
 } from "./commands/GetCSVHeaderCommand.ts";
-import {
-  GetDeviceCommand,
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand.ts";
-import {
-  GetGroupCommand,
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
+import { GetDeviceCommand, GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
+import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import {
   GetIdentityProviderByIdentifierCommand,
   GetIdentityProviderByIdentifierCommandInput,
-  GetIdentityProviderByIdentifierCommandOutput
+  GetIdentityProviderByIdentifierCommandOutput,
 } from "./commands/GetIdentityProviderByIdentifierCommand.ts";
 import {
   GetSigningCertificateCommand,
   GetSigningCertificateCommandInput,
-  GetSigningCertificateCommandOutput
+  GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand.ts";
 import {
   GetUICustomizationCommand,
   GetUICustomizationCommandInput,
-  GetUICustomizationCommandOutput
+  GetUICustomizationCommandOutput,
 } from "./commands/GetUICustomizationCommand.ts";
 import {
   GetUserAttributeVerificationCodeCommand,
   GetUserAttributeVerificationCodeCommandInput,
-  GetUserAttributeVerificationCodeCommandOutput
+  GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand.ts";
-import {
-  GetUserCommand,
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand.ts";
+import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand.ts";
 import {
   GetUserPoolMfaConfigCommand,
   GetUserPoolMfaConfigCommandInput,
-  GetUserPoolMfaConfigCommandOutput
+  GetUserPoolMfaConfigCommandOutput,
 } from "./commands/GetUserPoolMfaConfigCommand.ts";
 import {
   GlobalSignOutCommand,
   GlobalSignOutCommandInput,
-  GlobalSignOutCommandOutput
+  GlobalSignOutCommandOutput,
 } from "./commands/GlobalSignOutCommand.ts";
 import {
   InitiateAuthCommand,
   InitiateAuthCommandInput,
-  InitiateAuthCommandOutput
+  InitiateAuthCommandOutput,
 } from "./commands/InitiateAuthCommand.ts";
 import {
   ListDevicesCommand,
   ListDevicesCommandInput,
-  ListDevicesCommandOutput
+  ListDevicesCommandOutput,
 } from "./commands/ListDevicesCommand.ts";
-import {
-  ListGroupsCommand,
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListIdentityProvidersCommand,
   ListIdentityProvidersCommandInput,
-  ListIdentityProvidersCommandOutput
+  ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand.ts";
 import {
   ListResourceServersCommand,
   ListResourceServersCommandInput,
-  ListResourceServersCommandOutput
+  ListResourceServersCommandOutput,
 } from "./commands/ListResourceServersCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListUserImportJobsCommand,
   ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput
+  ListUserImportJobsCommandOutput,
 } from "./commands/ListUserImportJobsCommand.ts";
 import {
   ListUserPoolClientsCommand,
   ListUserPoolClientsCommandInput,
-  ListUserPoolClientsCommandOutput
+  ListUserPoolClientsCommandOutput,
 } from "./commands/ListUserPoolClientsCommand.ts";
 import {
   ListUserPoolsCommand,
   ListUserPoolsCommandInput,
-  ListUserPoolsCommandOutput
+  ListUserPoolsCommandOutput,
 } from "./commands/ListUserPoolsCommand.ts";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   ListUsersInGroupCommand,
   ListUsersInGroupCommandInput,
-  ListUsersInGroupCommandOutput
+  ListUsersInGroupCommandOutput,
 } from "./commands/ListUsersInGroupCommand.ts";
 import {
   ResendConfirmationCodeCommand,
   ResendConfirmationCodeCommandInput,
-  ResendConfirmationCodeCommandOutput
+  ResendConfirmationCodeCommandOutput,
 } from "./commands/ResendConfirmationCodeCommand.ts";
 import {
   RespondToAuthChallengeCommand,
   RespondToAuthChallengeCommandInput,
-  RespondToAuthChallengeCommandOutput
+  RespondToAuthChallengeCommandOutput,
 } from "./commands/RespondToAuthChallengeCommand.ts";
 import {
   SetRiskConfigurationCommand,
   SetRiskConfigurationCommandInput,
-  SetRiskConfigurationCommandOutput
+  SetRiskConfigurationCommandOutput,
 } from "./commands/SetRiskConfigurationCommand.ts";
 import {
   SetUICustomizationCommand,
   SetUICustomizationCommandInput,
-  SetUICustomizationCommandOutput
+  SetUICustomizationCommandOutput,
 } from "./commands/SetUICustomizationCommand.ts";
 import {
   SetUserMFAPreferenceCommand,
   SetUserMFAPreferenceCommandInput,
-  SetUserMFAPreferenceCommandOutput
+  SetUserMFAPreferenceCommandOutput,
 } from "./commands/SetUserMFAPreferenceCommand.ts";
 import {
   SetUserPoolMfaConfigCommand,
   SetUserPoolMfaConfigCommandInput,
-  SetUserPoolMfaConfigCommandOutput
+  SetUserPoolMfaConfigCommandOutput,
 } from "./commands/SetUserPoolMfaConfigCommand.ts";
 import {
   SetUserSettingsCommand,
   SetUserSettingsCommandInput,
-  SetUserSettingsCommandOutput
+  SetUserSettingsCommandOutput,
 } from "./commands/SetUserSettingsCommand.ts";
-import {
-  SignUpCommand,
-  SignUpCommandInput,
-  SignUpCommandOutput
-} from "./commands/SignUpCommand.ts";
+import { SignUpCommand, SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand.ts";
 import {
   StartUserImportJobCommand,
   StartUserImportJobCommandInput,
-  StartUserImportJobCommandOutput
+  StartUserImportJobCommandOutput,
 } from "./commands/StartUserImportJobCommand.ts";
 import {
   StopUserImportJobCommand,
   StopUserImportJobCommandInput,
-  StopUserImportJobCommandOutput
+  StopUserImportJobCommandOutput,
 } from "./commands/StopUserImportJobCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAuthEventFeedbackCommand,
   UpdateAuthEventFeedbackCommandInput,
-  UpdateAuthEventFeedbackCommandOutput
+  UpdateAuthEventFeedbackCommandOutput,
 } from "./commands/UpdateAuthEventFeedbackCommand.ts";
 import {
   UpdateDeviceStatusCommand,
   UpdateDeviceStatusCommandInput,
-  UpdateDeviceStatusCommandOutput
+  UpdateDeviceStatusCommandOutput,
 } from "./commands/UpdateDeviceStatusCommand.ts";
 import {
   UpdateGroupCommand,
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
+  UpdateGroupCommandOutput,
 } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateIdentityProviderCommand,
   UpdateIdentityProviderCommandInput,
-  UpdateIdentityProviderCommandOutput
+  UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand.ts";
 import {
   UpdateResourceServerCommand,
   UpdateResourceServerCommandInput,
-  UpdateResourceServerCommandOutput
+  UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand.ts";
 import {
   UpdateUserAttributesCommand,
   UpdateUserAttributesCommandInput,
-  UpdateUserAttributesCommandOutput
+  UpdateUserAttributesCommandOutput,
 } from "./commands/UpdateUserAttributesCommand.ts";
 import {
   UpdateUserPoolClientCommand,
   UpdateUserPoolClientCommandInput,
-  UpdateUserPoolClientCommandOutput
+  UpdateUserPoolClientCommandOutput,
 } from "./commands/UpdateUserPoolClientCommand.ts";
 import {
   UpdateUserPoolCommand,
   UpdateUserPoolCommandInput,
-  UpdateUserPoolCommandOutput
+  UpdateUserPoolCommandOutput,
 } from "./commands/UpdateUserPoolCommand.ts";
 import {
   UpdateUserPoolDomainCommand,
   UpdateUserPoolDomainCommandInput,
-  UpdateUserPoolDomainCommandOutput
+  UpdateUserPoolDomainCommandOutput,
 } from "./commands/UpdateUserPoolDomainCommand.ts";
 import {
   VerifySoftwareTokenCommand,
   VerifySoftwareTokenCommandInput,
-  VerifySoftwareTokenCommandOutput
+  VerifySoftwareTokenCommandOutput,
 } from "./commands/VerifySoftwareTokenCommand.ts";
 import {
   VerifyUserAttributeCommand,
   VerifyUserAttributeCommandInput,
-  VerifyUserAttributeCommandOutput
+  VerifyUserAttributeCommandOutput,
 } from "./commands/VerifyUserAttributeCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -528,17 +500,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public addCustomAttributes(
     args: AddCustomAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddCustomAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddCustomAttributesCommandOutput) => void),
     cb?: (err: any, data?: AddCustomAttributesCommandOutput) => void
   ): Promise<AddCustomAttributesCommandOutput> | void {
     const command = new AddCustomAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -564,17 +533,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminAddUserToGroup(
     args: AdminAddUserToGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminAddUserToGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminAddUserToGroupCommandOutput) => void),
     cb?: (err: any, data?: AdminAddUserToGroupCommandOutput) => void
   ): Promise<AdminAddUserToGroupCommandOutput> | void {
     const command = new AdminAddUserToGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -582,8 +548,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Confirms user registration as an admin without using a confirmation code. Works on
-   *             any user.</p>
+   * <p>Confirms user registration as an admin without using a confirmation code. Works on any
+   *             user.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminConfirmSignUp(
@@ -601,17 +567,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminConfirmSignUp(
     args: AdminConfirmSignUpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminConfirmSignUpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminConfirmSignUpCommandOutput) => void),
     cb?: (err: any, data?: AdminConfirmSignUpCommandOutput) => void
   ): Promise<AdminConfirmSignUpCommandOutput> | void {
     const command = new AdminConfirmSignUpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -648,17 +611,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminCreateUser(
     args: AdminCreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminCreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminCreateUserCommandOutput) => void),
     cb?: (err: any, data?: AdminCreateUserCommandOutput) => void
   ): Promise<AdminCreateUserCommandOutput> | void {
     const command = new AdminCreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -684,17 +644,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDeleteUser(
     args: AdminDeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDeleteUserCommandOutput) => void),
     cb?: (err: any, data?: AdminDeleteUserCommandOutput) => void
   ): Promise<AdminDeleteUserCommandOutput> | void {
     const command = new AdminDeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -721,17 +678,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDeleteUserAttributes(
     args: AdminDeleteUserAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDeleteUserAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDeleteUserAttributesCommandOutput) => void),
     cb?: (err: any, data?: AdminDeleteUserAttributesCommandOutput) => void
   ): Promise<AdminDeleteUserAttributesCommandOutput> | void {
     const command = new AdminDeleteUserAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -782,17 +736,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDisableProviderForUser(
     args: AdminDisableProviderForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDisableProviderForUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDisableProviderForUserCommandOutput) => void),
     cb?: (err: any, data?: AdminDisableProviderForUserCommandOutput) => void
   ): Promise<AdminDisableProviderForUserCommandOutput> | void {
     const command = new AdminDisableProviderForUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -818,17 +769,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDisableUser(
     args: AdminDisableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDisableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDisableUserCommandOutput) => void),
     cb?: (err: any, data?: AdminDisableUserCommandOutput) => void
   ): Promise<AdminDisableUserCommandOutput> | void {
     const command = new AdminDisableUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -854,17 +802,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminEnableUser(
     args: AdminEnableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminEnableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminEnableUserCommandOutput) => void),
     cb?: (err: any, data?: AdminEnableUserCommandOutput) => void
   ): Promise<AdminEnableUserCommandOutput> | void {
     const command = new AdminEnableUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -890,17 +835,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminForgetDevice(
     args: AdminForgetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminForgetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminForgetDeviceCommandOutput) => void),
     cb?: (err: any, data?: AdminForgetDeviceCommandOutput) => void
   ): Promise<AdminForgetDeviceCommandOutput> | void {
     const command = new AdminForgetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -926,17 +868,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminGetDevice(
     args: AdminGetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminGetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminGetDeviceCommandOutput) => void),
     cb?: (err: any, data?: AdminGetDeviceCommandOutput) => void
   ): Promise<AdminGetDeviceCommandOutput> | void {
     const command = new AdminGetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -952,10 +891,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: AdminGetUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AdminGetUserCommandOutput>;
-  public adminGetUser(
-    args: AdminGetUserCommandInput,
-    cb: (err: any, data?: AdminGetUserCommandOutput) => void
-  ): void;
+  public adminGetUser(args: AdminGetUserCommandInput, cb: (err: any, data?: AdminGetUserCommandOutput) => void): void;
   public adminGetUser(
     args: AdminGetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -963,17 +899,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminGetUser(
     args: AdminGetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminGetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminGetUserCommandOutput) => void),
     cb?: (err: any, data?: AdminGetUserCommandOutput) => void
   ): Promise<AdminGetUserCommandOutput> | void {
     const command = new AdminGetUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -999,17 +932,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminInitiateAuth(
     args: AdminInitiateAuthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminInitiateAuthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminInitiateAuthCommandOutput) => void),
     cb?: (err: any, data?: AdminInitiateAuthCommandOutput) => void
   ): Promise<AdminInitiateAuthCommandOutput> | void {
     const command = new AdminInitiateAuthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1051,17 +981,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminLinkProviderForUser(
     args: AdminLinkProviderForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminLinkProviderForUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminLinkProviderForUserCommandOutput) => void),
     cb?: (err: any, data?: AdminLinkProviderForUserCommandOutput) => void
   ): Promise<AdminLinkProviderForUserCommandOutput> | void {
     const command = new AdminLinkProviderForUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1087,17 +1014,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminListDevices(
     args: AdminListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminListDevicesCommandOutput) => void),
     cb?: (err: any, data?: AdminListDevicesCommandOutput) => void
   ): Promise<AdminListDevicesCommandOutput> | void {
     const command = new AdminListDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1123,17 +1047,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminListGroupsForUser(
     args: AdminListGroupsForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminListGroupsForUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminListGroupsForUserCommandOutput) => void),
     cb?: (err: any, data?: AdminListGroupsForUserCommandOutput) => void
   ): Promise<AdminListGroupsForUserCommandOutput> | void {
     const command = new AdminListGroupsForUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1159,17 +1080,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminListUserAuthEvents(
     args: AdminListUserAuthEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminListUserAuthEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminListUserAuthEventsCommandOutput) => void),
     cb?: (err: any, data?: AdminListUserAuthEventsCommandOutput) => void
   ): Promise<AdminListUserAuthEventsCommandOutput> | void {
     const command = new AdminListUserAuthEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1195,17 +1113,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminRemoveUserFromGroup(
     args: AdminRemoveUserFromGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminRemoveUserFromGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminRemoveUserFromGroupCommandOutput) => void),
     cb?: (err: any, data?: AdminRemoveUserFromGroupCommandOutput) => void
   ): Promise<AdminRemoveUserFromGroupCommandOutput> | void {
     const command = new AdminRemoveUserFromGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1240,17 +1155,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminResetUserPassword(
     args: AdminResetUserPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminResetUserPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminResetUserPasswordCommandOutput) => void),
     cb?: (err: any, data?: AdminResetUserPasswordCommandOutput) => void
   ): Promise<AdminResetUserPasswordCommandOutput> | void {
     const command = new AdminResetUserPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1276,17 +1188,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminRespondToAuthChallenge(
     args: AdminRespondToAuthChallengeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminRespondToAuthChallengeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminRespondToAuthChallengeCommandOutput) => void),
     cb?: (err: any, data?: AdminRespondToAuthChallengeCommandOutput) => void
   ): Promise<AdminRespondToAuthChallengeCommandOutput> | void {
     const command = new AdminRespondToAuthChallengeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1294,7 +1203,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
+   * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA
+   *             options are enabled and if any are preferred. Only one factor can be set as preferred.
+   *             The preferred MFA factor will be used to authenticate a user if multiple factors are
+   *             enabled. If multiple options are enabled and no preference is set, a challenge to choose
+   *             an MFA option will be returned during sign in.</p>
    */
   public adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
@@ -1311,17 +1224,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminSetUserMFAPreferenceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminSetUserMFAPreferenceCommandOutput) => void),
     cb?: (err: any, data?: AdminSetUserMFAPreferenceCommandOutput) => void
   ): Promise<AdminSetUserMFAPreferenceCommandOutput> | void {
     const command = new AdminSetUserMFAPreferenceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1355,17 +1265,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminSetUserPassword(
     args: AdminSetUserPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminSetUserPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminSetUserPasswordCommandOutput) => void),
     cb?: (err: any, data?: AdminSetUserPasswordCommandOutput) => void
   ): Promise<AdminSetUserPasswordCommandOutput> | void {
     const command = new AdminSetUserPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1393,17 +1300,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminSetUserSettings(
     args: AdminSetUserSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminSetUserSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminSetUserSettingsCommandOutput) => void),
     cb?: (err: any, data?: AdminSetUserSettingsCommandOutput) => void
   ): Promise<AdminSetUserSettingsCommandOutput> | void {
     const command = new AdminSetUserSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1430,17 +1334,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminUpdateAuthEventFeedback(
     args: AdminUpdateAuthEventFeedbackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminUpdateAuthEventFeedbackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminUpdateAuthEventFeedbackCommandOutput) => void),
     cb?: (err: any, data?: AdminUpdateAuthEventFeedbackCommandOutput) => void
   ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> | void {
     const command = new AdminUpdateAuthEventFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1466,17 +1367,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminUpdateDeviceStatus(
     args: AdminUpdateDeviceStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminUpdateDeviceStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminUpdateDeviceStatusCommandOutput) => void),
     cb?: (err: any, data?: AdminUpdateDeviceStatusCommandOutput) => void
   ): Promise<AdminUpdateDeviceStatusCommandOutput> | void {
     const command = new AdminUpdateDeviceStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1488,8 +1386,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             administrator. Works on any user.</p>
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
-   *         <p>In addition to updating user attributes, this API can also be used to mark phone
-   *             and email as verified.</p>
+   *         <p>In addition to updating user attributes, this API can also be used to mark phone and
+   *             email as verified.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminUpdateUserAttributes(
@@ -1507,17 +1405,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminUpdateUserAttributes(
     args: AdminUpdateUserAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminUpdateUserAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminUpdateUserAttributesCommandOutput) => void),
     cb?: (err: any, data?: AdminUpdateUserAttributesCommandOutput) => void
   ): Promise<AdminUpdateUserAttributesCommandOutput> | void {
     const command = new AdminUpdateUserAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1525,7 +1420,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
+   * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh
+   *             tokens issued to a user. The user's current access and Id tokens remain valid until
+   *             their expiry. Access and Id tokens expire one hour after they are issued.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public adminUserGlobalSignOut(
@@ -1543,17 +1440,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminUserGlobalSignOut(
     args: AdminUserGlobalSignOutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminUserGlobalSignOutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminUserGlobalSignOutCommandOutput) => void),
     cb?: (err: any, data?: AdminUserGlobalSignOutCommandOutput) => void
   ): Promise<AdminUserGlobalSignOutCommandOutput> | void {
     const command = new AdminUserGlobalSignOutCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1579,17 +1473,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSoftwareTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSoftwareTokenCommandOutput) => void),
     cb?: (err: any, data?: AssociateSoftwareTokenCommandOutput) => void
   ): Promise<AssociateSoftwareTokenCommandOutput> | void {
     const command = new AssociateSoftwareTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1614,17 +1505,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public changePassword(
     args: ChangePasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangePasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangePasswordCommandOutput) => void),
     cb?: (err: any, data?: ChangePasswordCommandOutput) => void
   ): Promise<ChangePasswordCommandOutput> | void {
     const command = new ChangePasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1650,17 +1538,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public confirmDevice(
     args: ConfirmDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmDeviceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmDeviceCommandOutput) => void
   ): Promise<ConfirmDeviceCommandOutput> | void {
     const command = new ConfirmDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1685,17 +1570,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public confirmForgotPassword(
     args: ConfirmForgotPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmForgotPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmForgotPasswordCommandOutput) => void),
     cb?: (err: any, data?: ConfirmForgotPasswordCommandOutput) => void
   ): Promise<ConfirmForgotPasswordCommandOutput> | void {
     const command = new ConfirmForgotPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1721,17 +1603,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public confirmSignUp(
     args: ConfirmSignUpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmSignUpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmSignUpCommandOutput) => void),
     cb?: (err: any, data?: ConfirmSignUpCommandOutput) => void
   ): Promise<ConfirmSignUpCommandOutput> | void {
     const command = new ConfirmSignUpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1742,14 +1621,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Creates a new group in the specified user pool.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
   public createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1757,17 +1630,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1792,17 +1662,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIdentityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIdentityProviderCommandOutput) => void),
     cb?: (err: any, data?: CreateIdentityProviderCommandOutput) => void
   ): Promise<CreateIdentityProviderCommandOutput> | void {
     const command = new CreateIdentityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1827,17 +1694,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createResourceServer(
     args: CreateResourceServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceServerCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceServerCommandOutput) => void
   ): Promise<CreateResourceServerCommandOutput> | void {
     const command = new CreateResourceServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1862,17 +1726,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createUserImportJob(
     args: CreateUserImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserImportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateUserImportJobCommandOutput) => void
   ): Promise<CreateUserImportJobCommandOutput> | void {
     const command = new CreateUserImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1898,17 +1759,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createUserPool(
     args: CreateUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserPoolCommandOutput) => void),
     cb?: (err: any, data?: CreateUserPoolCommandOutput) => void
   ): Promise<CreateUserPoolCommandOutput> | void {
     const command = new CreateUserPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1933,17 +1791,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createUserPoolClient(
     args: CreateUserPoolClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserPoolClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserPoolClientCommandOutput) => void),
     cb?: (err: any, data?: CreateUserPoolClientCommandOutput) => void
   ): Promise<CreateUserPoolClientCommandOutput> | void {
     const command = new CreateUserPoolClientCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1968,17 +1823,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createUserPoolDomain(
     args: CreateUserPoolDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserPoolDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserPoolDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateUserPoolDomainCommandOutput) => void
   ): Promise<CreateUserPoolDomainCommandOutput> | void {
     const command = new CreateUserPoolDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1989,14 +1841,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Deletes a group. Currently only groups with no members can be deleted.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2004,17 +1850,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2039,17 +1882,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIdentityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIdentityProviderCommandOutput) => void),
     cb?: (err: any, data?: DeleteIdentityProviderCommandOutput) => void
   ): Promise<DeleteIdentityProviderCommandOutput> | void {
     const command = new DeleteIdentityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2074,17 +1914,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteResourceServer(
     args: DeleteResourceServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceServerCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceServerCommandOutput) => void
   ): Promise<DeleteResourceServerCommandOutput> | void {
     const command = new DeleteResourceServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2094,14 +1931,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Allows a user to delete himself or herself.</p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2109,17 +1940,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2144,17 +1972,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUserAttributes(
     args: DeleteUserAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserAttributesCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserAttributesCommandOutput) => void
   ): Promise<DeleteUserAttributesCommandOutput> | void {
     const command = new DeleteUserAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2179,17 +2004,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUserPool(
     args: DeleteUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPoolCommandOutput) => void
   ): Promise<DeleteUserPoolCommandOutput> | void {
     const command = new DeleteUserPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2214,17 +2036,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUserPoolClient(
     args: DeleteUserPoolClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPoolClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPoolClientCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPoolClientCommandOutput) => void
   ): Promise<DeleteUserPoolClientCommandOutput> | void {
     const command = new DeleteUserPoolClientCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2249,17 +2068,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUserPoolDomain(
     args: DeleteUserPoolDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPoolDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPoolDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPoolDomainCommandOutput) => void
   ): Promise<DeleteUserPoolDomainCommandOutput> | void {
     const command = new DeleteUserPoolDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2284,17 +2100,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeIdentityProvider(
     args: DescribeIdentityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityProviderCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdentityProviderCommandOutput) => void
   ): Promise<DescribeIdentityProviderCommandOutput> | void {
     const command = new DescribeIdentityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2319,17 +2132,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeResourceServer(
     args: DescribeResourceServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceServerCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceServerCommandOutput) => void
   ): Promise<DescribeResourceServerCommandOutput> | void {
     const command = new DescribeResourceServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2354,17 +2164,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeRiskConfiguration(
     args: DescribeRiskConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRiskConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRiskConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeRiskConfigurationCommandOutput) => void
   ): Promise<DescribeRiskConfigurationCommandOutput> | void {
     const command = new DescribeRiskConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2389,17 +2196,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeUserImportJob(
     args: DescribeUserImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserImportJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserImportJobCommandOutput) => void
   ): Promise<DescribeUserImportJobCommandOutput> | void {
     const command = new DescribeUserImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2424,17 +2228,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeUserPool(
     args: DescribeUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserPoolCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserPoolCommandOutput) => void
   ): Promise<DescribeUserPoolCommandOutput> | void {
     const command = new DescribeUserPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2460,17 +2261,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeUserPoolClient(
     args: DescribeUserPoolClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserPoolClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserPoolClientCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserPoolClientCommandOutput) => void
   ): Promise<DescribeUserPoolClientCommandOutput> | void {
     const command = new DescribeUserPoolClientCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2495,17 +2293,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeUserPoolDomain(
     args: DescribeUserPoolDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserPoolDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserPoolDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserPoolDomainCommandOutput) => void
   ): Promise<DescribeUserPoolDomainCommandOutput> | void {
     const command = new DescribeUserPoolDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2519,10 +2314,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: ForgetDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ForgetDeviceCommandOutput>;
-  public forgetDevice(
-    args: ForgetDeviceCommandInput,
-    cb: (err: any, data?: ForgetDeviceCommandOutput) => void
-  ): void;
+  public forgetDevice(args: ForgetDeviceCommandInput, cb: (err: any, data?: ForgetDeviceCommandOutput) => void): void;
   public forgetDevice(
     args: ForgetDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -2530,17 +2322,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public forgetDevice(
     args: ForgetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ForgetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ForgetDeviceCommandOutput) => void),
     cb?: (err: any, data?: ForgetDeviceCommandOutput) => void
   ): Promise<ForgetDeviceCommandOutput> | void {
     const command = new ForgetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2550,11 +2339,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Calling this API causes a message to be sent to the end user with a confirmation code
    *             that is required to change the user's password. For the <code>Username</code> parameter,
-   *             you can use the username or user alias. If a verified phone number exists for the user,
-   *             the confirmation code is sent to the phone number. Otherwise, if a verified email
-   *             exists, the confirmation code is sent to the email. If neither a verified phone number
-   *             nor a verified email exists, <code>InvalidParameterException</code> is thrown. To use
-   *             the confirmation code for resetting the password, call .</p>
+   *             you can use the username or user alias. The method used to send the confirmation code is
+   *             sent according to the specified AccountRecoverySetting. For more information, see <a href="">Recovering User Accounts</a> in the <i>Amazon Cognito Developer
+   *                 Guide</i>. If neither a verified phone number nor a verified email exists, an
+   *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
+   *             resetting the password, call .</p>
    */
   public forgotPassword(
     args: ForgotPasswordCommandInput,
@@ -2571,17 +2360,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public forgotPassword(
     args: ForgotPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ForgotPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ForgotPasswordCommandOutput) => void),
     cb?: (err: any, data?: ForgotPasswordCommandOutput) => void
   ): Promise<ForgotPasswordCommandOutput> | void {
     const command = new ForgotPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2596,10 +2382,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: GetCSVHeaderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCSVHeaderCommandOutput>;
-  public getCSVHeader(
-    args: GetCSVHeaderCommandInput,
-    cb: (err: any, data?: GetCSVHeaderCommandOutput) => void
-  ): void;
+  public getCSVHeader(args: GetCSVHeaderCommandInput, cb: (err: any, data?: GetCSVHeaderCommandOutput) => void): void;
   public getCSVHeader(
     args: GetCSVHeaderCommandInput,
     options: __HttpHandlerOptions,
@@ -2607,17 +2390,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getCSVHeader(
     args: GetCSVHeaderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCSVHeaderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCSVHeaderCommandOutput) => void),
     cb?: (err: any, data?: GetCSVHeaderCommandOutput) => void
   ): Promise<GetCSVHeaderCommandOutput> | void {
     const command = new GetCSVHeaderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2627,14 +2407,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Gets the device.</p>
    */
-  public getDevice(
-    args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeviceCommandOutput>;
-  public getDevice(
-    args: GetDeviceCommandInput,
-    cb: (err: any, data?: GetDeviceCommandOutput) => void
-  ): void;
+  public getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
+  public getDevice(args: GetDeviceCommandInput, cb: (err: any, data?: GetDeviceCommandOutput) => void): void;
   public getDevice(
     args: GetDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -2642,17 +2416,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2663,14 +2434,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Gets a group.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
-  public getGroup(
-    args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupCommandOutput>;
-  public getGroup(
-    args: GetGroupCommandInput,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
-  ): void;
+  public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
+  public getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
   public getGroup(
     args: GetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2678,17 +2443,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2713,20 +2475,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getIdentityProviderByIdentifier(
     args: GetIdentityProviderByIdentifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetIdentityProviderByIdentifierCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIdentityProviderByIdentifierCommandOutput) => void),
     cb?: (err: any, data?: GetIdentityProviderByIdentifierCommandOutput) => void
   ): Promise<GetIdentityProviderByIdentifierCommandOutput> | void {
     const command = new GetIdentityProviderByIdentifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2751,17 +2507,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getSigningCertificate(
     args: GetSigningCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSigningCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSigningCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetSigningCertificateCommandOutput) => void
   ): Promise<GetSigningCertificateCommandOutput> | void {
     const command = new GetSigningCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2789,17 +2542,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getUICustomization(
     args: GetUICustomizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUICustomizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUICustomizationCommandOutput) => void),
     cb?: (err: any, data?: GetUICustomizationCommandOutput) => void
   ): Promise<GetUICustomizationCommandOutput> | void {
     const command = new GetUICustomizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2809,14 +2559,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Gets the user attributes and metadata for a user.</p>
    */
-  public getUser(
-    args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUserCommandOutput>;
-  public getUser(
-    args: GetUserCommandInput,
-    cb: (err: any, data?: GetUserCommandOutput) => void
-  ): void;
+  public getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
+  public getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
   public getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -2824,17 +2568,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getUser(
     args: GetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
     cb?: (err: any, data?: GetUserCommandOutput) => void
   ): Promise<GetUserCommandOutput> | void {
     const command = new GetUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2859,23 +2600,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getUserAttributeVerificationCode(
     args: GetUserAttributeVerificationCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetUserAttributeVerificationCodeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetUserAttributeVerificationCodeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void),
+    cb?: (err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> | void {
     const command = new GetUserAttributeVerificationCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2900,17 +2632,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getUserPoolMfaConfig(
     args: GetUserPoolMfaConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserPoolMfaConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserPoolMfaConfigCommandOutput) => void),
     cb?: (err: any, data?: GetUserPoolMfaConfigCommandOutput) => void
   ): Promise<GetUserPoolMfaConfigCommandOutput> | void {
     const command = new GetUserPoolMfaConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2918,7 +2647,9 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
+   * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a
+   *             user. The user's current access and Id tokens remain valid until their expiry. Access
+   *             and Id tokens expire one hour after they are issued.</p>
    */
   public globalSignOut(
     args: GlobalSignOutCommandInput,
@@ -2935,17 +2666,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public globalSignOut(
     args: GlobalSignOutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GlobalSignOutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GlobalSignOutCommandOutput) => void),
     cb?: (err: any, data?: GlobalSignOutCommandOutput) => void
   ): Promise<GlobalSignOutCommandOutput> | void {
     const command = new GlobalSignOutCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2959,10 +2687,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: InitiateAuthCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InitiateAuthCommandOutput>;
-  public initiateAuth(
-    args: InitiateAuthCommandInput,
-    cb: (err: any, data?: InitiateAuthCommandOutput) => void
-  ): void;
+  public initiateAuth(args: InitiateAuthCommandInput, cb: (err: any, data?: InitiateAuthCommandOutput) => void): void;
   public initiateAuth(
     args: InitiateAuthCommandInput,
     options: __HttpHandlerOptions,
@@ -2970,17 +2695,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public initiateAuth(
     args: InitiateAuthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateAuthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateAuthCommandOutput) => void),
     cb?: (err: any, data?: InitiateAuthCommandOutput) => void
   ): Promise<InitiateAuthCommandOutput> | void {
     const command = new InitiateAuthCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2990,14 +2712,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Lists the devices.</p>
    */
-  public listDevices(
-    args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDevicesCommandOutput>;
-  public listDevices(
-    args: ListDevicesCommandInput,
-    cb: (err: any, data?: ListDevicesCommandOutput) => void
-  ): void;
+  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   public listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -3005,17 +2721,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3026,14 +2739,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Lists the groups associated with a user pool.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   public listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -3041,17 +2748,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3076,17 +2780,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIdentityProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentityProvidersCommandOutput) => void),
     cb?: (err: any, data?: ListIdentityProvidersCommandOutput) => void
   ): Promise<ListIdentityProvidersCommandOutput> | void {
     const command = new ListIdentityProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3111,17 +2812,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listResourceServers(
     args: ListResourceServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceServersCommandOutput) => void),
     cb?: (err: any, data?: ListResourceServersCommandOutput) => void
   ): Promise<ListResourceServersCommandOutput> | void {
     const command = new ListResourceServersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3149,17 +2847,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3184,17 +2879,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUserImportJobs(
     args: ListUserImportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserImportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserImportJobsCommandOutput) => void),
     cb?: (err: any, data?: ListUserImportJobsCommandOutput) => void
   ): Promise<ListUserImportJobsCommandOutput> | void {
     const command = new ListUserImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3219,17 +2911,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUserPoolClients(
     args: ListUserPoolClientsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserPoolClientsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserPoolClientsCommandOutput) => void),
     cb?: (err: any, data?: ListUserPoolClientsCommandOutput) => void
   ): Promise<ListUserPoolClientsCommandOutput> | void {
     const command = new ListUserPoolClientsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3254,17 +2943,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUserPools(
     args: ListUserPoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserPoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserPoolsCommandOutput) => void),
     cb?: (err: any, data?: ListUserPoolsCommandOutput) => void
   ): Promise<ListUserPoolsCommandOutput> | void {
     const command = new ListUserPoolsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3274,14 +2960,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Lists the users in the Amazon Cognito user pool.</p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -3289,17 +2969,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3325,17 +3002,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUsersInGroup(
     args: ListUsersInGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersInGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersInGroupCommandOutput) => void),
     cb?: (err: any, data?: ListUsersInGroupCommandOutput) => void
   ): Promise<ListUsersInGroupCommandOutput> | void {
     const command = new ListUsersInGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3361,17 +3035,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public resendConfirmationCode(
     args: ResendConfirmationCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResendConfirmationCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResendConfirmationCodeCommandOutput) => void),
     cb?: (err: any, data?: ResendConfirmationCodeCommandOutput) => void
   ): Promise<ResendConfirmationCodeCommandOutput> | void {
     const command = new ResendConfirmationCodeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3396,17 +3067,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public respondToAuthChallenge(
     args: RespondToAuthChallengeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RespondToAuthChallengeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RespondToAuthChallengeCommandOutput) => void),
     cb?: (err: any, data?: RespondToAuthChallengeCommandOutput) => void
   ): Promise<RespondToAuthChallengeCommandOutput> | void {
     const command = new RespondToAuthChallengeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3436,17 +3104,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setRiskConfiguration(
     args: SetRiskConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetRiskConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetRiskConfigurationCommandOutput) => void),
     cb?: (err: any, data?: SetRiskConfigurationCommandOutput) => void
   ): Promise<SetRiskConfigurationCommandOutput> | void {
     const command = new SetRiskConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3482,17 +3147,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setUICustomization(
     args: SetUICustomizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetUICustomizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetUICustomizationCommandOutput) => void),
     cb?: (err: any, data?: SetUICustomizationCommandOutput) => void
   ): Promise<SetUICustomizationCommandOutput> | void {
     const command = new SetUICustomizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3500,7 +3162,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
+   * <p>Set the user's multi-factor authentication (MFA) method preference, including which
+   *             MFA factors are enabled and if any are preferred. Only one factor can be set as
+   *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
+   *             factors are enabled. If multiple options are enabled and no preference is set, a
+   *             challenge to choose an MFA option will be returned during sign in.</p>
    */
   public setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
@@ -3517,17 +3183,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetUserMFAPreferenceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetUserMFAPreferenceCommandOutput) => void),
     cb?: (err: any, data?: SetUserMFAPreferenceCommandOutput) => void
   ): Promise<SetUserMFAPreferenceCommandOutput> | void {
     const command = new SetUserMFAPreferenceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3552,17 +3215,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setUserPoolMfaConfig(
     args: SetUserPoolMfaConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetUserPoolMfaConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetUserPoolMfaConfigCommandOutput) => void),
     cb?: (err: any, data?: SetUserPoolMfaConfigCommandOutput) => void
   ): Promise<SetUserPoolMfaConfigCommandOutput> | void {
     const command = new SetUserPoolMfaConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3590,17 +3250,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setUserSettings(
     args: SetUserSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetUserSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetUserSettingsCommandOutput) => void),
     cb?: (err: any, data?: SetUserSettingsCommandOutput) => void
   ): Promise<SetUserSettingsCommandOutput> | void {
     const command = new SetUserSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3611,14 +3268,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Registers the user in the specified user pool and creates a user name, password, and
    *             user attributes.</p>
    */
-  public signUp(
-    args: SignUpCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SignUpCommandOutput>;
-  public signUp(
-    args: SignUpCommandInput,
-    cb: (err: any, data?: SignUpCommandOutput) => void
-  ): void;
+  public signUp(args: SignUpCommandInput, options?: __HttpHandlerOptions): Promise<SignUpCommandOutput>;
+  public signUp(args: SignUpCommandInput, cb: (err: any, data?: SignUpCommandOutput) => void): void;
   public signUp(
     args: SignUpCommandInput,
     options: __HttpHandlerOptions,
@@ -3626,17 +3277,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public signUp(
     args: SignUpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignUpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignUpCommandOutput) => void),
     cb?: (err: any, data?: SignUpCommandOutput) => void
   ): Promise<SignUpCommandOutput> | void {
     const command = new SignUpCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3661,17 +3309,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public startUserImportJob(
     args: StartUserImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartUserImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartUserImportJobCommandOutput) => void),
     cb?: (err: any, data?: StartUserImportJobCommandOutput) => void
   ): Promise<StartUserImportJobCommandOutput> | void {
     const command = new StartUserImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3696,17 +3341,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public stopUserImportJob(
     args: StopUserImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopUserImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopUserImportJobCommandOutput) => void),
     cb?: (err: any, data?: StopUserImportJobCommandOutput) => void
   ): Promise<StopUserImportJobCommandOutput> | void {
     const command = new StopUserImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3729,14 +3371,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>You can use this action up to 5 times per second, per account. A user pool can have as
    *             many as 50 tags.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3744,17 +3380,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3780,17 +3413,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3817,17 +3447,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateAuthEventFeedback(
     args: UpdateAuthEventFeedbackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAuthEventFeedbackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthEventFeedbackCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuthEventFeedbackCommandOutput) => void
   ): Promise<UpdateAuthEventFeedbackCommandOutput> | void {
     const command = new UpdateAuthEventFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3852,17 +3479,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateDeviceStatus(
     args: UpdateDeviceStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceStatusCommandOutput) => void
   ): Promise<UpdateDeviceStatusCommandOutput> | void {
     const command = new UpdateDeviceStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3872,18 +3496,13 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
    * <p>Updates the specified group with the specified attributes.</p>
    *         <p>Calling this action requires developer credentials.</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
+  public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -3891,17 +3510,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3926,17 +3542,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIdentityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIdentityProviderCommandOutput) => void),
     cb?: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
   ): Promise<UpdateIdentityProviderCommandOutput> | void {
     const command = new UpdateIdentityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3945,9 +3558,10 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
 
   /**
    * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateResourceServer(
     args: UpdateResourceServerCommandInput,
@@ -3964,17 +3578,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateResourceServer(
     args: UpdateResourceServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceServerCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceServerCommandOutput) => void
   ): Promise<UpdateResourceServerCommandOutput> | void {
     const command = new UpdateResourceServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3999,17 +3610,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateUserAttributes(
     args: UpdateUserAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserAttributesCommandOutput) => void
   ): Promise<UpdateUserAttributesCommandOutput> | void {
     const command = new UpdateUserAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4017,11 +3625,12 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Updates the specified user pool with the specified attributes. You can get a list of the
-   *             current user pool settings with .</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   * <p>Updates the specified user pool with the specified attributes. You can get a list of
+   *             the current user pool settings with .</p>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateUserPool(
     args: UpdateUserPoolCommandInput,
@@ -4038,17 +3647,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateUserPool(
     args: UpdateUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserPoolCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserPoolCommandOutput) => void
   ): Promise<UpdateUserPoolCommandOutput> | void {
     const command = new UpdateUserPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4056,11 +3662,12 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Updates the specified user pool app client with the specified attributes. You can get a
-   *             list of the current user pool app client settings with .</p>
-   *          <important>
-   *             <p>If you don't provide a value for an attribute, it will be set to the default value.</p>
-   *          </important>
+   * <p>Updates the specified user pool app client with the specified attributes. You can get
+   *             a list of the current user pool app client settings with .</p>
+   *         <important>
+   *             <p>If you don't provide a value for an attribute, it will be set to the default
+   *                 value.</p>
+   *         </important>
    */
   public updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
@@ -4077,17 +3684,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPoolClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserPoolClientCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserPoolClientCommandOutput) => void
   ): Promise<UpdateUserPoolClientCommandOutput> | void {
     const command = new UpdateUserPoolClientCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4132,17 +3736,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateUserPoolDomain(
     args: UpdateUserPoolDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPoolDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserPoolDomainCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserPoolDomainCommandOutput) => void
   ): Promise<UpdateUserPoolDomainCommandOutput> | void {
     const command = new UpdateUserPoolDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4169,17 +3770,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public verifySoftwareToken(
     args: VerifySoftwareTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifySoftwareTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifySoftwareTokenCommandOutput) => void),
     cb?: (err: any, data?: VerifySoftwareTokenCommandOutput) => void
   ): Promise<VerifySoftwareTokenCommandOutput> | void {
     const command = new VerifySoftwareTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4204,17 +3802,14 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public verifyUserAttribute(
     args: VerifyUserAttributeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyUserAttributeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyUserAttributeCommandOutput) => void),
     cb?: (err: any, data?: VerifyUserAttributeCommandOutput) => void
   ): Promise<VerifyUserAttributeCommandOutput> | void {
     const command = new VerifyUserAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

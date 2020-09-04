@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  ModifyCacheClusterMessage,
-  ModifyCacheClusterResult
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { ModifyCacheClusterMessage, ModifyCacheClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryModifyCacheClusterCommand,
-  serializeAws_queryModifyCacheClusterCommand
+  serializeAws_queryModifyCacheClusterCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyCacheClusterCommandInput = ModifyCacheClusterMessage;
-export type ModifyCacheClusterCommandOutput = ModifyCacheClusterResult &
-  __MetadataBearer;
+export type ModifyCacheClusterCommandOutput = ModifyCacheClusterResult & __MetadataBearer;
 
 export class ModifyCacheClusterCommand extends $Command<
   ModifyCacheClusterCommandInput,
@@ -50,14 +39,15 @@ export class ModifyCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyCacheClusterCommandInput, ModifyCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyCacheClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyCacheClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ModifyCacheClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyCacheClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCacheClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyCacheClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheClusterCommandOutput> {
     return deserializeAws_queryModifyCacheClusterCommand(output, context);
   }
 

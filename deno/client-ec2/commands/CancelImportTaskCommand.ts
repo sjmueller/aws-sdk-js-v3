@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CancelImportTaskRequest,
-  CancelImportTaskResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CancelImportTaskCommand,
-  serializeAws_ec2CancelImportTaskCommand
+  serializeAws_ec2CancelImportTaskCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CancelImportTaskCommandInput = CancelImportTaskRequest;
-export type CancelImportTaskCommandOutput = CancelImportTaskResult &
-  __MetadataBearer;
+export type CancelImportTaskCommandOutput = CancelImportTaskResult & __MetadataBearer;
 
 export class CancelImportTaskCommand extends $Command<
   CancelImportTaskCommandInput,
@@ -50,14 +39,15 @@ export class CancelImportTaskCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelImportTaskCommandInput, CancelImportTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CancelImportTaskRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelImportTaskResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CancelImportTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelImportTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelImportTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CancelImportTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelImportTaskCommandOutput> {
     return deserializeAws_ec2CancelImportTaskCommand(output, context);
   }
 

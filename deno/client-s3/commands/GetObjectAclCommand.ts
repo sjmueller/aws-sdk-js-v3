@@ -1,19 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client.ts";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { GetObjectAclOutput, GetObjectAclRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlGetObjectAclCommand,
-  serializeAws_restXmlGetObjectAclCommand
+  serializeAws_restXmlGetObjectAclCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -22,7 +15,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetObjectAclCommandInput = GetObjectAclRequest;
@@ -47,15 +40,16 @@ export class GetObjectAclCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetObjectAclCommandInput, GetObjectAclCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetObjectAclRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectAclOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,17 +59,11 @@ export class GetObjectAclCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetObjectAclCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectAclCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetObjectAclCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAclCommandOutput> {
     return deserializeAws_restXmlGetObjectAclCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient.ts";
-import {
-  ListResourceDelegatesRequest,
-  ListResourceDelegatesResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
+import { ListResourceDelegatesRequest, ListResourceDelegatesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListResourceDelegatesCommand,
-  serializeAws_json1_1ListResourceDelegatesCommand
+  serializeAws_json1_1ListResourceDelegatesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListResourceDelegatesCommandInput = ListResourceDelegatesRequest;
-export type ListResourceDelegatesCommandOutput = ListResourceDelegatesResponse &
-  __MetadataBearer;
+export type ListResourceDelegatesCommandOutput = ListResourceDelegatesResponse & __MetadataBearer;
 
 export class ListResourceDelegatesCommand extends $Command<
   ListResourceDelegatesCommandInput,
@@ -49,18 +38,16 @@ export class ListResourceDelegatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourceDelegatesCommandInput,
-    ListResourceDelegatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourceDelegatesCommandInput, ListResourceDelegatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListResourceDelegatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceDelegatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListResourceDelegatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListResourceDelegatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListResourceDelegatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourceDelegatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListResourceDelegatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDelegatesCommandOutput> {
     return deserializeAws_json1_1ListResourceDelegatesCommand(output, context);
   }
 

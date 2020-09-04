@@ -2,612 +2,608 @@ import { SSMClient } from "./SSMClient.ts";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand.ts";
 import {
   CancelCommandCommand,
   CancelCommandCommandInput,
-  CancelCommandCommandOutput
+  CancelCommandCommandOutput,
 } from "./commands/CancelCommandCommand.ts";
 import {
   CancelMaintenanceWindowExecutionCommand,
   CancelMaintenanceWindowExecutionCommandInput,
-  CancelMaintenanceWindowExecutionCommandOutput
+  CancelMaintenanceWindowExecutionCommandOutput,
 } from "./commands/CancelMaintenanceWindowExecutionCommand.ts";
 import {
   CreateActivationCommand,
   CreateActivationCommandInput,
-  CreateActivationCommandOutput
+  CreateActivationCommandOutput,
 } from "./commands/CreateActivationCommand.ts";
 import {
   CreateAssociationBatchCommand,
   CreateAssociationBatchCommandInput,
-  CreateAssociationBatchCommandOutput
+  CreateAssociationBatchCommandOutput,
 } from "./commands/CreateAssociationBatchCommand.ts";
 import {
   CreateAssociationCommand,
   CreateAssociationCommandInput,
-  CreateAssociationCommandOutput
+  CreateAssociationCommandOutput,
 } from "./commands/CreateAssociationCommand.ts";
 import {
   CreateDocumentCommand,
   CreateDocumentCommandInput,
-  CreateDocumentCommandOutput
+  CreateDocumentCommandOutput,
 } from "./commands/CreateDocumentCommand.ts";
 import {
   CreateMaintenanceWindowCommand,
   CreateMaintenanceWindowCommandInput,
-  CreateMaintenanceWindowCommandOutput
+  CreateMaintenanceWindowCommandOutput,
 } from "./commands/CreateMaintenanceWindowCommand.ts";
 import {
   CreateOpsItemCommand,
   CreateOpsItemCommandInput,
-  CreateOpsItemCommandOutput
+  CreateOpsItemCommandOutput,
 } from "./commands/CreateOpsItemCommand.ts";
 import {
   CreatePatchBaselineCommand,
   CreatePatchBaselineCommandInput,
-  CreatePatchBaselineCommandOutput
+  CreatePatchBaselineCommandOutput,
 } from "./commands/CreatePatchBaselineCommand.ts";
 import {
   CreateResourceDataSyncCommand,
   CreateResourceDataSyncCommandInput,
-  CreateResourceDataSyncCommandOutput
+  CreateResourceDataSyncCommandOutput,
 } from "./commands/CreateResourceDataSyncCommand.ts";
 import {
   DeleteActivationCommand,
   DeleteActivationCommandInput,
-  DeleteActivationCommandOutput
+  DeleteActivationCommandOutput,
 } from "./commands/DeleteActivationCommand.ts";
 import {
   DeleteAssociationCommand,
   DeleteAssociationCommandInput,
-  DeleteAssociationCommandOutput
+  DeleteAssociationCommandOutput,
 } from "./commands/DeleteAssociationCommand.ts";
 import {
   DeleteDocumentCommand,
   DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput
+  DeleteDocumentCommandOutput,
 } from "./commands/DeleteDocumentCommand.ts";
 import {
   DeleteInventoryCommand,
   DeleteInventoryCommandInput,
-  DeleteInventoryCommandOutput
+  DeleteInventoryCommandOutput,
 } from "./commands/DeleteInventoryCommand.ts";
 import {
   DeleteMaintenanceWindowCommand,
   DeleteMaintenanceWindowCommandInput,
-  DeleteMaintenanceWindowCommandOutput
+  DeleteMaintenanceWindowCommandOutput,
 } from "./commands/DeleteMaintenanceWindowCommand.ts";
 import {
   DeleteParameterCommand,
   DeleteParameterCommandInput,
-  DeleteParameterCommandOutput
+  DeleteParameterCommandOutput,
 } from "./commands/DeleteParameterCommand.ts";
 import {
   DeleteParametersCommand,
   DeleteParametersCommandInput,
-  DeleteParametersCommandOutput
+  DeleteParametersCommandOutput,
 } from "./commands/DeleteParametersCommand.ts";
 import {
   DeletePatchBaselineCommand,
   DeletePatchBaselineCommandInput,
-  DeletePatchBaselineCommandOutput
+  DeletePatchBaselineCommandOutput,
 } from "./commands/DeletePatchBaselineCommand.ts";
 import {
   DeleteResourceDataSyncCommand,
   DeleteResourceDataSyncCommandInput,
-  DeleteResourceDataSyncCommandOutput
+  DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand.ts";
 import {
   DeregisterManagedInstanceCommand,
   DeregisterManagedInstanceCommandInput,
-  DeregisterManagedInstanceCommandOutput
+  DeregisterManagedInstanceCommandOutput,
 } from "./commands/DeregisterManagedInstanceCommand.ts";
 import {
   DeregisterPatchBaselineForPatchGroupCommand,
   DeregisterPatchBaselineForPatchGroupCommandInput,
-  DeregisterPatchBaselineForPatchGroupCommandOutput
+  DeregisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/DeregisterPatchBaselineForPatchGroupCommand.ts";
 import {
   DeregisterTargetFromMaintenanceWindowCommand,
   DeregisterTargetFromMaintenanceWindowCommandInput,
-  DeregisterTargetFromMaintenanceWindowCommandOutput
+  DeregisterTargetFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTargetFromMaintenanceWindowCommand.ts";
 import {
   DeregisterTaskFromMaintenanceWindowCommand,
   DeregisterTaskFromMaintenanceWindowCommandInput,
-  DeregisterTaskFromMaintenanceWindowCommandOutput
+  DeregisterTaskFromMaintenanceWindowCommandOutput,
 } from "./commands/DeregisterTaskFromMaintenanceWindowCommand.ts";
 import {
   DescribeActivationsCommand,
   DescribeActivationsCommandInput,
-  DescribeActivationsCommandOutput
+  DescribeActivationsCommandOutput,
 } from "./commands/DescribeActivationsCommand.ts";
 import {
   DescribeAssociationCommand,
   DescribeAssociationCommandInput,
-  DescribeAssociationCommandOutput
+  DescribeAssociationCommandOutput,
 } from "./commands/DescribeAssociationCommand.ts";
 import {
   DescribeAssociationExecutionTargetsCommand,
   DescribeAssociationExecutionTargetsCommandInput,
-  DescribeAssociationExecutionTargetsCommandOutput
+  DescribeAssociationExecutionTargetsCommandOutput,
 } from "./commands/DescribeAssociationExecutionTargetsCommand.ts";
 import {
   DescribeAssociationExecutionsCommand,
   DescribeAssociationExecutionsCommandInput,
-  DescribeAssociationExecutionsCommandOutput
+  DescribeAssociationExecutionsCommandOutput,
 } from "./commands/DescribeAssociationExecutionsCommand.ts";
 import {
   DescribeAutomationExecutionsCommand,
   DescribeAutomationExecutionsCommandInput,
-  DescribeAutomationExecutionsCommandOutput
+  DescribeAutomationExecutionsCommandOutput,
 } from "./commands/DescribeAutomationExecutionsCommand.ts";
 import {
   DescribeAutomationStepExecutionsCommand,
   DescribeAutomationStepExecutionsCommandInput,
-  DescribeAutomationStepExecutionsCommandOutput
+  DescribeAutomationStepExecutionsCommandOutput,
 } from "./commands/DescribeAutomationStepExecutionsCommand.ts";
 import {
   DescribeAvailablePatchesCommand,
   DescribeAvailablePatchesCommandInput,
-  DescribeAvailablePatchesCommandOutput
+  DescribeAvailablePatchesCommandOutput,
 } from "./commands/DescribeAvailablePatchesCommand.ts";
 import {
   DescribeDocumentCommand,
   DescribeDocumentCommandInput,
-  DescribeDocumentCommandOutput
+  DescribeDocumentCommandOutput,
 } from "./commands/DescribeDocumentCommand.ts";
 import {
   DescribeDocumentPermissionCommand,
   DescribeDocumentPermissionCommandInput,
-  DescribeDocumentPermissionCommandOutput
+  DescribeDocumentPermissionCommandOutput,
 } from "./commands/DescribeDocumentPermissionCommand.ts";
 import {
   DescribeEffectiveInstanceAssociationsCommand,
   DescribeEffectiveInstanceAssociationsCommandInput,
-  DescribeEffectiveInstanceAssociationsCommandOutput
+  DescribeEffectiveInstanceAssociationsCommandOutput,
 } from "./commands/DescribeEffectiveInstanceAssociationsCommand.ts";
 import {
   DescribeEffectivePatchesForPatchBaselineCommand,
   DescribeEffectivePatchesForPatchBaselineCommandInput,
-  DescribeEffectivePatchesForPatchBaselineCommandOutput
+  DescribeEffectivePatchesForPatchBaselineCommandOutput,
 } from "./commands/DescribeEffectivePatchesForPatchBaselineCommand.ts";
 import {
   DescribeInstanceAssociationsStatusCommand,
   DescribeInstanceAssociationsStatusCommandInput,
-  DescribeInstanceAssociationsStatusCommandOutput
+  DescribeInstanceAssociationsStatusCommandOutput,
 } from "./commands/DescribeInstanceAssociationsStatusCommand.ts";
 import {
   DescribeInstanceInformationCommand,
   DescribeInstanceInformationCommandInput,
-  DescribeInstanceInformationCommandOutput
+  DescribeInstanceInformationCommandOutput,
 } from "./commands/DescribeInstanceInformationCommand.ts";
 import {
   DescribeInstancePatchStatesCommand,
   DescribeInstancePatchStatesCommandInput,
-  DescribeInstancePatchStatesCommandOutput
+  DescribeInstancePatchStatesCommandOutput,
 } from "./commands/DescribeInstancePatchStatesCommand.ts";
 import {
   DescribeInstancePatchStatesForPatchGroupCommand,
   DescribeInstancePatchStatesForPatchGroupCommandInput,
-  DescribeInstancePatchStatesForPatchGroupCommandOutput
+  DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand.ts";
 import {
   DescribeInstancePatchesCommand,
   DescribeInstancePatchesCommandInput,
-  DescribeInstancePatchesCommandOutput
+  DescribeInstancePatchesCommandOutput,
 } from "./commands/DescribeInstancePatchesCommand.ts";
 import {
   DescribeInventoryDeletionsCommand,
   DescribeInventoryDeletionsCommandInput,
-  DescribeInventoryDeletionsCommandOutput
+  DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
+  DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTaskInvocationsCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionTasksCommand,
   DescribeMaintenanceWindowExecutionTasksCommandInput,
-  DescribeMaintenanceWindowExecutionTasksCommandOutput
+  DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTasksCommand.ts";
 import {
   DescribeMaintenanceWindowExecutionsCommand,
   DescribeMaintenanceWindowExecutionsCommandInput,
-  DescribeMaintenanceWindowExecutionsCommandOutput
+  DescribeMaintenanceWindowExecutionsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionsCommand.ts";
 import {
   DescribeMaintenanceWindowScheduleCommand,
   DescribeMaintenanceWindowScheduleCommandInput,
-  DescribeMaintenanceWindowScheduleCommandOutput
+  DescribeMaintenanceWindowScheduleCommandOutput,
 } from "./commands/DescribeMaintenanceWindowScheduleCommand.ts";
 import {
   DescribeMaintenanceWindowTargetsCommand,
   DescribeMaintenanceWindowTargetsCommandInput,
-  DescribeMaintenanceWindowTargetsCommandOutput
+  DescribeMaintenanceWindowTargetsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTargetsCommand.ts";
 import {
   DescribeMaintenanceWindowTasksCommand,
   DescribeMaintenanceWindowTasksCommandInput,
-  DescribeMaintenanceWindowTasksCommandOutput
+  DescribeMaintenanceWindowTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowTasksCommand.ts";
 import {
   DescribeMaintenanceWindowsCommand,
   DescribeMaintenanceWindowsCommandInput,
-  DescribeMaintenanceWindowsCommandOutput
+  DescribeMaintenanceWindowsCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsCommand.ts";
 import {
   DescribeMaintenanceWindowsForTargetCommand,
   DescribeMaintenanceWindowsForTargetCommandInput,
-  DescribeMaintenanceWindowsForTargetCommandOutput
+  DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand.ts";
 import {
   DescribeOpsItemsCommand,
   DescribeOpsItemsCommandInput,
-  DescribeOpsItemsCommandOutput
+  DescribeOpsItemsCommandOutput,
 } from "./commands/DescribeOpsItemsCommand.ts";
 import {
   DescribeParametersCommand,
   DescribeParametersCommandInput,
-  DescribeParametersCommandOutput
+  DescribeParametersCommandOutput,
 } from "./commands/DescribeParametersCommand.ts";
 import {
   DescribePatchBaselinesCommand,
   DescribePatchBaselinesCommandInput,
-  DescribePatchBaselinesCommandOutput
+  DescribePatchBaselinesCommandOutput,
 } from "./commands/DescribePatchBaselinesCommand.ts";
 import {
   DescribePatchGroupStateCommand,
   DescribePatchGroupStateCommandInput,
-  DescribePatchGroupStateCommandOutput
+  DescribePatchGroupStateCommandOutput,
 } from "./commands/DescribePatchGroupStateCommand.ts";
 import {
   DescribePatchGroupsCommand,
   DescribePatchGroupsCommandInput,
-  DescribePatchGroupsCommandOutput
+  DescribePatchGroupsCommandOutput,
 } from "./commands/DescribePatchGroupsCommand.ts";
 import {
   DescribePatchPropertiesCommand,
   DescribePatchPropertiesCommandInput,
-  DescribePatchPropertiesCommandOutput
+  DescribePatchPropertiesCommandOutput,
 } from "./commands/DescribePatchPropertiesCommand.ts";
 import {
   DescribeSessionsCommand,
   DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
+  DescribeSessionsCommandOutput,
 } from "./commands/DescribeSessionsCommand.ts";
 import {
   GetAutomationExecutionCommand,
   GetAutomationExecutionCommandInput,
-  GetAutomationExecutionCommandOutput
+  GetAutomationExecutionCommandOutput,
 } from "./commands/GetAutomationExecutionCommand.ts";
 import {
   GetCalendarStateCommand,
   GetCalendarStateCommandInput,
-  GetCalendarStateCommandOutput
+  GetCalendarStateCommandOutput,
 } from "./commands/GetCalendarStateCommand.ts";
 import {
   GetCommandInvocationCommand,
   GetCommandInvocationCommandInput,
-  GetCommandInvocationCommandOutput
+  GetCommandInvocationCommandOutput,
 } from "./commands/GetCommandInvocationCommand.ts";
 import {
   GetConnectionStatusCommand,
   GetConnectionStatusCommandInput,
-  GetConnectionStatusCommandOutput
+  GetConnectionStatusCommandOutput,
 } from "./commands/GetConnectionStatusCommand.ts";
 import {
   GetDefaultPatchBaselineCommand,
   GetDefaultPatchBaselineCommandInput,
-  GetDefaultPatchBaselineCommandOutput
+  GetDefaultPatchBaselineCommandOutput,
 } from "./commands/GetDefaultPatchBaselineCommand.ts";
 import {
   GetDeployablePatchSnapshotForInstanceCommand,
   GetDeployablePatchSnapshotForInstanceCommandInput,
-  GetDeployablePatchSnapshotForInstanceCommandOutput
+  GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand.ts";
 import {
   GetDocumentCommand,
   GetDocumentCommandInput,
-  GetDocumentCommandOutput
+  GetDocumentCommandOutput,
 } from "./commands/GetDocumentCommand.ts";
 import {
   GetInventoryCommand,
   GetInventoryCommandInput,
-  GetInventoryCommandOutput
+  GetInventoryCommandOutput,
 } from "./commands/GetInventoryCommand.ts";
 import {
   GetInventorySchemaCommand,
   GetInventorySchemaCommandInput,
-  GetInventorySchemaCommandOutput
+  GetInventorySchemaCommandOutput,
 } from "./commands/GetInventorySchemaCommand.ts";
 import {
   GetMaintenanceWindowCommand,
   GetMaintenanceWindowCommandInput,
-  GetMaintenanceWindowCommandOutput
+  GetMaintenanceWindowCommandOutput,
 } from "./commands/GetMaintenanceWindowCommand.ts";
 import {
   GetMaintenanceWindowExecutionCommand,
   GetMaintenanceWindowExecutionCommandInput,
-  GetMaintenanceWindowExecutionCommandOutput
+  GetMaintenanceWindowExecutionCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionCommand.ts";
 import {
   GetMaintenanceWindowExecutionTaskCommand,
   GetMaintenanceWindowExecutionTaskCommandInput,
-  GetMaintenanceWindowExecutionTaskCommandOutput
+  GetMaintenanceWindowExecutionTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskCommand.ts";
 import {
   GetMaintenanceWindowExecutionTaskInvocationCommand,
   GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-  GetMaintenanceWindowExecutionTaskInvocationCommandOutput
+  GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
 } from "./commands/GetMaintenanceWindowExecutionTaskInvocationCommand.ts";
 import {
   GetMaintenanceWindowTaskCommand,
   GetMaintenanceWindowTaskCommandInput,
-  GetMaintenanceWindowTaskCommandOutput
+  GetMaintenanceWindowTaskCommandOutput,
 } from "./commands/GetMaintenanceWindowTaskCommand.ts";
-import {
-  GetOpsItemCommand,
-  GetOpsItemCommandInput,
-  GetOpsItemCommandOutput
-} from "./commands/GetOpsItemCommand.ts";
+import { GetOpsItemCommand, GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand.ts";
 import {
   GetOpsSummaryCommand,
   GetOpsSummaryCommandInput,
-  GetOpsSummaryCommandOutput
+  GetOpsSummaryCommandOutput,
 } from "./commands/GetOpsSummaryCommand.ts";
 import {
   GetParameterCommand,
   GetParameterCommandInput,
-  GetParameterCommandOutput
+  GetParameterCommandOutput,
 } from "./commands/GetParameterCommand.ts";
 import {
   GetParameterHistoryCommand,
   GetParameterHistoryCommandInput,
-  GetParameterHistoryCommandOutput
+  GetParameterHistoryCommandOutput,
 } from "./commands/GetParameterHistoryCommand.ts";
 import {
   GetParametersByPathCommand,
   GetParametersByPathCommandInput,
-  GetParametersByPathCommandOutput
+  GetParametersByPathCommandOutput,
 } from "./commands/GetParametersByPathCommand.ts";
 import {
   GetParametersCommand,
   GetParametersCommandInput,
-  GetParametersCommandOutput
+  GetParametersCommandOutput,
 } from "./commands/GetParametersCommand.ts";
 import {
   GetPatchBaselineCommand,
   GetPatchBaselineCommandInput,
-  GetPatchBaselineCommandOutput
+  GetPatchBaselineCommandOutput,
 } from "./commands/GetPatchBaselineCommand.ts";
 import {
   GetPatchBaselineForPatchGroupCommand,
   GetPatchBaselineForPatchGroupCommandInput,
-  GetPatchBaselineForPatchGroupCommandOutput
+  GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand.ts";
 import {
   GetServiceSettingCommand,
   GetServiceSettingCommandInput,
-  GetServiceSettingCommandOutput
+  GetServiceSettingCommandOutput,
 } from "./commands/GetServiceSettingCommand.ts";
 import {
   LabelParameterVersionCommand,
   LabelParameterVersionCommandInput,
-  LabelParameterVersionCommandOutput
+  LabelParameterVersionCommandOutput,
 } from "./commands/LabelParameterVersionCommand.ts";
 import {
   ListAssociationVersionsCommand,
   ListAssociationVersionsCommandInput,
-  ListAssociationVersionsCommandOutput
+  ListAssociationVersionsCommandOutput,
 } from "./commands/ListAssociationVersionsCommand.ts";
 import {
   ListAssociationsCommand,
   ListAssociationsCommandInput,
-  ListAssociationsCommandOutput
+  ListAssociationsCommandOutput,
 } from "./commands/ListAssociationsCommand.ts";
 import {
   ListCommandInvocationsCommand,
   ListCommandInvocationsCommandInput,
-  ListCommandInvocationsCommandOutput
+  ListCommandInvocationsCommandOutput,
 } from "./commands/ListCommandInvocationsCommand.ts";
 import {
   ListCommandsCommand,
   ListCommandsCommandInput,
-  ListCommandsCommandOutput
+  ListCommandsCommandOutput,
 } from "./commands/ListCommandsCommand.ts";
 import {
   ListComplianceItemsCommand,
   ListComplianceItemsCommandInput,
-  ListComplianceItemsCommandOutput
+  ListComplianceItemsCommandOutput,
 } from "./commands/ListComplianceItemsCommand.ts";
 import {
   ListComplianceSummariesCommand,
   ListComplianceSummariesCommandInput,
-  ListComplianceSummariesCommandOutput
+  ListComplianceSummariesCommandOutput,
 } from "./commands/ListComplianceSummariesCommand.ts";
 import {
   ListDocumentVersionsCommand,
   ListDocumentVersionsCommandInput,
-  ListDocumentVersionsCommandOutput
+  ListDocumentVersionsCommandOutput,
 } from "./commands/ListDocumentVersionsCommand.ts";
 import {
   ListDocumentsCommand,
   ListDocumentsCommandInput,
-  ListDocumentsCommandOutput
+  ListDocumentsCommandOutput,
 } from "./commands/ListDocumentsCommand.ts";
 import {
   ListInventoryEntriesCommand,
   ListInventoryEntriesCommandInput,
-  ListInventoryEntriesCommandOutput
+  ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand.ts";
 import {
   ListResourceComplianceSummariesCommand,
   ListResourceComplianceSummariesCommandInput,
-  ListResourceComplianceSummariesCommandOutput
+  ListResourceComplianceSummariesCommandOutput,
 } from "./commands/ListResourceComplianceSummariesCommand.ts";
 import {
   ListResourceDataSyncCommand,
   ListResourceDataSyncCommandInput,
-  ListResourceDataSyncCommandOutput
+  ListResourceDataSyncCommandOutput,
 } from "./commands/ListResourceDataSyncCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyDocumentPermissionCommand,
   ModifyDocumentPermissionCommandInput,
-  ModifyDocumentPermissionCommandOutput
+  ModifyDocumentPermissionCommandOutput,
 } from "./commands/ModifyDocumentPermissionCommand.ts";
 import {
   PutComplianceItemsCommand,
   PutComplianceItemsCommandInput,
-  PutComplianceItemsCommandOutput
+  PutComplianceItemsCommandOutput,
 } from "./commands/PutComplianceItemsCommand.ts";
 import {
   PutInventoryCommand,
   PutInventoryCommandInput,
-  PutInventoryCommandOutput
+  PutInventoryCommandOutput,
 } from "./commands/PutInventoryCommand.ts";
 import {
   PutParameterCommand,
   PutParameterCommandInput,
-  PutParameterCommandOutput
+  PutParameterCommandOutput,
 } from "./commands/PutParameterCommand.ts";
 import {
   RegisterDefaultPatchBaselineCommand,
   RegisterDefaultPatchBaselineCommandInput,
-  RegisterDefaultPatchBaselineCommandOutput
+  RegisterDefaultPatchBaselineCommandOutput,
 } from "./commands/RegisterDefaultPatchBaselineCommand.ts";
 import {
   RegisterPatchBaselineForPatchGroupCommand,
   RegisterPatchBaselineForPatchGroupCommandInput,
-  RegisterPatchBaselineForPatchGroupCommandOutput
+  RegisterPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/RegisterPatchBaselineForPatchGroupCommand.ts";
 import {
   RegisterTargetWithMaintenanceWindowCommand,
   RegisterTargetWithMaintenanceWindowCommandInput,
-  RegisterTargetWithMaintenanceWindowCommandOutput
+  RegisterTargetWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTargetWithMaintenanceWindowCommand.ts";
 import {
   RegisterTaskWithMaintenanceWindowCommand,
   RegisterTaskWithMaintenanceWindowCommandInput,
-  RegisterTaskWithMaintenanceWindowCommandOutput
+  RegisterTaskWithMaintenanceWindowCommandOutput,
 } from "./commands/RegisterTaskWithMaintenanceWindowCommand.ts";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   ResetServiceSettingCommand,
   ResetServiceSettingCommandInput,
-  ResetServiceSettingCommandOutput
+  ResetServiceSettingCommandOutput,
 } from "./commands/ResetServiceSettingCommand.ts";
 import {
   ResumeSessionCommand,
   ResumeSessionCommandInput,
-  ResumeSessionCommandOutput
+  ResumeSessionCommandOutput,
 } from "./commands/ResumeSessionCommand.ts";
 import {
   SendAutomationSignalCommand,
   SendAutomationSignalCommandInput,
-  SendAutomationSignalCommandOutput
+  SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand.ts";
 import {
   SendCommandCommand,
   SendCommandCommandInput,
-  SendCommandCommandOutput
+  SendCommandCommandOutput,
 } from "./commands/SendCommandCommand.ts";
 import {
   StartAssociationsOnceCommand,
   StartAssociationsOnceCommandInput,
-  StartAssociationsOnceCommandOutput
+  StartAssociationsOnceCommandOutput,
 } from "./commands/StartAssociationsOnceCommand.ts";
 import {
   StartAutomationExecutionCommand,
   StartAutomationExecutionCommandInput,
-  StartAutomationExecutionCommandOutput
+  StartAutomationExecutionCommandOutput,
 } from "./commands/StartAutomationExecutionCommand.ts";
 import {
   StartSessionCommand,
   StartSessionCommandInput,
-  StartSessionCommandOutput
+  StartSessionCommandOutput,
 } from "./commands/StartSessionCommand.ts";
 import {
   StopAutomationExecutionCommand,
   StopAutomationExecutionCommandInput,
-  StopAutomationExecutionCommandOutput
+  StopAutomationExecutionCommandOutput,
 } from "./commands/StopAutomationExecutionCommand.ts";
 import {
   TerminateSessionCommand,
   TerminateSessionCommandInput,
-  TerminateSessionCommandOutput
+  TerminateSessionCommandOutput,
 } from "./commands/TerminateSessionCommand.ts";
 import {
   UpdateAssociationCommand,
   UpdateAssociationCommandInput,
-  UpdateAssociationCommandOutput
+  UpdateAssociationCommandOutput,
 } from "./commands/UpdateAssociationCommand.ts";
 import {
   UpdateAssociationStatusCommand,
   UpdateAssociationStatusCommandInput,
-  UpdateAssociationStatusCommandOutput
+  UpdateAssociationStatusCommandOutput,
 } from "./commands/UpdateAssociationStatusCommand.ts";
 import {
   UpdateDocumentCommand,
   UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput
+  UpdateDocumentCommandOutput,
 } from "./commands/UpdateDocumentCommand.ts";
 import {
   UpdateDocumentDefaultVersionCommand,
   UpdateDocumentDefaultVersionCommandInput,
-  UpdateDocumentDefaultVersionCommandOutput
+  UpdateDocumentDefaultVersionCommandOutput,
 } from "./commands/UpdateDocumentDefaultVersionCommand.ts";
 import {
   UpdateMaintenanceWindowCommand,
   UpdateMaintenanceWindowCommandInput,
-  UpdateMaintenanceWindowCommandOutput
+  UpdateMaintenanceWindowCommandOutput,
 } from "./commands/UpdateMaintenanceWindowCommand.ts";
 import {
   UpdateMaintenanceWindowTargetCommand,
   UpdateMaintenanceWindowTargetCommandInput,
-  UpdateMaintenanceWindowTargetCommandOutput
+  UpdateMaintenanceWindowTargetCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTargetCommand.ts";
 import {
   UpdateMaintenanceWindowTaskCommand,
   UpdateMaintenanceWindowTaskCommandInput,
-  UpdateMaintenanceWindowTaskCommandOutput
+  UpdateMaintenanceWindowTaskCommandOutput,
 } from "./commands/UpdateMaintenanceWindowTaskCommand.ts";
 import {
   UpdateManagedInstanceRoleCommand,
   UpdateManagedInstanceRoleCommandInput,
-  UpdateManagedInstanceRoleCommandOutput
+  UpdateManagedInstanceRoleCommandOutput,
 } from "./commands/UpdateManagedInstanceRoleCommand.ts";
 import {
   UpdateOpsItemCommand,
   UpdateOpsItemCommandInput,
-  UpdateOpsItemCommandOutput
+  UpdateOpsItemCommandOutput,
 } from "./commands/UpdateOpsItemCommand.ts";
 import {
   UpdatePatchBaselineCommand,
   UpdatePatchBaselineCommandInput,
-  UpdatePatchBaselineCommandOutput
+  UpdatePatchBaselineCommandOutput,
 } from "./commands/UpdatePatchBaselineCommand.ts";
 import {
   UpdateResourceDataSyncCommand,
   UpdateResourceDataSyncCommandInput,
-  UpdateResourceDataSyncCommandOutput
+  UpdateResourceDataSyncCommandOutput,
 } from "./commands/UpdateResourceDataSyncCommand.ts";
 import {
   UpdateServiceSettingCommand,
   UpdateServiceSettingCommandInput,
-  UpdateServiceSettingCommandOutput
+  UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -617,14 +613,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *    collecting system inventory, applying operating system (OS) patches, automating the creation of
  *    Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale.
  *    Systems Manager lets you remotely and securely manage the configuration of your managed instances. A
- *     <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your
- *    hybrid environment that has been configured for Systems Manager.</p>
- *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
+ *     <i>managed instance</i> is any Amazon Elastic Compute Cloud instance (EC2 instance), or any
+ *    on-premises server or virtual machine (VM) in your hybrid environment that has been configured
+ *    for Systems Manager.</p>
+ *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS Systems Manager User Guide</a>.</p>
  *          <p>To get started, verify prerequisites and configure managed instances. For more information,
- *    see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting Up AWS Systems Manager</a> in
- *    the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see
- *     <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
+ *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
+ *     AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ *          <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information
+ *    about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
  */
 export class SSM extends SSMClient {
   /**
@@ -641,9 +638,9 @@ export class SSM extends SSMClient {
    *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
    *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
    *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
-   *    to Amazon EC2 and are interpreted strictly as a string of characters. </p>
-   *          <p>For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your
-   *     Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *    to and are interpreted strictly as a string of characters. </p>
+   *          <p>For more information about using tags with EC2 instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a> in the
+   *     <i>Amazon EC2 User Guide</i>.</p>
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -660,17 +657,14 @@ export class SSM extends SSMClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -696,17 +690,14 @@ export class SSM extends SSMClient {
   ): void;
   public cancelCommand(
     args: CancelCommandCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelCommandCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelCommandCommandOutput) => void),
     cb?: (err: any, data?: CancelCommandCommandOutput) => void
   ): Promise<CancelCommandCommandOutput> | void {
     const command = new CancelCommandCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -733,23 +724,14 @@ export class SSM extends SSMClient {
   ): void;
   public cancelMaintenanceWindowExecution(
     args: CancelMaintenanceWindowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelMaintenanceWindowExecutionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CancelMaintenanceWindowExecutionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void),
+    cb?: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> | void {
     const command = new CancelMaintenanceWindowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -761,11 +743,11 @@ export class SSM extends SSMClient {
    *    server or virtual machine (VM) with Systems Manager. Registering these machines with Systems Manager makes it
    *    possible to manage them using Systems Manager capabilities. You use the activation code and ID when
    *    installing SSM Agent on machines in your hybrid environment. For more information about
-   *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting Up AWS Systems Manager for Hybrid
-   *     Environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
+   *    requirements for managing on-premises instances and VMs using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
+   *     AWS Systems Manager for hybrid environments</a> in the <i>AWS Systems Manager User Guide</i>. </p>
    *          <note>
-   *             <p>On-premises servers or VMs that are registered with Systems Manager and Amazon EC2 instances that you
-   *     manage with Systems Manager are all called <i>managed instances</i>.</p>
+   *             <p>On-premises servers or VMs that are registered with Systems Manager and EC2 instances that you manage
+   *     with Systems Manager are all called <i>managed instances</i>.</p>
    *          </note>
    */
   public createActivation(
@@ -783,17 +765,14 @@ export class SSM extends SSMClient {
   ): void;
   public createActivation(
     args: CreateActivationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateActivationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActivationCommandOutput) => void),
     cb?: (err: any, data?: CreateActivationCommandOutput) => void
   ): Promise<CreateActivationCommandOutput> | void {
     const command = new CreateActivationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -801,12 +780,16 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Associates the specified Systems Manager document with the specified instances or targets.</p>
-   *          <p>When you associate a document with one or more instances using instance IDs or tags,
-   *    SSM Agent running on the instance processes the document and configures the instance as
-   *    specified.</p>
-   *          <p>If you associate a document with an instance that already has an associated document, the
-   *    system returns the AssociationAlreadyExists exception.</p>
+   * <p>A State Manager association defines the state that you want to maintain on your instances.
+   *    For example, an association can specify that anti-virus software must be installed and running on
+   *    your instances, or that certain ports must be closed. For static targets, the association
+   *    specifies a schedule for when the configuration is reapplied. For dynamic targets, such as an AWS
+   *    Resource Group or an AWS Autoscaling Group, State Manager applies the configuration when new
+   *    instances are added to the group. The association also specifies actions to take when applying
+   *    the configuration. For example, an association for anti-virus software might run once a day. If
+   *    the software is not installed, then State Manager installs it. If the software is installed, but
+   *    the service is not running, then the association might instruct State Manager to start the
+   *    service. </p>
    */
   public createAssociation(
     args: CreateAssociationCommandInput,
@@ -823,17 +806,14 @@ export class SSM extends SSMClient {
   ): void;
   public createAssociation(
     args: CreateAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssociationCommandOutput) => void),
     cb?: (err: any, data?: CreateAssociationCommandOutput) => void
   ): Promise<CreateAssociationCommandOutput> | void {
     const command = new CreateAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -863,17 +843,14 @@ export class SSM extends SSMClient {
   ): void;
   public createAssociationBatch(
     args: CreateAssociationBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssociationBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssociationBatchCommandOutput) => void),
     cb?: (err: any, data?: CreateAssociationBatchCommandOutput) => void
   ): Promise<CreateAssociationBatchCommandOutput> | void {
     const command = new CreateAssociationBatchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -881,9 +858,10 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Creates a Systems Manager document.</p>
-   *          <p>After you create a document, you can use CreateAssociation to associate it with one or more
-   *    running instances.</p>
+   * <p>Creates a Systems Manager (SSM) document. An SSM document defines the actions that Systems Manager performs on
+   *    your managed instances. For more information about SSM documents, including information about
+   *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
    */
   public createDocument(
     args: CreateDocumentCommandInput,
@@ -900,17 +878,14 @@ export class SSM extends SSMClient {
   ): void;
   public createDocument(
     args: CreateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDocumentCommandOutput) => void),
     cb?: (err: any, data?: CreateDocumentCommandOutput) => void
   ): Promise<CreateDocumentCommandOutput> | void {
     const command = new CreateDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -943,17 +918,14 @@ export class SSM extends SSMClient {
   ): void;
   public createMaintenanceWindow(
     args: CreateMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMaintenanceWindowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMaintenanceWindowCommandOutput) => void),
     cb?: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
   ): Promise<CreateMaintenanceWindowCommandOutput> | void {
     const command = new CreateMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -962,11 +934,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)
-   *    to create a new OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public createOpsItem(
@@ -984,17 +956,14 @@ export class SSM extends SSMClient {
   ): void;
   public createOpsItem(
     args: CreateOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpsItemCommandOutput) => void),
     cb?: (err: any, data?: CreateOpsItemCommandOutput) => void
   ): Promise<CreateOpsItemCommandOutput> | void {
     const command = new CreateOpsItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1023,17 +992,14 @@ export class SSM extends SSMClient {
   ): void;
   public createPatchBaseline(
     args: CreatePatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: CreatePatchBaselineCommandOutput) => void
   ): Promise<CreatePatchBaselineCommandOutput> | void {
     const command = new CreatePatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,16 +1011,15 @@ export class SSM extends SSMClient {
    *    Manager offers two types of resource data sync: <code>SyncToDestination</code> and
    *     <code>SyncFromSource</code>.</p>
    *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
-   *    synchronize Inventory data from multiple AWS Regions to a single Amazon S3 bucket. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource
-   *     Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information,
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource Data
+   *     Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *
-   *          <p>You can configure Systems Manager Explorer to use the <code>SyncToDestination</code> type to
-   *    synchronize operational work items (OpsItems) and operational data (OpsData) from multiple AWS
-   *    Regions to a single Amazon S3 bucket. You can also configure Explorer to use the
-   *     <code>SyncFromSource</code> type. This type synchronizes OpsItems and OpsData from multiple AWS
-   *    accounts and Regions by using AWS Organizations. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting Up Explorer to Display Data from
-   *     Multiple Accounts and Regions</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
+   *    operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a
+   *    single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and
+   *    Regions or <code>EntireOrganization</code> by using AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
    *
    *          <p>A resource data sync is an asynchronous operation that returns immediately. After a
    *    successful initial sync is completed, the system continuously syncs data. To check the status of
@@ -1081,17 +1046,14 @@ export class SSM extends SSMClient {
   ): void;
   public createResourceDataSync(
     args: CreateResourceDataSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceDataSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceDataSyncCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
   ): Promise<CreateResourceDataSyncCommandOutput> | void {
     const command = new CreateResourceDataSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1119,17 +1081,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteActivation(
     args: DeleteActivationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteActivationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActivationCommandOutput) => void),
     cb?: (err: any, data?: DeleteActivationCommandOutput) => void
   ): Promise<DeleteActivationCommandOutput> | void {
     const command = new DeleteActivationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1158,17 +1117,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteAssociation(
     args: DeleteAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssociationCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssociationCommandOutput) => void
   ): Promise<DeleteAssociationCommandOutput> | void {
     const command = new DeleteAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1194,17 +1150,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteDocument(
     args: DeleteDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): Promise<DeleteDocumentCommandOutput> | void {
     const command = new DeleteDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1231,17 +1184,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteInventory(
     args: DeleteInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInventoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteInventoryCommandOutput) => void
   ): Promise<DeleteInventoryCommandOutput> | void {
     const command = new DeleteInventoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1266,17 +1216,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteMaintenanceWindow(
     args: DeleteMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMaintenanceWindowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMaintenanceWindowCommandOutput) => void),
     cb?: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
   ): Promise<DeleteMaintenanceWindowCommandOutput> | void {
     const command = new DeleteMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1301,17 +1248,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteParameter(
     args: DeleteParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParameterCommandOutput) => void),
     cb?: (err: any, data?: DeleteParameterCommandOutput) => void
   ): Promise<DeleteParameterCommandOutput> | void {
     const command = new DeleteParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1336,17 +1280,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteParameters(
     args: DeleteParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParametersCommandOutput) => void),
     cb?: (err: any, data?: DeleteParametersCommandOutput) => void
   ): Promise<DeleteParametersCommandOutput> | void {
     const command = new DeleteParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1371,17 +1312,14 @@ export class SSM extends SSMClient {
   ): void;
   public deletePatchBaseline(
     args: DeletePatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: DeletePatchBaselineCommandOutput) => void
   ): Promise<DeletePatchBaselineCommandOutput> | void {
     const command = new DeletePatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1408,17 +1346,14 @@ export class SSM extends SSMClient {
   ): void;
   public deleteResourceDataSync(
     args: DeleteResourceDataSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceDataSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceDataSyncCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
   ): Promise<DeleteResourceDataSyncCommandOutput> | void {
     const command = new DeleteResourceDataSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1445,17 +1380,14 @@ export class SSM extends SSMClient {
   ): void;
   public deregisterManagedInstance(
     args: DeregisterManagedInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterManagedInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterManagedInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
   ): Promise<DeregisterManagedInstanceCommandOutput> | void {
     const command = new DeregisterManagedInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1471,38 +1403,23 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> | void {
     const command = new DeregisterPatchBaselineForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1518,38 +1435,25 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+      | ((err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> | void {
     const command = new DeregisterTargetFromMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1565,38 +1469,23 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> | void {
     const command = new DeregisterTaskFromMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1623,17 +1512,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeActivations(
     args: DescribeActivationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeActivationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeActivationsCommandOutput) => void
   ): Promise<DescribeActivationsCommandOutput> | void {
     const command = new DescribeActivationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1662,17 +1548,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeAssociation(
     args: DescribeAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssociationCommandOutput) => void
   ): Promise<DescribeAssociationCommandOutput> | void {
     const command = new DescribeAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1697,17 +1580,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeAssociationExecutions(
     args: DescribeAssociationExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssociationExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationExecutionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
   ): Promise<DescribeAssociationExecutionsCommandOutput> | void {
     const command = new DescribeAssociationExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1724,38 +1604,23 @@ export class SSM extends SSMClient {
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput>;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): void;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): void;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAssociationExecutionTargetsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput> | void {
     const command = new DescribeAssociationExecutionTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1780,17 +1645,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAutomationExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutomationExecutionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
   ): Promise<DescribeAutomationExecutionsCommandOutput> | void {
     const command = new DescribeAutomationExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1816,23 +1678,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeAutomationStepExecutions(
     args: DescribeAutomationStepExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAutomationStepExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAutomationStepExecutionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> | void {
     const command = new DescribeAutomationStepExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1857,17 +1710,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAvailablePatchesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAvailablePatchesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
   ): Promise<DescribeAvailablePatchesCommandOutput> | void {
     const command = new DescribeAvailablePatchesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1892,17 +1742,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeDocument(
     args: DescribeDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentCommandOutput) => void),
     cb?: (err: any, data?: DescribeDocumentCommandOutput) => void
   ): Promise<DescribeDocumentCommandOutput> | void {
     const command = new DescribeDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1929,17 +1776,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDocumentPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentPermissionCommandOutput) => void),
     cb?: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
   ): Promise<DescribeDocumentPermissionCommandOutput> | void {
     const command = new DescribeDocumentPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1955,38 +1799,25 @@ export class SSM extends SSMClient {
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): void;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): void;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEffectiveInstanceAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> | void {
     const command = new DescribeEffectiveInstanceAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2003,38 +1834,25 @@ export class SSM extends SSMClient {
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): void;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): void;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> | void {
     const command = new DescribeEffectivePatchesForPatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2050,38 +1868,23 @@ export class SSM extends SSMClient {
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput>;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): void;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): void;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstanceAssociationsStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput> | void {
     const command = new DescribeInstanceAssociationsStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2089,14 +1892,14 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Describes one or more of your instances. You can use this to get information about instances
-   *    like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one
-   *    or more instance IDs, it returns information for those instances. If you do not specify instance
-   *    IDs, it returns information for all your instances. If you specify an instance ID that is not
-   *    valid or an instance that you do not own, you receive an error. </p>
+   * <p>Describes one or more of your instances, including information about the operating system
+   *    platform, the version of SSM Agent installed on the instance, instance status, and so on.</p>
+   *          <p>If you specify one or more instance IDs, it returns information for those instances. If you
+   *    do not specify instance IDs, it returns information for all your instances. If you specify an
+   *    instance ID that is not valid or an instance that you do not own, you receive an error.</p>
    *          <note>
    *             <p>The IamRole field for this API action is the Amazon Identity and Access Management (IAM)
-   *     role assigned to on-premises instances. This call does not return the IAM role for Amazon EC2
+   *     role assigned to on-premises instances. This call does not return the IAM role for EC2
    *     instances.</p>
    *          </note>
    */
@@ -2115,17 +1918,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstanceInformationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceInformationCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
   ): Promise<DescribeInstanceInformationCommandOutput> | void {
     const command = new DescribeInstanceInformationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2151,17 +1951,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancePatchesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancePatchesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
   ): Promise<DescribeInstancePatchesCommandOutput> | void {
     const command = new DescribeInstancePatchesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2186,17 +1983,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeInstancePatchStates(
     args: DescribeInstancePatchStatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInstancePatchStatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstancePatchStatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
   ): Promise<DescribeInstancePatchStatesCommandOutput> | void {
     const command = new DescribeInstancePatchStatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2212,38 +2006,25 @@ export class SSM extends SSMClient {
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): void;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): void;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> | void {
     const command = new DescribeInstancePatchStatesForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2268,17 +2049,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInventoryDeletionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInventoryDeletionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
   ): Promise<DescribeInventoryDeletionsCommandOutput> | void {
     const command = new DescribeInventoryDeletionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2296,38 +2074,23 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> | void {
     const command = new DescribeMaintenanceWindowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2344,42 +2107,25 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-  > | void {
-    const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
+  ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> | void {
+    const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2395,38 +2141,25 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> | void {
     const command = new DescribeMaintenanceWindowExecutionTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2451,17 +2184,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowsCommandOutput> | void {
     const command = new DescribeMaintenanceWindowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2477,38 +2207,23 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): void;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): void;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowScheduleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> | void {
     const command = new DescribeMaintenanceWindowScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2525,38 +2240,23 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): void;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): void;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowsForTargetCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> | void {
     const command = new DescribeMaintenanceWindowsForTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2581,23 +2281,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeMaintenanceWindowTargets(
     args: DescribeMaintenanceWindowTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowTargetsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowTargetsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowTargetsCommandOutput> | void {
     const command = new DescribeMaintenanceWindowTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2622,20 +2313,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowTasksCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowTasksCommandOutput> | void {
     const command = new DescribeMaintenanceWindowTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2644,11 +2329,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Query a set of OpsItems. You must have permission in AWS Identity and Access Management
-   *    (IAM) to query a list of OpsItems. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public describeOpsItems(
@@ -2666,17 +2351,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeOpsItems(
     args: DescribeOpsItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOpsItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOpsItemsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOpsItemsCommandOutput) => void
   ): Promise<DescribeOpsItemsCommandOutput> | void {
     const command = new DescribeOpsItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2709,17 +2391,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeParameters(
     args: DescribeParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeParametersCommandOutput) => void
   ): Promise<DescribeParametersCommandOutput> | void {
     const command = new DescribeParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2744,17 +2423,14 @@ export class SSM extends SSMClient {
   ): void;
   public describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePatchBaselinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchBaselinesCommandOutput) => void),
     cb?: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
   ): Promise<DescribePatchBaselinesCommandOutput> | void {
     const command = new DescribePatchBaselinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2779,17 +2455,14 @@ export class SSM extends SSMClient {
   ): void;
   public describePatchGroups(
     args: DescribePatchGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePatchGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribePatchGroupsCommandOutput) => void
   ): Promise<DescribePatchGroupsCommandOutput> | void {
     const command = new DescribePatchGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2814,17 +2487,14 @@ export class SSM extends SSMClient {
   ): void;
   public describePatchGroupState(
     args: DescribePatchGroupStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePatchGroupStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchGroupStateCommandOutput) => void),
     cb?: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
   ): Promise<DescribePatchGroupStateCommandOutput> | void {
     const command = new DescribePatchGroupStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2883,17 +2553,14 @@ export class SSM extends SSMClient {
   ): void;
   public describePatchProperties(
     args: DescribePatchPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePatchPropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePatchPropertiesCommandOutput) => void),
     cb?: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
   ): Promise<DescribePatchPropertiesCommandOutput> | void {
     const command = new DescribePatchPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2919,17 +2586,14 @@ export class SSM extends SSMClient {
   ): void;
   public describeSessions(
     args: DescribeSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): Promise<DescribeSessionsCommandOutput> | void {
     const command = new DescribeSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2954,17 +2618,14 @@ export class SSM extends SSMClient {
   ): void;
   public getAutomationExecution(
     args: GetAutomationExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAutomationExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutomationExecutionCommandOutput) => void),
     cb?: (err: any, data?: GetAutomationExecutionCommandOutput) => void
   ): Promise<GetAutomationExecutionCommandOutput> | void {
     const command = new GetAutomationExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2977,7 +2638,8 @@ export class SSM extends SSMClient {
    *    time, and returns the next time that the Change Calendar state will transition. If you do not
    *    specify a time, <code>GetCalendarState</code> assumes the current time. Change Calendar entries
    *    have two possible states: <code>OPEN</code> or <code>CLOSED</code>. For more information about
-   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change
+   *     Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   public getCalendarState(
     args: GetCalendarStateCommandInput,
@@ -2994,17 +2656,14 @@ export class SSM extends SSMClient {
   ): void;
   public getCalendarState(
     args: GetCalendarStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCalendarStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalendarStateCommandOutput) => void),
     cb?: (err: any, data?: GetCalendarStateCommandOutput) => void
   ): Promise<GetCalendarStateCommandOutput> | void {
     const command = new GetCalendarStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3029,17 +2688,14 @@ export class SSM extends SSMClient {
   ): void;
   public getCommandInvocation(
     args: GetCommandInvocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommandInvocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommandInvocationCommandOutput) => void),
     cb?: (err: any, data?: GetCommandInvocationCommandOutput) => void
   ): Promise<GetCommandInvocationCommandOutput> | void {
     const command = new GetCommandInvocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3047,8 +2703,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves the Session Manager connection status for an instance to determine whether it is connected
-   *    and ready to receive Session Manager connections.</p>
+   * <p>Retrieves the Session Manager connection status for an instance to determine whether it is running and
+   *    ready to receive Session Manager connections.</p>
    */
   public getConnectionStatus(
     args: GetConnectionStatusCommandInput,
@@ -3065,17 +2721,14 @@ export class SSM extends SSMClient {
   ): void;
   public getConnectionStatus(
     args: GetConnectionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionStatusCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionStatusCommandOutput) => void
   ): Promise<GetConnectionStatusCommandOutput> | void {
     const command = new GetConnectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3104,17 +2757,14 @@ export class SSM extends SSMClient {
   ): void;
   public getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDefaultPatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDefaultPatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
   ): Promise<GetDefaultPatchBaselineCommandOutput> | void {
     const command = new GetDefaultPatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3131,38 +2781,25 @@ export class SSM extends SSMClient {
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    cb: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): void;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): void;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+      | ((err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void),
+    cb?: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> | void {
     const command = new GetDeployablePatchSnapshotForInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3172,14 +2809,8 @@ export class SSM extends SSMClient {
   /**
    * <p>Gets the contents of the specified Systems Manager document.</p>
    */
-  public getDocument(
-    args: GetDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDocumentCommandOutput>;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    cb: (err: any, data?: GetDocumentCommandOutput) => void
-  ): void;
+  public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
+  public getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
   public getDocument(
     args: GetDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -3187,17 +2818,14 @@ export class SSM extends SSMClient {
   ): void;
   public getDocument(
     args: GetDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentCommandOutput) => void
   ): Promise<GetDocumentCommandOutput> | void {
     const command = new GetDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3211,10 +2839,7 @@ export class SSM extends SSMClient {
     args: GetInventoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInventoryCommandOutput>;
-  public getInventory(
-    args: GetInventoryCommandInput,
-    cb: (err: any, data?: GetInventoryCommandOutput) => void
-  ): void;
+  public getInventory(args: GetInventoryCommandInput, cb: (err: any, data?: GetInventoryCommandOutput) => void): void;
   public getInventory(
     args: GetInventoryCommandInput,
     options: __HttpHandlerOptions,
@@ -3222,17 +2847,14 @@ export class SSM extends SSMClient {
   ): void;
   public getInventory(
     args: GetInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInventoryCommandOutput) => void),
     cb?: (err: any, data?: GetInventoryCommandOutput) => void
   ): Promise<GetInventoryCommandOutput> | void {
     const command = new GetInventoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3241,7 +2863,7 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Return a list of inventory type names for the account, or return a list of attribute names
-   *    for a specific Inventory item type. </p>
+   *    for a specific Inventory item type.</p>
    */
   public getInventorySchema(
     args: GetInventorySchemaCommandInput,
@@ -3258,17 +2880,14 @@ export class SSM extends SSMClient {
   ): void;
   public getInventorySchema(
     args: GetInventorySchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInventorySchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInventorySchemaCommandOutput) => void),
     cb?: (err: any, data?: GetInventorySchemaCommandOutput) => void
   ): Promise<GetInventorySchemaCommandOutput> | void {
     const command = new GetInventorySchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3293,17 +2912,14 @@ export class SSM extends SSMClient {
   ): void;
   public getMaintenanceWindow(
     args: GetMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMaintenanceWindowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowCommandOutput) => void),
     cb?: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
   ): Promise<GetMaintenanceWindowCommandOutput> | void {
     const command = new GetMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3328,17 +2944,14 @@ export class SSM extends SSMClient {
   ): void;
   public getMaintenanceWindowExecution(
     args: GetMaintenanceWindowExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void),
     cb?: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
   ): Promise<GetMaintenanceWindowExecutionCommandOutput> | void {
     const command = new GetMaintenanceWindowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3355,38 +2968,23 @@ export class SSM extends SSMClient {
   ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetMaintenanceWindowExecutionTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> | void {
     const command = new GetMaintenanceWindowExecutionTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3402,40 +3000,25 @@ export class SSM extends SSMClient {
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+      | ((err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void),
+    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> | void {
-    const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(
-      args
-    );
+    const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3460,17 +3043,14 @@ export class SSM extends SSMClient {
   ): void;
   public getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void),
     cb?: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
   ): Promise<GetMaintenanceWindowTaskCommandOutput> | void {
     const command = new GetMaintenanceWindowTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3480,21 +3060,15 @@ export class SSM extends SSMClient {
   /**
    * <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity
    *    and Access Management (IAM) to view information about an OpsItem. For more information, see
-   *     <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a>
-   *    in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
-  public getOpsItem(
-    args: GetOpsItemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetOpsItemCommandOutput>;
-  public getOpsItem(
-    args: GetOpsItemCommandInput,
-    cb: (err: any, data?: GetOpsItemCommandOutput) => void
-  ): void;
+  public getOpsItem(args: GetOpsItemCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsItemCommandOutput>;
+  public getOpsItem(args: GetOpsItemCommandInput, cb: (err: any, data?: GetOpsItemCommandOutput) => void): void;
   public getOpsItem(
     args: GetOpsItemCommandInput,
     options: __HttpHandlerOptions,
@@ -3502,17 +3076,14 @@ export class SSM extends SSMClient {
   ): void;
   public getOpsItem(
     args: GetOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsItemCommandOutput) => void),
     cb?: (err: any, data?: GetOpsItemCommandOutput) => void
   ): Promise<GetOpsItemCommandOutput> | void {
     const command = new GetOpsItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3537,17 +3108,14 @@ export class SSM extends SSMClient {
   ): void;
   public getOpsSummary(
     args: GetOpsSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpsSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetOpsSummaryCommandOutput) => void
   ): Promise<GetOpsSummaryCommandOutput> | void {
     const command = new GetOpsSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3562,10 +3130,7 @@ export class SSM extends SSMClient {
     args: GetParameterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetParameterCommandOutput>;
-  public getParameter(
-    args: GetParameterCommandInput,
-    cb: (err: any, data?: GetParameterCommandOutput) => void
-  ): void;
+  public getParameter(args: GetParameterCommandInput, cb: (err: any, data?: GetParameterCommandOutput) => void): void;
   public getParameter(
     args: GetParameterCommandInput,
     options: __HttpHandlerOptions,
@@ -3573,17 +3138,14 @@ export class SSM extends SSMClient {
   ): void;
   public getParameter(
     args: GetParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParameterCommandOutput) => void),
     cb?: (err: any, data?: GetParameterCommandOutput) => void
   ): Promise<GetParameterCommandOutput> | void {
     const command = new GetParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3608,17 +3170,14 @@ export class SSM extends SSMClient {
   ): void;
   public getParameterHistory(
     args: GetParameterHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParameterHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParameterHistoryCommandOutput) => void),
     cb?: (err: any, data?: GetParameterHistoryCommandOutput) => void
   ): Promise<GetParameterHistoryCommandOutput> | void {
     const command = new GetParameterHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3643,17 +3202,14 @@ export class SSM extends SSMClient {
   ): void;
   public getParameters(
     args: GetParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersCommandOutput) => void),
     cb?: (err: any, data?: GetParametersCommandOutput) => void
   ): Promise<GetParametersCommandOutput> | void {
     const command = new GetParametersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3686,17 +3242,14 @@ export class SSM extends SSMClient {
   ): void;
   public getParametersByPath(
     args: GetParametersByPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParametersByPathCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersByPathCommandOutput) => void),
     cb?: (err: any, data?: GetParametersByPathCommandOutput) => void
   ): Promise<GetParametersByPathCommandOutput> | void {
     const command = new GetParametersByPathCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3721,17 +3274,14 @@ export class SSM extends SSMClient {
   ): void;
   public getPatchBaseline(
     args: GetPatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: GetPatchBaselineCommandOutput) => void
   ): Promise<GetPatchBaselineCommandOutput> | void {
     const command = new GetPatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3756,17 +3306,14 @@ export class SSM extends SSMClient {
   ): void;
   public getPatchBaselineForPatchGroup(
     args: GetPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void),
     cb?: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
   ): Promise<GetPatchBaselineForPatchGroupCommandOutput> | void {
     const command = new GetPatchBaselineForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3804,17 +3351,14 @@ export class SSM extends SSMClient {
   ): void;
   public getServiceSetting(
     args: GetServiceSettingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceSettingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSettingCommandOutput) => void),
     cb?: (err: any, data?: GetServiceSettingCommandOutput) => void
   ): Promise<GetServiceSettingCommandOutput> | void {
     const command = new GetServiceSettingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3823,9 +3367,9 @@ export class SSM extends SSMClient {
 
   /**
    * <p>A parameter label is a user-defined alias to help you manage different versions of a
-   *    parameter. When you modify a parameter, Systems Manager automatically saves a new version and
-   *    increments the version number by one. A label can help you remember the purpose of a parameter
-   *    when there are multiple versions. </p>
+   *    parameter. When you modify a parameter, Systems Manager automatically saves a new version and increments
+   *    the version number by one. A label can help you remember the purpose of a parameter when there
+   *    are multiple versions. </p>
    *          <p>Parameter labels have the following requirements and restrictions.</p>
    *          <ul>
    *             <li>
@@ -3875,17 +3419,14 @@ export class SSM extends SSMClient {
   ): void;
   public labelParameterVersion(
     args: LabelParameterVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LabelParameterVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LabelParameterVersionCommandOutput) => void),
     cb?: (err: any, data?: LabelParameterVersionCommandOutput) => void
   ): Promise<LabelParameterVersionCommandOutput> | void {
     const command = new LabelParameterVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3912,17 +3453,14 @@ export class SSM extends SSMClient {
   ): void;
   public listAssociations(
     args: ListAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationsCommandOutput) => void),
     cb?: (err: any, data?: ListAssociationsCommandOutput) => void
   ): Promise<ListAssociationsCommandOutput> | void {
     const command = new ListAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3947,17 +3485,14 @@ export class SSM extends SSMClient {
   ): void;
   public listAssociationVersions(
     args: ListAssociationVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssociationVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListAssociationVersionsCommandOutput) => void
   ): Promise<ListAssociationVersionsCommandOutput> | void {
     const command = new ListAssociationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3985,17 +3520,14 @@ export class SSM extends SSMClient {
   ): void;
   public listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCommandInvocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCommandInvocationsCommandOutput) => void),
     cb?: (err: any, data?: ListCommandInvocationsCommandOutput) => void
   ): Promise<ListCommandInvocationsCommandOutput> | void {
     const command = new ListCommandInvocationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4009,10 +3541,7 @@ export class SSM extends SSMClient {
     args: ListCommandsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCommandsCommandOutput>;
-  public listCommands(
-    args: ListCommandsCommandInput,
-    cb: (err: any, data?: ListCommandsCommandOutput) => void
-  ): void;
+  public listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
   public listCommands(
     args: ListCommandsCommandInput,
     options: __HttpHandlerOptions,
@@ -4020,17 +3549,14 @@ export class SSM extends SSMClient {
   ): void;
   public listCommands(
     args: ListCommandsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCommandsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCommandsCommandOutput) => void),
     cb?: (err: any, data?: ListCommandsCommandOutput) => void
   ): Promise<ListCommandsCommandOutput> | void {
     const command = new ListCommandsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4040,7 +3566,7 @@ export class SSM extends SSMClient {
   /**
    * <p>For a specified resource ID, this API action returns a list of compliance statuses for
    *    different resource types. Currently, you can only specify one resource ID per call. List results
-   *    depend on the criteria specified in the filter. </p>
+   *    depend on the criteria specified in the filter.</p>
    */
   public listComplianceItems(
     args: ListComplianceItemsCommandInput,
@@ -4057,17 +3583,14 @@ export class SSM extends SSMClient {
   ): void;
   public listComplianceItems(
     args: ListComplianceItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComplianceItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComplianceItemsCommandOutput) => void),
     cb?: (err: any, data?: ListComplianceItemsCommandOutput) => void
   ): Promise<ListComplianceItemsCommandOutput> | void {
     const command = new ListComplianceItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4077,7 +3600,7 @@ export class SSM extends SSMClient {
   /**
    * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
    *    example, this call can return State Manager associations, patches, or custom compliance types
-   *    according to the filter criteria that you specify. </p>
+   *    according to the filter criteria that you specify.</p>
    */
   public listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
@@ -4094,17 +3617,14 @@ export class SSM extends SSMClient {
   ): void;
   public listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComplianceSummariesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComplianceSummariesCommandOutput) => void),
     cb?: (err: any, data?: ListComplianceSummariesCommandOutput) => void
   ): Promise<ListComplianceSummariesCommandOutput> | void {
     const command = new ListComplianceSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4112,8 +3632,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can
-   *    limit the results of this request by using a filter.</p>
+   * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the
+   *    results of this request by using a filter.</p>
    */
   public listDocuments(
     args: ListDocumentsCommandInput,
@@ -4130,17 +3650,14 @@ export class SSM extends SSMClient {
   ): void;
   public listDocuments(
     args: ListDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentsCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentsCommandOutput) => void
   ): Promise<ListDocumentsCommandOutput> | void {
     const command = new ListDocumentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4165,17 +3682,14 @@ export class SSM extends SSMClient {
   ): void;
   public listDocumentVersions(
     args: ListDocumentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDocumentVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentVersionsCommandOutput) => void
   ): Promise<ListDocumentVersionsCommandOutput> | void {
     const command = new ListDocumentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4200,17 +3714,14 @@ export class SSM extends SSMClient {
   ): void;
   public listInventoryEntries(
     args: ListInventoryEntriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInventoryEntriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInventoryEntriesCommandOutput) => void),
     cb?: (err: any, data?: ListInventoryEntriesCommandOutput) => void
   ): Promise<ListInventoryEntriesCommandOutput> | void {
     const command = new ListInventoryEntriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4237,20 +3748,14 @@ export class SSM extends SSMClient {
   ): void;
   public listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResourceComplianceSummariesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceComplianceSummariesCommandOutput) => void),
     cb?: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
   ): Promise<ListResourceComplianceSummariesCommandOutput> | void {
     const command = new ListResourceComplianceSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4283,17 +3788,14 @@ export class SSM extends SSMClient {
   ): void;
   public listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceDataSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceDataSyncCommandOutput) => void),
     cb?: (err: any, data?: ListResourceDataSyncCommandOutput) => void
   ): Promise<ListResourceDataSyncCommandOutput> | void {
     const command = new ListResourceDataSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4318,17 +3820,14 @@ export class SSM extends SSMClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4355,17 +3854,14 @@ export class SSM extends SSMClient {
   ): void;
   public modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDocumentPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDocumentPermissionCommandOutput) => void),
     cb?: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
   ): Promise<ModifyDocumentPermissionCommandOutput> | void {
     const command = new ModifyDocumentPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4445,17 +3941,14 @@ export class SSM extends SSMClient {
   ): void;
   public putComplianceItems(
     args: PutComplianceItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutComplianceItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutComplianceItemsCommandOutput) => void),
     cb?: (err: any, data?: PutComplianceItemsCommandOutput) => void
   ): Promise<PutComplianceItemsCommandOutput> | void {
     const command = new PutComplianceItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4470,10 +3963,7 @@ export class SSM extends SSMClient {
     args: PutInventoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutInventoryCommandOutput>;
-  public putInventory(
-    args: PutInventoryCommandInput,
-    cb: (err: any, data?: PutInventoryCommandOutput) => void
-  ): void;
+  public putInventory(args: PutInventoryCommandInput, cb: (err: any, data?: PutInventoryCommandOutput) => void): void;
   public putInventory(
     args: PutInventoryCommandInput,
     options: __HttpHandlerOptions,
@@ -4481,17 +3971,14 @@ export class SSM extends SSMClient {
   ): void;
   public putInventory(
     args: PutInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInventoryCommandOutput) => void),
     cb?: (err: any, data?: PutInventoryCommandOutput) => void
   ): Promise<PutInventoryCommandOutput> | void {
     const command = new PutInventoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4505,10 +3992,7 @@ export class SSM extends SSMClient {
     args: PutParameterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutParameterCommandOutput>;
-  public putParameter(
-    args: PutParameterCommandInput,
-    cb: (err: any, data?: PutParameterCommandOutput) => void
-  ): void;
+  public putParameter(args: PutParameterCommandInput, cb: (err: any, data?: PutParameterCommandOutput) => void): void;
   public putParameter(
     args: PutParameterCommandInput,
     options: __HttpHandlerOptions,
@@ -4516,17 +4000,14 @@ export class SSM extends SSMClient {
   ): void;
   public putParameter(
     args: PutParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutParameterCommandOutput) => void),
     cb?: (err: any, data?: PutParameterCommandOutput) => void
   ): Promise<PutParameterCommandOutput> | void {
     const command = new PutParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4555,17 +4036,14 @@ export class SSM extends SSMClient {
   ): void;
   public registerDefaultPatchBaseline(
     args: RegisterDefaultPatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
   ): Promise<RegisterDefaultPatchBaselineCommandOutput> | void {
     const command = new RegisterDefaultPatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4581,38 +4059,23 @@ export class SSM extends SSMClient {
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterPatchBaselineForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> | void {
     const command = new RegisterPatchBaselineForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4628,38 +4091,23 @@ export class SSM extends SSMClient {
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTargetWithMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> | void {
     const command = new RegisterTargetWithMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4675,38 +4123,23 @@ export class SSM extends SSMClient {
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTaskWithMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> | void {
     const command = new RegisterTaskWithMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4731,17 +4164,14 @@ export class SSM extends SSMClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4780,17 +4210,14 @@ export class SSM extends SSMClient {
   ): void;
   public resetServiceSetting(
     args: ResetServiceSettingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetServiceSettingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetServiceSettingCommandOutput) => void),
     cb?: (err: any, data?: ResetServiceSettingCommandOutput) => void
   ): Promise<ResetServiceSettingCommandOutput> | void {
     const command = new ResetServiceSettingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4820,17 +4247,14 @@ export class SSM extends SSMClient {
   ): void;
   public resumeSession(
     args: ResumeSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResumeSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeSessionCommandOutput) => void),
     cb?: (err: any, data?: ResumeSessionCommandOutput) => void
   ): Promise<ResumeSessionCommandOutput> | void {
     const command = new ResumeSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4856,17 +4280,14 @@ export class SSM extends SSMClient {
   ): void;
   public sendAutomationSignal(
     args: SendAutomationSignalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendAutomationSignalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendAutomationSignalCommandOutput) => void),
     cb?: (err: any, data?: SendAutomationSignalCommandOutput) => void
   ): Promise<SendAutomationSignalCommandOutput> | void {
     const command = new SendAutomationSignalCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4876,14 +4297,8 @@ export class SSM extends SSMClient {
   /**
    * <p>Runs commands on one or more managed instances.</p>
    */
-  public sendCommand(
-    args: SendCommandCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendCommandCommandOutput>;
-  public sendCommand(
-    args: SendCommandCommandInput,
-    cb: (err: any, data?: SendCommandCommandOutput) => void
-  ): void;
+  public sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
+  public sendCommand(args: SendCommandCommandInput, cb: (err: any, data?: SendCommandCommandOutput) => void): void;
   public sendCommand(
     args: SendCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -4891,17 +4306,14 @@ export class SSM extends SSMClient {
   ): void;
   public sendCommand(
     args: SendCommandCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendCommandCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCommandCommandOutput) => void),
     cb?: (err: any, data?: SendCommandCommandOutput) => void
   ): Promise<SendCommandCommandOutput> | void {
     const command = new SendCommandCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4927,17 +4339,14 @@ export class SSM extends SSMClient {
   ): void;
   public startAssociationsOnce(
     args: StartAssociationsOnceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAssociationsOnceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAssociationsOnceCommandOutput) => void),
     cb?: (err: any, data?: StartAssociationsOnceCommandOutput) => void
   ): Promise<StartAssociationsOnceCommandOutput> | void {
     const command = new StartAssociationsOnceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4962,17 +4371,14 @@ export class SSM extends SSMClient {
   ): void;
   public startAutomationExecution(
     args: StartAutomationExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAutomationExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAutomationExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartAutomationExecutionCommandOutput) => void
   ): Promise<StartAutomationExecutionCommandOutput> | void {
     const command = new StartAutomationExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4985,8 +4391,8 @@ export class SSM extends SSMClient {
    *    outputs.</p>
    *          <note>
    *             <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
-   *     plugin to be installed on the client machine making the call. For information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html"> Install the Session Manager Plugin
-   *      for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+   *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
+   *      the Session Manager plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
    *     for PowerShell on Windows local machines.</p>
    *          </note>
@@ -4995,10 +4401,7 @@ export class SSM extends SSMClient {
     args: StartSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartSessionCommandOutput>;
-  public startSession(
-    args: StartSessionCommandInput,
-    cb: (err: any, data?: StartSessionCommandOutput) => void
-  ): void;
+  public startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
   public startSession(
     args: StartSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -5006,17 +4409,14 @@ export class SSM extends SSMClient {
   ): void;
   public startSession(
     args: StartSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSessionCommandOutput) => void),
     cb?: (err: any, data?: StartSessionCommandOutput) => void
   ): Promise<StartSessionCommandOutput> | void {
     const command = new StartSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5041,17 +4441,14 @@ export class SSM extends SSMClient {
   ): void;
   public stopAutomationExecution(
     args: StopAutomationExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopAutomationExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAutomationExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopAutomationExecutionCommandOutput) => void
   ): Promise<StopAutomationExecutionCommandOutput> | void {
     const command = new StopAutomationExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5077,17 +4474,14 @@ export class SSM extends SSMClient {
   ): void;
   public terminateSession(
     args: TerminateSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateSessionCommandOutput) => void),
     cb?: (err: any, data?: TerminateSessionCommandOutput) => void
   ): Promise<TerminateSessionCommandOutput> | void {
     const command = new TerminateSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5124,17 +4518,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateAssociation(
     args: UpdateAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssociationCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssociationCommandOutput) => void
   ): Promise<UpdateAssociationCommandOutput> | void {
     const command = new UpdateAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5159,17 +4550,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssociationStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssociationStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
   ): Promise<UpdateAssociationStatusCommandOutput> | void {
     const command = new UpdateAssociationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5194,17 +4582,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateDocument(
     args: UpdateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
   ): Promise<UpdateDocumentCommandOutput> | void {
     const command = new UpdateDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5229,17 +4614,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateDocumentDefaultVersion(
     args: UpdateDocumentDefaultVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
   ): Promise<UpdateDocumentDefaultVersionCommandOutput> | void {
     const command = new UpdateDocumentDefaultVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5272,17 +4654,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateMaintenanceWindow(
     args: UpdateMaintenanceWindowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMaintenanceWindowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowCommandOutput) => void),
     cb?: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
   ): Promise<UpdateMaintenanceWindowCommandOutput> | void {
     const command = new UpdateMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5333,17 +4712,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateMaintenanceWindowTarget(
     args: UpdateMaintenanceWindowTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void),
     cb?: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
   ): Promise<UpdateMaintenanceWindowTargetCommandOutput> | void {
     const command = new UpdateMaintenanceWindowTargetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5393,17 +4769,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void),
     cb?: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
   ): Promise<UpdateMaintenanceWindowTaskCommandOutput> | void {
     const command = new UpdateMaintenanceWindowTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5411,8 +4784,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Assigns or changes an Amazon Identity and Access Management (IAM) role for the managed
-   *    instance.</p>
+   * <p>Changes the Amazon Identity and Access Management (IAM) role that is assigned to the
+   *    on-premises instance or virtual machines (VM). IAM roles are first assigned to these hybrid
+   *    instances during the activation process. For more information, see <a>CreateActivation</a>.</p>
    */
   public updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
@@ -5429,17 +4803,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void),
     cb?: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
   ): Promise<UpdateManagedInstanceRoleCommandOutput> | void {
     const command = new UpdateManagedInstanceRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5448,11 +4819,11 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management
-   *    (IAM) to update an OpsItem. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting Started with OpsCenter</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *    (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting started with
+   *     OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Operations engineers and IT professionals use OpsCenter to view, investigate, and remediate
    *    operational issues impacting the performance and health of their AWS resources. For more
-   *    information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
+   *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
    *     <i>AWS Systems Manager User Guide</i>. </p>
    */
   public updateOpsItem(
@@ -5470,17 +4841,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateOpsItem(
     args: UpdateOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOpsItemCommandOutput) => void),
     cb?: (err: any, data?: UpdateOpsItemCommandOutput) => void
   ): Promise<UpdateOpsItemCommandOutput> | void {
     const command = new UpdateOpsItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5510,17 +4878,14 @@ export class SSM extends SSMClient {
   ): void;
   public updatePatchBaseline(
     args: UpdatePatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
   ): Promise<UpdatePatchBaselineCommandOutput> | void {
     const command = new UpdatePatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5531,8 +4896,12 @@ export class SSM extends SSMClient {
    * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
    *    change the account options for that sync. For example, if you create a sync in the us-east-2
    *    (Ohio) Region and you choose the Include only the current account option, you can't edit that
-   *    sync later and choose the Include all accounts from my AWS Organizations configuration option.
-   *    Instead, you must delete the first resource data sync, and create a new one.</p>
+   *    sync later and choose the Include all accounts from my AWS Organizations configuration option. Instead,
+   *    you must delete the first resource data sync, and create a new one.</p>
+   *          <note>
+   *             <p>This API action only supports a resource data sync that was created with a SyncFromSource
+   *      <code>SyncType</code>.</p>
+   *          </note>
    */
   public updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
@@ -5549,17 +4918,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceDataSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceDataSyncCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
   ): Promise<UpdateResourceDataSyncCommandOutput> | void {
     const command = new UpdateResourceDataSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -5597,17 +4963,14 @@ export class SSM extends SSMClient {
   ): void;
   public updateServiceSetting(
     args: UpdateServiceSettingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceSettingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSettingCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceSettingCommandOutput) => void
   ): Promise<UpdateServiceSettingCommandOutput> | void {
     const command = new UpdateServiceSettingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

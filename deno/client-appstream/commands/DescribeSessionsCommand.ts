@@ -1,21 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient.ts";
-import {
-  DescribeSessionsRequest,
-  DescribeSessionsResult
-} from "../models/index.ts";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
+import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSessionsCommand,
-  serializeAws_json1_1DescribeSessionsCommand
+  serializeAws_json1_1DescribeSessionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSessionsCommandInput = DescribeSessionsRequest;
-export type DescribeSessionsCommandOutput = DescribeSessionsResult &
-  __MetadataBearer;
+export type DescribeSessionsCommandOutput = DescribeSessionsResult & __MetadataBearer;
 
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,
@@ -50,14 +39,15 @@ export class DescribeSessionsCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSessionsCommandInput, DescribeSessionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSessionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSessionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeSessionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSessionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSessionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSessionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
     return deserializeAws_json1_1DescribeSessionsCommand(output, context);
   }
 

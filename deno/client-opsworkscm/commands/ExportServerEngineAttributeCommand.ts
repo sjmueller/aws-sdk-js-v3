@@ -1,21 +1,11 @@
-import {
-  OpsWorksCMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksCMClient.ts";
-import {
-  ExportServerEngineAttributeRequest,
-  ExportServerEngineAttributeResponse
-} from "../models/index.ts";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
+import { ExportServerEngineAttributeRequest, ExportServerEngineAttributeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ExportServerEngineAttributeCommand,
-  serializeAws_json1_1ExportServerEngineAttributeCommand
+  serializeAws_json1_1ExportServerEngineAttributeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ExportServerEngineAttributeCommandInput = ExportServerEngineAttributeRequest;
-export type ExportServerEngineAttributeCommandOutput = ExportServerEngineAttributeResponse &
-  __MetadataBearer;
+export type ExportServerEngineAttributeCommandOutput = ExportServerEngineAttributeResponse & __MetadataBearer;
 
 export class ExportServerEngineAttributeCommand extends $Command<
   ExportServerEngineAttributeCommandInput,
@@ -49,18 +38,16 @@ export class ExportServerEngineAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ExportServerEngineAttributeCommandInput,
-    ExportServerEngineAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ExportServerEngineAttributeCommandInput, ExportServerEngineAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ExportServerEngineAttributeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ExportServerEngineAttributeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportServerEngineAttributeCommand(
-      input,
-      context
-    );
+  private serialize(input: ExportServerEngineAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ExportServerEngineAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportServerEngineAttributeCommandOutput> {
-    return deserializeAws_json1_1ExportServerEngineAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ExportServerEngineAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

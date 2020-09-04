@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  CreateConditionalForwarderRequest,
-  CreateConditionalForwarderResult
-} from "../models/index.ts";
+import { CreateConditionalForwarderRequest, CreateConditionalForwarderResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateConditionalForwarderCommand,
-  serializeAws_json1_1CreateConditionalForwarderCommand
+  serializeAws_json1_1CreateConditionalForwarderCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateConditionalForwarderCommandInput = CreateConditionalForwarderRequest;
-export type CreateConditionalForwarderCommandOutput = CreateConditionalForwarderResult &
-  __MetadataBearer;
+export type CreateConditionalForwarderCommandOutput = CreateConditionalForwarderResult & __MetadataBearer;
 
 export class CreateConditionalForwarderCommand extends $Command<
   CreateConditionalForwarderCommandInput,
@@ -49,18 +42,16 @@ export class CreateConditionalForwarderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConditionalForwarderCommandInput,
-    CreateConditionalForwarderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConditionalForwarderCommandInput, CreateConditionalForwarderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateConditionalForwarderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConditionalForwarderResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class CreateConditionalForwarderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateConditionalForwarderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConditionalForwarderCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateConditionalForwarderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConditionalForwarderCommandOutput> {
-    return deserializeAws_json1_1CreateConditionalForwarderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateConditionalForwarderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient.ts";
-import {
-  DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreResponse
-} from "../models/index.ts";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
+import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteCustomKeyStoreCommand,
-  serializeAws_json1_1DeleteCustomKeyStoreCommand
+  serializeAws_json1_1DeleteCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteCustomKeyStoreCommandInput = DeleteCustomKeyStoreRequest;
-export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse &
-  __MetadataBearer;
+export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse & __MetadataBearer;
 
 export class DeleteCustomKeyStoreCommand extends $Command<
   DeleteCustomKeyStoreCommandInput,
@@ -49,18 +38,16 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCustomKeyStoreCommandInput,
-    DeleteCustomKeyStoreCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCustomKeyStoreCommandInput, DeleteCustomKeyStoreCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteCustomKeyStoreCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCustomKeyStoreCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteCustomKeyStoreCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1DeleteCustomKeyStoreCommand(output, context);
   }
 

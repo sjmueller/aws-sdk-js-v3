@@ -1,18 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient.ts";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
 import { ListDeploymentsInput, ListDeploymentsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListDeploymentsCommand,
-  serializeAws_json1_1ListDeploymentsCommand
+  serializeAws_json1_1ListDeploymentsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListDeploymentsCommandInput = ListDeploymentsInput;
-export type ListDeploymentsCommandOutput = ListDeploymentsOutput &
-  __MetadataBearer;
+export type ListDeploymentsCommandOutput = ListDeploymentsOutput & __MetadataBearer;
 
 export class ListDeploymentsCommand extends $Command<
   ListDeploymentsCommandInput,
@@ -47,14 +39,15 @@ export class ListDeploymentsCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentsCommandInput, ListDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListDeploymentsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDeploymentsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListDeploymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDeploymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDeploymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDeploymentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentsCommandOutput> {
     return deserializeAws_json1_1ListDeploymentsCommand(output, context);
   }
 

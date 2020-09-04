@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient.ts";
-import {
-  DescribeLoadBalancerTargetGroupsRequest,
-  DescribeLoadBalancerTargetGroupsResponse
-} from "../models/index.ts";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
+import { DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
-  serializeAws_queryDescribeLoadBalancerTargetGroupsCommand
+  serializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeLoadBalancerTargetGroupsCommandInput = DescribeLoadBalancerTargetGroupsRequest;
-export type DescribeLoadBalancerTargetGroupsCommandOutput = DescribeLoadBalancerTargetGroupsResponse &
-  __MetadataBearer;
+export type DescribeLoadBalancerTargetGroupsCommandOutput = DescribeLoadBalancerTargetGroupsResponse & __MetadataBearer;
 
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
   DescribeLoadBalancerTargetGroupsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoadBalancerTargetGroupsCommandInput,
-    DescribeLoadBalancerTargetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoadBalancerTargetGroupsCommandInput, DescribeLoadBalancerTargetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     input: DescribeLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeLoadBalancerTargetGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

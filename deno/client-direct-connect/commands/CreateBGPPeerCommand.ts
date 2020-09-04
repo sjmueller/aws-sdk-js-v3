@@ -1,18 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient.ts";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import { CreateBGPPeerRequest, CreateBGPPeerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateBGPPeerCommand,
-  serializeAws_json1_1CreateBGPPeerCommand
+  serializeAws_json1_1CreateBGPPeerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateBGPPeerCommandInput = CreateBGPPeerRequest;
-export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse &
-  __MetadataBearer;
+export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse & __MetadataBearer;
 
 export class CreateBGPPeerCommand extends $Command<
   CreateBGPPeerCommandInput,
@@ -47,14 +39,15 @@ export class CreateBGPPeerCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateBGPPeerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBGPPeerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateBGPPeerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBGPPeerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBGPPeerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBGPPeerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBGPPeerCommandOutput> {
     return deserializeAws_json1_1CreateBGPPeerCommand(output, context);
   }
 

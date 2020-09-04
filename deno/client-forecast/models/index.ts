@@ -1,15 +1,11 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export enum AttributeType {
   FLOAT = "float",
   INTEGER = "integer",
   STRING = "string",
-  TIMESTAMP = "timestamp"
+  TIMESTAMP = "timestamp",
 }
 
 /**
@@ -19,22 +15,21 @@ export enum AttributeType {
 export interface CategoricalParameterRange {
   __type?: "CategoricalParameterRange";
   /**
-   * <p>The name of the categorical hyperparameter to tune.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A list of the tunable categories for the hyperparameter.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The name of the categorical hyperparameter to tune.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CategoricalParameterRange {
   export const filterSensitiveLog = (obj: CategoricalParameterRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CategoricalParameterRange =>
-    __isa(o, "CategoricalParameterRange");
+  export const isa = (o: any): o is CategoricalParameterRange => __isa(o, "CategoricalParameterRange");
 }
 
 /**
@@ -44,19 +39,14 @@ export namespace CategoricalParameterRange {
 export interface ContinuousParameterRange {
   __type?: "ContinuousParameterRange";
   /**
-   * <p>The maximum tunable value of the hyperparameter.</p>
+   * <p>The name of the hyperparameter to tune.</p>
    */
-  MaxValue: number | undefined;
+  Name: string | undefined;
 
   /**
    * <p>The minimum tunable value of the hyperparameter.</p>
    */
   MinValue: number | undefined;
-
-  /**
-   * <p>The name of the hyperparameter to tune.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range.
@@ -90,28 +80,55 @@ export interface ContinuousParameterRange {
    *       One of the following values:</p>
    */
   ScalingType?: ScalingType | string;
+
+  /**
+   * <p>The maximum tunable value of the hyperparameter.</p>
+   */
+  MaxValue: number | undefined;
 }
 
 export namespace ContinuousParameterRange {
   export const filterSensitiveLog = (obj: ContinuousParameterRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ContinuousParameterRange =>
-    __isa(o, "ContinuousParameterRange");
+  export const isa = (o: any): o is ContinuousParameterRange => __isa(o, "ContinuousParameterRange");
 }
 
 export interface CreateDatasetGroupRequest {
   __type?: "CreateDatasetGroupRequest";
   /**
-   * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
-   *       dataset group.</p>
-   */
-  DatasetArns?: string[];
-
-  /**
    * <p>A name for the dataset group.</p>
    */
   DatasetGroupName: string | undefined;
+
+  /**
+   * <p>The optional metadata that you apply to the dataset group to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The domain associated with the dataset group. When you add a dataset to a dataset group,
@@ -124,14 +141,19 @@ export interface CreateDatasetGroupRequest {
    *       information, see <a>howitworks-datasets-groups</a>.</p>
    */
   Domain: Domain | string | undefined;
+
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
+   *       dataset group.</p>
+   */
+  DatasetArns?: string[];
 }
 
 export namespace CreateDatasetGroupRequest {
   export const filterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupRequest =>
-    __isa(o, "CreateDatasetGroupRequest");
+  export const isa = (o: any): o is CreateDatasetGroupRequest => __isa(o, "CreateDatasetGroupRequest");
 }
 
 export interface CreateDatasetGroupResponse {
@@ -144,10 +166,9 @@ export interface CreateDatasetGroupResponse {
 
 export namespace CreateDatasetGroupResponse {
   export const filterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupResponse =>
-    __isa(o, "CreateDatasetGroupResponse");
+  export const isa = (o: any): o is CreateDatasetGroupResponse => __isa(o, "CreateDatasetGroupResponse");
 }
 
 export interface CreateDatasetImportJobRequest {
@@ -175,6 +196,35 @@ export interface CreateDatasetImportJobRequest {
   DatasetImportJobName: string | undefined;
 
   /**
+   * <p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The format of timestamps in the dataset. The format that you specify depends on the
    *         <code>DataFrequency</code> specified when the dataset was created. The following formats are
    *       supported</p>
@@ -196,13 +246,10 @@ export interface CreateDatasetImportJobRequest {
 }
 
 export namespace CreateDatasetImportJobRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDatasetImportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobRequest =>
-    __isa(o, "CreateDatasetImportJobRequest");
+  export const isa = (o: any): o is CreateDatasetImportJobRequest => __isa(o, "CreateDatasetImportJobRequest");
 }
 
 export interface CreateDatasetImportJobResponse {
@@ -214,35 +261,48 @@ export interface CreateDatasetImportJobResponse {
 }
 
 export namespace CreateDatasetImportJobResponse {
-  export const filterSensitiveLog = (
-    obj: CreateDatasetImportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobResponse =>
-    __isa(o, "CreateDatasetImportJobResponse");
+  export const isa = (o: any): o is CreateDatasetImportJobResponse => __isa(o, "CreateDatasetImportJobResponse");
 }
 
 export interface CreateDatasetRequest {
   __type?: "CreateDatasetRequest";
   /**
-   * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
-   *       datasets.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
+   * <p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
    */
-  DataFrequency?: string;
+  Tags?: Tag[];
 
   /**
-   * <p>A name for the dataset.</p>
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
    */
-  DatasetName: string | undefined;
-
-  /**
-   * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
-   */
-  DatasetType: DatasetType | string | undefined;
+  EncryptionConfig?: EncryptionConfig;
 
   /**
    * <p>The domain associated with the dataset. When you add a dataset to a dataset group, this
@@ -256,10 +316,9 @@ export interface CreateDatasetRequest {
   Domain: Domain | string | undefined;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
+   * <p>A name for the dataset.</p>
    */
-  EncryptionConfig?: EncryptionConfig;
+  DatasetName: string | undefined;
 
   /**
    * <p>The schema for the dataset. The schema attributes and their order must match the fields in
@@ -268,14 +327,27 @@ export interface CreateDatasetRequest {
    *       required fields for a specific dataset domain and type, see <a>howitworks-domains-ds-types</a>.</p>
    */
   Schema: Schema | undefined;
+
+  /**
+   * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
+   *       datasets.</p>
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
+   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
+   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
+   */
+  DataFrequency?: string;
+
+  /**
+   * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
+   */
+  DatasetType: DatasetType | string | undefined;
 }
 
 export namespace CreateDatasetRequest {
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetRequest =>
-    __isa(o, "CreateDatasetRequest");
+  export const isa = (o: any): o is CreateDatasetRequest => __isa(o, "CreateDatasetRequest");
 }
 
 export interface CreateDatasetResponse {
@@ -288,14 +360,23 @@ export interface CreateDatasetResponse {
 
 export namespace CreateDatasetResponse {
   export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetResponse =>
-    __isa(o, "CreateDatasetResponse");
+  export const isa = (o: any): o is CreateDatasetResponse => __isa(o, "CreateDatasetResponse");
 }
 
 export interface CreateForecastExportJobRequest {
   __type?: "CreateForecastExportJobRequest";
+  /**
+   * <p>The name for the forecast export job.</p>
+   */
+  ForecastExportJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the forecast that you want to export.</p>
+   */
+  ForecastArn: string | undefined;
+
   /**
    * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
@@ -306,24 +387,40 @@ export interface CreateForecastExportJobRequest {
   Destination: DataDestination | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the forecast that you want to export.</p>
+   * <p>The optional metadata that you apply to the forecast export job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
    */
-  ForecastArn: string | undefined;
-
-  /**
-   * <p>The name for the forecast export job.</p>
-   */
-  ForecastExportJobName: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateForecastExportJobRequest {
-  export const filterSensitiveLog = (
-    obj: CreateForecastExportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateForecastExportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateForecastExportJobRequest =>
-    __isa(o, "CreateForecastExportJobRequest");
+  export const isa = (o: any): o is CreateForecastExportJobRequest => __isa(o, "CreateForecastExportJobRequest");
 }
 
 export interface CreateForecastExportJobResponse {
@@ -335,13 +432,10 @@ export interface CreateForecastExportJobResponse {
 }
 
 export namespace CreateForecastExportJobResponse {
-  export const filterSensitiveLog = (
-    obj: CreateForecastExportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateForecastExportJobResponse =>
-    __isa(o, "CreateForecastExportJobResponse");
+  export const isa = (o: any): o is CreateForecastExportJobResponse => __isa(o, "CreateForecastExportJobResponse");
 }
 
 export interface CreateForecastRequest {
@@ -350,6 +444,11 @@ export interface CreateForecastRequest {
    * <p>A name for the forecast.</p>
    */
   ForecastName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
+   */
+  PredictorArn: string | undefined;
 
   /**
    * <p>The quantiles at which probabilistic forecasts are generated. <b>You
@@ -361,17 +460,40 @@ export interface CreateForecastRequest {
   ForecastTypes?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
+   * <p>The optional metadata that you apply to the forecast to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
    */
-  PredictorArn: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateForecastRequest {
   export const filterSensitiveLog = (obj: CreateForecastRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateForecastRequest =>
-    __isa(o, "CreateForecastRequest");
+  export const isa = (o: any): o is CreateForecastRequest => __isa(o, "CreateForecastRequest");
 }
 
 export interface CreateForecastResponse {
@@ -384,14 +506,71 @@ export interface CreateForecastResponse {
 
 export namespace CreateForecastResponse {
   export const filterSensitiveLog = (obj: CreateForecastResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateForecastResponse =>
-    __isa(o, "CreateForecastResponse");
+  export const isa = (o: any): o is CreateForecastResponse => __isa(o, "CreateForecastResponse");
 }
 
 export interface CreatePredictorRequest {
   __type?: "CreatePredictorRequest";
+  /**
+   * <p>A name for the predictor.</p>
+   */
+  PredictorName: string | undefined;
+
+  /**
+   * <p>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the algorithms it
+   *       provides and chooses the best algorithm and configuration for your training dataset.</p>
+   *          <p>The default value is <code>false</code>. In this case, you are required to specify an
+   *       algorithm.</p>
+   *          <p>Set <code>PerformAutoML</code> to <code>true</code> to have Amazon Forecast perform AutoML. This
+   *       is a good option if you aren't sure which algorithm is suitable for your training data. In
+   *       this case, <code>PerformHPO</code> must be false.</p>
+   */
+  PerformAutoML?: boolean;
+
+  /**
+   * <p>The hyperparameters to override for model training. The hyperparameters that you can
+   *       override are listed in the individual algorithms. For the list of supported algorithms, see
+   *         <a>aws-forecast-choosing-recipes</a>.</p>
+   */
+  TrainingParameters?: { [key: string]: string };
+
+  /**
+   * <p>The optional metadata that you apply to the predictor to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm to use for model training. Required if
    *         <code>PerformAutoML</code> is not set to <code>true</code>.</p>
@@ -430,10 +609,24 @@ export interface CreatePredictorRequest {
   AlgorithmArn?: string;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
+   * <p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
+   *       values for your training data. The process of performing HPO is known as running a
+   *       hyperparameter tuning job.</p>
+   *          <p>The default value is <code>false</code>. In this case, Amazon Forecast uses default
+   *       hyperparameter values from the chosen algorithm.</p>
+   *          <p>To override the default values, set <code>PerformHPO</code> to <code>true</code> and,
+   *       optionally, supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job
+   *       specifies a metric to optimize, which hyperparameters participate in tuning, and the valid
+   *       range for each tunable hyperparameter. In this case, you are required to specify an algorithm
+   *       and <code>PerformAutoML</code> must be false.</p>
+   *          <p>The following algorithm supports HPO:</p>
+   *          <ul>
+   *             <li>
+   *                <p>DeepAR+</p>
+   *             </li>
+   *          </ul>
    */
-  EncryptionConfig?: EncryptionConfig;
+  PerformHPO?: boolean;
 
   /**
    * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
@@ -441,6 +634,11 @@ export interface CreatePredictorRequest {
    *       evaluation parameters define how to perform the split and the number of iterations.</p>
    */
   EvaluationParameters?: EvaluationParameters;
+
+  /**
+   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
 
   /**
    * <p>The featurization configuration.</p>
@@ -466,62 +664,13 @@ export interface CreatePredictorRequest {
    *       true.</p>
    */
   HPOConfig?: HyperParameterTuningJobConfig;
-
-  /**
-   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the algorithms it
-   *       provides and chooses the best algorithm and configuration for your training dataset.</p>
-   *          <p>The default value is <code>false</code>. In this case, you are required to specify an
-   *       algorithm.</p>
-   *          <p>Set <code>PerformAutoML</code> to <code>true</code> to have Amazon Forecast perform AutoML. This
-   *       is a good option if you aren't sure which algorithm is suitable for your training data. In
-   *       this case, <code>PerformHPO</code> must be false.</p>
-   */
-  PerformAutoML?: boolean;
-
-  /**
-   * <p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
-   *       values for your training data. The process of performing HPO is known as running a
-   *       hyperparameter tuning job.</p>
-   *          <p>The default value is <code>false</code>. In this case, Amazon Forecast uses default
-   *       hyperparameter values from the chosen algorithm.</p>
-   *          <p>To override the default values, set <code>PerformHPO</code> to <code>true</code> and,
-   *       optionally, supply the <a>HyperParameterTuningJobConfig</a> object. The tuning job
-   *       specifies a metric to optimize, which hyperparameters participate in tuning, and the valid
-   *       range for each tunable hyperparameter. In this case, you are required to specify an algorithm
-   *       and <code>PerformAutoML</code> must be false.</p>
-   *          <p>The following algorithm supports HPO:</p>
-   *          <ul>
-   *             <li>
-   *                <p>DeepAR+</p>
-   *             </li>
-   *          </ul>
-   */
-  PerformHPO?: boolean;
-
-  /**
-   * <p>A name for the predictor.</p>
-   */
-  PredictorName: string | undefined;
-
-  /**
-   * <p>The hyperparameters to override for model training. The hyperparameters that you can
-   *       override are listed in the individual algorithms. For the list of supported algorithms, see
-   *         <a>aws-forecast-choosing-recipes</a>.</p>
-   */
-  TrainingParameters?: { [key: string]: string };
 }
 
 export namespace CreatePredictorRequest {
   export const filterSensitiveLog = (obj: CreatePredictorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePredictorRequest =>
-    __isa(o, "CreatePredictorRequest");
+  export const isa = (o: any): o is CreatePredictorRequest => __isa(o, "CreatePredictorRequest");
 }
 
 export interface CreatePredictorResponse {
@@ -534,10 +683,9 @@ export interface CreatePredictorResponse {
 
 export namespace CreatePredictorResponse {
   export const filterSensitiveLog = (obj: CreatePredictorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreatePredictorResponse =>
-    __isa(o, "CreatePredictorResponse");
+  export const isa = (o: any): o is CreatePredictorResponse => __isa(o, "CreatePredictorResponse");
 }
 
 /**
@@ -556,10 +704,9 @@ export interface DataDestination {
 
 export namespace DataDestination {
   export const filterSensitiveLog = (obj: DataDestination): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DataDestination =>
-    __isa(o, "DataDestination");
+  export const isa = (o: any): o is DataDestination => __isa(o, "DataDestination");
 }
 
 /**
@@ -575,14 +722,14 @@ export interface DatasetGroupSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   */
-  DatasetGroupArn?: string;
-
-  /**
    * <p>The name of the dataset group.</p>
    */
   DatasetGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+   */
+  DatasetGroupArn?: string;
 
   /**
    * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
@@ -594,10 +741,9 @@ export interface DatasetGroupSummary {
 
 export namespace DatasetGroupSummary {
   export const filterSensitiveLog = (obj: DatasetGroupSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetGroupSummary =>
-    __isa(o, "DatasetGroupSummary");
+  export const isa = (o: any): o is DatasetGroupSummary => __isa(o, "DatasetGroupSummary");
 }
 
 /**
@@ -608,26 +754,14 @@ export namespace DatasetGroupSummary {
 export interface DatasetImportJobSummary {
   __type?: "DatasetImportJobSummary";
   /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>When the dataset import job was created.</p>
    */
   CreationTime?: Date;
-
-  /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
-   *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
-   */
-  DataSource?: DataSource;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
-   */
-  DatasetImportJobArn?: string;
-
-  /**
-   * <p>The name of the dataset import job.</p>
-   */
-  DatasetImportJobName?: string;
 
   /**
    * <p>The last time that the dataset was modified. The time depends on the status of the job, as
@@ -651,9 +785,21 @@ export interface DatasetImportJobSummary {
   LastModificationTime?: Date;
 
   /**
-   * <p>If an error occurred, an informational message about the error.</p>
+   * <p>The name of the dataset import job.</p>
    */
-  Message?: string;
+  DatasetImportJobName?: string;
+
+  /**
+   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
+   */
+  DatasetImportJobArn?: string;
 
   /**
    * <p>The status of the dataset import job. The status is reflected in the status of the
@@ -684,10 +830,9 @@ export interface DatasetImportJobSummary {
 
 export namespace DatasetImportJobSummary {
   export const filterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetImportJobSummary =>
-    __isa(o, "DatasetImportJobSummary");
+  export const isa = (o: any): o is DatasetImportJobSummary => __isa(o, "DatasetImportJobSummary");
 }
 
 /**
@@ -703,16 +848,6 @@ export interface DatasetSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * <p>The name of the dataset.</p>
-   */
-  DatasetName?: string;
-
-  /**
    * <p>The dataset type.</p>
    */
   DatasetType?: DatasetType | string;
@@ -721,6 +856,16 @@ export interface DatasetSummary {
    * <p>The domain associated with the dataset.</p>
    */
   Domain?: Domain | string;
+
+  /**
+   * <p>The name of the dataset.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  DatasetArn?: string;
 
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
@@ -734,16 +879,15 @@ export interface DatasetSummary {
 
 export namespace DatasetSummary {
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DatasetSummary =>
-    __isa(o, "DatasetSummary");
+  export const isa = (o: any): o is DatasetSummary => __isa(o, "DatasetSummary");
 }
 
 export enum DatasetType {
   ITEM_METADATA = "ITEM_METADATA",
   RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
+  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
 }
 
 /**
@@ -762,7 +906,7 @@ export interface DataSource {
 
 export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
@@ -777,10 +921,9 @@ export interface DeleteDatasetGroupRequest {
 
 export namespace DeleteDatasetGroupRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetGroupRequest =>
-    __isa(o, "DeleteDatasetGroupRequest");
+  export const isa = (o: any): o is DeleteDatasetGroupRequest => __isa(o, "DeleteDatasetGroupRequest");
 }
 
 export interface DeleteDatasetImportJobRequest {
@@ -792,13 +935,10 @@ export interface DeleteDatasetImportJobRequest {
 }
 
 export namespace DeleteDatasetImportJobRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDatasetImportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDatasetImportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetImportJobRequest =>
-    __isa(o, "DeleteDatasetImportJobRequest");
+  export const isa = (o: any): o is DeleteDatasetImportJobRequest => __isa(o, "DeleteDatasetImportJobRequest");
 }
 
 export interface DeleteDatasetRequest {
@@ -811,10 +951,9 @@ export interface DeleteDatasetRequest {
 
 export namespace DeleteDatasetRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetRequest =>
-    __isa(o, "DeleteDatasetRequest");
+  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 export interface DeleteForecastExportJobRequest {
@@ -826,13 +965,10 @@ export interface DeleteForecastExportJobRequest {
 }
 
 export namespace DeleteForecastExportJobRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteForecastExportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteForecastExportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteForecastExportJobRequest =>
-    __isa(o, "DeleteForecastExportJobRequest");
+  export const isa = (o: any): o is DeleteForecastExportJobRequest => __isa(o, "DeleteForecastExportJobRequest");
 }
 
 export interface DeleteForecastRequest {
@@ -845,10 +981,9 @@ export interface DeleteForecastRequest {
 
 export namespace DeleteForecastRequest {
   export const filterSensitiveLog = (obj: DeleteForecastRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteForecastRequest =>
-    __isa(o, "DeleteForecastRequest");
+  export const isa = (o: any): o is DeleteForecastRequest => __isa(o, "DeleteForecastRequest");
 }
 
 export interface DeletePredictorRequest {
@@ -861,10 +996,9 @@ export interface DeletePredictorRequest {
 
 export namespace DeletePredictorRequest {
   export const filterSensitiveLog = (obj: DeletePredictorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeletePredictorRequest =>
-    __isa(o, "DeletePredictorRequest");
+  export const isa = (o: any): o is DeletePredictorRequest => __isa(o, "DeletePredictorRequest");
 }
 
 export interface DescribeDatasetGroupRequest {
@@ -876,43 +1010,14 @@ export interface DescribeDatasetGroupRequest {
 }
 
 export namespace DescribeDatasetGroupRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetGroupRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupRequest =>
-    __isa(o, "DescribeDatasetGroupRequest");
+  export const isa = (o: any): o is DescribeDatasetGroupRequest => __isa(o, "DescribeDatasetGroupRequest");
 }
 
 export interface DescribeDatasetGroupResponse {
   __type?: "DescribeDatasetGroupResponse";
-  /**
-   * <p>When the dataset group was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset
-   *       group.</p>
-   */
-  DatasetArns?: string[];
-
-  /**
-   * <p>The ARN of the dataset group.</p>
-   */
-  DatasetGroupArn?: string;
-
-  /**
-   * <p>The name of the dataset group.</p>
-   */
-  DatasetGroupName?: string;
-
-  /**
-   * <p>The domain associated with the dataset group.</p>
-   */
-  Domain?: Domain | string;
-
   /**
    * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
    *         <code>LastModificationTime</code> is the current time of the
@@ -954,16 +1059,39 @@ export interface DescribeDatasetGroupResponse {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset
+   *       group.</p>
+   */
+  DatasetArns?: string[];
+
+  /**
+   * <p>The name of the dataset group.</p>
+   */
+  DatasetGroupName?: string;
+
+  /**
+   * <p>The ARN of the dataset group.</p>
+   */
+  DatasetGroupArn?: string;
+
+  /**
+   * <p>The domain associated with the dataset group.</p>
+   */
+  Domain?: Domain | string;
+
+  /**
+   * <p>When the dataset group was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace DescribeDatasetGroupResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetGroupResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupResponse =>
-    __isa(o, "DescribeDatasetGroupResponse");
+  export const isa = (o: any): o is DescribeDatasetGroupResponse => __isa(o, "DescribeDatasetGroupResponse");
 }
 
 export interface DescribeDatasetImportJobRequest {
@@ -975,49 +1103,18 @@ export interface DescribeDatasetImportJobRequest {
 }
 
 export namespace DescribeDatasetImportJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetImportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobRequest =>
-    __isa(o, "DescribeDatasetImportJobRequest");
+  export const isa = (o: any): o is DescribeDatasetImportJobRequest => __isa(o, "DescribeDatasetImportJobRequest");
 }
 
 export interface DescribeDatasetImportJobResponse {
   __type?: "DescribeDatasetImportJobResponse";
   /**
-   * <p>When the dataset import job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
    * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
    */
   DataSize?: number;
-
-  /**
-   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
-   *       can assume to access the data.</p>
-   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
-   */
-  DataSource?: DataSource;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset that the training data was imported
-   *       to.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * <p>The ARN of the dataset import job.</p>
-   */
-  DatasetImportJobArn?: string;
-
-  /**
-   * <p>The name of the dataset import job.</p>
-   */
-  DatasetImportJobName?: string;
 
   /**
    * <p>Statistical information about each field in the input data.</p>
@@ -1025,30 +1122,10 @@ export interface DescribeDatasetImportJobResponse {
   FieldStatistics?: { [key: string]: Statistics };
 
   /**
-   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
-   *       follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
-   *           failed.</p>
-   *             </li>
-   *          </ul>
+   * <p>The Amazon Resource Name (ARN) of the dataset that the training data was imported
+   *       to.</p>
    */
-  LastModificationTime?: Date;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
+  DatasetArn?: string;
 
   /**
    * <p>The status of the dataset import job. The status is reflected in the status of the
@@ -1093,16 +1170,61 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    */
   TimestampFormat?: string;
+
+  /**
+   * <p>The ARN of the dataset import job.</p>
+   */
+  DatasetImportJobArn?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
+   *       can assume to access the data.</p>
+   *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>When the dataset import job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The name of the dataset import job.</p>
+   */
+  DatasetImportJobName?: string;
+
+  /**
+   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
+   *       follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
 }
 
 export namespace DescribeDatasetImportJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeDatasetImportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobResponse =>
-    __isa(o, "DescribeDatasetImportJobResponse");
+  export const isa = (o: any): o is DescribeDatasetImportJobResponse => __isa(o, "DescribeDatasetImportJobResponse");
 }
 
 export interface DescribeDatasetRequest {
@@ -1115,53 +1237,13 @@ export interface DescribeDatasetRequest {
 
 export namespace DescribeDatasetRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetRequest =>
-    __isa(o, "DescribeDatasetRequest");
+  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 export interface DescribeDatasetResponse {
   __type?: "DescribeDatasetResponse";
-  /**
-   * <p>When the dataset was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The frequency of data collection.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "M" indicates every month and "30min" indicates every 30 minutes.</p>
-   */
-  DataFrequency?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DatasetArn?: string;
-
-  /**
-   * <p>The name of the dataset.</p>
-   */
-  DatasetName?: string;
-
-  /**
-   * <p>The dataset type.</p>
-   */
-  DatasetType?: DatasetType | string;
-
-  /**
-   * <p>The domain associated with the dataset.</p>
-   */
-  Domain?: Domain | string;
-
-  /**
-   * <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
-   */
-  EncryptionConfig?: EncryptionConfig;
-
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
    *         <code>CreationTime</code>. While data is being imported to the dataset,
@@ -1170,12 +1252,6 @@ export interface DescribeDatasetResponse {
    *         <code>LastModificationTime</code> is when the import job completed or failed.</p>
    */
   LastModificationTime?: Date;
-
-  /**
-   * <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each
-   *         <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
-   */
-  Schema?: Schema;
 
   /**
    * <p>The status of the dataset. States include:</p>
@@ -1214,14 +1290,58 @@ export interface DescribeDatasetResponse {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the dataset.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>When the dataset was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The domain associated with the dataset.</p>
+   */
+  Domain?: Domain | string;
+
+  /**
+   * <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each
+   *         <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
+   */
+  Schema?: Schema;
+
+  /**
+   * <p>The frequency of data collection.</p>
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
+   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
+   *       "M" indicates every month and "30min" indicates every 30 minutes.</p>
+   */
+  DataFrequency?: string;
+
+  /**
+   * <p>The dataset type.</p>
+   */
+  DatasetType?: DatasetType | string;
 }
 
 export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetResponse =>
-    __isa(o, "DescribeDatasetResponse");
+  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 export interface DescribeForecastExportJobRequest {
@@ -1233,36 +1353,23 @@ export interface DescribeForecastExportJobRequest {
 }
 
 export namespace DescribeForecastExportJobRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeForecastExportJobRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeForecastExportJobRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastExportJobRequest =>
-    __isa(o, "DescribeForecastExportJobRequest");
+  export const isa = (o: any): o is DescribeForecastExportJobRequest => __isa(o, "DescribeForecastExportJobRequest");
 }
 
 export interface DescribeForecastExportJobResponse {
   __type?: "DescribeForecastExportJobResponse";
-  /**
-   * <p>When the forecast export job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
-   */
-  Destination?: DataDestination;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
    */
   ForecastArn?: string;
 
   /**
-   * <p>The ARN of the forecast export job.</p>
+   * <p>When the forecast export job was created.</p>
    */
-  ForecastExportJobArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The name of the forecast export job.</p>
@@ -1270,14 +1377,24 @@ export interface DescribeForecastExportJobResponse {
   ForecastExportJobName?: string;
 
   /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   */
+  Destination?: DataDestination;
+
+  /**
    * <p>When the last successful export job finished.</p>
    */
   LastModificationTime?: Date;
 
   /**
-   * <p>If an error occurred, an informational message about the error.</p>
+   * <p>The ARN of the forecast export job.</p>
    */
-  Message?: string;
+  ForecastExportJobArn?: string;
 
   /**
    * <p>The status of the forecast export job. States include:</p>
@@ -1309,13 +1426,10 @@ export interface DescribeForecastExportJobResponse {
 }
 
 export namespace DescribeForecastExportJobResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeForecastExportJobResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastExportJobResponse =>
-    __isa(o, "DescribeForecastExportJobResponse");
+  export const isa = (o: any): o is DescribeForecastExportJobResponse => __isa(o, "DescribeForecastExportJobResponse");
 }
 
 export interface DescribeForecastRequest {
@@ -1328,19 +1442,13 @@ export interface DescribeForecastRequest {
 
 export namespace DescribeForecastRequest {
   export const filterSensitiveLog = (obj: DescribeForecastRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastRequest =>
-    __isa(o, "DescribeForecastRequest");
+  export const isa = (o: any): o is DescribeForecastRequest => __isa(o, "DescribeForecastRequest");
 }
 
 export interface DescribeForecastResponse {
   __type?: "DescribeForecastResponse";
-  /**
-   * <p>When the forecast creation task was created.</p>
-   */
-  CreationTime?: Date;
-
   /**
    * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
    */
@@ -1352,14 +1460,24 @@ export interface DescribeForecastResponse {
   ForecastArn?: string;
 
   /**
-   * <p>The name of the forecast.</p>
+   * <p>The ARN of the predictor used to generate the forecast.</p>
    */
-  ForecastName?: string;
+  PredictorArn?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The quantiles at which probabilistic forecasts were generated.</p>
    */
   ForecastTypes?: string[];
+
+  /**
+   * <p>The name of the forecast.</p>
+   */
+  ForecastName?: string;
 
   /**
    * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
@@ -1368,16 +1486,6 @@ export interface DescribeForecastResponse {
    *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
    */
   LastModificationTime?: Date;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The ARN of the predictor used to generate the forecast.</p>
-   */
-  PredictorArn?: string;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -1406,14 +1514,18 @@ export interface DescribeForecastResponse {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>When the forecast creation task was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace DescribeForecastResponse {
   export const filterSensitiveLog = (obj: DescribeForecastResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastResponse =>
-    __isa(o, "DescribeForecastResponse");
+  export const isa = (o: any): o is DescribeForecastResponse => __isa(o, "DescribeForecastResponse");
 }
 
 export interface DescribePredictorRequest {
@@ -1426,108 +1538,22 @@ export interface DescribePredictorRequest {
 
 export namespace DescribePredictorRequest {
   export const filterSensitiveLog = (obj: DescribePredictorRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePredictorRequest =>
-    __isa(o, "DescribePredictorRequest");
+  export const isa = (o: any): o is DescribePredictorRequest => __isa(o, "DescribePredictorRequest");
 }
 
 export interface DescribePredictorResponse {
   __type?: "DescribePredictorResponse";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
-   */
-  AlgorithmArn?: string;
-
-  /**
-   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-   */
-  AutoMLAlgorithmArns?: string[];
-
-  /**
-   * <p>When the model training task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>An array of the ARNs of the dataset import jobs used to import training data for the
-   *       predictor.</p>
-   */
-  DatasetImportJobArns?: string[];
-
-  /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
-   */
-  EncryptionConfig?: EncryptionConfig;
-
-  /**
-   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
-   *       evaluates a predictor by splitting a dataset into training data and testing data. The
-   *       evaluation parameters define how to perform the split and the number of iterations.</p>
-   */
-  EvaluationParameters?: EvaluationParameters;
-
-  /**
-   * <p>The featurization configuration.</p>
-   */
-  FeaturizationConfig?: FeaturizationConfig;
-
-  /**
-   * <p>The number of time-steps of the forecast. The forecast horizon is also called the
-   *       prediction length.</p>
-   */
-  ForecastHorizon?: number;
-
-  /**
-   * <p>The hyperparameter override values for the algorithm.</p>
-   */
-  HPOConfig?: HyperParameterTuningJobConfig;
-
-  /**
-   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (when the status is
-   *         <code>CREATE_PENDING</code>). This value is updated when training starts (when the status
-   *       changes to <code>CREATE_IN_PROGRESS</code>), and when training has completed (when the status
-   *       changes to <code>ACTIVE</code>) or fails (when the status changes to
-   *         <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
-
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    */
   Message?: string;
 
   /**
-   * <p>Whether the predictor is set to perform AutoML.</p>
+   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
    */
-  PerformAutoML?: boolean;
-
-  /**
-   * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
-   */
-  PerformHPO?: boolean;
-
-  /**
-   * <p>The ARN of the predictor.</p>
-   */
-  PredictorArn?: string;
-
-  /**
-   * <p>Details on the the status and results of the backtests performed to evaluate the accuracy
-   *       of the predictor. You specify the number of backtests to perform when you call the  operation.</p>
-   */
-  PredictorExecutionDetails?: PredictorExecutionDetails;
-
-  /**
-   * <p>The name of the predictor.</p>
-   */
-  PredictorName?: string;
+  AutoMLAlgorithmArns?: string[];
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -1564,19 +1590,103 @@ export interface DescribePredictorResponse {
   Status?: string;
 
   /**
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
+   */
+  AlgorithmArn?: string;
+
+  /**
+   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>Details on the the status and results of the backtests performed to evaluate the accuracy
+   *       of the predictor. You specify the number of backtests to perform when you call the  operation.</p>
+   */
+  PredictorExecutionDetails?: PredictorExecutionDetails;
+
+  /**
+   * <p>The name of the predictor.</p>
+   */
+  PredictorName?: string;
+
+  /**
+   * <p>The featurization configuration.</p>
+   */
+  FeaturizationConfig?: FeaturizationConfig;
+
+  /**
+   * <p>An array of the ARNs of the dataset import jobs used to import training data for the
+   *       predictor.</p>
+   */
+  DatasetImportJobArns?: string[];
+
+  /**
    * <p>The default training parameters or overrides selected during model training. If using the
    *       AutoML algorithm or if HPO is turned on while using the DeepAR+ algorithms, the optimized
    *       values for the chosen hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
    */
   TrainingParameters?: { [key: string]: string };
+
+  /**
+   * <p>The number of time-steps of the forecast. The forecast horizon is also called the
+   *       prediction length.</p>
+   */
+  ForecastHorizon?: number;
+
+  /**
+   * <p>The hyperparameter override values for the algorithm.</p>
+   */
+  HPOConfig?: HyperParameterTuningJobConfig;
+
+  /**
+   * <p>The ARN of the predictor.</p>
+   */
+  PredictorArn?: string;
+
+  /**
+   * <p>Whether the predictor is set to perform AutoML.</p>
+   */
+  PerformAutoML?: boolean;
+
+  /**
+   * <p>When the model training task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Initially, the same as <code>CreationTime</code> (when the status is
+   *         <code>CREATE_PENDING</code>). This value is updated when training starts (when the status
+   *       changes to <code>CREATE_IN_PROGRESS</code>), and when training has completed (when the status
+   *       changes to <code>ACTIVE</code>) or fails (when the status changes to
+   *         <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
+   */
+  PerformHPO?: boolean;
+
+  /**
+   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
+   *       evaluates a predictor by splitting a dataset into training data and testing data. The
+   *       evaluation parameters define how to perform the split and the number of iterations.</p>
+   */
+  EvaluationParameters?: EvaluationParameters;
 }
 
 export namespace DescribePredictorResponse {
   export const filterSensitiveLog = (obj: DescribePredictorResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribePredictorResponse =>
-    __isa(o, "DescribePredictorResponse");
+  export const isa = (o: any): o is DescribePredictorResponse => __isa(o, "DescribePredictorResponse");
 }
 
 export enum Domain {
@@ -1586,7 +1696,7 @@ export enum Domain {
   METRICS = "METRICS",
   RETAIL = "RETAIL",
   WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE"
+  WORK_FORCE = "WORK_FORCE",
 }
 
 /**
@@ -1597,24 +1707,23 @@ export enum Domain {
 export interface EncryptionConfig {
   __type?: "EncryptionConfig";
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
-   */
-  KMSKeyArn: string | undefined;
-
-  /**
    * <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p>
    *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
+   */
+  KMSKeyArn: string | undefined;
 }
 
 export namespace EncryptionConfig {
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfig =>
-    __isa(o, "EncryptionConfig");
+  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
 }
 
 /**
@@ -1645,10 +1754,9 @@ export interface EvaluationParameters {
 
 export namespace EvaluationParameters {
   export const filterSensitiveLog = (obj: EvaluationParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationParameters =>
-    __isa(o, "EvaluationParameters");
+  export const isa = (o: any): o is EvaluationParameters => __isa(o, "EvaluationParameters");
 }
 
 /**
@@ -1658,29 +1766,28 @@ export namespace EvaluationParameters {
 export interface EvaluationResult {
   __type?: "EvaluationResult";
   /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm that was evaluated.</p>
-   */
-  AlgorithmArn?: string;
-
-  /**
    * <p>The array of test windows used for evaluating the algorithm. The
    *       <code>NumberOfBacktestWindows</code> from the <a>EvaluationParameters</a>
    *       object determines the number of windows in the array.</p>
    */
   TestWindows?: WindowSummary[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm that was evaluated.</p>
+   */
+  AlgorithmArn?: string;
 }
 
 export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 export enum EvaluationType {
   COMPUTED = "COMPUTED",
-  SUMMARY = "SUMMARY"
+  SUMMARY = "SUMMARY",
 }
 
 /**
@@ -1713,11 +1820,11 @@ export enum EvaluationType {
 export interface Featurization {
   __type?: "Featurization";
   /**
-   * <p>The name of the schema attribute that specifies the data field to be featurized.
-   *       Only the <code>target</code> field of the <code>TARGET_TIME_SERIES</code>
-   *       dataset type is supported. For example, for the <code>RETAIL</code> domain, the target is
+   * <p>The name of the schema attribute that specifies the data field to be featurized. Amazon Forecast supports the target field of
+   *       the <code>TARGET_TIME_SERIES</code> and the <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain, the target is
    *       <code>demand</code>, and for the <code>CUSTOM</code> domain, the target is
-   *       <code>target_value</code>.</p>
+   *       <code>target_value</code>.
+   *       For more information, see <a>howitworks-missing-values</a>.</p>
    */
   AttributeName: string | undefined;
 
@@ -1730,7 +1837,7 @@ export interface Featurization {
 
 export namespace Featurization {
   export const filterSensitiveLog = (obj: Featurization): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Featurization => __isa(o, "Featurization");
 }
@@ -1744,19 +1851,13 @@ export namespace Featurization {
  *       You specify an array of transformations, one for each field that you want to
  *       featurize. You then include the <code>FeaturizationConfig</code> object in your
  *       <code>CreatePredictor</code> request. Amazon Forecast applies the featurization to the
- *       <code>TARGET_TIME_SERIES</code> dataset before model training.</p>
+ *       <code>TARGET_TIME_SERIES</code> and <code>RELATED_TIME_SERIES</code> datasets before model training.</p>
  *          <p>You can create multiple featurization configurations. For example, you
  *       might call the <code>CreatePredictor</code> operation twice by specifying different
  *       featurization configurations.</p>
  */
 export interface FeaturizationConfig {
   __type?: "FeaturizationConfig";
-  /**
-   * <p>An array of featurization (transformation) information for the fields of a dataset.
-   *       Only a single featurization is supported.</p>
-   */
-  Featurizations?: Featurization[];
-
   /**
    * <p>An array of dimension (field) names that specify how to group the generated forecast.</p>
    *          <p>For example, suppose that you are generating a forecast for item sales across all of
@@ -1780,21 +1881,24 @@ export interface FeaturizationConfig {
    *       RELATED_TIME_SERIES dataset frequency.</p>
    */
   ForecastFrequency: string | undefined;
+
+  /**
+   * <p>An array of featurization (transformation) information for the fields of a dataset.</p>
+   */
+  Featurizations?: Featurization[];
 }
 
 export namespace FeaturizationConfig {
   export const filterSensitiveLog = (obj: FeaturizationConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FeaturizationConfig =>
-    __isa(o, "FeaturizationConfig");
+  export const isa = (o: any): o is FeaturizationConfig => __isa(o, "FeaturizationConfig");
 }
 
 /**
  * <p>Provides information about the method that featurizes (transforms) a dataset field.
  *       The method is part of the <code>FeaturizationPipeline</code> of the
- *       <a>Featurization</a> object. If you don't specify <code>FeaturizationMethodParameters</code>,
- *       Amazon Forecast uses default parameters.</p>
+ *       <a>Featurization</a> object. </p>
  *          <p>The following is an example of how you specify a <code>FeaturizationMethod</code> object.</p>
  *          <p>
  *             <code>{</code>
@@ -1803,7 +1907,7 @@ export namespace FeaturizationConfig {
  *             <code>"FeaturizationMethodName": "filling",</code>
  *          </p>
  *          <p>
- *             <code>"FeaturizationMethodParameters": {"aggregation": "avg", "backfill": "nan"}</code>
+ *             <code>"FeaturizationMethodParameters": {"aggregation": "sum", "middlefill": "zero", "backfill": "zero"}</code>
  *          </p>
  *          <p>
  *             <code>}</code>
@@ -1817,8 +1921,9 @@ export interface FeaturizationMethod {
   FeaturizationMethodName: FeaturizationMethodName | string | undefined;
 
   /**
-   * <p>The method parameters (key-value pairs). Specify these parameters to override the default values.
-   *       The following list shows the parameters and their valid values. Bold signifies the default
+   * <p>The method parameters (key-value pairs), which are a map of override parameters. Specify these parameters to override the default values.
+   *       Related Time Series attributes do not accept aggregation parameters.</p>
+   *          <p>The following list shows the parameters and their valid values for the "filling" featurization method for a <b>Target Time Series</b> dataset. Bold signifies the default
    *       value.</p>
    *          <ul>
    *             <li>
@@ -1833,11 +1938,31 @@ export interface FeaturizationMethod {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>middlefill</code>: <b>zero</b>, <code>nan</code> (not a number)</p>
+   *                   <code>middlefill</code>: <b>zero</b>, <code>nan</code> (not a number), <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>backfill</code>: <b>zero</b>, <code>nan</code>
+   *                   <code>backfill</code>: <b>zero</b>, <code>nan</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following list shows the parameters and their valid values for a <b>Related Time Series</b> featurization method (there are no defaults):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>middlefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>backfill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>futurefill</code>: <code>zero</code>, <code>value</code>, <code>median</code>, <code>mean</code>, <code>min</code>, <code>max</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1847,14 +1972,13 @@ export interface FeaturizationMethod {
 
 export namespace FeaturizationMethod {
   export const filterSensitiveLog = (obj: FeaturizationMethod): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FeaturizationMethod =>
-    __isa(o, "FeaturizationMethod");
+  export const isa = (o: any): o is FeaturizationMethod => __isa(o, "FeaturizationMethod");
 }
 
 export enum FeaturizationMethodName {
-  filling = "filling"
+  filling = "filling",
 }
 
 /**
@@ -1867,15 +1991,15 @@ export enum FeaturizationMethodName {
 export interface Filter {
   __type?: "Filter";
   /**
+   * <p>The name of the parameter to filter on.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>The condition to apply. To include the objects that match the statement, specify
    *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
    */
   Condition: FilterConditionString | string | undefined;
-
-  /**
-   * <p>The name of the parameter to filter on.</p>
-   */
-  Key: string | undefined;
 
   /**
    * <p>The value to match.</p>
@@ -1885,14 +2009,14 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterConditionString {
   IS = "IS",
-  IS_NOT = "IS_NOT"
+  IS_NOT = "IS_NOT",
 }
 
 /**
@@ -1908,29 +2032,14 @@ export interface ForecastExportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
-   */
-  Destination?: DataDestination;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
-   */
-  ForecastExportJobArn?: string;
-
-  /**
    * <p>The name of the forecast export job.</p>
    */
   ForecastExportJobName?: string;
 
   /**
-   * <p>When the last successful export job finished.</p>
+   * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
    */
-  LastModificationTime?: Date;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
+  ForecastExportJobArn?: string;
 
   /**
    * <p>The status of the forecast export job. States include:</p>
@@ -1959,14 +2068,28 @@ export interface ForecastExportJobSummary {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>When the last successful export job finished.</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   */
+  Destination?: DataDestination;
 }
 
 export namespace ForecastExportJobSummary {
   export const filterSensitiveLog = (obj: ForecastExportJobSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForecastExportJobSummary =>
-    __isa(o, "ForecastExportJobSummary");
+  export const isa = (o: any): o is ForecastExportJobSummary => __isa(o, "ForecastExportJobSummary");
 }
 
 /**
@@ -1977,9 +2100,9 @@ export namespace ForecastExportJobSummary {
 export interface ForecastSummary {
   __type?: "ForecastSummary";
   /**
-   * <p>When the forecast creation task was created.</p>
+   * <p>If an error occurred, an informational message about the error.</p>
    */
-  CreationTime?: Date;
+  Message?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
@@ -1988,32 +2111,9 @@ export interface ForecastSummary {
   DatasetGroupArn?: string;
 
   /**
-   * <p>The ARN of the forecast.</p>
+   * <p>When the forecast creation task was created.</p>
    */
-  ForecastArn?: string;
-
-  /**
-   * <p>The name of the forecast.</p>
-   */
-  ForecastName?: string;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when inference (creating the forecast) starts (status changed to
-   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
-   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The ARN of the predictor used to generate the forecast.</p>
-   */
-  PredictorArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -2042,14 +2142,36 @@ export interface ForecastSummary {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>The ARN of the forecast.</p>
+   */
+  ForecastArn?: string;
+
+  /**
+   * <p>The name of the forecast.</p>
+   */
+  ForecastName?: string;
+
+  /**
+   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
+   *       Updated when inference (creating the forecast) starts (status changed to
+   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
+   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>The ARN of the predictor used to generate the forecast.</p>
+   */
+  PredictorArn?: string;
 }
 
 export namespace ForecastSummary {
   export const filterSensitiveLog = (obj: ForecastSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForecastSummary =>
-    __isa(o, "ForecastSummary");
+  export const isa = (o: any): o is ForecastSummary => __isa(o, "ForecastSummary");
 }
 
 export interface GetAccuracyMetricsRequest {
@@ -2062,10 +2184,9 @@ export interface GetAccuracyMetricsRequest {
 
 export namespace GetAccuracyMetricsRequest {
   export const filterSensitiveLog = (obj: GetAccuracyMetricsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccuracyMetricsRequest =>
-    __isa(o, "GetAccuracyMetricsRequest");
+  export const isa = (o: any): o is GetAccuracyMetricsRequest => __isa(o, "GetAccuracyMetricsRequest");
 }
 
 export interface GetAccuracyMetricsResponse {
@@ -2078,10 +2199,9 @@ export interface GetAccuracyMetricsResponse {
 
 export namespace GetAccuracyMetricsResponse {
   export const filterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAccuracyMetricsResponse =>
-    __isa(o, "GetAccuracyMetricsResponse");
+  export const isa = (o: any): o is GetAccuracyMetricsResponse => __isa(o, "GetAccuracyMetricsResponse");
 }
 
 /**
@@ -2104,13 +2224,10 @@ export interface HyperParameterTuningJobConfig {
 }
 
 export namespace HyperParameterTuningJobConfig {
-  export const filterSensitiveLog = (
-    obj: HyperParameterTuningJobConfig
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobConfig =>
-    __isa(o, "HyperParameterTuningJobConfig");
+  export const isa = (o: any): o is HyperParameterTuningJobConfig => __isa(o, "HyperParameterTuningJobConfig");
 }
 
 /**
@@ -2134,10 +2251,9 @@ export interface InputDataConfig {
 
 export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
@@ -2146,21 +2262,6 @@ export namespace InputDataConfig {
  */
 export interface IntegerParameterRange {
   __type?: "IntegerParameterRange";
-  /**
-   * <p>The maximum tunable value of the hyperparameter.</p>
-   */
-  MaxValue: number | undefined;
-
-  /**
-   * <p>The minimum tunable value of the hyperparameter.</p>
-   */
-  MinValue: number | undefined;
-
-  /**
-   * <p>The name of the hyperparameter to tune.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range.
    *       Valid values:</p>
@@ -2192,23 +2293,35 @@ export interface IntegerParameterRange {
    *       One of the following values:</p>
    */
   ScalingType?: ScalingType | string;
+
+  /**
+   * <p>The maximum tunable value of the hyperparameter.</p>
+   */
+  MaxValue: number | undefined;
+
+  /**
+   * <p>The minimum tunable value of the hyperparameter.</p>
+   */
+  MinValue: number | undefined;
+
+  /**
+   * <p>The name of the hyperparameter to tune.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace IntegerParameterRange {
   export const filterSensitiveLog = (obj: IntegerParameterRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IntegerParameterRange =>
-    __isa(o, "IntegerParameterRange");
+  export const isa = (o: any): o is IntegerParameterRange => __isa(o, "IntegerParameterRange");
 }
 
 /**
  * <p>We can't process the request because it includes an invalid value or a value that exceeds
  *       the valid range.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -2216,18 +2329,15 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -2235,18 +2345,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The limit on the number of resources per account has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2254,10 +2361,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDatasetGroupsRequest {
@@ -2277,32 +2383,30 @@ export interface ListDatasetGroupsRequest {
 
 export namespace ListDatasetGroupsRequest {
   export const filterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsRequest =>
-    __isa(o, "ListDatasetGroupsRequest");
+  export const isa = (o: any): o is ListDatasetGroupsRequest => __isa(o, "ListDatasetGroupsRequest");
 }
 
 export interface ListDatasetGroupsResponse {
   __type?: "ListDatasetGroupsResponse";
   /**
-   * <p>An array of objects that summarize each dataset group's properties.</p>
-   */
-  DatasetGroups?: DatasetGroupSummary[];
-
-  /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that summarize each dataset group's properties.</p>
+   */
+  DatasetGroups?: DatasetGroupSummary[];
 }
 
 export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsResponse =>
-    __isa(o, "ListDatasetGroupsResponse");
+  export const isa = (o: any): o is ListDatasetGroupsResponse => __isa(o, "ListDatasetGroupsResponse");
 }
 
 export interface ListDatasetImportJobsRequest {
@@ -2355,13 +2459,10 @@ export interface ListDatasetImportJobsRequest {
 }
 
 export namespace ListDatasetImportJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDatasetImportJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsRequest =>
-    __isa(o, "ListDatasetImportJobsRequest");
+  export const isa = (o: any): o is ListDatasetImportJobsRequest => __isa(o, "ListDatasetImportJobsRequest");
 }
 
 export interface ListDatasetImportJobsResponse {
@@ -2379,17 +2480,57 @@ export interface ListDatasetImportJobsResponse {
 }
 
 export namespace ListDatasetImportJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDatasetImportJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsResponse =>
-    __isa(o, "ListDatasetImportJobsResponse");
+  export const isa = (o: any): o is ListDatasetImportJobsResponse => __isa(o, "ListDatasetImportJobsResponse");
 }
 
 export interface ListDatasetsRequest {
   __type?: "ListDatasetsRequest";
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDatasetsRequest {
+  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
+}
+
+export interface ListDatasetsResponse {
+  __type?: "ListDatasetsResponse";
+  /**
+   * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
+   *       results, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of objects that summarize each dataset's properties.</p>
+   */
+  Datasets?: DatasetSummary[];
+}
+
+export namespace ListDatasetsResponse {
+  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
+}
+
+export interface ListForecastExportJobsRequest {
+  __type?: "ListForecastExportJobsRequest";
   /**
    * <p>The number of items to return in the response.</p>
    */
@@ -2401,40 +2542,7 @@ export interface ListDatasetsRequest {
    *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
-}
 
-export namespace ListDatasetsRequest {
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDatasetsRequest =>
-    __isa(o, "ListDatasetsRequest");
-}
-
-export interface ListDatasetsResponse {
-  __type?: "ListDatasetsResponse";
-  /**
-   * <p>An array of objects that summarize each dataset's properties.</p>
-   */
-  Datasets?: DatasetSummary[];
-
-  /**
-   * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
-   *       results, use the token in the next request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListDatasetsResponse {
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is ListDatasetsResponse =>
-    __isa(o, "ListDatasetsResponse");
-}
-
-export interface ListForecastExportJobsRequest {
-  __type?: "ListForecastExportJobsRequest";
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -2469,28 +2577,13 @@ export interface ListForecastExportJobsRequest {
    *          </p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListForecastExportJobsRequest {
-  export const filterSensitiveLog = (
-    obj: ListForecastExportJobsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListForecastExportJobsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListForecastExportJobsRequest =>
-    __isa(o, "ListForecastExportJobsRequest");
+  export const isa = (o: any): o is ListForecastExportJobsRequest => __isa(o, "ListForecastExportJobsRequest");
 }
 
 export interface ListForecastExportJobsResponse {
@@ -2508,13 +2601,10 @@ export interface ListForecastExportJobsResponse {
 }
 
 export namespace ListForecastExportJobsResponse {
-  export const filterSensitiveLog = (
-    obj: ListForecastExportJobsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListForecastExportJobsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListForecastExportJobsResponse =>
-    __isa(o, "ListForecastExportJobsResponse");
+  export const isa = (o: any): o is ListForecastExportJobsResponse => __isa(o, "ListForecastExportJobsResponse");
 }
 
 export interface ListForecastsRequest {
@@ -2567,36 +2657,46 @@ export interface ListForecastsRequest {
 
 export namespace ListForecastsRequest {
   export const filterSensitiveLog = (obj: ListForecastsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListForecastsRequest =>
-    __isa(o, "ListForecastsRequest");
+  export const isa = (o: any): o is ListForecastsRequest => __isa(o, "ListForecastsRequest");
 }
 
 export interface ListForecastsResponse {
   __type?: "ListForecastsResponse";
   /**
-   * <p>An array of objects that summarize each forecast's properties.</p>
-   */
-  Forecasts?: ForecastSummary[];
-
-  /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set
    *       of results, use the token in the next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that summarize each forecast's properties.</p>
+   */
+  Forecasts?: ForecastSummary[];
 }
 
 export namespace ListForecastsResponse {
   export const filterSensitiveLog = (obj: ListForecastsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListForecastsResponse =>
-    __isa(o, "ListForecastsResponse");
+  export const isa = (o: any): o is ListForecastsResponse => __isa(o, "ListForecastsResponse");
 }
 
 export interface ListPredictorsRequest {
   __type?: "ListPredictorsRequest";
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -2629,26 +2729,13 @@ export interface ListPredictorsRequest {
    *          </p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListPredictorsRequest {
   export const filterSensitiveLog = (obj: ListPredictorsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPredictorsRequest =>
-    __isa(o, "ListPredictorsRequest");
+  export const isa = (o: any): o is ListPredictorsRequest => __isa(o, "ListPredictorsRequest");
 }
 
 export interface ListPredictorsResponse {
@@ -2667,10 +2754,39 @@ export interface ListPredictorsResponse {
 
 export namespace ListPredictorsResponse {
   export const filterSensitiveLog = (obj: ListPredictorsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListPredictorsResponse =>
-    __isa(o, "ListPredictorsResponse");
+  export const isa = (o: any): o is ListPredictorsResponse => __isa(o, "ListPredictorsResponse");
+}
+
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
+}
+
+export interface ListTagsForResourceResponse {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -2693,7 +2809,7 @@ export interface Metrics {
 
 export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Metrics => __isa(o, "Metrics");
 }
@@ -2707,14 +2823,14 @@ export namespace Metrics {
 export interface ParameterRanges {
   __type?: "ParameterRanges";
   /**
-   * <p>Specifies the tunable range for each categorical hyperparameter.</p>
-   */
-  CategoricalParameterRanges?: CategoricalParameterRange[];
-
-  /**
    * <p>Specifies the tunable range for each continuous hyperparameter.</p>
    */
   ContinuousParameterRanges?: ContinuousParameterRange[];
+
+  /**
+   * <p>Specifies the tunable range for each categorical hyperparameter.</p>
+   */
+  CategoricalParameterRanges?: CategoricalParameterRange[];
 
   /**
    * <p>Specifies the tunable range for each integer hyperparameter.</p>
@@ -2724,10 +2840,9 @@ export interface ParameterRanges {
 
 export namespace ParameterRanges {
   export const filterSensitiveLog = (obj: ParameterRanges): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ParameterRanges =>
-    __isa(o, "ParameterRanges");
+  export const isa = (o: any): o is ParameterRanges => __isa(o, "ParameterRanges");
 }
 
 /**
@@ -2736,24 +2851,23 @@ export namespace ParameterRanges {
 export interface PredictorExecution {
   __type?: "PredictorExecution";
   /**
-   * <p>The ARN of the algorithm used to test the predictor.</p>
-   */
-  AlgorithmArn?: string;
-
-  /**
    * <p>An array of test windows used to evaluate the algorithm. The
    *         <code>NumberOfBacktestWindows</code> from the
    *       object determines the number of windows in the array.</p>
    */
   TestWindows?: TestWindowSummary[];
+
+  /**
+   * <p>The ARN of the algorithm used to test the predictor.</p>
+   */
+  AlgorithmArn?: string;
 }
 
 export namespace PredictorExecution {
   export const filterSensitiveLog = (obj: PredictorExecution): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PredictorExecution =>
-    __isa(o, "PredictorExecution");
+  export const isa = (o: any): o is PredictorExecution => __isa(o, "PredictorExecution");
 }
 
 /**
@@ -2773,10 +2887,9 @@ export interface PredictorExecutionDetails {
 
 export namespace PredictorExecutionDetails {
   export const filterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PredictorExecutionDetails =>
-    __isa(o, "PredictorExecutionDetails");
+  export const isa = (o: any): o is PredictorExecutionDetails => __isa(o, "PredictorExecutionDetails");
 }
 
 /**
@@ -2795,29 +2908,6 @@ export interface PredictorSummary {
    *       the predictor.</p>
    */
   DatasetGroupArn?: string;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when training starts (status changed to <code>CREATE_IN_PROGRESS</code>), and when
-   *       training is complete (status changed to <code>ACTIVE</code>) or fails (status changed to
-   *         <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The ARN of the predictor.</p>
-   */
-  PredictorArn?: string;
-
-  /**
-   * <p>The name of the predictor.</p>
-   */
-  PredictorName?: string;
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -2852,43 +2942,58 @@ export interface PredictorSummary {
    *          </note>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the predictor.</p>
+   */
+  PredictorName?: string;
+
+  /**
+   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
+   *       Updated when training starts (status changed to <code>CREATE_IN_PROGRESS</code>), and when
+   *       training is complete (status changed to <code>ACTIVE</code>) or fails (status changed to
+   *         <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>The ARN of the predictor.</p>
+   */
+  PredictorArn?: string;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
 }
 
 export namespace PredictorSummary {
   export const filterSensitiveLog = (obj: PredictorSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PredictorSummary =>
-    __isa(o, "PredictorSummary");
+  export const isa = (o: any): o is PredictorSummary => __isa(o, "PredictorSummary");
 }
 
 /**
  * <p>There is already a resource with this name. Try again with a different name.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -2896,19 +3001,16 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2916,10 +3018,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2933,6 +3034,15 @@ export namespace ResourceNotFoundException {
 export interface S3Config {
   __type?: "S3Config";
   /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
+   *       bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must
+   *       allow access to the key.</p>
+   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
+   *       account, you get an <code>InvalidInputException</code> error.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
    */
   KMSKeyArn?: string;
@@ -2941,20 +3051,11 @@ export interface S3Config {
    * <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket or file(s) in an Amazon S3 bucket.</p>
    */
   Path: string | undefined;
-
-  /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
-   *       bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must
-   *       allow access to the key.</p>
-   *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
-   *       account, you get an <code>InvalidInputException</code> error.</p>
-   */
-  RoleArn: string | undefined;
 }
 
 export namespace S3Config {
   export const filterSensitiveLog = (obj: S3Config): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is S3Config => __isa(o, "S3Config");
 }
@@ -2963,7 +3064,7 @@ export enum ScalingType {
   Auto = "Auto",
   Linear = "Linear",
   Logarithmic = "Logarithmic",
-  ReverseLogarithmic = "ReverseLogarithmic"
+  ReverseLogarithmic = "ReverseLogarithmic",
 }
 
 /**
@@ -2979,7 +3080,7 @@ export interface Schema {
 
 export namespace Schema {
   export const filterSensitiveLog = (obj: Schema): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Schema => __isa(o, "Schema");
 }
@@ -3004,10 +3105,9 @@ export interface SchemaAttribute {
 
 export namespace SchemaAttribute {
   export const filterSensitiveLog = (obj: SchemaAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SchemaAttribute =>
-    __isa(o, "SchemaAttribute");
+  export const isa = (o: any): o is SchemaAttribute => __isa(o, "SchemaAttribute");
 }
 
 /**
@@ -3017,9 +3117,34 @@ export namespace SchemaAttribute {
 export interface Statistics {
   __type?: "Statistics";
   /**
+   * <p>The number of NAN (not a number) values in the field.</p>
+   */
+  CountNan?: number;
+
+  /**
+   * <p>For a numeric field, the standard deviation.</p>
+   */
+  Stddev?: number;
+
+  /**
+   * <p>For a numeric field, the minimum value in the field.</p>
+   */
+  Min?: string;
+
+  /**
    * <p>For a numeric field, the average value in the field.</p>
    */
   Avg?: number;
+
+  /**
+   * <p>For a numeric field, the maximum value in the field.</p>
+   */
+  Max?: string;
+
+  /**
+   * <p>The number of null values in the field.</p>
+   */
+  CountNull?: number;
 
   /**
    * <p>The number of values in the field.</p>
@@ -3030,40 +3155,11 @@ export interface Statistics {
    * <p>The number of distinct values in the field.</p>
    */
   CountDistinct?: number;
-
-  CountDistinctLong?: number;
-  CountLong?: number;
-  /**
-   * <p>The number of NAN (not a number) values in the field.</p>
-   */
-  CountNan?: number;
-
-  CountNanLong?: number;
-  /**
-   * <p>The number of null values in the field.</p>
-   */
-  CountNull?: number;
-
-  CountNullLong?: number;
-  /**
-   * <p>For a numeric field, the maximum value in the field.</p>
-   */
-  Max?: string;
-
-  /**
-   * <p>For a numeric field, the minimum value in the field.</p>
-   */
-  Min?: string;
-
-  /**
-   * <p>For a numeric field, the standard deviation.</p>
-   */
-  Stddev?: number;
 }
 
 export namespace Statistics {
   export const filterSensitiveLog = (obj: Statistics): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Statistics => __isa(o, "Statistics");
 }
@@ -3254,10 +3350,111 @@ export interface SupplementaryFeature {
 
 export namespace SupplementaryFeature {
   export const filterSensitiveLog = (obj: SupplementaryFeature): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SupplementaryFeature =>
-    __isa(o, "SupplementaryFeature");
+  export const isa = (o: any): o is SupplementaryFeature => __isa(o, "SupplementaryFeature");
+}
+
+/**
+ * <p>The optional metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
+ *          <p>The following basic restrictions apply to tags:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Maximum number of tags per resource - 50.</p>
+ *             </li>
+ *             <li>
+ *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+ *             </li>
+ *             <li>
+ *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+ *             </li>
+ *             <li>
+ *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+ *             </li>
+ *             <li>
+ *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+ *             </li>
+ *             <li>
+ *                <p>Tag keys and values are case sensitive.</p>
+ *             </li>
+ *             <li>
+ *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor within a tag category (key).</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
+   *          <p>The following basic restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of tags per resource - 50.</p>
+   *             </li>
+   *             <li>
+   *                <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length - 128 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length - 256 Unicode characters in UTF-8.</p>
+   *             </li>
+   *             <li>
+   *                <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code> as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code> do not count against your tags per resource limit.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
+}
+
+export interface TagResourceResponse {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3267,9 +3464,9 @@ export namespace SupplementaryFeature {
 export interface TestWindowSummary {
   __type?: "TestWindowSummary";
   /**
-   * <p>If the test failed, the reason why it failed.</p>
+   * <p>The time at which the test ended.</p>
    */
-  Message?: string;
+  TestWindowEnd?: Date;
 
   /**
    * <p>The status of the test. Possible status values are:</p>
@@ -3294,22 +3491,52 @@ export interface TestWindowSummary {
   Status?: string;
 
   /**
-   * <p>The time at which the test ended.</p>
-   */
-  TestWindowEnd?: Date;
-
-  /**
    * <p>The time at which the test began.</p>
    */
   TestWindowStart?: Date;
+
+  /**
+   * <p>If the test failed, the reason why it failed.</p>
+   */
+  Message?: string;
 }
 
 export namespace TestWindowSummary {
   export const filterSensitiveLog = (obj: TestWindowSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TestWindowSummary =>
-    __isa(o, "TestWindowSummary");
+  export const isa = (o: any): o is TestWindowSummary => __isa(o, "TestWindowSummary");
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   * <p>The keys of the tags to be removed.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast exports.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
+}
+
+export interface UntagResourceResponse {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDatasetGroupRequest {
@@ -3328,10 +3555,9 @@ export interface UpdateDatasetGroupRequest {
 
 export namespace UpdateDatasetGroupRequest {
   export const filterSensitiveLog = (obj: UpdateDatasetGroupRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDatasetGroupRequest =>
-    __isa(o, "UpdateDatasetGroupRequest");
+  export const isa = (o: any): o is UpdateDatasetGroupRequest => __isa(o, "UpdateDatasetGroupRequest");
 }
 
 export interface UpdateDatasetGroupResponse {
@@ -3340,10 +3566,9 @@ export interface UpdateDatasetGroupResponse {
 
 export namespace UpdateDatasetGroupResponse {
   export const filterSensitiveLog = (obj: UpdateDatasetGroupResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDatasetGroupResponse =>
-    __isa(o, "UpdateDatasetGroupResponse");
+  export const isa = (o: any): o is UpdateDatasetGroupResponse => __isa(o, "UpdateDatasetGroupResponse");
 }
 
 /**
@@ -3368,10 +3593,9 @@ export interface WeightedQuantileLoss {
 
 export namespace WeightedQuantileLoss {
   export const filterSensitiveLog = (obj: WeightedQuantileLoss): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is WeightedQuantileLoss =>
-    __isa(o, "WeightedQuantileLoss");
+  export const isa = (o: any): o is WeightedQuantileLoss => __isa(o, "WeightedQuantileLoss");
 }
 
 /**
@@ -3399,14 +3623,14 @@ export interface WindowSummary {
   EvaluationType?: EvaluationType | string;
 
   /**
-   * <p>The number of data points within the window.</p>
-   */
-  ItemCount?: number;
-
-  /**
    * <p>Provides metrics used to evaluate the performance of a predictor.</p>
    */
   Metrics?: Metrics;
+
+  /**
+   * <p>The timestamp that defines the start of the window.</p>
+   */
+  TestWindowStart?: Date;
 
   /**
    * <p>The timestamp that defines the end of the window.</p>
@@ -3414,14 +3638,14 @@ export interface WindowSummary {
   TestWindowEnd?: Date;
 
   /**
-   * <p>The timestamp that defines the start of the window.</p>
+   * <p>The number of data points within the window.</p>
    */
-  TestWindowStart?: Date;
+  ItemCount?: number;
 }
 
 export namespace WindowSummary {
   export const filterSensitiveLog = (obj: WindowSummary): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is WindowSummary => __isa(o, "WindowSummary");
 }

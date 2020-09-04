@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  ResetServiceSpecificCredentialRequest,
-  ResetServiceSpecificCredentialResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/index.ts";
 import {
   deserializeAws_queryResetServiceSpecificCredentialCommand,
-  serializeAws_queryResetServiceSpecificCredentialCommand
+  serializeAws_queryResetServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ResetServiceSpecificCredentialCommandInput = ResetServiceSpecificCredentialRequest;
-export type ResetServiceSpecificCredentialCommandOutput = ResetServiceSpecificCredentialResponse &
-  __MetadataBearer;
+export type ResetServiceSpecificCredentialCommandOutput = ResetServiceSpecificCredentialResponse & __MetadataBearer;
 
 export class ResetServiceSpecificCredentialCommand extends $Command<
   ResetServiceSpecificCredentialCommandInput,
@@ -49,18 +38,16 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetServiceSpecificCredentialCommandInput,
-    ResetServiceSpecificCredentialCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetServiceSpecificCredentialCommandInput, ResetServiceSpecificCredentialCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ResetServiceSpecificCredentialRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetServiceSpecificCredentialResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     input: ResetServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryResetServiceSpecificCredentialCommand(
-      input,
-      context
-    );
+    return serializeAws_queryResetServiceSpecificCredentialCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryResetServiceSpecificCredentialCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryResetServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

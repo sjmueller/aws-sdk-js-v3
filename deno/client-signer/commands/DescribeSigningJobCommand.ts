@@ -1,21 +1,11 @@
-import {
-  DescribeSigningJobRequest,
-  DescribeSigningJobResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient.ts";
+import { DescribeSigningJobRequest, DescribeSigningJobResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeSigningJobCommand,
-  serializeAws_restJson1DescribeSigningJobCommand
+  serializeAws_restJson1DescribeSigningJobCommand,
 } from "../protocols/Aws_restJson1.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSigningJobCommandInput = DescribeSigningJobRequest;
-export type DescribeSigningJobCommandOutput = DescribeSigningJobResponse &
-  __MetadataBearer;
+export type DescribeSigningJobCommandOutput = DescribeSigningJobResponse & __MetadataBearer;
 
 export class DescribeSigningJobCommand extends $Command<
   DescribeSigningJobCommandInput,
   DescribeSigningJobCommandOutput,
-  signerClientResolvedConfig
+  SignerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,18 @@ export class DescribeSigningJobCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: signerClientResolvedConfig,
+    configuration: SignerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSigningJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSigningJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeSigningJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSigningJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeSigningJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSigningJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSigningJobCommandOutput> {
     return deserializeAws_restJson1DescribeSigningJobCommand(output, context);
   }
 

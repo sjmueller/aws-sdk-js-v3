@@ -1,18 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
 import { CreateEndpointRequest, CreateEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
-  serializeAws_json1_1CreateEndpointCommand
+  serializeAws_json1_1CreateEndpointCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateEndpointCommandInput = CreateEndpointRequest;
-export type CreateEndpointCommandOutput = CreateEndpointResponse &
-  __MetadataBearer;
+export type CreateEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
 
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
@@ -47,14 +39,15 @@ export class CreateEndpointCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEndpointCommandInput, CreateEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointCommandOutput> {
     return deserializeAws_json1_1CreateEndpointCommand(output, context);
   }
 

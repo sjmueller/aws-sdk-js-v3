@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
-import {
-  GetUserSettingsRequest,
-  GetUserSettingsResponse
-} from "../models/index.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
+import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetUserSettingsCommand,
-  serializeAws_restJson1GetUserSettingsCommand
+  serializeAws_restJson1GetUserSettingsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetUserSettingsCommandInput = GetUserSettingsRequest;
-export type GetUserSettingsCommandOutput = GetUserSettingsResponse &
-  __MetadataBearer;
+export type GetUserSettingsCommandOutput = GetUserSettingsResponse & __MetadataBearer;
 
 export class GetUserSettingsCommand extends $Command<
   GetUserSettingsCommandInput,
@@ -50,14 +39,15 @@ export class GetUserSettingsCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserSettingsCommandInput, GetUserSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetUserSettingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUserSettingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetUserSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUserSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUserSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUserSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserSettingsCommandOutput> {
     return deserializeAws_restJson1GetUserSettingsCommand(output, context);
   }
 

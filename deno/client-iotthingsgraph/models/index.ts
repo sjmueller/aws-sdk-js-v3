@@ -1,21 +1,8 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AssociateEntityToThingRequest {
   __type?: "AssociateEntityToThingRequest";
-  /**
-   * <p>The ID of the device to be associated with the thing.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
-   *          </p>
-   */
-  entityId: string | undefined;
-
   /**
    * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
    */
@@ -25,16 +12,22 @@ export interface AssociateEntityToThingRequest {
    * <p>The name of the thing to which the entity is to be associated.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>The ID of the device to be associated with the thing.</p>
+   *          <p>The ID should be in the following format.</p>
+   *          <p>
+   *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
+   *          </p>
+   */
+  entityId: string | undefined;
 }
 
 export namespace AssociateEntityToThingRequest {
-  export const filterSensitiveLog = (
-    obj: AssociateEntityToThingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateEntityToThingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateEntityToThingRequest =>
-    __isa(o, "AssociateEntityToThingRequest");
+  export const isa = (o: any): o is AssociateEntityToThingRequest => __isa(o, "AssociateEntityToThingRequest");
 }
 
 export interface AssociateEntityToThingResponse {
@@ -42,35 +35,31 @@ export interface AssociateEntityToThingResponse {
 }
 
 export namespace AssociateEntityToThingResponse {
-  export const filterSensitiveLog = (
-    obj: AssociateEntityToThingResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AssociateEntityToThingResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateEntityToThingResponse =>
-    __isa(o, "AssociateEntityToThingResponse");
+  export const isa = (o: any): o is AssociateEntityToThingResponse => __isa(o, "AssociateEntityToThingResponse");
 }
 
 export interface CreateFlowTemplateRequest {
   __type?: "CreateFlowTemplateRequest";
   /**
+   * <p>The workflow <code>DefinitionDocument</code>.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
+  /**
    * <p>The namespace version in which the workflow is to be created.</p>
    *          <p>If no value is specified, the latest version is used by default.</p>
    */
   compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The workflow <code>DefinitionDocument</code>.</p>
-   */
-  definition: DefinitionDocument | undefined;
 }
 
 export namespace CreateFlowTemplateRequest {
   export const filterSensitiveLog = (obj: CreateFlowTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFlowTemplateRequest =>
-    __isa(o, "CreateFlowTemplateRequest");
+  export const isa = (o: any): o is CreateFlowTemplateRequest => __isa(o, "CreateFlowTemplateRequest");
 }
 
 export interface CreateFlowTemplateResponse {
@@ -83,14 +72,40 @@ export interface CreateFlowTemplateResponse {
 
 export namespace CreateFlowTemplateResponse {
   export const filterSensitiveLog = (obj: CreateFlowTemplateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFlowTemplateResponse =>
-    __isa(o, "CreateFlowTemplateResponse");
+  export const isa = (o: any): o is CreateFlowTemplateResponse => __isa(o, "CreateFlowTemplateResponse");
 }
 
 export interface CreateSystemInstanceRequest {
   __type?: "CreateSystemInstanceRequest";
+  /**
+   * <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if
+   *          the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
+   */
+  s3BucketName?: string;
+
+  /**
+   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+   */
+  metricsConfiguration?: MetricsConfiguration;
+
+  /**
+   * <p>The name of the Greengrass group where the system instance will be deployed. This value is required if
+   *       the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
+   */
+  greengrassGroupName?: string;
+
+  /**
+   * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
+   */
+  target: DeploymentTarget | string | undefined;
+
   /**
    * <p>A document that defines an entity. </p>
    */
@@ -102,43 +117,13 @@ export interface CreateSystemInstanceRequest {
    *       value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>
    */
   flowActionsRoleArn?: string;
-
-  /**
-   * <p>The name of the Greengrass group where the system instance will be deployed. This value is required if
-   *       the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
-   */
-  greengrassGroupName?: string;
-
-  /**
-   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
-   */
-  metricsConfiguration?: MetricsConfiguration;
-
-  /**
-   * <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if
-   *          the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
-   */
-  s3BucketName?: string;
-
-  /**
-   * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
-   */
-  target: DeploymentTarget | string | undefined;
 }
 
 export namespace CreateSystemInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: CreateSystemInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSystemInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSystemInstanceRequest =>
-    __isa(o, "CreateSystemInstanceRequest");
+  export const isa = (o: any): o is CreateSystemInstanceRequest => __isa(o, "CreateSystemInstanceRequest");
 }
 
 export interface CreateSystemInstanceResponse {
@@ -150,37 +135,31 @@ export interface CreateSystemInstanceResponse {
 }
 
 export namespace CreateSystemInstanceResponse {
-  export const filterSensitiveLog = (
-    obj: CreateSystemInstanceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSystemInstanceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSystemInstanceResponse =>
-    __isa(o, "CreateSystemInstanceResponse");
+  export const isa = (o: any): o is CreateSystemInstanceResponse => __isa(o, "CreateSystemInstanceResponse");
 }
 
 export interface CreateSystemTemplateRequest {
   __type?: "CreateSystemTemplateRequest";
   /**
+   * <p>The <code>DefinitionDocument</code> used to create the system.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
+  /**
    * <p>The namespace version in which the system is to be created.</p>
    *          <p>If no value is specified, the latest version is used by default.</p>
    */
   compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> used to create the system.</p>
-   */
-  definition: DefinitionDocument | undefined;
 }
 
 export namespace CreateSystemTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: CreateSystemTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSystemTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSystemTemplateRequest =>
-    __isa(o, "CreateSystemTemplateRequest");
+  export const isa = (o: any): o is CreateSystemTemplateRequest => __isa(o, "CreateSystemTemplateRequest");
 }
 
 export interface CreateSystemTemplateResponse {
@@ -192,13 +171,10 @@ export interface CreateSystemTemplateResponse {
 }
 
 export namespace CreateSystemTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: CreateSystemTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSystemTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSystemTemplateResponse =>
-    __isa(o, "CreateSystemTemplateResponse");
+  export const isa = (o: any): o is CreateSystemTemplateResponse => __isa(o, "CreateSystemTemplateResponse");
 }
 
 /**
@@ -219,14 +195,13 @@ export interface DefinitionDocument {
 
 export namespace DefinitionDocument {
   export const filterSensitiveLog = (obj: DefinitionDocument): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DefinitionDocument =>
-    __isa(o, "DefinitionDocument");
+  export const isa = (o: any): o is DefinitionDocument => __isa(o, "DefinitionDocument");
 }
 
 export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL"
+  GRAPHQL = "GRAPHQL",
 }
 
 export interface DeleteFlowTemplateRequest {
@@ -243,10 +218,9 @@ export interface DeleteFlowTemplateRequest {
 
 export namespace DeleteFlowTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteFlowTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowTemplateRequest =>
-    __isa(o, "DeleteFlowTemplateRequest");
+  export const isa = (o: any): o is DeleteFlowTemplateRequest => __isa(o, "DeleteFlowTemplateRequest");
 }
 
 export interface DeleteFlowTemplateResponse {
@@ -255,10 +229,9 @@ export interface DeleteFlowTemplateResponse {
 
 export namespace DeleteFlowTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteFlowTemplateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowTemplateResponse =>
-    __isa(o, "DeleteFlowTemplateResponse");
+  export const isa = (o: any): o is DeleteFlowTemplateResponse => __isa(o, "DeleteFlowTemplateResponse");
 }
 
 export interface DeleteNamespaceRequest {
@@ -267,31 +240,29 @@ export interface DeleteNamespaceRequest {
 
 export namespace DeleteNamespaceRequest {
   export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceRequest =>
-    __isa(o, "DeleteNamespaceRequest");
+  export const isa = (o: any): o is DeleteNamespaceRequest => __isa(o, "DeleteNamespaceRequest");
 }
 
 export interface DeleteNamespaceResponse {
   __type?: "DeleteNamespaceResponse";
   /**
-   * <p>The ARN of the namespace to be deleted.</p>
-   */
-  namespaceArn?: string;
-
-  /**
    * <p>The name of the namespace to be deleted.</p>
    */
   namespaceName?: string;
+
+  /**
+   * <p>The ARN of the namespace to be deleted.</p>
+   */
+  namespaceArn?: string;
 }
 
 export namespace DeleteNamespaceResponse {
   export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceResponse =>
-    __isa(o, "DeleteNamespaceResponse");
+  export const isa = (o: any): o is DeleteNamespaceResponse => __isa(o, "DeleteNamespaceResponse");
 }
 
 export interface DeleteSystemInstanceRequest {
@@ -303,13 +274,10 @@ export interface DeleteSystemInstanceRequest {
 }
 
 export namespace DeleteSystemInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteSystemInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSystemInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSystemInstanceRequest =>
-    __isa(o, "DeleteSystemInstanceRequest");
+  export const isa = (o: any): o is DeleteSystemInstanceRequest => __isa(o, "DeleteSystemInstanceRequest");
 }
 
 export interface DeleteSystemInstanceResponse {
@@ -317,13 +285,10 @@ export interface DeleteSystemInstanceResponse {
 }
 
 export namespace DeleteSystemInstanceResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteSystemInstanceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSystemInstanceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSystemInstanceResponse =>
-    __isa(o, "DeleteSystemInstanceResponse");
+  export const isa = (o: any): o is DeleteSystemInstanceResponse => __isa(o, "DeleteSystemInstanceResponse");
 }
 
 export interface DeleteSystemTemplateRequest {
@@ -339,13 +304,10 @@ export interface DeleteSystemTemplateRequest {
 }
 
 export namespace DeleteSystemTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteSystemTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSystemTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSystemTemplateRequest =>
-    __isa(o, "DeleteSystemTemplateRequest");
+  export const isa = (o: any): o is DeleteSystemTemplateRequest => __isa(o, "DeleteSystemTemplateRequest");
 }
 
 export interface DeleteSystemTemplateResponse {
@@ -353,13 +315,10 @@ export interface DeleteSystemTemplateResponse {
 }
 
 export namespace DeleteSystemTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: DeleteSystemTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSystemTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSystemTemplateResponse =>
-    __isa(o, "DeleteSystemTemplateResponse");
+  export const isa = (o: any): o is DeleteSystemTemplateResponse => __isa(o, "DeleteSystemTemplateResponse");
 }
 
 /**
@@ -380,15 +339,14 @@ export interface DependencyRevision {
 
 export namespace DependencyRevision {
   export const filterSensitiveLog = (obj: DependencyRevision): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DependencyRevision =>
-    __isa(o, "DependencyRevision");
+  export const isa = (o: any): o is DependencyRevision => __isa(o, "DependencyRevision");
 }
 
 export enum DeploymentTarget {
   CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS"
+  GREENGRASS = "GREENGRASS",
 }
 
 export interface DeploySystemInstanceRequest {
@@ -404,13 +362,10 @@ export interface DeploySystemInstanceRequest {
 }
 
 export namespace DeploySystemInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: DeploySystemInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeploySystemInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeploySystemInstanceRequest =>
-    __isa(o, "DeploySystemInstanceRequest");
+  export const isa = (o: any): o is DeploySystemInstanceRequest => __isa(o, "DeploySystemInstanceRequest");
 }
 
 export interface DeploySystemInstanceResponse {
@@ -427,13 +382,10 @@ export interface DeploySystemInstanceResponse {
 }
 
 export namespace DeploySystemInstanceResponse {
-  export const filterSensitiveLog = (
-    obj: DeploySystemInstanceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeploySystemInstanceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeploySystemInstanceResponse =>
-    __isa(o, "DeploySystemInstanceResponse");
+  export const isa = (o: any): o is DeploySystemInstanceResponse => __isa(o, "DeploySystemInstanceResponse");
 }
 
 export interface DeprecateFlowTemplateRequest {
@@ -449,13 +401,10 @@ export interface DeprecateFlowTemplateRequest {
 }
 
 export namespace DeprecateFlowTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeprecateFlowTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeprecateFlowTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateFlowTemplateRequest =>
-    __isa(o, "DeprecateFlowTemplateRequest");
+  export const isa = (o: any): o is DeprecateFlowTemplateRequest => __isa(o, "DeprecateFlowTemplateRequest");
 }
 
 export interface DeprecateFlowTemplateResponse {
@@ -463,13 +412,10 @@ export interface DeprecateFlowTemplateResponse {
 }
 
 export namespace DeprecateFlowTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: DeprecateFlowTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeprecateFlowTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateFlowTemplateResponse =>
-    __isa(o, "DeprecateFlowTemplateResponse");
+  export const isa = (o: any): o is DeprecateFlowTemplateResponse => __isa(o, "DeprecateFlowTemplateResponse");
 }
 
 export interface DeprecateSystemTemplateRequest {
@@ -485,13 +431,10 @@ export interface DeprecateSystemTemplateRequest {
 }
 
 export namespace DeprecateSystemTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: DeprecateSystemTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeprecateSystemTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateSystemTemplateRequest =>
-    __isa(o, "DeprecateSystemTemplateRequest");
+  export const isa = (o: any): o is DeprecateSystemTemplateRequest => __isa(o, "DeprecateSystemTemplateRequest");
 }
 
 export interface DeprecateSystemTemplateResponse {
@@ -499,13 +442,10 @@ export interface DeprecateSystemTemplateResponse {
 }
 
 export namespace DeprecateSystemTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: DeprecateSystemTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeprecateSystemTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeprecateSystemTemplateResponse =>
-    __isa(o, "DeprecateSystemTemplateResponse");
+  export const isa = (o: any): o is DeprecateSystemTemplateResponse => __isa(o, "DeprecateSystemTemplateResponse");
 }
 
 export interface DescribeNamespaceRequest {
@@ -518,28 +458,17 @@ export interface DescribeNamespaceRequest {
 
 export namespace DescribeNamespaceRequest {
   export const filterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNamespaceRequest =>
-    __isa(o, "DescribeNamespaceRequest");
+  export const isa = (o: any): o is DescribeNamespaceRequest => __isa(o, "DescribeNamespaceRequest");
 }
 
 export interface DescribeNamespaceResponse {
   __type?: "DescribeNamespaceResponse";
   /**
-   * <p>The ARN of the namespace.</p>
+   * <p>The version of the public namespace that the latest version is tracking.</p>
    */
-  namespaceArn?: string;
-
-  /**
-   * <p>The name of the namespace.</p>
-   */
-  namespaceName?: string;
-
-  /**
-   * <p>The version of the user's namespace to describe.</p>
-   */
-  namespaceVersion?: number;
+  trackingNamespaceVersion?: number;
 
   /**
    * <p>The name of the public namespace that the latest namespace version is tracking.</p>
@@ -547,17 +476,26 @@ export interface DescribeNamespaceResponse {
   trackingNamespaceName?: string;
 
   /**
-   * <p>The version of the public namespace that the latest version is tracking.</p>
+   * <p>The version of the user's namespace to describe.</p>
    */
-  trackingNamespaceVersion?: number;
+  namespaceVersion?: number;
+
+  /**
+   * <p>The name of the namespace.</p>
+   */
+  namespaceName?: string;
+
+  /**
+   * <p>The ARN of the namespace.</p>
+   */
+  namespaceArn?: string;
 }
 
 export namespace DescribeNamespaceResponse {
   export const filterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNamespaceResponse =>
-    __isa(o, "DescribeNamespaceResponse");
+  export const isa = (o: any): o is DescribeNamespaceResponse => __isa(o, "DescribeNamespaceResponse");
 }
 
 export interface DissociateEntityFromThingRequest {
@@ -574,13 +512,10 @@ export interface DissociateEntityFromThingRequest {
 }
 
 export namespace DissociateEntityFromThingRequest {
-  export const filterSensitiveLog = (
-    obj: DissociateEntityFromThingRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DissociateEntityFromThingRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DissociateEntityFromThingRequest =>
-    __isa(o, "DissociateEntityFromThingRequest");
+  export const isa = (o: any): o is DissociateEntityFromThingRequest => __isa(o, "DissociateEntityFromThingRequest");
 }
 
 export interface DissociateEntityFromThingResponse {
@@ -588,13 +523,10 @@ export interface DissociateEntityFromThingResponse {
 }
 
 export namespace DissociateEntityFromThingResponse {
-  export const filterSensitiveLog = (
-    obj: DissociateEntityFromThingResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DissociateEntityFromThingResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DissociateEntityFromThingResponse =>
-    __isa(o, "DissociateEntityFromThingResponse");
+  export const isa = (o: any): o is DissociateEntityFromThingResponse => __isa(o, "DissociateEntityFromThingResponse");
 }
 
 /**
@@ -602,6 +534,11 @@ export namespace DissociateEntityFromThingResponse {
  */
 export interface EntityDescription {
   __type?: "EntityDescription";
+  /**
+   * <p>The entity ID.</p>
+   */
+  id?: string;
+
   /**
    * <p>The entity ARN.</p>
    */
@@ -613,27 +550,21 @@ export interface EntityDescription {
   createdAt?: Date;
 
   /**
-   * <p>The definition document of the entity.</p>
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   * <p>The entity ID.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The entity type.</p>
    */
   type?: EntityType | string;
+
+  /**
+   * <p>The definition document of the entity.</p>
+   */
+  definition?: DefinitionDocument;
 }
 
 export namespace EntityDescription {
   export const filterSensitiveLog = (obj: EntityDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EntityDescription =>
-    __isa(o, "EntityDescription");
+  export const isa = (o: any): o is EntityDescription => __isa(o, "EntityDescription");
 }
 
 /**
@@ -644,20 +575,20 @@ export namespace EntityDescription {
 export interface EntityFilter {
   __type?: "EntityFilter";
   /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   */
+  value?: string[];
+
+  /**
    * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
    *          you can filter on the ID of a property that is used in a state.</p>
    */
   name?: EntityFilterName | string;
-
-  /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   */
-  value?: string[];
 }
 
 export namespace EntityFilter {
   export const filterSensitiveLog = (obj: EntityFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
@@ -666,7 +597,7 @@ export enum EntityFilterName {
   NAME = "NAME",
   NAMESPACE = "NAMESPACE",
   REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
+  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH",
 }
 
 export enum EntityType {
@@ -679,7 +610,7 @@ export enum EntityType {
   MAPPING = "MAPPING",
   PROPERTY = "PROPERTY",
   SERVICE = "SERVICE",
-  STATE = "STATE"
+  STATE = "STATE",
 }
 
 export enum FlowExecutionEventType {
@@ -699,7 +630,7 @@ export enum FlowExecutionEventType {
   STEP_SUCCEEDED = "STEP_SUCCEEDED",
   THING_ACTION_TASK = "THING_ACTION_TASK",
   THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
+  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED",
 }
 
 /**
@@ -730,17 +661,16 @@ export interface FlowExecutionMessage {
 
 export namespace FlowExecutionMessage {
   export const filterSensitiveLog = (obj: FlowExecutionMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlowExecutionMessage =>
-    __isa(o, "FlowExecutionMessage");
+  export const isa = (o: any): o is FlowExecutionMessage => __isa(o, "FlowExecutionMessage");
 }
 
 export enum FlowExecutionStatus {
   ABORTED = "ABORTED",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -748,6 +678,16 @@ export enum FlowExecutionStatus {
  */
 export interface FlowExecutionSummary {
   __type?: "FlowExecutionSummary";
+  /**
+   * <p>The ID of the flow.</p>
+   */
+  flowTemplateId?: string;
+
+  /**
+   * <p>The date and time when the flow execution summary was last updated.</p>
+   */
+  updatedAt?: Date;
+
   /**
    * <p>The date and time when the flow execution summary was created.</p>
    */
@@ -759,32 +699,21 @@ export interface FlowExecutionSummary {
   flowExecutionId?: string;
 
   /**
-   * <p>The ID of the flow.</p>
-   */
-  flowTemplateId?: string;
-
-  /**
-   * <p>The current status of the flow execution.</p>
-   */
-  status?: FlowExecutionStatus | string;
-
-  /**
    * <p>The ID of the system instance that contains the flow.</p>
    */
   systemInstanceId?: string;
 
   /**
-   * <p>The date and time when the flow execution summary was last updated.</p>
+   * <p>The current status of the flow execution.</p>
    */
-  updatedAt?: Date;
+  status?: FlowExecutionStatus | string;
 }
 
 export namespace FlowExecutionSummary {
   export const filterSensitiveLog = (obj: FlowExecutionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlowExecutionSummary =>
-    __isa(o, "FlowExecutionSummary");
+  export const isa = (o: any): o is FlowExecutionSummary => __isa(o, "FlowExecutionSummary");
 }
 
 /**
@@ -798,22 +727,21 @@ export interface FlowTemplateDescription {
   definition?: DefinitionDocument;
 
   /**
-   * <p>An object that contains summary information about a workflow.</p>
-   */
-  summary?: FlowTemplateSummary;
-
-  /**
    * <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
    */
   validatedNamespaceVersion?: number;
+
+  /**
+   * <p>An object that contains summary information about a workflow.</p>
+   */
+  summary?: FlowTemplateSummary;
 }
 
 export namespace FlowTemplateDescription {
   export const filterSensitiveLog = (obj: FlowTemplateDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlowTemplateDescription =>
-    __isa(o, "FlowTemplateDescription");
+  export const isa = (o: any): o is FlowTemplateDescription => __isa(o, "FlowTemplateDescription");
 }
 
 /**
@@ -822,26 +750,25 @@ export namespace FlowTemplateDescription {
 export interface FlowTemplateFilter {
   __type?: "FlowTemplateFilter";
   /**
-   * <p>The name of the search filter field.</p>
-   */
-  name: FlowTemplateFilterName | string | undefined;
-
-  /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
    */
   value: string[] | undefined;
+
+  /**
+   * <p>The name of the search filter field.</p>
+   */
+  name: FlowTemplateFilterName | string | undefined;
 }
 
 export namespace FlowTemplateFilter {
   export const filterSensitiveLog = (obj: FlowTemplateFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlowTemplateFilter =>
-    __isa(o, "FlowTemplateFilter");
+  export const isa = (o: any): o is FlowTemplateFilter => __isa(o, "FlowTemplateFilter");
 }
 
 export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
+  DEVICE_MODEL_ID = "DEVICE_MODEL_ID",
 }
 
 /**
@@ -850,14 +777,14 @@ export enum FlowTemplateFilterName {
 export interface FlowTemplateSummary {
   __type?: "FlowTemplateSummary";
   /**
-   * <p>The ARN of the workflow.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The date when the workflow was created.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>The revision number of the workflow.</p>
+   */
+  revisionNumber?: number;
 
   /**
    * <p>The ID of the workflow.</p>
@@ -865,21 +792,25 @@ export interface FlowTemplateSummary {
   id?: string;
 
   /**
-   * <p>The revision number of the workflow.</p>
+   * <p>The ARN of the workflow.</p>
    */
-  revisionNumber?: number;
+  arn?: string;
 }
 
 export namespace FlowTemplateSummary {
   export const filterSensitiveLog = (obj: FlowTemplateSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is FlowTemplateSummary =>
-    __isa(o, "FlowTemplateSummary");
+  export const isa = (o: any): o is FlowTemplateSummary => __isa(o, "FlowTemplateSummary");
 }
 
 export interface GetEntitiesRequest {
   __type?: "GetEntitiesRequest";
+  /**
+   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   */
+  namespaceVersion?: number;
+
   /**
    * <p>An array of entity IDs.</p>
    *          <p>The IDs should be in the following format.</p>
@@ -888,19 +819,13 @@ export interface GetEntitiesRequest {
    *          </p>
    */
   ids: string[] | undefined;
-
-  /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   */
-  namespaceVersion?: number;
 }
 
 export namespace GetEntitiesRequest {
   export const filterSensitiveLog = (obj: GetEntitiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEntitiesRequest =>
-    __isa(o, "GetEntitiesRequest");
+  export const isa = (o: any): o is GetEntitiesRequest => __isa(o, "GetEntitiesRequest");
 }
 
 export interface GetEntitiesResponse {
@@ -913,10 +838,9 @@ export interface GetEntitiesResponse {
 
 export namespace GetEntitiesResponse {
   export const filterSensitiveLog = (obj: GetEntitiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEntitiesResponse =>
-    __isa(o, "GetEntitiesResponse");
+  export const isa = (o: any): o is GetEntitiesResponse => __isa(o, "GetEntitiesResponse");
 }
 
 export interface GetFlowTemplateRequest {
@@ -938,10 +862,9 @@ export interface GetFlowTemplateRequest {
 
 export namespace GetFlowTemplateRequest {
   export const filterSensitiveLog = (obj: GetFlowTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFlowTemplateRequest =>
-    __isa(o, "GetFlowTemplateRequest");
+  export const isa = (o: any): o is GetFlowTemplateRequest => __isa(o, "GetFlowTemplateRequest");
 }
 
 export interface GetFlowTemplateResponse {
@@ -954,14 +877,23 @@ export interface GetFlowTemplateResponse {
 
 export namespace GetFlowTemplateResponse {
   export const filterSensitiveLog = (obj: GetFlowTemplateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetFlowTemplateResponse =>
-    __isa(o, "GetFlowTemplateResponse");
+  export const isa = (o: any): o is GetFlowTemplateResponse => __isa(o, "GetFlowTemplateResponse");
 }
 
 export interface GetFlowTemplateRevisionsRequest {
   __type?: "GetFlowTemplateRevisionsRequest";
+  /**
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
   /**
    * <p>The ID of the workflow.</p>
    *          <p>The ID should be in the following format.</p>
@@ -970,49 +902,33 @@ export interface GetFlowTemplateRevisionsRequest {
    *          </p>
    */
   id: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetFlowTemplateRevisionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetFlowTemplateRevisionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFlowTemplateRevisionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetFlowTemplateRevisionsRequest =>
-    __isa(o, "GetFlowTemplateRevisionsRequest");
+  export const isa = (o: any): o is GetFlowTemplateRevisionsRequest => __isa(o, "GetFlowTemplateRevisionsRequest");
 }
 
 export interface GetFlowTemplateRevisionsResponse {
   __type?: "GetFlowTemplateRevisionsResponse";
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects that provide summary data about each revision.</p>
    */
   summaries?: FlowTemplateSummary[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetFlowTemplateRevisionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetFlowTemplateRevisionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetFlowTemplateRevisionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetFlowTemplateRevisionsResponse =>
-    __isa(o, "GetFlowTemplateRevisionsResponse");
+  export const isa = (o: any): o is GetFlowTemplateRevisionsResponse => __isa(o, "GetFlowTemplateRevisionsResponse");
 }
 
 export interface GetNamespaceDeletionStatusRequest {
@@ -1020,26 +936,28 @@ export interface GetNamespaceDeletionStatusRequest {
 }
 
 export namespace GetNamespaceDeletionStatusRequest {
-  export const filterSensitiveLog = (
-    obj: GetNamespaceDeletionStatusRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetNamespaceDeletionStatusRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetNamespaceDeletionStatusRequest =>
-    __isa(o, "GetNamespaceDeletionStatusRequest");
+  export const isa = (o: any): o is GetNamespaceDeletionStatusRequest => __isa(o, "GetNamespaceDeletionStatusRequest");
 }
 
 export interface GetNamespaceDeletionStatusResponse {
   __type?: "GetNamespaceDeletionStatusResponse";
+  /**
+   * <p>The name of the namespace that is being deleted.</p>
+   */
+  namespaceName?: string;
+
   /**
    * <p>An error code returned by the namespace deletion task.</p>
    */
   errorCode?: NamespaceDeletionStatusErrorCodes | string;
 
   /**
-   * <p>An error code returned by the namespace deletion task.</p>
+   * <p>The status of the deletion request.</p>
    */
-  errorMessage?: string;
+  status?: NamespaceDeletionStatus | string;
 
   /**
    * <p>The ARN of the namespace that is being deleted.</p>
@@ -1047,21 +965,14 @@ export interface GetNamespaceDeletionStatusResponse {
   namespaceArn?: string;
 
   /**
-   * <p>The name of the namespace that is being deleted.</p>
+   * <p>An error code returned by the namespace deletion task.</p>
    */
-  namespaceName?: string;
-
-  /**
-   * <p>The status of the deletion request.</p>
-   */
-  status?: NamespaceDeletionStatus | string;
+  errorMessage?: string;
 }
 
 export namespace GetNamespaceDeletionStatusResponse {
-  export const filterSensitiveLog = (
-    obj: GetNamespaceDeletionStatusResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetNamespaceDeletionStatusResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetNamespaceDeletionStatusResponse =>
     __isa(o, "GetNamespaceDeletionStatusResponse");
@@ -1081,10 +992,9 @@ export interface GetSystemInstanceRequest {
 
 export namespace GetSystemInstanceRequest {
   export const filterSensitiveLog = (obj: GetSystemInstanceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSystemInstanceRequest =>
-    __isa(o, "GetSystemInstanceRequest");
+  export const isa = (o: any): o is GetSystemInstanceRequest => __isa(o, "GetSystemInstanceRequest");
 }
 
 export interface GetSystemInstanceResponse {
@@ -1097,14 +1007,18 @@ export interface GetSystemInstanceResponse {
 
 export namespace GetSystemInstanceResponse {
   export const filterSensitiveLog = (obj: GetSystemInstanceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSystemInstanceResponse =>
-    __isa(o, "GetSystemInstanceResponse");
+  export const isa = (o: any): o is GetSystemInstanceResponse => __isa(o, "GetSystemInstanceResponse");
 }
 
 export interface GetSystemTemplateRequest {
   __type?: "GetSystemTemplateRequest";
+  /**
+   * <p>The number that specifies the revision of the system to get.</p>
+   */
+  revisionNumber?: number;
+
   /**
    * <p>The ID of the system to get. This ID must be in the user's namespace.</p>
    *          <p>The ID should be in the following format.</p>
@@ -1113,19 +1027,13 @@ export interface GetSystemTemplateRequest {
    *          </p>
    */
   id: string | undefined;
-
-  /**
-   * <p>The number that specifies the revision of the system to get.</p>
-   */
-  revisionNumber?: number;
 }
 
 export namespace GetSystemTemplateRequest {
   export const filterSensitiveLog = (obj: GetSystemTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSystemTemplateRequest =>
-    __isa(o, "GetSystemTemplateRequest");
+  export const isa = (o: any): o is GetSystemTemplateRequest => __isa(o, "GetSystemTemplateRequest");
 }
 
 export interface GetSystemTemplateResponse {
@@ -1138,10 +1046,9 @@ export interface GetSystemTemplateResponse {
 
 export namespace GetSystemTemplateResponse {
   export const filterSensitiveLog = (obj: GetSystemTemplateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetSystemTemplateResponse =>
-    __isa(o, "GetSystemTemplateResponse");
+  export const isa = (o: any): o is GetSystemTemplateResponse => __isa(o, "GetSystemTemplateResponse");
 }
 
 export interface GetSystemTemplateRevisionsRequest {
@@ -1167,33 +1074,28 @@ export interface GetSystemTemplateRevisionsRequest {
 }
 
 export namespace GetSystemTemplateRevisionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetSystemTemplateRevisionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSystemTemplateRevisionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetSystemTemplateRevisionsRequest =>
-    __isa(o, "GetSystemTemplateRevisionsRequest");
+  export const isa = (o: any): o is GetSystemTemplateRevisionsRequest => __isa(o, "GetSystemTemplateRevisionsRequest");
 }
 
 export interface GetSystemTemplateRevisionsResponse {
   __type?: "GetSystemTemplateRevisionsResponse";
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects that contain summary data about the system template revisions.</p>
    */
   summaries?: SystemTemplateSummary[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetSystemTemplateRevisionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetSystemTemplateRevisionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetSystemTemplateRevisionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is GetSystemTemplateRevisionsResponse =>
     __isa(o, "GetSystemTemplateRevisionsResponse");
@@ -1209,18 +1111,17 @@ export interface GetUploadStatusRequest {
 
 export namespace GetUploadStatusRequest {
   export const filterSensitiveLog = (obj: GetUploadStatusRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUploadStatusRequest =>
-    __isa(o, "GetUploadStatusRequest");
+  export const isa = (o: any): o is GetUploadStatusRequest => __isa(o, "GetUploadStatusRequest");
 }
 
 export interface GetUploadStatusResponse {
   __type?: "GetUploadStatusResponse";
   /**
-   * <p>The date at which the upload was created.</p>
+   * <p>The ARN of the upload.</p>
    */
-  createdDate: Date | undefined;
+  namespaceArn?: string;
 
   /**
    * <p>The reason for an upload failure.</p>
@@ -1228,9 +1129,9 @@ export interface GetUploadStatusResponse {
   failureReason?: string[];
 
   /**
-   * <p>The ARN of the upload.</p>
+   * <p>The ID of the upload.</p>
    */
-  namespaceArn?: string;
+  uploadId: string | undefined;
 
   /**
    * <p>The name of the upload's namespace.</p>
@@ -1243,30 +1144,27 @@ export interface GetUploadStatusResponse {
   namespaceVersion?: number;
 
   /**
-   * <p>The ID of the upload.</p>
-   */
-  uploadId: string | undefined;
-
-  /**
    * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
    */
   uploadStatus: UploadStatus | string | undefined;
+
+  /**
+   * <p>The date at which the upload was created.</p>
+   */
+  createdDate: Date | undefined;
 }
 
 export namespace GetUploadStatusResponse {
   export const filterSensitiveLog = (obj: GetUploadStatusResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetUploadStatusResponse =>
-    __isa(o, "GetUploadStatusResponse");
+  export const isa = (o: any): o is GetUploadStatusResponse => __isa(o, "GetUploadStatusResponse");
 }
 
 /**
  * <p></p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1274,18 +1172,15 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p></p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -1293,18 +1188,15 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p></p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1312,23 +1204,22 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListFlowExecutionMessagesRequest {
   __type?: "ListFlowExecutionMessagesRequest";
   /**
-   * <p>The ID of the flow execution.</p>
-   */
-  flowExecutionId: string | undefined;
-
-  /**
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The ID of the flow execution.</p>
+   */
+  flowExecutionId: string | undefined;
 
   /**
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
@@ -1337,13 +1228,10 @@ export interface ListFlowExecutionMessagesRequest {
 }
 
 export namespace ListFlowExecutionMessagesRequest {
-  export const filterSensitiveLog = (
-    obj: ListFlowExecutionMessagesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListFlowExecutionMessagesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListFlowExecutionMessagesRequest =>
-    __isa(o, "ListFlowExecutionMessagesRequest");
+  export const isa = (o: any): o is ListFlowExecutionMessagesRequest => __isa(o, "ListFlowExecutionMessagesRequest");
 }
 
 export interface ListFlowExecutionMessagesResponse {
@@ -1360,13 +1248,10 @@ export interface ListFlowExecutionMessagesResponse {
 }
 
 export namespace ListFlowExecutionMessagesResponse {
-  export const filterSensitiveLog = (
-    obj: ListFlowExecutionMessagesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListFlowExecutionMessagesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListFlowExecutionMessagesResponse =>
-    __isa(o, "ListFlowExecutionMessagesResponse");
+  export const isa = (o: any): o is ListFlowExecutionMessagesResponse => __isa(o, "ListFlowExecutionMessagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1377,22 +1262,21 @@ export interface ListTagsForResourceRequest {
   maxResults?: number;
 
   /**
-   * <p>The token that specifies the next page of results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be returned.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The token that specifies the next page of results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1409,13 +1293,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -1424,61 +1305,53 @@ export namespace ListTagsForResourceResponse {
 export interface MetricsConfiguration {
   __type?: "MetricsConfiguration";
   /**
-   * <p>A Boolean that specifies whether cloud metrics are collected.</p>
-   */
-  cloudMetricEnabled?: boolean;
-
-  /**
    * <p>The ARN of the role that is used to collect cloud metrics.</p>
    */
   metricRuleRoleArn?: string;
+
+  /**
+   * <p>A Boolean that specifies whether cloud metrics are collected.</p>
+   */
+  cloudMetricEnabled?: boolean;
 }
 
 export namespace MetricsConfiguration {
   export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MetricsConfiguration =>
-    __isa(o, "MetricsConfiguration");
+  export const isa = (o: any): o is MetricsConfiguration => __isa(o, "MetricsConfiguration");
 }
 
 export enum NamespaceDeletionStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED"
+  VALIDATION_FAILED = "VALIDATION_FAILED",
 }
 
 /**
  * <p></p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p></p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1486,18 +1359,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p></p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1505,19 +1375,13 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface SearchEntitiesRequest {
   __type?: "SearchEntitiesRequest";
-  /**
-   * <p>The entity types for which to search.</p>
-   */
-  entityTypes: (EntityType | string)[] | undefined;
-
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>
    *             <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>.
@@ -1528,14 +1392,19 @@ export interface SearchEntitiesRequest {
   filters?: EntityFilter[];
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * <p>The entity types for which to search.</p>
    */
-  maxResults?: number;
+  entityTypes: (EntityType | string)[] | undefined;
 
   /**
    * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
    */
   namespaceVersion?: number;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
@@ -1545,54 +1414,37 @@ export interface SearchEntitiesRequest {
 
 export namespace SearchEntitiesRequest {
   export const filterSensitiveLog = (obj: SearchEntitiesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchEntitiesRequest =>
-    __isa(o, "SearchEntitiesRequest");
+  export const isa = (o: any): o is SearchEntitiesRequest => __isa(o, "SearchEntitiesRequest");
 }
 
 export interface SearchEntitiesResponse {
   __type?: "SearchEntitiesResponse";
   /**
-   * <p>An array of descriptions for each entity returned in the search result.</p>
-   */
-  descriptions?: EntityDescription[];
-
-  /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of descriptions for each entity returned in the search result.</p>
+   */
+  descriptions?: EntityDescription[];
 }
 
 export namespace SearchEntitiesResponse {
   export const filterSensitiveLog = (obj: SearchEntitiesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchEntitiesResponse =>
-    __isa(o, "SearchEntitiesResponse");
+  export const isa = (o: any): o is SearchEntitiesResponse => __isa(o, "SearchEntitiesResponse");
 }
 
 export interface SearchFlowExecutionsRequest {
   __type?: "SearchFlowExecutionsRequest";
   /**
-   * <p>The date and time of the latest flow execution to return.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>The ID of a flow execution.</p>
-   */
-  flowExecutionId?: string;
-
-  /**
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>The date and time of the earliest flow execution to return.</p>
@@ -1600,19 +1452,31 @@ export interface SearchFlowExecutionsRequest {
   startTime?: Date;
 
   /**
+   * <p>The ID of a flow execution.</p>
+   */
+  flowExecutionId?: string;
+
+  /**
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The ID of the system instance that contains the flow.</p>
    */
   systemInstanceId: string | undefined;
+
+  /**
+   * <p>The date and time of the latest flow execution to return.</p>
+   */
+  endTime?: Date;
 }
 
 export namespace SearchFlowExecutionsRequest {
-  export const filterSensitiveLog = (
-    obj: SearchFlowExecutionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchFlowExecutionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchFlowExecutionsRequest =>
-    __isa(o, "SearchFlowExecutionsRequest");
+  export const isa = (o: any): o is SearchFlowExecutionsRequest => __isa(o, "SearchFlowExecutionsRequest");
 }
 
 export interface SearchFlowExecutionsResponse {
@@ -1629,22 +1493,59 @@ export interface SearchFlowExecutionsResponse {
 }
 
 export namespace SearchFlowExecutionsResponse {
-  export const filterSensitiveLog = (
-    obj: SearchFlowExecutionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchFlowExecutionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchFlowExecutionsResponse =>
-    __isa(o, "SearchFlowExecutionsResponse");
+  export const isa = (o: any): o is SearchFlowExecutionsResponse => __isa(o, "SearchFlowExecutionsResponse");
 }
 
 export interface SearchFlowTemplatesRequest {
   __type?: "SearchFlowTemplatesRequest";
   /**
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
    */
   filters?: FlowTemplateFilter[];
+}
 
+export namespace SearchFlowTemplatesRequest {
+  export const filterSensitiveLog = (obj: SearchFlowTemplatesRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SearchFlowTemplatesRequest => __isa(o, "SearchFlowTemplatesRequest");
+}
+
+export interface SearchFlowTemplatesResponse {
+  __type?: "SearchFlowTemplatesResponse";
+  /**
+   * <p>An array of objects that contain summary information about each workflow in the result set.</p>
+   */
+  summaries?: FlowTemplateSummary[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace SearchFlowTemplatesResponse {
+  export const filterSensitiveLog = (obj: SearchFlowTemplatesResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is SearchFlowTemplatesResponse => __isa(o, "SearchFlowTemplatesResponse");
+}
+
+export interface SearchSystemInstancesRequest {
+  __type?: "SearchSystemInstancesRequest";
   /**
    * <p>The maximum number of results to return in the response.</p>
    */
@@ -1654,67 +1555,20 @@ export interface SearchFlowTemplatesRequest {
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
    */
   nextToken?: string;
-}
 
-export namespace SearchFlowTemplatesRequest {
-  export const filterSensitiveLog = (obj: SearchFlowTemplatesRequest): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SearchFlowTemplatesRequest =>
-    __isa(o, "SearchFlowTemplatesRequest");
-}
-
-export interface SearchFlowTemplatesResponse {
-  __type?: "SearchFlowTemplatesResponse";
-  /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>An array of objects that contain summary information about each workflow in the result set.</p>
-   */
-  summaries?: FlowTemplateSummary[];
-}
-
-export namespace SearchFlowTemplatesResponse {
-  export const filterSensitiveLog = (
-    obj: SearchFlowTemplatesResponse
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is SearchFlowTemplatesResponse =>
-    __isa(o, "SearchFlowTemplatesResponse");
-}
-
-export interface SearchSystemInstancesRequest {
-  __type?: "SearchSystemInstancesRequest";
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and
    *          <code>GREENGRASS_GROUP_NAME</code>.</p>
    *          <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
    */
   filters?: SystemInstanceFilter[];
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace SearchSystemInstancesRequest {
-  export const filterSensitiveLog = (
-    obj: SearchSystemInstancesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchSystemInstancesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchSystemInstancesRequest =>
-    __isa(o, "SearchSystemInstancesRequest");
+  export const isa = (o: any): o is SearchSystemInstancesRequest => __isa(o, "SearchSystemInstancesRequest");
 }
 
 export interface SearchSystemInstancesResponse {
@@ -1731,17 +1585,19 @@ export interface SearchSystemInstancesResponse {
 }
 
 export namespace SearchSystemInstancesResponse {
-  export const filterSensitiveLog = (
-    obj: SearchSystemInstancesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchSystemInstancesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchSystemInstancesResponse =>
-    __isa(o, "SearchSystemInstancesResponse");
+  export const isa = (o: any): o is SearchSystemInstancesResponse => __isa(o, "SearchSystemInstancesResponse");
 }
 
 export interface SearchSystemTemplatesRequest {
   __type?: "SearchSystemTemplatesRequest";
+  /**
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
    */
@@ -1751,21 +1607,13 @@ export interface SearchSystemTemplatesRequest {
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace SearchSystemTemplatesRequest {
-  export const filterSensitiveLog = (
-    obj: SearchSystemTemplatesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchSystemTemplatesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchSystemTemplatesRequest =>
-    __isa(o, "SearchSystemTemplatesRequest");
+  export const isa = (o: any): o is SearchSystemTemplatesRequest => __isa(o, "SearchSystemTemplatesRequest");
 }
 
 export interface SearchSystemTemplatesResponse {
@@ -1782,13 +1630,10 @@ export interface SearchSystemTemplatesResponse {
 }
 
 export namespace SearchSystemTemplatesResponse {
-  export const filterSensitiveLog = (
-    obj: SearchSystemTemplatesResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SearchSystemTemplatesResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SearchSystemTemplatesResponse =>
-    __isa(o, "SearchSystemTemplatesResponse");
+  export const isa = (o: any): o is SearchSystemTemplatesResponse => __isa(o, "SearchSystemTemplatesResponse");
 }
 
 export interface SearchThingsRequest {
@@ -1808,43 +1653,41 @@ export interface SearchThingsRequest {
   maxResults?: number;
 
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   */
-  namespaceVersion?: number;
-
-  /**
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   */
+  namespaceVersion?: number;
 }
 
 export namespace SearchThingsRequest {
   export const filterSensitiveLog = (obj: SearchThingsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchThingsRequest =>
-    __isa(o, "SearchThingsRequest");
+  export const isa = (o: any): o is SearchThingsRequest => __isa(o, "SearchThingsRequest");
 }
 
 export interface SearchThingsResponse {
   __type?: "SearchThingsResponse";
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of things in the result set.</p>
    */
   things?: Thing[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace SearchThingsResponse {
   export const filterSensitiveLog = (obj: SearchThingsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchThingsResponse =>
-    __isa(o, "SearchThingsResponse");
+  export const isa = (o: any): o is SearchThingsResponse => __isa(o, "SearchThingsResponse");
 }
 
 export enum SystemInstanceDeploymentStatus {
@@ -1855,7 +1698,7 @@ export enum SystemInstanceDeploymentStatus {
   FAILED = "FAILED",
   NOT_DEPLOYED = "NOT_DEPLOYED",
   PENDING_DELETE = "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS"
+  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS",
 }
 
 /**
@@ -1864,9 +1707,14 @@ export enum SystemInstanceDeploymentStatus {
 export interface SystemInstanceDescription {
   __type?: "SystemInstanceDescription";
   /**
-   * <p>A document that defines an entity. </p>
+   * <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
    */
-  definition?: DefinitionDocument;
+  validatedDependencyRevisions?: DependencyRevision[];
+
+  /**
+   * <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>
+   */
+  s3BucketName?: string;
 
   /**
    * <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
@@ -1881,9 +1729,9 @@ export interface SystemInstanceDescription {
   metricsConfiguration?: MetricsConfiguration;
 
   /**
-   * <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>
+   * <p>The version of the user's namespace against which the system instance was validated.</p>
    */
-  s3BucketName?: string;
+  validatedNamespaceVersion?: number;
 
   /**
    * <p>An object that contains summary information about a system instance.</p>
@@ -1891,22 +1739,16 @@ export interface SystemInstanceDescription {
   summary?: SystemInstanceSummary;
 
   /**
-   * <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
+   * <p>A document that defines an entity. </p>
    */
-  validatedDependencyRevisions?: DependencyRevision[];
-
-  /**
-   * <p>The version of the user's namespace against which the system instance was validated.</p>
-   */
-  validatedNamespaceVersion?: number;
+  definition?: DefinitionDocument;
 }
 
 export namespace SystemInstanceDescription {
   export const filterSensitiveLog = (obj: SystemInstanceDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemInstanceDescription =>
-    __isa(o, "SystemInstanceDescription");
+  export const isa = (o: any): o is SystemInstanceDescription => __isa(o, "SystemInstanceDescription");
 }
 
 /**
@@ -1917,28 +1759,27 @@ export namespace SystemInstanceDescription {
 export interface SystemInstanceFilter {
   __type?: "SystemInstanceFilter";
   /**
-   * <p>The name of the search filter field.</p>
-   */
-  name?: SystemInstanceFilterName | string;
-
-  /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
    */
   value?: string[];
+
+  /**
+   * <p>The name of the search filter field.</p>
+   */
+  name?: SystemInstanceFilterName | string;
 }
 
 export namespace SystemInstanceFilter {
   export const filterSensitiveLog = (obj: SystemInstanceFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemInstanceFilter =>
-    __isa(o, "SystemInstanceFilter");
+  export const isa = (o: any): o is SystemInstanceFilter => __isa(o, "SystemInstanceFilter");
 }
 
 export enum SystemInstanceFilterName {
   GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
   STATUS = "STATUS",
-  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID"
+  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID",
 }
 
 /**
@@ -1947,9 +1788,9 @@ export enum SystemInstanceFilterName {
 export interface SystemInstanceSummary {
   __type?: "SystemInstanceSummary";
   /**
-   * <p>The ARN of the system instance.</p>
+   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
    */
-  arn?: string;
+  greengrassGroupId?: string;
 
   /**
    * <p>The date when the system instance was created.</p>
@@ -1957,34 +1798,14 @@ export interface SystemInstanceSummary {
   createdAt?: Date;
 
   /**
-   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
-   */
-  greengrassGroupId?: string;
-
-  /**
-   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
-   */
-  greengrassGroupName?: string;
-
-  /**
    * <p>The version of the Greengrass group where the system instance is deployed.</p>
    */
   greengrassGroupVersionId?: string;
 
   /**
-   * <p>The ID of the system instance.</p>
+   * <p>The ARN of the system instance.</p>
    */
-  id?: string;
-
-  /**
-   * <p>The status of the system instance.</p>
-   */
-  status?: SystemInstanceDeploymentStatus | string;
-
-  /**
-   * <p>The target of the system instance.</p>
-   */
-  target?: DeploymentTarget | string;
+  arn?: string;
 
   /**
    * <p>
@@ -1992,14 +1813,33 @@ export interface SystemInstanceSummary {
    *          The date and time when the system instance was last updated.</p>
    */
   updatedAt?: Date;
+
+  /**
+   * <p>The status of the system instance.</p>
+   */
+  status?: SystemInstanceDeploymentStatus | string;
+
+  /**
+   * <p>The ID of the system instance.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The target of the system instance.</p>
+   */
+  target?: DeploymentTarget | string;
+
+  /**
+   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   */
+  greengrassGroupName?: string;
 }
 
 export namespace SystemInstanceSummary {
   export const filterSensitiveLog = (obj: SystemInstanceSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemInstanceSummary =>
-    __isa(o, "SystemInstanceSummary");
+  export const isa = (o: any): o is SystemInstanceSummary => __isa(o, "SystemInstanceSummary");
 }
 
 /**
@@ -2007,6 +1847,11 @@ export namespace SystemInstanceSummary {
  */
 export interface SystemTemplateDescription {
   __type?: "SystemTemplateDescription";
+  /**
+   * <p>The namespace version against which the system was validated. Use this value in your system instance.</p>
+   */
+  validatedNamespaceVersion?: number;
+
   /**
    * <p>The definition document of a system.</p>
    */
@@ -2016,19 +1861,13 @@ export interface SystemTemplateDescription {
    * <p>An object that contains summary information about a system.</p>
    */
   summary?: SystemTemplateSummary;
-
-  /**
-   * <p>The namespace version against which the system was validated. Use this value in your system instance.</p>
-   */
-  validatedNamespaceVersion?: number;
 }
 
 export namespace SystemTemplateDescription {
   export const filterSensitiveLog = (obj: SystemTemplateDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemTemplateDescription =>
-    __isa(o, "SystemTemplateDescription");
+  export const isa = (o: any): o is SystemTemplateDescription => __isa(o, "SystemTemplateDescription");
 }
 
 /**
@@ -2049,14 +1888,13 @@ export interface SystemTemplateFilter {
 
 export namespace SystemTemplateFilter {
   export const filterSensitiveLog = (obj: SystemTemplateFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemTemplateFilter =>
-    __isa(o, "SystemTemplateFilter");
+  export const isa = (o: any): o is SystemTemplateFilter => __isa(o, "SystemTemplateFilter");
 }
 
 export enum SystemTemplateFilterName {
-  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID"
+  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID",
 }
 
 /**
@@ -2064,6 +1902,16 @@ export enum SystemTemplateFilterName {
  */
 export interface SystemTemplateSummary {
   __type?: "SystemTemplateSummary";
+  /**
+   * <p>The revision number of the system.</p>
+   */
+  revisionNumber?: number;
+
+  /**
+   * <p>The ID of the system.</p>
+   */
+  id?: string;
+
   /**
    * <p>The ARN of the system.</p>
    */
@@ -2073,24 +1921,13 @@ export interface SystemTemplateSummary {
    * <p>The date when the system was created.</p>
    */
   createdAt?: Date;
-
-  /**
-   * <p>The ID of the system.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The revision number of the system.</p>
-   */
-  revisionNumber?: number;
 }
 
 export namespace SystemTemplateSummary {
   export const filterSensitiveLog = (obj: SystemTemplateSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SystemTemplateSummary =>
-    __isa(o, "SystemTemplateSummary");
+  export const isa = (o: any): o is SystemTemplateSummary => __isa(o, "SystemTemplateSummary");
 }
 
 /**
@@ -2099,19 +1936,19 @@ export namespace SystemTemplateSummary {
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -2131,10 +1968,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2143,10 +1979,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2155,19 +1990,19 @@ export namespace TagResourceResponse {
 export interface Thing {
   __type?: "Thing";
   /**
-   * <p>The ARN of the thing.</p>
-   */
-  thingArn?: string;
-
-  /**
    * <p>The name of the thing.</p>
    */
   thingName?: string;
+
+  /**
+   * <p>The ARN of the thing.</p>
+   */
+  thingArn?: string;
 }
 
 export namespace Thing {
   export const filterSensitiveLog = (obj: Thing): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Thing => __isa(o, "Thing");
 }
@@ -2175,9 +2010,7 @@ export namespace Thing {
 /**
  * <p></p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -2185,10 +2018,9 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UndeploySystemInstanceRequest {
@@ -2200,13 +2032,10 @@ export interface UndeploySystemInstanceRequest {
 }
 
 export namespace UndeploySystemInstanceRequest {
-  export const filterSensitiveLog = (
-    obj: UndeploySystemInstanceRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UndeploySystemInstanceRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UndeploySystemInstanceRequest =>
-    __isa(o, "UndeploySystemInstanceRequest");
+  export const isa = (o: any): o is UndeploySystemInstanceRequest => __isa(o, "UndeploySystemInstanceRequest");
 }
 
 export interface UndeploySystemInstanceResponse {
@@ -2218,35 +2047,31 @@ export interface UndeploySystemInstanceResponse {
 }
 
 export namespace UndeploySystemInstanceResponse {
-  export const filterSensitiveLog = (
-    obj: UndeploySystemInstanceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UndeploySystemInstanceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UndeploySystemInstanceResponse =>
-    __isa(o, "UndeploySystemInstanceResponse");
+  export const isa = (o: any): o is UndeploySystemInstanceResponse => __isa(o, "UndeploySystemInstanceResponse");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>
    *          <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2255,25 +2080,24 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateFlowTemplateRequest {
   __type?: "UpdateFlowTemplateRequest";
+  /**
+   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
   /**
    * <p>The version of the user's namespace.</p>
    *          <p>If no value is specified, the latest version is used by default. Use the <code>GetFlowTemplateRevisions</code> if you want to find earlier revisions of the flow
    *       to update.</p>
    */
   compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
-   */
-  definition: DefinitionDocument | undefined;
 
   /**
    * <p>The ID of the workflow to be updated.</p>
@@ -2287,10 +2111,9 @@ export interface UpdateFlowTemplateRequest {
 
 export namespace UpdateFlowTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateFlowTemplateRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowTemplateRequest =>
-    __isa(o, "UpdateFlowTemplateRequest");
+  export const isa = (o: any): o is UpdateFlowTemplateRequest => __isa(o, "UpdateFlowTemplateRequest");
 }
 
 export interface UpdateFlowTemplateResponse {
@@ -2303,24 +2126,23 @@ export interface UpdateFlowTemplateResponse {
 
 export namespace UpdateFlowTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateFlowTemplateResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateFlowTemplateResponse =>
-    __isa(o, "UpdateFlowTemplateResponse");
+  export const isa = (o: any): o is UpdateFlowTemplateResponse => __isa(o, "UpdateFlowTemplateResponse");
 }
 
 export interface UpdateSystemTemplateRequest {
   __type?: "UpdateSystemTemplateRequest";
   /**
+   * <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
+   */
+  definition: DefinitionDocument | undefined;
+
+  /**
    * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
    *          <p>If no value is specified, the latest version is used by default.</p>
    */
   compatibleNamespaceVersion?: number;
-
-  /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated system definition.</p>
-   */
-  definition: DefinitionDocument | undefined;
 
   /**
    * <p>The ID of the system to be updated.</p>
@@ -2333,13 +2155,10 @@ export interface UpdateSystemTemplateRequest {
 }
 
 export namespace UpdateSystemTemplateRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateSystemTemplateRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSystemTemplateRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSystemTemplateRequest =>
-    __isa(o, "UpdateSystemTemplateRequest");
+  export const isa = (o: any): o is UpdateSystemTemplateRequest => __isa(o, "UpdateSystemTemplateRequest");
 }
 
 export interface UpdateSystemTemplateResponse {
@@ -2351,13 +2170,10 @@ export interface UpdateSystemTemplateResponse {
 }
 
 export namespace UpdateSystemTemplateResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateSystemTemplateResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateSystemTemplateResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateSystemTemplateResponse =>
-    __isa(o, "UpdateSystemTemplateResponse");
+  export const isa = (o: any): o is UpdateSystemTemplateResponse => __isa(o, "UpdateSystemTemplateResponse");
 }
 
 export interface UploadEntityDefinitionsRequest {
@@ -2380,13 +2196,10 @@ export interface UploadEntityDefinitionsRequest {
 }
 
 export namespace UploadEntityDefinitionsRequest {
-  export const filterSensitiveLog = (
-    obj: UploadEntityDefinitionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UploadEntityDefinitionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UploadEntityDefinitionsRequest =>
-    __isa(o, "UploadEntityDefinitionsRequest");
+  export const isa = (o: any): o is UploadEntityDefinitionsRequest => __isa(o, "UploadEntityDefinitionsRequest");
 }
 
 export interface UploadEntityDefinitionsResponse {
@@ -2398,17 +2211,14 @@ export interface UploadEntityDefinitionsResponse {
 }
 
 export namespace UploadEntityDefinitionsResponse {
-  export const filterSensitiveLog = (
-    obj: UploadEntityDefinitionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UploadEntityDefinitionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UploadEntityDefinitionsResponse =>
-    __isa(o, "UploadEntityDefinitionsResponse");
+  export const isa = (o: any): o is UploadEntityDefinitionsResponse => __isa(o, "UploadEntityDefinitionsResponse");
 }
 
 export enum UploadStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }

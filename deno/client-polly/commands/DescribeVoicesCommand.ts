@@ -1,18 +1,11 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient.ts";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
 import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeVoicesCommand,
-  serializeAws_restJson1DescribeVoicesCommand
+  serializeAws_restJson1DescribeVoicesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeVoicesCommandInput = DescribeVoicesInput;
-export type DescribeVoicesCommandOutput = DescribeVoicesOutput &
-  __MetadataBearer;
+export type DescribeVoicesCommandOutput = DescribeVoicesOutput & __MetadataBearer;
 
 export class DescribeVoicesCommand extends $Command<
   DescribeVoicesCommandInput,
@@ -47,14 +39,15 @@ export class DescribeVoicesCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVoicesCommandInput, DescribeVoicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeVoicesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVoicesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DescribeVoicesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVoicesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeVoicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeVoicesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeVoicesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVoicesCommandOutput> {
     return deserializeAws_restJson1DescribeVoicesCommand(output, context);
   }
 

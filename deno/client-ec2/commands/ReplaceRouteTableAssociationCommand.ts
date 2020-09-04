@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  ReplaceRouteTableAssociationRequest,
-  ReplaceRouteTableAssociationResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/index.ts";
 import {
   deserializeAws_ec2ReplaceRouteTableAssociationCommand,
-  serializeAws_ec2ReplaceRouteTableAssociationCommand
+  serializeAws_ec2ReplaceRouteTableAssociationCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ReplaceRouteTableAssociationCommandInput = ReplaceRouteTableAssociationRequest;
-export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult &
-  __MetadataBearer;
+export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult & __MetadataBearer;
 
 export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandInput,
@@ -49,18 +38,16 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ReplaceRouteTableAssociationCommandInput,
-    ReplaceRouteTableAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ReplaceRouteTableAssociationCommandInput, ReplaceRouteTableAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ReplaceRouteTableAssociationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ReplaceRouteTableAssociationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReplaceRouteTableAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReplaceRouteTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceRouteTableAssociationCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceRouteTableAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceRouteTableAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ReplaceRouteTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

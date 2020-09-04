@@ -1,18 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
 import { CreateOpsItemRequest, CreateOpsItemResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateOpsItemCommand,
-  serializeAws_json1_1CreateOpsItemCommand
+  serializeAws_json1_1CreateOpsItemCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateOpsItemCommandInput = CreateOpsItemRequest;
-export type CreateOpsItemCommandOutput = CreateOpsItemResponse &
-  __MetadataBearer;
+export type CreateOpsItemCommandOutput = CreateOpsItemResponse & __MetadataBearer;
 
 export class CreateOpsItemCommand extends $Command<
   CreateOpsItemCommandInput,
@@ -47,14 +39,15 @@ export class CreateOpsItemCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateOpsItemCommandInput, CreateOpsItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateOpsItemRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateOpsItemResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateOpsItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateOpsItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOpsItemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateOpsItemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOpsItemCommandOutput> {
     return deserializeAws_json1_1CreateOpsItemCommand(output, context);
   }
 

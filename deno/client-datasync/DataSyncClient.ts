@@ -1,111 +1,73 @@
 import {
   CancelTaskExecutionCommandInput,
-  CancelTaskExecutionCommandOutput
+  CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand.ts";
+import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand.ts";
+import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand.ts";
 import {
-  CreateAgentCommandInput,
-  CreateAgentCommandOutput
-} from "./commands/CreateAgentCommand.ts";
+  CreateLocationFsxWindowsCommandInput,
+  CreateLocationFsxWindowsCommandOutput,
+} from "./commands/CreateLocationFsxWindowsCommand.ts";
+import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand.ts";
 import {
-  CreateLocationEfsCommandInput,
-  CreateLocationEfsCommandOutput
-} from "./commands/CreateLocationEfsCommand.ts";
-import {
-  CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput
-} from "./commands/CreateLocationNfsCommand.ts";
-import {
-  CreateLocationS3CommandInput,
-  CreateLocationS3CommandOutput
-} from "./commands/CreateLocationS3Command.ts";
-import {
-  CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput
-} from "./commands/CreateLocationSmbCommand.ts";
-import {
-  CreateTaskCommandInput,
-  CreateTaskCommandOutput
-} from "./commands/CreateTaskCommand.ts";
-import {
-  DeleteAgentCommandInput,
-  DeleteAgentCommandOutput
-} from "./commands/DeleteAgentCommand.ts";
-import {
-  DeleteLocationCommandInput,
-  DeleteLocationCommandOutput
-} from "./commands/DeleteLocationCommand.ts";
-import {
-  DeleteTaskCommandInput,
-  DeleteTaskCommandOutput
-} from "./commands/DeleteTaskCommand.ts";
-import {
-  DescribeAgentCommandInput,
-  DescribeAgentCommandOutput
-} from "./commands/DescribeAgentCommand.ts";
+  CreateLocationObjectStorageCommandInput,
+  CreateLocationObjectStorageCommandOutput,
+} from "./commands/CreateLocationObjectStorageCommand.ts";
+import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command.ts";
+import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "./commands/CreateLocationSmbCommand.ts";
+import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand.ts";
+import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand.ts";
+import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand.ts";
+import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand.ts";
+import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand.ts";
 import {
   DescribeLocationEfsCommandInput,
-  DescribeLocationEfsCommandOutput
+  DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand.ts";
 import {
+  DescribeLocationFsxWindowsCommandInput,
+  DescribeLocationFsxWindowsCommandOutput,
+} from "./commands/DescribeLocationFsxWindowsCommand.ts";
+import {
   DescribeLocationNfsCommandInput,
-  DescribeLocationNfsCommandOutput
+  DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand.ts";
 import {
+  DescribeLocationObjectStorageCommandInput,
+  DescribeLocationObjectStorageCommandOutput,
+} from "./commands/DescribeLocationObjectStorageCommand.ts";
+import {
   DescribeLocationS3CommandInput,
-  DescribeLocationS3CommandOutput
+  DescribeLocationS3CommandOutput,
 } from "./commands/DescribeLocationS3Command.ts";
 import {
   DescribeLocationSmbCommandInput,
-  DescribeLocationSmbCommandOutput
+  DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand.ts";
-import {
-  DescribeTaskCommandInput,
-  DescribeTaskCommandOutput
-} from "./commands/DescribeTaskCommand.ts";
+import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand.ts";
 import {
   DescribeTaskExecutionCommandInput,
-  DescribeTaskExecutionCommandOutput
+  DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand.ts";
-import {
-  ListAgentsCommandInput,
-  ListAgentsCommandOutput
-} from "./commands/ListAgentsCommand.ts";
-import {
-  ListLocationsCommandInput,
-  ListLocationsCommandOutput
-} from "./commands/ListLocationsCommand.ts";
+import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand.ts";
+import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTaskExecutionsCommandInput,
-  ListTaskExecutionsCommandOutput
+  ListTaskExecutionsCommandOutput,
 } from "./commands/ListTaskExecutionsCommand.ts";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand.ts";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand.ts";
 import {
   StartTaskExecutionCommandInput,
-  StartTaskExecutionCommandOutput
+  StartTaskExecutionCommandOutput,
 } from "./commands/StartTaskExecutionCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAgentCommandInput,
-  UpdateAgentCommandOutput
-} from "./commands/UpdateAgentCommand.ts";
-import {
-  UpdateTaskCommandInput,
-  UpdateTaskCommandOutput
-} from "./commands/UpdateTaskCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand.ts";
+import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -113,38 +75,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -153,16 +111,19 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
+  | CreateLocationFsxWindowsCommandInput
   | CreateLocationNfsCommandInput
+  | CreateLocationObjectStorageCommandInput
   | CreateLocationS3CommandInput
   | CreateLocationSmbCommandInput
   | CreateTaskCommandInput
@@ -171,7 +132,9 @@ export type ServiceInputTypes =
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
+  | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationNfsCommandInput
+  | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
   | DescribeTaskCommandInput
@@ -191,7 +154,9 @@ export type ServiceOutputTypes =
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
+  | CreateLocationFsxWindowsCommandOutput
   | CreateLocationNfsCommandOutput
+  | CreateLocationObjectStorageCommandOutput
   | CreateLocationS3CommandOutput
   | CreateLocationSmbCommandOutput
   | CreateTaskCommandOutput
@@ -200,7 +165,9 @@ export type ServiceOutputTypes =
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
+  | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationNfsCommandOutput
+  | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
   | DescribeTaskCommandOutput
@@ -216,8 +183,7 @@ export type ServiceOutputTypes =
   | UpdateAgentCommandOutput
   | UpdateTaskCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -291,14 +257,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -306,9 +277,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -317,9 +286,7 @@ export type DataSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -348,7 +315,7 @@ export class DataSyncClient extends __Client<
   constructor(configuration: DataSyncClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -363,6 +330,7 @@ export class DataSyncClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

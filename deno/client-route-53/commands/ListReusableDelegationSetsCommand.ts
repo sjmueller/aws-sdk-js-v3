@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client.ts";
-import {
-  ListReusableDelegationSetsRequest,
-  ListReusableDelegationSetsResponse
-} from "../models/index.ts";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
+import { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlListReusableDelegationSetsCommand,
-  serializeAws_restXmlListReusableDelegationSetsCommand
+  serializeAws_restXmlListReusableDelegationSetsCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListReusableDelegationSetsCommandInput = ListReusableDelegationSetsRequest;
-export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse &
-  __MetadataBearer;
+export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse & __MetadataBearer;
 
 export class ListReusableDelegationSetsCommand extends $Command<
   ListReusableDelegationSetsCommandInput,
@@ -49,18 +38,16 @@ export class ListReusableDelegationSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListReusableDelegationSetsCommandInput,
-    ListReusableDelegationSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListReusableDelegationSetsCommandInput, ListReusableDelegationSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListReusableDelegationSetsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListReusableDelegationSetsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListReusableDelegationSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListReusableDelegationSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListReusableDelegationSetsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListReusableDelegationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlListReusableDelegationSetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReusableDelegationSetsCommandOutput> {
-    return deserializeAws_restXmlListReusableDelegationSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListReusableDelegationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

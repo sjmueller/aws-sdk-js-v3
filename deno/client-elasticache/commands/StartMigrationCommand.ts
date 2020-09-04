@@ -1,18 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
 import { StartMigrationMessage, StartMigrationResponse } from "../models/index.ts";
 import {
   deserializeAws_queryStartMigrationCommand,
-  serializeAws_queryStartMigrationCommand
+  serializeAws_queryStartMigrationCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartMigrationCommandInput = StartMigrationMessage;
-export type StartMigrationCommandOutput = StartMigrationResponse &
-  __MetadataBearer;
+export type StartMigrationCommandOutput = StartMigrationResponse & __MetadataBearer;
 
 export class StartMigrationCommand extends $Command<
   StartMigrationCommandInput,
@@ -47,14 +39,15 @@ export class StartMigrationCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMigrationCommandInput, StartMigrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartMigrationMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: StartMigrationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class StartMigrationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartMigrationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartMigrationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartMigrationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMigrationCommandOutput> {
     return deserializeAws_queryStartMigrationCommand(output, context);
   }
 

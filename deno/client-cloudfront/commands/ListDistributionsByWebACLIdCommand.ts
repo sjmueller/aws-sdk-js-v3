@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
-import {
-  ListDistributionsByWebACLIdRequest,
-  ListDistributionsByWebACLIdResult
-} from "../models/index.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
+import { ListDistributionsByWebACLIdRequest, ListDistributionsByWebACLIdResult } from "../models/index.ts";
 import {
   deserializeAws_restXmlListDistributionsByWebACLIdCommand,
-  serializeAws_restXmlListDistributionsByWebACLIdCommand
+  serializeAws_restXmlListDistributionsByWebACLIdCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListDistributionsByWebACLIdCommandInput = ListDistributionsByWebACLIdRequest;
-export type ListDistributionsByWebACLIdCommandOutput = ListDistributionsByWebACLIdResult &
-  __MetadataBearer;
+export type ListDistributionsByWebACLIdCommandOutput = ListDistributionsByWebACLIdResult & __MetadataBearer;
 
 export class ListDistributionsByWebACLIdCommand extends $Command<
   ListDistributionsByWebACLIdCommandInput,
@@ -49,18 +38,16 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDistributionsByWebACLIdCommandInput,
-    ListDistributionsByWebACLIdCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDistributionsByWebACLIdCommandInput, ListDistributionsByWebACLIdCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListDistributionsByWebACLIdRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByWebACLIdResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDistributionsByWebACLIdCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByWebACLIdCommand(
-      input,
-      context
-    );
+  private serialize(input: ListDistributionsByWebACLIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlListDistributionsByWebACLIdCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByWebACLIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByWebACLIdCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListDistributionsByWebACLIdCommand(output, context);
   }
 
   // Start section: command_body_extra

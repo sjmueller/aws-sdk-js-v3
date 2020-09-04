@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient.ts";
-import {
-  ListInvitationsRequest,
-  ListInvitationsResponse
-} from "../models/index.ts";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
+import { ListInvitationsRequest, ListInvitationsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListInvitationsCommand,
-  serializeAws_restJson1ListInvitationsCommand
+  serializeAws_restJson1ListInvitationsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListInvitationsCommandInput = ListInvitationsRequest;
-export type ListInvitationsCommandOutput = ListInvitationsResponse &
-  __MetadataBearer;
+export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
 
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
@@ -50,14 +39,15 @@ export class ListInvitationsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInvitationsCommandInput, ListInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListInvitationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListInvitationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListInvitationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListInvitationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListInvitationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListInvitationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
     return deserializeAws_restJson1ListInvitationsCommand(output, context);
   }
 

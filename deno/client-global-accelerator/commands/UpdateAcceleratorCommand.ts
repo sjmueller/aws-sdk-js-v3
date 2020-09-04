@@ -1,21 +1,15 @@
 import {
   GlobalAcceleratorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import {
-  UpdateAcceleratorRequest,
-  UpdateAcceleratorResponse
-} from "../models/index.ts";
+import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateAcceleratorCommand,
-  serializeAws_json1_1UpdateAcceleratorCommand
+  serializeAws_json1_1UpdateAcceleratorCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateAcceleratorCommandInput = UpdateAcceleratorRequest;
-export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse &
-  __MetadataBearer;
+export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse & __MetadataBearer;
 
 export class UpdateAcceleratorCommand extends $Command<
   UpdateAcceleratorCommandInput,
@@ -50,14 +43,15 @@ export class UpdateAcceleratorCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateAcceleratorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAcceleratorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class UpdateAcceleratorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAcceleratorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAcceleratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAcceleratorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAcceleratorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAcceleratorCommandOutput> {
     return deserializeAws_json1_1UpdateAcceleratorCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
-import {
-  CreateSimulationApplicationRequest,
-  CreateSimulationApplicationResponse
-} from "../models/index.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
+import { CreateSimulationApplicationRequest, CreateSimulationApplicationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateSimulationApplicationCommand,
-  serializeAws_restJson1CreateSimulationApplicationCommand
+  serializeAws_restJson1CreateSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSimulationApplicationCommandInput = CreateSimulationApplicationRequest;
-export type CreateSimulationApplicationCommandOutput = CreateSimulationApplicationResponse &
-  __MetadataBearer;
+export type CreateSimulationApplicationCommandOutput = CreateSimulationApplicationResponse & __MetadataBearer;
 
 export class CreateSimulationApplicationCommand extends $Command<
   CreateSimulationApplicationCommandInput,
@@ -49,18 +38,16 @@ export class CreateSimulationApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSimulationApplicationCommandInput,
-    CreateSimulationApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSimulationApplicationCommandInput, CreateSimulationApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSimulationApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSimulationApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateSimulationApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSimulationApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSimulationApplicationCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateSimulationApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateSimulationApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

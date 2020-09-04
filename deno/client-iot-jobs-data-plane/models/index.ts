@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>The certificate is invalid.</p>
  */
-export interface CertificateValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateValidationException extends __SmithyException, $MetadataBearer {
   name: "CertificateValidationException";
   $fault: "client";
   /**
@@ -20,17 +14,19 @@ export interface CertificateValidationException
 }
 
 export namespace CertificateValidationException {
-  export const filterSensitiveLog = (
-    obj: CertificateValidationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CertificateValidationException =>
-    __isa(o, "CertificateValidationException");
+  export const isa = (o: any): o is CertificateValidationException => __isa(o, "CertificateValidationException");
 }
 
 export interface DescribeJobExecutionRequest {
   __type?: "DescribeJobExecutionRequest";
+  /**
+   * <p>The unique identifier assigned to this job when it was created.</p>
+   */
+  jobId: string | undefined;
+
   /**
    * <p>Optional. A number that identifies a particular job execution on a particular device. If not specified,
    *          the latest job execution is returned.</p>
@@ -38,29 +34,21 @@ export interface DescribeJobExecutionRequest {
   executionNumber?: number;
 
   /**
-   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
-   */
-  includeJobDocument?: boolean;
-
-  /**
-   * <p>The unique identifier assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>The thing name associated with the device the job execution is running on.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   */
+  includeJobDocument?: boolean;
 }
 
 export namespace DescribeJobExecutionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeJobExecutionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionRequest =>
-    __isa(o, "DescribeJobExecutionRequest");
+  export const isa = (o: any): o is DescribeJobExecutionRequest => __isa(o, "DescribeJobExecutionRequest");
 }
 
 export interface DescribeJobExecutionResponse {
@@ -72,13 +60,10 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeJobExecutionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionResponse =>
-    __isa(o, "DescribeJobExecutionResponse");
+  export const isa = (o: any): o is DescribeJobExecutionResponse => __isa(o, "DescribeJobExecutionResponse");
 }
 
 export interface GetPendingJobExecutionsRequest {
@@ -90,13 +75,10 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
-  export const filterSensitiveLog = (
-    obj: GetPendingJobExecutionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsRequest =>
-    __isa(o, "GetPendingJobExecutionsRequest");
+  export const isa = (o: any): o is GetPendingJobExecutionsRequest => __isa(o, "GetPendingJobExecutionsRequest");
 }
 
 export interface GetPendingJobExecutionsResponse {
@@ -113,21 +95,16 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
-  export const filterSensitiveLog = (
-    obj: GetPendingJobExecutionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
-    __isa(o, "GetPendingJobExecutionsResponse");
+  export const isa = (o: any): o is GetPendingJobExecutionsResponse => __isa(o, "GetPendingJobExecutionsResponse");
 }
 
 /**
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -138,10 +115,9 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -149,22 +125,17 @@ export namespace InvalidRequestException {
  *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
  *          case, the body of the error message also contains the executionState field.</p>
  */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidStateTransitionException {
-  export const filterSensitiveLog = (
-    obj: InvalidStateTransitionException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
+  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -173,41 +144,15 @@ export namespace InvalidStateTransitionException {
 export interface JobExecution {
   __type?: "JobExecution";
   /**
-   * <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>.</p>
+   * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
+   *          device.</p>
    */
-  approximateSecondsBeforeTimedOut?: number;
-
-  /**
-   * <p>A number that identifies a particular job execution on a particular device. It can be used later in
-   *          commands that return or update job execution information.</p>
-   */
-  executionNumber?: number;
-
-  /**
-   * <p>The content of the job document.</p>
-   */
-  jobDocument?: string;
+  versionNumber?: number;
 
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
-   */
-  lastUpdatedAt?: number;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
-   */
-  queuedAt?: number;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
-   */
-  startedAt?: number;
 
   /**
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
@@ -216,9 +161,30 @@ export interface JobExecution {
   status?: JobExecutionStatus | string;
 
   /**
+   * <p>The content of the job document.</p>
+   */
+  jobDocument?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   */
+  queuedAt?: number;
+
+  /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
   statusDetails?: { [key: string]: string };
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
+   */
+  startedAt?: number;
+
+  /**
+   * <p>The estimated number of seconds that remain before the job execution status will be
+   *            changed to <code>TIMED_OUT</code>.</p>
+   */
+  approximateSecondsBeforeTimedOut?: number;
 
   /**
    * <p>The name of the thing that is executing the job.</p>
@@ -226,15 +192,20 @@ export interface JobExecution {
   thingName?: string;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
-   *          device.</p>
+   * <p>A number that identifies a particular job execution on a particular device. It can be used later in
+   *          commands that return or update job execution information.</p>
    */
-  versionNumber?: number;
+  executionNumber?: number;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
+   */
+  lastUpdatedAt?: number;
 }
 
 export namespace JobExecution {
   export const filterSensitiveLog = (obj: JobExecution): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
@@ -245,15 +216,15 @@ export namespace JobExecution {
 export interface JobExecutionState {
   __type?: "JobExecutionState";
   /**
+   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   */
+  statusDetails?: { [key: string]: string };
+
+  /**
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
    */
   status?: JobExecutionStatus | string;
-
-  /**
-   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
-   */
-  statusDetails?: { [key: string]: string };
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
@@ -264,10 +235,9 @@ export interface JobExecutionState {
 
 export namespace JobExecutionState {
   export const filterSensitiveLog = (obj: JobExecutionState): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JobExecutionState =>
-    __isa(o, "JobExecutionState");
+  export const isa = (o: any): o is JobExecutionState => __isa(o, "JobExecutionState");
 }
 
 export enum JobExecutionStatus {
@@ -278,7 +248,7 @@ export enum JobExecutionStatus {
   REJECTED = "REJECTED",
   REMOVED = "REMOVED",
   SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
+  TIMED_OUT = "TIMED_OUT",
 }
 
 /**
@@ -287,19 +257,9 @@ export enum JobExecutionStatus {
 export interface JobExecutionSummary {
   __type?: "JobExecutionSummary";
   /**
-   * <p>A number that identifies a particular job execution on a particular device.</p>
-   */
-  executionNumber?: number;
-
-  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
-   */
-  lastUpdatedAt?: number;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
@@ -307,31 +267,38 @@ export interface JobExecutionSummary {
   queuedAt?: number;
 
   /**
+   * <p>The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives
+   *          an update from a device.</p>
+   */
+  versionNumber?: number;
+
+  /**
    * <p>The time, in milliseconds since the epoch, when the job execution started.</p>
    */
   startedAt?: number;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives
-   *          an update from a device.</p>
+   * <p>A number that identifies a particular job execution on a particular device.</p>
    */
-  versionNumber?: number;
+  executionNumber?: number;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
+   */
+  lastUpdatedAt?: number;
 }
 
 export namespace JobExecutionSummary {
   export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummary =>
-    __isa(o, "JobExecutionSummary");
+  export const isa = (o: any): o is JobExecutionSummary => __isa(o, "JobExecutionSummary");
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -342,18 +309,15 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -363,23 +327,14 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartNextPendingJobExecutionRequest {
   __type?: "StartNextPendingJobExecutionRequest";
-  /**
-   * <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the
-   *          statusDetails are unchanged.</p>
-   */
-  statusDetails?: { [key: string]: string };
-
   /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
    *            execution status is not set to a terminal state before this timer expires, or before the
@@ -395,13 +350,17 @@ export interface StartNextPendingJobExecutionRequest {
    * <p>The name of the thing associated with the device.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the
+   *          statusDetails are unchanged.</p>
+   */
+  statusDetails?: { [key: string]: string };
 }
 
 export namespace StartNextPendingJobExecutionRequest {
-  export const filterSensitiveLog = (
-    obj: StartNextPendingJobExecutionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
     __isa(o, "StartNextPendingJobExecutionRequest");
@@ -416,10 +375,8 @@ export interface StartNextPendingJobExecutionResponse {
 }
 
 export namespace StartNextPendingJobExecutionResponse {
-  export const filterSensitiveLog = (
-    obj: StartNextPendingJobExecutionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
     __isa(o, "StartNextPendingJobExecutionResponse");
@@ -428,9 +385,7 @@ export namespace StartNextPendingJobExecutionResponse {
 /**
  * <p>The job is in a terminal state.</p>
  */
-export interface TerminalStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TerminalStateException extends __SmithyException, $MetadataBearer {
   name: "TerminalStateException";
   $fault: "client";
   message?: string;
@@ -438,18 +393,15 @@ export interface TerminalStateException
 
 export namespace TerminalStateException {
   export const filterSensitiveLog = (obj: TerminalStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TerminalStateException =>
-    __isa(o, "TerminalStateException");
+  export const isa = (o: any): o is TerminalStateException => __isa(o, "TerminalStateException");
 }
 
 /**
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -465,39 +417,13 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateJobExecutionRequest {
   __type?: "UpdateJobExecutionRequest";
-  /**
-   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
-   */
-  executionNumber?: number;
-
-  /**
-   * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
-   *          version is incremented. If the version of the job execution stored in Jobs does not match, the update is
-   *          rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data
-   *          is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain
-   *          the job execution status data.)</p>
-   */
-  expectedVersion?: number;
-
-  /**
-   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
-   */
-  includeJobDocument?: boolean;
-
-  /**
-   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
-   *          false.</p>
-   */
-  includeJobExecutionState?: boolean;
-
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
    */
@@ -516,6 +442,26 @@ export interface UpdateJobExecutionRequest {
   statusDetails?: { [key: string]: string };
 
   /**
+   * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
+   *          version is incremented. If the version of the job execution stored in Jobs does not match, the update is
+   *          rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data
+   *          is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain
+   *          the job execution status data.)</p>
+   */
+  expectedVersion?: number;
+
+  /**
+   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
+   *          false.</p>
+   */
+  includeJobExecutionState?: boolean;
+
+  /**
+   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   */
+  includeJobDocument?: boolean;
+
+  /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
    *            execution status is not set to a terminal state before this timer expires, or before the
    *            timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to
@@ -527,6 +473,11 @@ export interface UpdateJobExecutionRequest {
   stepTimeoutInMinutes?: number;
 
   /**
+   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+   */
+  executionNumber?: number;
+
+  /**
    * <p>The name of the thing associated with the device.</p>
    */
   thingName: string | undefined;
@@ -534,10 +485,9 @@ export interface UpdateJobExecutionRequest {
 
 export namespace UpdateJobExecutionRequest {
   export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionRequest =>
-    __isa(o, "UpdateJobExecutionRequest");
+  export const isa = (o: any): o is UpdateJobExecutionRequest => __isa(o, "UpdateJobExecutionRequest");
 }
 
 export interface UpdateJobExecutionResponse {
@@ -555,8 +505,7 @@ export interface UpdateJobExecutionResponse {
 
 export namespace UpdateJobExecutionResponse {
   export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionResponse =>
-    __isa(o, "UpdateJobExecutionResponse");
+  export const isa = (o: any): o is UpdateJobExecutionResponse => __isa(o, "UpdateJobExecutionResponse");
 }

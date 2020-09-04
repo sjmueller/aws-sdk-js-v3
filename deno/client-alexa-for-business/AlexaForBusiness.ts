@@ -2,467 +2,419 @@ import { AlexaForBusinessClient } from "./AlexaForBusinessClient.ts";
 import {
   ApproveSkillCommand,
   ApproveSkillCommandInput,
-  ApproveSkillCommandOutput
+  ApproveSkillCommandOutput,
 } from "./commands/ApproveSkillCommand.ts";
 import {
   AssociateContactWithAddressBookCommand,
   AssociateContactWithAddressBookCommandInput,
-  AssociateContactWithAddressBookCommandOutput
+  AssociateContactWithAddressBookCommandOutput,
 } from "./commands/AssociateContactWithAddressBookCommand.ts";
 import {
   AssociateDeviceWithNetworkProfileCommand,
   AssociateDeviceWithNetworkProfileCommandInput,
-  AssociateDeviceWithNetworkProfileCommandOutput
+  AssociateDeviceWithNetworkProfileCommandOutput,
 } from "./commands/AssociateDeviceWithNetworkProfileCommand.ts";
 import {
   AssociateDeviceWithRoomCommand,
   AssociateDeviceWithRoomCommandInput,
-  AssociateDeviceWithRoomCommandOutput
+  AssociateDeviceWithRoomCommandOutput,
 } from "./commands/AssociateDeviceWithRoomCommand.ts";
 import {
   AssociateSkillGroupWithRoomCommand,
   AssociateSkillGroupWithRoomCommandInput,
-  AssociateSkillGroupWithRoomCommandOutput
+  AssociateSkillGroupWithRoomCommandOutput,
 } from "./commands/AssociateSkillGroupWithRoomCommand.ts";
 import {
   AssociateSkillWithSkillGroupCommand,
   AssociateSkillWithSkillGroupCommandInput,
-  AssociateSkillWithSkillGroupCommandOutput
+  AssociateSkillWithSkillGroupCommandOutput,
 } from "./commands/AssociateSkillWithSkillGroupCommand.ts";
 import {
   AssociateSkillWithUsersCommand,
   AssociateSkillWithUsersCommandInput,
-  AssociateSkillWithUsersCommandOutput
+  AssociateSkillWithUsersCommandOutput,
 } from "./commands/AssociateSkillWithUsersCommand.ts";
 import {
   CreateAddressBookCommand,
   CreateAddressBookCommandInput,
-  CreateAddressBookCommandOutput
+  CreateAddressBookCommandOutput,
 } from "./commands/CreateAddressBookCommand.ts";
 import {
   CreateBusinessReportScheduleCommand,
   CreateBusinessReportScheduleCommandInput,
-  CreateBusinessReportScheduleCommandOutput
+  CreateBusinessReportScheduleCommandOutput,
 } from "./commands/CreateBusinessReportScheduleCommand.ts";
 import {
   CreateConferenceProviderCommand,
   CreateConferenceProviderCommandInput,
-  CreateConferenceProviderCommandOutput
+  CreateConferenceProviderCommandOutput,
 } from "./commands/CreateConferenceProviderCommand.ts";
 import {
   CreateContactCommand,
   CreateContactCommandInput,
-  CreateContactCommandOutput
+  CreateContactCommandOutput,
 } from "./commands/CreateContactCommand.ts";
 import {
   CreateGatewayGroupCommand,
   CreateGatewayGroupCommandInput,
-  CreateGatewayGroupCommandOutput
+  CreateGatewayGroupCommandOutput,
 } from "./commands/CreateGatewayGroupCommand.ts";
 import {
   CreateNetworkProfileCommand,
   CreateNetworkProfileCommandInput,
-  CreateNetworkProfileCommandOutput
+  CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand.ts";
 import {
   CreateProfileCommand,
   CreateProfileCommandInput,
-  CreateProfileCommandOutput
+  CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand.ts";
-import {
-  CreateRoomCommand,
-  CreateRoomCommandInput,
-  CreateRoomCommandOutput
-} from "./commands/CreateRoomCommand.ts";
+import { CreateRoomCommand, CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand.ts";
 import {
   CreateSkillGroupCommand,
   CreateSkillGroupCommandInput,
-  CreateSkillGroupCommandOutput
+  CreateSkillGroupCommandOutput,
 } from "./commands/CreateSkillGroupCommand.ts";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   DeleteAddressBookCommand,
   DeleteAddressBookCommandInput,
-  DeleteAddressBookCommandOutput
+  DeleteAddressBookCommandOutput,
 } from "./commands/DeleteAddressBookCommand.ts";
 import {
   DeleteBusinessReportScheduleCommand,
   DeleteBusinessReportScheduleCommandInput,
-  DeleteBusinessReportScheduleCommandOutput
+  DeleteBusinessReportScheduleCommandOutput,
 } from "./commands/DeleteBusinessReportScheduleCommand.ts";
 import {
   DeleteConferenceProviderCommand,
   DeleteConferenceProviderCommandInput,
-  DeleteConferenceProviderCommandOutput
+  DeleteConferenceProviderCommandOutput,
 } from "./commands/DeleteConferenceProviderCommand.ts";
 import {
   DeleteContactCommand,
   DeleteContactCommandInput,
-  DeleteContactCommandOutput
+  DeleteContactCommandOutput,
 } from "./commands/DeleteContactCommand.ts";
 import {
   DeleteDeviceCommand,
   DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput
+  DeleteDeviceCommandOutput,
 } from "./commands/DeleteDeviceCommand.ts";
 import {
   DeleteDeviceUsageDataCommand,
   DeleteDeviceUsageDataCommandInput,
-  DeleteDeviceUsageDataCommandOutput
+  DeleteDeviceUsageDataCommandOutput,
 } from "./commands/DeleteDeviceUsageDataCommand.ts";
 import {
   DeleteGatewayGroupCommand,
   DeleteGatewayGroupCommandInput,
-  DeleteGatewayGroupCommandOutput
+  DeleteGatewayGroupCommandOutput,
 } from "./commands/DeleteGatewayGroupCommand.ts";
 import {
   DeleteNetworkProfileCommand,
   DeleteNetworkProfileCommandInput,
-  DeleteNetworkProfileCommandOutput
+  DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand.ts";
 import {
   DeleteProfileCommand,
   DeleteProfileCommandInput,
-  DeleteProfileCommandOutput
+  DeleteProfileCommandOutput,
 } from "./commands/DeleteProfileCommand.ts";
-import {
-  DeleteRoomCommand,
-  DeleteRoomCommandInput,
-  DeleteRoomCommandOutput
-} from "./commands/DeleteRoomCommand.ts";
+import { DeleteRoomCommand, DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand.ts";
 import {
   DeleteRoomSkillParameterCommand,
   DeleteRoomSkillParameterCommandInput,
-  DeleteRoomSkillParameterCommandOutput
+  DeleteRoomSkillParameterCommandOutput,
 } from "./commands/DeleteRoomSkillParameterCommand.ts";
 import {
   DeleteSkillAuthorizationCommand,
   DeleteSkillAuthorizationCommandInput,
-  DeleteSkillAuthorizationCommandOutput
+  DeleteSkillAuthorizationCommandOutput,
 } from "./commands/DeleteSkillAuthorizationCommand.ts";
 import {
   DeleteSkillGroupCommand,
   DeleteSkillGroupCommandInput,
-  DeleteSkillGroupCommandOutput
+  DeleteSkillGroupCommandOutput,
 } from "./commands/DeleteSkillGroupCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DisassociateContactFromAddressBookCommand,
   DisassociateContactFromAddressBookCommandInput,
-  DisassociateContactFromAddressBookCommandOutput
+  DisassociateContactFromAddressBookCommandOutput,
 } from "./commands/DisassociateContactFromAddressBookCommand.ts";
 import {
   DisassociateDeviceFromRoomCommand,
   DisassociateDeviceFromRoomCommandInput,
-  DisassociateDeviceFromRoomCommandOutput
+  DisassociateDeviceFromRoomCommandOutput,
 } from "./commands/DisassociateDeviceFromRoomCommand.ts";
 import {
   DisassociateSkillFromSkillGroupCommand,
   DisassociateSkillFromSkillGroupCommandInput,
-  DisassociateSkillFromSkillGroupCommandOutput
+  DisassociateSkillFromSkillGroupCommandOutput,
 } from "./commands/DisassociateSkillFromSkillGroupCommand.ts";
 import {
   DisassociateSkillFromUsersCommand,
   DisassociateSkillFromUsersCommandInput,
-  DisassociateSkillFromUsersCommandOutput
+  DisassociateSkillFromUsersCommandOutput,
 } from "./commands/DisassociateSkillFromUsersCommand.ts";
 import {
   DisassociateSkillGroupFromRoomCommand,
   DisassociateSkillGroupFromRoomCommandInput,
-  DisassociateSkillGroupFromRoomCommandOutput
+  DisassociateSkillGroupFromRoomCommandOutput,
 } from "./commands/DisassociateSkillGroupFromRoomCommand.ts";
 import {
   ForgetSmartHomeAppliancesCommand,
   ForgetSmartHomeAppliancesCommandInput,
-  ForgetSmartHomeAppliancesCommandOutput
+  ForgetSmartHomeAppliancesCommandOutput,
 } from "./commands/ForgetSmartHomeAppliancesCommand.ts";
 import {
   GetAddressBookCommand,
   GetAddressBookCommandInput,
-  GetAddressBookCommandOutput
+  GetAddressBookCommandOutput,
 } from "./commands/GetAddressBookCommand.ts";
 import {
   GetConferencePreferenceCommand,
   GetConferencePreferenceCommandInput,
-  GetConferencePreferenceCommandOutput
+  GetConferencePreferenceCommandOutput,
 } from "./commands/GetConferencePreferenceCommand.ts";
 import {
   GetConferenceProviderCommand,
   GetConferenceProviderCommandInput,
-  GetConferenceProviderCommandOutput
+  GetConferenceProviderCommandOutput,
 } from "./commands/GetConferenceProviderCommand.ts";
-import {
-  GetContactCommand,
-  GetContactCommandInput,
-  GetContactCommandOutput
-} from "./commands/GetContactCommand.ts";
-import {
-  GetDeviceCommand,
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand.ts";
-import {
-  GetGatewayCommand,
-  GetGatewayCommandInput,
-  GetGatewayCommandOutput
-} from "./commands/GetGatewayCommand.ts";
+import { GetContactCommand, GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand.ts";
+import { GetDeviceCommand, GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
+import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand.ts";
 import {
   GetGatewayGroupCommand,
   GetGatewayGroupCommandInput,
-  GetGatewayGroupCommandOutput
+  GetGatewayGroupCommandOutput,
 } from "./commands/GetGatewayGroupCommand.ts";
 import {
   GetInvitationConfigurationCommand,
   GetInvitationConfigurationCommandInput,
-  GetInvitationConfigurationCommandOutput
+  GetInvitationConfigurationCommandOutput,
 } from "./commands/GetInvitationConfigurationCommand.ts";
 import {
   GetNetworkProfileCommand,
   GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
+  GetNetworkProfileCommandOutput,
 } from "./commands/GetNetworkProfileCommand.ts";
-import {
-  GetProfileCommand,
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand.ts";
-import {
-  GetRoomCommand,
-  GetRoomCommandInput,
-  GetRoomCommandOutput
-} from "./commands/GetRoomCommand.ts";
+import { GetProfileCommand, GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand.ts";
+import { GetRoomCommand, GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand.ts";
 import {
   GetRoomSkillParameterCommand,
   GetRoomSkillParameterCommandInput,
-  GetRoomSkillParameterCommandOutput
+  GetRoomSkillParameterCommandOutput,
 } from "./commands/GetRoomSkillParameterCommand.ts";
 import {
   GetSkillGroupCommand,
   GetSkillGroupCommandInput,
-  GetSkillGroupCommandOutput
+  GetSkillGroupCommandOutput,
 } from "./commands/GetSkillGroupCommand.ts";
 import {
   ListBusinessReportSchedulesCommand,
   ListBusinessReportSchedulesCommandInput,
-  ListBusinessReportSchedulesCommandOutput
+  ListBusinessReportSchedulesCommandOutput,
 } from "./commands/ListBusinessReportSchedulesCommand.ts";
 import {
   ListConferenceProvidersCommand,
   ListConferenceProvidersCommandInput,
-  ListConferenceProvidersCommandOutput
+  ListConferenceProvidersCommandOutput,
 } from "./commands/ListConferenceProvidersCommand.ts";
 import {
   ListDeviceEventsCommand,
   ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
+  ListDeviceEventsCommandOutput,
 } from "./commands/ListDeviceEventsCommand.ts";
 import {
   ListGatewayGroupsCommand,
   ListGatewayGroupsCommandInput,
-  ListGatewayGroupsCommandOutput
+  ListGatewayGroupsCommandOutput,
 } from "./commands/ListGatewayGroupsCommand.ts";
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
-  ListGatewaysCommandOutput
+  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand.ts";
-import {
-  ListSkillsCommand,
-  ListSkillsCommandInput,
-  ListSkillsCommandOutput
-} from "./commands/ListSkillsCommand.ts";
+import { ListSkillsCommand, ListSkillsCommandInput, ListSkillsCommandOutput } from "./commands/ListSkillsCommand.ts";
 import {
   ListSkillsStoreCategoriesCommand,
   ListSkillsStoreCategoriesCommandInput,
-  ListSkillsStoreCategoriesCommandOutput
+  ListSkillsStoreCategoriesCommandOutput,
 } from "./commands/ListSkillsStoreCategoriesCommand.ts";
 import {
   ListSkillsStoreSkillsByCategoryCommand,
   ListSkillsStoreSkillsByCategoryCommandInput,
-  ListSkillsStoreSkillsByCategoryCommandOutput
+  ListSkillsStoreSkillsByCategoryCommandOutput,
 } from "./commands/ListSkillsStoreSkillsByCategoryCommand.ts";
 import {
   ListSmartHomeAppliancesCommand,
   ListSmartHomeAppliancesCommandInput,
-  ListSmartHomeAppliancesCommandOutput
+  ListSmartHomeAppliancesCommandOutput,
 } from "./commands/ListSmartHomeAppliancesCommand.ts";
-import {
-  ListTagsCommand,
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   PutConferencePreferenceCommand,
   PutConferencePreferenceCommandInput,
-  PutConferencePreferenceCommandOutput
+  PutConferencePreferenceCommandOutput,
 } from "./commands/PutConferencePreferenceCommand.ts";
 import {
   PutInvitationConfigurationCommand,
   PutInvitationConfigurationCommandInput,
-  PutInvitationConfigurationCommandOutput
+  PutInvitationConfigurationCommandOutput,
 } from "./commands/PutInvitationConfigurationCommand.ts";
 import {
   PutRoomSkillParameterCommand,
   PutRoomSkillParameterCommandInput,
-  PutRoomSkillParameterCommandOutput
+  PutRoomSkillParameterCommandOutput,
 } from "./commands/PutRoomSkillParameterCommand.ts";
 import {
   PutSkillAuthorizationCommand,
   PutSkillAuthorizationCommandInput,
-  PutSkillAuthorizationCommandOutput
+  PutSkillAuthorizationCommandOutput,
 } from "./commands/PutSkillAuthorizationCommand.ts";
 import {
   RegisterAVSDeviceCommand,
   RegisterAVSDeviceCommandInput,
-  RegisterAVSDeviceCommandOutput
+  RegisterAVSDeviceCommandOutput,
 } from "./commands/RegisterAVSDeviceCommand.ts";
 import {
   RejectSkillCommand,
   RejectSkillCommandInput,
-  RejectSkillCommandOutput
+  RejectSkillCommandOutput,
 } from "./commands/RejectSkillCommand.ts";
 import {
   ResolveRoomCommand,
   ResolveRoomCommandInput,
-  ResolveRoomCommandOutput
+  ResolveRoomCommandOutput,
 } from "./commands/ResolveRoomCommand.ts";
 import {
   RevokeInvitationCommand,
   RevokeInvitationCommandInput,
-  RevokeInvitationCommandOutput
+  RevokeInvitationCommandOutput,
 } from "./commands/RevokeInvitationCommand.ts";
 import {
   SearchAddressBooksCommand,
   SearchAddressBooksCommandInput,
-  SearchAddressBooksCommandOutput
+  SearchAddressBooksCommandOutput,
 } from "./commands/SearchAddressBooksCommand.ts";
 import {
   SearchContactsCommand,
   SearchContactsCommandInput,
-  SearchContactsCommandOutput
+  SearchContactsCommandOutput,
 } from "./commands/SearchContactsCommand.ts";
 import {
   SearchDevicesCommand,
   SearchDevicesCommandInput,
-  SearchDevicesCommandOutput
+  SearchDevicesCommandOutput,
 } from "./commands/SearchDevicesCommand.ts";
 import {
   SearchNetworkProfilesCommand,
   SearchNetworkProfilesCommandInput,
-  SearchNetworkProfilesCommandOutput
+  SearchNetworkProfilesCommandOutput,
 } from "./commands/SearchNetworkProfilesCommand.ts";
 import {
   SearchProfilesCommand,
   SearchProfilesCommandInput,
-  SearchProfilesCommandOutput
+  SearchProfilesCommandOutput,
 } from "./commands/SearchProfilesCommand.ts";
 import {
   SearchRoomsCommand,
   SearchRoomsCommandInput,
-  SearchRoomsCommandOutput
+  SearchRoomsCommandOutput,
 } from "./commands/SearchRoomsCommand.ts";
 import {
   SearchSkillGroupsCommand,
   SearchSkillGroupsCommandInput,
-  SearchSkillGroupsCommandOutput
+  SearchSkillGroupsCommandOutput,
 } from "./commands/SearchSkillGroupsCommand.ts";
 import {
   SearchUsersCommand,
   SearchUsersCommandInput,
-  SearchUsersCommandOutput
+  SearchUsersCommandOutput,
 } from "./commands/SearchUsersCommand.ts";
 import {
   SendAnnouncementCommand,
   SendAnnouncementCommandInput,
-  SendAnnouncementCommandOutput
+  SendAnnouncementCommandOutput,
 } from "./commands/SendAnnouncementCommand.ts";
 import {
   SendInvitationCommand,
   SendInvitationCommandInput,
-  SendInvitationCommandOutput
+  SendInvitationCommandOutput,
 } from "./commands/SendInvitationCommand.ts";
 import {
   StartDeviceSyncCommand,
   StartDeviceSyncCommandInput,
-  StartDeviceSyncCommandOutput
+  StartDeviceSyncCommandOutput,
 } from "./commands/StartDeviceSyncCommand.ts";
 import {
   StartSmartHomeApplianceDiscoveryCommand,
   StartSmartHomeApplianceDiscoveryCommandInput,
-  StartSmartHomeApplianceDiscoveryCommandOutput
+  StartSmartHomeApplianceDiscoveryCommandOutput,
 } from "./commands/StartSmartHomeApplianceDiscoveryCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAddressBookCommand,
   UpdateAddressBookCommandInput,
-  UpdateAddressBookCommandOutput
+  UpdateAddressBookCommandOutput,
 } from "./commands/UpdateAddressBookCommand.ts";
 import {
   UpdateBusinessReportScheduleCommand,
   UpdateBusinessReportScheduleCommandInput,
-  UpdateBusinessReportScheduleCommandOutput
+  UpdateBusinessReportScheduleCommandOutput,
 } from "./commands/UpdateBusinessReportScheduleCommand.ts";
 import {
   UpdateConferenceProviderCommand,
   UpdateConferenceProviderCommandInput,
-  UpdateConferenceProviderCommandOutput
+  UpdateConferenceProviderCommandOutput,
 } from "./commands/UpdateConferenceProviderCommand.ts";
 import {
   UpdateContactCommand,
   UpdateContactCommandInput,
-  UpdateContactCommandOutput
+  UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand.ts";
 import {
   UpdateDeviceCommand,
   UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput
+  UpdateDeviceCommandOutput,
 } from "./commands/UpdateDeviceCommand.ts";
 import {
   UpdateGatewayCommand,
   UpdateGatewayCommandInput,
-  UpdateGatewayCommandOutput
+  UpdateGatewayCommandOutput,
 } from "./commands/UpdateGatewayCommand.ts";
 import {
   UpdateGatewayGroupCommand,
   UpdateGatewayGroupCommandInput,
-  UpdateGatewayGroupCommandOutput
+  UpdateGatewayGroupCommandOutput,
 } from "./commands/UpdateGatewayGroupCommand.ts";
 import {
   UpdateNetworkProfileCommand,
   UpdateNetworkProfileCommandInput,
-  UpdateNetworkProfileCommandOutput
+  UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand.ts";
 import {
   UpdateProfileCommand,
   UpdateProfileCommandInput,
-  UpdateProfileCommandOutput
+  UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand.ts";
-import {
-  UpdateRoomCommand,
-  UpdateRoomCommandInput,
-  UpdateRoomCommandOutput
-} from "./commands/UpdateRoomCommand.ts";
+import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand.ts";
 import {
   UpdateSkillGroupCommand,
   UpdateSkillGroupCommandInput,
-  UpdateSkillGroupCommandOutput
+  UpdateSkillGroupCommandOutput,
 } from "./commands/UpdateSkillGroupCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -485,10 +437,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: ApproveSkillCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ApproveSkillCommandOutput>;
-  public approveSkill(
-    args: ApproveSkillCommandInput,
-    cb: (err: any, data?: ApproveSkillCommandOutput) => void
-  ): void;
+  public approveSkill(args: ApproveSkillCommandInput, cb: (err: any, data?: ApproveSkillCommandOutput) => void): void;
   public approveSkill(
     args: ApproveSkillCommandInput,
     options: __HttpHandlerOptions,
@@ -496,17 +445,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public approveSkill(
     args: ApproveSkillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApproveSkillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApproveSkillCommandOutput) => void),
     cb?: (err: any, data?: ApproveSkillCommandOutput) => void
   ): Promise<ApproveSkillCommandOutput> | void {
     const command = new ApproveSkillCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -531,20 +477,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public associateContactWithAddressBook(
     args: AssociateContactWithAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateContactWithAddressBookCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateContactWithAddressBookCommandOutput) => void),
     cb?: (err: any, data?: AssociateContactWithAddressBookCommandOutput) => void
   ): Promise<AssociateContactWithAddressBookCommandOutput> | void {
     const command = new AssociateContactWithAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -560,38 +500,23 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): Promise<AssociateDeviceWithNetworkProfileCommandOutput>;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): void;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): void;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateDeviceWithNetworkProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void),
+    cb?: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> | void {
     const command = new AssociateDeviceWithNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -618,17 +543,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public associateDeviceWithRoom(
     args: AssociateDeviceWithRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDeviceWithRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDeviceWithRoomCommandOutput) => void),
     cb?: (err: any, data?: AssociateDeviceWithRoomCommandOutput) => void
   ): Promise<AssociateDeviceWithRoomCommandOutput> | void {
     const command = new AssociateDeviceWithRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -654,17 +576,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public associateSkillGroupWithRoom(
     args: AssociateSkillGroupWithRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSkillGroupWithRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSkillGroupWithRoomCommandOutput) => void),
     cb?: (err: any, data?: AssociateSkillGroupWithRoomCommandOutput) => void
   ): Promise<AssociateSkillGroupWithRoomCommandOutput> | void {
     const command = new AssociateSkillGroupWithRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -689,17 +608,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public associateSkillWithSkillGroup(
     args: AssociateSkillWithSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSkillWithSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSkillWithSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: AssociateSkillWithSkillGroupCommandOutput) => void
   ): Promise<AssociateSkillWithSkillGroupCommandOutput> | void {
     const command = new AssociateSkillWithSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -724,17 +640,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public associateSkillWithUsers(
     args: AssociateSkillWithUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSkillWithUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateSkillWithUsersCommandOutput) => void),
     cb?: (err: any, data?: AssociateSkillWithUsersCommandOutput) => void
   ): Promise<AssociateSkillWithUsersCommandOutput> | void {
     const command = new AssociateSkillWithUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,17 +672,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createAddressBook(
     args: CreateAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAddressBookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAddressBookCommandOutput) => void),
     cb?: (err: any, data?: CreateAddressBookCommandOutput) => void
   ): Promise<CreateAddressBookCommandOutput> | void {
     const command = new CreateAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -795,17 +705,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createBusinessReportSchedule(
     args: CreateBusinessReportScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBusinessReportScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBusinessReportScheduleCommandOutput) => void),
     cb?: (err: any, data?: CreateBusinessReportScheduleCommandOutput) => void
   ): Promise<CreateBusinessReportScheduleCommandOutput> | void {
     const command = new CreateBusinessReportScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -830,17 +737,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createConferenceProvider(
     args: CreateConferenceProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConferenceProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConferenceProviderCommandOutput) => void),
     cb?: (err: any, data?: CreateConferenceProviderCommandOutput) => void
   ): Promise<CreateConferenceProviderCommandOutput> | void {
     const command = new CreateConferenceProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -865,17 +769,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createContact(
     args: CreateContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactCommandOutput) => void),
     cb?: (err: any, data?: CreateContactCommandOutput) => void
   ): Promise<CreateContactCommandOutput> | void {
     const command = new CreateContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -900,17 +801,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createGatewayGroup(
     args: CreateGatewayGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGatewayGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGatewayGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGatewayGroupCommandOutput) => void
   ): Promise<CreateGatewayGroupCommandOutput> | void {
     const command = new CreateGatewayGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -935,17 +833,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkProfileCommandOutput) => void
   ): Promise<CreateNetworkProfileCommandOutput> | void {
     const command = new CreateNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -970,17 +865,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createProfile(
     args: CreateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateProfileCommandOutput) => void
   ): Promise<CreateProfileCommandOutput> | void {
     const command = new CreateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -990,14 +882,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Creates a room with the specified details.</p>
    */
-  public createRoom(
-    args: CreateRoomCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRoomCommandOutput>;
-  public createRoom(
-    args: CreateRoomCommandInput,
-    cb: (err: any, data?: CreateRoomCommandOutput) => void
-  ): void;
+  public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
+  public createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
   public createRoom(
     args: CreateRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,17 +891,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createRoom(
     args: CreateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoomCommandOutput) => void),
     cb?: (err: any, data?: CreateRoomCommandOutput) => void
   ): Promise<CreateRoomCommandOutput> | void {
     const command = new CreateRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1040,17 +923,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createSkillGroup(
     args: CreateSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateSkillGroupCommandOutput) => void
   ): Promise<CreateSkillGroupCommandOutput> | void {
     const command = new CreateSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1060,14 +940,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Creates a user.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1075,17 +949,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1110,17 +981,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteAddressBook(
     args: DeleteAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAddressBookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAddressBookCommandOutput) => void),
     cb?: (err: any, data?: DeleteAddressBookCommandOutput) => void
   ): Promise<DeleteAddressBookCommandOutput> | void {
     const command = new DeleteAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1146,17 +1014,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteBusinessReportSchedule(
     args: DeleteBusinessReportScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBusinessReportScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBusinessReportScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteBusinessReportScheduleCommandOutput) => void
   ): Promise<DeleteBusinessReportScheduleCommandOutput> | void {
     const command = new DeleteBusinessReportScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1181,17 +1046,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteConferenceProvider(
     args: DeleteConferenceProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConferenceProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConferenceProviderCommandOutput) => void),
     cb?: (err: any, data?: DeleteConferenceProviderCommandOutput) => void
   ): Promise<DeleteConferenceProviderCommandOutput> | void {
     const command = new DeleteConferenceProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1216,17 +1078,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteContact(
     args: DeleteContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactCommandOutput) => void),
     cb?: (err: any, data?: DeleteContactCommandOutput) => void
   ): Promise<DeleteContactCommandOutput> | void {
     const command = new DeleteContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1240,10 +1099,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: DeleteDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDeviceCommandOutput>;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): void;
+  public deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -1251,17 +1107,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): Promise<DeleteDeviceCommandOutput> | void {
     const command = new DeleteDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1288,17 +1141,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteDeviceUsageData(
     args: DeleteDeviceUsageDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceUsageDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceUsageDataCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceUsageDataCommandOutput) => void
   ): Promise<DeleteDeviceUsageDataCommandOutput> | void {
     const command = new DeleteDeviceUsageDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1323,17 +1173,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteGatewayGroup(
     args: DeleteGatewayGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGatewayGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGatewayGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGatewayGroupCommandOutput) => void
   ): Promise<DeleteGatewayGroupCommandOutput> | void {
     const command = new DeleteGatewayGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1358,17 +1205,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkProfileCommandOutput) => void
   ): Promise<DeleteNetworkProfileCommandOutput> | void {
     const command = new DeleteNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1393,17 +1237,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteProfile(
     args: DeleteProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteProfileCommandOutput) => void
   ): Promise<DeleteProfileCommandOutput> | void {
     const command = new DeleteProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1413,14 +1254,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Deletes a room by the room ARN.</p>
    */
-  public deleteRoom(
-    args: DeleteRoomCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRoomCommandOutput>;
-  public deleteRoom(
-    args: DeleteRoomCommandInput,
-    cb: (err: any, data?: DeleteRoomCommandOutput) => void
-  ): void;
+  public deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
+  public deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
   public deleteRoom(
     args: DeleteRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -1428,17 +1263,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteRoom(
     args: DeleteRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoomCommandOutput) => void
   ): Promise<DeleteRoomCommandOutput> | void {
     const command = new DeleteRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1463,17 +1295,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteRoomSkillParameter(
     args: DeleteRoomSkillParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoomSkillParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomSkillParameterCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoomSkillParameterCommandOutput) => void
   ): Promise<DeleteRoomSkillParameterCommandOutput> | void {
     const command = new DeleteRoomSkillParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1498,17 +1327,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteSkillAuthorization(
     args: DeleteSkillAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSkillAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSkillAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSkillAuthorizationCommandOutput) => void
   ): Promise<DeleteSkillAuthorizationCommandOutput> | void {
     const command = new DeleteSkillAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1533,17 +1359,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteSkillGroup(
     args: DeleteSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteSkillGroupCommandOutput) => void
   ): Promise<DeleteSkillGroupCommandOutput> | void {
     const command = new DeleteSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1553,14 +1376,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Deletes a specified user by user ARN and enrollment ARN.</p>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1568,17 +1385,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1594,38 +1408,23 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): Promise<DisassociateContactFromAddressBookCommandOutput>;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): void;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): void;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateContactFromAddressBookCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): Promise<DisassociateContactFromAddressBookCommandOutput> | void {
     const command = new DisassociateContactFromAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1652,17 +1451,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public disassociateDeviceFromRoom(
     args: DisassociateDeviceFromRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateDeviceFromRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateDeviceFromRoomCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDeviceFromRoomCommandOutput) => void
   ): Promise<DisassociateDeviceFromRoomCommandOutput> | void {
     const command = new DisassociateDeviceFromRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1687,20 +1483,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public disassociateSkillFromSkillGroup(
     args: DisassociateSkillFromSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateSkillFromSkillGroupCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSkillFromSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSkillFromSkillGroupCommandOutput) => void
   ): Promise<DisassociateSkillFromSkillGroupCommandOutput> | void {
     const command = new DisassociateSkillFromSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1726,17 +1516,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public disassociateSkillFromUsers(
     args: DisassociateSkillFromUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateSkillFromUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSkillFromUsersCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSkillFromUsersCommandOutput) => void
   ): Promise<DisassociateSkillFromUsersCommandOutput> | void {
     const command = new DisassociateSkillFromUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1762,20 +1549,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public disassociateSkillGroupFromRoom(
     args: DisassociateSkillGroupFromRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateSkillGroupFromRoomCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateSkillGroupFromRoomCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSkillGroupFromRoomCommandOutput) => void
   ): Promise<DisassociateSkillGroupFromRoomCommandOutput> | void {
     const command = new DisassociateSkillGroupFromRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1800,17 +1581,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public forgetSmartHomeAppliances(
     args: ForgetSmartHomeAppliancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ForgetSmartHomeAppliancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ForgetSmartHomeAppliancesCommandOutput) => void),
     cb?: (err: any, data?: ForgetSmartHomeAppliancesCommandOutput) => void
   ): Promise<ForgetSmartHomeAppliancesCommandOutput> | void {
     const command = new ForgetSmartHomeAppliancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1835,17 +1613,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getAddressBook(
     args: GetAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAddressBookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAddressBookCommandOutput) => void),
     cb?: (err: any, data?: GetAddressBookCommandOutput) => void
   ): Promise<GetAddressBookCommandOutput> | void {
     const command = new GetAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1870,17 +1645,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getConferencePreference(
     args: GetConferencePreferenceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConferencePreferenceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConferencePreferenceCommandOutput) => void),
     cb?: (err: any, data?: GetConferencePreferenceCommandOutput) => void
   ): Promise<GetConferencePreferenceCommandOutput> | void {
     const command = new GetConferencePreferenceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1905,17 +1677,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getConferenceProvider(
     args: GetConferenceProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConferenceProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConferenceProviderCommandOutput) => void),
     cb?: (err: any, data?: GetConferenceProviderCommandOutput) => void
   ): Promise<GetConferenceProviderCommandOutput> | void {
     const command = new GetConferenceProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1925,14 +1694,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Gets the contact details by the contact ARN.</p>
    */
-  public getContact(
-    args: GetContactCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetContactCommandOutput>;
-  public getContact(
-    args: GetContactCommandInput,
-    cb: (err: any, data?: GetContactCommandOutput) => void
-  ): void;
+  public getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
+  public getContact(args: GetContactCommandInput, cb: (err: any, data?: GetContactCommandOutput) => void): void;
   public getContact(
     args: GetContactCommandInput,
     options: __HttpHandlerOptions,
@@ -1940,17 +1703,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getContact(
     args: GetContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactCommandOutput) => void),
     cb?: (err: any, data?: GetContactCommandOutput) => void
   ): Promise<GetContactCommandOutput> | void {
     const command = new GetContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1960,14 +1720,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Gets the details of a device by device ARN.</p>
    */
-  public getDevice(
-    args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDeviceCommandOutput>;
-  public getDevice(
-    args: GetDeviceCommandInput,
-    cb: (err: any, data?: GetDeviceCommandOutput) => void
-  ): void;
+  public getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
+  public getDevice(args: GetDeviceCommandInput, cb: (err: any, data?: GetDeviceCommandOutput) => void): void;
   public getDevice(
     args: GetDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -1975,17 +1729,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1995,14 +1746,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Retrieves the details of a gateway.</p>
    */
-  public getGateway(
-    args: GetGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGatewayCommandOutput>;
-  public getGateway(
-    args: GetGatewayCommandInput,
-    cb: (err: any, data?: GetGatewayCommandOutput) => void
-  ): void;
+  public getGateway(args: GetGatewayCommandInput, options?: __HttpHandlerOptions): Promise<GetGatewayCommandOutput>;
+  public getGateway(args: GetGatewayCommandInput, cb: (err: any, data?: GetGatewayCommandOutput) => void): void;
   public getGateway(
     args: GetGatewayCommandInput,
     options: __HttpHandlerOptions,
@@ -2010,17 +1755,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getGateway(
     args: GetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGatewayCommandOutput) => void),
     cb?: (err: any, data?: GetGatewayCommandOutput) => void
   ): Promise<GetGatewayCommandOutput> | void {
     const command = new GetGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2045,17 +1787,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getGatewayGroup(
     args: GetGatewayGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGatewayGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGatewayGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGatewayGroupCommandOutput) => void
   ): Promise<GetGatewayGroupCommandOutput> | void {
     const command = new GetGatewayGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2081,17 +1820,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getInvitationConfiguration(
     args: GetInvitationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInvitationConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInvitationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetInvitationConfigurationCommandOutput) => void
   ): Promise<GetInvitationConfigurationCommandOutput> | void {
     const command = new GetInvitationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2116,17 +1852,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getNetworkProfile(
     args: GetNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: GetNetworkProfileCommandOutput) => void
   ): Promise<GetNetworkProfileCommandOutput> | void {
     const command = new GetNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2136,14 +1869,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Gets the details of a room profile by profile ARN.</p>
    */
-  public getProfile(
-    args: GetProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetProfileCommandOutput>;
-  public getProfile(
-    args: GetProfileCommandInput,
-    cb: (err: any, data?: GetProfileCommandOutput) => void
-  ): void;
+  public getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
+  public getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
   public getProfile(
     args: GetProfileCommandInput,
     options: __HttpHandlerOptions,
@@ -2151,17 +1878,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getProfile(
     args: GetProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProfileCommandOutput) => void),
     cb?: (err: any, data?: GetProfileCommandOutput) => void
   ): Promise<GetProfileCommandOutput> | void {
     const command = new GetProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2171,14 +1895,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Gets room details by room ARN.</p>
    */
-  public getRoom(
-    args: GetRoomCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRoomCommandOutput>;
-  public getRoom(
-    args: GetRoomCommandInput,
-    cb: (err: any, data?: GetRoomCommandOutput) => void
-  ): void;
+  public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
+  public getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
   public getRoom(
     args: GetRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -2186,17 +1904,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getRoom(
     args: GetRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoomCommandOutput) => void),
     cb?: (err: any, data?: GetRoomCommandOutput) => void
   ): Promise<GetRoomCommandOutput> | void {
     const command = new GetRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2221,17 +1936,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getRoomSkillParameter(
     args: GetRoomSkillParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoomSkillParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoomSkillParameterCommandOutput) => void),
     cb?: (err: any, data?: GetRoomSkillParameterCommandOutput) => void
   ): Promise<GetRoomSkillParameterCommandOutput> | void {
     const command = new GetRoomSkillParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2256,17 +1968,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getSkillGroup(
     args: GetSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: GetSkillGroupCommandOutput) => void
   ): Promise<GetSkillGroupCommandOutput> | void {
     const command = new GetSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2291,17 +2000,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listBusinessReportSchedules(
     args: ListBusinessReportSchedulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBusinessReportSchedulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBusinessReportSchedulesCommandOutput) => void),
     cb?: (err: any, data?: ListBusinessReportSchedulesCommandOutput) => void
   ): Promise<ListBusinessReportSchedulesCommandOutput> | void {
     const command = new ListBusinessReportSchedulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2326,17 +2032,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listConferenceProviders(
     args: ListConferenceProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConferenceProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConferenceProvidersCommandOutput) => void),
     cb?: (err: any, data?: ListConferenceProvidersCommandOutput) => void
   ): Promise<ListConferenceProvidersCommandOutput> | void {
     const command = new ListConferenceProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2362,17 +2065,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listDeviceEvents(
     args: ListDeviceEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceEventsCommandOutput) => void
   ): Promise<ListDeviceEventsCommandOutput> | void {
     const command = new ListDeviceEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2398,17 +2098,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listGatewayGroups(
     args: ListGatewayGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGatewayGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewayGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGatewayGroupsCommandOutput) => void
   ): Promise<ListGatewayGroupsCommandOutput> | void {
     const command = new ListGatewayGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2424,10 +2121,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: ListGatewaysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListGatewaysCommandOutput>;
-  public listGateways(
-    args: ListGatewaysCommandInput,
-    cb: (err: any, data?: ListGatewaysCommandOutput) => void
-  ): void;
+  public listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   public listGateways(
     args: ListGatewaysCommandInput,
     options: __HttpHandlerOptions,
@@ -2435,17 +2129,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listGateways(
     args: ListGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewaysCommandOutput) => void),
     cb?: (err: any, data?: ListGatewaysCommandOutput) => void
   ): Promise<ListGatewaysCommandOutput> | void {
     const command = new ListGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2455,14 +2146,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Lists all enabled skills in a specific skill group.</p>
    */
-  public listSkills(
-    args: ListSkillsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSkillsCommandOutput>;
-  public listSkills(
-    args: ListSkillsCommandInput,
-    cb: (err: any, data?: ListSkillsCommandOutput) => void
-  ): void;
+  public listSkills(args: ListSkillsCommandInput, options?: __HttpHandlerOptions): Promise<ListSkillsCommandOutput>;
+  public listSkills(args: ListSkillsCommandInput, cb: (err: any, data?: ListSkillsCommandOutput) => void): void;
   public listSkills(
     args: ListSkillsCommandInput,
     options: __HttpHandlerOptions,
@@ -2470,17 +2155,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listSkills(
     args: ListSkillsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSkillsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSkillsCommandOutput) => void),
     cb?: (err: any, data?: ListSkillsCommandOutput) => void
   ): Promise<ListSkillsCommandOutput> | void {
     const command = new ListSkillsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2505,17 +2187,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listSkillsStoreCategories(
     args: ListSkillsStoreCategoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSkillsStoreCategoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSkillsStoreCategoriesCommandOutput) => void),
     cb?: (err: any, data?: ListSkillsStoreCategoriesCommandOutput) => void
   ): Promise<ListSkillsStoreCategoriesCommandOutput> | void {
     const command = new ListSkillsStoreCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2540,20 +2219,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listSkillsStoreSkillsByCategory(
     args: ListSkillsStoreSkillsByCategoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListSkillsStoreSkillsByCategoryCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSkillsStoreSkillsByCategoryCommandOutput) => void),
     cb?: (err: any, data?: ListSkillsStoreSkillsByCategoryCommandOutput) => void
   ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> | void {
     const command = new ListSkillsStoreSkillsByCategoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2578,17 +2251,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listSmartHomeAppliances(
     args: ListSmartHomeAppliancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSmartHomeAppliancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSmartHomeAppliancesCommandOutput) => void),
     cb?: (err: any, data?: ListSmartHomeAppliancesCommandOutput) => void
   ): Promise<ListSmartHomeAppliancesCommandOutput> | void {
     const command = new ListSmartHomeAppliancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2598,14 +2268,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Lists all tags for the specified resource.</p>
    */
-  public listTags(
-    args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
-  ): void;
+  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
   public listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2613,17 +2277,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2649,17 +2310,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public putConferencePreference(
     args: PutConferencePreferenceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConferencePreferenceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConferencePreferenceCommandOutput) => void),
     cb?: (err: any, data?: PutConferencePreferenceCommandOutput) => void
   ): Promise<PutConferencePreferenceCommandOutput> | void {
     const command = new PutConferencePreferenceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2685,17 +2343,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public putInvitationConfiguration(
     args: PutInvitationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInvitationConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInvitationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutInvitationConfigurationCommandOutput) => void
   ): Promise<PutInvitationConfigurationCommandOutput> | void {
     const command = new PutInvitationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2721,17 +2376,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public putRoomSkillParameter(
     args: PutRoomSkillParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRoomSkillParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRoomSkillParameterCommandOutput) => void),
     cb?: (err: any, data?: PutRoomSkillParameterCommandOutput) => void
   ): Promise<PutRoomSkillParameterCommandOutput> | void {
     const command = new PutRoomSkillParameterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2758,17 +2410,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public putSkillAuthorization(
     args: PutSkillAuthorizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSkillAuthorizationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSkillAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: PutSkillAuthorizationCommandOutput) => void
   ): Promise<PutSkillAuthorizationCommandOutput> | void {
     const command = new PutSkillAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2794,17 +2443,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public registerAVSDevice(
     args: RegisterAVSDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterAVSDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterAVSDeviceCommandOutput) => void),
     cb?: (err: any, data?: RegisterAVSDeviceCommandOutput) => void
   ): Promise<RegisterAVSDeviceCommandOutput> | void {
     const command = new RegisterAVSDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2816,14 +2462,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
    *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
    *          that is rejected can be added later by calling the ApproveSkill API. </p>
    */
-  public rejectSkill(
-    args: RejectSkillCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RejectSkillCommandOutput>;
-  public rejectSkill(
-    args: RejectSkillCommandInput,
-    cb: (err: any, data?: RejectSkillCommandOutput) => void
-  ): void;
+  public rejectSkill(args: RejectSkillCommandInput, options?: __HttpHandlerOptions): Promise<RejectSkillCommandOutput>;
+  public rejectSkill(args: RejectSkillCommandInput, cb: (err: any, data?: RejectSkillCommandOutput) => void): void;
   public rejectSkill(
     args: RejectSkillCommandInput,
     options: __HttpHandlerOptions,
@@ -2831,17 +2471,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public rejectSkill(
     args: RejectSkillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectSkillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectSkillCommandOutput) => void),
     cb?: (err: any, data?: RejectSkillCommandOutput) => void
   ): Promise<RejectSkillCommandOutput> | void {
     const command = new RejectSkillCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2852,14 +2489,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
    * <p>Determines the details for the room from which a skill request was invoked. This
    *          operation is used by skill developers.</p>
    */
-  public resolveRoom(
-    args: ResolveRoomCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResolveRoomCommandOutput>;
-  public resolveRoom(
-    args: ResolveRoomCommandInput,
-    cb: (err: any, data?: ResolveRoomCommandOutput) => void
-  ): void;
+  public resolveRoom(args: ResolveRoomCommandInput, options?: __HttpHandlerOptions): Promise<ResolveRoomCommandOutput>;
+  public resolveRoom(args: ResolveRoomCommandInput, cb: (err: any, data?: ResolveRoomCommandOutput) => void): void;
   public resolveRoom(
     args: ResolveRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -2867,17 +2498,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public resolveRoom(
     args: ResolveRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveRoomCommandOutput) => void),
     cb?: (err: any, data?: ResolveRoomCommandOutput) => void
   ): Promise<ResolveRoomCommandOutput> | void {
     const command = new ResolveRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2902,17 +2530,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public revokeInvitation(
     args: RevokeInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeInvitationCommandOutput) => void),
     cb?: (err: any, data?: RevokeInvitationCommandOutput) => void
   ): Promise<RevokeInvitationCommandOutput> | void {
     const command = new RevokeInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2938,17 +2563,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchAddressBooks(
     args: SearchAddressBooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchAddressBooksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchAddressBooksCommandOutput) => void),
     cb?: (err: any, data?: SearchAddressBooksCommandOutput) => void
   ): Promise<SearchAddressBooksCommandOutput> | void {
     const command = new SearchAddressBooksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2974,17 +2596,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchContacts(
     args: SearchContactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchContactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchContactsCommandOutput) => void),
     cb?: (err: any, data?: SearchContactsCommandOutput) => void
   ): Promise<SearchContactsCommandOutput> | void {
     const command = new SearchContactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3009,17 +2628,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchDevices(
     args: SearchDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDevicesCommandOutput) => void),
     cb?: (err: any, data?: SearchDevicesCommandOutput) => void
   ): Promise<SearchDevicesCommandOutput> | void {
     const command = new SearchDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3045,17 +2661,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchNetworkProfiles(
     args: SearchNetworkProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchNetworkProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchNetworkProfilesCommandOutput) => void),
     cb?: (err: any, data?: SearchNetworkProfilesCommandOutput) => void
   ): Promise<SearchNetworkProfilesCommandOutput> | void {
     const command = new SearchNetworkProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3081,17 +2694,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchProfiles(
     args: SearchProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProfilesCommandOutput) => void),
     cb?: (err: any, data?: SearchProfilesCommandOutput) => void
   ): Promise<SearchProfilesCommandOutput> | void {
     const command = new SearchProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3102,14 +2712,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
    * <p>Searches rooms and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
-  public searchRooms(
-    args: SearchRoomsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchRoomsCommandOutput>;
-  public searchRooms(
-    args: SearchRoomsCommandInput,
-    cb: (err: any, data?: SearchRoomsCommandOutput) => void
-  ): void;
+  public searchRooms(args: SearchRoomsCommandInput, options?: __HttpHandlerOptions): Promise<SearchRoomsCommandOutput>;
+  public searchRooms(args: SearchRoomsCommandInput, cb: (err: any, data?: SearchRoomsCommandOutput) => void): void;
   public searchRooms(
     args: SearchRoomsCommandInput,
     options: __HttpHandlerOptions,
@@ -3117,17 +2721,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchRooms(
     args: SearchRoomsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchRoomsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchRoomsCommandOutput) => void),
     cb?: (err: any, data?: SearchRoomsCommandOutput) => void
   ): Promise<SearchRoomsCommandOutput> | void {
     const command = new SearchRoomsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3153,17 +2754,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchSkillGroups(
     args: SearchSkillGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchSkillGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSkillGroupsCommandOutput) => void),
     cb?: (err: any, data?: SearchSkillGroupsCommandOutput) => void
   ): Promise<SearchSkillGroupsCommandOutput> | void {
     const command = new SearchSkillGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3174,14 +2772,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
    * <p>Searches users and lists the ones that meet a set of filter and sort
    *          criteria.</p>
    */
-  public searchUsers(
-    args: SearchUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchUsersCommandOutput>;
-  public searchUsers(
-    args: SearchUsersCommandInput,
-    cb: (err: any, data?: SearchUsersCommandOutput) => void
-  ): void;
+  public searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
+  public searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
   public searchUsers(
     args: SearchUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -3189,17 +2781,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchUsers(
     args: SearchUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchUsersCommandOutput) => void),
     cb?: (err: any, data?: SearchUsersCommandOutput) => void
   ): Promise<SearchUsersCommandOutput> | void {
     const command = new SearchUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3225,17 +2814,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public sendAnnouncement(
     args: SendAnnouncementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendAnnouncementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendAnnouncementCommandOutput) => void),
     cb?: (err: any, data?: SendAnnouncementCommandOutput) => void
   ): Promise<SendAnnouncementCommandOutput> | void {
     const command = new SendAnnouncementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3261,17 +2847,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public sendInvitation(
     args: SendInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendInvitationCommandOutput) => void),
     cb?: (err: any, data?: SendInvitationCommandOutput) => void
   ): Promise<SendInvitationCommandOutput> | void {
     const command = new SendInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3317,17 +2900,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public startDeviceSync(
     args: StartDeviceSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeviceSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeviceSyncCommandOutput) => void),
     cb?: (err: any, data?: StartDeviceSyncCommandOutput) => void
   ): Promise<StartDeviceSyncCommandOutput> | void {
     const command = new StartDeviceSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3353,23 +2933,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public startSmartHomeApplianceDiscovery(
     args: StartSmartHomeApplianceDiscoveryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartSmartHomeApplianceDiscoveryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartSmartHomeApplianceDiscoveryCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSmartHomeApplianceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: StartSmartHomeApplianceDiscoveryCommandOutput) => void
   ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> | void {
     const command = new StartSmartHomeApplianceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3379,14 +2950,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Adds metadata tags to a specified resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3394,17 +2959,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3429,17 +2991,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3464,17 +3023,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateAddressBook(
     args: UpdateAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAddressBookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAddressBookCommandOutput) => void),
     cb?: (err: any, data?: UpdateAddressBookCommandOutput) => void
   ): Promise<UpdateAddressBookCommandOutput> | void {
     const command = new UpdateAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3500,17 +3056,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateBusinessReportSchedule(
     args: UpdateBusinessReportScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBusinessReportScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBusinessReportScheduleCommandOutput) => void),
     cb?: (err: any, data?: UpdateBusinessReportScheduleCommandOutput) => void
   ): Promise<UpdateBusinessReportScheduleCommandOutput> | void {
     const command = new UpdateBusinessReportScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3535,17 +3088,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateConferenceProvider(
     args: UpdateConferenceProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConferenceProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConferenceProviderCommandOutput) => void),
     cb?: (err: any, data?: UpdateConferenceProviderCommandOutput) => void
   ): Promise<UpdateConferenceProviderCommandOutput> | void {
     const command = new UpdateConferenceProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3570,17 +3120,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateContact(
     args: UpdateContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactCommandOutput) => void),
     cb?: (err: any, data?: UpdateContactCommandOutput) => void
   ): Promise<UpdateContactCommandOutput> | void {
     const command = new UpdateContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3594,10 +3141,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: UpdateDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDeviceCommandOutput>;
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
-  ): void;
+  public updateDevice(args: UpdateDeviceCommandInput, cb: (err: any, data?: UpdateDeviceCommandOutput) => void): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -3605,17 +3149,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): Promise<UpdateDeviceCommandOutput> | void {
     const command = new UpdateDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3641,17 +3182,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateGateway(
     args: UpdateGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayCommandOutput) => void),
     cb?: (err: any, data?: UpdateGatewayCommandOutput) => void
   ): Promise<UpdateGatewayCommandOutput> | void {
     const command = new UpdateGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3677,17 +3215,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateGatewayGroup(
     args: UpdateGatewayGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGatewayGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGatewayGroupCommandOutput) => void
   ): Promise<UpdateGatewayGroupCommandOutput> | void {
     const command = new UpdateGatewayGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3712,17 +3247,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNetworkProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNetworkProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateNetworkProfileCommandOutput) => void
   ): Promise<UpdateNetworkProfileCommandOutput> | void {
     const command = new UpdateNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3747,17 +3279,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateProfile(
     args: UpdateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateProfileCommandOutput) => void
   ): Promise<UpdateProfileCommandOutput> | void {
     const command = new UpdateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3767,14 +3296,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   /**
    * <p>Updates room details by room ARN.</p>
    */
-  public updateRoom(
-    args: UpdateRoomCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRoomCommandOutput>;
-  public updateRoom(
-    args: UpdateRoomCommandInput,
-    cb: (err: any, data?: UpdateRoomCommandOutput) => void
-  ): void;
+  public updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
+  public updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
   public updateRoom(
     args: UpdateRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -3782,17 +3305,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateRoom(
     args: UpdateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoomCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoomCommandOutput) => void
   ): Promise<UpdateRoomCommandOutput> | void {
     const command = new UpdateRoomCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3817,17 +3337,14 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateSkillGroup(
     args: UpdateSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateSkillGroupCommandOutput) => void
   ): Promise<UpdateSkillGroupCommandOutput> | void {
     const command = new UpdateSkillGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

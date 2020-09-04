@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client.ts";
-import {
-  GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client.ts";
+import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetRegexPatternSetCommand,
-  serializeAws_json1_1GetRegexPatternSetCommand
+  serializeAws_json1_1GetRegexPatternSetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRegexPatternSetCommandInput = GetRegexPatternSetRequest;
-export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse &
-  __MetadataBearer;
+export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse & __MetadataBearer;
 
 export class GetRegexPatternSetCommand extends $Command<
   GetRegexPatternSetCommandInput,
@@ -50,14 +39,15 @@ export class GetRegexPatternSetCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRegexPatternSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRegexPatternSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetRegexPatternSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRegexPatternSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRegexPatternSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRegexPatternSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegexPatternSetCommandOutput> {
     return deserializeAws_json1_1GetRegexPatternSetCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  CreateRelationalDatabaseSnapshotRequest,
-  CreateRelationalDatabaseSnapshotResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,
-  serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand
+  serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateRelationalDatabaseSnapshotCommandInput = CreateRelationalDatabaseSnapshotRequest;
-export type CreateRelationalDatabaseSnapshotCommandOutput = CreateRelationalDatabaseSnapshotResult &
-  __MetadataBearer;
+export type CreateRelationalDatabaseSnapshotCommandOutput = CreateRelationalDatabaseSnapshotResult & __MetadataBearer;
 
 export class CreateRelationalDatabaseSnapshotCommand extends $Command<
   CreateRelationalDatabaseSnapshotCommandInput,
@@ -49,18 +38,16 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRelationalDatabaseSnapshotCommandInput,
-    CreateRelationalDatabaseSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRelationalDatabaseSnapshotCommandInput, CreateRelationalDatabaseSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateRelationalDatabaseSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateRelationalDatabaseSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     input: CreateRelationalDatabaseSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRelationalDatabaseSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

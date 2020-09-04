@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  CreatePresignedDomainUrlRequest,
-  CreatePresignedDomainUrlResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreatePresignedDomainUrlCommand,
-  serializeAws_json1_1CreatePresignedDomainUrlCommand
+  serializeAws_json1_1CreatePresignedDomainUrlCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePresignedDomainUrlCommandInput = CreatePresignedDomainUrlRequest;
-export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse &
-  __MetadataBearer;
+export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse & __MetadataBearer;
 
 export class CreatePresignedDomainUrlCommand extends $Command<
   CreatePresignedDomainUrlCommandInput,
@@ -49,18 +38,16 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePresignedDomainUrlCommandInput,
-    CreatePresignedDomainUrlCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePresignedDomainUrlCommandInput, CreatePresignedDomainUrlCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePresignedDomainUrlRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresignedDomainUrlResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePresignedDomainUrlCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePresignedDomainUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePresignedDomainUrlCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePresignedDomainUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedDomainUrlCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresignedDomainUrlCommandOutput> {
+    return deserializeAws_json1_1CreatePresignedDomainUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

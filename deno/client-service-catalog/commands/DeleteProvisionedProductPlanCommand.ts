@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DeleteProvisionedProductPlanInput,
-  DeleteProvisionedProductPlanOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteProvisionedProductPlanCommand,
-  serializeAws_json1_1DeleteProvisionedProductPlanCommand
+  serializeAws_json1_1DeleteProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteProvisionedProductPlanCommandInput = DeleteProvisionedProductPlanInput;
-export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput &
-  __MetadataBearer;
+export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput & __MetadataBearer;
 
 export class DeleteProvisionedProductPlanCommand extends $Command<
   DeleteProvisionedProductPlanCommandInput,
@@ -49,18 +38,16 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteProvisionedProductPlanCommandInput,
-    DeleteProvisionedProductPlanCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteProvisionedProductPlanCommandInput, DeleteProvisionedProductPlanCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteProvisionedProductPlanInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisionedProductPlanOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteProvisionedProductPlanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisionedProductPlanCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteProvisionedProductPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisionedProductPlanCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

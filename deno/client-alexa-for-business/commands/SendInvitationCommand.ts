@@ -1,18 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
 import { SendInvitationRequest, SendInvitationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1SendInvitationCommand,
-  serializeAws_json1_1SendInvitationCommand
+  serializeAws_json1_1SendInvitationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SendInvitationCommandInput = SendInvitationRequest;
-export type SendInvitationCommandOutput = SendInvitationResponse &
-  __MetadataBearer;
+export type SendInvitationCommandOutput = SendInvitationResponse & __MetadataBearer;
 
 export class SendInvitationCommand extends $Command<
   SendInvitationCommandInput,
@@ -47,14 +43,15 @@ export class SendInvitationCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendInvitationCommandInput, SendInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SendInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SendInvitationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class SendInvitationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendInvitationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SendInvitationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendInvitationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendInvitationCommandOutput> {
     return deserializeAws_json1_1SendInvitationCommand(output, context);
   }
 

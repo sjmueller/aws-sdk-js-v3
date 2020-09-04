@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient.ts";
-import {
-  CreatePullRequestApprovalRuleInput,
-  CreatePullRequestApprovalRuleOutput
-} from "../models/index.ts";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
+import { CreatePullRequestApprovalRuleInput, CreatePullRequestApprovalRuleOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreatePullRequestApprovalRuleCommand,
-  serializeAws_json1_1CreatePullRequestApprovalRuleCommand
+  serializeAws_json1_1CreatePullRequestApprovalRuleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePullRequestApprovalRuleCommandInput = CreatePullRequestApprovalRuleInput;
-export type CreatePullRequestApprovalRuleCommandOutput = CreatePullRequestApprovalRuleOutput &
-  __MetadataBearer;
+export type CreatePullRequestApprovalRuleCommandOutput = CreatePullRequestApprovalRuleOutput & __MetadataBearer;
 
 export class CreatePullRequestApprovalRuleCommand extends $Command<
   CreatePullRequestApprovalRuleCommandInput,
@@ -49,18 +38,16 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePullRequestApprovalRuleCommandInput,
-    CreatePullRequestApprovalRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePullRequestApprovalRuleCommandInput, CreatePullRequestApprovalRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePullRequestApprovalRuleInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePullRequestApprovalRuleOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePullRequestApprovalRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
-      input,
-      context
-    );
+  private serialize(input: CreatePullRequestApprovalRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

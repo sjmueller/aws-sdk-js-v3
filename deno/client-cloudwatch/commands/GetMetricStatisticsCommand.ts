@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  GetMetricStatisticsInput,
-  GetMetricStatisticsOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/index.ts";
 import {
   deserializeAws_queryGetMetricStatisticsCommand,
-  serializeAws_queryGetMetricStatisticsCommand
+  serializeAws_queryGetMetricStatisticsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetMetricStatisticsCommandInput = GetMetricStatisticsInput;
-export type GetMetricStatisticsCommandOutput = GetMetricStatisticsOutput &
-  __MetadataBearer;
+export type GetMetricStatisticsCommandOutput = GetMetricStatisticsOutput & __MetadataBearer;
 
 export class GetMetricStatisticsCommand extends $Command<
   GetMetricStatisticsCommandInput,
@@ -49,18 +38,16 @@ export class GetMetricStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMetricStatisticsCommandInput,
-    GetMetricStatisticsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMetricStatisticsCommandInput, GetMetricStatisticsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetMetricStatisticsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricStatisticsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class GetMetricStatisticsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMetricStatisticsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMetricStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetMetricStatisticsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMetricStatisticsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricStatisticsCommandOutput> {
     return deserializeAws_queryGetMetricStatisticsCommand(output, context);
   }
 

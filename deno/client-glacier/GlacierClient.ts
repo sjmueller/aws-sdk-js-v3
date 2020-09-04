@@ -1,134 +1,83 @@
 import {
   AbortMultipartUploadCommandInput,
-  AbortMultipartUploadCommandOutput
+  AbortMultipartUploadCommandOutput,
 } from "./commands/AbortMultipartUploadCommand.ts";
-import {
-  AbortVaultLockCommandInput,
-  AbortVaultLockCommandOutput
-} from "./commands/AbortVaultLockCommand.ts";
-import {
-  AddTagsToVaultCommandInput,
-  AddTagsToVaultCommandOutput
-} from "./commands/AddTagsToVaultCommand.ts";
+import { AbortVaultLockCommandInput, AbortVaultLockCommandOutput } from "./commands/AbortVaultLockCommand.ts";
+import { AddTagsToVaultCommandInput, AddTagsToVaultCommandOutput } from "./commands/AddTagsToVaultCommand.ts";
 import {
   CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput
+  CompleteMultipartUploadCommandOutput,
 } from "./commands/CompleteMultipartUploadCommand.ts";
-import {
-  CompleteVaultLockCommandInput,
-  CompleteVaultLockCommandOutput
-} from "./commands/CompleteVaultLockCommand.ts";
-import {
-  CreateVaultCommandInput,
-  CreateVaultCommandOutput
-} from "./commands/CreateVaultCommand.ts";
-import {
-  DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput
-} from "./commands/DeleteArchiveCommand.ts";
+import { CompleteVaultLockCommandInput, CompleteVaultLockCommandOutput } from "./commands/CompleteVaultLockCommand.ts";
+import { CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand.ts";
+import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand.ts";
 import {
   DeleteVaultAccessPolicyCommandInput,
-  DeleteVaultAccessPolicyCommandOutput
+  DeleteVaultAccessPolicyCommandOutput,
 } from "./commands/DeleteVaultAccessPolicyCommand.ts";
-import {
-  DeleteVaultCommandInput,
-  DeleteVaultCommandOutput
-} from "./commands/DeleteVaultCommand.ts";
+import { DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand.ts";
 import {
   DeleteVaultNotificationsCommandInput,
-  DeleteVaultNotificationsCommandOutput
+  DeleteVaultNotificationsCommandOutput,
 } from "./commands/DeleteVaultNotificationsCommand.ts";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand.ts";
-import {
-  DescribeVaultCommandInput,
-  DescribeVaultCommandOutput
-} from "./commands/DescribeVaultCommand.ts";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
+import { DescribeVaultCommandInput, DescribeVaultCommandOutput } from "./commands/DescribeVaultCommand.ts";
 import {
   GetDataRetrievalPolicyCommandInput,
-  GetDataRetrievalPolicyCommandOutput
+  GetDataRetrievalPolicyCommandOutput,
 } from "./commands/GetDataRetrievalPolicyCommand.ts";
-import {
-  GetJobOutputCommandInput,
-  GetJobOutputCommandOutput
-} from "./commands/GetJobOutputCommand.ts";
+import { GetJobOutputCommandInput, GetJobOutputCommandOutput } from "./commands/GetJobOutputCommand.ts";
 import {
   GetVaultAccessPolicyCommandInput,
-  GetVaultAccessPolicyCommandOutput
+  GetVaultAccessPolicyCommandOutput,
 } from "./commands/GetVaultAccessPolicyCommand.ts";
-import {
-  GetVaultLockCommandInput,
-  GetVaultLockCommandOutput
-} from "./commands/GetVaultLockCommand.ts";
+import { GetVaultLockCommandInput, GetVaultLockCommandOutput } from "./commands/GetVaultLockCommand.ts";
 import {
   GetVaultNotificationsCommandInput,
-  GetVaultNotificationsCommandOutput
+  GetVaultNotificationsCommandOutput,
 } from "./commands/GetVaultNotificationsCommand.ts";
-import {
-  InitiateJobCommandInput,
-  InitiateJobCommandOutput
-} from "./commands/InitiateJobCommand.ts";
+import { InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand.ts";
 import {
   InitiateMultipartUploadCommandInput,
-  InitiateMultipartUploadCommandOutput
+  InitiateMultipartUploadCommandOutput,
 } from "./commands/InitiateMultipartUploadCommand.ts";
-import {
-  InitiateVaultLockCommandInput,
-  InitiateVaultLockCommandOutput
-} from "./commands/InitiateVaultLockCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
+import { InitiateVaultLockCommandInput, InitiateVaultLockCommandOutput } from "./commands/InitiateVaultLockCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput
+  ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand.ts";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand.ts";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand.ts";
 import {
   ListProvisionedCapacityCommandInput,
-  ListProvisionedCapacityCommandOutput
+  ListProvisionedCapacityCommandOutput,
 } from "./commands/ListProvisionedCapacityCommand.ts";
-import {
-  ListTagsForVaultCommandInput,
-  ListTagsForVaultCommandOutput
-} from "./commands/ListTagsForVaultCommand.ts";
-import {
-  ListVaultsCommandInput,
-  ListVaultsCommandOutput
-} from "./commands/ListVaultsCommand.ts";
+import { ListTagsForVaultCommandInput, ListTagsForVaultCommandOutput } from "./commands/ListTagsForVaultCommand.ts";
+import { ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand.ts";
 import {
   PurchaseProvisionedCapacityCommandInput,
-  PurchaseProvisionedCapacityCommandOutput
+  PurchaseProvisionedCapacityCommandOutput,
 } from "./commands/PurchaseProvisionedCapacityCommand.ts";
 import {
   RemoveTagsFromVaultCommandInput,
-  RemoveTagsFromVaultCommandOutput
+  RemoveTagsFromVaultCommandOutput,
 } from "./commands/RemoveTagsFromVaultCommand.ts";
 import {
   SetDataRetrievalPolicyCommandInput,
-  SetDataRetrievalPolicyCommandOutput
+  SetDataRetrievalPolicyCommandOutput,
 } from "./commands/SetDataRetrievalPolicyCommand.ts";
 import {
   SetVaultAccessPolicyCommandInput,
-  SetVaultAccessPolicyCommandOutput
+  SetVaultAccessPolicyCommandOutput,
 } from "./commands/SetVaultAccessPolicyCommand.ts";
 import {
   SetVaultNotificationsCommandInput,
-  SetVaultNotificationsCommandOutput
+  SetVaultNotificationsCommandOutput,
 } from "./commands/SetVaultNotificationsCommand.ts";
-import {
-  UploadArchiveCommandInput,
-  UploadArchiveCommandOutput
-} from "./commands/UploadArchiveCommand.ts";
+import { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "./commands/UploadArchiveCommand.ts";
 import {
   UploadMultipartPartCommandInput,
-  UploadMultipartPartCommandOutput
+  UploadMultipartPartCommandOutput,
 } from "./commands/UploadMultipartPartCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -137,39 +86,35 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import { getGlacierPlugin } from "../middleware-sdk-glacier/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -179,9 +124,10 @@ import {
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   HttpRequest as __HttpRequest,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -254,8 +200,7 @@ export type ServiceOutputTypes =
   | UploadArchiveCommandOutput
   | UploadMultipartPartCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -329,14 +274,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -352,9 +302,7 @@ export interface ClientDefaults
   ) => Promise<[string, string]>;
 }
 
-export type GlacierClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -363,9 +311,7 @@ export type GlacierClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -425,7 +371,7 @@ export class GlacierClient extends __Client<
   constructor(configuration: GlacierClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -441,6 +387,7 @@ export class GlacierClient extends __Client<
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getGlacierPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

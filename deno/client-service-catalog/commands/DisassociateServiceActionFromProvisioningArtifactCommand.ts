@@ -1,21 +1,14 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
 import {
   DisassociateServiceActionFromProvisioningArtifactInput,
-  DisassociateServiceActionFromProvisioningArtifactOutput
+  DisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
-  serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand
+  serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateServiceActionFromProvisioningArtifactCommandInput = DisassociateServiceActionFromProvisioningArtifactInput;
@@ -39,9 +32,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateServiceActionFromProvisioningArtifactCommandInput
-  ) {
+  constructor(readonly input: DisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     DisassociateServiceActionFromProvisioningArtifactCommandInput,
     DisassociateServiceActionFromProvisioningArtifactCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

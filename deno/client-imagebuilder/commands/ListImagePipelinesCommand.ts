@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient.ts";
-import {
-  ListImagePipelinesRequest,
-  ListImagePipelinesResponse
-} from "../models/index.ts";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
+import { ListImagePipelinesRequest, ListImagePipelinesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListImagePipelinesCommand,
-  serializeAws_restJson1ListImagePipelinesCommand
+  serializeAws_restJson1ListImagePipelinesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListImagePipelinesCommandInput = ListImagePipelinesRequest;
-export type ListImagePipelinesCommandOutput = ListImagePipelinesResponse &
-  __MetadataBearer;
+export type ListImagePipelinesCommandOutput = ListImagePipelinesResponse & __MetadataBearer;
 
 export class ListImagePipelinesCommand extends $Command<
   ListImagePipelinesCommandInput,
   ListImagePipelinesCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,17 +36,18 @@ export class ListImagePipelinesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListImagePipelinesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListImagePipelinesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListImagePipelinesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListImagePipelinesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListImagePipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListImagePipelinesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListImagePipelinesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePipelinesCommandOutput> {
     return deserializeAws_restJson1ListImagePipelinesCommand(output, context);
   }
 

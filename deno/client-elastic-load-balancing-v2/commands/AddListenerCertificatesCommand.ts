@@ -1,21 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
-import {
-  AddListenerCertificatesInput,
-  AddListenerCertificatesOutput
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
+import { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/index.ts";
 import {
   deserializeAws_queryAddListenerCertificatesCommand,
-  serializeAws_queryAddListenerCertificatesCommand
+  serializeAws_queryAddListenerCertificatesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
-export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput &
-  __MetadataBearer;
+export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput & __MetadataBearer;
 
 export class AddListenerCertificatesCommand extends $Command<
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class AddListenerCertificatesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddListenerCertificatesCommandInput,
-    AddListenerCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddListenerCertificatesCommandInput, AddListenerCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AddListenerCertificatesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AddListenerCertificatesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class AddListenerCertificatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddListenerCertificatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddListenerCertificatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddListenerCertificatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddListenerCertificatesCommandOutput> {
     return deserializeAws_queryAddListenerCertificatesCommand(output, context);
   }
 

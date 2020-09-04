@@ -1,90 +1,45 @@
-import {
-  CreateActivityCommandInput,
-  CreateActivityCommandOutput
-} from "./commands/CreateActivityCommand.ts";
+import { CreateActivityCommandInput, CreateActivityCommandOutput } from "./commands/CreateActivityCommand.ts";
 import {
   CreateStateMachineCommandInput,
-  CreateStateMachineCommandOutput
+  CreateStateMachineCommandOutput,
 } from "./commands/CreateStateMachineCommand.ts";
-import {
-  DeleteActivityCommandInput,
-  DeleteActivityCommandOutput
-} from "./commands/DeleteActivityCommand.ts";
+import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "./commands/DeleteActivityCommand.ts";
 import {
   DeleteStateMachineCommandInput,
-  DeleteStateMachineCommandOutput
+  DeleteStateMachineCommandOutput,
 } from "./commands/DeleteStateMachineCommand.ts";
-import {
-  DescribeActivityCommandInput,
-  DescribeActivityCommandOutput
-} from "./commands/DescribeActivityCommand.ts";
-import {
-  DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput
-} from "./commands/DescribeExecutionCommand.ts";
+import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "./commands/DescribeActivityCommand.ts";
+import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand.ts";
 import {
   DescribeStateMachineCommandInput,
-  DescribeStateMachineCommandOutput
+  DescribeStateMachineCommandOutput,
 } from "./commands/DescribeStateMachineCommand.ts";
 import {
   DescribeStateMachineForExecutionCommandInput,
-  DescribeStateMachineForExecutionCommandOutput
+  DescribeStateMachineForExecutionCommandOutput,
 } from "./commands/DescribeStateMachineForExecutionCommand.ts";
-import {
-  GetActivityTaskCommandInput,
-  GetActivityTaskCommandOutput
-} from "./commands/GetActivityTaskCommand.ts";
+import { GetActivityTaskCommandInput, GetActivityTaskCommandOutput } from "./commands/GetActivityTaskCommand.ts";
 import {
   GetExecutionHistoryCommandInput,
-  GetExecutionHistoryCommandOutput
+  GetExecutionHistoryCommandOutput,
 } from "./commands/GetExecutionHistoryCommand.ts";
-import {
-  ListActivitiesCommandInput,
-  ListActivitiesCommandOutput
-} from "./commands/ListActivitiesCommand.ts";
-import {
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput
-} from "./commands/ListExecutionsCommand.ts";
-import {
-  ListStateMachinesCommandInput,
-  ListStateMachinesCommandOutput
-} from "./commands/ListStateMachinesCommand.ts";
+import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "./commands/ListActivitiesCommand.ts";
+import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand.ts";
+import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "./commands/ListStateMachinesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  SendTaskFailureCommandInput,
-  SendTaskFailureCommandOutput
-} from "./commands/SendTaskFailureCommand.ts";
-import {
-  SendTaskHeartbeatCommandInput,
-  SendTaskHeartbeatCommandOutput
-} from "./commands/SendTaskHeartbeatCommand.ts";
-import {
-  SendTaskSuccessCommandInput,
-  SendTaskSuccessCommandOutput
-} from "./commands/SendTaskSuccessCommand.ts";
-import {
-  StartExecutionCommandInput,
-  StartExecutionCommandOutput
-} from "./commands/StartExecutionCommand.ts";
-import {
-  StopExecutionCommandInput,
-  StopExecutionCommandOutput
-} from "./commands/StopExecutionCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand.ts";
+import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand.ts";
+import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand.ts";
+import { StartExecutionCommandInput, StartExecutionCommandOutput } from "./commands/StartExecutionCommand.ts";
+import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateStateMachineCommandInput,
-  UpdateStateMachineCommandOutput
+  UpdateStateMachineCommandOutput,
 } from "./commands/UpdateStateMachineCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -93,38 +48,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -133,9 +84,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -186,8 +138,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateStateMachineCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -261,14 +212,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -276,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SFNClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SFNClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -287,9 +241,7 @@ export type SFNClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -327,7 +279,7 @@ export class SFNClient extends __Client<
   constructor(configuration: SFNClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -342,6 +294,7 @@ export class SFNClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

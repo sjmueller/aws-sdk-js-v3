@@ -1,31 +1,25 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AcceptReservedNodeExchangeInputMessage {
   __type?: "AcceptReservedNodeExchangeInputMessage";
-  /**
-   * <p>A string representing the node identifier of the DC1 Reserved Node to be
-   *             exchanged.</p>
-   */
-  ReservedNodeId: string | undefined;
-
   /**
    * <p>The unique identifier of the DC2 Reserved Node offering to be used for the exchange.
    *             You can obtain the value for the parameter by calling <a>GetReservedNodeExchangeOfferings</a>
    *          </p>
    */
   TargetReservedNodeOfferingId: string | undefined;
+
+  /**
+   * <p>A string representing the node identifier of the DC1 Reserved Node to be
+   *             exchanged.</p>
+   */
+  ReservedNodeId: string | undefined;
 }
 
 export namespace AcceptReservedNodeExchangeInputMessage {
-  export const filterSensitiveLog = (
-    obj: AcceptReservedNodeExchangeInputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptReservedNodeExchangeInputMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptReservedNodeExchangeInputMessage =>
     __isa(o, "AcceptReservedNodeExchangeInputMessage");
@@ -40,10 +34,8 @@ export interface AcceptReservedNodeExchangeOutputMessage {
 }
 
 export namespace AcceptReservedNodeExchangeOutputMessage {
-  export const filterSensitiveLog = (
-    obj: AcceptReservedNodeExchangeOutputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AcceptReservedNodeExchangeOutputMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is AcceptReservedNodeExchangeOutputMessage =>
     __isa(o, "AcceptReservedNodeExchangeOutputMessage");
@@ -53,22 +45,17 @@ export namespace AcceptReservedNodeExchangeOutputMessage {
  * <p>The owner of the specified snapshot has not authorized your account to access the
  *             snapshot.</p>
  */
-export interface AccessToSnapshotDeniedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessToSnapshotDeniedFault extends __SmithyException, $MetadataBearer {
   name: "AccessToSnapshotDeniedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessToSnapshotDeniedFault {
-  export const filterSensitiveLog = (
-    obj: AccessToSnapshotDeniedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AccessToSnapshotDeniedFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AccessToSnapshotDeniedFault =>
-    __isa(o, "AccessToSnapshotDeniedFault");
+  export const isa = (o: any): o is AccessToSnapshotDeniedFault => __isa(o, "AccessToSnapshotDeniedFault");
 }
 
 /**
@@ -89,10 +76,9 @@ export interface AccountAttribute {
 
 export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountAttribute =>
-    __isa(o, "AccountAttribute");
+  export const isa = (o: any): o is AccountAttribute => __isa(o, "AccountAttribute");
 }
 
 export interface AccountAttributeList {
@@ -105,10 +91,9 @@ export interface AccountAttributeList {
 
 export namespace AccountAttributeList {
   export const filterSensitiveLog = (obj: AccountAttributeList): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountAttributeList =>
-    __isa(o, "AccountAttributeList");
+  export const isa = (o: any): o is AccountAttributeList => __isa(o, "AccountAttributeList");
 }
 
 /**
@@ -117,29 +102,29 @@ export namespace AccountAttributeList {
 export interface AccountWithRestoreAccess {
   __type?: "AccountWithRestoreAccess";
   /**
-   * <p>The identifier of an AWS support account authorized to restore a snapshot. For AWS
-   *             support, the identifier is <code>amazon-redshift-support</code>. </p>
-   */
-  AccountAlias?: string;
-
-  /**
    * <p>The identifier of an AWS customer account authorized to restore a
    *             snapshot.</p>
    */
   AccountId?: string;
+
+  /**
+   * <p>The identifier of an AWS support account authorized to restore a snapshot. For AWS
+   *             support, the identifier is <code>amazon-redshift-support</code>. </p>
+   */
+  AccountAlias?: string;
 }
 
 export namespace AccountWithRestoreAccess {
   export const filterSensitiveLog = (obj: AccountWithRestoreAccess): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccountWithRestoreAccess =>
-    __isa(o, "AccountWithRestoreAccess");
+  export const isa = (o: any): o is AccountWithRestoreAccess => __isa(o, "AccountWithRestoreAccess");
 }
 
 export enum ActionType {
   RECOMMEND_NODE_CONFIG = "recommend-node-config",
-  RESTORE_CLUSTER = "restore-cluster"
+  RESIZE_CLUSTER = "resize-cluster",
+  RESTORE_CLUSTER = "restore-cluster",
 }
 
 /**
@@ -155,41 +140,33 @@ export interface AttributeValueTarget {
 
 export namespace AttributeValueTarget {
   export const filterSensitiveLog = (obj: AttributeValueTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttributeValueTarget =>
-    __isa(o, "AttributeValueTarget");
+  export const isa = (o: any): o is AttributeValueTarget => __isa(o, "AttributeValueTarget");
 }
 
 /**
  * <p>The specified CIDR block or EC2 security group is already authorized for the
  *             specified cluster security group.</p>
  */
-export interface AuthorizationAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: AuthorizationAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationAlreadyExistsFault =>
-    __isa(o, "AuthorizationAlreadyExistsFault");
+  export const isa = (o: any): o is AuthorizationAlreadyExistsFault => __isa(o, "AuthorizationAlreadyExistsFault");
 }
 
 /**
  * <p>The specified CIDR IP range or EC2 security group is not authorized for the
  *             specified cluster security group.</p>
  */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
@@ -197,31 +174,25 @@ export interface AuthorizationNotFoundFault
 
 export namespace AuthorizationNotFoundFault {
   export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationNotFoundFault =>
-    __isa(o, "AuthorizationNotFoundFault");
+  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
  * <p>The authorization quota for the cluster security group has been reached.</p>
  */
-export interface AuthorizationQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: AuthorizationQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizationQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizationQuotaExceededFault =>
-    __isa(o, "AuthorizationQuotaExceededFault");
+  export const isa = (o: any): o is AuthorizationQuotaExceededFault => __isa(o, "AuthorizationQuotaExceededFault");
 }
 
 /**
@@ -230,14 +201,14 @@ export namespace AuthorizationQuotaExceededFault {
 export interface AuthorizeClusterSecurityGroupIngressMessage {
   __type?: "AuthorizeClusterSecurityGroupIngressMessage";
   /**
-   * <p>The IP range to be added the Amazon Redshift security group.</p>
-   */
-  CIDRIP?: string;
-
-  /**
    * <p>The name of the security group to which the ingress rule is added.</p>
    */
   ClusterSecurityGroupName: string | undefined;
+
+  /**
+   * <p>The IP range to be added the Amazon Redshift security group.</p>
+   */
+  CIDRIP?: string;
 
   /**
    * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
@@ -255,14 +226,10 @@ export interface AuthorizeClusterSecurityGroupIngressMessage {
 }
 
 export namespace AuthorizeClusterSecurityGroupIngressMessage {
-  export const filterSensitiveLog = (
-    obj: AuthorizeClusterSecurityGroupIngressMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeClusterSecurityGroupIngressMessage): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AuthorizeClusterSecurityGroupIngressMessage =>
+  export const isa = (o: any): o is AuthorizeClusterSecurityGroupIngressMessage =>
     __isa(o, "AuthorizeClusterSecurityGroupIngressMessage");
 }
 
@@ -275,14 +242,10 @@ export interface AuthorizeClusterSecurityGroupIngressResult {
 }
 
 export namespace AuthorizeClusterSecurityGroupIngressResult {
-  export const filterSensitiveLog = (
-    obj: AuthorizeClusterSecurityGroupIngressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeClusterSecurityGroupIngressResult): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is AuthorizeClusterSecurityGroupIngressResult =>
+  export const isa = (o: any): o is AuthorizeClusterSecurityGroupIngressResult =>
     __isa(o, "AuthorizeClusterSecurityGroupIngressResult");
 }
 
@@ -292,18 +255,18 @@ export namespace AuthorizeClusterSecurityGroupIngressResult {
 export interface AuthorizeSnapshotAccessMessage {
   __type?: "AuthorizeSnapshotAccessMessage";
   /**
-   * <p>The identifier of the AWS customer account authorized to restore the specified
-   *             snapshot.</p>
-   *         <p>To share a snapshot with AWS support, specify amazon-redshift-support.</p>
-   */
-  AccountWithRestoreAccess: string | undefined;
-
-  /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
    *             required if your IAM user has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier of the AWS customer account authorized to restore the specified
+   *             snapshot.</p>
+   *         <p>To share a snapshot with AWS support, specify amazon-redshift-support.</p>
+   */
+  AccountWithRestoreAccess: string | undefined;
 
   /**
    * <p>The identifier of the snapshot the account is authorized to restore.</p>
@@ -312,13 +275,10 @@ export interface AuthorizeSnapshotAccessMessage {
 }
 
 export namespace AuthorizeSnapshotAccessMessage {
-  export const filterSensitiveLog = (
-    obj: AuthorizeSnapshotAccessMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeSnapshotAccessMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSnapshotAccessMessage =>
-    __isa(o, "AuthorizeSnapshotAccessMessage");
+  export const isa = (o: any): o is AuthorizeSnapshotAccessMessage => __isa(o, "AuthorizeSnapshotAccessMessage");
 }
 
 export interface AuthorizeSnapshotAccessResult {
@@ -330,13 +290,10 @@ export interface AuthorizeSnapshotAccessResult {
 }
 
 export namespace AuthorizeSnapshotAccessResult {
-  export const filterSensitiveLog = (
-    obj: AuthorizeSnapshotAccessResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: AuthorizeSnapshotAccessResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSnapshotAccessResult =>
-    __isa(o, "AuthorizeSnapshotAccessResult");
+  export const isa = (o: any): o is AuthorizeSnapshotAccessResult => __isa(o, "AuthorizeSnapshotAccessResult");
 }
 
 /**
@@ -357,10 +314,9 @@ export interface AvailabilityZone {
 
 export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 export interface BatchDeleteClusterSnapshotsRequest {
@@ -372,10 +328,8 @@ export interface BatchDeleteClusterSnapshotsRequest {
 }
 
 export namespace BatchDeleteClusterSnapshotsRequest {
-  export const filterSensitiveLog = (
-    obj: BatchDeleteClusterSnapshotsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDeleteClusterSnapshotsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchDeleteClusterSnapshotsRequest =>
     __isa(o, "BatchDeleteClusterSnapshotsRequest");
@@ -384,43 +338,36 @@ export namespace BatchDeleteClusterSnapshotsRequest {
 export interface BatchDeleteClusterSnapshotsResult {
   __type?: "BatchDeleteClusterSnapshotsResult";
   /**
-   * <p>A list of any errors returned.</p>
-   */
-  Errors?: SnapshotErrorMessage[];
-
-  /**
    * <p>A list of the snapshot identifiers that were deleted. </p>
    */
   Resources?: string[];
+
+  /**
+   * <p>A list of any errors returned.</p>
+   */
+  Errors?: SnapshotErrorMessage[];
 }
 
 export namespace BatchDeleteClusterSnapshotsResult {
-  export const filterSensitiveLog = (
-    obj: BatchDeleteClusterSnapshotsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDeleteClusterSnapshotsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteClusterSnapshotsResult =>
-    __isa(o, "BatchDeleteClusterSnapshotsResult");
+  export const isa = (o: any): o is BatchDeleteClusterSnapshotsResult => __isa(o, "BatchDeleteClusterSnapshotsResult");
 }
 
 /**
  * <p>The maximum number for a batch delete of snapshots has been reached. The limit is
  *             100. </p>
  */
-export interface BatchDeleteRequestSizeExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BatchDeleteRequestSizeExceededFault extends __SmithyException, $MetadataBearer {
   name: "BatchDeleteRequestSizeExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace BatchDeleteRequestSizeExceededFault {
-  export const filterSensitiveLog = (
-    obj: BatchDeleteRequestSizeExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchDeleteRequestSizeExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchDeleteRequestSizeExceededFault =>
     __isa(o, "BatchDeleteRequestSizeExceededFault");
@@ -430,34 +377,22 @@ export namespace BatchDeleteRequestSizeExceededFault {
  * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
  *         </p>
  */
-export interface BatchModifyClusterSnapshotsLimitExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BatchModifyClusterSnapshotsLimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "BatchModifyClusterSnapshotsLimitExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace BatchModifyClusterSnapshotsLimitExceededFault {
-  export const filterSensitiveLog = (
-    obj: BatchModifyClusterSnapshotsLimitExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsLimitExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is BatchModifyClusterSnapshotsLimitExceededFault =>
+  export const isa = (o: any): o is BatchModifyClusterSnapshotsLimitExceededFault =>
     __isa(o, "BatchModifyClusterSnapshotsLimitExceededFault");
 }
 
 export interface BatchModifyClusterSnapshotsMessage {
   __type?: "BatchModifyClusterSnapshotsMessage";
-  /**
-   * <p>A boolean value indicating whether to override an exception if the retention period
-   *             has passed. </p>
-   */
-  Force?: boolean;
-
   /**
    * <p>The number of days that a manual snapshot is retained. If you specify the value -1,
    *             the manual snapshot is retained indefinitely.</p>
@@ -469,16 +404,20 @@ export interface BatchModifyClusterSnapshotsMessage {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
+   * <p>A boolean value indicating whether to override an exception if the retention period
+   *             has passed. </p>
+   */
+  Force?: boolean;
+
+  /**
    * <p>A list of snapshot identifiers you want to modify.</p>
    */
   SnapshotIdentifierList: string[] | undefined;
 }
 
 export namespace BatchModifyClusterSnapshotsMessage {
-  export const filterSensitiveLog = (
-    obj: BatchModifyClusterSnapshotsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchModifyClusterSnapshotsMessage =>
     __isa(o, "BatchModifyClusterSnapshotsMessage");
@@ -498,10 +437,8 @@ export interface BatchModifyClusterSnapshotsOutputMessage {
 }
 
 export namespace BatchModifyClusterSnapshotsOutputMessage {
-  export const filterSensitiveLog = (
-    obj: BatchModifyClusterSnapshotsOutputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsOutputMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is BatchModifyClusterSnapshotsOutputMessage =>
     __isa(o, "BatchModifyClusterSnapshotsOutputMessage");
@@ -510,9 +447,7 @@ export namespace BatchModifyClusterSnapshotsOutputMessage {
 /**
  * <p>Could not find the specified S3 bucket.</p>
  */
-export interface BucketNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BucketNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "BucketNotFoundFault";
   $fault: "client";
   message?: string;
@@ -520,10 +455,9 @@ export interface BucketNotFoundFault
 
 export namespace BucketNotFoundFault {
   export const filterSensitiveLog = (obj: BucketNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BucketNotFoundFault =>
-    __isa(o, "BucketNotFoundFault");
+  export const isa = (o: any): o is BucketNotFoundFault => __isa(o, "BucketNotFoundFault");
 }
 
 export interface CancelResizeMessage {
@@ -537,10 +471,9 @@ export interface CancelResizeMessage {
 
 export namespace CancelResizeMessage {
   export const filterSensitiveLog = (obj: CancelResizeMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelResizeMessage =>
-    __isa(o, "CancelResizeMessage");
+  export const isa = (o: any): o is CancelResizeMessage => __isa(o, "CancelResizeMessage");
 }
 
 /**
@@ -549,47 +482,44 @@ export namespace CancelResizeMessage {
 export interface Cluster {
   __type?: "Cluster";
   /**
-   * <p>A boolean value that, if <code>true</code>, indicates that major version upgrades
-   *             will be applied automatically to the cluster during the maintenance window. </p>
+   * <p>The connection endpoint.</p>
    */
-  AllowVersionUpgrade?: boolean;
+  Endpoint?: Endpoint;
 
   /**
-   * <p>The number of days that automatic cluster snapshots are retained.</p>
+   * <p>A value that reports whether the Amazon Redshift cluster has finished applying any
+   *             hardware security module (HSM) settings changes specified in a modify cluster
+   *             command.</p>
+   *         <p>Values: active, applying</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  HsmStatus?: HsmStatus;
 
   /**
-   * <p>The name of the Availability Zone in which the cluster is located.</p>
+   * <p>A boolean value that, if <code>true</code>, indicates that the cluster can be
+   *             accessed from a public network.</p>
    */
-  AvailabilityZone?: string;
+  PubliclyAccessible?: boolean;
 
   /**
-   * <p>The availability status of the cluster for queries. Possible values are the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Available - The cluster is available for queries. </p>
-   *             </li>
-   *             <li>
-   *                <p>Unavailable - The cluster is not available for queries.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maintenance - The cluster is intermittently available for queries due to maintenance activities.</p>
-   *             </li>
-   *             <li>
-   *                <p>Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed - The cluster failed and is not available for queries.</p>
-   *             </li>
-   *          </ul>
+   * <p>A value that returns the destination region and retention period that are
+   *             configured for cross-region snapshot copy.</p>
    */
-  ClusterAvailabilityStatus?: string;
+  ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
 
   /**
-   * <p>The date and time that the cluster was created.</p>
+   * <p>The identifier of the VPC the cluster is in, if the cluster is in a VPC.</p>
    */
-  ClusterCreateTime?: Date;
+  VpcId?: string;
+
+  /**
+   * <p>The status of the elastic IP (EIP) address.</p>
+   */
+  ElasticIpStatus?: ElasticIpStatus;
+
+  /**
+   * <p>The status of a modify operation, if any, initiated for the cluster.</p>
+   */
+  ModifyStatus?: string;
 
   /**
    * <p>The unique identifier of the cluster.</p>
@@ -597,9 +527,84 @@ export interface Cluster {
   ClusterIdentifier?: string;
 
   /**
+   * <p>The list of tags for the cluster.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are
+   *             associated with the cluster. This parameter is returned only if the cluster is in a
+   *             VPC.</p>
+   */
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+
+  /**
    * <p>The nodes in the cluster.</p>
    */
   ClusterNodes?: ClusterNode[];
+
+  /**
+   * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
+   *             maintenance can occur.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The current state of the cluster snapshot schedule.</p>
+   */
+  SnapshotScheduleState?: ScheduleState | string;
+
+  /**
+   * <p>The date and time in UTC when system maintenance can begin.</p>
+   */
+  NextMaintenanceWindowStartTime?: Date;
+
+  /**
+   * <p>Cluster operations that are waiting to be started.</p>
+   */
+  PendingActions?: string[];
+
+  /**
+   * <p>The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled. </p>
+   */
+  ExpectedNextSnapshotScheduleTime?: Date;
+
+  /**
+   * <p> The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled.  Possible values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>OnTrack - The next snapshot is expected to be taken on time. </p>
+   *             </li>
+   *             <li>
+   *                <p>Pending - The next snapshot is pending to be taken. </p>
+   *             </li>
+   *          </ul>
+   */
+  ExpectedNextSnapshotScheduleTimeStatus?: string;
+
+  /**
+   * <p>Returns the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>AllowCancelResize: a boolean value indicating if the resize operation can be
+   *                     cancelled.</p>
+   *             </li>
+   *             <li>
+   *                 <p>ResizeType: Returns ClassicResize</p>
+   *             </li>
+   *          </ul>
+   */
+  ResizeInfo?: ResizeInfo;
+
+  /**
+   * <p>The public key for the cluster.</p>
+   */
+  ClusterPublicKey?: string;
+
+  /**
+   * <p>The number of days that automatic cluster snapshots are retained.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The list of cluster parameter groups that are associated with this cluster. Each
@@ -608,32 +613,84 @@ export interface Cluster {
   ClusterParameterGroups?: ClusterParameterGroupStatus[];
 
   /**
-   * <p>The public key for the cluster.</p>
+   * <p>The name of the maintenance track for the cluster.</p>
    */
-  ClusterPublicKey?: string;
+  MaintenanceTrackName?: string;
 
   /**
-   * <p>The specific revision number of the database in the cluster.</p>
+   * <p></p>
    */
-  ClusterRevisionNumber?: string;
+  DataTransferProgress?: DataTransferProgress;
 
   /**
-   * <p>A list of cluster security group that are associated with the cluster. Each
-   *             security group is represented by an element that contains
-   *                 <code>ClusterSecurityGroup.Name</code> and <code>ClusterSecurityGroup.Status</code>
-   *             subelements. </p>
-   *         <p>Cluster security groups are used when the cluster is not created in an Amazon
-   *             Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups,
-   *             which are listed by the <b>VpcSecurityGroups</b> parameter.
+   * <p>A unique identifier for the cluster snapshot schedule.</p>
+   */
+  SnapshotScheduleIdentifier?: string;
+
+  /**
+   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * <p>The node type for the nodes in the cluster.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The number of nodes that you can resize the cluster to with the elastic resize method.
    *         </p>
    */
-  ClusterSecurityGroups?: ClusterSecurityGroupMembership[];
+  ElasticResizeNumberOfNodeOptions?: string;
 
   /**
-   * <p>A value that returns the destination region and retention period that are
-   *             configured for cross-region snapshot copy.</p>
+   * <p>A value that describes the status of a cluster restore action. This parameter
+   *             returns null if the cluster was not created by restoring a snapshot.</p>
    */
-  ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
+  RestoreStatus?: RestoreStatus;
+
+  /**
+   * <p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>
+   */
+  DeferredMaintenanceWindows?: DeferredMaintenanceWindow[];
+
+  /**
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
+   */
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, indicates that major version upgrades
+   *             will be applied automatically to the cluster during the maintenance window. </p>
+   */
+  AllowVersionUpgrade?: boolean;
+
+  /**
+   * <p>The number of compute nodes in the cluster.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, indicates that data in the cluster is
+   *             encrypted at rest.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The date and time that the cluster was created.</p>
+   */
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other AWS services.</p>
+   */
+  IamRoles?: ClusterIamRole[];
 
   /**
    * <p> The current state of the cluster. Possible values are the following:</p>
@@ -705,6 +762,11 @@ export interface Cluster {
    *             </li>
    *             <li>
    *                 <p>
+   *                     <code>paused</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>rebooting</code>
    *                 </p>
    *             </li>
@@ -738,107 +800,49 @@ export interface Cluster {
   ClusterStatus?: string;
 
   /**
-   * <p>The name of the subnet group that is associated with the cluster. This parameter is
-   *             valid only when the cluster is in a VPC.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The name of the initial database that was created when the cluster was created.
-   *             This same name is returned for the life of the cluster. If an initial database was not
-   *             specified, a database named <code>dev</code>dev was created by default. </p>
-   */
-  DBName?: string;
-
-  /**
-   * <p></p>
-   */
-  DataTransferProgress?: DataTransferProgress;
-
-  /**
-   * <p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>
-   */
-  DeferredMaintenanceWindows?: DeferredMaintenanceWindow[];
-
-  /**
-   * <p>The status of the elastic IP (EIP) address.</p>
-   */
-  ElasticIpStatus?: ElasticIpStatus;
-
-  /**
-   * <p>The number of nodes that you can resize the cluster to with the elastic resize method.
-   *         </p>
-   */
-  ElasticResizeNumberOfNodeOptions?: string;
-
-  /**
-   * <p>A boolean value that, if <code>true</code>, indicates that data in the cluster is
-   *             encrypted at rest.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The connection endpoint.</p>
-   */
-  Endpoint?: Endpoint;
-
-  /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled. </p>
-   */
-  ExpectedNextSnapshotScheduleTime?: Date;
-
-  /**
-   * <p> The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled.  Possible values are the following:</p>
+   * <p>The availability status of the cluster for queries. Possible values are the following:</p>
    *         <ul>
    *             <li>
-   *                <p>OnTrack - The next snapshot is expected to be taken on time. </p>
+   *                <p>Available - The cluster is available for queries. </p>
    *             </li>
    *             <li>
-   *                <p>Pending - The next snapshot is pending to be taken. </p>
+   *                <p>Unavailable - The cluster is not available for queries.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maintenance - The cluster is intermittently available for queries due to maintenance activities.</p>
+   *             </li>
+   *             <li>
+   *                <p>Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed - The cluster failed and is not available for queries.</p>
    *             </li>
    *          </ul>
    */
-  ExpectedNextSnapshotScheduleTimeStatus?: string;
+  ClusterAvailabilityStatus?: string;
 
   /**
-   * <p>A value that reports whether the Amazon Redshift cluster has finished applying any
-   *             hardware security module (HSM) settings changes specified in a modify cluster
-   *             command.</p>
-   *         <p>Values: active, applying</p>
+   * <p>The name of the Availability Zone in which the cluster is located.</p>
    */
-  HsmStatus?: HsmStatus;
+  AvailabilityZone?: string;
 
   /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services.</p>
+   * <p>A list of cluster security group that are associated with the cluster. Each
+   *             security group is represented by an element that contains
+   *                 <code>ClusterSecurityGroup.Name</code> and <code>ClusterSecurityGroup.Status</code>
+   *             subelements. </p>
+   *         <p>Cluster security groups are used when the cluster is not created in an Amazon
+   *             Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups,
+   *             which are listed by the <b>VpcSecurityGroups</b> parameter.
+   *         </p>
    */
-  IamRoles?: ClusterIamRole[];
+  ClusterSecurityGroups?: ClusterSecurityGroupMembership[];
 
   /**
    * <p>The AWS Key Management Service (AWS KMS) key ID of the encryption key used to
    *             encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
-
-  /**
-   * <p>The name of the maintenance track for the cluster.</p>
-   */
-  MaintenanceTrackName?: string;
 
   /**
    * <p>The default number of days to retain a manual snapshot. If the value is -1, the
@@ -849,35 +853,9 @@ export interface Cluster {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The master user name for the cluster. This name is used to connect to the database
-   *             that is specified in the <b>DBName</b> parameter. </p>
+   * <p>The specific revision number of the database in the cluster.</p>
    */
-  MasterUsername?: string;
-
-  /**
-   * <p>The status of a modify operation, if any, initiated for the cluster.</p>
-   */
-  ModifyStatus?: string;
-
-  /**
-   * <p>The date and time in UTC when system maintenance can begin.</p>
-   */
-  NextMaintenanceWindowStartTime?: Date;
-
-  /**
-   * <p>The node type for the nodes in the cluster.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The number of compute nodes in the cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>Cluster operations that are waiting to be started.</p>
-   */
-  PendingActions?: string[];
+  ClusterRevisionNumber?: string;
 
   /**
    * <p>A value that, if present, indicates that changes to the cluster are pending.
@@ -886,68 +864,28 @@ export interface Cluster {
   PendingModifiedValues?: PendingModifiedValues;
 
   /**
-   * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
-   *             maintenance can occur.</p>
+   * <p>The name of the subnet group that is associated with the cluster. This parameter is
+   *             valid only when the cluster is in a VPC.</p>
    */
-  PreferredMaintenanceWindow?: string;
+  ClusterSubnetGroupName?: string;
 
   /**
-   * <p>A boolean value that, if <code>true</code>, indicates that the cluster can be
-   *             accessed from a public network.</p>
+   * <p>The master user name for the cluster. This name is used to connect to the database
+   *             that is specified in the <b>DBName</b> parameter. </p>
    */
-  PubliclyAccessible?: boolean;
+  MasterUsername?: string;
 
   /**
-   * <p>Returns the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>AllowCancelResize: a boolean value indicating if the resize operation can be
-   *                     cancelled.</p>
-   *             </li>
-   *             <li>
-   *                 <p>ResizeType: Returns ClassicResize</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the initial database that was created when the cluster was created.
+   *             This same name is returned for the life of the cluster. If an initial database was not
+   *             specified, a database named <code>dev</code>dev was created by default. </p>
    */
-  ResizeInfo?: ResizeInfo;
-
-  /**
-   * <p>A value that describes the status of a cluster restore action. This parameter
-   *             returns null if the cluster was not created by restoring a snapshot.</p>
-   */
-  RestoreStatus?: RestoreStatus;
-
-  /**
-   * <p>A unique identifier for the cluster snapshot schedule.</p>
-   */
-  SnapshotScheduleIdentifier?: string;
-
-  /**
-   * <p>The current state of the cluster snapshot schedule.</p>
-   */
-  SnapshotScheduleState?: ScheduleState | string;
-
-  /**
-   * <p>The list of tags for the cluster.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The identifier of the VPC the cluster is in, if the cluster is in a VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are
-   *             associated with the cluster. This parameter is returned only if the cluster is in a
-   *             VPC.</p>
-   */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  DBName?: string;
 }
 
 export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
@@ -955,9 +893,7 @@ export namespace Cluster {
 /**
  * <p>The account already has a cluster with the given identifier.</p>
  */
-export interface ClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -965,10 +901,9 @@ export interface ClusterAlreadyExistsFault
 
 export namespace ClusterAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterAlreadyExistsFault =>
-    __isa(o, "ClusterAlreadyExistsFault");
+  export const isa = (o: any): o is ClusterAlreadyExistsFault => __isa(o, "ClusterAlreadyExistsFault");
 }
 
 /**
@@ -979,22 +914,19 @@ export interface ClusterAssociatedToSchedule {
   /**
    * <p></p>
    */
-  ClusterIdentifier?: string;
+  ScheduleAssociationState?: ScheduleState | string;
 
   /**
    * <p></p>
    */
-  ScheduleAssociationState?: ScheduleState | string;
+  ClusterIdentifier?: string;
 }
 
 export namespace ClusterAssociatedToSchedule {
-  export const filterSensitiveLog = (
-    obj: ClusterAssociatedToSchedule
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterAssociatedToSchedule): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterAssociatedToSchedule =>
-    __isa(o, "ClusterAssociatedToSchedule");
+  export const isa = (o: any): o is ClusterAssociatedToSchedule => __isa(o, "ClusterAssociatedToSchedule");
 }
 
 /**
@@ -1028,10 +960,9 @@ export interface ClusterCredentials {
 export namespace ClusterCredentials {
   export const filterSensitiveLog = (obj: ClusterCredentials): any => ({
     ...obj,
-    ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING })
+    ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ClusterCredentials =>
-    __isa(o, "ClusterCredentials");
+  export const isa = (o: any): o is ClusterCredentials => __isa(o, "ClusterCredentials");
 }
 
 /**
@@ -1039,11 +970,6 @@ export namespace ClusterCredentials {
  */
 export interface ClusterDbRevision {
   __type?: "ClusterDbRevision";
-  /**
-   * <p>The unique identifier of the cluster.</p>
-   */
-  ClusterIdentifier?: string;
-
   /**
    * <p>A string representing the current cluster version.</p>
    */
@@ -1059,14 +985,18 @@ export interface ClusterDbRevision {
    *             database revision that a cluster can be updated to.</p>
    */
   RevisionTargets?: RevisionTarget[];
+
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   */
+  ClusterIdentifier?: string;
 }
 
 export namespace ClusterDbRevision {
   export const filterSensitiveLog = (obj: ClusterDbRevision): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterDbRevision =>
-    __isa(o, "ClusterDbRevision");
+  export const isa = (o: any): o is ClusterDbRevision => __isa(o, "ClusterDbRevision");
 }
 
 export interface ClusterDbRevisionsMessage {
@@ -1087,10 +1017,9 @@ export interface ClusterDbRevisionsMessage {
 
 export namespace ClusterDbRevisionsMessage {
   export const filterSensitiveLog = (obj: ClusterDbRevisionsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterDbRevisionsMessage =>
-    __isa(o, "ClusterDbRevisionsMessage");
+  export const isa = (o: any): o is ClusterDbRevisionsMessage => __isa(o, "ClusterDbRevisionsMessage");
 }
 
 /**
@@ -1131,10 +1060,9 @@ export interface ClusterIamRole {
 
 export namespace ClusterIamRole {
   export const filterSensitiveLog = (obj: ClusterIamRole): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterIamRole =>
-    __isa(o, "ClusterIamRole");
+  export const isa = (o: any): o is ClusterIamRole => __isa(o, "ClusterIamRole");
 }
 
 /**
@@ -1143,14 +1071,14 @@ export namespace ClusterIamRole {
 export interface ClusterNode {
   __type?: "ClusterNode";
   /**
-   * <p>Whether the node is a leader node or a compute node.</p>
-   */
-  NodeRole?: string;
-
-  /**
    * <p>The private IP address of a node within a cluster.</p>
    */
   PrivateIPAddress?: string;
+
+  /**
+   * <p>Whether the node is a leader node or a compute node.</p>
+   */
+  NodeRole?: string;
 
   /**
    * <p>The public IP address of a node within a cluster.</p>
@@ -1160,7 +1088,7 @@ export interface ClusterNode {
 
 export namespace ClusterNode {
   export const filterSensitiveLog = (obj: ClusterNode): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ClusterNode => __isa(o, "ClusterNode");
 }
@@ -1169,9 +1097,7 @@ export namespace ClusterNode {
  * <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
  *         </p>
  */
-export interface ClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1179,31 +1105,25 @@ export interface ClusterNotFoundFault
 
 export namespace ClusterNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterNotFoundFault =>
-    __isa(o, "ClusterNotFoundFault");
+  export const isa = (o: any): o is ClusterNotFoundFault => __isa(o, "ClusterNotFoundFault");
 }
 
 /**
  * <p>Cluster is already on the latest database revision.</p>
  */
-export interface ClusterOnLatestRevisionFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterOnLatestRevisionFault extends __SmithyException, $MetadataBearer {
   name: "ClusterOnLatestRevisionFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterOnLatestRevisionFault {
-  export const filterSensitiveLog = (
-    obj: ClusterOnLatestRevisionFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterOnLatestRevisionFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterOnLatestRevisionFault =>
-    __isa(o, "ClusterOnLatestRevisionFault");
+  export const isa = (o: any): o is ClusterOnLatestRevisionFault => __isa(o, "ClusterOnLatestRevisionFault");
 }
 
 /**
@@ -1211,6 +1131,11 @@ export namespace ClusterOnLatestRevisionFault {
  */
 export interface ClusterParameterGroup {
   __type?: "ClusterParameterGroup";
+  /**
+   * <p>The list of tags for the cluster parameter group.</p>
+   */
+  Tags?: Tag[];
+
   /**
    * <p>The description of the parameter group.</p>
    */
@@ -1226,37 +1151,27 @@ export interface ClusterParameterGroup {
    * <p>The name of the cluster parameter group.</p>
    */
   ParameterGroupName?: string;
-
-  /**
-   * <p>The list of tags for the cluster parameter group.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace ClusterParameterGroup {
   export const filterSensitiveLog = (obj: ClusterParameterGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroup =>
-    __isa(o, "ClusterParameterGroup");
+  export const isa = (o: any): o is ClusterParameterGroup => __isa(o, "ClusterParameterGroup");
 }
 
 /**
  * <p>A cluster parameter group with the same name already exists.</p>
  */
-export interface ClusterParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterParameterGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterParameterGroupAlreadyExistsFault =>
     __isa(o, "ClusterParameterGroupAlreadyExistsFault");
@@ -1285,13 +1200,10 @@ export interface ClusterParameterGroupDetails {
 }
 
 export namespace ClusterParameterGroupDetails {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupDetails =>
-    __isa(o, "ClusterParameterGroupDetails");
+  export const isa = (o: any): o is ClusterParameterGroupDetails => __isa(o, "ClusterParameterGroupDetails");
 }
 
 /**
@@ -1300,44 +1212,37 @@ export namespace ClusterParameterGroupDetails {
 export interface ClusterParameterGroupNameMessage {
   __type?: "ClusterParameterGroupNameMessage";
   /**
-   * <p>The name of the cluster parameter group.</p>
-   */
-  ParameterGroupName?: string;
-
-  /**
    * <p>The status of the parameter group. For example, if you made a change to a parameter
    *             group name-value pair, then the change could be pending a reboot of an associated
    *             cluster.</p>
    */
   ParameterGroupStatus?: string;
+
+  /**
+   * <p>The name of the cluster parameter group.</p>
+   */
+  ParameterGroupName?: string;
 }
 
 export namespace ClusterParameterGroupNameMessage {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupNameMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupNameMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupNameMessage =>
-    __isa(o, "ClusterParameterGroupNameMessage");
+  export const isa = (o: any): o is ClusterParameterGroupNameMessage => __isa(o, "ClusterParameterGroupNameMessage");
 }
 
 /**
  * <p>The parameter group name does not refer to an existing parameter group.</p>
  */
-export interface ClusterParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupNotFoundFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterParameterGroupNotFoundFault =>
     __isa(o, "ClusterParameterGroupNotFoundFault");
@@ -1350,19 +1255,15 @@ export namespace ClusterParameterGroupNotFoundFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterParameterGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterParameterGroupQuotaExceededFault =>
     __isa(o, "ClusterParameterGroupQuotaExceededFault");
@@ -1375,6 +1276,12 @@ export namespace ClusterParameterGroupQuotaExceededFault {
 export interface ClusterParameterGroupsMessage {
   __type?: "ClusterParameterGroupsMessage";
   /**
+   * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
+   *             describes one cluster parameter group. </p>
+   */
+  ParameterGroups?: ClusterParameterGroup[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -1382,22 +1289,13 @@ export interface ClusterParameterGroupsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
-   *             describes one cluster parameter group. </p>
-   */
-  ParameterGroups?: ClusterParameterGroup[];
 }
 
 export namespace ClusterParameterGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupsMessage =>
-    __isa(o, "ClusterParameterGroupsMessage");
+  export const isa = (o: any): o is ClusterParameterGroupsMessage => __isa(o, "ClusterParameterGroupsMessage");
 }
 
 /**
@@ -1406,13 +1304,9 @@ export namespace ClusterParameterGroupsMessage {
 export interface ClusterParameterGroupStatus {
   __type?: "ClusterParameterGroupStatus";
   /**
-   * <p>The list of parameter statuses.</p>
-   *         <p>
-   * For more information about parameters and parameter groups, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
-   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   * <p>The name of the cluster parameter group.</p>
    */
-  ClusterParameterStatusList?: ClusterParameterStatus[];
+  ParameterGroupName?: string;
 
   /**
    * <p>The status of parameter updates.</p>
@@ -1420,19 +1314,20 @@ export interface ClusterParameterGroupStatus {
   ParameterApplyStatus?: string;
 
   /**
-   * <p>The name of the cluster parameter group.</p>
+   * <p>The list of parameter statuses.</p>
+   *         <p>
+   * For more information about parameters and parameter groups, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
-  ParameterGroupName?: string;
+  ClusterParameterStatusList?: ClusterParameterStatus[];
 }
 
 export namespace ClusterParameterGroupStatus {
-  export const filterSensitiveLog = (
-    obj: ClusterParameterGroupStatus
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterParameterGroupStatus): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupStatus =>
-    __isa(o, "ClusterParameterGroupStatus");
+  export const isa = (o: any): o is ClusterParameterGroupStatus => __isa(o, "ClusterParameterGroupStatus");
 }
 
 /**
@@ -1440,12 +1335,6 @@ export namespace ClusterParameterGroupStatus {
  */
 export interface ClusterParameterStatus {
   __type?: "ClusterParameterStatus";
-  /**
-   * <p>The error that prevented the parameter from being applied to the
-   *             database.</p>
-   */
-  ParameterApplyErrorDescription?: string;
-
   /**
    * <p>The status of the parameter that indicates whether the parameter is in sync with
    *             the database, waiting for a cluster reboot, or encountered an error when being
@@ -1492,6 +1381,12 @@ export interface ClusterParameterStatus {
   ParameterApplyStatus?: string;
 
   /**
+   * <p>The error that prevented the parameter from being applied to the
+   *             database.</p>
+   */
+  ParameterApplyErrorDescription?: string;
+
+  /**
    * <p>The name of the parameter.</p>
    */
   ParameterName?: string;
@@ -1499,10 +1394,9 @@ export interface ClusterParameterStatus {
 
 export namespace ClusterParameterStatus {
   export const filterSensitiveLog = (obj: ClusterParameterStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterStatus =>
-    __isa(o, "ClusterParameterStatus");
+  export const isa = (o: any): o is ClusterParameterStatus => __isa(o, "ClusterParameterStatus");
 }
 
 /**
@@ -1512,9 +1406,7 @@ export namespace ClusterParameterStatus {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -1522,10 +1414,9 @@ export interface ClusterQuotaExceededFault
 
 export namespace ClusterQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterQuotaExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterQuotaExceededFault =>
-    __isa(o, "ClusterQuotaExceededFault");
+  export const isa = (o: any): o is ClusterQuotaExceededFault => __isa(o, "ClusterQuotaExceededFault");
 }
 
 /**
@@ -1533,6 +1424,11 @@ export namespace ClusterQuotaExceededFault {
  */
 export interface ClusterSecurityGroup {
   __type?: "ClusterSecurityGroup";
+  /**
+   * <p>The list of tags for the cluster security group.</p>
+   */
+  Tags?: Tag[];
+
   /**
    * <p>The name of the cluster security group to which the operation was
    *             applied.</p>
@@ -1555,37 +1451,27 @@ export interface ClusterSecurityGroup {
    *             with this cluster security group.</p>
    */
   IPRanges?: IPRange[];
-
-  /**
-   * <p>The list of tags for the cluster security group.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace ClusterSecurityGroup {
   export const filterSensitiveLog = (obj: ClusterSecurityGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroup =>
-    __isa(o, "ClusterSecurityGroup");
+  export const isa = (o: any): o is ClusterSecurityGroup => __isa(o, "ClusterSecurityGroup");
 }
 
 /**
  * <p>A cluster security group with the same name already exists.</p>
  */
-export interface ClusterSecurityGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSecurityGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSecurityGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSecurityGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSecurityGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSecurityGroupAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterSecurityGroupAlreadyExistsFault =>
     __isa(o, "ClusterSecurityGroupAlreadyExistsFault");
@@ -1608,13 +1494,10 @@ export interface ClusterSecurityGroupMembership {
 }
 
 export namespace ClusterSecurityGroupMembership {
-  export const filterSensitiveLog = (
-    obj: ClusterSecurityGroupMembership
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSecurityGroupMembership): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupMembership =>
-    __isa(o, "ClusterSecurityGroupMembership");
+  export const isa = (o: any): o is ClusterSecurityGroupMembership => __isa(o, "ClusterSecurityGroupMembership");
 }
 
 /**
@@ -1623,11 +1506,6 @@ export namespace ClusterSecurityGroupMembership {
 export interface ClusterSecurityGroupMessage {
   __type?: "ClusterSecurityGroupMessage";
   /**
-   * <p>A list of <a>ClusterSecurityGroup</a> instances. </p>
-   */
-  ClusterSecurityGroups?: ClusterSecurityGroup[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -1635,38 +1513,35 @@ export interface ClusterSecurityGroupMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <a>ClusterSecurityGroup</a> instances. </p>
+   */
+  ClusterSecurityGroups?: ClusterSecurityGroup[];
 }
 
 export namespace ClusterSecurityGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ClusterSecurityGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSecurityGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupMessage =>
-    __isa(o, "ClusterSecurityGroupMessage");
+  export const isa = (o: any): o is ClusterSecurityGroupMessage => __isa(o, "ClusterSecurityGroupMessage");
 }
 
 /**
  * <p>The cluster security group name does not refer to an existing cluster security
  *             group.</p>
  */
-export interface ClusterSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSecurityGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSecurityGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSecurityGroupNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupNotFoundFault =>
-    __isa(o, "ClusterSecurityGroupNotFoundFault");
+  export const isa = (o: any): o is ClusterSecurityGroupNotFoundFault => __isa(o, "ClusterSecurityGroupNotFoundFault");
 }
 
 /**
@@ -1676,19 +1551,15 @@ export namespace ClusterSecurityGroupNotFoundFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSecurityGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSecurityGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSecurityGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSecurityGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSecurityGroupQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSecurityGroupQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterSecurityGroupQuotaExceededFault =>
     __isa(o, "ClusterSecurityGroupQuotaExceededFault");
@@ -1700,12 +1571,6 @@ export namespace ClusterSecurityGroupQuotaExceededFault {
 export interface ClustersMessage {
   __type?: "ClustersMessage";
   /**
-   * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
-   *         </p>
-   */
-  Clusters?: Cluster[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -1713,36 +1578,36 @@ export interface ClustersMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
+   *         </p>
+   */
+  Clusters?: Cluster[];
 }
 
 export namespace ClustersMessage {
   export const filterSensitiveLog = (obj: ClustersMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClustersMessage =>
-    __isa(o, "ClustersMessage");
+  export const isa = (o: any): o is ClustersMessage => __isa(o, "ClustersMessage");
 }
 
 /**
  * <p>The value specified as a snapshot identifier is already used by an existing
  *             snapshot.</p>
  */
-export interface ClusterSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSnapshotAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSnapshotAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotAlreadyExistsFault =>
-    __isa(o, "ClusterSnapshotAlreadyExistsFault");
+  export const isa = (o: any): o is ClusterSnapshotAlreadyExistsFault => __isa(o, "ClusterSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -1751,20 +1616,6 @@ export namespace ClusterSnapshotAlreadyExistsFault {
  */
 export interface ClusterSnapshotCopyStatus {
   __type?: "ClusterSnapshotCopyStatus";
-  /**
-   * <p>The destination region that snapshots are automatically copied to when cross-region
-   *             snapshot copy is enabled.</p>
-   */
-  DestinationRegion?: string;
-
-  /**
-   * <p>The number of days that automated snapshots are retained in the destination region
-   *             after they are copied from a source region. If the value is -1, the manual snapshot is
-   *             retained indefinitely. </p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
   /**
    * <p>The number of days that automated snapshots are retained in the destination region
    *             after they are copied from a source region.</p>
@@ -1775,57 +1626,60 @@ export interface ClusterSnapshotCopyStatus {
    * <p>The name of the snapshot copy grant.</p>
    */
   SnapshotCopyGrantName?: string;
+
+  /**
+   * <p>The number of days that automated snapshots are retained in the destination region
+   *             after they are copied from a source region. If the value is -1, the manual snapshot is
+   *             retained indefinitely. </p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The destination region that snapshots are automatically copied to when cross-region
+   *             snapshot copy is enabled.</p>
+   */
+  DestinationRegion?: string;
 }
 
 export namespace ClusterSnapshotCopyStatus {
   export const filterSensitiveLog = (obj: ClusterSnapshotCopyStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotCopyStatus =>
-    __isa(o, "ClusterSnapshotCopyStatus");
+  export const isa = (o: any): o is ClusterSnapshotCopyStatus => __isa(o, "ClusterSnapshotCopyStatus");
 }
 
 /**
  * <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
  */
-export interface ClusterSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSnapshotNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSnapshotNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSnapshotNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotNotFoundFault =>
-    __isa(o, "ClusterSnapshotNotFoundFault");
+  export const isa = (o: any): o is ClusterSnapshotNotFoundFault => __isa(o, "ClusterSnapshotNotFoundFault");
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             snapshots.</p>
  */
-export interface ClusterSnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSnapshotQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSnapshotQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotQuotaExceededFault =>
-    __isa(o, "ClusterSnapshotQuotaExceededFault");
+  export const isa = (o: any): o is ClusterSnapshotQuotaExceededFault => __isa(o, "ClusterSnapshotQuotaExceededFault");
 }
 
 /**
@@ -1834,20 +1688,9 @@ export namespace ClusterSnapshotQuotaExceededFault {
 export interface ClusterSubnetGroup {
   __type?: "ClusterSubnetGroup";
   /**
-   * <p>The name of the cluster subnet group.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
    * <p>The description of the cluster subnet group.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The status of the cluster subnet group. Possible values are <code>Complete</code>,
-   *                 <code>Incomplete</code> and <code>Invalid</code>. </p>
-   */
-  SubnetGroupStatus?: string;
 
   /**
    * <p>A list of the VPC <a>Subnet</a> elements. </p>
@@ -1855,41 +1698,47 @@ export interface ClusterSubnetGroup {
   Subnets?: Subnet[];
 
   /**
-   * <p>The list of tags for the cluster subnet group.</p>
+   * <p>The name of the cluster subnet group.</p>
    */
-  Tags?: Tag[];
+  ClusterSubnetGroupName?: string;
 
   /**
    * <p>The VPC ID of the cluster subnet group.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>The list of tags for the cluster subnet group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The status of the cluster subnet group. Possible values are <code>Complete</code>,
+   *                 <code>Incomplete</code> and <code>Invalid</code>. </p>
+   */
+  SubnetGroupStatus?: string;
 }
 
 export namespace ClusterSubnetGroup {
   export const filterSensitiveLog = (obj: ClusterSubnetGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroup =>
-    __isa(o, "ClusterSubnetGroup");
+  export const isa = (o: any): o is ClusterSubnetGroup => __isa(o, "ClusterSubnetGroup");
 }
 
 /**
  * <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
  *             cluster subnet group. </p>
  */
-export interface ClusterSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSubnetGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSubnetGroupAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSubnetGroupAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterSubnetGroupAlreadyExistsFault =>
     __isa(o, "ClusterSubnetGroupAlreadyExistsFault");
@@ -1902,11 +1751,6 @@ export namespace ClusterSubnetGroupAlreadyExistsFault {
 export interface ClusterSubnetGroupMessage {
   __type?: "ClusterSubnetGroupMessage";
   /**
-   * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
-   */
-  ClusterSubnetGroups?: ClusterSubnetGroup[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -1914,36 +1758,35 @@ export interface ClusterSubnetGroupMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
+   */
+  ClusterSubnetGroups?: ClusterSubnetGroup[];
 }
 
 export namespace ClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupMessage =>
-    __isa(o, "ClusterSubnetGroupMessage");
+  export const isa = (o: any): o is ClusterSubnetGroupMessage => __isa(o, "ClusterSubnetGroupMessage");
 }
 
 /**
  * <p>The cluster subnet group name does not refer to an existing cluster subnet
  *             group.</p>
  */
-export interface ClusterSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSubnetGroupNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSubnetGroupNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupNotFoundFault =>
-    __isa(o, "ClusterSubnetGroupNotFoundFault");
+  export const isa = (o: any): o is ClusterSubnetGroupNotFoundFault => __isa(o, "ClusterSubnetGroupNotFoundFault");
 }
 
 /**
@@ -1953,19 +1796,15 @@ export namespace ClusterSubnetGroupNotFoundFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSubnetGroupQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSubnetGroupQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSubnetGroupQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ClusterSubnetGroupQuotaExceededFault =>
     __isa(o, "ClusterSubnetGroupQuotaExceededFault");
@@ -1978,22 +1817,17 @@ export namespace ClusterSubnetGroupQuotaExceededFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterSubnetQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ClusterSubnetQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ClusterSubnetQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetQuotaExceededFault =>
-    __isa(o, "ClusterSubnetQuotaExceededFault");
+  export const isa = (o: any): o is ClusterSubnetQuotaExceededFault => __isa(o, "ClusterSubnetQuotaExceededFault");
 }
 
 /**
@@ -2003,9 +1837,9 @@ export namespace ClusterSubnetQuotaExceededFault {
 export interface ClusterVersion {
   __type?: "ClusterVersion";
   /**
-   * <p>The name of the cluster parameter group family for the cluster.</p>
+   * <p>The description of the cluster version.</p>
    */
-  ClusterParameterGroupFamily?: string;
+  Description?: string;
 
   /**
    * <p>The version number used by the cluster.</p>
@@ -2013,17 +1847,16 @@ export interface ClusterVersion {
   ClusterVersion?: string;
 
   /**
-   * <p>The description of the cluster version.</p>
+   * <p>The name of the cluster parameter group family for the cluster.</p>
    */
-  Description?: string;
+  ClusterParameterGroupFamily?: string;
 }
 
 export namespace ClusterVersion {
   export const filterSensitiveLog = (obj: ClusterVersion): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterVersion =>
-    __isa(o, "ClusterVersion");
+  export const isa = (o: any): o is ClusterVersion => __isa(o, "ClusterVersion");
 }
 
 /**
@@ -2049,10 +1882,9 @@ export interface ClusterVersionsMessage {
 
 export namespace ClusterVersionsMessage {
   export const filterSensitiveLog = (obj: ClusterVersionsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterVersionsMessage =>
-    __isa(o, "ClusterVersionsMessage");
+  export const isa = (o: any): o is ClusterVersionsMessage => __isa(o, "ClusterVersionsMessage");
 }
 
 /**
@@ -2119,10 +1951,9 @@ export interface CopyClusterSnapshotMessage {
 
 export namespace CopyClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: CopyClusterSnapshotMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyClusterSnapshotMessage =>
-    __isa(o, "CopyClusterSnapshotMessage");
+  export const isa = (o: any): o is CopyClusterSnapshotMessage => __isa(o, "CopyClusterSnapshotMessage");
 }
 
 export interface CopyClusterSnapshotResult {
@@ -2135,19 +1966,16 @@ export interface CopyClusterSnapshotResult {
 
 export namespace CopyClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CopyClusterSnapshotResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyClusterSnapshotResult =>
-    __isa(o, "CopyClusterSnapshotResult");
+  export const isa = (o: any): o is CopyClusterSnapshotResult => __isa(o, "CopyClusterSnapshotResult");
 }
 
 /**
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
-export interface CopyToRegionDisabledFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CopyToRegionDisabledFault extends __SmithyException, $MetadataBearer {
   name: "CopyToRegionDisabledFault";
   $fault: "client";
   message?: string;
@@ -2155,10 +1983,9 @@ export interface CopyToRegionDisabledFault
 
 export namespace CopyToRegionDisabledFault {
   export const filterSensitiveLog = (obj: CopyToRegionDisabledFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyToRegionDisabledFault =>
-    __isa(o, "CopyToRegionDisabledFault");
+  export const isa = (o: any): o is CopyToRegionDisabledFault => __isa(o, "CopyToRegionDisabledFault");
 }
 
 /**
@@ -2167,30 +1994,10 @@ export namespace CopyToRegionDisabledFault {
 export interface CreateClusterMessage {
   __type?: "CreateClusterMessage";
   /**
-   * <p>Reserved.</p>
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+   *             use to encrypt data in the cluster.</p>
    */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
-   *             window to the Amazon Redshift engine that is running on the cluster.</p>
-   *         <p>When a new major version of the Amazon Redshift engine is released, you can request that
-   *             the service automatically apply upgrades during the maintenance window to the Amazon Redshift
-   *             engine that is running on your cluster.</p>
-   *         <p>Default: <code>true</code>
-   *         </p>
-   */
-  AllowVersionUpgrade?: boolean;
-
-  /**
-   * <p>The number of days that automated snapshots are retained. If the value is 0,
-   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
-   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>Default: <code>1</code>
-   *         </p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
-   */
-  AutomatedSnapshotRetentionPeriod?: number;
+  KmsKeyId?: string;
 
   /**
    * <p>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
@@ -2207,32 +2014,265 @@ export interface CreateClusterMessage {
   AvailabilityZone?: string;
 
   /**
-   * <p>A unique identifier for the cluster. You use this identifier to refer to the
-   *             cluster for any subsequent cluster operations such as deleting or modifying. The
-   *             identifier also appears in the Amazon Redshift console.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
+   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
+   *             occur.</p>
+   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *         </p>
+   *         <p> Default: A 30-minute window selected at random from an 8-hour block of time per
+   *             region, occurring on a random day of the week. For more information about the time
+   *             blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p>
+   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *         <p>Constraints: Minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The name of the first database to be created when the cluster is created.</p>
+   *         <p>To create additional databases after the cluster is created, connect to the cluster
+   *             with a SQL client and use SQL commands to create a database. For more information, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
+   *                 a Database</a> in the Amazon Redshift Database Developer Guide. </p>
+   *         <p>Default: <code>dev</code>
+   *         </p>
+   *         <p>Constraints:</p>
+   *         <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
+   *                 <p>Must contain 1 to 64 alphanumeric characters.</p>
    *             </li>
    *             <li>
-   *                <p>Alphabetic characters must be lowercase.</p>
+   *                 <p>Must contain only lowercase letters.</p>
    *             </li>
    *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *                 <p>Cannot be a word that is reserved by the service. A list of reserved words
+   *                     can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the
+   *                     Amazon Redshift Database Developer Guide. </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>Example: <code>myexamplecluster</code>
+   */
+  DBName?: string;
+
+  /**
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The password associated with the master user account for the cluster that is being
+   *             created.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be between 8 and 64 characters in length.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain at least one uppercase letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain at least one lowercase letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain one number.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can be any printable ASCII character (ASCII code 33 to 126) except '
+   *                     (single quote), " (double quote), \, /, @, or space.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUserPassword: string | undefined;
+
+  /**
+   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
+   *             cluster.</p>
+   *         <p>Default: The default VPC security group is associated with the cluster.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>An optional parameter for the name of the maintenance track for the cluster. If you
+   *             don't provide a maintenance track name, the cluster is assigned to the
+   *                 <code>current</code> track.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>The node type to be provisioned for the cluster. For information about node types,
+   *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
+   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+   *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
+   *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
+   *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
+   *                 <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *          </p>
+   */
+  NodeType: string | undefined;
+
+  /**
+   * <p>A unique identifier for the snapshot schedule.</p>
+   */
+  SnapshotScheduleIdentifier?: string;
+
+  /**
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
+   * <p>The version of the Amazon Redshift engine software that you want to deploy on the
+   *             cluster.</p>
+   *         <p>The version selected runs on all the nodes in the cluster.</p>
+   *         <p>Constraints: Only version 1.0 is currently available.</p>
+   *         <p>Example: <code>1.0</code>
    *         </p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterVersion?: string;
+
+  /**
+   * <p>The type of the cluster. When cluster type is specified as</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>single-node</code>, the <b>NumberOfNodes</b>
+   *                     parameter is not required.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>multi-node</code>, the <b>NumberOfNodes</b>
+   *                     parameter is required.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Valid Values: <code>multi-node</code> | <code>single-node</code>
+   *         </p>
+   *         <p>Default: <code>multi-node</code>
+   *         </p>
+   */
+  ClusterType?: string;
+
+  /**
+   * <p>The port number on which the cluster accepts incoming connections.</p>
+   *         <p>The cluster is accessible only via the JDBC and ODBC connection strings. Part of
+   *             the connection string requires the port on which the cluster will listen for incoming
+   *             connections.</p>
+   *         <p>Default: <code>5439</code>
+   *         </p>
+   *         <p>Valid Values: <code>1150-65535</code>
+   *         </p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *         <p>Default: <code>1</code>
+   *         </p>
+   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
+   */
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>The user name associated with the master user account for the cluster that is being
+   *             created.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 - 128 alphanumeric characters. The user name can't be
+   *                         <code>PUBLIC</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *
+   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+   *                         Words</a> in the Amazon Redshift Database Developer Guide. </p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername: string | undefined;
+
+  /**
+   * <p>The number of compute nodes in the cluster. This parameter is required when the
+   *                 <b>ClusterType</b> parameter is specified as
+   *                 <code>multi-node</code>. </p>
+   *         <p>For information about determining how many nodes you need, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
+   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+   *         <p>If you don't specify this parameter, you get a single-node cluster. When requesting
+   *             a multi-node cluster, you must specify the number of nodes that you want in the
+   *             cluster.</p>
+   *         <p>Default: <code>1</code>
+   *         </p>
+   *         <p>Constraints: Value must be at least 1 and no more than 100.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>The Elastic IP (EIP) address for the cluster.</p>
+   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
+   *             through an Internet gateway. For more information about provisioning clusters in
+   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
+   */
+  ElasticIp?: string;
+
+  /**
+   * <p>If <code>true</code>, the data in the cluster is encrypted at rest. </p>
+   *         <p>Default: false</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
+   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
+   *             snapshot is retained indefinitely. This setting doesn't change the retention period
+   *             of existing snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
+   *             window to the Amazon Redshift engine that is running on the cluster.</p>
+   *         <p>When a new major version of the Amazon Redshift engine is released, you can request that
+   *             the service automatically apply upgrades during the maintenance window to the Amazon Redshift
+   *             engine that is running on your cluster.</p>
+   *         <p>Default: <code>true</code>
+   *         </p>
+   */
+  AllowVersionUpgrade?: boolean;
+
+  /**
+   * <p>The name of a cluster subnet group to be associated with this cluster.</p>
+   *         <p>If this parameter is not provided the resulting cluster will be deployed outside
+   *             virtual private cloud (VPC).</p>
+   */
+  ClusterSubnetGroupName?: string;
 
   /**
    * <p>The name of the parameter group to be associated with this cluster.</p>
@@ -2262,106 +2302,6 @@ export interface CreateClusterMessage {
   ClusterSecurityGroups?: string[];
 
   /**
-   * <p>The name of a cluster subnet group to be associated with this cluster.</p>
-   *         <p>If this parameter is not provided the resulting cluster will be deployed outside
-   *             virtual private cloud (VPC).</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The type of the cluster. When cluster type is specified as</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>single-node</code>, the <b>NumberOfNodes</b>
-   *                     parameter is not required.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>multi-node</code>, the <b>NumberOfNodes</b>
-   *                     parameter is required.</p>
-   *             </li>
-   *          </ul>
-   *         <p>Valid Values: <code>multi-node</code> | <code>single-node</code>
-   *         </p>
-   *         <p>Default: <code>multi-node</code>
-   *         </p>
-   */
-  ClusterType?: string;
-
-  /**
-   * <p>The version of the Amazon Redshift engine software that you want to deploy on the
-   *             cluster.</p>
-   *         <p>The version selected runs on all the nodes in the cluster.</p>
-   *         <p>Constraints: Only version 1.0 is currently available.</p>
-   *         <p>Example: <code>1.0</code>
-   *         </p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The name of the first database to be created when the cluster is created.</p>
-   *         <p>To create additional databases after the cluster is created, connect to the cluster
-   *             with a SQL client and use SQL commands to create a database. For more information, go to
-   *                 <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
-   *                 a Database</a> in the Amazon Redshift Database Developer Guide. </p>
-   *         <p>Default: <code>dev</code>
-   *         </p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must contain 1 to 64 alphanumeric characters.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Must contain only lowercase letters.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Cannot be a word that is reserved by the service. A list of reserved words
-   *                     can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the
-   *                     Amazon Redshift Database Developer Guide. </p>
-   *             </li>
-   *          </ul>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The Elastic IP (EIP) address for the cluster.</p>
-   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
-   *             through an Internet gateway. For more information about provisioning clusters in
-   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
-   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
-   */
-  ElasticIp?: string;
-
-  /**
-   * <p>If <code>true</code>, the data in the cluster is encrypted at rest. </p>
-   *         <p>Default: false</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
-
-  /**
-   * <p>Specifies the name of the HSM configuration that contains the information the
-   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
-   */
-  HsmConfigurationIdentifier?: string;
-
-  /**
    * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
    *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
    *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
@@ -2371,153 +2311,39 @@ export interface CreateClusterMessage {
   IamRoles?: string[];
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
-   *             use to encrypt data in the cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>An optional parameter for the name of the maintenance track for the cluster. If you
-   *             don't provide a maintenance track name, the cluster is assigned to the
-   *                 <code>current</code> track.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
-   *             snapshot is retained indefinitely. This setting doesn't change the retention period
-   *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The password associated with the master user account for the cluster that is being
-   *             created.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   * <p>A unique identifier for the cluster. You use this identifier to refer to the
+   *             cluster for any subsequent cluster operations such as deleting or modifying. The
+   *             identifier also appears in the Amazon Redshift console.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be between 8 and 64 characters in length.</p>
+   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain at least one uppercase letter.</p>
+   *                <p>Alphabetic characters must be lowercase.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain at least one lowercase letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain one number.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>Can be any printable ASCII character (ASCII code 33 to 126) except '
-   *                     (single quote), " (double quote), \, /, @, or space.</p>
+   *                <p>Must be unique for all clusters within an AWS account.</p>
    *             </li>
    *          </ul>
-   */
-  MasterUserPassword: string | undefined;
-
-  /**
-   * <p>The user name associated with the master user account for the cluster that is being
-   *             created.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be 1 - 128 alphanumeric characters. The user name can't be
-   *                         <code>PUBLIC</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
    *
-   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
-   *                         Words</a> in the Amazon Redshift Database Developer Guide. </p>
-   *             </li>
-   *          </ul>
-   */
-  MasterUsername: string | undefined;
-
-  /**
-   * <p>The node type to be provisioned for the cluster. For information about node types,
-   *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
-   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
-   *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
-   *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *                 <code>ra3.16xlarge</code>
-   *          </p>
-   */
-  NodeType: string | undefined;
-
-  /**
-   * <p>The number of compute nodes in the cluster. This parameter is required when the
-   *                 <b>ClusterType</b> parameter is specified as
-   *                 <code>multi-node</code>. </p>
-   *         <p>For information about determining how many nodes you need, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
-   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *         <p>If you don't specify this parameter, you get a single-node cluster. When requesting
-   *             a multi-node cluster, you must specify the number of nodes that you want in the
-   *             cluster.</p>
-   *         <p>Default: <code>1</code>
-   *         </p>
-   *         <p>Constraints: Value must be at least 1 and no more than 100.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The port number on which the cluster accepts incoming connections.</p>
-   *         <p>The cluster is accessible only via the JDBC and ODBC connection strings. Part of
-   *             the connection string requires the port on which the cluster will listen for incoming
-   *             connections.</p>
-   *         <p>Default: <code>5439</code>
-   *         </p>
-   *         <p>Valid Values: <code>1150-65535</code>
+   *             <p>Example: <code>myexamplecluster</code>
    *         </p>
    */
-  Port?: number;
-
-  /**
-   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
-   *             occur.</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p> Default: A 30-minute window selected at random from an 8-hour block of time per
-   *             region, occurring on a random day of the week. For more information about the time
-   *             blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>A unique identifier for the snapshot schedule.</p>
-   */
-  SnapshotScheduleIdentifier?: string;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
-   *             cluster.</p>
-   *         <p>Default: The default VPC security group is associated with the cluster.</p>
-   */
-  VpcSecurityGroupIds?: string[];
+  ClusterIdentifier: string | undefined;
 }
 
 export namespace CreateClusterMessage {
   export const filterSensitiveLog = (obj: CreateClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterMessage =>
-    __isa(o, "CreateClusterMessage");
+  export const isa = (o: any): o is CreateClusterMessage => __isa(o, "CreateClusterMessage");
 }
 
 /**
@@ -2525,22 +2351,6 @@ export namespace CreateClusterMessage {
  */
 export interface CreateClusterParameterGroupMessage {
   __type?: "CreateClusterParameterGroupMessage";
-  /**
-   * <p>A description of the parameter group.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The Amazon Redshift engine version to which the cluster parameter group applies. The
-   *             cluster engine version determines the set of parameters.</p>
-   *         <p>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>. By default, Amazon Redshift returns a list of
-   *             all the parameter groups that are owned by your AWS account, including the default
-   *             parameter groups for each Amazon Redshift engine version. The parameter group family names
-   *             associated with the default parameter groups provide you the valid values. For example,
-   *             a valid family name is "redshift-1.0". </p>
-   */
-  ParameterGroupFamily: string | undefined;
-
   /**
    * <p>The name of the cluster parameter group.</p>
    *         <p>Constraints:</p>
@@ -2565,16 +2375,30 @@ export interface CreateClusterParameterGroupMessage {
   ParameterGroupName: string | undefined;
 
   /**
+   * <p>The Amazon Redshift engine version to which the cluster parameter group applies. The
+   *             cluster engine version determines the set of parameters.</p>
+   *         <p>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>. By default, Amazon Redshift returns a list of
+   *             all the parameter groups that are owned by your AWS account, including the default
+   *             parameter groups for each Amazon Redshift engine version. The parameter group family names
+   *             associated with the default parameter groups provide you the valid values. For example,
+   *             a valid family name is "redshift-1.0". </p>
+   */
+  ParameterGroupFamily: string | undefined;
+
+  /**
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A description of the parameter group.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace CreateClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: CreateClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateClusterParameterGroupMessage =>
     __isa(o, "CreateClusterParameterGroupMessage");
@@ -2589,13 +2413,10 @@ export interface CreateClusterParameterGroupResult {
 }
 
 export namespace CreateClusterParameterGroupResult {
-  export const filterSensitiveLog = (
-    obj: CreateClusterParameterGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterParameterGroupResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterParameterGroupResult =>
-    __isa(o, "CreateClusterParameterGroupResult");
+  export const isa = (o: any): o is CreateClusterParameterGroupResult => __isa(o, "CreateClusterParameterGroupResult");
 }
 
 export interface CreateClusterResult {
@@ -2608,10 +2429,9 @@ export interface CreateClusterResult {
 
 export namespace CreateClusterResult {
   export const filterSensitiveLog = (obj: CreateClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResult =>
-    __isa(o, "CreateClusterResult");
+  export const isa = (o: any): o is CreateClusterResult => __isa(o, "CreateClusterResult");
 }
 
 /**
@@ -2619,6 +2439,16 @@ export namespace CreateClusterResult {
  */
 export interface CreateClusterSecurityGroupMessage {
   __type?: "CreateClusterSecurityGroupMessage";
+  /**
+   * <p>A description for the security group.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
   /**
    * <p>The name for the security group. Amazon Redshift stores the value as a lowercase
    *             string.</p>
@@ -2639,26 +2469,13 @@ export interface CreateClusterSecurityGroupMessage {
    *         </p>
    */
   ClusterSecurityGroupName: string | undefined;
-
-  /**
-   * <p>A description for the security group.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateClusterSecurityGroupMessage {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSecurityGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSecurityGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSecurityGroupMessage =>
-    __isa(o, "CreateClusterSecurityGroupMessage");
+  export const isa = (o: any): o is CreateClusterSecurityGroupMessage => __isa(o, "CreateClusterSecurityGroupMessage");
 }
 
 export interface CreateClusterSecurityGroupResult {
@@ -2670,13 +2487,10 @@ export interface CreateClusterSecurityGroupResult {
 }
 
 export namespace CreateClusterSecurityGroupResult {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSecurityGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSecurityGroupResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSecurityGroupResult =>
-    __isa(o, "CreateClusterSecurityGroupResult");
+  export const isa = (o: any): o is CreateClusterSecurityGroupResult => __isa(o, "CreateClusterSecurityGroupResult");
 }
 
 /**
@@ -2684,11 +2498,6 @@ export namespace CreateClusterSecurityGroupResult {
  */
 export interface CreateClusterSnapshotMessage {
   __type?: "CreateClusterSnapshotMessage";
-  /**
-   * <p>The cluster identifier for which you want a snapshot.</p>
-   */
-  ClusterIdentifier: string | undefined;
-
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
@@ -2698,6 +2507,16 @@ export interface CreateClusterSnapshotMessage {
    *         <p>The default value is -1.</p>
    */
   ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The cluster identifier for which you want a snapshot.</p>
+   */
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A unique identifier for the snapshot that you are requesting. This identifier must
@@ -2721,21 +2540,13 @@ export interface CreateClusterSnapshotMessage {
    *         </p>
    */
   SnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSnapshotMessage =>
-    __isa(o, "CreateClusterSnapshotMessage");
+  export const isa = (o: any): o is CreateClusterSnapshotMessage => __isa(o, "CreateClusterSnapshotMessage");
 }
 
 export interface CreateClusterSnapshotResult {
@@ -2747,13 +2558,10 @@ export interface CreateClusterSnapshotResult {
 }
 
 export namespace CreateClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSnapshotResult =>
-    __isa(o, "CreateClusterSnapshotResult");
+  export const isa = (o: any): o is CreateClusterSnapshotResult => __isa(o, "CreateClusterSnapshotResult");
 }
 
 /**
@@ -2761,6 +2569,17 @@ export namespace CreateClusterSnapshotResult {
  */
 export interface CreateClusterSubnetGroupMessage {
   __type?: "CreateClusterSubnetGroupMessage";
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
+   *             request.</p>
+   */
+  SubnetIds: string[] | undefined;
+
   /**
    * <p>The name for the subnet group. Amazon Redshift stores the value as a lowercase
    *             string.</p>
@@ -2786,27 +2605,13 @@ export interface CreateClusterSubnetGroupMessage {
    * <p>A description for the subnet group.</p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
-   *             request.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateClusterSubnetGroupMessage {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSubnetGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSubnetGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSubnetGroupMessage =>
-    __isa(o, "CreateClusterSubnetGroupMessage");
+  export const isa = (o: any): o is CreateClusterSubnetGroupMessage => __isa(o, "CreateClusterSubnetGroupMessage");
 }
 
 export interface CreateClusterSubnetGroupResult {
@@ -2818,13 +2623,10 @@ export interface CreateClusterSubnetGroupResult {
 }
 
 export namespace CreateClusterSubnetGroupResult {
-  export const filterSensitiveLog = (
-    obj: CreateClusterSubnetGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateClusterSubnetGroupResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSubnetGroupResult =>
-    __isa(o, "CreateClusterSubnetGroupResult");
+  export const isa = (o: any): o is CreateClusterSubnetGroupResult => __isa(o, "CreateClusterSubnetGroupResult");
 }
 
 /**
@@ -2833,17 +2635,17 @@ export namespace CreateClusterSubnetGroupResult {
 export interface CreateEventSubscriptionMessage {
   __type?: "CreateEventSubscriptionMessage";
   /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event
+   *             notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to
+   *             it.</p>
+   */
+  SnsTopicArn: string | undefined;
+
+  /**
    * <p>A boolean value; set to <code>true</code> to activate the subscription, and set to
    *                 <code>false</code> to create the subscription but not activate it. </p>
    */
   Enabled?: boolean;
-
-  /**
-   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
-   *             subscription.</p>
-   *         <p>Values: configuration, management, monitoring, security</p>
-   */
-  EventCategories?: string[];
 
   /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
@@ -2851,13 +2653,6 @@ export interface CreateEventSubscriptionMessage {
    *         <p>Values: ERROR, INFO</p>
    */
   Severity?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event
-   *             notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to
-   *             it.</p>
-   */
-  SnsTopicArn: string | undefined;
 
   /**
    * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
@@ -2871,6 +2666,13 @@ export interface CreateEventSubscriptionMessage {
   SourceIds?: string[];
 
   /**
+   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
+   *             subscription.</p>
+   *         <p>Values: configuration, management, monitoring, security</p>
+   */
+  EventCategories?: string[];
+
+  /**
    * <p>The type of source that will be generating the events. For example, if you want to
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
@@ -2878,6 +2680,11 @@ export interface CreateEventSubscriptionMessage {
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The name of the event subscription to be created.</p>
@@ -2898,21 +2705,13 @@ export interface CreateEventSubscriptionMessage {
    *          </ul>
    */
   SubscriptionName: string | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateEventSubscriptionMessage {
-  export const filterSensitiveLog = (
-    obj: CreateEventSubscriptionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionMessage =>
-    __isa(o, "CreateEventSubscriptionMessage");
+  export const isa = (o: any): o is CreateEventSubscriptionMessage => __isa(o, "CreateEventSubscriptionMessage");
 }
 
 export interface CreateEventSubscriptionResult {
@@ -2924,13 +2723,10 @@ export interface CreateEventSubscriptionResult {
 }
 
 export namespace CreateEventSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: CreateEventSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionResult =>
-    __isa(o, "CreateEventSubscriptionResult");
+  export const isa = (o: any): o is CreateEventSubscriptionResult => __isa(o, "CreateEventSubscriptionResult");
 }
 
 /**
@@ -2939,25 +2735,22 @@ export namespace CreateEventSubscriptionResult {
 export interface CreateHsmClientCertificateMessage {
   __type?: "CreateHsmClientCertificateMessage";
   /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier to be assigned to the new HSM client certificate that the cluster
    *             will use to connect to the HSM to use the database encryption keys.</p>
    */
   HsmClientCertificateIdentifier: string | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace CreateHsmClientCertificateMessage {
-  export const filterSensitiveLog = (
-    obj: CreateHsmClientCertificateMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHsmClientCertificateMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmClientCertificateMessage =>
-    __isa(o, "CreateHsmClientCertificateMessage");
+  export const isa = (o: any): o is CreateHsmClientCertificateMessage => __isa(o, "CreateHsmClientCertificateMessage");
 }
 
 export interface CreateHsmClientCertificateResult {
@@ -2971,13 +2764,10 @@ export interface CreateHsmClientCertificateResult {
 }
 
 export namespace CreateHsmClientCertificateResult {
-  export const filterSensitiveLog = (
-    obj: CreateHsmClientCertificateResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHsmClientCertificateResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmClientCertificateResult =>
-    __isa(o, "CreateHsmClientCertificateResult");
+  export const isa = (o: any): o is CreateHsmClientCertificateResult => __isa(o, "CreateHsmClientCertificateResult");
 }
 
 /**
@@ -2986,30 +2776,9 @@ export namespace CreateHsmClientCertificateResult {
 export interface CreateHsmConfigurationMessage {
   __type?: "CreateHsmConfigurationMessage";
   /**
-   * <p>A text description of the HSM configuration to be created.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The identifier to be assigned to the new Amazon Redshift HSM configuration.</p>
-   */
-  HsmConfigurationIdentifier: string | undefined;
-
-  /**
    * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
    */
   HsmIpAddress: string | undefined;
-
-  /**
-   * <p>The name of the partition in the HSM where the Amazon Redshift clusters will store their
-   *             database encryption keys.</p>
-   */
-  HsmPartitionName: string | undefined;
-
-  /**
-   * <p>The password required to access the HSM partition.</p>
-   */
-  HsmPartitionPassword: string | undefined;
 
   /**
    * <p>The HSMs public certificate file. When using Cloud HSM, the file name is
@@ -3018,19 +2787,37 @@ export interface CreateHsmConfigurationMessage {
   HsmServerPublicCertificate: string | undefined;
 
   /**
+   * <p>A text description of the HSM configuration to be created.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The password required to access the HSM partition.</p>
+   */
+  HsmPartitionPassword: string | undefined;
+
+  /**
+   * <p>The name of the partition in the HSM where the Amazon Redshift clusters will store their
+   *             database encryption keys.</p>
+   */
+  HsmPartitionName: string | undefined;
+
+  /**
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The identifier to be assigned to the new Amazon Redshift HSM configuration.</p>
+   */
+  HsmConfigurationIdentifier: string | undefined;
 }
 
 export namespace CreateHsmConfigurationMessage {
-  export const filterSensitiveLog = (
-    obj: CreateHsmConfigurationMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHsmConfigurationMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmConfigurationMessage =>
-    __isa(o, "CreateHsmConfigurationMessage");
+  export const isa = (o: any): o is CreateHsmConfigurationMessage => __isa(o, "CreateHsmConfigurationMessage");
 }
 
 export interface CreateHsmConfigurationResult {
@@ -3044,13 +2831,10 @@ export interface CreateHsmConfigurationResult {
 }
 
 export namespace CreateHsmConfigurationResult {
-  export const filterSensitiveLog = (
-    obj: CreateHsmConfigurationResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateHsmConfigurationResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateHsmConfigurationResult =>
-    __isa(o, "CreateHsmConfigurationResult");
+  export const isa = (o: any): o is CreateHsmConfigurationResult => __isa(o, "CreateHsmConfigurationResult");
 }
 
 export interface CreateScheduledActionMessage {
@@ -3062,22 +2846,16 @@ export interface CreateScheduledActionMessage {
   Enable?: boolean;
 
   /**
-   * <p>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
+   * <p>A JSON format string of the Amazon Redshift API operation with input parameters.
    *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
-  EndTime?: Date;
+  TargetAction: ScheduledActionType | undefined;
 
   /**
    * <p>The IAM role to assume to run the target action.
    *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
   IamRole: string | undefined;
-
-  /**
-   * <p>The schedule in <code>at( )</code> or <code>cron( )</code> format.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
-   */
-  Schedule: string | undefined;
 
   /**
    * <p>The description of the scheduled action.
@@ -3092,27 +2870,30 @@ export interface CreateScheduledActionMessage {
   ScheduledActionName: string | undefined;
 
   /**
+   * <p>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The schedule in <code>at( )</code> or <code>cron( )</code> format.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   */
+  Schedule: string | undefined;
+
+  /**
    * <p>The start time in UTC of the scheduled action.
    *             Before this time, the scheduled action does not trigger.
    *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>A JSON format string of the Amazon Redshift API operation with input parameters.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   */
-  TargetAction: ScheduledActionType | undefined;
 }
 
 export namespace CreateScheduledActionMessage {
-  export const filterSensitiveLog = (
-    obj: CreateScheduledActionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateScheduledActionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateScheduledActionMessage =>
-    __isa(o, "CreateScheduledActionMessage");
+  export const isa = (o: any): o is CreateScheduledActionMessage => __isa(o, "CreateScheduledActionMessage");
 }
 
 /**
@@ -3120,12 +2901,6 @@ export namespace CreateScheduledActionMessage {
  */
 export interface CreateSnapshotCopyGrantMessage {
   __type?: "CreateSnapshotCopyGrantMessage";
-  /**
-   * <p>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
-   *             permission. If no key is specified, the default key is used.</p>
-   */
-  KmsKeyId?: string;
-
   /**
    * <p>The name of the snapshot copy grant. This name must be unique in the region for the
    *             AWS account.</p>
@@ -3154,16 +2929,19 @@ export interface CreateSnapshotCopyGrantMessage {
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
+   *             permission. If no key is specified, the default key is used.</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace CreateSnapshotCopyGrantMessage {
-  export const filterSensitiveLog = (
-    obj: CreateSnapshotCopyGrantMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSnapshotCopyGrantMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotCopyGrantMessage =>
-    __isa(o, "CreateSnapshotCopyGrantMessage");
+  export const isa = (o: any): o is CreateSnapshotCopyGrantMessage => __isa(o, "CreateSnapshotCopyGrantMessage");
 }
 
 export interface CreateSnapshotCopyGrantResult {
@@ -3182,17 +2960,25 @@ export interface CreateSnapshotCopyGrantResult {
 }
 
 export namespace CreateSnapshotCopyGrantResult {
-  export const filterSensitiveLog = (
-    obj: CreateSnapshotCopyGrantResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSnapshotCopyGrantResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotCopyGrantResult =>
-    __isa(o, "CreateSnapshotCopyGrantResult");
+  export const isa = (o: any): o is CreateSnapshotCopyGrantResult => __isa(o, "CreateSnapshotCopyGrantResult");
 }
 
 export interface CreateSnapshotScheduleMessage {
   __type?: "CreateSnapshotScheduleMessage";
+  /**
+   * <p>The description of the snapshot schedule.</p>
+   */
+  ScheduleDescription?: string;
+
+  /**
+   * <p>The definition of the snapshot schedule. The definition is made up of schedule
+   *             expressions, for example "cron(30 12 *)" or "rate(12 hours)". </p>
+   */
+  ScheduleDefinitions?: string[];
+
   /**
    * <p></p>
    */
@@ -3202,17 +2988,6 @@ export interface CreateSnapshotScheduleMessage {
    * <p></p>
    */
   NextInvocations?: number;
-
-  /**
-   * <p>The definition of the snapshot schedule. The definition is made up of schedule
-   *             expressions, for example "cron(30 12 *)" or "rate(12 hours)". </p>
-   */
-  ScheduleDefinitions?: string[];
-
-  /**
-   * <p>The description of the snapshot schedule.</p>
-   */
-  ScheduleDescription?: string;
 
   /**
    * <p>A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed
@@ -3227,13 +3002,10 @@ export interface CreateSnapshotScheduleMessage {
 }
 
 export namespace CreateSnapshotScheduleMessage {
-  export const filterSensitiveLog = (
-    obj: CreateSnapshotScheduleMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateSnapshotScheduleMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotScheduleMessage =>
-    __isa(o, "CreateSnapshotScheduleMessage");
+  export const isa = (o: any): o is CreateSnapshotScheduleMessage => __isa(o, "CreateSnapshotScheduleMessage");
 }
 
 /**
@@ -3260,31 +3032,81 @@ export interface CreateTagsMessage {
 
 export namespace CreateTagsMessage {
   export const filterSensitiveLog = (obj: CreateTagsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateTagsMessage =>
-    __isa(o, "CreateTagsMessage");
+  export const isa = (o: any): o is CreateTagsMessage => __isa(o, "CreateTagsMessage");
+}
+
+export interface CreateUsageLimitMessage {
+  __type?: "CreateUsageLimitMessage";
+  /**
+   * <p>The Amazon Redshift feature that you want to limit.</p>
+   */
+  FeatureType: UsageLimitFeatureType | string | undefined;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The identifier of the cluster that you want to limit usage.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
+   *             For more information about this parameter, see <a>UsageLimit</a>.</p>
+   */
+  BreachAction?: UsageLimitBreachAction | string;
+
+  /**
+   * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>.
+   *             </p>
+   */
+  Period?: UsageLimitPeriod | string;
+
+  /**
+   * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
+   *             The value must be a positive number.
+   *             </p>
+   */
+  Amount: number | undefined;
+
+  /**
+   * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.
+   *             If <code>FeatureType</code> is <code>spectrum</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
+   *             If <code>FeatureType</code> is <code>concurrency-scaling</code>, then <code>LimitType</code> must be <code>time</code>.
+   *            </p>
+   */
+  LimitType: UsageLimitLimitType | string | undefined;
+}
+
+export namespace CreateUsageLimitMessage {
+  export const filterSensitiveLog = (obj: CreateUsageLimitMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CreateUsageLimitMessage => __isa(o, "CreateUsageLimitMessage");
 }
 
 export interface CustomerStorageMessage {
   __type?: "CustomerStorageMessage";
   /**
-   * <p>The total amount of storage currently used for snapshots.</p>
-   */
-  TotalBackupSizeInMegaBytes?: number;
-
-  /**
    * <p>The total amount of storage currently provisioned.</p>
    */
   TotalProvisionedStorageInMegaBytes?: number;
+
+  /**
+   * <p>The total amount of storage currently used for snapshots.</p>
+   */
+  TotalBackupSizeInMegaBytes?: number;
 }
 
 export namespace CustomerStorageMessage {
   export const filterSensitiveLog = (obj: CustomerStorageMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CustomerStorageMessage =>
-    __isa(o, "CustomerStorageMessage");
+  export const isa = (o: any): o is CustomerStorageMessage => __isa(o, "CustomerStorageMessage");
 }
 
 /**
@@ -3293,21 +3115,6 @@ export namespace CustomerStorageMessage {
  */
 export interface DataTransferProgress {
   __type?: "DataTransferProgress";
-  /**
-   * <p>Describes the data transfer rate in MB's per second.</p>
-   */
-  CurrentRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>Describes the total amount of data that has been transfered in MB's.</p>
-   */
-  DataTransferredInMegaBytes?: number;
-
-  /**
-   * <p>Describes the number of seconds that have elapsed during the data transfer.</p>
-   */
-  ElapsedTimeInSeconds?: number;
-
   /**
    * <p>Describes the estimated number of seconds remaining to complete the transfer.</p>
    */
@@ -3320,17 +3127,31 @@ export interface DataTransferProgress {
   Status?: string;
 
   /**
+   * <p>Describes the number of seconds that have elapsed during the data transfer.</p>
+   */
+  ElapsedTimeInSeconds?: number;
+
+  /**
    * <p>Describes the total amount of data to be transfered in megabytes.</p>
    */
   TotalDataInMegaBytes?: number;
+
+  /**
+   * <p>Describes the total amount of data that has been transfered in MB's.</p>
+   */
+  DataTransferredInMegaBytes?: number;
+
+  /**
+   * <p>Describes the data transfer rate in MB's per second.</p>
+   */
+  CurrentRateInMegaBytesPerSecond?: number;
 }
 
 export namespace DataTransferProgress {
   export const filterSensitiveLog = (obj: DataTransferProgress): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DataTransferProgress =>
-    __isa(o, "DataTransferProgress");
+  export const isa = (o: any): o is DataTransferProgress => __isa(o, "DataTransferProgress");
 }
 
 /**
@@ -3338,6 +3159,11 @@ export namespace DataTransferProgress {
  */
 export interface DefaultClusterParameters {
   __type?: "DefaultClusterParameters";
+  /**
+   * <p>The list of cluster default parameters.</p>
+   */
+  Parameters?: Parameter[];
+
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -3352,19 +3178,13 @@ export interface DefaultClusterParameters {
    *             parameters apply.</p>
    */
   ParameterGroupFamily?: string;
-
-  /**
-   * <p>The list of cluster default parameters.</p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace DefaultClusterParameters {
   export const filterSensitiveLog = (obj: DefaultClusterParameters): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DefaultClusterParameters =>
-    __isa(o, "DefaultClusterParameters");
+  export const isa = (o: any): o is DefaultClusterParameters => __isa(o, "DefaultClusterParameters");
 }
 
 /**
@@ -3373,14 +3193,14 @@ export namespace DefaultClusterParameters {
 export interface DeferredMaintenanceWindow {
   __type?: "DeferredMaintenanceWindow";
   /**
-   * <p> A timestamp for the end of the time period when we defer maintenance.</p>
-   */
-  DeferMaintenanceEndTime?: Date;
-
-  /**
    * <p>A unique identifier for the maintenance window.</p>
    */
   DeferMaintenanceIdentifier?: string;
+
+  /**
+   * <p> A timestamp for the end of the time period when we defer maintenance.</p>
+   */
+  DeferMaintenanceEndTime?: Date;
 
   /**
    * <p> A timestamp for the beginning of the time period when we defer maintenance.</p>
@@ -3390,10 +3210,9 @@ export interface DeferredMaintenanceWindow {
 
 export namespace DeferredMaintenanceWindow {
   export const filterSensitiveLog = (obj: DeferredMaintenanceWindow): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeferredMaintenanceWindow =>
-    __isa(o, "DeferredMaintenanceWindow");
+  export const isa = (o: any): o is DeferredMaintenanceWindow => __isa(o, "DeferredMaintenanceWindow");
 }
 
 /**
@@ -3422,6 +3241,21 @@ export interface DeleteClusterMessage {
   ClusterIdentifier: string | undefined;
 
   /**
+   * <p>Determines whether a final snapshot of the cluster is created before Amazon Redshift
+   *             deletes the cluster. If <code>true</code>, a final cluster snapshot is not created. If
+   *                 <code>false</code>, a final cluster snapshot is created before the cluster is
+   *             deleted. </p>
+   *         <note>
+   *             <p>The <i>FinalClusterSnapshotIdentifier</i> parameter must be
+   *                 specified if <i>SkipFinalClusterSnapshot</i> is
+   *                 <code>false</code>.</p>
+   *         </note>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  SkipFinalClusterSnapshot?: boolean;
+
+  /**
    * <p>The identifier of the final snapshot that is to be created immediately before
    *             deleting the cluster. If this parameter is provided,
    *                 <i>SkipFinalClusterSnapshot</i> must be <code>false</code>. </p>
@@ -3447,29 +3281,13 @@ export interface DeleteClusterMessage {
    *         <p>The default value is -1.</p>
    */
   FinalClusterSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>Determines whether a final snapshot of the cluster is created before Amazon Redshift
-   *             deletes the cluster. If <code>true</code>, a final cluster snapshot is not created. If
-   *                 <code>false</code>, a final cluster snapshot is created before the cluster is
-   *             deleted. </p>
-   *         <note>
-   *             <p>The <i>FinalClusterSnapshotIdentifier</i> parameter must be
-   *                 specified if <i>SkipFinalClusterSnapshot</i> is
-   *                 <code>false</code>.</p>
-   *         </note>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  SkipFinalClusterSnapshot?: boolean;
 }
 
 export namespace DeleteClusterMessage {
   export const filterSensitiveLog = (obj: DeleteClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterMessage =>
-    __isa(o, "DeleteClusterMessage");
+  export const isa = (o: any): o is DeleteClusterMessage => __isa(o, "DeleteClusterMessage");
 }
 
 /**
@@ -3493,10 +3311,8 @@ export interface DeleteClusterParameterGroupMessage {
 }
 
 export namespace DeleteClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteClusterParameterGroupMessage =>
     __isa(o, "DeleteClusterParameterGroupMessage");
@@ -3512,10 +3328,9 @@ export interface DeleteClusterResult {
 
 export namespace DeleteClusterResult {
   export const filterSensitiveLog = (obj: DeleteClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResult =>
-    __isa(o, "DeleteClusterResult");
+  export const isa = (o: any): o is DeleteClusterResult => __isa(o, "DeleteClusterResult");
 }
 
 /**
@@ -3530,13 +3345,10 @@ export interface DeleteClusterSecurityGroupMessage {
 }
 
 export namespace DeleteClusterSecurityGroupMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteClusterSecurityGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClusterSecurityGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSecurityGroupMessage =>
-    __isa(o, "DeleteClusterSecurityGroupMessage");
+  export const isa = (o: any): o is DeleteClusterSecurityGroupMessage => __isa(o, "DeleteClusterSecurityGroupMessage");
 }
 
 /**
@@ -3562,13 +3374,10 @@ export interface DeleteClusterSnapshotMessage {
 }
 
 export namespace DeleteClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSnapshotMessage =>
-    __isa(o, "DeleteClusterSnapshotMessage");
+  export const isa = (o: any): o is DeleteClusterSnapshotMessage => __isa(o, "DeleteClusterSnapshotMessage");
 }
 
 export interface DeleteClusterSnapshotResult {
@@ -3580,13 +3389,10 @@ export interface DeleteClusterSnapshotResult {
 }
 
 export namespace DeleteClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: DeleteClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSnapshotResult =>
-    __isa(o, "DeleteClusterSnapshotResult");
+  export const isa = (o: any): o is DeleteClusterSnapshotResult => __isa(o, "DeleteClusterSnapshotResult");
 }
 
 /**
@@ -3601,13 +3407,10 @@ export interface DeleteClusterSubnetGroupMessage {
 }
 
 export namespace DeleteClusterSubnetGroupMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteClusterSubnetGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteClusterSubnetGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSubnetGroupMessage =>
-    __isa(o, "DeleteClusterSubnetGroupMessage");
+  export const isa = (o: any): o is DeleteClusterSubnetGroupMessage => __isa(o, "DeleteClusterSubnetGroupMessage");
 }
 
 /**
@@ -3622,13 +3425,10 @@ export interface DeleteEventSubscriptionMessage {
 }
 
 export namespace DeleteEventSubscriptionMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteEventSubscriptionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionMessage =>
-    __isa(o, "DeleteEventSubscriptionMessage");
+  export const isa = (o: any): o is DeleteEventSubscriptionMessage => __isa(o, "DeleteEventSubscriptionMessage");
 }
 
 /**
@@ -3643,13 +3443,10 @@ export interface DeleteHsmClientCertificateMessage {
 }
 
 export namespace DeleteHsmClientCertificateMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteHsmClientCertificateMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteHsmClientCertificateMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmClientCertificateMessage =>
-    __isa(o, "DeleteHsmClientCertificateMessage");
+  export const isa = (o: any): o is DeleteHsmClientCertificateMessage => __isa(o, "DeleteHsmClientCertificateMessage");
 }
 
 /**
@@ -3664,13 +3461,10 @@ export interface DeleteHsmConfigurationMessage {
 }
 
 export namespace DeleteHsmConfigurationMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteHsmConfigurationMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteHsmConfigurationMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmConfigurationMessage =>
-    __isa(o, "DeleteHsmConfigurationMessage");
+  export const isa = (o: any): o is DeleteHsmConfigurationMessage => __isa(o, "DeleteHsmConfigurationMessage");
 }
 
 export interface DeleteScheduledActionMessage {
@@ -3682,13 +3476,10 @@ export interface DeleteScheduledActionMessage {
 }
 
 export namespace DeleteScheduledActionMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteScheduledActionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteScheduledActionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledActionMessage =>
-    __isa(o, "DeleteScheduledActionMessage");
+  export const isa = (o: any): o is DeleteScheduledActionMessage => __isa(o, "DeleteScheduledActionMessage");
 }
 
 /**
@@ -3703,13 +3494,10 @@ export interface DeleteSnapshotCopyGrantMessage {
 }
 
 export namespace DeleteSnapshotCopyGrantMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteSnapshotCopyGrantMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSnapshotCopyGrantMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotCopyGrantMessage =>
-    __isa(o, "DeleteSnapshotCopyGrantMessage");
+  export const isa = (o: any): o is DeleteSnapshotCopyGrantMessage => __isa(o, "DeleteSnapshotCopyGrantMessage");
 }
 
 export interface DeleteSnapshotScheduleMessage {
@@ -3721,13 +3509,10 @@ export interface DeleteSnapshotScheduleMessage {
 }
 
 export namespace DeleteSnapshotScheduleMessage {
-  export const filterSensitiveLog = (
-    obj: DeleteSnapshotScheduleMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteSnapshotScheduleMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotScheduleMessage =>
-    __isa(o, "DeleteSnapshotScheduleMessage");
+  export const isa = (o: any): o is DeleteSnapshotScheduleMessage => __isa(o, "DeleteSnapshotScheduleMessage");
 }
 
 /**
@@ -3736,42 +3521,52 @@ export namespace DeleteSnapshotScheduleMessage {
 export interface DeleteTagsMessage {
   __type?: "DeleteTagsMessage";
   /**
+   * <p>The tag key that you want to delete.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For
    *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
    */
   ResourceName: string | undefined;
-
-  /**
-   * <p>The tag key that you want to delete.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsMessage {
   export const filterSensitiveLog = (obj: DeleteTagsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsMessage =>
-    __isa(o, "DeleteTagsMessage");
+  export const isa = (o: any): o is DeleteTagsMessage => __isa(o, "DeleteTagsMessage");
+}
+
+export interface DeleteUsageLimitMessage {
+  __type?: "DeleteUsageLimitMessage";
+  /**
+   * <p>The identifier of the usage limit to delete.</p>
+   */
+  UsageLimitId: string | undefined;
+}
+
+export namespace DeleteUsageLimitMessage {
+  export const filterSensitiveLog = (obj: DeleteUsageLimitMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DeleteUsageLimitMessage => __isa(o, "DeleteUsageLimitMessage");
 }
 
 /**
  * <p>The request cannot be completed because a dependent service is throttling requests
  *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
  */
-export interface DependentServiceRequestThrottlingFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependentServiceRequestThrottlingFault extends __SmithyException, $MetadataBearer {
   name: "DependentServiceRequestThrottlingFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DependentServiceRequestThrottlingFault {
-  export const filterSensitiveLog = (
-    obj: DependentServiceRequestThrottlingFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DependentServiceRequestThrottlingFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DependentServiceRequestThrottlingFault =>
     __isa(o, "DependentServiceRequestThrottlingFault");
@@ -3781,22 +3576,17 @@ export namespace DependentServiceRequestThrottlingFault {
  * <p>Your request cannot be completed because a dependent internal service is
  *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
  */
-export interface DependentServiceUnavailableFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependentServiceUnavailableFault extends __SmithyException, $MetadataBearer {
   name: "DependentServiceUnavailableFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace DependentServiceUnavailableFault {
-  export const filterSensitiveLog = (
-    obj: DependentServiceUnavailableFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DependentServiceUnavailableFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DependentServiceUnavailableFault =>
-    __isa(o, "DependentServiceUnavailableFault");
+  export const isa = (o: any): o is DependentServiceUnavailableFault => __isa(o, "DependentServiceUnavailableFault");
 }
 
 export interface DescribeAccountAttributesMessage {
@@ -3808,24 +3598,14 @@ export interface DescribeAccountAttributesMessage {
 }
 
 export namespace DescribeAccountAttributesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeAccountAttributesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesMessage =>
-    __isa(o, "DescribeAccountAttributesMessage");
+  export const isa = (o: any): o is DescribeAccountAttributesMessage => __isa(o, "DescribeAccountAttributesMessage");
 }
 
 export interface DescribeClusterDbRevisionsMessage {
   __type?: "DescribeClusterDbRevisionsMessage";
-  /**
-   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
-   *             requesting. This parameter is case sensitive. All clusters defined for an account are
-   *             returned by default.</p>
-   */
-  ClusterIdentifier?: string;
-
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
    *             response records. When the results of a <code>DescribeClusterDbRevisions</code> request
@@ -3837,6 +3617,13 @@ export interface DescribeClusterDbRevisionsMessage {
    *             the <code>marker</code> parameter, but not both.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
+   *             requesting. This parameter is case sensitive. All clusters defined for an account are
+   *             returned by default.</p>
+   */
+  ClusterIdentifier?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -3851,13 +3638,10 @@ export interface DescribeClusterDbRevisionsMessage {
 }
 
 export namespace DescribeClusterDbRevisionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterDbRevisionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterDbRevisionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterDbRevisionsMessage =>
-    __isa(o, "DescribeClusterDbRevisionsMessage");
+  export const isa = (o: any): o is DescribeClusterDbRevisionsMessage => __isa(o, "DescribeClusterDbRevisionsMessage");
 }
 
 /**
@@ -3866,14 +3650,11 @@ export namespace DescribeClusterDbRevisionsMessage {
 export interface DescribeClusterParameterGroupsMessage {
   __type?: "DescribeClusterParameterGroupsMessage";
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterParameterGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
+   * <p>The name of a specific parameter group for which to return details. By default,
+   *             details about all parameter groups and the default parameter group are
+   *             returned.</p>
    */
-  Marker?: string;
+  ParameterGroupName?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -3887,13 +3668,6 @@ export interface DescribeClusterParameterGroupsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of a specific parameter group for which to return details. By default,
-   *             details about all parameter groups and the default parameter group are
-   *             returned.</p>
-   */
-  ParameterGroupName?: string;
-
-  /**
    * <p>A tag key or keys for which you want to return all matching cluster parameter
    *             groups that are associated with the specified key or keys. For example, suppose that you
    *             have parameter groups that are tagged with keys called <code>owner</code> and
@@ -3902,6 +3676,16 @@ export interface DescribeClusterParameterGroupsMessage {
    *             tag keys associated with them.</p>
    */
   TagKeys?: string[];
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameterGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster parameter
@@ -3915,10 +3699,8 @@ export interface DescribeClusterParameterGroupsMessage {
 }
 
 export namespace DescribeClusterParameterGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterParameterGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterParameterGroupsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClusterParameterGroupsMessage =>
     __isa(o, "DescribeClusterParameterGroupsMessage");
@@ -3930,14 +3712,19 @@ export namespace DescribeClusterParameterGroupsMessage {
 export interface DescribeClusterParametersMessage {
   __type?: "DescribeClusterParametersMessage";
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterParameters</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
+   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
+   *             are different form the default. Similarly, specify <code>engine-default</code> to show
+   *             parameters that are the same as the default parameter group. </p>
+   *         <p>Default: All parameter types returned.</p>
+   *         <p>Valid Values: <code>user</code> | <code>engine-default</code>
+   *         </p>
    */
-  Marker?: string;
+  Source?: string;
+
+  /**
+   * <p>The name of a cluster parameter group for which to return details.</p>
+   */
+  ParameterGroupName: string | undefined;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -3951,29 +3738,21 @@ export interface DescribeClusterParametersMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of a cluster parameter group for which to return details.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameters</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  ParameterGroupName: string | undefined;
-
-  /**
-   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
-   *             are different form the default. Similarly, specify <code>engine-default</code> to show
-   *             parameters that are the same as the default parameter group. </p>
-   *         <p>Default: All parameter types returned.</p>
-   *         <p>Valid Values: <code>user</code> | <code>engine-default</code>
-   *         </p>
-   */
-  Source?: string;
+  Marker?: string;
 }
 
 export namespace DescribeClusterParametersMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterParametersMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterParametersMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterParametersMessage =>
-    __isa(o, "DescribeClusterParametersMessage");
+  export const isa = (o: any): o is DescribeClusterParametersMessage => __isa(o, "DescribeClusterParametersMessage");
 }
 
 /**
@@ -3982,12 +3761,14 @@ export namespace DescribeClusterParametersMessage {
 export interface DescribeClusterSecurityGroupsMessage {
   __type?: "DescribeClusterSecurityGroupsMessage";
   /**
-   * <p>The name of a cluster security group for which you are requesting details. You can
-   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
-   *         <p> Example: <code>securitygroup1</code>
-   *         </p>
+   * <p>A tag value or values for which you want to return all matching cluster security
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have security groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the security groups that have either or both of these tag values
+   *             associated with them.</p>
    */
-  ClusterSecurityGroupName?: string;
+  TagValues?: string[];
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -4001,6 +3782,16 @@ export interface DescribeClusterSecurityGroupsMessage {
   Marker?: string;
 
   /**
+   * <p>A tag key or keys for which you want to return all matching cluster security groups
+   *             that are associated with the specified key or keys. For example, suppose that you have
+   *             security groups that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the security groups that have either or both of these
+   *             tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -4012,31 +3803,17 @@ export interface DescribeClusterSecurityGroupsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>A tag key or keys for which you want to return all matching cluster security groups
-   *             that are associated with the specified key or keys. For example, suppose that you have
-   *             security groups that are tagged with keys called <code>owner</code> and
-   *                 <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the security groups that have either or both of these
-   *             tag keys associated with them.</p>
+   * <p>The name of a cluster security group for which you are requesting details. You can
+   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
+   *         <p> Example: <code>securitygroup1</code>
+   *         </p>
    */
-  TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching cluster security
-   *             groups that are associated with the specified tag value or values. For example, suppose
-   *             that you have security groups that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the security groups that have either or both of these tag values
-   *             associated with them.</p>
-   */
-  TagValues?: string[];
+  ClusterSecurityGroupName?: string;
 }
 
 export namespace DescribeClusterSecurityGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterSecurityGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterSecurityGroupsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClusterSecurityGroupsMessage =>
     __isa(o, "DescribeClusterSecurityGroupsMessage");
@@ -4047,6 +3824,26 @@ export namespace DescribeClusterSecurityGroupsMessage {
  */
 export interface DescribeClustersMessage {
   __type?: "DescribeClustersMessage";
+  /**
+   * <p>A tag key or keys for which you want to return all matching clusters that are
+   *             associated with the specified key or keys. For example, suppose that you have clusters
+   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
+   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
+   *             clusters that have either or both of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
   /**
    * <p>The unique identifier of a cluster whose properties you are requesting. This
    *             parameter is case sensitive.</p>
@@ -4066,26 +3863,6 @@ export interface DescribeClustersMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching clusters that are
-   *             associated with the specified key or keys. For example, suppose that you have clusters
-   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
-   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
-   *             clusters that have either or both of these tag keys associated with them.</p>
-   */
-  TagKeys?: string[];
-
-  /**
    * <p>A tag value or values for which you want to return all matching clusters that are
    *             associated with the specified tag value or values. For example, suppose that you have
    *             clusters that are tagged with values called <code>admin</code> and <code>test</code>. If
@@ -4098,10 +3875,9 @@ export interface DescribeClustersMessage {
 
 export namespace DescribeClustersMessage {
   export const filterSensitiveLog = (obj: DescribeClustersMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersMessage =>
-    __isa(o, "DescribeClustersMessage");
+  export const isa = (o: any): o is DescribeClustersMessage => __isa(o, "DescribeClustersMessage");
 }
 
 /**
@@ -4109,6 +3885,72 @@ export namespace DescribeClustersMessage {
  */
 export interface DescribeClusterSnapshotsMessage {
   __type?: "DescribeClusterSnapshotsMessage";
+  /**
+   * <p>The identifier of the cluster which generated the requested snapshots.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The snapshot identifier of the snapshot about which to return
+   *             information.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The type of snapshots for which you are requesting information. By default,
+   *             snapshots of all types are returned.</p>
+   *         <p>Valid Values: <code>automated</code> | <code>manual</code>
+   *         </p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>A value that requests only snapshots created at or after the specified time. The
+   *             time value is specified in ISO 8601 format. For more information about ISO 8601, go to
+   *             the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *         </p>
+   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
+   *         </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>A time value that requests only snapshots created at or before the specified time.
+   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
+   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
+   *                 page.</a>
+   *         </p>
+   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
+   *         </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching cluster snapshots that
+   *             are associated with the specified key or keys. For example, suppose that you have
+   *             snapshots that are tagged with keys called <code>owner</code> and
+   *                 <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the snapshots that have either or both of these tag
+   *             keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p></p>
+   */
+  SortingEntities?: SnapshotSortingEntity[];
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
   /**
    * <p>A value that indicates whether to return snapshots only for an existing cluster.
    *             You can perform table-level restore only by using a snapshot of an existing cluster,
@@ -4138,20 +3980,12 @@ export interface DescribeClusterSnapshotsMessage {
   ClusterExists?: boolean;
 
   /**
-   * <p>The identifier of the cluster which generated the requested snapshots.</p>
+   * <p>The AWS customer account used to create or copy the snapshot. Use this field to
+   *             filter the results to snapshots owned by a particular account. To describe snapshots you
+   *             own, either specify your AWS customer account, or do not specify the
+   *             parameter.</p>
    */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>A time value that requests only snapshots created at or before the specified time.
-   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
-   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
-   *                 page.</a>
-   *         </p>
-   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
-   *         </p>
-   */
-  EndTime?: Date;
+  OwnerAccount?: string;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -4162,64 +3996,6 @@ export interface DescribeClusterSnapshotsMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The AWS customer account used to create or copy the snapshot. Use this field to
-   *             filter the results to snapshots owned by a particular account. To describe snapshots you
-   *             own, either specify your AWS customer account, or do not specify the
-   *             parameter.</p>
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>The snapshot identifier of the snapshot about which to return
-   *             information.</p>
-   */
-  SnapshotIdentifier?: string;
-
-  /**
-   * <p>The type of snapshots for which you are requesting information. By default,
-   *             snapshots of all types are returned.</p>
-   *         <p>Valid Values: <code>automated</code> | <code>manual</code>
-   *         </p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p></p>
-   */
-  SortingEntities?: SnapshotSortingEntity[];
-
-  /**
-   * <p>A value that requests only snapshots created at or after the specified time. The
-   *             time value is specified in ISO 8601 format. For more information about ISO 8601, go to
-   *             the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *         </p>
-   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
-   *         </p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching cluster snapshots that
-   *             are associated with the specified key or keys. For example, suppose that you have
-   *             snapshots that are tagged with keys called <code>owner</code> and
-   *                 <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the snapshots that have either or both of these tag
-   *             keys associated with them.</p>
-   */
-  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster snapshots
@@ -4233,13 +4009,10 @@ export interface DescribeClusterSnapshotsMessage {
 }
 
 export namespace DescribeClusterSnapshotsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterSnapshotsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterSnapshotsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterSnapshotsMessage =>
-    __isa(o, "DescribeClusterSnapshotsMessage");
+  export const isa = (o: any): o is DescribeClusterSnapshotsMessage => __isa(o, "DescribeClusterSnapshotsMessage");
 }
 
 /**
@@ -4248,19 +4021,14 @@ export namespace DescribeClusterSnapshotsMessage {
 export interface DescribeClusterSubnetGroupsMessage {
   __type?: "DescribeClusterSubnetGroupsMessage";
   /**
-   * <p>The name of the cluster subnet group for which information is requested.</p>
+   * <p>A tag value or values for which you want to return all matching cluster subnet
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have subnet groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the subnet groups that have either or both of these tag values
+   *             associated with them.</p>
    */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
+  TagValues?: string[];
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -4284,21 +4052,24 @@ export interface DescribeClusterSubnetGroupsMessage {
   TagKeys?: string[];
 
   /**
-   * <p>A tag value or values for which you want to return all matching cluster subnet
-   *             groups that are associated with the specified tag value or values. For example, suppose
-   *             that you have subnet groups that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the subnet groups that have either or both of these tag values
-   *             associated with them.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  TagValues?: string[];
+  Marker?: string;
+
+  /**
+   * <p>The name of the cluster subnet group for which information is requested.</p>
+   */
+  ClusterSubnetGroupName?: string;
 }
 
 export namespace DescribeClusterSubnetGroupsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterSubnetGroupsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterSubnetGroupsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeClusterSubnetGroupsMessage =>
     __isa(o, "DescribeClusterSubnetGroupsMessage");
@@ -4306,6 +4077,11 @@ export namespace DescribeClusterSubnetGroupsMessage {
 
 export interface DescribeClusterTracksMessage {
   __type?: "DescribeClusterTracksMessage";
+  /**
+   * <p>An integer value for the maximum number of maintenance tracks to return.</p>
+   */
+  MaxRecords?: number;
+
   /**
    * <p>The name of the maintenance track. </p>
    */
@@ -4320,21 +4096,13 @@ export interface DescribeClusterTracksMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>An integer value for the maximum number of maintenance tracks to return.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeClusterTracksMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterTracksMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterTracksMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterTracksMessage =>
-    __isa(o, "DescribeClusterTracksMessage");
+  export const isa = (o: any): o is DescribeClusterTracksMessage => __isa(o, "DescribeClusterTracksMessage");
 }
 
 /**
@@ -4361,11 +4129,15 @@ export interface DescribeClusterVersionsMessage {
   ClusterParameterGroupFamily?: string;
 
   /**
-   * <p>The specific cluster version to return.</p>
-   *         <p>Example: <code>1.0</code>
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
    *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
    */
-  ClusterVersion?: string;
+  MaxRecords?: number;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -4378,25 +4150,18 @@ export interface DescribeClusterVersionsMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
+   * <p>The specific cluster version to return.</p>
+   *         <p>Example: <code>1.0</code>
    *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
    */
-  MaxRecords?: number;
+  ClusterVersion?: string;
 }
 
 export namespace DescribeClusterVersionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterVersionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterVersionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterVersionsMessage =>
-    __isa(o, "DescribeClusterVersionsMessage");
+  export const isa = (o: any): o is DescribeClusterVersionsMessage => __isa(o, "DescribeClusterVersionsMessage");
 }
 
 /**
@@ -4404,6 +4169,11 @@ export namespace DescribeClusterVersionsMessage {
  */
 export interface DescribeDefaultClusterParametersMessage {
   __type?: "DescribeDefaultClusterParametersMessage";
+  /**
+   * <p>The name of the cluster parameter group family.</p>
+   */
+  ParameterGroupFamily: string | undefined;
+
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
@@ -4424,18 +4194,11 @@ export interface DescribeDefaultClusterParametersMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The name of the cluster parameter group family.</p>
-   */
-  ParameterGroupFamily: string | undefined;
 }
 
 export namespace DescribeDefaultClusterParametersMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeDefaultClusterParametersMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDefaultClusterParametersMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDefaultClusterParametersMessage =>
     __isa(o, "DescribeDefaultClusterParametersMessage");
@@ -4450,10 +4213,8 @@ export interface DescribeDefaultClusterParametersResult {
 }
 
 export namespace DescribeDefaultClusterParametersResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDefaultClusterParametersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDefaultClusterParametersResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeDefaultClusterParametersResult =>
     __isa(o, "DescribeDefaultClusterParametersResult");
@@ -4473,13 +4234,10 @@ export interface DescribeEventCategoriesMessage {
 }
 
 export namespace DescribeEventCategoriesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEventCategoriesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesMessage =>
-    __isa(o, "DescribeEventCategoriesMessage");
+  export const isa = (o: any): o is DescribeEventCategoriesMessage => __isa(o, "DescribeEventCategoriesMessage");
 }
 
 /**
@@ -4495,25 +4253,6 @@ export interface DescribeEventsMessage {
    *         </p>
    */
   Duration?: number;
-
-  /**
-   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
-   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *         </p>
-   *         <p>Example: <code>2009-07-08T18:00Z</code>
-   *         </p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
-   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
-   *             field of the response. You can retrieve the next set of response records by providing
-   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
-   *         </p>
-   */
-  Marker?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -4554,6 +4293,34 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
+   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *         </p>
+   *         <p>Example: <code>2009-07-08T18:00Z</code>
+   *         </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
+   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *         </p>
+   *         <p>Example: <code>2009-07-08T18:00Z</code>
+   *         </p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *             returned.</p>
    *         <p>Constraints:</p>
@@ -4582,23 +4349,13 @@ export interface DescribeEventsMessage {
    *          </ul>
    */
   SourceType?: SourceType | string;
-
-  /**
-   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
-   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *         </p>
-   *         <p>Example: <code>2009-07-08T18:00Z</code>
-   *         </p>
-   */
-  StartTime?: Date;
 }
 
 export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
@@ -4606,6 +4363,16 @@ export namespace DescribeEventsMessage {
  */
 export interface DescribeEventSubscriptionsMessage {
   __type?: "DescribeEventSubscriptionsMessage";
+  /**
+   * <p>A tag value or values for which you want to return all matching event notification
+   *             subscriptions that are associated with the specified tag value or values. For example,
+   *             suppose that you have subscriptions that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the subscriptions that have either or
+   *             both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a DescribeEventSubscriptions request exceed the value
@@ -4628,12 +4395,6 @@ export interface DescribeEventSubscriptionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the Amazon Redshift event notification subscription to be
-   *             described.</p>
-   */
-  SubscriptionName?: string;
-
-  /**
    * <p>A tag key or keys for which you want to return all matching event notification
    *             subscriptions that are associated with the specified key or keys. For example, suppose
    *             that you have subscriptions that are tagged with keys called <code>owner</code> and
@@ -4644,24 +4405,17 @@ export interface DescribeEventSubscriptionsMessage {
   TagKeys?: string[];
 
   /**
-   * <p>A tag value or values for which you want to return all matching event notification
-   *             subscriptions that are associated with the specified tag value or values. For example,
-   *             suppose that you have subscriptions that are tagged with values called
-   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
-   *             the request, Amazon Redshift returns a response with the subscriptions that have either or
-   *             both of these tag values associated with them.</p>
+   * <p>The name of the Amazon Redshift event notification subscription to be
+   *             described.</p>
    */
-  TagValues?: string[];
+  SubscriptionName?: string;
 }
 
 export namespace DescribeEventSubscriptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeEventSubscriptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
-    __isa(o, "DescribeEventSubscriptionsMessage");
+  export const isa = (o: any): o is DescribeEventSubscriptionsMessage => __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 /**
@@ -4677,16 +4431,6 @@ export interface DescribeHsmClientCertificatesMessage {
   HsmClientCertificateIdentifier?: string;
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -4696,6 +4440,16 @@ export interface DescribeHsmClientCertificatesMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching HSM client
+   *             certificates that are associated with the specified tag value or values. For example,
+   *             suppose that you have HSM client certificates that are tagged with values called
+   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
+   *             the request, Amazon Redshift returns a response with the HSM client certificates that have
+   *             either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
 
   /**
    * <p>A tag key or keys for which you want to return all matching HSM client certificates
@@ -4708,21 +4462,19 @@ export interface DescribeHsmClientCertificatesMessage {
   TagKeys?: string[];
 
   /**
-   * <p>A tag value or values for which you want to return all matching HSM client
-   *             certificates that are associated with the specified tag value or values. For example,
-   *             suppose that you have HSM client certificates that are tagged with values called
-   *                 <code>admin</code> and <code>test</code>. If you specify both of these tag values in
-   *             the request, Amazon Redshift returns a response with the HSM client certificates that have
-   *             either or both of these tag values associated with them.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  TagValues?: string[];
+  Marker?: string;
 }
 
 export namespace DescribeHsmClientCertificatesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeHsmClientCertificatesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHsmClientCertificatesMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeHsmClientCertificatesMessage =>
     __isa(o, "DescribeHsmClientCertificatesMessage");
@@ -4733,23 +4485,6 @@ export namespace DescribeHsmClientCertificatesMessage {
  */
 export interface DescribeHsmConfigurationsMessage {
   __type?: "DescribeHsmConfigurationsMessage";
-  /**
-   * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
-   *             identifier is specified, information is returned for all HSM configurations owned by
-   *             your AWS customer account.</p>
-   */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeHsmConfigurations</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -4772,6 +4507,23 @@ export interface DescribeHsmConfigurationsMessage {
   TagKeys?: string[];
 
   /**
+   * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
+   *             identifier is specified, information is returned for all HSM configurations owned by
+   *             your AWS customer account.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmConfigurations</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching HSM configurations
    *             that are associated with the specified tag value or values. For example, suppose that
    *             you have HSM configurations that are tagged with values called <code>admin</code> and
@@ -4783,13 +4535,10 @@ export interface DescribeHsmConfigurationsMessage {
 }
 
 export namespace DescribeHsmConfigurationsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeHsmConfigurationsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeHsmConfigurationsMessage =>
-    __isa(o, "DescribeHsmConfigurationsMessage");
+  export const isa = (o: any): o is DescribeHsmConfigurationsMessage => __isa(o, "DescribeHsmConfigurationsMessage");
 }
 
 /**
@@ -4806,13 +4555,10 @@ export interface DescribeLoggingStatusMessage {
 }
 
 export namespace DescribeLoggingStatusMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeLoggingStatusMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingStatusMessage =>
-    __isa(o, "DescribeLoggingStatusMessage");
+  export const isa = (o: any): o is DescribeLoggingStatusMessage => __isa(o, "DescribeLoggingStatusMessage");
 }
 
 export interface DescribeNodeConfigurationOptionsMessage {
@@ -4821,29 +4567,10 @@ export interface DescribeNodeConfigurationOptionsMessage {
    * <p>The action type to evaluate for possible node configurations.
    *             Specify "restore-cluster" to get configuration combinations based on an existing snapshot.
    *             Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot.
+   *             Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
    *         </p>
    */
   ActionType: ActionType | string | undefined;
-
-  /**
-   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>A set of name, operator, and value items to filter the results.</p>
-   */
-  Filters?: NodeConfigurationOptionsFilter[];
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -4857,23 +4584,41 @@ export interface DescribeNodeConfigurationOptionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The AWS customer account used to create or copy the snapshot.
-   *             Required if you are restoring a snapshot you do not own,
-   *             optional if you own the snapshot.</p>
+   * <p>A set of name, operator, and value items to filter the results.</p>
    */
-  OwnerAccount?: string;
+  Filters?: NodeConfigurationOptionsFilter[];
 
   /**
    * <p>The identifier of the snapshot to evaluate for possible node configurations.</p>
    */
   SnapshotIdentifier?: string;
+
+  /**
+   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The AWS customer account used to create or copy the snapshot.
+   *             Required if you are restoring a snapshot you do not own,
+   *             optional if you own the snapshot.</p>
+   */
+  OwnerAccount?: string;
 }
 
 export namespace DescribeNodeConfigurationOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeNodeConfigurationOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNodeConfigurationOptionsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeNodeConfigurationOptionsMessage =>
     __isa(o, "DescribeNodeConfigurationOptionsMessage");
@@ -4884,6 +4629,12 @@ export namespace DescribeNodeConfigurationOptionsMessage {
  */
 export interface DescribeOrderableClusterOptionsMessage {
   __type?: "DescribeOrderableClusterOptionsMessage";
+  /**
+   * <p>The node type filter value. Specify this parameter to show only the available
+   *             offerings matching the specified node type.</p>
+   */
+  NodeType?: string;
+
   /**
    * <p>The version filter value. Specify this parameter to show only the available
    *             offerings matching the specified version.</p>
@@ -4912,19 +4663,11 @@ export interface DescribeOrderableClusterOptionsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The node type filter value. Specify this parameter to show only the available
-   *             offerings matching the specified node type.</p>
-   */
-  NodeType?: string;
 }
 
 export namespace DescribeOrderableClusterOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeOrderableClusterOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeOrderableClusterOptionsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeOrderableClusterOptionsMessage =>
     __isa(o, "DescribeOrderableClusterOptionsMessage");
@@ -4935,16 +4678,6 @@ export namespace DescribeOrderableClusterOptionsMessage {
  */
 export interface DescribeReservedNodeOfferingsMessage {
   __type?: "DescribeReservedNodeOfferingsMessage";
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeReservedNodeOfferings</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -4960,13 +4693,21 @@ export interface DescribeReservedNodeOfferingsMessage {
    * <p>The unique identifier for the offering.</p>
    */
   ReservedNodeOfferingId?: string;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodeOfferings</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeReservedNodeOfferingsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedNodeOfferingsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedNodeOfferingsMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeReservedNodeOfferingsMessage =>
     __isa(o, "DescribeReservedNodeOfferingsMessage");
@@ -4977,6 +4718,11 @@ export namespace DescribeReservedNodeOfferingsMessage {
  */
 export interface DescribeReservedNodesMessage {
   __type?: "DescribeReservedNodesMessage";
+  /**
+   * <p>Identifier for the node reservation.</p>
+   */
+  ReservedNodeId?: string;
+
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
@@ -4997,21 +4743,13 @@ export interface DescribeReservedNodesMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>Identifier for the node reservation.</p>
-   */
-  ReservedNodeId?: string;
 }
 
 export namespace DescribeReservedNodesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeReservedNodesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedNodesMessage =>
-    __isa(o, "DescribeReservedNodesMessage");
+  export const isa = (o: any): o is DescribeReservedNodesMessage => __isa(o, "DescribeReservedNodesMessage");
 }
 
 /**
@@ -5030,14 +4768,19 @@ export interface DescribeResizeMessage {
 
 export namespace DescribeResizeMessage {
   export const filterSensitiveLog = (obj: DescribeResizeMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeResizeMessage =>
-    __isa(o, "DescribeResizeMessage");
+  export const isa = (o: any): o is DescribeResizeMessage => __isa(o, "DescribeResizeMessage");
 }
 
 export interface DescribeScheduledActionsMessage {
   __type?: "DescribeScheduledActionsMessage";
+  /**
+   * <p>The start time in UTC of the scheduled actions to retrieve.
+   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
+   */
+  StartTime?: Date;
+
   /**
    * <p>If true, retrieve only active scheduled actions.
    *            If false, retrieve only disabled scheduled actions. </p>
@@ -5045,15 +4788,9 @@ export interface DescribeScheduledActionsMessage {
   Active?: boolean;
 
   /**
-   * <p>The end time in UTC of the scheduled action to retrieve.
-   *             Only active scheduled actions that have invocations before this time are retrieved.</p>
+   * <p>The name of the scheduled action to retrieve. </p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>List of scheduled action filters. </p>
-   */
-  Filters?: ScheduledActionFilter[];
+  ScheduledActionName?: string;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -5077,30 +4814,27 @@ export interface DescribeScheduledActionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the scheduled action to retrieve. </p>
+   * <p>The end time in UTC of the scheduled action to retrieve.
+   *             Only active scheduled actions that have invocations before this time are retrieved.</p>
    */
-  ScheduledActionName?: string;
-
-  /**
-   * <p>The start time in UTC of the scheduled actions to retrieve.
-   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
-   */
-  StartTime?: Date;
+  EndTime?: Date;
 
   /**
    * <p>The type of the scheduled actions to retrieve. </p>
    */
   TargetActionType?: ScheduledActionTypeValues | string;
+
+  /**
+   * <p>List of scheduled action filters. </p>
+   */
+  Filters?: ScheduledActionFilter[];
 }
 
 export namespace DescribeScheduledActionsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeScheduledActionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledActionsMessage =>
-    __isa(o, "DescribeScheduledActionsMessage");
+  export const isa = (o: any): o is DescribeScheduledActionsMessage => __isa(o, "DescribeScheduledActionsMessage");
 }
 
 /**
@@ -5108,17 +4842,6 @@ export namespace DescribeScheduledActionsMessage {
  */
 export interface DescribeSnapshotCopyGrantsMessage {
   __type?: "DescribeSnapshotCopyGrantsMessage";
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
-   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
-   */
-  Marker?: string;
-
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -5131,9 +4854,13 @@ export interface DescribeSnapshotCopyGrantsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the snapshot copy grant.</p>
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
    */
-  SnapshotCopyGrantName?: string;
+  TagValues?: string[];
 
   /**
    * <p>A tag key or keys for which you want to return all matching resources that are
@@ -5145,51 +4872,31 @@ export interface DescribeSnapshotCopyGrantsMessage {
   TagKeys?: string[];
 
   /**
-   * <p>A tag value or values for which you want to return all matching resources that are
-   *             associated with the specified value or values. For example, suppose that you have
-   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
-   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
-   *             resources that have either or both of these tag values associated with them.</p>
-   */
-  TagValues?: string[];
-}
-
-export namespace DescribeSnapshotCopyGrantsMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotCopyGrantsMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeSnapshotCopyGrantsMessage =>
-    __isa(o, "DescribeSnapshotCopyGrantsMessage");
-}
-
-export interface DescribeSnapshotSchedulesMessage {
-  __type?: "DescribeSnapshotSchedulesMessage";
-  /**
-   * <p>The unique identifier for the cluster whose snapshot schedules you want to
-   *             view.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>A value that indicates the starting point for the next set of response records in a
-   *             subsequent request. If a value is returned in a response, you can retrieve the next set
-   *             of records by providing this returned marker value in the <code>marker</code> parameter
-   *             and retrying the command. If the <code>marker</code> field is empty, all response
-   *             records have been retrieved for the request.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
    */
   Marker?: string;
 
   /**
-   * <p>The maximum number or response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned <code>marker</code>
-   *             value.</p>
+   * <p>The name of the snapshot copy grant.</p>
    */
-  MaxRecords?: number;
+  SnapshotCopyGrantName?: string;
+}
 
+export namespace DescribeSnapshotCopyGrantsMessage {
+  export const filterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeSnapshotCopyGrantsMessage => __isa(o, "DescribeSnapshotCopyGrantsMessage");
+}
+
+export interface DescribeSnapshotSchedulesMessage {
+  __type?: "DescribeSnapshotSchedulesMessage";
   /**
    * <p>A unique identifier for a snapshot schedule.</p>
    */
@@ -5201,23 +4908,25 @@ export interface DescribeSnapshotSchedulesMessage {
   TagKeys?: string[];
 
   /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code>
+   *             value.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The unique identifier for the cluster whose snapshot schedules you want to
+   *             view.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
    * <p>The value corresponding to the key of the snapshot schedule tag.</p>
    */
   TagValues?: string[];
-}
 
-export namespace DescribeSnapshotSchedulesMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotSchedulesMessage
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is DescribeSnapshotSchedulesMessage =>
-    __isa(o, "DescribeSnapshotSchedulesMessage");
-}
-
-export interface DescribeSnapshotSchedulesOutputMessage {
-  __type?: "DescribeSnapshotSchedulesOutputMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -5226,18 +4935,35 @@ export interface DescribeSnapshotSchedulesOutputMessage {
    *             records have been retrieved for the request.</p>
    */
   Marker?: string;
+}
 
+export namespace DescribeSnapshotSchedulesMessage {
+  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeSnapshotSchedulesMessage => __isa(o, "DescribeSnapshotSchedulesMessage");
+}
+
+export interface DescribeSnapshotSchedulesOutputMessage {
+  __type?: "DescribeSnapshotSchedulesOutputMessage";
   /**
    * <p>A list of SnapshotSchedules.</p>
    */
   SnapshotSchedules?: SnapshotSchedule[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeSnapshotSchedulesOutputMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeSnapshotSchedulesOutputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesOutputMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeSnapshotSchedulesOutputMessage =>
     __isa(o, "DescribeSnapshotSchedulesOutputMessage");
@@ -5249,11 +4975,6 @@ export namespace DescribeSnapshotSchedulesOutputMessage {
 export interface DescribeTableRestoreStatusMessage {
   __type?: "DescribeTableRestoreStatusMessage";
   /**
-   * <p>The Amazon Redshift cluster that the table is being restored to.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
    * <p>An optional pagination token provided by a previous
    *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
    *             response includes only records beyond the marker, up to the value specified by the
@@ -5262,29 +4983,31 @@ export interface DescribeTableRestoreStatusMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist
-   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
-   *             included in the response so that the remaining results can be retrieved.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The identifier of the table restore request to return status for. If you don't
    *             specify a <code>TableRestoreRequestId</code> value, then
    *                 <code>DescribeTableRestoreStatus</code> returns the status of all in-progress table
    *             restore requests.</p>
    */
   TableRestoreRequestId?: string;
+
+  /**
+   * <p>The Amazon Redshift cluster that the table is being restored to.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxRecords?: number;
 }
 
 export namespace DescribeTableRestoreStatusMessage {
-  export const filterSensitiveLog = (
-    obj: DescribeTableRestoreStatusMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTableRestoreStatusMessage =>
-    __isa(o, "DescribeTableRestoreStatusMessage");
+  export const isa = (o: any): o is DescribeTableRestoreStatusMessage => __isa(o, "DescribeTableRestoreStatusMessage");
 }
 
 /**
@@ -5293,6 +5016,21 @@ export namespace DescribeTableRestoreStatusMessage {
 export interface DescribeTagsMessage {
   __type?: "DescribeTagsMessage";
   /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
+   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
+   */
+  ResourceName?: string;
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>marker</code> parameter
@@ -5300,21 +5038,6 @@ export interface DescribeTagsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number or response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned <code>marker</code> value.
-   *         </p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
-   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
-   */
-  ResourceName?: string;
 
   /**
    * <p>The type of resource with which you want to view tags. Valid resource types are: </p>
@@ -5357,6 +5080,15 @@ export interface DescribeTagsMessage {
   ResourceType?: string;
 
   /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code> value.
+   *         </p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>A tag key or keys for which you want to return all matching resources that are
    *             associated with the specified key or keys. For example, suppose that you have resources
    *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
@@ -5364,23 +5096,79 @@ export interface DescribeTagsMessage {
    *             that have either or both of these tag keys associated with them.</p>
    */
   TagKeys?: string[];
-
-  /**
-   * <p>A tag value or values for which you want to return all matching resources that are
-   *             associated with the specified value or values. For example, suppose that you have
-   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
-   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
-   *             resources that have either or both of these tag values associated with them.</p>
-   */
-  TagValues?: string[];
 }
 
 export namespace DescribeTagsMessage {
   export const filterSensitiveLog = (obj: DescribeTagsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsMessage =>
-    __isa(o, "DescribeTagsMessage");
+  export const isa = (o: any): o is DescribeTagsMessage => __isa(o, "DescribeTagsMessage");
+}
+
+export interface DescribeUsageLimitsMessage {
+  __type?: "DescribeUsageLimitsMessage";
+  /**
+   * <p>A tag key or keys for which you want to return all matching usage limit objects
+   *             that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *             <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the usage limit objects have either or both of these
+   *             tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>The feature type for which you want to describe usage limits.</p>
+   */
+  FeatureType?: UsageLimitFeatureType | string;
+
+  /**
+   * <p>The identifier of the usage limit to describe.</p>
+   */
+  UsageLimitId?: string;
+
+  /**
+   * <p>The identifier of the cluster for which you want to describe usage limits.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeUsageLimits</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching usage limit objects
+   *             that are associated with the specified tag value or values. For example, suppose
+   *             that you have parameter groups that are tagged with values called <code>admin</code> and
+   *             <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the usage limit objects that have either or both of these tag
+   *             values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+export namespace DescribeUsageLimitsMessage {
+  export const filterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is DescribeUsageLimitsMessage => __isa(o, "DescribeUsageLimitsMessage");
 }
 
 /**
@@ -5398,10 +5186,9 @@ export interface DisableLoggingMessage {
 
 export namespace DisableLoggingMessage {
   export const filterSensitiveLog = (obj: DisableLoggingMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableLoggingMessage =>
-    __isa(o, "DisableLoggingMessage");
+  export const isa = (o: any): o is DisableLoggingMessage => __isa(o, "DisableLoggingMessage");
 }
 
 /**
@@ -5420,10 +5207,9 @@ export interface DisableSnapshotCopyMessage {
 
 export namespace DisableSnapshotCopyMessage {
   export const filterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableSnapshotCopyMessage =>
-    __isa(o, "DisableSnapshotCopyMessage");
+  export const isa = (o: any): o is DisableSnapshotCopyMessage => __isa(o, "DisableSnapshotCopyMessage");
 }
 
 export interface DisableSnapshotCopyResult {
@@ -5436,10 +5222,9 @@ export interface DisableSnapshotCopyResult {
 
 export namespace DisableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableSnapshotCopyResult =>
-    __isa(o, "DisableSnapshotCopyResult");
+  export const isa = (o: any): o is DisableSnapshotCopyResult => __isa(o, "DisableSnapshotCopyResult");
 }
 
 /**
@@ -5448,33 +5233,32 @@ export namespace DisableSnapshotCopyResult {
 export interface EC2SecurityGroup {
   __type?: "EC2SecurityGroup";
   /**
-   * <p>The name of the EC2 Security Group.</p>
-   */
-  EC2SecurityGroupName?: string;
-
-  /**
    * <p>The AWS ID of the owner of the EC2 security group specified in the
    *                 <code>EC2SecurityGroupName</code> field. </p>
    */
   EC2SecurityGroupOwnerId?: string;
 
   /**
-   * <p>The status of the EC2 security group.</p>
+   * <p>The name of the EC2 Security Group.</p>
    */
-  Status?: string;
+  EC2SecurityGroupName?: string;
 
   /**
    * <p>The list of tags for the EC2 security group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The status of the EC2 security group.</p>
+   */
+  Status?: string;
 }
 
 export namespace EC2SecurityGroup {
   export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EC2SecurityGroup =>
-    __isa(o, "EC2SecurityGroup");
+  export const isa = (o: any): o is EC2SecurityGroup => __isa(o, "EC2SecurityGroup");
 }
 
 /**
@@ -5483,22 +5267,21 @@ export namespace EC2SecurityGroup {
 export interface ElasticIpStatus {
   __type?: "ElasticIpStatus";
   /**
-   * <p>The elastic IP (EIP) address for the cluster.</p>
-   */
-  ElasticIp?: string;
-
-  /**
    * <p>The status of the elastic IP (EIP) address.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The elastic IP (EIP) address for the cluster.</p>
+   */
+  ElasticIp?: string;
 }
 
 export namespace ElasticIpStatus {
   export const filterSensitiveLog = (obj: ElasticIpStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ElasticIpStatus =>
-    __isa(o, "ElasticIpStatus");
+  export const isa = (o: any): o is ElasticIpStatus => __isa(o, "ElasticIpStatus");
 }
 
 /**
@@ -5506,27 +5289,6 @@ export namespace ElasticIpStatus {
  */
 export interface EnableLoggingMessage {
   __type?: "EnableLoggingMessage";
-  /**
-   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be in the same region as the cluster</p>
-   *             </li>
-   *             <li>
-   *                 <p>The cluster must have read bucket and put object permissions</p>
-   *             </li>
-   *          </ul>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The identifier of the cluster on which logging is to be started.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
-
   /**
    * <p>The prefix applied to the log file names.</p>
    *         <p>Constraints:</p>
@@ -5558,14 +5320,34 @@ export interface EnableLoggingMessage {
    *          </ul>
    */
   S3KeyPrefix?: string;
+
+  /**
+   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be in the same region as the cluster</p>
+   *             </li>
+   *             <li>
+   *                 <p>The cluster must have read bucket and put object permissions</p>
+   *             </li>
+   *          </ul>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The identifier of the cluster on which logging is to be started.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
 }
 
 export namespace EnableLoggingMessage {
   export const filterSensitiveLog = (obj: EnableLoggingMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableLoggingMessage =>
-    __isa(o, "EnableLoggingMessage");
+  export const isa = (o: any): o is EnableLoggingMessage => __isa(o, "EnableLoggingMessage");
 }
 
 /**
@@ -5574,11 +5356,12 @@ export namespace EnableLoggingMessage {
 export interface EnableSnapshotCopyMessage {
   __type?: "EnableSnapshotCopyMessage";
   /**
-   * <p>The unique identifier of the source cluster to copy snapshots from.</p>
-   *         <p>Constraints: Must be the valid name of an existing cluster that does not already
-   *             have cross-region snapshot copy enabled.</p>
+   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
+   *             after they are copied from the source AWS Region. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
-  ClusterIdentifier: string | undefined;
+  ManualSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The destination AWS Region that you want to copy snapshots to.</p>
@@ -5589,12 +5372,11 @@ export interface EnableSnapshotCopyMessage {
   DestinationRegion: string | undefined;
 
   /**
-   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
-   *             after they are copied from the source AWS Region. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * <p>The unique identifier of the source cluster to copy snapshots from.</p>
+   *         <p>Constraints: Must be the valid name of an existing cluster that does not already
+   *             have cross-region snapshot copy enabled.</p>
    */
-  ManualSnapshotRetentionPeriod?: number;
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>The number of days to retain automated snapshots in the destination region after
@@ -5613,10 +5395,9 @@ export interface EnableSnapshotCopyMessage {
 
 export namespace EnableSnapshotCopyMessage {
   export const filterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableSnapshotCopyMessage =>
-    __isa(o, "EnableSnapshotCopyMessage");
+  export const isa = (o: any): o is EnableSnapshotCopyMessage => __isa(o, "EnableSnapshotCopyMessage");
 }
 
 export interface EnableSnapshotCopyResult {
@@ -5629,10 +5410,9 @@ export interface EnableSnapshotCopyResult {
 
 export namespace EnableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableSnapshotCopyResult =>
-    __isa(o, "EnableSnapshotCopyResult");
+  export const isa = (o: any): o is EnableSnapshotCopyResult => __isa(o, "EnableSnapshotCopyResult");
 }
 
 /**
@@ -5653,7 +5433,7 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
@@ -5669,20 +5449,9 @@ export interface Event {
   Date?: Date;
 
   /**
-   * <p>A list of the event categories.</p>
-   *         <p>Values: Configuration, Management, Monitoring, Security</p>
+   * <p>The source type for this event.</p>
    */
-  EventCategories?: string[];
-
-  /**
-   * <p>The identifier of the event.</p>
-   */
-  EventId?: string;
-
-  /**
-   * <p>The text of this event.</p>
-   */
-  Message?: string;
+  SourceType?: SourceType | string;
 
   /**
    * <p>The severity of the event.</p>
@@ -5696,14 +5465,25 @@ export interface Event {
   SourceIdentifier?: string;
 
   /**
-   * <p>The source type for this event.</p>
+   * <p>The identifier of the event.</p>
    */
-  SourceType?: SourceType | string;
+  EventId?: string;
+
+  /**
+   * <p>A list of the event categories.</p>
+   *         <p>Values: Configuration, Management, Monitoring, Security</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>The text of this event.</p>
+   */
+  Message?: string;
 }
 
 export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
@@ -5714,23 +5494,22 @@ export namespace Event {
 export interface EventCategoriesMap {
   __type?: "EventCategoriesMap";
   /**
-   * <p>The events in the event category.</p>
-   */
-  Events?: EventInfoMap[];
-
-  /**
    * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
    *             belong to.</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>The events in the event category.</p>
+   */
+  Events?: EventInfoMap[];
 }
 
 export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMap =>
-    __isa(o, "EventCategoriesMap");
+  export const isa = (o: any): o is EventCategoriesMap => __isa(o, "EventCategoriesMap");
 }
 
 /**
@@ -5746,10 +5525,9 @@ export interface EventCategoriesMessage {
 
 export namespace EventCategoriesMessage {
   export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMessage =>
-    __isa(o, "EventCategoriesMessage");
+  export const isa = (o: any): o is EventCategoriesMessage => __isa(o, "EventCategoriesMessage");
 }
 
 /**
@@ -5758,14 +5536,15 @@ export namespace EventCategoriesMessage {
 export interface EventInfoMap {
   __type?: "EventInfoMap";
   /**
+   * <p>The severity of the event.</p>
+   *         <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
+
+  /**
    * <p>The category of an Amazon Redshift event.</p>
    */
   EventCategories?: string[];
-
-  /**
-   * <p>The description of an Amazon Redshift event.</p>
-   */
-  EventDescription?: string;
 
   /**
    * <p>The identifier of an Amazon Redshift event.</p>
@@ -5773,15 +5552,14 @@ export interface EventInfoMap {
   EventId?: string;
 
   /**
-   * <p>The severity of the event.</p>
-   *         <p>Values: ERROR, INFO</p>
+   * <p>The description of an Amazon Redshift event.</p>
    */
-  Severity?: string;
+  EventDescription?: string;
 }
 
 export namespace EventInfoMap {
   export const filterSensitiveLog = (obj: EventInfoMap): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EventInfoMap => __isa(o, "EventInfoMap");
 }
@@ -5808,7 +5586,7 @@ export interface EventsMessage {
 
 export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
@@ -5819,53 +5597,10 @@ export namespace EventsMessage {
 export interface EventSubscription {
   __type?: "EventSubscription";
   /**
-   * <p>The name of the Amazon Redshift event notification subscription.</p>
-   */
-  CustSubscriptionId?: string;
-
-  /**
-   * <p>The AWS customer account associated with the Amazon Redshift event notification
-   *             subscription.</p>
-   */
-  CustomerAwsId?: string;
-
-  /**
-   * <p>A boolean value indicating whether the subscription is enabled; <code>true</code>
-   *             indicates that the subscription is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The list of Amazon Redshift event categories specified in the event notification
-   *             subscription.</p>
-   *         <p>Values: Configuration, Management, Monitoring, Security</p>
-   */
-  EventCategoriesList?: string[];
-
-  /**
-   * <p>The event severity specified in the Amazon Redshift event notification
-   *             subscription.</p>
-   *         <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
-   *             notification subscription.</p>
-   */
-  SnsTopicArn?: string;
-
-  /**
    * <p>A list of the sources that publish events to the Amazon Redshift event notification
    *             subscription.</p>
    */
   SourceIdsList?: string[];
-
-  /**
-   * <p>The source type of the events returned by the Amazon Redshift event notification, such as
-   *             cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action. </p>
-   */
-  SourceType?: string;
 
   /**
    * <p>The status of the Amazon Redshift event notification subscription.</p>
@@ -5886,23 +5621,65 @@ export interface EventSubscription {
   Status?: string;
 
   /**
+   * <p>The list of Amazon Redshift event categories specified in the event notification
+   *             subscription.</p>
+   *         <p>Values: Configuration, Management, Monitoring, Security</p>
+   */
+  EventCategoriesList?: string[];
+
+  /**
+   * <p>The source type of the events returned by the Amazon Redshift event notification, such as
+   *             cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action. </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A boolean value indicating whether the subscription is enabled; <code>true</code>
+   *             indicates that the subscription is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the Amazon Redshift event notification subscription.</p>
+   */
+  CustSubscriptionId?: string;
+
+  /**
    * <p>The date and time the Amazon Redshift event notification subscription was
    *             created.</p>
    */
   SubscriptionCreationTime?: Date;
 
   /**
+   * <p>The event severity specified in the Amazon Redshift event notification
+   *             subscription.</p>
+   *         <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>The AWS customer account associated with the Amazon Redshift event notification
+   *             subscription.</p>
+   */
+  CustomerAwsId?: string;
+
+  /**
    * <p>The list of tags for the event subscription.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
+   *             notification subscription.</p>
+   */
+  SnsTopicArn?: string;
 }
 
 export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventSubscription =>
-    __isa(o, "EventSubscription");
+  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -5912,19 +5689,15 @@ export namespace EventSubscription {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface EventSubscriptionQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "EventSubscriptionQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace EventSubscriptionQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: EventSubscriptionQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
     __isa(o, "EventSubscriptionQuotaExceededFault");
@@ -5936,11 +5709,6 @@ export namespace EventSubscriptionQuotaExceededFault {
 export interface EventSubscriptionsMessage {
   __type?: "EventSubscriptionsMessage";
   /**
-   * <p>A list of event subscriptions.</p>
-   */
-  EventSubscriptionsList?: EventSubscription[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -5948,14 +5716,18 @@ export interface EventSubscriptionsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of event subscriptions.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
 }
 
 export namespace EventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventSubscriptionsMessage =>
-    __isa(o, "EventSubscriptionsMessage");
+  export const isa = (o: any): o is EventSubscriptionsMessage => __isa(o, "EventSubscriptionsMessage");
 }
 
 /**
@@ -5963,18 +5735,6 @@ export namespace EventSubscriptionsMessage {
  */
 export interface GetClusterCredentialsMessage {
   __type?: "GetClusterCredentialsMessage";
-  /**
-   * <p>Create a database user with the name specified for the user named in
-   *                 <code>DbUser</code> if one does not exist.</p>
-   */
-  AutoCreate?: boolean;
-
-  /**
-   * <p>The unique identifier of the cluster that contains the database for which your are
-   *             requesting credentials. This parameter is case sensitive.</p>
-   */
-  ClusterIdentifier: string | undefined;
-
   /**
    * <p>A list of the names of existing database groups that the user named in
    *                 <code>DbUser</code> will join for the current session, in addition to any group
@@ -6004,6 +5764,19 @@ export interface GetClusterCredentialsMessage {
   DbGroups?: string[];
 
   /**
+   * <p>The number of seconds until the returned temporary password expires.</p>
+   *         <p>Constraint: minimum 900, maximum 3600.</p>
+   *         <p>Default: 900</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>Create a database user with the name specified for the user named in
+   *                 <code>DbUser</code> if one does not exist.</p>
+   */
+  AutoCreate?: boolean;
+
+  /**
    * <p>The name of a database that <code>DbUser</code> is authorized to log on to. If
    *                 <code>DbName</code> is not specified, <code>DbUser</code> can log on to any existing
    *             database.</p>
@@ -6029,6 +5802,12 @@ export interface GetClusterCredentialsMessage {
    *          </ul>
    */
   DbName?: string;
+
+  /**
+   * <p>The unique identifier of the cluster that contains the database for which your are
+   *             requesting credentials. This parameter is case sensitive.</p>
+   */
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>The name of a database user. If a user name matching <code>DbUser</code> exists in
@@ -6064,23 +5843,13 @@ export interface GetClusterCredentialsMessage {
    *          </ul>
    */
   DbUser: string | undefined;
-
-  /**
-   * <p>The number of seconds until the returned temporary password expires.</p>
-   *         <p>Constraint: minimum 900, maximum 3600.</p>
-   *         <p>Default: 900</p>
-   */
-  DurationSeconds?: number;
 }
 
 export namespace GetClusterCredentialsMessage {
-  export const filterSensitiveLog = (
-    obj: GetClusterCredentialsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetClusterCredentialsMessage =>
-    __isa(o, "GetClusterCredentialsMessage");
+  export const isa = (o: any): o is GetClusterCredentialsMessage => __isa(o, "GetClusterCredentialsMessage");
 }
 
 /**
@@ -6089,16 +5858,16 @@ export namespace GetClusterCredentialsMessage {
 export interface GetReservedNodeExchangeOfferingsInputMessage {
   __type?: "GetReservedNodeExchangeOfferingsInputMessage";
   /**
-   * <p>A value that indicates the starting point for the next set of
-   *             ReservedNodeOfferings.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>An integer setting the maximum number of ReservedNodeOfferings to
    *             retrieve.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of
+   *             ReservedNodeOfferings.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>A string representing the node identifier for the DC1 Reserved Node to be
@@ -6108,14 +5877,10 @@ export interface GetReservedNodeExchangeOfferingsInputMessage {
 }
 
 export namespace GetReservedNodeExchangeOfferingsInputMessage {
-  export const filterSensitiveLog = (
-    obj: GetReservedNodeExchangeOfferingsInputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsInputMessage): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetReservedNodeExchangeOfferingsInputMessage =>
+  export const isa = (o: any): o is GetReservedNodeExchangeOfferingsInputMessage =>
     __isa(o, "GetReservedNodeExchangeOfferingsInputMessage");
 }
 
@@ -6138,14 +5903,10 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
 }
 
 export namespace GetReservedNodeExchangeOfferingsOutputMessage {
-  export const filterSensitiveLog = (
-    obj: GetReservedNodeExchangeOfferingsOutputMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsOutputMessage): any => ({
+    ...obj,
   });
-  export const isa = (
-    o: any
-  ): o is GetReservedNodeExchangeOfferingsOutputMessage =>
+  export const isa = (o: any): o is GetReservedNodeExchangeOfferingsOutputMessage =>
     __isa(o, "GetReservedNodeExchangeOfferingsOutputMessage");
 }
 
@@ -6157,6 +5918,11 @@ export namespace GetReservedNodeExchangeOfferingsOutputMessage {
 export interface HsmClientCertificate {
   __type?: "HsmClientCertificate";
   /**
+   * <p>The list of tags for the HSM client certificate.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier of the HSM client certificate.</p>
    */
   HsmClientCertificateIdentifier?: string;
@@ -6166,38 +5932,28 @@ export interface HsmClientCertificate {
    *             register the public key in the HSM.</p>
    */
   HsmClientCertificatePublicKey?: string;
-
-  /**
-   * <p>The list of tags for the HSM client certificate.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace HsmClientCertificate {
   export const filterSensitiveLog = (obj: HsmClientCertificate): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificate =>
-    __isa(o, "HsmClientCertificate");
+  export const isa = (o: any): o is HsmClientCertificate => __isa(o, "HsmClientCertificate");
 }
 
 /**
  * <p>There is already an existing Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
-export interface HsmClientCertificateAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmClientCertificateAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "HsmClientCertificateAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmClientCertificateAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: HsmClientCertificateAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmClientCertificateAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is HsmClientCertificateAlreadyExistsFault =>
     __isa(o, "HsmClientCertificateAlreadyExistsFault");
@@ -6209,12 +5965,6 @@ export namespace HsmClientCertificateAlreadyExistsFault {
 export interface HsmClientCertificateMessage {
   __type?: "HsmClientCertificateMessage";
   /**
-   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
-   *             clusters to store and retrieve database encryption keys in an HSM.</p>
-   */
-  HsmClientCertificates?: HsmClientCertificate[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -6222,38 +5972,36 @@ export interface HsmClientCertificateMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
+   *             clusters to store and retrieve database encryption keys in an HSM.</p>
+   */
+  HsmClientCertificates?: HsmClientCertificate[];
 }
 
 export namespace HsmClientCertificateMessage {
-  export const filterSensitiveLog = (
-    obj: HsmClientCertificateMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmClientCertificateMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateMessage =>
-    __isa(o, "HsmClientCertificateMessage");
+  export const isa = (o: any): o is HsmClientCertificateMessage => __isa(o, "HsmClientCertificateMessage");
 }
 
 /**
  * <p>There is no Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
-export interface HsmClientCertificateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmClientCertificateNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "HsmClientCertificateNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmClientCertificateNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: HsmClientCertificateNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmClientCertificateNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateNotFoundFault =>
-    __isa(o, "HsmClientCertificateNotFoundFault");
+  export const isa = (o: any): o is HsmClientCertificateNotFoundFault => __isa(o, "HsmClientCertificateNotFoundFault");
 }
 
 /**
@@ -6262,19 +6010,15 @@ export namespace HsmClientCertificateNotFoundFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface HsmClientCertificateQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmClientCertificateQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "HsmClientCertificateQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmClientCertificateQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: HsmClientCertificateQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmClientCertificateQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is HsmClientCertificateQuotaExceededFault =>
     __isa(o, "HsmClientCertificateQuotaExceededFault");
@@ -6293,14 +6037,9 @@ export interface HsmConfiguration {
   Description?: string;
 
   /**
-   * <p>The name of the Amazon Redshift HSM configuration.</p>
+   * <p>The list of tags for the HSM configuration.</p>
    */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
-   */
-  HsmIpAddress?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the partition in the HSM where the Amazon Redshift clusters will store their
@@ -6309,36 +6048,36 @@ export interface HsmConfiguration {
   HsmPartitionName?: string;
 
   /**
-   * <p>The list of tags for the HSM configuration.</p>
+   * <p>The name of the Amazon Redshift HSM configuration.</p>
    */
-  Tags?: Tag[];
+  HsmConfigurationIdentifier?: string;
+
+  /**
+   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
+   */
+  HsmIpAddress?: string;
 }
 
 export namespace HsmConfiguration {
   export const filterSensitiveLog = (obj: HsmConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HsmConfiguration =>
-    __isa(o, "HsmConfiguration");
+  export const isa = (o: any): o is HsmConfiguration => __isa(o, "HsmConfiguration");
 }
 
 /**
  * <p>There is already an existing Amazon Redshift HSM configuration with the specified
  *             identifier.</p>
  */
-export interface HsmConfigurationAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmConfigurationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "HsmConfigurationAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmConfigurationAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: HsmConfigurationAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmConfigurationAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is HsmConfigurationAlreadyExistsFault =>
     __isa(o, "HsmConfigurationAlreadyExistsFault");
@@ -6366,31 +6105,25 @@ export interface HsmConfigurationMessage {
 
 export namespace HsmConfigurationMessage {
   export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationMessage =>
-    __isa(o, "HsmConfigurationMessage");
+  export const isa = (o: any): o is HsmConfigurationMessage => __isa(o, "HsmConfigurationMessage");
 }
 
 /**
  * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
  */
-export interface HsmConfigurationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmConfigurationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "HsmConfigurationNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmConfigurationNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: HsmConfigurationNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmConfigurationNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationNotFoundFault =>
-    __isa(o, "HsmConfigurationNotFoundFault");
+  export const isa = (o: any): o is HsmConfigurationNotFoundFault => __isa(o, "HsmConfigurationNotFoundFault");
 }
 
 /**
@@ -6399,19 +6132,15 @@ export namespace HsmConfigurationNotFoundFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface HsmConfigurationQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HsmConfigurationQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "HsmConfigurationQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace HsmConfigurationQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: HsmConfigurationQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: HsmConfigurationQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is HsmConfigurationQuotaExceededFault =>
     __isa(o, "HsmConfigurationQuotaExceededFault");
@@ -6423,6 +6152,13 @@ export namespace HsmConfigurationQuotaExceededFault {
 export interface HsmStatus {
   __type?: "HsmStatus";
   /**
+   * <p>Reports whether the Amazon Redshift cluster has finished applying any HSM settings
+   *             changes specified in a modify cluster command.</p>
+   *         <p>Values: active, applying</p>
+   */
+  Status?: string;
+
+  /**
    * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
    *             retrieve the data encryption keys stored in an HSM.</p>
    */
@@ -6433,18 +6169,11 @@ export interface HsmStatus {
    *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
    */
   HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>Reports whether the Amazon Redshift cluster has finished applying any HSM settings
-   *             changes specified in a modify cluster command.</p>
-   *         <p>Values: active, applying</p>
-   */
-  Status?: string;
 }
 
 export namespace HsmStatus {
   export const filterSensitiveLog = (obj: HsmStatus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HsmStatus => __isa(o, "HsmStatus");
 }
@@ -6452,41 +6181,32 @@ export namespace HsmStatus {
 /**
  * <p>The specified options are incompatible.</p>
  */
-export interface IncompatibleOrderableOptions
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatibleOrderableOptions extends __SmithyException, $MetadataBearer {
   name: "IncompatibleOrderableOptions";
   $fault: "client";
   message?: string;
 }
 
 export namespace IncompatibleOrderableOptions {
-  export const filterSensitiveLog = (
-    obj: IncompatibleOrderableOptions
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IncompatibleOrderableOptions): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is IncompatibleOrderableOptions =>
-    __isa(o, "IncompatibleOrderableOptions");
+  export const isa = (o: any): o is IncompatibleOrderableOptions => __isa(o, "IncompatibleOrderableOptions");
 }
 
 /**
  * <p>You have exceeded the allowed number of table restore requests. Wait for your
  *             current table restore requests to complete before making a new request.</p>
  */
-export interface InProgressTableRestoreQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InProgressTableRestoreQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "InProgressTableRestoreQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InProgressTableRestoreQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: InProgressTableRestoreQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InProgressTableRestoreQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InProgressTableRestoreQuotaExceededFault =>
     __isa(o, "InProgressTableRestoreQuotaExceededFault");
@@ -6496,44 +6216,34 @@ export namespace InProgressTableRestoreQuotaExceededFault {
  * <p>The number of nodes specified exceeds the allotted capacity of the
  *             cluster.</p>
  */
-export interface InsufficientClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientClusterCapacityFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientClusterCapacityFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientClusterCapacityFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientClusterCapacityFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InsufficientClusterCapacityFault =>
-    __isa(o, "InsufficientClusterCapacityFault");
+  export const isa = (o: any): o is InsufficientClusterCapacityFault => __isa(o, "InsufficientClusterCapacityFault");
 }
 
 /**
  * <p>The cluster does not have read bucket or put object permissions on the S3 bucket
  *             specified when enabling logging.</p>
  */
-export interface InsufficientS3BucketPolicyFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientS3BucketPolicyFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientS3BucketPolicyFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientS3BucketPolicyFault {
-  export const filterSensitiveLog = (
-    obj: InsufficientS3BucketPolicyFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InsufficientS3BucketPolicyFault =>
-    __isa(o, "InsufficientS3BucketPolicyFault");
+  export const isa = (o: any): o is InsufficientS3BucketPolicyFault => __isa(o, "InsufficientS3BucketPolicyFault");
 }
 
 /**
@@ -6541,19 +6251,15 @@ export namespace InsufficientS3BucketPolicyFault {
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  */
-export interface InvalidClusterParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterParameterGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterParameterGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterParameterGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterParameterGroupStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidClusterParameterGroupStateFault =>
     __isa(o, "InvalidClusterParameterGroupStateFault");
@@ -6562,19 +6268,15 @@ export namespace InvalidClusterParameterGroupStateFault {
 /**
  * <p>The state of the cluster security group is not <code>available</code>. </p>
  */
-export interface InvalidClusterSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterSecurityGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterSecurityGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterSecurityGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterSecurityGroupStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidClusterSecurityGroupStateFault =>
     __isa(o, "InvalidClusterSecurityGroupStateFault");
@@ -6583,19 +6285,15 @@ export namespace InvalidClusterSecurityGroupStateFault {
 /**
  * <p>The cluster snapshot schedule state is not valid.</p>
  */
-export interface InvalidClusterSnapshotScheduleStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterSnapshotScheduleStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterSnapshotScheduleStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterSnapshotScheduleStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterSnapshotScheduleStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterSnapshotScheduleStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidClusterSnapshotScheduleStateFault =>
     __isa(o, "InvalidClusterSnapshotScheduleStateFault");
@@ -6605,30 +6303,23 @@ export namespace InvalidClusterSnapshotScheduleStateFault {
  * <p>The specified cluster snapshot is not in the <code>available</code> state, or other
  *             accounts are authorized to access the snapshot. </p>
  */
-export interface InvalidClusterSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterSnapshotStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterSnapshotStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterSnapshotStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterSnapshotStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSnapshotStateFault =>
-    __isa(o, "InvalidClusterSnapshotStateFault");
+  export const isa = (o: any): o is InvalidClusterSnapshotStateFault => __isa(o, "InvalidClusterSnapshotStateFault");
 }
 
 /**
  * <p>The specified cluster is not in the <code>available</code> state. </p>
  */
-export interface InvalidClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
@@ -6636,28 +6327,23 @@ export interface InvalidClusterStateFault
 
 export namespace InvalidClusterStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterStateFault =>
-    __isa(o, "InvalidClusterStateFault");
+  export const isa = (o: any): o is InvalidClusterStateFault => __isa(o, "InvalidClusterStateFault");
 }
 
 /**
  * <p>The cluster subnet group cannot be deleted because it is in use.</p>
  */
-export interface InvalidClusterSubnetGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterSubnetGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterSubnetGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterSubnetGroupStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterSubnetGroupStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterSubnetGroupStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidClusterSubnetGroupStateFault =>
     __isa(o, "InvalidClusterSubnetGroupStateFault");
@@ -6666,30 +6352,23 @@ export namespace InvalidClusterSubnetGroupStateFault {
 /**
  * <p>The state of the subnet is invalid.</p>
  */
-export interface InvalidClusterSubnetStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterSubnetStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterSubnetStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterSubnetStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidClusterSubnetStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidClusterSubnetStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSubnetStateFault =>
-    __isa(o, "InvalidClusterSubnetStateFault");
+  export const isa = (o: any): o is InvalidClusterSubnetStateFault => __isa(o, "InvalidClusterSubnetStateFault");
 }
 
 /**
  * <p>The provided cluster track name is not valid.</p>
  */
-export interface InvalidClusterTrackFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterTrackFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterTrackFault";
   $fault: "client";
   message?: string;
@@ -6697,18 +6376,15 @@ export interface InvalidClusterTrackFault
 
 export namespace InvalidClusterTrackFault {
   export const filterSensitiveLog = (obj: InvalidClusterTrackFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterTrackFault =>
-    __isa(o, "InvalidClusterTrackFault");
+  export const isa = (o: any): o is InvalidClusterTrackFault => __isa(o, "InvalidClusterTrackFault");
 }
 
 /**
  * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
  */
-export interface InvalidElasticIpFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidElasticIpFault extends __SmithyException, $MetadataBearer {
   name: "InvalidElasticIpFault";
   $fault: "client";
   message?: string;
@@ -6716,29 +6392,24 @@ export interface InvalidElasticIpFault
 
 export namespace InvalidElasticIpFault {
   export const filterSensitiveLog = (obj: InvalidElasticIpFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidElasticIpFault =>
-    __isa(o, "InvalidElasticIpFault");
+  export const isa = (o: any): o is InvalidElasticIpFault => __isa(o, "InvalidElasticIpFault");
 }
 
 /**
  * <p>The specified HSM client certificate is not in the <code>available</code> state, or
  *             it is still in use by one or more Amazon Redshift clusters.</p>
  */
-export interface InvalidHsmClientCertificateStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidHsmClientCertificateStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidHsmClientCertificateStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidHsmClientCertificateStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidHsmClientCertificateStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidHsmClientCertificateStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidHsmClientCertificateStateFault =>
     __isa(o, "InvalidHsmClientCertificateStateFault");
@@ -6748,51 +6419,39 @@ export namespace InvalidHsmClientCertificateStateFault {
  * <p>The specified HSM configuration is not in the <code>available</code> state, or it
  *             is still in use by one or more Amazon Redshift clusters.</p>
  */
-export interface InvalidHsmConfigurationStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidHsmConfigurationStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidHsmConfigurationStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidHsmConfigurationStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidHsmConfigurationStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidHsmConfigurationStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidHsmConfigurationStateFault =>
-    __isa(o, "InvalidHsmConfigurationStateFault");
+  export const isa = (o: any): o is InvalidHsmConfigurationStateFault => __isa(o, "InvalidHsmConfigurationStateFault");
 }
 
 /**
  * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
  */
-export interface InvalidReservedNodeStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReservedNodeStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidReservedNodeStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidReservedNodeStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidReservedNodeStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidReservedNodeStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidReservedNodeStateFault =>
-    __isa(o, "InvalidReservedNodeStateFault");
+  export const isa = (o: any): o is InvalidReservedNodeStateFault => __isa(o, "InvalidReservedNodeStateFault");
 }
 
 /**
  * <p>The restore is invalid.</p>
  */
-export interface InvalidRestoreFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
@@ -6800,32 +6459,26 @@ export interface InvalidRestoreFault
 
 export namespace InvalidRestoreFault {
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRestoreFault =>
-    __isa(o, "InvalidRestoreFault");
+  export const isa = (o: any): o is InvalidRestoreFault => __isa(o, "InvalidRestoreFault");
 }
 
 /**
  * <p>The retention period specified is either in the past or is not a valid value.</p>
  *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  */
-export interface InvalidRetentionPeriodFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRetentionPeriodFault extends __SmithyException, $MetadataBearer {
   name: "InvalidRetentionPeriodFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidRetentionPeriodFault {
-  export const filterSensitiveLog = (
-    obj: InvalidRetentionPeriodFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidRetentionPeriodFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRetentionPeriodFault =>
-    __isa(o, "InvalidRetentionPeriodFault");
+  export const isa = (o: any): o is InvalidRetentionPeriodFault => __isa(o, "InvalidRetentionPeriodFault");
 }
 
 /**
@@ -6834,9 +6487,7 @@ export namespace InvalidRetentionPeriodFault {
  *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
  *             Developer Guide.</p>
  */
-export interface InvalidS3BucketNameFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3BucketNameFault extends __SmithyException, $MetadataBearer {
   name: "InvalidS3BucketNameFault";
   $fault: "client";
   message?: string;
@@ -6844,19 +6495,16 @@ export interface InvalidS3BucketNameFault
 
 export namespace InvalidS3BucketNameFault {
   export const filterSensitiveLog = (obj: InvalidS3BucketNameFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidS3BucketNameFault =>
-    __isa(o, "InvalidS3BucketNameFault");
+  export const isa = (o: any): o is InvalidS3BucketNameFault => __isa(o, "InvalidS3BucketNameFault");
 }
 
 /**
  * <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  */
-export interface InvalidS3KeyPrefixFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3KeyPrefixFault extends __SmithyException, $MetadataBearer {
   name: "InvalidS3KeyPrefixFault";
   $fault: "client";
   message?: string;
@@ -6864,39 +6512,31 @@ export interface InvalidS3KeyPrefixFault
 
 export namespace InvalidS3KeyPrefixFault {
   export const filterSensitiveLog = (obj: InvalidS3KeyPrefixFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidS3KeyPrefixFault =>
-    __isa(o, "InvalidS3KeyPrefixFault");
+  export const isa = (o: any): o is InvalidS3KeyPrefixFault => __isa(o, "InvalidS3KeyPrefixFault");
 }
 
 /**
  * <p>The scheduled action is not valid. </p>
  */
-export interface InvalidScheduledActionFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidScheduledActionFault extends __SmithyException, $MetadataBearer {
   name: "InvalidScheduledActionFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidScheduledActionFault {
-  export const filterSensitiveLog = (
-    obj: InvalidScheduledActionFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidScheduledActionFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidScheduledActionFault =>
-    __isa(o, "InvalidScheduledActionFault");
+  export const isa = (o: any): o is InvalidScheduledActionFault => __isa(o, "InvalidScheduledActionFault");
 }
 
 /**
  * <p>The schedule you submitted isn't valid.</p>
  */
-export interface InvalidScheduleFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidScheduleFault extends __SmithyException, $MetadataBearer {
   name: "InvalidScheduleFault";
   $fault: "client";
   message?: string;
@@ -6904,29 +6544,24 @@ export interface InvalidScheduleFault
 
 export namespace InvalidScheduleFault {
   export const filterSensitiveLog = (obj: InvalidScheduleFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidScheduleFault =>
-    __isa(o, "InvalidScheduleFault");
+  export const isa = (o: any): o is InvalidScheduleFault => __isa(o, "InvalidScheduleFault");
 }
 
 /**
  * <p>The snapshot copy grant can't be deleted because it is used by one or more
  *             clusters.</p>
  */
-export interface InvalidSnapshotCopyGrantStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSnapshotCopyGrantStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidSnapshotCopyGrantStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidSnapshotCopyGrantStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidSnapshotCopyGrantStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSnapshotCopyGrantStateFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidSnapshotCopyGrantStateFault =>
     __isa(o, "InvalidSnapshotCopyGrantStateFault");
@@ -6944,7 +6579,7 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
@@ -6953,22 +6588,17 @@ export namespace InvalidSubnet {
  * <p>The subscription request is invalid because it is a duplicate request. This
  *             subscription request is already in progress.</p>
  */
-export interface InvalidSubscriptionStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSubscriptionStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidSubscriptionStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidSubscriptionStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidSubscriptionStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidSubscriptionStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidSubscriptionStateFault =>
-    __isa(o, "InvalidSubscriptionStateFault");
+  export const isa = (o: any): o is InvalidSubscriptionStateFault => __isa(o, "InvalidSubscriptionStateFault");
 }
 
 /**
@@ -6976,22 +6606,17 @@ export namespace InvalidSubscriptionStateFault {
  *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
  *             combination of these, doesn't exist in the snapshot.</p>
  */
-export interface InvalidTableRestoreArgumentFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTableRestoreArgumentFault extends __SmithyException, $MetadataBearer {
   name: "InvalidTableRestoreArgumentFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidTableRestoreArgumentFault {
-  export const filterSensitiveLog = (
-    obj: InvalidTableRestoreArgumentFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTableRestoreArgumentFault =>
-    __isa(o, "InvalidTableRestoreArgumentFault");
+  export const isa = (o: any): o is InvalidTableRestoreArgumentFault => __isa(o, "InvalidTableRestoreArgumentFault");
 }
 
 /**
@@ -7005,31 +6630,41 @@ export interface InvalidTagFault extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidTagFault {
   export const filterSensitiveLog = (obj: InvalidTagFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidTagFault =>
-    __isa(o, "InvalidTagFault");
+  export const isa = (o: any): o is InvalidTagFault => __isa(o, "InvalidTagFault");
+}
+
+/**
+ * <p>The usage limit is not valid.</p>
+ */
+export interface InvalidUsageLimitFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidUsageLimitFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidUsageLimitFault {
+  export const filterSensitiveLog = (obj: InvalidUsageLimitFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is InvalidUsageLimitFault => __isa(o, "InvalidUsageLimitFault");
 }
 
 /**
  * <p>The cluster subnet group does not cover all Availability Zones.</p>
  */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (
-    obj: InvalidVPCNetworkStateFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
@@ -7037,6 +6672,11 @@ export namespace InvalidVPCNetworkStateFault {
  */
 export interface IPRange {
   __type?: "IPRange";
+  /**
+   * <p>The list of tags for the IP range.</p>
+   */
+  Tags?: Tag[];
+
   /**
    * <p>The IP range in Classless Inter-Domain Routing (CIDR) notation.</p>
    */
@@ -7046,16 +6686,11 @@ export interface IPRange {
    * <p>The status of the IP range, for example, "authorized".</p>
    */
   Status?: string;
-
-  /**
-   * <p>The list of tags for the IP range.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace IPRange {
   export const filterSensitiveLog = (obj: IPRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is IPRange => __isa(o, "IPRange");
 }
@@ -7071,10 +6706,9 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
 
 export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault =>
-    __isa(o, "LimitExceededFault");
+  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 /**
@@ -7083,24 +6717,14 @@ export namespace LimitExceededFault {
 export interface LoggingStatus {
   __type?: "LoggingStatus";
   /**
-   * <p>The name of the S3 bucket where the log files are stored.</p>
+   * <p>The prefix applied to the log file names.</p>
    */
-  BucketName?: string;
+  S3KeyPrefix?: string;
 
   /**
    * <p>The message indicating that logs failed to be delivered.</p>
    */
   LastFailureMessage?: string;
-
-  /**
-   * <p>The last time when logs failed to be delivered.</p>
-   */
-  LastFailureTime?: Date;
-
-  /**
-   * <p>The last time that logs were delivered.</p>
-   */
-  LastSuccessfulDeliveryTime?: Date;
 
   /**
    * <p>
@@ -7109,14 +6733,24 @@ export interface LoggingStatus {
   LoggingEnabled?: boolean;
 
   /**
-   * <p>The prefix applied to the log file names.</p>
+   * <p>The last time when logs failed to be delivered.</p>
    */
-  S3KeyPrefix?: string;
+  LastFailureTime?: Date;
+
+  /**
+   * <p>The name of the S3 bucket where the log files are stored.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The last time that logs were delivered.</p>
+   */
+  LastSuccessfulDeliveryTime?: Date;
 }
 
 export namespace LoggingStatus {
   export const filterSensitiveLog = (obj: LoggingStatus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is LoggingStatus => __isa(o, "LoggingStatus");
 }
@@ -7131,11 +6765,6 @@ export namespace LoggingStatus {
 export interface MaintenanceTrack {
   __type?: "MaintenanceTrack";
   /**
-   * <p>The version number for the cluster release.</p>
-   */
-  DatabaseVersion?: string;
-
-  /**
    * <p>The name of the maintenance track. Possible values are <code>current</code> and
    *                 <code>trailing</code>.</p>
    */
@@ -7146,45 +6775,46 @@ export interface MaintenanceTrack {
    *             track. </p>
    */
   UpdateTargets?: UpdateTarget[];
+
+  /**
+   * <p>The version number for the cluster release.</p>
+   */
+  DatabaseVersion?: string;
 }
 
 export namespace MaintenanceTrack {
   export const filterSensitiveLog = (obj: MaintenanceTrack): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MaintenanceTrack =>
-    __isa(o, "MaintenanceTrack");
+  export const isa = (o: any): o is MaintenanceTrack => __isa(o, "MaintenanceTrack");
 }
 
 export enum Mode {
   HIGH_PERFORMANCE = "high-performance",
-  STANDARD = "standard"
+  STANDARD = "standard",
 }
 
 export interface ModifyClusterDbRevisionMessage {
   __type?: "ModifyClusterDbRevisionMessage";
+  /**
+   * <p>The identifier of the database revision. You can retrieve this value from the
+   *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
+   */
+  RevisionTarget: string | undefined;
+
   /**
    * <p>The unique identifier of a cluster whose database revision you want to modify. </p>
    *         <p>Example: <code>examplecluster</code>
    *         </p>
    */
   ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the database revision. You can retrieve this value from the
-   *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
-   */
-  RevisionTarget: string | undefined;
 }
 
 export namespace ModifyClusterDbRevisionMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterDbRevisionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterDbRevisionMessage =>
-    __isa(o, "ModifyClusterDbRevisionMessage");
+  export const isa = (o: any): o is ModifyClusterDbRevisionMessage => __isa(o, "ModifyClusterDbRevisionMessage");
 }
 
 export interface ModifyClusterDbRevisionResult {
@@ -7196,13 +6826,10 @@ export interface ModifyClusterDbRevisionResult {
 }
 
 export namespace ModifyClusterDbRevisionResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterDbRevisionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterDbRevisionResult =>
-    __isa(o, "ModifyClusterDbRevisionResult");
+  export const isa = (o: any): o is ModifyClusterDbRevisionResult => __isa(o, "ModifyClusterDbRevisionResult");
 }
 
 /**
@@ -7211,17 +6838,17 @@ export namespace ModifyClusterDbRevisionResult {
 export interface ModifyClusterIamRolesMessage {
   __type?: "ModifyClusterIamRolesMessage";
   /**
+   * <p>The unique identifier of the cluster for which you want to associate or
+   *             disassociate IAM roles.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
    * <p>Zero or more IAM roles to associate with the cluster. The roles must be in their
    *             Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single
    *             cluster in a single request.</p>
    */
   AddIamRoles?: string[];
-
-  /**
-   * <p>The unique identifier of the cluster for which you want to associate or
-   *             disassociate IAM roles.</p>
-   */
-  ClusterIdentifier: string | undefined;
 
   /**
    * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. You can
@@ -7231,13 +6858,10 @@ export interface ModifyClusterIamRolesMessage {
 }
 
 export namespace ModifyClusterIamRolesMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterIamRolesMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterIamRolesMessage =>
-    __isa(o, "ModifyClusterIamRolesMessage");
+  export const isa = (o: any): o is ModifyClusterIamRolesMessage => __isa(o, "ModifyClusterIamRolesMessage");
 }
 
 export interface ModifyClusterIamRolesResult {
@@ -7249,26 +6873,34 @@ export interface ModifyClusterIamRolesResult {
 }
 
 export namespace ModifyClusterIamRolesResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterIamRolesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterIamRolesResult =>
-    __isa(o, "ModifyClusterIamRolesResult");
+  export const isa = (o: any): o is ModifyClusterIamRolesResult => __isa(o, "ModifyClusterIamRolesResult");
 }
 
 export interface ModifyClusterMaintenanceMessage {
   __type?: "ModifyClusterMaintenanceMessage";
   /**
-   * <p>A unique identifier for the cluster.</p>
+   * <p>A timestamp indicating end time for the deferred maintenance window. If you specify an
+   *             end time, you can't specify a duration.</p>
    */
-  ClusterIdentifier: string | undefined;
+  DeferMaintenanceEndTime?: Date;
+
+  /**
+   * <p>A timestamp indicating the start time for the deferred maintenance window.</p>
+   */
+  DeferMaintenanceStartTime?: Date;
 
   /**
    * <p>A boolean indicating whether to enable the deferred maintenance window. </p>
    */
   DeferMaintenance?: boolean;
+
+  /**
+   * <p>A unique identifier for the cluster.</p>
+   */
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>An integer indicating the duration of the maintenance window in days. If you specify a
@@ -7277,30 +6909,16 @@ export interface ModifyClusterMaintenanceMessage {
   DeferMaintenanceDuration?: number;
 
   /**
-   * <p>A timestamp indicating end time for the deferred maintenance window. If you specify an
-   *             end time, you can't specify a duration.</p>
-   */
-  DeferMaintenanceEndTime?: Date;
-
-  /**
    * <p>A unique identifier for the deferred maintenance window.</p>
    */
   DeferMaintenanceIdentifier?: string;
-
-  /**
-   * <p>A timestamp indicating the start time for the deferred maintenance window.</p>
-   */
-  DeferMaintenanceStartTime?: Date;
 }
 
 export namespace ModifyClusterMaintenanceMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterMaintenanceMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMaintenanceMessage =>
-    __isa(o, "ModifyClusterMaintenanceMessage");
+  export const isa = (o: any): o is ModifyClusterMaintenanceMessage => __isa(o, "ModifyClusterMaintenanceMessage");
 }
 
 export interface ModifyClusterMaintenanceResult {
@@ -7312,13 +6930,10 @@ export interface ModifyClusterMaintenanceResult {
 }
 
 export namespace ModifyClusterMaintenanceResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterMaintenanceResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMaintenanceResult =>
-    __isa(o, "ModifyClusterMaintenanceResult");
+  export const isa = (o: any): o is ModifyClusterMaintenanceResult => __isa(o, "ModifyClusterMaintenanceResult");
 }
 
 /**
@@ -7327,12 +6942,26 @@ export namespace ModifyClusterMaintenanceResult {
 export interface ModifyClusterMessage {
   __type?: "ModifyClusterMessage";
   /**
-   * <p>If <code>true</code>, major version upgrades will be applied automatically to the
-   *             cluster during the maintenance window. </p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use
+   *             to encrypt data in the cluster.</p>
    */
-  AllowVersionUpgrade?: boolean;
+  KmsKeyId?: string;
+
+  /**
+   * <p>Indicates whether the cluster is encrypted. If the value is encrypted (true) and you
+   *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
+   *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
+   *             we encrypt with the default key. In the China region we use legacy encryption
+   *             if you specify that the cluster is encrypted.</p>
+   *             <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
 
   /**
    * <p>The number of days that automated snapshots are retained. If the value is 0,
@@ -7345,53 +6974,6 @@ export interface ModifyClusterMessage {
    *         <p>Constraints: Must be a value from 0 to 35.</p>
    */
   AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The unique identifier of the cluster to be modified.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the cluster parameter group to apply to this cluster. This change is
-   *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Constraints: The cluster parameter group must be in the same parameter group family
-   *             that matches the cluster version.</p>
-   */
-  ClusterParameterGroupName?: string;
-
-  /**
-   * <p>A list of cluster security groups to be authorized on this cluster. This change is
-   *             asynchronously applied as soon as possible.</p>
-   *         <p>Security groups currently associated with the cluster, and not in the list of
-   *             groups to apply, will be revoked from the cluster.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   */
-  ClusterSecurityGroups?: string[];
-
-  /**
-   * <p>The new cluster type.</p>
-   *         <p>When you submit your cluster resize request, your existing cluster goes into a
-   *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
-   *             requirements, there will be outage for a period while the old cluster is deleted and
-   *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
-   *         <p>Valid Values: <code> multi-node | single-node </code>
-   *         </p>
-   */
-  ClusterType?: string;
 
   /**
    * <p>The new version number of the Amazon Redshift engine to upgrade to.</p>
@@ -7408,6 +6990,44 @@ export interface ModifyClusterMessage {
   ClusterVersion?: string;
 
   /**
+   * <p>The new identifier for the cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>Alphabetic characters must be lowercase.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be unique for all clusters within an AWS account.</p>
+   *             </li>
+   *          </ul>
+   *
+   *             <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  NewClusterIdentifier?: string;
+
+  /**
+   * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
+   *             must also specify the node type parameter.</p>
+   *         <p>
+   * For more information about resizing clusters, go to
+   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
+   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+   *
+   *         <p>Valid Values: Integer greater than <code>0</code>.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
    * <p>The Elastic IP (EIP) address for the cluster.</p>
    *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
    *             through an Internet gateway. For more information about provisioning clusters in
@@ -7415,44 +7035,6 @@ export interface ModifyClusterMessage {
    *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
    */
   ElasticIp?: string;
-
-  /**
-   * <p>Indicates whether the cluster is encrypted. If the value is encrypted (true) and you
-   *             provide a value for the <code>KmsKeyId</code> parameter, we encrypt the cluster
-   *             with the provided <code>KmsKeyId</code>. If you don't provide a <code>KmsKeyId</code>,
-   *             we encrypt with the default key. In the China region we use legacy encryption
-   *             if you specify that the cluster is encrypted.</p>
-   *             <p>If the value is not encrypted (false), then the cluster is decrypted. </p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
-   */
-  EnhancedVpcRouting?: boolean;
-
-  /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
-
-  /**
-   * <p>Specifies the name of the HSM configuration that contains the information the
-   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
-   */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use
-   *             to encrypt data in the cluster.</p>
-   */
-  KmsKeyId?: string;
 
   /**
    * <p>The name for the maintenance track that you want to assign for the cluster. This name
@@ -7465,13 +7047,10 @@ export interface ModifyClusterMessage {
   MaintenanceTrackName?: string;
 
   /**
-   * <p>The default for number of days that a newly created manual snapshot is retained. If
-   *             the value is -1, the manual snapshot is retained indefinitely. This value doesn't
-   *             retroactively change the retention periods of existing manual snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   *         <p>The default value is -1.</p>
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
+   *             clusters in VPCs can be set to be publicly available.</p>
    */
-  ManualSnapshotRetentionPeriod?: number;
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>The new password for the cluster master user. This change is asynchronously applied
@@ -7507,30 +7086,21 @@ export interface ModifyClusterMessage {
   MasterUserPassword?: string;
 
   /**
-   * <p>The new identifier for the cluster.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alphabetic characters must be lowercase.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be unique for all clusters within an AWS account.</p>
-   *             </li>
-   *          </ul>
-   *
-   *             <p>Example: <code>examplecluster</code>
+   * <p>If <code>true</code>, major version upgrades will be applied automatically to the
+   *             cluster during the maintenance window. </p>
+   *         <p>Default: <code>false</code>
    *         </p>
    */
-  NewClusterIdentifier?: string;
+  AllowVersionUpgrade?: boolean;
+
+  /**
+   * <p>The default for number of days that a newly created manual snapshot is retained. If
+   *             the value is -1, the manual snapshot is retained indefinitely. This value doesn't
+   *             retroactively change the retention periods of existing manual snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *         <p>The default value is -1.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The new node type of the cluster. If you specify a new node type, you must also
@@ -7543,22 +7113,16 @@ export interface ModifyClusterMessage {
    *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
    *             <code>dc1.large</code> | <code>dc1.8xlarge</code> |
    *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *             <code>ra3.16xlarge</code>
+   *             <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    */
   NodeType?: string;
 
   /**
-   * <p>The new number of nodes of the cluster. If you specify a new number of nodes, you
-   *             must also specify the node type parameter.</p>
-   *         <p>
-   * For more information about resizing clusters, go to
-   * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
-   * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
-   *
-   *         <p>Valid Values: Integer greater than <code>0</code>.</p>
+   * <p>A list of virtual private cloud (VPC) security groups to be associated with the
+   *             cluster. This change is asynchronously applied as soon as possible.</p>
    */
-  NumberOfNodes?: number;
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The weekly time range (in UTC) during which system maintenance can occur, if
@@ -7576,24 +7140,74 @@ export interface ModifyClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. Only
-   *             clusters in VPCs can be set to be publicly available.</p>
+   * <p>A list of cluster security groups to be authorized on this cluster. This change is
+   *             asynchronously applied as soon as possible.</p>
+   *         <p>Security groups currently associated with the cluster, and not in the list of
+   *             groups to apply, will be revoked from the cluster.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
    */
-  PubliclyAccessible?: boolean;
+  ClusterSecurityGroups?: string[];
 
   /**
-   * <p>A list of virtual private cloud (VPC) security groups to be associated with the
-   *             cluster. This change is asynchronously applied as soon as possible.</p>
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
    */
-  VpcSecurityGroupIds?: string[];
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
+   * <p>The new cluster type.</p>
+   *         <p>When you submit your cluster resize request, your existing cluster goes into a
+   *             read-only mode. After Amazon Redshift provisions a new cluster based on your resize
+   *             requirements, there will be outage for a period while the old cluster is deleted and
+   *             your connection is switched to the new cluster. You can use <a>DescribeResize</a> to track the progress of the resize request. </p>
+   *         <p>Valid Values: <code> multi-node | single-node </code>
+   *         </p>
+   */
+  ClusterType?: string;
+
+  /**
+   * <p>The name of the cluster parameter group to apply to this cluster. This change is
+   *             applied only after the cluster is rebooted. To reboot a cluster use <a>RebootCluster</a>. </p>
+   *         <p>Default: Uses existing setting.</p>
+   *         <p>Constraints: The cluster parameter group must be in the same parameter group family
+   *             that matches the cluster version.</p>
+   */
+  ClusterParameterGroupName?: string;
+
+  /**
+   * <p>The unique identifier of the cluster to be modified.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
 }
 
 export namespace ModifyClusterMessage {
   export const filterSensitiveLog = (obj: ModifyClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMessage =>
-    __isa(o, "ModifyClusterMessage");
+  export const isa = (o: any): o is ModifyClusterMessage => __isa(o, "ModifyClusterMessage");
 }
 
 /**
@@ -7601,11 +7215,6 @@ export namespace ModifyClusterMessage {
  */
 export interface ModifyClusterParameterGroupMessage {
   __type?: "ModifyClusterParameterGroupMessage";
-  /**
-   * <p>The name of the parameter group to be modified.</p>
-   */
-  ParameterGroupName: string | undefined;
-
   /**
    * <p>An array of parameters to be modified. A maximum of 20 parameters can be modified
    *             in a single request.</p>
@@ -7615,13 +7224,16 @@ export interface ModifyClusterParameterGroupMessage {
    *             pairs in the wlm_json_configuration parameter.</p>
    */
   Parameters: Parameter[] | undefined;
+
+  /**
+   * <p>The name of the parameter group to be modified.</p>
+   */
+  ParameterGroupName: string | undefined;
 }
 
 export namespace ModifyClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyClusterParameterGroupMessage =>
     __isa(o, "ModifyClusterParameterGroupMessage");
@@ -7637,20 +7249,13 @@ export interface ModifyClusterResult {
 
 export namespace ModifyClusterResult {
   export const filterSensitiveLog = (obj: ModifyClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterResult =>
-    __isa(o, "ModifyClusterResult");
+  export const isa = (o: any): o is ModifyClusterResult => __isa(o, "ModifyClusterResult");
 }
 
 export interface ModifyClusterSnapshotMessage {
   __type?: "ModifyClusterSnapshotMessage";
-  /**
-   * <p>A Boolean option to override an exception if the retention period has already
-   *             passed.</p>
-   */
-  Force?: boolean;
-
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely.</p>
@@ -7661,19 +7266,22 @@ export interface ModifyClusterSnapshotMessage {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
+   * <p>A Boolean option to override an exception if the retention period has already
+   *             passed.</p>
+   */
+  Force?: boolean;
+
+  /**
    * <p>The identifier of the snapshot whose setting you want to modify.</p>
    */
   SnapshotIdentifier: string | undefined;
 }
 
 export namespace ModifyClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSnapshotMessage =>
-    __isa(o, "ModifyClusterSnapshotMessage");
+  export const isa = (o: any): o is ModifyClusterSnapshotMessage => __isa(o, "ModifyClusterSnapshotMessage");
 }
 
 export interface ModifyClusterSnapshotResult {
@@ -7685,28 +7293,25 @@ export interface ModifyClusterSnapshotResult {
 }
 
 export namespace ModifyClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSnapshotResult =>
-    __isa(o, "ModifyClusterSnapshotResult");
+  export const isa = (o: any): o is ModifyClusterSnapshotResult => __isa(o, "ModifyClusterSnapshotResult");
 }
 
 export interface ModifyClusterSnapshotScheduleMessage {
   __type?: "ModifyClusterSnapshotScheduleMessage";
   /**
-   * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
-
-  /**
    * <p>A boolean to indicate whether to remove the assoiciation between the cluster and the
    *             schedule.</p>
    */
   DisassociateSchedule?: boolean;
+
+  /**
+   * <p>A unique identifier for the cluster whose snapshot schedule you want to modify.
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A unique alphanumeric identifier for the schedule that you want to associate with the
@@ -7716,10 +7321,8 @@ export interface ModifyClusterSnapshotScheduleMessage {
 }
 
 export namespace ModifyClusterSnapshotScheduleMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterSnapshotScheduleMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterSnapshotScheduleMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifyClusterSnapshotScheduleMessage =>
     __isa(o, "ModifyClusterSnapshotScheduleMessage");
@@ -7748,13 +7351,10 @@ export interface ModifyClusterSubnetGroupMessage {
 }
 
 export namespace ModifyClusterSubnetGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterSubnetGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSubnetGroupMessage =>
-    __isa(o, "ModifyClusterSubnetGroupMessage");
+  export const isa = (o: any): o is ModifyClusterSubnetGroupMessage => __isa(o, "ModifyClusterSubnetGroupMessage");
 }
 
 export interface ModifyClusterSubnetGroupResult {
@@ -7766,13 +7366,10 @@ export interface ModifyClusterSubnetGroupResult {
 }
 
 export namespace ModifyClusterSubnetGroupResult {
-  export const filterSensitiveLog = (
-    obj: ModifyClusterSubnetGroupResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSubnetGroupResult =>
-    __isa(o, "ModifyClusterSubnetGroupResult");
+  export const isa = (o: any): o is ModifyClusterSubnetGroupResult => __isa(o, "ModifyClusterSubnetGroupResult");
 }
 
 /**
@@ -7781,30 +7378,11 @@ export namespace ModifyClusterSubnetGroupResult {
 export interface ModifyEventSubscriptionMessage {
   __type?: "ModifyEventSubscriptionMessage";
   /**
-   * <p>A Boolean value indicating if the subscription is enabled. <code>true</code>
-   *             indicates the subscription is enabled </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
-   *             subscription.</p>
-   *         <p>Values: configuration, management, monitoring, security</p>
-   */
-  EventCategories?: string[];
-
-  /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
    *             subscription.</p>
    *         <p>Values: ERROR, INFO</p>
    */
   Severity?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic to be used by the event
-   *             notification subscription.</p>
-   */
-  SnsTopicArn?: string;
 
   /**
    * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
@@ -7818,6 +7396,17 @@ export interface ModifyEventSubscriptionMessage {
   SourceIds?: string[];
 
   /**
+   * <p>A Boolean value indicating if the subscription is enabled. <code>true</code>
+   *             indicates the subscription is enabled </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the modified Amazon Redshift event notification subscription.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
    * <p>The type of source that will be generating the events. For example, if you want to
    *             be notified of events generated by a cluster, you would set this parameter to cluster.
    *             If this value is not specified, events are returned for all Amazon Redshift objects in your
@@ -7827,19 +7416,24 @@ export interface ModifyEventSubscriptionMessage {
   SourceType?: string;
 
   /**
-   * <p>The name of the modified Amazon Redshift event notification subscription.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to be used by the event
+   *             notification subscription.</p>
    */
-  SubscriptionName: string | undefined;
+  SnsTopicArn?: string;
+
+  /**
+   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
+   *             subscription.</p>
+   *         <p>Values: configuration, management, monitoring, security</p>
+   */
+  EventCategories?: string[];
 }
 
 export namespace ModifyEventSubscriptionMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyEventSubscriptionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionMessage =>
-    __isa(o, "ModifyEventSubscriptionMessage");
+  export const isa = (o: any): o is ModifyEventSubscriptionMessage => __isa(o, "ModifyEventSubscriptionMessage");
 }
 
 export interface ModifyEventSubscriptionResult {
@@ -7851,21 +7445,19 @@ export interface ModifyEventSubscriptionResult {
 }
 
 export namespace ModifyEventSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: ModifyEventSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionResult =>
-    __isa(o, "ModifyEventSubscriptionResult");
+  export const isa = (o: any): o is ModifyEventSubscriptionResult => __isa(o, "ModifyEventSubscriptionResult");
 }
 
 export interface ModifyScheduledActionMessage {
   __type?: "ModifyScheduledActionMessage";
   /**
-   * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
+   * <p>A modified JSON format of the scheduled action.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
-  Enable?: boolean;
+  TargetAction?: ScheduledActionType;
 
   /**
    * <p>A modified end time of the scheduled action.
@@ -7874,16 +7466,15 @@ export interface ModifyScheduledActionMessage {
   EndTime?: Date;
 
   /**
+   * <p>A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled. </p>
+   */
+  Enable?: boolean;
+
+  /**
    * <p>A different IAM role to assume to run the target action.
    *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
    */
   IamRole?: string;
-
-  /**
-   * <p>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
-   */
-  Schedule?: string;
 
   /**
    * <p>A modified description of the scheduled action. </p>
@@ -7896,26 +7487,23 @@ export interface ModifyScheduledActionMessage {
   ScheduledActionName: string | undefined;
 
   /**
+   * <p>A modified schedule in either <code>at( )</code> or <code>cron( )</code> format.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   */
+  Schedule?: string;
+
+  /**
    * <p>A modified start time of the scheduled action.
    *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>A modified JSON format of the scheduled action.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   */
-  TargetAction?: ScheduledActionType;
 }
 
 export namespace ModifyScheduledActionMessage {
-  export const filterSensitiveLog = (
-    obj: ModifyScheduledActionMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifyScheduledActionMessage =>
-    __isa(o, "ModifyScheduledActionMessage");
+  export const isa = (o: any): o is ModifyScheduledActionMessage => __isa(o, "ModifyScheduledActionMessage");
 }
 
 /**
@@ -7931,12 +7519,6 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
    *             snapshot copy enabled.</p>
    */
   ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>Indicates whether to apply the snapshot retention period to newly copied manual
-   *             snapshots instead of automated snapshots.</p>
-   */
-  Manual?: boolean;
 
   /**
    * <p>The number of days to retain automated snapshots in the destination AWS Region
@@ -7955,13 +7537,17 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
    *             for manual snapshots.</p>
    */
   RetentionPeriod: number | undefined;
+
+  /**
+   * <p>Indicates whether to apply the snapshot retention period to newly copied manual
+   *             snapshots instead of automated snapshots.</p>
+   */
+  Manual?: boolean;
 }
 
 export namespace ModifySnapshotCopyRetentionPeriodMessage {
-  export const filterSensitiveLog = (
-    obj: ModifySnapshotCopyRetentionPeriodMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifySnapshotCopyRetentionPeriodMessage =>
     __isa(o, "ModifySnapshotCopyRetentionPeriodMessage");
@@ -7976,10 +7562,8 @@ export interface ModifySnapshotCopyRetentionPeriodResult {
 }
 
 export namespace ModifySnapshotCopyRetentionPeriodResult {
-  export const filterSensitiveLog = (
-    obj: ModifySnapshotCopyRetentionPeriodResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ModifySnapshotCopyRetentionPeriodResult =>
     __isa(o, "ModifySnapshotCopyRetentionPeriodResult");
@@ -7988,25 +7572,49 @@ export namespace ModifySnapshotCopyRetentionPeriodResult {
 export interface ModifySnapshotScheduleMessage {
   __type?: "ModifySnapshotScheduleMessage";
   /**
+   * <p>A unique alphanumeric identifier of the schedule to modify.</p>
+   */
+  ScheduleIdentifier: string | undefined;
+
+  /**
    * <p>An updated list of schedule definitions. A schedule definition is made up of schedule
    *             expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
    */
   ScheduleDefinitions: string[] | undefined;
-
-  /**
-   * <p>A unique alphanumeric identifier of the schedule to modify.</p>
-   */
-  ScheduleIdentifier: string | undefined;
 }
 
 export namespace ModifySnapshotScheduleMessage {
-  export const filterSensitiveLog = (
-    obj: ModifySnapshotScheduleMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotScheduleMessage =>
-    __isa(o, "ModifySnapshotScheduleMessage");
+  export const isa = (o: any): o is ModifySnapshotScheduleMessage => __isa(o, "ModifySnapshotScheduleMessage");
+}
+
+export interface ModifyUsageLimitMessage {
+  __type?: "ModifyUsageLimitMessage";
+  /**
+   * <p>The identifier of the usage limit to modify.</p>
+   */
+  UsageLimitId: string | undefined;
+
+  /**
+   * <p>The new limit amount.
+   *             For more information about this parameter, see <a>UsageLimit</a>. </p>
+   */
+  Amount?: number;
+
+  /**
+   * <p>The new action that Amazon Redshift takes when the limit is reached.
+   *             For more information about this parameter, see <a>UsageLimit</a>. </p>
+   */
+  BreachAction?: UsageLimitBreachAction | string;
+}
+
+export namespace ModifyUsageLimitMessage {
+  export const filterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ModifyUsageLimitMessage => __isa(o, "ModifyUsageLimitMessage");
 }
 
 /**
@@ -8037,10 +7645,9 @@ export interface NodeConfigurationOption {
 
 export namespace NodeConfigurationOption {
   export const filterSensitiveLog = (obj: NodeConfigurationOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOption =>
-    __isa(o, "NodeConfigurationOption");
+  export const isa = (o: any): o is NodeConfigurationOption => __isa(o, "NodeConfigurationOption");
 }
 
 /**
@@ -8049,9 +7656,12 @@ export namespace NodeConfigurationOption {
 export interface NodeConfigurationOptionsFilter {
   __type?: "NodeConfigurationOptionsFilter";
   /**
-   * <p>The name of the element to filter.</p>
+   * <p>List of values. Compare Name using Operator to Values.
+   *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
+   *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+   *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
    */
-  Name?: NodeConfigurationOptionsFilterName | string;
+  Values?: string[];
 
   /**
    * <p>The filter operator.
@@ -8063,29 +7673,23 @@ export interface NodeConfigurationOptionsFilter {
   Operator?: OperatorType | string;
 
   /**
-   * <p>List of values. Compare Name using Operator to Values.
-   *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
-   *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
-   *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
+   * <p>The name of the element to filter.</p>
    */
-  Values?: string[];
+  Name?: NodeConfigurationOptionsFilterName | string;
 }
 
 export namespace NodeConfigurationOptionsFilter {
-  export const filterSensitiveLog = (
-    obj: NodeConfigurationOptionsFilter
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOptionsFilter =>
-    __isa(o, "NodeConfigurationOptionsFilter");
+  export const isa = (o: any): o is NodeConfigurationOptionsFilter => __isa(o, "NodeConfigurationOptionsFilter");
 }
 
 export enum NodeConfigurationOptionsFilterName {
   ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
   MODE = "Mode",
   NODE_TYPE = "NodeType",
-  NUM_NODES = "NumberOfNodes"
+  NUM_NODES = "NumberOfNodes",
 }
 
 export interface NodeConfigurationOptionsMessage {
@@ -8106,31 +7710,24 @@ export interface NodeConfigurationOptionsMessage {
 }
 
 export namespace NodeConfigurationOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: NodeConfigurationOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOptionsMessage =>
-    __isa(o, "NodeConfigurationOptionsMessage");
+  export const isa = (o: any): o is NodeConfigurationOptionsMessage => __isa(o, "NodeConfigurationOptionsMessage");
 }
 
 /**
  * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
  */
-export interface NumberOfNodesPerClusterLimitExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfNodesPerClusterLimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "NumberOfNodesPerClusterLimitExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NumberOfNodesPerClusterLimitExceededFault {
-  export const filterSensitiveLog = (
-    obj: NumberOfNodesPerClusterLimitExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NumberOfNodesPerClusterLimitExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is NumberOfNodesPerClusterLimitExceededFault =>
     __isa(o, "NumberOfNodesPerClusterLimitExceededFault");
@@ -8143,22 +7740,17 @@ export namespace NumberOfNodesPerClusterLimitExceededFault {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface NumberOfNodesQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfNodesQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "NumberOfNodesQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NumberOfNodesQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: NumberOfNodesQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: NumberOfNodesQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is NumberOfNodesQuotaExceededFault =>
-    __isa(o, "NumberOfNodesQuotaExceededFault");
+  export const isa = (o: any): o is NumberOfNodesQuotaExceededFault => __isa(o, "NumberOfNodesQuotaExceededFault");
 }
 
 export enum OperatorType {
@@ -8168,7 +7760,7 @@ export enum OperatorType {
   GT = "gt",
   IN = "in",
   LE = "le",
-  LT = "lt"
+  LT = "lt",
 }
 
 /**
@@ -8177,32 +7769,31 @@ export enum OperatorType {
 export interface OrderableClusterOption {
   __type?: "OrderableClusterOption";
   /**
-   * <p>A list of availability zones for the orderable cluster.</p>
-   */
-  AvailabilityZones?: AvailabilityZone[];
-
-  /**
    * <p>The cluster type, for example <code>multi-node</code>. </p>
    */
   ClusterType?: string;
 
   /**
-   * <p>The version of the orderable cluster.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
    * <p>The node type for the orderable cluster.</p>
    */
   NodeType?: string;
+
+  /**
+   * <p>A list of availability zones for the orderable cluster.</p>
+   */
+  AvailabilityZones?: AvailabilityZone[];
+
+  /**
+   * <p>The version of the orderable cluster.</p>
+   */
+  ClusterVersion?: string;
 }
 
 export namespace OrderableClusterOption {
   export const filterSensitiveLog = (obj: OrderableClusterOption): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OrderableClusterOption =>
-    __isa(o, "OrderableClusterOption");
+  export const isa = (o: any): o is OrderableClusterOption => __isa(o, "OrderableClusterOption");
 }
 
 /**
@@ -8212,6 +7803,12 @@ export namespace OrderableClusterOption {
 export interface OrderableClusterOptionsMessage {
   __type?: "OrderableClusterOptionsMessage";
   /**
+   * <p>An <code>OrderableClusterOption</code> structure containing information about
+   *             orderable options for the cluster.</p>
+   */
+  OrderableClusterOptions?: OrderableClusterOption[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -8219,22 +7816,13 @@ export interface OrderableClusterOptionsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>An <code>OrderableClusterOption</code> structure containing information about
-   *             orderable options for the cluster.</p>
-   */
-  OrderableClusterOptions?: OrderableClusterOption[];
 }
 
 export namespace OrderableClusterOptionsMessage {
-  export const filterSensitiveLog = (
-    obj: OrderableClusterOptionsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OrderableClusterOptionsMessage =>
-    __isa(o, "OrderableClusterOptionsMessage");
+  export const isa = (o: any): o is OrderableClusterOptionsMessage => __isa(o, "OrderableClusterOptionsMessage");
 }
 
 /**
@@ -8243,9 +7831,24 @@ export namespace OrderableClusterOptionsMessage {
 export interface Parameter {
   __type?: "Parameter";
   /**
+   * <p>The data type of the parameter.</p>
+   */
+  DataType?: string;
+
+  /**
    * <p>The valid range of values for the parameter.</p>
    */
   AllowedValues?: string;
+
+  /**
+   * <p>The source of the parameter value, such as "engine-default" or "user".</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  ParameterName?: string;
 
   /**
    * <p>Specifies how to apply the WLM configuration parameter. Some properties can be
@@ -8258,14 +7861,9 @@ export interface Parameter {
   ApplyType?: ParameterApplyType | string;
 
   /**
-   * <p>The data type of the parameter.</p>
+   * <p>The value of the parameter.</p>
    */
-  DataType?: string;
-
-  /**
-   * <p>A description of the parameter.</p>
-   */
-  Description?: string;
+  ParameterValue?: string;
 
   /**
    * <p>If <code>true</code>, the parameter can be modified. Some parameters have security
@@ -8274,34 +7872,54 @@ export interface Parameter {
   IsModifiable?: boolean;
 
   /**
+   * <p>A description of the parameter.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The earliest engine version to which the parameter can apply.</p>
    */
   MinimumEngineVersion?: string;
-
-  /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
-
-  /**
-   * <p>The value of the parameter.</p>
-   */
-  ParameterValue?: string;
-
-  /**
-   * <p>The source of the parameter value, such as "engine-default" or "user".</p>
-   */
-  Source?: string;
 }
 
 export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 export type ParameterApplyType = "dynamic" | "static";
+
+export interface PauseClusterMessage {
+  __type?: "PauseClusterMessage";
+  /**
+   * <p>The identifier of the cluster to be paused.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace PauseClusterMessage {
+  export const filterSensitiveLog = (obj: PauseClusterMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PauseClusterMessage => __isa(o, "PauseClusterMessage");
+}
+
+export interface PauseClusterResult {
+  __type?: "PauseClusterResult";
+  /**
+   * <p>Describes a cluster.</p>
+   */
+  Cluster?: Cluster;
+}
+
+export namespace PauseClusterResult {
+  export const filterSensitiveLog = (obj: PauseClusterResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is PauseClusterResult => __isa(o, "PauseClusterResult");
+}
 
 /**
  * <p>Describes cluster attributes that are in a pending state. A change to one or more
@@ -8310,10 +7928,15 @@ export type ParameterApplyType = "dynamic" | "static";
 export interface PendingModifiedValues {
   __type?: "PendingModifiedValues";
   /**
-   * <p>The pending or in-progress change of the automated snapshot retention
-   *             period.</p>
+   * <p>The pending or in-progress change of the service version.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  ClusterVersion?: string;
+
+  /**
+   * <p>The pending or in-progress change of the ability to connect to the cluster from the
+   *             public network.</p>
+   */
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>The pending or in-progress change of the new identifier for the cluster.</p>
@@ -8321,20 +7944,20 @@ export interface PendingModifiedValues {
   ClusterIdentifier?: string;
 
   /**
+   * <p>The pending or in-progress change of the number of nodes in the cluster.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
    * <p>The pending or in-progress change of the cluster type.</p>
    */
   ClusterType?: string;
 
   /**
-   * <p>The pending or in-progress change of the service version.</p>
+   * <p>The name of the maintenance track that the cluster will change to during the next
+   *             maintenance window.</p>
    */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The encryption type for a cluster. Possible values are: KMS and None. For the China
-   *             region the possible values are None, and Legacy. </p>
-   */
-  EncryptionType?: string;
+  MaintenanceTrackName?: string;
 
   /**
    * <p>An option that specifies whether to create the cluster with enhanced VPC routing
@@ -8347,40 +7970,34 @@ export interface PendingModifiedValues {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>The name of the maintenance track that the cluster will change to during the next
-   *             maintenance window.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
    * <p>The pending or in-progress change of the master user password for the
    *             cluster.</p>
    */
   MasterUserPassword?: string;
 
   /**
+   * <p>The pending or in-progress change of the automated snapshot retention
+   *             period.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The encryption type for a cluster. Possible values are: KMS and None. For the China
+   *             region the possible values are None, and Legacy. </p>
+   */
+  EncryptionType?: string;
+
+  /**
    * <p>The pending or in-progress change of the cluster's node type.</p>
    */
   NodeType?: string;
-
-  /**
-   * <p>The pending or in-progress change of the number of nodes in the cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The pending or in-progress change of the ability to connect to the cluster from the
-   *             public network.</p>
-   */
-  PubliclyAccessible?: boolean;
 }
 
 export namespace PendingModifiedValues {
   export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedValues =>
-    __isa(o, "PendingModifiedValues");
+  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 /**
@@ -8389,23 +8006,21 @@ export namespace PendingModifiedValues {
 export interface PurchaseReservedNodeOfferingMessage {
   __type?: "PurchaseReservedNodeOfferingMessage";
   /**
+   * <p>The unique identifier of the reserved node offering you want to purchase.</p>
+   */
+  ReservedNodeOfferingId: string | undefined;
+
+  /**
    * <p>The number of reserved nodes that you want to purchase.</p>
    *         <p>Default: <code>1</code>
    *         </p>
    */
   NodeCount?: number;
-
-  /**
-   * <p>The unique identifier of the reserved node offering you want to purchase.</p>
-   */
-  ReservedNodeOfferingId: string | undefined;
 }
 
 export namespace PurchaseReservedNodeOfferingMessage {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedNodeOfferingMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PurchaseReservedNodeOfferingMessage =>
     __isa(o, "PurchaseReservedNodeOfferingMessage");
@@ -8421,10 +8036,8 @@ export interface PurchaseReservedNodeOfferingResult {
 }
 
 export namespace PurchaseReservedNodeOfferingResult {
-  export const filterSensitiveLog = (
-    obj: PurchaseReservedNodeOfferingResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is PurchaseReservedNodeOfferingResult =>
     __isa(o, "PurchaseReservedNodeOfferingResult");
@@ -8443,10 +8056,9 @@ export interface RebootClusterMessage {
 
 export namespace RebootClusterMessage {
   export const filterSensitiveLog = (obj: RebootClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RebootClusterMessage =>
-    __isa(o, "RebootClusterMessage");
+  export const isa = (o: any): o is RebootClusterMessage => __isa(o, "RebootClusterMessage");
 }
 
 export interface RebootClusterResult {
@@ -8459,10 +8071,9 @@ export interface RebootClusterResult {
 
 export namespace RebootClusterResult {
   export const filterSensitiveLog = (obj: RebootClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RebootClusterResult =>
-    __isa(o, "RebootClusterResult");
+  export const isa = (o: any): o is RebootClusterResult => __isa(o, "RebootClusterResult");
 }
 
 /**
@@ -8484,10 +8095,9 @@ export interface RecurringCharge {
 
 export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
@@ -8497,14 +8107,14 @@ export namespace RecurringCharge {
 export interface ReservedNode {
   __type?: "ReservedNode";
   /**
-   * <p>The currency code for the reserved cluster.</p>
+   * <p>The recurring charges for the reserved node.</p>
    */
-  CurrencyCode?: string;
+  RecurringCharges?: RecurringCharge[];
 
   /**
-   * <p>The duration of the node reservation in seconds.</p>
+   * <p></p>
    */
-  Duration?: number;
+  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
 
   /**
    * <p>The fixed cost Amazon Redshift charges you for this reserved node.</p>
@@ -8512,40 +8122,9 @@ export interface ReservedNode {
   FixedPrice?: number;
 
   /**
-   * <p>The number of reserved compute nodes.</p>
-   */
-  NodeCount?: number;
-
-  /**
-   * <p>The node type of the reserved node.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The anticipated utilization of the reserved node, as defined in the reserved node
-   *             offering.</p>
-   */
-  OfferingType?: string;
-
-  /**
-   * <p>The recurring charges for the reserved node.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The unique identifier for the reservation.</p>
-   */
-  ReservedNodeId?: string;
-
-  /**
    * <p>The identifier for the reserved node offering.</p>
    */
   ReservedNodeOfferingId?: string;
-
-  /**
-   * <p></p>
-   */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
 
   /**
    * <p>The time the reservation started. You purchase a reserved node offering for a
@@ -8580,6 +8159,37 @@ export interface ReservedNode {
   State?: string;
 
   /**
+   * <p>The node type of the reserved node.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The number of reserved compute nodes.</p>
+   */
+  NodeCount?: number;
+
+  /**
+   * <p>The duration of the node reservation in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The anticipated utilization of the reserved node, as defined in the reserved node
+   *             offering.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The unique identifier for the reservation.</p>
+   */
+  ReservedNodeId?: string;
+
+  /**
+   * <p>The currency code for the reserved cluster.</p>
+   */
+  CurrencyCode?: string;
+
+  /**
    * <p>The hourly rate Amazon Redshift charges you for this reserved node.</p>
    */
   UsagePrice?: number;
@@ -8587,7 +8197,7 @@ export interface ReservedNode {
 
 export namespace ReservedNode {
   export const filterSensitiveLog = (obj: ReservedNode): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ReservedNode => __isa(o, "ReservedNode");
 }
@@ -8595,51 +8205,39 @@ export namespace ReservedNode {
 /**
  * <p>User already has a reservation with the given identifier.</p>
  */
-export interface ReservedNodeAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedNodeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ReservedNodeAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReservedNodeAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ReservedNodeAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedNodeAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeAlreadyExistsFault =>
-    __isa(o, "ReservedNodeAlreadyExistsFault");
+  export const isa = (o: any): o is ReservedNodeAlreadyExistsFault => __isa(o, "ReservedNodeAlreadyExistsFault");
 }
 
 /**
  * <p>Indicates that the reserved node has already been exchanged.</p>
  */
-export interface ReservedNodeAlreadyMigratedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedNodeAlreadyMigratedFault extends __SmithyException, $MetadataBearer {
   name: "ReservedNodeAlreadyMigratedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReservedNodeAlreadyMigratedFault {
-  export const filterSensitiveLog = (
-    obj: ReservedNodeAlreadyMigratedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedNodeAlreadyMigratedFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeAlreadyMigratedFault =>
-    __isa(o, "ReservedNodeAlreadyMigratedFault");
+  export const isa = (o: any): o is ReservedNodeAlreadyMigratedFault => __isa(o, "ReservedNodeAlreadyMigratedFault");
 }
 
 /**
  * <p>The specified reserved compute node not found.</p>
  */
-export interface ReservedNodeNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedNodeNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ReservedNodeNotFoundFault";
   $fault: "client";
   message?: string;
@@ -8647,10 +8245,9 @@ export interface ReservedNodeNotFoundFault
 
 export namespace ReservedNodeNotFoundFault {
   export const filterSensitiveLog = (obj: ReservedNodeNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeNotFoundFault =>
-    __isa(o, "ReservedNodeNotFoundFault");
+  export const isa = (o: any): o is ReservedNodeNotFoundFault => __isa(o, "ReservedNodeNotFoundFault");
 }
 
 /**
@@ -8659,31 +8256,31 @@ export namespace ReservedNodeNotFoundFault {
 export interface ReservedNodeOffering {
   __type?: "ReservedNodeOffering";
   /**
+   * <p></p>
+   */
+  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+
+  /**
    * <p>The currency code for the compute nodes offering.</p>
    */
   CurrencyCode?: string;
-
-  /**
-   * <p>The duration, in seconds, for which the offering will reserve the node.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
-   *             offering.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>The node type offered by the reserved node offering.</p>
-   */
-  NodeType?: string;
 
   /**
    * <p>The anticipated utilization of the reserved node, as defined in the reserved node
    *             offering.</p>
    */
   OfferingType?: string;
+
+  /**
+   * <p>The rate you are charged for each hour the cluster that is using the offering is
+   *             running.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The node type offered by the reserved node offering.</p>
+   */
+  NodeType?: string;
 
   /**
    * <p>The charge to your account regardless of whether you are creating any clusters
@@ -8698,44 +8295,38 @@ export interface ReservedNodeOffering {
   ReservedNodeOfferingId?: string;
 
   /**
-   * <p></p>
+   * <p>The duration, in seconds, for which the offering will reserve the node.</p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  Duration?: number;
 
   /**
-   * <p>The rate you are charged for each hour the cluster that is using the offering is
-   *             running.</p>
+   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
+   *             offering.</p>
    */
-  UsagePrice?: number;
+  FixedPrice?: number;
 }
 
 export namespace ReservedNodeOffering {
   export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOffering =>
-    __isa(o, "ReservedNodeOffering");
+  export const isa = (o: any): o is ReservedNodeOffering => __isa(o, "ReservedNodeOffering");
 }
 
 /**
  * <p>Specified offering does not exist.</p>
  */
-export interface ReservedNodeOfferingNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedNodeOfferingNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ReservedNodeOfferingNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReservedNodeOfferingNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ReservedNodeOfferingNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedNodeOfferingNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOfferingNotFoundFault =>
-    __isa(o, "ReservedNodeOfferingNotFoundFault");
+  export const isa = (o: any): o is ReservedNodeOfferingNotFoundFault => __isa(o, "ReservedNodeOfferingNotFoundFault");
 }
 
 /**
@@ -8744,6 +8335,11 @@ export namespace ReservedNodeOfferingNotFoundFault {
 export interface ReservedNodeOfferingsMessage {
   __type?: "ReservedNodeOfferingsMessage";
   /**
+   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -8751,21 +8347,13 @@ export interface ReservedNodeOfferingsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
-   */
-  ReservedNodeOfferings?: ReservedNodeOffering[];
 }
 
 export namespace ReservedNodeOfferingsMessage {
-  export const filterSensitiveLog = (
-    obj: ReservedNodeOfferingsMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOfferingsMessage =>
-    __isa(o, "ReservedNodeOfferingsMessage");
+  export const isa = (o: any): o is ReservedNodeOfferingsMessage => __isa(o, "ReservedNodeOfferingsMessage");
 }
 
 export type ReservedNodeOfferingType = "Regular" | "Upgradable";
@@ -8776,22 +8364,17 @@ export type ReservedNodeOfferingType = "Regular" | "Upgradable";
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ReservedNodeQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedNodeQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ReservedNodeQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReservedNodeQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ReservedNodeQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ReservedNodeQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeQuotaExceededFault =>
-    __isa(o, "ReservedNodeQuotaExceededFault");
+  export const isa = (o: any): o is ReservedNodeQuotaExceededFault => __isa(o, "ReservedNodeQuotaExceededFault");
 }
 
 /**
@@ -8800,6 +8383,11 @@ export namespace ReservedNodeQuotaExceededFault {
 export interface ReservedNodesMessage {
   __type?: "ReservedNodesMessage";
   /**
+   * <p>The list of <code>ReservedNode</code> objects.</p>
+   */
+  ReservedNodes?: ReservedNode[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -8807,19 +8395,13 @@ export interface ReservedNodesMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The list of <code>ReservedNode</code> objects.</p>
-   */
-  ReservedNodes?: ReservedNode[];
 }
 
 export namespace ReservedNodesMessage {
   export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ReservedNodesMessage =>
-    __isa(o, "ReservedNodesMessage");
+  export const isa = (o: any): o is ReservedNodesMessage => __isa(o, "ReservedNodesMessage");
 }
 
 /**
@@ -8827,6 +8409,14 @@ export namespace ReservedNodesMessage {
  */
 export interface ResetClusterParameterGroupMessage {
   __type?: "ResetClusterParameterGroupMessage";
+  /**
+   * <p>If <code>true</code>, all parameters in the specified parameter group will be reset
+   *             to their default values. </p>
+   *         <p>Default: <code>true</code>
+   *         </p>
+   */
+  ResetAllParameters?: boolean;
+
   /**
    * <p>The name of the cluster parameter group to be reset.</p>
    */
@@ -8839,34 +8429,33 @@ export interface ResetClusterParameterGroupMessage {
    *         <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
    */
   Parameters?: Parameter[];
-
-  /**
-   * <p>If <code>true</code>, all parameters in the specified parameter group will be reset
-   *             to their default values. </p>
-   *         <p>Default: <code>true</code>
-   *         </p>
-   */
-  ResetAllParameters?: boolean;
 }
 
 export namespace ResetClusterParameterGroupMessage {
-  export const filterSensitiveLog = (
-    obj: ResetClusterParameterGroupMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResetClusterParameterGroupMessage =>
-    __isa(o, "ResetClusterParameterGroupMessage");
+  export const isa = (o: any): o is ResetClusterParameterGroupMessage => __isa(o, "ResetClusterParameterGroupMessage");
 }
 
 export interface ResizeClusterMessage {
   __type?: "ResizeClusterMessage";
+  /**
+   * <p>The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.</p>
+   */
+  NodeType?: string;
+
   /**
    * <p>A boolean value indicating whether the resize operation is using the classic resize
    *             process. If you don't provide this parameter or set the value to
    *             <code>false</code>, the resize type is elastic. </p>
    */
   Classic?: boolean;
+
+  /**
+   * <p>The new number of nodes for the cluster.</p>
+   */
+  NumberOfNodes?: number;
 
   /**
    * <p>The unique identifier for the cluster to resize.</p>
@@ -8877,24 +8466,13 @@ export interface ResizeClusterMessage {
    * <p>The new cluster type for the specified cluster.</p>
    */
   ClusterType?: string;
-
-  /**
-   * <p>The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The new number of nodes for the cluster.</p>
-   */
-  NumberOfNodes: number | undefined;
 }
 
 export namespace ResizeClusterMessage {
   export const filterSensitiveLog = (obj: ResizeClusterMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResizeClusterMessage =>
-    __isa(o, "ResizeClusterMessage");
+  export const isa = (o: any): o is ResizeClusterMessage => __isa(o, "ResizeClusterMessage");
 }
 
 export interface ResizeClusterResult {
@@ -8907,10 +8485,9 @@ export interface ResizeClusterResult {
 
 export namespace ResizeClusterResult {
   export const filterSensitiveLog = (obj: ResizeClusterResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResizeClusterResult =>
-    __isa(o, "ResizeClusterResult");
+  export const isa = (o: any): o is ResizeClusterResult => __isa(o, "ResizeClusterResult");
 }
 
 /**
@@ -8931,7 +8508,7 @@ export interface ResizeInfo {
 
 export namespace ResizeInfo {
   export const filterSensitiveLog = (obj: ResizeInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResizeInfo => __isa(o, "ResizeInfo");
 }
@@ -8939,9 +8516,7 @@ export namespace ResizeInfo {
 /**
  * <p>A resize operation for the specified cluster is not found.</p>
  */
-export interface ResizeNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResizeNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ResizeNotFoundFault";
   $fault: "client";
   message?: string;
@@ -8949,10 +8524,9 @@ export interface ResizeNotFoundFault
 
 export namespace ResizeNotFoundFault {
   export const filterSensitiveLog = (obj: ResizeNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResizeNotFoundFault =>
-    __isa(o, "ResizeNotFoundFault");
+  export const isa = (o: any): o is ResizeNotFoundFault => __isa(o, "ResizeNotFoundFault");
 }
 
 /**
@@ -8961,23 +8535,24 @@ export namespace ResizeNotFoundFault {
 export interface ResizeProgressMessage {
   __type?: "ResizeProgressMessage";
   /**
+   * <p>An enum with possible values of <code>ClassicResize</code> and
+   *                 <code>ElasticResize</code>. These values describe the type of resize operation being
+   *             performed. </p>
+   */
+  ResizeType?: string;
+
+  /**
+   * <p>The number of nodes that the cluster will have after the resize operation is
+   *             complete.</p>
+   */
+  TargetNumberOfNodes?: number;
+
+  /**
    * <p>The average rate of the resize operation over the last few minutes, measured in
    *             megabytes per second. After the resize operation completes, this value shows the average
    *             rate of the entire resize operation.</p>
    */
   AvgResizeRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The percent of data transferred from source cluster to target cluster.</p>
-   */
-  DataTransferProgressPercent?: number;
-
-  /**
-   * <p>The amount of seconds that have elapsed since the resize operation began. After the
-   *             resize operation completes, this value shows the total actual time, in seconds, for the
-   *             resize operation.</p>
-   */
-  ElapsedTimeInSeconds?: number;
 
   /**
    * <p>The estimated time remaining, in seconds, until the resize operation is complete.
@@ -8988,27 +8563,59 @@ export interface ResizeProgressMessage {
   EstimatedTimeToCompletionInSeconds?: number;
 
   /**
-   * <p>The names of tables that have been completely imported .</p>
-   *         <p>Valid Values: List of table names.</p>
-   */
-  ImportTablesCompleted?: string[];
-
-  /**
-   * <p>The names of tables that are being currently imported.</p>
-   *         <p>Valid Values: List of table names.</p>
-   */
-  ImportTablesInProgress?: string[];
-
-  /**
    * <p>The names of tables that have not been yet imported.</p>
    *         <p>Valid Values: List of table names</p>
    */
   ImportTablesNotStarted?: string[];
 
   /**
+   * <p>The amount of seconds that have elapsed since the resize operation began. After the
+   *             resize operation completes, this value shows the total actual time, in seconds, for the
+   *             resize operation.</p>
+   */
+  ElapsedTimeInSeconds?: number;
+
+  /**
+   * <p>The cluster type after the resize operation is complete.</p>
+   *         <p>Valid Values: <code>multi-node</code> | <code>single-node</code>
+   *         </p>
+   */
+  TargetClusterType?: string;
+
+  /**
+   * <p>The percent of data transferred from source cluster to target cluster.</p>
+   */
+  DataTransferProgressPercent?: number;
+
+  /**
+   * <p>The node type that the cluster will have after the resize operation is
+   *             complete.</p>
+   */
+  TargetNodeType?: string;
+
+  /**
+   * <p>The names of tables that have been completely imported .</p>
+   *         <p>Valid Values: List of table names.</p>
+   */
+  ImportTablesCompleted?: string[];
+
+  /**
    * <p>An optional string to provide additional details about the resize action.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The estimated total amount of data, in megabytes, on the cluster before the resize
+   *             operation began.</p>
+   */
+  TotalResizeDataInMegaBytes?: number;
+
+  /**
+   * <p>The type of encryption for the cluster after the resize is complete.</p>
+   *         <p>Possible values are <code>KMS</code> and <code>None</code>. In the China region
+   *             possible values are: <code>Legacy</code> and <code>None</code>.</p>
+   */
+  TargetEncryptionType?: string;
 
   /**
    * <p>While the resize operation is in progress, this value shows the current amount of
@@ -9020,11 +8627,10 @@ export interface ResizeProgressMessage {
   ProgressInMegaBytes?: number;
 
   /**
-   * <p>An enum with possible values of <code>ClassicResize</code> and
-   *                 <code>ElasticResize</code>. These values describe the type of resize operation being
-   *             performed. </p>
+   * <p>The names of tables that are being currently imported.</p>
+   *         <p>Valid Values: List of table names.</p>
    */
-  ResizeType?: string;
+  ImportTablesInProgress?: string[];
 
   /**
    * <p>The status of the resize operation.</p>
@@ -9033,54 +8639,19 @@ export interface ResizeProgressMessage {
    *         </p>
    */
   Status?: string;
-
-  /**
-   * <p>The cluster type after the resize operation is complete.</p>
-   *         <p>Valid Values: <code>multi-node</code> | <code>single-node</code>
-   *         </p>
-   */
-  TargetClusterType?: string;
-
-  /**
-   * <p>The type of encryption for the cluster after the resize is complete.</p>
-   *         <p>Possible values are <code>KMS</code> and <code>None</code>. In the China region
-   *             possible values are: <code>Legacy</code> and <code>None</code>.</p>
-   */
-  TargetEncryptionType?: string;
-
-  /**
-   * <p>The node type that the cluster will have after the resize operation is
-   *             complete.</p>
-   */
-  TargetNodeType?: string;
-
-  /**
-   * <p>The number of nodes that the cluster will have after the resize operation is
-   *             complete.</p>
-   */
-  TargetNumberOfNodes?: number;
-
-  /**
-   * <p>The estimated total amount of data, in megabytes, on the cluster before the resize
-   *             operation began.</p>
-   */
-  TotalResizeDataInMegaBytes?: number;
 }
 
 export namespace ResizeProgressMessage {
   export const filterSensitiveLog = (obj: ResizeProgressMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResizeProgressMessage =>
-    __isa(o, "ResizeProgressMessage");
+  export const isa = (o: any): o is ResizeProgressMessage => __isa(o, "ResizeProgressMessage");
 }
 
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -9088,10 +8659,9 @@ export interface ResourceNotFoundFault
 
 export namespace ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
+  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
@@ -9100,27 +8670,36 @@ export namespace ResourceNotFoundFault {
 export interface RestoreFromClusterSnapshotMessage {
   __type?: "RestoreFromClusterSnapshotMessage";
   /**
-   * <p>Reserved.</p>
+   * <p>The AWS customer account used to create or copy the snapshot. Required if you are
+   *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
    */
-  AdditionalInfo?: string;
+  OwnerAccount?: string;
 
   /**
-   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
-   *             window to the Amazon Redshift engine that is running on the cluster. </p>
-   *         <p>Default: <code>true</code>
-   *         </p>
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
    */
-  AllowVersionUpgrade?: boolean;
+  PubliclyAccessible?: boolean;
 
   /**
-   * <p>The number of days that automated snapshots are retained. If the value is 0,
-   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
-   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>Default: The value selected for the cluster from which the snapshot was
-   *             taken.</p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   * <p>The name of the cluster the source snapshot was created from. This parameter is
+   *             required if your IAM user has a policy containing a snapshot resource element that
+   *             specifies anything other than * for the cluster name.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  SnapshotClusterIdentifier?: string;
+
+  /**
+   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
+   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
+   *             request.</p>
+   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+   */
+  IamRoles?: string[];
+
+  /**
+   * <p>The elastic IP (EIP) address for the cluster.</p>
+   */
+  ElasticIp?: string;
 
   /**
    * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
@@ -9129,6 +8708,62 @@ export interface RestoreFromClusterSnapshotMessage {
    *         </p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+   *             use to encrypt data in the cluster that you restore from a shared snapshot.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
+   *             occur.</p>
+   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *         </p>
+   *         <p> Default: The value selected for the cluster from which the snapshot was taken. For
+   *             more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p>
+   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *         <p>Constraints: Minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>A list of security groups to be associated with this cluster.</p>
+   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
+   *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
+   */
+  ClusterSecurityGroups?: string[];
+
+  /**
+   * <p>The name of the parameter group to be associated with this cluster.</p>
+   *         <p>Default: The default Amazon Redshift cluster parameter group. For information about the
+   *             default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working with Amazon
+   *                 Redshift Parameter Groups</a>.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterParameterGroupName?: string;
+
+  /**
+   * <p>The number of nodes specified when provisioning the restored cluster.</p>
+   */
+  NumberOfNodes?: number;
 
   /**
    * <p>The identifier of the cluster that will be created from restoring the
@@ -9155,45 +8790,6 @@ export interface RestoreFromClusterSnapshotMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the parameter group to be associated with this cluster.</p>
-   *         <p>Default: The default Amazon Redshift cluster parameter group. For information about the
-   *             default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working with Amazon
-   *                 Redshift Parameter Groups</a>.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be 1 to 255 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                 <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   */
-  ClusterParameterGroupName?: string;
-
-  /**
-   * <p>A list of security groups to be associated with this cluster.</p>
-   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
-   *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
-   */
-  ClusterSecurityGroups?: string[];
-
-  /**
-   * <p>The name of the subnet group where you want to cluster restored.</p>
-   *         <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
-   *             provide subnet group name where you want the cluster restored.</p>
-   */
-  ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The elastic IP (EIP) address for the cluster.</p>
-   */
-  ElasticIp?: string;
-
-  /**
    * <p>An option that specifies whether to create the cluster with enhanced VPC routing
    *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
    *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
@@ -9204,49 +8800,19 @@ export interface RestoreFromClusterSnapshotMessage {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
+   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
+   *             window to the Amazon Redshift engine that is running on the cluster. </p>
+   *         <p>Default: <code>true</code>
+   *         </p>
    */
-  HsmClientCertificateIdentifier?: string;
+  AllowVersionUpgrade?: boolean;
 
   /**
-   * <p>Specifies the name of the HSM configuration that contains the information the
-   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   * <p>The name of the subnet group where you want to cluster restored.</p>
+   *         <p>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
+   *             provide subnet group name where you want the cluster restored.</p>
    */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
-   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
-   *             request.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
-   */
-  IamRoles?: string[];
-
-  /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
-   *             use to encrypt data in the cluster that you restore from a shared snapshot.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The name of the maintenance track for the restored cluster. When you take a snapshot,
-   *             the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
-   *             snapshot might be on a different track than the cluster that was the source for the
-   *             snapshot. For example, suppose that you take a snapshot of a cluster that is on the
-   *             current track and then change the cluster to be on the trailing track. In this case, the
-   *             snapshot and the source cluster are on different tracks.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
-   *             snapshot is retained indefinitely. This setting doesn't change the retention period
-   *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
+  ClusterSubnetGroupName?: string;
 
   /**
    * <p>The node type that the restored cluster will be provisioned with.</p>
@@ -9256,62 +8822,12 @@ export interface RestoreFromClusterSnapshotMessage {
    *             into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you
    *             must restore into that same instance type and size. In other words, you can only restore
    *             a dc1.large instance type into another dc1.large instance type or dc2.large instance
-   *             type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg
+   *             type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlarge
    *             cluster, then resize to a dc2.8large cluster. For more information about node types, see
    *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
    *                 About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
    */
   NodeType?: string;
-
-  /**
-   * <p>The number of nodes specified when provisioning the restored cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The AWS customer account used to create or copy the snapshot. Required if you are
-   *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>The port number on which the cluster accepts connections.</p>
-   *         <p>Default: The same port as the original cluster.</p>
-   *         <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
-   *             occur.</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p> Default: The value selected for the cluster from which the snapshot was taken. For
-   *             more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>The name of the cluster the source snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
-   *             specifies anything other than * for the cluster name.</p>
-   */
-  SnapshotClusterIdentifier?: string;
-
-  /**
-   * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
-   *             case sensitive.</p>
-   *         <p>Example: <code>my-snapshot-id</code>
-   *         </p>
-   */
-  SnapshotIdentifier: string | undefined;
 
   /**
    * <p>A unique identifier for the snapshot schedule.</p>
@@ -9325,16 +8841,67 @@ export interface RestoreFromClusterSnapshotMessage {
    *         <p>VPC security groups only apply to clusters in VPCs.</p>
    */
   VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
+   *             snapshot is retained indefinitely. This setting doesn't change the retention period
+   *             of existing snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The name of the maintenance track for the restored cluster. When you take a snapshot,
+   *             the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The
+   *             snapshot might be on a different track than the cluster that was the source for the
+   *             snapshot. For example, suppose that you take a snapshot of a cluster that is on the
+   *             current track and then change the cluster to be on the trailing track. In this case, the
+   *             snapshot and the source cluster are on different tracks.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *         <p>Default: The value selected for the cluster from which the snapshot was
+   *             taken.</p>
+   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The port number on which the cluster accepts connections.</p>
+   *         <p>Default: The same port as the original cluster.</p>
+   *         <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The name of the snapshot from which to create the new cluster. This parameter isn't
+   *             case sensitive.</p>
+   *         <p>Example: <code>my-snapshot-id</code>
+   *         </p>
+   */
+  SnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the name of the HSM configuration that contains the information the
+   *             Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+   */
+  HsmConfigurationIdentifier?: string;
 }
 
 export namespace RestoreFromClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: RestoreFromClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreFromClusterSnapshotMessage =>
-    __isa(o, "RestoreFromClusterSnapshotMessage");
+  export const isa = (o: any): o is RestoreFromClusterSnapshotMessage => __isa(o, "RestoreFromClusterSnapshotMessage");
 }
 
 export interface RestoreFromClusterSnapshotResult {
@@ -9346,13 +8913,10 @@ export interface RestoreFromClusterSnapshotResult {
 }
 
 export namespace RestoreFromClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: RestoreFromClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RestoreFromClusterSnapshotResult =>
-    __isa(o, "RestoreFromClusterSnapshotResult");
+  export const isa = (o: any): o is RestoreFromClusterSnapshotResult => __isa(o, "RestoreFromClusterSnapshotResult");
 }
 
 /**
@@ -9362,18 +8926,29 @@ export namespace RestoreFromClusterSnapshotResult {
 export interface RestoreStatus {
   __type?: "RestoreStatus";
   /**
+   * <p>The size of the set of snapshot data used to restore the cluster.
+   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   */
+  SnapshotSizeInMegaBytes?: number;
+
+  /**
+   * <p>The number of megabytes that have been transferred from snapshot storage.
+   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   */
+  ProgressInMegaBytes?: number;
+
+  /**
+   * <p>The status of the restore action. Returns starting, restoring, completed, or
+   *             failed.</p>
+   */
+  Status?: string;
+
+  /**
    * <p>The number of megabytes per second being transferred from the backup storage.
    *             Returns the average rate for a completed backup.
    *             This field is only updated when you restore to DC2 and DS2 node types. </p>
    */
   CurrentRestoreRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The amount of time an in-progress restore has been running, or the amount of time
-   *             it took a completed restore to finish.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
-   */
-  ElapsedTimeInSeconds?: number;
 
   /**
    * <p>The estimate of the time remaining before the restore will complete. Returns 0 for
@@ -9383,27 +8958,16 @@ export interface RestoreStatus {
   EstimatedTimeToCompletionInSeconds?: number;
 
   /**
-   * <p>The number of megabytes that have been transferred from snapshot storage.
+   * <p>The amount of time an in-progress restore has been running, or the amount of time
+   *             it took a completed restore to finish.
    *             This field is only updated when you restore to DC2 and DS2 node types. </p>
    */
-  ProgressInMegaBytes?: number;
-
-  /**
-   * <p>The size of the set of snapshot data used to restore the cluster.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
-   */
-  SnapshotSizeInMegaBytes?: number;
-
-  /**
-   * <p>The status of the restore action. Returns starting, restoring, completed, or
-   *             failed.</p>
-   */
-  Status?: string;
+  ElapsedTimeInSeconds?: number;
 }
 
 export namespace RestoreStatus {
   export const filterSensitiveLog = (obj: RestoreStatus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RestoreStatus => __isa(o, "RestoreStatus");
 }
@@ -9414,14 +8978,16 @@ export namespace RestoreStatus {
 export interface RestoreTableFromClusterSnapshotMessage {
   __type?: "RestoreTableFromClusterSnapshotMessage";
   /**
-   * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
+   * <p>The name of the schema to restore the table to.</p>
    */
-  ClusterIdentifier: string | undefined;
+  TargetSchemaName?: string;
 
   /**
-   * <p>The name of the table to create as a result of the current request.</p>
+   * <p>The name of the source schema that contains the table to restore from. If you do
+   *             not specify a <code>SourceSchemaName</code> value, the default is
+   *             <code>public</code>.</p>
    */
-  NewTableName: string | undefined;
+  SourceSchemaName?: string;
 
   /**
    * <p>The identifier of the snapshot to restore the table from. This snapshot must have
@@ -9436,11 +9002,9 @@ export interface RestoreTableFromClusterSnapshotMessage {
   SourceDatabaseName: string | undefined;
 
   /**
-   * <p>The name of the source schema that contains the table to restore from. If you do
-   *             not specify a <code>SourceSchemaName</code> value, the default is
-   *             <code>public</code>.</p>
+   * <p>The name of the database to restore the table to.</p>
    */
-  SourceSchemaName?: string;
+  TargetDatabaseName?: string;
 
   /**
    * <p>The name of the source table to restore from.</p>
@@ -9448,21 +9012,19 @@ export interface RestoreTableFromClusterSnapshotMessage {
   SourceTableName: string | undefined;
 
   /**
-   * <p>The name of the database to restore the table to.</p>
+   * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
    */
-  TargetDatabaseName?: string;
+  ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of the schema to restore the table to.</p>
+   * <p>The name of the table to create as a result of the current request.</p>
    */
-  TargetSchemaName?: string;
+  NewTableName: string | undefined;
 }
 
 export namespace RestoreTableFromClusterSnapshotMessage {
-  export const filterSensitiveLog = (
-    obj: RestoreTableFromClusterSnapshotMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreTableFromClusterSnapshotMessage =>
     __isa(o, "RestoreTableFromClusterSnapshotMessage");
@@ -9478,13 +9040,41 @@ export interface RestoreTableFromClusterSnapshotResult {
 }
 
 export namespace RestoreTableFromClusterSnapshotResult {
-  export const filterSensitiveLog = (
-    obj: RestoreTableFromClusterSnapshotResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RestoreTableFromClusterSnapshotResult =>
     __isa(o, "RestoreTableFromClusterSnapshotResult");
+}
+
+export interface ResumeClusterMessage {
+  __type?: "ResumeClusterMessage";
+  /**
+   * <p>The identifier of the cluster to be resumed.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace ResumeClusterMessage {
+  export const filterSensitiveLog = (obj: ResumeClusterMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResumeClusterMessage => __isa(o, "ResumeClusterMessage");
+}
+
+export interface ResumeClusterResult {
+  __type?: "ResumeClusterResult";
+  /**
+   * <p>Describes a cluster.</p>
+   */
+  Cluster?: Cluster;
+}
+
+export namespace ResumeClusterResult {
+  export const filterSensitiveLog = (obj: ResumeClusterResult): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ResumeClusterResult => __isa(o, "ResumeClusterResult");
 }
 
 /**
@@ -9492,12 +9082,6 @@ export namespace RestoreTableFromClusterSnapshotResult {
  */
 export interface RevisionTarget {
   __type?: "RevisionTarget";
-  /**
-   * <p>A unique string that identifies the version to update the cluster to. You can use this
-   *             value in <a>ModifyClusterDbRevision</a>.</p>
-   */
-  DatabaseRevision?: string;
-
   /**
    * <p>The date on which the database revision was released.</p>
    */
@@ -9508,14 +9092,19 @@ export interface RevisionTarget {
    *             when it is updated to the corresponding <a>ClusterDbRevision</a>.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A unique string that identifies the version to update the cluster to. You can use this
+   *             value in <a>ModifyClusterDbRevision</a>.</p>
+   */
+  DatabaseRevision?: string;
 }
 
 export namespace RevisionTarget {
   export const filterSensitiveLog = (obj: RevisionTarget): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RevisionTarget =>
-    __isa(o, "RevisionTarget");
+  export const isa = (o: any): o is RevisionTarget => __isa(o, "RevisionTarget");
 }
 
 /**
@@ -9523,26 +9112,6 @@ export namespace RevisionTarget {
  */
 export interface RevokeClusterSecurityGroupIngressMessage {
   __type?: "RevokeClusterSecurityGroupIngressMessage";
-  /**
-   * <p>The IP range for which to revoke access. This range must be a valid Classless
-   *             Inter-Domain Routing (CIDR) block of IP addresses. If <code>CIDRIP</code> is specified,
-   *                 <code>EC2SecurityGroupName</code> and <code>EC2SecurityGroupOwnerId</code> cannot be
-   *             provided. </p>
-   */
-  CIDRIP?: string;
-
-  /**
-   * <p>The name of the security Group from which to revoke the ingress rule.</p>
-   */
-  ClusterSecurityGroupName: string | undefined;
-
-  /**
-   * <p>The name of the EC2 Security Group whose access is to be revoked. If
-   *                 <code>EC2SecurityGroupName</code> is specified, <code>EC2SecurityGroupOwnerId</code>
-   *             must also be provided and <code>CIDRIP</code> cannot be provided. </p>
-   */
-  EC2SecurityGroupName?: string;
-
   /**
    * <p>The AWS account number of the owner of the security group specified in the
    *                 <code>EC2SecurityGroupName</code> parameter. The AWS access key ID is not an
@@ -9553,13 +9122,31 @@ export interface RevokeClusterSecurityGroupIngressMessage {
    *         </p>
    */
   EC2SecurityGroupOwnerId?: string;
+
+  /**
+   * <p>The name of the security Group from which to revoke the ingress rule.</p>
+   */
+  ClusterSecurityGroupName: string | undefined;
+
+  /**
+   * <p>The IP range for which to revoke access. This range must be a valid Classless
+   *             Inter-Domain Routing (CIDR) block of IP addresses. If <code>CIDRIP</code> is specified,
+   *                 <code>EC2SecurityGroupName</code> and <code>EC2SecurityGroupOwnerId</code> cannot be
+   *             provided. </p>
+   */
+  CIDRIP?: string;
+
+  /**
+   * <p>The name of the EC2 Security Group whose access is to be revoked. If
+   *                 <code>EC2SecurityGroupName</code> is specified, <code>EC2SecurityGroupOwnerId</code>
+   *             must also be provided and <code>CIDRIP</code> cannot be provided. </p>
+   */
+  EC2SecurityGroupName?: string;
 }
 
 export namespace RevokeClusterSecurityGroupIngressMessage {
-  export const filterSensitiveLog = (
-    obj: RevokeClusterSecurityGroupIngressMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressMessage): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RevokeClusterSecurityGroupIngressMessage =>
     __isa(o, "RevokeClusterSecurityGroupIngressMessage");
@@ -9574,10 +9161,8 @@ export interface RevokeClusterSecurityGroupIngressResult {
 }
 
 export namespace RevokeClusterSecurityGroupIngressResult {
-  export const filterSensitiveLog = (
-    obj: RevokeClusterSecurityGroupIngressResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is RevokeClusterSecurityGroupIngressResult =>
     __isa(o, "RevokeClusterSecurityGroupIngressResult");
@@ -9588,6 +9173,11 @@ export namespace RevokeClusterSecurityGroupIngressResult {
  */
 export interface RevokeSnapshotAccessMessage {
   __type?: "RevokeSnapshotAccessMessage";
+  /**
+   * <p>The identifier of the snapshot that the account can no longer access.</p>
+   */
+  SnapshotIdentifier: string | undefined;
+
   /**
    * <p>The identifier of the AWS customer account that can no longer restore the specified
    *             snapshot.</p>
@@ -9600,21 +9190,13 @@ export interface RevokeSnapshotAccessMessage {
    *             specifies anything other than * for the cluster name.</p>
    */
   SnapshotClusterIdentifier?: string;
-
-  /**
-   * <p>The identifier of the snapshot that the account can no longer access.</p>
-   */
-  SnapshotIdentifier: string | undefined;
 }
 
 export namespace RevokeSnapshotAccessMessage {
-  export const filterSensitiveLog = (
-    obj: RevokeSnapshotAccessMessage
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeSnapshotAccessMessage =>
-    __isa(o, "RevokeSnapshotAccessMessage");
+  export const isa = (o: any): o is RevokeSnapshotAccessMessage => __isa(o, "RevokeSnapshotAccessMessage");
 }
 
 export interface RevokeSnapshotAccessResult {
@@ -9627,10 +9209,9 @@ export interface RevokeSnapshotAccessResult {
 
 export namespace RevokeSnapshotAccessResult {
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RevokeSnapshotAccessResult =>
-    __isa(o, "RevokeSnapshotAccessResult");
+  export const isa = (o: any): o is RevokeSnapshotAccessResult => __isa(o, "RevokeSnapshotAccessResult");
 }
 
 /**
@@ -9649,10 +9230,9 @@ export interface RotateEncryptionKeyMessage {
 
 export namespace RotateEncryptionKeyMessage {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RotateEncryptionKeyMessage =>
-    __isa(o, "RotateEncryptionKeyMessage");
+  export const isa = (o: any): o is RotateEncryptionKeyMessage => __isa(o, "RotateEncryptionKeyMessage");
 }
 
 export interface RotateEncryptionKeyResult {
@@ -9665,10 +9245,9 @@ export interface RotateEncryptionKeyResult {
 
 export namespace RotateEncryptionKeyResult {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RotateEncryptionKeyResult =>
-    __isa(o, "RotateEncryptionKeyResult");
+  export const isa = (o: any): o is RotateEncryptionKeyResult => __isa(o, "RotateEncryptionKeyResult");
 }
 
 /**
@@ -9678,9 +9257,19 @@ export namespace RotateEncryptionKeyResult {
 export interface ScheduledAction {
   __type?: "ScheduledAction";
   /**
-   * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger. </p>
+   * <p>List of times when the scheduled action will run. </p>
    */
-  EndTime?: Date;
+  NextInvocations?: Date[];
+
+  /**
+   * <p>The description of the scheduled action. </p>
+   */
+  ScheduledActionDescription?: string;
+
+  /**
+   * <p>The name of the scheduled action. </p>
+   */
+  ScheduledActionName?: string;
 
   /**
    * <p>The IAM role to assume to run the scheduled action.
@@ -9695,35 +9284,15 @@ export interface ScheduledAction {
   IamRole?: string;
 
   /**
-   * <p>List of times when the scheduled action will run. </p>
+   * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
+   *         <p>"<code>{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}</code>". </p>
    */
-  NextInvocations?: Date[];
+  TargetAction?: ScheduledActionType;
 
   /**
-   * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action.
-   *             Schedule invocations must be separated by at least one hour.</p>
-   *         <p>Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
-   *         <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>".
-   *             For example, "<code>cron(0, 10, *, *, MON, *)</code>". For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a>
-   *             in the <i>Amazon CloudWatch Events User Guide</i>.</p>
+   * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger. </p>
    */
-  Schedule?: string;
-
-  /**
-   * <p>The description of the scheduled action. </p>
-   */
-  ScheduledActionDescription?: string;
-
-  /**
-   * <p>The name of the scheduled action. </p>
-   */
-  ScheduledActionName?: string;
-
-  /**
-   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger. </p>
-   */
-  StartTime?: Date;
+  EndTime?: Date;
 
   /**
    * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
@@ -9731,39 +9300,43 @@ export interface ScheduledAction {
   State?: ScheduledActionState | string;
 
   /**
-   * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
-   *         <p>"<code>{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}</code>". </p>
+   * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action.
+   *             Schedule invocations must be separated by at least one hour.</p>
+   *         <p>Format of at expressions is "<code>at(yyyy-mm-ddThh:mm:ss)</code>". For example, "<code>at(2016-03-04T17:27:00)</code>".</p>
+   *         <p>Format of cron expressions is "<code>cron(Minutes Hours Day-of-month Month Day-of-week Year)</code>".
+   *             For example, "<code>cron(0 10 ? * MON *)</code>". For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a>
+   *             in the <i>Amazon CloudWatch Events User Guide</i>.</p>
    */
-  TargetAction?: ScheduledActionType;
+  Schedule?: string;
+
+  /**
+   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger. </p>
+   */
+  StartTime?: Date;
 }
 
 export namespace ScheduledAction {
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledAction =>
-    __isa(o, "ScheduledAction");
+  export const isa = (o: any): o is ScheduledAction => __isa(o, "ScheduledAction");
 }
 
 /**
  * <p>The scheduled action already exists. </p>
  */
-export interface ScheduledActionAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScheduledActionAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ScheduledActionAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScheduledActionAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: ScheduledActionAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledActionAlreadyExistsFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionAlreadyExistsFault =>
-    __isa(o, "ScheduledActionAlreadyExistsFault");
+  export const isa = (o: any): o is ScheduledActionAlreadyExistsFault => __isa(o, "ScheduledActionAlreadyExistsFault");
 }
 
 /**
@@ -9784,61 +9357,55 @@ export interface ScheduledActionFilter {
 
 export namespace ScheduledActionFilter {
   export const filterSensitiveLog = (obj: ScheduledActionFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionFilter =>
-    __isa(o, "ScheduledActionFilter");
+  export const isa = (o: any): o is ScheduledActionFilter => __isa(o, "ScheduledActionFilter");
 }
 
 export enum ScheduledActionFilterName {
   CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role"
+  IAM_ROLE = "iam-role",
 }
 
 /**
  * <p>The scheduled action cannot be found. </p>
  */
-export interface ScheduledActionNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScheduledActionNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ScheduledActionNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScheduledActionNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: ScheduledActionNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledActionNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionNotFoundFault =>
-    __isa(o, "ScheduledActionNotFoundFault");
+  export const isa = (o: any): o is ScheduledActionNotFoundFault => __isa(o, "ScheduledActionNotFoundFault");
 }
 
 /**
  * <p>The quota for scheduled actions exceeded. </p>
  */
-export interface ScheduledActionQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScheduledActionQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ScheduledActionQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScheduledActionQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: ScheduledActionQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledActionQuotaExceededFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionQuotaExceededFault =>
-    __isa(o, "ScheduledActionQuotaExceededFault");
+  export const isa = (o: any): o is ScheduledActionQuotaExceededFault => __isa(o, "ScheduledActionQuotaExceededFault");
 }
 
 export interface ScheduledActionsMessage {
   __type?: "ScheduledActionsMessage";
+  /**
+   * <p>List of retrieved scheduled actions. </p>
+   */
+  ScheduledActions?: ScheduledAction[];
+
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeScheduledActions</a> request
@@ -9848,24 +9415,18 @@ export interface ScheduledActionsMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>List of retrieved scheduled actions. </p>
-   */
-  ScheduledActions?: ScheduledAction[];
 }
 
 export namespace ScheduledActionsMessage {
   export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionsMessage =>
-    __isa(o, "ScheduledActionsMessage");
+  export const isa = (o: any): o is ScheduledActionsMessage => __isa(o, "ScheduledActionsMessage");
 }
 
 export enum ScheduledActionState {
   ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED"
+  DISABLED = "DISABLED",
 }
 
 /**
@@ -9877,57 +9438,60 @@ export interface ScheduledActionType {
    * <p>An action that runs a <code>ResizeCluster</code> API operation. </p>
    */
   ResizeCluster?: ResizeClusterMessage;
+
+  /**
+   * <p>An action that runs a <code>ResumeCluster</code> API operation. </p>
+   */
+  ResumeCluster?: ResumeClusterMessage;
+
+  /**
+   * <p>An action that runs a <code>PauseCluster</code> API operation. </p>
+   */
+  PauseCluster?: PauseClusterMessage;
 }
 
 export namespace ScheduledActionType {
   export const filterSensitiveLog = (obj: ScheduledActionType): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionType =>
-    __isa(o, "ScheduledActionType");
+  export const isa = (o: any): o is ScheduledActionType => __isa(o, "ScheduledActionType");
 }
 
 /**
  * <p>The action type specified for a scheduled action is not supported. </p>
  */
-export interface ScheduledActionTypeUnsupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScheduledActionTypeUnsupportedFault extends __SmithyException, $MetadataBearer {
   name: "ScheduledActionTypeUnsupportedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScheduledActionTypeUnsupportedFault {
-  export const filterSensitiveLog = (
-    obj: ScheduledActionTypeUnsupportedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduledActionTypeUnsupportedFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduledActionTypeUnsupportedFault =>
     __isa(o, "ScheduledActionTypeUnsupportedFault");
 }
 
 export enum ScheduledActionTypeValues {
-  RESIZE_CLUSTER = "ResizeCluster"
+  PAUSE_CLUSTER = "PauseCluster",
+  RESIZE_CLUSTER = "ResizeCluster",
+  RESUME_CLUSTER = "ResumeCluster",
 }
 
 /**
  * <p>The definition you submitted is not supported.</p>
  */
-export interface ScheduleDefinitionTypeUnsupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScheduleDefinitionTypeUnsupportedFault extends __SmithyException, $MetadataBearer {
   name: "ScheduleDefinitionTypeUnsupportedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScheduleDefinitionTypeUnsupportedFault {
-  export const filterSensitiveLog = (
-    obj: ScheduleDefinitionTypeUnsupportedFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ScheduleDefinitionTypeUnsupportedFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ScheduleDefinitionTypeUnsupportedFault =>
     __isa(o, "ScheduleDefinitionTypeUnsupportedFault");
@@ -9941,66 +9505,6 @@ export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
 export interface Snapshot {
   __type?: "Snapshot";
   /**
-   * <p>A list of the AWS customer accounts authorized to restore the snapshot. Returns
-   *                 <code>null</code> if no accounts are authorized. Visible only to the snapshot owner.
-   *         </p>
-   */
-  AccountsWithRestoreAccess?: AccountWithRestoreAccess[];
-
-  /**
-   * <p>The size of the incremental backup.</p>
-   */
-  ActualIncrementalBackupSizeInMegaBytes?: number;
-
-  /**
-   * <p>The Availability Zone in which the cluster was created.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of megabytes that have been transferred to the snapshot
-   *             backup.</p>
-   */
-  BackupProgressInMegaBytes?: number;
-
-  /**
-   * <p>The time (UTC) when the cluster was originally created.</p>
-   */
-  ClusterCreateTime?: Date;
-
-  /**
-   * <p>The identifier of the cluster for which the snapshot was taken.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * <p>The number of megabytes per second being transferred to the snapshot backup.
-   *             Returns <code>0</code> for a completed backup. </p>
-   */
-  CurrentBackupRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The name of the database that was created when the cluster was created.</p>
-   */
-  DBName?: string;
-
-  /**
-   * <p>The amount of time an in-progress snapshot backup has been running, or the amount
-   *             of time it took a completed backup to finish.</p>
-   */
-  ElapsedTimeInSeconds?: number;
-
-  /**
-   * <p>If <code>true</code>, the data in the snapshot is encrypted at rest.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
    * <p>A boolean that indicates whether the snapshot data is encrypted using the HSM keys
    *             of the source cluster. <code>true</code> indicates that the data is encrypted using HSM
    *             keys.</p>
@@ -10008,14 +9512,14 @@ export interface Snapshot {
   EncryptedWithHSM?: boolean;
 
   /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
+   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
    */
-  EnhancedVpcRouting?: boolean;
+  ClusterVersion?: string;
+
+  /**
+   * <p>The name of the maintenance track for the snapshot.</p>
+   */
+  MaintenanceTrackName?: string;
 
   /**
    * <p>The estimate of the time remaining before the snapshot backup will complete.
@@ -10024,88 +9528,21 @@ export interface Snapshot {
   EstimatedSecondsToCompletion?: number;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that was used to
-   *             encrypt data in the cluster from which the snapshot was taken.</p>
+   * <p>The amount of time an in-progress snapshot backup has been running, or the amount
+   *             of time it took a completed backup to finish.</p>
    */
-  KmsKeyId?: string;
+  ElapsedTimeInSeconds?: number;
 
   /**
-   * <p>The name of the maintenance track for the snapshot.</p>
+   * <p>The number of megabytes per second being transferred to the snapshot backup.
+   *             Returns <code>0</code> for a completed backup. </p>
    */
-  MaintenanceTrackName?: string;
+  CurrentBackupRateInMegaBytesPerSecond?: number;
 
   /**
    * <p>The number of days until a manual snapshot will pass its retention period.</p>
    */
   ManualSnapshotRemainingDays?: number;
-
-  /**
-   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The master user name for the cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>The node type of the nodes in the cluster.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The number of nodes in the cluster.</p>
-   */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>For manual snapshots, the AWS customer account used to create or copy the snapshot.
-   *             For automatic snapshots, the owner of the cluster. The owner can perform all snapshot
-   *             actions, such as sharing a manual snapshot.</p>
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>The port that the cluster is listening on.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The list of node types that this cluster snapshot is able to restore
-   *             into.</p>
-   */
-  RestorableNodeTypes?: string[];
-
-  /**
-   * <p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a
-   *             copy of the cluster data as of this exact time.</p>
-   */
-  SnapshotCreateTime?: Date;
-
-  /**
-   * <p>The snapshot identifier that is provided in the request.</p>
-   */
-  SnapshotIdentifier?: string;
-
-  /**
-   * <p>A timestamp representing the start of the retention period for the snapshot.</p>
-   */
-  SnapshotRetentionStartTime?: Date;
-
-  /**
-   * <p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a>
-   *             and <a>CopyClusterSnapshot</a> are of type "manual". </p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>The source region from which the snapshot was copied.</p>
-   */
-  SourceRegion?: string;
 
   /**
    * <p>The snapshot status. The value of the status depends on the API operation used: </p>
@@ -10128,9 +9565,109 @@ export interface Snapshot {
   Status?: string;
 
   /**
-   * <p>The list of tags for the cluster snapshot.</p>
+   * <p>The identifier of the cluster for which the snapshot was taken.</p>
    */
-  Tags?: Tag[];
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The number of megabytes that have been transferred to the snapshot
+   *             backup.</p>
+   */
+  BackupProgressInMegaBytes?: number;
+
+  /**
+   * <p>A list of the AWS customer accounts authorized to restore the snapshot. Returns
+   *                 <code>null</code> if no accounts are authorized. Visible only to the snapshot owner.
+   *         </p>
+   */
+  AccountsWithRestoreAccess?: AccountWithRestoreAccess[];
+
+  /**
+   * <p>The size of the incremental backup.</p>
+   */
+  ActualIncrementalBackupSizeInMegaBytes?: number;
+
+  /**
+   * <p>The number of nodes in the cluster.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a
+   *             copy of the cluster data as of this exact time.</p>
+   */
+  SnapshotCreateTime?: Date;
+
+  /**
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
+   */
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that was used to
+   *             encrypt data in the cluster from which the snapshot was taken.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The source region from which the snapshot was copied.</p>
+   */
+  SourceRegion?: string;
+
+  /**
+   * <p>The name of the database that was created when the cluster was created.</p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>The master user name for the cluster.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * <p>The Availability Zone in which the cluster was created.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The VPC identifier of the cluster if the snapshot is from a cluster in a VPC.
+   *             Otherwise, this field is not in the output.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>If <code>true</code>, the data in the snapshot is encrypted at rest.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The snapshot identifier that is provided in the request.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The list of node types that this cluster snapshot is able to restore
+   *             into.</p>
+   */
+  RestorableNodeTypes?: string[];
+
+  /**
+   * <p>The port that the cluster is listening on.</p>
+   */
+  Port?: number;
 
   /**
    * <p>The size of the complete set of backup data that would be used to restore the
@@ -10139,15 +9676,42 @@ export interface Snapshot {
   TotalBackupSizeInMegaBytes?: number;
 
   /**
-   * <p>The VPC identifier of the cluster if the snapshot is from a cluster in a VPC.
-   *             Otherwise, this field is not in the output.</p>
+   * <p>The time (UTC) when the cluster was originally created.</p>
    */
-  VpcId?: string;
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a>
+   *             and <a>CopyClusterSnapshot</a> are of type "manual". </p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>The node type of the nodes in the cluster.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * <p>The list of tags for the cluster snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>For manual snapshots, the AWS customer account used to create or copy the snapshot.
+   *             For automatic snapshots, the owner of the cluster. The owner can perform all snapshot
+   *             actions, such as sharing a manual snapshot.</p>
+   */
+  OwnerAccount?: string;
+
+  /**
+   * <p>A timestamp representing the start of the retention period for the snapshot.</p>
+   */
+  SnapshotRetentionStartTime?: Date;
 }
 
 export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
@@ -10155,58 +9719,46 @@ export namespace Snapshot {
 export enum SnapshotAttributeToSortBy {
   CREATE_TIME = "CREATE_TIME",
   SOURCE_TYPE = "SOURCE_TYPE",
-  TOTAL_SIZE = "TOTAL_SIZE"
+  TOTAL_SIZE = "TOTAL_SIZE",
 }
 
 /**
  * <p>The cluster already has cross-region snapshot copy disabled.</p>
  */
-export interface SnapshotCopyAlreadyDisabledFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyAlreadyDisabledFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyAlreadyDisabledFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotCopyAlreadyDisabledFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotCopyAlreadyDisabledFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyDisabledFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyAlreadyDisabledFault =>
-    __isa(o, "SnapshotCopyAlreadyDisabledFault");
+  export const isa = (o: any): o is SnapshotCopyAlreadyDisabledFault => __isa(o, "SnapshotCopyAlreadyDisabledFault");
 }
 
 /**
  * <p>The cluster already has cross-region snapshot copy enabled.</p>
  */
-export interface SnapshotCopyAlreadyEnabledFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyAlreadyEnabledFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyAlreadyEnabledFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotCopyAlreadyEnabledFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotCopyAlreadyEnabledFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyEnabledFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyAlreadyEnabledFault =>
-    __isa(o, "SnapshotCopyAlreadyEnabledFault");
+  export const isa = (o: any): o is SnapshotCopyAlreadyEnabledFault => __isa(o, "SnapshotCopyAlreadyEnabledFault");
 }
 
 /**
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
-export interface SnapshotCopyDisabledFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyDisabledFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyDisabledFault";
   $fault: "client";
   message?: string;
@@ -10214,10 +9766,9 @@ export interface SnapshotCopyDisabledFault
 
 export namespace SnapshotCopyDisabledFault {
   export const filterSensitiveLog = (obj: SnapshotCopyDisabledFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyDisabledFault =>
-    __isa(o, "SnapshotCopyDisabledFault");
+  export const isa = (o: any): o is SnapshotCopyDisabledFault => __isa(o, "SnapshotCopyDisabledFault");
 }
 
 /**
@@ -10233,10 +9784,9 @@ export namespace SnapshotCopyDisabledFault {
 export interface SnapshotCopyGrant {
   __type?: "SnapshotCopyGrant";
   /**
-   * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
-   *             Amazon Redshift is granted permission.</p>
+   * <p>A list of tag instances.</p>
    */
-  KmsKeyId?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the snapshot copy grant.</p>
@@ -10244,36 +9794,32 @@ export interface SnapshotCopyGrant {
   SnapshotCopyGrantName?: string;
 
   /**
-   * <p>A list of tag instances.</p>
+   * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
+   *             Amazon Redshift is granted permission.</p>
    */
-  Tags?: Tag[];
+  KmsKeyId?: string;
 }
 
 export namespace SnapshotCopyGrant {
   export const filterSensitiveLog = (obj: SnapshotCopyGrant): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrant =>
-    __isa(o, "SnapshotCopyGrant");
+  export const isa = (o: any): o is SnapshotCopyGrant => __isa(o, "SnapshotCopyGrant");
 }
 
 /**
  * <p>The snapshot copy grant can't be created because a grant with the same name already
  *             exists.</p>
  */
-export interface SnapshotCopyGrantAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyGrantAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyGrantAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotCopyGrantAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotCopyGrantAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotCopyGrantAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotCopyGrantAlreadyExistsFault =>
     __isa(o, "SnapshotCopyGrantAlreadyExistsFault");
@@ -10303,51 +9849,41 @@ export interface SnapshotCopyGrantMessage {
 
 export namespace SnapshotCopyGrantMessage {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantMessage =>
-    __isa(o, "SnapshotCopyGrantMessage");
+  export const isa = (o: any): o is SnapshotCopyGrantMessage => __isa(o, "SnapshotCopyGrantMessage");
 }
 
 /**
  * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  */
-export interface SnapshotCopyGrantNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyGrantNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyGrantNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotCopyGrantNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotCopyGrantNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotCopyGrantNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantNotFoundFault =>
-    __isa(o, "SnapshotCopyGrantNotFoundFault");
+  export const isa = (o: any): o is SnapshotCopyGrantNotFoundFault => __isa(o, "SnapshotCopyGrantNotFoundFault");
 }
 
 /**
  * <p>The AWS account has exceeded the maximum number of snapshot copy grants in this
  *             region.</p>
  */
-export interface SnapshotCopyGrantQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotCopyGrantQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotCopyGrantQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotCopyGrantQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotCopyGrantQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotCopyGrantQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotCopyGrantQuotaExceededFault =>
     __isa(o, "SnapshotCopyGrantQuotaExceededFault");
@@ -10359,14 +9895,14 @@ export namespace SnapshotCopyGrantQuotaExceededFault {
 export interface SnapshotErrorMessage {
   __type?: "SnapshotErrorMessage";
   /**
-   * <p>The failure code for the error.</p>
-   */
-  FailureCode?: string;
-
-  /**
    * <p>The text message describing the error.</p>
    */
   FailureReason?: string;
+
+  /**
+   * <p>A unique identifier for the snapshot returning the error.</p>
+   */
+  SnapshotIdentifier?: string;
 
   /**
    * <p>A unique identifier for the cluster.</p>
@@ -10374,17 +9910,16 @@ export interface SnapshotErrorMessage {
   SnapshotClusterIdentifier?: string;
 
   /**
-   * <p>A unique identifier for the snapshot returning the error.</p>
+   * <p>The failure code for the error.</p>
    */
-  SnapshotIdentifier?: string;
+  FailureCode?: string;
 }
 
 export namespace SnapshotErrorMessage {
   export const filterSensitiveLog = (obj: SnapshotErrorMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotErrorMessage =>
-    __isa(o, "SnapshotErrorMessage");
+  export const isa = (o: any): o is SnapshotErrorMessage => __isa(o, "SnapshotErrorMessage");
 }
 
 /**
@@ -10410,10 +9945,9 @@ export interface SnapshotMessage {
 
 export namespace SnapshotMessage {
   export const filterSensitiveLog = (obj: SnapshotMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotMessage =>
-    __isa(o, "SnapshotMessage");
+  export const isa = (o: any): o is SnapshotMessage => __isa(o, "SnapshotMessage");
 }
 
 /**
@@ -10423,9 +9957,9 @@ export namespace SnapshotMessage {
 export interface SnapshotSchedule {
   __type?: "SnapshotSchedule";
   /**
-   * <p>The number of clusters associated with the schedule.</p>
+   * <p></p>
    */
-  AssociatedClusterCount?: number;
+  NextInvocations?: Date[];
 
   /**
    * <p>A list of clusters associated with the schedule. A maximum of 100 clusters is returned.</p>
@@ -10433,19 +9967,9 @@ export interface SnapshotSchedule {
   AssociatedClusters?: ClusterAssociatedToSchedule[];
 
   /**
-   * <p></p>
+   * <p>The number of clusters associated with the schedule.</p>
    */
-  NextInvocations?: Date[];
-
-  /**
-   * <p>A list of ScheduleDefinitions.</p>
-   */
-  ScheduleDefinitions?: string[];
-
-  /**
-   * <p>The description of the schedule.</p>
-   */
-  ScheduleDescription?: string;
+  AssociatedClusterCount?: number;
 
   /**
    * <p>A unique identifier for the schedule.</p>
@@ -10456,32 +9980,37 @@ export interface SnapshotSchedule {
    * <p>An optional set of tags describing the schedule.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The description of the schedule.</p>
+   */
+  ScheduleDescription?: string;
+
+  /**
+   * <p>A list of ScheduleDefinitions.</p>
+   */
+  ScheduleDefinitions?: string[];
 }
 
 export namespace SnapshotSchedule {
   export const filterSensitiveLog = (obj: SnapshotSchedule): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotSchedule =>
-    __isa(o, "SnapshotSchedule");
+  export const isa = (o: any): o is SnapshotSchedule => __isa(o, "SnapshotSchedule");
 }
 
 /**
  * <p>The specified snapshot schedule already exists. </p>
  */
-export interface SnapshotScheduleAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotScheduleAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotScheduleAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotScheduleAlreadyExistsFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotScheduleAlreadyExistsFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotScheduleAlreadyExistsFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotScheduleAlreadyExistsFault =>
     __isa(o, "SnapshotScheduleAlreadyExistsFault");
@@ -10490,40 +10019,31 @@ export namespace SnapshotScheduleAlreadyExistsFault {
 /**
  * <p>We could not find the specified snapshot schedule. </p>
  */
-export interface SnapshotScheduleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotScheduleNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotScheduleNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotScheduleNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotScheduleNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotScheduleNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotScheduleNotFoundFault =>
-    __isa(o, "SnapshotScheduleNotFoundFault");
+  export const isa = (o: any): o is SnapshotScheduleNotFoundFault => __isa(o, "SnapshotScheduleNotFoundFault");
 }
 
 /**
  * <p>You have exceeded the quota of snapshot schedules. </p>
  */
-export interface SnapshotScheduleQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotScheduleQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotScheduleQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotScheduleQuotaExceededFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotScheduleQuotaExceededFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotScheduleQuotaExceededFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotScheduleQuotaExceededFault =>
     __isa(o, "SnapshotScheduleQuotaExceededFault");
@@ -10532,19 +10052,15 @@ export namespace SnapshotScheduleQuotaExceededFault {
 /**
  * <p>The specified snapshot schedule is already being updated.</p>
  */
-export interface SnapshotScheduleUpdateInProgressFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotScheduleUpdateInProgressFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotScheduleUpdateInProgressFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotScheduleUpdateInProgressFault {
-  export const filterSensitiveLog = (
-    obj: SnapshotScheduleUpdateInProgressFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SnapshotScheduleUpdateInProgressFault): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is SnapshotScheduleUpdateInProgressFault =>
     __isa(o, "SnapshotScheduleUpdateInProgressFault");
@@ -10568,19 +10084,16 @@ export interface SnapshotSortingEntity {
 
 export namespace SnapshotSortingEntity {
   export const filterSensitiveLog = (obj: SnapshotSortingEntity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SnapshotSortingEntity =>
-    __isa(o, "SnapshotSortingEntity");
+  export const isa = (o: any): o is SnapshotSortingEntity => __isa(o, "SnapshotSortingEntity");
 }
 
 /**
  * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
  *             topic.</p>
  */
-export interface SNSInvalidTopicFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
   name: "SNSInvalidTopicFault";
   $fault: "client";
   message?: string;
@@ -10588,18 +10101,15 @@ export interface SNSInvalidTopicFault
 
 export namespace SNSInvalidTopicFault {
   export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SNSInvalidTopicFault =>
-    __isa(o, "SNSInvalidTopicFault");
+  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
  * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
  */
-export interface SNSNoAuthorizationFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   message?: string;
@@ -10607,19 +10117,16 @@ export interface SNSNoAuthorizationFault
 
 export namespace SNSNoAuthorizationFault {
   export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SNSNoAuthorizationFault =>
-    __isa(o, "SNSNoAuthorizationFault");
+  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
  * <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
  *             exist.</p>
  */
-export interface SNSTopicArnNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
   message?: string;
@@ -10627,23 +10134,20 @@ export interface SNSTopicArnNotFoundFault
 
 export namespace SNSTopicArnNotFoundFault {
   export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SNSTopicArnNotFoundFault =>
-    __isa(o, "SNSTopicArnNotFoundFault");
+  export const isa = (o: any): o is SNSTopicArnNotFoundFault => __isa(o, "SNSTopicArnNotFoundFault");
 }
 
 export enum SortByOrder {
   ASCENDING = "ASC",
-  DESCENDING = "DESC"
+  DESCENDING = "DESC",
 }
 
 /**
  * <p>The specified Amazon Redshift event source could not be found.</p>
  */
-export interface SourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SourceNotFoundFault";
   $fault: "client";
   message?: string;
@@ -10651,10 +10155,9 @@ export interface SourceNotFoundFault
 
 export namespace SourceNotFoundFault {
   export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SourceNotFoundFault =>
-    __isa(o, "SourceNotFoundFault");
+  export const isa = (o: any): o is SourceNotFoundFault => __isa(o, "SourceNotFoundFault");
 }
 
 export type SourceType =
@@ -10687,7 +10190,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
@@ -10703,32 +10206,26 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 
 export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
+  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
  * <p>There is already an existing event notification subscription with the specified
  *             name.</p>
  */
-export interface SubscriptionAlreadyExistFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionAlreadyExistFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubscriptionAlreadyExistFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionAlreadyExistFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SubscriptionAlreadyExistFault =>
-    __isa(o, "SubscriptionAlreadyExistFault");
+  export const isa = (o: any): o is SubscriptionAlreadyExistFault => __isa(o, "SubscriptionAlreadyExistFault");
 }
 
 /**
@@ -10736,52 +10233,40 @@ export namespace SubscriptionAlreadyExistFault {
  *             specified a category that does not apply to the specified source type. The allowed
  *             values are Configuration, Management, Monitoring, and Security.</p>
  */
-export interface SubscriptionCategoryNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubscriptionCategoryNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionCategoryNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault =>
-    __isa(o, "SubscriptionCategoryNotFoundFault");
+  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault => __isa(o, "SubscriptionCategoryNotFoundFault");
 }
 
 /**
  * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
  */
-export interface SubscriptionEventIdNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionEventIdNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionEventIdNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubscriptionEventIdNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionEventIdNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubscriptionEventIdNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SubscriptionEventIdNotFoundFault =>
-    __isa(o, "SubscriptionEventIdNotFoundFault");
+  export const isa = (o: any): o is SubscriptionEventIdNotFoundFault => __isa(o, "SubscriptionEventIdNotFoundFault");
 }
 
 /**
  * <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  */
-export interface SubscriptionNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   message?: string;
@@ -10789,10 +10274,9 @@ export interface SubscriptionNotFoundFault
 
 export namespace SubscriptionNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscriptionNotFoundFault =>
-    __isa(o, "SubscriptionNotFoundFault");
+  export const isa = (o: any): o is SubscriptionNotFoundFault => __isa(o, "SubscriptionNotFoundFault");
 }
 
 /**
@@ -10800,22 +10284,17 @@ export namespace SubscriptionNotFoundFault {
  *             specified a severity that does not apply to the specified source type. The allowed
  *             values are ERROR and INFO.</p>
  */
-export interface SubscriptionSeverityNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionSeverityNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionSeverityNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubscriptionSeverityNotFoundFault {
-  export const filterSensitiveLog = (
-    obj: SubscriptionSeverityNotFoundFault
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: SubscriptionSeverityNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is SubscriptionSeverityNotFoundFault =>
-    __isa(o, "SubscriptionSeverityNotFoundFault");
+  export const isa = (o: any): o is SubscriptionSeverityNotFoundFault => __isa(o, "SubscriptionSeverityNotFoundFault");
 }
 
 /**
@@ -10831,10 +10310,9 @@ export interface SupportedOperation {
 
 export namespace SupportedOperation {
   export const filterSensitiveLog = (obj: SupportedOperation): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SupportedOperation =>
-    __isa(o, "SupportedOperation");
+  export const isa = (o: any): o is SupportedOperation => __isa(o, "SupportedOperation");
 }
 
 /**
@@ -10850,19 +10328,16 @@ export interface SupportedPlatform {
 
 export namespace SupportedPlatform {
   export const filterSensitiveLog = (obj: SupportedPlatform): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SupportedPlatform =>
-    __isa(o, "SupportedPlatform");
+  export const isa = (o: any): o is SupportedPlatform => __isa(o, "SupportedPlatform");
 }
 
 /**
  * <p>The number of tables in the cluster exceeds the limit for the requested new cluster
  *             node type. </p>
  */
-export interface TableLimitExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TableLimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "TableLimitExceededFault";
   $fault: "client";
   message?: string;
@@ -10870,18 +10345,15 @@ export interface TableLimitExceededFault
 
 export namespace TableLimitExceededFault {
   export const filterSensitiveLog = (obj: TableLimitExceededFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TableLimitExceededFault =>
-    __isa(o, "TableLimitExceededFault");
+  export const isa = (o: any): o is TableLimitExceededFault => __isa(o, "TableLimitExceededFault");
 }
 
 /**
  * <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
  */
-export interface TableRestoreNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TableRestoreNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "TableRestoreNotFoundFault";
   $fault: "client";
   message?: string;
@@ -10889,10 +10361,9 @@ export interface TableRestoreNotFoundFault
 
 export namespace TableRestoreNotFoundFault {
   export const filterSensitiveLog = (obj: TableRestoreNotFoundFault): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TableRestoreNotFoundFault =>
-    __isa(o, "TableRestoreNotFoundFault");
+  export const isa = (o: any): o is TableRestoreNotFoundFault => __isa(o, "TableRestoreNotFoundFault");
 }
 
 /**
@@ -10902,27 +10373,30 @@ export namespace TableRestoreNotFoundFault {
 export interface TableRestoreStatus {
   __type?: "TableRestoreStatus";
   /**
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  TargetSchemaName?: string;
+
+  /**
+   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   */
+  TotalDataInMegaBytes?: number;
+
+  /**
+   * <p>The name of the database to restore the table to.</p>
+   */
+  TargetDatabaseName?: string;
+
+  /**
+   * <p>The identifier of the snapshot that the table is being restored from.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
    * <p>The identifier of the Amazon Redshift cluster that the table is being restored
    *             to.</p>
    */
   ClusterIdentifier?: string;
-
-  /**
-   * <p>A description of the status of the table restore request. Status values include
-   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
-   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The name of the table to create as a result of the table restore request.</p>
-   */
-  NewTableName?: string;
-
-  /**
-   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
-   */
-  ProgressInMegaBytes?: number;
 
   /**
    * <p>The time that the table restore request was made, in Universal Coordinated Time
@@ -10931,14 +10405,21 @@ export interface TableRestoreStatus {
   RequestTime?: Date;
 
   /**
-   * <p>The identifier of the snapshot that the table is being restored from.</p>
+   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
    */
-  SnapshotIdentifier?: string;
+  ProgressInMegaBytes?: number;
 
   /**
    * <p>The name of the source database that contains the table being restored.</p>
    */
   SourceDatabaseName?: string;
+
+  /**
+   * <p>A description of the status of the table restore request. Status values include
+   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The name of the source schema that contains the table being restored.</p>
@@ -10964,27 +10445,16 @@ export interface TableRestoreStatus {
   TableRestoreRequestId?: string;
 
   /**
-   * <p>The name of the database to restore the table to.</p>
+   * <p>The name of the table to create as a result of the table restore request.</p>
    */
-  TargetDatabaseName?: string;
-
-  /**
-   * <p>The name of the schema to restore the table to.</p>
-   */
-  TargetSchemaName?: string;
-
-  /**
-   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
-   */
-  TotalDataInMegaBytes?: number;
+  NewTableName?: string;
 }
 
 export namespace TableRestoreStatus {
   export const filterSensitiveLog = (obj: TableRestoreStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TableRestoreStatus =>
-    __isa(o, "TableRestoreStatus");
+  export const isa = (o: any): o is TableRestoreStatus => __isa(o, "TableRestoreStatus");
 }
 
 /**
@@ -10993,30 +10463,24 @@ export namespace TableRestoreStatus {
 export interface TableRestoreStatusMessage {
   __type?: "TableRestoreStatusMessage";
   /**
-   * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of status details for one or more table restore requests.</p>
    */
   TableRestoreStatusDetails?: TableRestoreStatus[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
+   */
+  Marker?: string;
 }
 
 export namespace TableRestoreStatusMessage {
   export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TableRestoreStatusMessage =>
-    __isa(o, "TableRestoreStatusMessage");
+  export const isa = (o: any): o is TableRestoreStatusMessage => __isa(o, "TableRestoreStatusMessage");
 }
 
-export type TableRestoreStatusType =
-  | "CANCELED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "PENDING"
-  | "SUCCEEDED";
+export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
 
 /**
  * <p>A tag consisting of a name/value pair for a resource.</p>
@@ -11024,19 +10488,19 @@ export type TableRestoreStatusType =
 export interface Tag {
   __type?: "Tag";
   /**
-   * <p>The key, or name, for the resource tag.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>The value for the resource tag.</p>
    */
   Value?: string;
+
+  /**
+   * <p>The key, or name, for the resource tag.</p>
+   */
+  Key?: string;
 }
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
@@ -11046,6 +10510,11 @@ export namespace Tag {
  */
 export interface TaggedResource {
   __type?: "TaggedResource";
+  /**
+   * <p>The tag for the resource.</p>
+   */
+  Tag?: Tag;
+
   /**
    * <p>The Amazon Resource Name (ARN) with which the tag is associated, for example:
    *                 <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>.</p>
@@ -11088,19 +10557,13 @@ export interface TaggedResource {
    *             Amazon Redshift Cluster Management Guide. </p>
    */
   ResourceType?: string;
-
-  /**
-   * <p>The tag for the resource.</p>
-   */
-  Tag?: Tag;
 }
 
 export namespace TaggedResource {
   export const filterSensitiveLog = (obj: TaggedResource): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TaggedResource =>
-    __isa(o, "TaggedResource");
+  export const isa = (o: any): o is TaggedResource => __isa(o, "TaggedResource");
 }
 
 /**
@@ -11108,6 +10571,260 @@ export namespace TaggedResource {
  */
 export interface TaggedResourceListMessage {
   __type?: "TaggedResourceListMessage";
+  /**
+   * <p>A list of tags with their associated resources.</p>
+   */
+  TaggedResources?: TaggedResource[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace TaggedResourceListMessage {
+  export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TaggedResourceListMessage => __isa(o, "TaggedResourceListMessage");
+}
+
+/**
+ * <p>You have exceeded the number of tags allowed.</p>
+ */
+export interface TagLimitExceededFault extends __SmithyException, $MetadataBearer {
+  name: "TagLimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagLimitExceededFault {
+  export const filterSensitiveLog = (obj: TagLimitExceededFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TagLimitExceededFault => __isa(o, "TagLimitExceededFault");
+}
+
+export interface TrackListMessage {
+  __type?: "TrackListMessage";
+  /**
+   * <p>The starting point to return a set of response tracklist records. You can retrieve the
+   *             next set of response records by providing the returned marker value in the
+   *                 <code>Marker</code> parameter and retrying the request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
+   *             operation. </p>
+   */
+  MaintenanceTracks?: MaintenanceTrack[];
+}
+
+export namespace TrackListMessage {
+  export const filterSensitiveLog = (obj: TrackListMessage): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is TrackListMessage => __isa(o, "TrackListMessage");
+}
+
+/**
+ * <p>Your account is not authorized to perform the requested operation.</p>
+ */
+export interface UnauthorizedOperation extends __SmithyException, $MetadataBearer {
+  name: "UnauthorizedOperation";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnauthorizedOperation {
+  export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UnauthorizedOperation => __isa(o, "UnauthorizedOperation");
+}
+
+/**
+ * <p>The specified region is incorrect or does not exist.</p>
+ */
+export interface UnknownSnapshotCopyRegionFault extends __SmithyException, $MetadataBearer {
+  name: "UnknownSnapshotCopyRegionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnknownSnapshotCopyRegionFault {
+  export const filterSensitiveLog = (obj: UnknownSnapshotCopyRegionFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UnknownSnapshotCopyRegionFault => __isa(o, "UnknownSnapshotCopyRegionFault");
+}
+
+/**
+ * <p>The requested operation isn't supported.</p>
+ */
+export interface UnsupportedOperationFault extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedOperationFault {
+  export const filterSensitiveLog = (obj: UnsupportedOperationFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UnsupportedOperationFault => __isa(o, "UnsupportedOperationFault");
+}
+
+/**
+ * <p>A request option was specified that is not supported.</p>
+ */
+export interface UnsupportedOptionFault extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOptionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedOptionFault {
+  export const filterSensitiveLog = (obj: UnsupportedOptionFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UnsupportedOptionFault => __isa(o, "UnsupportedOptionFault");
+}
+
+/**
+ * <p>A maintenance track that you can switch the current track to.</p>
+ */
+export interface UpdateTarget {
+  __type?: "UpdateTarget";
+  /**
+   * <p>The name of the new maintenance track.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>The cluster version for the new maintenance track.</p>
+   */
+  DatabaseVersion?: string;
+
+  /**
+   * <p>A list of operations supported by the maintenance track.</p>
+   */
+  SupportedOperations?: SupportedOperation[];
+}
+
+export namespace UpdateTarget {
+  export const filterSensitiveLog = (obj: UpdateTarget): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateTarget => __isa(o, "UpdateTarget");
+}
+
+/**
+ * <p>Describes a usage limit object for a cluster. </p>
+ */
+export interface UsageLimit {
+  __type?: "UsageLimit";
+  /**
+   * <p>The identifier of the cluster with a usage limit.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The Amazon Redshift feature to which the limit applies.</p>
+   */
+  FeatureType?: UsageLimitFeatureType | string;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
+   */
+  LimitType?: UsageLimitLimitType | string;
+
+  /**
+   * <p>The action that Amazon Redshift takes when the limit is reached. Possible values are: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>log</b> - To log an event in a system table. The default is log.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>emit-metric</b> - To emit CloudWatch metrics.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>disable</b> - To disable the feature until the next usage period begins.</p>
+   *             </li>
+   *          </ul>
+   */
+  BreachAction?: UsageLimitBreachAction | string;
+
+  /**
+   * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
+   */
+  Period?: UsageLimitPeriod | string;
+
+  /**
+   * <p>The identifier of the usage limit.</p>
+   */
+  UsageLimitId?: string;
+
+  /**
+   * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).</p>
+   */
+  Amount?: number;
+}
+
+export namespace UsageLimit {
+  export const filterSensitiveLog = (obj: UsageLimit): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UsageLimit => __isa(o, "UsageLimit");
+}
+
+/**
+ * <p>The usage limit already exists. </p>
+ */
+export interface UsageLimitAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "UsageLimitAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UsageLimitAlreadyExistsFault {
+  export const filterSensitiveLog = (obj: UsageLimitAlreadyExistsFault): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UsageLimitAlreadyExistsFault => __isa(o, "UsageLimitAlreadyExistsFault");
+}
+
+export enum UsageLimitBreachAction {
+  DISABLE = "disable",
+  EMIT_METRIC = "emit-metric",
+  LOG = "log",
+}
+
+export enum UsageLimitFeatureType {
+  CONCURRENCY_SCALING = "concurrency-scaling",
+  SPECTRUM = "spectrum",
+}
+
+export enum UsageLimitLimitType {
+  DATA_SCANNED = "data-scanned",
+  TIME = "time",
+}
+
+export interface UsageLimitList {
+  __type?: "UsageLimitList";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -11118,166 +10835,39 @@ export interface TaggedResourceListMessage {
   Marker?: string;
 
   /**
-   * <p>A list of tags with their associated resources.</p>
+   * <p>Contains the output from the <a>DescribeUsageLimits</a>
+   *             action. </p>
    */
-  TaggedResources?: TaggedResource[];
+  UsageLimits?: UsageLimit[];
 }
 
-export namespace TaggedResourceListMessage {
-  export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
-    ...obj
+export namespace UsageLimitList {
+  export const filterSensitiveLog = (obj: UsageLimitList): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TaggedResourceListMessage =>
-    __isa(o, "TaggedResourceListMessage");
+  export const isa = (o: any): o is UsageLimitList => __isa(o, "UsageLimitList");
 }
 
 /**
- * <p>You have exceeded the number of tags allowed.</p>
+ * <p>The usage limit identifier can't be found.</p>
  */
-export interface TagLimitExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "TagLimitExceededFault";
+export interface UsageLimitNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "UsageLimitNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
-export namespace TagLimitExceededFault {
-  export const filterSensitiveLog = (obj: TagLimitExceededFault): any => ({
-    ...obj
+export namespace UsageLimitNotFoundFault {
+  export const filterSensitiveLog = (obj: UsageLimitNotFoundFault): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededFault =>
-    __isa(o, "TagLimitExceededFault");
+  export const isa = (o: any): o is UsageLimitNotFoundFault => __isa(o, "UsageLimitNotFoundFault");
 }
 
-export interface TrackListMessage {
-  __type?: "TrackListMessage";
-  /**
-   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
-   *             operation. </p>
-   */
-  MaintenanceTracks?: MaintenanceTrack[];
-
-  /**
-   * <p>The starting point to return a set of response tracklist records. You can retrieve the
-   *             next set of response records by providing the returned marker value in the
-   *                 <code>Marker</code> parameter and retrying the request.</p>
-   */
-  Marker?: string;
-}
-
-export namespace TrackListMessage {
-  export const filterSensitiveLog = (obj: TrackListMessage): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is TrackListMessage =>
-    __isa(o, "TrackListMessage");
-}
-
-/**
- * <p>Your account is not authorized to perform the requested operation.</p>
- */
-export interface UnauthorizedOperation
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnauthorizedOperation";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnauthorizedOperation {
-  export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnauthorizedOperation =>
-    __isa(o, "UnauthorizedOperation");
-}
-
-/**
- * <p>The specified region is incorrect or does not exist.</p>
- */
-export interface UnknownSnapshotCopyRegionFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnknownSnapshotCopyRegionFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnknownSnapshotCopyRegionFault {
-  export const filterSensitiveLog = (
-    obj: UnknownSnapshotCopyRegionFault
-  ): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnknownSnapshotCopyRegionFault =>
-    __isa(o, "UnknownSnapshotCopyRegionFault");
-}
-
-/**
- * <p>The requested operation isn't supported.</p>
- */
-export interface UnsupportedOperationFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedOperationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnsupportedOperationFault {
-  export const filterSensitiveLog = (obj: UnsupportedOperationFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedOperationFault =>
-    __isa(o, "UnsupportedOperationFault");
-}
-
-/**
- * <p>A request option was specified that is not supported.</p>
- */
-export interface UnsupportedOptionFault
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "UnsupportedOptionFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnsupportedOptionFault {
-  export const filterSensitiveLog = (obj: UnsupportedOptionFault): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UnsupportedOptionFault =>
-    __isa(o, "UnsupportedOptionFault");
-}
-
-/**
- * <p>A maintenance track that you can switch the current track to.</p>
- */
-export interface UpdateTarget {
-  __type?: "UpdateTarget";
-  /**
-   * <p>The cluster version for the new maintenance track.</p>
-   */
-  DatabaseVersion?: string;
-
-  /**
-   * <p>The name of the new maintenance track.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>A list of operations supported by the maintenance track.</p>
-   */
-  SupportedOperations?: SupportedOperation[];
-}
-
-export namespace UpdateTarget {
-  export const filterSensitiveLog = (obj: UpdateTarget): any => ({
-    ...obj
-  });
-  export const isa = (o: any): o is UpdateTarget => __isa(o, "UpdateTarget");
+export enum UsageLimitPeriod {
+  DAILY = "daily",
+  MONTHLY = "monthly",
+  WEEKLY = "weekly",
 }
 
 /**
@@ -11286,20 +10876,19 @@ export namespace UpdateTarget {
 export interface VpcSecurityGroupMembership {
   __type?: "VpcSecurityGroupMembership";
   /**
-   * <p>The status of the VPC security group.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The identifier of the VPC security group.</p>
    */
   VpcSecurityGroupId?: string;
+
+  /**
+   * <p>The status of the VPC security group.</p>
+   */
+  Status?: string;
 }
 
 export namespace VpcSecurityGroupMembership {
   export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is VpcSecurityGroupMembership =>
-    __isa(o, "VpcSecurityGroupMembership");
+  export const isa = (o: any): o is VpcSecurityGroupMembership => __isa(o, "VpcSecurityGroupMembership");
 }

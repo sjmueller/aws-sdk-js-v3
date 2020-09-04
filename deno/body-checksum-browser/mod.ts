@@ -1,7 +1,7 @@
-import { TreeHash } from "../sha256-tree-hash/mod.ts";
-import { Decoder, HttpRequest, HashConstructor } from "../types/mod.ts";
-import { toHex } from "../util-hex-encoding/mod.ts";
 import { blobReader } from "../chunked-blob-reader/mod.ts";
+import { TreeHash } from "../sha256-tree-hash/mod.ts";
+import { Decoder, HashConstructor, HttpRequest } from "../types/mod.ts";
+import { toHex } from "../util-hex-encoding/mod.ts";
 
 const MiB = 1024 * 1024;
 
@@ -19,10 +19,7 @@ export async function bodyChecksumGenerator(
     contentHash.update(body);
     treeHash.update(body);
   } else {
-    if (
-      Boolean(body) &&
-      Object.prototype.toString.call(body) === "[object Blob]"
-    ) {
+    if (Boolean(body) && Object.prototype.toString.call(body) === "[object Blob]") {
       await blobReader(
         body,
         (chunk: any) => {

@@ -1,150 +1,129 @@
 import {
   AddAttributesToFindingsCommandInput,
-  AddAttributesToFindingsCommandOutput
+  AddAttributesToFindingsCommandOutput,
 } from "./commands/AddAttributesToFindingsCommand.ts";
 import {
   CreateAssessmentTargetCommandInput,
-  CreateAssessmentTargetCommandOutput
+  CreateAssessmentTargetCommandOutput,
 } from "./commands/CreateAssessmentTargetCommand.ts";
 import {
   CreateAssessmentTemplateCommandInput,
-  CreateAssessmentTemplateCommandOutput
+  CreateAssessmentTemplateCommandOutput,
 } from "./commands/CreateAssessmentTemplateCommand.ts";
 import {
   CreateExclusionsPreviewCommandInput,
-  CreateExclusionsPreviewCommandOutput
+  CreateExclusionsPreviewCommandOutput,
 } from "./commands/CreateExclusionsPreviewCommand.ts";
 import {
   CreateResourceGroupCommandInput,
-  CreateResourceGroupCommandOutput
+  CreateResourceGroupCommandOutput,
 } from "./commands/CreateResourceGroupCommand.ts";
 import {
   DeleteAssessmentRunCommandInput,
-  DeleteAssessmentRunCommandOutput
+  DeleteAssessmentRunCommandOutput,
 } from "./commands/DeleteAssessmentRunCommand.ts";
 import {
   DeleteAssessmentTargetCommandInput,
-  DeleteAssessmentTargetCommandOutput
+  DeleteAssessmentTargetCommandOutput,
 } from "./commands/DeleteAssessmentTargetCommand.ts";
 import {
   DeleteAssessmentTemplateCommandInput,
-  DeleteAssessmentTemplateCommandOutput
+  DeleteAssessmentTemplateCommandOutput,
 } from "./commands/DeleteAssessmentTemplateCommand.ts";
 import {
   DescribeAssessmentRunsCommandInput,
-  DescribeAssessmentRunsCommandOutput
+  DescribeAssessmentRunsCommandOutput,
 } from "./commands/DescribeAssessmentRunsCommand.ts";
 import {
   DescribeAssessmentTargetsCommandInput,
-  DescribeAssessmentTargetsCommandOutput
+  DescribeAssessmentTargetsCommandOutput,
 } from "./commands/DescribeAssessmentTargetsCommand.ts";
 import {
   DescribeAssessmentTemplatesCommandInput,
-  DescribeAssessmentTemplatesCommandOutput
+  DescribeAssessmentTemplatesCommandOutput,
 } from "./commands/DescribeAssessmentTemplatesCommand.ts";
 import {
   DescribeCrossAccountAccessRoleCommandInput,
-  DescribeCrossAccountAccessRoleCommandOutput
+  DescribeCrossAccountAccessRoleCommandOutput,
 } from "./commands/DescribeCrossAccountAccessRoleCommand.ts";
 import {
   DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput
+  DescribeExclusionsCommandOutput,
 } from "./commands/DescribeExclusionsCommand.ts";
-import {
-  DescribeFindingsCommandInput,
-  DescribeFindingsCommandOutput
-} from "./commands/DescribeFindingsCommand.ts";
+import { DescribeFindingsCommandInput, DescribeFindingsCommandOutput } from "./commands/DescribeFindingsCommand.ts";
 import {
   DescribeResourceGroupsCommandInput,
-  DescribeResourceGroupsCommandOutput
+  DescribeResourceGroupsCommandOutput,
 } from "./commands/DescribeResourceGroupsCommand.ts";
 import {
   DescribeRulesPackagesCommandInput,
-  DescribeRulesPackagesCommandOutput
+  DescribeRulesPackagesCommandOutput,
 } from "./commands/DescribeRulesPackagesCommand.ts";
 import {
   GetAssessmentReportCommandInput,
-  GetAssessmentReportCommandOutput
+  GetAssessmentReportCommandOutput,
 } from "./commands/GetAssessmentReportCommand.ts";
 import {
   GetExclusionsPreviewCommandInput,
-  GetExclusionsPreviewCommandOutput
+  GetExclusionsPreviewCommandOutput,
 } from "./commands/GetExclusionsPreviewCommand.ts";
 import {
   GetTelemetryMetadataCommandInput,
-  GetTelemetryMetadataCommandOutput
+  GetTelemetryMetadataCommandOutput,
 } from "./commands/GetTelemetryMetadataCommand.ts";
 import {
   ListAssessmentRunAgentsCommandInput,
-  ListAssessmentRunAgentsCommandOutput
+  ListAssessmentRunAgentsCommandOutput,
 } from "./commands/ListAssessmentRunAgentsCommand.ts";
 import {
   ListAssessmentRunsCommandInput,
-  ListAssessmentRunsCommandOutput
+  ListAssessmentRunsCommandOutput,
 } from "./commands/ListAssessmentRunsCommand.ts";
 import {
   ListAssessmentTargetsCommandInput,
-  ListAssessmentTargetsCommandOutput
+  ListAssessmentTargetsCommandOutput,
 } from "./commands/ListAssessmentTargetsCommand.ts";
 import {
   ListAssessmentTemplatesCommandInput,
-  ListAssessmentTemplatesCommandOutput
+  ListAssessmentTemplatesCommandOutput,
 } from "./commands/ListAssessmentTemplatesCommand.ts";
 import {
   ListEventSubscriptionsCommandInput,
-  ListEventSubscriptionsCommandOutput
+  ListEventSubscriptionsCommandOutput,
 } from "./commands/ListEventSubscriptionsCommand.ts";
-import {
-  ListExclusionsCommandInput,
-  ListExclusionsCommandOutput
-} from "./commands/ListExclusionsCommand.ts";
-import {
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput
-} from "./commands/ListFindingsCommand.ts";
-import {
-  ListRulesPackagesCommandInput,
-  ListRulesPackagesCommandOutput
-} from "./commands/ListRulesPackagesCommand.ts";
+import { ListExclusionsCommandInput, ListExclusionsCommandOutput } from "./commands/ListExclusionsCommand.ts";
+import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand.ts";
+import { ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput } from "./commands/ListRulesPackagesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PreviewAgentsCommandInput,
-  PreviewAgentsCommandOutput
-} from "./commands/PreviewAgentsCommand.ts";
+import { PreviewAgentsCommandInput, PreviewAgentsCommandOutput } from "./commands/PreviewAgentsCommand.ts";
 import {
   RegisterCrossAccountAccessRoleCommandInput,
-  RegisterCrossAccountAccessRoleCommandOutput
+  RegisterCrossAccountAccessRoleCommandOutput,
 } from "./commands/RegisterCrossAccountAccessRoleCommand.ts";
 import {
   RemoveAttributesFromFindingsCommandInput,
-  RemoveAttributesFromFindingsCommandOutput
+  RemoveAttributesFromFindingsCommandOutput,
 } from "./commands/RemoveAttributesFromFindingsCommand.ts";
 import {
   SetTagsForResourceCommandInput,
-  SetTagsForResourceCommandOutput
+  SetTagsForResourceCommandOutput,
 } from "./commands/SetTagsForResourceCommand.ts";
 import {
   StartAssessmentRunCommandInput,
-  StartAssessmentRunCommandOutput
+  StartAssessmentRunCommandOutput,
 } from "./commands/StartAssessmentRunCommand.ts";
-import {
-  StopAssessmentRunCommandInput,
-  StopAssessmentRunCommandOutput
-} from "./commands/StopAssessmentRunCommand.ts";
-import {
-  SubscribeToEventCommandInput,
-  SubscribeToEventCommandOutput
-} from "./commands/SubscribeToEventCommand.ts";
+import { StopAssessmentRunCommandInput, StopAssessmentRunCommandOutput } from "./commands/StopAssessmentRunCommand.ts";
+import { SubscribeToEventCommandInput, SubscribeToEventCommandOutput } from "./commands/SubscribeToEventCommand.ts";
 import {
   UnsubscribeFromEventCommandInput,
-  UnsubscribeFromEventCommandOutput
+  UnsubscribeFromEventCommandOutput,
 } from "./commands/UnsubscribeFromEventCommand.ts";
 import {
   UpdateAssessmentTargetCommandInput,
-  UpdateAssessmentTargetCommandOutput
+  UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -153,38 +132,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -193,9 +168,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -276,8 +252,7 @@ export type ServiceOutputTypes =
   | UnsubscribeFromEventCommandOutput
   | UpdateAssessmentTargetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -351,14 +326,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -366,9 +346,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type InspectorClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type InspectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -377,9 +355,7 @@ export type InspectorClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -405,7 +381,7 @@ export class InspectorClient extends __Client<
   constructor(configuration: InspectorClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -420,6 +396,7 @@ export class InspectorClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

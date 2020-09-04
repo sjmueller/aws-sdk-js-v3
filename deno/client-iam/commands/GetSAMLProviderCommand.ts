@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
-import {
-  GetSAMLProviderRequest,
-  GetSAMLProviderResponse
-} from "../models/index.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
+import { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetSAMLProviderCommand,
-  serializeAws_queryGetSAMLProviderCommand
+  serializeAws_queryGetSAMLProviderCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetSAMLProviderCommandInput = GetSAMLProviderRequest;
-export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse &
-  __MetadataBearer;
+export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse & __MetadataBearer;
 
 export class GetSAMLProviderCommand extends $Command<
   GetSAMLProviderCommandInput,
@@ -50,14 +39,15 @@ export class GetSAMLProviderCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetSAMLProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSAMLProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetSAMLProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSAMLProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSAMLProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSAMLProviderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSAMLProviderCommandOutput> {
     return deserializeAws_queryGetSAMLProviderCommand(output, context);
   }
 

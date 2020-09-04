@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  DescribeInstanceInformationRequest,
-  DescribeInstanceInformationResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeInstanceInformationCommand,
-  serializeAws_json1_1DescribeInstanceInformationCommand
+  serializeAws_json1_1DescribeInstanceInformationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeInstanceInformationCommandInput = DescribeInstanceInformationRequest;
-export type DescribeInstanceInformationCommandOutput = DescribeInstanceInformationResult &
-  __MetadataBearer;
+export type DescribeInstanceInformationCommandOutput = DescribeInstanceInformationResult & __MetadataBearer;
 
 export class DescribeInstanceInformationCommand extends $Command<
   DescribeInstanceInformationCommandInput,
@@ -49,18 +38,16 @@ export class DescribeInstanceInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstanceInformationCommandInput,
-    DescribeInstanceInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstanceInformationCommandInput, DescribeInstanceInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeInstanceInformationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceInformationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeInstanceInformationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInstanceInformationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceInformationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeInstanceInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeInstanceInformationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceInformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeInstanceInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

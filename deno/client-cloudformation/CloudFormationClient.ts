@@ -1,223 +1,136 @@
-import {
-  CancelUpdateStackCommandInput,
-  CancelUpdateStackCommandOutput
-} from "./commands/CancelUpdateStackCommand.ts";
+import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand.ts";
 import {
   ContinueUpdateRollbackCommandInput,
-  ContinueUpdateRollbackCommandOutput
+  ContinueUpdateRollbackCommandOutput,
 } from "./commands/ContinueUpdateRollbackCommand.ts";
-import {
-  CreateChangeSetCommandInput,
-  CreateChangeSetCommandOutput
-} from "./commands/CreateChangeSetCommand.ts";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand.ts";
+import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand.ts";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand.ts";
 import {
   CreateStackInstancesCommandInput,
-  CreateStackInstancesCommandOutput
+  CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand.ts";
-import {
-  CreateStackSetCommandInput,
-  CreateStackSetCommandOutput
-} from "./commands/CreateStackSetCommand.ts";
-import {
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput
-} from "./commands/DeleteChangeSetCommand.ts";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand.ts";
+import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand.ts";
+import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand.ts";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand.ts";
 import {
   DeleteStackInstancesCommandInput,
-  DeleteStackInstancesCommandOutput
+  DeleteStackInstancesCommandOutput,
 } from "./commands/DeleteStackInstancesCommand.ts";
-import {
-  DeleteStackSetCommandInput,
-  DeleteStackSetCommandOutput
-} from "./commands/DeleteStackSetCommand.ts";
-import {
-  DeregisterTypeCommandInput,
-  DeregisterTypeCommandOutput
-} from "./commands/DeregisterTypeCommand.ts";
+import { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "./commands/DeleteStackSetCommand.ts";
+import { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "./commands/DeregisterTypeCommand.ts";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand.ts";
-import {
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
-} from "./commands/DescribeChangeSetCommand.ts";
+import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand.ts";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
-  DescribeStackDriftDetectionStatusCommandOutput
+  DescribeStackDriftDetectionStatusCommandOutput,
 } from "./commands/DescribeStackDriftDetectionStatusCommand.ts";
 import {
   DescribeStackEventsCommandInput,
-  DescribeStackEventsCommandOutput
+  DescribeStackEventsCommandOutput,
 } from "./commands/DescribeStackEventsCommand.ts";
 import {
   DescribeStackInstanceCommandInput,
-  DescribeStackInstanceCommandOutput
+  DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand.ts";
 import {
   DescribeStackResourceCommandInput,
-  DescribeStackResourceCommandOutput
+  DescribeStackResourceCommandOutput,
 } from "./commands/DescribeStackResourceCommand.ts";
 import {
   DescribeStackResourceDriftsCommandInput,
-  DescribeStackResourceDriftsCommandOutput
+  DescribeStackResourceDriftsCommandOutput,
 } from "./commands/DescribeStackResourceDriftsCommand.ts";
 import {
   DescribeStackResourcesCommandInput,
-  DescribeStackResourcesCommandOutput
+  DescribeStackResourcesCommandOutput,
 } from "./commands/DescribeStackResourcesCommand.ts";
-import {
-  DescribeStackSetCommandInput,
-  DescribeStackSetCommandOutput
-} from "./commands/DescribeStackSetCommand.ts";
+import { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "./commands/DescribeStackSetCommand.ts";
 import {
   DescribeStackSetOperationCommandInput,
-  DescribeStackSetOperationCommandOutput
+  DescribeStackSetOperationCommandOutput,
 } from "./commands/DescribeStackSetOperationCommand.ts";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand.ts";
-import {
-  DescribeTypeCommandInput,
-  DescribeTypeCommandOutput
-} from "./commands/DescribeTypeCommand.ts";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand.ts";
+import { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "./commands/DescribeTypeCommand.ts";
 import {
   DescribeTypeRegistrationCommandInput,
-  DescribeTypeRegistrationCommandOutput
+  DescribeTypeRegistrationCommandOutput,
 } from "./commands/DescribeTypeRegistrationCommand.ts";
-import {
-  DetectStackDriftCommandInput,
-  DetectStackDriftCommandOutput
-} from "./commands/DetectStackDriftCommand.ts";
+import { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "./commands/DetectStackDriftCommand.ts";
 import {
   DetectStackResourceDriftCommandInput,
-  DetectStackResourceDriftCommandOutput
+  DetectStackResourceDriftCommandOutput,
 } from "./commands/DetectStackResourceDriftCommand.ts";
 import {
   DetectStackSetDriftCommandInput,
-  DetectStackSetDriftCommandOutput
+  DetectStackSetDriftCommandOutput,
 } from "./commands/DetectStackSetDriftCommand.ts";
 import {
   EstimateTemplateCostCommandInput,
-  EstimateTemplateCostCommandOutput
+  EstimateTemplateCostCommandOutput,
 } from "./commands/EstimateTemplateCostCommand.ts";
-import {
-  ExecuteChangeSetCommandInput,
-  ExecuteChangeSetCommandOutput
-} from "./commands/ExecuteChangeSetCommand.ts";
-import {
-  GetStackPolicyCommandInput,
-  GetStackPolicyCommandOutput
-} from "./commands/GetStackPolicyCommand.ts";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand.ts";
+import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand.ts";
+import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand.ts";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand.ts";
 import {
   GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput
+  GetTemplateSummaryCommandOutput,
 } from "./commands/GetTemplateSummaryCommand.ts";
-import {
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
-} from "./commands/ListChangeSetsCommand.ts";
-import {
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "./commands/ListExportsCommand.ts";
-import {
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "./commands/ListImportsCommand.ts";
+import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand.ts";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand.ts";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand.ts";
 import {
   ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput
+  ListStackInstancesCommandOutput,
 } from "./commands/ListStackInstancesCommand.ts";
 import {
   ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput
+  ListStackResourcesCommandOutput,
 } from "./commands/ListStackResourcesCommand.ts";
 import {
   ListStackSetOperationResultsCommandInput,
-  ListStackSetOperationResultsCommandOutput
+  ListStackSetOperationResultsCommandOutput,
 } from "./commands/ListStackSetOperationResultsCommand.ts";
 import {
   ListStackSetOperationsCommandInput,
-  ListStackSetOperationsCommandOutput
+  ListStackSetOperationsCommandOutput,
 } from "./commands/ListStackSetOperationsCommand.ts";
-import {
-  ListStackSetsCommandInput,
-  ListStackSetsCommandOutput
-} from "./commands/ListStackSetsCommand.ts";
-import {
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "./commands/ListStacksCommand.ts";
+import { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "./commands/ListStackSetsCommand.ts";
+import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand.ts";
 import {
   ListTypeRegistrationsCommandInput,
-  ListTypeRegistrationsCommandOutput
+  ListTypeRegistrationsCommandOutput,
 } from "./commands/ListTypeRegistrationsCommand.ts";
-import {
-  ListTypeVersionsCommandInput,
-  ListTypeVersionsCommandOutput
-} from "./commands/ListTypeVersionsCommand.ts";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand.ts";
+import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand.ts";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand.ts";
 import {
   RecordHandlerProgressCommandInput,
-  RecordHandlerProgressCommandOutput
+  RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand.ts";
-import {
-  RegisterTypeCommandInput,
-  RegisterTypeCommandOutput
-} from "./commands/RegisterTypeCommand.ts";
-import {
-  SetStackPolicyCommandInput,
-  SetStackPolicyCommandOutput
-} from "./commands/SetStackPolicyCommand.ts";
+import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand.ts";
+import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand.ts";
 import {
   SetTypeDefaultVersionCommandInput,
-  SetTypeDefaultVersionCommandOutput
+  SetTypeDefaultVersionCommandOutput,
 } from "./commands/SetTypeDefaultVersionCommand.ts";
-import {
-  SignalResourceCommandInput,
-  SignalResourceCommandOutput
-} from "./commands/SignalResourceCommand.ts";
+import { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand.ts";
 import {
   StopStackSetOperationCommandInput,
-  StopStackSetOperationCommandOutput
+  StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand.ts";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand.ts";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand.ts";
 import {
   UpdateStackInstancesCommandInput,
-  UpdateStackInstancesCommandOutput
+  UpdateStackInstancesCommandOutput,
 } from "./commands/UpdateStackInstancesCommand.ts";
-import {
-  UpdateStackSetCommandInput,
-  UpdateStackSetCommandOutput
-} from "./commands/UpdateStackSetCommand.ts";
+import { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "./commands/UpdateStackSetCommand.ts";
 import {
   UpdateTerminationProtectionCommandInput,
-  UpdateTerminationProtectionCommandOutput
+  UpdateTerminationProtectionCommandOutput,
 } from "./commands/UpdateTerminationProtectionCommand.ts";
-import {
-  ValidateTemplateCommandInput,
-  ValidateTemplateCommandOutput
-} from "./commands/ValidateTemplateCommand.ts";
+import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "./commands/ValidateTemplateCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -225,38 +138,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -265,9 +174,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -384,8 +294,7 @@ export type ServiceOutputTypes =
   | UpdateTerminationProtectionCommandOutput
   | ValidateTemplateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -459,14 +368,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -474,9 +388,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFormationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -485,9 +397,7 @@ export type CloudFormationClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -524,7 +434,7 @@ export class CloudFormationClient extends __Client<
   constructor(configuration: CloudFormationClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -539,6 +449,7 @@ export class CloudFormationClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient.ts";
-import {
-  AddAttributesToFindingsRequest,
-  AddAttributesToFindingsResponse
-} from "../models/index.ts";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
+import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AddAttributesToFindingsCommand,
-  serializeAws_json1_1AddAttributesToFindingsCommand
+  serializeAws_json1_1AddAttributesToFindingsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AddAttributesToFindingsCommandInput = AddAttributesToFindingsRequest;
-export type AddAttributesToFindingsCommandOutput = AddAttributesToFindingsResponse &
-  __MetadataBearer;
+export type AddAttributesToFindingsCommandOutput = AddAttributesToFindingsResponse & __MetadataBearer;
 
 export class AddAttributesToFindingsCommand extends $Command<
   AddAttributesToFindingsCommandInput,
@@ -49,18 +38,16 @@ export class AddAttributesToFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddAttributesToFindingsCommandInput,
-    AddAttributesToFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddAttributesToFindingsCommandInput, AddAttributesToFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AddAttributesToFindingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AddAttributesToFindingsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class AddAttributesToFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddAttributesToFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddAttributesToFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAttributesToFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddAttributesToFindingsCommandOutput> {
-    return deserializeAws_json1_1AddAttributesToFindingsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttributesToFindingsCommandOutput> {
+    return deserializeAws_json1_1AddAttributesToFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

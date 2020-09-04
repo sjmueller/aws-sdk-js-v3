@@ -1,18 +1,11 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient.ts";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteJobQueueCommand,
-  serializeAws_restJson1DeleteJobQueueCommand
+  serializeAws_restJson1DeleteJobQueueCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteJobQueueCommandInput = DeleteJobQueueRequest;
-export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse &
-  __MetadataBearer;
+export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBearer;
 
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,
@@ -47,14 +39,15 @@ export class DeleteJobQueueCommand extends $Command<
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteJobQueueRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteJobQueueResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DeleteJobQueueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteJobQueueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteJobQueueCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteJobQueueCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobQueueCommandOutput> {
     return deserializeAws_restJson1DeleteJobQueueCommand(output, context);
   }
 

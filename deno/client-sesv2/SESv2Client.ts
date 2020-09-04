@@ -1,199 +1,241 @@
 import {
   CreateConfigurationSetCommandInput,
-  CreateConfigurationSetCommandOutput
+  CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand.ts";
 import {
   CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput
+  CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand.ts";
 import {
+  CreateCustomVerificationEmailTemplateCommandInput,
+  CreateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/CreateCustomVerificationEmailTemplateCommand.ts";
+import {
   CreateDedicatedIpPoolCommandInput,
-  CreateDedicatedIpPoolCommandOutput
+  CreateDedicatedIpPoolCommandOutput,
 } from "./commands/CreateDedicatedIpPoolCommand.ts";
 import {
   CreateDeliverabilityTestReportCommandInput,
-  CreateDeliverabilityTestReportCommandOutput
+  CreateDeliverabilityTestReportCommandOutput,
 } from "./commands/CreateDeliverabilityTestReportCommand.ts";
 import {
   CreateEmailIdentityCommandInput,
-  CreateEmailIdentityCommandOutput
+  CreateEmailIdentityCommandOutput,
 } from "./commands/CreateEmailIdentityCommand.ts";
 import {
+  CreateEmailIdentityPolicyCommandInput,
+  CreateEmailIdentityPolicyCommandOutput,
+} from "./commands/CreateEmailIdentityPolicyCommand.ts";
+import {
+  CreateEmailTemplateCommandInput,
+  CreateEmailTemplateCommandOutput,
+} from "./commands/CreateEmailTemplateCommand.ts";
+import {
   DeleteConfigurationSetCommandInput,
-  DeleteConfigurationSetCommandOutput
+  DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand.ts";
 import {
   DeleteConfigurationSetEventDestinationCommandInput,
-  DeleteConfigurationSetEventDestinationCommandOutput
+  DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand.ts";
 import {
+  DeleteCustomVerificationEmailTemplateCommandInput,
+  DeleteCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/DeleteCustomVerificationEmailTemplateCommand.ts";
+import {
   DeleteDedicatedIpPoolCommandInput,
-  DeleteDedicatedIpPoolCommandOutput
+  DeleteDedicatedIpPoolCommandOutput,
 } from "./commands/DeleteDedicatedIpPoolCommand.ts";
 import {
   DeleteEmailIdentityCommandInput,
-  DeleteEmailIdentityCommandOutput
+  DeleteEmailIdentityCommandOutput,
 } from "./commands/DeleteEmailIdentityCommand.ts";
 import {
-  DeleteSuppressedDestinationCommandInput,
-  DeleteSuppressedDestinationCommandOutput
-} from "./commands/DeleteSuppressedDestinationCommand.ts";
+  DeleteEmailIdentityPolicyCommandInput,
+  DeleteEmailIdentityPolicyCommandOutput,
+} from "./commands/DeleteEmailIdentityPolicyCommand.ts";
 import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand.ts";
+  DeleteEmailTemplateCommandInput,
+  DeleteEmailTemplateCommandOutput,
+} from "./commands/DeleteEmailTemplateCommand.ts";
+import {
+  DeleteSuppressedDestinationCommandInput,
+  DeleteSuppressedDestinationCommandOutput,
+} from "./commands/DeleteSuppressedDestinationCommand.ts";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand.ts";
 import {
   GetBlacklistReportsCommandInput,
-  GetBlacklistReportsCommandOutput
+  GetBlacklistReportsCommandOutput,
 } from "./commands/GetBlacklistReportsCommand.ts";
 import {
   GetConfigurationSetCommandInput,
-  GetConfigurationSetCommandOutput
+  GetConfigurationSetCommandOutput,
 } from "./commands/GetConfigurationSetCommand.ts";
 import {
   GetConfigurationSetEventDestinationsCommandInput,
-  GetConfigurationSetEventDestinationsCommandOutput
+  GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand.ts";
 import {
-  GetDedicatedIpCommandInput,
-  GetDedicatedIpCommandOutput
-} from "./commands/GetDedicatedIpCommand.ts";
-import {
-  GetDedicatedIpsCommandInput,
-  GetDedicatedIpsCommandOutput
-} from "./commands/GetDedicatedIpsCommand.ts";
+  GetCustomVerificationEmailTemplateCommandInput,
+  GetCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/GetCustomVerificationEmailTemplateCommand.ts";
+import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "./commands/GetDedicatedIpCommand.ts";
+import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "./commands/GetDedicatedIpsCommand.ts";
 import {
   GetDeliverabilityDashboardOptionsCommandInput,
-  GetDeliverabilityDashboardOptionsCommandOutput
+  GetDeliverabilityDashboardOptionsCommandOutput,
 } from "./commands/GetDeliverabilityDashboardOptionsCommand.ts";
 import {
   GetDeliverabilityTestReportCommandInput,
-  GetDeliverabilityTestReportCommandOutput
+  GetDeliverabilityTestReportCommandOutput,
 } from "./commands/GetDeliverabilityTestReportCommand.ts";
 import {
   GetDomainDeliverabilityCampaignCommandInput,
-  GetDomainDeliverabilityCampaignCommandOutput
+  GetDomainDeliverabilityCampaignCommandOutput,
 } from "./commands/GetDomainDeliverabilityCampaignCommand.ts";
 import {
   GetDomainStatisticsReportCommandInput,
-  GetDomainStatisticsReportCommandOutput
+  GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand.ts";
+import { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand.ts";
 import {
-  GetEmailIdentityCommandInput,
-  GetEmailIdentityCommandOutput
-} from "./commands/GetEmailIdentityCommand.ts";
+  GetEmailIdentityPoliciesCommandInput,
+  GetEmailIdentityPoliciesCommandOutput,
+} from "./commands/GetEmailIdentityPoliciesCommand.ts";
+import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "./commands/GetEmailTemplateCommand.ts";
 import {
   GetSuppressedDestinationCommandInput,
-  GetSuppressedDestinationCommandOutput
+  GetSuppressedDestinationCommandOutput,
 } from "./commands/GetSuppressedDestinationCommand.ts";
 import {
   ListConfigurationSetsCommandInput,
-  ListConfigurationSetsCommandOutput
+  ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand.ts";
 import {
+  ListCustomVerificationEmailTemplatesCommandInput,
+  ListCustomVerificationEmailTemplatesCommandOutput,
+} from "./commands/ListCustomVerificationEmailTemplatesCommand.ts";
+import {
   ListDedicatedIpPoolsCommandInput,
-  ListDedicatedIpPoolsCommandOutput
+  ListDedicatedIpPoolsCommandOutput,
 } from "./commands/ListDedicatedIpPoolsCommand.ts";
 import {
   ListDeliverabilityTestReportsCommandInput,
-  ListDeliverabilityTestReportsCommandOutput
+  ListDeliverabilityTestReportsCommandOutput,
 } from "./commands/ListDeliverabilityTestReportsCommand.ts";
 import {
   ListDomainDeliverabilityCampaignsCommandInput,
-  ListDomainDeliverabilityCampaignsCommandOutput
+  ListDomainDeliverabilityCampaignsCommandOutput,
 } from "./commands/ListDomainDeliverabilityCampaignsCommand.ts";
 import {
   ListEmailIdentitiesCommandInput,
-  ListEmailIdentitiesCommandOutput
+  ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand.ts";
 import {
+  ListEmailTemplatesCommandInput,
+  ListEmailTemplatesCommandOutput,
+} from "./commands/ListEmailTemplatesCommand.ts";
+import {
   ListSuppressedDestinationsCommandInput,
-  ListSuppressedDestinationsCommandOutput
+  ListSuppressedDestinationsCommandOutput,
 } from "./commands/ListSuppressedDestinationsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutAccountDedicatedIpWarmupAttributesCommandInput,
-  PutAccountDedicatedIpWarmupAttributesCommandOutput
+  PutAccountDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutAccountDedicatedIpWarmupAttributesCommand.ts";
+import { PutAccountDetailsCommandInput, PutAccountDetailsCommandOutput } from "./commands/PutAccountDetailsCommand.ts";
 import {
   PutAccountSendingAttributesCommandInput,
-  PutAccountSendingAttributesCommandOutput
+  PutAccountSendingAttributesCommandOutput,
 } from "./commands/PutAccountSendingAttributesCommand.ts";
 import {
   PutAccountSuppressionAttributesCommandInput,
-  PutAccountSuppressionAttributesCommandOutput
+  PutAccountSuppressionAttributesCommandOutput,
 } from "./commands/PutAccountSuppressionAttributesCommand.ts";
 import {
   PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput
+  PutConfigurationSetDeliveryOptionsCommandOutput,
 } from "./commands/PutConfigurationSetDeliveryOptionsCommand.ts";
 import {
   PutConfigurationSetReputationOptionsCommandInput,
-  PutConfigurationSetReputationOptionsCommandOutput
+  PutConfigurationSetReputationOptionsCommandOutput,
 } from "./commands/PutConfigurationSetReputationOptionsCommand.ts";
 import {
   PutConfigurationSetSendingOptionsCommandInput,
-  PutConfigurationSetSendingOptionsCommandOutput
+  PutConfigurationSetSendingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSendingOptionsCommand.ts";
 import {
   PutConfigurationSetSuppressionOptionsCommandInput,
-  PutConfigurationSetSuppressionOptionsCommandOutput
+  PutConfigurationSetSuppressionOptionsCommandOutput,
 } from "./commands/PutConfigurationSetSuppressionOptionsCommand.ts";
 import {
   PutConfigurationSetTrackingOptionsCommandInput,
-  PutConfigurationSetTrackingOptionsCommandOutput
+  PutConfigurationSetTrackingOptionsCommandOutput,
 } from "./commands/PutConfigurationSetTrackingOptionsCommand.ts";
 import {
   PutDedicatedIpInPoolCommandInput,
-  PutDedicatedIpInPoolCommandOutput
+  PutDedicatedIpInPoolCommandOutput,
 } from "./commands/PutDedicatedIpInPoolCommand.ts";
 import {
   PutDedicatedIpWarmupAttributesCommandInput,
-  PutDedicatedIpWarmupAttributesCommandOutput
+  PutDedicatedIpWarmupAttributesCommandOutput,
 } from "./commands/PutDedicatedIpWarmupAttributesCommand.ts";
 import {
   PutDeliverabilityDashboardOptionCommandInput,
-  PutDeliverabilityDashboardOptionCommandOutput
+  PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand.ts";
 import {
   PutEmailIdentityDkimAttributesCommandInput,
-  PutEmailIdentityDkimAttributesCommandOutput
+  PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand.ts";
 import {
   PutEmailIdentityDkimSigningAttributesCommandInput,
-  PutEmailIdentityDkimSigningAttributesCommandOutput
+  PutEmailIdentityDkimSigningAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimSigningAttributesCommand.ts";
 import {
   PutEmailIdentityFeedbackAttributesCommandInput,
-  PutEmailIdentityFeedbackAttributesCommandOutput
+  PutEmailIdentityFeedbackAttributesCommandOutput,
 } from "./commands/PutEmailIdentityFeedbackAttributesCommand.ts";
 import {
   PutEmailIdentityMailFromAttributesCommandInput,
-  PutEmailIdentityMailFromAttributesCommandOutput
+  PutEmailIdentityMailFromAttributesCommandOutput,
 } from "./commands/PutEmailIdentityMailFromAttributesCommand.ts";
 import {
   PutSuppressedDestinationCommandInput,
-  PutSuppressedDestinationCommandOutput
+  PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand.ts";
+import { SendBulkEmailCommandInput, SendBulkEmailCommandOutput } from "./commands/SendBulkEmailCommand.ts";
 import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand.ts";
+  SendCustomVerificationEmailCommandInput,
+  SendCustomVerificationEmailCommandOutput,
+} from "./commands/SendCustomVerificationEmailCommand.ts";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+  TestRenderEmailTemplateCommandInput,
+  TestRenderEmailTemplateCommandOutput,
+} from "./commands/TestRenderEmailTemplateCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateConfigurationSetEventDestinationCommandInput,
-  UpdateConfigurationSetEventDestinationCommandOutput
+  UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand.ts";
+import {
+  UpdateCustomVerificationEmailTemplateCommandInput,
+  UpdateCustomVerificationEmailTemplateCommandOutput,
+} from "./commands/UpdateCustomVerificationEmailTemplateCommand.ts";
+import {
+  UpdateEmailIdentityPolicyCommandInput,
+  UpdateEmailIdentityPolicyCommandOutput,
+} from "./commands/UpdateEmailIdentityPolicyCommand.ts";
+import {
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput,
+} from "./commands/UpdateEmailTemplateCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -201,38 +243,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -241,26 +279,34 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
+  | CreateCustomVerificationEmailTemplateCommandInput
   | CreateDedicatedIpPoolCommandInput
   | CreateDeliverabilityTestReportCommandInput
   | CreateEmailIdentityCommandInput
+  | CreateEmailIdentityPolicyCommandInput
+  | CreateEmailTemplateCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
+  | DeleteCustomVerificationEmailTemplateCommandInput
   | DeleteDedicatedIpPoolCommandInput
   | DeleteEmailIdentityCommandInput
+  | DeleteEmailIdentityPolicyCommandInput
+  | DeleteEmailTemplateCommandInput
   | DeleteSuppressedDestinationCommandInput
   | GetAccountCommandInput
   | GetBlacklistReportsCommandInput
   | GetConfigurationSetCommandInput
   | GetConfigurationSetEventDestinationsCommandInput
+  | GetCustomVerificationEmailTemplateCommandInput
   | GetDedicatedIpCommandInput
   | GetDedicatedIpsCommandInput
   | GetDeliverabilityDashboardOptionsCommandInput
@@ -268,15 +314,20 @@ export type ServiceInputTypes =
   | GetDomainDeliverabilityCampaignCommandInput
   | GetDomainStatisticsReportCommandInput
   | GetEmailIdentityCommandInput
+  | GetEmailIdentityPoliciesCommandInput
+  | GetEmailTemplateCommandInput
   | GetSuppressedDestinationCommandInput
   | ListConfigurationSetsCommandInput
+  | ListCustomVerificationEmailTemplatesCommandInput
   | ListDedicatedIpPoolsCommandInput
   | ListDeliverabilityTestReportsCommandInput
   | ListDomainDeliverabilityCampaignsCommandInput
   | ListEmailIdentitiesCommandInput
+  | ListEmailTemplatesCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
+  | PutAccountDetailsCommandInput
   | PutAccountSendingAttributesCommandInput
   | PutAccountSuppressionAttributesCommandInput
   | PutConfigurationSetDeliveryOptionsCommandInput
@@ -292,26 +343,39 @@ export type ServiceInputTypes =
   | PutEmailIdentityFeedbackAttributesCommandInput
   | PutEmailIdentityMailFromAttributesCommandInput
   | PutSuppressedDestinationCommandInput
+  | SendBulkEmailCommandInput
+  | SendCustomVerificationEmailCommandInput
   | SendEmailCommandInput
   | TagResourceCommandInput
+  | TestRenderEmailTemplateCommandInput
   | UntagResourceCommandInput
-  | UpdateConfigurationSetEventDestinationCommandInput;
+  | UpdateConfigurationSetEventDestinationCommandInput
+  | UpdateCustomVerificationEmailTemplateCommandInput
+  | UpdateEmailIdentityPolicyCommandInput
+  | UpdateEmailTemplateCommandInput;
 
 export type ServiceOutputTypes =
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
+  | CreateCustomVerificationEmailTemplateCommandOutput
   | CreateDedicatedIpPoolCommandOutput
   | CreateDeliverabilityTestReportCommandOutput
   | CreateEmailIdentityCommandOutput
+  | CreateEmailIdentityPolicyCommandOutput
+  | CreateEmailTemplateCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
+  | DeleteCustomVerificationEmailTemplateCommandOutput
   | DeleteDedicatedIpPoolCommandOutput
   | DeleteEmailIdentityCommandOutput
+  | DeleteEmailIdentityPolicyCommandOutput
+  | DeleteEmailTemplateCommandOutput
   | DeleteSuppressedDestinationCommandOutput
   | GetAccountCommandOutput
   | GetBlacklistReportsCommandOutput
   | GetConfigurationSetCommandOutput
   | GetConfigurationSetEventDestinationsCommandOutput
+  | GetCustomVerificationEmailTemplateCommandOutput
   | GetDedicatedIpCommandOutput
   | GetDedicatedIpsCommandOutput
   | GetDeliverabilityDashboardOptionsCommandOutput
@@ -319,15 +383,20 @@ export type ServiceOutputTypes =
   | GetDomainDeliverabilityCampaignCommandOutput
   | GetDomainStatisticsReportCommandOutput
   | GetEmailIdentityCommandOutput
+  | GetEmailIdentityPoliciesCommandOutput
+  | GetEmailTemplateCommandOutput
   | GetSuppressedDestinationCommandOutput
   | ListConfigurationSetsCommandOutput
+  | ListCustomVerificationEmailTemplatesCommandOutput
   | ListDedicatedIpPoolsCommandOutput
   | ListDeliverabilityTestReportsCommandOutput
   | ListDomainDeliverabilityCampaignsCommandOutput
   | ListEmailIdentitiesCommandOutput
+  | ListEmailTemplatesCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
+  | PutAccountDetailsCommandOutput
   | PutAccountSendingAttributesCommandOutput
   | PutAccountSuppressionAttributesCommandOutput
   | PutConfigurationSetDeliveryOptionsCommandOutput
@@ -343,13 +412,18 @@ export type ServiceOutputTypes =
   | PutEmailIdentityFeedbackAttributesCommandOutput
   | PutEmailIdentityMailFromAttributesCommandOutput
   | PutSuppressedDestinationCommandOutput
+  | SendBulkEmailCommandOutput
+  | SendCustomVerificationEmailCommandOutput
   | SendEmailCommandOutput
   | TagResourceCommandOutput
+  | TestRenderEmailTemplateCommandOutput
   | UntagResourceCommandOutput
-  | UpdateConfigurationSetEventDestinationCommandOutput;
+  | UpdateConfigurationSetEventDestinationCommandOutput
+  | UpdateCustomVerificationEmailTemplateCommandOutput
+  | UpdateEmailIdentityPolicyCommandOutput
+  | UpdateEmailTemplateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -423,14 +497,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -438,9 +517,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SESv2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SESv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -449,9 +526,7 @@ export type SESv2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -493,7 +568,7 @@ export class SESv2Client extends __Client<
   constructor(configuration: SESv2ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -508,6 +583,7 @@ export class SESv2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

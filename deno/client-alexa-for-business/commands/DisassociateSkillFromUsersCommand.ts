@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  DisassociateSkillFromUsersRequest,
-  DisassociateSkillFromUsersResponse
-} from "../models/index.ts";
+import { DisassociateSkillFromUsersRequest, DisassociateSkillFromUsersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateSkillFromUsersCommand,
-  serializeAws_json1_1DisassociateSkillFromUsersCommand
+  serializeAws_json1_1DisassociateSkillFromUsersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateSkillFromUsersCommandInput = DisassociateSkillFromUsersRequest;
-export type DisassociateSkillFromUsersCommandOutput = DisassociateSkillFromUsersResponse &
-  __MetadataBearer;
+export type DisassociateSkillFromUsersCommandOutput = DisassociateSkillFromUsersResponse & __MetadataBearer;
 
 export class DisassociateSkillFromUsersCommand extends $Command<
   DisassociateSkillFromUsersCommandInput,
@@ -49,18 +42,16 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateSkillFromUsersCommandInput,
-    DisassociateSkillFromUsersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateSkillFromUsersCommandInput, DisassociateSkillFromUsersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateSkillFromUsersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSkillFromUsersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateSkillFromUsersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillFromUsersCommand(
-      input,
-      context
-    );
+  private serialize(input: DisassociateSkillFromUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DisassociateSkillFromUsersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillFromUsersCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillFromUsersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateSkillFromUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

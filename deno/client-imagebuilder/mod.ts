@@ -1,5 +1,5 @@
-export * from "./imagebuilderClient.ts";
-export * from "./imagebuilder.ts";
+export * from "./ImagebuilderClient.ts";
+export * from "./Imagebuilder.ts";
 export * from "./commands/CancelImageCreationCommand.ts";
 export * from "./commands/CreateComponentCommand.ts";
 export * from "./commands/CreateDistributionConfigurationCommand.ts";

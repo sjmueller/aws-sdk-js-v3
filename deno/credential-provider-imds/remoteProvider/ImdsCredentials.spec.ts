@@ -1,15 +1,12 @@
-import {
-  fromImdsCredentials,
-  ImdsCredentials,
-  isImdsCredentials
-} from "./ImdsCredentials.ts";
 import { Credentials } from "../../types/mod.ts";
+
+import { fromImdsCredentials, ImdsCredentials, isImdsCredentials } from "./ImdsCredentials.ts";
 
 const creds: ImdsCredentials = Object.freeze({
   AccessKeyId: "foo",
   SecretAccessKey: "bar",
   Token: "baz",
-  Expiration: new Date().toISOString()
+  Expiration: new Date().toISOString(),
 });
 
 describe("isImdsCredentials", () => {
@@ -22,9 +19,7 @@ describe("isImdsCredentials", () => {
   });
 
   it("should reject credentials without a SecretAccessKey", () => {
-    expect(isImdsCredentials({ ...creds, SecretAccessKey: void 0 })).toBe(
-      false
-    );
+    expect(isImdsCredentials({ ...creds, SecretAccessKey: void 0 })).toBe(false);
   });
 
   it("should reject credentials without a Token", () => {
@@ -36,7 +31,7 @@ describe("isImdsCredentials", () => {
   });
 
   it("should reject scalar values", () => {
-    for (let scalar of ["string", 1, true, null, void 0]) {
+    for (const scalar of ["string", 1, true, null, void 0]) {
       expect(isImdsCredentials(scalar)).toBe(false);
     }
   });

@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient.ts";
-import {
-  UpdateTypedLinkFacetRequest,
-  UpdateTypedLinkFacetResponse
-} from "../models/index.ts";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
+import { UpdateTypedLinkFacetRequest, UpdateTypedLinkFacetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateTypedLinkFacetCommand,
-  serializeAws_restJson1UpdateTypedLinkFacetCommand
+  serializeAws_restJson1UpdateTypedLinkFacetCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateTypedLinkFacetCommandInput = UpdateTypedLinkFacetRequest;
-export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse &
-  __MetadataBearer;
+export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse & __MetadataBearer;
 
 export class UpdateTypedLinkFacetCommand extends $Command<
   UpdateTypedLinkFacetCommandInput,
@@ -49,18 +38,16 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTypedLinkFacetCommandInput,
-    UpdateTypedLinkFacetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTypedLinkFacetCommandInput, UpdateTypedLinkFacetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateTypedLinkFacetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTypedLinkFacetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTypedLinkFacetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateTypedLinkFacetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTypedLinkFacetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTypedLinkFacetCommandOutput> {
     return deserializeAws_restJson1UpdateTypedLinkFacetCommand(output, context);
   }
 

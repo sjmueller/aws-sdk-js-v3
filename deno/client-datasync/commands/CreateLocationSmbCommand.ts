@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient.ts";
-import {
-  CreateLocationSmbRequest,
-  CreateLocationSmbResponse
-} from "../models/index.ts";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
+import { CreateLocationSmbRequest, CreateLocationSmbResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateLocationSmbCommand,
-  serializeAws_json1_1CreateLocationSmbCommand
+  serializeAws_json1_1CreateLocationSmbCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateLocationSmbCommandInput = CreateLocationSmbRequest;
-export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse &
-  __MetadataBearer;
+export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse & __MetadataBearer;
 
 export class CreateLocationSmbCommand extends $Command<
   CreateLocationSmbCommandInput,
@@ -50,14 +39,15 @@ export class CreateLocationSmbCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateLocationSmbRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationSmbResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateLocationSmbCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLocationSmbCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationSmbCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLocationSmbCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
     return deserializeAws_json1_1CreateLocationSmbCommand(output, context);
   }
 

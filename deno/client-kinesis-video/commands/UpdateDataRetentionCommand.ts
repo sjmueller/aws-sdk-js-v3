@@ -1,21 +1,11 @@
-import {
-  KinesisVideoClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KinesisVideoClient.ts";
-import {
-  UpdateDataRetentionInput,
-  UpdateDataRetentionOutput
-} from "../models/index.ts";
+import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
+import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateDataRetentionCommand,
-  serializeAws_restJson1UpdateDataRetentionCommand
+  serializeAws_restJson1UpdateDataRetentionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateDataRetentionCommandInput = UpdateDataRetentionInput;
-export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput &
-  __MetadataBearer;
+export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput & __MetadataBearer;
 
 export class UpdateDataRetentionCommand extends $Command<
   UpdateDataRetentionCommandInput,
@@ -49,18 +38,16 @@ export class UpdateDataRetentionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDataRetentionCommandInput,
-    UpdateDataRetentionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDataRetentionCommandInput, UpdateDataRetentionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateDataRetentionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataRetentionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateDataRetentionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDataRetentionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDataRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateDataRetentionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDataRetentionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataRetentionCommandOutput> {
     return deserializeAws_restJson1UpdateDataRetentionCommand(output, context);
   }
 

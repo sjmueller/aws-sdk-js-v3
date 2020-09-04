@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient.ts";
-import {
-  DescribeRdsDbInstancesRequest,
-  DescribeRdsDbInstancesResult
-} from "../models/index.ts";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
+import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeRdsDbInstancesCommand,
-  serializeAws_json1_1DescribeRdsDbInstancesCommand
+  serializeAws_json1_1DescribeRdsDbInstancesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRdsDbInstancesCommandInput = DescribeRdsDbInstancesRequest;
-export type DescribeRdsDbInstancesCommandOutput = DescribeRdsDbInstancesResult &
-  __MetadataBearer;
+export type DescribeRdsDbInstancesCommandOutput = DescribeRdsDbInstancesResult & __MetadataBearer;
 
 export class DescribeRdsDbInstancesCommand extends $Command<
   DescribeRdsDbInstancesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRdsDbInstancesCommandInput,
-    DescribeRdsDbInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRdsDbInstancesCommandInput, DescribeRdsDbInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRdsDbInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRdsDbInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRdsDbInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRdsDbInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRdsDbInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRdsDbInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRdsDbInstancesCommandOutput> {
     return deserializeAws_json1_1DescribeRdsDbInstancesCommand(output, context);
   }
 

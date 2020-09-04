@@ -1,375 +1,225 @@
-import {
-  ApproveSkillCommandInput,
-  ApproveSkillCommandOutput
-} from "./commands/ApproveSkillCommand.ts";
+import { ApproveSkillCommandInput, ApproveSkillCommandOutput } from "./commands/ApproveSkillCommand.ts";
 import {
   AssociateContactWithAddressBookCommandInput,
-  AssociateContactWithAddressBookCommandOutput
+  AssociateContactWithAddressBookCommandOutput,
 } from "./commands/AssociateContactWithAddressBookCommand.ts";
 import {
   AssociateDeviceWithNetworkProfileCommandInput,
-  AssociateDeviceWithNetworkProfileCommandOutput
+  AssociateDeviceWithNetworkProfileCommandOutput,
 } from "./commands/AssociateDeviceWithNetworkProfileCommand.ts";
 import {
   AssociateDeviceWithRoomCommandInput,
-  AssociateDeviceWithRoomCommandOutput
+  AssociateDeviceWithRoomCommandOutput,
 } from "./commands/AssociateDeviceWithRoomCommand.ts";
 import {
   AssociateSkillGroupWithRoomCommandInput,
-  AssociateSkillGroupWithRoomCommandOutput
+  AssociateSkillGroupWithRoomCommandOutput,
 } from "./commands/AssociateSkillGroupWithRoomCommand.ts";
 import {
   AssociateSkillWithSkillGroupCommandInput,
-  AssociateSkillWithSkillGroupCommandOutput
+  AssociateSkillWithSkillGroupCommandOutput,
 } from "./commands/AssociateSkillWithSkillGroupCommand.ts";
 import {
   AssociateSkillWithUsersCommandInput,
-  AssociateSkillWithUsersCommandOutput
+  AssociateSkillWithUsersCommandOutput,
 } from "./commands/AssociateSkillWithUsersCommand.ts";
-import {
-  CreateAddressBookCommandInput,
-  CreateAddressBookCommandOutput
-} from "./commands/CreateAddressBookCommand.ts";
+import { CreateAddressBookCommandInput, CreateAddressBookCommandOutput } from "./commands/CreateAddressBookCommand.ts";
 import {
   CreateBusinessReportScheduleCommandInput,
-  CreateBusinessReportScheduleCommandOutput
+  CreateBusinessReportScheduleCommandOutput,
 } from "./commands/CreateBusinessReportScheduleCommand.ts";
 import {
   CreateConferenceProviderCommandInput,
-  CreateConferenceProviderCommandOutput
+  CreateConferenceProviderCommandOutput,
 } from "./commands/CreateConferenceProviderCommand.ts";
-import {
-  CreateContactCommandInput,
-  CreateContactCommandOutput
-} from "./commands/CreateContactCommand.ts";
+import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand.ts";
 import {
   CreateGatewayGroupCommandInput,
-  CreateGatewayGroupCommandOutput
+  CreateGatewayGroupCommandOutput,
 } from "./commands/CreateGatewayGroupCommand.ts";
 import {
   CreateNetworkProfileCommandInput,
-  CreateNetworkProfileCommandOutput
+  CreateNetworkProfileCommandOutput,
 } from "./commands/CreateNetworkProfileCommand.ts";
-import {
-  CreateProfileCommandInput,
-  CreateProfileCommandOutput
-} from "./commands/CreateProfileCommand.ts";
-import {
-  CreateRoomCommandInput,
-  CreateRoomCommandOutput
-} from "./commands/CreateRoomCommand.ts";
-import {
-  CreateSkillGroupCommandInput,
-  CreateSkillGroupCommandOutput
-} from "./commands/CreateSkillGroupCommand.ts";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
-import {
-  DeleteAddressBookCommandInput,
-  DeleteAddressBookCommandOutput
-} from "./commands/DeleteAddressBookCommand.ts";
+import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand.ts";
+import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand.ts";
+import { CreateSkillGroupCommandInput, CreateSkillGroupCommandOutput } from "./commands/CreateSkillGroupCommand.ts";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
+import { DeleteAddressBookCommandInput, DeleteAddressBookCommandOutput } from "./commands/DeleteAddressBookCommand.ts";
 import {
   DeleteBusinessReportScheduleCommandInput,
-  DeleteBusinessReportScheduleCommandOutput
+  DeleteBusinessReportScheduleCommandOutput,
 } from "./commands/DeleteBusinessReportScheduleCommand.ts";
 import {
   DeleteConferenceProviderCommandInput,
-  DeleteConferenceProviderCommandOutput
+  DeleteConferenceProviderCommandOutput,
 } from "./commands/DeleteConferenceProviderCommand.ts";
-import {
-  DeleteContactCommandInput,
-  DeleteContactCommandOutput
-} from "./commands/DeleteContactCommand.ts";
-import {
-  DeleteDeviceCommandInput,
-  DeleteDeviceCommandOutput
-} from "./commands/DeleteDeviceCommand.ts";
+import { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand.ts";
+import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand.ts";
 import {
   DeleteDeviceUsageDataCommandInput,
-  DeleteDeviceUsageDataCommandOutput
+  DeleteDeviceUsageDataCommandOutput,
 } from "./commands/DeleteDeviceUsageDataCommand.ts";
 import {
   DeleteGatewayGroupCommandInput,
-  DeleteGatewayGroupCommandOutput
+  DeleteGatewayGroupCommandOutput,
 } from "./commands/DeleteGatewayGroupCommand.ts";
 import {
   DeleteNetworkProfileCommandInput,
-  DeleteNetworkProfileCommandOutput
+  DeleteNetworkProfileCommandOutput,
 } from "./commands/DeleteNetworkProfileCommand.ts";
-import {
-  DeleteProfileCommandInput,
-  DeleteProfileCommandOutput
-} from "./commands/DeleteProfileCommand.ts";
-import {
-  DeleteRoomCommandInput,
-  DeleteRoomCommandOutput
-} from "./commands/DeleteRoomCommand.ts";
+import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand.ts";
+import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand.ts";
 import {
   DeleteRoomSkillParameterCommandInput,
-  DeleteRoomSkillParameterCommandOutput
+  DeleteRoomSkillParameterCommandOutput,
 } from "./commands/DeleteRoomSkillParameterCommand.ts";
 import {
   DeleteSkillAuthorizationCommandInput,
-  DeleteSkillAuthorizationCommandOutput
+  DeleteSkillAuthorizationCommandOutput,
 } from "./commands/DeleteSkillAuthorizationCommand.ts";
-import {
-  DeleteSkillGroupCommandInput,
-  DeleteSkillGroupCommandOutput
-} from "./commands/DeleteSkillGroupCommand.ts";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteSkillGroupCommandInput, DeleteSkillGroupCommandOutput } from "./commands/DeleteSkillGroupCommand.ts";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DisassociateContactFromAddressBookCommandInput,
-  DisassociateContactFromAddressBookCommandOutput
+  DisassociateContactFromAddressBookCommandOutput,
 } from "./commands/DisassociateContactFromAddressBookCommand.ts";
 import {
   DisassociateDeviceFromRoomCommandInput,
-  DisassociateDeviceFromRoomCommandOutput
+  DisassociateDeviceFromRoomCommandOutput,
 } from "./commands/DisassociateDeviceFromRoomCommand.ts";
 import {
   DisassociateSkillFromSkillGroupCommandInput,
-  DisassociateSkillFromSkillGroupCommandOutput
+  DisassociateSkillFromSkillGroupCommandOutput,
 } from "./commands/DisassociateSkillFromSkillGroupCommand.ts";
 import {
   DisassociateSkillFromUsersCommandInput,
-  DisassociateSkillFromUsersCommandOutput
+  DisassociateSkillFromUsersCommandOutput,
 } from "./commands/DisassociateSkillFromUsersCommand.ts";
 import {
   DisassociateSkillGroupFromRoomCommandInput,
-  DisassociateSkillGroupFromRoomCommandOutput
+  DisassociateSkillGroupFromRoomCommandOutput,
 } from "./commands/DisassociateSkillGroupFromRoomCommand.ts";
 import {
   ForgetSmartHomeAppliancesCommandInput,
-  ForgetSmartHomeAppliancesCommandOutput
+  ForgetSmartHomeAppliancesCommandOutput,
 } from "./commands/ForgetSmartHomeAppliancesCommand.ts";
-import {
-  GetAddressBookCommandInput,
-  GetAddressBookCommandOutput
-} from "./commands/GetAddressBookCommand.ts";
+import { GetAddressBookCommandInput, GetAddressBookCommandOutput } from "./commands/GetAddressBookCommand.ts";
 import {
   GetConferencePreferenceCommandInput,
-  GetConferencePreferenceCommandOutput
+  GetConferencePreferenceCommandOutput,
 } from "./commands/GetConferencePreferenceCommand.ts";
 import {
   GetConferenceProviderCommandInput,
-  GetConferenceProviderCommandOutput
+  GetConferenceProviderCommandOutput,
 } from "./commands/GetConferenceProviderCommand.ts";
-import {
-  GetContactCommandInput,
-  GetContactCommandOutput
-} from "./commands/GetContactCommand.ts";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand.ts";
-import {
-  GetGatewayCommandInput,
-  GetGatewayCommandOutput
-} from "./commands/GetGatewayCommand.ts";
-import {
-  GetGatewayGroupCommandInput,
-  GetGatewayGroupCommandOutput
-} from "./commands/GetGatewayGroupCommand.ts";
+import { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand.ts";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
+import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand.ts";
+import { GetGatewayGroupCommandInput, GetGatewayGroupCommandOutput } from "./commands/GetGatewayGroupCommand.ts";
 import {
   GetInvitationConfigurationCommandInput,
-  GetInvitationConfigurationCommandOutput
+  GetInvitationConfigurationCommandOutput,
 } from "./commands/GetInvitationConfigurationCommand.ts";
-import {
-  GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
-} from "./commands/GetNetworkProfileCommand.ts";
-import {
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand.ts";
-import {
-  GetRoomCommandInput,
-  GetRoomCommandOutput
-} from "./commands/GetRoomCommand.ts";
+import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand.ts";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand.ts";
+import { GetRoomCommandInput, GetRoomCommandOutput } from "./commands/GetRoomCommand.ts";
 import {
   GetRoomSkillParameterCommandInput,
-  GetRoomSkillParameterCommandOutput
+  GetRoomSkillParameterCommandOutput,
 } from "./commands/GetRoomSkillParameterCommand.ts";
-import {
-  GetSkillGroupCommandInput,
-  GetSkillGroupCommandOutput
-} from "./commands/GetSkillGroupCommand.ts";
+import { GetSkillGroupCommandInput, GetSkillGroupCommandOutput } from "./commands/GetSkillGroupCommand.ts";
 import {
   ListBusinessReportSchedulesCommandInput,
-  ListBusinessReportSchedulesCommandOutput
+  ListBusinessReportSchedulesCommandOutput,
 } from "./commands/ListBusinessReportSchedulesCommand.ts";
 import {
   ListConferenceProvidersCommandInput,
-  ListConferenceProvidersCommandOutput
+  ListConferenceProvidersCommandOutput,
 } from "./commands/ListConferenceProvidersCommand.ts";
-import {
-  ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
-} from "./commands/ListDeviceEventsCommand.ts";
-import {
-  ListGatewayGroupsCommandInput,
-  ListGatewayGroupsCommandOutput
-} from "./commands/ListGatewayGroupsCommand.ts";
-import {
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput
-} from "./commands/ListGatewaysCommand.ts";
-import {
-  ListSkillsCommandInput,
-  ListSkillsCommandOutput
-} from "./commands/ListSkillsCommand.ts";
+import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "./commands/ListDeviceEventsCommand.ts";
+import { ListGatewayGroupsCommandInput, ListGatewayGroupsCommandOutput } from "./commands/ListGatewayGroupsCommand.ts";
+import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand.ts";
+import { ListSkillsCommandInput, ListSkillsCommandOutput } from "./commands/ListSkillsCommand.ts";
 import {
   ListSkillsStoreCategoriesCommandInput,
-  ListSkillsStoreCategoriesCommandOutput
+  ListSkillsStoreCategoriesCommandOutput,
 } from "./commands/ListSkillsStoreCategoriesCommand.ts";
 import {
   ListSkillsStoreSkillsByCategoryCommandInput,
-  ListSkillsStoreSkillsByCategoryCommandOutput
+  ListSkillsStoreSkillsByCategoryCommandOutput,
 } from "./commands/ListSkillsStoreSkillsByCategoryCommand.ts";
 import {
   ListSmartHomeAppliancesCommandInput,
-  ListSmartHomeAppliancesCommandOutput
+  ListSmartHomeAppliancesCommandOutput,
 } from "./commands/ListSmartHomeAppliancesCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   PutConferencePreferenceCommandInput,
-  PutConferencePreferenceCommandOutput
+  PutConferencePreferenceCommandOutput,
 } from "./commands/PutConferencePreferenceCommand.ts";
 import {
   PutInvitationConfigurationCommandInput,
-  PutInvitationConfigurationCommandOutput
+  PutInvitationConfigurationCommandOutput,
 } from "./commands/PutInvitationConfigurationCommand.ts";
 import {
   PutRoomSkillParameterCommandInput,
-  PutRoomSkillParameterCommandOutput
+  PutRoomSkillParameterCommandOutput,
 } from "./commands/PutRoomSkillParameterCommand.ts";
 import {
   PutSkillAuthorizationCommandInput,
-  PutSkillAuthorizationCommandOutput
+  PutSkillAuthorizationCommandOutput,
 } from "./commands/PutSkillAuthorizationCommand.ts";
-import {
-  RegisterAVSDeviceCommandInput,
-  RegisterAVSDeviceCommandOutput
-} from "./commands/RegisterAVSDeviceCommand.ts";
-import {
-  RejectSkillCommandInput,
-  RejectSkillCommandOutput
-} from "./commands/RejectSkillCommand.ts";
-import {
-  ResolveRoomCommandInput,
-  ResolveRoomCommandOutput
-} from "./commands/ResolveRoomCommand.ts";
-import {
-  RevokeInvitationCommandInput,
-  RevokeInvitationCommandOutput
-} from "./commands/RevokeInvitationCommand.ts";
+import { RegisterAVSDeviceCommandInput, RegisterAVSDeviceCommandOutput } from "./commands/RegisterAVSDeviceCommand.ts";
+import { RejectSkillCommandInput, RejectSkillCommandOutput } from "./commands/RejectSkillCommand.ts";
+import { ResolveRoomCommandInput, ResolveRoomCommandOutput } from "./commands/ResolveRoomCommand.ts";
+import { RevokeInvitationCommandInput, RevokeInvitationCommandOutput } from "./commands/RevokeInvitationCommand.ts";
 import {
   SearchAddressBooksCommandInput,
-  SearchAddressBooksCommandOutput
+  SearchAddressBooksCommandOutput,
 } from "./commands/SearchAddressBooksCommand.ts";
-import {
-  SearchContactsCommandInput,
-  SearchContactsCommandOutput
-} from "./commands/SearchContactsCommand.ts";
-import {
-  SearchDevicesCommandInput,
-  SearchDevicesCommandOutput
-} from "./commands/SearchDevicesCommand.ts";
+import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand.ts";
+import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand.ts";
 import {
   SearchNetworkProfilesCommandInput,
-  SearchNetworkProfilesCommandOutput
+  SearchNetworkProfilesCommandOutput,
 } from "./commands/SearchNetworkProfilesCommand.ts";
-import {
-  SearchProfilesCommandInput,
-  SearchProfilesCommandOutput
-} from "./commands/SearchProfilesCommand.ts";
-import {
-  SearchRoomsCommandInput,
-  SearchRoomsCommandOutput
-} from "./commands/SearchRoomsCommand.ts";
-import {
-  SearchSkillGroupsCommandInput,
-  SearchSkillGroupsCommandOutput
-} from "./commands/SearchSkillGroupsCommand.ts";
-import {
-  SearchUsersCommandInput,
-  SearchUsersCommandOutput
-} from "./commands/SearchUsersCommand.ts";
-import {
-  SendAnnouncementCommandInput,
-  SendAnnouncementCommandOutput
-} from "./commands/SendAnnouncementCommand.ts";
-import {
-  SendInvitationCommandInput,
-  SendInvitationCommandOutput
-} from "./commands/SendInvitationCommand.ts";
-import {
-  StartDeviceSyncCommandInput,
-  StartDeviceSyncCommandOutput
-} from "./commands/StartDeviceSyncCommand.ts";
+import { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand.ts";
+import { SearchRoomsCommandInput, SearchRoomsCommandOutput } from "./commands/SearchRoomsCommand.ts";
+import { SearchSkillGroupsCommandInput, SearchSkillGroupsCommandOutput } from "./commands/SearchSkillGroupsCommand.ts";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand.ts";
+import { SendAnnouncementCommandInput, SendAnnouncementCommandOutput } from "./commands/SendAnnouncementCommand.ts";
+import { SendInvitationCommandInput, SendInvitationCommandOutput } from "./commands/SendInvitationCommand.ts";
+import { StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput } from "./commands/StartDeviceSyncCommand.ts";
 import {
   StartSmartHomeApplianceDiscoveryCommandInput,
-  StartSmartHomeApplianceDiscoveryCommandOutput
+  StartSmartHomeApplianceDiscoveryCommandOutput,
 } from "./commands/StartSmartHomeApplianceDiscoveryCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAddressBookCommandInput,
-  UpdateAddressBookCommandOutput
-} from "./commands/UpdateAddressBookCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAddressBookCommandInput, UpdateAddressBookCommandOutput } from "./commands/UpdateAddressBookCommand.ts";
 import {
   UpdateBusinessReportScheduleCommandInput,
-  UpdateBusinessReportScheduleCommandOutput
+  UpdateBusinessReportScheduleCommandOutput,
 } from "./commands/UpdateBusinessReportScheduleCommand.ts";
 import {
   UpdateConferenceProviderCommandInput,
-  UpdateConferenceProviderCommandOutput
+  UpdateConferenceProviderCommandOutput,
 } from "./commands/UpdateConferenceProviderCommand.ts";
-import {
-  UpdateContactCommandInput,
-  UpdateContactCommandOutput
-} from "./commands/UpdateContactCommand.ts";
-import {
-  UpdateDeviceCommandInput,
-  UpdateDeviceCommandOutput
-} from "./commands/UpdateDeviceCommand.ts";
-import {
-  UpdateGatewayCommandInput,
-  UpdateGatewayCommandOutput
-} from "./commands/UpdateGatewayCommand.ts";
+import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand.ts";
+import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand.ts";
+import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand.ts";
 import {
   UpdateGatewayGroupCommandInput,
-  UpdateGatewayGroupCommandOutput
+  UpdateGatewayGroupCommandOutput,
 } from "./commands/UpdateGatewayGroupCommand.ts";
 import {
   UpdateNetworkProfileCommandInput,
-  UpdateNetworkProfileCommandOutput
+  UpdateNetworkProfileCommandOutput,
 } from "./commands/UpdateNetworkProfileCommand.ts";
-import {
-  UpdateProfileCommandInput,
-  UpdateProfileCommandOutput
-} from "./commands/UpdateProfileCommand.ts";
-import {
-  UpdateRoomCommandInput,
-  UpdateRoomCommandOutput
-} from "./commands/UpdateRoomCommand.ts";
-import {
-  UpdateSkillGroupCommandInput,
-  UpdateSkillGroupCommandOutput
-} from "./commands/UpdateSkillGroupCommand.ts";
+import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand.ts";
+import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand.ts";
+import { UpdateSkillGroupCommandInput, UpdateSkillGroupCommandOutput } from "./commands/UpdateSkillGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -377,38 +227,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -417,9 +263,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -612,8 +459,7 @@ export type ServiceOutputTypes =
   | UpdateRoomCommandOutput
   | UpdateSkillGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -687,14 +533,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -702,9 +553,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AlexaForBusinessClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AlexaForBusinessClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -713,9 +562,7 @@ export type AlexaForBusinessClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -745,7 +592,7 @@ export class AlexaForBusinessClient extends __Client<
   constructor(configuration: AlexaForBusinessClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -760,6 +607,7 @@ export class AlexaForBusinessClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

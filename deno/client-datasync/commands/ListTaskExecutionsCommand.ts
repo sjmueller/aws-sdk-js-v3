@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient.ts";
-import {
-  ListTaskExecutionsRequest,
-  ListTaskExecutionsResponse
-} from "../models/index.ts";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
+import { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListTaskExecutionsCommand,
-  serializeAws_json1_1ListTaskExecutionsCommand
+  serializeAws_json1_1ListTaskExecutionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListTaskExecutionsCommandInput = ListTaskExecutionsRequest;
-export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse &
-  __MetadataBearer;
+export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse & __MetadataBearer;
 
 export class ListTaskExecutionsCommand extends $Command<
   ListTaskExecutionsCommandInput,
@@ -50,14 +39,15 @@ export class ListTaskExecutionsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListTaskExecutionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTaskExecutionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListTaskExecutionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTaskExecutionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTaskExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTaskExecutionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTaskExecutionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskExecutionsCommandOutput> {
     return deserializeAws_json1_1ListTaskExecutionsCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient.ts";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
 import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/index.ts";
 import {
   deserializeAws_queryIndexDocumentsCommand,
-  serializeAws_queryIndexDocumentsCommand
+  serializeAws_queryIndexDocumentsCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type IndexDocumentsCommandInput = IndexDocumentsRequest;
-export type IndexDocumentsCommandOutput = IndexDocumentsResponse &
-  __MetadataBearer;
+export type IndexDocumentsCommandOutput = IndexDocumentsResponse & __MetadataBearer;
 
 export class IndexDocumentsCommand extends $Command<
   IndexDocumentsCommandInput,
@@ -47,14 +39,15 @@ export class IndexDocumentsCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<IndexDocumentsCommandInput, IndexDocumentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: IndexDocumentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: IndexDocumentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class IndexDocumentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: IndexDocumentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: IndexDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryIndexDocumentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<IndexDocumentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexDocumentsCommandOutput> {
     return deserializeAws_queryIndexDocumentsCommand(output, context);
   }
 

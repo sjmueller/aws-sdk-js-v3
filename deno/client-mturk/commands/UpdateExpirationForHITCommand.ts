@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
-import {
-  UpdateExpirationForHITRequest,
-  UpdateExpirationForHITResponse
-} from "../models/index.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
+import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateExpirationForHITCommand,
-  serializeAws_json1_1UpdateExpirationForHITCommand
+  serializeAws_json1_1UpdateExpirationForHITCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateExpirationForHITCommandInput = UpdateExpirationForHITRequest;
-export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse &
-  __MetadataBearer;
+export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse & __MetadataBearer;
 
 export class UpdateExpirationForHITCommand extends $Command<
   UpdateExpirationForHITCommandInput,
@@ -49,18 +38,16 @@ export class UpdateExpirationForHITCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateExpirationForHITCommandInput,
-    UpdateExpirationForHITCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateExpirationForHITCommandInput, UpdateExpirationForHITCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateExpirationForHITRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExpirationForHITResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateExpirationForHITCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateExpirationForHITCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateExpirationForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateExpirationForHITCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateExpirationForHITCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExpirationForHITCommandOutput> {
     return deserializeAws_json1_1UpdateExpirationForHITCommand(output, context);
   }
 

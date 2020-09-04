@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import {
-  PutScalingPolicyRequest,
-  PutScalingPolicyResponse
-} from "../models/index.ts";
+import { PutScalingPolicyRequest, PutScalingPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutScalingPolicyCommand,
-  serializeAws_json1_1PutScalingPolicyCommand
+  serializeAws_json1_1PutScalingPolicyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutScalingPolicyCommandInput = PutScalingPolicyRequest;
-export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse &
-  __MetadataBearer;
+export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse & __MetadataBearer;
 
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,
@@ -50,14 +43,15 @@ export class PutScalingPolicyCommand extends $Command<
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutScalingPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutScalingPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutScalingPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutScalingPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutScalingPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
     return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
   }
 

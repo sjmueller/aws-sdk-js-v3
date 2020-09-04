@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient.ts";
-import {
-  DescribeModelVersionsRequest,
-  DescribeModelVersionsResult
-} from "../models/index.ts";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
+import { DescribeModelVersionsRequest, DescribeModelVersionsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeModelVersionsCommand,
-  serializeAws_json1_1DescribeModelVersionsCommand
+  serializeAws_json1_1DescribeModelVersionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeModelVersionsCommandInput = DescribeModelVersionsRequest;
-export type DescribeModelVersionsCommandOutput = DescribeModelVersionsResult &
-  __MetadataBearer;
+export type DescribeModelVersionsCommandOutput = DescribeModelVersionsResult & __MetadataBearer;
 
 export class DescribeModelVersionsCommand extends $Command<
   DescribeModelVersionsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeModelVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeModelVersionsCommandInput,
-    DescribeModelVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeModelVersionsCommandInput, DescribeModelVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeModelVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeModelVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeModelVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeModelVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeModelVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeModelVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelVersionsCommandOutput> {
     return deserializeAws_json1_1DescribeModelVersionsCommand(output, context);
   }
 

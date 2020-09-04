@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
-import {
-  PutIdentityPolicyRequest,
-  PutIdentityPolicyResponse
-} from "../models/index.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
+import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryPutIdentityPolicyCommand,
-  serializeAws_queryPutIdentityPolicyCommand
+  serializeAws_queryPutIdentityPolicyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutIdentityPolicyCommandInput = PutIdentityPolicyRequest;
-export type PutIdentityPolicyCommandOutput = PutIdentityPolicyResponse &
-  __MetadataBearer;
+export type PutIdentityPolicyCommandOutput = PutIdentityPolicyResponse & __MetadataBearer;
 
 export class PutIdentityPolicyCommand extends $Command<
   PutIdentityPolicyCommandInput,
@@ -50,14 +39,15 @@ export class PutIdentityPolicyCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutIdentityPolicyCommandInput, PutIdentityPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutIdentityPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutIdentityPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutIdentityPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutIdentityPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutIdentityPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutIdentityPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIdentityPolicyCommandOutput> {
     return deserializeAws_queryPutIdentityPolicyCommand(output, context);
   }
 

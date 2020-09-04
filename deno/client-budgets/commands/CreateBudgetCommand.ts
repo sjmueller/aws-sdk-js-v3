@@ -1,18 +1,11 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient.ts";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
 import { CreateBudgetRequest, CreateBudgetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateBudgetCommand,
-  serializeAws_json1_1CreateBudgetCommand
+  serializeAws_json1_1CreateBudgetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateBudgetCommandInput = CreateBudgetRequest;
@@ -46,14 +39,15 @@ export class CreateBudgetCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBudgetCommandInput, CreateBudgetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateBudgetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateBudgetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class CreateBudgetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBudgetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBudgetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBudgetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBudgetCommandOutput> {
     return deserializeAws_json1_1CreateBudgetCommand(output, context);
   }
 

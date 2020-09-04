@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import {
   CreateTransitGatewayMulticastDomainRequest,
-  CreateTransitGatewayMulticastDomainResult
+  CreateTransitGatewayMulticastDomainResult,
 } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand,
-  serializeAws_ec2CreateTransitGatewayMulticastDomainCommand
+  serializeAws_ec2CreateTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateTransitGatewayMulticastDomainCommandInput = CreateTransitGatewayMulticastDomainRequest;
@@ -49,18 +42,16 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTransitGatewayMulticastDomainCommandInput,
-    CreateTransitGatewayMulticastDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTransitGatewayMulticastDomainCommandInput, CreateTransitGatewayMulticastDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateTransitGatewayMulticastDomainRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTransitGatewayMulticastDomainResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     input: CreateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

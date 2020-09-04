@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteIdentityCommand,
-  serializeAws_queryDeleteIdentityCommand
+  serializeAws_queryDeleteIdentityCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteIdentityCommandInput = DeleteIdentityRequest;
-export type DeleteIdentityCommandOutput = DeleteIdentityResponse &
-  __MetadataBearer;
+export type DeleteIdentityCommandOutput = DeleteIdentityResponse & __MetadataBearer;
 
 export class DeleteIdentityCommand extends $Command<
   DeleteIdentityCommandInput,
@@ -47,14 +39,15 @@ export class DeleteIdentityCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteIdentityCommandInput, DeleteIdentityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DeleteIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteIdentityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteIdentityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityCommandOutput> {
     return deserializeAws_queryDeleteIdentityCommand(output, context);
   }
 

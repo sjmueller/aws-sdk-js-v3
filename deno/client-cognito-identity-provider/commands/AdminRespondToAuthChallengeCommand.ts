@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  AdminRespondToAuthChallengeRequest,
-  AdminRespondToAuthChallengeResponse
-} from "../models/index.ts";
+import { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AdminRespondToAuthChallengeCommand,
-  serializeAws_json1_1AdminRespondToAuthChallengeCommand
+  serializeAws_json1_1AdminRespondToAuthChallengeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AdminRespondToAuthChallengeCommandInput = AdminRespondToAuthChallengeRequest;
-export type AdminRespondToAuthChallengeCommandOutput = AdminRespondToAuthChallengeResponse &
-  __MetadataBearer;
+export type AdminRespondToAuthChallengeCommandOutput = AdminRespondToAuthChallengeResponse & __MetadataBearer;
 
 export class AdminRespondToAuthChallengeCommand extends $Command<
   AdminRespondToAuthChallengeCommandInput,
@@ -49,18 +42,16 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminRespondToAuthChallengeCommandInput,
-    AdminRespondToAuthChallengeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminRespondToAuthChallengeCommandInput, AdminRespondToAuthChallengeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AdminRespondToAuthChallengeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminRespondToAuthChallengeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +61,15 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminRespondToAuthChallengeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(
-      input,
-      context
-    );
+  private serialize(input: AdminRespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminRespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

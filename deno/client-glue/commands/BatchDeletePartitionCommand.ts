@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  BatchDeletePartitionRequest,
-  BatchDeletePartitionResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchDeletePartitionCommand,
-  serializeAws_json1_1BatchDeletePartitionCommand
+  serializeAws_json1_1BatchDeletePartitionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDeletePartitionCommandInput = BatchDeletePartitionRequest;
-export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse &
-  __MetadataBearer;
+export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse & __MetadataBearer;
 
 export class BatchDeletePartitionCommand extends $Command<
   BatchDeletePartitionCommandInput,
@@ -49,18 +38,16 @@ export class BatchDeletePartitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeletePartitionCommandInput,
-    BatchDeletePartitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeletePartitionCommandInput, BatchDeletePartitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDeletePartitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeletePartitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class BatchDeletePartitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeletePartitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeletePartitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDeletePartitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePartitionCommandOutput> {
     return deserializeAws_json1_1BatchDeletePartitionCommand(output, context);
   }
 

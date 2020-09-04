@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  DBClusterEndpoint,
-  ModifyDBClusterEndpointMessage
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { DBClusterEndpoint, ModifyDBClusterEndpointMessage } from "../models/index.ts";
 import {
   deserializeAws_queryModifyDBClusterEndpointCommand,
-  serializeAws_queryModifyDBClusterEndpointCommand
+  serializeAws_queryModifyDBClusterEndpointCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
-export type ModifyDBClusterEndpointCommandOutput = DBClusterEndpoint &
-  __MetadataBearer;
+export type ModifyDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
 
 export class ModifyDBClusterEndpointCommand extends $Command<
   ModifyDBClusterEndpointCommandInput,
@@ -49,18 +38,16 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDBClusterEndpointCommandInput,
-    ModifyDBClusterEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDBClusterEndpointCommandInput, ModifyDBClusterEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyDBClusterEndpointMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBClusterEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBClusterEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
     return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
   }
 

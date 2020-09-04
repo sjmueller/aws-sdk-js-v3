@@ -1,21 +1,15 @@
 import {
   ElasticLoadBalancingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import {
-  DescribeLoadBalancerAttributesInput,
-  DescribeLoadBalancerAttributesOutput
-} from "../models/index.ts";
+import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeLoadBalancerAttributesCommand,
-  serializeAws_queryDescribeLoadBalancerAttributesCommand
+  serializeAws_queryDescribeLoadBalancerAttributesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeLoadBalancerAttributesCommandInput = DescribeLoadBalancerAttributesInput;
-export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput &
-  __MetadataBearer;
+export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput & __MetadataBearer;
 
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,
@@ -49,18 +42,16 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoadBalancerAttributesCommandInput,
-    DescribeLoadBalancerAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoadBalancerAttributesCommandInput, DescribeLoadBalancerAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeLoadBalancerAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     input: DescribeLoadBalancerAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeLoadBalancerAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

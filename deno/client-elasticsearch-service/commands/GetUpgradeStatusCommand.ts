@@ -1,21 +1,15 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusResponse
-} from "../models/index.ts";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetUpgradeStatusCommand,
-  serializeAws_restJson1GetUpgradeStatusCommand
+  serializeAws_restJson1GetUpgradeStatusCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
-export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse &
-  __MetadataBearer;
+export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse & __MetadataBearer;
 
 export class GetUpgradeStatusCommand extends $Command<
   GetUpgradeStatusCommandInput,
@@ -50,14 +43,15 @@ export class GetUpgradeStatusCommand extends $Command<
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetUpgradeStatusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetUpgradeStatusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class GetUpgradeStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUpgradeStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetUpgradeStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUpgradeStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
     return deserializeAws_restJson1GetUpgradeStatusCommand(output, context);
   }
 

@@ -1,18 +1,15 @@
 import {
   ManagedBlockchainClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
 import { ListMembersInput, ListMembersOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand
+  serializeAws_restJson1ListMembersCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListMembersCommandInput = ListMembersInput;
@@ -46,14 +43,15 @@ export class ListMembersCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMembersCommandInput, ListMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListMembersInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMembersOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class ListMembersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMembersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMembersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMembersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
     return deserializeAws_restJson1ListMembersCommand(output, context);
   }
 

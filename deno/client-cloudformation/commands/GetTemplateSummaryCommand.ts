@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  GetTemplateSummaryInput,
-  GetTemplateSummaryOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/index.ts";
 import {
   deserializeAws_queryGetTemplateSummaryCommand,
-  serializeAws_queryGetTemplateSummaryCommand
+  serializeAws_queryGetTemplateSummaryCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetTemplateSummaryCommandInput = GetTemplateSummaryInput;
-export type GetTemplateSummaryCommandOutput = GetTemplateSummaryOutput &
-  __MetadataBearer;
+export type GetTemplateSummaryCommandOutput = GetTemplateSummaryOutput & __MetadataBearer;
 
 export class GetTemplateSummaryCommand extends $Command<
   GetTemplateSummaryCommandInput,
@@ -50,14 +39,15 @@ export class GetTemplateSummaryCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetTemplateSummaryInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTemplateSummaryOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetTemplateSummaryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTemplateSummaryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTemplateSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTemplateSummaryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTemplateSummaryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSummaryCommandOutput> {
     return deserializeAws_queryGetTemplateSummaryCommand(output, context);
   }
 

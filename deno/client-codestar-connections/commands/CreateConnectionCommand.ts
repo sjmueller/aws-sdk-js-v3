@@ -1,18 +1,15 @@
 import {
-  CodeStarconnectionsClientResolvedConfig,
+  CodeStarConnectionsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarconnectionsClient.ts";
+  ServiceOutputTypes,
+} from "../CodeStarConnectionsClient.ts";
 import { CreateConnectionInput, CreateConnectionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0CreateConnectionCommand,
-  serializeAws_json1_0CreateConnectionCommand
+  serializeAws_json1_0CreateConnectionCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateConnectionCommandInput = CreateConnectionInput;
-export type CreateConnectionCommandOutput = CreateConnectionOutput &
-  __MetadataBearer;
+export type CreateConnectionCommandOutput = CreateConnectionOutput & __MetadataBearer;
 
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
   CreateConnectionCommandOutput,
-  CodeStarconnectionsClientResolvedConfig
+  CodeStarConnectionsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -44,17 +40,18 @@ export class CreateConnectionCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeStarconnectionsClientResolvedConfig,
+    configuration: CodeStarConnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateConnectionCommandInput, CreateConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateConnectionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class CreateConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0CreateConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
     return deserializeAws_json1_0CreateConnectionCommand(output, context);
   }
 

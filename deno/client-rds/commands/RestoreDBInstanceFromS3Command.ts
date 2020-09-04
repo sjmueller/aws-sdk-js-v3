@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  RestoreDBInstanceFromS3Message,
-  RestoreDBInstanceFromS3Result
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/index.ts";
 import {
   deserializeAws_queryRestoreDBInstanceFromS3Command,
-  serializeAws_queryRestoreDBInstanceFromS3Command
+  serializeAws_queryRestoreDBInstanceFromS3Command,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
-export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result &
-  __MetadataBearer;
+export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result & __MetadataBearer;
 
 export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandInput,
@@ -49,18 +38,16 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBInstanceFromS3CommandInput,
-    RestoreDBInstanceFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBInstanceFromS3CommandInput, RestoreDBInstanceFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RestoreDBInstanceFromS3Message.filterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBInstanceFromS3Result.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreDBInstanceFromS3CommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestoreDBInstanceFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBInstanceFromS3Command(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBInstanceFromS3CommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreDBInstanceFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBInstanceFromS3Command(output, context);
   }
 

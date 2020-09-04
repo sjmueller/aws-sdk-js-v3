@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeVolumesModificationsRequest,
-  DescribeVolumesModificationsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeVolumesModificationsCommand,
-  serializeAws_ec2DescribeVolumesModificationsCommand
+  serializeAws_ec2DescribeVolumesModificationsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeVolumesModificationsCommandInput = DescribeVolumesModificationsRequest;
-export type DescribeVolumesModificationsCommandOutput = DescribeVolumesModificationsResult &
-  __MetadataBearer;
+export type DescribeVolumesModificationsCommandOutput = DescribeVolumesModificationsResult & __MetadataBearer;
 
 export class DescribeVolumesModificationsCommand extends $Command<
   DescribeVolumesModificationsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeVolumesModificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVolumesModificationsCommandInput,
-    DescribeVolumesModificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVolumesModificationsCommandInput, DescribeVolumesModificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeVolumesModificationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVolumesModificationsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeVolumesModificationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVolumesModificationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeVolumesModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumesModificationsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeVolumesModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVolumesModificationsCommandOutput> {
-    return deserializeAws_ec2DescribeVolumesModificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVolumesModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient.ts";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
 import { RespondActivityTaskCanceledInput } from "../models/index.ts";
 import {
   deserializeAws_json1_0RespondActivityTaskCanceledCommand,
-  serializeAws_json1_0RespondActivityTaskCanceledCommand
+  serializeAws_json1_0RespondActivityTaskCanceledCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RespondActivityTaskCanceledCommandInput = RespondActivityTaskCanceledInput;
@@ -45,18 +38,16 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RespondActivityTaskCanceledCommandInput,
-    RespondActivityTaskCanceledCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RespondActivityTaskCanceledCommandInput, RespondActivityTaskCanceledCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RespondActivityTaskCanceledInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RespondActivityTaskCanceledCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskCanceledCommand(
-      input,
-      context
-    );
+  private serialize(input: RespondActivityTaskCanceledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0RespondActivityTaskCanceledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskCanceledCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskCanceledCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RespondActivityTaskCanceledCommand(output, context);
   }
 
   // Start section: command_body_extra

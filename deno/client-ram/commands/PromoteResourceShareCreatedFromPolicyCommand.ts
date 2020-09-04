@@ -1,21 +1,14 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient.ts";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
-  PromoteResourceShareCreatedFromPolicyResponse
+  PromoteResourceShareCreatedFromPolicyResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
-  serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand
+  serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PromoteResourceShareCreatedFromPolicyCommandInput = PromoteResourceShareCreatedFromPolicyRequest;
@@ -39,9 +32,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PromoteResourceShareCreatedFromPolicyCommandInput
-  ) {
+  constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PromoteResourceShareCreatedFromPolicyCommandInput,
-    PromoteResourceShareCreatedFromPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PromoteResourceShareCreatedFromPolicyCommandInput, PromoteResourceShareCreatedFromPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

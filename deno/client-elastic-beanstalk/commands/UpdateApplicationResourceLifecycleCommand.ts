@@ -1,21 +1,18 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
 import {
   ApplicationResourceLifecycleDescriptionMessage,
-  UpdateApplicationResourceLifecycleMessage
+  UpdateApplicationResourceLifecycleMessage,
 } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateApplicationResourceLifecycleCommand,
-  serializeAws_queryUpdateApplicationResourceLifecycleCommand
+  serializeAws_queryUpdateApplicationResourceLifecycleCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateApplicationResourceLifecycleCommandInput = UpdateApplicationResourceLifecycleMessage;
@@ -49,18 +46,16 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApplicationResourceLifecycleCommandInput,
-    UpdateApplicationResourceLifecycleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApplicationResourceLifecycleCommandInput, UpdateApplicationResourceLifecycleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateApplicationResourceLifecycleMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationResourceLifecycleDescriptionMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +69,14 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     input: UpdateApplicationResourceLifecycleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateApplicationResourceLifecycleCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateApplicationResourceLifecycleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> {
-    return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

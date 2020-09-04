@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
-import {
-  ResendContactReachabilityEmailRequest,
-  ResendContactReachabilityEmailResponse
-} from "../models/index.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
+import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ResendContactReachabilityEmailCommand,
-  serializeAws_json1_1ResendContactReachabilityEmailCommand
+  serializeAws_json1_1ResendContactReachabilityEmailCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ResendContactReachabilityEmailCommandInput = ResendContactReachabilityEmailRequest;
-export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse &
-  __MetadataBearer;
+export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse & __MetadataBearer;
 
 export class ResendContactReachabilityEmailCommand extends $Command<
   ResendContactReachabilityEmailCommandInput,
@@ -49,18 +38,16 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResendContactReachabilityEmailCommandInput,
-    ResendContactReachabilityEmailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResendContactReachabilityEmailCommandInput, ResendContactReachabilityEmailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ResendContactReachabilityEmailRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResendContactReachabilityEmailResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     input: ResendContactReachabilityEmailCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendContactReachabilityEmailCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ResendContactReachabilityEmailCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResendContactReachabilityEmailCommandOutput> {
-    return deserializeAws_json1_1ResendContactReachabilityEmailCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ResendContactReachabilityEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateFpgaImageCommand,
-  serializeAws_ec2CreateFpgaImageCommand
+  serializeAws_ec2CreateFpgaImageCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateFpgaImageCommandInput = CreateFpgaImageRequest;
-export type CreateFpgaImageCommandOutput = CreateFpgaImageResult &
-  __MetadataBearer;
+export type CreateFpgaImageCommandOutput = CreateFpgaImageResult & __MetadataBearer;
 
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,
@@ -47,14 +39,15 @@ export class CreateFpgaImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateFpgaImageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateFpgaImageResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateFpgaImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateFpgaImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateFpgaImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateFpgaImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFpgaImageCommandOutput> {
     return deserializeAws_ec2CreateFpgaImageCommand(output, context);
   }
 

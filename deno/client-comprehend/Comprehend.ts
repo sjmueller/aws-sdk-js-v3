@@ -2,257 +2,257 @@ import { ComprehendClient } from "./ComprehendClient.ts";
 import {
   BatchDetectDominantLanguageCommand,
   BatchDetectDominantLanguageCommandInput,
-  BatchDetectDominantLanguageCommandOutput
+  BatchDetectDominantLanguageCommandOutput,
 } from "./commands/BatchDetectDominantLanguageCommand.ts";
 import {
   BatchDetectEntitiesCommand,
   BatchDetectEntitiesCommandInput,
-  BatchDetectEntitiesCommandOutput
+  BatchDetectEntitiesCommandOutput,
 } from "./commands/BatchDetectEntitiesCommand.ts";
 import {
   BatchDetectKeyPhrasesCommand,
   BatchDetectKeyPhrasesCommandInput,
-  BatchDetectKeyPhrasesCommandOutput
+  BatchDetectKeyPhrasesCommandOutput,
 } from "./commands/BatchDetectKeyPhrasesCommand.ts";
 import {
   BatchDetectSentimentCommand,
   BatchDetectSentimentCommandInput,
-  BatchDetectSentimentCommandOutput
+  BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand.ts";
 import {
   BatchDetectSyntaxCommand,
   BatchDetectSyntaxCommandInput,
-  BatchDetectSyntaxCommandOutput
+  BatchDetectSyntaxCommandOutput,
 } from "./commands/BatchDetectSyntaxCommand.ts";
 import {
   ClassifyDocumentCommand,
   ClassifyDocumentCommandInput,
-  ClassifyDocumentCommandOutput
+  ClassifyDocumentCommandOutput,
 } from "./commands/ClassifyDocumentCommand.ts";
 import {
   CreateDocumentClassifierCommand,
   CreateDocumentClassifierCommandInput,
-  CreateDocumentClassifierCommandOutput
+  CreateDocumentClassifierCommandOutput,
 } from "./commands/CreateDocumentClassifierCommand.ts";
 import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
+  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand.ts";
 import {
   CreateEntityRecognizerCommand,
   CreateEntityRecognizerCommandInput,
-  CreateEntityRecognizerCommandOutput
+  CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand.ts";
 import {
   DeleteDocumentClassifierCommand,
   DeleteDocumentClassifierCommandInput,
-  DeleteDocumentClassifierCommandOutput
+  DeleteDocumentClassifierCommandOutput,
 } from "./commands/DeleteDocumentClassifierCommand.ts";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
+  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand.ts";
 import {
   DeleteEntityRecognizerCommand,
   DeleteEntityRecognizerCommandInput,
-  DeleteEntityRecognizerCommandOutput
+  DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand.ts";
 import {
   DescribeDocumentClassificationJobCommand,
   DescribeDocumentClassificationJobCommandInput,
-  DescribeDocumentClassificationJobCommandOutput
+  DescribeDocumentClassificationJobCommandOutput,
 } from "./commands/DescribeDocumentClassificationJobCommand.ts";
 import {
   DescribeDocumentClassifierCommand,
   DescribeDocumentClassifierCommandInput,
-  DescribeDocumentClassifierCommandOutput
+  DescribeDocumentClassifierCommandOutput,
 } from "./commands/DescribeDocumentClassifierCommand.ts";
 import {
   DescribeDominantLanguageDetectionJobCommand,
   DescribeDominantLanguageDetectionJobCommandInput,
-  DescribeDominantLanguageDetectionJobCommandOutput
+  DescribeDominantLanguageDetectionJobCommandOutput,
 } from "./commands/DescribeDominantLanguageDetectionJobCommand.ts";
 import {
   DescribeEndpointCommand,
   DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
+  DescribeEndpointCommandOutput,
 } from "./commands/DescribeEndpointCommand.ts";
 import {
   DescribeEntitiesDetectionJobCommand,
   DescribeEntitiesDetectionJobCommandInput,
-  DescribeEntitiesDetectionJobCommandOutput
+  DescribeEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribeEntitiesDetectionJobCommand.ts";
 import {
   DescribeEntityRecognizerCommand,
   DescribeEntityRecognizerCommandInput,
-  DescribeEntityRecognizerCommandOutput
+  DescribeEntityRecognizerCommandOutput,
 } from "./commands/DescribeEntityRecognizerCommand.ts";
 import {
   DescribeKeyPhrasesDetectionJobCommand,
   DescribeKeyPhrasesDetectionJobCommandInput,
-  DescribeKeyPhrasesDetectionJobCommandOutput
+  DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand.ts";
 import {
   DescribeSentimentDetectionJobCommand,
   DescribeSentimentDetectionJobCommandInput,
-  DescribeSentimentDetectionJobCommandOutput
+  DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand.ts";
 import {
   DescribeTopicsDetectionJobCommand,
   DescribeTopicsDetectionJobCommandInput,
-  DescribeTopicsDetectionJobCommandOutput
+  DescribeTopicsDetectionJobCommandOutput,
 } from "./commands/DescribeTopicsDetectionJobCommand.ts";
 import {
   DetectDominantLanguageCommand,
   DetectDominantLanguageCommandInput,
-  DetectDominantLanguageCommandOutput
+  DetectDominantLanguageCommandOutput,
 } from "./commands/DetectDominantLanguageCommand.ts";
 import {
   DetectEntitiesCommand,
   DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput
+  DetectEntitiesCommandOutput,
 } from "./commands/DetectEntitiesCommand.ts";
 import {
   DetectKeyPhrasesCommand,
   DetectKeyPhrasesCommandInput,
-  DetectKeyPhrasesCommandOutput
+  DetectKeyPhrasesCommandOutput,
 } from "./commands/DetectKeyPhrasesCommand.ts";
 import {
   DetectSentimentCommand,
   DetectSentimentCommandInput,
-  DetectSentimentCommandOutput
+  DetectSentimentCommandOutput,
 } from "./commands/DetectSentimentCommand.ts";
 import {
   DetectSyntaxCommand,
   DetectSyntaxCommandInput,
-  DetectSyntaxCommandOutput
+  DetectSyntaxCommandOutput,
 } from "./commands/DetectSyntaxCommand.ts";
 import {
   ListDocumentClassificationJobsCommand,
   ListDocumentClassificationJobsCommandInput,
-  ListDocumentClassificationJobsCommandOutput
+  ListDocumentClassificationJobsCommandOutput,
 } from "./commands/ListDocumentClassificationJobsCommand.ts";
 import {
   ListDocumentClassifiersCommand,
   ListDocumentClassifiersCommandInput,
-  ListDocumentClassifiersCommandOutput
+  ListDocumentClassifiersCommandOutput,
 } from "./commands/ListDocumentClassifiersCommand.ts";
 import {
   ListDominantLanguageDetectionJobsCommand,
   ListDominantLanguageDetectionJobsCommandInput,
-  ListDominantLanguageDetectionJobsCommandOutput
+  ListDominantLanguageDetectionJobsCommandOutput,
 } from "./commands/ListDominantLanguageDetectionJobsCommand.ts";
 import {
   ListEndpointsCommand,
   ListEndpointsCommandInput,
-  ListEndpointsCommandOutput
+  ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand.ts";
 import {
   ListEntitiesDetectionJobsCommand,
   ListEntitiesDetectionJobsCommandInput,
-  ListEntitiesDetectionJobsCommandOutput
+  ListEntitiesDetectionJobsCommandOutput,
 } from "./commands/ListEntitiesDetectionJobsCommand.ts";
 import {
   ListEntityRecognizersCommand,
   ListEntityRecognizersCommandInput,
-  ListEntityRecognizersCommandOutput
+  ListEntityRecognizersCommandOutput,
 } from "./commands/ListEntityRecognizersCommand.ts";
 import {
   ListKeyPhrasesDetectionJobsCommand,
   ListKeyPhrasesDetectionJobsCommandInput,
-  ListKeyPhrasesDetectionJobsCommandOutput
+  ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand.ts";
 import {
   ListSentimentDetectionJobsCommand,
   ListSentimentDetectionJobsCommandInput,
-  ListSentimentDetectionJobsCommandOutput
+  ListSentimentDetectionJobsCommandOutput,
 } from "./commands/ListSentimentDetectionJobsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTopicsDetectionJobsCommand,
   ListTopicsDetectionJobsCommandInput,
-  ListTopicsDetectionJobsCommandOutput
+  ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand.ts";
 import {
   StartDocumentClassificationJobCommand,
   StartDocumentClassificationJobCommandInput,
-  StartDocumentClassificationJobCommandOutput
+  StartDocumentClassificationJobCommandOutput,
 } from "./commands/StartDocumentClassificationJobCommand.ts";
 import {
   StartDominantLanguageDetectionJobCommand,
   StartDominantLanguageDetectionJobCommandInput,
-  StartDominantLanguageDetectionJobCommandOutput
+  StartDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StartDominantLanguageDetectionJobCommand.ts";
 import {
   StartEntitiesDetectionJobCommand,
   StartEntitiesDetectionJobCommandInput,
-  StartEntitiesDetectionJobCommandOutput
+  StartEntitiesDetectionJobCommandOutput,
 } from "./commands/StartEntitiesDetectionJobCommand.ts";
 import {
   StartKeyPhrasesDetectionJobCommand,
   StartKeyPhrasesDetectionJobCommandInput,
-  StartKeyPhrasesDetectionJobCommandOutput
+  StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand.ts";
 import {
   StartSentimentDetectionJobCommand,
   StartSentimentDetectionJobCommandInput,
-  StartSentimentDetectionJobCommandOutput
+  StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand.ts";
 import {
   StartTopicsDetectionJobCommand,
   StartTopicsDetectionJobCommandInput,
-  StartTopicsDetectionJobCommandOutput
+  StartTopicsDetectionJobCommandOutput,
 } from "./commands/StartTopicsDetectionJobCommand.ts";
 import {
   StopDominantLanguageDetectionJobCommand,
   StopDominantLanguageDetectionJobCommandInput,
-  StopDominantLanguageDetectionJobCommandOutput
+  StopDominantLanguageDetectionJobCommandOutput,
 } from "./commands/StopDominantLanguageDetectionJobCommand.ts";
 import {
   StopEntitiesDetectionJobCommand,
   StopEntitiesDetectionJobCommandInput,
-  StopEntitiesDetectionJobCommandOutput
+  StopEntitiesDetectionJobCommandOutput,
 } from "./commands/StopEntitiesDetectionJobCommand.ts";
 import {
   StopKeyPhrasesDetectionJobCommand,
   StopKeyPhrasesDetectionJobCommandInput,
-  StopKeyPhrasesDetectionJobCommandOutput
+  StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand.ts";
 import {
   StopSentimentDetectionJobCommand,
   StopSentimentDetectionJobCommandInput,
-  StopSentimentDetectionJobCommandOutput
+  StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand.ts";
 import {
   StopTrainingDocumentClassifierCommand,
   StopTrainingDocumentClassifierCommandInput,
-  StopTrainingDocumentClassifierCommandOutput
+  StopTrainingDocumentClassifierCommandOutput,
 } from "./commands/StopTrainingDocumentClassifierCommand.ts";
 import {
   StopTrainingEntityRecognizerCommand,
   StopTrainingEntityRecognizerCommandInput,
-  StopTrainingEntityRecognizerCommandOutput
+  StopTrainingEntityRecognizerCommandOutput,
 } from "./commands/StopTrainingEntityRecognizerCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateEndpointCommand,
   UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
+  UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -281,17 +281,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDetectDominantLanguageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectDominantLanguageCommandOutput) => void),
     cb?: (err: any, data?: BatchDetectDominantLanguageCommandOutput) => void
   ): Promise<BatchDetectDominantLanguageCommandOutput> | void {
     const command = new BatchDetectDominantLanguageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -318,17 +315,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDetectEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectEntitiesCommandOutput) => void),
     cb?: (err: any, data?: BatchDetectEntitiesCommandOutput) => void
   ): Promise<BatchDetectEntitiesCommandOutput> | void {
     const command = new BatchDetectEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -353,17 +347,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public batchDetectKeyPhrases(
     args: BatchDetectKeyPhrasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void),
     cb?: (err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void
   ): Promise<BatchDetectKeyPhrasesCommandOutput> | void {
     const command = new BatchDetectKeyPhrasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -390,17 +381,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public batchDetectSentiment(
     args: BatchDetectSentimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDetectSentimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectSentimentCommandOutput) => void),
     cb?: (err: any, data?: BatchDetectSentimentCommandOutput) => void
   ): Promise<BatchDetectSentimentCommandOutput> | void {
     const command = new BatchDetectSentimentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -426,17 +414,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDetectSyntaxCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectSyntaxCommandOutput) => void),
     cb?: (err: any, data?: BatchDetectSyntaxCommandOutput) => void
   ): Promise<BatchDetectSyntaxCommandOutput> | void {
     const command = new BatchDetectSyntaxCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -461,17 +446,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public classifyDocument(
     args: ClassifyDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ClassifyDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClassifyDocumentCommandOutput) => void),
     cb?: (err: any, data?: ClassifyDocumentCommandOutput) => void
   ): Promise<ClassifyDocumentCommandOutput> | void {
     const command = new ClassifyDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -480,7 +462,7 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Creates a new document classifier that you can use to categorize documents. To create a
-   *       classifier you provide a set of training documents that labeled with the categories that you
+   *       classifier, you provide a set of training documents that labeled with the categories that you
    *       want to use. After the classifier is trained you can use it to categorize a set of labeled
    *       documents into the categories. For more information, see <a>how-document-classification</a>.</p>
    */
@@ -499,17 +481,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDocumentClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDocumentClassifierCommandOutput) => void),
     cb?: (err: any, data?: CreateDocumentClassifierCommandOutput) => void
   ): Promise<CreateDocumentClassifierCommandOutput> | void {
     const command = new CreateDocumentClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -534,17 +513,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -570,17 +546,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEntityRecognizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEntityRecognizerCommandOutput) => void),
     cb?: (err: any, data?: CreateEntityRecognizerCommandOutput) => void
   ): Promise<CreateEntityRecognizerCommandOutput> | void {
     const command = new CreateEntityRecognizerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -610,17 +583,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDocumentClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentClassifierCommandOutput) => void),
     cb?: (err: any, data?: DeleteDocumentClassifierCommandOutput) => void
   ): Promise<DeleteDocumentClassifierCommandOutput> | void {
     const command = new DeleteDocumentClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -645,17 +615,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -685,17 +652,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEntityRecognizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntityRecognizerCommandOutput) => void),
     cb?: (err: any, data?: DeleteEntityRecognizerCommandOutput) => void
   ): Promise<DeleteEntityRecognizerCommandOutput> | void {
     const command = new DeleteEntityRecognizerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -712,38 +676,23 @@ export class Comprehend extends ComprehendClient {
   ): Promise<DescribeDocumentClassificationJobCommandOutput>;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDocumentClassificationJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): Promise<DescribeDocumentClassificationJobCommandOutput> | void {
     const command = new DescribeDocumentClassificationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -768,17 +717,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeDocumentClassifier(
     args: DescribeDocumentClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDocumentClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentClassifierCommandOutput) => void),
     cb?: (err: any, data?: DescribeDocumentClassifierCommandOutput) => void
   ): Promise<DescribeDocumentClassifierCommandOutput> | void {
     const command = new DescribeDocumentClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -795,38 +741,23 @@ export class Comprehend extends ComprehendClient {
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput>;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> | void {
     const command = new DescribeDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -851,17 +782,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): Promise<DescribeEndpointCommandOutput> | void {
     const command = new DescribeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -887,17 +815,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeEntitiesDetectionJob(
     args: DescribeEntitiesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void
   ): Promise<DescribeEntitiesDetectionJobCommandOutput> | void {
     const command = new DescribeEntitiesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -923,17 +848,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeEntityRecognizer(
     args: DescribeEntityRecognizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityRecognizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityRecognizerCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntityRecognizerCommandOutput) => void
   ): Promise<DescribeEntityRecognizerCommandOutput> | void {
     const command = new DescribeEntityRecognizerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -959,20 +881,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeKeyPhrasesDetectionJob(
     args: DescribeKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeKeyPhrasesDetectionJobCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> | void {
     const command = new DescribeKeyPhrasesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -998,17 +914,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeSentimentDetectionJob(
     args: DescribeSentimentDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void
   ): Promise<DescribeSentimentDetectionJobCommandOutput> | void {
     const command = new DescribeSentimentDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1034,17 +947,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeTopicsDetectionJob(
     args: DescribeTopicsDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void
   ): Promise<DescribeTopicsDetectionJobCommandOutput> | void {
     const command = new DescribeTopicsDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1070,17 +980,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectDominantLanguageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectDominantLanguageCommandOutput) => void),
     cb?: (err: any, data?: DetectDominantLanguageCommandOutput) => void
   ): Promise<DetectDominantLanguageCommandOutput> | void {
     const command = new DetectDominantLanguageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,17 +1013,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectEntities(
     args: DetectEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesCommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesCommandOutput) => void
   ): Promise<DetectEntitiesCommandOutput> | void {
     const command = new DetectEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1141,17 +1045,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectKeyPhrasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectKeyPhrasesCommandOutput) => void),
     cb?: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
   ): Promise<DetectKeyPhrasesCommandOutput> | void {
     const command = new DetectKeyPhrasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1177,17 +1078,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectSentiment(
     args: DetectSentimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectSentimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSentimentCommandOutput) => void),
     cb?: (err: any, data?: DetectSentimentCommandOutput) => void
   ): Promise<DetectSentimentCommandOutput> | void {
     const command = new DetectSentimentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1202,10 +1100,7 @@ export class Comprehend extends ComprehendClient {
     args: DetectSyntaxCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectSyntaxCommandOutput>;
-  public detectSyntax(
-    args: DetectSyntaxCommandInput,
-    cb: (err: any, data?: DetectSyntaxCommandOutput) => void
-  ): void;
+  public detectSyntax(args: DetectSyntaxCommandInput, cb: (err: any, data?: DetectSyntaxCommandOutput) => void): void;
   public detectSyntax(
     args: DetectSyntaxCommandInput,
     options: __HttpHandlerOptions,
@@ -1213,17 +1108,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectSyntax(
     args: DetectSyntaxCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectSyntaxCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSyntaxCommandOutput) => void),
     cb?: (err: any, data?: DetectSyntaxCommandOutput) => void
   ): Promise<DetectSyntaxCommandOutput> | void {
     const command = new DetectSyntaxCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1248,20 +1140,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDocumentClassificationJobsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassificationJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentClassificationJobsCommandOutput) => void
   ): Promise<ListDocumentClassificationJobsCommandOutput> | void {
     const command = new ListDocumentClassificationJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1286,17 +1172,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDocumentClassifiersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassifiersCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentClassifiersCommandOutput) => void
   ): Promise<ListDocumentClassifiersCommandOutput> | void {
     const command = new ListDocumentClassifiersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1312,38 +1195,23 @@ export class Comprehend extends ComprehendClient {
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput>;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
-    cb: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDominantLanguageDetectionJobsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput> | void {
     const command = new ListDominantLanguageDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1368,17 +1236,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listEndpoints(
     args: ListEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointsCommandOutput) => void
   ): Promise<ListEndpointsCommandOutput> | void {
     const command = new ListEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1403,17 +1268,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void
   ): Promise<ListEntitiesDetectionJobsCommandOutput> | void {
     const command = new ListEntitiesDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1444,17 +1306,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntityRecognizersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntityRecognizersCommandOutput) => void),
     cb?: (err: any, data?: ListEntityRecognizersCommandOutput) => void
   ): Promise<ListEntityRecognizersCommandOutput> | void {
     const command = new ListEntityRecognizersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1479,17 +1338,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void
   ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> | void {
     const command = new ListKeyPhrasesDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1514,17 +1370,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSentimentDetectionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSentimentDetectionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListSentimentDetectionJobsCommandOutput) => void
   ): Promise<ListSentimentDetectionJobsCommandOutput> | void {
     const command = new ListSentimentDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1549,17 +1402,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1584,17 +1434,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicsDetectionJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTopicsDetectionJobsCommandOutput) => void),
     cb?: (err: any, data?: ListTopicsDetectionJobsCommandOutput) => void
   ): Promise<ListTopicsDetectionJobsCommandOutput> | void {
     const command = new ListTopicsDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1620,20 +1467,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartDocumentClassificationJobCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDocumentClassificationJobCommandOutput) => void),
     cb?: (err: any, data?: StartDocumentClassificationJobCommandOutput) => void
   ): Promise<StartDocumentClassificationJobCommandOutput> | void {
     const command = new StartDocumentClassificationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1651,38 +1492,23 @@ export class Comprehend extends ComprehendClient {
   ): Promise<StartDominantLanguageDetectionJobCommandOutput>;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
-    cb: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<StartDominantLanguageDetectionJobCommandOutput> | void {
     const command = new StartDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1710,17 +1536,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartEntitiesDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEntitiesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StartEntitiesDetectionJobCommandOutput) => void
   ): Promise<StartEntitiesDetectionJobCommandOutput> | void {
     const command = new StartEntitiesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1747,17 +1570,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public startKeyPhrasesDetectionJob(
     args: StartKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput> | void {
     const command = new StartKeyPhrasesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1784,17 +1604,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public startSentimentDetectionJob(
     args: StartSentimentDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSentimentDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSentimentDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StartSentimentDetectionJobCommandOutput) => void
   ): Promise<StartSentimentDetectionJobCommandOutput> | void {
     const command = new StartSentimentDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1820,17 +1637,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public startTopicsDetectionJob(
     args: StartTopicsDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTopicsDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTopicsDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StartTopicsDetectionJobCommandOutput) => void
   ): Promise<StartTopicsDetectionJobCommandOutput> | void {
     const command = new StartTopicsDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1864,23 +1678,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopDominantLanguageDetectionJob(
     args: StopDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StopDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StopDominantLanguageDetectionJobCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<StopDominantLanguageDetectionJobCommandOutput> | void {
     const command = new StopDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1914,17 +1719,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopEntitiesDetectionJob(
     args: StopEntitiesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopEntitiesDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEntitiesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StopEntitiesDetectionJobCommandOutput) => void
   ): Promise<StopEntitiesDetectionJobCommandOutput> | void {
     const command = new StopEntitiesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1958,17 +1760,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopKeyPhrasesDetectionJob(
     args: StopKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void
   ): Promise<StopKeyPhrasesDetectionJobCommandOutput> | void {
     const command = new StopKeyPhrasesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2002,17 +1801,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopSentimentDetectionJob(
     args: StopSentimentDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopSentimentDetectionJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSentimentDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: StopSentimentDetectionJobCommandOutput) => void
   ): Promise<StopSentimentDetectionJobCommandOutput> | void {
     const command = new StopSentimentDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2042,20 +1838,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StopTrainingDocumentClassifierCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void),
     cb?: (err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void
   ): Promise<StopTrainingDocumentClassifierCommandOutput> | void {
     const command = new StopTrainingDocumentClassifierCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2083,17 +1873,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void),
     cb?: (err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void
   ): Promise<StopTrainingEntityRecognizerCommandOutput> | void {
     const command = new StopTrainingEntityRecognizerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2105,14 +1892,8 @@ export class Comprehend extends ComprehendClient {
    *       For example,
    *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.     </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2120,17 +1901,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2155,17 +1933,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2190,17 +1965,14 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

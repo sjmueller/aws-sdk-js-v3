@@ -1,21 +1,11 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient.ts";
-import {
-  DescribeEventAggregatesRequest,
-  DescribeEventAggregatesResponse
-} from "../models/index.ts";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
+import { DescribeEventAggregatesRequest, DescribeEventAggregatesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventAggregatesCommand,
-  serializeAws_json1_1DescribeEventAggregatesCommand
+  serializeAws_json1_1DescribeEventAggregatesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventAggregatesCommandInput = DescribeEventAggregatesRequest;
-export type DescribeEventAggregatesCommandOutput = DescribeEventAggregatesResponse &
-  __MetadataBearer;
+export type DescribeEventAggregatesCommandOutput = DescribeEventAggregatesResponse & __MetadataBearer;
 
 export class DescribeEventAggregatesCommand extends $Command<
   DescribeEventAggregatesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEventAggregatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventAggregatesCommandInput,
-    DescribeEventAggregatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventAggregatesCommandInput, DescribeEventAggregatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventAggregatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventAggregatesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeEventAggregatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventAggregatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventAggregatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventAggregatesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventAggregatesCommandOutput> {
+    return deserializeAws_json1_1DescribeEventAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

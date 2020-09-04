@@ -1,21 +1,15 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import {
-  DeleteApplicationsRequest,
-  DeleteApplicationsResponse
-} from "../models/index.ts";
+import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteApplicationsCommand,
-  serializeAws_json1_1DeleteApplicationsCommand
+  serializeAws_json1_1DeleteApplicationsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteApplicationsCommandInput = DeleteApplicationsRequest;
-export type DeleteApplicationsCommandOutput = DeleteApplicationsResponse &
-  __MetadataBearer;
+export type DeleteApplicationsCommandOutput = DeleteApplicationsResponse & __MetadataBearer;
 
 export class DeleteApplicationsCommand extends $Command<
   DeleteApplicationsCommandInput,
@@ -50,14 +43,15 @@ export class DeleteApplicationsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteApplicationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DeleteApplicationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteApplicationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteApplicationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteApplicationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationsCommandOutput> {
     return deserializeAws_json1_1DeleteApplicationsCommand(output, context);
   }
 

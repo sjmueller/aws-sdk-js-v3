@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient.ts";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
 import { ActivityTypeInfos, ListActivityTypesInput } from "../models/index.ts";
 import {
   deserializeAws_json1_0ListActivityTypesCommand,
-  serializeAws_json1_0ListActivityTypesCommand
+  serializeAws_json1_0ListActivityTypesCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListActivityTypesCommandInput = ListActivityTypesInput;
-export type ListActivityTypesCommandOutput = ActivityTypeInfos &
-  __MetadataBearer;
+export type ListActivityTypesCommandOutput = ActivityTypeInfos & __MetadataBearer;
 
 export class ListActivityTypesCommand extends $Command<
   ListActivityTypesCommandInput,
@@ -47,14 +39,15 @@ export class ListActivityTypesCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListActivityTypesCommandInput, ListActivityTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListActivityTypesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ActivityTypeInfos.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListActivityTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListActivityTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListActivityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListActivityTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListActivityTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActivityTypesCommandOutput> {
     return deserializeAws_json1_0ListActivityTypesCommand(output, context);
   }
 

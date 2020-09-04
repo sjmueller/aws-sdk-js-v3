@@ -1,21 +1,15 @@
 import {
-  ElasticLoadBalancingv2ClientResolvedConfig,
+  ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticLoadBalancingv2Client.ts";
-import {
-  ModifyTargetGroupAttributesInput,
-  ModifyTargetGroupAttributesOutput
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../ElasticLoadBalancingV2Client.ts";
+import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/index.ts";
 import {
   deserializeAws_queryModifyTargetGroupAttributesCommand,
-  serializeAws_queryModifyTargetGroupAttributesCommand
+  serializeAws_queryModifyTargetGroupAttributesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyTargetGroupAttributesCommandInput = ModifyTargetGroupAttributesInput;
-export type ModifyTargetGroupAttributesCommandOutput = ModifyTargetGroupAttributesOutput &
-  __MetadataBearer;
+export type ModifyTargetGroupAttributesCommandOutput = ModifyTargetGroupAttributesOutput & __MetadataBearer;
 
 export class ModifyTargetGroupAttributesCommand extends $Command<
   ModifyTargetGroupAttributesCommandInput,
   ModifyTargetGroupAttributesCommandOutput,
-  ElasticLoadBalancingv2ClientResolvedConfig
+  ElasticLoadBalancingV2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingv2ClientResolvedConfig,
+    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyTargetGroupAttributesCommandInput,
-    ModifyTargetGroupAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyTargetGroupAttributesCommandInput, ModifyTargetGroupAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyTargetGroupAttributesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTargetGroupAttributesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +61,7 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyTargetGroupAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyTargetGroupAttributesCommand(input, context);
   }
 
@@ -81,10 +69,7 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryModifyTargetGroupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

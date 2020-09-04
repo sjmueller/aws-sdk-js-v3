@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
 import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetGeoMatchSetCommand,
-  serializeAws_json1_1GetGeoMatchSetCommand
+  serializeAws_json1_1GetGeoMatchSetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetGeoMatchSetCommandInput = GetGeoMatchSetRequest;
-export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse &
-  __MetadataBearer;
+export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse & __MetadataBearer;
 
 export class GetGeoMatchSetCommand extends $Command<
   GetGeoMatchSetCommandInput,
@@ -47,14 +39,15 @@ export class GetGeoMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetGeoMatchSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGeoMatchSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetGeoMatchSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGeoMatchSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetGeoMatchSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetGeoMatchSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1GetGeoMatchSetCommand(output, context);
   }
 

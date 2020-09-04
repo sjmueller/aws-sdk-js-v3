@@ -1,17 +1,11 @@
-import {
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildMiddleware
-} from "../types/mod.ts";
 import { HttpRequest } from "../protocol-http/mod.ts";
+import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "../types/mod.ts";
 
 export interface HeaderDefaultArgs {
   [header: string]: string;
 }
 
-export function headerDefault(
-  headerBag: HeaderDefaultArgs
-): BuildMiddleware<any, any> {
+export function headerDefault(headerBag: HeaderDefaultArgs): BuildMiddleware<any, any> {
   return (next: BuildHandler<any, any>) => {
     return (args: BuildHandlerArguments<any>) => {
       if (HttpRequest.isInstance(args.request)) {
@@ -27,8 +21,8 @@ export function headerDefault(
           ...args,
           request: {
             ...args.request,
-            headers
-          }
+            headers,
+          },
         });
       } else {
         return next(args);

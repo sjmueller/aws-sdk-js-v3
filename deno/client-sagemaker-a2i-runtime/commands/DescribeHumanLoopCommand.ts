@@ -1,21 +1,15 @@
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient.ts";
-import {
-  DescribeHumanLoopRequest,
-  DescribeHumanLoopResponse
-} from "../models/index.ts";
+import { DescribeHumanLoopRequest, DescribeHumanLoopResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeHumanLoopCommand,
-  serializeAws_restJson1DescribeHumanLoopCommand
+  serializeAws_restJson1DescribeHumanLoopCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeHumanLoopCommandInput = DescribeHumanLoopRequest;
-export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse &
-  __MetadataBearer;
+export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse & __MetadataBearer;
 
 export class DescribeHumanLoopCommand extends $Command<
   DescribeHumanLoopCommandInput,
@@ -50,14 +43,15 @@ export class DescribeHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeHumanLoopCommandInput, DescribeHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeHumanLoopRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHumanLoopResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DescribeHumanLoopCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeHumanLoopCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeHumanLoopCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeHumanLoopCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHumanLoopCommandOutput> {
     return deserializeAws_restJson1DescribeHumanLoopCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  DeleteClassifierRequest,
-  DeleteClassifierResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteClassifierCommand,
-  serializeAws_json1_1DeleteClassifierCommand
+  serializeAws_json1_1DeleteClassifierCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteClassifierCommandInput = DeleteClassifierRequest;
-export type DeleteClassifierCommandOutput = DeleteClassifierResponse &
-  __MetadataBearer;
+export type DeleteClassifierCommandOutput = DeleteClassifierResponse & __MetadataBearer;
 
 export class DeleteClassifierCommand extends $Command<
   DeleteClassifierCommandInput,
@@ -50,14 +39,15 @@ export class DeleteClassifierCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteClassifierCommandInput, DeleteClassifierCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteClassifierRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClassifierResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteClassifierCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteClassifierCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClassifierCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteClassifierCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClassifierCommandOutput> {
     return deserializeAws_json1_1DeleteClassifierCommand(output, context);
   }
 

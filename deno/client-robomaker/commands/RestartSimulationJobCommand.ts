@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
-import {
-  RestartSimulationJobRequest,
-  RestartSimulationJobResponse
-} from "../models/index.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
+import { RestartSimulationJobRequest, RestartSimulationJobResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1RestartSimulationJobCommand,
-  serializeAws_restJson1RestartSimulationJobCommand
+  serializeAws_restJson1RestartSimulationJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RestartSimulationJobCommandInput = RestartSimulationJobRequest;
-export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse &
-  __MetadataBearer;
+export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse & __MetadataBearer;
 
 export class RestartSimulationJobCommand extends $Command<
   RestartSimulationJobCommandInput,
@@ -49,18 +38,16 @@ export class RestartSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestartSimulationJobCommandInput,
-    RestartSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestartSimulationJobCommandInput, RestartSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RestartSimulationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RestartSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RestartSimulationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RestartSimulationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestartSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RestartSimulationJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestartSimulationJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestartSimulationJobCommandOutput> {
     return deserializeAws_restJson1RestartSimulationJobCommand(output, context);
   }
 

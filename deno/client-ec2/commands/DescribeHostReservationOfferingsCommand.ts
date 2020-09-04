@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeHostReservationOfferingsRequest,
-  DescribeHostReservationOfferingsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeHostReservationOfferingsCommand,
-  serializeAws_ec2DescribeHostReservationOfferingsCommand
+  serializeAws_ec2DescribeHostReservationOfferingsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeHostReservationOfferingsCommandInput = DescribeHostReservationOfferingsRequest;
-export type DescribeHostReservationOfferingsCommandOutput = DescribeHostReservationOfferingsResult &
-  __MetadataBearer;
+export type DescribeHostReservationOfferingsCommandOutput = DescribeHostReservationOfferingsResult & __MetadataBearer;
 
 export class DescribeHostReservationOfferingsCommand extends $Command<
   DescribeHostReservationOfferingsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeHostReservationOfferingsCommandInput,
-    DescribeHostReservationOfferingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeHostReservationOfferingsCommandInput, DescribeHostReservationOfferingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeHostReservationOfferingsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHostReservationOfferingsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     input: DescribeHostReservationOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeHostReservationOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeHostReservationOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHostReservationOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeHostReservationOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeHostReservationOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

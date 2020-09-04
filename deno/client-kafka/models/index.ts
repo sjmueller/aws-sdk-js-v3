@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -26,14 +20,13 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT"
+  DEFAULT = "DEFAULT",
 }
 
 /**
@@ -54,10 +47,23 @@ export interface BrokerEBSVolumeInfo {
 
 export namespace BrokerEBSVolumeInfo {
   export const filterSensitiveLog = (obj: BrokerEBSVolumeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BrokerEBSVolumeInfo =>
-    __isa(o, "BrokerEBSVolumeInfo");
+  export const isa = (o: any): o is BrokerEBSVolumeInfo => __isa(o, "BrokerEBSVolumeInfo");
+}
+
+export interface BrokerLogs {
+  __type?: "BrokerLogs";
+  Firehose?: Firehose;
+  CloudWatchLogs?: CloudWatchLogs;
+  S3?: S3;
+}
+
+export namespace BrokerLogs {
+  export const filterSensitiveLog = (obj: BrokerLogs): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is BrokerLogs => __isa(o, "BrokerLogs");
 }
 
 /**
@@ -65,12 +71,6 @@ export namespace BrokerEBSVolumeInfo {
  */
 export interface BrokerNodeGroupInfo {
   __type?: "BrokerNodeGroupInfo";
-  /**
-   * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
-   *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
-   */
-  BrokerAZDistribution?: BrokerAZDistribution | string;
-
   /**
    * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't be in Availability Zone us-east-1e.</p>
    */
@@ -83,22 +83,27 @@ export interface BrokerNodeGroupInfo {
   InstanceType: string | undefined;
 
   /**
-   * <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
    * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
    */
   StorageInfo?: StorageInfo;
+
+  /**
+   * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
+   *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
+   */
+  BrokerAZDistribution?: BrokerAZDistribution | string;
+
+  /**
+   * <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>
+   */
+  SecurityGroups?: string[];
 }
 
 export namespace BrokerNodeGroupInfo {
   export const filterSensitiveLog = (obj: BrokerNodeGroupInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BrokerNodeGroupInfo =>
-    __isa(o, "BrokerNodeGroupInfo");
+  export const isa = (o: any): o is BrokerNodeGroupInfo => __isa(o, "BrokerNodeGroupInfo");
 }
 
 /**
@@ -107,9 +112,24 @@ export namespace BrokerNodeGroupInfo {
 export interface BrokerNodeInfo {
   __type?: "BrokerNodeInfo";
   /**
+   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
+   */
+  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
+
+  /**
    * <p>The attached elastic network interface of the broker.</p>
    */
   AttachedENIId?: string;
+
+  /**
+   * <p>Endpoints for accessing the broker.</p>
+   */
+  Endpoints?: string[];
+
+  /**
+   * <p>The virtual private cloud (VPC) of the client.</p>
+   */
+  ClientVpcIpAddress?: string;
 
   /**
    * <p>The ID of the broker.</p>
@@ -120,29 +140,13 @@ export interface BrokerNodeInfo {
    * <p>The client subnet to which this broker node belongs.</p>
    */
   ClientSubnet?: string;
-
-  /**
-   * <p>The virtual private cloud (VPC) of the client.</p>
-   */
-  ClientVpcIpAddress?: string;
-
-  /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
-   */
-  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
-
-  /**
-   * <p>Endpoints for accessing the broker.</p>
-   */
-  Endpoints?: string[];
 }
 
 export namespace BrokerNodeInfo {
   export const filterSensitiveLog = (obj: BrokerNodeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BrokerNodeInfo =>
-    __isa(o, "BrokerNodeInfo");
+  export const isa = (o: any): o is BrokerNodeInfo => __isa(o, "BrokerNodeInfo");
 }
 
 /**
@@ -151,9 +155,9 @@ export namespace BrokerNodeInfo {
 export interface BrokerSoftwareInfo {
   __type?: "BrokerSoftwareInfo";
   /**
-   * <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>
+   * <p>The version of Apache Kafka.</p>
    */
-  ConfigurationArn?: string;
+  KafkaVersion?: string;
 
   /**
    * <p>The revision of the configuration to use. This field isn't visible in this preview release.</p>
@@ -161,17 +165,16 @@ export interface BrokerSoftwareInfo {
   ConfigurationRevision?: number;
 
   /**
-   * <p>The version of Apache Kafka.</p>
+   * <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>
    */
-  KafkaVersion?: string;
+  ConfigurationArn?: string;
 }
 
 export namespace BrokerSoftwareInfo {
   export const filterSensitiveLog = (obj: BrokerSoftwareInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BrokerSoftwareInfo =>
-    __isa(o, "BrokerSoftwareInfo");
+  export const isa = (o: any): o is BrokerSoftwareInfo => __isa(o, "BrokerSoftwareInfo");
 }
 
 /**
@@ -187,16 +190,28 @@ export interface ClientAuthentication {
 
 export namespace ClientAuthentication {
   export const filterSensitiveLog = (obj: ClientAuthentication): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClientAuthentication =>
-    __isa(o, "ClientAuthentication");
+  export const isa = (o: any): o is ClientAuthentication => __isa(o, "ClientAuthentication");
 }
 
 export enum ClientBroker {
   PLAINTEXT = "PLAINTEXT",
   TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT"
+  TLS_PLAINTEXT = "TLS_PLAINTEXT",
+}
+
+export interface CloudWatchLogs {
+  __type?: "CloudWatchLogs";
+  Enabled: boolean | undefined;
+  LogGroup?: string;
+}
+
+export namespace CloudWatchLogs {
+  export const filterSensitiveLog = (obj: CloudWatchLogs): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CloudWatchLogs => __isa(o, "CloudWatchLogs");
 }
 
 /**
@@ -204,10 +219,46 @@ export enum ClientBroker {
  */
 export interface ClusterInfo {
   __type?: "ClusterInfo";
+  LoggingInfo?: LoggingInfo;
+  /**
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
+
+  /**
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes?: number;
+
+  /**
+   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
+   */
+  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
+   */
+  ZookeeperConnectString?: string;
+
+  /**
+   * <p>Settings for open monitoring using Prometheus.</p>
+   */
+  OpenMonitoring?: OpenMonitoring;
+
   /**
    * <p>Arn of active cluster operation.</p>
    */
   ActiveOperationArn?: string;
+
+  /**
+   * <p>Specifies which metrics are gathered for the MSK cluster. This property has three possible values: DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER. For a list of the metrics associated with each of these three levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
+   */
+  EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
    * <p>Information about the broker nodes.</p>
@@ -215,14 +266,25 @@ export interface ClusterInfo {
   BrokerNodeGroupInfo?: BrokerNodeGroupInfo;
 
   /**
+   * <p>The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.</p>
+   */
+  State?: ClusterState | string;
+
+  /**
+   * <p>The current version of the MSK cluster.</p>
+   */
+  CurrentVersion?: string;
+
+  StateInfo?: StateInfo;
+  /**
    * <p>Includes all client authentication information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * <p>Tags attached to the cluster.</p>
    */
-  ClusterArn?: string;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The name of the cluster.</p>
@@ -233,56 +295,11 @@ export interface ClusterInfo {
    * <p>The time when the cluster was created.</p>
    */
   CreationTime?: Date;
-
-  /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
-   */
-  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
-
-  /**
-   * <p>The current version of the MSK cluster.</p>
-   */
-  CurrentVersion?: string;
-
-  /**
-   * <p>Includes all encryption-related information.</p>
-   */
-  EncryptionInfo?: EncryptionInfo;
-
-  /**
-   * <p>Specifies which metrics are gathered for the MSK cluster. This property has three possible values: DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER. For a list of the metrics associated with each of these three levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
-   */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
-
-  /**
-   * <p>The number of broker nodes in the cluster.</p>
-   */
-  NumberOfBrokerNodes?: number;
-
-  /**
-   * <p>Settings for open monitoring using Prometheus.</p>
-   */
-  OpenMonitoring?: OpenMonitoring;
-
-  /**
-   * <p>The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.</p>
-   */
-  State?: ClusterState | string;
-
-  /**
-   * <p>Tags attached to the cluster.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
-   */
-  ZookeeperConnectString?: string;
 }
 
 export namespace ClusterInfo {
   export const filterSensitiveLog = (obj: ClusterInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ClusterInfo => __isa(o, "ClusterInfo");
 }
@@ -293,24 +310,19 @@ export namespace ClusterInfo {
 export interface ClusterOperationInfo {
   __type?: "ClusterOperationInfo";
   /**
+   * <p>ARN of the cluster operation.</p>
+   */
+  OperationArn?: string;
+
+  /**
    * <p>The ID of the API request that triggered this operation.</p>
    */
   ClientRequestId?: string;
 
   /**
-   * <p>ARN of the cluster.</p>
+   * <p>Information about cluster attributes before a cluster is updated.</p>
    */
-  ClusterArn?: string;
-
-  /**
-   * <p>The time that the operation was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time at which the operation finished.</p>
-   */
-  EndTime?: Date;
+  SourceClusterInfo?: MutableClusterInfo;
 
   /**
    * <p>Describes the error if the operation fails.</p>
@@ -318,9 +330,9 @@ export interface ClusterOperationInfo {
   ErrorInfo?: ErrorInfo;
 
   /**
-   * <p>ARN of the cluster operation.</p>
+   * <p>Type of the cluster operation.</p>
    */
-  OperationArn?: string;
+  OperationType?: string;
 
   /**
    * <p>State of the cluster operation.</p>
@@ -328,14 +340,24 @@ export interface ClusterOperationInfo {
   OperationState?: string;
 
   /**
-   * <p>Type of the cluster operation.</p>
+   * <p>The time that the operation was created.</p>
    */
-  OperationType?: string;
+  CreationTime?: Date;
 
   /**
-   * <p>Information about cluster attributes before a cluster is updated.</p>
+   * <p>ARN of the cluster.</p>
    */
-  SourceClusterInfo?: MutableClusterInfo;
+  ClusterArn?: string;
+
+  /**
+   * <p>The time at which the operation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Steps completed during the operation.</p>
+   */
+  OperationSteps?: ClusterOperationStep[];
 
   /**
    * <p>Information about cluster attributes after a cluster is updated.</p>
@@ -345,10 +367,50 @@ export interface ClusterOperationInfo {
 
 export namespace ClusterOperationInfo {
   export const filterSensitiveLog = (obj: ClusterOperationInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ClusterOperationInfo =>
-    __isa(o, "ClusterOperationInfo");
+  export const isa = (o: any): o is ClusterOperationInfo => __isa(o, "ClusterOperationInfo");
+}
+
+/**
+ * <p>Step taken during a cluster operation.</p>
+ */
+export interface ClusterOperationStep {
+  __type?: "ClusterOperationStep";
+  /**
+   * <p>The name of the step.</p>
+   */
+  StepName?: string;
+
+  /**
+   * <p>Information about the step and its status.</p>
+   */
+  StepInfo?: ClusterOperationStepInfo;
+}
+
+export namespace ClusterOperationStep {
+  export const filterSensitiveLog = (obj: ClusterOperationStep): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ClusterOperationStep => __isa(o, "ClusterOperationStep");
+}
+
+/**
+ * <p>State information about the operation step.</p>
+ */
+export interface ClusterOperationStepInfo {
+  __type?: "ClusterOperationStepInfo";
+  /**
+   * <p>The steps current status.</p>
+   */
+  StepStatus?: string;
+}
+
+export namespace ClusterOperationStepInfo {
+  export const filterSensitiveLog = (obj: ClusterOperationStepInfo): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ClusterOperationStepInfo => __isa(o, "ClusterOperationStepInfo");
 }
 
 export enum ClusterState {
@@ -356,7 +418,30 @@ export enum ClusterState {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Contains source Kafka versions and compatible target Kafka versions.</p>
+ */
+export interface CompatibleKafkaVersion {
+  __type?: "CompatibleKafkaVersion";
+  /**
+   * <p>A Kafka version.</p>
+   */
+  SourceVersion?: string;
+
+  /**
+   * <p>A list of Kafka versions.</p>
+   */
+  TargetVersions?: string[];
+}
+
+export namespace CompatibleKafkaVersion {
+  export const filterSensitiveLog = (obj: CompatibleKafkaVersion): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is CompatibleKafkaVersion => __isa(o, "CompatibleKafkaVersion");
 }
 
 /**
@@ -364,6 +449,26 @@ export enum ClusterState {
  */
 export interface Configuration {
   __type?: "Configuration";
+  /**
+   * <p>Latest revision of the configuration.</p>
+   */
+  LatestRevision: ConfigurationRevision | undefined;
+
+  /**
+   * <p>The description of the configuration.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The name of the configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>
+   */
+  KafkaVersions: string[] | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
@@ -373,31 +478,11 @@ export interface Configuration {
    * <p>The time when the configuration was created.</p>
    */
   CreationTime: Date | undefined;
-
-  /**
-   * <p>The description of the configuration.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>
-   */
-  KafkaVersions: string[] | undefined;
-
-  /**
-   * <p>Latest revision of the configuration.</p>
-   */
-  LatestRevision: ConfigurationRevision | undefined;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
@@ -408,22 +493,21 @@ export namespace Configuration {
 export interface ConfigurationInfo {
   __type?: "ConfigurationInfo";
   /**
-   * <p>ARN of the configuration to use.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The revision of the configuration to use.</p>
    */
   Revision: number | undefined;
+
+  /**
+   * <p>ARN of the configuration to use.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace ConfigurationInfo {
   export const filterSensitiveLog = (obj: ConfigurationInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationInfo =>
-    __isa(o, "ConfigurationInfo");
+  export const isa = (o: any): o is ConfigurationInfo => __isa(o, "ConfigurationInfo");
 }
 
 /**
@@ -449,10 +533,9 @@ export interface ConfigurationRevision {
 
 export namespace ConfigurationRevision {
   export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationRevision =>
-    __isa(o, "ConfigurationRevision");
+  export const isa = (o: any): o is ConfigurationRevision => __isa(o, "ConfigurationRevision");
 }
 
 /**
@@ -474,43 +557,17 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateClusterRequest {
   __type?: "CreateClusterRequest";
   /**
-   * <p>Information about the broker nodes in the cluster.</p>
-   */
-  BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
-
-  /**
    * <p>Includes all client authentication related information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
-
-  /**
-   * <p>The name of the cluster.</p>
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
-   */
-  ConfigurationInfo?: ConfigurationInfo;
-
-  /**
-   * <p>Includes all encryption-related information.</p>
-   */
-  EncryptionInfo?: EncryptionInfo;
-
-  /**
-   * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER.</p>
-   */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
    * <p>The version of Apache Kafka.</p>
@@ -518,36 +575,56 @@ export interface CreateClusterRequest {
   KafkaVersion: string | undefined;
 
   /**
-   * <p>The number of broker nodes in the cluster.</p>
+   * <p>The name of the cluster.</p>
    */
-  NumberOfBrokerNodes: number | undefined;
+  ClusterName: string | undefined;
 
   /**
-   * <p>The settings for open monitoring.</p>
+   * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER.</p>
    */
-  OpenMonitoring?: OpenMonitoringInfo;
+  EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
    * <p>Create tags when creating the cluster.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
+   */
+  ConfigurationInfo?: ConfigurationInfo;
+
+  /**
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes: number | undefined;
+
+  LoggingInfo?: LoggingInfo;
+  /**
+   * <p>Information about the broker nodes in the cluster.</p>
+   */
+  BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
+
+  /**
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
+
+  /**
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoringInfo;
 }
 
 export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest =>
-    __isa(o, "CreateClusterRequest");
+  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   */
-  ClusterArn?: string;
-
   /**
    * <p>The name of the MSK cluster.</p>
    */
@@ -557,50 +634,58 @@ export interface CreateClusterResponse {
    * <p>The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.</p>
    */
   State?: ClusterState | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
 }
 
 export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResponse =>
-    __isa(o, "CreateClusterResponse");
+  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateConfigurationRequest {
   __type?: "CreateConfigurationRequest";
+  /**
+   * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
+   *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+   */
+  ServerProperties: Uint8Array | undefined;
+
+  /**
+   * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
+   */
+  KafkaVersions?: string[];
+
   /**
    * <p>The description of the configuration.</p>
    */
   Description?: string;
 
   /**
-   * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
-   */
-  KafkaVersions: string[] | undefined;
-
-  /**
    * <p>The name of the configuration.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
-   *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
-   */
-  ServerProperties: Uint8Array | undefined;
 }
 
 export namespace CreateConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationRequest =>
-    __isa(o, "CreateConfigurationRequest");
+  export const isa = (o: any): o is CreateConfigurationRequest => __isa(o, "CreateConfigurationRequest");
 }
 
 export interface CreateConfigurationResponse {
   __type?: "CreateConfigurationResponse";
+  /**
+   * <p>The name of the configuration.</p>
+   */
+  Name?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
@@ -615,21 +700,13 @@ export interface CreateConfigurationResponse {
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision?: ConfigurationRevision;
-
-  /**
-   * <p>The name of the configuration.</p>
-   */
-  Name?: string;
 }
 
 export namespace CreateConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: CreateConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationResponse =>
-    __isa(o, "CreateConfigurationResponse");
+  export const isa = (o: any): o is CreateConfigurationResponse => __isa(o, "CreateConfigurationResponse");
 }
 
 export interface DeleteClusterRequest {
@@ -647,31 +724,29 @@ export interface DeleteClusterRequest {
 
 export namespace DeleteClusterRequest {
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterRequest =>
-    __isa(o, "DeleteClusterRequest");
+  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
    * <p>The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.</p>
    */
   State?: ClusterState | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
 }
 
 export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResponse =>
-    __isa(o, "DeleteClusterResponse");
+  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DescribeClusterOperationRequest {
@@ -683,13 +758,10 @@ export interface DescribeClusterOperationRequest {
 }
 
 export namespace DescribeClusterOperationRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterOperationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterOperationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterOperationRequest =>
-    __isa(o, "DescribeClusterOperationRequest");
+  export const isa = (o: any): o is DescribeClusterOperationRequest => __isa(o, "DescribeClusterOperationRequest");
 }
 
 export interface DescribeClusterOperationResponse {
@@ -701,13 +773,10 @@ export interface DescribeClusterOperationResponse {
 }
 
 export namespace DescribeClusterOperationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeClusterOperationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeClusterOperationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterOperationResponse =>
-    __isa(o, "DescribeClusterOperationResponse");
+  export const isa = (o: any): o is DescribeClusterOperationResponse => __isa(o, "DescribeClusterOperationResponse");
 }
 
 export interface DescribeClusterRequest {
@@ -720,10 +789,9 @@ export interface DescribeClusterRequest {
 
 export namespace DescribeClusterRequest {
   export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterRequest =>
-    __isa(o, "DescribeClusterRequest");
+  export const isa = (o: any): o is DescribeClusterRequest => __isa(o, "DescribeClusterRequest");
 }
 
 export interface DescribeClusterResponse {
@@ -736,10 +804,9 @@ export interface DescribeClusterResponse {
 
 export namespace DescribeClusterResponse {
   export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterResponse =>
-    __isa(o, "DescribeClusterResponse");
+  export const isa = (o: any): o is DescribeClusterResponse => __isa(o, "DescribeClusterResponse");
 }
 
 export interface DescribeConfigurationRequest {
@@ -751,32 +818,14 @@ export interface DescribeConfigurationRequest {
 }
 
 export namespace DescribeConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationRequest =>
-    __isa(o, "DescribeConfigurationRequest");
+  export const isa = (o: any): o is DescribeConfigurationRequest => __isa(o, "DescribeConfigurationRequest");
 }
 
 export interface DescribeConfigurationResponse {
   __type?: "DescribeConfigurationResponse";
-  /**
-   * <p>The Amazon Resource Name (ARN) of the configuration.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The time when the configuration was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The description of the configuration.</p>
-   */
-  Description?: string;
-
   /**
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
    */
@@ -788,19 +837,31 @@ export interface DescribeConfigurationResponse {
   LatestRevision?: ConfigurationRevision;
 
   /**
+   * <p>The description of the configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The name of the configuration.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The time when the configuration was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace DescribeConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationResponse =>
-    __isa(o, "DescribeConfigurationResponse");
+  export const isa = (o: any): o is DescribeConfigurationResponse => __isa(o, "DescribeConfigurationResponse");
 }
 
 export interface DescribeConfigurationRevisionRequest {
@@ -817,10 +878,8 @@ export interface DescribeConfigurationRevisionRequest {
 }
 
 export namespace DescribeConfigurationRevisionRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRevisionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationRevisionRequest =>
     __isa(o, "DescribeConfigurationRevisionRequest");
@@ -856,10 +915,8 @@ export interface DescribeConfigurationRevisionResponse {
 }
 
 export namespace DescribeConfigurationRevisionResponse {
-  export const filterSensitiveLog = (
-    obj: DescribeConfigurationRevisionResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeConfigurationRevisionResponse =>
     __isa(o, "DescribeConfigurationRevisionResponse");
@@ -878,10 +935,9 @@ export interface EBSStorageInfo {
 
 export namespace EBSStorageInfo {
   export const filterSensitiveLog = (obj: EBSStorageInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EBSStorageInfo =>
-    __isa(o, "EBSStorageInfo");
+  export const isa = (o: any): o is EBSStorageInfo => __isa(o, "EBSStorageInfo");
 }
 
 /**
@@ -897,10 +953,9 @@ export interface EncryptionAtRest {
 
 export namespace EncryptionAtRest {
   export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRest =>
-    __isa(o, "EncryptionAtRest");
+  export const isa = (o: any): o is EncryptionAtRest => __isa(o, "EncryptionAtRest");
 }
 
 /**
@@ -909,22 +964,21 @@ export namespace EncryptionAtRest {
 export interface EncryptionInfo {
   __type?: "EncryptionInfo";
   /**
-   * <p>The data-volume encryption details.</p>
-   */
-  EncryptionAtRest?: EncryptionAtRest;
-
-  /**
    * <p>The details for encryption in transit.</p>
    */
   EncryptionInTransit?: EncryptionInTransit;
+
+  /**
+   * <p>The data-volume encryption details.</p>
+   */
+  EncryptionAtRest?: EncryptionAtRest;
 }
 
 export namespace EncryptionInfo {
   export const filterSensitiveLog = (obj: EncryptionInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionInfo =>
-    __isa(o, "EncryptionInfo");
+  export const isa = (o: any): o is EncryptionInfo => __isa(o, "EncryptionInfo");
 }
 
 /**
@@ -953,16 +1007,15 @@ export interface EncryptionInTransit {
 
 export namespace EncryptionInTransit {
   export const filterSensitiveLog = (obj: EncryptionInTransit): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EncryptionInTransit =>
-    __isa(o, "EncryptionInTransit");
+  export const isa = (o: any): o is EncryptionInTransit => __isa(o, "EncryptionInTransit");
 }
 
 export enum EnhancedMonitoring {
   DEFAULT = "DEFAULT",
   PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
+  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
 }
 
 /**
@@ -983,9 +1036,22 @@ export interface ErrorInfo {
 
 export namespace ErrorInfo {
   export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ErrorInfo => __isa(o, "ErrorInfo");
+}
+
+export interface Firehose {
+  __type?: "Firehose";
+  Enabled: boolean | undefined;
+  DeliveryStream?: string;
+}
+
+export namespace Firehose {
+  export const filterSensitiveLog = (obj: Firehose): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is Firehose => __isa(o, "Firehose");
 }
 
 /**
@@ -1007,10 +1073,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 
 export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetBootstrapBrokersRequest {
@@ -1023,62 +1088,84 @@ export interface GetBootstrapBrokersRequest {
 
 export namespace GetBootstrapBrokersRequest {
   export const filterSensitiveLog = (obj: GetBootstrapBrokersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetBootstrapBrokersRequest =>
-    __isa(o, "GetBootstrapBrokersRequest");
+  export const isa = (o: any): o is GetBootstrapBrokersRequest => __isa(o, "GetBootstrapBrokersRequest");
 }
 
 export interface GetBootstrapBrokersResponse {
   __type?: "GetBootstrapBrokersResponse";
   /**
-   * <p>A string containing one or more hostname:port pairs.</p>
-   */
-  BootstrapBrokerString?: string;
-
-  /**
    * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
    */
   BootstrapBrokerStringTls?: string;
+
+  /**
+   * <p>A string containing one or more hostname:port pairs.</p>
+   */
+  BootstrapBrokerString?: string;
 }
 
 export namespace GetBootstrapBrokersResponse {
-  export const filterSensitiveLog = (
-    obj: GetBootstrapBrokersResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: GetBootstrapBrokersResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is GetBootstrapBrokersResponse =>
-    __isa(o, "GetBootstrapBrokersResponse");
+  export const isa = (o: any): o is GetBootstrapBrokersResponse => __isa(o, "GetBootstrapBrokersResponse");
+}
+
+export interface GetCompatibleKafkaVersionsRequest {
+  __type?: "GetCompatibleKafkaVersionsRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster check.</p>
+   */
+  ClusterArn?: string;
+}
+
+export namespace GetCompatibleKafkaVersionsRequest {
+  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCompatibleKafkaVersionsRequest => __isa(o, "GetCompatibleKafkaVersionsRequest");
+}
+
+export interface GetCompatibleKafkaVersionsResponse {
+  __type?: "GetCompatibleKafkaVersionsResponse";
+  /**
+   * <p>A list of CompatibleKafkaVersion objects.</p>
+   */
+  CompatibleKafkaVersions?: CompatibleKafkaVersion[];
+}
+
+export namespace GetCompatibleKafkaVersionsResponse {
+  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetCompatibleKafkaVersionsResponse =>
+    __isa(o, "GetCompatibleKafkaVersionsResponse");
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
-  /**
-   * <p>The parameter that caused the error.</p>
-   */
-  InvalidParameter?: string;
-
   /**
    * <p>The description of the error.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The parameter that caused the error.</p>
+   */
+  InvalidParameter?: string;
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServerErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -1094,7 +1181,7 @@ export interface JmxExporter {
 
 export namespace JmxExporter {
   export const filterSensitiveLog = (obj: JmxExporter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JmxExporter => __isa(o, "JmxExporter");
 }
@@ -1112,18 +1199,36 @@ export interface JmxExporterInfo {
 
 export namespace JmxExporterInfo {
   export const filterSensitiveLog = (obj: JmxExporterInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is JmxExporterInfo =>
-    __isa(o, "JmxExporterInfo");
+  export const isa = (o: any): o is JmxExporterInfo => __isa(o, "JmxExporterInfo");
+}
+
+export interface KafkaVersion {
+  __type?: "KafkaVersion";
+  Status?: KafkaVersionStatus | string;
+  Version?: string;
+}
+
+export namespace KafkaVersion {
+  export const filterSensitiveLog = (obj: KafkaVersion): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is KafkaVersion => __isa(o, "KafkaVersion");
+}
+
+export enum KafkaVersionStatus {
+  ACTIVE = "ACTIVE",
+  DEPRECATED = "DEPRECATED",
 }
 
 export interface ListClusterOperationsRequest {
   __type?: "ListClusterOperationsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
    */
-  ClusterArn: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
@@ -1131,20 +1236,16 @@ export interface ListClusterOperationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
-   *             To get the next batch, provide this token in your next request.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
-  NextToken?: string;
+  ClusterArn: string | undefined;
 }
 
 export namespace ListClusterOperationsRequest {
-  export const filterSensitiveLog = (
-    obj: ListClusterOperationsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListClusterOperationsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListClusterOperationsRequest =>
-    __isa(o, "ListClusterOperationsRequest");
+  export const isa = (o: any): o is ListClusterOperationsRequest => __isa(o, "ListClusterOperationsRequest");
 }
 
 export interface ListClusterOperationsResponse {
@@ -1161,17 +1262,20 @@ export interface ListClusterOperationsResponse {
 }
 
 export namespace ListClusterOperationsResponse {
-  export const filterSensitiveLog = (
-    obj: ListClusterOperationsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListClusterOperationsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListClusterOperationsResponse =>
-    __isa(o, "ListClusterOperationsResponse");
+  export const isa = (o: any): o is ListClusterOperationsResponse => __isa(o, "ListClusterOperationsResponse");
 }
 
 export interface ListClustersRequest {
   __type?: "ListClustersRequest";
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
    */
@@ -1181,20 +1285,13 @@ export interface ListClustersRequest {
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
-   *             To get the next batch, provide this token in your next request.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListClustersRequest {
   export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListClustersRequest =>
-    __isa(o, "ListClustersRequest");
+  export const isa = (o: any): o is ListClustersRequest => __isa(o, "ListClustersRequest");
 }
 
 export interface ListClustersResponse {
@@ -1213,18 +1310,18 @@ export interface ListClustersResponse {
 
 export namespace ListClustersResponse {
   export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListClustersResponse =>
-    __isa(o, "ListClustersResponse");
+  export const isa = (o: any): o is ListClustersResponse => __isa(o, "ListClustersResponse");
 }
 
 export interface ListConfigurationRevisionsRequest {
   __type?: "ListConfigurationRevisionsRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
    */
-  Arn: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
@@ -1232,20 +1329,16 @@ export interface ListConfigurationRevisionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
-   *             To get the next batch, provide this token in your next request.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
    */
-  NextToken?: string;
+  Arn: string | undefined;
 }
 
 export namespace ListConfigurationRevisionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListConfigurationRevisionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationRevisionsRequest =>
-    __isa(o, "ListConfigurationRevisionsRequest");
+  export const isa = (o: any): o is ListConfigurationRevisionsRequest => __isa(o, "ListConfigurationRevisionsRequest");
 }
 
 export interface ListConfigurationRevisionsResponse {
@@ -1262,10 +1355,8 @@ export interface ListConfigurationRevisionsResponse {
 }
 
 export namespace ListConfigurationRevisionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListConfigurationRevisionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ListConfigurationRevisionsResponse =>
     __isa(o, "ListConfigurationRevisionsResponse");
@@ -1274,49 +1365,86 @@ export namespace ListConfigurationRevisionsResponse {
 export interface ListConfigurationsRequest {
   __type?: "ListConfigurationsRequest";
   /**
-   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsRequest =>
-    __isa(o, "ListConfigurationsRequest");
+  export const isa = (o: any): o is ListConfigurationsRequest => __isa(o, "ListConfigurationsRequest");
 }
 
 export interface ListConfigurationsResponse {
   __type?: "ListConfigurationsResponse";
   /**
-   * <p>An array of MSK configurations.</p>
-   */
-  Configurations?: Configuration[];
-
-  /**
    * <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response.
    *                To get another batch of configurations, provide this token in your next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of MSK configurations.</p>
+   */
+  Configurations?: Configuration[];
 }
 
 export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsResponse =>
-    __isa(o, "ListConfigurationsResponse");
+  export const isa = (o: any): o is ListConfigurationsResponse => __isa(o, "ListConfigurationsResponse");
+}
+
+export interface ListKafkaVersionsRequest {
+  __type?: "ListKafkaVersionsRequest";
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListKafkaVersionsRequest {
+  export const filterSensitiveLog = (obj: ListKafkaVersionsRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListKafkaVersionsRequest => __isa(o, "ListKafkaVersionsRequest");
+}
+
+export interface ListKafkaVersionsResponse {
+  __type?: "ListKafkaVersionsResponse";
+  NextToken?: string;
+  KafkaVersions?: KafkaVersion[];
+}
+
+export namespace ListKafkaVersionsResponse {
+  export const filterSensitiveLog = (obj: ListKafkaVersionsResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ListKafkaVersionsResponse => __isa(o, "ListKafkaVersionsResponse");
 }
 
 export interface ListNodesRequest {
   __type?: "ListNodesRequest";
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
@@ -1326,42 +1454,34 @@ export interface ListNodesRequest {
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
-   *             To get the next batch, provide this token in your next request.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListNodesRequest {
   export const filterSensitiveLog = (obj: ListNodesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListNodesRequest =>
-    __isa(o, "ListNodesRequest");
+  export const isa = (o: any): o is ListNodesRequest => __isa(o, "ListNodesRequest");
 }
 
 export interface ListNodesResponse {
   __type?: "ListNodesResponse";
   /**
+   * <p>List containing a NodeInfo object.</p>
+   */
+  NodeInfoList?: NodeInfo[];
+
+  /**
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
    *                To get another batch of nodes, provide this token in your next request.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>List containing a NodeInfo object.</p>
-   */
-  NodeInfoList?: NodeInfo[];
 }
 
 export namespace ListNodesResponse {
   export const filterSensitiveLog = (obj: ListNodesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListNodesResponse =>
-    __isa(o, "ListNodesResponse");
+  export const isa = (o: any): o is ListNodesResponse => __isa(o, "ListNodesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1374,10 +1494,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1389,13 +1508,22 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
+}
+
+export interface LoggingInfo {
+  __type?: "LoggingInfo";
+  BrokerLogs: BrokerLogs | undefined;
+}
+
+export namespace LoggingInfo {
+  export const filterSensitiveLog = (obj: LoggingInfo): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is LoggingInfo => __isa(o, "LoggingInfo");
 }
 
 /**
@@ -1403,6 +1531,27 @@ export namespace ListTagsForResourceResponse {
  */
 export interface MutableClusterInfo {
   __type?: "MutableClusterInfo";
+  LoggingInfo?: LoggingInfo;
+  /**
+   * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
+   */
+  EnhancedMonitoring?: EnhancedMonitoring | string;
+
+  /**
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoring;
+
+  /**
+   * <p>The Kafka version.</p>
+   */
+  KafkaVersion?: string;
+
+  /**
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes?: number;
+
   /**
    * <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>
    */
@@ -1412,29 +1561,13 @@ export interface MutableClusterInfo {
    * <p>Information about the changes in the configuration of the brokers.</p>
    */
   ConfigurationInfo?: ConfigurationInfo;
-
-  /**
-   * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
-   */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
-
-  /**
-   * <p>The number of broker nodes in the cluster.</p>
-   */
-  NumberOfBrokerNodes?: number;
-
-  /**
-   * <p>The settings for open monitoring.</p>
-   */
-  OpenMonitoring?: OpenMonitoring;
 }
 
 export namespace MutableClusterInfo {
   export const filterSensitiveLog = (obj: MutableClusterInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MutableClusterInfo =>
-    __isa(o, "MutableClusterInfo");
+  export const isa = (o: any): o is MutableClusterInfo => __isa(o, "MutableClusterInfo");
 }
 
 /**
@@ -1450,7 +1583,7 @@ export interface NodeExporter {
 
 export namespace NodeExporter {
   export const filterSensitiveLog = (obj: NodeExporter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NodeExporter => __isa(o, "NodeExporter");
 }
@@ -1468,10 +1601,9 @@ export interface NodeExporterInfo {
 
 export namespace NodeExporterInfo {
   export const filterSensitiveLog = (obj: NodeExporterInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NodeExporterInfo =>
-    __isa(o, "NodeExporterInfo");
+  export const isa = (o: any): o is NodeExporterInfo => __isa(o, "NodeExporterInfo");
 }
 
 /**
@@ -1480,14 +1612,14 @@ export namespace NodeExporterInfo {
 export interface NodeInfo {
   __type?: "NodeInfo";
   /**
+   * <p>The node type.</p>
+   */
+  NodeType?: NodeType | string;
+
+  /**
    * <p>The start time.</p>
    */
   AddedToClusterTime?: string;
-
-  /**
-   * <p>The broker node info.</p>
-   */
-  BrokerNodeInfo?: BrokerNodeInfo;
 
   /**
    * <p>The instance type.</p>
@@ -1500,9 +1632,9 @@ export interface NodeInfo {
   NodeARN?: string;
 
   /**
-   * <p>The node type.</p>
+   * <p>The broker node info.</p>
    */
-  NodeType?: NodeType | string;
+  BrokerNodeInfo?: BrokerNodeInfo;
 
   /**
    * <p>The ZookeeperNodeInfo.</p>
@@ -1512,13 +1644,13 @@ export interface NodeInfo {
 
 export namespace NodeInfo {
   export const filterSensitiveLog = (obj: NodeInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is NodeInfo => __isa(o, "NodeInfo");
 }
 
 export enum NodeType {
-  BROKER = "BROKER"
+  BROKER = "BROKER",
 }
 
 /**
@@ -1528,22 +1660,21 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
-   * <p>The parameter that caused the error.</p>
-   */
-  InvalidParameter?: string;
-
-  /**
    * <p>The description of the error.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The parameter that caused the error.</p>
+   */
+  InvalidParameter?: string;
 }
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1559,10 +1690,9 @@ export interface OpenMonitoring {
 
 export namespace OpenMonitoring {
   export const filterSensitiveLog = (obj: OpenMonitoring): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OpenMonitoring =>
-    __isa(o, "OpenMonitoring");
+  export const isa = (o: any): o is OpenMonitoring => __isa(o, "OpenMonitoring");
 }
 
 /**
@@ -1578,10 +1708,9 @@ export interface OpenMonitoringInfo {
 
 export namespace OpenMonitoringInfo {
   export const filterSensitiveLog = (obj: OpenMonitoringInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is OpenMonitoringInfo =>
-    __isa(o, "OpenMonitoringInfo");
+  export const isa = (o: any): o is OpenMonitoringInfo => __isa(o, "OpenMonitoringInfo");
 }
 
 /**
@@ -1590,19 +1719,19 @@ export namespace OpenMonitoringInfo {
 export interface Prometheus {
   __type?: "Prometheus";
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
-   */
-  JmxExporter?: JmxExporter;
-
-  /**
    * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
    */
   NodeExporter?: NodeExporter;
+
+  /**
+   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   */
+  JmxExporter?: JmxExporter;
 }
 
 export namespace Prometheus {
   export const filterSensitiveLog = (obj: Prometheus): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Prometheus => __isa(o, "Prometheus");
 }
@@ -1613,51 +1742,115 @@ export namespace Prometheus {
 export interface PrometheusInfo {
   __type?: "PrometheusInfo";
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
-   */
-  JmxExporter?: JmxExporterInfo;
-
-  /**
    * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
    */
   NodeExporter?: NodeExporterInfo;
+
+  /**
+   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   */
+  JmxExporter?: JmxExporterInfo;
 }
 
 export namespace PrometheusInfo {
   export const filterSensitiveLog = (obj: PrometheusInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PrometheusInfo =>
-    __isa(o, "PrometheusInfo");
+  export const isa = (o: any): o is PrometheusInfo => __isa(o, "PrometheusInfo");
+}
+
+/**
+ * Reboots a node.
+ */
+export interface RebootBrokerRequest {
+  __type?: "RebootBrokerRequest";
+  /**
+   * <p>The list of broker IDs to be rebooted.</p>
+   */
+  BrokerIds: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+export namespace RebootBrokerRequest {
+  export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is RebootBrokerRequest => __isa(o, "RebootBrokerRequest");
+}
+
+export interface RebootBrokerResponse {
+  __type?: "RebootBrokerResponse";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+export namespace RebootBrokerResponse {
+  export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is RebootBrokerResponse => __isa(o, "RebootBrokerResponse");
+}
+
+export interface S3 {
+  __type?: "S3";
+  Prefix?: string;
+  Enabled: boolean | undefined;
+  Bucket?: string;
+}
+
+export namespace S3 {
+  export const filterSensitiveLog = (obj: S3): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is S3 => __isa(o, "S3");
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
-  /**
-   * <p>The parameter that caused the error.</p>
-   */
-  InvalidParameter?: string;
-
   /**
    * <p>The description of the error.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The parameter that caused the error.</p>
+   */
+  InvalidParameter?: string;
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (
-    obj: ServiceUnavailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
+}
+
+export interface StateInfo {
+  __type?: "StateInfo";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace StateInfo {
+  export const filterSensitiveLog = (obj: StateInfo): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is StateInfo => __isa(o, "StateInfo");
 }
 
 /**
@@ -1673,7 +1866,7 @@ export interface StorageInfo {
 
 export namespace StorageInfo {
   export const filterSensitiveLog = (obj: StorageInfo): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StorageInfo => __isa(o, "StorageInfo");
 }
@@ -1693,10 +1886,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1712,7 +1904,7 @@ export interface Tls {
 
 export namespace Tls {
   export const filterSensitiveLog = (obj: Tls): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tls => __isa(o, "Tls");
 }
@@ -1720,36 +1912,31 @@ export namespace Tls {
 /**
  * <p>Returns information about an error.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
-  /**
-   * <p>The parameter that caused the error.</p>
-   */
-  InvalidParameter?: string;
-
   /**
    * <p>The description of the error.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The parameter that caused the error.</p>
+   */
+  InvalidParameter?: string;
 }
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   /**
@@ -1765,19 +1952,13 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
-   */
-  ResourceArn: string | undefined;
-
   /**
    * <p>Tag keys must be unique for a given cluster. In addition, the following restrictions apply:</p>
    *             <ul>
@@ -1801,23 +1982,22 @@ export interface UntagResourceRequest {
    *             </ul>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateBrokerCountRequest {
   __type?: "UpdateBrokerCountRequest";
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
-   */
-  ClusterArn: string | undefined;
-
   /**
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
    */
@@ -1827,14 +2007,18 @@ export interface UpdateBrokerCountRequest {
    * <p>The number of broker nodes that you want the cluster to have after this operation completes successfully.</p>
    */
   TargetNumberOfBrokerNodes: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn: string | undefined;
 }
 
 export namespace UpdateBrokerCountRequest {
   export const filterSensitiveLog = (obj: UpdateBrokerCountRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerCountRequest =>
-    __isa(o, "UpdateBrokerCountRequest");
+  export const isa = (o: any): o is UpdateBrokerCountRequest => __isa(o, "UpdateBrokerCountRequest");
 }
 
 export interface UpdateBrokerCountResponse {
@@ -1852,14 +2036,18 @@ export interface UpdateBrokerCountResponse {
 
 export namespace UpdateBrokerCountResponse {
   export const filterSensitiveLog = (obj: UpdateBrokerCountResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerCountResponse =>
-    __isa(o, "UpdateBrokerCountResponse");
+  export const isa = (o: any): o is UpdateBrokerCountResponse => __isa(o, "UpdateBrokerCountResponse");
 }
 
 export interface UpdateBrokerStorageRequest {
   __type?: "UpdateBrokerStorageRequest";
+  /**
+   * <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
+   */
+  TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
@@ -1869,42 +2057,33 @@ export interface UpdateBrokerStorageRequest {
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
    */
   CurrentVersion: string | undefined;
-
-  /**
-   * <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
-   */
-  TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
 
 export namespace UpdateBrokerStorageRequest {
   export const filterSensitiveLog = (obj: UpdateBrokerStorageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerStorageRequest =>
-    __isa(o, "UpdateBrokerStorageRequest");
+  export const isa = (o: any): o is UpdateBrokerStorageRequest => __isa(o, "UpdateBrokerStorageRequest");
 }
 
 export interface UpdateBrokerStorageResponse {
   __type?: "UpdateBrokerStorageResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
 }
 
 export namespace UpdateBrokerStorageResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateBrokerStorageResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerStorageResponse =>
-    __isa(o, "UpdateBrokerStorageResponse");
+  export const isa = (o: any): o is UpdateBrokerStorageResponse => __isa(o, "UpdateBrokerStorageResponse");
 }
 
 export interface UpdateClusterConfigurationRequest {
@@ -1915,47 +2094,92 @@ export interface UpdateClusterConfigurationRequest {
   ClusterArn: string | undefined;
 
   /**
-   * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
-   */
-  ConfigurationInfo: ConfigurationInfo | undefined;
-
-  /**
    * <p>The version of the cluster that needs to be updated.</p>
    */
   CurrentVersion: string | undefined;
+
+  /**
+   * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
+   */
+  ConfigurationInfo: ConfigurationInfo | undefined;
 }
 
 export namespace UpdateClusterConfigurationRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateClusterConfigurationRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateClusterConfigurationRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterConfigurationRequest =>
-    __isa(o, "UpdateClusterConfigurationRequest");
+  export const isa = (o: any): o is UpdateClusterConfigurationRequest => __isa(o, "UpdateClusterConfigurationRequest");
 }
 
 export interface UpdateClusterConfigurationResponse {
   __type?: "UpdateClusterConfigurationResponse";
   /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
+}
 
+export namespace UpdateClusterConfigurationResponse {
+  export const filterSensitiveLog = (obj: UpdateClusterConfigurationResponse): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateClusterConfigurationResponse =>
+    __isa(o, "UpdateClusterConfigurationResponse");
+}
+
+export interface UpdateClusterKafkaVersionRequest {
+  __type?: "UpdateClusterKafkaVersionRequest";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Current cluster version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>Target Kafka version.</p>
+   */
+  TargetKafkaVersion: string | undefined;
+
+  /**
+   * <p>The custom configuration that should be applied on the new version of cluster.</p>
+   */
+  ConfigurationInfo?: ConfigurationInfo;
+}
+
+export namespace UpdateClusterKafkaVersionRequest {
+  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionRequest): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UpdateClusterKafkaVersionRequest => __isa(o, "UpdateClusterKafkaVersionRequest");
+}
+
+export interface UpdateClusterKafkaVersionResponse {
+  __type?: "UpdateClusterKafkaVersionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
 }
 
-export namespace UpdateClusterConfigurationResponse {
-  export const filterSensitiveLog = (
-    obj: UpdateClusterConfigurationResponse
-  ): any => ({
-    ...obj
+export namespace UpdateClusterKafkaVersionResponse {
+  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterConfigurationResponse =>
-    __isa(o, "UpdateClusterConfigurationResponse");
+  export const isa = (o: any): o is UpdateClusterKafkaVersionResponse => __isa(o, "UpdateClusterKafkaVersionResponse");
 }
 
 /**
@@ -1964,53 +2188,52 @@ export namespace UpdateClusterConfigurationResponse {
 export interface UpdateMonitoringRequest {
   __type?: "UpdateMonitoringRequest";
   /**
+   * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
+   */
+  EnhancedMonitoring?: EnhancedMonitoring | string;
+
+  LoggingInfo?: LoggingInfo;
+  /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
-   */
-  CurrentVersion: string | undefined;
-
-  /**
-   * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
-   */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
-
-  /**
    * <p>The settings for open monitoring.</p>
    */
   OpenMonitoring?: OpenMonitoringInfo;
+
+  /**
+   * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   */
+  CurrentVersion: string | undefined;
 }
 
 export namespace UpdateMonitoringRequest {
   export const filterSensitiveLog = (obj: UpdateMonitoringRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateMonitoringRequest =>
-    __isa(o, "UpdateMonitoringRequest");
+  export const isa = (o: any): o is UpdateMonitoringRequest => __isa(o, "UpdateMonitoringRequest");
 }
 
 export interface UpdateMonitoringResponse {
   __type?: "UpdateMonitoringResponse";
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
 }
 
 export namespace UpdateMonitoringResponse {
   export const filterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateMonitoringResponse =>
-    __isa(o, "UpdateMonitoringResponse");
+  export const isa = (o: any): o is UpdateMonitoringResponse => __isa(o, "UpdateMonitoringResponse");
 }
 
 /**
@@ -2019,9 +2242,9 @@ export namespace UpdateMonitoringResponse {
 export interface ZookeeperNodeInfo {
   __type?: "ZookeeperNodeInfo";
   /**
-   * <p>The attached elastic network interface of the broker.</p>
+   * <p>The role-specific ID for Zookeeper.</p>
    */
-  AttachedENIId?: string;
+  ZookeeperId?: number;
 
   /**
    * <p>The virtual private cloud (VPC) IP address of the client.</p>
@@ -2029,25 +2252,24 @@ export interface ZookeeperNodeInfo {
   ClientVpcIpAddress?: string;
 
   /**
-   * <p>Endpoints for accessing the ZooKeeper.</p>
-   */
-  Endpoints?: string[];
-
-  /**
-   * <p>The role-specific ID for Zookeeper.</p>
-   */
-  ZookeeperId?: number;
-
-  /**
    * <p>The version of Zookeeper.</p>
    */
   ZookeeperVersion?: string;
+
+  /**
+   * <p>The attached elastic network interface of the broker.</p>
+   */
+  AttachedENIId?: string;
+
+  /**
+   * <p>Endpoints for accessing the ZooKeeper.</p>
+   */
+  Endpoints?: string[];
 }
 
 export namespace ZookeeperNodeInfo {
   export const filterSensitiveLog = (obj: ZookeeperNodeInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ZookeeperNodeInfo =>
-    __isa(o, "ZookeeperNodeInfo");
+  export const isa = (o: any): o is ZookeeperNodeInfo => __isa(o, "ZookeeperNodeInfo");
 }

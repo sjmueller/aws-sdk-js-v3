@@ -1,21 +1,11 @@
-import {
-  MigrationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MigrationHubClient.ts";
-import {
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResult
-} from "../models/index.ts";
+import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
-  serializeAws_json1_1ListDiscoveredResourcesCommand
+  serializeAws_json1_1ListDiscoveredResourcesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListDiscoveredResourcesCommandInput = ListDiscoveredResourcesRequest;
-export type ListDiscoveredResourcesCommandOutput = ListDiscoveredResourcesResult &
-  __MetadataBearer;
+export type ListDiscoveredResourcesCommandOutput = ListDiscoveredResourcesResult & __MetadataBearer;
 
 export class ListDiscoveredResourcesCommand extends $Command<
   ListDiscoveredResourcesCommandInput,
@@ -49,18 +38,16 @@ export class ListDiscoveredResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDiscoveredResourcesCommandInput,
-    ListDiscoveredResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDiscoveredResourcesCommandInput, ListDiscoveredResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListDiscoveredResourcesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDiscoveredResourcesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListDiscoveredResourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDiscoveredResourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDiscoveredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDiscoveredResourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoveredResourcesCommandOutput> {
+    return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

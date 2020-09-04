@@ -43,11 +43,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      inputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

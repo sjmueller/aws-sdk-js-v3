@@ -43,11 +43,8 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      inputFilterSensitiveLog: OmitsNullSerializesEmptyStringInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

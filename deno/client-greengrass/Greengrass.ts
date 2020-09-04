@@ -2,452 +2,444 @@ import { GreengrassClient } from "./GreengrassClient.ts";
 import {
   AssociateRoleToGroupCommand,
   AssociateRoleToGroupCommandInput,
-  AssociateRoleToGroupCommandOutput
+  AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand.ts";
 import {
   AssociateServiceRoleToAccountCommand,
   AssociateServiceRoleToAccountCommandInput,
-  AssociateServiceRoleToAccountCommandOutput
+  AssociateServiceRoleToAccountCommandOutput,
 } from "./commands/AssociateServiceRoleToAccountCommand.ts";
 import {
   CreateConnectorDefinitionCommand,
   CreateConnectorDefinitionCommandInput,
-  CreateConnectorDefinitionCommandOutput
+  CreateConnectorDefinitionCommandOutput,
 } from "./commands/CreateConnectorDefinitionCommand.ts";
 import {
   CreateConnectorDefinitionVersionCommand,
   CreateConnectorDefinitionVersionCommandInput,
-  CreateConnectorDefinitionVersionCommandOutput
+  CreateConnectorDefinitionVersionCommandOutput,
 } from "./commands/CreateConnectorDefinitionVersionCommand.ts";
 import {
   CreateCoreDefinitionCommand,
   CreateCoreDefinitionCommandInput,
-  CreateCoreDefinitionCommandOutput
+  CreateCoreDefinitionCommandOutput,
 } from "./commands/CreateCoreDefinitionCommand.ts";
 import {
   CreateCoreDefinitionVersionCommand,
   CreateCoreDefinitionVersionCommandInput,
-  CreateCoreDefinitionVersionCommandOutput
+  CreateCoreDefinitionVersionCommandOutput,
 } from "./commands/CreateCoreDefinitionVersionCommand.ts";
 import {
   CreateDeploymentCommand,
   CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
+  CreateDeploymentCommandOutput,
 } from "./commands/CreateDeploymentCommand.ts";
 import {
   CreateDeviceDefinitionCommand,
   CreateDeviceDefinitionCommandInput,
-  CreateDeviceDefinitionCommandOutput
+  CreateDeviceDefinitionCommandOutput,
 } from "./commands/CreateDeviceDefinitionCommand.ts";
 import {
   CreateDeviceDefinitionVersionCommand,
   CreateDeviceDefinitionVersionCommandInput,
-  CreateDeviceDefinitionVersionCommandOutput
+  CreateDeviceDefinitionVersionCommandOutput,
 } from "./commands/CreateDeviceDefinitionVersionCommand.ts";
 import {
   CreateFunctionDefinitionCommand,
   CreateFunctionDefinitionCommandInput,
-  CreateFunctionDefinitionCommandOutput
+  CreateFunctionDefinitionCommandOutput,
 } from "./commands/CreateFunctionDefinitionCommand.ts";
 import {
   CreateFunctionDefinitionVersionCommand,
   CreateFunctionDefinitionVersionCommandInput,
-  CreateFunctionDefinitionVersionCommandOutput
+  CreateFunctionDefinitionVersionCommandOutput,
 } from "./commands/CreateFunctionDefinitionVersionCommand.ts";
 import {
   CreateGroupCertificateAuthorityCommand,
   CreateGroupCertificateAuthorityCommandInput,
-  CreateGroupCertificateAuthorityCommandOutput
+  CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand.ts";
 import {
   CreateGroupCommand,
   CreateGroupCommandInput,
-  CreateGroupCommandOutput
+  CreateGroupCommandOutput,
 } from "./commands/CreateGroupCommand.ts";
 import {
   CreateGroupVersionCommand,
   CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput
+  CreateGroupVersionCommandOutput,
 } from "./commands/CreateGroupVersionCommand.ts";
 import {
   CreateLoggerDefinitionCommand,
   CreateLoggerDefinitionCommandInput,
-  CreateLoggerDefinitionCommandOutput
+  CreateLoggerDefinitionCommandOutput,
 } from "./commands/CreateLoggerDefinitionCommand.ts";
 import {
   CreateLoggerDefinitionVersionCommand,
   CreateLoggerDefinitionVersionCommandInput,
-  CreateLoggerDefinitionVersionCommandOutput
+  CreateLoggerDefinitionVersionCommandOutput,
 } from "./commands/CreateLoggerDefinitionVersionCommand.ts";
 import {
   CreateResourceDefinitionCommand,
   CreateResourceDefinitionCommandInput,
-  CreateResourceDefinitionCommandOutput
+  CreateResourceDefinitionCommandOutput,
 } from "./commands/CreateResourceDefinitionCommand.ts";
 import {
   CreateResourceDefinitionVersionCommand,
   CreateResourceDefinitionVersionCommandInput,
-  CreateResourceDefinitionVersionCommandOutput
+  CreateResourceDefinitionVersionCommandOutput,
 } from "./commands/CreateResourceDefinitionVersionCommand.ts";
 import {
   CreateSoftwareUpdateJobCommand,
   CreateSoftwareUpdateJobCommandInput,
-  CreateSoftwareUpdateJobCommandOutput
+  CreateSoftwareUpdateJobCommandOutput,
 } from "./commands/CreateSoftwareUpdateJobCommand.ts";
 import {
   CreateSubscriptionDefinitionCommand,
   CreateSubscriptionDefinitionCommandInput,
-  CreateSubscriptionDefinitionCommandOutput
+  CreateSubscriptionDefinitionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionCommand.ts";
 import {
   CreateSubscriptionDefinitionVersionCommand,
   CreateSubscriptionDefinitionVersionCommandInput,
-  CreateSubscriptionDefinitionVersionCommandOutput
+  CreateSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/CreateSubscriptionDefinitionVersionCommand.ts";
 import {
   DeleteConnectorDefinitionCommand,
   DeleteConnectorDefinitionCommandInput,
-  DeleteConnectorDefinitionCommandOutput
+  DeleteConnectorDefinitionCommandOutput,
 } from "./commands/DeleteConnectorDefinitionCommand.ts";
 import {
   DeleteCoreDefinitionCommand,
   DeleteCoreDefinitionCommandInput,
-  DeleteCoreDefinitionCommandOutput
+  DeleteCoreDefinitionCommandOutput,
 } from "./commands/DeleteCoreDefinitionCommand.ts";
 import {
   DeleteDeviceDefinitionCommand,
   DeleteDeviceDefinitionCommandInput,
-  DeleteDeviceDefinitionCommandOutput
+  DeleteDeviceDefinitionCommandOutput,
 } from "./commands/DeleteDeviceDefinitionCommand.ts";
 import {
   DeleteFunctionDefinitionCommand,
   DeleteFunctionDefinitionCommandInput,
-  DeleteFunctionDefinitionCommandOutput
+  DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand.ts";
 import {
   DeleteGroupCommand,
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
+  DeleteGroupCommandOutput,
 } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteLoggerDefinitionCommand,
   DeleteLoggerDefinitionCommandInput,
-  DeleteLoggerDefinitionCommandOutput
+  DeleteLoggerDefinitionCommandOutput,
 } from "./commands/DeleteLoggerDefinitionCommand.ts";
 import {
   DeleteResourceDefinitionCommand,
   DeleteResourceDefinitionCommandInput,
-  DeleteResourceDefinitionCommandOutput
+  DeleteResourceDefinitionCommandOutput,
 } from "./commands/DeleteResourceDefinitionCommand.ts";
 import {
   DeleteSubscriptionDefinitionCommand,
   DeleteSubscriptionDefinitionCommandInput,
-  DeleteSubscriptionDefinitionCommandOutput
+  DeleteSubscriptionDefinitionCommandOutput,
 } from "./commands/DeleteSubscriptionDefinitionCommand.ts";
 import {
   DisassociateRoleFromGroupCommand,
   DisassociateRoleFromGroupCommandInput,
-  DisassociateRoleFromGroupCommandOutput
+  DisassociateRoleFromGroupCommandOutput,
 } from "./commands/DisassociateRoleFromGroupCommand.ts";
 import {
   DisassociateServiceRoleFromAccountCommand,
   DisassociateServiceRoleFromAccountCommandInput,
-  DisassociateServiceRoleFromAccountCommandOutput
+  DisassociateServiceRoleFromAccountCommandOutput,
 } from "./commands/DisassociateServiceRoleFromAccountCommand.ts";
 import {
   GetAssociatedRoleCommand,
   GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput
+  GetAssociatedRoleCommandOutput,
 } from "./commands/GetAssociatedRoleCommand.ts";
 import {
   GetBulkDeploymentStatusCommand,
   GetBulkDeploymentStatusCommandInput,
-  GetBulkDeploymentStatusCommandOutput
+  GetBulkDeploymentStatusCommandOutput,
 } from "./commands/GetBulkDeploymentStatusCommand.ts";
 import {
   GetConnectivityInfoCommand,
   GetConnectivityInfoCommandInput,
-  GetConnectivityInfoCommandOutput
+  GetConnectivityInfoCommandOutput,
 } from "./commands/GetConnectivityInfoCommand.ts";
 import {
   GetConnectorDefinitionCommand,
   GetConnectorDefinitionCommandInput,
-  GetConnectorDefinitionCommandOutput
+  GetConnectorDefinitionCommandOutput,
 } from "./commands/GetConnectorDefinitionCommand.ts";
 import {
   GetConnectorDefinitionVersionCommand,
   GetConnectorDefinitionVersionCommandInput,
-  GetConnectorDefinitionVersionCommandOutput
+  GetConnectorDefinitionVersionCommandOutput,
 } from "./commands/GetConnectorDefinitionVersionCommand.ts";
 import {
   GetCoreDefinitionCommand,
   GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput
+  GetCoreDefinitionCommandOutput,
 } from "./commands/GetCoreDefinitionCommand.ts";
 import {
   GetCoreDefinitionVersionCommand,
   GetCoreDefinitionVersionCommandInput,
-  GetCoreDefinitionVersionCommandOutput
+  GetCoreDefinitionVersionCommandOutput,
 } from "./commands/GetCoreDefinitionVersionCommand.ts";
 import {
   GetDeploymentStatusCommand,
   GetDeploymentStatusCommandInput,
-  GetDeploymentStatusCommandOutput
+  GetDeploymentStatusCommandOutput,
 } from "./commands/GetDeploymentStatusCommand.ts";
 import {
   GetDeviceDefinitionCommand,
   GetDeviceDefinitionCommandInput,
-  GetDeviceDefinitionCommandOutput
+  GetDeviceDefinitionCommandOutput,
 } from "./commands/GetDeviceDefinitionCommand.ts";
 import {
   GetDeviceDefinitionVersionCommand,
   GetDeviceDefinitionVersionCommandInput,
-  GetDeviceDefinitionVersionCommandOutput
+  GetDeviceDefinitionVersionCommandOutput,
 } from "./commands/GetDeviceDefinitionVersionCommand.ts";
 import {
   GetFunctionDefinitionCommand,
   GetFunctionDefinitionCommandInput,
-  GetFunctionDefinitionCommandOutput
+  GetFunctionDefinitionCommandOutput,
 } from "./commands/GetFunctionDefinitionCommand.ts";
 import {
   GetFunctionDefinitionVersionCommand,
   GetFunctionDefinitionVersionCommandInput,
-  GetFunctionDefinitionVersionCommandOutput
+  GetFunctionDefinitionVersionCommandOutput,
 } from "./commands/GetFunctionDefinitionVersionCommand.ts";
 import {
   GetGroupCertificateAuthorityCommand,
   GetGroupCertificateAuthorityCommandInput,
-  GetGroupCertificateAuthorityCommandOutput
+  GetGroupCertificateAuthorityCommandOutput,
 } from "./commands/GetGroupCertificateAuthorityCommand.ts";
 import {
   GetGroupCertificateConfigurationCommand,
   GetGroupCertificateConfigurationCommandInput,
-  GetGroupCertificateConfigurationCommandOutput
+  GetGroupCertificateConfigurationCommandOutput,
 } from "./commands/GetGroupCertificateConfigurationCommand.ts";
-import {
-  GetGroupCommand,
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand.ts";
+import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import {
   GetGroupVersionCommand,
   GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput
+  GetGroupVersionCommandOutput,
 } from "./commands/GetGroupVersionCommand.ts";
 import {
   GetLoggerDefinitionCommand,
   GetLoggerDefinitionCommandInput,
-  GetLoggerDefinitionCommandOutput
+  GetLoggerDefinitionCommandOutput,
 } from "./commands/GetLoggerDefinitionCommand.ts";
 import {
   GetLoggerDefinitionVersionCommand,
   GetLoggerDefinitionVersionCommandInput,
-  GetLoggerDefinitionVersionCommandOutput
+  GetLoggerDefinitionVersionCommandOutput,
 } from "./commands/GetLoggerDefinitionVersionCommand.ts";
 import {
   GetResourceDefinitionCommand,
   GetResourceDefinitionCommandInput,
-  GetResourceDefinitionCommandOutput
+  GetResourceDefinitionCommandOutput,
 } from "./commands/GetResourceDefinitionCommand.ts";
 import {
   GetResourceDefinitionVersionCommand,
   GetResourceDefinitionVersionCommandInput,
-  GetResourceDefinitionVersionCommandOutput
+  GetResourceDefinitionVersionCommandOutput,
 } from "./commands/GetResourceDefinitionVersionCommand.ts";
 import {
   GetServiceRoleForAccountCommand,
   GetServiceRoleForAccountCommandInput,
-  GetServiceRoleForAccountCommandOutput
+  GetServiceRoleForAccountCommandOutput,
 } from "./commands/GetServiceRoleForAccountCommand.ts";
 import {
   GetSubscriptionDefinitionCommand,
   GetSubscriptionDefinitionCommandInput,
-  GetSubscriptionDefinitionCommandOutput
+  GetSubscriptionDefinitionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionCommand.ts";
 import {
   GetSubscriptionDefinitionVersionCommand,
   GetSubscriptionDefinitionVersionCommandInput,
-  GetSubscriptionDefinitionVersionCommandOutput
+  GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand.ts";
 import {
   ListBulkDeploymentDetailedReportsCommand,
   ListBulkDeploymentDetailedReportsCommandInput,
-  ListBulkDeploymentDetailedReportsCommandOutput
+  ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand.ts";
 import {
   ListBulkDeploymentsCommand,
   ListBulkDeploymentsCommandInput,
-  ListBulkDeploymentsCommandOutput
+  ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand.ts";
 import {
   ListConnectorDefinitionVersionsCommand,
   ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput
+  ListConnectorDefinitionVersionsCommandOutput,
 } from "./commands/ListConnectorDefinitionVersionsCommand.ts";
 import {
   ListConnectorDefinitionsCommand,
   ListConnectorDefinitionsCommandInput,
-  ListConnectorDefinitionsCommandOutput
+  ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand.ts";
 import {
   ListCoreDefinitionVersionsCommand,
   ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput
+  ListCoreDefinitionVersionsCommandOutput,
 } from "./commands/ListCoreDefinitionVersionsCommand.ts";
 import {
   ListCoreDefinitionsCommand,
   ListCoreDefinitionsCommandInput,
-  ListCoreDefinitionsCommandOutput
+  ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand.ts";
 import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
+  ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand.ts";
 import {
   ListDeviceDefinitionVersionsCommand,
   ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput
+  ListDeviceDefinitionVersionsCommandOutput,
 } from "./commands/ListDeviceDefinitionVersionsCommand.ts";
 import {
   ListDeviceDefinitionsCommand,
   ListDeviceDefinitionsCommandInput,
-  ListDeviceDefinitionsCommandOutput
+  ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand.ts";
 import {
   ListFunctionDefinitionVersionsCommand,
   ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput
+  ListFunctionDefinitionVersionsCommandOutput,
 } from "./commands/ListFunctionDefinitionVersionsCommand.ts";
 import {
   ListFunctionDefinitionsCommand,
   ListFunctionDefinitionsCommandInput,
-  ListFunctionDefinitionsCommandOutput
+  ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand.ts";
 import {
   ListGroupCertificateAuthoritiesCommand,
   ListGroupCertificateAuthoritiesCommandInput,
-  ListGroupCertificateAuthoritiesCommandOutput
+  ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand.ts";
 import {
   ListGroupVersionsCommand,
   ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput
+  ListGroupVersionsCommandOutput,
 } from "./commands/ListGroupVersionsCommand.ts";
-import {
-  ListGroupsCommand,
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand.ts";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListLoggerDefinitionVersionsCommand,
   ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput
+  ListLoggerDefinitionVersionsCommandOutput,
 } from "./commands/ListLoggerDefinitionVersionsCommand.ts";
 import {
   ListLoggerDefinitionsCommand,
   ListLoggerDefinitionsCommandInput,
-  ListLoggerDefinitionsCommandOutput
+  ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand.ts";
 import {
   ListResourceDefinitionVersionsCommand,
   ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput
+  ListResourceDefinitionVersionsCommandOutput,
 } from "./commands/ListResourceDefinitionVersionsCommand.ts";
 import {
   ListResourceDefinitionsCommand,
   ListResourceDefinitionsCommandInput,
-  ListResourceDefinitionsCommandOutput
+  ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand.ts";
 import {
   ListSubscriptionDefinitionVersionsCommand,
   ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput
+  ListSubscriptionDefinitionVersionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionVersionsCommand.ts";
 import {
   ListSubscriptionDefinitionsCommand,
   ListSubscriptionDefinitionsCommandInput,
-  ListSubscriptionDefinitionsCommandOutput
+  ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ResetDeploymentsCommand,
   ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput
+  ResetDeploymentsCommandOutput,
 } from "./commands/ResetDeploymentsCommand.ts";
 import {
   StartBulkDeploymentCommand,
   StartBulkDeploymentCommandInput,
-  StartBulkDeploymentCommandOutput
+  StartBulkDeploymentCommandOutput,
 } from "./commands/StartBulkDeploymentCommand.ts";
 import {
   StopBulkDeploymentCommand,
   StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput
+  StopBulkDeploymentCommandOutput,
 } from "./commands/StopBulkDeploymentCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateConnectivityInfoCommand,
   UpdateConnectivityInfoCommandInput,
-  UpdateConnectivityInfoCommandOutput
+  UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand.ts";
 import {
   UpdateConnectorDefinitionCommand,
   UpdateConnectorDefinitionCommandInput,
-  UpdateConnectorDefinitionCommandOutput
+  UpdateConnectorDefinitionCommandOutput,
 } from "./commands/UpdateConnectorDefinitionCommand.ts";
 import {
   UpdateCoreDefinitionCommand,
   UpdateCoreDefinitionCommandInput,
-  UpdateCoreDefinitionCommandOutput
+  UpdateCoreDefinitionCommandOutput,
 } from "./commands/UpdateCoreDefinitionCommand.ts";
 import {
   UpdateDeviceDefinitionCommand,
   UpdateDeviceDefinitionCommandInput,
-  UpdateDeviceDefinitionCommandOutput
+  UpdateDeviceDefinitionCommandOutput,
 } from "./commands/UpdateDeviceDefinitionCommand.ts";
 import {
   UpdateFunctionDefinitionCommand,
   UpdateFunctionDefinitionCommandInput,
-  UpdateFunctionDefinitionCommandOutput
+  UpdateFunctionDefinitionCommandOutput,
 } from "./commands/UpdateFunctionDefinitionCommand.ts";
 import {
   UpdateGroupCertificateConfigurationCommand,
   UpdateGroupCertificateConfigurationCommandInput,
-  UpdateGroupCertificateConfigurationCommandOutput
+  UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand.ts";
 import {
   UpdateGroupCommand,
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
+  UpdateGroupCommandOutput,
 } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoggerDefinitionCommand,
   UpdateLoggerDefinitionCommandInput,
-  UpdateLoggerDefinitionCommandOutput
+  UpdateLoggerDefinitionCommandOutput,
 } from "./commands/UpdateLoggerDefinitionCommand.ts";
 import {
   UpdateResourceDefinitionCommand,
   UpdateResourceDefinitionCommandInput,
-  UpdateResourceDefinitionCommandOutput
+  UpdateResourceDefinitionCommandOutput,
 } from "./commands/UpdateResourceDefinitionCommand.ts";
 import {
   UpdateSubscriptionDefinitionCommand,
   UpdateSubscriptionDefinitionCommandInput,
-  UpdateSubscriptionDefinitionCommandOutput
+  UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -473,17 +465,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public associateRoleToGroup(
     args: AssociateRoleToGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateRoleToGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateRoleToGroupCommandOutput) => void),
     cb?: (err: any, data?: AssociateRoleToGroupCommandOutput) => void
   ): Promise<AssociateRoleToGroupCommandOutput> | void {
     const command = new AssociateRoleToGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -508,17 +497,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public associateServiceRoleToAccount(
     args: AssociateServiceRoleToAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void),
     cb?: (err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void
   ): Promise<AssociateServiceRoleToAccountCommandOutput> | void {
     const command = new AssociateServiceRoleToAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -543,17 +529,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createConnectorDefinition(
     args: CreateConnectorDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectorDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectorDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectorDefinitionCommandOutput) => void
   ): Promise<CreateConnectorDefinitionCommandOutput> | void {
     const command = new CreateConnectorDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -578,23 +561,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createConnectorDefinitionVersion(
     args: CreateConnectorDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConnectorDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConnectorDefinitionVersionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectorDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectorDefinitionVersionCommandOutput) => void
   ): Promise<CreateConnectorDefinitionVersionCommandOutput> | void {
     const command = new CreateConnectorDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -619,17 +593,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createCoreDefinition(
     args: CreateCoreDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCoreDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoreDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateCoreDefinitionCommandOutput) => void
   ): Promise<CreateCoreDefinitionCommandOutput> | void {
     const command = new CreateCoreDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -654,17 +625,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createCoreDefinitionVersion(
     args: CreateCoreDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCoreDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCoreDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateCoreDefinitionVersionCommandOutput) => void
   ): Promise<CreateCoreDefinitionVersionCommandOutput> | void {
     const command = new CreateCoreDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -689,17 +657,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -724,17 +689,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createDeviceDefinition(
     args: CreateDeviceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeviceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeviceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateDeviceDefinitionCommandOutput) => void
   ): Promise<CreateDeviceDefinitionCommandOutput> | void {
     const command = new CreateDeviceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -759,17 +721,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createDeviceDefinitionVersion(
     args: CreateDeviceDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeviceDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeviceDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateDeviceDefinitionVersionCommandOutput) => void
   ): Promise<CreateDeviceDefinitionVersionCommandOutput> | void {
     const command = new CreateDeviceDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -794,17 +753,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createFunctionDefinition(
     args: CreateFunctionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFunctionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionDefinitionCommandOutput) => void
   ): Promise<CreateFunctionDefinitionCommandOutput> | void {
     const command = new CreateFunctionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -829,20 +785,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createFunctionDefinitionVersion(
     args: CreateFunctionDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFunctionDefinitionVersionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionDefinitionVersionCommandOutput) => void
   ): Promise<CreateFunctionDefinitionVersionCommandOutput> | void {
     const command = new CreateFunctionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -852,14 +802,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.
    */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
+  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
   public createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -867,17 +811,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -902,20 +843,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createGroupCertificateAuthority(
     args: CreateGroupCertificateAuthorityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateGroupCertificateAuthorityCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCertificateAuthorityCommandOutput) => void
   ): Promise<CreateGroupCertificateAuthorityCommandOutput> | void {
     const command = new CreateGroupCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -940,17 +875,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createGroupVersion(
     args: CreateGroupVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupVersionCommandOutput) => void
   ): Promise<CreateGroupVersionCommandOutput> | void {
     const command = new CreateGroupVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -975,17 +907,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createLoggerDefinition(
     args: CreateLoggerDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLoggerDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoggerDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateLoggerDefinitionCommandOutput) => void
   ): Promise<CreateLoggerDefinitionCommandOutput> | void {
     const command = new CreateLoggerDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1010,17 +939,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createLoggerDefinitionVersion(
     args: CreateLoggerDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLoggerDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLoggerDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateLoggerDefinitionVersionCommandOutput) => void
   ): Promise<CreateLoggerDefinitionVersionCommandOutput> | void {
     const command = new CreateLoggerDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1045,17 +971,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createResourceDefinition(
     args: CreateResourceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceDefinitionCommandOutput) => void
   ): Promise<CreateResourceDefinitionCommandOutput> | void {
     const command = new CreateResourceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1080,20 +1003,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createResourceDefinitionVersion(
     args: CreateResourceDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateResourceDefinitionVersionCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceDefinitionVersionCommandOutput) => void
   ): Promise<CreateResourceDefinitionVersionCommandOutput> | void {
     const command = new CreateResourceDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1118,17 +1035,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createSoftwareUpdateJob(
     args: CreateSoftwareUpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSoftwareUpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSoftwareUpdateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateSoftwareUpdateJobCommandOutput) => void
   ): Promise<CreateSoftwareUpdateJobCommandOutput> | void {
     const command = new CreateSoftwareUpdateJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1153,17 +1067,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createSubscriptionDefinition(
     args: CreateSubscriptionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubscriptionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriptionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateSubscriptionDefinitionCommandOutput) => void
   ): Promise<CreateSubscriptionDefinitionCommandOutput> | void {
     const command = new CreateSubscriptionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1179,38 +1090,23 @@ export class Greengrass extends GreengrassClient {
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput>;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSubscriptionDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> | void {
     const command = new CreateSubscriptionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1235,17 +1131,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteConnectorDefinition(
     args: DeleteConnectorDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectorDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectorDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectorDefinitionCommandOutput) => void
   ): Promise<DeleteConnectorDefinitionCommandOutput> | void {
     const command = new DeleteConnectorDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1270,17 +1163,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteCoreDefinition(
     args: DeleteCoreDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCoreDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCoreDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteCoreDefinitionCommandOutput) => void
   ): Promise<DeleteCoreDefinitionCommandOutput> | void {
     const command = new DeleteCoreDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1305,17 +1195,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteDeviceDefinition(
     args: DeleteDeviceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceDefinitionCommandOutput) => void
   ): Promise<DeleteDeviceDefinitionCommandOutput> | void {
     const command = new DeleteDeviceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1340,17 +1227,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteFunctionDefinition(
     args: DeleteFunctionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFunctionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionDefinitionCommandOutput) => void
   ): Promise<DeleteFunctionDefinitionCommandOutput> | void {
     const command = new DeleteFunctionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1360,14 +1244,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Deletes a group.
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
+  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1375,17 +1253,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1410,17 +1285,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteLoggerDefinition(
     args: DeleteLoggerDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoggerDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggerDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoggerDefinitionCommandOutput) => void
   ): Promise<DeleteLoggerDefinitionCommandOutput> | void {
     const command = new DeleteLoggerDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1445,17 +1317,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteResourceDefinition(
     args: DeleteResourceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceDefinitionCommandOutput) => void
   ): Promise<DeleteResourceDefinitionCommandOutput> | void {
     const command = new DeleteResourceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1480,17 +1349,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteSubscriptionDefinition(
     args: DeleteSubscriptionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriptionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriptionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriptionDefinitionCommandOutput) => void
   ): Promise<DeleteSubscriptionDefinitionCommandOutput> | void {
     const command = new DeleteSubscriptionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1515,17 +1381,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public disassociateRoleFromGroup(
     args: DisassociateRoleFromGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateRoleFromGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRoleFromGroupCommandOutput) => void),
     cb?: (err: any, data?: DisassociateRoleFromGroupCommandOutput) => void
   ): Promise<DisassociateRoleFromGroupCommandOutput> | void {
     const command = new DisassociateRoleFromGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1541,38 +1404,23 @@ export class Greengrass extends GreengrassClient {
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): void;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): void;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceRoleFromAccountCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> | void {
     const command = new DisassociateServiceRoleFromAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1597,17 +1445,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getAssociatedRole(
     args: GetAssociatedRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssociatedRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssociatedRoleCommandOutput) => void),
     cb?: (err: any, data?: GetAssociatedRoleCommandOutput) => void
   ): Promise<GetAssociatedRoleCommandOutput> | void {
     const command = new GetAssociatedRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1632,17 +1477,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getBulkDeploymentStatus(
     args: GetBulkDeploymentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBulkDeploymentStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBulkDeploymentStatusCommandOutput) => void),
     cb?: (err: any, data?: GetBulkDeploymentStatusCommandOutput) => void
   ): Promise<GetBulkDeploymentStatusCommandOutput> | void {
     const command = new GetBulkDeploymentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1667,17 +1509,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getConnectivityInfo(
     args: GetConnectivityInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectivityInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectivityInfoCommandOutput) => void),
     cb?: (err: any, data?: GetConnectivityInfoCommandOutput) => void
   ): Promise<GetConnectivityInfoCommandOutput> | void {
     const command = new GetConnectivityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1702,17 +1541,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getConnectorDefinition(
     args: GetConnectorDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectorDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectorDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectorDefinitionCommandOutput) => void
   ): Promise<GetConnectorDefinitionCommandOutput> | void {
     const command = new GetConnectorDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1737,17 +1573,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getConnectorDefinitionVersion(
     args: GetConnectorDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectorDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectorDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectorDefinitionVersionCommandOutput) => void
   ): Promise<GetConnectorDefinitionVersionCommandOutput> | void {
     const command = new GetConnectorDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1772,17 +1605,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getCoreDefinition(
     args: GetCoreDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCoreDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetCoreDefinitionCommandOutput) => void
   ): Promise<GetCoreDefinitionCommandOutput> | void {
     const command = new GetCoreDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1807,17 +1637,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getCoreDefinitionVersion(
     args: GetCoreDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCoreDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetCoreDefinitionVersionCommandOutput) => void
   ): Promise<GetCoreDefinitionVersionCommandOutput> | void {
     const command = new GetCoreDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1842,17 +1669,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getDeploymentStatus(
     args: GetDeploymentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentStatusCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentStatusCommandOutput) => void
   ): Promise<GetDeploymentStatusCommandOutput> | void {
     const command = new GetDeploymentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1877,17 +1701,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getDeviceDefinition(
     args: GetDeviceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceDefinitionCommandOutput) => void
   ): Promise<GetDeviceDefinitionCommandOutput> | void {
     const command = new GetDeviceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1912,17 +1733,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getDeviceDefinitionVersion(
     args: GetDeviceDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceDefinitionVersionCommandOutput) => void
   ): Promise<GetDeviceDefinitionVersionCommandOutput> | void {
     const command = new GetDeviceDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1947,17 +1765,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getFunctionDefinition(
     args: GetFunctionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionDefinitionCommandOutput) => void
   ): Promise<GetFunctionDefinitionCommandOutput> | void {
     const command = new GetFunctionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1982,17 +1797,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getFunctionDefinitionVersion(
     args: GetFunctionDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionDefinitionVersionCommandOutput) => void
   ): Promise<GetFunctionDefinitionVersionCommandOutput> | void {
     const command = new GetFunctionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2002,14 +1814,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Retrieves information about a group.
    */
-  public getGroup(
-    args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupCommandOutput>;
-  public getGroup(
-    args: GetGroupCommandInput,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
-  ): void;
+  public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
+  public getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
   public getGroup(
     args: GetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2017,17 +1823,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2052,17 +1855,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroupCertificateAuthority(
     args: GetGroupCertificateAuthorityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCertificateAuthorityCommandOutput) => void
   ): Promise<GetGroupCertificateAuthorityCommandOutput> | void {
     const command = new GetGroupCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2087,23 +1887,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroupCertificateConfiguration(
     args: GetGroupCertificateConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetGroupCertificateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetGroupCertificateConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCertificateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupCertificateConfigurationCommandOutput) => void
   ): Promise<GetGroupCertificateConfigurationCommandOutput> | void {
     const command = new GetGroupCertificateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2128,17 +1919,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroupVersion(
     args: GetGroupVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupVersionCommandOutput) => void),
     cb?: (err: any, data?: GetGroupVersionCommandOutput) => void
   ): Promise<GetGroupVersionCommandOutput> | void {
     const command = new GetGroupVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2163,17 +1951,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getLoggerDefinition(
     args: GetLoggerDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggerDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggerDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetLoggerDefinitionCommandOutput) => void
   ): Promise<GetLoggerDefinitionCommandOutput> | void {
     const command = new GetLoggerDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2198,17 +1983,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getLoggerDefinitionVersion(
     args: GetLoggerDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggerDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggerDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetLoggerDefinitionVersionCommandOutput) => void
   ): Promise<GetLoggerDefinitionVersionCommandOutput> | void {
     const command = new GetLoggerDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2233,17 +2015,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getResourceDefinition(
     args: GetResourceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetResourceDefinitionCommandOutput) => void
   ): Promise<GetResourceDefinitionCommandOutput> | void {
     const command = new GetResourceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2268,17 +2047,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getResourceDefinitionVersion(
     args: GetResourceDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceDefinitionVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: GetResourceDefinitionVersionCommandOutput) => void
   ): Promise<GetResourceDefinitionVersionCommandOutput> | void {
     const command = new GetResourceDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2303,17 +2079,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceRoleForAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceRoleForAccountCommandOutput) => void),
     cb?: (err: any, data?: GetServiceRoleForAccountCommandOutput) => void
   ): Promise<GetServiceRoleForAccountCommandOutput> | void {
     const command = new GetServiceRoleForAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2338,17 +2111,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getSubscriptionDefinition(
     args: GetSubscriptionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSubscriptionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubscriptionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: GetSubscriptionDefinitionCommandOutput) => void
   ): Promise<GetSubscriptionDefinitionCommandOutput> | void {
     const command = new GetSubscriptionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2373,23 +2143,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getSubscriptionDefinitionVersion(
     args: GetSubscriptionDefinitionVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSubscriptionDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSubscriptionDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetSubscriptionDefinitionVersionCommandOutput) => void
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput> | void {
     const command = new GetSubscriptionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2405,38 +2166,23 @@ export class Greengrass extends GreengrassClient {
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput>;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): void;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): void;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBulkDeploymentDetailedReportsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void),
+    cb?: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> | void {
     const command = new ListBulkDeploymentDetailedReportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2461,17 +2207,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listBulkDeployments(
     args: ListBulkDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBulkDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBulkDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListBulkDeploymentsCommandOutput) => void
   ): Promise<ListBulkDeploymentsCommandOutput> | void {
     const command = new ListBulkDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2496,17 +2239,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listConnectorDefinitions(
     args: ListConnectorDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConnectorDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectorDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListConnectorDefinitionsCommandOutput) => void
   ): Promise<ListConnectorDefinitionsCommandOutput> | void {
     const command = new ListConnectorDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2531,20 +2271,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listConnectorDefinitionVersions(
     args: ListConnectorDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListConnectorDefinitionVersionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
   ): Promise<ListConnectorDefinitionVersionsCommandOutput> | void {
     const command = new ListConnectorDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2569,17 +2303,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listCoreDefinitions(
     args: ListCoreDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCoreDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCoreDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListCoreDefinitionsCommandOutput) => void
   ): Promise<ListCoreDefinitionsCommandOutput> | void {
     const command = new ListCoreDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2604,17 +2335,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listCoreDefinitionVersions(
     args: ListCoreDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
   ): Promise<ListCoreDefinitionVersionsCommandOutput> | void {
     const command = new ListCoreDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2639,17 +2367,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2674,17 +2399,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listDeviceDefinitions(
     args: ListDeviceDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
   ): Promise<ListDeviceDefinitionsCommandOutput> | void {
     const command = new ListDeviceDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2709,17 +2431,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listDeviceDefinitionVersions(
     args: ListDeviceDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceDefinitionVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceDefinitionVersionsCommandOutput) => void
   ): Promise<ListDeviceDefinitionVersionsCommandOutput> | void {
     const command = new ListDeviceDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2744,17 +2463,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listFunctionDefinitions(
     args: ListFunctionDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFunctionDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
   ): Promise<ListFunctionDefinitionsCommandOutput> | void {
     const command = new ListFunctionDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2779,20 +2495,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listFunctionDefinitionVersions(
     args: ListFunctionDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFunctionDefinitionVersionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionDefinitionVersionsCommandOutput) => void
   ): Promise<ListFunctionDefinitionVersionsCommandOutput> | void {
     const command = new ListFunctionDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2817,20 +2527,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listGroupCertificateAuthorities(
     args: ListGroupCertificateAuthoritiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListGroupCertificateAuthoritiesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void),
     cb?: (err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> | void {
     const command = new ListGroupCertificateAuthoritiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2840,14 +2544,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Retrieves a list of groups.
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
+  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   public listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -2855,17 +2553,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2890,17 +2585,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listGroupVersions(
     args: ListGroupVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupVersionsCommandOutput) => void
   ): Promise<ListGroupVersionsCommandOutput> | void {
     const command = new ListGroupVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2925,17 +2617,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listLoggerDefinitions(
     args: ListLoggerDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggerDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggerDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggerDefinitionsCommandOutput) => void
   ): Promise<ListLoggerDefinitionsCommandOutput> | void {
     const command = new ListLoggerDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2960,17 +2649,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listLoggerDefinitionVersions(
     args: ListLoggerDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
   ): Promise<ListLoggerDefinitionVersionsCommandOutput> | void {
     const command = new ListLoggerDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2995,17 +2681,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listResourceDefinitions(
     args: ListResourceDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
   ): Promise<ListResourceDefinitionsCommandOutput> | void {
     const command = new ListResourceDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3030,20 +2713,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listResourceDefinitionVersions(
     args: ListResourceDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResourceDefinitionVersionsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceDefinitionVersionsCommandOutput) => void
   ): Promise<ListResourceDefinitionVersionsCommandOutput> | void {
     const command = new ListResourceDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3068,17 +2745,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listSubscriptionDefinitions(
     args: ListSubscriptionDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
   ): Promise<ListSubscriptionDefinitionsCommandOutput> | void {
     const command = new ListSubscriptionDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3094,38 +2768,23 @@ export class Greengrass extends GreengrassClient {
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput>;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
-    cb: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): void;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): void;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListSubscriptionDefinitionVersionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> | void {
     const command = new ListSubscriptionDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3150,17 +2809,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3185,17 +2841,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public resetDeployments(
     args: ResetDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ResetDeploymentsCommandOutput) => void
   ): Promise<ResetDeploymentsCommandOutput> | void {
     const command = new ResetDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3220,17 +2873,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public startBulkDeployment(
     args: StartBulkDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartBulkDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBulkDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StartBulkDeploymentCommandOutput) => void
   ): Promise<StartBulkDeploymentCommandOutput> | void {
     const command = new StartBulkDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3255,17 +2905,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public stopBulkDeployment(
     args: StopBulkDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopBulkDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBulkDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StopBulkDeploymentCommandOutput) => void
   ): Promise<StopBulkDeploymentCommandOutput> | void {
     const command = new StopBulkDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3275,14 +2922,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Adds tags to a Greengrass resource. Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3290,17 +2931,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3325,17 +2963,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3360,17 +2995,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateConnectivityInfo(
     args: UpdateConnectivityInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConnectivityInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectivityInfoCommandOutput) => void),
     cb?: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
   ): Promise<UpdateConnectivityInfoCommandOutput> | void {
     const command = new UpdateConnectivityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3395,17 +3027,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateConnectorDefinition(
     args: UpdateConnectorDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConnectorDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectorDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateConnectorDefinitionCommandOutput) => void
   ): Promise<UpdateConnectorDefinitionCommandOutput> | void {
     const command = new UpdateConnectorDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3430,17 +3059,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateCoreDefinition(
     args: UpdateCoreDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCoreDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCoreDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateCoreDefinitionCommandOutput) => void
   ): Promise<UpdateCoreDefinitionCommandOutput> | void {
     const command = new UpdateCoreDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3465,17 +3091,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateDeviceDefinition(
     args: UpdateDeviceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceDefinitionCommandOutput) => void
   ): Promise<UpdateDeviceDefinitionCommandOutput> | void {
     const command = new UpdateDeviceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3500,17 +3123,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateFunctionDefinition(
     args: UpdateFunctionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFunctionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionDefinitionCommandOutput) => void
   ): Promise<UpdateFunctionDefinitionCommandOutput> | void {
     const command = new UpdateFunctionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3520,14 +3140,8 @@ export class Greengrass extends GreengrassClient {
   /**
    * Updates a group.
    */
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
+  public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -3535,17 +3149,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3561,38 +3172,23 @@ export class Greengrass extends GreengrassClient {
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput>;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): void;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): void;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateGroupCertificateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput> | void {
     const command = new UpdateGroupCertificateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3617,17 +3213,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateLoggerDefinition(
     args: UpdateLoggerDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLoggerDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLoggerDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateLoggerDefinitionCommandOutput) => void
   ): Promise<UpdateLoggerDefinitionCommandOutput> | void {
     const command = new UpdateLoggerDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3652,17 +3245,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateResourceDefinition(
     args: UpdateResourceDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceDefinitionCommandOutput) => void
   ): Promise<UpdateResourceDefinitionCommandOutput> | void {
     const command = new UpdateResourceDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3687,17 +3277,14 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateSubscriptionDefinition(
     args: UpdateSubscriptionDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubscriptionDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriptionDefinitionCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubscriptionDefinitionCommandOutput) => void
   ): Promise<UpdateSubscriptionDefinitionCommandOutput> | void {
     const command = new UpdateSubscriptionDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

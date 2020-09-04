@@ -2,121 +2,98 @@ import { TransferClient } from "./TransferClient.ts";
 import {
   CreateServerCommand,
   CreateServerCommandInput,
-  CreateServerCommandOutput
+  CreateServerCommandOutput,
 } from "./commands/CreateServerCommand.ts";
-import {
-  CreateUserCommand,
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand.ts";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import {
   DeleteServerCommand,
   DeleteServerCommandInput,
-  DeleteServerCommandOutput
+  DeleteServerCommandOutput,
 } from "./commands/DeleteServerCommand.ts";
 import {
   DeleteSshPublicKeyCommand,
   DeleteSshPublicKeyCommandInput,
-  DeleteSshPublicKeyCommandOutput
+  DeleteSshPublicKeyCommandOutput,
 } from "./commands/DeleteSshPublicKeyCommand.ts";
-import {
-  DeleteUserCommand,
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand.ts";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DescribeServerCommand,
   DescribeServerCommandInput,
-  DescribeServerCommandOutput
+  DescribeServerCommandOutput,
 } from "./commands/DescribeServerCommand.ts";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
-  DescribeUserCommandOutput
+  DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand.ts";
 import {
   ImportSshPublicKeyCommand,
   ImportSshPublicKeyCommandInput,
-  ImportSshPublicKeyCommandOutput
+  ImportSshPublicKeyCommandOutput,
 } from "./commands/ImportSshPublicKeyCommand.ts";
 import {
   ListServersCommand,
   ListServersCommandInput,
-  ListServersCommandOutput
+  ListServersCommandOutput,
 } from "./commands/ListServersCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListUsersCommand,
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand.ts";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import {
   StartServerCommand,
   StartServerCommandInput,
-  StartServerCommandOutput
+  StartServerCommandOutput,
 } from "./commands/StartServerCommand.ts";
-import {
-  StopServerCommand,
-  StopServerCommandInput,
-  StopServerCommandOutput
-} from "./commands/StopServerCommand.ts";
+import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   TestIdentityProviderCommand,
   TestIdentityProviderCommandInput,
-  TestIdentityProviderCommandOutput
+  TestIdentityProviderCommandOutput,
 } from "./commands/TestIdentityProviderCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateServerCommand,
   UpdateServerCommandInput,
-  UpdateServerCommandOutput
+  UpdateServerCommandOutput,
 } from "./commands/UpdateServerCommand.ts";
-import {
-  UpdateUserCommand,
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand.ts";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <p>AWS Transfer for SFTP is a fully managed service that enables the transfer of files
- *       directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known
- *       as Secure Shell (SSH) File Transfer Protocol. AWS helps you seamlessly migrate your file
- *       transfer workflows to AWS Transfer for SFTP—by integrating with existing authentication
- *       systems, and providing DNS routing with Amazon Route 53—so nothing changes for your customers
- *       and partners, or their applications. With your data in S3, you can use it with AWS services
- *       for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer
- *       for SFTP (AWS SFTP) is easy; there is no infrastructure to buy and set
- *       up. </p>
+ * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
+ *       the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
+ *       (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
+ *       (Amazon S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
+ *       Family by integrating with existing authentication systems, and providing DNS routing with
+ *       Amazon Route 53 so nothing changes for your customers and partners, or their applications.
+ *       With your data in Amazon S3, you can use it with AWS services for processing, analytics,
+ *       machine learning, and archiving. Getting started with AWS Transfer Family is easy since there
+ *       is no infrastructure to buy and set up.</p>
  */
 export class Transfer extends TransferClient {
   /**
-   * <p>Instantiates an autoscaling virtual server based on Secure File Transfer Protocol (SFTP)
-   *       in AWS. When you make updates to your server or when you work with users, use the
-   *       service-generated <code>ServerId</code> property that is assigned to the newly created
-   *       server.</p>
+   * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in
+   *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
+   *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
+   *       created server.</p>
    */
   public createServer(
     args: CreateServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateServerCommandOutput>;
-  public createServer(
-    args: CreateServerCommandInput,
-    cb: (err: any, data?: CreateServerCommandOutput) => void
-  ): void;
+  public createServer(args: CreateServerCommandInput, cb: (err: any, data?: CreateServerCommandOutput) => void): void;
   public createServer(
     args: CreateServerCommandInput,
     options: __HttpHandlerOptions,
@@ -124,17 +101,14 @@ export class Transfer extends TransferClient {
   ): void;
   public createServer(
     args: CreateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServerCommandOutput) => void),
     cb?: (err: any, data?: CreateServerCommandOutput) => void
   ): Promise<CreateServerCommandOutput> | void {
     const command = new CreateServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -142,21 +116,16 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Creates a user and associates them with an existing Secure File Transfer Protocol (SFTP)
-   *       server. You can only create and associate users with SFTP servers that have the <code>IdentityProviderType</code>
-   *       set to <code>SERVICE_MANAGED</code>. Using parameters for <code>CreateUser</code>, you can specify the user name, set the
-   *       home directory, store the user's public key, and assign the user's AWS Identity and Access
-   *       Management (IAM) role. You can also optionally add a scope-down policy, and assign metadata
-   *       with tags that can be used to group and search for users.</p>
+   * <p>Creates a user and associates them with an existing file transfer protocol-enabled server.
+   *       You can only create and associate users with servers that have the
+   *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
+   *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
+   *       user's public key, and assign the user's AWS Identity and Access Management (IAM)
+   *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
+   *       be used to group and search for users.</p>
    */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
   public createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -164,17 +133,14 @@ export class Transfer extends TransferClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -182,8 +148,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Deletes the Secure File Transfer Protocol (SFTP) server that you specify.</p>
-   *
+   * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
    *
    *          <p>No response returns from this operation.</p>
    */
@@ -191,10 +156,7 @@ export class Transfer extends TransferClient {
     args: DeleteServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteServerCommandOutput>;
-  public deleteServer(
-    args: DeleteServerCommandInput,
-    cb: (err: any, data?: DeleteServerCommandOutput) => void
-  ): void;
+  public deleteServer(args: DeleteServerCommandInput, cb: (err: any, data?: DeleteServerCommandOutput) => void): void;
   public deleteServer(
     args: DeleteServerCommandInput,
     options: __HttpHandlerOptions,
@@ -202,17 +164,14 @@ export class Transfer extends TransferClient {
   ): void;
   public deleteServer(
     args: DeleteServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCommandOutput) => void
   ): Promise<DeleteServerCommandOutput> | void {
     const command = new DeleteServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -239,17 +198,14 @@ export class Transfer extends TransferClient {
   ): void;
   public deleteSshPublicKey(
     args: DeleteSshPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSshPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSshPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteSshPublicKeyCommandOutput) => void
   ): Promise<DeleteSshPublicKeyCommandOutput> | void {
     const command = new DeleteSshPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -257,7 +213,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Deletes the user belonging to the server you specify.</p>
+   * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
    *
    *          <p>No response returns from this operation.</p>
    *
@@ -265,14 +221,8 @@ export class Transfer extends TransferClient {
    *             <p>When you delete a user from a server, the user's information is lost.</p>
    *          </note>
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
   public deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -280,17 +230,14 @@ export class Transfer extends TransferClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -298,10 +245,10 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Describes the server that you specify by passing the <code>ServerId</code>
-   *       parameter.</p>
+   * <p>Describes a file transfer protocol-enabled server that you specify by passing the
+   *         <code>ServerId</code> parameter.</p>
    *
-   *          <p>The response contains a description of the server's properties. When you set
+   *          <p>The response contains a description of a server's properties. When you set
    *         <code>EndpointType</code> to VPC, the response will contain the
    *       <code>EndpointDetails</code>.</p>
    */
@@ -320,17 +267,14 @@ export class Transfer extends TransferClient {
   ): void;
   public describeServer(
     args: DescribeServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServerCommandOutput) => void),
     cb?: (err: any, data?: DescribeServerCommandOutput) => void
   ): Promise<DescribeServerCommandOutput> | void {
     const command = new DescribeServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -338,8 +282,8 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Describes the user assigned to a specific server, as identified by its
-   *         <code>ServerId</code> property.</p>
+   * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
+   *       identified by its <code>ServerId</code> property.</p>
    *
    *          <p>The response from this call returns the properties of the user associated with the
    *         <code>ServerId</code> value that was specified.</p>
@@ -348,10 +292,7 @@ export class Transfer extends TransferClient {
     args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
+  public describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
   public describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -359,17 +300,14 @@ export class Transfer extends TransferClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -378,8 +316,8 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
-   *         <code>UserName</code> value assigned to a specific server, identified by
-   *         <code>ServerId</code>.</p>
+   *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
+   *       identified by <code>ServerId</code>.</p>
    *
    *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
    *       the name of the <code>SshPublicKeyId</code>.</p>
@@ -399,17 +337,14 @@ export class Transfer extends TransferClient {
   ): void;
   public importSshPublicKey(
     args: ImportSshPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportSshPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportSshPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: ImportSshPublicKeyCommandOutput) => void
   ): Promise<ImportSshPublicKeyCommandOutput> | void {
     const command = new ImportSshPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -417,17 +352,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your AWS
+   * <p>Lists the file transfer protocol-enabled servers that are associated with your AWS
    *       account.</p>
    */
-  public listServers(
-    args: ListServersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListServersCommandOutput>;
-  public listServers(
-    args: ListServersCommandInput,
-    cb: (err: any, data?: ListServersCommandOutput) => void
-  ): void;
+  public listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
+  public listServers(args: ListServersCommandInput, cb: (err: any, data?: ListServersCommandOutput) => void): void;
   public listServers(
     args: ListServersCommandInput,
     options: __HttpHandlerOptions,
@@ -435,17 +364,14 @@ export class Transfer extends TransferClient {
   ): void;
   public listServers(
     args: ListServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServersCommandOutput) => void),
     cb?: (err: any, data?: ListServersCommandOutput) => void
   ): Promise<ListServersCommandOutput> | void {
     const command = new ListServersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -471,17 +397,14 @@ export class Transfer extends TransferClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -489,17 +412,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists the users for the server that you specify by passing the <code>ServerId</code>
-   *       parameter.</p>
+   * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
+   *       the <code>ServerId</code> parameter.</p>
    */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
+  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   public listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -507,17 +424,14 @@ export class Transfer extends TransferClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -525,25 +439,18 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Changes the state of a Secure File Transfer Protocol (SFTP) server from
-   *         <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on an SFTP server that is
-   *       already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file
-   *       transfer jobs.</p>
+   * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
+   *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
+   *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
    *
    *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
-   *       can indicate an error condition. </p>
+   *       can indicate an error condition.</p>
    *
    *          <p>No response is returned from this call.</p>
    */
-  public startServer(
-    args: StartServerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartServerCommandOutput>;
-  public startServer(
-    args: StartServerCommandInput,
-    cb: (err: any, data?: StartServerCommandOutput) => void
-  ): void;
+  public startServer(args: StartServerCommandInput, options?: __HttpHandlerOptions): Promise<StartServerCommandOutput>;
+  public startServer(args: StartServerCommandInput, cb: (err: any, data?: StartServerCommandOutput) => void): void;
   public startServer(
     args: StartServerCommandInput,
     options: __HttpHandlerOptions,
@@ -551,17 +458,14 @@ export class Transfer extends TransferClient {
   ): void;
   public startServer(
     args: StartServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartServerCommandOutput) => void),
     cb?: (err: any, data?: StartServerCommandOutput) => void
   ): Promise<StartServerCommandOutput> | void {
     const command = new StartServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -569,11 +473,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Changes the state of an SFTP server from <code>ONLINE</code> to <code>OFFLINE</code>. An
-   *         <code>OFFLINE</code> server cannot accept and process file transfer jobs. Information tied
-   *       to your server such as server and user properties are not affected by stopping your server.
-   *       Stopping a server will not reduce or impact your Secure File Transfer Protocol (SFTP) endpoint
-   *       billing.</p>
+   * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
+   *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
+   *       jobs. Information tied to your server, such as server and user properties, are not affected by
+   *       stopping your server. Stopping the server will not reduce or impact your file transfer
+   *       protocol endpoint billing.</p>
    *
    *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>
@@ -581,14 +485,8 @@ export class Transfer extends TransferClient {
    *
    *          <p>No response is returned from this call.</p>
    */
-  public stopServer(
-    args: StopServerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopServerCommandOutput>;
-  public stopServer(
-    args: StopServerCommandInput,
-    cb: (err: any, data?: StopServerCommandOutput) => void
-  ): void;
+  public stopServer(args: StopServerCommandInput, options?: __HttpHandlerOptions): Promise<StopServerCommandOutput>;
+  public stopServer(args: StopServerCommandInput, cb: (err: any, data?: StopServerCommandOutput) => void): void;
   public stopServer(
     args: StopServerCommandInput,
     options: __HttpHandlerOptions,
@@ -596,17 +494,14 @@ export class Transfer extends TransferClient {
   ): void;
   public stopServer(
     args: StopServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopServerCommandOutput) => void),
     cb?: (err: any, data?: StopServerCommandOutput) => void
   ): Promise<StopServerCommandOutput> | void {
     const command = new StopServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -619,14 +514,8 @@ export class Transfer extends TransferClient {
    *
    *          <p>There is no response returned from this call.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -634,17 +523,14 @@ export class Transfer extends TransferClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -652,11 +538,11 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>, tests
-   *       whether your API Gateway is set up successfully. We highly recommend that you call this
-   *       operation to test your authentication method as soon as you create your server. By doing so,
-   *       you can troubleshoot issues with the API Gateway integration to ensure that your users can
-   *       successfully use the service.</p>
+   * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
+   *         <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly
+   *       recommend that you call this operation to test your authentication method as soon as you
+   *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
+   *       to ensure that your users can successfully use the service.</p>
    */
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,
@@ -673,17 +559,14 @@ export class Transfer extends TransferClient {
   ): void;
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestIdentityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestIdentityProviderCommandOutput) => void),
     cb?: (err: any, data?: TestIdentityProviderCommandOutput) => void
   ): Promise<TestIdentityProviderCommandOutput> | void {
     const command = new TestIdentityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -693,6 +576,7 @@ export class Transfer extends TransferClient {
   /**
    * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
    *       (ARN). Resources are users, servers, roles, and other entities.</p>
+   *
    *          <p>No response is returned from this call.</p>
    */
   public untagResource(
@@ -710,17 +594,14 @@ export class Transfer extends TransferClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -728,19 +609,17 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Updates the server properties after that server has been created.</p>
+   * <p>Updates the file transfer protocol-enabled server's properties after that server has
+   *       been created.</p>
    *
-   *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the Secure File
-   *       Transfer Protocol (SFTP) server you updated.</p>
+   *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
+   *       updated.</p>
    */
   public updateServer(
     args: UpdateServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServerCommandOutput>;
-  public updateServer(
-    args: UpdateServerCommandInput,
-    cb: (err: any, data?: UpdateServerCommandOutput) => void
-  ): void;
+  public updateServer(args: UpdateServerCommandInput, cb: (err: any, data?: UpdateServerCommandOutput) => void): void;
   public updateServer(
     args: UpdateServerCommandInput,
     options: __HttpHandlerOptions,
@@ -748,17 +627,14 @@ export class Transfer extends TransferClient {
   ): void;
   public updateServer(
     args: UpdateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerCommandOutput) => void
   ): Promise<UpdateServerCommandOutput> | void {
     const command = new UpdateServerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -773,14 +649,8 @@ export class Transfer extends TransferClient {
    *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
    *       updated user.</p>
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
+  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
   public updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -788,17 +658,14 @@ export class Transfer extends TransferClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

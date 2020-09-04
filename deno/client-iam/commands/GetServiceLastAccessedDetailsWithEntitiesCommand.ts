@@ -1,21 +1,14 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient.ts";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
-  GetServiceLastAccessedDetailsWithEntitiesResponse
+  GetServiceLastAccessedDetailsWithEntitiesResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
-  serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand
+  serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetServiceLastAccessedDetailsWithEntitiesCommandInput = GetServiceLastAccessedDetailsWithEntitiesRequest;
@@ -39,9 +32,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput
-  ) {
+  constructor(readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     GetServiceLastAccessedDetailsWithEntitiesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

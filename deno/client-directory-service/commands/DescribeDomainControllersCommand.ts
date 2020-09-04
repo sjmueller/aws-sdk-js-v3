@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  DescribeDomainControllersRequest,
-  DescribeDomainControllersResult
-} from "../models/index.ts";
+import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeDomainControllersCommand,
-  serializeAws_json1_1DescribeDomainControllersCommand
+  serializeAws_json1_1DescribeDomainControllersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDomainControllersCommandInput = DescribeDomainControllersRequest;
-export type DescribeDomainControllersCommandOutput = DescribeDomainControllersResult &
-  __MetadataBearer;
+export type DescribeDomainControllersCommandOutput = DescribeDomainControllersResult & __MetadataBearer;
 
 export class DescribeDomainControllersCommand extends $Command<
   DescribeDomainControllersCommandInput,
@@ -49,18 +42,16 @@ export class DescribeDomainControllersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDomainControllersCommandInput,
-    DescribeDomainControllersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDomainControllersCommandInput, DescribeDomainControllersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDomainControllersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainControllersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +61,7 @@ export class DescribeDomainControllersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDomainControllersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDomainControllersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDomainControllersCommand(input, context);
   }
 
@@ -81,10 +69,7 @@ export class DescribeDomainControllersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainControllersCommandOutput> {
-    return deserializeAws_json1_1DescribeDomainControllersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

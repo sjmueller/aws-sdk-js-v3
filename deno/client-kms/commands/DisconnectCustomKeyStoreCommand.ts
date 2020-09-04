@@ -1,21 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient.ts";
-import {
-  DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreResponse
-} from "../models/index.ts";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
+import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
-  serializeAws_json1_1DisconnectCustomKeyStoreCommand
+  serializeAws_json1_1DisconnectCustomKeyStoreCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisconnectCustomKeyStoreCommandInput = DisconnectCustomKeyStoreRequest;
-export type DisconnectCustomKeyStoreCommandOutput = DisconnectCustomKeyStoreResponse &
-  __MetadataBearer;
+export type DisconnectCustomKeyStoreCommandOutput = DisconnectCustomKeyStoreResponse & __MetadataBearer;
 
 export class DisconnectCustomKeyStoreCommand extends $Command<
   DisconnectCustomKeyStoreCommandInput,
@@ -49,18 +38,16 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisconnectCustomKeyStoreCommandInput,
-    DisconnectCustomKeyStoreCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisconnectCustomKeyStoreCommandInput, DisconnectCustomKeyStoreCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisconnectCustomKeyStoreRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectCustomKeyStoreResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisconnectCustomKeyStoreCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisconnectCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisconnectCustomKeyStoreCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisconnectCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectCustomKeyStoreCommandOutput> {
+    return deserializeAws_json1_1DisconnectCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

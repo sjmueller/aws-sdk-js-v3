@@ -43,11 +43,8 @@ export class RecursiveXmlShapesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RecursiveXmlShapesOutput.filterSensitiveLog,
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -23,14 +19,13 @@ export interface AccessEndpoint {
 
 export namespace AccessEndpoint {
   export const filterSensitiveLog = (obj: AccessEndpoint): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessEndpoint =>
-    __isa(o, "AccessEndpoint");
+  export const isa = (o: any): o is AccessEndpoint => __isa(o, "AccessEndpoint");
 }
 
 export enum AccessEndpointType {
-  STREAMING = "STREAMING"
+  STREAMING = "STREAMING",
 }
 
 export enum Action {
@@ -38,7 +33,7 @@ export enum Action {
   CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
   FILE_DOWNLOAD = "FILE_DOWNLOAD",
   FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE"
+  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
 }
 
 /**
@@ -47,24 +42,19 @@ export enum Action {
 export interface Application {
   __type?: "Application";
   /**
+   * <p>The arguments that are passed to the application at launch.</p>
+   */
+  LaunchParameters?: string;
+
+  /**
    * <p>The application name to display.</p>
    */
   DisplayName?: string;
 
   /**
-   * <p>If there is a problem, the application can be disabled after image creation.</p>
+   * <p>The name of the application.</p>
    */
-  Enabled?: boolean;
-
-  /**
-   * <p>The URL for the application icon. This URL might be time-limited.</p>
-   */
-  IconURL?: string;
-
-  /**
-   * <p>The arguments that are passed to the application at launch.</p>
-   */
-  LaunchParameters?: string;
+  Name?: string;
 
   /**
    * <p>The path to the application executable in the instance.</p>
@@ -77,14 +67,19 @@ export interface Application {
   Metadata?: { [key: string]: string };
 
   /**
-   * <p>The name of the application.</p>
+   * <p>If there is a problem, the application can be disabled after image creation.</p>
    */
-  Name?: string;
+  Enabled?: boolean;
+
+  /**
+   * <p>The URL for the application icon. This URL might be time-limited.</p>
+   */
+  IconURL?: string;
 }
 
 export namespace Application {
   export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Application => __isa(o, "Application");
 }
@@ -107,10 +102,9 @@ export interface ApplicationSettings {
 
 export namespace ApplicationSettings {
   export const filterSensitiveLog = (obj: ApplicationSettings): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationSettings =>
-    __isa(o, "ApplicationSettings");
+  export const isa = (o: any): o is ApplicationSettings => __isa(o, "ApplicationSettings");
 }
 
 /**
@@ -119,9 +113,9 @@ export namespace ApplicationSettings {
 export interface ApplicationSettingsResponse {
   __type?: "ApplicationSettingsResponse";
   /**
-   * <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
+   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
    */
-  Enabled?: boolean;
+  SettingsGroup?: string;
 
   /**
    * <p>The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
@@ -130,40 +124,36 @@ export interface ApplicationSettingsResponse {
   S3BucketName?: string;
 
   /**
-   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
+   * <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
    */
-  SettingsGroup?: string;
+  Enabled?: boolean;
 }
 
 export namespace ApplicationSettingsResponse {
-  export const filterSensitiveLog = (
-    obj: ApplicationSettingsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ApplicationSettingsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ApplicationSettingsResponse =>
-    __isa(o, "ApplicationSettingsResponse");
+  export const isa = (o: any): o is ApplicationSettingsResponse => __isa(o, "ApplicationSettingsResponse");
 }
 
 export interface AssociateFleetRequest {
   __type?: "AssociateFleetRequest";
   /**
-   * <p>The name of the fleet. </p>
-   */
-  FleetName: string | undefined;
-
-  /**
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
+
+  /**
+   * <p>The name of the fleet. </p>
+   */
+  FleetName: string | undefined;
 }
 
 export namespace AssociateFleetRequest {
   export const filterSensitiveLog = (obj: AssociateFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateFleetRequest =>
-    __isa(o, "AssociateFleetRequest");
+  export const isa = (o: any): o is AssociateFleetRequest => __isa(o, "AssociateFleetRequest");
 }
 
 export interface AssociateFleetResult {
@@ -172,16 +162,15 @@ export interface AssociateFleetResult {
 
 export namespace AssociateFleetResult {
   export const filterSensitiveLog = (obj: AssociateFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssociateFleetResult =>
-    __isa(o, "AssociateFleetResult");
+  export const isa = (o: any): o is AssociateFleetResult => __isa(o, "AssociateFleetResult");
 }
 
 export enum AuthenticationType {
   API = "API",
   SAML = "SAML",
-  USERPOOL = "USERPOOL"
+  USERPOOL = "USERPOOL",
 }
 
 export interface BatchAssociateUserStackRequest {
@@ -193,18 +182,13 @@ export interface BatchAssociateUserStackRequest {
 }
 
 export namespace BatchAssociateUserStackRequest {
-  export const filterSensitiveLog = (
-    obj: BatchAssociateUserStackRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: BatchAssociateUserStackRequest): any => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        UserStackAssociation.filterSensitiveLog(item)
-      )
-    })
+      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
+    }),
   });
-  export const isa = (o: any): o is BatchAssociateUserStackRequest =>
-    __isa(o, "BatchAssociateUserStackRequest");
+  export const isa = (o: any): o is BatchAssociateUserStackRequest => __isa(o, "BatchAssociateUserStackRequest");
 }
 
 export interface BatchAssociateUserStackResult {
@@ -216,18 +200,11 @@ export interface BatchAssociateUserStackResult {
 }
 
 export namespace BatchAssociateUserStackResult {
-  export const filterSensitiveLog = (
-    obj: BatchAssociateUserStackResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
     ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        UserStackAssociationError.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BatchAssociateUserStackResult =>
-    __isa(o, "BatchAssociateUserStackResult");
+  export const isa = (o: any): o is BatchAssociateUserStackResult => __isa(o, "BatchAssociateUserStackResult");
 }
 
 export interface BatchDisassociateUserStackRequest {
@@ -239,18 +216,13 @@ export interface BatchDisassociateUserStackRequest {
 }
 
 export namespace BatchDisassociateUserStackRequest {
-  export const filterSensitiveLog = (
-    obj: BatchDisassociateUserStackRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: BatchDisassociateUserStackRequest): any => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        UserStackAssociation.filterSensitiveLog(item)
-      )
-    })
+      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
+    }),
   });
-  export const isa = (o: any): o is BatchDisassociateUserStackRequest =>
-    __isa(o, "BatchDisassociateUserStackRequest");
+  export const isa = (o: any): o is BatchDisassociateUserStackRequest => __isa(o, "BatchDisassociateUserStackRequest");
 }
 
 export interface BatchDisassociateUserStackResult {
@@ -262,18 +234,11 @@ export interface BatchDisassociateUserStackResult {
 }
 
 export namespace BatchDisassociateUserStackResult {
-  export const filterSensitiveLog = (
-    obj: BatchDisassociateUserStackResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: BatchDisassociateUserStackResult): any => ({
     ...obj,
-    ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        UserStackAssociationError.filterSensitiveLog(item)
-      )
-    })
+    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BatchDisassociateUserStackResult =>
-    __isa(o, "BatchDisassociateUserStackResult");
+  export const isa = (o: any): o is BatchDisassociateUserStackResult => __isa(o, "BatchDisassociateUserStackResult");
 }
 
 /**
@@ -289,10 +254,9 @@ export interface ComputeCapacity {
 
 export namespace ComputeCapacity {
   export const filterSensitiveLog = (obj: ComputeCapacity): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComputeCapacity =>
-    __isa(o, "ComputeCapacity");
+  export const isa = (o: any): o is ComputeCapacity => __isa(o, "ComputeCapacity");
 }
 
 /**
@@ -300,6 +264,11 @@ export namespace ComputeCapacity {
  */
 export interface ComputeCapacityStatus {
   __type?: "ComputeCapacityStatus";
+  /**
+   * <p>The number of instances in use for streaming.</p>
+   */
+  InUse?: number;
+
   /**
    * <p>The number of currently available instances that can be used to stream
    *             sessions.</p>
@@ -312,11 +281,6 @@ export interface ComputeCapacityStatus {
   Desired: number | undefined;
 
   /**
-   * <p>The number of instances in use for streaming.</p>
-   */
-  InUse?: number;
-
-  /**
    * <p>The total number of simultaneous streaming instances that are running.</p>
    */
   Running?: number;
@@ -324,18 +288,15 @@ export interface ComputeCapacityStatus {
 
 export namespace ComputeCapacityStatus {
   export const filterSensitiveLog = (obj: ComputeCapacityStatus): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ComputeCapacityStatus =>
-    __isa(o, "ComputeCapacityStatus");
+  export const isa = (o: any): o is ComputeCapacityStatus => __isa(o, "ComputeCapacityStatus");
 }
 
 /**
  * <p>An API error occurred. Wait a few minutes and try again.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -345,17 +306,19 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CopyImageRequest {
   __type?: "CopyImageRequest";
+  /**
+   * <p>The name of the image to copy.</p>
+   */
+  SourceImageName: string | undefined;
+
   /**
    * <p>The description that the image will have when it is copied to the destination.</p>
    */
@@ -370,19 +333,13 @@ export interface CopyImageRequest {
    * <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
    */
   DestinationRegion: string | undefined;
-
-  /**
-   * <p>The name of the image to copy.</p>
-   */
-  SourceImageName: string | undefined;
 }
 
 export namespace CopyImageRequest {
   export const filterSensitiveLog = (obj: CopyImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyImageRequest =>
-    __isa(o, "CopyImageRequest");
+  export const isa = (o: any): o is CopyImageRequest => __isa(o, "CopyImageRequest");
 }
 
 export interface CopyImageResponse {
@@ -395,10 +352,9 @@ export interface CopyImageResponse {
 
 export namespace CopyImageResponse {
   export const filterSensitiveLog = (obj: CopyImageResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CopyImageResponse =>
-    __isa(o, "CopyImageResponse");
+  export const isa = (o: any): o is CopyImageResponse => __isa(o, "CopyImageResponse");
 }
 
 export interface CreateDirectoryConfigRequest {
@@ -420,18 +376,13 @@ export interface CreateDirectoryConfigRequest {
 }
 
 export namespace CreateDirectoryConfigRequest {
-  export const filterSensitiveLog = (
-    obj: CreateDirectoryConfigRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: CreateDirectoryConfigRequest): any => ({
     ...obj,
     ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(
-        obj.ServiceAccountCredentials
-      )
-    })
+      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
+    }),
   });
-  export const isa = (o: any): o is CreateDirectoryConfigRequest =>
-    __isa(o, "CreateDirectoryConfigRequest");
+  export const isa = (o: any): o is CreateDirectoryConfigRequest => __isa(o, "CreateDirectoryConfigRequest");
 }
 
 export interface CreateDirectoryConfigResult {
@@ -443,24 +394,19 @@ export interface CreateDirectoryConfigResult {
 }
 
 export namespace CreateDirectoryConfigResult {
-  export const filterSensitiveLog = (
-    obj: CreateDirectoryConfigResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: CreateDirectoryConfigResult): any => ({
     ...obj,
-    ...(obj.DirectoryConfig && {
-      DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig)
-    })
+    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
-  export const isa = (o: any): o is CreateDirectoryConfigResult =>
-    __isa(o, "CreateDirectoryConfigResult");
+  export const isa = (o: any): o is CreateDirectoryConfigResult => __isa(o, "CreateDirectoryConfigResult");
 }
 
 export interface CreateFleetRequest {
   __type?: "CreateFleetRequest";
   /**
-   * <p>The desired capacity for the fleet.</p>
+   * <p>Enables or disables default internet access for the fleet.</p>
    */
-  ComputeCapacity: ComputeCapacity | undefined;
+  EnableDefaultInternetAccess?: boolean;
 
   /**
    * <p>The description to display.</p>
@@ -468,25 +414,14 @@ export interface CreateFleetRequest {
   Description?: string;
 
   /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *         <p>Specify a value between 60 and 360000.</p>
+   * <p>The desired capacity for the fleet.</p>
    */
-  DisconnectTimeoutInSeconds?: number;
+  ComputeCapacity: ComputeCapacity | undefined;
 
   /**
-   * <p>The fleet name to display.</p>
+   * <p>The VPC configuration for the fleet.</p>
    */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-   */
-  DomainJoinInfo?: DomainJoinInfo;
-
-  /**
-   * <p>Enables or disables default internet access for the fleet.</p>
-   */
-  EnableDefaultInternetAccess?: boolean;
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>The fleet type.</p>
@@ -507,11 +442,31 @@ export interface CreateFleetRequest {
   FleetType?: FleetType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
+   *         <p>Specify a value between 60 and 360000.</p>
    */
-  IamRoleArn?: string;
+  DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>A unique name for the fleet.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>The name of the image used to create the fleet.</p>
+   */
+  ImageName?: string;
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
@@ -532,14 +487,16 @@ export interface CreateFleetRequest {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
+   * <p>The fleet name to display.</p>
    */
-  ImageArn?: string;
+  DisplayName?: string;
 
   /**
-   * <p>The name of the image used to create the fleet.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  ImageName?: string;
+  IamRoleArn?: string;
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
@@ -609,15 +566,9 @@ export interface CreateFleetRequest {
   InstanceType: string | undefined;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   * <p>The ARN of the public, private, or shared image to use.</p>
    */
-  MaxUserDurationInSeconds?: number;
-
-  /**
-   * <p>A unique name for the fleet.</p>
-   */
-  Name: string | undefined;
+  ImageArn?: string;
 
   /**
    * <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
@@ -630,19 +581,13 @@ export interface CreateFleetRequest {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
 }
 
 export namespace CreateFleetRequest {
   export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetRequest =>
-    __isa(o, "CreateFleetRequest");
+  export const isa = (o: any): o is CreateFleetRequest => __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResult {
@@ -655,60 +600,17 @@ export interface CreateFleetResult {
 
 export namespace CreateFleetResult {
   export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateFleetResult =>
-    __isa(o, "CreateFleetResult");
+  export const isa = (o: any): o is CreateFleetResult => __isa(o, "CreateFleetResult");
 }
 
 export interface CreateImageBuilderRequest {
   __type?: "CreateImageBuilderRequest";
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-   */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
-   */
-  AppstreamAgentVersion?: string;
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The image builder name to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
-   */
-  DomainJoinInfo?: DomainJoinInfo;
-
-  /**
    * <p>Enables or disables default internet access for the image builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the image used to create the image builder.</p>
-   */
-  ImageName?: string;
 
   /**
    * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
@@ -778,9 +680,26 @@ export interface CreateImageBuilderRequest {
   InstanceType: string | undefined;
 
   /**
-   * <p>A unique name for the image builder.</p>
+   * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
    */
-  Name: string | undefined;
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The image builder name to display.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
@@ -795,17 +714,41 @@ export interface CreateImageBuilderRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
+   * <p>The name of the image used to create the image builder.</p>
    */
-  VpcConfig?: VpcConfig;
+  ImageName?: string;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The ARN of the public, private, or shared image to use.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
+   */
+  AppstreamAgentVersion?: string;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>A unique name for the image builder.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateImageBuilderRequest {
   export const filterSensitiveLog = (obj: CreateImageBuilderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderRequest =>
-    __isa(o, "CreateImageBuilderRequest");
+  export const isa = (o: any): o is CreateImageBuilderRequest => __isa(o, "CreateImageBuilderRequest");
 }
 
 export interface CreateImageBuilderResult {
@@ -818,10 +761,9 @@ export interface CreateImageBuilderResult {
 
 export namespace CreateImageBuilderResult {
   export const filterSensitiveLog = (obj: CreateImageBuilderResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderResult =>
-    __isa(o, "CreateImageBuilderResult");
+  export const isa = (o: any): o is CreateImageBuilderResult => __isa(o, "CreateImageBuilderResult");
 }
 
 export interface CreateImageBuilderStreamingURLRequest {
@@ -839,10 +781,8 @@ export interface CreateImageBuilderStreamingURLRequest {
 }
 
 export namespace CreateImageBuilderStreamingURLRequest {
-  export const filterSensitiveLog = (
-    obj: CreateImageBuilderStreamingURLRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateImageBuilderStreamingURLRequest =>
     __isa(o, "CreateImageBuilderStreamingURLRequest");
@@ -851,21 +791,19 @@ export namespace CreateImageBuilderStreamingURLRequest {
 export interface CreateImageBuilderStreamingURLResult {
   __type?: "CreateImageBuilderStreamingURLResult";
   /**
-   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
-   */
-  Expires?: Date;
-
-  /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
   StreamingURL?: string;
+
+  /**
+   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   */
+  Expires?: Date;
 }
 
 export namespace CreateImageBuilderStreamingURLResult {
-  export const filterSensitiveLog = (
-    obj: CreateImageBuilderStreamingURLResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateImageBuilderStreamingURLResult =>
     __isa(o, "CreateImageBuilderStreamingURLResult");
@@ -874,19 +812,14 @@ export namespace CreateImageBuilderStreamingURLResult {
 export interface CreateStackRequest {
   __type?: "CreateStackRequest";
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
-  AccessEndpoints?: AccessEndpoint[];
+  RedirectURL?: string;
 
   /**
-   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
+   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
    */
-  ApplicationSettings?: ApplicationSettings;
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
+  UserSettings?: UserSetting[];
 
   /**
    * <p>The stack name to display.</p>
@@ -894,14 +827,14 @@ export interface CreateStackRequest {
   DisplayName?: string;
 
   /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
   EmbedHostDomains?: string[];
-
-  /**
-   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
-   */
-  FeedbackURL?: string;
 
   /**
    * <p>The name of the stack.</p>
@@ -909,14 +842,19 @@ export interface CreateStackRequest {
   Name: string | undefined;
 
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
    */
-  RedirectURL?: string;
+  FeedbackURL?: string;
 
   /**
    * <p>The storage connectors to enable.</p>
    */
   StorageConnectors?: StorageConnector[];
+
+  /**
+   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
+   */
+  ApplicationSettings?: ApplicationSettings;
 
   /**
    * <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
@@ -931,17 +869,16 @@ export interface CreateStackRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
+   * <p>The description to display.</p>
    */
-  UserSettings?: UserSetting[];
+  Description?: string;
 }
 
 export namespace CreateStackRequest {
   export const filterSensitiveLog = (obj: CreateStackRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStackRequest =>
-    __isa(o, "CreateStackRequest");
+  export const isa = (o: any): o is CreateStackRequest => __isa(o, "CreateStackRequest");
 }
 
 export interface CreateStackResult {
@@ -954,24 +891,23 @@ export interface CreateStackResult {
 
 export namespace CreateStackResult {
   export const filterSensitiveLog = (obj: CreateStackResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStackResult =>
-    __isa(o, "CreateStackResult");
+  export const isa = (o: any): o is CreateStackResult => __isa(o, "CreateStackResult");
 }
 
 export interface CreateStreamingURLRequest {
   __type?: "CreateStreamingURLRequest";
   /**
-   * <p>The name of the application to launch after the session starts. This is the name that you specified
-   *             as <b>Name</b> in the Image Assistant.</p>
-   */
-  ApplicationId?: string;
-
-  /**
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
+
+  /**
+   * <p>The time that the streaming URL will be valid, in seconds.
+   *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
+   */
+  Validity?: number;
 
   /**
    * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
@@ -979,49 +915,47 @@ export interface CreateStreamingURLRequest {
   SessionContext?: string;
 
   /**
-   * <p>The name of the stack.</p>
-   */
-  StackName: string | undefined;
-
-  /**
    * <p>The identifier of the user.</p>
    */
   UserId: string | undefined;
 
   /**
-   * <p>The time that the streaming URL will be valid, in seconds.
-   *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
+   * <p>The name of the application to launch after the session starts. This is the name that you specified
+   *             as <b>Name</b> in the Image Assistant.</p>
    */
-  Validity?: number;
+  ApplicationId?: string;
+
+  /**
+   * <p>The name of the stack.</p>
+   */
+  StackName: string | undefined;
 }
 
 export namespace CreateStreamingURLRequest {
   export const filterSensitiveLog = (obj: CreateStreamingURLRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingURLRequest =>
-    __isa(o, "CreateStreamingURLRequest");
+  export const isa = (o: any): o is CreateStreamingURLRequest => __isa(o, "CreateStreamingURLRequest");
 }
 
 export interface CreateStreamingURLResult {
   __type?: "CreateStreamingURLResult";
   /**
-   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
-   */
-  Expires?: Date;
-
-  /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
   StreamingURL?: string;
+
+  /**
+   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   */
+  Expires?: Date;
 }
 
 export namespace CreateStreamingURLResult {
   export const filterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingURLResult =>
-    __isa(o, "CreateStreamingURLResult");
+  export const isa = (o: any): o is CreateStreamingURLResult => __isa(o, "CreateStreamingURLResult");
 }
 
 export interface CreateUsageReportSubscriptionRequest {
@@ -1029,10 +963,8 @@ export interface CreateUsageReportSubscriptionRequest {
 }
 
 export namespace CreateUsageReportSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: CreateUsageReportSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateUsageReportSubscriptionRequest =>
     __isa(o, "CreateUsageReportSubscriptionRequest");
@@ -1040,6 +972,11 @@ export namespace CreateUsageReportSubscriptionRequest {
 
 export interface CreateUsageReportSubscriptionResult {
   __type?: "CreateUsageReportSubscriptionResult";
+  /**
+   * <p>The schedule for generating usage reports.</p>
+   */
+  Schedule?: UsageReportSchedule | string;
+
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *
@@ -1050,18 +987,11 @@ export interface CreateUsageReportSubscriptionResult {
    *             when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
    */
   S3BucketName?: string;
-
-  /**
-   * <p>The schedule for generating usage reports.</p>
-   */
-  Schedule?: UsageReportSchedule | string;
 }
 
 export namespace CreateUsageReportSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: CreateUsageReportSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is CreateUsageReportSubscriptionResult =>
     __isa(o, "CreateUsageReportSubscriptionResult");
@@ -1070,14 +1000,23 @@ export namespace CreateUsageReportSubscriptionResult {
 export interface CreateUserRequest {
   __type?: "CreateUserRequest";
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL. </p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
    * <p>The first name, or given name, of the user.</p>
    */
   FirstName?: string;
+
+  /**
+   * <p>The email address of the user.</p>
+   *
+   *         <note>
+   *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.</p>
+   *          </note>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The authentication type for the user. You must specify USERPOOL. </p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
 
   /**
    * <p>The last name, or surname, of the user.</p>
@@ -1092,26 +1031,16 @@ export interface CreateUserRequest {
    *          </note>
    */
   MessageAction?: MessageAction | string;
-
-  /**
-   * <p>The email address of the user.</p>
-   *
-   *         <note>
-   *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.</p>
-   *          </note>
-   */
-  UserName: string | undefined;
 }
 
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
     ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is CreateUserRequest =>
-    __isa(o, "CreateUserRequest");
+  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResult {
@@ -1120,10 +1049,9 @@ export interface CreateUserResult {
 
 export namespace CreateUserResult {
   export const filterSensitiveLog = (obj: CreateUserResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateUserResult =>
-    __isa(o, "CreateUserResult");
+  export const isa = (o: any): o is CreateUserResult => __isa(o, "CreateUserResult");
 }
 
 export interface DeleteDirectoryConfigRequest {
@@ -1135,13 +1063,10 @@ export interface DeleteDirectoryConfigRequest {
 }
 
 export namespace DeleteDirectoryConfigRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectoryConfigRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectoryConfigRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectoryConfigRequest =>
-    __isa(o, "DeleteDirectoryConfigRequest");
+  export const isa = (o: any): o is DeleteDirectoryConfigRequest => __isa(o, "DeleteDirectoryConfigRequest");
 }
 
 export interface DeleteDirectoryConfigResult {
@@ -1149,13 +1074,10 @@ export interface DeleteDirectoryConfigResult {
 }
 
 export namespace DeleteDirectoryConfigResult {
-  export const filterSensitiveLog = (
-    obj: DeleteDirectoryConfigResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectoryConfigResult =>
-    __isa(o, "DeleteDirectoryConfigResult");
+  export const isa = (o: any): o is DeleteDirectoryConfigResult => __isa(o, "DeleteDirectoryConfigResult");
 }
 
 export interface DeleteFleetRequest {
@@ -1168,10 +1090,9 @@ export interface DeleteFleetRequest {
 
 export namespace DeleteFleetRequest {
   export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetRequest =>
-    __isa(o, "DeleteFleetRequest");
+  export const isa = (o: any): o is DeleteFleetRequest => __isa(o, "DeleteFleetRequest");
 }
 
 export interface DeleteFleetResult {
@@ -1180,10 +1101,9 @@ export interface DeleteFleetResult {
 
 export namespace DeleteFleetResult {
   export const filterSensitiveLog = (obj: DeleteFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetResult =>
-    __isa(o, "DeleteFleetResult");
+  export const isa = (o: any): o is DeleteFleetResult => __isa(o, "DeleteFleetResult");
 }
 
 export interface DeleteImageBuilderRequest {
@@ -1196,10 +1116,9 @@ export interface DeleteImageBuilderRequest {
 
 export namespace DeleteImageBuilderRequest {
   export const filterSensitiveLog = (obj: DeleteImageBuilderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImageBuilderRequest =>
-    __isa(o, "DeleteImageBuilderRequest");
+  export const isa = (o: any): o is DeleteImageBuilderRequest => __isa(o, "DeleteImageBuilderRequest");
 }
 
 export interface DeleteImageBuilderResult {
@@ -1212,33 +1131,29 @@ export interface DeleteImageBuilderResult {
 
 export namespace DeleteImageBuilderResult {
   export const filterSensitiveLog = (obj: DeleteImageBuilderResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImageBuilderResult =>
-    __isa(o, "DeleteImageBuilderResult");
+  export const isa = (o: any): o is DeleteImageBuilderResult => __isa(o, "DeleteImageBuilderResult");
 }
 
 export interface DeleteImagePermissionsRequest {
   __type?: "DeleteImagePermissionsRequest";
   /**
-   * <p>The name of the private image.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
    */
   SharedAccountId: string | undefined;
+
+  /**
+   * <p>The name of the private image.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DeleteImagePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteImagePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteImagePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePermissionsRequest =>
-    __isa(o, "DeleteImagePermissionsRequest");
+  export const isa = (o: any): o is DeleteImagePermissionsRequest => __isa(o, "DeleteImagePermissionsRequest");
 }
 
 export interface DeleteImagePermissionsResult {
@@ -1246,13 +1161,10 @@ export interface DeleteImagePermissionsResult {
 }
 
 export namespace DeleteImagePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: DeleteImagePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteImagePermissionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePermissionsResult =>
-    __isa(o, "DeleteImagePermissionsResult");
+  export const isa = (o: any): o is DeleteImagePermissionsResult => __isa(o, "DeleteImagePermissionsResult");
 }
 
 export interface DeleteImageRequest {
@@ -1265,10 +1177,9 @@ export interface DeleteImageRequest {
 
 export namespace DeleteImageRequest {
   export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImageRequest =>
-    __isa(o, "DeleteImageRequest");
+  export const isa = (o: any): o is DeleteImageRequest => __isa(o, "DeleteImageRequest");
 }
 
 export interface DeleteImageResult {
@@ -1281,10 +1192,9 @@ export interface DeleteImageResult {
 
 export namespace DeleteImageResult {
   export const filterSensitiveLog = (obj: DeleteImageResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteImageResult =>
-    __isa(o, "DeleteImageResult");
+  export const isa = (o: any): o is DeleteImageResult => __isa(o, "DeleteImageResult");
 }
 
 export interface DeleteStackRequest {
@@ -1297,10 +1207,9 @@ export interface DeleteStackRequest {
 
 export namespace DeleteStackRequest {
   export const filterSensitiveLog = (obj: DeleteStackRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStackRequest =>
-    __isa(o, "DeleteStackRequest");
+  export const isa = (o: any): o is DeleteStackRequest => __isa(o, "DeleteStackRequest");
 }
 
 export interface DeleteStackResult {
@@ -1309,10 +1218,9 @@ export interface DeleteStackResult {
 
 export namespace DeleteStackResult {
   export const filterSensitiveLog = (obj: DeleteStackResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStackResult =>
-    __isa(o, "DeleteStackResult");
+  export const isa = (o: any): o is DeleteStackResult => __isa(o, "DeleteStackResult");
 }
 
 export interface DeleteUsageReportSubscriptionRequest {
@@ -1320,10 +1228,8 @@ export interface DeleteUsageReportSubscriptionRequest {
 }
 
 export namespace DeleteUsageReportSubscriptionRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteUsageReportSubscriptionRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteUsageReportSubscriptionRequest =>
     __isa(o, "DeleteUsageReportSubscriptionRequest");
@@ -1334,10 +1240,8 @@ export interface DeleteUsageReportSubscriptionResult {
 }
 
 export namespace DeleteUsageReportSubscriptionResult {
-  export const filterSensitiveLog = (
-    obj: DeleteUsageReportSubscriptionResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DeleteUsageReportSubscriptionResult =>
     __isa(o, "DeleteUsageReportSubscriptionResult");
@@ -1346,11 +1250,6 @@ export namespace DeleteUsageReportSubscriptionResult {
 export interface DeleteUserRequest {
   __type?: "DeleteUserRequest";
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
    * <p>The email address of the user.</p>
    *
    *         <note>
@@ -1358,15 +1257,19 @@ export interface DeleteUserRequest {
    *          </note>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The authentication type for the user. You must specify USERPOOL.</p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
 }
 
 export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteUserRequest =>
-    __isa(o, "DeleteUserRequest");
+  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DeleteUserResult {
@@ -1375,10 +1278,9 @@ export interface DeleteUserResult {
 
 export namespace DeleteUserResult {
   export const filterSensitiveLog = (obj: DeleteUserResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResult =>
-    __isa(o, "DeleteUserResult");
+  export const isa = (o: any): o is DeleteUserResult => __isa(o, "DeleteUserResult");
 }
 
 export interface DescribeDirectoryConfigsRequest {
@@ -1389,24 +1291,21 @@ export interface DescribeDirectoryConfigsRequest {
   DirectoryNames?: string[];
 
   /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeDirectoryConfigsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectoryConfigsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeDirectoryConfigsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeDirectoryConfigsRequest =>
-    __isa(o, "DescribeDirectoryConfigsRequest");
+  export const isa = (o: any): o is DescribeDirectoryConfigsRequest => __isa(o, "DescribeDirectoryConfigsRequest");
 }
 
 export interface DescribeDirectoryConfigsResult {
@@ -1423,39 +1322,33 @@ export interface DescribeDirectoryConfigsResult {
 }
 
 export namespace DescribeDirectoryConfigsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeDirectoryConfigsResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeDirectoryConfigsResult): any => ({
     ...obj,
     ...(obj.DirectoryConfigs && {
-      DirectoryConfigs: obj.DirectoryConfigs.map(item =>
-        DirectoryConfig.filterSensitiveLog(item)
-      )
-    })
+      DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfig.filterSensitiveLog(item)),
+    }),
   });
-  export const isa = (o: any): o is DescribeDirectoryConfigsResult =>
-    __isa(o, "DescribeDirectoryConfigsResult");
+  export const isa = (o: any): o is DescribeDirectoryConfigsResult => __isa(o, "DescribeDirectoryConfigsResult");
 }
 
 export interface DescribeFleetsRequest {
   __type?: "DescribeFleetsRequest";
   /**
-   * <p>The names of the fleets to describe.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the fleets to describe.</p>
+   */
+  Names?: string[];
 }
 
 export namespace DescribeFleetsRequest {
   export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsRequest =>
-    __isa(o, "DescribeFleetsRequest");
+  export const isa = (o: any): o is DescribeFleetsRequest => __isa(o, "DescribeFleetsRequest");
 }
 
 export interface DescribeFleetsResult {
@@ -1473,10 +1366,9 @@ export interface DescribeFleetsResult {
 
 export namespace DescribeFleetsResult {
   export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsResult =>
-    __isa(o, "DescribeFleetsResult");
+  export const isa = (o: any): o is DescribeFleetsResult => __isa(o, "DescribeFleetsResult");
 }
 
 export interface DescribeImageBuildersRequest {
@@ -1487,56 +1379,45 @@ export interface DescribeImageBuildersRequest {
   MaxResults?: number;
 
   /**
-   * <p>The names of the image builders to describe.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the image builders to describe.</p>
+   */
+  Names?: string[];
 }
 
 export namespace DescribeImageBuildersRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImageBuildersRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImageBuildersRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImageBuildersRequest =>
-    __isa(o, "DescribeImageBuildersRequest");
+  export const isa = (o: any): o is DescribeImageBuildersRequest => __isa(o, "DescribeImageBuildersRequest");
 }
 
 export interface DescribeImageBuildersResult {
   __type?: "DescribeImageBuildersResult";
   /**
-   * <p>Information about the image builders.</p>
-   */
-  ImageBuilders?: ImageBuilder[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the image builders.</p>
+   */
+  ImageBuilders?: ImageBuilder[];
 }
 
 export namespace DescribeImageBuildersResult {
-  export const filterSensitiveLog = (
-    obj: DescribeImageBuildersResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImageBuildersResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImageBuildersResult =>
-    __isa(o, "DescribeImageBuildersResult");
+  export const isa = (o: any): o is DescribeImageBuildersResult => __isa(o, "DescribeImageBuildersResult");
 }
 
 export interface DescribeImagePermissionsRequest {
   __type?: "DescribeImagePermissionsRequest";
-  /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
    */
@@ -1548,23 +1429,30 @@ export interface DescribeImagePermissionsRequest {
   NextToken?: string;
 
   /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
    */
   SharedAwsAccountIds?: string[];
 }
 
 export namespace DescribeImagePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeImagePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImagePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagePermissionsRequest =>
-    __isa(o, "DescribeImagePermissionsRequest");
+  export const isa = (o: any): o is DescribeImagePermissionsRequest => __isa(o, "DescribeImagePermissionsRequest");
 }
 
 export interface DescribeImagePermissionsResult {
   __type?: "DescribeImagePermissionsResult";
+  /**
+   * <p>The permissions for a private image that you own. </p>
+   */
+  SharedImagePermissionsList?: SharedImagePermissions[];
+
   /**
    * <p>The name of the private image.</p>
    */
@@ -1574,21 +1462,13 @@ export interface DescribeImagePermissionsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The permissions for a private image that you own. </p>
-   */
-  SharedImagePermissionsList?: SharedImagePermissions[];
 }
 
 export namespace DescribeImagePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeImagePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeImagePermissionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagePermissionsResult =>
-    __isa(o, "DescribeImagePermissionsResult");
+  export const isa = (o: any): o is DescribeImagePermissionsResult => __isa(o, "DescribeImagePermissionsResult");
 }
 
 export interface DescribeImagesRequest {
@@ -1599,9 +1479,9 @@ export interface DescribeImagesRequest {
   Arns?: string[];
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * <p>The type of image (public, private, or shared) to describe. </p>
    */
-  MaxResults?: number;
+  Type?: VisibilityType | string;
 
   /**
    * <p>The names of the public or private images to describe.</p>
@@ -1609,22 +1489,21 @@ export interface DescribeImagesRequest {
   Names?: string[];
 
   /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The type of image (public, private, or shared) to describe. </p>
-   */
-  Type?: VisibilityType | string;
 }
 
 export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest =>
-    __isa(o, "DescribeImagesRequest");
+  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResult {
@@ -1642,10 +1521,9 @@ export interface DescribeImagesResult {
 
 export namespace DescribeImagesResult {
   export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResult =>
-    __isa(o, "DescribeImagesResult");
+  export const isa = (o: any): o is DescribeImagesResult => __isa(o, "DescribeImagesResult");
 }
 
 export interface DescribeSessionsRequest {
@@ -1663,16 +1541,6 @@ export interface DescribeSessionsRequest {
   FleetName: string | undefined;
 
   /**
-   * <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
-   */
-  Limit?: number;
-
-  /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The name of the stack. This value is case-sensitive.</p>
    */
   StackName: string | undefined;
@@ -1681,14 +1549,23 @@ export interface DescribeSessionsRequest {
    * <p>The user identifier.</p>
    */
   UserId?: string;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
+   */
+  Limit?: number;
 }
 
 export namespace DescribeSessionsRequest {
   export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSessionsRequest =>
-    __isa(o, "DescribeSessionsRequest");
+  export const isa = (o: any): o is DescribeSessionsRequest => __isa(o, "DescribeSessionsRequest");
 }
 
 export interface DescribeSessionsResult {
@@ -1706,10 +1583,9 @@ export interface DescribeSessionsResult {
 
 export namespace DescribeSessionsResult {
   export const filterSensitiveLog = (obj: DescribeSessionsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeSessionsResult =>
-    __isa(o, "DescribeSessionsResult");
+  export const isa = (o: any): o is DescribeSessionsResult => __isa(o, "DescribeSessionsResult");
 }
 
 export interface DescribeStacksRequest {
@@ -1727,51 +1603,47 @@ export interface DescribeStacksRequest {
 
 export namespace DescribeStacksRequest {
   export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksRequest =>
-    __isa(o, "DescribeStacksRequest");
+  export const isa = (o: any): o is DescribeStacksRequest => __isa(o, "DescribeStacksRequest");
 }
 
 export interface DescribeStacksResult {
   __type?: "DescribeStacksResult";
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the stacks.</p>
    */
   Stacks?: Stack[];
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksResult =>
-    __isa(o, "DescribeStacksResult");
+  export const isa = (o: any): o is DescribeStacksResult => __isa(o, "DescribeStacksResult");
 }
 
 export interface DescribeUsageReportSubscriptionsRequest {
   __type?: "DescribeUsageReportSubscriptionsRequest";
   /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeUsageReportSubscriptionsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeUsageReportSubscriptionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsRequest): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeUsageReportSubscriptionsRequest =>
     __isa(o, "DescribeUsageReportSubscriptionsRequest");
@@ -1780,21 +1652,19 @@ export namespace DescribeUsageReportSubscriptionsRequest {
 export interface DescribeUsageReportSubscriptionsResult {
   __type?: "DescribeUsageReportSubscriptionsResult";
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the usage report subscription.</p>
    */
   UsageReportSubscriptions?: UsageReportSubscription[];
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeUsageReportSubscriptionsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeUsageReportSubscriptionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsResult): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DescribeUsageReportSubscriptionsResult =>
     __isa(o, "DescribeUsageReportSubscriptionsResult");
@@ -1803,11 +1673,6 @@ export namespace DescribeUsageReportSubscriptionsResult {
 export interface DescribeUsersRequest {
   __type?: "DescribeUsersRequest";
   /**
-   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -1816,61 +1681,47 @@ export interface DescribeUsersRequest {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
 }
 
 export namespace DescribeUsersRequest {
   export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeUsersRequest =>
-    __isa(o, "DescribeUsersRequest");
+  export const isa = (o: any): o is DescribeUsersRequest => __isa(o, "DescribeUsersRequest");
 }
 
 export interface DescribeUsersResult {
   __type?: "DescribeUsersResult";
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about users in the user pool.</p>
    */
   Users?: User[];
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeUsersResult {
   export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => User.filterSensitiveLog(item))
-    })
+    ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeUsersResult =>
-    __isa(o, "DescribeUsersResult");
+  export const isa = (o: any): o is DescribeUsersResult => __isa(o, "DescribeUsersResult");
 }
 
 export interface DescribeUserStackAssociationsRequest {
   __type?: "DescribeUserStackAssociationsRequest";
   /**
-   * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
-   */
-  AuthenticationType?: AuthenticationType | string;
-
-  /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of the stack that is associated with the user.</p>
-   */
-  StackName?: string;
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
@@ -1880,14 +1731,27 @@ export interface DescribeUserStackAssociationsRequest {
    *          </note>
    */
   UserName?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name of the stack that is associated with the user.</p>
+   */
+  StackName?: string;
+
+  /**
+   * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
+   */
+  AuthenticationType?: AuthenticationType | string;
 }
 
 export namespace DescribeUserStackAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeUserStackAssociationsRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeUserStackAssociationsRequest): any => ({
     ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is DescribeUserStackAssociationsRequest =>
     __isa(o, "DescribeUserStackAssociationsRequest");
@@ -1907,15 +1771,11 @@ export interface DescribeUserStackAssociationsResult {
 }
 
 export namespace DescribeUserStackAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeUserStackAssociationsResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeUserStackAssociationsResult): any => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        UserStackAssociation.filterSensitiveLog(item)
-      )
-    })
+      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
+    }),
   });
   export const isa = (o: any): o is DescribeUserStackAssociationsResult =>
     __isa(o, "DescribeUserStackAssociationsResult");
@@ -1927,9 +1787,9 @@ export namespace DescribeUserStackAssociationsResult {
 export interface DirectoryConfig {
   __type?: "DirectoryConfig";
   /**
-   * <p>The time the directory configuration was created.</p>
+   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
-  CreatedTime?: Date;
+  ServiceAccountCredentials?: ServiceAccountCredentials;
 
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
@@ -1937,27 +1797,24 @@ export interface DirectoryConfig {
   DirectoryName: string | undefined;
 
   /**
+   * <p>The time the directory configuration was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedNames?: string[];
-
-  /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-   */
-  ServiceAccountCredentials?: ServiceAccountCredentials;
 }
 
 export namespace DirectoryConfig {
   export const filterSensitiveLog = (obj: DirectoryConfig): any => ({
     ...obj,
     ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(
-        obj.ServiceAccountCredentials
-      )
-    })
+      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
+    }),
   });
-  export const isa = (o: any): o is DirectoryConfig =>
-    __isa(o, "DirectoryConfig");
+  export const isa = (o: any): o is DirectoryConfig => __isa(o, "DirectoryConfig");
 }
 
 export interface DisableUserRequest {
@@ -1980,10 +1837,9 @@ export interface DisableUserRequest {
 export namespace DisableUserRequest {
   export const filterSensitiveLog = (obj: DisableUserRequest): any => ({
     ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DisableUserRequest =>
-    __isa(o, "DisableUserRequest");
+  export const isa = (o: any): o is DisableUserRequest => __isa(o, "DisableUserRequest");
 }
 
 export interface DisableUserResult {
@@ -1992,10 +1848,9 @@ export interface DisableUserResult {
 
 export namespace DisableUserResult {
   export const filterSensitiveLog = (obj: DisableUserResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisableUserResult =>
-    __isa(o, "DisableUserResult");
+  export const isa = (o: any): o is DisableUserResult => __isa(o, "DisableUserResult");
 }
 
 export interface DisassociateFleetRequest {
@@ -2013,10 +1868,9 @@ export interface DisassociateFleetRequest {
 
 export namespace DisassociateFleetRequest {
   export const filterSensitiveLog = (obj: DisassociateFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateFleetRequest =>
-    __isa(o, "DisassociateFleetRequest");
+  export const isa = (o: any): o is DisassociateFleetRequest => __isa(o, "DisassociateFleetRequest");
 }
 
 export interface DisassociateFleetResult {
@@ -2025,10 +1879,9 @@ export interface DisassociateFleetResult {
 
 export namespace DisassociateFleetResult {
   export const filterSensitiveLog = (obj: DisassociateFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DisassociateFleetResult =>
-    __isa(o, "DisassociateFleetResult");
+  export const isa = (o: any): o is DisassociateFleetResult => __isa(o, "DisassociateFleetResult");
 }
 
 /**
@@ -2049,10 +1902,9 @@ export interface DomainJoinInfo {
 
 export namespace DomainJoinInfo {
   export const filterSensitiveLog = (obj: DomainJoinInfo): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DomainJoinInfo =>
-    __isa(o, "DomainJoinInfo");
+  export const isa = (o: any): o is DomainJoinInfo => __isa(o, "DomainJoinInfo");
 }
 
 export interface EnableUserRequest {
@@ -2075,10 +1927,9 @@ export interface EnableUserRequest {
 export namespace EnableUserRequest {
   export const filterSensitiveLog = (obj: EnableUserRequest): any => ({
     ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EnableUserRequest =>
-    __isa(o, "EnableUserRequest");
+  export const isa = (o: any): o is EnableUserRequest => __isa(o, "EnableUserRequest");
 }
 
 export interface EnableUserResult {
@@ -2087,10 +1938,9 @@ export interface EnableUserResult {
 
 export namespace EnableUserResult {
   export const filterSensitiveLog = (obj: EnableUserResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnableUserResult =>
-    __isa(o, "EnableUserResult");
+  export const isa = (o: any): o is EnableUserResult => __isa(o, "EnableUserResult");
 }
 
 export interface ExpireSessionRequest {
@@ -2103,10 +1953,9 @@ export interface ExpireSessionRequest {
 
 export namespace ExpireSessionRequest {
   export const filterSensitiveLog = (obj: ExpireSessionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpireSessionRequest =>
-    __isa(o, "ExpireSessionRequest");
+  export const isa = (o: any): o is ExpireSessionRequest => __isa(o, "ExpireSessionRequest");
 }
 
 export interface ExpireSessionResult {
@@ -2115,10 +1964,9 @@ export interface ExpireSessionResult {
 
 export namespace ExpireSessionResult {
   export const filterSensitiveLog = (obj: ExpireSessionResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpireSessionResult =>
-    __isa(o, "ExpireSessionResult");
+  export const isa = (o: any): o is ExpireSessionResult => __isa(o, "ExpireSessionResult");
 }
 
 /**
@@ -2127,30 +1975,21 @@ export namespace ExpireSessionResult {
 export interface Fleet {
   __type?: "Fleet";
   /**
-   * <p>The Amazon Resource Name (ARN) for the fleet.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The capacity status for the fleet.</p>
-   */
-  ComputeCapacityStatus: ComputeCapacityStatus | undefined;
-
-  /**
-   * <p>The time the fleet was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
    *         <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
+
+  /**
+   * <p>The fleet errors.</p>
+   */
+  FleetErrors?: FleetError[];
 
   /**
    * <p>The fleet name to display.</p>
@@ -2158,19 +1997,24 @@ export interface Fleet {
   DisplayName?: string;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * <p>The VPC configuration for the fleet.</p>
    */
-  DomainJoinInfo?: DomainJoinInfo;
+  VpcConfig?: VpcConfig;
 
   /**
-   * <p>Indicates whether default internet access is enabled for the fleet.</p>
+   * <p>The description to display.</p>
    */
-  EnableDefaultInternetAccess?: boolean;
+  Description?: string;
 
   /**
-   * <p>The fleet errors.</p>
+   * <p>The Amazon Resource Name (ARN) for the fleet.</p>
    */
-  FleetErrors?: FleetError[];
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the image used to create the fleet.</p>
+   */
+  ImageName?: string;
 
   /**
    * <p>The fleet type.</p>
@@ -2191,11 +2035,36 @@ export interface Fleet {
   FleetType?: FleetType | string;
 
   /**
+   * <p>The current state for the fleet.</p>
+   */
+  State: FleetState | string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
    *
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
+
+  /**
+   * <p>The capacity status for the fleet.</p>
+   */
+  ComputeCapacityStatus: ComputeCapacityStatus | undefined;
+
+  /**
+   * <p>The ARN for the public, private, or shared image.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
@@ -2217,14 +2086,9 @@ export interface Fleet {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
-   * <p>The ARN for the public, private, or shared image.</p>
+   * <p>The time the fleet was created.</p>
    */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the image used to create the fleet.</p>
-   */
-  ImageName?: string;
+  CreatedTime?: Date;
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
@@ -2294,30 +2158,14 @@ export interface Fleet {
   InstanceType: string | undefined;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   * <p>Indicates whether default internet access is enabled for the fleet.</p>
    */
-  MaxUserDurationInSeconds?: number;
-
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current state for the fleet.</p>
-   */
-  State: FleetState | string | undefined;
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
+  EnableDefaultInternetAccess?: boolean;
 }
 
 export namespace Fleet {
   export const filterSensitiveLog = (obj: Fleet): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Fleet => __isa(o, "Fleet");
 }
@@ -2326,7 +2174,7 @@ export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN = "IAM_ROLE_ARN",
   VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
 }
 
 /**
@@ -2335,19 +2183,19 @@ export enum FleetAttribute {
 export interface FleetError {
   __type?: "FleetError";
   /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: FleetErrorCode | string;
-
-  /**
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: FleetErrorCode | string;
 }
 
 export namespace FleetError {
   export const filterSensitiveLog = (obj: FleetError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is FleetError => __isa(o, "FleetError");
 }
@@ -2380,19 +2228,19 @@ export enum FleetErrorCode {
   SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
   STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
   SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
+  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
 }
 
 export enum FleetState {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPED = "STOPPED",
-  STOPPING = "STOPPING"
+  STOPPING = "STOPPING",
 }
 
 export enum FleetType {
   ALWAYS_ON = "ALWAYS_ON",
-  ON_DEMAND = "ON_DEMAND"
+  ON_DEMAND = "ON_DEMAND",
 }
 
 /**
@@ -2401,19 +2249,24 @@ export enum FleetType {
 export interface Image {
   __type?: "Image";
   /**
-   * <p>The applications associated with the image.</p>
+   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
    */
-  Applications?: Application[];
+  ImagePermissions?: ImagePermissions;
 
   /**
-   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
+   * <p>Indicates whether the image is public or private.</p>
    */
-  AppstreamAgentVersion?: string;
+  Visibility?: VisibilityType | string;
 
   /**
-   * <p>The ARN of the image.</p>
+   * <p>The reason why the last state change occurred.</p>
    */
-  Arn?: string;
+  StateChangeReason?: ImageStateChangeReason;
+
+  /**
+   * <p>The image name to display.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The ARN of the image from which this image was created.</p>
@@ -2431,24 +2284,24 @@ export interface Image {
   Description?: string;
 
   /**
-   * <p>The image name to display.</p>
+   * <p>The operating system platform of the image.</p>
    */
-  DisplayName?: string;
+  Platform?: PlatformType | string;
 
   /**
-   * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
+   * <p>The applications associated with the image.</p>
    */
-  ImageBuilderName?: string;
+  Applications?: Application[];
 
   /**
-   * <p>Indicates whether an image builder can be launched from this image.</p>
+   * <p>The ARN of the image.</p>
    */
-  ImageBuilderSupported?: boolean;
+  Arn?: string;
 
   /**
-   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
    */
-  ImagePermissions?: ImagePermissions;
+  AppstreamAgentVersion?: string;
 
   /**
    * <p>The name of the image.</p>
@@ -2456,15 +2309,9 @@ export interface Image {
   Name: string | undefined;
 
   /**
-   * <p>The operating system platform of the image.</p>
+   * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
    */
-  Platform?: PlatformType | string;
-
-  /**
-   * <p>The release date of the public base image.
-   *             For private images, this date is the release date of the base image from which the image was created.</p>
-   */
-  PublicBaseImageReleasedDate?: Date;
+  ImageBuilderName?: string;
 
   /**
    * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
@@ -2473,19 +2320,20 @@ export interface Image {
   State?: ImageState | string;
 
   /**
-   * <p>The reason why the last state change occurred.</p>
+   * <p>Indicates whether an image builder can be launched from this image.</p>
    */
-  StateChangeReason?: ImageStateChangeReason;
+  ImageBuilderSupported?: boolean;
 
   /**
-   * <p>Indicates whether the image is public or private.</p>
+   * <p>The release date of the public base image.
+   *             For private images, this date is the release date of the base image from which the image was created.</p>
    */
-  Visibility?: VisibilityType | string;
+  PublicBaseImageReleasedDate?: Date;
 }
 
 export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Image => __isa(o, "Image");
 }
@@ -2496,39 +2344,19 @@ export namespace Image {
 export interface ImageBuilder {
   __type?: "ImageBuilder";
   /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-   */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
-   */
-  AppstreamAgentVersion?: string;
-
-  /**
    * <p>The ARN for the image builder.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The time stamp when the image builder was created.</p>
+   * <p>The VPC configuration of the image builder.</p>
    */
-  CreatedTime?: Date;
+  VpcConfig?: VpcConfig;
 
   /**
-   * <p>The description to display.</p>
+   * <p>The image builder errors.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The image builder name to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
-   */
-  DomainJoinInfo?: DomainJoinInfo;
+  ImageBuilderErrors?: ResourceError[];
 
   /**
    * <p>Enables or disables default internet access for the image builder.</p>
@@ -2536,21 +2364,9 @@ export interface ImageBuilder {
   EnableDefaultInternetAccess?: boolean;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The image builder name to display.</p>
    */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The ARN of the image from which this builder was created.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The image builder errors.</p>
-   */
-  ImageBuilderErrors?: ResourceError[];
+  DisplayName?: string;
 
   /**
    * <p>The instance type for the image builder. The following instance types are available:</p>
@@ -2620,14 +2436,14 @@ export interface ImageBuilder {
   InstanceType?: string;
 
   /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>Describes the network details of the fleet or image builder instance.</p>
-   */
-  NetworkAccessConfiguration?: NetworkAccessConfiguration;
 
   /**
    * <p>The operating system platform of the image builder.</p>
@@ -2635,9 +2451,14 @@ export interface ImageBuilder {
   Platform?: PlatformType | string;
 
   /**
-   * <p>The state of the image builder.</p>
+   * <p>The time stamp when the image builder was created.</p>
    */
-  State?: ImageBuilderState | string;
+  CreatedTime?: Date;
+
+  /**
+   * <p>Describes the network details of the fleet or image builder instance.</p>
+   */
+  NetworkAccessConfiguration?: NetworkAccessConfiguration;
 
   /**
    * <p>The reason why the last state change occurred.</p>
@@ -2645,14 +2466,41 @@ export interface ImageBuilder {
   StateChangeReason?: ImageBuilderStateChangeReason;
 
   /**
-   * <p>The VPC configuration of the image builder.</p>
+   * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
    */
-  VpcConfig?: VpcConfig;
+  AppstreamAgentVersion?: string;
+
+  /**
+   * <p>The ARN of the image from which this builder was created.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The state of the image builder.</p>
+   */
+  State?: ImageBuilderState | string;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
 }
 
 export namespace ImageBuilder {
   export const filterSensitiveLog = (obj: ImageBuilder): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ImageBuilder => __isa(o, "ImageBuilder");
 }
@@ -2666,7 +2514,7 @@ export enum ImageBuilderState {
   SNAPSHOTTING = "SNAPSHOTTING",
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
-  UPDATING_AGENT = "UPDATING_AGENT"
+  UPDATING_AGENT = "UPDATING_AGENT",
 }
 
 /**
@@ -2686,18 +2534,15 @@ export interface ImageBuilderStateChangeReason {
 }
 
 export namespace ImageBuilderStateChangeReason {
-  export const filterSensitiveLog = (
-    obj: ImageBuilderStateChangeReason
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImageBuilderStateChangeReason): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImageBuilderStateChangeReason =>
-    __isa(o, "ImageBuilderStateChangeReason");
+  export const isa = (o: any): o is ImageBuilderStateChangeReason => __isa(o, "ImageBuilderStateChangeReason");
 }
 
 export enum ImageBuilderStateChangeReasonCode {
   IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
+  INTERNAL_ERROR = "INTERNAL_ERROR",
 }
 
 /**
@@ -2718,10 +2563,9 @@ export interface ImagePermissions {
 
 export namespace ImagePermissions {
   export const filterSensitiveLog = (obj: ImagePermissions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImagePermissions =>
-    __isa(o, "ImagePermissions");
+  export const isa = (o: any): o is ImagePermissions => __isa(o, "ImagePermissions");
 }
 
 export enum ImageState {
@@ -2729,7 +2573,7 @@ export enum ImageState {
   COPYING = "COPYING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
@@ -2738,36 +2582,33 @@ export enum ImageState {
 export interface ImageStateChangeReason {
   __type?: "ImageStateChangeReason";
   /**
-   * <p>The state change reason code.</p>
-   */
-  Code?: ImageStateChangeReasonCode | string;
-
-  /**
    * <p>The state change reason message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The state change reason code.</p>
+   */
+  Code?: ImageStateChangeReasonCode | string;
 }
 
 export namespace ImageStateChangeReason {
   export const filterSensitiveLog = (obj: ImageStateChangeReason): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ImageStateChangeReason =>
-    __isa(o, "ImageStateChangeReason");
+  export const isa = (o: any): o is ImageStateChangeReason => __isa(o, "ImageStateChangeReason");
 }
 
 export enum ImageStateChangeReasonCode {
   IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
   IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
+  INTERNAL_ERROR = "INTERNAL_ERROR",
 }
 
 /**
  * <p>The image does not support storage connectors.</p>
  */
-export interface IncompatibleImageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatibleImageException extends __SmithyException, $MetadataBearer {
   name: "IncompatibleImageException";
   $fault: "client";
   /**
@@ -2778,18 +2619,15 @@ export interface IncompatibleImageException
 
 export namespace IncompatibleImageException {
   export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is IncompatibleImageException =>
-    __isa(o, "IncompatibleImageException");
+  export const isa = (o: any): o is IncompatibleImageException => __isa(o, "IncompatibleImageException");
 }
 
 /**
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
-export interface InvalidAccountStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAccountStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidAccountStatusException";
   $fault: "client";
   /**
@@ -2799,21 +2637,16 @@ export interface InvalidAccountStatusException
 }
 
 export namespace InvalidAccountStatusException {
-  export const filterSensitiveLog = (
-    obj: InvalidAccountStatusException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidAccountStatusException =>
-    __isa(o, "InvalidAccountStatusException");
+  export const isa = (o: any): o is InvalidAccountStatusException => __isa(o, "InvalidAccountStatusException");
 }
 
 /**
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -2823,10 +2656,8 @@ export interface InvalidParameterCombinationException
 }
 
 export namespace InvalidParameterCombinationException {
-  export const filterSensitiveLog = (
-    obj: InvalidParameterCombinationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is InvalidParameterCombinationException =>
     __isa(o, "InvalidParameterCombinationException");
@@ -2835,9 +2666,7 @@ export namespace InvalidParameterCombinationException {
 /**
  * <p>The specified role is invalid.</p>
  */
-export interface InvalidRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidRoleException";
   $fault: "client";
   /**
@@ -2848,10 +2677,9 @@ export interface InvalidRoleException
 
 export namespace InvalidRoleException {
   export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidRoleException =>
-    __isa(o, "InvalidRoleException");
+  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
@@ -2871,10 +2699,8 @@ export interface LastReportGenerationExecutionError {
 }
 
 export namespace LastReportGenerationExecutionError {
-  export const filterSensitiveLog = (
-    obj: LastReportGenerationExecutionError
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: LastReportGenerationExecutionError): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is LastReportGenerationExecutionError =>
     __isa(o, "LastReportGenerationExecutionError");
@@ -2883,9 +2709,7 @@ export namespace LastReportGenerationExecutionError {
 /**
  * <p>The requested limit exceeds the permitted limit for an account.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2896,33 +2720,29 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAssociatedFleetsRequest {
   __type?: "ListAssociatedFleetsRequest";
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListAssociatedFleetsRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssociatedFleetsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssociatedFleetsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedFleetsRequest =>
-    __isa(o, "ListAssociatedFleetsRequest");
+  export const isa = (o: any): o is ListAssociatedFleetsRequest => __isa(o, "ListAssociatedFleetsRequest");
 }
 
 export interface ListAssociatedFleetsResult {
@@ -2940,10 +2760,9 @@ export interface ListAssociatedFleetsResult {
 
 export namespace ListAssociatedFleetsResult {
   export const filterSensitiveLog = (obj: ListAssociatedFleetsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedFleetsResult =>
-    __isa(o, "ListAssociatedFleetsResult");
+  export const isa = (o: any): o is ListAssociatedFleetsResult => __isa(o, "ListAssociatedFleetsResult");
 }
 
 export interface ListAssociatedStacksRequest {
@@ -2960,13 +2779,10 @@ export interface ListAssociatedStacksRequest {
 }
 
 export namespace ListAssociatedStacksRequest {
-  export const filterSensitiveLog = (
-    obj: ListAssociatedStacksRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListAssociatedStacksRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedStacksRequest =>
-    __isa(o, "ListAssociatedStacksRequest");
+  export const isa = (o: any): o is ListAssociatedStacksRequest => __isa(o, "ListAssociatedStacksRequest");
 }
 
 export interface ListAssociatedStacksResult {
@@ -2984,10 +2800,9 @@ export interface ListAssociatedStacksResult {
 
 export namespace ListAssociatedStacksResult {
   export const filterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedStacksResult =>
-    __isa(o, "ListAssociatedStacksResult");
+  export const isa = (o: any): o is ListAssociatedStacksResult => __isa(o, "ListAssociatedStacksResult");
 }
 
 export interface ListTagsForResourceRequest {
@@ -3000,10 +2815,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -3015,18 +2829,15 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MessageAction {
   RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS"
+  SUPPRESS = "SUPPRESS",
 }
 
 /**
@@ -3035,30 +2846,27 @@ export enum MessageAction {
 export interface NetworkAccessConfiguration {
   __type?: "NetworkAccessConfiguration";
   /**
-   * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
-   */
-  EniId?: string;
-
-  /**
    * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
    */
   EniPrivateIpAddress?: string;
+
+  /**
+   * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
+   */
+  EniId?: string;
 }
 
 export namespace NetworkAccessConfiguration {
   export const filterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NetworkAccessConfiguration =>
-    __isa(o, "NetworkAccessConfiguration");
+  export const isa = (o: any): o is NetworkAccessConfiguration => __isa(o, "NetworkAccessConfiguration");
 }
 
 /**
  * <p>The attempted operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   /**
@@ -3068,31 +2876,23 @@ export interface OperationNotPermittedException
 }
 
 export namespace OperationNotPermittedException {
-  export const filterSensitiveLog = (
-    obj: OperationNotPermittedException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException =>
-    __isa(o, "OperationNotPermittedException");
+  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 export enum Permission {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
-export type PlatformType =
-  | "WINDOWS"
-  | "WINDOWS_SERVER_2016"
-  | "WINDOWS_SERVER_2019";
+export type PlatformType = "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
 
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -3102,13 +2902,10 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -3117,9 +2914,9 @@ export namespace ResourceAlreadyExistsException {
 export interface ResourceError {
   __type?: "ResourceError";
   /**
-   * <p>The error code.</p>
+   * <p>The time the error occurred.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorTimestamp?: Date;
 
   /**
    * <p>The error message.</p>
@@ -3127,14 +2924,14 @@ export interface ResourceError {
   ErrorMessage?: string;
 
   /**
-   * <p>The time the error occurred.</p>
+   * <p>The error code.</p>
    */
-  ErrorTimestamp?: Date;
+  ErrorCode?: FleetErrorCode | string;
 }
 
 export namespace ResourceError {
   export const filterSensitiveLog = (obj: ResourceError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceError => __isa(o, "ResourceError");
 }
@@ -3142,9 +2939,7 @@ export namespace ResourceError {
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -3155,18 +2950,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
-export interface ResourceNotAvailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotAvailableException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotAvailableException";
   $fault: "client";
   /**
@@ -3176,21 +2968,16 @@ export interface ResourceNotAvailableException
 }
 
 export namespace ResourceNotAvailableException {
-  export const filterSensitiveLog = (
-    obj: ResourceNotAvailableException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceNotAvailableException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotAvailableException =>
-    __isa(o, "ResourceNotAvailableException");
+  export const isa = (o: any): o is ResourceNotAvailableException => __isa(o, "ResourceNotAvailableException");
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -3201,10 +2988,9 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3213,26 +2999,25 @@ export namespace ResourceNotFoundException {
 export interface ServiceAccountCredentials {
   __type?: "ServiceAccountCredentials";
   /**
+   * <p>The password for the account.</p>
+   */
+  AccountPassword: string | undefined;
+
+  /**
    * <p>The user name of the account. This account must have the following privileges: create computer objects,
    *             join computers to the domain, and change/reset the password on descendant computer objects for the
    *             organizational units specified.</p>
    */
   AccountName: string | undefined;
-
-  /**
-   * <p>The password for the account.</p>
-   */
-  AccountPassword: string | undefined;
 }
 
 export namespace ServiceAccountCredentials {
   export const filterSensitiveLog = (obj: ServiceAccountCredentials): any => ({
     ...obj,
+    ...(obj.AccountPassword && { AccountPassword: SENSITIVE_STRING }),
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-    ...(obj.AccountPassword && { AccountPassword: SENSITIVE_STRING })
   });
-  export const isa = (o: any): o is ServiceAccountCredentials =>
-    __isa(o, "ServiceAccountCredentials");
+  export const isa = (o: any): o is ServiceAccountCredentials => __isa(o, "ServiceAccountCredentials");
 }
 
 /**
@@ -3241,25 +3026,14 @@ export namespace ServiceAccountCredentials {
 export interface Session {
   __type?: "Session";
   /**
-   * <p>The authentication method. The user is authenticated using a streaming URL
-   *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
+   * <p>The current state of the streaming session.</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  State: SessionState | string | undefined;
 
   /**
-   * <p>Specifies whether a user is connected to the streaming session.</p>
+   * <p>The time when a streaming instance is dedicated for the user.</p>
    */
-  ConnectionState?: SessionConnectionState | string;
-
-  /**
-   * <p>The name of the fleet for the streaming session.</p>
-   */
-  FleetName: string | undefined;
-
-  /**
-   * <p>The identifier of the streaming session.</p>
-   */
-  Id: string | undefined;
+  StartTime?: Date;
 
   /**
    * <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
@@ -3272,42 +3046,53 @@ export interface Session {
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
 
   /**
-   * <p>The name of the stack for the streaming session.</p>
+   * <p>The identifier of the streaming session.</p>
    */
-  StackName: string | undefined;
+  Id: string | undefined;
 
   /**
-   * <p>The time when a streaming instance is dedicated for the user.</p>
+   * <p>Specifies whether a user is connected to the streaming session.</p>
    */
-  StartTime?: Date;
+  ConnectionState?: SessionConnectionState | string;
 
   /**
-   * <p>The current state of the streaming session.</p>
+   * <p>The authentication method. The user is authenticated using a streaming URL
+   *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
    */
-  State: SessionState | string | undefined;
+  AuthenticationType?: AuthenticationType | string;
 
   /**
    * <p>The identifier of the user for whom the session was created.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The name of the stack for the streaming session.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The name of the fleet for the streaming session.</p>
+   */
+  FleetName: string | undefined;
 }
 
 export namespace Session {
   export const filterSensitiveLog = (obj: Session): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Session => __isa(o, "Session");
 }
 
 export enum SessionConnectionState {
   CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED"
+  NOT_CONNECTED = "NOT_CONNECTED",
 }
 
 export enum SessionState {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
@@ -3316,22 +3101,21 @@ export enum SessionState {
 export interface SharedImagePermissions {
   __type?: "SharedImagePermissions";
   /**
-   * <p>Describes the permissions for a shared image.</p>
-   */
-  imagePermissions: ImagePermissions | undefined;
-
-  /**
    * <p>The 12-digit identifier of the AWS account with which the image is shared.</p>
    */
   sharedAccountId: string | undefined;
+
+  /**
+   * <p>Describes the permissions for a shared image.</p>
+   */
+  imagePermissions: ImagePermissions | undefined;
 }
 
 export namespace SharedImagePermissions {
   export const filterSensitiveLog = (obj: SharedImagePermissions): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SharedImagePermissions =>
-    __isa(o, "SharedImagePermissions");
+  export const isa = (o: any): o is SharedImagePermissions => __isa(o, "SharedImagePermissions");
 }
 
 /**
@@ -3340,19 +3124,9 @@ export namespace SharedImagePermissions {
 export interface Stack {
   __type?: "Stack";
   /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
+   * <p>The storage connectors to enable.</p>
    */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The persistent application settings for users of the stack.</p>
-   */
-  ApplicationSettings?: ApplicationSettingsResponse;
-
-  /**
-   * <p>The ARN of the stack.</p>
-   */
-  Arn?: string;
+  StorageConnectors?: StorageConnector[];
 
   /**
    * <p>The time the stack was created.</p>
@@ -3360,19 +3134,14 @@ export interface Stack {
   CreatedTime?: Date;
 
   /**
-   * <p>The description to display.</p>
+   * <p>The name of the stack.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 
   /**
-   * <p>The stack name to display.</p>
+   * <p>The ARN of the stack.</p>
    */
-  DisplayName?: string;
-
-  /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
-   */
-  EmbedHostDomains?: string[];
+  Arn?: string;
 
   /**
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -3380,14 +3149,14 @@ export interface Stack {
   FeedbackURL?: string;
 
   /**
-   * <p>The name of the stack.</p>
+   * <p>The description to display.</p>
    */
-  Name: string | undefined;
+  Description?: string;
 
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
    */
-  RedirectURL?: string;
+  UserSettings?: UserSetting[];
 
   /**
    * <p>The errors for the stack.</p>
@@ -3395,19 +3164,34 @@ export interface Stack {
   StackErrors?: StackError[];
 
   /**
-   * <p>The storage connectors to enable.</p>
+   * <p>The persistent application settings for users of the stack.</p>
    */
-  StorageConnectors?: StorageConnector[];
+  ApplicationSettings?: ApplicationSettingsResponse;
 
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
+   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
-  UserSettings?: UserSetting[];
+  EmbedHostDomains?: string[];
+
+  /**
+   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   */
+  RedirectURL?: string;
+
+  /**
+   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The stack name to display.</p>
+   */
+  DisplayName?: string;
 }
 
 export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
@@ -3423,7 +3207,7 @@ export enum StackAttribute {
   STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
   STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
   THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS"
+  USER_SETTINGS = "USER_SETTINGS",
 }
 
 /**
@@ -3432,26 +3216,26 @@ export enum StackAttribute {
 export interface StackError {
   __type?: "StackError";
   /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: StackErrorCode | string;
-
-  /**
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: StackErrorCode | string;
 }
 
 export namespace StackError {
   export const filterSensitiveLog = (obj: StackError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is StackError => __isa(o, "StackError");
 }
 
 export enum StackErrorCode {
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR"
+  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
 }
 
 export interface StartFleetRequest {
@@ -3464,10 +3248,9 @@ export interface StartFleetRequest {
 
 export namespace StartFleetRequest {
   export const filterSensitiveLog = (obj: StartFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartFleetRequest =>
-    __isa(o, "StartFleetRequest");
+  export const isa = (o: any): o is StartFleetRequest => __isa(o, "StartFleetRequest");
 }
 
 export interface StartFleetResult {
@@ -3476,31 +3259,29 @@ export interface StartFleetResult {
 
 export namespace StartFleetResult {
   export const filterSensitiveLog = (obj: StartFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartFleetResult =>
-    __isa(o, "StartFleetResult");
+  export const isa = (o: any): o is StartFleetResult => __isa(o, "StartFleetResult");
 }
 
 export interface StartImageBuilderRequest {
   __type?: "StartImageBuilderRequest";
   /**
-   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
-   */
-  AppstreamAgentVersion?: string;
-
-  /**
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
+   */
+  AppstreamAgentVersion?: string;
 }
 
 export namespace StartImageBuilderRequest {
   export const filterSensitiveLog = (obj: StartImageBuilderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImageBuilderRequest =>
-    __isa(o, "StartImageBuilderRequest");
+  export const isa = (o: any): o is StartImageBuilderRequest => __isa(o, "StartImageBuilderRequest");
 }
 
 export interface StartImageBuilderResult {
@@ -3513,10 +3294,9 @@ export interface StartImageBuilderResult {
 
 export namespace StartImageBuilderResult {
   export const filterSensitiveLog = (obj: StartImageBuilderResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartImageBuilderResult =>
-    __isa(o, "StartImageBuilderResult");
+  export const isa = (o: any): o is StartImageBuilderResult => __isa(o, "StartImageBuilderResult");
 }
 
 export interface StopFleetRequest {
@@ -3529,10 +3309,9 @@ export interface StopFleetRequest {
 
 export namespace StopFleetRequest {
   export const filterSensitiveLog = (obj: StopFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopFleetRequest =>
-    __isa(o, "StopFleetRequest");
+  export const isa = (o: any): o is StopFleetRequest => __isa(o, "StopFleetRequest");
 }
 
 export interface StopFleetResult {
@@ -3541,10 +3320,9 @@ export interface StopFleetResult {
 
 export namespace StopFleetResult {
   export const filterSensitiveLog = (obj: StopFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopFleetResult =>
-    __isa(o, "StopFleetResult");
+  export const isa = (o: any): o is StopFleetResult => __isa(o, "StopFleetResult");
 }
 
 export interface StopImageBuilderRequest {
@@ -3557,10 +3335,9 @@ export interface StopImageBuilderRequest {
 
 export namespace StopImageBuilderRequest {
   export const filterSensitiveLog = (obj: StopImageBuilderRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopImageBuilderRequest =>
-    __isa(o, "StopImageBuilderRequest");
+  export const isa = (o: any): o is StopImageBuilderRequest => __isa(o, "StopImageBuilderRequest");
 }
 
 export interface StopImageBuilderResult {
@@ -3573,10 +3350,9 @@ export interface StopImageBuilderResult {
 
 export namespace StopImageBuilderResult {
   export const filterSensitiveLog = (obj: StopImageBuilderResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopImageBuilderResult =>
-    __isa(o, "StopImageBuilderResult");
+  export const isa = (o: any): o is StopImageBuilderResult => __isa(o, "StopImageBuilderResult");
 }
 
 /**
@@ -3584,11 +3360,6 @@ export namespace StopImageBuilderResult {
  */
 export interface StorageConnector {
   __type?: "StorageConnector";
-  /**
-   * <p>The type of storage connector.</p>
-   */
-  ConnectorType: StorageConnectorType | string | undefined;
-
   /**
    * <p>The names of the domains for the account.</p>
    */
@@ -3598,20 +3369,24 @@ export interface StorageConnector {
    * <p>The ARN of the storage connector.</p>
    */
   ResourceIdentifier?: string;
+
+  /**
+   * <p>The type of storage connector.</p>
+   */
+  ConnectorType: StorageConnectorType | string | undefined;
 }
 
 export namespace StorageConnector {
   export const filterSensitiveLog = (obj: StorageConnector): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StorageConnector =>
-    __isa(o, "StorageConnector");
+  export const isa = (o: any): o is StorageConnector => __isa(o, "StorageConnector");
 }
 
 export enum StorageConnectorType {
   GOOGLE_DRIVE = "GOOGLE_DRIVE",
   HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE"
+  ONE_DRIVE = "ONE_DRIVE",
 }
 
 export interface TagResourceRequest {
@@ -3634,10 +3409,9 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3646,10 +3420,9 @@ export interface TagResourceResponse {
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -3667,10 +3440,9 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3679,19 +3451,13 @@ export interface UntagResourceResponse {
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDirectoryConfigRequest {
   __type?: "UpdateDirectoryConfigRequest";
-  /**
-   * <p>The name of the Directory Config object.</p>
-   */
-  DirectoryName: string | undefined;
-
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
@@ -3701,21 +3467,21 @@ export interface UpdateDirectoryConfigRequest {
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
+
+  /**
+   * <p>The name of the Directory Config object.</p>
+   */
+  DirectoryName: string | undefined;
 }
 
 export namespace UpdateDirectoryConfigRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateDirectoryConfigRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: UpdateDirectoryConfigRequest): any => ({
     ...obj,
     ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(
-        obj.ServiceAccountCredentials
-      )
-    })
+      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
+    }),
   });
-  export const isa = (o: any): o is UpdateDirectoryConfigRequest =>
-    __isa(o, "UpdateDirectoryConfigRequest");
+  export const isa = (o: any): o is UpdateDirectoryConfigRequest => __isa(o, "UpdateDirectoryConfigRequest");
 }
 
 export interface UpdateDirectoryConfigResult {
@@ -3727,39 +3493,62 @@ export interface UpdateDirectoryConfigResult {
 }
 
 export namespace UpdateDirectoryConfigResult {
-  export const filterSensitiveLog = (
-    obj: UpdateDirectoryConfigResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
     ...obj,
-    ...(obj.DirectoryConfig && {
-      DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig)
-    })
+    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
-  export const isa = (o: any): o is UpdateDirectoryConfigResult =>
-    __isa(o, "UpdateDirectoryConfigResult");
+  export const isa = (o: any): o is UpdateDirectoryConfigResult => __isa(o, "UpdateDirectoryConfigResult");
 }
 
 export interface UpdateFleetRequest {
   __type?: "UpdateFleetRequest";
+  /**
+   * <p>The ARN of the public, private, or shared image to use.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>Enables or disables default internet access for the fleet.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The VPC configuration for the fleet.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
   /**
    * <p>The fleet attributes to delete.</p>
    */
   AttributesToDelete?: (FleetAttribute | string)[];
 
   /**
-   * <p>The desired capacity for the fleet.</p>
-   */
-  ComputeCapacity?: ComputeCapacity;
-
-  /**
-   * <p>Deletes the VPC association for the specified fleet.</p>
-   */
-  DeleteVpcConfig?: boolean;
-
-  /**
    * <p>The description to display.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>A unique name for the fleet.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
@@ -3768,26 +3557,19 @@ export interface UpdateFleetRequest {
   DisconnectTimeoutInSeconds?: number;
 
   /**
-   * <p>The fleet name to display.</p>
+   * <p>Deletes the VPC association for the specified fleet.</p>
    */
-  DisplayName?: string;
+  DeleteVpcConfig?: boolean;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * <p>The name of the image used to create the fleet.</p>
    */
-  DomainJoinInfo?: DomainJoinInfo;
+  ImageName?: string;
 
   /**
-   * <p>Enables or disables default internet access for the fleet.</p>
+   * <p>The desired capacity for the fleet.</p>
    */
-  EnableDefaultInternetAccess?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  IamRoleArn?: string;
+  ComputeCapacity?: ComputeCapacity;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
@@ -3807,16 +3589,6 @@ export interface UpdateFleetRequest {
    *          </note>
    */
   IdleDisconnectTimeoutInSeconds?: number;
-
-  /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the image used to create the fleet.</p>
-   */
-  ImageName?: string;
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
@@ -3886,28 +3658,16 @@ export interface UpdateFleetRequest {
   InstanceType?: string;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   * <p>The fleet name to display.</p>
    */
-  MaxUserDurationInSeconds?: number;
-
-  /**
-   * <p>A unique name for the fleet.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
+  DisplayName?: string;
 }
 
 export namespace UpdateFleetRequest {
   export const filterSensitiveLog = (obj: UpdateFleetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetRequest =>
-    __isa(o, "UpdateFleetRequest");
+  export const isa = (o: any): o is UpdateFleetRequest => __isa(o, "UpdateFleetRequest");
 }
 
 export interface UpdateFleetResult {
@@ -3920,23 +3680,22 @@ export interface UpdateFleetResult {
 
 export namespace UpdateFleetResult {
   export const filterSensitiveLog = (obj: UpdateFleetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetResult =>
-    __isa(o, "UpdateFleetResult");
+  export const isa = (o: any): o is UpdateFleetResult => __isa(o, "UpdateFleetResult");
 }
 
 export interface UpdateImagePermissionsRequest {
   __type?: "UpdateImagePermissionsRequest";
   /**
-   * <p>The permissions for the image.</p>
-   */
-  ImagePermissions: ImagePermissions | undefined;
-
-  /**
    * <p>The name of the private image.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The permissions for the image.</p>
+   */
+  ImagePermissions: ImagePermissions | undefined;
 
   /**
    * <p>The 12-digit identifier of the AWS account for which you want add or update image permissions.</p>
@@ -3945,13 +3704,10 @@ export interface UpdateImagePermissionsRequest {
 }
 
 export namespace UpdateImagePermissionsRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateImagePermissionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateImagePermissionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePermissionsRequest =>
-    __isa(o, "UpdateImagePermissionsRequest");
+  export const isa = (o: any): o is UpdateImagePermissionsRequest => __isa(o, "UpdateImagePermissionsRequest");
 }
 
 export interface UpdateImagePermissionsResult {
@@ -3959,21 +3715,18 @@ export interface UpdateImagePermissionsResult {
 }
 
 export namespace UpdateImagePermissionsResult {
-  export const filterSensitiveLog = (
-    obj: UpdateImagePermissionsResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateImagePermissionsResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePermissionsResult =>
-    __isa(o, "UpdateImagePermissionsResult");
+  export const isa = (o: any): o is UpdateImagePermissionsResult => __isa(o, "UpdateImagePermissionsResult");
 }
 
 export interface UpdateStackRequest {
   __type?: "UpdateStackRequest";
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
    */
-  AccessEndpoints?: AccessEndpoint[];
+  UserSettings?: UserSetting[];
 
   /**
    * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
@@ -3981,14 +3734,19 @@ export interface UpdateStackRequest {
   ApplicationSettings?: ApplicationSettings;
 
   /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
+   */
+  EmbedHostDomains?: string[];
+
+  /**
    * <p>The stack attributes to delete.</p>
    */
   AttributesToDelete?: (StackAttribute | string)[];
-
-  /**
-   * <p>Deletes the storage connectors currently enabled for the stack.</p>
-   */
-  DeleteStorageConnectors?: boolean;
 
   /**
    * <p>The description to display.</p>
@@ -4001,14 +3759,19 @@ export interface UpdateStackRequest {
   DisplayName?: string;
 
   /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
+   * <p>The storage connectors to enable.</p>
    */
-  EmbedHostDomains?: string[];
+  StorageConnectors?: StorageConnector[];
 
   /**
    * <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
    */
   FeedbackURL?: string;
+
+  /**
+   * <p>Deletes the storage connectors currently enabled for the stack.</p>
+   */
+  DeleteStorageConnectors?: boolean;
 
   /**
    * <p>The name of the stack.</p>
@@ -4019,24 +3782,13 @@ export interface UpdateStackRequest {
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
   RedirectURL?: string;
-
-  /**
-   * <p>The storage connectors to enable.</p>
-   */
-  StorageConnectors?: StorageConnector[];
-
-  /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
-   */
-  UserSettings?: UserSetting[];
 }
 
 export namespace UpdateStackRequest {
   export const filterSensitiveLog = (obj: UpdateStackRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateStackRequest =>
-    __isa(o, "UpdateStackRequest");
+  export const isa = (o: any): o is UpdateStackRequest => __isa(o, "UpdateStackRequest");
 }
 
 export interface UpdateStackResult {
@@ -4049,20 +3801,19 @@ export interface UpdateStackResult {
 
 export namespace UpdateStackResult {
   export const filterSensitiveLog = (obj: UpdateStackResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateStackResult =>
-    __isa(o, "UpdateStackResult");
+  export const isa = (o: any): o is UpdateStackResult => __isa(o, "UpdateStackResult");
 }
 
 export enum UsageReportExecutionErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND"
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
 }
 
 export enum UsageReportSchedule {
-  DAILY = "DAILY"
+  DAILY = "DAILY",
 }
 
 /**
@@ -4076,6 +3827,16 @@ export interface UsageReportSubscription {
   LastGeneratedReportDate?: Date;
 
   /**
+   * <p>The schedule for generating usage reports.</p>
+   */
+  Schedule?: UsageReportSchedule | string;
+
+  /**
+   * <p>The errors that were returned if usage reports couldn't be generated.</p>
+   */
+  SubscriptionErrors?: LastReportGenerationExecutionError[];
+
+  /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *
    *         <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
@@ -4085,24 +3846,13 @@ export interface UsageReportSubscription {
    *             when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
    */
   S3BucketName?: string;
-
-  /**
-   * <p>The schedule for generating usage reports.</p>
-   */
-  Schedule?: UsageReportSchedule | string;
-
-  /**
-   * <p>The errors that were returned if usage reports couldn't be generated.</p>
-   */
-  SubscriptionErrors?: LastReportGenerationExecutionError[];
 }
 
 export namespace UsageReportSubscription {
   export const filterSensitiveLog = (obj: UsageReportSubscription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UsageReportSubscription =>
-    __isa(o, "UsageReportSubscription");
+  export const isa = (o: any): o is UsageReportSubscription => __isa(o, "UsageReportSubscription");
 }
 
 /**
@@ -4111,9 +3861,9 @@ export namespace UsageReportSubscription {
 export interface User {
   __type?: "User";
   /**
-   * <p>The ARN of the user.</p>
+   * <p>Specifies whether the user in the user pool is enabled.</p>
    */
-  Arn?: string;
+  Enabled?: boolean;
 
   /**
    * <p>The authentication type for the user.</p>
@@ -4121,24 +3871,13 @@ export interface User {
   AuthenticationType: AuthenticationType | string | undefined;
 
   /**
-   * <p>The date and time the user was created in the user pool.</p>
+   * <p>The email address of the user.</p>
+   *
+   *         <note>
+   *             <p>Users' email addresses are case-sensitive.</p>
+   *          </note>
    */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Specifies whether the user in the user pool is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The first name, or given name, of the user.</p>
-   */
-  FirstName?: string;
-
-  /**
-   * <p>The last name, or surname, of the user.</p>
-   */
-  LastName?: string;
+  UserName?: string;
 
   /**
    * <p>The status of the user in the user pool. The status can be one of the following:</p>
@@ -4163,21 +3902,32 @@ export interface User {
   Status?: string;
 
   /**
-   * <p>The email address of the user.</p>
-   *
-   *         <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * <p>The first name, or given name, of the user.</p>
    */
-  UserName?: string;
+  FirstName?: string;
+
+  /**
+   * <p>The ARN of the user.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time the user was created in the user pool.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The last name, or surname, of the user.</p>
+   */
+  LastName?: string;
 }
 
 export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
     ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
   });
   export const isa = (o: any): o is User => __isa(o, "User");
 }
@@ -4188,19 +3938,19 @@ export namespace User {
 export interface UserSetting {
   __type?: "UserSetting";
   /**
-   * <p>The action that is enabled or disabled.</p>
-   */
-  Action: Action | string | undefined;
-
-  /**
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
   Permission: Permission | string | undefined;
+
+  /**
+   * <p>The action that is enabled or disabled.</p>
+   */
+  Action: Action | string | undefined;
 }
 
 export namespace UserSetting {
   export const filterSensitiveLog = (obj: UserSetting): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UserSetting => __isa(o, "UserSetting");
 }
@@ -4211,6 +3961,11 @@ export namespace UserSetting {
 export interface UserStackAssociation {
   __type?: "UserStackAssociation";
   /**
+   * <p>The name of the stack that is associated with the user.</p>
+   */
+  StackName: string | undefined;
+
+  /**
    * <p>The authentication type for the user.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -4219,11 +3974,6 @@ export interface UserStackAssociation {
    * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
    */
   SendEmailNotification?: boolean;
-
-  /**
-   * <p>The name of the stack that is associated with the user.</p>
-   */
-  StackName: string | undefined;
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
@@ -4238,10 +3988,9 @@ export interface UserStackAssociation {
 export namespace UserStackAssociation {
   export const filterSensitiveLog = (obj: UserStackAssociation): any => ({
     ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING })
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserStackAssociation =>
-    __isa(o, "UserStackAssociation");
+  export const isa = (o: any): o is UserStackAssociation => __isa(o, "UserStackAssociation");
 }
 
 /**
@@ -4249,6 +3998,11 @@ export namespace UserStackAssociation {
  */
 export interface UserStackAssociationError {
   __type?: "UserStackAssociationError";
+  /**
+   * <p>Information about the user and associated stack.</p>
+   */
+  UserStackAssociation?: UserStackAssociation;
+
   /**
    * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
@@ -4258,36 +4012,28 @@ export interface UserStackAssociationError {
    * <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>Information about the user and associated stack.</p>
-   */
-  UserStackAssociation?: UserStackAssociation;
 }
 
 export namespace UserStackAssociationError {
   export const filterSensitiveLog = (obj: UserStackAssociationError): any => ({
     ...obj,
     ...(obj.UserStackAssociation && {
-      UserStackAssociation: UserStackAssociation.filterSensitiveLog(
-        obj.UserStackAssociation
-      )
-    })
+      UserStackAssociation: UserStackAssociation.filterSensitiveLog(obj.UserStackAssociation),
+    }),
   });
-  export const isa = (o: any): o is UserStackAssociationError =>
-    __isa(o, "UserStackAssociationError");
+  export const isa = (o: any): o is UserStackAssociationError => __isa(o, "UserStackAssociationError");
 }
 
 export enum UserStackAssociationErrorCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND"
+  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
 }
 
 export enum VisibilityType {
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC",
-  SHARED = "SHARED"
+  SHARED = "SHARED",
 }
 
 /**
@@ -4308,7 +4054,7 @@ export interface VpcConfig {
 
 export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }

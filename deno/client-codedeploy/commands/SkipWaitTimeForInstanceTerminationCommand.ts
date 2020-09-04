@@ -1,18 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient.ts";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
 import { SkipWaitTimeForInstanceTerminationInput } from "../models/index.ts";
 import {
   deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
-  serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand
+  serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SkipWaitTimeForInstanceTerminationCommandInput = SkipWaitTimeForInstanceTerminationInput;
@@ -45,18 +38,16 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SkipWaitTimeForInstanceTerminationCommandInput,
-    SkipWaitTimeForInstanceTerminationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SkipWaitTimeForInstanceTerminationCommandInput, SkipWaitTimeForInstanceTerminationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SkipWaitTimeForInstanceTerminationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,20 +61,14 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     input: SkipWaitTimeForInstanceTerminationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
-    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

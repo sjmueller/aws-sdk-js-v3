@@ -1,21 +1,11 @@
-import {
-  BudgetsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BudgetsClient.ts";
-import {
-  DescribeNotificationsForBudgetRequest,
-  DescribeNotificationsForBudgetResponse
-} from "../models/index.ts";
+import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
+import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeNotificationsForBudgetCommand,
-  serializeAws_json1_1DescribeNotificationsForBudgetCommand
+  serializeAws_json1_1DescribeNotificationsForBudgetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeNotificationsForBudgetCommandInput = DescribeNotificationsForBudgetRequest;
-export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse &
-  __MetadataBearer;
+export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse & __MetadataBearer;
 
 export class DescribeNotificationsForBudgetCommand extends $Command<
   DescribeNotificationsForBudgetCommandInput,
@@ -49,18 +38,16 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNotificationsForBudgetCommandInput,
-    DescribeNotificationsForBudgetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNotificationsForBudgetCommandInput, DescribeNotificationsForBudgetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeNotificationsForBudgetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNotificationsForBudgetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationsForBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  IoTEventsDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsDataClient.ts";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorResponse
-} from "../models/index.ts";
+import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient.ts";
+import { DescribeDetectorRequest, DescribeDetectorResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeDetectorCommand,
-  serializeAws_restJson1DescribeDetectorCommand
+  serializeAws_restJson1DescribeDetectorCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDetectorCommandInput = DescribeDetectorRequest;
-export type DescribeDetectorCommandOutput = DescribeDetectorResponse &
-  __MetadataBearer;
+export type DescribeDetectorCommandOutput = DescribeDetectorResponse & __MetadataBearer;
 
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,
@@ -50,14 +39,15 @@ export class DescribeDetectorCommand extends $Command<
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDetectorCommandInput, DescribeDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDetectorRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDetectorResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeDetectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDetectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeDetectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDetectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorCommandOutput> {
     return deserializeAws_restJson1DescribeDetectorCommand(output, context);
   }
 

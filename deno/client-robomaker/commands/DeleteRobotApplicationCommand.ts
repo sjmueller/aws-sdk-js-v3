@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
-import {
-  DeleteRobotApplicationRequest,
-  DeleteRobotApplicationResponse
-} from "../models/index.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
+import { DeleteRobotApplicationRequest, DeleteRobotApplicationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteRobotApplicationCommand,
-  serializeAws_restJson1DeleteRobotApplicationCommand
+  serializeAws_restJson1DeleteRobotApplicationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteRobotApplicationCommandInput = DeleteRobotApplicationRequest;
-export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse &
-  __MetadataBearer;
+export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse & __MetadataBearer;
 
 export class DeleteRobotApplicationCommand extends $Command<
   DeleteRobotApplicationCommandInput,
@@ -49,18 +38,16 @@ export class DeleteRobotApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRobotApplicationCommandInput,
-    DeleteRobotApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRobotApplicationCommandInput, DeleteRobotApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteRobotApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRobotApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DeleteRobotApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRobotApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteRobotApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteRobotApplicationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRobotApplicationCommandOutput> {
+    return deserializeAws_restJson1DeleteRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

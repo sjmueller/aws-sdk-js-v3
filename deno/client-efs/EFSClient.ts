@@ -1,95 +1,64 @@
-import {
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput
-} from "./commands/CreateAccessPointCommand.ts";
-import {
-  CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput
-} from "./commands/CreateFileSystemCommand.ts";
-import {
-  CreateMountTargetCommandInput,
-  CreateMountTargetCommandOutput
-} from "./commands/CreateMountTargetCommand.ts";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand.ts";
-import {
-  DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput
-} from "./commands/DeleteAccessPointCommand.ts";
-import {
-  DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput
-} from "./commands/DeleteFileSystemCommand.ts";
+import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand.ts";
+import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand.ts";
+import { CreateMountTargetCommandInput, CreateMountTargetCommandOutput } from "./commands/CreateMountTargetCommand.ts";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
+import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand.ts";
+import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand.ts";
 import {
   DeleteFileSystemPolicyCommandInput,
-  DeleteFileSystemPolicyCommandOutput
+  DeleteFileSystemPolicyCommandOutput,
 } from "./commands/DeleteFileSystemPolicyCommand.ts";
-import {
-  DeleteMountTargetCommandInput,
-  DeleteMountTargetCommandOutput
-} from "./commands/DeleteMountTargetCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
+import { DeleteMountTargetCommandInput, DeleteMountTargetCommandOutput } from "./commands/DeleteMountTargetCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import {
   DescribeAccessPointsCommandInput,
-  DescribeAccessPointsCommandOutput
+  DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand.ts";
 import {
+  DescribeBackupPolicyCommandInput,
+  DescribeBackupPolicyCommandOutput,
+} from "./commands/DescribeBackupPolicyCommand.ts";
+import {
   DescribeFileSystemPolicyCommandInput,
-  DescribeFileSystemPolicyCommandOutput
+  DescribeFileSystemPolicyCommandOutput,
 } from "./commands/DescribeFileSystemPolicyCommand.ts";
 import {
   DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput
+  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand.ts";
 import {
   DescribeLifecycleConfigurationCommandInput,
-  DescribeLifecycleConfigurationCommandOutput
+  DescribeLifecycleConfigurationCommandOutput,
 } from "./commands/DescribeLifecycleConfigurationCommand.ts";
 import {
   DescribeMountTargetSecurityGroupsCommandInput,
-  DescribeMountTargetSecurityGroupsCommandOutput
+  DescribeMountTargetSecurityGroupsCommandOutput,
 } from "./commands/DescribeMountTargetSecurityGroupsCommand.ts";
 import {
   DescribeMountTargetsCommandInput,
-  DescribeMountTargetsCommandOutput
+  DescribeMountTargetsCommandOutput,
 } from "./commands/DescribeMountTargetsCommand.ts";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyMountTargetSecurityGroupsCommandInput,
-  ModifyMountTargetSecurityGroupsCommandOutput
+  ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand.ts";
+import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "./commands/PutBackupPolicyCommand.ts";
 import {
   PutFileSystemPolicyCommandInput,
-  PutFileSystemPolicyCommandOutput
+  PutFileSystemPolicyCommandOutput,
 } from "./commands/PutFileSystemPolicyCommand.ts";
 import {
   PutLifecycleConfigurationCommandInput,
-  PutLifecycleConfigurationCommandOutput
+  PutLifecycleConfigurationCommandOutput,
 } from "./commands/PutLifecycleConfigurationCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput
-} from "./commands/UpdateFileSystemCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -97,38 +66,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -137,9 +102,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -153,6 +119,7 @@ export type ServiceInputTypes =
   | DeleteMountTargetCommandInput
   | DeleteTagsCommandInput
   | DescribeAccessPointsCommandInput
+  | DescribeBackupPolicyCommandInput
   | DescribeFileSystemPolicyCommandInput
   | DescribeFileSystemsCommandInput
   | DescribeLifecycleConfigurationCommandInput
@@ -161,6 +128,7 @@ export type ServiceInputTypes =
   | DescribeTagsCommandInput
   | ListTagsForResourceCommandInput
   | ModifyMountTargetSecurityGroupsCommandInput
+  | PutBackupPolicyCommandInput
   | PutFileSystemPolicyCommandInput
   | PutLifecycleConfigurationCommandInput
   | TagResourceCommandInput
@@ -178,6 +146,7 @@ export type ServiceOutputTypes =
   | DeleteMountTargetCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAccessPointsCommandOutput
+  | DescribeBackupPolicyCommandOutput
   | DescribeFileSystemPolicyCommandOutput
   | DescribeFileSystemsCommandOutput
   | DescribeLifecycleConfigurationCommandOutput
@@ -186,14 +155,14 @@ export type ServiceOutputTypes =
   | DescribeTagsCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyMountTargetSecurityGroupsCommandOutput
+  | PutBackupPolicyCommandOutput
   | PutFileSystemPolicyCommandOutput
   | PutLifecycleConfigurationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateFileSystemCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -267,14 +236,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -282,9 +256,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EFSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EFSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -293,9 +265,7 @@ export type EFSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -322,7 +292,7 @@ export class EFSClient extends __Client<
   constructor(configuration: EFSClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -337,6 +307,7 @@ export class EFSClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,18 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
 import { ListWorkteamsRequest, ListWorkteamsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListWorkteamsCommand,
-  serializeAws_json1_1ListWorkteamsCommand
+  serializeAws_json1_1ListWorkteamsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListWorkteamsCommandInput = ListWorkteamsRequest;
-export type ListWorkteamsCommandOutput = ListWorkteamsResponse &
-  __MetadataBearer;
+export type ListWorkteamsCommandOutput = ListWorkteamsResponse & __MetadataBearer;
 
 export class ListWorkteamsCommand extends $Command<
   ListWorkteamsCommandInput,
@@ -47,14 +39,15 @@ export class ListWorkteamsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkteamsCommandInput, ListWorkteamsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListWorkteamsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListWorkteamsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ListWorkteamsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListWorkteamsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListWorkteamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkteamsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListWorkteamsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkteamsCommandOutput> {
     return deserializeAws_json1_1ListWorkteamsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient.ts";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupResponse
-} from "../models/index.ts";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteSubnetGroupCommand,
-  serializeAws_json1_1DeleteSubnetGroupCommand
+  serializeAws_json1_1DeleteSubnetGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteSubnetGroupCommandInput = DeleteSubnetGroupRequest;
-export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse &
-  __MetadataBearer;
+export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse & __MetadataBearer;
 
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,
@@ -50,14 +39,15 @@ export class DeleteSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteSubnetGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSubnetGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSubnetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSubnetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
   }
 

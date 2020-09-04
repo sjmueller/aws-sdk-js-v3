@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient.ts";
-import {
-  ListTagsOfResourceInput,
-  ListTagsOfResourceOutput
-} from "../models/index.ts";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
+import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0ListTagsOfResourceCommand,
-  serializeAws_json1_0ListTagsOfResourceCommand
+  serializeAws_json1_0ListTagsOfResourceCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListTagsOfResourceCommandInput = ListTagsOfResourceInput;
-export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput &
-  __MetadataBearer;
+export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput & __MetadataBearer;
 
 export class ListTagsOfResourceCommand extends $Command<
   ListTagsOfResourceCommandInput,
@@ -50,14 +39,15 @@ export class ListTagsOfResourceCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListTagsOfResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsOfResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListTagsOfResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTagsOfResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTagsOfResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListTagsOfResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTagsOfResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsOfResourceCommandOutput> {
     return deserializeAws_json1_0ListTagsOfResourceCommand(output, context);
   }
 

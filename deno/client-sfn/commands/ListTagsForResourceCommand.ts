@@ -1,21 +1,11 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient.ts";
-import {
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput
-} from "../models/index.ts";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0ListTagsForResourceCommand,
-  serializeAws_json1_0ListTagsForResourceCommand
+  serializeAws_json1_0ListTagsForResourceCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
-export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput &
-  __MetadataBearer;
+export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
@@ -49,18 +38,16 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListTagsForResourceInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTagsForResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListTagsForResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTagsForResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
     return deserializeAws_json1_0ListTagsForResourceCommand(output, context);
   }
 

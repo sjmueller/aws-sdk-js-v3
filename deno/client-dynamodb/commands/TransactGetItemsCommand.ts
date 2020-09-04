@@ -1,18 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient.ts";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
 import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0TransactGetItemsCommand,
-  serializeAws_json1_0TransactGetItemsCommand
+  serializeAws_json1_0TransactGetItemsCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type TransactGetItemsCommandInput = TransactGetItemsInput;
-export type TransactGetItemsCommandOutput = TransactGetItemsOutput &
-  __MetadataBearer;
+export type TransactGetItemsCommandOutput = TransactGetItemsOutput & __MetadataBearer;
 
 export class TransactGetItemsCommand extends $Command<
   TransactGetItemsCommandInput,
@@ -47,14 +39,15 @@ export class TransactGetItemsCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactGetItemsCommandInput, TransactGetItemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: TransactGetItemsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: TransactGetItemsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class TransactGetItemsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TransactGetItemsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TransactGetItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0TransactGetItemsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TransactGetItemsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
     return deserializeAws_json1_0TransactGetItemsCommand(output, context);
   }
 

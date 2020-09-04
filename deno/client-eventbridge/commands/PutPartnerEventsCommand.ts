@@ -1,21 +1,11 @@
-import {
-  EventBridgeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EventBridgeClient.ts";
-import {
-  PutPartnerEventsRequest,
-  PutPartnerEventsResponse
-} from "../models/index.ts";
+import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
+import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,
-  serializeAws_json1_1PutPartnerEventsCommand
+  serializeAws_json1_1PutPartnerEventsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutPartnerEventsCommandInput = PutPartnerEventsRequest;
-export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse &
-  __MetadataBearer;
+export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse & __MetadataBearer;
 
 export class PutPartnerEventsCommand extends $Command<
   PutPartnerEventsCommandInput,
@@ -50,14 +39,15 @@ export class PutPartnerEventsCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutPartnerEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPartnerEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutPartnerEventsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutPartnerEventsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutPartnerEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPartnerEventsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutPartnerEventsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPartnerEventsCommandOutput> {
     return deserializeAws_json1_1PutPartnerEventsCommand(output, context);
   }
 

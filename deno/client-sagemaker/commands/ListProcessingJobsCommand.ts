@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  ListProcessingJobsRequest,
-  ListProcessingJobsResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListProcessingJobsCommand,
-  serializeAws_json1_1ListProcessingJobsCommand
+  serializeAws_json1_1ListProcessingJobsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListProcessingJobsCommandInput = ListProcessingJobsRequest;
-export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse &
-  __MetadataBearer;
+export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse & __MetadataBearer;
 
 export class ListProcessingJobsCommand extends $Command<
   ListProcessingJobsCommandInput,
@@ -50,14 +39,15 @@ export class ListProcessingJobsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListProcessingJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListProcessingJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListProcessingJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListProcessingJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListProcessingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProcessingJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListProcessingJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProcessingJobsCommandOutput> {
     return deserializeAws_json1_1ListProcessingJobsCommand(output, context);
   }
 

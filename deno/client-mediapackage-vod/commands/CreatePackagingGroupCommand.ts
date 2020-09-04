@@ -1,21 +1,15 @@
 import {
   MediaPackageVodClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageVodClient.ts";
-import {
-  CreatePackagingGroupRequest,
-  CreatePackagingGroupResponse
-} from "../models/index.ts";
+import { CreatePackagingGroupRequest, CreatePackagingGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreatePackagingGroupCommand,
-  serializeAws_restJson1CreatePackagingGroupCommand
+  serializeAws_restJson1CreatePackagingGroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePackagingGroupCommandInput = CreatePackagingGroupRequest;
-export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse &
-  __MetadataBearer;
+export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse & __MetadataBearer;
 
 export class CreatePackagingGroupCommand extends $Command<
   CreatePackagingGroupCommandInput,
@@ -49,18 +42,16 @@ export class CreatePackagingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePackagingGroupCommandInput,
-    CreatePackagingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePackagingGroupCommandInput, CreatePackagingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePackagingGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePackagingGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class CreatePackagingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePackagingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreatePackagingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePackagingGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackagingGroupCommandOutput> {
     return deserializeAws_restJson1CreatePackagingGroupCommand(output, context);
   }
 

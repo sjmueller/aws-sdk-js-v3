@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
-import {
-  AuthorizeSnapshotAccessMessage,
-  AuthorizeSnapshotAccessResult
-} from "../models/index.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
+import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/index.ts";
 import {
   deserializeAws_queryAuthorizeSnapshotAccessCommand,
-  serializeAws_queryAuthorizeSnapshotAccessCommand
+  serializeAws_queryAuthorizeSnapshotAccessCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
-export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult &
-  __MetadataBearer;
+export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult & __MetadataBearer;
 
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,
@@ -49,18 +38,16 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AuthorizeSnapshotAccessCommandInput,
-    AuthorizeSnapshotAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AuthorizeSnapshotAccessCommandInput, AuthorizeSnapshotAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AuthorizeSnapshotAccessMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeSnapshotAccessResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AuthorizeSnapshotAccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AuthorizeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAuthorizeSnapshotAccessCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AuthorizeSnapshotAccessCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeSnapshotAccessCommandOutput> {
     return deserializeAws_queryAuthorizeSnapshotAccessCommand(output, context);
   }
 

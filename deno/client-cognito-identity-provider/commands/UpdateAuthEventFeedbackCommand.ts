@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  UpdateAuthEventFeedbackRequest,
-  UpdateAuthEventFeedbackResponse
-} from "../models/index.ts";
+import { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
-  serializeAws_json1_1UpdateAuthEventFeedbackCommand
+  serializeAws_json1_1UpdateAuthEventFeedbackCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateAuthEventFeedbackCommandInput = UpdateAuthEventFeedbackRequest;
-export type UpdateAuthEventFeedbackCommandOutput = UpdateAuthEventFeedbackResponse &
-  __MetadataBearer;
+export type UpdateAuthEventFeedbackCommandOutput = UpdateAuthEventFeedbackResponse & __MetadataBearer;
 
 export class UpdateAuthEventFeedbackCommand extends $Command<
   UpdateAuthEventFeedbackCommandInput,
@@ -49,18 +42,16 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAuthEventFeedbackCommandInput,
-    UpdateAuthEventFeedbackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAuthEventFeedbackCommandInput, UpdateAuthEventFeedbackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateAuthEventFeedbackRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAuthEventFeedbackResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAuthEventFeedbackCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAuthEventFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAuthEventFeedbackCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthEventFeedbackCommandOutput> {
+    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

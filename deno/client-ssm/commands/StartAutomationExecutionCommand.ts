@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  StartAutomationExecutionRequest,
-  StartAutomationExecutionResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartAutomationExecutionCommand,
-  serializeAws_json1_1StartAutomationExecutionCommand
+  serializeAws_json1_1StartAutomationExecutionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartAutomationExecutionCommandInput = StartAutomationExecutionRequest;
-export type StartAutomationExecutionCommandOutput = StartAutomationExecutionResult &
-  __MetadataBearer;
+export type StartAutomationExecutionCommandOutput = StartAutomationExecutionResult & __MetadataBearer;
 
 export class StartAutomationExecutionCommand extends $Command<
   StartAutomationExecutionCommandInput,
@@ -49,18 +38,16 @@ export class StartAutomationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartAutomationExecutionCommandInput,
-    StartAutomationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartAutomationExecutionCommandInput, StartAutomationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartAutomationExecutionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartAutomationExecutionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class StartAutomationExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartAutomationExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAutomationExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1StartAutomationExecutionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAutomationExecutionCommandOutput> {
+    return deserializeAws_json1_1StartAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

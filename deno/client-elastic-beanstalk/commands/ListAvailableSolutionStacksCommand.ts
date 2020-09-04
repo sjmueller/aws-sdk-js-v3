@@ -1,18 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
 import { ListAvailableSolutionStacksResultMessage } from "../models/index.ts";
 import {
   deserializeAws_queryListAvailableSolutionStacksCommand,
-  serializeAws_queryListAvailableSolutionStacksCommand
+  serializeAws_queryListAvailableSolutionStacksCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListAvailableSolutionStacksCommandInput = {};
-export type ListAvailableSolutionStacksCommandOutput = ListAvailableSolutionStacksResultMessage &
-  __MetadataBearer;
+export type ListAvailableSolutionStacksCommandOutput = ListAvailableSolutionStacksResultMessage & __MetadataBearer;
 
 export class ListAvailableSolutionStacksCommand extends $Command<
   ListAvailableSolutionStacksCommandInput,
@@ -46,18 +42,16 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAvailableSolutionStacksCommandInput,
-    ListAvailableSolutionStacksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAvailableSolutionStacksCommandInput, ListAvailableSolutionStacksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: ListAvailableSolutionStacksResultMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,10 +61,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAvailableSolutionStacksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAvailableSolutionStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListAvailableSolutionStacksCommand(input, context);
   }
 
@@ -78,10 +69,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableSolutionStacksCommandOutput> {
-    return deserializeAws_queryListAvailableSolutionStacksCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListAvailableSolutionStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

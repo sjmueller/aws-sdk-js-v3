@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  RejectVpcEndpointConnectionsRequest,
-  RejectVpcEndpointConnectionsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { RejectVpcEndpointConnectionsRequest, RejectVpcEndpointConnectionsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2RejectVpcEndpointConnectionsCommand,
-  serializeAws_ec2RejectVpcEndpointConnectionsCommand
+  serializeAws_ec2RejectVpcEndpointConnectionsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RejectVpcEndpointConnectionsCommandInput = RejectVpcEndpointConnectionsRequest;
-export type RejectVpcEndpointConnectionsCommandOutput = RejectVpcEndpointConnectionsResult &
-  __MetadataBearer;
+export type RejectVpcEndpointConnectionsCommandOutput = RejectVpcEndpointConnectionsResult & __MetadataBearer;
 
 export class RejectVpcEndpointConnectionsCommand extends $Command<
   RejectVpcEndpointConnectionsCommandInput,
@@ -49,18 +38,16 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectVpcEndpointConnectionsCommandInput,
-    RejectVpcEndpointConnectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectVpcEndpointConnectionsCommandInput, RejectVpcEndpointConnectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RejectVpcEndpointConnectionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectVpcEndpointConnectionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RejectVpcEndpointConnectionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RejectVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RejectVpcEndpointConnectionsCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2RejectVpcEndpointConnectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2RejectVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

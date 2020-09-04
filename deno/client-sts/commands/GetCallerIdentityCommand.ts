@@ -1,21 +1,11 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient.ts";
-import {
-  GetCallerIdentityRequest,
-  GetCallerIdentityResponse
-} from "../models/index.ts";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
+import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/index.ts";
 import {
   deserializeAws_queryGetCallerIdentityCommand,
-  serializeAws_queryGetCallerIdentityCommand
+  serializeAws_queryGetCallerIdentityCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetCallerIdentityCommandInput = GetCallerIdentityRequest;
-export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse &
-  __MetadataBearer;
+export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse & __MetadataBearer;
 
 export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandInput,
@@ -50,14 +39,15 @@ export class GetCallerIdentityCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetCallerIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCallerIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCallerIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetCallerIdentityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCallerIdentityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallerIdentityCommandOutput> {
     return deserializeAws_queryGetCallerIdentityCommand(output, context);
   }
 

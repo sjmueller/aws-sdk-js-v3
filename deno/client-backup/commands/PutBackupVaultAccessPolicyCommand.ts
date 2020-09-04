@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient.ts";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
 import { PutBackupVaultAccessPolicyInput } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1PutBackupVaultAccessPolicyCommand
+  serializeAws_restJson1PutBackupVaultAccessPolicyCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutBackupVaultAccessPolicyCommandInput = PutBackupVaultAccessPolicyInput;
@@ -45,18 +38,16 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutBackupVaultAccessPolicyCommandInput,
-    PutBackupVaultAccessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutBackupVaultAccessPolicyCommandInput, PutBackupVaultAccessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutBackupVaultAccessPolicyInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutBackupVaultAccessPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(
-      input,
-      context
-    );
+  private serialize(input: PutBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

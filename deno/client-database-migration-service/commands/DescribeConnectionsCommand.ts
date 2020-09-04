@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  DescribeConnectionsMessage,
-  DescribeConnectionsResponse
-} from "../models/index.ts";
+import { DescribeConnectionsMessage, DescribeConnectionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeConnectionsCommand,
-  serializeAws_json1_1DescribeConnectionsCommand
+  serializeAws_json1_1DescribeConnectionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeConnectionsCommandInput = DescribeConnectionsMessage;
-export type DescribeConnectionsCommandOutput = DescribeConnectionsResponse &
-  __MetadataBearer;
+export type DescribeConnectionsCommandOutput = DescribeConnectionsResponse & __MetadataBearer;
 
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,
@@ -49,18 +42,16 @@ export class DescribeConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConnectionsCommandInput,
-    DescribeConnectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConnectionsCommandInput, DescribeConnectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeConnectionsMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConnectionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DescribeConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConnectionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConnectionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeConnectionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionsCommandOutput> {
     return deserializeAws_json1_1DescribeConnectionsCommand(output, context);
   }
 

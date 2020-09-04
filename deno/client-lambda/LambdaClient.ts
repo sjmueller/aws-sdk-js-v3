@@ -1,198 +1,135 @@
 import {
   AddLayerVersionPermissionCommandInput,
-  AddLayerVersionPermissionCommandOutput
+  AddLayerVersionPermissionCommandOutput,
 } from "./commands/AddLayerVersionPermissionCommand.ts";
-import {
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput
-} from "./commands/AddPermissionCommand.ts";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand.ts";
+import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand.ts";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
 import {
   CreateEventSourceMappingCommandInput,
-  CreateEventSourceMappingCommandOutput
+  CreateEventSourceMappingCommandOutput,
 } from "./commands/CreateEventSourceMappingCommand.ts";
-import {
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput
-} from "./commands/CreateFunctionCommand.ts";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand.ts";
+import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand.ts";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
 import {
   DeleteEventSourceMappingCommandInput,
-  DeleteEventSourceMappingCommandOutput
+  DeleteEventSourceMappingCommandOutput,
 } from "./commands/DeleteEventSourceMappingCommand.ts";
-import {
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput
-} from "./commands/DeleteFunctionCommand.ts";
+import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand.ts";
 import {
   DeleteFunctionConcurrencyCommandInput,
-  DeleteFunctionConcurrencyCommandOutput
+  DeleteFunctionConcurrencyCommandOutput,
 } from "./commands/DeleteFunctionConcurrencyCommand.ts";
 import {
   DeleteFunctionEventInvokeConfigCommandInput,
-  DeleteFunctionEventInvokeConfigCommandOutput
+  DeleteFunctionEventInvokeConfigCommandOutput,
 } from "./commands/DeleteFunctionEventInvokeConfigCommand.ts";
 import {
   DeleteLayerVersionCommandInput,
-  DeleteLayerVersionCommandOutput
+  DeleteLayerVersionCommandOutput,
 } from "./commands/DeleteLayerVersionCommand.ts";
 import {
   DeleteProvisionedConcurrencyConfigCommandInput,
-  DeleteProvisionedConcurrencyConfigCommandOutput
+  DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand.ts";
 import {
   GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
+  GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand.ts";
-import {
-  GetAliasCommandInput,
-  GetAliasCommandOutput
-} from "./commands/GetAliasCommand.ts";
+import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand.ts";
 import {
   GetEventSourceMappingCommandInput,
-  GetEventSourceMappingCommandOutput
+  GetEventSourceMappingCommandOutput,
 } from "./commands/GetEventSourceMappingCommand.ts";
-import {
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput
-} from "./commands/GetFunctionCommand.ts";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand.ts";
 import {
   GetFunctionConcurrencyCommandInput,
-  GetFunctionConcurrencyCommandOutput
+  GetFunctionConcurrencyCommandOutput,
 } from "./commands/GetFunctionConcurrencyCommand.ts";
 import {
   GetFunctionConfigurationCommandInput,
-  GetFunctionConfigurationCommandOutput
+  GetFunctionConfigurationCommandOutput,
 } from "./commands/GetFunctionConfigurationCommand.ts";
 import {
   GetFunctionEventInvokeConfigCommandInput,
-  GetFunctionEventInvokeConfigCommandOutput
+  GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand.ts";
 import {
   GetLayerVersionByArnCommandInput,
-  GetLayerVersionByArnCommandOutput
+  GetLayerVersionByArnCommandOutput,
 } from "./commands/GetLayerVersionByArnCommand.ts";
-import {
-  GetLayerVersionCommandInput,
-  GetLayerVersionCommandOutput
-} from "./commands/GetLayerVersionCommand.ts";
+import { GetLayerVersionCommandInput, GetLayerVersionCommandOutput } from "./commands/GetLayerVersionCommand.ts";
 import {
   GetLayerVersionPolicyCommandInput,
-  GetLayerVersionPolicyCommandOutput
+  GetLayerVersionPolicyCommandOutput,
 } from "./commands/GetLayerVersionPolicyCommand.ts";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
 import {
   GetProvisionedConcurrencyConfigCommandInput,
-  GetProvisionedConcurrencyConfigCommandOutput
+  GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand.ts";
-import {
-  InvokeAsyncCommandInput,
-  InvokeAsyncCommandOutput
-} from "./commands/InvokeAsyncCommand.ts";
-import {
-  InvokeCommandInput,
-  InvokeCommandOutput
-} from "./commands/InvokeCommand.ts";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand.ts";
+import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand.ts";
+import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand.ts";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
 import {
   ListEventSourceMappingsCommandInput,
-  ListEventSourceMappingsCommandOutput
+  ListEventSourceMappingsCommandOutput,
 } from "./commands/ListEventSourceMappingsCommand.ts";
 import {
   ListFunctionEventInvokeConfigsCommandInput,
-  ListFunctionEventInvokeConfigsCommandOutput
+  ListFunctionEventInvokeConfigsCommandOutput,
 } from "./commands/ListFunctionEventInvokeConfigsCommand.ts";
-import {
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput
-} from "./commands/ListFunctionsCommand.ts";
-import {
-  ListLayerVersionsCommandInput,
-  ListLayerVersionsCommandOutput
-} from "./commands/ListLayerVersionsCommand.ts";
-import {
-  ListLayersCommandInput,
-  ListLayersCommandOutput
-} from "./commands/ListLayersCommand.ts";
+import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand.ts";
+import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "./commands/ListLayerVersionsCommand.ts";
+import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand.ts";
 import {
   ListProvisionedConcurrencyConfigsCommandInput,
-  ListProvisionedConcurrencyConfigsCommandOutput
+  ListProvisionedConcurrencyConfigsCommandOutput,
 } from "./commands/ListProvisionedConcurrencyConfigsCommand.ts";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand.ts";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import {
   ListVersionsByFunctionCommandInput,
-  ListVersionsByFunctionCommandOutput
+  ListVersionsByFunctionCommandOutput,
 } from "./commands/ListVersionsByFunctionCommand.ts";
 import {
   PublishLayerVersionCommandInput,
-  PublishLayerVersionCommandOutput
+  PublishLayerVersionCommandOutput,
 } from "./commands/PublishLayerVersionCommand.ts";
-import {
-  PublishVersionCommandInput,
-  PublishVersionCommandOutput
-} from "./commands/PublishVersionCommand.ts";
+import { PublishVersionCommandInput, PublishVersionCommandOutput } from "./commands/PublishVersionCommand.ts";
 import {
   PutFunctionConcurrencyCommandInput,
-  PutFunctionConcurrencyCommandOutput
+  PutFunctionConcurrencyCommandOutput,
 } from "./commands/PutFunctionConcurrencyCommand.ts";
 import {
   PutFunctionEventInvokeConfigCommandInput,
-  PutFunctionEventInvokeConfigCommandOutput
+  PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand.ts";
 import {
   PutProvisionedConcurrencyConfigCommandInput,
-  PutProvisionedConcurrencyConfigCommandOutput
+  PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand.ts";
 import {
   RemoveLayerVersionPermissionCommandInput,
-  RemoveLayerVersionPermissionCommandOutput
+  RemoveLayerVersionPermissionCommandOutput,
 } from "./commands/RemoveLayerVersionPermissionCommand.ts";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand.ts";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand.ts";
 import {
   UpdateEventSourceMappingCommandInput,
-  UpdateEventSourceMappingCommandOutput
+  UpdateEventSourceMappingCommandOutput,
 } from "./commands/UpdateEventSourceMappingCommand.ts";
 import {
   UpdateFunctionCodeCommandInput,
-  UpdateFunctionCodeCommandOutput
+  UpdateFunctionCodeCommandOutput,
 } from "./commands/UpdateFunctionCodeCommand.ts";
 import {
   UpdateFunctionConfigurationCommandInput,
-  UpdateFunctionConfigurationCommandOutput
+  UpdateFunctionConfigurationCommandOutput,
 } from "./commands/UpdateFunctionConfigurationCommand.ts";
 import {
   UpdateFunctionEventInvokeConfigCommandInput,
-  UpdateFunctionEventInvokeConfigCommandOutput
+  UpdateFunctionEventInvokeConfigCommandOutput,
 } from "./commands/UpdateFunctionEventInvokeConfigCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -201,38 +138,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -241,9 +174,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -348,8 +282,7 @@ export type ServiceOutputTypes =
   | UpdateFunctionConfigurationCommandOutput
   | UpdateFunctionEventInvokeConfigCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -423,14 +356,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -438,9 +376,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LambdaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LambdaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -449,9 +385,7 @@ export type LambdaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -480,7 +414,7 @@ export class LambdaClient extends __Client<
   constructor(configuration: LambdaClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -495,6 +429,7 @@ export class LambdaClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

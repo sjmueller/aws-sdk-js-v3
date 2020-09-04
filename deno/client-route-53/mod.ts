@@ -40,6 +40,7 @@ export * from "./commands/ListGeoLocationsCommand.ts";
 export * from "./commands/ListHealthChecksCommand.ts";
 export * from "./commands/ListHostedZonesCommand.ts";
 export * from "./commands/ListHostedZonesByNameCommand.ts";
+export * from "./commands/ListHostedZonesByVPCCommand.ts";
 export * from "./commands/ListQueryLoggingConfigsCommand.ts";
 export * from "./commands/ListResourceRecordSetsCommand.ts";
 export * from "./commands/ListReusableDelegationSetsCommand.ts";

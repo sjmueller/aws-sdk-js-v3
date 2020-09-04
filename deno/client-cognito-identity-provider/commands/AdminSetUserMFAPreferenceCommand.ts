@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  AdminSetUserMFAPreferenceRequest,
-  AdminSetUserMFAPreferenceResponse
-} from "../models/index.ts";
+import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
-  serializeAws_json1_1AdminSetUserMFAPreferenceCommand
+  serializeAws_json1_1AdminSetUserMFAPreferenceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AdminSetUserMFAPreferenceCommandInput = AdminSetUserMFAPreferenceRequest;
-export type AdminSetUserMFAPreferenceCommandOutput = AdminSetUserMFAPreferenceResponse &
-  __MetadataBearer;
+export type AdminSetUserMFAPreferenceCommandOutput = AdminSetUserMFAPreferenceResponse & __MetadataBearer;
 
 export class AdminSetUserMFAPreferenceCommand extends $Command<
   AdminSetUserMFAPreferenceCommandInput,
@@ -49,18 +42,16 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminSetUserMFAPreferenceCommandInput,
-    AdminSetUserMFAPreferenceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminSetUserMFAPreferenceCommandInput, AdminSetUserMFAPreferenceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +61,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminSetUserMFAPreferenceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AdminSetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminSetUserMFAPreferenceCommand(input, context);
   }
 
@@ -81,10 +69,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

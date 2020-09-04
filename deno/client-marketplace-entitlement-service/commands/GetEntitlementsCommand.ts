@@ -1,18 +1,15 @@
 import {
   MarketplaceEntitlementServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient.ts";
 import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetEntitlementsCommand,
-  serializeAws_json1_1GetEntitlementsCommand
+  serializeAws_json1_1GetEntitlementsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetEntitlementsCommandInput = GetEntitlementsRequest;
-export type GetEntitlementsCommandOutput = GetEntitlementsResult &
-  __MetadataBearer;
+export type GetEntitlementsCommandOutput = GetEntitlementsResult & __MetadataBearer;
 
 export class GetEntitlementsCommand extends $Command<
   GetEntitlementsCommandInput,
@@ -47,14 +43,15 @@ export class GetEntitlementsCommand extends $Command<
     configuration: MarketplaceEntitlementServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEntitlementsCommandInput, GetEntitlementsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetEntitlementsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEntitlementsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class GetEntitlementsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEntitlementsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetEntitlementsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEntitlementsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntitlementsCommandOutput> {
     return deserializeAws_json1_1GetEntitlementsCommand(output, context);
   }
 

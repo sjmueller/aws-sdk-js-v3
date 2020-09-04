@@ -1,21 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceResult
-} from "../models/index.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand
+  serializeAws_queryDeleteDBInstanceCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
-export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult &
-  __MetadataBearer;
+export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult & __MetadataBearer;
 
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,
@@ -50,14 +39,15 @@ export class DeleteDBInstanceCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDBInstanceMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBInstanceResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
     return deserializeAws_queryDeleteDBInstanceCommand(output, context);
   }
 

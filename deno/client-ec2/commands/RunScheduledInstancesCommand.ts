@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  RunScheduledInstancesRequest,
-  RunScheduledInstancesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2RunScheduledInstancesCommand,
-  serializeAws_ec2RunScheduledInstancesCommand
+  serializeAws_ec2RunScheduledInstancesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RunScheduledInstancesCommandInput = RunScheduledInstancesRequest;
-export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult &
-  __MetadataBearer;
+export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult & __MetadataBearer;
 
 export class RunScheduledInstancesCommand extends $Command<
   RunScheduledInstancesCommandInput,
@@ -49,18 +38,16 @@ export class RunScheduledInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RunScheduledInstancesCommandInput,
-    RunScheduledInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RunScheduledInstancesCommandInput, RunScheduledInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RunScheduledInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RunScheduledInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RunScheduledInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RunScheduledInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RunScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RunScheduledInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RunScheduledInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunScheduledInstancesCommandOutput> {
     return deserializeAws_ec2RunScheduledInstancesCommand(output, context);
   }
 

@@ -1,3 +1,4 @@
+import { HttpRequest } from "../protocol-http/mod.ts";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -5,26 +6,23 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "../types/mod.ts";
-import { HttpRequest } from "../protocol-http/mod.ts";
 
 export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let { request } = args;
+    const { request } = args;
     if (HttpRequest.isInstance(request)) {
       request.headers = {
         ...request.headers,
-        accept: "application/json"
+        accept: "application/json",
       };
     }
     return next({
       ...args,
-      request
+      request,
     });
   };
 }
@@ -32,11 +30,12 @@ export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
 export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_ACCEPT_HEADER", "ACCEPT_HEADER"],
-  name: "acceptHeaderMiddleware"
+  name: "acceptHeaderMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getAcceptHeaderPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);
-  }
+  },
 });

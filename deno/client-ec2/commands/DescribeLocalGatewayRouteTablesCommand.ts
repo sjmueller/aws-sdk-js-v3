@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DescribeLocalGatewayRouteTablesRequest,
-  DescribeLocalGatewayRouteTablesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTablesCommand
+  serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeLocalGatewayRouteTablesCommandInput = DescribeLocalGatewayRouteTablesRequest;
-export type DescribeLocalGatewayRouteTablesCommandOutput = DescribeLocalGatewayRouteTablesResult &
-  __MetadataBearer;
+export type DescribeLocalGatewayRouteTablesCommandOutput = DescribeLocalGatewayRouteTablesResult & __MetadataBearer;
 
 export class DescribeLocalGatewayRouteTablesCommand extends $Command<
   DescribeLocalGatewayRouteTablesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLocalGatewayRouteTablesCommandInput,
-    DescribeLocalGatewayRouteTablesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLocalGatewayRouteTablesCommandInput, DescribeLocalGatewayRouteTablesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeLocalGatewayRouteTablesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayRouteTablesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     input: DescribeLocalGatewayRouteTablesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

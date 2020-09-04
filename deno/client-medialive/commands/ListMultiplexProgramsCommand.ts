@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient.ts";
-import {
-  ListMultiplexProgramsRequest,
-  ListMultiplexProgramsResponse
-} from "../models/index.ts";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
+import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListMultiplexProgramsCommand,
-  serializeAws_restJson1ListMultiplexProgramsCommand
+  serializeAws_restJson1ListMultiplexProgramsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListMultiplexProgramsCommandInput = ListMultiplexProgramsRequest;
-export type ListMultiplexProgramsCommandOutput = ListMultiplexProgramsResponse &
-  __MetadataBearer;
+export type ListMultiplexProgramsCommandOutput = ListMultiplexProgramsResponse & __MetadataBearer;
 
 export class ListMultiplexProgramsCommand extends $Command<
   ListMultiplexProgramsCommandInput,
@@ -49,18 +38,16 @@ export class ListMultiplexProgramsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMultiplexProgramsCommandInput,
-    ListMultiplexProgramsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMultiplexProgramsCommandInput, ListMultiplexProgramsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListMultiplexProgramsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListMultiplexProgramsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class ListMultiplexProgramsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMultiplexProgramsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMultiplexProgramsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListMultiplexProgramsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMultiplexProgramsCommandOutput> {
-    return deserializeAws_restJson1ListMultiplexProgramsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultiplexProgramsCommandOutput> {
+    return deserializeAws_restJson1ListMultiplexProgramsCommand(output, context);
   }
 
   // Start section: command_body_extra

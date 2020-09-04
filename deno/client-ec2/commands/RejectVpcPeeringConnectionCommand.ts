@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/index.ts";
 import {
   deserializeAws_ec2RejectVpcPeeringConnectionCommand,
-  serializeAws_ec2RejectVpcPeeringConnectionCommand
+  serializeAws_ec2RejectVpcPeeringConnectionCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RejectVpcPeeringConnectionCommandInput = RejectVpcPeeringConnectionRequest;
-export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult &
-  __MetadataBearer;
+export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult & __MetadataBearer;
 
 export class RejectVpcPeeringConnectionCommand extends $Command<
   RejectVpcPeeringConnectionCommandInput,
@@ -49,18 +38,16 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectVpcPeeringConnectionCommandInput,
-    RejectVpcPeeringConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectVpcPeeringConnectionCommandInput, RejectVpcPeeringConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RejectVpcPeeringConnectionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RejectVpcPeeringConnectionResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RejectVpcPeeringConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RejectVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2RejectVpcPeeringConnectionCommand(input, context);
   }
 

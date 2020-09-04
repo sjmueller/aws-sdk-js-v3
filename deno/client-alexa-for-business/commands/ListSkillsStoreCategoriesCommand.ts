@@ -1,21 +1,15 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient.ts";
-import {
-  ListSkillsStoreCategoriesRequest,
-  ListSkillsStoreCategoriesResponse
-} from "../models/index.ts";
+import { ListSkillsStoreCategoriesRequest, ListSkillsStoreCategoriesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListSkillsStoreCategoriesCommand,
-  serializeAws_json1_1ListSkillsStoreCategoriesCommand
+  serializeAws_json1_1ListSkillsStoreCategoriesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListSkillsStoreCategoriesCommandInput = ListSkillsStoreCategoriesRequest;
-export type ListSkillsStoreCategoriesCommandOutput = ListSkillsStoreCategoriesResponse &
-  __MetadataBearer;
+export type ListSkillsStoreCategoriesCommandOutput = ListSkillsStoreCategoriesResponse & __MetadataBearer;
 
 export class ListSkillsStoreCategoriesCommand extends $Command<
   ListSkillsStoreCategoriesCommandInput,
@@ -49,18 +42,16 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSkillsStoreCategoriesCommandInput,
-    ListSkillsStoreCategoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSkillsStoreCategoriesCommandInput, ListSkillsStoreCategoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListSkillsStoreCategoriesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSkillsStoreCategoriesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +61,7 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSkillsStoreCategoriesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSkillsStoreCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSkillsStoreCategoriesCommand(input, context);
   }
 
@@ -81,10 +69,7 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSkillsStoreCategoriesCommandOutput> {
-    return deserializeAws_json1_1ListSkillsStoreCategoriesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSkillsStoreCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

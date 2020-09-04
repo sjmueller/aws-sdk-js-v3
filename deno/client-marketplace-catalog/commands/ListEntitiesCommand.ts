@@ -1,18 +1,15 @@
 import {
   MarketplaceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MarketplaceCatalogClient.ts";
 import { ListEntitiesRequest, ListEntitiesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1ListEntitiesCommand,
-  serializeAws_restJson1ListEntitiesCommand
+  serializeAws_restJson1ListEntitiesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListEntitiesCommandInput = ListEntitiesRequest;
@@ -46,14 +43,15 @@ export class ListEntitiesCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEntitiesCommandInput, ListEntitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListEntitiesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEntitiesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class ListEntitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEntitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1ListEntitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEntitiesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
     return deserializeAws_restJson1ListEntitiesCommand(output, context);
   }
 

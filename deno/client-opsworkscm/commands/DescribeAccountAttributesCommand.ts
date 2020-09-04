@@ -1,21 +1,11 @@
-import {
-  OpsWorksCMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksCMClient.ts";
-import {
-  DescribeAccountAttributesRequest,
-  DescribeAccountAttributesResponse
-} from "../models/index.ts";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
+import { DescribeAccountAttributesRequest, DescribeAccountAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAccountAttributesCommand,
-  serializeAws_json1_1DescribeAccountAttributesCommand
+  serializeAws_json1_1DescribeAccountAttributesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesRequest;
-export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse &
-  __MetadataBearer;
+export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse & __MetadataBearer;
 
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeAccountAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountAttributesCommandInput,
-    DescribeAccountAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountAttributesCommandInput, DescribeAccountAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAccountAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAccountAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccountAttributesCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

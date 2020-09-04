@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  DeleteBaiduChannelRequest,
-  DeleteBaiduChannelResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteBaiduChannelCommand,
-  serializeAws_restJson1DeleteBaiduChannelCommand
+  serializeAws_restJson1DeleteBaiduChannelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteBaiduChannelCommandInput = DeleteBaiduChannelRequest;
-export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse &
-  __MetadataBearer;
+export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse & __MetadataBearer;
 
 export class DeleteBaiduChannelCommand extends $Command<
   DeleteBaiduChannelCommandInput,
@@ -50,14 +39,15 @@ export class DeleteBaiduChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBaiduChannelCommandInput, DeleteBaiduChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteBaiduChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBaiduChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteBaiduChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteBaiduChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteBaiduChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DeleteBaiduChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteBaiduChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBaiduChannelCommandOutput> {
     return deserializeAws_restJson1DeleteBaiduChannelCommand(output, context);
   }
 

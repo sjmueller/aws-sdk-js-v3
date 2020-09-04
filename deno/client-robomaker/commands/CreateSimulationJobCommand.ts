@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
-import {
-  CreateSimulationJobRequest,
-  CreateSimulationJobResponse
-} from "../models/index.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
+import { CreateSimulationJobRequest, CreateSimulationJobResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateSimulationJobCommand,
-  serializeAws_restJson1CreateSimulationJobCommand
+  serializeAws_restJson1CreateSimulationJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSimulationJobCommandInput = CreateSimulationJobRequest;
-export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse &
-  __MetadataBearer;
+export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse & __MetadataBearer;
 
 export class CreateSimulationJobCommand extends $Command<
   CreateSimulationJobCommandInput,
@@ -49,18 +38,16 @@ export class CreateSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSimulationJobCommandInput,
-    CreateSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSimulationJobCommandInput, CreateSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSimulationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateSimulationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSimulationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateSimulationJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSimulationJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSimulationJobCommandOutput> {
     return deserializeAws_restJson1CreateSimulationJobCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  PIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PIClient.ts";
-import {
-  GetResourceMetricsRequest,
-  GetResourceMetricsResponse
-} from "../models/index.ts";
+import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient.ts";
+import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetResourceMetricsCommand,
-  serializeAws_json1_1GetResourceMetricsCommand
+  serializeAws_json1_1GetResourceMetricsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetResourceMetricsCommandInput = GetResourceMetricsRequest;
-export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse &
-  __MetadataBearer;
+export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse & __MetadataBearer;
 
 export class GetResourceMetricsCommand extends $Command<
   GetResourceMetricsCommandInput,
@@ -50,14 +39,15 @@ export class GetResourceMetricsCommand extends $Command<
     configuration: PIClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetResourceMetricsCommandInput, GetResourceMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetResourceMetricsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceMetricsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetResourceMetricsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetResourceMetricsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourceMetricsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetResourceMetricsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetricsCommandOutput> {
     return deserializeAws_json1_1GetResourceMetricsCommand(output, context);
   }
 

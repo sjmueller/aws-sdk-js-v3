@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient.ts";
-import {
-  GetTimeSeriesServiceStatisticsRequest,
-  GetTimeSeriesServiceStatisticsResult
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
+import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
-  serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand
+  serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetTimeSeriesServiceStatisticsCommandInput = GetTimeSeriesServiceStatisticsRequest;
-export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult &
-  __MetadataBearer;
+export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult & __MetadataBearer;
 
 export class GetTimeSeriesServiceStatisticsCommand extends $Command<
   GetTimeSeriesServiceStatisticsCommandInput,
@@ -49,18 +38,16 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTimeSeriesServiceStatisticsCommandInput,
-    GetTimeSeriesServiceStatisticsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTimeSeriesServiceStatisticsCommandInput, GetTimeSeriesServiceStatisticsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

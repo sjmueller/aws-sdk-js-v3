@@ -1,21 +1,15 @@
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import {
-  UpdateComponentRequest,
-  UpdateComponentResponse
-} from "../models/index.ts";
+import { UpdateComponentRequest, UpdateComponentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateComponentCommand,
-  serializeAws_json1_1UpdateComponentCommand
+  serializeAws_json1_1UpdateComponentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateComponentCommandInput = UpdateComponentRequest;
-export type UpdateComponentCommandOutput = UpdateComponentResponse &
-  __MetadataBearer;
+export type UpdateComponentCommandOutput = UpdateComponentResponse & __MetadataBearer;
 
 export class UpdateComponentCommand extends $Command<
   UpdateComponentCommandInput,
@@ -50,14 +43,15 @@ export class UpdateComponentCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateComponentCommandInput, UpdateComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateComponentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateComponentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class UpdateComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateComponentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentCommandOutput> {
     return deserializeAws_json1_1UpdateComponentCommand(output, context);
   }
 

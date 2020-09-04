@@ -1,306 +1,256 @@
+import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand.ts";
+import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./commands/ClaimGameServerCommand.ts";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
+import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand.ts";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
-  AcceptMatchCommandInput,
-  AcceptMatchCommandOutput
-} from "./commands/AcceptMatchCommand.ts";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand.ts";
-import {
-  CreateBuildCommandInput,
-  CreateBuildCommandOutput
-} from "./commands/CreateBuildCommand.ts";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand.ts";
-import {
-  CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput
-} from "./commands/CreateGameSessionCommand.ts";
+  CreateGameServerGroupCommandInput,
+  CreateGameServerGroupCommandOutput,
+} from "./commands/CreateGameServerGroupCommand.ts";
+import { CreateGameSessionCommandInput, CreateGameSessionCommandOutput } from "./commands/CreateGameSessionCommand.ts";
 import {
   CreateGameSessionQueueCommandInput,
-  CreateGameSessionQueueCommandOutput
+  CreateGameSessionQueueCommandOutput,
 } from "./commands/CreateGameSessionQueueCommand.ts";
 import {
   CreateMatchmakingConfigurationCommandInput,
-  CreateMatchmakingConfigurationCommandOutput
+  CreateMatchmakingConfigurationCommandOutput,
 } from "./commands/CreateMatchmakingConfigurationCommand.ts";
 import {
   CreateMatchmakingRuleSetCommandInput,
-  CreateMatchmakingRuleSetCommandOutput
+  CreateMatchmakingRuleSetCommandOutput,
 } from "./commands/CreateMatchmakingRuleSetCommand.ts";
 import {
   CreatePlayerSessionCommandInput,
-  CreatePlayerSessionCommandOutput
+  CreatePlayerSessionCommandOutput,
 } from "./commands/CreatePlayerSessionCommand.ts";
 import {
   CreatePlayerSessionsCommandInput,
-  CreatePlayerSessionsCommandOutput
+  CreatePlayerSessionsCommandOutput,
 } from "./commands/CreatePlayerSessionsCommand.ts";
-import {
-  CreateScriptCommandInput,
-  CreateScriptCommandOutput
-} from "./commands/CreateScriptCommand.ts";
+import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand.ts";
 import {
   CreateVpcPeeringAuthorizationCommandInput,
-  CreateVpcPeeringAuthorizationCommandOutput
+  CreateVpcPeeringAuthorizationCommandOutput,
 } from "./commands/CreateVpcPeeringAuthorizationCommand.ts";
 import {
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand.ts";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
+import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand.ts";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand.ts";
-import {
-  DeleteBuildCommandInput,
-  DeleteBuildCommandOutput
-} from "./commands/DeleteBuildCommand.ts";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand.ts";
+  DeleteGameServerGroupCommandInput,
+  DeleteGameServerGroupCommandOutput,
+} from "./commands/DeleteGameServerGroupCommand.ts";
 import {
   DeleteGameSessionQueueCommandInput,
-  DeleteGameSessionQueueCommandOutput
+  DeleteGameSessionQueueCommandOutput,
 } from "./commands/DeleteGameSessionQueueCommand.ts";
 import {
   DeleteMatchmakingConfigurationCommandInput,
-  DeleteMatchmakingConfigurationCommandOutput
+  DeleteMatchmakingConfigurationCommandOutput,
 } from "./commands/DeleteMatchmakingConfigurationCommand.ts";
 import {
   DeleteMatchmakingRuleSetCommandInput,
-  DeleteMatchmakingRuleSetCommandOutput
+  DeleteMatchmakingRuleSetCommandOutput,
 } from "./commands/DeleteMatchmakingRuleSetCommand.ts";
 import {
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "./commands/DeleteScalingPolicyCommand.ts";
-import {
-  DeleteScriptCommandInput,
-  DeleteScriptCommandOutput
-} from "./commands/DeleteScriptCommand.ts";
+import { DeleteScriptCommandInput, DeleteScriptCommandOutput } from "./commands/DeleteScriptCommand.ts";
 import {
   DeleteVpcPeeringAuthorizationCommandInput,
-  DeleteVpcPeeringAuthorizationCommandOutput
+  DeleteVpcPeeringAuthorizationCommandOutput,
 } from "./commands/DeleteVpcPeeringAuthorizationCommand.ts";
 import {
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand.ts";
 import {
-  DescribeAliasCommandInput,
-  DescribeAliasCommandOutput
-} from "./commands/DescribeAliasCommand.ts";
-import {
-  DescribeBuildCommandInput,
-  DescribeBuildCommandOutput
-} from "./commands/DescribeBuildCommand.ts";
+  DeregisterGameServerCommandInput,
+  DeregisterGameServerCommandOutput,
+} from "./commands/DeregisterGameServerCommand.ts";
+import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./commands/DescribeAliasCommand.ts";
+import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand.ts";
 import {
   DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput
+  DescribeEC2InstanceLimitsCommandOutput,
 } from "./commands/DescribeEC2InstanceLimitsCommand.ts";
 import {
   DescribeFleetAttributesCommandInput,
-  DescribeFleetAttributesCommandOutput
+  DescribeFleetAttributesCommandOutput,
 } from "./commands/DescribeFleetAttributesCommand.ts";
 import {
   DescribeFleetCapacityCommandInput,
-  DescribeFleetCapacityCommandOutput
+  DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand.ts";
 import {
   DescribeFleetEventsCommandInput,
-  DescribeFleetEventsCommandOutput
+  DescribeFleetEventsCommandOutput,
 } from "./commands/DescribeFleetEventsCommand.ts";
 import {
   DescribeFleetPortSettingsCommandInput,
-  DescribeFleetPortSettingsCommandOutput
+  DescribeFleetPortSettingsCommandOutput,
 } from "./commands/DescribeFleetPortSettingsCommand.ts";
 import {
   DescribeFleetUtilizationCommandInput,
-  DescribeFleetUtilizationCommandOutput
+  DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand.ts";
 import {
+  DescribeGameServerCommandInput,
+  DescribeGameServerCommandOutput,
+} from "./commands/DescribeGameServerCommand.ts";
+import {
+  DescribeGameServerGroupCommandInput,
+  DescribeGameServerGroupCommandOutput,
+} from "./commands/DescribeGameServerGroupCommand.ts";
+import {
   DescribeGameSessionDetailsCommandInput,
-  DescribeGameSessionDetailsCommandOutput
+  DescribeGameSessionDetailsCommandOutput,
 } from "./commands/DescribeGameSessionDetailsCommand.ts";
 import {
   DescribeGameSessionPlacementCommandInput,
-  DescribeGameSessionPlacementCommandOutput
+  DescribeGameSessionPlacementCommandOutput,
 } from "./commands/DescribeGameSessionPlacementCommand.ts";
 import {
   DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput
+  DescribeGameSessionQueuesCommandOutput,
 } from "./commands/DescribeGameSessionQueuesCommand.ts";
 import {
   DescribeGameSessionsCommandInput,
-  DescribeGameSessionsCommandOutput
+  DescribeGameSessionsCommandOutput,
 } from "./commands/DescribeGameSessionsCommand.ts";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand.ts";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand.ts";
 import {
   DescribeMatchmakingCommandInput,
-  DescribeMatchmakingCommandOutput
+  DescribeMatchmakingCommandOutput,
 } from "./commands/DescribeMatchmakingCommand.ts";
 import {
   DescribeMatchmakingConfigurationsCommandInput,
-  DescribeMatchmakingConfigurationsCommandOutput
+  DescribeMatchmakingConfigurationsCommandOutput,
 } from "./commands/DescribeMatchmakingConfigurationsCommand.ts";
 import {
   DescribeMatchmakingRuleSetsCommandInput,
-  DescribeMatchmakingRuleSetsCommandOutput
+  DescribeMatchmakingRuleSetsCommandOutput,
 } from "./commands/DescribeMatchmakingRuleSetsCommand.ts";
 import {
   DescribePlayerSessionsCommandInput,
-  DescribePlayerSessionsCommandOutput
+  DescribePlayerSessionsCommandOutput,
 } from "./commands/DescribePlayerSessionsCommand.ts";
 import {
   DescribeRuntimeConfigurationCommandInput,
-  DescribeRuntimeConfigurationCommandOutput
+  DescribeRuntimeConfigurationCommandOutput,
 } from "./commands/DescribeRuntimeConfigurationCommand.ts";
 import {
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "./commands/DescribeScalingPoliciesCommand.ts";
-import {
-  DescribeScriptCommandInput,
-  DescribeScriptCommandOutput
-} from "./commands/DescribeScriptCommand.ts";
+import { DescribeScriptCommandInput, DescribeScriptCommandOutput } from "./commands/DescribeScriptCommand.ts";
 import {
   DescribeVpcPeeringAuthorizationsCommandInput,
-  DescribeVpcPeeringAuthorizationsCommandOutput
+  DescribeVpcPeeringAuthorizationsCommandOutput,
 } from "./commands/DescribeVpcPeeringAuthorizationsCommand.ts";
 import {
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand.ts";
 import {
   GetGameSessionLogUrlCommandInput,
-  GetGameSessionLogUrlCommandOutput
+  GetGameSessionLogUrlCommandOutput,
 } from "./commands/GetGameSessionLogUrlCommand.ts";
+import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from "./commands/GetInstanceAccessCommand.ts";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
+import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand.ts";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
-  GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput
-} from "./commands/GetInstanceAccessCommand.ts";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand.ts";
-import {
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand.ts";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand.ts";
-import {
-  ListScriptsCommandInput,
-  ListScriptsCommandOutput
-} from "./commands/ListScriptsCommand.ts";
+  ListGameServerGroupsCommandInput,
+  ListGameServerGroupsCommandOutput,
+} from "./commands/ListGameServerGroupsCommand.ts";
+import { ListGameServersCommandInput, ListGameServersCommandOutput } from "./commands/ListGameServersCommand.ts";
+import { ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand.ts";
 import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand.ts";
+  RegisterGameServerCommandInput,
+  RegisterGameServerCommandOutput,
+} from "./commands/RegisterGameServerCommand.ts";
 import {
   RequestUploadCredentialsCommandInput,
-  RequestUploadCredentialsCommandOutput
+  RequestUploadCredentialsCommandOutput,
 } from "./commands/RequestUploadCredentialsCommand.ts";
+import { ResolveAliasCommandInput, ResolveAliasCommandOutput } from "./commands/ResolveAliasCommand.ts";
 import {
-  ResolveAliasCommandInput,
-  ResolveAliasCommandOutput
-} from "./commands/ResolveAliasCommand.ts";
+  ResumeGameServerGroupCommandInput,
+  ResumeGameServerGroupCommandOutput,
+} from "./commands/ResumeGameServerGroupCommand.ts";
 import {
   SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput
+  SearchGameSessionsCommandOutput,
 } from "./commands/SearchGameSessionsCommand.ts";
-import {
-  StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput
-} from "./commands/StartFleetActionsCommand.ts";
+import { StartFleetActionsCommandInput, StartFleetActionsCommandOutput } from "./commands/StartFleetActionsCommand.ts";
 import {
   StartGameSessionPlacementCommandInput,
-  StartGameSessionPlacementCommandOutput
+  StartGameSessionPlacementCommandOutput,
 } from "./commands/StartGameSessionPlacementCommand.ts";
 import {
   StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput
+  StartMatchBackfillCommandOutput,
 } from "./commands/StartMatchBackfillCommand.ts";
-import {
-  StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput
-} from "./commands/StartMatchmakingCommand.ts";
-import {
-  StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput
-} from "./commands/StopFleetActionsCommand.ts";
+import { StartMatchmakingCommandInput, StartMatchmakingCommandOutput } from "./commands/StartMatchmakingCommand.ts";
+import { StopFleetActionsCommandInput, StopFleetActionsCommandOutput } from "./commands/StopFleetActionsCommand.ts";
 import {
   StopGameSessionPlacementCommandInput,
-  StopGameSessionPlacementCommandOutput
+  StopGameSessionPlacementCommandOutput,
 } from "./commands/StopGameSessionPlacementCommand.ts";
+import { StopMatchmakingCommandInput, StopMatchmakingCommandOutput } from "./commands/StopMatchmakingCommand.ts";
 import {
-  StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput
-} from "./commands/StopMatchmakingCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand.ts";
-import {
-  UpdateBuildCommandInput,
-  UpdateBuildCommandOutput
-} from "./commands/UpdateBuildCommand.ts";
+  SuspendGameServerGroupCommandInput,
+  SuspendGameServerGroupCommandOutput,
+} from "./commands/SuspendGameServerGroupCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand.ts";
+import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand.ts";
 import {
   UpdateFleetAttributesCommandInput,
-  UpdateFleetAttributesCommandOutput
+  UpdateFleetAttributesCommandOutput,
 } from "./commands/UpdateFleetAttributesCommand.ts";
 import {
   UpdateFleetCapacityCommandInput,
-  UpdateFleetCapacityCommandOutput
+  UpdateFleetCapacityCommandOutput,
 } from "./commands/UpdateFleetCapacityCommand.ts";
 import {
   UpdateFleetPortSettingsCommandInput,
-  UpdateFleetPortSettingsCommandOutput
+  UpdateFleetPortSettingsCommandOutput,
 } from "./commands/UpdateFleetPortSettingsCommand.ts";
+import { UpdateGameServerCommandInput, UpdateGameServerCommandOutput } from "./commands/UpdateGameServerCommand.ts";
 import {
-  UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput
-} from "./commands/UpdateGameSessionCommand.ts";
+  UpdateGameServerGroupCommandInput,
+  UpdateGameServerGroupCommandOutput,
+} from "./commands/UpdateGameServerGroupCommand.ts";
+import { UpdateGameSessionCommandInput, UpdateGameSessionCommandOutput } from "./commands/UpdateGameSessionCommand.ts";
 import {
   UpdateGameSessionQueueCommandInput,
-  UpdateGameSessionQueueCommandOutput
+  UpdateGameSessionQueueCommandOutput,
 } from "./commands/UpdateGameSessionQueueCommand.ts";
 import {
   UpdateMatchmakingConfigurationCommandInput,
-  UpdateMatchmakingConfigurationCommandOutput
+  UpdateMatchmakingConfigurationCommandOutput,
 } from "./commands/UpdateMatchmakingConfigurationCommand.ts";
 import {
   UpdateRuntimeConfigurationCommandInput,
-  UpdateRuntimeConfigurationCommandOutput
+  UpdateRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateRuntimeConfigurationCommand.ts";
-import {
-  UpdateScriptCommandInput,
-  UpdateScriptCommandOutput
-} from "./commands/UpdateScriptCommand.ts";
+import { UpdateScriptCommandInput, UpdateScriptCommandOutput } from "./commands/UpdateScriptCommand.ts";
 import {
   ValidateMatchmakingRuleSetCommandInput,
-  ValidateMatchmakingRuleSetCommandOutput
+  ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -309,38 +259,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -349,16 +295,19 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | AcceptMatchCommandInput
+  | ClaimGameServerCommandInput
   | CreateAliasCommandInput
   | CreateBuildCommandInput
   | CreateFleetCommandInput
+  | CreateGameServerGroupCommandInput
   | CreateGameSessionCommandInput
   | CreateGameSessionQueueCommandInput
   | CreateMatchmakingConfigurationCommandInput
@@ -371,6 +320,7 @@ export type ServiceInputTypes =
   | DeleteAliasCommandInput
   | DeleteBuildCommandInput
   | DeleteFleetCommandInput
+  | DeleteGameServerGroupCommandInput
   | DeleteGameSessionQueueCommandInput
   | DeleteMatchmakingConfigurationCommandInput
   | DeleteMatchmakingRuleSetCommandInput
@@ -378,6 +328,7 @@ export type ServiceInputTypes =
   | DeleteScriptCommandInput
   | DeleteVpcPeeringAuthorizationCommandInput
   | DeleteVpcPeeringConnectionCommandInput
+  | DeregisterGameServerCommandInput
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
   | DescribeEC2InstanceLimitsCommandInput
@@ -386,6 +337,8 @@ export type ServiceInputTypes =
   | DescribeFleetEventsCommandInput
   | DescribeFleetPortSettingsCommandInput
   | DescribeFleetUtilizationCommandInput
+  | DescribeGameServerCommandInput
+  | DescribeGameServerGroupCommandInput
   | DescribeGameSessionDetailsCommandInput
   | DescribeGameSessionPlacementCommandInput
   | DescribeGameSessionQueuesCommandInput
@@ -405,11 +358,15 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListFleetsCommandInput
+  | ListGameServerGroupsCommandInput
+  | ListGameServersCommandInput
   | ListScriptsCommandInput
   | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
+  | RegisterGameServerCommandInput
   | RequestUploadCredentialsCommandInput
   | ResolveAliasCommandInput
+  | ResumeGameServerGroupCommandInput
   | SearchGameSessionsCommandInput
   | StartFleetActionsCommandInput
   | StartGameSessionPlacementCommandInput
@@ -418,6 +375,7 @@ export type ServiceInputTypes =
   | StopFleetActionsCommandInput
   | StopGameSessionPlacementCommandInput
   | StopMatchmakingCommandInput
+  | SuspendGameServerGroupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
@@ -425,6 +383,8 @@ export type ServiceInputTypes =
   | UpdateFleetAttributesCommandInput
   | UpdateFleetCapacityCommandInput
   | UpdateFleetPortSettingsCommandInput
+  | UpdateGameServerCommandInput
+  | UpdateGameServerGroupCommandInput
   | UpdateGameSessionCommandInput
   | UpdateGameSessionQueueCommandInput
   | UpdateMatchmakingConfigurationCommandInput
@@ -434,9 +394,11 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AcceptMatchCommandOutput
+  | ClaimGameServerCommandOutput
   | CreateAliasCommandOutput
   | CreateBuildCommandOutput
   | CreateFleetCommandOutput
+  | CreateGameServerGroupCommandOutput
   | CreateGameSessionCommandOutput
   | CreateGameSessionQueueCommandOutput
   | CreateMatchmakingConfigurationCommandOutput
@@ -449,6 +411,7 @@ export type ServiceOutputTypes =
   | DeleteAliasCommandOutput
   | DeleteBuildCommandOutput
   | DeleteFleetCommandOutput
+  | DeleteGameServerGroupCommandOutput
   | DeleteGameSessionQueueCommandOutput
   | DeleteMatchmakingConfigurationCommandOutput
   | DeleteMatchmakingRuleSetCommandOutput
@@ -456,6 +419,7 @@ export type ServiceOutputTypes =
   | DeleteScriptCommandOutput
   | DeleteVpcPeeringAuthorizationCommandOutput
   | DeleteVpcPeeringConnectionCommandOutput
+  | DeregisterGameServerCommandOutput
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
@@ -464,6 +428,8 @@ export type ServiceOutputTypes =
   | DescribeFleetEventsCommandOutput
   | DescribeFleetPortSettingsCommandOutput
   | DescribeFleetUtilizationCommandOutput
+  | DescribeGameServerCommandOutput
+  | DescribeGameServerGroupCommandOutput
   | DescribeGameSessionDetailsCommandOutput
   | DescribeGameSessionPlacementCommandOutput
   | DescribeGameSessionQueuesCommandOutput
@@ -483,11 +449,15 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListFleetsCommandOutput
+  | ListGameServerGroupsCommandOutput
+  | ListGameServersCommandOutput
   | ListScriptsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
+  | RegisterGameServerCommandOutput
   | RequestUploadCredentialsCommandOutput
   | ResolveAliasCommandOutput
+  | ResumeGameServerGroupCommandOutput
   | SearchGameSessionsCommandOutput
   | StartFleetActionsCommandOutput
   | StartGameSessionPlacementCommandOutput
@@ -496,6 +466,7 @@ export type ServiceOutputTypes =
   | StopFleetActionsCommandOutput
   | StopGameSessionPlacementCommandOutput
   | StopMatchmakingCommandOutput
+  | SuspendGameServerGroupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
@@ -503,6 +474,8 @@ export type ServiceOutputTypes =
   | UpdateFleetAttributesCommandOutput
   | UpdateFleetCapacityCommandOutput
   | UpdateFleetPortSettingsCommandOutput
+  | UpdateGameServerCommandOutput
+  | UpdateGameServerGroupCommandOutput
   | UpdateGameSessionCommandOutput
   | UpdateGameSessionQueueCommandOutput
   | UpdateMatchmakingConfigurationCommandOutput
@@ -510,8 +483,7 @@ export type ServiceOutputTypes =
   | UpdateScriptCommandOutput
   | ValidateMatchmakingRuleSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -585,14 +557,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -600,9 +577,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GameLiftClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GameLiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -611,9 +586,7 @@ export type GameLiftClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -624,15 +597,36 @@ export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <fullname>Amazon GameLift Service</fullname>
- *         <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server
- *             solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing
- *             resources and deploy your game servers, (2) run game sessions and get players into
- *             games, (3) automatically scale your resources to meet player demand and manage costs,
- *             and (4) track in-depth metrics on game server performance and player usage.</p>
+ *         <p> Amazon GameLift provides a range of multiplayer game hosting solutions. As a fully managed
+ *             service, GameLift helps you:</p>
+ *         <ul>
+ *             <li>
+ *                <p>Set up EC2-based computing resources and use GameLift FleetIQ to and deploy your game
+ *                 servers on low-cost, reliable Spot instances.</p>
+ *             </li>
+ *             <li>
+ *                <p>Track game server availability and route players into game sessions to minimize latency.</p>
+ *             </li>
+ *             <li>
+ *                <p>Automatically scale your resources to meet player demand and manage costs</p>
+ *             </li>
+ *             <li>
+ *                <p>Optionally add FlexMatch matchmaking.</p>
+ *             </li>
+ *          </ul>
  *
- *         <p>When setting up hosting resources, you can deploy your custom game server or use the
- *             Amazon GameLift Realtime Servers. Realtime Servers gives you the ability to quickly stand up lightweight, efficient
- *             game servers with the core Amazon GameLift infrastructure already built in.</p>
+ *         <p>With GameLift as a managed service, you have the option to deploy your custom game
+ *             server or use Amazon GameLift Realtime Servers to quickly stand up lightweight game servers for your game.
+ *             Realtime Servers provides an efficient game server framework with core Amazon GameLift infrastructure
+ *             already built in.</p>
+ *
+ *         <p>
+ *             <b>Now in Public Preview:</b>
+ *          </p>
+ *         <p>Use GameLift FleetIQ as a standalone feature with EC2 instances and Auto Scaling groups. GameLift FleetIQ
+ *             provides optimizations that make low-cost Spot instances viable for game hosting. This
+ *             extension of GameLift FleetIQ gives you access to these optimizations while managing your EC2
+ *             instances and Auto Scaling groups within your own AWS account.</p>
  *
  *         <p>
  *             <b>Get Amazon GameLift Tools and Resources</b>
@@ -677,7 +671,7 @@ export class GameLiftClient extends __Client<
   constructor(configuration: GameLiftClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -692,6 +686,7 @@ export class GameLiftClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  UpdatePatchBaselineRequest,
-  UpdatePatchBaselineResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { UpdatePatchBaselineRequest, UpdatePatchBaselineResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdatePatchBaselineCommand,
-  serializeAws_json1_1UpdatePatchBaselineCommand
+  serializeAws_json1_1UpdatePatchBaselineCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdatePatchBaselineCommandInput = UpdatePatchBaselineRequest;
-export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult &
-  __MetadataBearer;
+export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult & __MetadataBearer;
 
 export class UpdatePatchBaselineCommand extends $Command<
   UpdatePatchBaselineCommandInput,
@@ -49,18 +38,16 @@ export class UpdatePatchBaselineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePatchBaselineCommandInput,
-    UpdatePatchBaselineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePatchBaselineCommandInput, UpdatePatchBaselineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdatePatchBaselineRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePatchBaselineResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdatePatchBaselineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdatePatchBaselineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdatePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePatchBaselineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePatchBaselineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePatchBaselineCommandOutput> {
     return deserializeAws_json1_1UpdatePatchBaselineCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient.ts";
-import {
-  DescribeAutoMLJobRequest,
-  DescribeAutoMLJobResponse
-} from "../models/index.ts";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
+import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeAutoMLJobCommand,
-  serializeAws_json1_1DescribeAutoMLJobCommand
+  serializeAws_json1_1DescribeAutoMLJobCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeAutoMLJobCommandInput = DescribeAutoMLJobRequest;
-export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse &
-  __MetadataBearer;
+export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse & __MetadataBearer;
 
 export class DescribeAutoMLJobCommand extends $Command<
   DescribeAutoMLJobCommandInput,
@@ -50,14 +39,15 @@ export class DescribeAutoMLJobCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeAutoMLJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAutoMLJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeAutoMLJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAutoMLJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAutoMLJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAutoMLJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobCommandOutput> {
     return deserializeAws_json1_1DescribeAutoMLJobCommand(output, context);
   }
 

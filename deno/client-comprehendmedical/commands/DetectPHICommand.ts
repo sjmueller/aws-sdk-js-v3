@@ -1,18 +1,15 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
 import { DetectPHIRequest, DetectPHIResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DetectPHICommand,
-  serializeAws_json1_1DetectPHICommand
+  serializeAws_json1_1DetectPHICommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DetectPHICommandInput = DetectPHIRequest;
@@ -46,14 +43,15 @@ export class DetectPHICommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectPHICommandInput, DetectPHICommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DetectPHIRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectPHIResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class DetectPHICommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectPHICommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectPHICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectPHICommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectPHICommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectPHICommandOutput> {
     return deserializeAws_json1_1DetectPHICommand(output, context);
   }
 

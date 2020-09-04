@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowballClientResolvedConfig
-} from "../SnowballClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
 import { GetJobManifestRequest, GetJobManifestResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetJobManifestCommand,
-  serializeAws_json1_1GetJobManifestCommand
+  serializeAws_json1_1GetJobManifestCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetJobManifestCommandInput = GetJobManifestRequest;
-export type GetJobManifestCommandOutput = GetJobManifestResult &
-  __MetadataBearer;
+export type GetJobManifestCommandOutput = GetJobManifestResult & __MetadataBearer;
 
 export class GetJobManifestCommand extends $Command<
   GetJobManifestCommandInput,
@@ -47,14 +39,15 @@ export class GetJobManifestCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobManifestCommandInput, GetJobManifestCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetJobManifestRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetJobManifestResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetJobManifestCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetJobManifestCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetJobManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobManifestCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetJobManifestCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobManifestCommandOutput> {
     return deserializeAws_json1_1GetJobManifestCommand(output, context);
   }
 

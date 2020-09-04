@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResponse
-} from "../models/index.ts";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ModifyEventSubscriptionCommand,
-  serializeAws_json1_1ModifyEventSubscriptionCommand
+  serializeAws_json1_1ModifyEventSubscriptionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResponse &
-  __MetadataBearer;
+export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResponse & __MetadataBearer;
 
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
@@ -49,18 +42,16 @@ export class ModifyEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyEventSubscriptionCommandInput,
-    ModifyEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyEventSubscriptionCommandInput, ModifyEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ModifyEventSubscriptionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyEventSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyEventSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1ModifyEventSubscriptionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
+    return deserializeAws_json1_1ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient.ts";
-import {
-  BatchDescribeSimulationJobRequest,
-  BatchDescribeSimulationJobResponse
-} from "../models/index.ts";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
+import { BatchDescribeSimulationJobRequest, BatchDescribeSimulationJobResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1BatchDescribeSimulationJobCommand,
-  serializeAws_restJson1BatchDescribeSimulationJobCommand
+  serializeAws_restJson1BatchDescribeSimulationJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDescribeSimulationJobCommandInput = BatchDescribeSimulationJobRequest;
-export type BatchDescribeSimulationJobCommandOutput = BatchDescribeSimulationJobResponse &
-  __MetadataBearer;
+export type BatchDescribeSimulationJobCommandOutput = BatchDescribeSimulationJobResponse & __MetadataBearer;
 
 export class BatchDescribeSimulationJobCommand extends $Command<
   BatchDescribeSimulationJobCommandInput,
@@ -49,18 +38,16 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDescribeSimulationJobCommandInput,
-    BatchDescribeSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDescribeSimulationJobCommandInput, BatchDescribeSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDescribeSimulationJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDescribeSimulationJobResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDescribeSimulationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDescribeSimulationJobCommand(
-      input,
-      context
-    );
+  private serialize(input: BatchDescribeSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1BatchDescribeSimulationJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1BatchDescribeSimulationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1BatchDescribeSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

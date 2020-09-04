@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient.ts";
-import {
-  UpdateTestGridProjectRequest,
-  UpdateTestGridProjectResult
-} from "../models/index.ts";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
+import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateTestGridProjectCommand,
-  serializeAws_json1_1UpdateTestGridProjectCommand
+  serializeAws_json1_1UpdateTestGridProjectCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateTestGridProjectCommandInput = UpdateTestGridProjectRequest;
-export type UpdateTestGridProjectCommandOutput = UpdateTestGridProjectResult &
-  __MetadataBearer;
+export type UpdateTestGridProjectCommandOutput = UpdateTestGridProjectResult & __MetadataBearer;
 
 export class UpdateTestGridProjectCommand extends $Command<
   UpdateTestGridProjectCommandInput,
@@ -49,18 +38,16 @@ export class UpdateTestGridProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTestGridProjectCommandInput,
-    UpdateTestGridProjectCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTestGridProjectCommandInput, UpdateTestGridProjectCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateTestGridProjectRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTestGridProjectResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateTestGridProjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTestGridProjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTestGridProjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTestGridProjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTestGridProjectCommandOutput> {
     return deserializeAws_json1_1UpdateTestGridProjectCommand(output, context);
   }
 

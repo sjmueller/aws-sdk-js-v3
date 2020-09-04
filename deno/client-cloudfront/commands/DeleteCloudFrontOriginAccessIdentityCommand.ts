@@ -1,18 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient.ts";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/index.ts";
 import {
   deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand
+  serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteCloudFrontOriginAccessIdentityCommandInput = DeleteCloudFrontOriginAccessIdentityRequest;
@@ -35,9 +28,7 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteCloudFrontOriginAccessIdentityCommandInput
-  ) {
+  constructor(readonly input: DeleteCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -47,18 +38,16 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCloudFrontOriginAccessIdentityCommandInput,
-    DeleteCloudFrontOriginAccessIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCloudFrontOriginAccessIdentityCommandInput, DeleteCloudFrontOriginAccessIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteCloudFrontOriginAccessIdentityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +61,14 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     input: DeleteCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

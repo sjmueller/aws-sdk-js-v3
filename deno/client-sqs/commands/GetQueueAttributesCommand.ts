@@ -1,21 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient.ts";
-import {
-  GetQueueAttributesRequest,
-  GetQueueAttributesResult
-} from "../models/index.ts";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
+import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/index.ts";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
-  serializeAws_queryGetQueueAttributesCommand
+  serializeAws_queryGetQueueAttributesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
-export type GetQueueAttributesCommandOutput = GetQueueAttributesResult &
-  __MetadataBearer;
+export type GetQueueAttributesCommandOutput = GetQueueAttributesResult & __MetadataBearer;
 
 export class GetQueueAttributesCommand extends $Command<
   GetQueueAttributesCommandInput,
@@ -50,14 +39,15 @@ export class GetQueueAttributesCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetQueueAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetQueueAttributesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetQueueAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetQueueAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetQueueAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetQueueAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueAttributesCommandOutput> {
     return deserializeAws_queryGetQueueAttributesCommand(output, context);
   }
 

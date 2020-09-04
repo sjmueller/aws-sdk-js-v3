@@ -1,21 +1,11 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient.ts";
-import {
-  DescribeEventsForOrganizationRequest,
-  DescribeEventsForOrganizationResponse
-} from "../models/index.ts";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
+import { DescribeEventsForOrganizationRequest, DescribeEventsForOrganizationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventsForOrganizationCommand,
-  serializeAws_json1_1DescribeEventsForOrganizationCommand
+  serializeAws_json1_1DescribeEventsForOrganizationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventsForOrganizationCommandInput = DescribeEventsForOrganizationRequest;
-export type DescribeEventsForOrganizationCommandOutput = DescribeEventsForOrganizationResponse &
-  __MetadataBearer;
+export type DescribeEventsForOrganizationCommandOutput = DescribeEventsForOrganizationResponse & __MetadataBearer;
 
 export class DescribeEventsForOrganizationCommand extends $Command<
   DescribeEventsForOrganizationCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventsForOrganizationCommandInput,
-    DescribeEventsForOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventsForOrganizationCommandInput, DescribeEventsForOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEventsForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventsForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventsForOrganizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsForOrganizationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeEventsForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeEventsForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

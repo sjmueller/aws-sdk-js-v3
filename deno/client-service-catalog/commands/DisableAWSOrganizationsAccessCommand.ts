@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient.ts";
-import {
-  DisableAWSOrganizationsAccessInput,
-  DisableAWSOrganizationsAccessOutput
-} from "../models/index.ts";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DisableAWSOrganizationsAccessInput, DisableAWSOrganizationsAccessOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisableAWSOrganizationsAccessCommand,
-  serializeAws_json1_1DisableAWSOrganizationsAccessCommand
+  serializeAws_json1_1DisableAWSOrganizationsAccessCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisableAWSOrganizationsAccessCommandInput = DisableAWSOrganizationsAccessInput;
-export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput &
-  __MetadataBearer;
+export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput & __MetadataBearer;
 
 export class DisableAWSOrganizationsAccessCommand extends $Command<
   DisableAWSOrganizationsAccessCommandInput,
@@ -49,18 +38,16 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableAWSOrganizationsAccessCommandInput,
-    DisableAWSOrganizationsAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableAWSOrganizationsAccessCommandInput, DisableAWSOrganizationsAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisableAWSOrganizationsAccessInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DisableAWSOrganizationsAccessOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisableAWSOrganizationsAccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAWSOrganizationsAccessCommand(
-      input,
-      context
-    );
+  private serialize(input: DisableAWSOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DisableAWSOrganizationsAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAWSOrganizationsAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSOrganizationsAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisableAWSOrganizationsAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

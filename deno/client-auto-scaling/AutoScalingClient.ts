@@ -1,218 +1,188 @@
-import {
-  AttachInstancesCommandInput,
-  AttachInstancesCommandOutput
-} from "./commands/AttachInstancesCommand.ts";
+import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "./commands/AttachInstancesCommand.ts";
 import {
   AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput
+  AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand.ts";
 import {
   AttachLoadBalancersCommandInput,
-  AttachLoadBalancersCommandOutput
+  AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand.ts";
 import {
   BatchDeleteScheduledActionCommandInput,
-  BatchDeleteScheduledActionCommandOutput
+  BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand.ts";
 import {
   BatchPutScheduledUpdateGroupActionCommandInput,
-  BatchPutScheduledUpdateGroupActionCommandOutput
+  BatchPutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/BatchPutScheduledUpdateGroupActionCommand.ts";
 import {
+  CancelInstanceRefreshCommandInput,
+  CancelInstanceRefreshCommandOutput,
+} from "./commands/CancelInstanceRefreshCommand.ts";
+import {
   CompleteLifecycleActionCommandInput,
-  CompleteLifecycleActionCommandOutput
+  CompleteLifecycleActionCommandOutput,
 } from "./commands/CompleteLifecycleActionCommand.ts";
 import {
   CreateAutoScalingGroupCommandInput,
-  CreateAutoScalingGroupCommandOutput
+  CreateAutoScalingGroupCommandOutput,
 } from "./commands/CreateAutoScalingGroupCommand.ts";
 import {
   CreateLaunchConfigurationCommandInput,
-  CreateLaunchConfigurationCommandOutput
+  CreateLaunchConfigurationCommandOutput,
 } from "./commands/CreateLaunchConfigurationCommand.ts";
 import {
   CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput
+  CreateOrUpdateTagsCommandOutput,
 } from "./commands/CreateOrUpdateTagsCommand.ts";
 import {
   DeleteAutoScalingGroupCommandInput,
-  DeleteAutoScalingGroupCommandOutput
+  DeleteAutoScalingGroupCommandOutput,
 } from "./commands/DeleteAutoScalingGroupCommand.ts";
 import {
   DeleteLaunchConfigurationCommandInput,
-  DeleteLaunchConfigurationCommandOutput
+  DeleteLaunchConfigurationCommandOutput,
 } from "./commands/DeleteLaunchConfigurationCommand.ts";
 import {
   DeleteLifecycleHookCommandInput,
-  DeleteLifecycleHookCommandOutput
+  DeleteLifecycleHookCommandOutput,
 } from "./commands/DeleteLifecycleHookCommand.ts";
 import {
   DeleteNotificationConfigurationCommandInput,
-  DeleteNotificationConfigurationCommandOutput
+  DeleteNotificationConfigurationCommandOutput,
 } from "./commands/DeleteNotificationConfigurationCommand.ts";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand.ts";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand.ts";
 import {
   DeleteScheduledActionCommandInput,
-  DeleteScheduledActionCommandOutput
+  DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand.ts";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand.ts";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import {
   DescribeAccountLimitsCommandInput,
-  DescribeAccountLimitsCommandOutput
+  DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand.ts";
 import {
   DescribeAdjustmentTypesCommandInput,
-  DescribeAdjustmentTypesCommandOutput
+  DescribeAdjustmentTypesCommandOutput,
 } from "./commands/DescribeAdjustmentTypesCommand.ts";
 import {
   DescribeAutoScalingGroupsCommandInput,
-  DescribeAutoScalingGroupsCommandOutput
+  DescribeAutoScalingGroupsCommandOutput,
 } from "./commands/DescribeAutoScalingGroupsCommand.ts";
 import {
   DescribeAutoScalingInstancesCommandInput,
-  DescribeAutoScalingInstancesCommandOutput
+  DescribeAutoScalingInstancesCommandOutput,
 } from "./commands/DescribeAutoScalingInstancesCommand.ts";
 import {
   DescribeAutoScalingNotificationTypesCommandInput,
-  DescribeAutoScalingNotificationTypesCommandOutput
+  DescribeAutoScalingNotificationTypesCommandOutput,
 } from "./commands/DescribeAutoScalingNotificationTypesCommand.ts";
 import {
+  DescribeInstanceRefreshesCommandInput,
+  DescribeInstanceRefreshesCommandOutput,
+} from "./commands/DescribeInstanceRefreshesCommand.ts";
+import {
   DescribeLaunchConfigurationsCommandInput,
-  DescribeLaunchConfigurationsCommandOutput
+  DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand.ts";
 import {
   DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput
+  DescribeLifecycleHookTypesCommandOutput,
 } from "./commands/DescribeLifecycleHookTypesCommand.ts";
 import {
   DescribeLifecycleHooksCommandInput,
-  DescribeLifecycleHooksCommandOutput
+  DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand.ts";
 import {
   DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput
+  DescribeLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DescribeLoadBalancerTargetGroupsCommand.ts";
 import {
   DescribeLoadBalancersCommandInput,
-  DescribeLoadBalancersCommandOutput
+  DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand.ts";
 import {
   DescribeMetricCollectionTypesCommandInput,
-  DescribeMetricCollectionTypesCommandOutput
+  DescribeMetricCollectionTypesCommandOutput,
 } from "./commands/DescribeMetricCollectionTypesCommand.ts";
 import {
   DescribeNotificationConfigurationsCommandInput,
-  DescribeNotificationConfigurationsCommandOutput
+  DescribeNotificationConfigurationsCommandOutput,
 } from "./commands/DescribeNotificationConfigurationsCommand.ts";
-import {
-  DescribePoliciesCommandInput,
-  DescribePoliciesCommandOutput
-} from "./commands/DescribePoliciesCommand.ts";
+import { DescribePoliciesCommandInput, DescribePoliciesCommandOutput } from "./commands/DescribePoliciesCommand.ts";
 import {
   DescribeScalingActivitiesCommandInput,
-  DescribeScalingActivitiesCommandOutput
+  DescribeScalingActivitiesCommandOutput,
 } from "./commands/DescribeScalingActivitiesCommand.ts";
 import {
   DescribeScalingProcessTypesCommandInput,
-  DescribeScalingProcessTypesCommandOutput
+  DescribeScalingProcessTypesCommandOutput,
 } from "./commands/DescribeScalingProcessTypesCommand.ts";
 import {
   DescribeScheduledActionsCommandInput,
-  DescribeScheduledActionsCommandOutput
+  DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand.ts";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
   DescribeTerminationPolicyTypesCommandInput,
-  DescribeTerminationPolicyTypesCommandOutput
+  DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand.ts";
-import {
-  DetachInstancesCommandInput,
-  DetachInstancesCommandOutput
-} from "./commands/DetachInstancesCommand.ts";
+import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand.ts";
 import {
   DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput
+  DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand.ts";
 import {
   DetachLoadBalancersCommandInput,
-  DetachLoadBalancersCommandOutput
+  DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand.ts";
 import {
   DisableMetricsCollectionCommandInput,
-  DisableMetricsCollectionCommandOutput
+  DisableMetricsCollectionCommandOutput,
 } from "./commands/DisableMetricsCollectionCommand.ts";
 import {
   EnableMetricsCollectionCommandInput,
-  EnableMetricsCollectionCommandOutput
+  EnableMetricsCollectionCommandOutput,
 } from "./commands/EnableMetricsCollectionCommand.ts";
-import {
-  EnterStandbyCommandInput,
-  EnterStandbyCommandOutput
-} from "./commands/EnterStandbyCommand.ts";
-import {
-  ExecutePolicyCommandInput,
-  ExecutePolicyCommandOutput
-} from "./commands/ExecutePolicyCommand.ts";
-import {
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput
-} from "./commands/ExitStandbyCommand.ts";
-import {
-  PutLifecycleHookCommandInput,
-  PutLifecycleHookCommandOutput
-} from "./commands/PutLifecycleHookCommand.ts";
+import { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "./commands/EnterStandbyCommand.ts";
+import { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "./commands/ExecutePolicyCommand.ts";
+import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand.ts";
+import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand.ts";
 import {
   PutNotificationConfigurationCommandInput,
-  PutNotificationConfigurationCommandOutput
+  PutNotificationConfigurationCommandOutput,
 } from "./commands/PutNotificationConfigurationCommand.ts";
-import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand.ts";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand.ts";
 import {
   PutScheduledUpdateGroupActionCommandInput,
-  PutScheduledUpdateGroupActionCommandOutput
+  PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand.ts";
 import {
   RecordLifecycleActionHeartbeatCommandInput,
-  RecordLifecycleActionHeartbeatCommandOutput
+  RecordLifecycleActionHeartbeatCommandOutput,
 } from "./commands/RecordLifecycleActionHeartbeatCommand.ts";
-import {
-  ResumeProcessesCommandInput,
-  ResumeProcessesCommandOutput
-} from "./commands/ResumeProcessesCommand.ts";
+import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "./commands/ResumeProcessesCommand.ts";
 import {
   SetDesiredCapacityCommandInput,
-  SetDesiredCapacityCommandOutput
+  SetDesiredCapacityCommandOutput,
 } from "./commands/SetDesiredCapacityCommand.ts";
-import {
-  SetInstanceHealthCommandInput,
-  SetInstanceHealthCommandOutput
-} from "./commands/SetInstanceHealthCommand.ts";
+import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "./commands/SetInstanceHealthCommand.ts";
 import {
   SetInstanceProtectionCommandInput,
-  SetInstanceProtectionCommandOutput
+  SetInstanceProtectionCommandOutput,
 } from "./commands/SetInstanceProtectionCommand.ts";
 import {
-  SuspendProcessesCommandInput,
-  SuspendProcessesCommandOutput
-} from "./commands/SuspendProcessesCommand.ts";
+  StartInstanceRefreshCommandInput,
+  StartInstanceRefreshCommandOutput,
+} from "./commands/StartInstanceRefreshCommand.ts";
+import { SuspendProcessesCommandInput, SuspendProcessesCommandOutput } from "./commands/SuspendProcessesCommand.ts";
 import {
   TerminateInstanceInAutoScalingGroupCommandInput,
-  TerminateInstanceInAutoScalingGroupCommandOutput
+  TerminateInstanceInAutoScalingGroupCommandOutput,
 } from "./commands/TerminateInstanceInAutoScalingGroupCommand.ts";
 import {
   UpdateAutoScalingGroupCommandInput,
-  UpdateAutoScalingGroupCommandOutput
+  UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -221,38 +191,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -261,9 +227,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -272,6 +239,7 @@ export type ServiceInputTypes =
   | AttachLoadBalancersCommandInput
   | BatchDeleteScheduledActionCommandInput
   | BatchPutScheduledUpdateGroupActionCommandInput
+  | CancelInstanceRefreshCommandInput
   | CompleteLifecycleActionCommandInput
   | CreateAutoScalingGroupCommandInput
   | CreateLaunchConfigurationCommandInput
@@ -288,6 +256,7 @@ export type ServiceInputTypes =
   | DescribeAutoScalingGroupsCommandInput
   | DescribeAutoScalingInstancesCommandInput
   | DescribeAutoScalingNotificationTypesCommandInput
+  | DescribeInstanceRefreshesCommandInput
   | DescribeLaunchConfigurationsCommandInput
   | DescribeLifecycleHookTypesCommandInput
   | DescribeLifecycleHooksCommandInput
@@ -318,6 +287,7 @@ export type ServiceInputTypes =
   | SetDesiredCapacityCommandInput
   | SetInstanceHealthCommandInput
   | SetInstanceProtectionCommandInput
+  | StartInstanceRefreshCommandInput
   | SuspendProcessesCommandInput
   | TerminateInstanceInAutoScalingGroupCommandInput
   | UpdateAutoScalingGroupCommandInput;
@@ -328,6 +298,7 @@ export type ServiceOutputTypes =
   | AttachLoadBalancersCommandOutput
   | BatchDeleteScheduledActionCommandOutput
   | BatchPutScheduledUpdateGroupActionCommandOutput
+  | CancelInstanceRefreshCommandOutput
   | CompleteLifecycleActionCommandOutput
   | CreateAutoScalingGroupCommandOutput
   | CreateLaunchConfigurationCommandOutput
@@ -344,6 +315,7 @@ export type ServiceOutputTypes =
   | DescribeAutoScalingGroupsCommandOutput
   | DescribeAutoScalingInstancesCommandOutput
   | DescribeAutoScalingNotificationTypesCommandOutput
+  | DescribeInstanceRefreshesCommandOutput
   | DescribeLaunchConfigurationsCommandOutput
   | DescribeLifecycleHookTypesCommandOutput
   | DescribeLifecycleHooksCommandOutput
@@ -374,12 +346,12 @@ export type ServiceOutputTypes =
   | SetDesiredCapacityCommandOutput
   | SetInstanceHealthCommandOutput
   | SetInstanceProtectionCommandOutput
+  | StartInstanceRefreshCommandOutput
   | SuspendProcessesCommandOutput
   | TerminateInstanceInAutoScalingGroupCommandOutput
   | UpdateAutoScalingGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -453,14 +425,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -468,9 +445,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AutoScalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -479,9 +454,7 @@ export type AutoScalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -510,7 +483,7 @@ export class AutoScalingClient extends __Client<
   constructor(configuration: AutoScalingClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -525,6 +498,7 @@ export class AutoScalingClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

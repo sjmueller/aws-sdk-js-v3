@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client.ts";
-import {
-  GetRouteResponsesRequest,
-  GetRouteResponsesResponse
-} from "../models/index.ts";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
+import { GetRouteResponsesRequest, GetRouteResponsesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetRouteResponsesCommand,
-  serializeAws_restJson1GetRouteResponsesCommand
+  serializeAws_restJson1GetRouteResponsesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRouteResponsesCommandInput = GetRouteResponsesRequest;
-export type GetRouteResponsesCommandOutput = GetRouteResponsesResponse &
-  __MetadataBearer;
+export type GetRouteResponsesCommandOutput = GetRouteResponsesResponse & __MetadataBearer;
 
 export class GetRouteResponsesCommand extends $Command<
   GetRouteResponsesCommandInput,
@@ -50,14 +39,15 @@ export class GetRouteResponsesCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRouteResponsesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRouteResponsesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetRouteResponsesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRouteResponsesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRouteResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRouteResponsesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRouteResponsesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponsesCommandOutput> {
     return deserializeAws_restJson1GetRouteResponsesCommand(output, context);
   }
 

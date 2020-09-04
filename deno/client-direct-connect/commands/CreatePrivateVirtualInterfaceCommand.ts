@@ -1,21 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient.ts";
-import {
-  CreatePrivateVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index.ts";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
+import { CreatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
-  serializeAws_json1_1CreatePrivateVirtualInterfaceCommand
+  serializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreatePrivateVirtualInterfaceCommandInput = CreatePrivateVirtualInterfaceRequest;
-export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class CreatePrivateVirtualInterfaceCommand extends $Command<
   CreatePrivateVirtualInterfaceCommandInput,
@@ -49,18 +38,16 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePrivateVirtualInterfaceCommandInput,
-    CreatePrivateVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePrivateVirtualInterfaceCommandInput, CreatePrivateVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreatePrivateVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePrivateVirtualInterfaceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
-      input,
-      context
-    );
+  private serialize(input: CreatePrivateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient.ts";
-import {
-  CreateSecurityConfigurationInput,
-  CreateSecurityConfigurationOutput
-} from "../models/index.ts";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
+import { CreateSecurityConfigurationInput, CreateSecurityConfigurationOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateSecurityConfigurationCommand,
-  serializeAws_json1_1CreateSecurityConfigurationCommand
+  serializeAws_json1_1CreateSecurityConfigurationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateSecurityConfigurationCommandInput = CreateSecurityConfigurationInput;
-export type CreateSecurityConfigurationCommandOutput = CreateSecurityConfigurationOutput &
-  __MetadataBearer;
+export type CreateSecurityConfigurationCommandOutput = CreateSecurityConfigurationOutput & __MetadataBearer;
 
 export class CreateSecurityConfigurationCommand extends $Command<
   CreateSecurityConfigurationCommandInput,
@@ -49,18 +38,16 @@ export class CreateSecurityConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSecurityConfigurationCommandInput,
-    CreateSecurityConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSecurityConfigurationCommandInput, CreateSecurityConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateSecurityConfigurationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateSecurityConfigurationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CreateSecurityConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSecurityConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSecurityConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateSecurityConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

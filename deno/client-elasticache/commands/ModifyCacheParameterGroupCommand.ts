@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
-import {
-  CacheParameterGroupNameMessage,
-  ModifyCacheParameterGroupMessage
-} from "../models/index.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
+import { CacheParameterGroupNameMessage, ModifyCacheParameterGroupMessage } from "../models/index.ts";
 import {
   deserializeAws_queryModifyCacheParameterGroupCommand,
-  serializeAws_queryModifyCacheParameterGroupCommand
+  serializeAws_queryModifyCacheParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ModifyCacheParameterGroupCommandInput = ModifyCacheParameterGroupMessage;
-export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage &
-  __MetadataBearer;
+export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
 
 export class ModifyCacheParameterGroupCommand extends $Command<
   ModifyCacheParameterGroupCommandInput,
@@ -49,18 +38,16 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyCacheParameterGroupCommandInput,
-    ModifyCacheParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyCacheParameterGroupCommandInput, ModifyCacheParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ModifyCacheParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CacheParameterGroupNameMessage.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyCacheParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCacheParameterGroupCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyCacheParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

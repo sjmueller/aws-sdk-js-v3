@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient.ts";
-import {
-  PutActionRevisionInput,
-  PutActionRevisionOutput
-} from "../models/index.ts";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
+import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutActionRevisionCommand,
-  serializeAws_json1_1PutActionRevisionCommand
+  serializeAws_json1_1PutActionRevisionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutActionRevisionCommandInput = PutActionRevisionInput;
-export type PutActionRevisionCommandOutput = PutActionRevisionOutput &
-  __MetadataBearer;
+export type PutActionRevisionCommandOutput = PutActionRevisionOutput & __MetadataBearer;
 
 export class PutActionRevisionCommand extends $Command<
   PutActionRevisionCommandInput,
@@ -50,14 +39,15 @@ export class PutActionRevisionCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutActionRevisionCommandInput, PutActionRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutActionRevisionInput.filterSensitiveLog,
+      outputFilterSensitiveLog: PutActionRevisionOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class PutActionRevisionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutActionRevisionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutActionRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutActionRevisionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutActionRevisionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutActionRevisionCommandOutput> {
     return deserializeAws_json1_1PutActionRevisionCommand(output, context);
   }
 

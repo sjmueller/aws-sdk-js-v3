@@ -1,9 +1,9 @@
 import {
-  Encoder,
   Decoder,
+  Encoder,
   EventSigner,
   EventStreamPayloadHandler,
-  EventStreamPayloadHandlerProvider
+  EventStreamPayloadHandlerProvider,
 } from "../types/mod.ts";
 
 export interface EventStreamInputConfig {}
@@ -26,11 +26,11 @@ export function resolveEventStreamConfig<T>(
   const eventSigner = input.signer;
   const eventStreamPayloadHandler = input.eventStreamPayloadHandlerProvider({
     ...input,
-    eventSigner
+    eventSigner,
   });
   return {
     ...input,
     eventSigner,
-    eventStreamPayloadHandler
+    eventStreamPayloadHandler,
   };
 }

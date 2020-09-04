@@ -1,21 +1,15 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import {
-  DeregisterScalableTargetRequest,
-  DeregisterScalableTargetResponse
-} from "../models/index.ts";
+import { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeregisterScalableTargetCommand,
-  serializeAws_json1_1DeregisterScalableTargetCommand
+  serializeAws_json1_1DeregisterScalableTargetCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeregisterScalableTargetCommandInput = DeregisterScalableTargetRequest;
-export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse &
-  __MetadataBearer;
+export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse & __MetadataBearer;
 
 export class DeregisterScalableTargetCommand extends $Command<
   DeregisterScalableTargetCommandInput,
@@ -49,18 +42,16 @@ export class DeregisterScalableTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterScalableTargetCommandInput,
-    DeregisterScalableTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterScalableTargetCommandInput, DeregisterScalableTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeregisterScalableTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterScalableTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class DeregisterScalableTargetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterScalableTargetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterScalableTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterScalableTargetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterScalableTargetCommandOutput> {
-    return deserializeAws_json1_1DeregisterScalableTargetCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterScalableTargetCommandOutput> {
+    return deserializeAws_json1_1DeregisterScalableTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

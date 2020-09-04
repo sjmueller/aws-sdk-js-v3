@@ -2,112 +2,112 @@ import { SFNClient } from "./SFNClient.ts";
 import {
   CreateActivityCommand,
   CreateActivityCommandInput,
-  CreateActivityCommandOutput
+  CreateActivityCommandOutput,
 } from "./commands/CreateActivityCommand.ts";
 import {
   CreateStateMachineCommand,
   CreateStateMachineCommandInput,
-  CreateStateMachineCommandOutput
+  CreateStateMachineCommandOutput,
 } from "./commands/CreateStateMachineCommand.ts";
 import {
   DeleteActivityCommand,
   DeleteActivityCommandInput,
-  DeleteActivityCommandOutput
+  DeleteActivityCommandOutput,
 } from "./commands/DeleteActivityCommand.ts";
 import {
   DeleteStateMachineCommand,
   DeleteStateMachineCommandInput,
-  DeleteStateMachineCommandOutput
+  DeleteStateMachineCommandOutput,
 } from "./commands/DeleteStateMachineCommand.ts";
 import {
   DescribeActivityCommand,
   DescribeActivityCommandInput,
-  DescribeActivityCommandOutput
+  DescribeActivityCommandOutput,
 } from "./commands/DescribeActivityCommand.ts";
 import {
   DescribeExecutionCommand,
   DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput
+  DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand.ts";
 import {
   DescribeStateMachineCommand,
   DescribeStateMachineCommandInput,
-  DescribeStateMachineCommandOutput
+  DescribeStateMachineCommandOutput,
 } from "./commands/DescribeStateMachineCommand.ts";
 import {
   DescribeStateMachineForExecutionCommand,
   DescribeStateMachineForExecutionCommandInput,
-  DescribeStateMachineForExecutionCommandOutput
+  DescribeStateMachineForExecutionCommandOutput,
 } from "./commands/DescribeStateMachineForExecutionCommand.ts";
 import {
   GetActivityTaskCommand,
   GetActivityTaskCommandInput,
-  GetActivityTaskCommandOutput
+  GetActivityTaskCommandOutput,
 } from "./commands/GetActivityTaskCommand.ts";
 import {
   GetExecutionHistoryCommand,
   GetExecutionHistoryCommandInput,
-  GetExecutionHistoryCommandOutput
+  GetExecutionHistoryCommandOutput,
 } from "./commands/GetExecutionHistoryCommand.ts";
 import {
   ListActivitiesCommand,
   ListActivitiesCommandInput,
-  ListActivitiesCommandOutput
+  ListActivitiesCommandOutput,
 } from "./commands/ListActivitiesCommand.ts";
 import {
   ListExecutionsCommand,
   ListExecutionsCommandInput,
-  ListExecutionsCommandOutput
+  ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand.ts";
 import {
   ListStateMachinesCommand,
   ListStateMachinesCommandInput,
-  ListStateMachinesCommandOutput
+  ListStateMachinesCommandOutput,
 } from "./commands/ListStateMachinesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   SendTaskFailureCommand,
   SendTaskFailureCommandInput,
-  SendTaskFailureCommandOutput
+  SendTaskFailureCommandOutput,
 } from "./commands/SendTaskFailureCommand.ts";
 import {
   SendTaskHeartbeatCommand,
   SendTaskHeartbeatCommandInput,
-  SendTaskHeartbeatCommandOutput
+  SendTaskHeartbeatCommandOutput,
 } from "./commands/SendTaskHeartbeatCommand.ts";
 import {
   SendTaskSuccessCommand,
   SendTaskSuccessCommandInput,
-  SendTaskSuccessCommandOutput
+  SendTaskSuccessCommandOutput,
 } from "./commands/SendTaskSuccessCommand.ts";
 import {
   StartExecutionCommand,
   StartExecutionCommandInput,
-  StartExecutionCommandOutput
+  StartExecutionCommandOutput,
 } from "./commands/StartExecutionCommand.ts";
 import {
   StopExecutionCommand,
   StopExecutionCommandInput,
-  StopExecutionCommandOutput
+  StopExecutionCommandOutput,
 } from "./commands/StopExecutionCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateStateMachineCommand,
   UpdateStateMachineCommandInput,
-  UpdateStateMachineCommandOutput
+  UpdateStateMachineCommandOutput,
 } from "./commands/UpdateStateMachineCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -164,17 +164,14 @@ export class SFN extends SFNClient {
   ): void;
   public createActivity(
     args: CreateActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActivityCommandOutput) => void),
     cb?: (err: any, data?: CreateActivityCommandOutput) => void
   ): Promise<CreateActivityCommandOutput> | void {
     const command = new CreateActivityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -185,7 +182,9 @@ export class SFN extends SFNClient {
    * <p>Creates a state machine. A state machine consists of a collection of states that can do
    *       work (<code>Task</code> states), determine to which states to transition next
    *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
-   *       and so on. State machines are specified using a JSON-based, structured language.</p>
+   *       and so on. State machines are specified using a JSON-based, structured language. For more
+   *       information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
+   *         Language</a> in the AWS Step Functions User Guide.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
@@ -193,11 +192,11 @@ export class SFN extends SFNClient {
    *             <p>
    *                <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a
    *         duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency
-   *         check is based on the state machine <code>name</code> and <code>definition</code>. If a
-   *         following request has a different <code>roleArn</code> or <code>tags</code>, Step Functions will
-   *         ignore these differences and treat it as an idempotent request of the previous. In this
-   *         case, <code>roleArn</code> and <code>tags</code> will not be updated, even if they are
-   *         different.</p>
+   *         check is based on the state machine <code>name</code>, <code>definition</code>,
+   *           <code>type</code>, and <code>LoggingConfiguration</code>. If a following request has a
+   *         different <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and
+   *         treat it as an idempotent request of the previous. In this case, <code>roleArn</code> and
+   *           <code>tags</code> will not be updated, even if they are different.</p>
    *          </note>
    */
   public createStateMachine(
@@ -215,17 +214,14 @@ export class SFN extends SFNClient {
   ): void;
   public createStateMachine(
     args: CreateStateMachineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStateMachineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStateMachineCommandOutput) => void),
     cb?: (err: any, data?: CreateStateMachineCommandOutput) => void
   ): Promise<CreateStateMachineCommandOutput> | void {
     const command = new CreateStateMachineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -250,17 +246,14 @@ export class SFN extends SFNClient {
   ): void;
   public deleteActivity(
     args: DeleteActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActivityCommandOutput) => void),
     cb?: (err: any, data?: DeleteActivityCommandOutput) => void
   ): Promise<DeleteActivityCommandOutput> | void {
     const command = new DeleteActivityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -269,11 +262,11 @@ export class SFN extends SFNClient {
 
   /**
    * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
-   *       status to <code>DELETING</code> and begins the deletion process. Each state machine execution
-   *       is deleted the next time it makes a state transition.</p>
+   *       status to <code>DELETING</code> and begins the deletion process. </p>
    *          <note>
-   *             <p>The state machine itself is deleted after all executions are completed or
-   *         deleted.</p>
+   *             <p>For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+   *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
+   *         API is called.</p>
    *          </note>
    */
   public deleteStateMachine(
@@ -291,17 +284,14 @@ export class SFN extends SFNClient {
   ): void;
   public deleteStateMachine(
     args: DeleteStateMachineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStateMachineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStateMachineCommandOutput) => void),
     cb?: (err: any, data?: DeleteStateMachineCommandOutput) => void
   ): Promise<DeleteStateMachineCommandOutput> | void {
     const command = new DeleteStateMachineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -329,17 +319,14 @@ export class SFN extends SFNClient {
   ): void;
   public describeActivity(
     args: DescribeActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivityCommandOutput) => void),
     cb?: (err: any, data?: DescribeActivityCommandOutput) => void
   ): Promise<DescribeActivityCommandOutput> | void {
     const command = new DescribeActivityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -351,6 +338,7 @@ export class SFN extends SFNClient {
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
    */
   public describeExecution(
     args: DescribeExecutionCommandInput,
@@ -367,17 +355,14 @@ export class SFN extends SFNClient {
   ): void;
   public describeExecution(
     args: DescribeExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExecutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeExecutionCommandOutput) => void
   ): Promise<DescribeExecutionCommandOutput> | void {
     const command = new DescribeExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -405,17 +390,14 @@ export class SFN extends SFNClient {
   ): void;
   public describeStateMachine(
     args: DescribeStateMachineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStateMachineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStateMachineCommandOutput) => void),
     cb?: (err: any, data?: DescribeStateMachineCommandOutput) => void
   ): Promise<DescribeStateMachineCommandOutput> | void {
     const command = new DescribeStateMachineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -427,6 +409,7 @@ export class SFN extends SFNClient {
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
    */
   public describeStateMachineForExecution(
     args: DescribeStateMachineForExecutionCommandInput,
@@ -443,23 +426,14 @@ export class SFN extends SFNClient {
   ): void;
   public describeStateMachineForExecution(
     args: DescribeStateMachineForExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStateMachineForExecutionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStateMachineForExecutionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStateMachineForExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStateMachineForExecutionCommandOutput) => void
   ): Promise<DescribeStateMachineForExecutionCommandOutput> | void {
     const command = new DescribeStateMachineForExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -496,17 +470,14 @@ export class SFN extends SFNClient {
   ): void;
   public getActivityTask(
     args: GetActivityTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetActivityTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetActivityTaskCommandOutput) => void),
     cb?: (err: any, data?: GetActivityTaskCommandOutput) => void
   ): Promise<GetActivityTaskCommandOutput> | void {
     const command = new GetActivityTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -519,6 +490,7 @@ export class SFN extends SFNClient {
    *         <code>reverseOrder</code> parameter to get the latest events first.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
    */
   public getExecutionHistory(
     args: GetExecutionHistoryCommandInput,
@@ -535,17 +507,14 @@ export class SFN extends SFNClient {
   ): void;
   public getExecutionHistory(
     args: GetExecutionHistoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExecutionHistoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExecutionHistoryCommandOutput) => void),
     cb?: (err: any, data?: GetExecutionHistoryCommandOutput) => void
   ): Promise<GetExecutionHistoryCommandOutput> | void {
     const command = new GetExecutionHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -575,17 +544,14 @@ export class SFN extends SFNClient {
   ): void;
   public listActivities(
     args: ListActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivitiesCommandOutput) => void),
     cb?: (err: any, data?: ListActivitiesCommandOutput) => void
   ): Promise<ListActivitiesCommandOutput> | void {
     const command = new ListActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,6 +566,7 @@ export class SFN extends SFNClient {
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
    */
   public listExecutions(
     args: ListExecutionsCommandInput,
@@ -616,17 +583,14 @@ export class SFN extends SFNClient {
   ): void;
   public listExecutions(
     args: ListExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -656,17 +620,14 @@ export class SFN extends SFNClient {
   ): void;
   public listStateMachines(
     args: ListStateMachinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStateMachinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStateMachinesCommandOutput) => void),
     cb?: (err: any, data?: ListStateMachinesCommandOutput) => void
   ): Promise<ListStateMachinesCommandOutput> | void {
     const command = new ListStateMachinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -692,17 +653,14 @@ export class SFN extends SFNClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -710,8 +668,8 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern
-   *       to report that the task identified by the <code>taskToken</code> failed.</p>
+   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+   *       pattern to report that the task identified by the <code>taskToken</code> failed.</p>
    */
   public sendTaskFailure(
     args: SendTaskFailureCommandInput,
@@ -728,17 +686,14 @@ export class SFN extends SFNClient {
   ): void;
   public sendTaskFailure(
     args: SendTaskFailureCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTaskFailureCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTaskFailureCommandOutput) => void),
     cb?: (err: any, data?: SendTaskFailureCommandOutput) => void
   ): Promise<SendTaskFailureCommandOutput> | void {
     const command = new SendTaskFailureCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -746,12 +701,13 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a> pattern to report to Step Functions that
-   *       the task represented by the specified <code>taskToken</code> is still making progress. This
-   *       action resets the <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is
-   *       specified in the state machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action
-   *       does not in itself create an event in the execution history. However, if the task times out,
-   *       the execution history contains an <code>ActivityTimedOut</code> entry for activities, or a
+   * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
+   *       pattern to report to Step Functions that the task represented by the specified
+   *         <code>taskToken</code> is still making progress. This action resets the
+   *         <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is specified in the state
+   *       machine's Amazon States Language definition (<code>HeartbeatSeconds</code>). This action does not in itself
+   *       create an event in the execution history. However, if the task times out, the execution
+   *       history contains an <code>ActivityTimedOut</code> entry for activities, or a
    *         <code>TaskTimedOut</code> entry for for tasks using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> or
    *         <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
    *       pattern.</p>
@@ -776,17 +732,14 @@ export class SFN extends SFNClient {
   ): void;
   public sendTaskHeartbeat(
     args: SendTaskHeartbeatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTaskHeartbeatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTaskHeartbeatCommandOutput) => void),
     cb?: (err: any, data?: SendTaskHeartbeatCommandOutput) => void
   ): Promise<SendTaskHeartbeatCommandOutput> | void {
     const command = new SendTaskHeartbeatCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -813,17 +766,14 @@ export class SFN extends SFNClient {
   ): void;
   public sendTaskSuccess(
     args: SendTaskSuccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTaskSuccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTaskSuccessCommandOutput) => void),
     cb?: (err: any, data?: SendTaskSuccessCommandOutput) => void
   ): Promise<SendTaskSuccessCommandOutput> | void {
     const command = new SendTaskSuccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -856,17 +806,14 @@ export class SFN extends SFNClient {
   ): void;
   public startExecution(
     args: StartExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartExecutionCommandOutput) => void
   ): Promise<StartExecutionCommandOutput> | void {
     const command = new StartExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -875,6 +822,7 @@ export class SFN extends SFNClient {
 
   /**
    * <p>Stops an execution.</p>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
    */
   public stopExecution(
     args: StopExecutionCommandInput,
@@ -891,17 +839,14 @@ export class SFN extends SFNClient {
   ): void;
   public stopExecution(
     args: StopExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopExecutionCommandOutput) => void
   ): Promise<StopExecutionCommandOutput> | void {
     const command = new StopExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -916,14 +861,8 @@ export class SFN extends SFNClient {
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -931,17 +870,14 @@ export class SFN extends SFNClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -966,17 +902,14 @@ export class SFN extends SFNClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -984,10 +917,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Updates an existing state machine by modifying its <code>definition</code> and/or
-   *         <code>roleArn</code>. Running executions will continue to use the previous
-   *         <code>definition</code> and <code>roleArn</code>. You must include at least one of
-   *         <code>definition</code> or <code>roleArn</code> or you will receive a
+   * <p>Updates an existing state machine by modifying its <code>definition</code>,
+   *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
+   *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
+   *       least one of <code>definition</code> or <code>roleArn</code> or you will receive a
    *         <code>MissingRequiredParameter</code> error.</p>
    *          <note>
    *             <p>All <code>StartExecution</code> calls within a few seconds will use the updated
@@ -1011,17 +944,14 @@ export class SFN extends SFNClient {
   ): void;
   public updateStateMachine(
     args: UpdateStateMachineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStateMachineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStateMachineCommandOutput) => void),
     cb?: (err: any, data?: UpdateStateMachineCommandOutput) => void
   ): Promise<UpdateStateMachineCommandOutput> | void {
     const command = new UpdateStateMachineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

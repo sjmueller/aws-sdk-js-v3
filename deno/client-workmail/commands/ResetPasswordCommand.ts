@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
 import { ResetPasswordRequest, ResetPasswordResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ResetPasswordCommand,
-  serializeAws_json1_1ResetPasswordCommand
+  serializeAws_json1_1ResetPasswordCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ResetPasswordCommandInput = ResetPasswordRequest;
-export type ResetPasswordCommandOutput = ResetPasswordResponse &
-  __MetadataBearer;
+export type ResetPasswordCommandOutput = ResetPasswordResponse & __MetadataBearer;
 
 export class ResetPasswordCommand extends $Command<
   ResetPasswordCommandInput,
@@ -47,14 +39,15 @@ export class ResetPasswordCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetPasswordCommandInput, ResetPasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ResetPasswordRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ResetPasswordResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class ResetPasswordCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetPasswordCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetPasswordCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResetPasswordCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPasswordCommandOutput> {
     return deserializeAws_json1_1ResetPasswordCommand(output, context);
   }
 

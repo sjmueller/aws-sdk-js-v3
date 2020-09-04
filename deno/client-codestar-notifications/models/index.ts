@@ -1,17 +1,11 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -19,40 +13,32 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (
-    obj: ConcurrentModificationException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  */
-export interface ConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConfigurationException extends __SmithyException, $MetadataBearer {
   name: "ConfigurationException";
   $fault: "client";
   Message?: string;
@@ -60,14 +46,24 @@ export interface ConfigurationException
 
 export namespace ConfigurationException {
   export const filterSensitiveLog = (obj: ConfigurationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConfigurationException =>
-    __isa(o, "ConfigurationException");
+  export const isa = (o: any): o is ConfigurationException => __isa(o, "ConfigurationException");
 }
 
 export interface CreateNotificationRuleRequest {
   __type?: "CreateNotificationRuleRequest";
+  /**
+   * <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A list of event types associated with this notification rule. For a list of allowed
+   *             events, see <a>EventTypeSummary</a>.</p>
+   */
+  EventTypeIds: string[] | undefined;
+
   /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request with the same
@@ -88,18 +84,6 @@ export interface CreateNotificationRuleRequest {
   DetailType: DetailType | string | undefined;
 
   /**
-   * <p>A list of event types associated with this notification rule. For a list of allowed
-   *             events, see <a>EventTypeSummary</a>.</p>
-   */
-  EventTypeIds: string[] | undefined;
-
-  /**
-   * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
-   *             account.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline,
    *       repositories in AWS CodeCommit, and build projects in AWS CodeBuild.</p>
    */
@@ -112,29 +96,25 @@ export interface CreateNotificationRuleRequest {
   Status?: NotificationRuleStatus | string;
 
   /**
-   * <p>A list of tags to apply to this notification rule. Key names cannot start with "aws". </p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>A list of Amazon Resource Names (ARNs) of SNS topics to associate with the
    *       notification rule.</p>
    */
   Targets: Target[] | undefined;
+
+  /**
+   * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
+   *             account.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateNotificationRuleRequest {
-  export const filterSensitiveLog = (
-    obj: CreateNotificationRuleRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
     ...obj,
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
-    })
   });
-  export const isa = (o: any): o is CreateNotificationRuleRequest =>
-    __isa(o, "CreateNotificationRuleRequest");
+  export const isa = (o: any): o is CreateNotificationRuleRequest => __isa(o, "CreateNotificationRuleRequest");
 }
 
 export interface CreateNotificationRuleResult {
@@ -146,13 +126,10 @@ export interface CreateNotificationRuleResult {
 }
 
 export namespace CreateNotificationRuleResult {
-  export const filterSensitiveLog = (
-    obj: CreateNotificationRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is CreateNotificationRuleResult =>
-    __isa(o, "CreateNotificationRuleResult");
+  export const isa = (o: any): o is CreateNotificationRuleResult => __isa(o, "CreateNotificationRuleResult");
 }
 
 export interface DeleteNotificationRuleRequest {
@@ -164,13 +141,10 @@ export interface DeleteNotificationRuleRequest {
 }
 
 export namespace DeleteNotificationRuleRequest {
-  export const filterSensitiveLog = (
-    obj: DeleteNotificationRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationRuleRequest =>
-    __isa(o, "DeleteNotificationRuleRequest");
+  export const isa = (o: any): o is DeleteNotificationRuleRequest => __isa(o, "DeleteNotificationRuleRequest");
 }
 
 export interface DeleteNotificationRuleResult {
@@ -182,13 +156,10 @@ export interface DeleteNotificationRuleResult {
 }
 
 export namespace DeleteNotificationRuleResult {
-  export const filterSensitiveLog = (
-    obj: DeleteNotificationRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationRuleResult =>
-    __isa(o, "DeleteNotificationRuleResult");
+  export const isa = (o: any): o is DeleteNotificationRuleResult => __isa(o, "DeleteNotificationRuleResult");
 }
 
 export interface DeleteTargetRequest {
@@ -209,10 +180,9 @@ export interface DeleteTargetRequest {
 export namespace DeleteTargetRequest {
   export const filterSensitiveLog = (obj: DeleteTargetRequest): any => ({
     ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
+    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteTargetRequest =>
-    __isa(o, "DeleteTargetRequest");
+  export const isa = (o: any): o is DeleteTargetRequest => __isa(o, "DeleteTargetRequest");
 }
 
 export interface DeleteTargetResult {
@@ -221,10 +191,9 @@ export interface DeleteTargetResult {
 
 export namespace DeleteTargetResult {
   export const filterSensitiveLog = (obj: DeleteTargetResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteTargetResult =>
-    __isa(o, "DeleteTargetResult");
+  export const isa = (o: any): o is DeleteTargetResult => __isa(o, "DeleteTargetResult");
 }
 
 export interface DescribeNotificationRuleRequest {
@@ -236,13 +205,10 @@ export interface DescribeNotificationRuleRequest {
 }
 
 export namespace DescribeNotificationRuleRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeNotificationRuleRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeNotificationRuleRequest =>
-    __isa(o, "DescribeNotificationRuleRequest");
+  export const isa = (o: any): o is DescribeNotificationRuleRequest => __isa(o, "DescribeNotificationRuleRequest");
 }
 
 export interface DescribeNotificationRuleResult {
@@ -253,14 +219,10 @@ export interface DescribeNotificationRuleResult {
   Arn: string | undefined;
 
   /**
-   * <p>The name or email alias of the person who created the notification rule.</p>
+   * <p>The date and time the notification rule was most recently updated, in timestamp
+   *             format.</p>
    */
-  CreatedBy?: string;
-
-  /**
-   * <p>The date and time the notification rule was created, in timestamp format.</p>
-   */
-  CreatedTimestamp?: Date;
+  LastModifiedTimestamp?: Date;
 
   /**
    * <p>The level of detail included in the notifications for this resource. BASIC will include only the
@@ -270,20 +232,15 @@ export interface DescribeNotificationRuleResult {
   DetailType?: DetailType | string;
 
   /**
+   * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
+   *       (not sending notifications).</p>
+   */
+  Status?: NotificationRuleStatus | string;
+
+  /**
    * <p>A list of the event types associated with the notification rule.</p>
    */
   EventTypes?: EventTypeSummary[];
-
-  /**
-   * <p>The date and time the notification rule was most recently updated, in timestamp
-   *             format.</p>
-   */
-  LastModifiedTimestamp?: Date;
-
-  /**
-   * <p>The name of the notification rule.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the notification
@@ -292,10 +249,9 @@ export interface DescribeNotificationRuleResult {
   Resource?: string;
 
   /**
-   * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
-   *       (not sending notifications).</p>
+   * <p>The name of the notification rule.</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Name?: string;
 
   /**
    * <p>The tags associated with the notification rule.</p>
@@ -303,28 +259,33 @@ export interface DescribeNotificationRuleResult {
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The date and time the notification rule was created, in timestamp format.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
    * <p>A list of the SNS topics associated with the notification rule.</p>
    */
   Targets?: TargetSummary[];
+
+  /**
+   * <p>The name or email alias of the person who created the notification rule.</p>
+   */
+  CreatedBy?: string;
 }
 
 export namespace DescribeNotificationRuleResult {
-  export const filterSensitiveLog = (
-    obj: DescribeNotificationRuleResult
-  ): any => ({
+  export const filterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => TargetSummary.filterSensitiveLog(item))
-    })
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeNotificationRuleResult =>
-    __isa(o, "DescribeNotificationRuleResult");
+  export const isa = (o: any): o is DescribeNotificationRuleResult => __isa(o, "DescribeNotificationRuleResult");
 }
 
 export enum DetailType {
   BASIC = "BASIC",
-  FULL = "FULL"
+  FULL = "FULL",
 }
 
 /**
@@ -338,11 +299,6 @@ export interface EventTypeSummary {
   EventTypeId?: string;
 
   /**
-   * <p>The name of the event.</p>
-   */
-  EventTypeName?: string;
-
-  /**
    * <p>The resource type of the event.</p>
    */
   ResourceType?: string;
@@ -351,22 +307,24 @@ export interface EventTypeSummary {
    * <p>The name of the service for which the event applies.</p>
    */
   ServiceName?: string;
+
+  /**
+   * <p>The name of the event.</p>
+   */
+  EventTypeName?: string;
 }
 
 export namespace EventTypeSummary {
   export const filterSensitiveLog = (obj: EventTypeSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EventTypeSummary =>
-    __isa(o, "EventTypeSummary");
+  export const isa = (o: any): o is EventTypeSummary => __isa(o, "EventTypeSummary");
 }
 
 /**
  * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -374,10 +332,9 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -385,9 +342,7 @@ export namespace InvalidNextTokenException {
  *             accounts, notification rules, notifications, resources, and targets. For more
  *             information, see Limits.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -395,10 +350,9 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -408,28 +362,27 @@ export namespace LimitExceededException {
 export interface ListEventTypesFilter {
   __type?: "ListEventTypesFilter";
   /**
-   * <p>The system-generated name of the filter type you want to filter by.</p>
-   */
-  Name: ListEventTypesFilterName | string | undefined;
-
-  /**
    * <p>The name of the resource type (for example, pipeline) or service name (for example,
    *       CodePipeline) that you want to filter by.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The system-generated name of the filter type you want to filter by.</p>
+   */
+  Name: ListEventTypesFilterName | string | undefined;
 }
 
 export namespace ListEventTypesFilter {
   export const filterSensitiveLog = (obj: ListEventTypesFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventTypesFilter =>
-    __isa(o, "ListEventTypesFilter");
+  export const isa = (o: any): o is ListEventTypesFilter => __isa(o, "ListEventTypesFilter");
 }
 
 export enum ListEventTypesFilterName {
   RESOURCE_TYPE = "RESOURCE_TYPE",
-  SERVICE_NAME = "SERVICE_NAME"
+  SERVICE_NAME = "SERVICE_NAME",
 }
 
 export interface ListEventTypesRequest {
@@ -440,24 +393,23 @@ export interface ListEventTypesRequest {
   Filters?: ListEventTypesFilter[];
 
   /**
-   * <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of
-   *       results that can be returned is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A non-negative integer used to limit the number of returned results. The default number is 50. The maximum number of
+   *       results that can be returned is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListEventTypesRequest {
   export const filterSensitiveLog = (obj: ListEventTypesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventTypesRequest =>
-    __isa(o, "ListEventTypesRequest");
+  export const isa = (o: any): o is ListEventTypesRequest => __isa(o, "ListEventTypesRequest");
 }
 
 export interface ListEventTypesResult {
@@ -476,10 +428,9 @@ export interface ListEventTypesResult {
 
 export namespace ListEventTypesResult {
   export const filterSensitiveLog = (obj: ListEventTypesResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListEventTypesResult =>
-    __isa(o, "ListEventTypesResult");
+  export const isa = (o: any): o is ListEventTypesResult => __isa(o, "ListEventTypesResult");
 }
 
 /**
@@ -489,36 +440,39 @@ export namespace ListEventTypesResult {
 export interface ListNotificationRulesFilter {
   __type?: "ListNotificationRulesFilter";
   /**
-   * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
-   */
-  Name: ListNotificationRulesFilterName | string | undefined;
-
-  /**
    * <p>The value of the attribute you want to use to filter the returned notification rules. For example, if you specify filtering by <i>RESOURCE</i>
    *           in Name, you might specify the ARN of a pipeline in AWS CodePipeline for the value.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
+   */
+  Name: ListNotificationRulesFilterName | string | undefined;
 }
 
 export namespace ListNotificationRulesFilter {
-  export const filterSensitiveLog = (
-    obj: ListNotificationRulesFilter
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListNotificationRulesFilter =>
-    __isa(o, "ListNotificationRulesFilter");
+  export const isa = (o: any): o is ListNotificationRulesFilter => __isa(o, "ListNotificationRulesFilter");
 }
 
 export enum ListNotificationRulesFilterName {
   CREATED_BY = "CREATED_BY",
   EVENT_TYPE_ID = "EVENT_TYPE_ID",
   RESOURCE = "RESOURCE",
-  TARGET_ADDRESS = "TARGET_ADDRESS"
+  TARGET_ADDRESS = "TARGET_ADDRESS",
 }
 
 export interface ListNotificationRulesRequest {
   __type?: "ListNotificationRulesRequest";
+  /**
+   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
+   *       results that can be returned is 100.</p>
+   */
+  MaxResults?: number;
+
   /**
    * <p>The filters to use to return information by service or resource type. For valid values,
    *             see <a>ListNotificationRulesFilter</a>.</p>
@@ -529,12 +483,6 @@ export interface ListNotificationRulesRequest {
   Filters?: ListNotificationRulesFilter[];
 
   /**
-   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
-   *       results that can be returned is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
@@ -542,36 +490,30 @@ export interface ListNotificationRulesRequest {
 }
 
 export namespace ListNotificationRulesRequest {
-  export const filterSensitiveLog = (
-    obj: ListNotificationRulesRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListNotificationRulesRequest =>
-    __isa(o, "ListNotificationRulesRequest");
+  export const isa = (o: any): o is ListNotificationRulesRequest => __isa(o, "ListNotificationRulesRequest");
 }
 
 export interface ListNotificationRulesResult {
   __type?: "ListNotificationRulesResult";
   /**
-   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The list of notification rules for the AWS account, by Amazon Resource Name (ARN) and ID. </p>
    */
   NotificationRules?: NotificationRuleSummary[];
+
+  /**
+   * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListNotificationRulesResult {
-  export const filterSensitiveLog = (
-    obj: ListNotificationRulesResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListNotificationRulesResult =>
-    __isa(o, "ListNotificationRulesResult");
+  export const isa = (o: any): o is ListNotificationRulesResult => __isa(o, "ListNotificationRulesResult");
 }
 
 export interface ListTagsForResourceRequest {
@@ -584,10 +526,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResult {
@@ -600,10 +541,9 @@ export interface ListTagsForResourceResult {
 
 export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResult =>
-    __isa(o, "ListTagsForResourceResult");
+  export const isa = (o: any): o is ListTagsForResourceResult => __isa(o, "ListTagsForResourceResult");
 }
 
 /**
@@ -630,16 +570,15 @@ export interface ListTargetsFilter {
 
 export namespace ListTargetsFilter {
   export const filterSensitiveLog = (obj: ListTargetsFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTargetsFilter =>
-    __isa(o, "ListTargetsFilter");
+  export const isa = (o: any): o is ListTargetsFilter => __isa(o, "ListTargetsFilter");
 }
 
 export enum ListTargetsFilterName {
   TARGET_ADDRESS = "TARGET_ADDRESS",
   TARGET_STATUS = "TARGET_STATUS",
-  TARGET_TYPE = "TARGET_TYPE"
+  TARGET_TYPE = "TARGET_TYPE",
 }
 
 export interface ListTargetsRequest {
@@ -654,24 +593,23 @@ export interface ListTargetsRequest {
   Filters?: ListTargetsFilter[];
 
   /**
-   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
-   *       results that can be returned is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A non-negative integer used to limit the number of returned results. The maximum number of
+   *       results that can be returned is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTargetsRequest {
   export const filterSensitiveLog = (obj: ListTargetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTargetsRequest =>
-    __isa(o, "ListTargetsRequest");
+  export const isa = (o: any): o is ListTargetsRequest => __isa(o, "ListTargetsRequest");
 }
 
 export interface ListTargetsResult {
@@ -691,17 +629,14 @@ export interface ListTargetsResult {
 export namespace ListTargetsResult {
   export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
     ...obj,
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => TargetSummary.filterSensitiveLog(item))
-    })
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListTargetsResult =>
-    __isa(o, "ListTargetsResult");
+  export const isa = (o: any): o is ListTargetsResult => __isa(o, "ListTargetsResult");
 }
 
 export enum NotificationRuleStatus {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -710,52 +645,44 @@ export enum NotificationRuleStatus {
 export interface NotificationRuleSummary {
   __type?: "NotificationRuleSummary";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The unique ID of the notification rule.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   */
+  Arn?: string;
 }
 
 export namespace NotificationRuleSummary {
   export const filterSensitiveLog = (obj: NotificationRuleSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotificationRuleSummary =>
-    __isa(o, "NotificationRuleSummary");
+  export const isa = (o: any): o is NotificationRuleSummary => __isa(o, "NotificationRuleSummary");
 }
 
 /**
  * <p>A resource with the same name or ID already exists. Notification rule names must be
  *             unique in your AWS account.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (
-    obj: ResourceAlreadyExistsException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -763,14 +690,18 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface SubscribeRequest {
   __type?: "SubscribeRequest";
+  /**
+   * <p>Information about the SNS topics associated with a  notification rule.</p>
+   */
+  Target: Target | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
    */
@@ -781,20 +712,14 @@ export interface SubscribeRequest {
    *             results.</p>
    */
   ClientRequestToken?: string;
-
-  /**
-   * <p>Information about the SNS topics associated with a  notification rule.</p>
-   */
-  Target: Target | undefined;
 }
 
 export namespace SubscribeRequest {
   export const filterSensitiveLog = (obj: SubscribeRequest): any => ({
     ...obj,
-    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
+    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) }),
   });
-  export const isa = (o: any): o is SubscribeRequest =>
-    __isa(o, "SubscribeRequest");
+  export const isa = (o: any): o is SubscribeRequest => __isa(o, "SubscribeRequest");
 }
 
 export interface SubscribeResult {
@@ -807,31 +732,29 @@ export interface SubscribeResult {
 
 export namespace SubscribeResult {
   export const filterSensitiveLog = (obj: SubscribeResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeResult =>
-    __isa(o, "SubscribeResult");
+  export const isa = (o: any): o is SubscribeResult => __isa(o, "SubscribeResult");
 }
 
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The list of tags to associate with the resource. Tag key names cannot start with "aws".</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResult {
@@ -844,10 +767,9 @@ export interface TagResourceResult {
 
 export namespace TagResourceResult {
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceResult =>
-    __isa(o, "TagResourceResult");
+  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 /**
@@ -869,7 +791,7 @@ export interface Target {
 export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
+    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is Target => __isa(o, "Target");
 }
@@ -879,7 +801,7 @@ export enum TargetStatus {
   DEACTIVATED = "DEACTIVATED",
   INACTIVE = "INACTIVE",
   PENDING = "PENDING",
-  UNREACHABLE = "UNREACHABLE"
+  UNREACHABLE = "UNREACHABLE",
 }
 
 /**
@@ -906,7 +828,7 @@ export interface TargetSummary {
 export namespace TargetSummary {
   export const filterSensitiveLog = (obj: TargetSummary): any => ({
     ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
+    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
   });
   export const isa = (o: any): o is TargetSummary => __isa(o, "TargetSummary");
 }
@@ -927,10 +849,9 @@ export interface UnsubscribeRequest {
 export namespace UnsubscribeRequest {
   export const filterSensitiveLog = (obj: UnsubscribeRequest): any => ({
     ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
+    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UnsubscribeRequest =>
-    __isa(o, "UnsubscribeRequest");
+  export const isa = (o: any): o is UnsubscribeRequest => __isa(o, "UnsubscribeRequest");
 }
 
 export interface UnsubscribeResult {
@@ -943,32 +864,30 @@ export interface UnsubscribeResult {
 
 export namespace UnsubscribeResult {
   export const filterSensitiveLog = (obj: UnsubscribeResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeResult =>
-    __isa(o, "UnsubscribeResult");
+  export const isa = (o: any): o is UnsubscribeResult => __isa(o, "UnsubscribeResult");
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
+   * <p>The key names of the tags to remove.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the notification rule from which to remove the
    *       tags.</p>
    */
   Arn: string | undefined;
-
-  /**
-   * <p>The key names of the tags to remove.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResult {
@@ -977,18 +896,18 @@ export interface UntagResourceResult {
 
 export namespace UntagResourceResult {
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResult =>
-    __isa(o, "UntagResourceResult");
+  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateNotificationRuleRequest {
   __type?: "UpdateNotificationRuleRequest";
   /**
-   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
+   * <p>The address and type of the targets to receive notifications from this notification
+   *       rule.</p>
    */
-  Arn: string | undefined;
+  Targets?: Target[];
 
   /**
    * <p>The level of detail to include in the notifications for this resource. BASIC will include only the
@@ -1003,35 +922,29 @@ export interface UpdateNotificationRuleRequest {
   EventTypeIds?: string[];
 
   /**
-   * <p>The name of the notification rule.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The status of the notification rule. Valid statuses include enabled (sending notifications) or
    *       disabled (not sending notifications).</p>
    */
   Status?: NotificationRuleStatus | string;
 
   /**
-   * <p>The address and type of the targets to receive notifications from this notification
-   *       rule.</p>
+   * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    */
-  Targets?: Target[];
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the notification rule.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateNotificationRuleRequest {
-  export const filterSensitiveLog = (
-    obj: UpdateNotificationRuleRequest
-  ): any => ({
+  export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
     ...obj,
+    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
     ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && {
-      Targets: obj.Targets.map(item => Target.filterSensitiveLog(item))
-    })
   });
-  export const isa = (o: any): o is UpdateNotificationRuleRequest =>
-    __isa(o, "UpdateNotificationRuleRequest");
+  export const isa = (o: any): o is UpdateNotificationRuleRequest => __isa(o, "UpdateNotificationRuleRequest");
 }
 
 export interface UpdateNotificationRuleResult {
@@ -1039,21 +952,16 @@ export interface UpdateNotificationRuleResult {
 }
 
 export namespace UpdateNotificationRuleResult {
-  export const filterSensitiveLog = (
-    obj: UpdateNotificationRuleResult
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateNotificationRuleResult =>
-    __isa(o, "UpdateNotificationRuleResult");
+  export const isa = (o: any): o is UpdateNotificationRuleResult => __isa(o, "UpdateNotificationRuleResult");
 }
 
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -1061,8 +969,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

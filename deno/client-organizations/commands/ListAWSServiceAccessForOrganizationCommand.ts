@@ -1,21 +1,14 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient.ts";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
 import {
   ListAWSServiceAccessForOrganizationRequest,
-  ListAWSServiceAccessForOrganizationResponse
+  ListAWSServiceAccessForOrganizationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
-  serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
+  serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListAWSServiceAccessForOrganizationCommandInput = ListAWSServiceAccessForOrganizationRequest;
@@ -49,18 +42,16 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAWSServiceAccessForOrganizationCommandInput,
-    ListAWSServiceAccessForOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAWSServiceAccessForOrganizationCommandInput, ListAWSServiceAccessForOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListAWSServiceAccessForOrganizationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAWSServiceAccessForOrganizationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     input: ListAWSServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

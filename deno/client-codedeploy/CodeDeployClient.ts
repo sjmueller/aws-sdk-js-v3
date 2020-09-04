@@ -1,186 +1,157 @@
 import {
   AddTagsToOnPremisesInstancesCommandInput,
-  AddTagsToOnPremisesInstancesCommandOutput
+  AddTagsToOnPremisesInstancesCommandOutput,
 } from "./commands/AddTagsToOnPremisesInstancesCommand.ts";
 import {
   BatchGetApplicationRevisionsCommandInput,
-  BatchGetApplicationRevisionsCommandOutput
+  BatchGetApplicationRevisionsCommandOutput,
 } from "./commands/BatchGetApplicationRevisionsCommand.ts";
 import {
   BatchGetApplicationsCommandInput,
-  BatchGetApplicationsCommandOutput
+  BatchGetApplicationsCommandOutput,
 } from "./commands/BatchGetApplicationsCommand.ts";
 import {
   BatchGetDeploymentGroupsCommandInput,
-  BatchGetDeploymentGroupsCommandOutput
+  BatchGetDeploymentGroupsCommandOutput,
 } from "./commands/BatchGetDeploymentGroupsCommand.ts";
 import {
   BatchGetDeploymentInstancesCommandInput,
-  BatchGetDeploymentInstancesCommandOutput
+  BatchGetDeploymentInstancesCommandOutput,
 } from "./commands/BatchGetDeploymentInstancesCommand.ts";
 import {
   BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput
+  BatchGetDeploymentTargetsCommandOutput,
 } from "./commands/BatchGetDeploymentTargetsCommand.ts";
 import {
   BatchGetDeploymentsCommandInput,
-  BatchGetDeploymentsCommandOutput
+  BatchGetDeploymentsCommandOutput,
 } from "./commands/BatchGetDeploymentsCommand.ts";
 import {
   BatchGetOnPremisesInstancesCommandInput,
-  BatchGetOnPremisesInstancesCommandOutput
+  BatchGetOnPremisesInstancesCommandOutput,
 } from "./commands/BatchGetOnPremisesInstancesCommand.ts";
 import {
   ContinueDeploymentCommandInput,
-  ContinueDeploymentCommandOutput
+  ContinueDeploymentCommandOutput,
 } from "./commands/ContinueDeploymentCommand.ts";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand.ts";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand.ts";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
 import {
   CreateDeploymentConfigCommandInput,
-  CreateDeploymentConfigCommandOutput
+  CreateDeploymentConfigCommandOutput,
 } from "./commands/CreateDeploymentConfigCommand.ts";
 import {
   CreateDeploymentGroupCommandInput,
-  CreateDeploymentGroupCommandOutput
+  CreateDeploymentGroupCommandOutput,
 } from "./commands/CreateDeploymentGroupCommand.ts";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand.ts";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand.ts";
 import {
   DeleteDeploymentConfigCommandInput,
-  DeleteDeploymentConfigCommandOutput
+  DeleteDeploymentConfigCommandOutput,
 } from "./commands/DeleteDeploymentConfigCommand.ts";
 import {
   DeleteDeploymentGroupCommandInput,
-  DeleteDeploymentGroupCommandOutput
+  DeleteDeploymentGroupCommandOutput,
 } from "./commands/DeleteDeploymentGroupCommand.ts";
 import {
   DeleteGitHubAccountTokenCommandInput,
-  DeleteGitHubAccountTokenCommandOutput
+  DeleteGitHubAccountTokenCommandOutput,
 } from "./commands/DeleteGitHubAccountTokenCommand.ts";
 import {
-  DeregisterOnPremisesInstanceCommandInput,
-  DeregisterOnPremisesInstanceCommandOutput
-} from "./commands/DeregisterOnPremisesInstanceCommand.ts";
+  DeleteResourcesByExternalIdCommandInput,
+  DeleteResourcesByExternalIdCommandOutput,
+} from "./commands/DeleteResourcesByExternalIdCommand.ts";
 import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand.ts";
+  DeregisterOnPremisesInstanceCommandInput,
+  DeregisterOnPremisesInstanceCommandOutput,
+} from "./commands/DeregisterOnPremisesInstanceCommand.ts";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand.ts";
 import {
   GetApplicationRevisionCommandInput,
-  GetApplicationRevisionCommandOutput
+  GetApplicationRevisionCommandOutput,
 } from "./commands/GetApplicationRevisionCommand.ts";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand.ts";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand.ts";
 import {
   GetDeploymentConfigCommandInput,
-  GetDeploymentConfigCommandOutput
+  GetDeploymentConfigCommandOutput,
 } from "./commands/GetDeploymentConfigCommand.ts";
 import {
   GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput
+  GetDeploymentGroupCommandOutput,
 } from "./commands/GetDeploymentGroupCommand.ts";
 import {
   GetDeploymentInstanceCommandInput,
-  GetDeploymentInstanceCommandOutput
+  GetDeploymentInstanceCommandOutput,
 } from "./commands/GetDeploymentInstanceCommand.ts";
 import {
   GetDeploymentTargetCommandInput,
-  GetDeploymentTargetCommandOutput
+  GetDeploymentTargetCommandOutput,
 } from "./commands/GetDeploymentTargetCommand.ts";
 import {
   GetOnPremisesInstanceCommandInput,
-  GetOnPremisesInstanceCommandOutput
+  GetOnPremisesInstanceCommandOutput,
 } from "./commands/GetOnPremisesInstanceCommand.ts";
 import {
   ListApplicationRevisionsCommandInput,
-  ListApplicationRevisionsCommandOutput
+  ListApplicationRevisionsCommandOutput,
 } from "./commands/ListApplicationRevisionsCommand.ts";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand.ts";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand.ts";
 import {
   ListDeploymentConfigsCommandInput,
-  ListDeploymentConfigsCommandOutput
+  ListDeploymentConfigsCommandOutput,
 } from "./commands/ListDeploymentConfigsCommand.ts";
 import {
   ListDeploymentGroupsCommandInput,
-  ListDeploymentGroupsCommandOutput
+  ListDeploymentGroupsCommandOutput,
 } from "./commands/ListDeploymentGroupsCommand.ts";
 import {
   ListDeploymentInstancesCommandInput,
-  ListDeploymentInstancesCommandOutput
+  ListDeploymentInstancesCommandOutput,
 } from "./commands/ListDeploymentInstancesCommand.ts";
 import {
   ListDeploymentTargetsCommandInput,
-  ListDeploymentTargetsCommandOutput
+  ListDeploymentTargetsCommandOutput,
 } from "./commands/ListDeploymentTargetsCommand.ts";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand.ts";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand.ts";
 import {
   ListGitHubAccountTokenNamesCommandInput,
-  ListGitHubAccountTokenNamesCommandOutput
+  ListGitHubAccountTokenNamesCommandOutput,
 } from "./commands/ListGitHubAccountTokenNamesCommand.ts";
 import {
   ListOnPremisesInstancesCommandInput,
-  ListOnPremisesInstancesCommandOutput
+  ListOnPremisesInstancesCommandOutput,
 } from "./commands/ListOnPremisesInstancesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutLifecycleEventHookExecutionStatusCommandInput,
-  PutLifecycleEventHookExecutionStatusCommandOutput
+  PutLifecycleEventHookExecutionStatusCommandOutput,
 } from "./commands/PutLifecycleEventHookExecutionStatusCommand.ts";
 import {
   RegisterApplicationRevisionCommandInput,
-  RegisterApplicationRevisionCommandOutput
+  RegisterApplicationRevisionCommandOutput,
 } from "./commands/RegisterApplicationRevisionCommand.ts";
 import {
   RegisterOnPremisesInstanceCommandInput,
-  RegisterOnPremisesInstanceCommandOutput
+  RegisterOnPremisesInstanceCommandOutput,
 } from "./commands/RegisterOnPremisesInstanceCommand.ts";
 import {
   RemoveTagsFromOnPremisesInstancesCommandInput,
-  RemoveTagsFromOnPremisesInstancesCommandOutput
+  RemoveTagsFromOnPremisesInstancesCommandOutput,
 } from "./commands/RemoveTagsFromOnPremisesInstancesCommand.ts";
 import {
   SkipWaitTimeForInstanceTerminationCommandInput,
-  SkipWaitTimeForInstanceTerminationCommandOutput
+  SkipWaitTimeForInstanceTerminationCommandOutput,
 } from "./commands/SkipWaitTimeForInstanceTerminationCommand.ts";
-import {
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput
-} from "./commands/StopDeploymentCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand.ts";
+import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand.ts";
 import {
   UpdateDeploymentGroupCommandInput,
-  UpdateDeploymentGroupCommandOutput
+  UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -189,38 +160,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -229,9 +196,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -252,6 +220,7 @@ export type ServiceInputTypes =
   | DeleteDeploymentConfigCommandInput
   | DeleteDeploymentGroupCommandInput
   | DeleteGitHubAccountTokenCommandInput
+  | DeleteResourcesByExternalIdCommandInput
   | DeregisterOnPremisesInstanceCommandInput
   | GetApplicationCommandInput
   | GetApplicationRevisionCommandInput
@@ -300,6 +269,7 @@ export type ServiceOutputTypes =
   | DeleteDeploymentConfigCommandOutput
   | DeleteDeploymentGroupCommandOutput
   | DeleteGitHubAccountTokenCommandOutput
+  | DeleteResourcesByExternalIdCommandOutput
   | DeregisterOnPremisesInstanceCommandOutput
   | GetApplicationCommandOutput
   | GetApplicationRevisionCommandOutput
@@ -330,8 +300,7 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateDeploymentGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -405,14 +374,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -420,9 +394,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeDeployClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeDeployClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -431,9 +403,7 @@ export type CodeDeployClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -555,7 +525,7 @@ export class CodeDeployClient extends __Client<
   constructor(configuration: CodeDeployClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -570,6 +540,7 @@ export class CodeDeployClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

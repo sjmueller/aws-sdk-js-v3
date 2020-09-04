@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  RecordHandlerProgressInput,
-  RecordHandlerProgressOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/index.ts";
 import {
   deserializeAws_queryRecordHandlerProgressCommand,
-  serializeAws_queryRecordHandlerProgressCommand
+  serializeAws_queryRecordHandlerProgressCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RecordHandlerProgressCommandInput = RecordHandlerProgressInput;
-export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput &
-  __MetadataBearer;
+export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput & __MetadataBearer;
 
 export class RecordHandlerProgressCommand extends $Command<
   RecordHandlerProgressCommandInput,
@@ -49,18 +38,16 @@ export class RecordHandlerProgressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RecordHandlerProgressCommandInput,
-    RecordHandlerProgressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RecordHandlerProgressCommandInput, RecordHandlerProgressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RecordHandlerProgressInput.filterSensitiveLog,
+      outputFilterSensitiveLog: RecordHandlerProgressOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RecordHandlerProgressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RecordHandlerProgressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RecordHandlerProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryRecordHandlerProgressCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RecordHandlerProgressCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecordHandlerProgressCommandOutput> {
     return deserializeAws_queryRecordHandlerProgressCommand(output, context);
   }
 

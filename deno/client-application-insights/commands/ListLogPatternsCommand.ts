@@ -1,21 +1,15 @@
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import {
-  ListLogPatternsRequest,
-  ListLogPatternsResponse
-} from "../models/index.ts";
+import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListLogPatternsCommand,
-  serializeAws_json1_1ListLogPatternsCommand
+  serializeAws_json1_1ListLogPatternsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListLogPatternsCommandInput = ListLogPatternsRequest;
-export type ListLogPatternsCommandOutput = ListLogPatternsResponse &
-  __MetadataBearer;
+export type ListLogPatternsCommandOutput = ListLogPatternsResponse & __MetadataBearer;
 
 export class ListLogPatternsCommand extends $Command<
   ListLogPatternsCommandInput,
@@ -50,14 +43,15 @@ export class ListLogPatternsCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLogPatternsCommandInput, ListLogPatternsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListLogPatternsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListLogPatternsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class ListLogPatternsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListLogPatternsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLogPatternsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListLogPatternsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
     return deserializeAws_json1_1ListLogPatternsCommand(output, context);
   }
 

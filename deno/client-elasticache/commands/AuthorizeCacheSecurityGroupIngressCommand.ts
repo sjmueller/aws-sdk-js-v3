@@ -1,21 +1,14 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient.ts";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
 import {
   AuthorizeCacheSecurityGroupIngressMessage,
-  AuthorizeCacheSecurityGroupIngressResult
+  AuthorizeCacheSecurityGroupIngressResult,
 } from "../models/index.ts";
 import {
   deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
-  serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand
+  serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AuthorizeCacheSecurityGroupIngressCommandInput = AuthorizeCacheSecurityGroupIngressMessage;
@@ -49,18 +42,16 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AuthorizeCacheSecurityGroupIngressCommandInput,
-    AuthorizeCacheSecurityGroupIngressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AuthorizeCacheSecurityGroupIngressCommandInput, AuthorizeCacheSecurityGroupIngressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     input: AuthorizeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

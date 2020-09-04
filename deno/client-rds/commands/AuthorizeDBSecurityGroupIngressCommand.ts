@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  AuthorizeDBSecurityGroupIngressMessage,
-  AuthorizeDBSecurityGroupIngressResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/index.ts";
 import {
   deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
-  serializeAws_queryAuthorizeDBSecurityGroupIngressCommand
+  serializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AuthorizeDBSecurityGroupIngressCommandInput = AuthorizeDBSecurityGroupIngressMessage;
-export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult &
-  __MetadataBearer;
+export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult & __MetadataBearer;
 
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
   AuthorizeDBSecurityGroupIngressCommandInput,
@@ -49,18 +38,16 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AuthorizeDBSecurityGroupIngressCommandInput,
-    AuthorizeDBSecurityGroupIngressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AuthorizeDBSecurityGroupIngressCommandInput, AuthorizeDBSecurityGroupIngressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     input: AuthorizeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

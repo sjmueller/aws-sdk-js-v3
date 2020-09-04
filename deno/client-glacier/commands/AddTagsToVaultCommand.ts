@@ -1,18 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient.ts";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
 import { AddTagsToVaultInput } from "../models/index.ts";
 import {
   deserializeAws_restJson1AddTagsToVaultCommand,
-  serializeAws_restJson1AddTagsToVaultCommand
+  serializeAws_restJson1AddTagsToVaultCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AddTagsToVaultCommandInput = AddTagsToVaultInput;
@@ -46,14 +39,15 @@ export class AddTagsToVaultCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsToVaultCommandInput, AddTagsToVaultCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AddTagsToVaultInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class AddTagsToVaultCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddTagsToVaultCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddTagsToVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AddTagsToVaultCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddTagsToVaultCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToVaultCommandOutput> {
     return deserializeAws_restJson1AddTagsToVaultCommand(output, context);
   }
 

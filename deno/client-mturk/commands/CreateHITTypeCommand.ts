@@ -1,18 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import { CreateHITTypeRequest, CreateHITTypeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateHITTypeCommand,
-  serializeAws_json1_1CreateHITTypeCommand
+  serializeAws_json1_1CreateHITTypeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateHITTypeCommandInput = CreateHITTypeRequest;
-export type CreateHITTypeCommandOutput = CreateHITTypeResponse &
-  __MetadataBearer;
+export type CreateHITTypeCommandOutput = CreateHITTypeResponse & __MetadataBearer;
 
 export class CreateHITTypeCommand extends $Command<
   CreateHITTypeCommandInput,
@@ -47,14 +39,15 @@ export class CreateHITTypeCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateHITTypeCommandInput, CreateHITTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateHITTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateHITTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class CreateHITTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateHITTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateHITTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHITTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateHITTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITTypeCommandOutput> {
     return deserializeAws_json1_1CreateHITTypeCommand(output, context);
   }
 

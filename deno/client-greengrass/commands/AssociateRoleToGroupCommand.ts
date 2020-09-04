@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient.ts";
-import {
-  AssociateRoleToGroupRequest,
-  AssociateRoleToGroupResponse
-} from "../models/index.ts";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
+import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1AssociateRoleToGroupCommand,
-  serializeAws_restJson1AssociateRoleToGroupCommand
+  serializeAws_restJson1AssociateRoleToGroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateRoleToGroupCommandInput = AssociateRoleToGroupRequest;
-export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse &
-  __MetadataBearer;
+export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse & __MetadataBearer;
 
 export class AssociateRoleToGroupCommand extends $Command<
   AssociateRoleToGroupCommandInput,
@@ -49,18 +38,16 @@ export class AssociateRoleToGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRoleToGroupCommandInput,
-    AssociateRoleToGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRoleToGroupCommandInput, AssociateRoleToGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateRoleToGroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRoleToGroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AssociateRoleToGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateRoleToGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateRoleToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1AssociateRoleToGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateRoleToGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRoleToGroupCommandOutput> {
     return deserializeAws_restJson1AssociateRoleToGroupCommand(output, context);
   }
 

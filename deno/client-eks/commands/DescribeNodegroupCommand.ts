@@ -1,21 +1,11 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient.ts";
-import {
-  DescribeNodegroupRequest,
-  DescribeNodegroupResponse
-} from "../models/index.ts";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
+import { DescribeNodegroupRequest, DescribeNodegroupResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeNodegroupCommand,
-  serializeAws_restJson1DescribeNodegroupCommand
+  serializeAws_restJson1DescribeNodegroupCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeNodegroupCommandInput = DescribeNodegroupRequest;
-export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse &
-  __MetadataBearer;
+export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse & __MetadataBearer;
 
 export class DescribeNodegroupCommand extends $Command<
   DescribeNodegroupCommandInput,
@@ -50,14 +39,15 @@ export class DescribeNodegroupCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeNodegroupRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodegroupResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeNodegroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeNodegroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeNodegroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeNodegroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodegroupCommandOutput> {
     return deserializeAws_restJson1DescribeNodegroupCommand(output, context);
   }
 

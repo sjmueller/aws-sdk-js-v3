@@ -1,21 +1,14 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient.ts";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
 import {
   CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse
+  CreateConfigurationSetEventDestinationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
+  serializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigurationSetEventDestinationRequest;
@@ -39,9 +32,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: CreateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +42,16 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationSetEventDestinationCommandInput,
-    CreateConfigurationSetEventDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationSetEventDestinationCommandInput, CreateConfigurationSetEventDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateConfigurationSetEventDestinationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateConfigurationSetEventDestinationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +65,14 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1CreateConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

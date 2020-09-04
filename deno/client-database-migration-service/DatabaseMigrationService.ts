@@ -2,237 +2,267 @@ import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommand,
   ApplyPendingMaintenanceActionCommandInput,
-  ApplyPendingMaintenanceActionCommandOutput
+  ApplyPendingMaintenanceActionCommandOutput,
 } from "./commands/ApplyPendingMaintenanceActionCommand.ts";
+import {
+  CancelReplicationTaskAssessmentRunCommand,
+  CancelReplicationTaskAssessmentRunCommandInput,
+  CancelReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/CancelReplicationTaskAssessmentRunCommand.ts";
 import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
+  CreateEndpointCommandOutput,
 } from "./commands/CreateEndpointCommand.ts";
 import {
   CreateEventSubscriptionCommand,
   CreateEventSubscriptionCommandInput,
-  CreateEventSubscriptionCommandOutput
+  CreateEventSubscriptionCommandOutput,
 } from "./commands/CreateEventSubscriptionCommand.ts";
 import {
   CreateReplicationInstanceCommand,
   CreateReplicationInstanceCommandInput,
-  CreateReplicationInstanceCommandOutput
+  CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand.ts";
 import {
   CreateReplicationSubnetGroupCommand,
   CreateReplicationSubnetGroupCommandInput,
-  CreateReplicationSubnetGroupCommandOutput
+  CreateReplicationSubnetGroupCommandOutput,
 } from "./commands/CreateReplicationSubnetGroupCommand.ts";
 import {
   CreateReplicationTaskCommand,
   CreateReplicationTaskCommandInput,
-  CreateReplicationTaskCommandOutput
+  CreateReplicationTaskCommandOutput,
 } from "./commands/CreateReplicationTaskCommand.ts";
 import {
   DeleteCertificateCommand,
   DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
+  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand.ts";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand.ts";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
+  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand.ts";
 import {
   DeleteEventSubscriptionCommand,
   DeleteEventSubscriptionCommandInput,
-  DeleteEventSubscriptionCommandOutput
+  DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand.ts";
 import {
   DeleteReplicationInstanceCommand,
   DeleteReplicationInstanceCommandInput,
-  DeleteReplicationInstanceCommandOutput
+  DeleteReplicationInstanceCommandOutput,
 } from "./commands/DeleteReplicationInstanceCommand.ts";
 import {
   DeleteReplicationSubnetGroupCommand,
   DeleteReplicationSubnetGroupCommandInput,
-  DeleteReplicationSubnetGroupCommandOutput
+  DeleteReplicationSubnetGroupCommandOutput,
 } from "./commands/DeleteReplicationSubnetGroupCommand.ts";
+import {
+  DeleteReplicationTaskAssessmentRunCommand,
+  DeleteReplicationTaskAssessmentRunCommandInput,
+  DeleteReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/DeleteReplicationTaskAssessmentRunCommand.ts";
 import {
   DeleteReplicationTaskCommand,
   DeleteReplicationTaskCommandInput,
-  DeleteReplicationTaskCommandOutput
+  DeleteReplicationTaskCommandOutput,
 } from "./commands/DeleteReplicationTaskCommand.ts";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput
+  DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
+import {
+  DescribeApplicableIndividualAssessmentsCommand,
+  DescribeApplicableIndividualAssessmentsCommandInput,
+  DescribeApplicableIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeApplicableIndividualAssessmentsCommand.ts";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
-  DescribeCertificatesCommandOutput
+  DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand.ts";
 import {
   DescribeConnectionsCommand,
   DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput
+  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand.ts";
 import {
   DescribeEndpointTypesCommand,
   DescribeEndpointTypesCommandInput,
-  DescribeEndpointTypesCommandOutput
+  DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand.ts";
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
+  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand.ts";
 import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
-  DescribeEventCategoriesCommandOutput
+  DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand.ts";
 import {
   DescribeEventSubscriptionsCommand,
   DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput
+  DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand.ts";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand.ts";
 import {
   DescribeOrderableReplicationInstancesCommand,
   DescribeOrderableReplicationInstancesCommandInput,
-  DescribeOrderableReplicationInstancesCommandOutput
+  DescribeOrderableReplicationInstancesCommandOutput,
 } from "./commands/DescribeOrderableReplicationInstancesCommand.ts";
 import {
   DescribePendingMaintenanceActionsCommand,
   DescribePendingMaintenanceActionsCommandInput,
-  DescribePendingMaintenanceActionsCommandOutput
+  DescribePendingMaintenanceActionsCommandOutput,
 } from "./commands/DescribePendingMaintenanceActionsCommand.ts";
 import {
   DescribeRefreshSchemasStatusCommand,
   DescribeRefreshSchemasStatusCommandInput,
-  DescribeRefreshSchemasStatusCommandOutput
+  DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand.ts";
 import {
   DescribeReplicationInstanceTaskLogsCommand,
   DescribeReplicationInstanceTaskLogsCommandInput,
-  DescribeReplicationInstanceTaskLogsCommandOutput
+  DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand.ts";
 import {
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstancesCommandInput,
-  DescribeReplicationInstancesCommandOutput
+  DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand.ts";
 import {
   DescribeReplicationSubnetGroupsCommand,
   DescribeReplicationSubnetGroupsCommandInput,
-  DescribeReplicationSubnetGroupsCommandOutput
+  DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand.ts";
 import {
   DescribeReplicationTaskAssessmentResultsCommand,
   DescribeReplicationTaskAssessmentResultsCommandInput,
-  DescribeReplicationTaskAssessmentResultsCommandOutput
+  DescribeReplicationTaskAssessmentResultsCommandOutput,
 } from "./commands/DescribeReplicationTaskAssessmentResultsCommand.ts";
+import {
+  DescribeReplicationTaskAssessmentRunsCommand,
+  DescribeReplicationTaskAssessmentRunsCommandInput,
+  DescribeReplicationTaskAssessmentRunsCommandOutput,
+} from "./commands/DescribeReplicationTaskAssessmentRunsCommand.ts";
+import {
+  DescribeReplicationTaskIndividualAssessmentsCommand,
+  DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  DescribeReplicationTaskIndividualAssessmentsCommandOutput,
+} from "./commands/DescribeReplicationTaskIndividualAssessmentsCommand.ts";
 import {
   DescribeReplicationTasksCommand,
   DescribeReplicationTasksCommandInput,
-  DescribeReplicationTasksCommandOutput
+  DescribeReplicationTasksCommandOutput,
 } from "./commands/DescribeReplicationTasksCommand.ts";
 import {
   DescribeSchemasCommand,
   DescribeSchemasCommandInput,
-  DescribeSchemasCommandOutput
+  DescribeSchemasCommandOutput,
 } from "./commands/DescribeSchemasCommand.ts";
 import {
   DescribeTableStatisticsCommand,
   DescribeTableStatisticsCommandInput,
-  DescribeTableStatisticsCommandOutput
+  DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand.ts";
 import {
   ImportCertificateCommand,
   ImportCertificateCommandInput,
-  ImportCertificateCommandOutput
+  ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ModifyEndpointCommand,
   ModifyEndpointCommandInput,
-  ModifyEndpointCommandOutput
+  ModifyEndpointCommandOutput,
 } from "./commands/ModifyEndpointCommand.ts";
 import {
   ModifyEventSubscriptionCommand,
   ModifyEventSubscriptionCommandInput,
-  ModifyEventSubscriptionCommandOutput
+  ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand.ts";
 import {
   ModifyReplicationInstanceCommand,
   ModifyReplicationInstanceCommandInput,
-  ModifyReplicationInstanceCommandOutput
+  ModifyReplicationInstanceCommandOutput,
 } from "./commands/ModifyReplicationInstanceCommand.ts";
 import {
   ModifyReplicationSubnetGroupCommand,
   ModifyReplicationSubnetGroupCommandInput,
-  ModifyReplicationSubnetGroupCommandOutput
+  ModifyReplicationSubnetGroupCommandOutput,
 } from "./commands/ModifyReplicationSubnetGroupCommand.ts";
 import {
   ModifyReplicationTaskCommand,
   ModifyReplicationTaskCommandInput,
-  ModifyReplicationTaskCommandOutput
+  ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand.ts";
 import {
   RebootReplicationInstanceCommand,
   RebootReplicationInstanceCommandInput,
-  RebootReplicationInstanceCommandOutput
+  RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand.ts";
 import {
   RefreshSchemasCommand,
   RefreshSchemasCommandInput,
-  RefreshSchemasCommandOutput
+  RefreshSchemasCommandOutput,
 } from "./commands/RefreshSchemasCommand.ts";
 import {
   ReloadTablesCommand,
   ReloadTablesCommandInput,
-  ReloadTablesCommandOutput
+  ReloadTablesCommandOutput,
 } from "./commands/ReloadTablesCommand.ts";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand.ts";
 import {
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentCommandInput,
-  StartReplicationTaskAssessmentCommandOutput
+  StartReplicationTaskAssessmentCommandOutput,
 } from "./commands/StartReplicationTaskAssessmentCommand.ts";
+import {
+  StartReplicationTaskAssessmentRunCommand,
+  StartReplicationTaskAssessmentRunCommandInput,
+  StartReplicationTaskAssessmentRunCommandOutput,
+} from "./commands/StartReplicationTaskAssessmentRunCommand.ts";
 import {
   StartReplicationTaskCommand,
   StartReplicationTaskCommandInput,
-  StartReplicationTaskCommandOutput
+  StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand.ts";
 import {
   StopReplicationTaskCommand,
   StopReplicationTaskCommandInput,
-  StopReplicationTaskCommandOutput
+  StopReplicationTaskCommandOutput,
 } from "./commands/StopReplicationTaskCommand.ts";
 import {
   TestConnectionCommand,
   TestConnectionCommandInput,
-  TestConnectionCommandOutput
+  TestConnectionCommandOutput,
 } from "./commands/TestConnectionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -270,17 +300,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -305,17 +332,49 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void),
     cb?: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> | void {
     const command = new ApplyPendingMaintenanceActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a single premigration assessment run.</p>
+   *          <p>This operation prevents any individual assessments from running if they haven't started
+   *          running. It also attempts to cancel any individual assessments that are currently
+   *          running.</p>
+   */
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelReplicationTaskAssessmentRunCommandOutput>;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public cancelReplicationTaskAssessmentRun(
+    args: CancelReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new CancelReplicationTaskAssessmentRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -340,17 +399,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -390,17 +446,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): Promise<CreateEventSubscriptionCommandOutput> | void {
     const command = new CreateEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -429,17 +482,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateReplicationInstanceCommandOutput) => void
   ): Promise<CreateReplicationInstanceCommandOutput> | void {
     const command = new CreateReplicationInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -464,17 +514,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createReplicationSubnetGroup(
     args: CreateReplicationSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateReplicationSubnetGroupCommandOutput) => void
   ): Promise<CreateReplicationSubnetGroupCommandOutput> | void {
     const command = new CreateReplicationSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -499,17 +546,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createReplicationTask(
     args: CreateReplicationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateReplicationTaskCommandOutput) => void
   ): Promise<CreateReplicationTaskCommandOutput> | void {
     const command = new CreateReplicationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -534,17 +578,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): Promise<DeleteCertificateCommandOutput> | void {
     const command = new DeleteCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -569,17 +610,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -609,17 +647,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -644,17 +679,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -684,17 +716,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteReplicationInstance(
     args: DeleteReplicationInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteReplicationInstanceCommandOutput) => void
   ): Promise<DeleteReplicationInstanceCommandOutput> | void {
     const command = new DeleteReplicationInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -719,17 +748,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteReplicationSubnetGroup(
     args: DeleteReplicationSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteReplicationSubnetGroupCommandOutput) => void
   ): Promise<DeleteReplicationSubnetGroupCommandOutput> | void {
     const command = new DeleteReplicationSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -754,17 +780,49 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteReplicationTask(
     args: DeleteReplicationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationTaskCommandOutput) => void),
     cb?: (err: any, data?: DeleteReplicationTaskCommandOutput) => void
   ): Promise<DeleteReplicationTaskCommandOutput> | void {
     const command = new DeleteReplicationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the record of a single premigration assessment run.</p>
+   *          <p>This operation removes all metadata that AWS DMS maintains about this assessment run.
+   *          However, the operation leaves untouched all information about this assessment run that is
+   *          stored in your Amazon S3 bucket.</p>
+   */
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput>;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public deleteReplicationTaskAssessmentRun(
+    args: DeleteReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new DeleteReplicationTaskAssessmentRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -795,17 +853,62 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of individual assessments that you can specify for a new premigration
+   *          assessment run, given one or more parameters.</p>
+   *          <p>If you specify an existing migration task, this operation provides the default individual
+   *          assessments you can specify for that task. Otherwise, the specified parameters model elements
+   *          of a possible migration task on which to base a premigration assessment run.</p>
+   *          <p>To use these migration task modeling parameters, you must specify an existing replication instance,
+   *          a source database engine, a target database engine, and a migration type. This combination of
+   *          parameters potentially limits the default individual assessments available for an assessment run
+   *          created for a corresponding migration task.</p>
+   *          <p>If you specify no parameters, this operation provides a list of all possible individual assessments
+   *          that you can specify for an assessment run. If you specify any one of the task modeling parameters, you must
+   *          specify all of them or the operation cannot provide a list of individual assessments.
+   *          The only parameter that you can specify alone is for an existing migration task. The specified task
+   *          definition then determines the default list of individual assessments that you can specify in an
+   *          assessment run for the task.</p>
+   */
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput>;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    cb: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeApplicableIndividualAssessments(
+    args: DescribeApplicableIndividualAssessmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
+  ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> | void {
+    const command = new DescribeApplicableIndividualAssessmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -830,17 +933,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): Promise<DescribeCertificatesCommandOutput> | void {
     const command = new DescribeCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -866,17 +966,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeConnections(
     args: DescribeConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeConnectionsCommandOutput) => void
   ): Promise<DescribeConnectionsCommandOutput> | void {
     const command = new DescribeConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -901,17 +998,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): Promise<DescribeEndpointsCommandOutput> | void {
     const command = new DescribeEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -936,17 +1030,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
   ): Promise<DescribeEndpointTypesCommandOutput> | void {
     const command = new DescribeEndpointTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -975,17 +1066,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventCategoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): Promise<DescribeEventCategoriesCommandOutput> | void {
     const command = new DescribeEventCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1014,17 +1102,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1054,17 +1139,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
     const command = new DescribeEventSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1081,38 +1163,25 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput>;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): void;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): void;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableReplicationInstancesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> | void {
     const command = new DescribeOrderableReplicationInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1128,38 +1197,23 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1184,17 +1238,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeRefreshSchemasStatus(
     args: DescribeRefreshSchemasStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRefreshSchemasStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRefreshSchemasStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeRefreshSchemasStatusCommandOutput) => void
   ): Promise<DescribeRefreshSchemasStatusCommandOutput> | void {
     const command = new DescribeRefreshSchemasStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1220,17 +1271,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
   ): Promise<DescribeReplicationInstancesCommandOutput> | void {
     const command = new DescribeReplicationInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1246,38 +1294,23 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput>;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): void;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): void;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationInstanceTaskLogsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> | void {
     const command = new DescribeReplicationInstanceTaskLogsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1302,20 +1335,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationSubnetGroupsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void
   ): Promise<DescribeReplicationSubnetGroupsCommandOutput> | void {
     const command = new DescribeReplicationSubnetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1332,38 +1359,103 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput>;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): void;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): void;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> | void {
     const command = new DescribeReplicationTaskAssessmentResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of premigration assessment runs based on filter
+   *          settings.</p>
+   *          <p>These filter settings can specify a combination of premigration assessment runs,
+   *          migration tasks, replication instances, and assessment run status values.</p>
+   *          <note>
+   *             <p>This operation doesn't return information about individual assessments. For this
+   *             information, see the <code>DescribeReplicationTaskIndividualAssessments</code>
+   *             operation. </p>
+   *          </note>
+   */
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput>;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskAssessmentRuns(
+    args: DescribeReplicationTaskAssessmentRunsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
+  ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> | void {
+    const command = new DescribeReplicationTaskAssessmentRunsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of individual assessments based on filter settings.</p>
+   *          <p>These filter settings can specify a combination of premigration assessment runs,
+   *          migration tasks, and assessment status values.</p>
+   */
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    cb: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): void;
+  public describeReplicationTaskIndividualAssessments(
+    args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
+  ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> | void {
+    const command = new DescribeReplicationTaskIndividualAssessmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1389,17 +1481,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeReplicationTasksCommandOutput) => void
   ): Promise<DescribeReplicationTasksCommandOutput> | void {
     const command = new DescribeReplicationTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1426,17 +1515,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeSchemas(
     args: DescribeSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSchemasCommandOutput) => void),
     cb?: (err: any, data?: DescribeSchemasCommandOutput) => void
   ): Promise<DescribeSchemasCommandOutput> | void {
     const command = new DescribeSchemasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1465,17 +1551,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeTableStatistics(
     args: DescribeTableStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTableStatisticsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTableStatisticsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableStatisticsCommandOutput) => void
   ): Promise<DescribeTableStatisticsCommandOutput> | void {
     const command = new DescribeTableStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1500,17 +1583,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public importCertificate(
     args: ImportCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportCertificateCommandOutput) => void),
     cb?: (err: any, data?: ImportCertificateCommandOutput) => void
   ): Promise<ImportCertificateCommandOutput> | void {
     const command = new ImportCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1535,17 +1615,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1570,17 +1647,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyEndpoint(
     args: ModifyEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEndpointCommandOutput) => void),
     cb?: (err: any, data?: ModifyEndpointCommandOutput) => void
   ): Promise<ModifyEndpointCommandOutput> | void {
     const command = new ModifyEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1605,17 +1679,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): Promise<ModifyEventSubscriptionCommandOutput> | void {
     const command = new ModifyEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1644,17 +1715,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyReplicationInstance(
     args: ModifyReplicationInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReplicationInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReplicationInstanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyReplicationInstanceCommandOutput) => void
   ): Promise<ModifyReplicationInstanceCommandOutput> | void {
     const command = new ModifyReplicationInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1679,17 +1747,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyReplicationSubnetGroup(
     args: ModifyReplicationSubnetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReplicationSubnetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReplicationSubnetGroupCommandOutput) => void),
     cb?: (err: any, data?: ModifyReplicationSubnetGroupCommandOutput) => void
   ): Promise<ModifyReplicationSubnetGroupCommandOutput> | void {
     const command = new ModifyReplicationSubnetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1717,17 +1782,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyReplicationTask(
     args: ModifyReplicationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyReplicationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyReplicationTaskCommandOutput) => void),
     cb?: (err: any, data?: ModifyReplicationTaskCommandOutput) => void
   ): Promise<ModifyReplicationTaskCommandOutput> | void {
     const command = new ModifyReplicationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1753,17 +1815,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public rebootReplicationInstance(
     args: RebootReplicationInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootReplicationInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootReplicationInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootReplicationInstanceCommandOutput) => void
   ): Promise<RebootReplicationInstanceCommandOutput> | void {
     const command = new RebootReplicationInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1790,17 +1849,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public refreshSchemas(
     args: RefreshSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RefreshSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RefreshSchemasCommandOutput) => void),
     cb?: (err: any, data?: RefreshSchemasCommandOutput) => void
   ): Promise<RefreshSchemasCommandOutput> | void {
     const command = new RefreshSchemasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1814,10 +1870,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     args: ReloadTablesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReloadTablesCommandOutput>;
-  public reloadTables(
-    args: ReloadTablesCommandInput,
-    cb: (err: any, data?: ReloadTablesCommandOutput) => void
-  ): void;
+  public reloadTables(args: ReloadTablesCommandInput, cb: (err: any, data?: ReloadTablesCommandOutput) => void): void;
   public reloadTables(
     args: ReloadTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -1825,17 +1878,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public reloadTables(
     args: ReloadTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReloadTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReloadTablesCommandOutput) => void),
     cb?: (err: any, data?: ReloadTablesCommandOutput) => void
   ): Promise<ReloadTablesCommandOutput> | void {
     const command = new ReloadTablesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1860,17 +1910,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1898,17 +1945,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public startReplicationTask(
     args: StartReplicationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartReplicationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationTaskCommandOutput) => void),
     cb?: (err: any, data?: StartReplicationTaskCommandOutput) => void
   ): Promise<StartReplicationTaskCommandOutput> | void {
     const command = new StartReplicationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1934,20 +1978,52 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public startReplicationTaskAssessment(
     args: StartReplicationTaskAssessmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartReplicationTaskAssessmentCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationTaskAssessmentCommandOutput) => void),
     cb?: (err: any, data?: StartReplicationTaskAssessmentCommandOutput) => void
   ): Promise<StartReplicationTaskAssessmentCommandOutput> | void {
     const command = new StartReplicationTaskAssessmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a new premigration assessment run for one or more individual assessments
+   *          of a migration task.</p>
+   *          <p>The assessments that you can specify depend on the source and target database engine and
+   *          the migration type defined for the given task. To run this operation, your migration task
+   *          must already be created. After you run this operation, you can review the status of each
+   *          individual assessment. You can also run the migration task manually after the assessment
+   *          run and its individual assessments complete.</p>
+   */
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationTaskAssessmentRunCommandOutput>;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+  public startReplicationTaskAssessmentRun(
+    args: StartReplicationTaskAssessmentRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void),
+    cb?: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): Promise<StartReplicationTaskAssessmentRunCommandOutput> | void {
+    const command = new StartReplicationTaskAssessmentRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1956,8 +2032,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
 
   /**
    * <p>Stops the replication task.</p>
-   *
-   *          <p></p>
    */
   public stopReplicationTask(
     args: StopReplicationTaskCommandInput,
@@ -1974,17 +2048,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public stopReplicationTask(
     args: StopReplicationTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopReplicationTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopReplicationTaskCommandOutput) => void),
     cb?: (err: any, data?: StopReplicationTaskCommandOutput) => void
   ): Promise<StopReplicationTaskCommandOutput> | void {
     const command = new StopReplicationTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2009,17 +2080,14 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public testConnection(
     args: TestConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestConnectionCommandOutput) => void),
     cb?: (err: any, data?: TestConnectionCommandOutput) => void
   ): Promise<TestConnectionCommandOutput> | void {
     const command = new TestConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

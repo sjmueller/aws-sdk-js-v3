@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TransferClientResolvedConfig
-} from "../TransferClient.ts";
-import {
-  TestIdentityProviderRequest,
-  TestIdentityProviderResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
+import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1TestIdentityProviderCommand,
-  serializeAws_json1_1TestIdentityProviderCommand
+  serializeAws_json1_1TestIdentityProviderCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type TestIdentityProviderCommandInput = TestIdentityProviderRequest;
-export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse &
-  __MetadataBearer;
+export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse & __MetadataBearer;
 
 export class TestIdentityProviderCommand extends $Command<
   TestIdentityProviderCommandInput,
@@ -49,18 +38,16 @@ export class TestIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TestIdentityProviderCommandInput,
-    TestIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TestIdentityProviderCommandInput, TestIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: TestIdentityProviderRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestIdentityProviderResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class TestIdentityProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TestIdentityProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TestIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TestIdentityProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TestIdentityProviderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestIdentityProviderCommandOutput> {
     return deserializeAws_json1_1TestIdentityProviderCommand(output, context);
   }
 

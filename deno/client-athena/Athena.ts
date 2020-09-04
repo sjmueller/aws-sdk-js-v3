@@ -2,114 +2,171 @@ import { AthenaClient } from "./AthenaClient.ts";
 import {
   BatchGetNamedQueryCommand,
   BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput
+  BatchGetNamedQueryCommandOutput,
 } from "./commands/BatchGetNamedQueryCommand.ts";
 import {
   BatchGetQueryExecutionCommand,
   BatchGetQueryExecutionCommandInput,
-  BatchGetQueryExecutionCommandOutput
+  BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand.ts";
+import {
+  CreateDataCatalogCommand,
+  CreateDataCatalogCommandInput,
+  CreateDataCatalogCommandOutput,
+} from "./commands/CreateDataCatalogCommand.ts";
 import {
   CreateNamedQueryCommand,
   CreateNamedQueryCommandInput,
-  CreateNamedQueryCommandOutput
+  CreateNamedQueryCommandOutput,
 } from "./commands/CreateNamedQueryCommand.ts";
 import {
   CreateWorkGroupCommand,
   CreateWorkGroupCommandInput,
-  CreateWorkGroupCommandOutput
+  CreateWorkGroupCommandOutput,
 } from "./commands/CreateWorkGroupCommand.ts";
+import {
+  DeleteDataCatalogCommand,
+  DeleteDataCatalogCommandInput,
+  DeleteDataCatalogCommandOutput,
+} from "./commands/DeleteDataCatalogCommand.ts";
 import {
   DeleteNamedQueryCommand,
   DeleteNamedQueryCommandInput,
-  DeleteNamedQueryCommandOutput
+  DeleteNamedQueryCommandOutput,
 } from "./commands/DeleteNamedQueryCommand.ts";
 import {
   DeleteWorkGroupCommand,
   DeleteWorkGroupCommandInput,
-  DeleteWorkGroupCommandOutput
+  DeleteWorkGroupCommandOutput,
 } from "./commands/DeleteWorkGroupCommand.ts";
+import {
+  GetDataCatalogCommand,
+  GetDataCatalogCommandInput,
+  GetDataCatalogCommandOutput,
+} from "./commands/GetDataCatalogCommand.ts";
+import {
+  GetDatabaseCommand,
+  GetDatabaseCommandInput,
+  GetDatabaseCommandOutput,
+} from "./commands/GetDatabaseCommand.ts";
 import {
   GetNamedQueryCommand,
   GetNamedQueryCommandInput,
-  GetNamedQueryCommandOutput
+  GetNamedQueryCommandOutput,
 } from "./commands/GetNamedQueryCommand.ts";
 import {
   GetQueryExecutionCommand,
   GetQueryExecutionCommandInput,
-  GetQueryExecutionCommandOutput
+  GetQueryExecutionCommandOutput,
 } from "./commands/GetQueryExecutionCommand.ts";
 import {
   GetQueryResultsCommand,
   GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
+  GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand.ts";
+import {
+  GetTableMetadataCommand,
+  GetTableMetadataCommandInput,
+  GetTableMetadataCommandOutput,
+} from "./commands/GetTableMetadataCommand.ts";
 import {
   GetWorkGroupCommand,
   GetWorkGroupCommandInput,
-  GetWorkGroupCommandOutput
+  GetWorkGroupCommandOutput,
 } from "./commands/GetWorkGroupCommand.ts";
+import {
+  ListDataCatalogsCommand,
+  ListDataCatalogsCommandInput,
+  ListDataCatalogsCommandOutput,
+} from "./commands/ListDataCatalogsCommand.ts";
+import {
+  ListDatabasesCommand,
+  ListDatabasesCommandInput,
+  ListDatabasesCommandOutput,
+} from "./commands/ListDatabasesCommand.ts";
 import {
   ListNamedQueriesCommand,
   ListNamedQueriesCommandInput,
-  ListNamedQueriesCommandOutput
+  ListNamedQueriesCommandOutput,
 } from "./commands/ListNamedQueriesCommand.ts";
 import {
   ListQueryExecutionsCommand,
   ListQueryExecutionsCommandInput,
-  ListQueryExecutionsCommandOutput
+  ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand.ts";
+import {
+  ListTableMetadataCommand,
+  ListTableMetadataCommandInput,
+  ListTableMetadataCommandOutput,
+} from "./commands/ListTableMetadataCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListWorkGroupsCommand,
   ListWorkGroupsCommandInput,
-  ListWorkGroupsCommandOutput
+  ListWorkGroupsCommandOutput,
 } from "./commands/ListWorkGroupsCommand.ts";
 import {
   StartQueryExecutionCommand,
   StartQueryExecutionCommandInput,
-  StartQueryExecutionCommandOutput
+  StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand.ts";
 import {
   StopQueryExecutionCommand,
   StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput
+  StopQueryExecutionCommandOutput,
 } from "./commands/StopQueryExecutionCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
+import {
+  UpdateDataCatalogCommand,
+  UpdateDataCatalogCommandInput,
+  UpdateDataCatalogCommandOutput,
+} from "./commands/UpdateDataCatalogCommand.ts";
 import {
   UpdateWorkGroupCommand,
   UpdateWorkGroupCommandInput,
-  UpdateWorkGroupCommandOutput
+  UpdateWorkGroupCommandOutput,
 } from "./commands/UpdateWorkGroupCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
- *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing Amazon Athena with JDBC</a>.</p>
- *          <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * <p>Amazon Athena is an interactive query service that lets you use standard SQL to
+ *             analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and
+ *             run ad-hoc queries and get results in seconds. Athena is serverless, so there is no
+ *             infrastructure to set up or manage. You pay only for the queries you run. Athena scales
+ *             automatically—executing queries in parallel—so results are fast, even with large
+ *             datasets and complex queries. For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon
+ *                 Athena</a> in the <i>Amazon Athena User Guide</i>.</p>
+ *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or
+ *             later with the Amazon Athena API. Earlier version drivers do not support the API. For
+ *             more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
+ *                 Amazon Athena with JDBC</a>.</p>
+ *         <p>For code samples using the AWS SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
  */
 export class Athena extends AthenaClient {
   /**
-   * <p>Returns the details of a single named query or a list of up to 50 queries,
-   *          which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a>
-   *          to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID,
-   *          information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>.
-   *          Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a>
-   *          to get details about each unique query execution, and <a>ListQueryExecutionsInput</a>
-   *          to get a list of query execution IDs.</p>
+   * <p>Returns the details of a single named query or a list of up to 50 queries, which you
+   *             provide as an array of query ID strings. Requires you to have access to the workgroup in
+   *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
+   *             list of named query IDs in the specified workgroup. If information could not be
+   *             retrieved for a submitted query ID, information about the query ID submitted is listed
+   *             under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed
+   *             queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each
+   *             unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of
+   *             query execution IDs.</p>
    */
   public batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
@@ -126,17 +183,14 @@ export class Athena extends AthenaClient {
   ): void;
   public batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
   ): Promise<BatchGetNamedQueryCommandOutput> | void {
     const command = new BatchGetNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -144,11 +198,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns the details of a single query execution or a list of up to 50 query executions,
-   *         which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran.
-   *         To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>.
-   *         Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a>
-   *         to get details about named queries.</p>
+   * <p>Returns the details of a single query execution or a list of up to 50 query
+   *             executions, which you provide as an array of query execution ID strings. Requires you to
+   *             have access to the workgroup in which the queries ran. To get a list of query execution
+   *             IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ
+   *             from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details
+   *             about named queries.</p>
    */
   public batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
@@ -165,17 +220,14 @@ export class Athena extends AthenaClient {
   ): void;
   public batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetQueryExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
   ): Promise<BatchGetQueryExecutionCommandOutput> | void {
     const command = new BatchGetQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -183,8 +235,43 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
+   *             created are visible to all users of the same AWS account.</p>
+   */
+  public createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataCatalogCommandOutput>;
+  public createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
+  ): void;
+  public createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
+  ): void;
+  public createDataCatalog(
+    args: CreateDataCatalogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataCatalogCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataCatalogCommandOutput) => void
+  ): Promise<CreateDataCatalogCommandOutput> | void {
+    const command = new CreateDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a named query in the specified workgroup. Requires that you have access to the
+   *             workgroup.</p>
+   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
@@ -201,17 +288,14 @@ export class Athena extends AthenaClient {
   ): void;
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: CreateNamedQueryCommandOutput) => void
   ): Promise<CreateNamedQueryCommandOutput> | void {
     const command = new CreateNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -236,17 +320,14 @@ export class Athena extends AthenaClient {
   ): void;
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkGroupCommandOutput) => void
   ): Promise<CreateWorkGroupCommandOutput> | void {
     const command = new CreateWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -254,8 +335,42 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Deletes the named query if you have access to the workgroup in which the query was saved.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Deletes a data catalog.</p>
+   */
+  public deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataCatalogCommandOutput>;
+  public deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
+  ): void;
+  public deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
+  ): void;
+  public deleteDataCatalog(
+    args: DeleteDataCatalogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataCatalogCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataCatalogCommandOutput) => void
+  ): Promise<DeleteDataCatalogCommandOutput> | void {
+    const command = new DeleteDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the named query if you have access to the workgroup in which the query was
+   *             saved.</p>
+   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
@@ -272,17 +387,14 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamedQueryCommandOutput) => void
   ): Promise<DeleteNamedQueryCommandOutput> | void {
     const command = new DeleteNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -290,7 +402,8 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.</p>
+   * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
+   *             deleted.</p>
    */
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
@@ -307,17 +420,14 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkGroupCommandOutput) => void
   ): Promise<DeleteWorkGroupCommandOutput> | void {
     const command = new DeleteWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -325,7 +435,66 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.</p>
+   * <p>Returns a database object for the specfied database and data catalog.</p>
+   */
+  public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
+  public getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
+  public getDatabase(
+    args: GetDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDatabaseCommandOutput) => void
+  ): void;
+  public getDatabase(
+    args: GetDatabaseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabaseCommandOutput) => void),
+    cb?: (err: any, data?: GetDatabaseCommandOutput) => void
+  ): Promise<GetDatabaseCommandOutput> | void {
+    const command = new GetDatabaseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the specified data catalog.</p>
+   */
+  public getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataCatalogCommandOutput>;
+  public getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
+  ): void;
+  public getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
+  ): void;
+  public getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataCatalogCommandOutput) => void),
+    cb?: (err: any, data?: GetDataCatalogCommandOutput) => void
+  ): Promise<GetDataCatalogCommandOutput> | void {
+    const command = new GetDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a single query. Requires that you have access to the
+   *             workgroup in which the query was saved.</p>
    */
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
@@ -342,17 +511,14 @@ export class Athena extends AthenaClient {
   ): void;
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: GetNamedQueryCommandOutput) => void
   ): Promise<GetNamedQueryCommandOutput> | void {
     const command = new GetNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -360,7 +526,9 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.</p>
+   * <p>Returns information about a single execution of a query if you have access to the
+   *             workgroup in which the query ran. Each time a query executes, information about the
+   *             query execution is saved with a unique ID.</p>
    */
   public getQueryExecution(
     args: GetQueryExecutionCommandInput,
@@ -377,17 +545,14 @@ export class Athena extends AthenaClient {
   ): void;
   public getQueryExecution(
     args: GetQueryExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: GetQueryExecutionCommandOutput) => void
   ): Promise<GetQueryExecutionCommandOutput> | void {
     const command = new GetQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,11 +560,21 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Streams the results of a single query execution specified by <code>QueryExecutionId</code> from the Athena query results location in Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
-   *          <p>To stream query results successfully, the IAM principal with permission to call <code>GetQueryResults</code> also must have permissions to the Amazon S3 <code>GetObject</code> action for the Athena query results location.</p>
-   *          <important>
-   *             <p>IAM principals with permission to the Amazon S3 <code>GetObject</code> action for the query results location are able to retrieve query results from Amazon S3 even if permission to the <code>GetQueryResults</code> action is denied. To restrict user or role access, ensure that Amazon S3 permissions to the Athena query location are denied.</p>
-   *          </important>
+   * <p>Streams the results of a single query execution specified by
+   *                 <code>QueryExecutionId</code> from the Athena query results location in Amazon S3.
+   *             For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon
+   *                 Athena User Guide</i>. This request does not execute the query but returns
+   *             results. Use <a>StartQueryExecution</a> to run a query.</p>
+   *         <p>To stream query results successfully, the IAM principal with permission to call
+   *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
+   *                 <code>GetObject</code> action for the Athena query results location.</p>
+   *         <important>
+   *             <p>IAM principals with permission to the Amazon S3 <code>GetObject</code> action for
+   *                 the query results location are able to retrieve query results from Amazon S3 even if
+   *                 permission to the <code>GetQueryResults</code> action is denied. To restrict user or
+   *                 role access, ensure that Amazon S3 permissions to the Athena query location are
+   *                 denied.</p>
+   *         </important>
    */
   public getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -416,17 +591,46 @@ export class Athena extends AthenaClient {
   ): void;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns table metadata for the specified catalog, database, and table.</p>
+   */
+  public getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableMetadataCommandOutput>;
+  public getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
+  ): void;
+  public getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableMetadataCommandOutput) => void
+  ): void;
+  public getTableMetadata(
+    args: GetTableMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetTableMetadataCommandOutput) => void
+  ): Promise<GetTableMetadataCommandOutput> | void {
+    const command = new GetTableMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -440,10 +644,7 @@ export class Athena extends AthenaClient {
     args: GetWorkGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetWorkGroupCommandOutput>;
-  public getWorkGroup(
-    args: GetWorkGroupCommandInput,
-    cb: (err: any, data?: GetWorkGroupCommandOutput) => void
-  ): void;
+  public getWorkGroup(args: GetWorkGroupCommandInput, cb: (err: any, data?: GetWorkGroupCommandOutput) => void): void;
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -451,17 +652,14 @@ export class Athena extends AthenaClient {
   ): void;
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: GetWorkGroupCommandOutput) => void
   ): Promise<GetWorkGroupCommandOutput> | void {
     const command = new GetWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -469,8 +667,75 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Lists the databases in the specified data catalog.</p>
+   */
+  public listDatabases(
+    args: ListDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatabasesCommandOutput>;
+  public listDatabases(
+    args: ListDatabasesCommandInput,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
+  public listDatabases(
+    args: ListDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
+  public listDatabases(
+    args: ListDatabasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatabasesCommandOutput) => void),
+    cb?: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): Promise<ListDatabasesCommandOutput> | void {
+    const command = new ListDatabasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the data catalogs in the current AWS account.</p>
+   */
+  public listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataCatalogsCommandOutput>;
+  public listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
+  ): void;
+  public listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
+  ): void;
+  public listDataCatalogs(
+    args: ListDataCatalogsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataCatalogsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataCatalogsCommandOutput) => void
+  ): Promise<ListDataCatalogsCommandOutput> | void {
+    const command = new ListDataCatalogsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of available query IDs only for queries saved in the specified
+   *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
+   *             not specified, lists the saved queries for the primary workgroup.</p>
+   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
@@ -487,17 +752,14 @@ export class Athena extends AthenaClient {
   ): void;
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
     cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): Promise<ListNamedQueriesCommandOutput> | void {
     const command = new ListNamedQueriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,8 +767,12 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Provides a list of available query execution IDs for the queries in the specified workgroup. Requires you to have access to the workgroup in which the queries ran.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Provides a list of available query execution IDs for the queries in the specified
+   *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
+   *             the primary workgroup. Requires you to have access to the workgroup in which the queries
+   *             ran.</p>
+   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
@@ -523,17 +789,14 @@ export class Athena extends AthenaClient {
   ): void;
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueryExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueryExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListQueryExecutionsCommandOutput) => void
   ): Promise<ListQueryExecutionsCommandOutput> | void {
     const command = new ListQueryExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -541,7 +804,39 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Lists the tags associated with this workgroup.</p>
+   * <p>Lists the metadata for the tables in the specified data catalog database.</p>
+   */
+  public listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTableMetadataCommandOutput>;
+  public listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
+  ): void;
+  public listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTableMetadataCommandOutput) => void
+  ): void;
+  public listTableMetadata(
+    args: ListTableMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTableMetadataCommandOutput) => void),
+    cb?: (err: any, data?: ListTableMetadataCommandOutput) => void
+  ): Promise<ListTableMetadataCommandOutput> | void {
+    const command = new ListTableMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags associated with an Athena workgroup or data catalog resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -558,17 +853,14 @@ export class Athena extends AthenaClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -593,17 +885,14 @@ export class Athena extends AthenaClient {
   ): void;
   public listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkGroupsCommandOutput) => void
   ): Promise<ListWorkGroupsCommandOutput> | void {
     const command = new ListWorkGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -611,8 +900,11 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
+   *             have access to the workgroup in which the query ran. Running queries against an external
+   *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
+   *             samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
@@ -629,17 +921,14 @@ export class Athena extends AthenaClient {
   ): void;
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartQueryExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartQueryExecutionCommandOutput) => void
   ): Promise<StartQueryExecutionCommandOutput> | void {
     const command = new StartQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -647,8 +936,10 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p>
-   *          <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+   * <p>Stops a query execution. Requires you to have access to the workgroup in which the
+   *             query ran.</p>
+   *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
    */
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
@@ -665,17 +956,14 @@ export class Athena extends AthenaClient {
   ): void;
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopQueryExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopQueryExecutionCommandOutput) => void
   ): Promise<StopQueryExecutionCommandOutput> | void {
     const command = new StopQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -683,20 +971,19 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define.
-   *          Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account.
-   *          For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters
-   *          in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @.
-   *          Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.</p>
+   * <p>Adds one or more tags to an Athena resource. A tag is a label that you assign to a
+   *             resource. In Athena, a resource can be a workgroup or data catalog. Each tag consists of
+   *             a key and an optional value, both of which you define. For example, you can use tags to
+   *             categorize Athena workgroups or data catalogs by purpose, owner, or environment. Use a
+   *             consistent set of tag keys to make it easier to search and filter workgroups or data
+   *             catalogs in your account. For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
+   *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
+   *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
+   *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
+   *             specify more than one tag, separate them by commas.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -704,17 +991,14 @@ export class Athena extends AthenaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -722,7 +1006,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.</p>
+   * <p>Removes one or more tags from a data catalog or workgroup resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -739,17 +1023,14 @@ export class Athena extends AthenaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -757,7 +1038,40 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.</p>
+   * <p>Updates the data catalog that has the specified name.</p>
+   */
+  public updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataCatalogCommandOutput>;
+  public updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
+  ): void;
+  public updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
+  ): void;
+  public updateDataCatalog(
+    args: UpdateDataCatalogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataCatalogCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataCatalogCommandOutput) => void
+  ): Promise<UpdateDataCatalogCommandOutput> | void {
+    const command = new UpdateDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
+   *             changed.</p>
    */
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
@@ -774,17 +1088,14 @@ export class Athena extends AthenaClient {
   ): void;
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkGroupCommandOutput) => void
   ): Promise<UpdateWorkGroupCommandOutput> | void {
     const command = new UpdateWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

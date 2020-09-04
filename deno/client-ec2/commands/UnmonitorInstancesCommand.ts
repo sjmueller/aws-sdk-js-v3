@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  UnmonitorInstancesRequest,
-  UnmonitorInstancesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2UnmonitorInstancesCommand,
-  serializeAws_ec2UnmonitorInstancesCommand
+  serializeAws_ec2UnmonitorInstancesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UnmonitorInstancesCommandInput = UnmonitorInstancesRequest;
-export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult &
-  __MetadataBearer;
+export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult & __MetadataBearer;
 
 export class UnmonitorInstancesCommand extends $Command<
   UnmonitorInstancesCommandInput,
@@ -50,14 +39,15 @@ export class UnmonitorInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UnmonitorInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UnmonitorInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UnmonitorInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnmonitorInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnmonitorInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2UnmonitorInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnmonitorInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnmonitorInstancesCommandOutput> {
     return deserializeAws_ec2UnmonitorInstancesCommand(output, context);
   }
 

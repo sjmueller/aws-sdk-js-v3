@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
-import {
-  DetectSentimentRequest,
-  DetectSentimentResponse
-} from "../models/index.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
+import { DetectSentimentRequest, DetectSentimentResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DetectSentimentCommand,
-  serializeAws_json1_1DetectSentimentCommand
+  serializeAws_json1_1DetectSentimentCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DetectSentimentCommandInput = DetectSentimentRequest;
-export type DetectSentimentCommandOutput = DetectSentimentResponse &
-  __MetadataBearer;
+export type DetectSentimentCommandOutput = DetectSentimentResponse & __MetadataBearer;
 
 export class DetectSentimentCommand extends $Command<
   DetectSentimentCommandInput,
@@ -50,14 +39,15 @@ export class DetectSentimentCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectSentimentCommandInput, DetectSentimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DetectSentimentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectSentimentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectSentimentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectSentimentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectSentimentCommandOutput> {
     return deserializeAws_json1_1DetectSentimentCommand(output, context);
   }
 

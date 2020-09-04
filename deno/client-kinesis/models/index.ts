@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -23,10 +19,9 @@ export interface AddTagsToStreamInput {
 
 export namespace AddTagsToStreamInput {
   export const filterSensitiveLog = (obj: AddTagsToStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AddTagsToStreamInput =>
-    __isa(o, "AddTagsToStreamInput");
+  export const isa = (o: any): o is AddTagsToStreamInput => __isa(o, "AddTagsToStreamInput");
 }
 
 /**
@@ -44,9 +39,9 @@ export interface Consumer {
   ConsumerARN: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>
    */
-  ConsumerCreationTimestamp: Date | undefined;
+  ConsumerStatus: ConsumerStatus | string | undefined;
 
   /**
    * <p>The name of the consumer is something you choose when you register the consumer.</p>
@@ -54,14 +49,14 @@ export interface Consumer {
   ConsumerName: string | undefined;
 
   /**
-   * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states.</p>
+   * <p></p>
    */
-  ConsumerStatus: ConsumerStatus | string | undefined;
+  ConsumerCreationTimestamp: Date | undefined;
 }
 
 export namespace Consumer {
   export const filterSensitiveLog = (obj: Consumer): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Consumer => __isa(o, "Consumer");
 }
@@ -72,6 +67,22 @@ export namespace Consumer {
 export interface ConsumerDescription {
   __type?: "ConsumerDescription";
   /**
+   * <p></p>
+   */
+  ConsumerCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The ARN of the stream with which you registered the consumer.</p>
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
+   *             states.</p>
+   */
+  ConsumerStatus: ConsumerStatus | string | undefined;
+
+  /**
    * <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need
    *             this ARN to be able to call <a>SubscribeToShard</a>.</p>
    *         <p>If you delete a consumer and then create a new one with the same name, it won't have
@@ -81,39 +92,22 @@ export interface ConsumerDescription {
   ConsumerARN: string | undefined;
 
   /**
-   * <p></p>
-   */
-  ConsumerCreationTimestamp: Date | undefined;
-
-  /**
    * <p>The name of the consumer is something you choose when you register the consumer.</p>
    */
   ConsumerName: string | undefined;
-
-  /**
-   * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
-   *             states.</p>
-   */
-  ConsumerStatus: ConsumerStatus | string | undefined;
-
-  /**
-   * <p>The ARN of the stream with which you registered the consumer.</p>
-   */
-  StreamARN: string | undefined;
 }
 
 export namespace ConsumerDescription {
   export const filterSensitiveLog = (obj: ConsumerDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConsumerDescription =>
-    __isa(o, "ConsumerDescription");
+  export const isa = (o: any): o is ConsumerDescription => __isa(o, "ConsumerDescription");
 }
 
 export enum ConsumerStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -138,10 +132,9 @@ export interface CreateStreamInput {
 
 export namespace CreateStreamInput {
   export const filterSensitiveLog = (obj: CreateStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateStreamInput =>
-    __isa(o, "CreateStreamInput");
+  export const isa = (o: any): o is CreateStreamInput => __isa(o, "CreateStreamInput");
 }
 
 /**
@@ -150,21 +143,19 @@ export namespace CreateStreamInput {
 export interface DecreaseStreamRetentionPeriodInput {
   __type?: "DecreaseStreamRetentionPeriodInput";
   /**
-   * <p>The new retention period of the stream, in hours. Must be less than the current retention period.</p>
-   */
-  RetentionPeriodHours: number | undefined;
-
-  /**
    * <p>The name of the stream to modify.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>The new retention period of the stream, in hours. Must be less than the current retention period.</p>
+   */
+  RetentionPeriodHours: number | undefined;
 }
 
 export namespace DecreaseStreamRetentionPeriodInput {
-  export const filterSensitiveLog = (
-    obj: DecreaseStreamRetentionPeriodInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DecreaseStreamRetentionPeriodInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is DecreaseStreamRetentionPeriodInput =>
     __isa(o, "DecreaseStreamRetentionPeriodInput");
@@ -176,28 +167,33 @@ export namespace DecreaseStreamRetentionPeriodInput {
 export interface DeleteStreamInput {
   __type?: "DeleteStreamInput";
   /**
+   * <p>The name of the stream to delete.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
    * <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
    *             and the stream has registered consumers, the call to <code>DeleteStream</code> fails
    *             with a <code>ResourceInUseException</code>. </p>
    */
   EnforceConsumerDeletion?: boolean;
-
-  /**
-   * <p>The name of the stream to delete.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace DeleteStreamInput {
   export const filterSensitiveLog = (obj: DeleteStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamInput =>
-    __isa(o, "DeleteStreamInput");
+  export const isa = (o: any): o is DeleteStreamInput => __isa(o, "DeleteStreamInput");
 }
 
 export interface DeregisterStreamConsumerInput {
   __type?: "DeregisterStreamConsumerInput";
+  /**
+   * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  StreamARN?: string;
+
   /**
    * <p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you
    *             don't know the ARN of the consumer that you want to deregister, you can use the
@@ -211,22 +207,13 @@ export interface DeregisterStreamConsumerInput {
    * <p>The name that you gave to the consumer.</p>
    */
   ConsumerName?: string;
-
-  /**
-   * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  StreamARN?: string;
 }
 
 export namespace DeregisterStreamConsumerInput {
-  export const filterSensitiveLog = (
-    obj: DeregisterStreamConsumerInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DeregisterStreamConsumerInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DeregisterStreamConsumerInput =>
-    __isa(o, "DeregisterStreamConsumerInput");
+  export const isa = (o: any): o is DeregisterStreamConsumerInput => __isa(o, "DeregisterStreamConsumerInput");
 }
 
 export interface DescribeLimitsInput {
@@ -235,10 +222,9 @@ export interface DescribeLimitsInput {
 
 export namespace DescribeLimitsInput {
   export const filterSensitiveLog = (obj: DescribeLimitsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLimitsInput =>
-    __isa(o, "DescribeLimitsInput");
+  export const isa = (o: any): o is DescribeLimitsInput => __isa(o, "DescribeLimitsInput");
 }
 
 export interface DescribeLimitsOutput {
@@ -256,19 +242,13 @@ export interface DescribeLimitsOutput {
 
 export namespace DescribeLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeLimitsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeLimitsOutput =>
-    __isa(o, "DescribeLimitsOutput");
+  export const isa = (o: any): o is DescribeLimitsOutput => __isa(o, "DescribeLimitsOutput");
 }
 
 export interface DescribeStreamConsumerInput {
   __type?: "DescribeStreamConsumerInput";
-  /**
-   * <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
-   */
-  ConsumerARN?: string;
-
   /**
    * <p>The name that you gave to the consumer.</p>
    */
@@ -279,16 +259,18 @@ export interface DescribeStreamConsumerInput {
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
    */
   StreamARN?: string;
+
+  /**
+   * <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
+   */
+  ConsumerARN?: string;
 }
 
 export namespace DescribeStreamConsumerInput {
-  export const filterSensitiveLog = (
-    obj: DescribeStreamConsumerInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStreamConsumerInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamConsumerInput =>
-    __isa(o, "DescribeStreamConsumerInput");
+  export const isa = (o: any): o is DescribeStreamConsumerInput => __isa(o, "DescribeStreamConsumerInput");
 }
 
 export interface DescribeStreamConsumerOutput {
@@ -300,13 +282,10 @@ export interface DescribeStreamConsumerOutput {
 }
 
 export namespace DescribeStreamConsumerOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeStreamConsumerOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStreamConsumerOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamConsumerOutput =>
-    __isa(o, "DescribeStreamConsumerOutput");
+  export const isa = (o: any): o is DescribeStreamConsumerOutput => __isa(o, "DescribeStreamConsumerOutput");
 }
 
 /**
@@ -315,15 +294,15 @@ export namespace DescribeStreamConsumerOutput {
 export interface DescribeStreamInput {
   __type?: "DescribeStreamInput";
   /**
-   * <p>The shard ID of the shard to start with.</p>
-   */
-  ExclusiveStartShardId?: string;
-
-  /**
    * <p>The maximum number of shards to return in a single call. The default value is 100.
    *             If you specify a value greater than 100, at most 100 shards are returned.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>The shard ID of the shard to start with.</p>
+   */
+  ExclusiveStartShardId?: string;
 
   /**
    * <p>The name of the stream to describe.</p>
@@ -333,10 +312,9 @@ export interface DescribeStreamInput {
 
 export namespace DescribeStreamInput {
   export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamInput =>
-    __isa(o, "DescribeStreamInput");
+  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 /**
@@ -354,10 +332,9 @@ export interface DescribeStreamOutput {
 
 export namespace DescribeStreamOutput {
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamOutput =>
-    __isa(o, "DescribeStreamOutput");
+  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 export interface DescribeStreamSummaryInput {
@@ -370,10 +347,9 @@ export interface DescribeStreamSummaryInput {
 
 export namespace DescribeStreamSummaryInput {
   export const filterSensitiveLog = (obj: DescribeStreamSummaryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamSummaryInput =>
-    __isa(o, "DescribeStreamSummaryInput");
+  export const isa = (o: any): o is DescribeStreamSummaryInput => __isa(o, "DescribeStreamSummaryInput");
 }
 
 export interface DescribeStreamSummaryOutput {
@@ -385,13 +361,10 @@ export interface DescribeStreamSummaryOutput {
 }
 
 export namespace DescribeStreamSummaryOutput {
-  export const filterSensitiveLog = (
-    obj: DescribeStreamSummaryOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DescribeStreamSummaryOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamSummaryOutput =>
-    __isa(o, "DescribeStreamSummaryOutput");
+  export const isa = (o: any): o is DescribeStreamSummaryOutput => __isa(o, "DescribeStreamSummaryOutput");
 }
 
 /**
@@ -399,6 +372,12 @@ export namespace DescribeStreamSummaryOutput {
  */
 export interface DisableEnhancedMonitoringInput {
   __type?: "DisableEnhancedMonitoringInput";
+  /**
+   * <p>The name of the Kinesis data stream for which to disable enhanced
+   *             monitoring.</p>
+   */
+  StreamName: string | undefined;
+
   /**
    * <p>List of shard-level metrics to disable.</p>
    *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
@@ -450,22 +429,13 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
-
-  /**
-   * <p>The name of the Kinesis data stream for which to disable enhanced
-   *             monitoring.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace DisableEnhancedMonitoringInput {
-  export const filterSensitiveLog = (
-    obj: DisableEnhancedMonitoringInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: DisableEnhancedMonitoringInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is DisableEnhancedMonitoringInput =>
-    __isa(o, "DisableEnhancedMonitoringInput");
+  export const isa = (o: any): o is DisableEnhancedMonitoringInput => __isa(o, "DisableEnhancedMonitoringInput");
 }
 
 /**
@@ -473,6 +443,11 @@ export namespace DisableEnhancedMonitoringInput {
  */
 export interface EnableEnhancedMonitoringInput {
   __type?: "EnableEnhancedMonitoringInput";
+  /**
+   * <p>The name of the stream for which to enable enhanced monitoring.</p>
+   */
+  StreamName: string | undefined;
+
   /**
    * <p>List of shard-level metrics to enable.</p>
    *         <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
@@ -524,26 +499,18 @@ export interface EnableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
-
-  /**
-   * <p>The name of the stream for which to enable enhanced monitoring.</p>
-   */
-  StreamName: string | undefined;
 }
 
 export namespace EnableEnhancedMonitoringInput {
-  export const filterSensitiveLog = (
-    obj: EnableEnhancedMonitoringInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: EnableEnhancedMonitoringInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is EnableEnhancedMonitoringInput =>
-    __isa(o, "EnableEnhancedMonitoringInput");
+  export const isa = (o: any): o is EnableEnhancedMonitoringInput => __isa(o, "EnableEnhancedMonitoringInput");
 }
 
 export enum EncryptionType {
   KMS = "KMS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -606,10 +573,9 @@ export interface EnhancedMetrics {
 
 export namespace EnhancedMetrics {
   export const filterSensitiveLog = (obj: EnhancedMetrics): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnhancedMetrics =>
-    __isa(o, "EnhancedMetrics");
+  export const isa = (o: any): o is EnhancedMetrics => __isa(o, "EnhancedMetrics");
 }
 
 /**
@@ -619,6 +585,11 @@ export namespace EnhancedMetrics {
 export interface EnhancedMonitoringOutput {
   __type?: "EnhancedMonitoringOutput";
   /**
+   * <p>The name of the Kinesis data stream.</p>
+   */
+  StreamName?: string;
+
+  /**
    * <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
    */
   CurrentShardLevelMetrics?: (MetricsName | string)[];
@@ -627,27 +598,19 @@ export interface EnhancedMonitoringOutput {
    * <p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>
    */
   DesiredShardLevelMetrics?: (MetricsName | string)[];
-
-  /**
-   * <p>The name of the Kinesis data stream.</p>
-   */
-  StreamName?: string;
 }
 
 export namespace EnhancedMonitoringOutput {
   export const filterSensitiveLog = (obj: EnhancedMonitoringOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EnhancedMonitoringOutput =>
-    __isa(o, "EnhancedMonitoringOutput");
+  export const isa = (o: any): o is EnhancedMonitoringOutput => __isa(o, "EnhancedMonitoringOutput");
 }
 
 /**
  * <p>The provided iterator exceeds the maximum age allowed.</p>
  */
-export interface ExpiredIteratorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredIteratorException extends __SmithyException, $MetadataBearer {
   name: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -658,18 +621,15 @@ export interface ExpiredIteratorException
 
 export namespace ExpiredIteratorException {
   export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredIteratorException =>
-    __isa(o, "ExpiredIteratorException");
+  export const isa = (o: any): o is ExpiredIteratorException => __isa(o, "ExpiredIteratorException");
 }
 
 /**
  * <p>The pagination token passed to the operation is expired.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   message?: string;
@@ -677,10 +637,9 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredNextTokenException =>
-    __isa(o, "ExpiredNextTokenException");
+  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -703,10 +662,9 @@ export interface GetRecordsInput {
 
 export namespace GetRecordsInput {
   export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRecordsInput =>
-    __isa(o, "GetRecordsInput");
+  export const isa = (o: any): o is GetRecordsInput => __isa(o, "GetRecordsInput");
 }
 
 /**
@@ -737,10 +695,9 @@ export interface GetRecordsOutput {
 
 export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRecordsOutput =>
-    __isa(o, "GetRecordsOutput");
+  export const isa = (o: any): o is GetRecordsOutput => __isa(o, "GetRecordsOutput");
 }
 
 /**
@@ -749,9 +706,9 @@ export namespace GetRecordsOutput {
 export interface GetShardIteratorInput {
   __type?: "GetShardIteratorInput";
   /**
-   * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
+   * <p>The name of the Amazon Kinesis data stream.</p>
    */
-  ShardId: string | undefined;
+  StreamName: string | undefined;
 
   /**
    * <p>Determines how the shard iterator is used to start reading data records from the shard.</p>
@@ -780,16 +737,6 @@ export interface GetShardIteratorInput {
   ShardIteratorType: ShardIteratorType | string | undefined;
 
   /**
-   * <p>The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
-   */
-  StartingSequenceNumber?: string;
-
-  /**
-   * <p>The name of the Amazon Kinesis data stream.</p>
-   */
-  StreamName: string | undefined;
-
-  /**
    * <p>The time stamp of the data record from which to start reading. Used with shard
    *             iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in
    *             milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or
@@ -799,14 +746,23 @@ export interface GetShardIteratorInput {
    *             (TRIM_HORIZON).</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
+   */
+  ShardId: string | undefined;
+
+  /**
+   * <p>The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
+   */
+  StartingSequenceNumber?: string;
 }
 
 export namespace GetShardIteratorInput {
   export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetShardIteratorInput =>
-    __isa(o, "GetShardIteratorInput");
+  export const isa = (o: any): o is GetShardIteratorInput => __isa(o, "GetShardIteratorInput");
 }
 
 /**
@@ -822,10 +778,9 @@ export interface GetShardIteratorOutput {
 
 export namespace GetShardIteratorOutput {
   export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetShardIteratorOutput =>
-    __isa(o, "GetShardIteratorOutput");
+  export const isa = (o: any): o is GetShardIteratorOutput => __isa(o, "GetShardIteratorOutput");
 }
 
 /**
@@ -846,7 +801,7 @@ export interface HashKeyRange {
 
 export namespace HashKeyRange {
   export const filterSensitiveLog = (obj: HashKeyRange): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is HashKeyRange => __isa(o, "HashKeyRange");
 }
@@ -868,10 +823,8 @@ export interface IncreaseStreamRetentionPeriodInput {
 }
 
 export namespace IncreaseStreamRetentionPeriodInput {
-  export const filterSensitiveLog = (
-    obj: IncreaseStreamRetentionPeriodInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: IncreaseStreamRetentionPeriodInput): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is IncreaseStreamRetentionPeriodInput =>
     __isa(o, "IncreaseStreamRetentionPeriodInput");
@@ -885,18 +838,15 @@ export interface InternalFailureException extends __SmithyException {
 
 export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -907,18 +857,15 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "client";
   /**
@@ -929,19 +876,16 @@ export interface KMSAccessDeniedException
 
 export namespace KMSAccessDeniedException {
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSAccessDeniedException =>
-    __isa(o, "KMSAccessDeniedException");
+  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "client";
   /**
@@ -952,10 +896,9 @@ export interface KMSDisabledException
 
 export namespace KMSDisabledException {
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
@@ -963,9 +906,7 @@ export namespace KMSDisabledException {
  *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "client";
   /**
@@ -976,19 +917,16 @@ export interface KMSInvalidStateException
 
 export namespace KMSInvalidStateException {
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
+  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "client";
   /**
@@ -999,10 +937,9 @@ export interface KMSNotFoundException
 
 export namespace KMSNotFoundException {
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 /**
@@ -1019,19 +956,16 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 
 export namespace KMSOptInRequired {
   export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSOptInRequired =>
-    __isa(o, "KMSOptInRequired");
+  export const isa = (o: any): o is KMSOptInRequired => __isa(o, "KMSOptInRequired");
 }
 
 /**
  * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  */
-export interface KMSThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingException";
   $fault: "client";
   /**
@@ -1042,18 +976,15 @@ export interface KMSThrottlingException
 
 export namespace KMSThrottlingException {
   export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is KMSThrottlingException =>
-    __isa(o, "KMSThrottlingException");
+  export const isa = (o: any): o is KMSThrottlingException => __isa(o, "KMSThrottlingException");
 }
 
 /**
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1064,22 +995,13 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListShardsInput {
   __type?: "ListShardsInput";
-  /**
-   * <p>Specify this parameter to indicate that you want to list the shards starting with
-   *             the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
-   *         <p>If you don't specify this parameter, the default behavior is for <code>ListShards</code> to list the shards starting with the first one in the stream.</p>
-   *         <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
-   */
-  ExclusiveStartShardId?: string;
-
   /**
    * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
    *             The minimum value you can specify for this parameter is 1, and the maximum is 1,000,
@@ -1127,6 +1049,14 @@ export interface ListShardsInput {
   StreamCreationTimestamp?: Date;
 
   /**
+   * <p>Specify this parameter to indicate that you want to list the shards starting with
+   *             the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
+   *         <p>If you don't specify this parameter, the default behavior is for <code>ListShards</code> to list the shards starting with the first one in the stream.</p>
+   *         <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
+   */
+  ExclusiveStartShardId?: string;
+
+  /**
    * <p>The name of the data stream whose shards you want to list. </p>
    *         <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
@@ -1136,10 +1066,9 @@ export interface ListShardsInput {
 
 export namespace ListShardsInput {
   export const filterSensitiveLog = (obj: ListShardsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListShardsInput =>
-    __isa(o, "ListShardsInput");
+  export const isa = (o: any): o is ListShardsInput => __isa(o, "ListShardsInput");
 }
 
 export interface ListShardsOutput {
@@ -1170,19 +1099,21 @@ export interface ListShardsOutput {
 
 export namespace ListShardsOutput {
   export const filterSensitiveLog = (obj: ListShardsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListShardsOutput =>
-    __isa(o, "ListShardsOutput");
+  export const isa = (o: any): o is ListShardsOutput => __isa(o, "ListShardsOutput");
 }
 
 export interface ListStreamConsumersInput {
   __type?: "ListStreamConsumersInput";
   /**
-   * <p>The maximum number of consumers that you want a single call of
-   *                 <code>ListStreamConsumers</code> to return.</p>
+   * <p>Specify this input parameter to distinguish data streams that have the same name. For
+   *             example, if you create a data stream and then delete it, and you later create another
+   *             data stream with the same name, you can use this input parameter to specify which of the
+   *             two streams you want to list the consumers for. </p>
+   *         <p>You can't specify this parameter if you specify the NextToken parameter. </p>
    */
-  MaxResults?: number;
+  StreamCreationTimestamp?: Date;
 
   /**
    * <p>When the number of consumers that are registered with the data stream is greater than the default value for
@@ -1210,36 +1141,27 @@ export interface ListStreamConsumersInput {
   NextToken?: string;
 
   /**
+   * <p>The maximum number of consumers that you want a single call of
+   *                 <code>ListStreamConsumers</code> to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The ARN of the Kinesis data stream for which you want to list the registered
    *             consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
    */
   StreamARN: string | undefined;
-
-  /**
-   * <p>Specify this input parameter to distinguish data streams that have the same name. For
-   *             example, if you create a data stream and then delete it, and you later create another
-   *             data stream with the same name, you can use this input parameter to specify which of the
-   *             two streams you want to list the consumers for. </p>
-   *         <p>You can't specify this parameter if you specify the NextToken parameter. </p>
-   */
-  StreamCreationTimestamp?: Date;
 }
 
 export namespace ListStreamConsumersInput {
   export const filterSensitiveLog = (obj: ListStreamConsumersInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStreamConsumersInput =>
-    __isa(o, "ListStreamConsumersInput");
+  export const isa = (o: any): o is ListStreamConsumersInput => __isa(o, "ListStreamConsumersInput");
 }
 
 export interface ListStreamConsumersOutput {
   __type?: "ListStreamConsumersOutput";
-  /**
-   * <p>An array of JSON objects. Each object represents one registered consumer.</p>
-   */
-  Consumers?: Consumer[];
-
   /**
    * <p>When the number of consumers that are registered with the data stream is greater than the default value for
    *             the <code>MaxResults</code> parameter, or if you explicitly specify a value for
@@ -1256,14 +1178,18 @@ export interface ListStreamConsumersOutput {
    *          </important>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of JSON objects. Each object represents one registered consumer.</p>
+   */
+  Consumers?: Consumer[];
 }
 
 export namespace ListStreamConsumersOutput {
   export const filterSensitiveLog = (obj: ListStreamConsumersOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStreamConsumersOutput =>
-    __isa(o, "ListStreamConsumersOutput");
+  export const isa = (o: any): o is ListStreamConsumersOutput => __isa(o, "ListStreamConsumersOutput");
 }
 
 /**
@@ -1284,10 +1210,9 @@ export interface ListStreamsInput {
 
 export namespace ListStreamsInput {
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStreamsInput =>
-    __isa(o, "ListStreamsInput");
+  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 /**
@@ -1309,10 +1234,9 @@ export interface ListStreamsOutput {
 
 export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListStreamsOutput =>
-    __isa(o, "ListStreamsOutput");
+  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 /**
@@ -1321,11 +1245,9 @@ export namespace ListStreamsOutput {
 export interface ListTagsForStreamInput {
   __type?: "ListTagsForStreamInput";
   /**
-   * <p>The key to use as the starting point for the list of tags. If this parameter is set,
-   *                 <code>ListTagsForStream</code> gets all tags that occur after
-   *                 <code>ExclusiveStartTagKey</code>. </p>
+   * <p>The name of the stream.</p>
    */
-  ExclusiveStartTagKey?: string;
+  StreamName: string | undefined;
 
   /**
    * <p>The number of tags to return. If this number is less than the total number of tags
@@ -1336,17 +1258,18 @@ export interface ListTagsForStreamInput {
   Limit?: number;
 
   /**
-   * <p>The name of the stream.</p>
+   * <p>The key to use as the starting point for the list of tags. If this parameter is set,
+   *                 <code>ListTagsForStream</code> gets all tags that occur after
+   *                 <code>ExclusiveStartTagKey</code>. </p>
    */
-  StreamName: string | undefined;
+  ExclusiveStartTagKey?: string;
 }
 
 export namespace ListTagsForStreamInput {
   export const filterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForStreamInput =>
-    __isa(o, "ListTagsForStreamInput");
+  export const isa = (o: any): o is ListTagsForStreamInput => __isa(o, "ListTagsForStreamInput");
 }
 
 /**
@@ -1369,10 +1292,9 @@ export interface ListTagsForStreamOutput {
 
 export namespace ListTagsForStreamOutput {
   export const filterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForStreamOutput =>
-    __isa(o, "ListTagsForStreamOutput");
+  export const isa = (o: any): o is ListTagsForStreamOutput => __isa(o, "ListTagsForStreamOutput");
 }
 
 /**
@@ -1398,10 +1320,9 @@ export interface MergeShardsInput {
 
 export namespace MergeShardsInput {
   export const filterSensitiveLog = (obj: MergeShardsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MergeShardsInput =>
-    __isa(o, "MergeShardsInput");
+  export const isa = (o: any): o is MergeShardsInput => __isa(o, "MergeShardsInput");
 }
 
 export enum MetricsName {
@@ -1412,7 +1333,7 @@ export enum MetricsName {
   OUTGOING_BYTES = "OutgoingBytes",
   OUTGOING_RECORDS = "OutgoingRecords",
   READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded",
-  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded"
+  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded",
 }
 
 /**
@@ -1423,9 +1344,7 @@ export enum MetricsName {
  *                 Exponential Backoff in AWS</a> in the <i>AWS General
  *             Reference</i>.</p>
  */
-export interface ProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
@@ -1435,10 +1354,8 @@ export interface ProvisionedThroughputExceededException
 }
 
 export namespace ProvisionedThroughputExceededException {
-  export const filterSensitiveLog = (
-    obj: ProvisionedThroughputExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ProvisionedThroughputExceededException =>
     __isa(o, "ProvisionedThroughputExceededException");
@@ -1450,9 +1367,18 @@ export namespace ProvisionedThroughputExceededException {
 export interface PutRecordInput {
   __type?: "PutRecordInput";
   /**
-   * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
+   * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and
+   *             to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of
+   *             record <i>n</i> to the sequence number of record <i>n-1</i>
+   *             (as returned in the result when putting record <i>n-1</i>). If this
+   *             parameter is not set, records are coarsely ordered based on arrival time.</p>
    */
-  Data: Uint8Array | undefined;
+  SequenceNumberForOrdering?: string;
+
+  /**
+   * <p>The name of the stream to put the data record into.</p>
+   */
+  StreamName: string | undefined;
 
   /**
    * <p>The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.</p>
@@ -1471,26 +1397,16 @@ export interface PutRecordInput {
   PartitionKey: string | undefined;
 
   /**
-   * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and
-   *             to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of
-   *             record <i>n</i> to the sequence number of record <i>n-1</i>
-   *             (as returned in the result when putting record <i>n-1</i>). If this
-   *             parameter is not set, records are coarsely ordered based on arrival time.</p>
+   * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
    */
-  SequenceNumberForOrdering?: string;
-
-  /**
-   * <p>The name of the stream to put the data record into.</p>
-   */
-  StreamName: string | undefined;
+  Data: Uint8Array | undefined;
 }
 
 export namespace PutRecordInput {
   export const filterSensitiveLog = (obj: PutRecordInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordInput =>
-    __isa(o, "PutRecordInput");
+  export const isa = (o: any): o is PutRecordInput => __isa(o, "PutRecordInput");
 }
 
 /**
@@ -1515,22 +1431,21 @@ export interface PutRecordOutput {
   EncryptionType?: EncryptionType | string;
 
   /**
-   * <p>The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.</p>
-   */
-  SequenceNumber: string | undefined;
-
-  /**
    * <p>The shard ID of the shard where the data record was placed.</p>
    */
   ShardId: string | undefined;
+
+  /**
+   * <p>The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.</p>
+   */
+  SequenceNumber: string | undefined;
 }
 
 export namespace PutRecordOutput {
   export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordOutput =>
-    __isa(o, "PutRecordOutput");
+  export const isa = (o: any): o is PutRecordOutput => __isa(o, "PutRecordOutput");
 }
 
 /**
@@ -1539,22 +1454,21 @@ export namespace PutRecordOutput {
 export interface PutRecordsInput {
   __type?: "PutRecordsInput";
   /**
-   * <p>The records associated with the request.</p>
-   */
-  Records: PutRecordsRequestEntry[] | undefined;
-
-  /**
    * <p>The stream name associated with the request.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>The records associated with the request.</p>
+   */
+  Records: PutRecordsRequestEntry[] | undefined;
 }
 
 export namespace PutRecordsInput {
   export const filterSensitiveLog = (obj: PutRecordsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordsInput =>
-    __isa(o, "PutRecordsInput");
+  export const isa = (o: any): o is PutRecordsInput => __isa(o, "PutRecordsInput");
 }
 
 /**
@@ -1596,10 +1510,9 @@ export interface PutRecordsOutput {
 
 export namespace PutRecordsOutput {
   export const filterSensitiveLog = (obj: PutRecordsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordsOutput =>
-    __isa(o, "PutRecordsOutput");
+  export const isa = (o: any): o is PutRecordsOutput => __isa(o, "PutRecordsOutput");
 }
 
 /**
@@ -1607,16 +1520,6 @@ export namespace PutRecordsOutput {
  */
 export interface PutRecordsRequestEntry {
   __type?: "PutRecordsRequestEntry";
-  /**
-   * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
-   */
-  Data: Uint8Array | undefined;
-
-  /**
-   * <p>The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.</p>
-   */
-  ExplicitHashKey?: string;
-
   /**
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
    *             are Unicode strings with a maximum length limit of 256 characters for each key. Amazon
@@ -1627,14 +1530,23 @@ export interface PutRecordsRequestEntry {
    *             same partition key map to the same shard within the stream.</p>
    */
   PartitionKey: string | undefined;
+
+  /**
+   * <p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).</p>
+   */
+  Data: Uint8Array | undefined;
+
+  /**
+   * <p>The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.</p>
+   */
+  ExplicitHashKey?: string;
 }
 
 export namespace PutRecordsRequestEntry {
   export const filterSensitiveLog = (obj: PutRecordsRequestEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordsRequestEntry =>
-    __isa(o, "PutRecordsRequestEntry");
+  export const isa = (o: any): o is PutRecordsRequestEntry => __isa(o, "PutRecordsRequestEntry");
 }
 
 /**
@@ -1645,6 +1557,16 @@ export namespace PutRecordsRequestEntry {
  */
 export interface PutRecordsResultEntry {
   __type?: "PutRecordsResultEntry";
+  /**
+   * <p>The shard ID for an individual record result.</p>
+   */
+  ShardId?: string;
+
+  /**
+   * <p>The sequence number for an individual record result.</p>
+   */
+  SequenceNumber?: string;
+
   /**
    * <p>The error code for an individual record result. <code>ErrorCodes</code> can be either
    *                 <code>ProvisionedThroughputExceededException</code> or
@@ -1660,24 +1582,13 @@ export interface PutRecordsResultEntry {
    *                 Failure"</code>.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>The sequence number for an individual record result.</p>
-   */
-  SequenceNumber?: string;
-
-  /**
-   * <p>The shard ID for an individual record result.</p>
-   */
-  ShardId?: string;
 }
 
 export namespace PutRecordsResultEntry {
   export const filterSensitiveLog = (obj: PutRecordsResultEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is PutRecordsResultEntry =>
-    __isa(o, "PutRecordsResultEntry");
+  export const isa = (o: any): o is PutRecordsResultEntry => __isa(o, "PutRecordsResultEntry");
 }
 
 /**
@@ -1687,9 +1598,9 @@ export namespace PutRecordsResultEntry {
 export interface _Record {
   __type?: "Record";
   /**
-   * <p>The approximate time that the record was inserted into the stream.</p>
+   * <p>Identifies which shard in the stream the data record is assigned to.</p>
    */
-  ApproximateArrivalTimestamp?: Date;
+  PartitionKey: string | undefined;
 
   /**
    * <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data
@@ -1698,6 +1609,11 @@ export interface _Record {
    *             size, the total size must not exceed the maximum record size (1 MB).</p>
    */
   Data: Uint8Array | undefined;
+
+  /**
+   * <p>The unique identifier of the record within its shard.</p>
+   */
+  SequenceNumber: string | undefined;
 
   /**
    * <p>The encryption type used on the record. This parameter can be one of the following values:</p>
@@ -1716,19 +1632,14 @@ export interface _Record {
   EncryptionType?: EncryptionType | string;
 
   /**
-   * <p>Identifies which shard in the stream the data record is assigned to.</p>
+   * <p>The approximate time that the record was inserted into the stream.</p>
    */
-  PartitionKey: string | undefined;
-
-  /**
-   * <p>The unique identifier of the record within its shard.</p>
-   */
-  SequenceNumber: string | undefined;
+  ApproximateArrivalTimestamp?: Date;
 }
 
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -1736,25 +1647,22 @@ export namespace _Record {
 export interface RegisterStreamConsumerInput {
   __type?: "RegisterStreamConsumerInput";
   /**
-   * <p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>
-   */
-  ConsumerName: string | undefined;
-
-  /**
    * <p>The ARN of the Kinesis data stream that you want to register the consumer with.
    *             For more info, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
    */
   StreamARN: string | undefined;
+
+  /**
+   * <p>For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.</p>
+   */
+  ConsumerName: string | undefined;
 }
 
 export namespace RegisterStreamConsumerInput {
-  export const filterSensitiveLog = (
-    obj: RegisterStreamConsumerInput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterStreamConsumerInput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterStreamConsumerInput =>
-    __isa(o, "RegisterStreamConsumerInput");
+  export const isa = (o: any): o is RegisterStreamConsumerInput => __isa(o, "RegisterStreamConsumerInput");
 }
 
 export interface RegisterStreamConsumerOutput {
@@ -1767,13 +1675,10 @@ export interface RegisterStreamConsumerOutput {
 }
 
 export namespace RegisterStreamConsumerOutput {
-  export const filterSensitiveLog = (
-    obj: RegisterStreamConsumerOutput
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: RegisterStreamConsumerOutput): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is RegisterStreamConsumerOutput =>
-    __isa(o, "RegisterStreamConsumerOutput");
+  export const isa = (o: any): o is RegisterStreamConsumerOutput => __isa(o, "RegisterStreamConsumerOutput");
 }
 
 /**
@@ -1782,31 +1687,28 @@ export namespace RegisterStreamConsumerOutput {
 export interface RemoveTagsFromStreamInput {
   __type?: "RemoveTagsFromStreamInput";
   /**
-   * <p>The name of the stream.</p>
-   */
-  StreamName: string | undefined;
-
-  /**
    * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The name of the stream.</p>
+   */
+  StreamName: string | undefined;
 }
 
 export namespace RemoveTagsFromStreamInput {
   export const filterSensitiveLog = (obj: RemoveTagsFromStreamInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromStreamInput =>
-    __isa(o, "RemoveTagsFromStreamInput");
+  export const isa = (o: any): o is RemoveTagsFromStreamInput => __isa(o, "RemoveTagsFromStreamInput");
 }
 
 /**
  * <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -1817,18 +1719,15 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1839,14 +1738,13 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ScalingType {
-  UNIFORM_SCALING = "UNIFORM_SCALING"
+  UNIFORM_SCALING = "UNIFORM_SCALING",
 }
 
 /**
@@ -1868,10 +1766,9 @@ export interface SequenceNumberRange {
 
 export namespace SequenceNumberRange {
   export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SequenceNumberRange =>
-    __isa(o, "SequenceNumberRange");
+  export const isa = (o: any): o is SequenceNumberRange => __isa(o, "SequenceNumberRange");
 }
 
 /**
@@ -1880,24 +1777,24 @@ export namespace SequenceNumberRange {
 export interface Shard {
   __type?: "Shard";
   /**
-   * <p>The shard ID of the shard adjacent to the shard's parent.</p>
-   */
-  AdjacentParentShardId?: string;
-
-  /**
-   * <p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>
-   */
-  HashKeyRange: HashKeyRange | undefined;
-
-  /**
    * <p>The shard ID of the shard's parent.</p>
    */
   ParentShardId?: string;
 
   /**
+   * <p>The shard ID of the shard adjacent to the shard's parent.</p>
+   */
+  AdjacentParentShardId?: string;
+
+  /**
    * <p>The range of possible sequence numbers for the shard.</p>
    */
   SequenceNumberRange: SequenceNumberRange | undefined;
+
+  /**
+   * <p>The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.</p>
+   */
+  HashKeyRange: HashKeyRange | undefined;
 
   /**
    * <p>The unique identifier of the shard within the stream.</p>
@@ -1907,7 +1804,7 @@ export interface Shard {
 
 export namespace Shard {
   export const filterSensitiveLog = (obj: Shard): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Shard => __isa(o, "Shard");
 }
@@ -1917,7 +1814,7 @@ export enum ShardIteratorType {
   AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
+  TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
@@ -1949,34 +1846,27 @@ export interface SplitShardInput {
 
 export namespace SplitShardInput {
   export const filterSensitiveLog = (obj: SplitShardInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SplitShardInput =>
-    __isa(o, "SplitShardInput");
+  export const isa = (o: any): o is SplitShardInput => __isa(o, "SplitShardInput");
 }
 
 export interface StartingPosition {
   __type?: "StartingPosition";
   SequenceNumber?: string;
-  Timestamp?: Date;
   Type: ShardIteratorType | string | undefined;
+  Timestamp?: Date;
 }
 
 export namespace StartingPosition {
   export const filterSensitiveLog = (obj: StartingPosition): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartingPosition =>
-    __isa(o, "StartingPosition");
+  export const isa = (o: any): o is StartingPosition => __isa(o, "StartingPosition");
 }
 
 export interface StartStreamEncryptionInput {
   __type?: "StartStreamEncryptionInput";
-  /**
-   * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
-   */
-  EncryptionType: EncryptionType | string | undefined;
-
   /**
    * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
    *             be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either
@@ -2011,6 +1901,11 @@ export interface StartStreamEncryptionInput {
   KeyId: string | undefined;
 
   /**
+   * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
+   */
+  EncryptionType: EncryptionType | string | undefined;
+
+  /**
    * <p>The name of the stream for which to start encrypting records.</p>
    */
   StreamName: string | undefined;
@@ -2018,19 +1913,13 @@ export interface StartStreamEncryptionInput {
 
 export namespace StartStreamEncryptionInput {
   export const filterSensitiveLog = (obj: StartStreamEncryptionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartStreamEncryptionInput =>
-    __isa(o, "StartStreamEncryptionInput");
+  export const isa = (o: any): o is StartStreamEncryptionInput => __isa(o, "StartStreamEncryptionInput");
 }
 
 export interface StopStreamEncryptionInput {
   __type?: "StopStreamEncryptionInput";
-  /**
-   * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
-   */
-  EncryptionType: EncryptionType | string | undefined;
-
   /**
    * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
    *             be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either
@@ -2068,14 +1957,18 @@ export interface StopStreamEncryptionInput {
    * <p>The name of the stream on which to stop encrypting records.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
+   */
+  EncryptionType: EncryptionType | string | undefined;
 }
 
 export namespace StopStreamEncryptionInput {
   export const filterSensitiveLog = (obj: StopStreamEncryptionInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StopStreamEncryptionInput =>
-    __isa(o, "StopStreamEncryptionInput");
+  export const isa = (o: any): o is StopStreamEncryptionInput => __isa(o, "StopStreamEncryptionInput");
 }
 
 /**
@@ -2100,9 +1993,14 @@ export interface StreamDescription {
   EncryptionType?: EncryptionType | string;
 
   /**
-   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   * <p>The name of the stream being described.</p>
    */
-  EnhancedMonitoring: EnhancedMetrics[] | undefined;
+  StreamName: string | undefined;
+
+  /**
+   * <p>The approximate time that the stream was created.</p>
+   */
+  StreamCreationTimestamp: Date | undefined;
 
   /**
    * <p>If set to <code>true</code>, more shards in the stream are available to describe.</p>
@@ -2142,31 +2040,6 @@ export interface StreamDescription {
   KeyId?: string;
 
   /**
-   * <p>The current retention period, in hours.</p>
-   */
-  RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>The shards that comprise the stream.</p>
-   */
-  Shards: Shard[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
-   */
-  StreamARN: string | undefined;
-
-  /**
-   * <p>The approximate time that the stream was created.</p>
-   */
-  StreamCreationTimestamp: Date | undefined;
-
-  /**
-   * <p>The name of the stream being described.</p>
-   */
-  StreamName: string | undefined;
-
-  /**
    * <p>The current status of the stream being described. The stream status is one of the following states:</p>
    *         <ul>
    *             <li>
@@ -2196,14 +2069,33 @@ export interface StreamDescription {
    *          </ul>
    */
   StreamStatus: StreamStatus | string | undefined;
+
+  /**
+   * <p>The shards that comprise the stream.</p>
+   */
+  Shards: Shard[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The current retention period, in hours.</p>
+   */
+  RetentionPeriodHours: number | undefined;
+
+  /**
+   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   */
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
 }
 
 export namespace StreamDescription {
   export const filterSensitiveLog = (obj: StreamDescription): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StreamDescription =>
-    __isa(o, "StreamDescription");
+  export const isa = (o: any): o is StreamDescription => __isa(o, "StreamDescription");
 }
 
 /**
@@ -2212,33 +2104,6 @@ export namespace StreamDescription {
  */
 export interface StreamDescriptionSummary {
   __type?: "StreamDescriptionSummary";
-  /**
-   * <p>The number of enhanced fan-out consumers registered with the stream.</p>
-   */
-  ConsumerCount?: number;
-
-  /**
-   * <p>The encryption type used. This value is one of the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>KMS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  EncryptionType?: EncryptionType | string;
-
-  /**
-   * <p>Represents the current enhanced monitoring settings of the stream.</p>
-   */
-  EnhancedMonitoring: EnhancedMetrics[] | undefined;
-
   /**
    * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can
    *             be a globally unique identifier, a fully specified ARN to either an alias or a key, or
@@ -2272,31 +2137,6 @@ export interface StreamDescriptionSummary {
   KeyId?: string;
 
   /**
-   * <p>The number of open shards in the stream.</p>
-   */
-  OpenShardCount: number | undefined;
-
-  /**
-   * <p>The current retention period, in hours.</p>
-   */
-  RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
-   */
-  StreamARN: string | undefined;
-
-  /**
-   * <p>The approximate time that the stream was created.</p>
-   */
-  StreamCreationTimestamp: Date | undefined;
-
-  /**
-   * <p>The name of the stream being described.</p>
-   */
-  StreamName: string | undefined;
-
-  /**
    * <p>The current status of the stream being described. The stream status is one of the following states:</p>
    *             <ul>
    *             <li>
@@ -2326,21 +2166,72 @@ export interface StreamDescriptionSummary {
    *          </ul>
    */
   StreamStatus: StreamStatus | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The current retention period, in hours.</p>
+   */
+  RetentionPeriodHours: number | undefined;
+
+  /**
+   * <p>Represents the current enhanced monitoring settings of the stream.</p>
+   */
+  EnhancedMonitoring: EnhancedMetrics[] | undefined;
+
+  /**
+   * <p>The encryption type used. This value is one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>KMS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  EncryptionType?: EncryptionType | string;
+
+  /**
+   * <p>The name of the stream being described.</p>
+   */
+  StreamName: string | undefined;
+
+  /**
+   * <p>The approximate time that the stream was created.</p>
+   */
+  StreamCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The number of enhanced fan-out consumers registered with the stream.</p>
+   */
+  ConsumerCount?: number;
+
+  /**
+   * <p>The number of open shards in the stream.</p>
+   */
+  OpenShardCount: number | undefined;
 }
 
 export namespace StreamDescriptionSummary {
   export const filterSensitiveLog = (obj: StreamDescriptionSummary): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StreamDescriptionSummary =>
-    __isa(o, "StreamDescriptionSummary");
+  export const isa = (o: any): o is StreamDescriptionSummary => __isa(o, "StreamDescriptionSummary");
 }
 
 export enum StreamStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETING = "DELETING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -2348,11 +2239,6 @@ export enum StreamStatus {
  */
 export interface SubscribeToShardEvent {
   __type?: "SubscribeToShardEvent";
-  /**
-   * <p>Use this as <code>StartingSequenceNumber</code> in the next call to <a>SubscribeToShard</a>.</p>
-   */
-  ContinuationSequenceNumber: string | undefined;
-
   /**
    * <p>The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is.
    *             A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.</p>
@@ -2363,14 +2249,18 @@ export interface SubscribeToShardEvent {
    * <p></p>
    */
   Records: _Record[] | undefined;
+
+  /**
+   * <p>Use this as <code>StartingSequenceNumber</code> in the next call to <a>SubscribeToShard</a>.</p>
+   */
+  ContinuationSequenceNumber: string | undefined;
 }
 
 export namespace SubscribeToShardEvent {
   export const filterSensitiveLog = (obj: SubscribeToShardEvent): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeToShardEvent =>
-    __isa(o, "SubscribeToShardEvent");
+  export const isa = (o: any): o is SubscribeToShardEvent => __isa(o, "SubscribeToShardEvent");
 }
 
 export type SubscribeToShardEventStream =
@@ -2390,220 +2280,248 @@ export namespace SubscribeToShardEventStream {
   interface $Base {
     __type?: "SubscribeToShardEventStream";
   }
-  export interface InternalFailureExceptionMember extends $Base {
-    InternalFailureException: InternalFailureException;
-    KMSAccessDeniedException?: never;
-    KMSDisabledException?: never;
-    KMSInvalidStateException?: never;
-    KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
-    $unknown?: never;
-  }
+
   /**
-   * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+   * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
+   *             <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  export interface KMSAccessDeniedExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException: KMSAccessDeniedException;
+  export interface KMSThrottlingExceptionMember extends $Base {
+    KMSThrottlingException: KMSThrottlingException;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified customer master key (CMK) isn't
    *             enabled.</p>
    */
   export interface KMSDisabledExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+    KMSThrottlingException?: never;
     KMSDisabledException: KMSDisabledException;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
+  /**
+   * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
+   */
+  export interface KMSAccessDeniedExceptionMember extends $Base {
+    KMSThrottlingException?: never;
+    KMSDisabledException?: never;
+    KMSAccessDeniedException: KMSAccessDeniedException;
+    KMSInvalidStateException?: never;
+    KMSNotFoundException?: never;
+    ResourceNotFoundException?: never;
+    SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
+    $unknown?: never;
+  }
+
   /**
    * <p>The request was rejected because the state of the specified resource isn't valid for this request. For more information, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the
    *             <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   export interface KMSInvalidStateExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException: KMSInvalidStateException;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The request was rejected because the specified entity or resource can't be
    *             found.</p>
    */
   export interface KMSNotFoundExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException: KMSNotFoundException;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
-   * <p>The AWS access key ID needs a subscription for the service.</p>
+   * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
    */
-  export interface KMSOptInRequiredMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+  export interface ResourceNotFoundExceptionMember extends $Base {
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired: KMSOptInRequired;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
-    ResourceNotFoundException?: never;
+    ResourceNotFoundException: ResourceNotFoundException;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
-   * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
-   *             <i>AWS Key Management Service Developer Guide</i>.</p>
+   * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>
    */
-  export interface KMSThrottlingExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+  export interface SubscribeToShardEventMember extends $Base {
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException: KMSThrottlingException;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
+    SubscribeToShardEvent: SubscribeToShardEvent;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
    * <p>The resource is not available for this operation. For successful operation, the
    *             resource must be in the <code>ACTIVE</code> state.</p>
    */
   export interface ResourceInUseExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
+    ResourceNotFoundException?: never;
+    SubscribeToShardEvent?: never;
     ResourceInUseException: ResourceInUseException;
-    ResourceNotFoundException?: never;
-    SubscribeToShardEvent?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
-  /**
-   * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
-   */
-  export interface ResourceNotFoundExceptionMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+
+  export interface InternalFailureExceptionMember extends $Base {
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
-    ResourceNotFoundException: ResourceNotFoundException;
+    ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException: InternalFailureException;
+    KMSOptInRequired?: never;
     $unknown?: never;
   }
+
   /**
-   * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>
+   * <p>The AWS access key ID needs a subscription for the service.</p>
    */
-  export interface SubscribeToShardEventMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+  export interface KMSOptInRequiredMember extends $Base {
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
-    SubscribeToShardEvent: SubscribeToShardEvent;
+    SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired: KMSOptInRequired;
     $unknown?: never;
   }
+
   export interface $UnknownMember extends $Base {
-    InternalFailureException?: never;
-    KMSAccessDeniedException?: never;
+    KMSThrottlingException?: never;
     KMSDisabledException?: never;
+    KMSAccessDeniedException?: never;
     KMSInvalidStateException?: never;
     KMSNotFoundException?: never;
-    KMSOptInRequired?: never;
-    KMSThrottlingException?: never;
-    ResourceInUseException?: never;
     ResourceNotFoundException?: never;
     SubscribeToShardEvent?: never;
+    ResourceInUseException?: never;
+    InternalFailureException?: never;
+    KMSOptInRequired?: never;
     $unknown: [string, any];
   }
+
   export interface Visitor<T> {
-    InternalFailureException: (value: InternalFailureException) => T;
-    KMSAccessDeniedException: (value: KMSAccessDeniedException) => T;
+    KMSThrottlingException: (value: KMSThrottlingException) => T;
     KMSDisabledException: (value: KMSDisabledException) => T;
+    KMSAccessDeniedException: (value: KMSAccessDeniedException) => T;
     KMSInvalidStateException: (value: KMSInvalidStateException) => T;
     KMSNotFoundException: (value: KMSNotFoundException) => T;
-    KMSOptInRequired: (value: KMSOptInRequired) => T;
-    KMSThrottlingException: (value: KMSThrottlingException) => T;
-    ResourceInUseException: (value: ResourceInUseException) => T;
     ResourceNotFoundException: (value: ResourceNotFoundException) => T;
     SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
+    ResourceInUseException: (value: ResourceInUseException) => T;
+    InternalFailureException: (value: InternalFailureException) => T;
+    KMSOptInRequired: (value: KMSOptInRequired) => T;
     _: (name: string, value: any) => T;
   }
-  export const visit = <T>(
-    value: SubscribeToShardEventStream,
-    visitor: Visitor<T>
-  ): T => {
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
+
+  export const visit = <T>(value: SubscribeToShardEventStream, visitor: Visitor<T>): T => {
+    if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
+    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
     if (value.KMSAccessDeniedException !== undefined)
       return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
-    if (value.KMSDisabledException !== undefined)
-      return visitor.KMSDisabledException(value.KMSDisabledException);
     if (value.KMSInvalidStateException !== undefined)
       return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
-    if (value.KMSNotFoundException !== undefined)
-      return visitor.KMSNotFoundException(value.KMSNotFoundException);
-    if (value.KMSOptInRequired !== undefined)
-      return visitor.KMSOptInRequired(value.KMSOptInRequired);
-    if (value.KMSThrottlingException !== undefined)
-      return visitor.KMSThrottlingException(value.KMSThrottlingException);
-    if (value.ResourceInUseException !== undefined)
-      return visitor.ResourceInUseException(value.ResourceInUseException);
+    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
     if (value.ResourceNotFoundException !== undefined)
       return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.SubscribeToShardEvent !== undefined)
-      return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
+    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
+    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
+    if (value.InternalFailureException !== undefined)
+      return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
+    if (obj.KMSThrottlingException !== undefined)
+      return { KMSThrottlingException: KMSThrottlingException.filterSensitiveLog(obj.KMSThrottlingException) };
+    if (obj.KMSDisabledException !== undefined)
+      return { KMSDisabledException: KMSDisabledException.filterSensitiveLog(obj.KMSDisabledException) };
+    if (obj.KMSAccessDeniedException !== undefined)
+      return { KMSAccessDeniedException: KMSAccessDeniedException.filterSensitiveLog(obj.KMSAccessDeniedException) };
+    if (obj.KMSInvalidStateException !== undefined)
+      return { KMSInvalidStateException: KMSInvalidStateException.filterSensitiveLog(obj.KMSInvalidStateException) };
+    if (obj.KMSNotFoundException !== undefined)
+      return { KMSNotFoundException: KMSNotFoundException.filterSensitiveLog(obj.KMSNotFoundException) };
+    if (obj.ResourceNotFoundException !== undefined)
+      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
+    if (obj.SubscribeToShardEvent !== undefined)
+      return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
+    if (obj.ResourceInUseException !== undefined)
+      return { ResourceInUseException: ResourceInUseException.filterSensitiveLog(obj.ResourceInUseException) };
+    if (obj.InternalFailureException !== undefined)
+      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
+    if (obj.KMSOptInRequired !== undefined)
+      return { KMSOptInRequired: KMSOptInRequired.filterSensitiveLog(obj.KMSOptInRequired) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2625,10 +2543,9 @@ export interface SubscribeToShardInput {
 
 export namespace SubscribeToShardInput {
   export const filterSensitiveLog = (obj: SubscribeToShardInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SubscribeToShardInput =>
-    __isa(o, "SubscribeToShardInput");
+  export const isa = (o: any): o is SubscribeToShardInput => __isa(o, "SubscribeToShardInput");
 }
 
 export interface SubscribeToShardOutput {
@@ -2641,10 +2558,10 @@ export interface SubscribeToShardOutput {
 
 export namespace SubscribeToShardOutput {
   export const filterSensitiveLog = (obj: SubscribeToShardOutput): any => ({
-    ...obj
+    ...obj,
+    ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
   });
-  export const isa = (o: any): o is SubscribeToShardOutput =>
-    __isa(o, "SubscribeToShardOutput");
+  export const isa = (o: any): o is SubscribeToShardOutput => __isa(o, "SubscribeToShardOutput");
 }
 
 /**
@@ -2665,18 +2582,13 @@ export interface Tag {
 
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface UpdateShardCountInput {
   __type?: "UpdateShardCountInput";
-  /**
-   * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
-   */
-  ScalingType: ScalingType | string | undefined;
-
   /**
    * <p>The name of the stream.</p>
    */
@@ -2686,14 +2598,18 @@ export interface UpdateShardCountInput {
    * <p>The new number of shards.</p>
    */
   TargetShardCount: number | undefined;
+
+  /**
+   * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
+   */
+  ScalingType: ScalingType | string | undefined;
 }
 
 export namespace UpdateShardCountInput {
   export const filterSensitiveLog = (obj: UpdateShardCountInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateShardCountInput =>
-    __isa(o, "UpdateShardCountInput");
+  export const isa = (o: any): o is UpdateShardCountInput => __isa(o, "UpdateShardCountInput");
 }
 
 export interface UpdateShardCountOutput {
@@ -2716,8 +2632,7 @@ export interface UpdateShardCountOutput {
 
 export namespace UpdateShardCountOutput {
   export const filterSensitiveLog = (obj: UpdateShardCountOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateShardCountOutput =>
-    __isa(o, "UpdateShardCountOutput");
+  export const isa = (o: any): o is UpdateShardCountOutput => __isa(o, "UpdateShardCountOutput");
 }

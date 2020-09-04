@@ -1,21 +1,11 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient.ts";
-import {
-  DescribeFargateProfileRequest,
-  DescribeFargateProfileResponse
-} from "../models/index.ts";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
+import { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeFargateProfileCommand,
-  serializeAws_restJson1DescribeFargateProfileCommand
+  serializeAws_restJson1DescribeFargateProfileCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeFargateProfileCommandInput = DescribeFargateProfileRequest;
-export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse &
-  __MetadataBearer;
+export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse & __MetadataBearer;
 
 export class DescribeFargateProfileCommand extends $Command<
   DescribeFargateProfileCommandInput,
@@ -49,18 +38,16 @@ export class DescribeFargateProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFargateProfileCommandInput,
-    DescribeFargateProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFargateProfileCommandInput, DescribeFargateProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeFargateProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFargateProfileResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeFargateProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFargateProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFargateProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFargateProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeFargateProfileCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFargateProfileCommandOutput> {
+    return deserializeAws_restJson1DescribeFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,15 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  DeleteCertificateMessage,
-  DeleteCertificateResponse
-} from "../models/index.ts";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
-  serializeAws_json1_1DeleteCertificateCommand
+  serializeAws_json1_1DeleteCertificateCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
-export type DeleteCertificateCommandOutput = DeleteCertificateResponse &
-  __MetadataBearer;
+export type DeleteCertificateCommandOutput = DeleteCertificateResponse & __MetadataBearer;
 
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
@@ -50,14 +43,15 @@ export class DeleteCertificateCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCertificateCommandInput, DeleteCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteCertificateMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCertificateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
     return deserializeAws_json1_1DeleteCertificateCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  StartActivityStreamRequest,
-  StartActivityStreamResponse
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/index.ts";
 import {
   deserializeAws_queryStartActivityStreamCommand,
-  serializeAws_queryStartActivityStreamCommand
+  serializeAws_queryStartActivityStreamCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartActivityStreamCommandInput = StartActivityStreamRequest;
-export type StartActivityStreamCommandOutput = StartActivityStreamResponse &
-  __MetadataBearer;
+export type StartActivityStreamCommandOutput = StartActivityStreamResponse & __MetadataBearer;
 
 export class StartActivityStreamCommand extends $Command<
   StartActivityStreamCommandInput,
@@ -49,18 +38,16 @@ export class StartActivityStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartActivityStreamCommandInput,
-    StartActivityStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartActivityStreamCommandInput, StartActivityStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartActivityStreamRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartActivityStreamResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class StartActivityStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartActivityStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartActivityStreamCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartActivityStreamCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartActivityStreamCommandOutput> {
     return deserializeAws_queryStartActivityStreamCommand(output, context);
   }
 

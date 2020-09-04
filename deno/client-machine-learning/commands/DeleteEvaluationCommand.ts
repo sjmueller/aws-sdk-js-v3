@@ -1,18 +1,15 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient.ts";
 import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteEvaluationCommand,
-  serializeAws_json1_1DeleteEvaluationCommand
+  serializeAws_json1_1DeleteEvaluationCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteEvaluationCommandInput = DeleteEvaluationInput;
-export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput &
-  __MetadataBearer;
+export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput & __MetadataBearer;
 
 export class DeleteEvaluationCommand extends $Command<
   DeleteEvaluationCommandInput,
@@ -47,14 +43,15 @@ export class DeleteEvaluationCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteEvaluationInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEvaluationOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +61,11 @@ export class DeleteEvaluationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEvaluationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEvaluationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEvaluationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationCommandOutput> {
     return deserializeAws_json1_1DeleteEvaluationCommand(output, context);
   }
 

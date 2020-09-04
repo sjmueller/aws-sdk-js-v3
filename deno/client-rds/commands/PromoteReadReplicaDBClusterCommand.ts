@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
-import {
-  PromoteReadReplicaDBClusterMessage,
-  PromoteReadReplicaDBClusterResult
-} from "../models/index.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
+import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/index.ts";
 import {
   deserializeAws_queryPromoteReadReplicaDBClusterCommand,
-  serializeAws_queryPromoteReadReplicaDBClusterCommand
+  serializeAws_queryPromoteReadReplicaDBClusterCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PromoteReadReplicaDBClusterCommandInput = PromoteReadReplicaDBClusterMessage;
-export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult &
-  __MetadataBearer;
+export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult & __MetadataBearer;
 
 export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandInput,
@@ -49,18 +38,16 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PromoteReadReplicaDBClusterCommandInput,
-    PromoteReadReplicaDBClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PromoteReadReplicaDBClusterCommandInput, PromoteReadReplicaDBClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: PromoteReadReplicaDBClusterResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PromoteReadReplicaDBClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PromoteReadReplicaDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaDBClusterCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

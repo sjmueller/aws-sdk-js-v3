@@ -1,18 +1,11 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient.ts";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
 import { PutPolicyRequest, PutPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutPolicyCommand,
-  serializeAws_json1_1PutPolicyCommand
+  serializeAws_json1_1PutPolicyCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,17 +14,13 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutPolicyCommandInput = PutPolicyRequest;
 export type PutPolicyCommandOutput = PutPolicyResponse & __MetadataBearer;
 
-export class PutPolicyCommand extends $Command<
-  PutPolicyCommandInput,
-  PutPolicyCommandOutput,
-  FMSClientResolvedConfig
-> {
+export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,14 +35,15 @@ export class PutPolicyCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutPolicyCommandInput, PutPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +53,11 @@ export class PutPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
     return deserializeAws_json1_1PutPolicyCommand(output, context);
   }
 

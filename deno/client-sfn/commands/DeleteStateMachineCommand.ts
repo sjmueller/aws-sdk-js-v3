@@ -1,21 +1,11 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient.ts";
-import {
-  DeleteStateMachineInput,
-  DeleteStateMachineOutput
-} from "../models/index.ts";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
+import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0DeleteStateMachineCommand,
-  serializeAws_json1_0DeleteStateMachineCommand
+  serializeAws_json1_0DeleteStateMachineCommand,
 } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
-export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput &
-  __MetadataBearer;
+export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput & __MetadataBearer;
 
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,
@@ -50,14 +39,15 @@ export class DeleteStateMachineCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteStateMachineInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStateMachineOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteStateMachineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteStateMachineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteStateMachineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteStateMachineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
     return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
   }
 

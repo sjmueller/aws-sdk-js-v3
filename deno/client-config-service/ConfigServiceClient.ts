@@ -1,315 +1,301 @@
 import {
   BatchGetAggregateResourceConfigCommandInput,
-  BatchGetAggregateResourceConfigCommandOutput
+  BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand.ts";
 import {
   BatchGetResourceConfigCommandInput,
-  BatchGetResourceConfigCommandOutput
+  BatchGetResourceConfigCommandOutput,
 } from "./commands/BatchGetResourceConfigCommand.ts";
 import {
   DeleteAggregationAuthorizationCommandInput,
-  DeleteAggregationAuthorizationCommandOutput
+  DeleteAggregationAuthorizationCommandOutput,
 } from "./commands/DeleteAggregationAuthorizationCommand.ts";
-import {
-  DeleteConfigRuleCommandInput,
-  DeleteConfigRuleCommandOutput
-} from "./commands/DeleteConfigRuleCommand.ts";
+import { DeleteConfigRuleCommandInput, DeleteConfigRuleCommandOutput } from "./commands/DeleteConfigRuleCommand.ts";
 import {
   DeleteConfigurationAggregatorCommandInput,
-  DeleteConfigurationAggregatorCommandOutput
+  DeleteConfigurationAggregatorCommandOutput,
 } from "./commands/DeleteConfigurationAggregatorCommand.ts";
 import {
   DeleteConfigurationRecorderCommandInput,
-  DeleteConfigurationRecorderCommandOutput
+  DeleteConfigurationRecorderCommandOutput,
 } from "./commands/DeleteConfigurationRecorderCommand.ts";
 import {
   DeleteConformancePackCommandInput,
-  DeleteConformancePackCommandOutput
+  DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand.ts";
 import {
   DeleteDeliveryChannelCommandInput,
-  DeleteDeliveryChannelCommandOutput
+  DeleteDeliveryChannelCommandOutput,
 } from "./commands/DeleteDeliveryChannelCommand.ts";
 import {
   DeleteEvaluationResultsCommandInput,
-  DeleteEvaluationResultsCommandOutput
+  DeleteEvaluationResultsCommandOutput,
 } from "./commands/DeleteEvaluationResultsCommand.ts";
 import {
   DeleteOrganizationConfigRuleCommandInput,
-  DeleteOrganizationConfigRuleCommandOutput
+  DeleteOrganizationConfigRuleCommandOutput,
 } from "./commands/DeleteOrganizationConfigRuleCommand.ts";
 import {
   DeleteOrganizationConformancePackCommandInput,
-  DeleteOrganizationConformancePackCommandOutput
+  DeleteOrganizationConformancePackCommandOutput,
 } from "./commands/DeleteOrganizationConformancePackCommand.ts";
 import {
   DeletePendingAggregationRequestCommandInput,
-  DeletePendingAggregationRequestCommandOutput
+  DeletePendingAggregationRequestCommandOutput,
 } from "./commands/DeletePendingAggregationRequestCommand.ts";
 import {
   DeleteRemediationConfigurationCommandInput,
-  DeleteRemediationConfigurationCommandOutput
+  DeleteRemediationConfigurationCommandOutput,
 } from "./commands/DeleteRemediationConfigurationCommand.ts";
 import {
   DeleteRemediationExceptionsCommandInput,
-  DeleteRemediationExceptionsCommandOutput
+  DeleteRemediationExceptionsCommandOutput,
 } from "./commands/DeleteRemediationExceptionsCommand.ts";
 import {
   DeleteResourceConfigCommandInput,
-  DeleteResourceConfigCommandOutput
+  DeleteResourceConfigCommandOutput,
 } from "./commands/DeleteResourceConfigCommand.ts";
 import {
   DeleteRetentionConfigurationCommandInput,
-  DeleteRetentionConfigurationCommandOutput
+  DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand.ts";
 import {
   DeliverConfigSnapshotCommandInput,
-  DeliverConfigSnapshotCommandOutput
+  DeliverConfigSnapshotCommandOutput,
 } from "./commands/DeliverConfigSnapshotCommand.ts";
 import {
   DescribeAggregateComplianceByConfigRulesCommandInput,
-  DescribeAggregateComplianceByConfigRulesCommandOutput
+  DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand.ts";
 import {
   DescribeAggregationAuthorizationsCommandInput,
-  DescribeAggregationAuthorizationsCommandOutput
+  DescribeAggregationAuthorizationsCommandOutput,
 } from "./commands/DescribeAggregationAuthorizationsCommand.ts";
 import {
   DescribeComplianceByConfigRuleCommandInput,
-  DescribeComplianceByConfigRuleCommandOutput
+  DescribeComplianceByConfigRuleCommandOutput,
 } from "./commands/DescribeComplianceByConfigRuleCommand.ts";
 import {
   DescribeComplianceByResourceCommandInput,
-  DescribeComplianceByResourceCommandOutput
+  DescribeComplianceByResourceCommandOutput,
 } from "./commands/DescribeComplianceByResourceCommand.ts";
 import {
   DescribeConfigRuleEvaluationStatusCommandInput,
-  DescribeConfigRuleEvaluationStatusCommandOutput
+  DescribeConfigRuleEvaluationStatusCommandOutput,
 } from "./commands/DescribeConfigRuleEvaluationStatusCommand.ts";
 import {
   DescribeConfigRulesCommandInput,
-  DescribeConfigRulesCommandOutput
+  DescribeConfigRulesCommandOutput,
 } from "./commands/DescribeConfigRulesCommand.ts";
 import {
   DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand.ts";
 import {
   DescribeConfigurationAggregatorsCommandInput,
-  DescribeConfigurationAggregatorsCommandOutput
+  DescribeConfigurationAggregatorsCommandOutput,
 } from "./commands/DescribeConfigurationAggregatorsCommand.ts";
 import {
   DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput
+  DescribeConfigurationRecorderStatusCommandOutput,
 } from "./commands/DescribeConfigurationRecorderStatusCommand.ts";
 import {
   DescribeConfigurationRecordersCommandInput,
-  DescribeConfigurationRecordersCommandOutput
+  DescribeConfigurationRecordersCommandOutput,
 } from "./commands/DescribeConfigurationRecordersCommand.ts";
 import {
   DescribeConformancePackComplianceCommandInput,
-  DescribeConformancePackComplianceCommandOutput
+  DescribeConformancePackComplianceCommandOutput,
 } from "./commands/DescribeConformancePackComplianceCommand.ts";
 import {
   DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput
+  DescribeConformancePackStatusCommandOutput,
 } from "./commands/DescribeConformancePackStatusCommand.ts";
 import {
   DescribeConformancePacksCommandInput,
-  DescribeConformancePacksCommandOutput
+  DescribeConformancePacksCommandOutput,
 } from "./commands/DescribeConformancePacksCommand.ts";
 import {
   DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput
+  DescribeDeliveryChannelStatusCommandOutput,
 } from "./commands/DescribeDeliveryChannelStatusCommand.ts";
 import {
   DescribeDeliveryChannelsCommandInput,
-  DescribeDeliveryChannelsCommandOutput
+  DescribeDeliveryChannelsCommandOutput,
 } from "./commands/DescribeDeliveryChannelsCommand.ts";
 import {
   DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput
+  DescribeOrganizationConfigRuleStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRuleStatusesCommand.ts";
 import {
   DescribeOrganizationConfigRulesCommandInput,
-  DescribeOrganizationConfigRulesCommandOutput
+  DescribeOrganizationConfigRulesCommandOutput,
 } from "./commands/DescribeOrganizationConfigRulesCommand.ts";
 import {
   DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput
+  DescribeOrganizationConformancePackStatusesCommandOutput,
 } from "./commands/DescribeOrganizationConformancePackStatusesCommand.ts";
 import {
   DescribeOrganizationConformancePacksCommandInput,
-  DescribeOrganizationConformancePacksCommandOutput
+  DescribeOrganizationConformancePacksCommandOutput,
 } from "./commands/DescribeOrganizationConformancePacksCommand.ts";
 import {
   DescribePendingAggregationRequestsCommandInput,
-  DescribePendingAggregationRequestsCommandOutput
+  DescribePendingAggregationRequestsCommandOutput,
 } from "./commands/DescribePendingAggregationRequestsCommand.ts";
 import {
   DescribeRemediationConfigurationsCommandInput,
-  DescribeRemediationConfigurationsCommandOutput
+  DescribeRemediationConfigurationsCommandOutput,
 } from "./commands/DescribeRemediationConfigurationsCommand.ts";
 import {
   DescribeRemediationExceptionsCommandInput,
-  DescribeRemediationExceptionsCommandOutput
+  DescribeRemediationExceptionsCommandOutput,
 } from "./commands/DescribeRemediationExceptionsCommand.ts";
 import {
   DescribeRemediationExecutionStatusCommandInput,
-  DescribeRemediationExecutionStatusCommandOutput
+  DescribeRemediationExecutionStatusCommandOutput,
 } from "./commands/DescribeRemediationExecutionStatusCommand.ts";
 import {
   DescribeRetentionConfigurationsCommandInput,
-  DescribeRetentionConfigurationsCommandOutput
+  DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand.ts";
 import {
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
-  GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand.ts";
 import {
   GetAggregateConfigRuleComplianceSummaryCommandInput,
-  GetAggregateConfigRuleComplianceSummaryCommandOutput
+  GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand.ts";
 import {
   GetAggregateDiscoveredResourceCountsCommandInput,
-  GetAggregateDiscoveredResourceCountsCommandOutput
+  GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand.ts";
 import {
   GetAggregateResourceConfigCommandInput,
-  GetAggregateResourceConfigCommandOutput
+  GetAggregateResourceConfigCommandOutput,
 } from "./commands/GetAggregateResourceConfigCommand.ts";
 import {
   GetComplianceDetailsByConfigRuleCommandInput,
-  GetComplianceDetailsByConfigRuleCommandOutput
+  GetComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetComplianceDetailsByConfigRuleCommand.ts";
 import {
   GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput
+  GetComplianceDetailsByResourceCommandOutput,
 } from "./commands/GetComplianceDetailsByResourceCommand.ts";
 import {
   GetComplianceSummaryByConfigRuleCommandInput,
-  GetComplianceSummaryByConfigRuleCommandOutput
+  GetComplianceSummaryByConfigRuleCommandOutput,
 } from "./commands/GetComplianceSummaryByConfigRuleCommand.ts";
 import {
   GetComplianceSummaryByResourceTypeCommandInput,
-  GetComplianceSummaryByResourceTypeCommandOutput
+  GetComplianceSummaryByResourceTypeCommandOutput,
 } from "./commands/GetComplianceSummaryByResourceTypeCommand.ts";
 import {
   GetConformancePackComplianceDetailsCommandInput,
-  GetConformancePackComplianceDetailsCommandOutput
+  GetConformancePackComplianceDetailsCommandOutput,
 } from "./commands/GetConformancePackComplianceDetailsCommand.ts";
 import {
   GetConformancePackComplianceSummaryCommandInput,
-  GetConformancePackComplianceSummaryCommandOutput
+  GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand.ts";
 import {
   GetDiscoveredResourceCountsCommandInput,
-  GetDiscoveredResourceCountsCommandOutput
+  GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand.ts";
 import {
   GetOrganizationConfigRuleDetailedStatusCommandInput,
-  GetOrganizationConfigRuleDetailedStatusCommandOutput
+  GetOrganizationConfigRuleDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConfigRuleDetailedStatusCommand.ts";
 import {
   GetOrganizationConformancePackDetailedStatusCommandInput,
-  GetOrganizationConformancePackDetailedStatusCommandOutput
+  GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand.ts";
 import {
   GetResourceConfigHistoryCommandInput,
-  GetResourceConfigHistoryCommandOutput
+  GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand.ts";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
-  ListAggregateDiscoveredResourcesCommandOutput
+  ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand.ts";
 import {
   ListDiscoveredResourcesCommandInput,
-  ListDiscoveredResourcesCommandOutput
+  ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   PutAggregationAuthorizationCommandInput,
-  PutAggregationAuthorizationCommandOutput
+  PutAggregationAuthorizationCommandOutput,
 } from "./commands/PutAggregationAuthorizationCommand.ts";
-import {
-  PutConfigRuleCommandInput,
-  PutConfigRuleCommandOutput
-} from "./commands/PutConfigRuleCommand.ts";
+import { PutConfigRuleCommandInput, PutConfigRuleCommandOutput } from "./commands/PutConfigRuleCommand.ts";
 import {
   PutConfigurationAggregatorCommandInput,
-  PutConfigurationAggregatorCommandOutput
+  PutConfigurationAggregatorCommandOutput,
 } from "./commands/PutConfigurationAggregatorCommand.ts";
 import {
   PutConfigurationRecorderCommandInput,
-  PutConfigurationRecorderCommandOutput
+  PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand.ts";
 import {
   PutConformancePackCommandInput,
-  PutConformancePackCommandOutput
+  PutConformancePackCommandOutput,
 } from "./commands/PutConformancePackCommand.ts";
 import {
   PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput
+  PutDeliveryChannelCommandOutput,
 } from "./commands/PutDeliveryChannelCommand.ts";
-import {
-  PutEvaluationsCommandInput,
-  PutEvaluationsCommandOutput
-} from "./commands/PutEvaluationsCommand.ts";
+import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand.ts";
 import {
   PutOrganizationConfigRuleCommandInput,
-  PutOrganizationConfigRuleCommandOutput
+  PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand.ts";
 import {
   PutOrganizationConformancePackCommandInput,
-  PutOrganizationConformancePackCommandOutput
+  PutOrganizationConformancePackCommandOutput,
 } from "./commands/PutOrganizationConformancePackCommand.ts";
 import {
   PutRemediationConfigurationsCommandInput,
-  PutRemediationConfigurationsCommandOutput
+  PutRemediationConfigurationsCommandOutput,
 } from "./commands/PutRemediationConfigurationsCommand.ts";
 import {
   PutRemediationExceptionsCommandInput,
-  PutRemediationExceptionsCommandOutput
+  PutRemediationExceptionsCommandOutput,
 } from "./commands/PutRemediationExceptionsCommand.ts";
-import {
-  PutResourceConfigCommandInput,
-  PutResourceConfigCommandOutput
-} from "./commands/PutResourceConfigCommand.ts";
+import { PutResourceConfigCommandInput, PutResourceConfigCommandOutput } from "./commands/PutResourceConfigCommand.ts";
 import {
   PutRetentionConfigurationCommandInput,
-  PutRetentionConfigurationCommandOutput
+  PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand.ts";
 import {
+  SelectAggregateResourceConfigCommandInput,
+  SelectAggregateResourceConfigCommandOutput,
+} from "./commands/SelectAggregateResourceConfigCommand.ts";
+import {
   SelectResourceConfigCommandInput,
-  SelectResourceConfigCommandOutput
+  SelectResourceConfigCommandOutput,
 } from "./commands/SelectResourceConfigCommand.ts";
 import {
   StartConfigRulesEvaluationCommandInput,
-  StartConfigRulesEvaluationCommandOutput
+  StartConfigRulesEvaluationCommandOutput,
 } from "./commands/StartConfigRulesEvaluationCommand.ts";
 import {
   StartConfigurationRecorderCommandInput,
-  StartConfigurationRecorderCommandOutput
+  StartConfigurationRecorderCommandOutput,
 } from "./commands/StartConfigurationRecorderCommand.ts";
 import {
   StartRemediationExecutionCommandInput,
-  StartRemediationExecutionCommandOutput
+  StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand.ts";
 import {
   StopConfigurationRecorderCommandInput,
-  StopConfigurationRecorderCommandOutput
+  StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -317,38 +303,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -357,9 +339,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -434,6 +417,7 @@ export type ServiceInputTypes =
   | PutRemediationExceptionsCommandInput
   | PutResourceConfigCommandInput
   | PutRetentionConfigurationCommandInput
+  | SelectAggregateResourceConfigCommandInput
   | SelectResourceConfigCommandInput
   | StartConfigRulesEvaluationCommandInput
   | StartConfigurationRecorderCommandInput
@@ -514,6 +498,7 @@ export type ServiceOutputTypes =
   | PutRemediationExceptionsCommandOutput
   | PutResourceConfigCommandOutput
   | PutRetentionConfigurationCommandOutput
+  | SelectAggregateResourceConfigCommandOutput
   | SelectResourceConfigCommandOutput
   | StartConfigRulesEvaluationCommandOutput
   | StartConfigurationRecorderCommandOutput
@@ -522,8 +507,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -597,14 +581,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -612,9 +601,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConfigServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConfigServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -623,9 +610,7 @@ export type ConfigServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -671,7 +656,7 @@ export class ConfigServiceClient extends __Client<
   constructor(configuration: ConfigServiceClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -686,6 +671,7 @@ export class ConfigServiceClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

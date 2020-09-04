@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient.ts";
-import {
-  UpdateApnsVoipChannelRequest,
-  UpdateApnsVoipChannelResponse
-} from "../models/index.ts";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
+import { UpdateApnsVoipChannelRequest, UpdateApnsVoipChannelResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateApnsVoipChannelCommand,
-  serializeAws_restJson1UpdateApnsVoipChannelCommand
+  serializeAws_restJson1UpdateApnsVoipChannelCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateApnsVoipChannelCommandInput = UpdateApnsVoipChannelRequest;
-export type UpdateApnsVoipChannelCommandOutput = UpdateApnsVoipChannelResponse &
-  __MetadataBearer;
+export type UpdateApnsVoipChannelCommandOutput = UpdateApnsVoipChannelResponse & __MetadataBearer;
 
 export class UpdateApnsVoipChannelCommand extends $Command<
   UpdateApnsVoipChannelCommandInput,
@@ -49,18 +38,16 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApnsVoipChannelCommandInput,
-    UpdateApnsVoipChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApnsVoipChannelCommandInput, UpdateApnsVoipChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateApnsVoipChannelRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApnsVoipChannelResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateApnsVoipChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateApnsVoipChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsVoipChannelCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsVoipChannelCommandOutput> {
+    return deserializeAws_restJson1UpdateApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient.ts";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { UpdateCustomVerificationEmailTemplateRequest } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
-  serializeAws_queryUpdateCustomVerificationEmailTemplateCommand
+  serializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateCustomVerificationEmailTemplateCommandInput = UpdateCustomVerificationEmailTemplateRequest;
@@ -35,9 +28,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateCustomVerificationEmailTemplateCommandInput
-  ) {
+  constructor(readonly input: UpdateCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -47,18 +38,16 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCustomVerificationEmailTemplateCommandInput,
-    UpdateCustomVerificationEmailTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCustomVerificationEmailTemplateCommandInput, UpdateCustomVerificationEmailTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateCustomVerificationEmailTemplateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,20 +61,14 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

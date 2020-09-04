@@ -1,18 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient.ts";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
 import { DescribeCrossAccountAccessRoleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
-  serializeAws_json1_1DescribeCrossAccountAccessRoleCommand
+  serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeCrossAccountAccessRoleCommandInput = {};
-export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse &
-  __MetadataBearer;
+export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse & __MetadataBearer;
 
 export class DescribeCrossAccountAccessRoleCommand extends $Command<
   DescribeCrossAccountAccessRoleCommandInput,
@@ -46,18 +38,16 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCrossAccountAccessRoleCommandInput,
-    DescribeCrossAccountAccessRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCrossAccountAccessRoleCommandInput, DescribeCrossAccountAccessRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: DescribeCrossAccountAccessRoleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -71,20 +61,14 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     input: DescribeCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
-    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

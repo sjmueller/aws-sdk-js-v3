@@ -1,18 +1,11 @@
-import {
-  DetectiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DetectiveClient.ts";
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
 import { RejectInvitationRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1RejectInvitationCommand,
-  serializeAws_restJson1RejectInvitationCommand
+  serializeAws_restJson1RejectInvitationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RejectInvitationCommandInput = RejectInvitationRequest;
@@ -46,14 +39,15 @@ export class RejectInvitationCommand extends $Command<
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RejectInvitationCommandInput, RejectInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RejectInvitationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +57,11 @@ export class RejectInvitationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RejectInvitationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RejectInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RejectInvitationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RejectInvitationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInvitationCommandOutput> {
     return deserializeAws_restJson1RejectInvitationCommand(output, context);
   }
 

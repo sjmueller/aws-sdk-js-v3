@@ -1,162 +1,108 @@
-import {
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
-} from "./commands/AcceptInvitationCommand.ts";
+import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand.ts";
 import {
   BatchDisableStandardsCommandInput,
-  BatchDisableStandardsCommandOutput
+  BatchDisableStandardsCommandOutput,
 } from "./commands/BatchDisableStandardsCommand.ts";
 import {
   BatchEnableStandardsCommandInput,
-  BatchEnableStandardsCommandOutput
+  BatchEnableStandardsCommandOutput,
 } from "./commands/BatchEnableStandardsCommand.ts";
 import {
   BatchImportFindingsCommandInput,
-  BatchImportFindingsCommandOutput
+  BatchImportFindingsCommandOutput,
 } from "./commands/BatchImportFindingsCommand.ts";
 import {
+  BatchUpdateFindingsCommandInput,
+  BatchUpdateFindingsCommandOutput,
+} from "./commands/BatchUpdateFindingsCommand.ts";
+import {
   CreateActionTargetCommandInput,
-  CreateActionTargetCommandOutput
+  CreateActionTargetCommandOutput,
 } from "./commands/CreateActionTargetCommand.ts";
-import {
-  CreateInsightCommandInput,
-  CreateInsightCommandOutput
-} from "./commands/CreateInsightCommand.ts";
-import {
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput
-} from "./commands/CreateMembersCommand.ts";
+import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand.ts";
+import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand.ts";
 import {
   DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput
+  DeclineInvitationsCommandOutput,
 } from "./commands/DeclineInvitationsCommand.ts";
 import {
   DeleteActionTargetCommandInput,
-  DeleteActionTargetCommandOutput
+  DeleteActionTargetCommandOutput,
 } from "./commands/DeleteActionTargetCommand.ts";
-import {
-  DeleteInsightCommandInput,
-  DeleteInsightCommandOutput
-} from "./commands/DeleteInsightCommand.ts";
-import {
-  DeleteInvitationsCommandInput,
-  DeleteInvitationsCommandOutput
-} from "./commands/DeleteInvitationsCommand.ts";
-import {
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
-} from "./commands/DeleteMembersCommand.ts";
+import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand.ts";
+import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand.ts";
+import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand.ts";
 import {
   DescribeActionTargetsCommandInput,
-  DescribeActionTargetsCommandOutput
+  DescribeActionTargetsCommandOutput,
 } from "./commands/DescribeActionTargetsCommand.ts";
-import {
-  DescribeHubCommandInput,
-  DescribeHubCommandOutput
-} from "./commands/DescribeHubCommand.ts";
-import {
-  DescribeProductsCommandInput,
-  DescribeProductsCommandOutput
-} from "./commands/DescribeProductsCommand.ts";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand.ts";
+import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand.ts";
+import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand.ts";
 import {
   DescribeStandardsControlsCommandInput,
-  DescribeStandardsControlsCommandOutput
+  DescribeStandardsControlsCommandOutput,
 } from "./commands/DescribeStandardsControlsCommand.ts";
 import {
   DisableImportFindingsForProductCommandInput,
-  DisableImportFindingsForProductCommandOutput
+  DisableImportFindingsForProductCommandOutput,
 } from "./commands/DisableImportFindingsForProductCommand.ts";
 import {
   DisableSecurityHubCommandInput,
-  DisableSecurityHubCommandOutput
+  DisableSecurityHubCommandOutput,
 } from "./commands/DisableSecurityHubCommand.ts";
 import {
   DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput
+  DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand.ts";
 import {
   DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput
+  DisassociateMembersCommandOutput,
 } from "./commands/DisassociateMembersCommand.ts";
 import {
   EnableImportFindingsForProductCommandInput,
-  EnableImportFindingsForProductCommandOutput
+  EnableImportFindingsForProductCommandOutput,
 } from "./commands/EnableImportFindingsForProductCommand.ts";
-import {
-  EnableSecurityHubCommandInput,
-  EnableSecurityHubCommandOutput
-} from "./commands/EnableSecurityHubCommand.ts";
+import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand.ts";
 import {
   GetEnabledStandardsCommandInput,
-  GetEnabledStandardsCommandOutput
+  GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand.ts";
-import {
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput
-} from "./commands/GetFindingsCommand.ts";
-import {
-  GetInsightResultsCommandInput,
-  GetInsightResultsCommandOutput
-} from "./commands/GetInsightResultsCommand.ts";
-import {
-  GetInsightsCommandInput,
-  GetInsightsCommandOutput
-} from "./commands/GetInsightsCommand.ts";
+import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand.ts";
+import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand.ts";
+import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand.ts";
 import {
   GetInvitationsCountCommandInput,
-  GetInvitationsCountCommandOutput
+  GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand.ts";
-import {
-  GetMasterAccountCommandInput,
-  GetMasterAccountCommandOutput
-} from "./commands/GetMasterAccountCommand.ts";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand.ts";
-import {
-  InviteMembersCommandInput,
-  InviteMembersCommandOutput
-} from "./commands/InviteMembersCommand.ts";
+import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand.ts";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand.ts";
+import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand.ts";
 import {
   ListEnabledProductsForImportCommandInput,
-  ListEnabledProductsForImportCommandOutput
+  ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand.ts";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "./commands/ListInvitationsCommand.ts";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand.ts";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand.ts";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateActionTargetCommandInput,
-  UpdateActionTargetCommandOutput
+  UpdateActionTargetCommandOutput,
 } from "./commands/UpdateActionTargetCommand.ts";
+import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand.ts";
+import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand.ts";
 import {
-  UpdateFindingsCommandInput,
-  UpdateFindingsCommandOutput
-} from "./commands/UpdateFindingsCommand.ts";
-import {
-  UpdateInsightCommandInput,
-  UpdateInsightCommandOutput
-} from "./commands/UpdateInsightCommand.ts";
+  UpdateSecurityHubConfigurationCommandInput,
+  UpdateSecurityHubConfigurationCommandOutput,
+} from "./commands/UpdateSecurityHubConfigurationCommand.ts";
 import {
   UpdateStandardsControlCommandInput,
-  UpdateStandardsControlCommandOutput
+  UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -165,38 +111,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -205,9 +147,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -215,6 +158,7 @@ export type ServiceInputTypes =
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
   | BatchImportFindingsCommandInput
+  | BatchUpdateFindingsCommandInput
   | CreateActionTargetCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
@@ -226,6 +170,7 @@ export type ServiceInputTypes =
   | DescribeActionTargetsCommandInput
   | DescribeHubCommandInput
   | DescribeProductsCommandInput
+  | DescribeStandardsCommandInput
   | DescribeStandardsControlsCommandInput
   | DisableImportFindingsForProductCommandInput
   | DisableSecurityHubCommandInput
@@ -250,6 +195,7 @@ export type ServiceInputTypes =
   | UpdateActionTargetCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
+  | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
 export type ServiceOutputTypes =
@@ -257,6 +203,7 @@ export type ServiceOutputTypes =
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
   | BatchImportFindingsCommandOutput
+  | BatchUpdateFindingsCommandOutput
   | CreateActionTargetCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
@@ -268,6 +215,7 @@ export type ServiceOutputTypes =
   | DescribeActionTargetsCommandOutput
   | DescribeHubCommandOutput
   | DescribeProductsCommandOutput
+  | DescribeStandardsCommandOutput
   | DescribeStandardsControlsCommandOutput
   | DisableImportFindingsForProductCommandOutput
   | DisableSecurityHubCommandOutput
@@ -292,10 +240,10 @@ export type ServiceOutputTypes =
   | UpdateActionTargetCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
+  | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -369,14 +317,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -384,9 +337,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecurityHubClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecurityHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -395,9 +346,7 @@ export type SecurityHubClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -408,34 +357,44 @@ export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
 
 /**
  * <p>Security Hub provides you with a comprehensive view of the security state of your AWS
- *          environment and resources. It also provides you with the compliance status of your
- *          environment based on CIS AWS Foundations compliance checks. Security Hub collects security data
- *          from AWS accounts, services, and integrated third-party products and helps you analyze
+ *          environment and resources. It also provides you with the readiness status of your
+ *          environment based on controls from supported security standards. Security Hub collects security
+ *          data from AWS accounts, services, and integrated third-party products and helps you analyze
  *          security trends in your environment to identify the highest priority security issues. For
  *          more information about Security Hub, see the <i>
- *                <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">AWS Security Hub User Guide</a>
+ *                <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">AWS Security Hub User
+ *                Guide</a>
  *             </i>.</p>
  *          <p>When you use operations in the Security Hub API, the requests are executed only in the AWS
  *          Region that is currently active or in the specific AWS Region that you specify in your
  *          request. Any configuration or settings change that results from the operation is applied
  *          only to that Region. To make the same change in other Regions, execute the same command for
- *          each Region to apply the change to. For example, if your Region is set to
- *             <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account
- *          to Security Hub, the association of the member account with the master account is created only in
- *          the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that
- *          the invite was sent from.</p>
- *          <p>The following throttling limits apply to using Security Hub API operations:</p>
+ *          each Region to apply the change to.</p>
+ *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>
+ *                <a>CreateMembers</a>
+ *             </code> to add a member account to Security Hub, the association of
+ *          the member account with the master account is created only in the <code>us-west-2</code>
+ *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
+ *          was sent from.</p>
+ *          <p>The following throttling limits apply to using Security Hub API operations.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>GetFindings</code> - RateLimit of 3 requests per second, and a BurstLimit of 6 requests per second.</p>
+ *                   <code>
+ *                      <a>GetFindings</a>
+ *                   </code> - <code>RateLimit</code> of 3 requests per second.
+ *                   <code>BurstLimit</code> of 6 requests per second.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateFindings</code> - RateLimit of 1 request per second, and a BurstLimit of 5 requests per second.</p>
+ *                   <code>
+ *                      <a>UpdateFindings</a>
+ *                   </code> - <code>RateLimit</code> of 1 request per
+ *                second. <code>BurstLimit</code> of 5 requests per second.</p>
  *             </li>
  *             <li>
- *                <p>All other operations - RateLimit of 10 request per second, and a BurstLimit of 30 requests per second.</p>
+ *                <p>All other operations - <code>RateLimit</code> of 10 requests per second.
+ *                   <code>BurstLimit</code> of 30 requests per second.</p>
  *             </li>
  *          </ul>
  */
@@ -450,7 +409,7 @@ export class SecurityHubClient extends __Client<
   constructor(configuration: SecurityHubClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -465,6 +424,7 @@ export class SecurityHubClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

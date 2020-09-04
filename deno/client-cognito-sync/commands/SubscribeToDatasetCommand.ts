@@ -1,21 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient.ts";
-import {
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetResponse
-} from "../models/index.ts";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1SubscribeToDatasetCommand,
-  serializeAws_restJson1SubscribeToDatasetCommand
+  serializeAws_restJson1SubscribeToDatasetCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
-export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse &
-  __MetadataBearer;
+export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse & __MetadataBearer;
 
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,
@@ -50,14 +39,15 @@ export class SubscribeToDatasetCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: SubscribeToDatasetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class SubscribeToDatasetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubscribeToDatasetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubscribeToDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SubscribeToDatasetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SubscribeToDatasetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToDatasetCommandOutput> {
     return deserializeAws_restJson1SubscribeToDatasetCommand(output, context);
   }
 

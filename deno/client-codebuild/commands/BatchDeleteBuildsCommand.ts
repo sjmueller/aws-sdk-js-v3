@@ -1,21 +1,11 @@
-import {
-  CodeBuildClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeBuildClient.ts";
-import {
-  BatchDeleteBuildsInput,
-  BatchDeleteBuildsOutput
-} from "../models/index.ts";
+import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1BatchDeleteBuildsCommand,
-  serializeAws_json1_1BatchDeleteBuildsCommand
+  serializeAws_json1_1BatchDeleteBuildsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchDeleteBuildsCommandInput = BatchDeleteBuildsInput;
-export type BatchDeleteBuildsCommandOutput = BatchDeleteBuildsOutput &
-  __MetadataBearer;
+export type BatchDeleteBuildsCommandOutput = BatchDeleteBuildsOutput & __MetadataBearer;
 
 export class BatchDeleteBuildsCommand extends $Command<
   BatchDeleteBuildsCommandInput,
@@ -50,14 +39,15 @@ export class BatchDeleteBuildsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchDeleteBuildsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteBuildsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class BatchDeleteBuildsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteBuildsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteBuildsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDeleteBuildsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteBuildsCommandOutput> {
     return deserializeAws_json1_1BatchDeleteBuildsCommand(output, context);
   }
 

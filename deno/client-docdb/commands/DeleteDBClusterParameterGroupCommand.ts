@@ -1,18 +1,11 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient.ts";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
 import { DeleteDBClusterParameterGroupMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDBClusterParameterGroupCommand,
-  serializeAws_queryDeleteDBClusterParameterGroupCommand
+  serializeAws_queryDeleteDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDBClusterParameterGroupCommandInput = DeleteDBClusterParameterGroupMessage;
@@ -45,18 +38,16 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDBClusterParameterGroupCommandInput,
-    DeleteDBClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDBClusterParameterGroupCommandInput, DeleteDBClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,24 +57,15 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBClusterParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

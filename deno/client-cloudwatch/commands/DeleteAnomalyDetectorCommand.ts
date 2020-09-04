@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient.ts";
-import {
-  DeleteAnomalyDetectorInput,
-  DeleteAnomalyDetectorOutput
-} from "../models/index.ts";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
+import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteAnomalyDetectorCommand,
-  serializeAws_queryDeleteAnomalyDetectorCommand
+  serializeAws_queryDeleteAnomalyDetectorCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorInput;
-export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput &
-  __MetadataBearer;
+export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput & __MetadataBearer;
 
 export class DeleteAnomalyDetectorCommand extends $Command<
   DeleteAnomalyDetectorCommandInput,
@@ -49,18 +38,16 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAnomalyDetectorCommandInput,
-    DeleteAnomalyDetectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAnomalyDetectorCommandInput, DeleteAnomalyDetectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteAnomalyDetectorInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAnomalyDetectorOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteAnomalyDetectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAnomalyDetectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteAnomalyDetectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyDetectorCommandOutput> {
     return deserializeAws_queryDeleteAnomalyDetectorCommand(output, context);
   }
 

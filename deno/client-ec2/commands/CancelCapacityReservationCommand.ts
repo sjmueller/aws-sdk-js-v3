@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CancelCapacityReservationRequest,
-  CancelCapacityReservationResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CancelCapacityReservationCommand,
-  serializeAws_ec2CancelCapacityReservationCommand
+  serializeAws_ec2CancelCapacityReservationCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CancelCapacityReservationCommandInput = CancelCapacityReservationRequest;
-export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult &
-  __MetadataBearer;
+export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult & __MetadataBearer;
 
 export class CancelCapacityReservationCommand extends $Command<
   CancelCapacityReservationCommandInput,
@@ -49,18 +38,16 @@ export class CancelCapacityReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelCapacityReservationCommandInput,
-    CancelCapacityReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelCapacityReservationCommandInput, CancelCapacityReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CancelCapacityReservationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelCapacityReservationResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class CancelCapacityReservationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelCapacityReservationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelCapacityReservationCommand(input, context);
   }
 

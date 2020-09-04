@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  CreateDhcpOptionsRequest,
-  CreateDhcpOptionsResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { CreateDhcpOptionsRequest, CreateDhcpOptionsResult } from "../models/index.ts";
 import {
   deserializeAws_ec2CreateDhcpOptionsCommand,
-  serializeAws_ec2CreateDhcpOptionsCommand
+  serializeAws_ec2CreateDhcpOptionsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateDhcpOptionsCommandInput = CreateDhcpOptionsRequest;
-export type CreateDhcpOptionsCommandOutput = CreateDhcpOptionsResult &
-  __MetadataBearer;
+export type CreateDhcpOptionsCommandOutput = CreateDhcpOptionsResult & __MetadataBearer;
 
 export class CreateDhcpOptionsCommand extends $Command<
   CreateDhcpOptionsCommandInput,
@@ -50,14 +39,15 @@ export class CreateDhcpOptionsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDhcpOptionsCommandInput, CreateDhcpOptionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateDhcpOptionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDhcpOptionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateDhcpOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDhcpOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CreateDhcpOptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDhcpOptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDhcpOptionsCommandOutput> {
     return deserializeAws_ec2CreateDhcpOptionsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient.ts";
-import {
-  DescribeFolderContentsRequest,
-  DescribeFolderContentsResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
+import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeFolderContentsCommand,
-  serializeAws_restJson1DescribeFolderContentsCommand
+  serializeAws_restJson1DescribeFolderContentsCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeFolderContentsCommandInput = DescribeFolderContentsRequest;
-export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse &
-  __MetadataBearer;
+export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse & __MetadataBearer;
 
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeFolderContentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFolderContentsCommandInput,
-    DescribeFolderContentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFolderContentsCommandInput, DescribeFolderContentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeFolderContentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFolderContentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeFolderContentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFolderContentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeFolderContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeFolderContentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFolderContentsCommandOutput> {
-    return deserializeAws_restJson1DescribeFolderContentsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFolderContentsCommandOutput> {
+    return deserializeAws_restJson1DescribeFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

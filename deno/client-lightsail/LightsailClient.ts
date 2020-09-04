@@ -1,422 +1,327 @@
+import { AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput } from "./commands/AllocateStaticIpCommand.ts";
 import {
-  AllocateStaticIpCommandInput,
-  AllocateStaticIpCommandOutput
-} from "./commands/AllocateStaticIpCommand.ts";
-import {
-  AttachDiskCommandInput,
-  AttachDiskCommandOutput
-} from "./commands/AttachDiskCommand.ts";
+  AttachCertificateToDistributionCommandInput,
+  AttachCertificateToDistributionCommandOutput,
+} from "./commands/AttachCertificateToDistributionCommand.ts";
+import { AttachDiskCommandInput, AttachDiskCommandOutput } from "./commands/AttachDiskCommand.ts";
 import {
   AttachInstancesToLoadBalancerCommandInput,
-  AttachInstancesToLoadBalancerCommandOutput
+  AttachInstancesToLoadBalancerCommandOutput,
 } from "./commands/AttachInstancesToLoadBalancerCommand.ts";
 import {
   AttachLoadBalancerTlsCertificateCommandInput,
-  AttachLoadBalancerTlsCertificateCommandOutput
+  AttachLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/AttachLoadBalancerTlsCertificateCommand.ts";
-import {
-  AttachStaticIpCommandInput,
-  AttachStaticIpCommandOutput
-} from "./commands/AttachStaticIpCommand.ts";
+import { AttachStaticIpCommandInput, AttachStaticIpCommandOutput } from "./commands/AttachStaticIpCommand.ts";
 import {
   CloseInstancePublicPortsCommandInput,
-  CloseInstancePublicPortsCommandOutput
+  CloseInstancePublicPortsCommandOutput,
 } from "./commands/CloseInstancePublicPortsCommand.ts";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand.ts";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand.ts";
+import { CreateCertificateCommandInput, CreateCertificateCommandOutput } from "./commands/CreateCertificateCommand.ts";
 import {
   CreateCloudFormationStackCommandInput,
-  CreateCloudFormationStackCommandOutput
+  CreateCloudFormationStackCommandOutput,
 } from "./commands/CreateCloudFormationStackCommand.ts";
 import {
-  CreateDiskCommandInput,
-  CreateDiskCommandOutput
-} from "./commands/CreateDiskCommand.ts";
+  CreateContactMethodCommandInput,
+  CreateContactMethodCommandOutput,
+} from "./commands/CreateContactMethodCommand.ts";
+import { CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand.ts";
 import {
   CreateDiskFromSnapshotCommandInput,
-  CreateDiskFromSnapshotCommandOutput
+  CreateDiskFromSnapshotCommandOutput,
 } from "./commands/CreateDiskFromSnapshotCommand.ts";
 import {
   CreateDiskSnapshotCommandInput,
-  CreateDiskSnapshotCommandOutput
+  CreateDiskSnapshotCommandOutput,
 } from "./commands/CreateDiskSnapshotCommand.ts";
 import {
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput
-} from "./commands/CreateDomainCommand.ts";
-import {
-  CreateDomainEntryCommandInput,
-  CreateDomainEntryCommandOutput
-} from "./commands/CreateDomainEntryCommand.ts";
+  CreateDistributionCommandInput,
+  CreateDistributionCommandOutput,
+} from "./commands/CreateDistributionCommand.ts";
+import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand.ts";
+import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "./commands/CreateDomainEntryCommand.ts";
 import {
   CreateInstanceSnapshotCommandInput,
-  CreateInstanceSnapshotCommandOutput
+  CreateInstanceSnapshotCommandOutput,
 } from "./commands/CreateInstanceSnapshotCommand.ts";
-import {
-  CreateInstancesCommandInput,
-  CreateInstancesCommandOutput
-} from "./commands/CreateInstancesCommand.ts";
+import { CreateInstancesCommandInput, CreateInstancesCommandOutput } from "./commands/CreateInstancesCommand.ts";
 import {
   CreateInstancesFromSnapshotCommandInput,
-  CreateInstancesFromSnapshotCommandOutput
+  CreateInstancesFromSnapshotCommandOutput,
 } from "./commands/CreateInstancesFromSnapshotCommand.ts";
-import {
-  CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput
-} from "./commands/CreateKeyPairCommand.ts";
+import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand.ts";
 import {
   CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
+  CreateLoadBalancerCommandOutput,
 } from "./commands/CreateLoadBalancerCommand.ts";
 import {
   CreateLoadBalancerTlsCertificateCommandInput,
-  CreateLoadBalancerTlsCertificateCommandOutput
+  CreateLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/CreateLoadBalancerTlsCertificateCommand.ts";
 import {
   CreateRelationalDatabaseCommandInput,
-  CreateRelationalDatabaseCommandOutput
+  CreateRelationalDatabaseCommandOutput,
 } from "./commands/CreateRelationalDatabaseCommand.ts";
 import {
   CreateRelationalDatabaseFromSnapshotCommandInput,
-  CreateRelationalDatabaseFromSnapshotCommandOutput
+  CreateRelationalDatabaseFromSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseFromSnapshotCommand.ts";
 import {
   CreateRelationalDatabaseSnapshotCommandInput,
-  CreateRelationalDatabaseSnapshotCommandOutput
+  CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand.ts";
+import { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand.ts";
 import {
   DeleteAutoSnapshotCommandInput,
-  DeleteAutoSnapshotCommandOutput
+  DeleteAutoSnapshotCommandOutput,
 } from "./commands/DeleteAutoSnapshotCommand.ts";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand.ts";
 import {
-  DeleteDiskCommandInput,
-  DeleteDiskCommandOutput
-} from "./commands/DeleteDiskCommand.ts";
+  DeleteContactMethodCommandInput,
+  DeleteContactMethodCommandOutput,
+} from "./commands/DeleteContactMethodCommand.ts";
+import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand.ts";
 import {
   DeleteDiskSnapshotCommandInput,
-  DeleteDiskSnapshotCommandOutput
+  DeleteDiskSnapshotCommandOutput,
 } from "./commands/DeleteDiskSnapshotCommand.ts";
 import {
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
-} from "./commands/DeleteDomainCommand.ts";
-import {
-  DeleteDomainEntryCommandInput,
-  DeleteDomainEntryCommandOutput
-} from "./commands/DeleteDomainEntryCommand.ts";
-import {
-  DeleteInstanceCommandInput,
-  DeleteInstanceCommandOutput
-} from "./commands/DeleteInstanceCommand.ts";
+  DeleteDistributionCommandInput,
+  DeleteDistributionCommandOutput,
+} from "./commands/DeleteDistributionCommand.ts";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand.ts";
+import { DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput } from "./commands/DeleteDomainEntryCommand.ts";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand.ts";
 import {
   DeleteInstanceSnapshotCommandInput,
-  DeleteInstanceSnapshotCommandOutput
+  DeleteInstanceSnapshotCommandOutput,
 } from "./commands/DeleteInstanceSnapshotCommand.ts";
-import {
-  DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput
-} from "./commands/DeleteKeyPairCommand.ts";
+import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand.ts";
 import {
   DeleteKnownHostKeysCommandInput,
-  DeleteKnownHostKeysCommandOutput
+  DeleteKnownHostKeysCommandOutput,
 } from "./commands/DeleteKnownHostKeysCommand.ts";
 import {
   DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
+  DeleteLoadBalancerCommandOutput,
 } from "./commands/DeleteLoadBalancerCommand.ts";
 import {
   DeleteLoadBalancerTlsCertificateCommandInput,
-  DeleteLoadBalancerTlsCertificateCommandOutput
+  DeleteLoadBalancerTlsCertificateCommandOutput,
 } from "./commands/DeleteLoadBalancerTlsCertificateCommand.ts";
 import {
   DeleteRelationalDatabaseCommandInput,
-  DeleteRelationalDatabaseCommandOutput
+  DeleteRelationalDatabaseCommandOutput,
 } from "./commands/DeleteRelationalDatabaseCommand.ts";
 import {
   DeleteRelationalDatabaseSnapshotCommandInput,
-  DeleteRelationalDatabaseSnapshotCommandOutput
+  DeleteRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand.ts";
 import {
-  DetachDiskCommandInput,
-  DetachDiskCommandOutput
-} from "./commands/DetachDiskCommand.ts";
+  DetachCertificateFromDistributionCommandInput,
+  DetachCertificateFromDistributionCommandOutput,
+} from "./commands/DetachCertificateFromDistributionCommand.ts";
+import { DetachDiskCommandInput, DetachDiskCommandOutput } from "./commands/DetachDiskCommand.ts";
 import {
   DetachInstancesFromLoadBalancerCommandInput,
-  DetachInstancesFromLoadBalancerCommandOutput
+  DetachInstancesFromLoadBalancerCommandOutput,
 } from "./commands/DetachInstancesFromLoadBalancerCommand.ts";
-import {
-  DetachStaticIpCommandInput,
-  DetachStaticIpCommandOutput
-} from "./commands/DetachStaticIpCommand.ts";
-import {
-  DisableAddOnCommandInput,
-  DisableAddOnCommandOutput
-} from "./commands/DisableAddOnCommand.ts";
+import { DetachStaticIpCommandInput, DetachStaticIpCommandOutput } from "./commands/DetachStaticIpCommand.ts";
+import { DisableAddOnCommandInput, DisableAddOnCommandOutput } from "./commands/DisableAddOnCommand.ts";
 import {
   DownloadDefaultKeyPairCommandInput,
-  DownloadDefaultKeyPairCommandOutput
+  DownloadDefaultKeyPairCommandOutput,
 } from "./commands/DownloadDefaultKeyPairCommand.ts";
-import {
-  EnableAddOnCommandInput,
-  EnableAddOnCommandOutput
-} from "./commands/EnableAddOnCommand.ts";
-import {
-  ExportSnapshotCommandInput,
-  ExportSnapshotCommandOutput
-} from "./commands/ExportSnapshotCommand.ts";
-import {
-  GetActiveNamesCommandInput,
-  GetActiveNamesCommandOutput
-} from "./commands/GetActiveNamesCommand.ts";
-import {
-  GetAutoSnapshotsCommandInput,
-  GetAutoSnapshotsCommandOutput
-} from "./commands/GetAutoSnapshotsCommand.ts";
-import {
-  GetBlueprintsCommandInput,
-  GetBlueprintsCommandOutput
-} from "./commands/GetBlueprintsCommand.ts";
-import {
-  GetBundlesCommandInput,
-  GetBundlesCommandOutput
-} from "./commands/GetBundlesCommand.ts";
+import { EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand.ts";
+import { ExportSnapshotCommandInput, ExportSnapshotCommandOutput } from "./commands/ExportSnapshotCommand.ts";
+import { GetActiveNamesCommandInput, GetActiveNamesCommandOutput } from "./commands/GetActiveNamesCommand.ts";
+import { GetAlarmsCommandInput, GetAlarmsCommandOutput } from "./commands/GetAlarmsCommand.ts";
+import { GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput } from "./commands/GetAutoSnapshotsCommand.ts";
+import { GetBlueprintsCommandInput, GetBlueprintsCommandOutput } from "./commands/GetBlueprintsCommand.ts";
+import { GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand.ts";
+import { GetCertificatesCommandInput, GetCertificatesCommandOutput } from "./commands/GetCertificatesCommand.ts";
 import {
   GetCloudFormationStackRecordsCommandInput,
-  GetCloudFormationStackRecordsCommandOutput
+  GetCloudFormationStackRecordsCommandOutput,
 } from "./commands/GetCloudFormationStackRecordsCommand.ts";
+import { GetContactMethodsCommandInput, GetContactMethodsCommandOutput } from "./commands/GetContactMethodsCommand.ts";
+import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand.ts";
+import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand.ts";
+import { GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput } from "./commands/GetDiskSnapshotsCommand.ts";
+import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand.ts";
 import {
-  GetDiskCommandInput,
-  GetDiskCommandOutput
-} from "./commands/GetDiskCommand.ts";
+  GetDistributionBundlesCommandInput,
+  GetDistributionBundlesCommandOutput,
+} from "./commands/GetDistributionBundlesCommand.ts";
 import {
-  GetDiskSnapshotCommandInput,
-  GetDiskSnapshotCommandOutput
-} from "./commands/GetDiskSnapshotCommand.ts";
+  GetDistributionLatestCacheResetCommandInput,
+  GetDistributionLatestCacheResetCommandOutput,
+} from "./commands/GetDistributionLatestCacheResetCommand.ts";
 import {
-  GetDiskSnapshotsCommandInput,
-  GetDiskSnapshotsCommandOutput
-} from "./commands/GetDiskSnapshotsCommand.ts";
-import {
-  GetDisksCommandInput,
-  GetDisksCommandOutput
-} from "./commands/GetDisksCommand.ts";
-import {
-  GetDomainCommandInput,
-  GetDomainCommandOutput
-} from "./commands/GetDomainCommand.ts";
-import {
-  GetDomainsCommandInput,
-  GetDomainsCommandOutput
-} from "./commands/GetDomainsCommand.ts";
+  GetDistributionMetricDataCommandInput,
+  GetDistributionMetricDataCommandOutput,
+} from "./commands/GetDistributionMetricDataCommand.ts";
+import { GetDistributionsCommandInput, GetDistributionsCommandOutput } from "./commands/GetDistributionsCommand.ts";
+import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand.ts";
+import { GetDomainsCommandInput, GetDomainsCommandOutput } from "./commands/GetDomainsCommand.ts";
 import {
   GetExportSnapshotRecordsCommandInput,
-  GetExportSnapshotRecordsCommandOutput
+  GetExportSnapshotRecordsCommandOutput,
 } from "./commands/GetExportSnapshotRecordsCommand.ts";
 import {
   GetInstanceAccessDetailsCommandInput,
-  GetInstanceAccessDetailsCommandOutput
+  GetInstanceAccessDetailsCommandOutput,
 } from "./commands/GetInstanceAccessDetailsCommand.ts";
-import {
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput
-} from "./commands/GetInstanceCommand.ts";
+import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand.ts";
 import {
   GetInstanceMetricDataCommandInput,
-  GetInstanceMetricDataCommandOutput
+  GetInstanceMetricDataCommandOutput,
 } from "./commands/GetInstanceMetricDataCommand.ts";
 import {
   GetInstancePortStatesCommandInput,
-  GetInstancePortStatesCommandOutput
+  GetInstancePortStatesCommandOutput,
 } from "./commands/GetInstancePortStatesCommand.ts";
 import {
   GetInstanceSnapshotCommandInput,
-  GetInstanceSnapshotCommandOutput
+  GetInstanceSnapshotCommandOutput,
 } from "./commands/GetInstanceSnapshotCommand.ts";
 import {
   GetInstanceSnapshotsCommandInput,
-  GetInstanceSnapshotsCommandOutput
+  GetInstanceSnapshotsCommandOutput,
 } from "./commands/GetInstanceSnapshotsCommand.ts";
-import {
-  GetInstanceStateCommandInput,
-  GetInstanceStateCommandOutput
-} from "./commands/GetInstanceStateCommand.ts";
-import {
-  GetInstancesCommandInput,
-  GetInstancesCommandOutput
-} from "./commands/GetInstancesCommand.ts";
-import {
-  GetKeyPairCommandInput,
-  GetKeyPairCommandOutput
-} from "./commands/GetKeyPairCommand.ts";
-import {
-  GetKeyPairsCommandInput,
-  GetKeyPairsCommandOutput
-} from "./commands/GetKeyPairsCommand.ts";
-import {
-  GetLoadBalancerCommandInput,
-  GetLoadBalancerCommandOutput
-} from "./commands/GetLoadBalancerCommand.ts";
+import { GetInstanceStateCommandInput, GetInstanceStateCommandOutput } from "./commands/GetInstanceStateCommand.ts";
+import { GetInstancesCommandInput, GetInstancesCommandOutput } from "./commands/GetInstancesCommand.ts";
+import { GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand.ts";
+import { GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand.ts";
+import { GetLoadBalancerCommandInput, GetLoadBalancerCommandOutput } from "./commands/GetLoadBalancerCommand.ts";
 import {
   GetLoadBalancerMetricDataCommandInput,
-  GetLoadBalancerMetricDataCommandOutput
+  GetLoadBalancerMetricDataCommandOutput,
 } from "./commands/GetLoadBalancerMetricDataCommand.ts";
 import {
   GetLoadBalancerTlsCertificatesCommandInput,
-  GetLoadBalancerTlsCertificatesCommandOutput
+  GetLoadBalancerTlsCertificatesCommandOutput,
 } from "./commands/GetLoadBalancerTlsCertificatesCommand.ts";
-import {
-  GetLoadBalancersCommandInput,
-  GetLoadBalancersCommandOutput
-} from "./commands/GetLoadBalancersCommand.ts";
-import {
-  GetOperationCommandInput,
-  GetOperationCommandOutput
-} from "./commands/GetOperationCommand.ts";
-import {
-  GetOperationsCommandInput,
-  GetOperationsCommandOutput
-} from "./commands/GetOperationsCommand.ts";
+import { GetLoadBalancersCommandInput, GetLoadBalancersCommandOutput } from "./commands/GetLoadBalancersCommand.ts";
+import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand.ts";
+import { GetOperationsCommandInput, GetOperationsCommandOutput } from "./commands/GetOperationsCommand.ts";
 import {
   GetOperationsForResourceCommandInput,
-  GetOperationsForResourceCommandOutput
+  GetOperationsForResourceCommandOutput,
 } from "./commands/GetOperationsForResourceCommand.ts";
-import {
-  GetRegionsCommandInput,
-  GetRegionsCommandOutput
-} from "./commands/GetRegionsCommand.ts";
+import { GetRegionsCommandInput, GetRegionsCommandOutput } from "./commands/GetRegionsCommand.ts";
 import {
   GetRelationalDatabaseBlueprintsCommandInput,
-  GetRelationalDatabaseBlueprintsCommandOutput
+  GetRelationalDatabaseBlueprintsCommandOutput,
 } from "./commands/GetRelationalDatabaseBlueprintsCommand.ts";
 import {
   GetRelationalDatabaseBundlesCommandInput,
-  GetRelationalDatabaseBundlesCommandOutput
+  GetRelationalDatabaseBundlesCommandOutput,
 } from "./commands/GetRelationalDatabaseBundlesCommand.ts";
 import {
   GetRelationalDatabaseCommandInput,
-  GetRelationalDatabaseCommandOutput
+  GetRelationalDatabaseCommandOutput,
 } from "./commands/GetRelationalDatabaseCommand.ts";
 import {
   GetRelationalDatabaseEventsCommandInput,
-  GetRelationalDatabaseEventsCommandOutput
+  GetRelationalDatabaseEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseEventsCommand.ts";
 import {
   GetRelationalDatabaseLogEventsCommandInput,
-  GetRelationalDatabaseLogEventsCommandOutput
+  GetRelationalDatabaseLogEventsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogEventsCommand.ts";
 import {
   GetRelationalDatabaseLogStreamsCommandInput,
-  GetRelationalDatabaseLogStreamsCommandOutput
+  GetRelationalDatabaseLogStreamsCommandOutput,
 } from "./commands/GetRelationalDatabaseLogStreamsCommand.ts";
 import {
   GetRelationalDatabaseMasterUserPasswordCommandInput,
-  GetRelationalDatabaseMasterUserPasswordCommandOutput
+  GetRelationalDatabaseMasterUserPasswordCommandOutput,
 } from "./commands/GetRelationalDatabaseMasterUserPasswordCommand.ts";
 import {
   GetRelationalDatabaseMetricDataCommandInput,
-  GetRelationalDatabaseMetricDataCommandOutput
+  GetRelationalDatabaseMetricDataCommandOutput,
 } from "./commands/GetRelationalDatabaseMetricDataCommand.ts";
 import {
   GetRelationalDatabaseParametersCommandInput,
-  GetRelationalDatabaseParametersCommandOutput
+  GetRelationalDatabaseParametersCommandOutput,
 } from "./commands/GetRelationalDatabaseParametersCommand.ts";
 import {
   GetRelationalDatabaseSnapshotCommandInput,
-  GetRelationalDatabaseSnapshotCommandOutput
+  GetRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotCommand.ts";
 import {
   GetRelationalDatabaseSnapshotsCommandInput,
-  GetRelationalDatabaseSnapshotsCommandOutput
+  GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand.ts";
 import {
   GetRelationalDatabasesCommandInput,
-  GetRelationalDatabasesCommandOutput
+  GetRelationalDatabasesCommandOutput,
 } from "./commands/GetRelationalDatabasesCommand.ts";
-import {
-  GetStaticIpCommandInput,
-  GetStaticIpCommandOutput
-} from "./commands/GetStaticIpCommand.ts";
-import {
-  GetStaticIpsCommandInput,
-  GetStaticIpsCommandOutput
-} from "./commands/GetStaticIpsCommand.ts";
-import {
-  ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput
-} from "./commands/ImportKeyPairCommand.ts";
-import {
-  IsVpcPeeredCommandInput,
-  IsVpcPeeredCommandOutput
-} from "./commands/IsVpcPeeredCommand.ts";
+import { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand.ts";
+import { GetStaticIpsCommandInput, GetStaticIpsCommandOutput } from "./commands/GetStaticIpsCommand.ts";
+import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand.ts";
+import { IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand.ts";
 import {
   OpenInstancePublicPortsCommandInput,
-  OpenInstancePublicPortsCommandOutput
+  OpenInstancePublicPortsCommandOutput,
 } from "./commands/OpenInstancePublicPortsCommand.ts";
-import {
-  PeerVpcCommandInput,
-  PeerVpcCommandOutput
-} from "./commands/PeerVpcCommand.ts";
+import { PeerVpcCommandInput, PeerVpcCommandOutput } from "./commands/PeerVpcCommand.ts";
+import { PutAlarmCommandInput, PutAlarmCommandOutput } from "./commands/PutAlarmCommand.ts";
 import {
   PutInstancePublicPortsCommandInput,
-  PutInstancePublicPortsCommandOutput
+  PutInstancePublicPortsCommandOutput,
 } from "./commands/PutInstancePublicPortsCommand.ts";
-import {
-  RebootInstanceCommandInput,
-  RebootInstanceCommandOutput
-} from "./commands/RebootInstanceCommand.ts";
+import { RebootInstanceCommandInput, RebootInstanceCommandOutput } from "./commands/RebootInstanceCommand.ts";
 import {
   RebootRelationalDatabaseCommandInput,
-  RebootRelationalDatabaseCommandOutput
+  RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand.ts";
+import { ReleaseStaticIpCommandInput, ReleaseStaticIpCommandOutput } from "./commands/ReleaseStaticIpCommand.ts";
 import {
-  ReleaseStaticIpCommandInput,
-  ReleaseStaticIpCommandOutput
-} from "./commands/ReleaseStaticIpCommand.ts";
+  ResetDistributionCacheCommandInput,
+  ResetDistributionCacheCommandOutput,
+} from "./commands/ResetDistributionCacheCommand.ts";
 import {
-  StartInstanceCommandInput,
-  StartInstanceCommandOutput
-} from "./commands/StartInstanceCommand.ts";
+  SendContactMethodVerificationCommandInput,
+  SendContactMethodVerificationCommandOutput,
+} from "./commands/SendContactMethodVerificationCommand.ts";
+import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand.ts";
 import {
   StartRelationalDatabaseCommandInput,
-  StartRelationalDatabaseCommandOutput
+  StartRelationalDatabaseCommandOutput,
 } from "./commands/StartRelationalDatabaseCommand.ts";
-import {
-  StopInstanceCommandInput,
-  StopInstanceCommandOutput
-} from "./commands/StopInstanceCommand.ts";
+import { StopInstanceCommandInput, StopInstanceCommandOutput } from "./commands/StopInstanceCommand.ts";
 import {
   StopRelationalDatabaseCommandInput,
-  StopRelationalDatabaseCommandOutput
+  StopRelationalDatabaseCommandOutput,
 } from "./commands/StopRelationalDatabaseCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand.ts";
+import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
+  UpdateDistributionBundleCommandInput,
+  UpdateDistributionBundleCommandOutput,
+} from "./commands/UpdateDistributionBundleCommand.ts";
 import {
-  UnpeerVpcCommandInput,
-  UnpeerVpcCommandOutput
-} from "./commands/UnpeerVpcCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateDomainEntryCommandInput,
-  UpdateDomainEntryCommandOutput
-} from "./commands/UpdateDomainEntryCommand.ts";
+  UpdateDistributionCommandInput,
+  UpdateDistributionCommandOutput,
+} from "./commands/UpdateDistributionCommand.ts";
+import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "./commands/UpdateDomainEntryCommand.ts";
 import {
   UpdateLoadBalancerAttributeCommandInput,
-  UpdateLoadBalancerAttributeCommandOutput
+  UpdateLoadBalancerAttributeCommandOutput,
 } from "./commands/UpdateLoadBalancerAttributeCommand.ts";
 import {
   UpdateRelationalDatabaseCommandInput,
-  UpdateRelationalDatabaseCommandOutput
+  UpdateRelationalDatabaseCommandOutput,
 } from "./commands/UpdateRelationalDatabaseCommand.ts";
 import {
   UpdateRelationalDatabaseParametersCommandInput,
-  UpdateRelationalDatabaseParametersCommandOutput
+  UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -425,38 +330,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -465,23 +366,28 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
   | AllocateStaticIpCommandInput
+  | AttachCertificateToDistributionCommandInput
   | AttachDiskCommandInput
   | AttachInstancesToLoadBalancerCommandInput
   | AttachLoadBalancerTlsCertificateCommandInput
   | AttachStaticIpCommandInput
   | CloseInstancePublicPortsCommandInput
   | CopySnapshotCommandInput
+  | CreateCertificateCommandInput
   | CreateCloudFormationStackCommandInput
+  | CreateContactMethodCommandInput
   | CreateDiskCommandInput
   | CreateDiskFromSnapshotCommandInput
   | CreateDiskSnapshotCommandInput
+  | CreateDistributionCommandInput
   | CreateDomainCommandInput
   | CreateDomainEntryCommandInput
   | CreateInstanceSnapshotCommandInput
@@ -493,9 +399,13 @@ export type ServiceInputTypes =
   | CreateRelationalDatabaseCommandInput
   | CreateRelationalDatabaseFromSnapshotCommandInput
   | CreateRelationalDatabaseSnapshotCommandInput
+  | DeleteAlarmCommandInput
   | DeleteAutoSnapshotCommandInput
+  | DeleteCertificateCommandInput
+  | DeleteContactMethodCommandInput
   | DeleteDiskCommandInput
   | DeleteDiskSnapshotCommandInput
+  | DeleteDistributionCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainEntryCommandInput
   | DeleteInstanceCommandInput
@@ -506,6 +416,7 @@ export type ServiceInputTypes =
   | DeleteLoadBalancerTlsCertificateCommandInput
   | DeleteRelationalDatabaseCommandInput
   | DeleteRelationalDatabaseSnapshotCommandInput
+  | DetachCertificateFromDistributionCommandInput
   | DetachDiskCommandInput
   | DetachInstancesFromLoadBalancerCommandInput
   | DetachStaticIpCommandInput
@@ -514,14 +425,21 @@ export type ServiceInputTypes =
   | EnableAddOnCommandInput
   | ExportSnapshotCommandInput
   | GetActiveNamesCommandInput
+  | GetAlarmsCommandInput
   | GetAutoSnapshotsCommandInput
   | GetBlueprintsCommandInput
   | GetBundlesCommandInput
+  | GetCertificatesCommandInput
   | GetCloudFormationStackRecordsCommandInput
+  | GetContactMethodsCommandInput
   | GetDiskCommandInput
   | GetDiskSnapshotCommandInput
   | GetDiskSnapshotsCommandInput
   | GetDisksCommandInput
+  | GetDistributionBundlesCommandInput
+  | GetDistributionLatestCacheResetCommandInput
+  | GetDistributionMetricDataCommandInput
+  | GetDistributionsCommandInput
   | GetDomainCommandInput
   | GetDomainsCommandInput
   | GetExportSnapshotRecordsCommandInput
@@ -561,17 +479,23 @@ export type ServiceInputTypes =
   | IsVpcPeeredCommandInput
   | OpenInstancePublicPortsCommandInput
   | PeerVpcCommandInput
+  | PutAlarmCommandInput
   | PutInstancePublicPortsCommandInput
   | RebootInstanceCommandInput
   | RebootRelationalDatabaseCommandInput
   | ReleaseStaticIpCommandInput
+  | ResetDistributionCacheCommandInput
+  | SendContactMethodVerificationCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
   | StopInstanceCommandInput
   | StopRelationalDatabaseCommandInput
   | TagResourceCommandInput
+  | TestAlarmCommandInput
   | UnpeerVpcCommandInput
   | UntagResourceCommandInput
+  | UpdateDistributionBundleCommandInput
+  | UpdateDistributionCommandInput
   | UpdateDomainEntryCommandInput
   | UpdateLoadBalancerAttributeCommandInput
   | UpdateRelationalDatabaseCommandInput
@@ -579,16 +503,20 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AllocateStaticIpCommandOutput
+  | AttachCertificateToDistributionCommandOutput
   | AttachDiskCommandOutput
   | AttachInstancesToLoadBalancerCommandOutput
   | AttachLoadBalancerTlsCertificateCommandOutput
   | AttachStaticIpCommandOutput
   | CloseInstancePublicPortsCommandOutput
   | CopySnapshotCommandOutput
+  | CreateCertificateCommandOutput
   | CreateCloudFormationStackCommandOutput
+  | CreateContactMethodCommandOutput
   | CreateDiskCommandOutput
   | CreateDiskFromSnapshotCommandOutput
   | CreateDiskSnapshotCommandOutput
+  | CreateDistributionCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainEntryCommandOutput
   | CreateInstanceSnapshotCommandOutput
@@ -600,9 +528,13 @@ export type ServiceOutputTypes =
   | CreateRelationalDatabaseCommandOutput
   | CreateRelationalDatabaseFromSnapshotCommandOutput
   | CreateRelationalDatabaseSnapshotCommandOutput
+  | DeleteAlarmCommandOutput
   | DeleteAutoSnapshotCommandOutput
+  | DeleteCertificateCommandOutput
+  | DeleteContactMethodCommandOutput
   | DeleteDiskCommandOutput
   | DeleteDiskSnapshotCommandOutput
+  | DeleteDistributionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainEntryCommandOutput
   | DeleteInstanceCommandOutput
@@ -613,6 +545,7 @@ export type ServiceOutputTypes =
   | DeleteLoadBalancerTlsCertificateCommandOutput
   | DeleteRelationalDatabaseCommandOutput
   | DeleteRelationalDatabaseSnapshotCommandOutput
+  | DetachCertificateFromDistributionCommandOutput
   | DetachDiskCommandOutput
   | DetachInstancesFromLoadBalancerCommandOutput
   | DetachStaticIpCommandOutput
@@ -621,14 +554,21 @@ export type ServiceOutputTypes =
   | EnableAddOnCommandOutput
   | ExportSnapshotCommandOutput
   | GetActiveNamesCommandOutput
+  | GetAlarmsCommandOutput
   | GetAutoSnapshotsCommandOutput
   | GetBlueprintsCommandOutput
   | GetBundlesCommandOutput
+  | GetCertificatesCommandOutput
   | GetCloudFormationStackRecordsCommandOutput
+  | GetContactMethodsCommandOutput
   | GetDiskCommandOutput
   | GetDiskSnapshotCommandOutput
   | GetDiskSnapshotsCommandOutput
   | GetDisksCommandOutput
+  | GetDistributionBundlesCommandOutput
+  | GetDistributionLatestCacheResetCommandOutput
+  | GetDistributionMetricDataCommandOutput
+  | GetDistributionsCommandOutput
   | GetDomainCommandOutput
   | GetDomainsCommandOutput
   | GetExportSnapshotRecordsCommandOutput
@@ -668,24 +608,29 @@ export type ServiceOutputTypes =
   | IsVpcPeeredCommandOutput
   | OpenInstancePublicPortsCommandOutput
   | PeerVpcCommandOutput
+  | PutAlarmCommandOutput
   | PutInstancePublicPortsCommandOutput
   | RebootInstanceCommandOutput
   | RebootRelationalDatabaseCommandOutput
   | ReleaseStaticIpCommandOutput
+  | ResetDistributionCacheCommandOutput
+  | SendContactMethodVerificationCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
   | StopInstanceCommandOutput
   | StopRelationalDatabaseCommandOutput
   | TagResourceCommandOutput
+  | TestAlarmCommandOutput
   | UnpeerVpcCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDistributionBundleCommandOutput
+  | UpdateDistributionCommandOutput
   | UpdateDomainEntryCommandOutput
   | UpdateLoadBalancerAttributeCommandOutput
   | UpdateRelationalDatabaseCommandOutput
   | UpdateRelationalDatabaseParametersCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -759,14 +704,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -774,9 +724,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LightsailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LightsailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -785,9 +733,7 @@ export type LightsailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -797,16 +743,21 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Lightsail is the easiest way to get started with AWS for developers who just need
- *       virtual private servers. Lightsail includes everything you need to launch your project
- *       quickly - a virtual machine, a managed database, SSD-based storage, data transfer, DNS
- *       management, and a static IP - for a low, predictable price. You manage those Lightsail
- *       servers through the Lightsail console or by using the API or command-line interface
- *       (CLI).</p>
- *          <p>For more information about Lightsail concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/all">Lightsail Dev Guide</a>.</p>
- *          <p>To use the Lightsail API or the CLI, you will need to use AWS Identity and
- *       Access Management (IAM) to generate access keys. For details about how to set this up, see the
- *         <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
+ *       who need to build websites or web applications. It includes everything you need to launch your
+ *       project quickly – instances (virtual private servers), managed databases, SSD-based block
+ *       storage, static IP addresses, load balancers, content delivery network (CDN) distributions,
+ *       DNS management of registered domains, and snapshots (backups) – for a low, predictable monthly
+ *       price.</p>
+ *
+ *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
+ *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
+ *       and tasks, see the <a href="http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Lightsail Dev Guide</a>.</p>
+ *
+ *          <p>This API Reference provides detailed information about the actions, data types,
+ *       parameters, and errors of the Lightsail service. For more information about the supported
+ *       AWS Regions, endpoints, and service quotas for the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
+ *         Quotas</a> in the <i>AWS General Reference</i>.</p>
  */
 export class LightsailClient extends __Client<
   __HttpHandlerOptions,
@@ -819,7 +770,7 @@ export class LightsailClient extends __Client<
   constructor(configuration: LightsailClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -834,6 +785,7 @@ export class LightsailClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

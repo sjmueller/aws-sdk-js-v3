@@ -1,18 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient.ts";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
 import { GatewayResponses, GetGatewayResponsesRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetGatewayResponsesCommand,
-  serializeAws_restJson1GetGatewayResponsesCommand
+  serializeAws_restJson1GetGatewayResponsesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetGatewayResponsesCommandInput = GetGatewayResponsesRequest;
-export type GetGatewayResponsesCommandOutput = GatewayResponses &
-  __MetadataBearer;
+export type GetGatewayResponsesCommandOutput = GatewayResponses & __MetadataBearer;
 
 export class GetGatewayResponsesCommand extends $Command<
   GetGatewayResponsesCommandInput,
@@ -46,18 +38,16 @@ export class GetGatewayResponsesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetGatewayResponsesCommandInput,
-    GetGatewayResponsesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetGatewayResponsesCommandInput, GetGatewayResponsesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetGatewayResponsesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GatewayResponses.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetGatewayResponsesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGatewayResponsesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGatewayResponsesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetGatewayResponsesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetGatewayResponsesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayResponsesCommandOutput> {
     return deserializeAws_restJson1GetGatewayResponsesCommand(output, context);
   }
 

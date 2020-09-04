@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
-import {
-  ListHITsForQualificationTypeRequest,
-  ListHITsForQualificationTypeResponse
-} from "../models/index.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
+import { ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListHITsForQualificationTypeCommand,
-  serializeAws_json1_1ListHITsForQualificationTypeCommand
+  serializeAws_json1_1ListHITsForQualificationTypeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListHITsForQualificationTypeCommandInput = ListHITsForQualificationTypeRequest;
-export type ListHITsForQualificationTypeCommandOutput = ListHITsForQualificationTypeResponse &
-  __MetadataBearer;
+export type ListHITsForQualificationTypeCommandOutput = ListHITsForQualificationTypeResponse & __MetadataBearer;
 
 export class ListHITsForQualificationTypeCommand extends $Command<
   ListHITsForQualificationTypeCommandInput,
@@ -49,18 +38,16 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHITsForQualificationTypeCommandInput,
-    ListHITsForQualificationTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHITsForQualificationTypeCommandInput, ListHITsForQualificationTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListHITsForQualificationTypeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListHITsForQualificationTypeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHITsForQualificationTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHITsForQualificationTypeCommand(
-      input,
-      context
-    );
+  private serialize(input: ListHITsForQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListHITsForQualificationTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHITsForQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1ListHITsForQualificationTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListHITsForQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

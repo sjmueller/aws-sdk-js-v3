@@ -1,12 +1,13 @@
 import {
   InitializeHandler,
-  InitializeMiddleware,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
   InitializeHandlerOutput,
+  InitializeMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
 } from "../types/mod.ts";
+
 import { IDENTIFIER_PREFIX_PATTERN } from "./constants.ts";
 
 export interface IdentifierBearer {
@@ -15,11 +16,7 @@ export interface IdentifierBearer {
   Id?: string;
 }
 
-const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = [
-  "DelegationSetId",
-  "HostedZoneId",
-  "Id"
-];
+const IDENTIFIER_PARAMETERS: Array<keyof IdentifierBearer> = ["DelegationSetId", "HostedZoneId", "Id"];
 
 export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
@@ -37,7 +34,7 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 
     return next({
       ...args,
-      input
+      input,
     });
   };
 }
@@ -45,11 +42,12 @@ export function idNormalizerMiddleware(): InitializeMiddleware<any, any> {
 export const idNormalizerMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS"],
-  name: "idNormalizerMiddleware"
+  name: "idNormalizerMiddleware",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getIdNormalizerPlugin = (unused: any): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
+  applyToStack: (clientStack) => {
     clientStack.add(idNormalizerMiddleware(), idNormalizerMiddlewareOptions);
-  }
+  },
 });

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  AssociateRouteTableRequest,
-  AssociateRouteTableResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/index.ts";
 import {
   deserializeAws_ec2AssociateRouteTableCommand,
-  serializeAws_ec2AssociateRouteTableCommand
+  serializeAws_ec2AssociateRouteTableCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssociateRouteTableCommandInput = AssociateRouteTableRequest;
-export type AssociateRouteTableCommandOutput = AssociateRouteTableResult &
-  __MetadataBearer;
+export type AssociateRouteTableCommandOutput = AssociateRouteTableResult & __MetadataBearer;
 
 export class AssociateRouteTableCommand extends $Command<
   AssociateRouteTableCommandInput,
@@ -49,18 +38,16 @@ export class AssociateRouteTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRouteTableCommandInput,
-    AssociateRouteTableCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRouteTableCommandInput, AssociateRouteTableCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssociateRouteTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRouteTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class AssociateRouteTableCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateRouteTableCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateRouteTableCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateRouteTableCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRouteTableCommandOutput> {
     return deserializeAws_ec2AssociateRouteTableCommand(output, context);
   }
 

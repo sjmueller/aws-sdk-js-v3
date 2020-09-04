@@ -1,71 +1,44 @@
-import {
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput
-} from "./commands/BulkPublishCommand.ts";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand.ts";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand.ts";
+import { BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand.ts";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand.ts";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand.ts";
 import {
   DescribeIdentityPoolUsageCommandInput,
-  DescribeIdentityPoolUsageCommandOutput
+  DescribeIdentityPoolUsageCommandOutput,
 } from "./commands/DescribeIdentityPoolUsageCommand.ts";
 import {
   DescribeIdentityUsageCommandInput,
-  DescribeIdentityUsageCommandOutput
+  DescribeIdentityUsageCommandOutput,
 } from "./commands/DescribeIdentityUsageCommand.ts";
 import {
   GetBulkPublishDetailsCommandInput,
-  GetBulkPublishDetailsCommandOutput
+  GetBulkPublishDetailsCommandOutput,
 } from "./commands/GetBulkPublishDetailsCommand.ts";
-import {
-  GetCognitoEventsCommandInput,
-  GetCognitoEventsCommandOutput
-} from "./commands/GetCognitoEventsCommand.ts";
+import { GetCognitoEventsCommandInput, GetCognitoEventsCommandOutput } from "./commands/GetCognitoEventsCommand.ts";
 import {
   GetIdentityPoolConfigurationCommandInput,
-  GetIdentityPoolConfigurationCommandOutput
+  GetIdentityPoolConfigurationCommandOutput,
 } from "./commands/GetIdentityPoolConfigurationCommand.ts";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand.ts";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand.ts";
 import {
   ListIdentityPoolUsageCommandInput,
-  ListIdentityPoolUsageCommandOutput
+  ListIdentityPoolUsageCommandOutput,
 } from "./commands/ListIdentityPoolUsageCommand.ts";
-import {
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput
-} from "./commands/ListRecordsCommand.ts";
-import {
-  RegisterDeviceCommandInput,
-  RegisterDeviceCommandOutput
-} from "./commands/RegisterDeviceCommand.ts";
-import {
-  SetCognitoEventsCommandInput,
-  SetCognitoEventsCommandOutput
-} from "./commands/SetCognitoEventsCommand.ts";
+import { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand.ts";
+import { RegisterDeviceCommandInput, RegisterDeviceCommandOutput } from "./commands/RegisterDeviceCommand.ts";
+import { SetCognitoEventsCommandInput, SetCognitoEventsCommandOutput } from "./commands/SetCognitoEventsCommand.ts";
 import {
   SetIdentityPoolConfigurationCommandInput,
-  SetIdentityPoolConfigurationCommandOutput
+  SetIdentityPoolConfigurationCommandOutput,
 } from "./commands/SetIdentityPoolConfigurationCommand.ts";
 import {
   SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput
+  SubscribeToDatasetCommandOutput,
 } from "./commands/SubscribeToDatasetCommand.ts";
 import {
   UnsubscribeFromDatasetCommandInput,
-  UnsubscribeFromDatasetCommandOutput
+  UnsubscribeFromDatasetCommandOutput,
 } from "./commands/UnsubscribeFromDatasetCommand.ts";
-import {
-  UpdateRecordsCommandInput,
-  UpdateRecordsCommandOutput
-} from "./commands/UpdateRecordsCommand.ts";
+import { UpdateRecordsCommandInput, UpdateRecordsCommandOutput } from "./commands/UpdateRecordsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -73,38 +46,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -113,9 +82,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -156,8 +126,7 @@ export type ServiceOutputTypes =
   | UnsubscribeFromDatasetCommandOutput
   | UpdateRecordsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -231,14 +200,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -246,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -257,9 +229,7 @@ export type CognitoSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -288,7 +258,7 @@ export class CognitoSyncClient extends __Client<
   constructor(configuration: CognitoSyncClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -303,6 +273,7 @@ export class CognitoSyncClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

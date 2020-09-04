@@ -1,18 +1,15 @@
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient.ts";
 import { GetResourcesInput, GetResourcesOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetResourcesCommand,
-  serializeAws_json1_1GetResourcesCommand
+  serializeAws_json1_1GetResourcesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetResourcesCommandInput = GetResourcesInput;
@@ -46,14 +43,15 @@ export class GetResourcesCommand extends $Command<
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetResourcesCommandInput, GetResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +61,11 @@ export class GetResourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetResourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetResourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetResourcesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesCommandOutput> {
     return deserializeAws_json1_1GetResourcesCommand(output, context);
   }
 

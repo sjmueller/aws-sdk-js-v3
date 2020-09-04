@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient.ts";
-import {
-  BatchCreateAttendeeRequest,
-  BatchCreateAttendeeResponse
-} from "../models/index.ts";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
+import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1BatchCreateAttendeeCommand,
-  serializeAws_restJson1BatchCreateAttendeeCommand
+  serializeAws_restJson1BatchCreateAttendeeCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type BatchCreateAttendeeCommandInput = BatchCreateAttendeeRequest;
-export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse &
-  __MetadataBearer;
+export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse & __MetadataBearer;
 
 export class BatchCreateAttendeeCommand extends $Command<
   BatchCreateAttendeeCommandInput,
@@ -49,18 +38,16 @@ export class BatchCreateAttendeeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchCreateAttendeeCommandInput,
-    BatchCreateAttendeeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchCreateAttendeeCommandInput, BatchCreateAttendeeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: BatchCreateAttendeeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateAttendeeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class BatchCreateAttendeeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchCreateAttendeeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchCreateAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1BatchCreateAttendeeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchCreateAttendeeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateAttendeeCommandOutput> {
     return deserializeAws_restJson1BatchCreateAttendeeCommand(output, context);
   }
 

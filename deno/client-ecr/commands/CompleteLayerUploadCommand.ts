@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient.ts";
-import {
-  CompleteLayerUploadRequest,
-  CompleteLayerUploadResponse
-} from "../models/index.ts";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
+import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CompleteLayerUploadCommand,
-  serializeAws_json1_1CompleteLayerUploadCommand
+  serializeAws_json1_1CompleteLayerUploadCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CompleteLayerUploadCommandInput = CompleteLayerUploadRequest;
-export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse &
-  __MetadataBearer;
+export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse & __MetadataBearer;
 
 export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandInput,
@@ -49,18 +38,16 @@ export class CompleteLayerUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteLayerUploadCommandInput,
-    CompleteLayerUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteLayerUploadCommandInput, CompleteLayerUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CompleteLayerUploadRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CompleteLayerUploadResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CompleteLayerUploadCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CompleteLayerUploadCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CompleteLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CompleteLayerUploadCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CompleteLayerUploadCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLayerUploadCommandOutput> {
     return deserializeAws_json1_1CompleteLayerUploadCommand(output, context);
   }
 

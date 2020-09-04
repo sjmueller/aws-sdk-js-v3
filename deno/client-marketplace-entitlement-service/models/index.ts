@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -13,6 +9,13 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface Entitlement {
   __type?: "Entitlement";
   /**
+   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
+   *       capacity in a product and are specified when the product is listed in AWS
+   *       Marketplace.</p>
+   */
+  Dimension?: string;
+
+  /**
    * <p>The customer identifier is a handle to each unique customer in an application. Customer
    *    identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering
    *    Service.</p>
@@ -20,11 +23,10 @@ export interface Entitlement {
   CustomerIdentifier?: string;
 
   /**
-   * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
-   *       capacity in a product and are specified when the product is listed in AWS
-   *       Marketplace.</p>
+   * <p>The product code for which the given entitlement applies. Product codes are provided by
+   *    AWS Marketplace when the product listing is created.</p>
    */
-  Dimension?: string;
+  ProductCode?: string;
 
   /**
    * <p>The expiration date represents the minimum date through which this entitlement is
@@ -35,12 +37,6 @@ export interface Entitlement {
   ExpirationDate?: Date;
 
   /**
-   * <p>The product code for which the given entitlement applies. Product codes are provided by
-   *    AWS Marketplace when the product listing is created.</p>
-   */
-  ProductCode?: string;
-
-  /**
    * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
    *    for the product.</p>
    */
@@ -49,7 +45,7 @@ export interface Entitlement {
 
 export namespace Entitlement {
   export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
@@ -61,16 +57,16 @@ export namespace Entitlement {
 export interface EntitlementValue {
   __type?: "EntitlementValue";
   /**
-   * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
-   *       boolean type. Otherwise, the field will not be set.</p>
-   */
-  BooleanValue?: boolean;
-
-  /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    */
   DoubleValue?: number;
+
+  /**
+   * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
+   *       boolean type. Otherwise, the field will not be set.</p>
+   */
+  BooleanValue?: boolean;
 
   /**
    * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
@@ -87,15 +83,14 @@ export interface EntitlementValue {
 
 export namespace EntitlementValue {
   export const filterSensitiveLog = (obj: EntitlementValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is EntitlementValue =>
-    __isa(o, "EntitlementValue");
+  export const isa = (o: any): o is EntitlementValue => __isa(o, "EntitlementValue");
 }
 
 export enum GetEntitlementFilterName {
   CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
-  DIMENSION = "DIMENSION"
+  DIMENSION = "DIMENSION",
 }
 
 /**
@@ -104,14 +99,6 @@ export enum GetEntitlementFilterName {
  */
 export interface GetEntitlementsRequest {
   __type?: "GetEntitlementsRequest";
-  /**
-   * <p>Filter is used to return entitlements for a specific customer or for a specific
-   *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
-   *         <i>unioned</i> for each value in the value list, and then
-   *         <i>intersected</i> for each filter key.</p>
-   */
-  Filter?: { [key: string]: string[] };
-
   /**
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
    *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
@@ -125,6 +112,14 @@ export interface GetEntitlementsRequest {
   NextToken?: string;
 
   /**
+   * <p>Filter is used to return entitlements for a specific customer or for a specific
+   *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
+   *         <i>unioned</i> for each value in the value list, and then
+   *         <i>intersected</i> for each filter key.</p>
+   */
+  Filter?: { [key: string]: string[] };
+
+  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code
    *    will be provided by AWS Marketplace when the product listing is created.</p>
    */
@@ -133,10 +128,9 @@ export interface GetEntitlementsRequest {
 
 export namespace GetEntitlementsRequest {
   export const filterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEntitlementsRequest =>
-    __isa(o, "GetEntitlementsRequest");
+  export const isa = (o: any): o is GetEntitlementsRequest => __isa(o, "GetEntitlementsRequest");
 }
 
 /**
@@ -161,40 +155,32 @@ export interface GetEntitlementsResult {
 
 export namespace GetEntitlementsResult {
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetEntitlementsResult =>
-    __isa(o, "GetEntitlementsResult");
+  export const isa = (o: any): o is GetEntitlementsResult => __isa(o, "GetEntitlementsResult");
 }
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *    message with details on the AWS forums.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServiceErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>One or more parameters in your request was invalid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -202,18 +188,15 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>The calls to the GetEntitlements API are throttled.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -221,8 +204,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

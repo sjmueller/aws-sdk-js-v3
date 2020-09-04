@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient.ts";
-import {
-  GetCoreDefinitionRequest,
-  GetCoreDefinitionResponse
-} from "../models/index.ts";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
+import { GetCoreDefinitionRequest, GetCoreDefinitionResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetCoreDefinitionCommand,
-  serializeAws_restJson1GetCoreDefinitionCommand
+  serializeAws_restJson1GetCoreDefinitionCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetCoreDefinitionCommandInput = GetCoreDefinitionRequest;
-export type GetCoreDefinitionCommandOutput = GetCoreDefinitionResponse &
-  __MetadataBearer;
+export type GetCoreDefinitionCommandOutput = GetCoreDefinitionResponse & __MetadataBearer;
 
 export class GetCoreDefinitionCommand extends $Command<
   GetCoreDefinitionCommandInput,
@@ -50,14 +39,15 @@ export class GetCoreDefinitionCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetCoreDefinitionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCoreDefinitionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class GetCoreDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCoreDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCoreDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetCoreDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCoreDefinitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreDefinitionCommandOutput> {
     return deserializeAws_restJson1GetCoreDefinitionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient.ts";
-import {
-  ConfirmPublicVirtualInterfaceRequest,
-  ConfirmPublicVirtualInterfaceResponse
-} from "../models/index.ts";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
+import { ConfirmPublicVirtualInterfaceRequest, ConfirmPublicVirtualInterfaceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand
+  serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ConfirmPublicVirtualInterfaceCommandInput = ConfirmPublicVirtualInterfaceRequest;
-export type ConfirmPublicVirtualInterfaceCommandOutput = ConfirmPublicVirtualInterfaceResponse &
-  __MetadataBearer;
+export type ConfirmPublicVirtualInterfaceCommandOutput = ConfirmPublicVirtualInterfaceResponse & __MetadataBearer;
 
 export class ConfirmPublicVirtualInterfaceCommand extends $Command<
   ConfirmPublicVirtualInterfaceCommandInput,
@@ -49,18 +38,16 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfirmPublicVirtualInterfaceCommandInput,
-    ConfirmPublicVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfirmPublicVirtualInterfaceCommandInput, ConfirmPublicVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ConfirmPublicVirtualInterfaceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
-      input,
-      context
-    );
+  private serialize(input: ConfirmPublicVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

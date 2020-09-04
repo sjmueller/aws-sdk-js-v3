@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient.ts";
-import {
-  ListDocumentVersionsRequest,
-  ListDocumentVersionsResult
-} from "../models/index.ts";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
+import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListDocumentVersionsCommand,
-  serializeAws_json1_1ListDocumentVersionsCommand
+  serializeAws_json1_1ListDocumentVersionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListDocumentVersionsCommandInput = ListDocumentVersionsRequest;
-export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult &
-  __MetadataBearer;
+export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult & __MetadataBearer;
 
 export class ListDocumentVersionsCommand extends $Command<
   ListDocumentVersionsCommandInput,
@@ -49,18 +38,16 @@ export class ListDocumentVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDocumentVersionsCommandInput,
-    ListDocumentVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDocumentVersionsCommandInput, ListDocumentVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListDocumentVersionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDocumentVersionsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class ListDocumentVersionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDocumentVersionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDocumentVersionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDocumentVersionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentVersionsCommandOutput> {
     return deserializeAws_json1_1ListDocumentVersionsCommand(output, context);
   }
 

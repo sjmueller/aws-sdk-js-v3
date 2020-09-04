@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient.ts";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { DeleteHsmClientCertificateMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteHsmClientCertificateCommand,
-  serializeAws_queryDeleteHsmClientCertificateCommand
+  serializeAws_queryDeleteHsmClientCertificateCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +14,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteHsmClientCertificateCommandInput = DeleteHsmClientCertificateMessage;
@@ -45,18 +38,16 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteHsmClientCertificateCommandInput,
-    DeleteHsmClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteHsmClientCertificateCommandInput, DeleteHsmClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteHsmClientCertificateMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +57,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteHsmClientCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteHsmClientCertificateCommand(input, context);
   }
 
@@ -77,10 +65,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryDeleteHsmClientCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

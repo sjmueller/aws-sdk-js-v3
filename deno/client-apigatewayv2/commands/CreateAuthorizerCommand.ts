@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client.ts";
-import {
-  CreateAuthorizerRequest,
-  CreateAuthorizerResponse
-} from "../models/index.ts";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
+import { CreateAuthorizerRequest, CreateAuthorizerResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateAuthorizerCommand,
-  serializeAws_restJson1CreateAuthorizerCommand
+  serializeAws_restJson1CreateAuthorizerCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateAuthorizerCommandInput = CreateAuthorizerRequest;
-export type CreateAuthorizerCommandOutput = CreateAuthorizerResponse &
-  __MetadataBearer;
+export type CreateAuthorizerCommandOutput = CreateAuthorizerResponse & __MetadataBearer;
 
 export class CreateAuthorizerCommand extends $Command<
   CreateAuthorizerCommandInput,
@@ -50,14 +39,15 @@ export class CreateAuthorizerCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateAuthorizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateAuthorizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class CreateAuthorizerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateAuthorizerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateAuthorizerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateAuthorizerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
     return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
   }
 

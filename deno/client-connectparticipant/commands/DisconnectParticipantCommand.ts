@@ -1,21 +1,15 @@
 import {
   ConnectParticipantClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
-import {
-  DisconnectParticipantRequest,
-  DisconnectParticipantResponse
-} from "../models/index.ts";
+import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DisconnectParticipantCommand,
-  serializeAws_restJson1DisconnectParticipantCommand
+  serializeAws_restJson1DisconnectParticipantCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisconnectParticipantCommandInput = DisconnectParticipantRequest;
-export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse &
-  __MetadataBearer;
+export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse & __MetadataBearer;
 
 export class DisconnectParticipantCommand extends $Command<
   DisconnectParticipantCommandInput,
@@ -49,18 +42,16 @@ export class DisconnectParticipantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisconnectParticipantCommandInput,
-    DisconnectParticipantCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisconnectParticipantCommandInput, DisconnectParticipantCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisconnectParticipantRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectParticipantResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +61,12 @@ export class DisconnectParticipantCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisconnectParticipantCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisconnectParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DisconnectParticipantCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisconnectParticipantCommandOutput> {
-    return deserializeAws_restJson1DisconnectParticipantCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectParticipantCommandOutput> {
+    return deserializeAws_restJson1DisconnectParticipantCommand(output, context);
   }
 
   // Start section: command_body_extra

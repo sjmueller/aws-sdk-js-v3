@@ -1,21 +1,14 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient.ts";
+import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import {
   UpdateInfrastructureConfigurationRequest,
-  UpdateInfrastructureConfigurationResponse
+  UpdateInfrastructureConfigurationResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateInfrastructureConfigurationCommand,
-  serializeAws_restJson1UpdateInfrastructureConfigurationCommand
+  serializeAws_restJson1UpdateInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateInfrastructureConfigurationCommandInput = UpdateInfrastructureConfigurationRequest;
@@ -34,7 +27,7 @@ export type UpdateInfrastructureConfigurationCommandOutput = UpdateInfrastructur
 export class UpdateInfrastructureConfigurationCommand extends $Command<
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
-  imagebuilderClientResolvedConfig
+  ImagebuilderClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: imagebuilderClientResolvedConfig,
+    configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateInfrastructureConfigurationCommandInput,
-    UpdateInfrastructureConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateInfrastructureConfigurationCommandInput, UpdateInfrastructureConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateInfrastructureConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateInfrastructureConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     input: UpdateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInfrastructureConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1UpdateInfrastructureConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateInfrastructureConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1UpdateInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

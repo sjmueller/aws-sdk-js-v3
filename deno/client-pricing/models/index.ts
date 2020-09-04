@@ -2,7 +2,7 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa
+  isa as __isa,
 } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
@@ -21,30 +21,17 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 export interface DescribeServicesRequest {
   __type?: "DescribeServicesRequest";
   /**
-   * <p>The format version that you want the response to be in.</p>
-   *          <p>Valid values are: <code>aws_v1</code>
-   *          </p>
-   */
-  FormatVersion?: string;
-
-  /**
    * <p>The maximum number of results that you want returned in the response.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
@@ -53,18 +40,34 @@ export interface DescribeServicesRequest {
    *       To retrieve a list of all services, leave this blank.</p>
    */
   ServiceCode?: string;
+
+  /**
+   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The format version that you want the response to be in.</p>
+   *          <p>Valid values are: <code>aws_v1</code>
+   *          </p>
+   */
+  FormatVersion?: string;
 }
 
 export namespace DescribeServicesRequest {
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesRequest =>
-    __isa(o, "DescribeServicesRequest");
+  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 export interface DescribeServicesResponse {
   __type?: "DescribeServicesResponse";
+  /**
+   * <p>The service metadata for the service or services in the response.</p>
+   */
+  Services?: Service[];
+
   /**
    * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
    */
@@ -74,27 +77,19 @@ export interface DescribeServicesResponse {
    * <p>The pagination token for the next set of retreivable results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The service metadata for the service or services in the response.</p>
-   */
-  Services?: Service[];
 }
 
 export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DescribeServicesResponse =>
-    __isa(o, "DescribeServicesResponse");
+  export const isa = (o: any): o is DescribeServicesResponse => __isa(o, "DescribeServicesResponse");
 }
 
 /**
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   Message?: string;
@@ -102,10 +97,9 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ExpiredNextTokenException =>
-    __isa(o, "ExpiredNextTokenException");
+  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -113,6 +107,21 @@ export namespace ExpiredNextTokenException {
  */
 export interface Filter {
   __type?: "Filter";
+  /**
+   * <p>The service code or attribute value that you want to filter by. If you are filtering by
+   *          service code this is the actual service code, such as <code>AmazonEC2</code>. If you are
+   *          filtering by attribute name, this is the attribute value that you want the returned products
+   *          to match, such as a <code>Provisioned IOPS</code> volume.</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The type of filter that you want to use.</p>
+   *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
+   *          products that match both the given filter field and the given value.</p>
+   */
+  Type: FilterType | string | undefined;
+
   /**
    * <p>The product metadata field that you want to filter on. You can filter by just the
    *          service code to see all products for a specific service, filter
@@ -124,32 +133,17 @@ export interface Filter {
    *          <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>
    */
   Field: string | undefined;
-
-  /**
-   * <p>The type of filter that you want to use.</p>
-   *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
-   *          products that match both the given filter field and the given value.</p>
-   */
-  Type: FilterType | string | undefined;
-
-  /**
-   * <p>The service code or attribute value that you want to filter by. If you are filtering by
-   *          service code this is the actual service code, such as <code>AmazonEC2</code>. If you are
-   *          filtering by attribute name, this is the attribute value that you want the returned products
-   *          to match, such as a <code>Provisioned IOPS</code> volume.</p>
-   */
-  Value: string | undefined;
 }
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterType {
-  TERM_MATCH = "TERM_MATCH"
+  TERM_MATCH = "TERM_MATCH",
 }
 
 export interface GetAttributeValuesRequest {
@@ -160,14 +154,14 @@ export interface GetAttributeValuesRequest {
   AttributeName: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in response.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
@@ -178,54 +172,45 @@ export interface GetAttributeValuesRequest {
 
 export namespace GetAttributeValuesRequest {
   export const filterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAttributeValuesRequest =>
-    __isa(o, "GetAttributeValuesRequest");
+  export const isa = (o: any): o is GetAttributeValuesRequest => __isa(o, "GetAttributeValuesRequest");
 }
 
 export interface GetAttributeValuesResponse {
   __type?: "GetAttributeValuesResponse";
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
    *       <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code>
    *             <code>volumeType</code>.</p>
    */
   AttributeValues?: AttributeValue[];
-
-  /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetAttributeValuesResponse {
   export const filterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAttributeValuesResponse =>
-    __isa(o, "GetAttributeValuesResponse");
+  export const isa = (o: any): o is GetAttributeValuesResponse => __isa(o, "GetAttributeValuesResponse");
 }
 
 export interface GetProductsRequest {
   __type?: "GetProductsRequest";
   /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The list of filters that limit the returned products. only products that match all filters
    *          are returned.</p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The format version that you want the response to be in.</p>
-   *          <p>Valid values are: <code>aws_v1</code>
-   *          </p>
-   */
-  FormatVersion?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
@@ -236,23 +221,24 @@ export interface GetProductsRequest {
    * <p>The code for the service whose products you want to retrieve. </p>
    */
   ServiceCode?: string;
+
+  /**
+   * <p>The format version that you want the response to be in.</p>
+   *          <p>Valid values are: <code>aws_v1</code>
+   *          </p>
+   */
+  FormatVersion?: string;
 }
 
 export namespace GetProductsRequest {
   export const filterSensitiveLog = (obj: GetProductsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProductsRequest =>
-    __isa(o, "GetProductsRequest");
+  export const isa = (o: any): o is GetProductsRequest => __isa(o, "GetProductsRequest");
 }
 
 export interface GetProductsResponse {
   __type?: "GetProductsResponse";
-  /**
-   * <p>The format version of the response. For example, aws_v1.</p>
-   */
-  FormatVersion?: string;
-
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -263,22 +249,24 @@ export interface GetProductsResponse {
    *          the price information.</p>
    */
   PriceList?: (__LazyJsonString | string)[];
+
+  /**
+   * <p>The format version of the response. For example, aws_v1.</p>
+   */
+  FormatVersion?: string;
 }
 
 export namespace GetProductsResponse {
   export const filterSensitiveLog = (obj: GetProductsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetProductsResponse =>
-    __isa(o, "GetProductsResponse");
+  export const isa = (o: any): o is GetProductsResponse => __isa(o, "GetProductsResponse");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   Message?: string;
@@ -286,18 +274,15 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -305,18 +290,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>One or more parameters had an invalid value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -324,10 +306,9 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -341,10 +322,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -353,19 +333,19 @@ export namespace NotFoundException {
 export interface Service {
   __type?: "Service";
   /**
-   * <p>The attributes that are available for this service.</p>
-   */
-  AttributeNames?: string[];
-
-  /**
    * <p>The code for the AWS service.</p>
    */
   ServiceCode?: string;
+
+  /**
+   * <p>The attributes that are available for this service.</p>
+   */
+  AttributeNames?: string[];
 }
 
 export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Service => __isa(o, "Service");
 }

@@ -1,21 +1,11 @@
-import {
-  MediaConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConnectClient.ts";
-import {
-  UpdateFlowOutputRequest,
-  UpdateFlowOutputResponse
-} from "../models/index.ts";
+import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
+import { UpdateFlowOutputRequest, UpdateFlowOutputResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateFlowOutputCommand,
-  serializeAws_restJson1UpdateFlowOutputCommand
+  serializeAws_restJson1UpdateFlowOutputCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateFlowOutputCommandInput = UpdateFlowOutputRequest;
-export type UpdateFlowOutputCommandOutput = UpdateFlowOutputResponse &
-  __MetadataBearer;
+export type UpdateFlowOutputCommandOutput = UpdateFlowOutputResponse & __MetadataBearer;
 
 export class UpdateFlowOutputCommand extends $Command<
   UpdateFlowOutputCommandInput,
@@ -50,14 +39,15 @@ export class UpdateFlowOutputCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateFlowOutputRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFlowOutputResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateFlowOutputCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateFlowOutputCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateFlowOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateFlowOutputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateFlowOutputCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowOutputCommandOutput> {
     return deserializeAws_restJson1UpdateFlowOutputCommand(output, context);
   }
 

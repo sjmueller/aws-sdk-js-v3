@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient.ts";
-import {
-  DescribeEcsClustersRequest,
-  DescribeEcsClustersResult
-} from "../models/index.ts";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
+import { DescribeEcsClustersRequest, DescribeEcsClustersResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEcsClustersCommand,
-  serializeAws_json1_1DescribeEcsClustersCommand
+  serializeAws_json1_1DescribeEcsClustersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEcsClustersCommandInput = DescribeEcsClustersRequest;
-export type DescribeEcsClustersCommandOutput = DescribeEcsClustersResult &
-  __MetadataBearer;
+export type DescribeEcsClustersCommandOutput = DescribeEcsClustersResult & __MetadataBearer;
 
 export class DescribeEcsClustersCommand extends $Command<
   DescribeEcsClustersCommandInput,
@@ -49,18 +38,16 @@ export class DescribeEcsClustersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEcsClustersCommandInput,
-    DescribeEcsClustersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEcsClustersCommandInput, DescribeEcsClustersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeEcsClustersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEcsClustersResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeEcsClustersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEcsClustersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEcsClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEcsClustersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEcsClustersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEcsClustersCommandOutput> {
     return deserializeAws_json1_1DescribeEcsClustersCommand(output, context);
   }
 

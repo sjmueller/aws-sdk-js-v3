@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client.ts";
-import {
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesResponse
-} from "../models/index.ts";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
+import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand
+  serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutDedicatedIpWarmupAttributesCommandInput = PutDedicatedIpWarmupAttributesRequest;
-export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse &
-  __MetadataBearer;
+export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse & __MetadataBearer;
 
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   PutDedicatedIpWarmupAttributesCommandInput,
@@ -49,18 +38,16 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDedicatedIpWarmupAttributesCommandInput,
-    PutDedicatedIpWarmupAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDedicatedIpWarmupAttributesCommandInput, PutDedicatedIpWarmupAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

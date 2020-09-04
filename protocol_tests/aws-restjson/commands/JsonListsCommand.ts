@@ -43,11 +43,8 @@ export class JsonListsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

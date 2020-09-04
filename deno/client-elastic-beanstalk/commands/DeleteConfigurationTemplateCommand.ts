@@ -1,18 +1,15 @@
 import {
   ElasticBeanstalkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticBeanstalkClient.ts";
 import { DeleteConfigurationTemplateMessage } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteConfigurationTemplateCommand,
-  serializeAws_queryDeleteConfigurationTemplateCommand
+  serializeAws_queryDeleteConfigurationTemplateCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +18,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteConfigurationTemplateCommandInput = DeleteConfigurationTemplateMessage;
@@ -45,18 +42,16 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConfigurationTemplateCommandInput,
-    DeleteConfigurationTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConfigurationTemplateCommandInput, DeleteConfigurationTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteConfigurationTemplateMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -66,10 +61,7 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConfigurationTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteConfigurationTemplateCommand(input, context);
   }
 
@@ -77,10 +69,7 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

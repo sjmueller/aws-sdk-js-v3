@@ -1,21 +1,18 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
 import {
   StartElasticsearchServiceSoftwareUpdateRequest,
-  StartElasticsearchServiceSoftwareUpdateResponse
+  StartElasticsearchServiceSoftwareUpdateResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
-  serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand
+  serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartElasticsearchServiceSoftwareUpdateCommandInput = StartElasticsearchServiceSoftwareUpdateRequest;
@@ -39,9 +36,7 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: StartElasticsearchServiceSoftwareUpdateCommandInput
-  ) {
+  constructor(readonly input: StartElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +50,15 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     StartElasticsearchServiceSoftwareUpdateCommandInput,
     StartElasticsearchServiceSoftwareUpdateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +72,14 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: StartElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

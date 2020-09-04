@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
  * <p>Access to the resource is denied.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -21,10 +15,9 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -33,14 +26,14 @@ export namespace AccessDeniedException {
 export interface AssetDestinationEntry {
   __type?: "AssetDestinationEntry";
   /**
-   * <p>The unique identifier for the asset.</p>
-   */
-  AssetId: string | undefined;
-
-  /**
    * <p>The S3 bucket that is the destination for the asset.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The unique identifier for the asset.</p>
+   */
+  AssetId: string | undefined;
 
   /**
    * <p>The name of the object in Amazon S3 for the asset.</p>
@@ -50,10 +43,9 @@ export interface AssetDestinationEntry {
 
 export namespace AssetDestinationEntry {
   export const filterSensitiveLog = (obj: AssetDestinationEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssetDestinationEntry =>
-    __isa(o, "AssetDestinationEntry");
+  export const isa = (o: any): o is AssetDestinationEntry => __isa(o, "AssetDestinationEntry");
 }
 
 export interface AssetDetails {
@@ -66,7 +58,7 @@ export interface AssetDetails {
 
 export namespace AssetDetails {
   export const filterSensitiveLog = (obj: AssetDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AssetDetails => __isa(o, "AssetDetails");
 }
@@ -77,34 +69,9 @@ export namespace AssetDetails {
 export interface AssetEntry {
   __type?: "AssetEntry";
   /**
-   * <p>The ARN for the asset.</p>
+   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>Information about the asset, including its size.</p>
-   */
-  AssetDetails: AssetDetails | undefined;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType: AssetType | string | undefined;
-
-  /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The unique identifier for the data set associated with this asset.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the asset.</p>
-   */
-  Id: string | undefined;
+  SourceId?: string;
 
   /**
    * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
@@ -112,24 +79,49 @@ export interface AssetEntry {
   Name: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
+   * <p>Information about the asset, including its size.</p>
    */
-  RevisionId: string | undefined;
-
-  /**
-   * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
-   */
-  SourceId?: string;
+  AssetDetails: AssetDetails | undefined;
 
   /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType: AssetType | string | undefined;
+
+  /**
+   * <p>The unique identifier for the revision associated with this asset.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the asset.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN for the asset.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the data set associated with this asset.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace AssetEntry {
   export const filterSensitiveLog = (obj: AssetEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is AssetEntry => __isa(o, "AssetEntry");
 }
@@ -152,14 +144,13 @@ export interface AssetSourceEntry {
 
 export namespace AssetSourceEntry {
   export const filterSensitiveLog = (obj: AssetSourceEntry): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is AssetSourceEntry =>
-    __isa(o, "AssetSourceEntry");
+  export const isa = (o: any): o is AssetSourceEntry => __isa(o, "AssetSourceEntry");
 }
 
 export enum AssetType {
-  S3_SNAPSHOT = "S3_SNAPSHOT"
+  S3_SNAPSHOT = "S3_SNAPSHOT",
 }
 
 export interface CancelJobRequest {
@@ -172,10 +163,9 @@ export interface CancelJobRequest {
 
 export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest =>
-    __isa(o, "CancelJobRequest");
+  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 export enum Code {
@@ -185,7 +175,7 @@ export enum Code {
   MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
   RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
   SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION"
+  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
 }
 
 /**
@@ -195,11 +185,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
-   * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
-   */
-  Message: string | undefined;
-
-  /**
    * <p>The unique identifier for the resource with the conflict.</p>
    */
   ResourceId?: string;
@@ -208,14 +193,18 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource with the conflict.</p>
    */
   ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+   */
+  Message: string | undefined;
 }
 
 export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -223,11 +212,6 @@ export namespace ConflictException {
  */
 export interface CreateDataSetRequest {
   __type?: "CreateDataSetRequest";
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType: AssetType | string | undefined;
-
   /**
    * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
    */
@@ -239,6 +223,11 @@ export interface CreateDataSetRequest {
   Name: string | undefined;
 
   /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType: AssetType | string | undefined;
+
+  /**
    * <p>A data set tag is an optional label that you can assign to a data set when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to these data sets and revisions.</p>
    */
   Tags?: { [key: string]: string };
@@ -246,19 +235,13 @@ export interface CreateDataSetRequest {
 
 export namespace CreateDataSetRequest {
   export const filterSensitiveLog = (obj: CreateDataSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetRequest =>
-    __isa(o, "CreateDataSetRequest");
+  export const isa = (o: any): o is CreateDataSetRequest => __isa(o, "CreateDataSetRequest");
 }
 
 export interface CreateDataSetResponse {
   __type?: "CreateDataSetResponse";
-  /**
-   * <p>The ARN for the data set.</p>
-   */
-  Arn?: string;
-
   /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
@@ -270,29 +253,9 @@ export interface CreateDataSetResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The description for the data set.</p>
+   * <p>The tags for the data set.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier for the data set.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the data set.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   */
-  Origin?: Origin | string;
-
-  /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-   */
-  OriginDetails?: OriginDetails;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
@@ -300,22 +263,46 @@ export interface CreateDataSetResponse {
   SourceId?: string;
 
   /**
-   * <p>The tags for the data set.</p>
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
    */
-  Tags?: { [key: string]: string };
+  OriginDetails?: OriginDetails;
+
+  /**
+   * <p>The name of the data set.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The description for the data set.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN for the data set.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique identifier for the data set.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   */
+  Origin?: Origin | string;
 }
 
 export namespace CreateDataSetResponse {
   export const filterSensitiveLog = (obj: CreateDataSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetResponse =>
-    __isa(o, "CreateDataSetResponse");
+  export const isa = (o: any): o is CreateDataSetResponse => __isa(o, "CreateDataSetResponse");
 }
 
 /**
@@ -336,23 +323,17 @@ export interface CreateJobRequest {
 
 export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest =>
-    __isa(o, "CreateJobRequest");
+  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
-   * <p>The ARN for the job.</p>
+   * <p>The job type.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
+  Type?: Type | string;
 
   /**
    * <p>Details about the job.</p>
@@ -365,9 +346,9 @@ export interface CreateJobResponse {
   Errors?: JobError[];
 
   /**
-   * <p>The unique identifier for the job.</p>
+   * <p>The date and time that the job was created, in ISO 8601 format.</p>
    */
-  Id?: string;
+  CreatedAt?: Date;
 
   /**
    * <p>The state of the job.</p>
@@ -375,9 +356,14 @@ export interface CreateJobResponse {
   State?: State | string;
 
   /**
-   * <p>The job type.</p>
+   * <p>The unique identifier for the job.</p>
    */
-  Type?: Type | string;
+  Id?: string;
+
+  /**
+   * <p>The ARN for the job.</p>
+   */
+  Arn?: string;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
@@ -387,10 +373,9 @@ export interface CreateJobResponse {
 
 export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse =>
-    __isa(o, "CreateJobResponse");
+  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
@@ -416,48 +401,17 @@ export interface CreateRevisionRequest {
 
 export namespace CreateRevisionRequest {
   export const filterSensitiveLog = (obj: CreateRevisionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRevisionRequest =>
-    __isa(o, "CreateRevisionRequest");
+  export const isa = (o: any): o is CreateRevisionRequest => __isa(o, "CreateRevisionRequest");
 }
 
 export interface CreateRevisionResponse {
   __type?: "CreateRevisionResponse";
   /**
-   * <p>The ARN for the revision</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>An optional comment about the revision.</p>
    */
   Comment?: string;
-
-  /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
-   */
-  Finalized?: boolean;
-
-  /**
-   * <p>The unique identifier for the revision.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-   */
-  SourceId?: string;
 
   /**
    * <p>The tags for the revision.</p>
@@ -465,17 +419,46 @@ export interface CreateRevisionResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The ARN for the revision</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
+
+  /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId?: string;
+
+  /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   */
+  SourceId?: string;
 }
 
 export namespace CreateRevisionResponse {
   export const filterSensitiveLog = (obj: CreateRevisionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateRevisionResponse =>
-    __isa(o, "CreateRevisionResponse");
+  export const isa = (o: any): o is CreateRevisionResponse => __isa(o, "CreateRevisionResponse");
 }
 
 /**
@@ -484,19 +467,19 @@ export namespace CreateRevisionResponse {
 export interface DataSetEntry {
   __type?: "DataSetEntry";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType: AssetType | string | undefined;
+  Origin: Origin | string | undefined;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The ARN for the data set.</p>
+   */
+  Arn: string | undefined;
 
   /**
    * <p>The description for the data set.</p>
@@ -514,16 +497,6 @@ export interface DataSetEntry {
   Name: string | undefined;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   */
-  Origin: Origin | string | undefined;
-
-  /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-   */
-  OriginDetails?: OriginDetails;
-
-  /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
   SourceId?: string;
@@ -532,22 +505,27 @@ export interface DataSetEntry {
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   */
+  OriginDetails?: OriginDetails;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType: AssetType | string | undefined;
 }
 
 export namespace DataSetEntry {
   export const filterSensitiveLog = (obj: DataSetEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DataSetEntry => __isa(o, "DataSetEntry");
 }
 
 export interface DeleteAssetRequest {
   __type?: "DeleteAssetRequest";
-  /**
-   * <p>The unique identifier for an asset.</p>
-   */
-  AssetId: string | undefined;
-
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -557,14 +535,18 @@ export interface DeleteAssetRequest {
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for an asset.</p>
+   */
+  AssetId: string | undefined;
 }
 
 export namespace DeleteAssetRequest {
   export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetRequest =>
-    __isa(o, "DeleteAssetRequest");
+  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
 export interface DeleteDataSetRequest {
@@ -577,10 +559,9 @@ export interface DeleteDataSetRequest {
 
 export namespace DeleteDataSetRequest {
   export const filterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSetRequest =>
-    __isa(o, "DeleteDataSetRequest");
+  export const isa = (o: any): o is DeleteDataSetRequest => __isa(o, "DeleteDataSetRequest");
 }
 
 export interface DeleteRevisionRequest {
@@ -598,24 +579,24 @@ export interface DeleteRevisionRequest {
 
 export namespace DeleteRevisionRequest {
   export const filterSensitiveLog = (obj: DeleteRevisionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteRevisionRequest =>
-    __isa(o, "DeleteRevisionRequest");
+  export const isa = (o: any): o is DeleteRevisionRequest => __isa(o, "DeleteRevisionRequest");
 }
 
 export interface Details {
   __type?: "Details";
-  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
   /**
    * <p>The list of sources for the assets.</p>
    */
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
+
+  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
 }
 
 export namespace Details {
   export const filterSensitiveLog = (obj: Details): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Details => __isa(o, "Details");
 }
@@ -636,19 +617,21 @@ export interface ExportAssetsToS3RequestDetails {
   DataSetId: string | undefined;
 
   /**
+   * <p>Encryption configuration for the export job.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
    * <p>The unique identifier for the revision associated with this export request.</p>
    */
   RevisionId: string | undefined;
 }
 
 export namespace ExportAssetsToS3RequestDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetsToS3RequestDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportAssetsToS3RequestDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportAssetsToS3RequestDetails =>
-    __isa(o, "ExportAssetsToS3RequestDetails");
+  export const isa = (o: any): o is ExportAssetsToS3RequestDetails => __isa(o, "ExportAssetsToS3RequestDetails");
 }
 
 /**
@@ -662,24 +645,26 @@ export interface ExportAssetsToS3ResponseDetails {
   AssetDestinations: AssetDestinationEntry[] | undefined;
 
   /**
+   * <p>The unique identifier for the revision associated with this export response.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
    * <p>The unique identifier for the data set associated with this export job.</p>
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>The unique identifier for the revision associated with this export response.</p>
+   * <p>Encryption configuration of the export job.</p>
    */
-  RevisionId: string | undefined;
+  Encryption?: ExportServerSideEncryption;
 }
 
 export namespace ExportAssetsToS3ResponseDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetsToS3ResponseDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportAssetsToS3ResponseDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ExportAssetsToS3ResponseDetails =>
-    __isa(o, "ExportAssetsToS3ResponseDetails");
+  export const isa = (o: any): o is ExportAssetsToS3ResponseDetails => __isa(o, "ExportAssetsToS3ResponseDetails");
 }
 
 /**
@@ -687,6 +672,11 @@ export namespace ExportAssetsToS3ResponseDetails {
  */
 export interface ExportAssetToSignedUrlRequestDetails {
   __type?: "ExportAssetToSignedUrlRequestDetails";
+  /**
+   * <p>The unique identifier for the revision associated with this export request.</p>
+   */
+  RevisionId: string | undefined;
+
   /**
    * <p>The unique identifier for the asset that is exported to a signed URL.</p>
    */
@@ -696,18 +686,11 @@ export interface ExportAssetToSignedUrlRequestDetails {
    * <p>The unique identifier for the data set associated with this export job.</p>
    */
   DataSetId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the revision associated with this export request.</p>
-   */
-  RevisionId: string | undefined;
 }
 
 export namespace ExportAssetToSignedUrlRequestDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetToSignedUrlRequestDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportAssetToSignedUrlRequestDetails): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ExportAssetToSignedUrlRequestDetails =>
     __isa(o, "ExportAssetToSignedUrlRequestDetails");
@@ -729,6 +712,11 @@ export interface ExportAssetToSignedUrlResponseDetails {
   DataSetId: string | undefined;
 
   /**
+   * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
+   */
+  SignedUrlExpiresAt?: Date;
+
+  /**
    * <p>The unique identifier for the revision associated with this export response.</p>
    */
   RevisionId: string | undefined;
@@ -737,21 +725,37 @@ export interface ExportAssetToSignedUrlResponseDetails {
    * <p>The signed URL for the export request.</p>
    */
   SignedUrl?: string;
-
-  /**
-   * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
-   */
-  SignedUrlExpiresAt?: Date;
 }
 
 export namespace ExportAssetToSignedUrlResponseDetails {
-  export const filterSensitiveLog = (
-    obj: ExportAssetToSignedUrlResponseDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ExportAssetToSignedUrlResponseDetails): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ExportAssetToSignedUrlResponseDetails =>
     __isa(o, "ExportAssetToSignedUrlResponseDetails");
+}
+
+/**
+ * <p>Encryption configuration of the export job. Includes the encryption type as well as the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
+ */
+export interface ExportServerSideEncryption {
+  __type?: "ExportServerSideEncryption";
+  /**
+   * <p>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
+   */
+  Type: ServerSideEncryptionTypes | string | undefined;
+}
+
+export namespace ExportServerSideEncryption {
+  export const filterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is ExportServerSideEncryption => __isa(o, "ExportServerSideEncryption");
 }
 
 export interface GetAssetRequest {
@@ -774,28 +778,22 @@ export interface GetAssetRequest {
 
 export namespace GetAssetRequest {
   export const filterSensitiveLog = (obj: GetAssetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssetRequest =>
-    __isa(o, "GetAssetRequest");
+  export const isa = (o: any): o is GetAssetRequest => __isa(o, "GetAssetRequest");
 }
 
 export interface GetAssetResponse {
   __type?: "GetAssetResponse";
   /**
+   * <p>The unique identifier for the revision associated with this asset.</p>
+   */
+  RevisionId?: string;
+
+  /**
    * <p>The ARN for the asset.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>Information about the asset, including its size.</p>
-   */
-  AssetDetails?: AssetDetails;
-
-  /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
-   */
-  AssetType?: AssetType | string;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
@@ -818,11 +816,6 @@ export interface GetAssetResponse {
   Name?: string;
 
   /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
-   */
-  RevisionId?: string;
-
-  /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
    */
   SourceId?: string;
@@ -831,14 +824,23 @@ export interface GetAssetResponse {
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType?: AssetType | string;
+
+  /**
+   * <p>Information about the asset, including its size.</p>
+   */
+  AssetDetails?: AssetDetails;
 }
 
 export namespace GetAssetResponse {
   export const filterSensitiveLog = (obj: GetAssetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetAssetResponse =>
-    __isa(o, "GetAssetResponse");
+  export const isa = (o: any): o is GetAssetResponse => __isa(o, "GetAssetResponse");
 }
 
 export interface GetDataSetRequest {
@@ -851,18 +853,52 @@ export interface GetDataSetRequest {
 
 export namespace GetDataSetRequest {
   export const filterSensitiveLog = (obj: GetDataSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDataSetRequest =>
-    __isa(o, "GetDataSetRequest");
+  export const isa = (o: any): o is GetDataSetRequest => __isa(o, "GetDataSetRequest");
 }
 
 export interface GetDataSetResponse {
   __type?: "GetDataSetResponse";
   /**
+   * <p>The unique identifier for the data set.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The description for the data set.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   */
+  Origin?: Origin | string;
+
+  /**
+   * <p>The name of the data set.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The ARN for the data set.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   */
+  OriginDetails?: OriginDetails;
+
+  /**
+   * <p>The tags for the data set.</p>
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
@@ -875,52 +911,16 @@ export interface GetDataSetResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The description for the data set.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier for the data set.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the data set.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
-   */
-  Origin?: Origin | string;
-
-  /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
-   */
-  OriginDetails?: OriginDetails;
-
-  /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
   SourceId?: string;
-
-  /**
-   * <p>The tags for the data set.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
-   */
-  UpdatedAt?: Date;
 }
 
 export namespace GetDataSetResponse {
   export const filterSensitiveLog = (obj: GetDataSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetDataSetResponse =>
-    __isa(o, "GetDataSetResponse");
+  export const isa = (o: any): o is GetDataSetResponse => __isa(o, "GetDataSetResponse");
 }
 
 export interface GetJobRequest {
@@ -933,33 +933,13 @@ export interface GetJobRequest {
 
 export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResponse {
   __type?: "GetJobResponse";
-  /**
-   * <p>The ARN for the job.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>Details about the job.</p>
-   */
-  Details?: ResponseDetails;
-
-  /**
-   * <p>The errors associated with jobs.</p>
-   */
-  Errors?: JobError[];
-
   /**
    * <p>The unique identifier for the job.</p>
    */
@@ -971,6 +951,21 @@ export interface GetJobResponse {
   State?: State | string;
 
   /**
+   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The ARN for the job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The errors associated with jobs.</p>
+   */
+  Errors?: JobError[];
+
+  /**
    * <p>The job type.</p>
    */
   Type?: Type | string;
@@ -979,53 +974,56 @@ export interface GetJobResponse {
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>Details about the job.</p>
+   */
+  Details?: ResponseDetails;
 }
 
 export namespace GetJobResponse {
   export const filterSensitiveLog = (obj: GetJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetJobResponse =>
-    __isa(o, "GetJobResponse");
+  export const isa = (o: any): o is GetJobResponse => __isa(o, "GetJobResponse");
 }
 
 export interface GetRevisionRequest {
   __type?: "GetRevisionRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace GetRevisionRequest {
   export const filterSensitiveLog = (obj: GetRevisionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRevisionRequest =>
-    __isa(o, "GetRevisionRequest");
+  export const isa = (o: any): o is GetRevisionRequest => __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
   __type?: "GetRevisionResponse";
   /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
    * <p>The ARN for the revision</p>
    */
   Arn?: string;
-
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
 
   /**
    * <p>The unique identifier for the data set associated with this revision.</p>
@@ -1038,32 +1036,31 @@ export interface GetRevisionResponse {
   Finalized?: boolean;
 
   /**
-   * <p>The unique identifier for the revision.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
-   */
-  SourceId?: string;
-
-  /**
    * <p>The tags for the revision.</p>
    */
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   * <p>An optional comment about the revision.</p>
    */
-  UpdatedAt?: Date;
+  Comment?: string;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   */
+  SourceId?: string;
 }
 
 export namespace GetRevisionResponse {
   export const filterSensitiveLog = (obj: GetRevisionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetRevisionResponse =>
-    __isa(o, "GetRevisionResponse");
+  export const isa = (o: any): o is GetRevisionResponse => __isa(o, "GetRevisionResponse");
 }
 
 export interface ImportAssetFromSignedUrlJobErrorDetails {
@@ -1075,10 +1072,8 @@ export interface ImportAssetFromSignedUrlJobErrorDetails {
 }
 
 export namespace ImportAssetFromSignedUrlJobErrorDetails {
-  export const filterSensitiveLog = (
-    obj: ImportAssetFromSignedUrlJobErrorDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlJobErrorDetails): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ImportAssetFromSignedUrlJobErrorDetails =>
     __isa(o, "ImportAssetFromSignedUrlJobErrorDetails");
@@ -1089,11 +1084,6 @@ export namespace ImportAssetFromSignedUrlJobErrorDetails {
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
   __type?: "ImportAssetFromSignedUrlRequestDetails";
-  /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>
-   */
-  AssetName: string | undefined;
-
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
    */
@@ -1108,13 +1098,16 @@ export interface ImportAssetFromSignedUrlRequestDetails {
    * <p>The unique identifier for the revision associated with this import request.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>
+   */
+  AssetName: string | undefined;
 }
 
 export namespace ImportAssetFromSignedUrlRequestDetails {
-  export const filterSensitiveLog = (
-    obj: ImportAssetFromSignedUrlRequestDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlRequestDetails): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ImportAssetFromSignedUrlRequestDetails =>
     __isa(o, "ImportAssetFromSignedUrlRequestDetails");
@@ -1126,9 +1119,9 @@ export namespace ImportAssetFromSignedUrlRequestDetails {
 export interface ImportAssetFromSignedUrlResponseDetails {
   __type?: "ImportAssetFromSignedUrlResponseDetails";
   /**
-   * <p>The name for the asset associated with this import response.</p>
+   * <p>The signed URL.</p>
    */
-  AssetName: string | undefined;
+  SignedUrl?: string;
 
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
@@ -1136,31 +1129,29 @@ export interface ImportAssetFromSignedUrlResponseDetails {
   DataSetId: string | undefined;
 
   /**
+   * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
+   */
+  SignedUrlExpiresAt?: Date;
+
+  /**
    * <p>The Base64-encoded Md5 hash for the asset, used to ensure the integrity of the file at that location.</p>
    */
   Md5Hash?: string;
 
   /**
+   * <p>The name for the asset associated with this import response.</p>
+   */
+  AssetName: string | undefined;
+
+  /**
    * <p>The unique identifier for the revision associated with this import response.</p>
    */
   RevisionId: string | undefined;
-
-  /**
-   * <p>The signed URL.</p>
-   */
-  SignedUrl?: string;
-
-  /**
-   * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
-   */
-  SignedUrlExpiresAt?: Date;
 }
 
 export namespace ImportAssetFromSignedUrlResponseDetails {
-  export const filterSensitiveLog = (
-    obj: ImportAssetFromSignedUrlResponseDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlResponseDetails): any => ({
+    ...obj,
   });
   export const isa = (o: any): o is ImportAssetFromSignedUrlResponseDetails =>
     __isa(o, "ImportAssetFromSignedUrlResponseDetails");
@@ -1188,13 +1179,10 @@ export interface ImportAssetsFromS3RequestDetails {
 }
 
 export namespace ImportAssetsFromS3RequestDetails {
-  export const filterSensitiveLog = (
-    obj: ImportAssetsFromS3RequestDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportAssetsFromS3RequestDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImportAssetsFromS3RequestDetails =>
-    __isa(o, "ImportAssetsFromS3RequestDetails");
+  export const isa = (o: any): o is ImportAssetsFromS3RequestDetails => __isa(o, "ImportAssetsFromS3RequestDetails");
 }
 
 /**
@@ -1203,14 +1191,14 @@ export namespace ImportAssetsFromS3RequestDetails {
 export interface ImportAssetsFromS3ResponseDetails {
   __type?: "ImportAssetsFromS3ResponseDetails";
   /**
-   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
-   */
-  AssetSources: AssetSourceEntry[] | undefined;
-
-  /**
    * <p>The unique identifier for the data set associated with this import job.</p>
    */
   DataSetId: string | undefined;
+
+  /**
+   * <p>Is a list of Amazon S3 bucket and object key pairs.</p>
+   */
+  AssetSources: AssetSourceEntry[] | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this import response.</p>
@@ -1219,21 +1207,16 @@ export interface ImportAssetsFromS3ResponseDetails {
 }
 
 export namespace ImportAssetsFromS3ResponseDetails {
-  export const filterSensitiveLog = (
-    obj: ImportAssetsFromS3ResponseDetails
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ImportAssetsFromS3ResponseDetails): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ImportAssetsFromS3ResponseDetails =>
-    __isa(o, "ImportAssetsFromS3ResponseDetails");
+  export const isa = (o: any): o is ImportAssetsFromS3ResponseDetails => __isa(o, "ImportAssetsFromS3ResponseDetails");
 }
 
 /**
  * An exception occurred with the service.
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   /**
@@ -1244,10 +1227,9 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -1261,21 +1243,6 @@ export interface JobEntry {
   Arn: string | undefined;
 
   /**
-   * <p>The date and time that the job was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
-   */
-  Details: ResponseDetails | undefined;
-
-  /**
-   * <p>Errors for jobs.</p>
-   */
-  Errors?: JobError[];
-
-  /**
    * <p>The unique identifier for the job.</p>
    */
   Id: string | undefined;
@@ -1284,6 +1251,21 @@ export interface JobEntry {
    * <p>The state of the job.</p>
    */
   State: State | string | undefined;
+
+  /**
+   * <p>Errors for jobs.</p>
+   */
+  Errors?: JobError[];
+
+  /**
+   * <p>The date and time that the job was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Details of the operation to be performed by the job, such as export destination details or import source details.</p>
+   */
+  Details: ResponseDetails | undefined;
 
   /**
    * <p>The job type.</p>
@@ -1298,7 +1280,7 @@ export interface JobEntry {
 
 export namespace JobEntry {
   export const filterSensitiveLog = (obj: JobEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobEntry => __isa(o, "JobEntry");
 }
@@ -1309,52 +1291,52 @@ export namespace JobEntry {
 export interface JobError {
   __type?: "JobError";
   /**
-   * The code for the job error.
+   * The type of resource related to the error.
    */
-  Code: Code | string | undefined;
+  ResourceType?: JobErrorResourceTypes | string;
 
   Details?: Details;
-  /**
-   * <p>The name of the limit that was reached.</p>
-   */
-  LimitName?: JobErrorLimitName | string;
-
   /**
    * The value of the exceeded limit.
    */
   LimitValue?: number;
 
   /**
-   * The message related to the job error.
+   * The code for the job error.
    */
-  Message: string | undefined;
+  Code: Code | string | undefined;
 
   /**
-   * The unqiue identifier for the resource related to the error.
+   * <p>The name of the limit that was reached.</p>
+   */
+  LimitName?: JobErrorLimitName | string;
+
+  /**
+   * The unique identifier for the resource related to the error.
    */
   ResourceId?: string;
 
   /**
-   * The type of resource related to the error.
+   * The message related to the job error.
    */
-  ResourceType?: JobErrorResourceTypes | string;
+  Message: string | undefined;
 }
 
 export namespace JobError {
   export const filterSensitiveLog = (obj: JobError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is JobError => __isa(o, "JobError");
 }
 
 export enum JobErrorLimitName {
   Asset_size_in_GB = "Asset size in GB",
-  Assets_per_revision = "Assets per revision"
+  Assets_per_revision = "Assets per revision",
 }
 
 export enum JobErrorResourceTypes {
   ASSET = "ASSET",
-  REVISION = "REVISION"
+  REVISION = "REVISION",
 }
 
 export enum LimitName {
@@ -1369,20 +1351,20 @@ export enum LimitName {
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
   Products_per_account = "Products per account",
-  Revisions_per_data_set = "Revisions per data set"
+  Revisions_per_data_set = "Revisions per data set",
 }
 
 export interface ListDataSetRevisionsRequest {
   __type?: "ListDataSetRevisionsRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The maximum number of results returned by a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1391,36 +1373,30 @@ export interface ListDataSetRevisionsRequest {
 }
 
 export namespace ListDataSetRevisionsRequest {
-  export const filterSensitiveLog = (
-    obj: ListDataSetRevisionsRequest
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDataSetRevisionsRequest): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDataSetRevisionsRequest =>
-    __isa(o, "ListDataSetRevisionsRequest");
+  export const isa = (o: any): o is ListDataSetRevisionsRequest => __isa(o, "ListDataSetRevisionsRequest");
 }
 
 export interface ListDataSetRevisionsResponse {
   __type?: "ListDataSetRevisionsResponse";
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The asset objects listed by the request.</p>
    */
   Revisions?: RevisionEntry[];
+
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDataSetRevisionsResponse {
-  export const filterSensitiveLog = (
-    obj: ListDataSetRevisionsResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListDataSetRevisionsResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListDataSetRevisionsResponse =>
-    __isa(o, "ListDataSetRevisionsResponse");
+  export const isa = (o: any): o is ListDataSetRevisionsResponse => __isa(o, "ListDataSetRevisionsResponse");
 }
 
 export interface ListDataSetsRequest {
@@ -1443,10 +1419,9 @@ export interface ListDataSetsRequest {
 
 export namespace ListDataSetsRequest {
   export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsRequest =>
-    __isa(o, "ListDataSetsRequest");
+  export const isa = (o: any): o is ListDataSetsRequest => __isa(o, "ListDataSetsRequest");
 }
 
 export interface ListDataSetsResponse {
@@ -1464,18 +1439,17 @@ export interface ListDataSetsResponse {
 
 export namespace ListDataSetsResponse {
   export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsResponse =>
-    __isa(o, "ListDataSetsResponse");
+  export const isa = (o: any): o is ListDataSetsResponse => __isa(o, "ListDataSetsResponse");
 }
 
 export interface ListJobsRequest {
   __type?: "ListJobsRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
-  DataSetId?: string;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results returned by a single call.</p>
@@ -1483,9 +1457,9 @@ export interface ListJobsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * <p>The unique identifier for a data set.</p>
    */
-  NextToken?: string;
+  DataSetId?: string;
 
   /**
    * <p>The unique identifier for a revision.</p>
@@ -1495,10 +1469,9 @@ export interface ListJobsRequest {
 
 export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest =>
-    __isa(o, "ListJobsRequest");
+  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
@@ -1516,18 +1489,17 @@ export interface ListJobsResponse {
 
 export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse =>
-    __isa(o, "ListJobsResponse");
+  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListRevisionAssetsRequest {
   __type?: "ListRevisionAssetsRequest";
   /**
-   * <p>The unique identifier for a data set.</p>
+   * <p>The unique identifier for a revision.</p>
    */
-  DataSetId: string | undefined;
+  RevisionId: string | undefined;
 
   /**
    * <p>The maximum number of results returned by a single call.</p>
@@ -1535,22 +1507,21 @@ export interface ListRevisionAssetsRequest {
   MaxResults?: number;
 
   /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The unique identifier for a revision.</p>
-   */
-  RevisionId: string | undefined;
 }
 
 export namespace ListRevisionAssetsRequest {
   export const filterSensitiveLog = (obj: ListRevisionAssetsRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRevisionAssetsRequest =>
-    __isa(o, "ListRevisionAssetsRequest");
+  export const isa = (o: any): o is ListRevisionAssetsRequest => __isa(o, "ListRevisionAssetsRequest");
 }
 
 export interface ListRevisionAssetsResponse {
@@ -1568,10 +1539,9 @@ export interface ListRevisionAssetsResponse {
 
 export namespace ListRevisionAssetsResponse {
   export const filterSensitiveLog = (obj: ListRevisionAssetsResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListRevisionAssetsResponse =>
-    __isa(o, "ListRevisionAssetsResponse");
+  export const isa = (o: any): o is ListRevisionAssetsResponse => __isa(o, "ListRevisionAssetsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1584,10 +1554,9 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1599,18 +1568,15 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (
-    obj: ListTagsForResourceResponse
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum Origin {
   ENTITLED = "ENTITLED",
-  OWNED = "OWNED"
+  OWNED = "OWNED",
 }
 
 export interface OriginDetails {
@@ -1620,7 +1586,7 @@ export interface OriginDetails {
 
 export namespace OriginDetails {
   export const filterSensitiveLog = (obj: OriginDetails): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is OriginDetails => __isa(o, "OriginDetails");
 }
@@ -1636,9 +1602,9 @@ export interface RequestDetails {
   ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
 
   /**
-   * <p>Details about the export to Amazon S3 request.</p>
+   * <p>Details about the import from Amazon S3 request.</p>
    */
-  ExportAssetsToS3?: ExportAssetsToS3RequestDetails;
+  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
 
   /**
    * <p>Details about the import from signed URL request.</p>
@@ -1646,25 +1612,22 @@ export interface RequestDetails {
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
 
   /**
-   * <p>Details about the import from Amazon S3 request.</p>
+   * <p>Details about the export to Amazon S3 request.</p>
    */
-  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
+  ExportAssetsToS3?: ExportAssetsToS3RequestDetails;
 }
 
 export namespace RequestDetails {
   export const filterSensitiveLog = (obj: RequestDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is RequestDetails =>
-    __isa(o, "RequestDetails");
+  export const isa = (o: any): o is RequestDetails => __isa(o, "RequestDetails");
 }
 
 /**
  * <p>The resource couldn't be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1673,29 +1636,28 @@ export interface ResourceNotFoundException
   Message: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource that couldn't be found.</p>
-   */
-  ResourceId?: string;
-
-  /**
    * <p>The type of resource that couldn't be found.</p>
    */
   ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The unique identifier for the resource that couldn't be found.</p>
+   */
+  ResourceId?: string;
 }
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceType {
   ASSET = "ASSET",
   DATA_SET = "DATA_SET",
   JOB = "JOB",
-  REVISION = "REVISION"
+  REVISION = "REVISION",
 }
 
 /**
@@ -1703,11 +1665,6 @@ export enum ResourceType {
  */
 export interface ResponseDetails {
   __type?: "ResponseDetails";
-  /**
-   * <p>Details for the export to signed URL response.</p>
-   */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
-
   /**
    * <p>Details for the export to Amazon S3 response.</p>
    */
@@ -1722,14 +1679,18 @@ export interface ResponseDetails {
    * <p>Details for the import from Amazon S3 response.</p>
    */
   ImportAssetsFromS3?: ImportAssetsFromS3ResponseDetails;
+
+  /**
+   * <p>Details for the export to signed URL response.</p>
+   */
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
 }
 
 export namespace ResponseDetails {
   export const filterSensitiveLog = (obj: ResponseDetails): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResponseDetails =>
-    __isa(o, "ResponseDetails");
+  export const isa = (o: any): o is ResponseDetails => __isa(o, "ResponseDetails");
 }
 
 /**
@@ -1738,29 +1699,14 @@ export namespace ResponseDetails {
 export interface RevisionEntry {
   __type?: "RevisionEntry";
   /**
-   * <p>The ARN for the revision.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
    * <p>The unique identifier for the data set associated with this revision.</p>
    */
   DataSetId: string | undefined;
 
   /**
-   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
    */
-  Finalized?: boolean;
+  SourceId?: string;
 
   /**
    * <p>The unique identifier for the revision.</p>
@@ -1768,9 +1714,24 @@ export interface RevisionEntry {
   Id: string | undefined;
 
   /**
-   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    */
-  SourceId?: string;
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The ARN for the revision.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that your changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
@@ -1780,7 +1741,7 @@ export interface RevisionEntry {
 
 export namespace RevisionEntry {
   export const filterSensitiveLog = (obj: RevisionEntry): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is RevisionEntry => __isa(o, "RevisionEntry");
 }
@@ -1798,20 +1759,27 @@ export interface S3SnapshotAsset {
 
 export namespace S3SnapshotAsset {
   export const filterSensitiveLog = (obj: S3SnapshotAsset): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is S3SnapshotAsset =>
-    __isa(o, "S3SnapshotAsset");
+  export const isa = (o: any): o is S3SnapshotAsset => __isa(o, "S3SnapshotAsset");
+}
+
+export enum ServerSideEncryptionTypes {
+  AES256 = "AES256",
+  aws_kms = "aws:kms",
 }
 
 /**
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
-export interface ServiceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceLimitExceededException";
   $fault: "client";
+  /**
+   * <p>The request has exceeded the quotas imposed by the service.</p>
+   */
+  Message: string | undefined;
+
   /**
    * <p>The name of the quota that was exceeded.</p>
    */
@@ -1821,21 +1789,13 @@ export interface ServiceLimitExceededException
    * <p>The maximum value for the service-specific limit.</p>
    */
   LimitValue?: number;
-
-  /**
-   * <p>The request has exceeded the quotas imposed by the service.</p>
-   */
-  Message: string | undefined;
 }
 
 export namespace ServiceLimitExceededException {
-  export const filterSensitiveLog = (
-    obj: ServiceLimitExceededException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is ServiceLimitExceededException =>
-    __isa(o, "ServiceLimitExceededException");
+  export const isa = (o: any): o is ServiceLimitExceededException => __isa(o, "ServiceLimitExceededException");
 }
 
 export interface StartJobRequest {
@@ -1848,10 +1808,9 @@ export interface StartJobRequest {
 
 export namespace StartJobRequest {
   export const filterSensitiveLog = (obj: StartJobRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartJobRequest =>
-    __isa(o, "StartJobRequest");
+  export const isa = (o: any): o is StartJobRequest => __isa(o, "StartJobRequest");
 }
 
 export interface StartJobResponse {
@@ -1860,10 +1819,9 @@ export interface StartJobResponse {
 
 export namespace StartJobResponse {
   export const filterSensitiveLog = (obj: StartJobResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is StartJobResponse =>
-    __isa(o, "StartJobResponse");
+  export const isa = (o: any): o is StartJobResponse => __isa(o, "StartJobResponse");
 }
 
 export enum State {
@@ -1872,7 +1830,7 @@ export enum State {
   ERROR = "ERROR",
   IN_PROGRESS = "IN_PROGRESS",
   TIMED_OUT = "TIMED_OUT",
-  WAITING = "WAITING"
+  WAITING = "WAITING",
 }
 
 /**
@@ -1893,18 +1851,15 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -1915,38 +1870,36 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export enum Type {
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
   EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
-  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL"
+  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
 
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * The key tags.
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1960,11 +1913,6 @@ export interface UpdateAssetRequest {
   AssetId: string | undefined;
 
   /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
    * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
   Name: string | undefined;
@@ -1973,18 +1921,42 @@ export interface UpdateAssetRequest {
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace UpdateAssetRequest {
   export const filterSensitiveLog = (obj: UpdateAssetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetRequest =>
-    __isa(o, "UpdateAssetRequest");
+  export const isa = (o: any): o is UpdateAssetRequest => __isa(o, "UpdateAssetRequest");
 }
 
 export interface UpdateAssetResponse {
   __type?: "UpdateAssetResponse";
+  /**
+   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The unique identifier for the revision associated with this asset.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   */
+  AssetType?: AssetType | string;
+
   /**
    * <p>The ARN for the asset.</p>
    */
@@ -1996,14 +1968,9 @@ export interface UpdateAssetResponse {
   AssetDetails?: AssetDetails;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
-  AssetType?: AssetType | string;
-
-  /**
-   * <p>The date and time that the asset was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
+  Name?: string;
 
   /**
    * <p>The unique identifier for the data set associated with this asset.</p>
@@ -2016,32 +1983,16 @@ export interface UpdateAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The unique identifier for the revision associated with this asset.</p>
-   */
-  RevisionId?: string;
-
-  /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
    */
   SourceId?: string;
-
-  /**
-   * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
-   */
-  UpdatedAt?: Date;
 }
 
 export namespace UpdateAssetResponse {
   export const filterSensitiveLog = (obj: UpdateAssetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetResponse =>
-    __isa(o, "UpdateAssetResponse");
+  export const isa = (o: any): o is UpdateAssetResponse => __isa(o, "UpdateAssetResponse");
 }
 
 /**
@@ -2049,11 +2000,6 @@ export namespace UpdateAssetResponse {
  */
 export interface UpdateDataSetRequest {
   __type?: "UpdateDataSetRequest";
-  /**
-   * <p>The unique identifier for a data set.</p>
-   */
-  DataSetId: string | undefined;
-
   /**
    * <p>The description for the data set.</p>
    */
@@ -2063,32 +2009,41 @@ export interface UpdateDataSetRequest {
    * <p>The name of the data set.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
 }
 
 export namespace UpdateDataSetRequest {
   export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetRequest =>
-    __isa(o, "UpdateDataSetRequest");
+  export const isa = (o: any): o is UpdateDataSetRequest => __isa(o, "UpdateDataSetRequest");
 }
 
 export interface UpdateDataSetResponse {
   __type?: "UpdateDataSetResponse";
   /**
-   * <p>The ARN for the data set.</p>
+   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
    */
-  Arn?: string;
+  OriginDetails?: OriginDetails;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The name of the data set.</p>
    */
-  AssetType?: AssetType | string;
+  Name?: string;
 
   /**
-   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
+   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
    */
-  CreatedAt?: Date;
+  SourceId?: string;
+
+  /**
+   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   */
+  Origin?: Origin | string;
 
   /**
    * <p>The description for the data set.</p>
@@ -2101,24 +2056,19 @@ export interface UpdateDataSetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the data set.</p>
+   * <p>The ARN for the data set.</p>
    */
-  Name?: string;
+  Arn?: string;
 
   /**
-   * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
+   * <p>The date and time that the data set was created, in ISO 8601 format.</p>
    */
-  Origin?: Origin | string;
+  CreatedAt?: Date;
 
   /**
-   * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
+   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
-  OriginDetails?: OriginDetails;
-
-  /**
-   * <p>The data set ID of the owned data set corresponding to the entitled data set being viewed. This parameter is returned when a data set owner is viewing the entitled copy of its owned data set.</p>
-   */
-  SourceId?: string;
+  AssetType?: AssetType | string;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
@@ -2128,10 +2078,9 @@ export interface UpdateDataSetResponse {
 
 export namespace UpdateDataSetResponse {
   export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetResponse =>
-    __isa(o, "UpdateDataSetResponse");
+  export const isa = (o: any): o is UpdateDataSetResponse => __isa(o, "UpdateDataSetResponse");
 }
 
 /**
@@ -2139,11 +2088,6 @@ export namespace UpdateDataSetResponse {
  */
 export interface UpdateRevisionRequest {
   __type?: "UpdateRevisionRequest";
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -2155,6 +2099,11 @@ export interface UpdateRevisionRequest {
   Finalized?: boolean;
 
   /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
+
+  /**
    * <p>The unique identifier for a revision.</p>
    */
   RevisionId: string | undefined;
@@ -2162,10 +2111,9 @@ export interface UpdateRevisionRequest {
 
 export namespace UpdateRevisionRequest {
   export const filterSensitiveLog = (obj: UpdateRevisionRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRevisionRequest =>
-    __isa(o, "UpdateRevisionRequest");
+  export const isa = (o: any): o is UpdateRevisionRequest => __isa(o, "UpdateRevisionRequest");
 }
 
 export interface UpdateRevisionResponse {
@@ -2174,21 +2122,6 @@ export interface UpdateRevisionResponse {
    * <p>The ARN for the revision.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>An optional comment about the revision.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The unique identifier for the data set associated with this revision.</p>
-   */
-  DataSetId?: string;
 
   /**
    * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
@@ -2201,9 +2134,24 @@ export interface UpdateRevisionResponse {
   Id?: string;
 
   /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
    */
   SourceId?: string;
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
@@ -2213,18 +2161,15 @@ export interface UpdateRevisionResponse {
 
 export namespace UpdateRevisionResponse {
   export const filterSensitiveLog = (obj: UpdateRevisionResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateRevisionResponse =>
-    __isa(o, "UpdateRevisionResponse");
+  export const isa = (o: any): o is UpdateRevisionResponse => __isa(o, "UpdateRevisionResponse");
 }
 
 /**
  * <p>The request was invalid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -2235,8 +2180,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

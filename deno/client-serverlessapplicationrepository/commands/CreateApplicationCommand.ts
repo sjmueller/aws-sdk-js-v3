@@ -1,21 +1,15 @@
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import {
-  CreateApplicationRequest,
-  CreateApplicationResponse
-} from "../models/index.ts";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand
+  serializeAws_restJson1CreateApplicationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = CreateApplicationResponse &
-  __MetadataBearer;
+export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
@@ -50,14 +43,15 @@ export class CreateApplicationCommand extends $Command<
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1CreateApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateApplicationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
     return deserializeAws_restJson1CreateApplicationCommand(output, context);
   }
 

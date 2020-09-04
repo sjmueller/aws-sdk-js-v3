@@ -1,159 +1,97 @@
 import {
   CreateBatchInferenceJobCommandInput,
-  CreateBatchInferenceJobCommandOutput
+  CreateBatchInferenceJobCommandOutput,
 } from "./commands/CreateBatchInferenceJobCommand.ts";
-import {
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput
-} from "./commands/CreateCampaignCommand.ts";
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "./commands/CreateDatasetCommand.ts";
+import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand.ts";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand.ts";
 import {
   CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput
+  CreateDatasetGroupCommandOutput,
 } from "./commands/CreateDatasetGroupCommand.ts";
 import {
   CreateDatasetImportJobCommandInput,
-  CreateDatasetImportJobCommandOutput
+  CreateDatasetImportJobCommandOutput,
 } from "./commands/CreateDatasetImportJobCommand.ts";
 import {
   CreateEventTrackerCommandInput,
-  CreateEventTrackerCommandOutput
+  CreateEventTrackerCommandOutput,
 } from "./commands/CreateEventTrackerCommand.ts";
-import {
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput
-} from "./commands/CreateSchemaCommand.ts";
-import {
-  CreateSolutionCommandInput,
-  CreateSolutionCommandOutput
-} from "./commands/CreateSolutionCommand.ts";
+import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand.ts";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand.ts";
+import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand.ts";
 import {
   CreateSolutionVersionCommandInput,
-  CreateSolutionVersionCommandOutput
+  CreateSolutionVersionCommandOutput,
 } from "./commands/CreateSolutionVersionCommand.ts";
-import {
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput
-} from "./commands/DeleteCampaignCommand.ts";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand.ts";
+import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand.ts";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand.ts";
 import {
   DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput
+  DeleteDatasetGroupCommandOutput,
 } from "./commands/DeleteDatasetGroupCommand.ts";
 import {
   DeleteEventTrackerCommandInput,
-  DeleteEventTrackerCommandOutput
+  DeleteEventTrackerCommandOutput,
 } from "./commands/DeleteEventTrackerCommand.ts";
-import {
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput
-} from "./commands/DeleteSchemaCommand.ts";
-import {
-  DeleteSolutionCommandInput,
-  DeleteSolutionCommandOutput
-} from "./commands/DeleteSolutionCommand.ts";
-import {
-  DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput
-} from "./commands/DescribeAlgorithmCommand.ts";
+import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand.ts";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand.ts";
+import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand.ts";
+import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand.ts";
 import {
   DescribeBatchInferenceJobCommandInput,
-  DescribeBatchInferenceJobCommandOutput
+  DescribeBatchInferenceJobCommandOutput,
 } from "./commands/DescribeBatchInferenceJobCommand.ts";
-import {
-  DescribeCampaignCommandInput,
-  DescribeCampaignCommandOutput
-} from "./commands/DescribeCampaignCommand.ts";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand.ts";
+import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand.ts";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand.ts";
 import {
   DescribeDatasetGroupCommandInput,
-  DescribeDatasetGroupCommandOutput
+  DescribeDatasetGroupCommandOutput,
 } from "./commands/DescribeDatasetGroupCommand.ts";
 import {
   DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput
+  DescribeDatasetImportJobCommandOutput,
 } from "./commands/DescribeDatasetImportJobCommand.ts";
 import {
   DescribeEventTrackerCommandInput,
-  DescribeEventTrackerCommandOutput
+  DescribeEventTrackerCommandOutput,
 } from "./commands/DescribeEventTrackerCommand.ts";
 import {
   DescribeFeatureTransformationCommandInput,
-  DescribeFeatureTransformationCommandOutput
+  DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand.ts";
-import {
-  DescribeRecipeCommandInput,
-  DescribeRecipeCommandOutput
-} from "./commands/DescribeRecipeCommand.ts";
-import {
-  DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput
-} from "./commands/DescribeSchemaCommand.ts";
-import {
-  DescribeSolutionCommandInput,
-  DescribeSolutionCommandOutput
-} from "./commands/DescribeSolutionCommand.ts";
+import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand.ts";
+import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand.ts";
+import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand.ts";
+import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand.ts";
 import {
   DescribeSolutionVersionCommandInput,
-  DescribeSolutionVersionCommandOutput
+  DescribeSolutionVersionCommandOutput,
 } from "./commands/DescribeSolutionVersionCommand.ts";
 import {
   GetSolutionMetricsCommandInput,
-  GetSolutionMetricsCommandOutput
+  GetSolutionMetricsCommandOutput,
 } from "./commands/GetSolutionMetricsCommand.ts";
 import {
   ListBatchInferenceJobsCommandInput,
-  ListBatchInferenceJobsCommandOutput
+  ListBatchInferenceJobsCommandOutput,
 } from "./commands/ListBatchInferenceJobsCommand.ts";
-import {
-  ListCampaignsCommandInput,
-  ListCampaignsCommandOutput
-} from "./commands/ListCampaignsCommand.ts";
-import {
-  ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput
-} from "./commands/ListDatasetGroupsCommand.ts";
+import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand.ts";
+import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand.ts";
 import {
   ListDatasetImportJobsCommandInput,
-  ListDatasetImportJobsCommandOutput
+  ListDatasetImportJobsCommandOutput,
 } from "./commands/ListDatasetImportJobsCommand.ts";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand.ts";
-import {
-  ListEventTrackersCommandInput,
-  ListEventTrackersCommandOutput
-} from "./commands/ListEventTrackersCommand.ts";
-import {
-  ListRecipesCommandInput,
-  ListRecipesCommandOutput
-} from "./commands/ListRecipesCommand.ts";
-import {
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput
-} from "./commands/ListSchemasCommand.ts";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand.ts";
+import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand.ts";
+import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand.ts";
+import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand.ts";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand.ts";
 import {
   ListSolutionVersionsCommandInput,
-  ListSolutionVersionsCommandOutput
+  ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand.ts";
-import {
-  ListSolutionsCommandInput,
-  ListSolutionsCommandOutput
-} from "./commands/ListSolutionsCommand.ts";
-import {
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput
-} from "./commands/UpdateCampaignCommand.ts";
+import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand.ts";
+import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -161,38 +99,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -201,9 +135,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -213,6 +148,7 @@ export type ServiceInputTypes =
   | CreateDatasetGroupCommandInput
   | CreateDatasetImportJobCommandInput
   | CreateEventTrackerCommandInput
+  | CreateFilterCommandInput
   | CreateSchemaCommandInput
   | CreateSolutionCommandInput
   | CreateSolutionVersionCommandInput
@@ -220,6 +156,7 @@ export type ServiceInputTypes =
   | DeleteDatasetCommandInput
   | DeleteDatasetGroupCommandInput
   | DeleteEventTrackerCommandInput
+  | DeleteFilterCommandInput
   | DeleteSchemaCommandInput
   | DeleteSolutionCommandInput
   | DescribeAlgorithmCommandInput
@@ -230,6 +167,7 @@ export type ServiceInputTypes =
   | DescribeDatasetImportJobCommandInput
   | DescribeEventTrackerCommandInput
   | DescribeFeatureTransformationCommandInput
+  | DescribeFilterCommandInput
   | DescribeRecipeCommandInput
   | DescribeSchemaCommandInput
   | DescribeSolutionCommandInput
@@ -241,6 +179,7 @@ export type ServiceInputTypes =
   | ListDatasetImportJobsCommandInput
   | ListDatasetsCommandInput
   | ListEventTrackersCommandInput
+  | ListFiltersCommandInput
   | ListRecipesCommandInput
   | ListSchemasCommandInput
   | ListSolutionVersionsCommandInput
@@ -254,6 +193,7 @@ export type ServiceOutputTypes =
   | CreateDatasetGroupCommandOutput
   | CreateDatasetImportJobCommandOutput
   | CreateEventTrackerCommandOutput
+  | CreateFilterCommandOutput
   | CreateSchemaCommandOutput
   | CreateSolutionCommandOutput
   | CreateSolutionVersionCommandOutput
@@ -261,6 +201,7 @@ export type ServiceOutputTypes =
   | DeleteDatasetCommandOutput
   | DeleteDatasetGroupCommandOutput
   | DeleteEventTrackerCommandOutput
+  | DeleteFilterCommandOutput
   | DeleteSchemaCommandOutput
   | DeleteSolutionCommandOutput
   | DescribeAlgorithmCommandOutput
@@ -271,6 +212,7 @@ export type ServiceOutputTypes =
   | DescribeDatasetImportJobCommandOutput
   | DescribeEventTrackerCommandOutput
   | DescribeFeatureTransformationCommandOutput
+  | DescribeFilterCommandOutput
   | DescribeRecipeCommandOutput
   | DescribeSchemaCommandOutput
   | DescribeSolutionCommandOutput
@@ -282,14 +224,14 @@ export type ServiceOutputTypes =
   | ListDatasetImportJobsCommandOutput
   | ListDatasetsCommandOutput
   | ListEventTrackersCommandOutput
+  | ListFiltersCommandOutput
   | ListRecipesCommandOutput
   | ListSchemasCommandOutput
   | ListSolutionVersionsCommandOutput
   | ListSolutionsCommandOutput
   | UpdateCampaignCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -363,14 +305,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -378,9 +325,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PersonalizeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PersonalizeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -389,9 +334,7 @@ export type PersonalizeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -415,7 +358,7 @@ export class PersonalizeClient extends __Client<
   constructor(configuration: PersonalizeClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -430,6 +373,7 @@ export class PersonalizeClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

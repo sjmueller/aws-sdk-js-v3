@@ -1,21 +1,14 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import {
   DescribeTransitGatewayPeeringAttachmentsRequest,
-  DescribeTransitGatewayPeeringAttachmentsResult
+  DescribeTransitGatewayPeeringAttachmentsResult,
 } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
-  serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
+  serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeTransitGatewayPeeringAttachmentsCommandInput = DescribeTransitGatewayPeeringAttachmentsRequest;
@@ -39,9 +32,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput
-  ) {
+  constructor(readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,14 +46,15 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     DescribeTransitGatewayPeeringAttachmentsCommandInput,
     DescribeTransitGatewayPeeringAttachmentsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayPeeringAttachmentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +68,14 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

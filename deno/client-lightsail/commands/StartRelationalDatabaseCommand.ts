@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  StartRelationalDatabaseRequest,
-  StartRelationalDatabaseResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartRelationalDatabaseCommand,
-  serializeAws_json1_1StartRelationalDatabaseCommand
+  serializeAws_json1_1StartRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartRelationalDatabaseCommandInput = StartRelationalDatabaseRequest;
-export type StartRelationalDatabaseCommandOutput = StartRelationalDatabaseResult &
-  __MetadataBearer;
+export type StartRelationalDatabaseCommandOutput = StartRelationalDatabaseResult & __MetadataBearer;
 
 export class StartRelationalDatabaseCommand extends $Command<
   StartRelationalDatabaseCommandInput,
@@ -49,18 +38,16 @@ export class StartRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartRelationalDatabaseCommandInput,
-    StartRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartRelationalDatabaseCommandInput, StartRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartRelationalDatabaseRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartRelationalDatabaseResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class StartRelationalDatabaseCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartRelationalDatabaseCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartRelationalDatabaseCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StartRelationalDatabaseCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRelationalDatabaseCommandOutput> {
+    return deserializeAws_json1_1StartRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

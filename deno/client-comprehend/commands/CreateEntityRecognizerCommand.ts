@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient.ts";
-import {
-  CreateEntityRecognizerRequest,
-  CreateEntityRecognizerResponse
-} from "../models/index.ts";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
+import { CreateEntityRecognizerRequest, CreateEntityRecognizerResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateEntityRecognizerCommand,
-  serializeAws_json1_1CreateEntityRecognizerCommand
+  serializeAws_json1_1CreateEntityRecognizerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CreateEntityRecognizerCommandInput = CreateEntityRecognizerRequest;
-export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse &
-  __MetadataBearer;
+export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse & __MetadataBearer;
 
 export class CreateEntityRecognizerCommand extends $Command<
   CreateEntityRecognizerCommandInput,
@@ -49,18 +38,16 @@ export class CreateEntityRecognizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEntityRecognizerCommandInput,
-    CreateEntityRecognizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEntityRecognizerCommandInput, CreateEntityRecognizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CreateEntityRecognizerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateEntityRecognizerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class CreateEntityRecognizerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEntityRecognizerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEntityRecognizerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEntityRecognizerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntityRecognizerCommandOutput> {
     return deserializeAws_json1_1CreateEntityRecognizerCommand(output, context);
   }
 

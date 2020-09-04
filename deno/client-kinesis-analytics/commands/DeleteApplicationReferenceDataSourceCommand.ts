@@ -1,21 +1,18 @@
 import {
   KinesisAnalyticsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisAnalyticsClient.ts";
 import {
   DeleteApplicationReferenceDataSourceRequest,
-  DeleteApplicationReferenceDataSourceResponse
+  DeleteApplicationReferenceDataSourceResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
-  serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand
+  serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteApplicationReferenceDataSourceCommandInput = DeleteApplicationReferenceDataSourceRequest;
@@ -39,9 +36,7 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteApplicationReferenceDataSourceCommandInput
-  ) {
+  constructor(readonly input: DeleteApplicationReferenceDataSourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +46,16 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApplicationReferenceDataSourceCommandInput,
-    DeleteApplicationReferenceDataSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApplicationReferenceDataSourceCommandInput, DeleteApplicationReferenceDataSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteApplicationReferenceDataSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationReferenceDataSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +69,14 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     input: DeleteApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

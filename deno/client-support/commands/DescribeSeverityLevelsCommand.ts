@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SupportClientResolvedConfig
-} from "../SupportClient.ts";
-import {
-  DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsResponse
-} from "../models/index.ts";
+import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
+import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSeverityLevelsCommand,
-  serializeAws_json1_1DescribeSeverityLevelsCommand
+  serializeAws_json1_1DescribeSeverityLevelsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSeverityLevelsCommandInput = DescribeSeverityLevelsRequest;
-export type DescribeSeverityLevelsCommandOutput = DescribeSeverityLevelsResponse &
-  __MetadataBearer;
+export type DescribeSeverityLevelsCommandOutput = DescribeSeverityLevelsResponse & __MetadataBearer;
 
 export class DescribeSeverityLevelsCommand extends $Command<
   DescribeSeverityLevelsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSeverityLevelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSeverityLevelsCommandInput,
-    DescribeSeverityLevelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSeverityLevelsCommandInput, DescribeSeverityLevelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSeverityLevelsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSeverityLevelsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeSeverityLevelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSeverityLevelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSeverityLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSeverityLevelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSeverityLevelsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSeverityLevelsCommandOutput> {
     return deserializeAws_json1_1DescribeSeverityLevelsCommand(output, context);
   }
 

@@ -1,18 +1,8 @@
-import {
-  EventBridgeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EventBridgeClient.ts";
+import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { PutRuleRequest, PutRuleResponse } from "../models/index.ts";
-import {
-  deserializeAws_json1_1PutRuleCommand,
-  serializeAws_json1_1PutRuleCommand
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,7 +11,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type PutRuleCommandInput = PutRuleRequest;
@@ -46,14 +36,15 @@ export class PutRuleCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutRuleCommandInput, PutRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: PutRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -63,17 +54,11 @@ export class PutRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleCommandOutput> {
     return deserializeAws_json1_1PutRuleCommand(output, context);
   }
 

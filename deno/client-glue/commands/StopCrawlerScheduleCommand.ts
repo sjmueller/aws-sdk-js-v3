@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  StopCrawlerScheduleRequest,
-  StopCrawlerScheduleResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1StopCrawlerScheduleCommand,
-  serializeAws_json1_1StopCrawlerScheduleCommand
+  serializeAws_json1_1StopCrawlerScheduleCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StopCrawlerScheduleCommandInput = StopCrawlerScheduleRequest;
-export type StopCrawlerScheduleCommandOutput = StopCrawlerScheduleResponse &
-  __MetadataBearer;
+export type StopCrawlerScheduleCommandOutput = StopCrawlerScheduleResponse & __MetadataBearer;
 
 export class StopCrawlerScheduleCommand extends $Command<
   StopCrawlerScheduleCommandInput,
@@ -49,18 +38,16 @@ export class StopCrawlerScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopCrawlerScheduleCommandInput,
-    StopCrawlerScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopCrawlerScheduleCommandInput, StopCrawlerScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StopCrawlerScheduleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopCrawlerScheduleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class StopCrawlerScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopCrawlerScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopCrawlerScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
   }
 

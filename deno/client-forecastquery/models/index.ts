@@ -1,8 +1,4 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
@@ -12,19 +8,19 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface DataPoint {
   __type?: "DataPoint";
   /**
-   * <p>The timestamp of the specific forecast.</p>
-   */
-  Timestamp?: string;
-
-  /**
    * <p>The forecast value.</p>
    */
   Value?: number;
+
+  /**
+   * <p>The timestamp of the specific forecast.</p>
+   */
+  Timestamp?: string;
 }
 
 export namespace DataPoint {
   export const filterSensitiveLog = (obj: DataPoint): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
@@ -49,13 +45,15 @@ export interface Forecast {
    *                <p>p90</p>
    *             </li>
    *          </ul>
+   *          <p>The default setting is <code>["0.1", "0.5", "0.9"]</code>. Use the optional <code>ForecastTypes</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html">CreateForecast</a> operation to change the values. The values will vary depending on how this is set, with a minimum of <code>1</code> and a maximum of <code>5.</code>
+   *          </p>
    */
   Predictions?: { [key: string]: DataPoint[] };
 }
 
 export namespace Forecast {
   export const filterSensitiveLog = (obj: Forecast): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }
@@ -63,9 +61,7 @@ export namespace Forecast {
 /**
  * <p>The value is invalid or is too long.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -73,18 +69,15 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -92,18 +85,15 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -111,20 +101,13 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface QueryForecastRequest {
   __type?: "QueryForecastRequest";
-  /**
-   * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
-   *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
-   */
-  EndDate?: string;
-
   /**
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
@@ -139,11 +122,6 @@ export interface QueryForecastRequest {
   Filters: { [key: string]: string } | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
-   */
-  ForecastArn: string | undefined;
-
-  /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
@@ -151,18 +129,28 @@ export interface QueryForecastRequest {
   NextToken?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
+   */
+  ForecastArn: string | undefined;
+
+  /**
    * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    */
   StartDate?: string;
+
+  /**
+   * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
+   *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
+   */
+  EndDate?: string;
 }
 
 export namespace QueryForecastRequest {
   export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QueryForecastRequest =>
-    __isa(o, "QueryForecastRequest");
+  export const isa = (o: any): o is QueryForecastRequest => __isa(o, "QueryForecastRequest");
 }
 
 export interface QueryForecastResponse {
@@ -175,18 +163,15 @@ export interface QueryForecastResponse {
 
 export namespace QueryForecastResponse {
   export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is QueryForecastResponse =>
-    __isa(o, "QueryForecastResponse");
+  export const isa = (o: any): o is QueryForecastResponse => __isa(o, "QueryForecastResponse");
 }
 
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -194,19 +179,16 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -214,8 +196,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

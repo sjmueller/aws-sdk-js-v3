@@ -1,806 +1,593 @@
 import {
   AcceptCertificateTransferCommandInput,
-  AcceptCertificateTransferCommandOutput
+  AcceptCertificateTransferCommandOutput,
 } from "./commands/AcceptCertificateTransferCommand.ts";
 import {
   AddThingToBillingGroupCommandInput,
-  AddThingToBillingGroupCommandOutput
+  AddThingToBillingGroupCommandOutput,
 } from "./commands/AddThingToBillingGroupCommand.ts";
 import {
   AddThingToThingGroupCommandInput,
-  AddThingToThingGroupCommandOutput
+  AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand.ts";
 import {
   AssociateTargetsWithJobCommandInput,
-  AssociateTargetsWithJobCommandOutput
+  AssociateTargetsWithJobCommandOutput,
 } from "./commands/AssociateTargetsWithJobCommand.ts";
-import {
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput
-} from "./commands/AttachPolicyCommand.ts";
+import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand.ts";
 import {
   AttachPrincipalPolicyCommandInput,
-  AttachPrincipalPolicyCommandOutput
+  AttachPrincipalPolicyCommandOutput,
 } from "./commands/AttachPrincipalPolicyCommand.ts";
 import {
   AttachSecurityProfileCommandInput,
-  AttachSecurityProfileCommandOutput
+  AttachSecurityProfileCommandOutput,
 } from "./commands/AttachSecurityProfileCommand.ts";
 import {
   AttachThingPrincipalCommandInput,
-  AttachThingPrincipalCommandOutput
+  AttachThingPrincipalCommandOutput,
 } from "./commands/AttachThingPrincipalCommand.ts";
 import {
   CancelAuditMitigationActionsTaskCommandInput,
-  CancelAuditMitigationActionsTaskCommandOutput
+  CancelAuditMitigationActionsTaskCommandOutput,
 } from "./commands/CancelAuditMitigationActionsTaskCommand.ts";
-import {
-  CancelAuditTaskCommandInput,
-  CancelAuditTaskCommandOutput
-} from "./commands/CancelAuditTaskCommand.ts";
+import { CancelAuditTaskCommandInput, CancelAuditTaskCommandOutput } from "./commands/CancelAuditTaskCommand.ts";
 import {
   CancelCertificateTransferCommandInput,
-  CancelCertificateTransferCommandOutput
+  CancelCertificateTransferCommandOutput,
 } from "./commands/CancelCertificateTransferCommand.ts";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand.ts";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
 import {
   CancelJobExecutionCommandInput,
-  CancelJobExecutionCommandOutput
+  CancelJobExecutionCommandOutput,
 } from "./commands/CancelJobExecutionCommand.ts";
 import {
   ClearDefaultAuthorizerCommandInput,
-  ClearDefaultAuthorizerCommandOutput
+  ClearDefaultAuthorizerCommandOutput,
 } from "./commands/ClearDefaultAuthorizerCommand.ts";
 import {
   ConfirmTopicRuleDestinationCommandInput,
-  ConfirmTopicRuleDestinationCommandOutput
+  ConfirmTopicRuleDestinationCommandOutput,
 } from "./commands/ConfirmTopicRuleDestinationCommand.ts";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand.ts";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand.ts";
 import {
   CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput
+  CreateBillingGroupCommandOutput,
 } from "./commands/CreateBillingGroupCommand.ts";
 import {
   CreateCertificateFromCsrCommandInput,
-  CreateCertificateFromCsrCommandOutput
+  CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand.ts";
+import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand.ts";
 import {
   CreateDomainConfigurationCommandInput,
-  CreateDomainConfigurationCommandOutput
+  CreateDomainConfigurationCommandOutput,
 } from "./commands/CreateDomainConfigurationCommand.ts";
 import {
   CreateDynamicThingGroupCommandInput,
-  CreateDynamicThingGroupCommandOutput
+  CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand.ts";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand.ts";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
 import {
   CreateKeysAndCertificateCommandInput,
-  CreateKeysAndCertificateCommandOutput
+  CreateKeysAndCertificateCommandOutput,
 } from "./commands/CreateKeysAndCertificateCommand.ts";
 import {
   CreateMitigationActionCommandInput,
-  CreateMitigationActionCommandOutput
+  CreateMitigationActionCommandOutput,
 } from "./commands/CreateMitigationActionCommand.ts";
-import {
-  CreateOTAUpdateCommandInput,
-  CreateOTAUpdateCommandOutput
-} from "./commands/CreateOTAUpdateCommand.ts";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand.ts";
+import { CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput } from "./commands/CreateOTAUpdateCommand.ts";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand.ts";
 import {
   CreatePolicyVersionCommandInput,
-  CreatePolicyVersionCommandOutput
+  CreatePolicyVersionCommandOutput,
 } from "./commands/CreatePolicyVersionCommand.ts";
 import {
   CreateProvisioningClaimCommandInput,
-  CreateProvisioningClaimCommandOutput
+  CreateProvisioningClaimCommandOutput,
 } from "./commands/CreateProvisioningClaimCommand.ts";
 import {
   CreateProvisioningTemplateCommandInput,
-  CreateProvisioningTemplateCommandOutput
+  CreateProvisioningTemplateCommandOutput,
 } from "./commands/CreateProvisioningTemplateCommand.ts";
 import {
   CreateProvisioningTemplateVersionCommandInput,
-  CreateProvisioningTemplateVersionCommandOutput
+  CreateProvisioningTemplateVersionCommandOutput,
 } from "./commands/CreateProvisioningTemplateVersionCommand.ts";
-import {
-  CreateRoleAliasCommandInput,
-  CreateRoleAliasCommandOutput
-} from "./commands/CreateRoleAliasCommand.ts";
+import { CreateRoleAliasCommandInput, CreateRoleAliasCommandOutput } from "./commands/CreateRoleAliasCommand.ts";
 import {
   CreateScheduledAuditCommandInput,
-  CreateScheduledAuditCommandOutput
+  CreateScheduledAuditCommandOutput,
 } from "./commands/CreateScheduledAuditCommand.ts";
 import {
   CreateSecurityProfileCommandInput,
-  CreateSecurityProfileCommandOutput
+  CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand.ts";
-import {
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput
-} from "./commands/CreateStreamCommand.ts";
-import {
-  CreateThingCommandInput,
-  CreateThingCommandOutput
-} from "./commands/CreateThingCommand.ts";
-import {
-  CreateThingGroupCommandInput,
-  CreateThingGroupCommandOutput
-} from "./commands/CreateThingGroupCommand.ts";
-import {
-  CreateThingTypeCommandInput,
-  CreateThingTypeCommandOutput
-} from "./commands/CreateThingTypeCommand.ts";
-import {
-  CreateTopicRuleCommandInput,
-  CreateTopicRuleCommandOutput
-} from "./commands/CreateTopicRuleCommand.ts";
+import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand.ts";
+import { CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand.ts";
+import { CreateThingGroupCommandInput, CreateThingGroupCommandOutput } from "./commands/CreateThingGroupCommand.ts";
+import { CreateThingTypeCommandInput, CreateThingTypeCommandOutput } from "./commands/CreateThingTypeCommand.ts";
+import { CreateTopicRuleCommandInput, CreateTopicRuleCommandOutput } from "./commands/CreateTopicRuleCommand.ts";
 import {
   CreateTopicRuleDestinationCommandInput,
-  CreateTopicRuleDestinationCommandOutput
+  CreateTopicRuleDestinationCommandOutput,
 } from "./commands/CreateTopicRuleDestinationCommand.ts";
 import {
   DeleteAccountAuditConfigurationCommandInput,
-  DeleteAccountAuditConfigurationCommandOutput
+  DeleteAccountAuditConfigurationCommandOutput,
 } from "./commands/DeleteAccountAuditConfigurationCommand.ts";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand.ts";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand.ts";
 import {
   DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput
+  DeleteBillingGroupCommandOutput,
 } from "./commands/DeleteBillingGroupCommand.ts";
 import {
   DeleteCACertificateCommandInput,
-  DeleteCACertificateCommandOutput
+  DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand.ts";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand.ts";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand.ts";
+import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand.ts";
 import {
   DeleteDomainConfigurationCommandInput,
-  DeleteDomainConfigurationCommandOutput
+  DeleteDomainConfigurationCommandOutput,
 } from "./commands/DeleteDomainConfigurationCommand.ts";
 import {
   DeleteDynamicThingGroupCommandInput,
-  DeleteDynamicThingGroupCommandOutput
+  DeleteDynamicThingGroupCommandOutput,
 } from "./commands/DeleteDynamicThingGroupCommand.ts";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand.ts";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand.ts";
 import {
   DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput
+  DeleteJobExecutionCommandOutput,
 } from "./commands/DeleteJobExecutionCommand.ts";
 import {
   DeleteMitigationActionCommandInput,
-  DeleteMitigationActionCommandOutput
+  DeleteMitigationActionCommandOutput,
 } from "./commands/DeleteMitigationActionCommand.ts";
-import {
-  DeleteOTAUpdateCommandInput,
-  DeleteOTAUpdateCommandOutput
-} from "./commands/DeleteOTAUpdateCommand.ts";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand.ts";
+import { DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput } from "./commands/DeleteOTAUpdateCommand.ts";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand.ts";
 import {
   DeletePolicyVersionCommandInput,
-  DeletePolicyVersionCommandOutput
+  DeletePolicyVersionCommandOutput,
 } from "./commands/DeletePolicyVersionCommand.ts";
 import {
   DeleteProvisioningTemplateCommandInput,
-  DeleteProvisioningTemplateCommandOutput
+  DeleteProvisioningTemplateCommandOutput,
 } from "./commands/DeleteProvisioningTemplateCommand.ts";
 import {
   DeleteProvisioningTemplateVersionCommandInput,
-  DeleteProvisioningTemplateVersionCommandOutput
+  DeleteProvisioningTemplateVersionCommandOutput,
 } from "./commands/DeleteProvisioningTemplateVersionCommand.ts";
 import {
   DeleteRegistrationCodeCommandInput,
-  DeleteRegistrationCodeCommandOutput
+  DeleteRegistrationCodeCommandOutput,
 } from "./commands/DeleteRegistrationCodeCommand.ts";
-import {
-  DeleteRoleAliasCommandInput,
-  DeleteRoleAliasCommandOutput
-} from "./commands/DeleteRoleAliasCommand.ts";
+import { DeleteRoleAliasCommandInput, DeleteRoleAliasCommandOutput } from "./commands/DeleteRoleAliasCommand.ts";
 import {
   DeleteScheduledAuditCommandInput,
-  DeleteScheduledAuditCommandOutput
+  DeleteScheduledAuditCommandOutput,
 } from "./commands/DeleteScheduledAuditCommand.ts";
 import {
   DeleteSecurityProfileCommandInput,
-  DeleteSecurityProfileCommandOutput
+  DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand.ts";
-import {
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
-} from "./commands/DeleteStreamCommand.ts";
-import {
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput
-} from "./commands/DeleteThingCommand.ts";
-import {
-  DeleteThingGroupCommandInput,
-  DeleteThingGroupCommandOutput
-} from "./commands/DeleteThingGroupCommand.ts";
-import {
-  DeleteThingTypeCommandInput,
-  DeleteThingTypeCommandOutput
-} from "./commands/DeleteThingTypeCommand.ts";
-import {
-  DeleteTopicRuleCommandInput,
-  DeleteTopicRuleCommandOutput
-} from "./commands/DeleteTopicRuleCommand.ts";
+import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand.ts";
+import { DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand.ts";
+import { DeleteThingGroupCommandInput, DeleteThingGroupCommandOutput } from "./commands/DeleteThingGroupCommand.ts";
+import { DeleteThingTypeCommandInput, DeleteThingTypeCommandOutput } from "./commands/DeleteThingTypeCommand.ts";
+import { DeleteTopicRuleCommandInput, DeleteTopicRuleCommandOutput } from "./commands/DeleteTopicRuleCommand.ts";
 import {
   DeleteTopicRuleDestinationCommandInput,
-  DeleteTopicRuleDestinationCommandOutput
+  DeleteTopicRuleDestinationCommandOutput,
 } from "./commands/DeleteTopicRuleDestinationCommand.ts";
 import {
   DeleteV2LoggingLevelCommandInput,
-  DeleteV2LoggingLevelCommandOutput
+  DeleteV2LoggingLevelCommandOutput,
 } from "./commands/DeleteV2LoggingLevelCommand.ts";
 import {
   DeprecateThingTypeCommandInput,
-  DeprecateThingTypeCommandOutput
+  DeprecateThingTypeCommandOutput,
 } from "./commands/DeprecateThingTypeCommand.ts";
 import {
   DescribeAccountAuditConfigurationCommandInput,
-  DescribeAccountAuditConfigurationCommandOutput
+  DescribeAccountAuditConfigurationCommandOutput,
 } from "./commands/DescribeAccountAuditConfigurationCommand.ts";
 import {
   DescribeAuditFindingCommandInput,
-  DescribeAuditFindingCommandOutput
+  DescribeAuditFindingCommandOutput,
 } from "./commands/DescribeAuditFindingCommand.ts";
 import {
   DescribeAuditMitigationActionsTaskCommandInput,
-  DescribeAuditMitigationActionsTaskCommandOutput
+  DescribeAuditMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeAuditMitigationActionsTaskCommand.ts";
-import {
-  DescribeAuditTaskCommandInput,
-  DescribeAuditTaskCommandOutput
-} from "./commands/DescribeAuditTaskCommand.ts";
+import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "./commands/DescribeAuditTaskCommand.ts";
 import {
   DescribeAuthorizerCommandInput,
-  DescribeAuthorizerCommandOutput
+  DescribeAuthorizerCommandOutput,
 } from "./commands/DescribeAuthorizerCommand.ts";
 import {
   DescribeBillingGroupCommandInput,
-  DescribeBillingGroupCommandOutput
+  DescribeBillingGroupCommandOutput,
 } from "./commands/DescribeBillingGroupCommand.ts";
 import {
   DescribeCACertificateCommandInput,
-  DescribeCACertificateCommandOutput
+  DescribeCACertificateCommandOutput,
 } from "./commands/DescribeCACertificateCommand.ts";
 import {
   DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput
+  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand.ts";
 import {
   DescribeDefaultAuthorizerCommandInput,
-  DescribeDefaultAuthorizerCommandOutput
+  DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand.ts";
+import { DescribeDimensionCommandInput, DescribeDimensionCommandOutput } from "./commands/DescribeDimensionCommand.ts";
 import {
   DescribeDomainConfigurationCommandInput,
-  DescribeDomainConfigurationCommandOutput
+  DescribeDomainConfigurationCommandOutput,
 } from "./commands/DescribeDomainConfigurationCommand.ts";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand.ts";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand.ts";
 import {
   DescribeEventConfigurationsCommandInput,
-  DescribeEventConfigurationsCommandOutput
+  DescribeEventConfigurationsCommandOutput,
 } from "./commands/DescribeEventConfigurationsCommand.ts";
-import {
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput
-} from "./commands/DescribeIndexCommand.ts";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand.ts";
+import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand.ts";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import {
   DescribeJobExecutionCommandInput,
-  DescribeJobExecutionCommandOutput
+  DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand.ts";
 import {
   DescribeMitigationActionCommandInput,
-  DescribeMitigationActionCommandOutput
+  DescribeMitigationActionCommandOutput,
 } from "./commands/DescribeMitigationActionCommand.ts";
 import {
   DescribeProvisioningTemplateCommandInput,
-  DescribeProvisioningTemplateCommandOutput
+  DescribeProvisioningTemplateCommandOutput,
 } from "./commands/DescribeProvisioningTemplateCommand.ts";
 import {
   DescribeProvisioningTemplateVersionCommandInput,
-  DescribeProvisioningTemplateVersionCommandOutput
+  DescribeProvisioningTemplateVersionCommandOutput,
 } from "./commands/DescribeProvisioningTemplateVersionCommand.ts";
-import {
-  DescribeRoleAliasCommandInput,
-  DescribeRoleAliasCommandOutput
-} from "./commands/DescribeRoleAliasCommand.ts";
+import { DescribeRoleAliasCommandInput, DescribeRoleAliasCommandOutput } from "./commands/DescribeRoleAliasCommand.ts";
 import {
   DescribeScheduledAuditCommandInput,
-  DescribeScheduledAuditCommandOutput
+  DescribeScheduledAuditCommandOutput,
 } from "./commands/DescribeScheduledAuditCommand.ts";
 import {
   DescribeSecurityProfileCommandInput,
-  DescribeSecurityProfileCommandOutput
+  DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand.ts";
-import {
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
-} from "./commands/DescribeStreamCommand.ts";
-import {
-  DescribeThingCommandInput,
-  DescribeThingCommandOutput
-} from "./commands/DescribeThingCommand.ts";
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand.ts";
+import { DescribeThingCommandInput, DescribeThingCommandOutput } from "./commands/DescribeThingCommand.ts";
 import {
   DescribeThingGroupCommandInput,
-  DescribeThingGroupCommandOutput
+  DescribeThingGroupCommandOutput,
 } from "./commands/DescribeThingGroupCommand.ts";
 import {
   DescribeThingRegistrationTaskCommandInput,
-  DescribeThingRegistrationTaskCommandOutput
+  DescribeThingRegistrationTaskCommandOutput,
 } from "./commands/DescribeThingRegistrationTaskCommand.ts";
-import {
-  DescribeThingTypeCommandInput,
-  DescribeThingTypeCommandOutput
-} from "./commands/DescribeThingTypeCommand.ts";
-import {
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput
-} from "./commands/DetachPolicyCommand.ts";
+import { DescribeThingTypeCommandInput, DescribeThingTypeCommandOutput } from "./commands/DescribeThingTypeCommand.ts";
+import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand.ts";
 import {
   DetachPrincipalPolicyCommandInput,
-  DetachPrincipalPolicyCommandOutput
+  DetachPrincipalPolicyCommandOutput,
 } from "./commands/DetachPrincipalPolicyCommand.ts";
 import {
   DetachSecurityProfileCommandInput,
-  DetachSecurityProfileCommandOutput
+  DetachSecurityProfileCommandOutput,
 } from "./commands/DetachSecurityProfileCommand.ts";
 import {
   DetachThingPrincipalCommandInput,
-  DetachThingPrincipalCommandOutput
+  DetachThingPrincipalCommandOutput,
 } from "./commands/DetachThingPrincipalCommand.ts";
-import {
-  DisableTopicRuleCommandInput,
-  DisableTopicRuleCommandOutput
-} from "./commands/DisableTopicRuleCommand.ts";
-import {
-  EnableTopicRuleCommandInput,
-  EnableTopicRuleCommandOutput
-} from "./commands/EnableTopicRuleCommand.ts";
-import {
-  GetCardinalityCommandInput,
-  GetCardinalityCommandOutput
-} from "./commands/GetCardinalityCommand.ts";
+import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand.ts";
+import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand.ts";
+import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand.ts";
 import {
   GetEffectivePoliciesCommandInput,
-  GetEffectivePoliciesCommandOutput
+  GetEffectivePoliciesCommandOutput,
 } from "./commands/GetEffectivePoliciesCommand.ts";
 import {
   GetIndexingConfigurationCommandInput,
-  GetIndexingConfigurationCommandOutput
+  GetIndexingConfigurationCommandOutput,
 } from "./commands/GetIndexingConfigurationCommand.ts";
-import {
-  GetJobDocumentCommandInput,
-  GetJobDocumentCommandOutput
-} from "./commands/GetJobDocumentCommand.ts";
-import {
-  GetLoggingOptionsCommandInput,
-  GetLoggingOptionsCommandOutput
-} from "./commands/GetLoggingOptionsCommand.ts";
-import {
-  GetOTAUpdateCommandInput,
-  GetOTAUpdateCommandOutput
-} from "./commands/GetOTAUpdateCommand.ts";
-import {
-  GetPercentilesCommandInput,
-  GetPercentilesCommandOutput
-} from "./commands/GetPercentilesCommand.ts";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand.ts";
-import {
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
-} from "./commands/GetPolicyVersionCommand.ts";
+import { GetJobDocumentCommandInput, GetJobDocumentCommandOutput } from "./commands/GetJobDocumentCommand.ts";
+import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand.ts";
+import { GetOTAUpdateCommandInput, GetOTAUpdateCommandOutput } from "./commands/GetOTAUpdateCommand.ts";
+import { GetPercentilesCommandInput, GetPercentilesCommandOutput } from "./commands/GetPercentilesCommand.ts";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand.ts";
+import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand.ts";
 import {
   GetRegistrationCodeCommandInput,
-  GetRegistrationCodeCommandOutput
+  GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand.ts";
-import {
-  GetStatisticsCommandInput,
-  GetStatisticsCommandOutput
-} from "./commands/GetStatisticsCommand.ts";
-import {
-  GetTopicRuleCommandInput,
-  GetTopicRuleCommandOutput
-} from "./commands/GetTopicRuleCommand.ts";
+import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand.ts";
+import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand.ts";
 import {
   GetTopicRuleDestinationCommandInput,
-  GetTopicRuleDestinationCommandOutput
+  GetTopicRuleDestinationCommandOutput,
 } from "./commands/GetTopicRuleDestinationCommand.ts";
 import {
   GetV2LoggingOptionsCommandInput,
-  GetV2LoggingOptionsCommandOutput
+  GetV2LoggingOptionsCommandOutput,
 } from "./commands/GetV2LoggingOptionsCommand.ts";
 import {
   ListActiveViolationsCommandInput,
-  ListActiveViolationsCommandOutput
+  ListActiveViolationsCommandOutput,
 } from "./commands/ListActiveViolationsCommand.ts";
 import {
   ListAttachedPoliciesCommandInput,
-  ListAttachedPoliciesCommandOutput
+  ListAttachedPoliciesCommandOutput,
 } from "./commands/ListAttachedPoliciesCommand.ts";
-import {
-  ListAuditFindingsCommandInput,
-  ListAuditFindingsCommandOutput
-} from "./commands/ListAuditFindingsCommand.ts";
+import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "./commands/ListAuditFindingsCommand.ts";
 import {
   ListAuditMitigationActionsExecutionsCommandInput,
-  ListAuditMitigationActionsExecutionsCommandOutput
+  ListAuditMitigationActionsExecutionsCommandOutput,
 } from "./commands/ListAuditMitigationActionsExecutionsCommand.ts";
 import {
   ListAuditMitigationActionsTasksCommandInput,
-  ListAuditMitigationActionsTasksCommandOutput
+  ListAuditMitigationActionsTasksCommandOutput,
 } from "./commands/ListAuditMitigationActionsTasksCommand.ts";
-import {
-  ListAuditTasksCommandInput,
-  ListAuditTasksCommandOutput
-} from "./commands/ListAuditTasksCommand.ts";
-import {
-  ListAuthorizersCommandInput,
-  ListAuthorizersCommandOutput
-} from "./commands/ListAuthorizersCommand.ts";
-import {
-  ListBillingGroupsCommandInput,
-  ListBillingGroupsCommandOutput
-} from "./commands/ListBillingGroupsCommand.ts";
+import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "./commands/ListAuditTasksCommand.ts";
+import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "./commands/ListAuthorizersCommand.ts";
+import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "./commands/ListBillingGroupsCommand.ts";
 import {
   ListCACertificatesCommandInput,
-  ListCACertificatesCommandOutput
+  ListCACertificatesCommandOutput,
 } from "./commands/ListCACertificatesCommand.ts";
 import {
   ListCertificatesByCACommandInput,
-  ListCertificatesByCACommandOutput
+  ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand.ts";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand.ts";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand.ts";
+import { ListDimensionsCommandInput, ListDimensionsCommandOutput } from "./commands/ListDimensionsCommand.ts";
 import {
   ListDomainConfigurationsCommandInput,
-  ListDomainConfigurationsCommandOutput
+  ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand.ts";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand.ts";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand.ts";
 import {
   ListJobExecutionsForJobCommandInput,
-  ListJobExecutionsForJobCommandOutput
+  ListJobExecutionsForJobCommandOutput,
 } from "./commands/ListJobExecutionsForJobCommand.ts";
 import {
   ListJobExecutionsForThingCommandInput,
-  ListJobExecutionsForThingCommandOutput
+  ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   ListMitigationActionsCommandInput,
-  ListMitigationActionsCommandOutput
+  ListMitigationActionsCommandOutput,
 } from "./commands/ListMitigationActionsCommand.ts";
-import {
-  ListOTAUpdatesCommandInput,
-  ListOTAUpdatesCommandOutput
-} from "./commands/ListOTAUpdatesCommand.ts";
+import { ListOTAUpdatesCommandInput, ListOTAUpdatesCommandOutput } from "./commands/ListOTAUpdatesCommand.ts";
 import {
   ListOutgoingCertificatesCommandInput,
-  ListOutgoingCertificatesCommandOutput
+  ListOutgoingCertificatesCommandOutput,
 } from "./commands/ListOutgoingCertificatesCommand.ts";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand.ts";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand.ts";
 import {
   ListPolicyPrincipalsCommandInput,
-  ListPolicyPrincipalsCommandOutput
+  ListPolicyPrincipalsCommandOutput,
 } from "./commands/ListPolicyPrincipalsCommand.ts";
 import {
   ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
+  ListPolicyVersionsCommandOutput,
 } from "./commands/ListPolicyVersionsCommand.ts";
 import {
   ListPrincipalPoliciesCommandInput,
-  ListPrincipalPoliciesCommandOutput
+  ListPrincipalPoliciesCommandOutput,
 } from "./commands/ListPrincipalPoliciesCommand.ts";
 import {
   ListPrincipalThingsCommandInput,
-  ListPrincipalThingsCommandOutput
+  ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand.ts";
 import {
   ListProvisioningTemplateVersionsCommandInput,
-  ListProvisioningTemplateVersionsCommandOutput
+  ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand.ts";
 import {
   ListProvisioningTemplatesCommandInput,
-  ListProvisioningTemplatesCommandOutput
+  ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand.ts";
-import {
-  ListRoleAliasesCommandInput,
-  ListRoleAliasesCommandOutput
-} from "./commands/ListRoleAliasesCommand.ts";
+import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand.ts";
 import {
   ListScheduledAuditsCommandInput,
-  ListScheduledAuditsCommandOutput
+  ListScheduledAuditsCommandOutput,
 } from "./commands/ListScheduledAuditsCommand.ts";
 import {
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand.ts";
 import {
   ListSecurityProfilesForTargetCommandInput,
-  ListSecurityProfilesForTargetCommandOutput
+  ListSecurityProfilesForTargetCommandOutput,
 } from "./commands/ListSecurityProfilesForTargetCommand.ts";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand.ts";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput
+  ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand.ts";
 import {
   ListTargetsForSecurityProfileCommandInput,
-  ListTargetsForSecurityProfileCommandOutput
+  ListTargetsForSecurityProfileCommandOutput,
 } from "./commands/ListTargetsForSecurityProfileCommand.ts";
-import {
-  ListThingGroupsCommandInput,
-  ListThingGroupsCommandOutput
-} from "./commands/ListThingGroupsCommand.ts";
+import { ListThingGroupsCommandInput, ListThingGroupsCommandOutput } from "./commands/ListThingGroupsCommand.ts";
 import {
   ListThingGroupsForThingCommandInput,
-  ListThingGroupsForThingCommandOutput
+  ListThingGroupsForThingCommandOutput,
 } from "./commands/ListThingGroupsForThingCommand.ts";
 import {
   ListThingPrincipalsCommandInput,
-  ListThingPrincipalsCommandOutput
+  ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand.ts";
 import {
   ListThingRegistrationTaskReportsCommandInput,
-  ListThingRegistrationTaskReportsCommandOutput
+  ListThingRegistrationTaskReportsCommandOutput,
 } from "./commands/ListThingRegistrationTaskReportsCommand.ts";
 import {
   ListThingRegistrationTasksCommandInput,
-  ListThingRegistrationTasksCommandOutput
+  ListThingRegistrationTasksCommandOutput,
 } from "./commands/ListThingRegistrationTasksCommand.ts";
-import {
-  ListThingTypesCommandInput,
-  ListThingTypesCommandOutput
-} from "./commands/ListThingTypesCommand.ts";
-import {
-  ListThingsCommandInput,
-  ListThingsCommandOutput
-} from "./commands/ListThingsCommand.ts";
+import { ListThingTypesCommandInput, ListThingTypesCommandOutput } from "./commands/ListThingTypesCommand.ts";
+import { ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand.ts";
 import {
   ListThingsInBillingGroupCommandInput,
-  ListThingsInBillingGroupCommandOutput
+  ListThingsInBillingGroupCommandOutput,
 } from "./commands/ListThingsInBillingGroupCommand.ts";
 import {
   ListThingsInThingGroupCommandInput,
-  ListThingsInThingGroupCommandOutput
+  ListThingsInThingGroupCommandOutput,
 } from "./commands/ListThingsInThingGroupCommand.ts";
 import {
   ListTopicRuleDestinationsCommandInput,
-  ListTopicRuleDestinationsCommandOutput
+  ListTopicRuleDestinationsCommandOutput,
 } from "./commands/ListTopicRuleDestinationsCommand.ts";
-import {
-  ListTopicRulesCommandInput,
-  ListTopicRulesCommandOutput
-} from "./commands/ListTopicRulesCommand.ts";
+import { ListTopicRulesCommandInput, ListTopicRulesCommandOutput } from "./commands/ListTopicRulesCommand.ts";
 import {
   ListV2LoggingLevelsCommandInput,
-  ListV2LoggingLevelsCommandOutput
+  ListV2LoggingLevelsCommandOutput,
 } from "./commands/ListV2LoggingLevelsCommand.ts";
 import {
   ListViolationEventsCommandInput,
-  ListViolationEventsCommandOutput
+  ListViolationEventsCommandOutput,
 } from "./commands/ListViolationEventsCommand.ts";
 import {
   RegisterCACertificateCommandInput,
-  RegisterCACertificateCommandOutput
+  RegisterCACertificateCommandOutput,
 } from "./commands/RegisterCACertificateCommand.ts";
 import {
   RegisterCertificateCommandInput,
-  RegisterCertificateCommandOutput
+  RegisterCertificateCommandOutput,
 } from "./commands/RegisterCertificateCommand.ts";
 import {
-  RegisterThingCommandInput,
-  RegisterThingCommandOutput
-} from "./commands/RegisterThingCommand.ts";
+  RegisterCertificateWithoutCACommandInput,
+  RegisterCertificateWithoutCACommandOutput,
+} from "./commands/RegisterCertificateWithoutCACommand.ts";
+import { RegisterThingCommandInput, RegisterThingCommandOutput } from "./commands/RegisterThingCommand.ts";
 import {
   RejectCertificateTransferCommandInput,
-  RejectCertificateTransferCommandOutput
+  RejectCertificateTransferCommandOutput,
 } from "./commands/RejectCertificateTransferCommand.ts";
 import {
   RemoveThingFromBillingGroupCommandInput,
-  RemoveThingFromBillingGroupCommandOutput
+  RemoveThingFromBillingGroupCommandOutput,
 } from "./commands/RemoveThingFromBillingGroupCommand.ts";
 import {
   RemoveThingFromThingGroupCommandInput,
-  RemoveThingFromThingGroupCommandOutput
+  RemoveThingFromThingGroupCommandOutput,
 } from "./commands/RemoveThingFromThingGroupCommand.ts";
-import {
-  ReplaceTopicRuleCommandInput,
-  ReplaceTopicRuleCommandOutput
-} from "./commands/ReplaceTopicRuleCommand.ts";
-import {
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput
-} from "./commands/SearchIndexCommand.ts";
+import { ReplaceTopicRuleCommandInput, ReplaceTopicRuleCommandOutput } from "./commands/ReplaceTopicRuleCommand.ts";
+import { SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand.ts";
 import {
   SetDefaultAuthorizerCommandInput,
-  SetDefaultAuthorizerCommandOutput
+  SetDefaultAuthorizerCommandOutput,
 } from "./commands/SetDefaultAuthorizerCommand.ts";
 import {
   SetDefaultPolicyVersionCommandInput,
-  SetDefaultPolicyVersionCommandOutput
+  SetDefaultPolicyVersionCommandOutput,
 } from "./commands/SetDefaultPolicyVersionCommand.ts";
-import {
-  SetLoggingOptionsCommandInput,
-  SetLoggingOptionsCommandOutput
-} from "./commands/SetLoggingOptionsCommand.ts";
-import {
-  SetV2LoggingLevelCommandInput,
-  SetV2LoggingLevelCommandOutput
-} from "./commands/SetV2LoggingLevelCommand.ts";
+import { SetLoggingOptionsCommandInput, SetLoggingOptionsCommandOutput } from "./commands/SetLoggingOptionsCommand.ts";
+import { SetV2LoggingLevelCommandInput, SetV2LoggingLevelCommandOutput } from "./commands/SetV2LoggingLevelCommand.ts";
 import {
   SetV2LoggingOptionsCommandInput,
-  SetV2LoggingOptionsCommandOutput
+  SetV2LoggingOptionsCommandOutput,
 } from "./commands/SetV2LoggingOptionsCommand.ts";
 import {
   StartAuditMitigationActionsTaskCommandInput,
-  StartAuditMitigationActionsTaskCommandOutput
+  StartAuditMitigationActionsTaskCommandOutput,
 } from "./commands/StartAuditMitigationActionsTaskCommand.ts";
 import {
   StartOnDemandAuditTaskCommandInput,
-  StartOnDemandAuditTaskCommandOutput
+  StartOnDemandAuditTaskCommandOutput,
 } from "./commands/StartOnDemandAuditTaskCommand.ts";
 import {
   StartThingRegistrationTaskCommandInput,
-  StartThingRegistrationTaskCommandOutput
+  StartThingRegistrationTaskCommandOutput,
 } from "./commands/StartThingRegistrationTaskCommand.ts";
 import {
   StopThingRegistrationTaskCommandInput,
-  StopThingRegistrationTaskCommandOutput
+  StopThingRegistrationTaskCommandOutput,
 } from "./commands/StopThingRegistrationTaskCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  TestAuthorizationCommandInput,
-  TestAuthorizationCommandOutput
-} from "./commands/TestAuthorizationCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { TestAuthorizationCommandInput, TestAuthorizationCommandOutput } from "./commands/TestAuthorizationCommand.ts";
 import {
   TestInvokeAuthorizerCommandInput,
-  TestInvokeAuthorizerCommandOutput
+  TestInvokeAuthorizerCommandOutput,
 } from "./commands/TestInvokeAuthorizerCommand.ts";
 import {
   TransferCertificateCommandInput,
-  TransferCertificateCommandOutput
+  TransferCertificateCommandOutput,
 } from "./commands/TransferCertificateCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateAccountAuditConfigurationCommandInput,
-  UpdateAccountAuditConfigurationCommandOutput
+  UpdateAccountAuditConfigurationCommandOutput,
 } from "./commands/UpdateAccountAuditConfigurationCommand.ts";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand.ts";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand.ts";
 import {
   UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput
+  UpdateBillingGroupCommandOutput,
 } from "./commands/UpdateBillingGroupCommand.ts";
 import {
   UpdateCACertificateCommandInput,
-  UpdateCACertificateCommandOutput
+  UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand.ts";
-import {
-  UpdateCertificateCommandInput,
-  UpdateCertificateCommandOutput
-} from "./commands/UpdateCertificateCommand.ts";
+import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand.ts";
+import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand.ts";
 import {
   UpdateDomainConfigurationCommandInput,
-  UpdateDomainConfigurationCommandOutput
+  UpdateDomainConfigurationCommandOutput,
 } from "./commands/UpdateDomainConfigurationCommand.ts";
 import {
   UpdateDynamicThingGroupCommandInput,
-  UpdateDynamicThingGroupCommandOutput
+  UpdateDynamicThingGroupCommandOutput,
 } from "./commands/UpdateDynamicThingGroupCommand.ts";
 import {
   UpdateEventConfigurationsCommandInput,
-  UpdateEventConfigurationsCommandOutput
+  UpdateEventConfigurationsCommandOutput,
 } from "./commands/UpdateEventConfigurationsCommand.ts";
 import {
   UpdateIndexingConfigurationCommandInput,
-  UpdateIndexingConfigurationCommandOutput
+  UpdateIndexingConfigurationCommandOutput,
 } from "./commands/UpdateIndexingConfigurationCommand.ts";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand.ts";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand.ts";
 import {
   UpdateMitigationActionCommandInput,
-  UpdateMitigationActionCommandOutput
+  UpdateMitigationActionCommandOutput,
 } from "./commands/UpdateMitigationActionCommand.ts";
 import {
   UpdateProvisioningTemplateCommandInput,
-  UpdateProvisioningTemplateCommandOutput
+  UpdateProvisioningTemplateCommandOutput,
 } from "./commands/UpdateProvisioningTemplateCommand.ts";
-import {
-  UpdateRoleAliasCommandInput,
-  UpdateRoleAliasCommandOutput
-} from "./commands/UpdateRoleAliasCommand.ts";
+import { UpdateRoleAliasCommandInput, UpdateRoleAliasCommandOutput } from "./commands/UpdateRoleAliasCommand.ts";
 import {
   UpdateScheduledAuditCommandInput,
-  UpdateScheduledAuditCommandOutput
+  UpdateScheduledAuditCommandOutput,
 } from "./commands/UpdateScheduledAuditCommand.ts";
 import {
   UpdateSecurityProfileCommandInput,
-  UpdateSecurityProfileCommandOutput
+  UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand.ts";
-import {
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput
-} from "./commands/UpdateStreamCommand.ts";
-import {
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput
-} from "./commands/UpdateThingCommand.ts";
-import {
-  UpdateThingGroupCommandInput,
-  UpdateThingGroupCommandOutput
-} from "./commands/UpdateThingGroupCommand.ts";
+import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand.ts";
+import { UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand.ts";
+import { UpdateThingGroupCommandInput, UpdateThingGroupCommandOutput } from "./commands/UpdateThingGroupCommand.ts";
 import {
   UpdateThingGroupsForThingCommandInput,
-  UpdateThingGroupsForThingCommandOutput
+  UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand.ts";
 import {
   UpdateTopicRuleDestinationCommandInput,
-  UpdateTopicRuleDestinationCommandOutput
+  UpdateTopicRuleDestinationCommandOutput,
 } from "./commands/UpdateTopicRuleDestinationCommand.ts";
 import {
   ValidateSecurityProfileBehaviorsCommandInput,
-  ValidateSecurityProfileBehaviorsCommandOutput
+  ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -809,38 +596,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -849,9 +632,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -873,6 +657,7 @@ export type ServiceInputTypes =
   | CreateAuthorizerCommandInput
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
+  | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
   | CreateDynamicThingGroupCommandInput
   | CreateJobCommandInput
@@ -898,6 +683,7 @@ export type ServiceInputTypes =
   | DeleteBillingGroupCommandInput
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
+  | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
   | DeleteDynamicThingGroupCommandInput
   | DeleteJobCommandInput
@@ -929,6 +715,7 @@ export type ServiceInputTypes =
   | DescribeCACertificateCommandInput
   | DescribeCertificateCommandInput
   | DescribeDefaultAuthorizerCommandInput
+  | DescribeDimensionCommandInput
   | DescribeDomainConfigurationCommandInput
   | DescribeEndpointCommandInput
   | DescribeEventConfigurationsCommandInput
@@ -977,6 +764,7 @@ export type ServiceInputTypes =
   | ListCACertificatesCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
+  | ListDimensionsCommandInput
   | ListDomainConfigurationsCommandInput
   | ListIndicesCommandInput
   | ListJobExecutionsForJobCommandInput
@@ -1015,6 +803,7 @@ export type ServiceInputTypes =
   | ListViolationEventsCommandInput
   | RegisterCACertificateCommandInput
   | RegisterCertificateCommandInput
+  | RegisterCertificateWithoutCACommandInput
   | RegisterThingCommandInput
   | RejectCertificateTransferCommandInput
   | RemoveThingFromBillingGroupCommandInput
@@ -1040,6 +829,7 @@ export type ServiceInputTypes =
   | UpdateBillingGroupCommandInput
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
+  | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
   | UpdateDynamicThingGroupCommandInput
   | UpdateEventConfigurationsCommandInput
@@ -1076,6 +866,7 @@ export type ServiceOutputTypes =
   | CreateAuthorizerCommandOutput
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
+  | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
   | CreateDynamicThingGroupCommandOutput
   | CreateJobCommandOutput
@@ -1101,6 +892,7 @@ export type ServiceOutputTypes =
   | DeleteBillingGroupCommandOutput
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
+  | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
   | DeleteDynamicThingGroupCommandOutput
   | DeleteJobCommandOutput
@@ -1132,6 +924,7 @@ export type ServiceOutputTypes =
   | DescribeCACertificateCommandOutput
   | DescribeCertificateCommandOutput
   | DescribeDefaultAuthorizerCommandOutput
+  | DescribeDimensionCommandOutput
   | DescribeDomainConfigurationCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEventConfigurationsCommandOutput
@@ -1180,6 +973,7 @@ export type ServiceOutputTypes =
   | ListCACertificatesCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
+  | ListDimensionsCommandOutput
   | ListDomainConfigurationsCommandOutput
   | ListIndicesCommandOutput
   | ListJobExecutionsForJobCommandOutput
@@ -1218,6 +1012,7 @@ export type ServiceOutputTypes =
   | ListViolationEventsCommandOutput
   | RegisterCACertificateCommandOutput
   | RegisterCertificateCommandOutput
+  | RegisterCertificateWithoutCACommandOutput
   | RegisterThingCommandOutput
   | RejectCertificateTransferCommandOutput
   | RemoveThingFromBillingGroupCommandOutput
@@ -1243,6 +1038,7 @@ export type ServiceOutputTypes =
   | UpdateBillingGroupCommandOutput
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
+  | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
   | UpdateDynamicThingGroupCommandOutput
   | UpdateEventConfigurationsCommandOutput
@@ -1260,8 +1056,7 @@ export type ServiceOutputTypes =
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -1335,14 +1130,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -1350,9 +1150,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1361,9 +1159,7 @@ export type IoTClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1380,6 +1176,12 @@ export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<
  *             rules for data processing and integration with other services, organize resources
  *             associated with each device (Registry), configure logging, and create and manage
  *             policies and credentials to authenticate devices.</p>
+ *         <p>The service endpoints that expose this API are listed in
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>.
+ *             You must use the endpoint for the region that has the resources you want to access.</p>
+ *         <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS
+ *                 Signature Version 4</a> to sign the request is:
+ *             <i>execute-api</i>.</p>
  *         <p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
  *         <p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
@@ -1395,7 +1197,7 @@ export class IoTClient extends __Client<
   constructor(configuration: IoTClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -1410,6 +1212,7 @@ export class IoTClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

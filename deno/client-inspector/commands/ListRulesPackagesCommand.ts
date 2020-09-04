@@ -1,21 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient.ts";
-import {
-  ListRulesPackagesRequest,
-  ListRulesPackagesResponse
-} from "../models/index.ts";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
+import { ListRulesPackagesRequest, ListRulesPackagesResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListRulesPackagesCommand,
-  serializeAws_json1_1ListRulesPackagesCommand
+  serializeAws_json1_1ListRulesPackagesCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListRulesPackagesCommandInput = ListRulesPackagesRequest;
-export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse &
-  __MetadataBearer;
+export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse & __MetadataBearer;
 
 export class ListRulesPackagesCommand extends $Command<
   ListRulesPackagesCommandInput,
@@ -50,14 +39,15 @@ export class ListRulesPackagesCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListRulesPackagesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRulesPackagesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListRulesPackagesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRulesPackagesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRulesPackagesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRulesPackagesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesPackagesCommandOutput> {
     return deserializeAws_json1_1ListRulesPackagesCommand(output, context);
   }
 

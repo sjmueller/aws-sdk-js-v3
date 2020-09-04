@@ -1,18 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient.ts";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
 import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/index.ts";
 import {
   deserializeAws_queryDeleteDBProxyCommand,
-  serializeAws_queryDeleteDBProxyCommand
+  serializeAws_queryDeleteDBProxyCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDBProxyCommandInput = DeleteDBProxyRequest;
-export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse &
-  __MetadataBearer;
+export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse & __MetadataBearer;
 
 export class DeleteDBProxyCommand extends $Command<
   DeleteDBProxyCommandInput,
@@ -47,14 +39,15 @@ export class DeleteDBProxyCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBProxyCommandInput, DeleteDBProxyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDBProxyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBProxyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class DeleteDBProxyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDBProxyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBProxyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDBProxyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyCommandOutput> {
     return deserializeAws_queryDeleteDBProxyCommand(output, context);
   }
 

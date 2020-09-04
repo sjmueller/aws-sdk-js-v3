@@ -1,21 +1,15 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkMailMessageFlowClientResolvedConfig
+  WorkMailMessageFlowClientResolvedConfig,
 } from "../WorkMailMessageFlowClient.ts";
-import {
-  GetRawMessageContentRequest,
-  GetRawMessageContentResponse
-} from "../models/index.ts";
+import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetRawMessageContentCommand,
-  serializeAws_restJson1GetRawMessageContentCommand
+  serializeAws_restJson1GetRawMessageContentCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
-export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse &
-  __MetadataBearer;
+export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
 
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,
@@ -49,18 +42,16 @@ export class GetRawMessageContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailMessageFlowClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRawMessageContentCommandInput,
-    GetRawMessageContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetRawMessageContentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRawMessageContentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class GetRawMessageContentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRawMessageContentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetRawMessageContentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRawMessageContentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRawMessageContentCommandOutput> {
     return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
   }
 

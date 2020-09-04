@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient.ts";
-import {
-  DeleteDiskSnapshotRequest,
-  DeleteDiskSnapshotResult
-} from "../models/index.ts";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
+import { DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteDiskSnapshotCommand,
-  serializeAws_json1_1DeleteDiskSnapshotCommand
+  serializeAws_json1_1DeleteDiskSnapshotCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteDiskSnapshotCommandInput = DeleteDiskSnapshotRequest;
-export type DeleteDiskSnapshotCommandOutput = DeleteDiskSnapshotResult &
-  __MetadataBearer;
+export type DeleteDiskSnapshotCommandOutput = DeleteDiskSnapshotResult & __MetadataBearer;
 
 export class DeleteDiskSnapshotCommand extends $Command<
   DeleteDiskSnapshotCommandInput,
@@ -50,14 +39,15 @@ export class DeleteDiskSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteDiskSnapshotRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDiskSnapshotResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DeleteDiskSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDiskSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDiskSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDiskSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteDiskSnapshotCommand(output, context);
   }
 

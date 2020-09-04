@@ -1,495 +1,244 @@
 import {
   BatchCreatePartitionCommandInput,
-  BatchCreatePartitionCommandOutput
+  BatchCreatePartitionCommandOutput,
 } from "./commands/BatchCreatePartitionCommand.ts";
 import {
   BatchDeleteConnectionCommandInput,
-  BatchDeleteConnectionCommandOutput
+  BatchDeleteConnectionCommandOutput,
 } from "./commands/BatchDeleteConnectionCommand.ts";
 import {
   BatchDeletePartitionCommandInput,
-  BatchDeletePartitionCommandOutput
+  BatchDeletePartitionCommandOutput,
 } from "./commands/BatchDeletePartitionCommand.ts";
-import {
-  BatchDeleteTableCommandInput,
-  BatchDeleteTableCommandOutput
-} from "./commands/BatchDeleteTableCommand.ts";
+import { BatchDeleteTableCommandInput, BatchDeleteTableCommandOutput } from "./commands/BatchDeleteTableCommand.ts";
 import {
   BatchDeleteTableVersionCommandInput,
-  BatchDeleteTableVersionCommandOutput
+  BatchDeleteTableVersionCommandOutput,
 } from "./commands/BatchDeleteTableVersionCommand.ts";
-import {
-  BatchGetCrawlersCommandInput,
-  BatchGetCrawlersCommandOutput
-} from "./commands/BatchGetCrawlersCommand.ts";
+import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "./commands/BatchGetCrawlersCommand.ts";
 import {
   BatchGetDevEndpointsCommandInput,
-  BatchGetDevEndpointsCommandOutput
+  BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand.ts";
-import {
-  BatchGetJobsCommandInput,
-  BatchGetJobsCommandOutput
-} from "./commands/BatchGetJobsCommand.ts";
-import {
-  BatchGetPartitionCommandInput,
-  BatchGetPartitionCommandOutput
-} from "./commands/BatchGetPartitionCommand.ts";
-import {
-  BatchGetTriggersCommandInput,
-  BatchGetTriggersCommandOutput
-} from "./commands/BatchGetTriggersCommand.ts";
-import {
-  BatchGetWorkflowsCommandInput,
-  BatchGetWorkflowsCommandOutput
-} from "./commands/BatchGetWorkflowsCommand.ts";
-import {
-  BatchStopJobRunCommandInput,
-  BatchStopJobRunCommandOutput
-} from "./commands/BatchStopJobRunCommand.ts";
-import {
-  CancelMLTaskRunCommandInput,
-  CancelMLTaskRunCommandOutput
-} from "./commands/CancelMLTaskRunCommand.ts";
-import {
-  CreateClassifierCommandInput,
-  CreateClassifierCommandOutput
-} from "./commands/CreateClassifierCommand.ts";
-import {
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
-} from "./commands/CreateConnectionCommand.ts";
-import {
-  CreateCrawlerCommandInput,
-  CreateCrawlerCommandOutput
-} from "./commands/CreateCrawlerCommand.ts";
-import {
-  CreateDatabaseCommandInput,
-  CreateDatabaseCommandOutput
-} from "./commands/CreateDatabaseCommand.ts";
-import {
-  CreateDevEndpointCommandInput,
-  CreateDevEndpointCommandOutput
-} from "./commands/CreateDevEndpointCommand.ts";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand.ts";
-import {
-  CreateMLTransformCommandInput,
-  CreateMLTransformCommandOutput
-} from "./commands/CreateMLTransformCommand.ts";
-import {
-  CreatePartitionCommandInput,
-  CreatePartitionCommandOutput
-} from "./commands/CreatePartitionCommand.ts";
-import {
-  CreateScriptCommandInput,
-  CreateScriptCommandOutput
-} from "./commands/CreateScriptCommand.ts";
+import { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand.ts";
+import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from "./commands/BatchGetPartitionCommand.ts";
+import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand.ts";
+import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand.ts";
+import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand.ts";
+import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand.ts";
+import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand.ts";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand.ts";
+import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand.ts";
+import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand.ts";
+import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand.ts";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
+import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand.ts";
+import { CreatePartitionCommandInput, CreatePartitionCommandOutput } from "./commands/CreatePartitionCommand.ts";
+import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand.ts";
 import {
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput
+  CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand.ts";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand.ts";
-import {
-  CreateTriggerCommandInput,
-  CreateTriggerCommandOutput
-} from "./commands/CreateTriggerCommand.ts";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand.ts";
+import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand.ts";
 import {
   CreateUserDefinedFunctionCommandInput,
-  CreateUserDefinedFunctionCommandOutput
+  CreateUserDefinedFunctionCommandOutput,
 } from "./commands/CreateUserDefinedFunctionCommand.ts";
+import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand.ts";
+import { DeleteClassifierCommandInput, DeleteClassifierCommandOutput } from "./commands/DeleteClassifierCommand.ts";
 import {
-  CreateWorkflowCommandInput,
-  CreateWorkflowCommandOutput
-} from "./commands/CreateWorkflowCommand.ts";
+  DeleteColumnStatisticsForPartitionCommandInput,
+  DeleteColumnStatisticsForPartitionCommandOutput,
+} from "./commands/DeleteColumnStatisticsForPartitionCommand.ts";
 import {
-  DeleteClassifierCommandInput,
-  DeleteClassifierCommandOutput
-} from "./commands/DeleteClassifierCommand.ts";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "./commands/DeleteConnectionCommand.ts";
-import {
-  DeleteCrawlerCommandInput,
-  DeleteCrawlerCommandOutput
-} from "./commands/DeleteCrawlerCommand.ts";
-import {
-  DeleteDatabaseCommandInput,
-  DeleteDatabaseCommandOutput
-} from "./commands/DeleteDatabaseCommand.ts";
-import {
-  DeleteDevEndpointCommandInput,
-  DeleteDevEndpointCommandOutput
-} from "./commands/DeleteDevEndpointCommand.ts";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand.ts";
-import {
-  DeleteMLTransformCommandInput,
-  DeleteMLTransformCommandOutput
-} from "./commands/DeleteMLTransformCommand.ts";
-import {
-  DeletePartitionCommandInput,
-  DeletePartitionCommandOutput
-} from "./commands/DeletePartitionCommand.ts";
+  DeleteColumnStatisticsForTableCommandInput,
+  DeleteColumnStatisticsForTableCommandOutput,
+} from "./commands/DeleteColumnStatisticsForTableCommand.ts";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
+import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand.ts";
+import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand.ts";
+import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand.ts";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand.ts";
+import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand.ts";
+import { DeletePartitionCommandInput, DeletePartitionCommandOutput } from "./commands/DeletePartitionCommand.ts";
 import {
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput
+  DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand.ts";
 import {
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput
+  DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand.ts";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand.ts";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand.ts";
 import {
   DeleteTableVersionCommandInput,
-  DeleteTableVersionCommandOutput
+  DeleteTableVersionCommandOutput,
 } from "./commands/DeleteTableVersionCommand.ts";
-import {
-  DeleteTriggerCommandInput,
-  DeleteTriggerCommandOutput
-} from "./commands/DeleteTriggerCommand.ts";
+import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand.ts";
 import {
   DeleteUserDefinedFunctionCommandInput,
-  DeleteUserDefinedFunctionCommandOutput
+  DeleteUserDefinedFunctionCommandOutput,
 } from "./commands/DeleteUserDefinedFunctionCommand.ts";
-import {
-  DeleteWorkflowCommandInput,
-  DeleteWorkflowCommandOutput
-} from "./commands/DeleteWorkflowCommand.ts";
+import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand.ts";
 import {
   GetCatalogImportStatusCommandInput,
-  GetCatalogImportStatusCommandOutput
+  GetCatalogImportStatusCommandOutput,
 } from "./commands/GetCatalogImportStatusCommand.ts";
+import { GetClassifierCommandInput, GetClassifierCommandOutput } from "./commands/GetClassifierCommand.ts";
+import { GetClassifiersCommandInput, GetClassifiersCommandOutput } from "./commands/GetClassifiersCommand.ts";
 import {
-  GetClassifierCommandInput,
-  GetClassifierCommandOutput
-} from "./commands/GetClassifierCommand.ts";
+  GetColumnStatisticsForPartitionCommandInput,
+  GetColumnStatisticsForPartitionCommandOutput,
+} from "./commands/GetColumnStatisticsForPartitionCommand.ts";
 import {
-  GetClassifiersCommandInput,
-  GetClassifiersCommandOutput
-} from "./commands/GetClassifiersCommand.ts";
-import {
-  GetConnectionCommandInput,
-  GetConnectionCommandOutput
-} from "./commands/GetConnectionCommand.ts";
-import {
-  GetConnectionsCommandInput,
-  GetConnectionsCommandOutput
-} from "./commands/GetConnectionsCommand.ts";
-import {
-  GetCrawlerCommandInput,
-  GetCrawlerCommandOutput
-} from "./commands/GetCrawlerCommand.ts";
-import {
-  GetCrawlerMetricsCommandInput,
-  GetCrawlerMetricsCommandOutput
-} from "./commands/GetCrawlerMetricsCommand.ts";
-import {
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput
-} from "./commands/GetCrawlersCommand.ts";
+  GetColumnStatisticsForTableCommandInput,
+  GetColumnStatisticsForTableCommandOutput,
+} from "./commands/GetColumnStatisticsForTableCommand.ts";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand.ts";
+import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand.ts";
+import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand.ts";
+import { GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput } from "./commands/GetCrawlerMetricsCommand.ts";
+import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand.ts";
 import {
   GetDataCatalogEncryptionSettingsCommandInput,
-  GetDataCatalogEncryptionSettingsCommandOutput
+  GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand.ts";
+import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand.ts";
+import { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand.ts";
+import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand.ts";
+import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand.ts";
+import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand.ts";
+import { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand.ts";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
+import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand.ts";
+import { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand.ts";
+import { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand.ts";
+import { GetMLTaskRunCommandInput, GetMLTaskRunCommandOutput } from "./commands/GetMLTaskRunCommand.ts";
+import { GetMLTaskRunsCommandInput, GetMLTaskRunsCommandOutput } from "./commands/GetMLTaskRunsCommand.ts";
+import { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "./commands/GetMLTransformCommand.ts";
+import { GetMLTransformsCommandInput, GetMLTransformsCommandOutput } from "./commands/GetMLTransformsCommand.ts";
+import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand.ts";
+import { GetPartitionCommandInput, GetPartitionCommandOutput } from "./commands/GetPartitionCommand.ts";
+import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand.ts";
+import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand.ts";
 import {
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput
-} from "./commands/GetDatabaseCommand.ts";
-import {
-  GetDatabasesCommandInput,
-  GetDatabasesCommandOutput
-} from "./commands/GetDatabasesCommand.ts";
-import {
-  GetDataflowGraphCommandInput,
-  GetDataflowGraphCommandOutput
-} from "./commands/GetDataflowGraphCommand.ts";
-import {
-  GetDevEndpointCommandInput,
-  GetDevEndpointCommandOutput
-} from "./commands/GetDevEndpointCommand.ts";
-import {
-  GetDevEndpointsCommandInput,
-  GetDevEndpointsCommandOutput
-} from "./commands/GetDevEndpointsCommand.ts";
-import {
-  GetJobBookmarkCommandInput,
-  GetJobBookmarkCommandOutput
-} from "./commands/GetJobBookmarkCommand.ts";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand.ts";
-import {
-  GetJobRunCommandInput,
-  GetJobRunCommandOutput
-} from "./commands/GetJobRunCommand.ts";
-import {
-  GetJobRunsCommandInput,
-  GetJobRunsCommandOutput
-} from "./commands/GetJobRunsCommand.ts";
-import {
-  GetJobsCommandInput,
-  GetJobsCommandOutput
-} from "./commands/GetJobsCommand.ts";
-import {
-  GetMLTaskRunCommandInput,
-  GetMLTaskRunCommandOutput
-} from "./commands/GetMLTaskRunCommand.ts";
-import {
-  GetMLTaskRunsCommandInput,
-  GetMLTaskRunsCommandOutput
-} from "./commands/GetMLTaskRunsCommand.ts";
-import {
-  GetMLTransformCommandInput,
-  GetMLTransformCommandOutput
-} from "./commands/GetMLTransformCommand.ts";
-import {
-  GetMLTransformsCommandInput,
-  GetMLTransformsCommandOutput
-} from "./commands/GetMLTransformsCommand.ts";
-import {
-  GetMappingCommandInput,
-  GetMappingCommandOutput
-} from "./commands/GetMappingCommand.ts";
-import {
-  GetPartitionCommandInput,
-  GetPartitionCommandOutput
-} from "./commands/GetPartitionCommand.ts";
-import {
-  GetPartitionsCommandInput,
-  GetPartitionsCommandOutput
-} from "./commands/GetPartitionsCommand.ts";
-import {
-  GetPlanCommandInput,
-  GetPlanCommandOutput
-} from "./commands/GetPlanCommand.ts";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand.ts";
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand.ts";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand.ts";
 import {
   GetSecurityConfigurationCommandInput,
-  GetSecurityConfigurationCommandOutput
+  GetSecurityConfigurationCommandOutput,
 } from "./commands/GetSecurityConfigurationCommand.ts";
 import {
   GetSecurityConfigurationsCommandInput,
-  GetSecurityConfigurationsCommandOutput
+  GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand.ts";
-import {
-  GetTableCommandInput,
-  GetTableCommandOutput
-} from "./commands/GetTableCommand.ts";
-import {
-  GetTableVersionCommandInput,
-  GetTableVersionCommandOutput
-} from "./commands/GetTableVersionCommand.ts";
-import {
-  GetTableVersionsCommandInput,
-  GetTableVersionsCommandOutput
-} from "./commands/GetTableVersionsCommand.ts";
-import {
-  GetTablesCommandInput,
-  GetTablesCommandOutput
-} from "./commands/GetTablesCommand.ts";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand.ts";
-import {
-  GetTriggerCommandInput,
-  GetTriggerCommandOutput
-} from "./commands/GetTriggerCommand.ts";
-import {
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput
-} from "./commands/GetTriggersCommand.ts";
+import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand.ts";
+import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand.ts";
+import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./commands/GetTableVersionsCommand.ts";
+import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand.ts";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand.ts";
+import { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand.ts";
+import { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand.ts";
 import {
   GetUserDefinedFunctionCommandInput,
-  GetUserDefinedFunctionCommandOutput
+  GetUserDefinedFunctionCommandOutput,
 } from "./commands/GetUserDefinedFunctionCommand.ts";
 import {
   GetUserDefinedFunctionsCommandInput,
-  GetUserDefinedFunctionsCommandOutput
+  GetUserDefinedFunctionsCommandOutput,
 } from "./commands/GetUserDefinedFunctionsCommand.ts";
-import {
-  GetWorkflowCommandInput,
-  GetWorkflowCommandOutput
-} from "./commands/GetWorkflowCommand.ts";
-import {
-  GetWorkflowRunCommandInput,
-  GetWorkflowRunCommandOutput
-} from "./commands/GetWorkflowRunCommand.ts";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand.ts";
+import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand.ts";
 import {
   GetWorkflowRunPropertiesCommandInput,
-  GetWorkflowRunPropertiesCommandOutput
+  GetWorkflowRunPropertiesCommandOutput,
 } from "./commands/GetWorkflowRunPropertiesCommand.ts";
-import {
-  GetWorkflowRunsCommandInput,
-  GetWorkflowRunsCommandOutput
-} from "./commands/GetWorkflowRunsCommand.ts";
+import { GetWorkflowRunsCommandInput, GetWorkflowRunsCommandOutput } from "./commands/GetWorkflowRunsCommand.ts";
 import {
   ImportCatalogToGlueCommandInput,
-  ImportCatalogToGlueCommandOutput
+  ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand.ts";
-import {
-  ListCrawlersCommandInput,
-  ListCrawlersCommandOutput
-} from "./commands/ListCrawlersCommand.ts";
-import {
-  ListDevEndpointsCommandInput,
-  ListDevEndpointsCommandOutput
-} from "./commands/ListDevEndpointsCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
-import {
-  ListTriggersCommandInput,
-  ListTriggersCommandOutput
-} from "./commands/ListTriggersCommand.ts";
-import {
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput
-} from "./commands/ListWorkflowsCommand.ts";
+import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand.ts";
+import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
+import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand.ts";
+import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand.ts";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand.ts";
 import {
   PutDataCatalogEncryptionSettingsCommandInput,
-  PutDataCatalogEncryptionSettingsCommandOutput
+  PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand.ts";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand.ts";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand.ts";
 import {
   PutWorkflowRunPropertiesCommandInput,
-  PutWorkflowRunPropertiesCommandOutput
+  PutWorkflowRunPropertiesCommandOutput,
 } from "./commands/PutWorkflowRunPropertiesCommand.ts";
-import {
-  ResetJobBookmarkCommandInput,
-  ResetJobBookmarkCommandOutput
-} from "./commands/ResetJobBookmarkCommand.ts";
-import {
-  SearchTablesCommandInput,
-  SearchTablesCommandOutput
-} from "./commands/SearchTablesCommand.ts";
-import {
-  StartCrawlerCommandInput,
-  StartCrawlerCommandOutput
-} from "./commands/StartCrawlerCommand.ts";
+import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand.ts";
+import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand.ts";
+import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand.ts";
+import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand.ts";
 import {
   StartCrawlerScheduleCommandInput,
-  StartCrawlerScheduleCommandOutput
+  StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand.ts";
 import {
   StartExportLabelsTaskRunCommandInput,
-  StartExportLabelsTaskRunCommandOutput
+  StartExportLabelsTaskRunCommandOutput,
 } from "./commands/StartExportLabelsTaskRunCommand.ts";
 import {
   StartImportLabelsTaskRunCommandInput,
-  StartImportLabelsTaskRunCommandOutput
+  StartImportLabelsTaskRunCommandOutput,
 } from "./commands/StartImportLabelsTaskRunCommand.ts";
-import {
-  StartJobRunCommandInput,
-  StartJobRunCommandOutput
-} from "./commands/StartJobRunCommand.ts";
+import { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand.ts";
 import {
   StartMLEvaluationTaskRunCommandInput,
-  StartMLEvaluationTaskRunCommandOutput
+  StartMLEvaluationTaskRunCommandOutput,
 } from "./commands/StartMLEvaluationTaskRunCommand.ts";
 import {
   StartMLLabelingSetGenerationTaskRunCommandInput,
-  StartMLLabelingSetGenerationTaskRunCommandOutput
+  StartMLLabelingSetGenerationTaskRunCommandOutput,
 } from "./commands/StartMLLabelingSetGenerationTaskRunCommand.ts";
-import {
-  StartTriggerCommandInput,
-  StartTriggerCommandOutput
-} from "./commands/StartTriggerCommand.ts";
-import {
-  StartWorkflowRunCommandInput,
-  StartWorkflowRunCommandOutput
-} from "./commands/StartWorkflowRunCommand.ts";
-import {
-  StopCrawlerCommandInput,
-  StopCrawlerCommandOutput
-} from "./commands/StopCrawlerCommand.ts";
+import { StartTriggerCommandInput, StartTriggerCommandOutput } from "./commands/StartTriggerCommand.ts";
+import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand.ts";
+import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand.ts";
 import {
   StopCrawlerScheduleCommandInput,
-  StopCrawlerScheduleCommandOutput
+  StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand.ts";
+import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand.ts";
+import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateClassifierCommandInput, UpdateClassifierCommandOutput } from "./commands/UpdateClassifierCommand.ts";
 import {
-  StopTriggerCommandInput,
-  StopTriggerCommandOutput
-} from "./commands/StopTriggerCommand.ts";
+  UpdateColumnStatisticsForPartitionCommandInput,
+  UpdateColumnStatisticsForPartitionCommandOutput,
+} from "./commands/UpdateColumnStatisticsForPartitionCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateClassifierCommandInput,
-  UpdateClassifierCommandOutput
-} from "./commands/UpdateClassifierCommand.ts";
-import {
-  UpdateConnectionCommandInput,
-  UpdateConnectionCommandOutput
-} from "./commands/UpdateConnectionCommand.ts";
-import {
-  UpdateCrawlerCommandInput,
-  UpdateCrawlerCommandOutput
-} from "./commands/UpdateCrawlerCommand.ts";
+  UpdateColumnStatisticsForTableCommandInput,
+  UpdateColumnStatisticsForTableCommandOutput,
+} from "./commands/UpdateColumnStatisticsForTableCommand.ts";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand.ts";
+import { UpdateCrawlerCommandInput, UpdateCrawlerCommandOutput } from "./commands/UpdateCrawlerCommand.ts";
 import {
   UpdateCrawlerScheduleCommandInput,
-  UpdateCrawlerScheduleCommandOutput
+  UpdateCrawlerScheduleCommandOutput,
 } from "./commands/UpdateCrawlerScheduleCommand.ts";
-import {
-  UpdateDatabaseCommandInput,
-  UpdateDatabaseCommandOutput
-} from "./commands/UpdateDatabaseCommand.ts";
-import {
-  UpdateDevEndpointCommandInput,
-  UpdateDevEndpointCommandOutput
-} from "./commands/UpdateDevEndpointCommand.ts";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand.ts";
-import {
-  UpdateMLTransformCommandInput,
-  UpdateMLTransformCommandOutput
-} from "./commands/UpdateMLTransformCommand.ts";
-import {
-  UpdatePartitionCommandInput,
-  UpdatePartitionCommandOutput
-} from "./commands/UpdatePartitionCommand.ts";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand.ts";
-import {
-  UpdateTriggerCommandInput,
-  UpdateTriggerCommandOutput
-} from "./commands/UpdateTriggerCommand.ts";
+import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand.ts";
+import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand.ts";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand.ts";
+import { UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput } from "./commands/UpdateMLTransformCommand.ts";
+import { UpdatePartitionCommandInput, UpdatePartitionCommandOutput } from "./commands/UpdatePartitionCommand.ts";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand.ts";
+import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand.ts";
 import {
   UpdateUserDefinedFunctionCommandInput,
-  UpdateUserDefinedFunctionCommandOutput
+  UpdateUserDefinedFunctionCommandOutput,
 } from "./commands/UpdateUserDefinedFunctionCommand.ts";
-import {
-  UpdateWorkflowCommandInput,
-  UpdateWorkflowCommandOutput
-} from "./commands/UpdateWorkflowCommand.ts";
+import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -497,38 +246,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -537,9 +282,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -571,6 +317,8 @@ export type ServiceInputTypes =
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
   | DeleteClassifierCommandInput
+  | DeleteColumnStatisticsForPartitionCommandInput
+  | DeleteColumnStatisticsForTableCommandInput
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
   | DeleteDatabaseCommandInput
@@ -588,6 +336,8 @@ export type ServiceInputTypes =
   | GetCatalogImportStatusCommandInput
   | GetClassifierCommandInput
   | GetClassifiersCommandInput
+  | GetColumnStatisticsForPartitionCommandInput
+  | GetColumnStatisticsForTableCommandInput
   | GetConnectionCommandInput
   | GetConnectionsCommandInput
   | GetCrawlerCommandInput
@@ -612,6 +362,7 @@ export type ServiceInputTypes =
   | GetPartitionCommandInput
   | GetPartitionsCommandInput
   | GetPlanCommandInput
+  | GetResourcePoliciesCommandInput
   | GetResourcePolicyCommandInput
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
@@ -632,12 +383,14 @@ export type ServiceInputTypes =
   | ListCrawlersCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
+  | ListMLTransformsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutResourcePolicyCommandInput
   | PutWorkflowRunPropertiesCommandInput
   | ResetJobBookmarkCommandInput
+  | ResumeWorkflowRunCommandInput
   | SearchTablesCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
@@ -651,9 +404,12 @@ export type ServiceInputTypes =
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
   | StopTriggerCommandInput
+  | StopWorkflowRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateClassifierCommandInput
+  | UpdateColumnStatisticsForPartitionCommandInput
+  | UpdateColumnStatisticsForTableCommandInput
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
@@ -696,6 +452,8 @@ export type ServiceOutputTypes =
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteClassifierCommandOutput
+  | DeleteColumnStatisticsForPartitionCommandOutput
+  | DeleteColumnStatisticsForTableCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteDatabaseCommandOutput
@@ -713,6 +471,8 @@ export type ServiceOutputTypes =
   | GetCatalogImportStatusCommandOutput
   | GetClassifierCommandOutput
   | GetClassifiersCommandOutput
+  | GetColumnStatisticsForPartitionCommandOutput
+  | GetColumnStatisticsForTableCommandOutput
   | GetConnectionCommandOutput
   | GetConnectionsCommandOutput
   | GetCrawlerCommandOutput
@@ -737,6 +497,7 @@ export type ServiceOutputTypes =
   | GetPartitionCommandOutput
   | GetPartitionsCommandOutput
   | GetPlanCommandOutput
+  | GetResourcePoliciesCommandOutput
   | GetResourcePolicyCommandOutput
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
@@ -757,12 +518,14 @@ export type ServiceOutputTypes =
   | ListCrawlersCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
+  | ListMLTransformsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutResourcePolicyCommandOutput
   | PutWorkflowRunPropertiesCommandOutput
   | ResetJobBookmarkCommandOutput
+  | ResumeWorkflowRunCommandOutput
   | SearchTablesCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
@@ -776,9 +539,12 @@ export type ServiceOutputTypes =
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
   | StopTriggerCommandOutput
+  | StopWorkflowRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateClassifierCommandOutput
+  | UpdateColumnStatisticsForPartitionCommandOutput
+  | UpdateColumnStatisticsForTableCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput
@@ -792,8 +558,7 @@ export type ServiceOutputTypes =
   | UpdateUserDefinedFunctionCommandOutput
   | UpdateWorkflowCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -867,14 +632,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -882,9 +652,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GlueClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlueClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -893,9 +661,7 @@ export type GlueClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -919,7 +685,7 @@ export class GlueClient extends __Client<
   constructor(configuration: GlueClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -934,6 +700,7 @@ export class GlueClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

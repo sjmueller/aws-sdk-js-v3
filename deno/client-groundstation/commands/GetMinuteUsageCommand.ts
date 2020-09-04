@@ -1,18 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient.ts";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
 import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetMinuteUsageCommand,
-  serializeAws_restJson1GetMinuteUsageCommand
+  serializeAws_restJson1GetMinuteUsageCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetMinuteUsageCommandInput = GetMinuteUsageRequest;
-export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse &
-  __MetadataBearer;
+export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse & __MetadataBearer;
 
 export class GetMinuteUsageCommand extends $Command<
   GetMinuteUsageCommandInput,
@@ -47,14 +39,15 @@ export class GetMinuteUsageCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetMinuteUsageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetMinuteUsageResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class GetMinuteUsageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMinuteUsageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMinuteUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1GetMinuteUsageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMinuteUsageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMinuteUsageCommandOutput> {
     return deserializeAws_restJson1GetMinuteUsageCommand(output, context);
   }
 

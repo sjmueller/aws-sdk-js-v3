@@ -1,18 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1NotifyWorkersCommand,
-  serializeAws_json1_1NotifyWorkersCommand
+  serializeAws_json1_1NotifyWorkersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type NotifyWorkersCommandInput = NotifyWorkersRequest;
-export type NotifyWorkersCommandOutput = NotifyWorkersResponse &
-  __MetadataBearer;
+export type NotifyWorkersCommandOutput = NotifyWorkersResponse & __MetadataBearer;
 
 export class NotifyWorkersCommand extends $Command<
   NotifyWorkersCommandInput,
@@ -47,14 +39,15 @@ export class NotifyWorkersCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NotifyWorkersCommandInput, NotifyWorkersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: NotifyWorkersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: NotifyWorkersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class NotifyWorkersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: NotifyWorkersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: NotifyWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyWorkersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<NotifyWorkersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWorkersCommandOutput> {
     return deserializeAws_json1_1NotifyWorkersCommand(output, context);
   }
 

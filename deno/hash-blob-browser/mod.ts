@@ -1,6 +1,5 @@
-import { Hash, HashConstructor, StreamHasher } from "../types/mod.ts";
-
 import { blobReader } from "../chunked-blob-reader/mod.ts";
+import { HashConstructor, StreamHasher } from "../types/mod.ts";
 
 export const blobHasher: StreamHasher<Blob> = async function blobHasher(
   hashCtor: HashConstructor,
@@ -8,7 +7,7 @@ export const blobHasher: StreamHasher<Blob> = async function blobHasher(
 ): Promise<Uint8Array> {
   const hash = new hashCtor();
 
-  await blobReader(blob, chunk => {
+  await blobReader(blob, (chunk) => {
     hash.update(chunk);
   });
 

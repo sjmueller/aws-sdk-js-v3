@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient.ts";
-import {
-  DescribeStackResourcesInput,
-  DescribeStackResourcesOutput
-} from "../models/index.ts";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
+import { DescribeStackResourcesInput, DescribeStackResourcesOutput } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeStackResourcesCommand,
-  serializeAws_queryDescribeStackResourcesCommand
+  serializeAws_queryDescribeStackResourcesCommand,
 } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeStackResourcesCommandInput = DescribeStackResourcesInput;
-export type DescribeStackResourcesCommandOutput = DescribeStackResourcesOutput &
-  __MetadataBearer;
+export type DescribeStackResourcesCommandOutput = DescribeStackResourcesOutput & __MetadataBearer;
 
 export class DescribeStackResourcesCommand extends $Command<
   DescribeStackResourcesCommandInput,
@@ -49,18 +38,16 @@ export class DescribeStackResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackResourcesCommandInput,
-    DescribeStackResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackResourcesCommandInput, DescribeStackResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeStackResourcesInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackResourcesOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeStackResourcesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeStackResourcesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStackResourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStackResourcesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackResourcesCommandOutput> {
     return deserializeAws_queryDescribeStackResourcesCommand(output, context);
   }
 

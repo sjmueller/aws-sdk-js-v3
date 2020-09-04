@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  DeregisterEventTopicRequest,
-  DeregisterEventTopicResult
-} from "../models/index.ts";
+import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeregisterEventTopicCommand,
-  serializeAws_json1_1DeregisterEventTopicCommand
+  serializeAws_json1_1DeregisterEventTopicCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeregisterEventTopicCommandInput = DeregisterEventTopicRequest;
-export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult &
-  __MetadataBearer;
+export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult & __MetadataBearer;
 
 export class DeregisterEventTopicCommand extends $Command<
   DeregisterEventTopicCommandInput,
@@ -49,18 +42,16 @@ export class DeregisterEventTopicCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterEventTopicCommandInput,
-    DeregisterEventTopicCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterEventTopicCommandInput, DeregisterEventTopicCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeregisterEventTopicRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterEventTopicResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class DeregisterEventTopicCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterEventTopicCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterEventTopicCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterEventTopicCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEventTopicCommandOutput> {
     return deserializeAws_json1_1DeregisterEventTopicCommand(output, context);
   }
 

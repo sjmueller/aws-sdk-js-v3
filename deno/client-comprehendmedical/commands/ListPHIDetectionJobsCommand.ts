@@ -1,21 +1,15 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import {
-  ListPHIDetectionJobsRequest,
-  ListPHIDetectionJobsResponse
-} from "../models/index.ts";
+import { ListPHIDetectionJobsRequest, ListPHIDetectionJobsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListPHIDetectionJobsCommand,
-  serializeAws_json1_1ListPHIDetectionJobsCommand
+  serializeAws_json1_1ListPHIDetectionJobsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListPHIDetectionJobsCommandInput = ListPHIDetectionJobsRequest;
-export type ListPHIDetectionJobsCommandOutput = ListPHIDetectionJobsResponse &
-  __MetadataBearer;
+export type ListPHIDetectionJobsCommandOutput = ListPHIDetectionJobsResponse & __MetadataBearer;
 
 export class ListPHIDetectionJobsCommand extends $Command<
   ListPHIDetectionJobsCommandInput,
@@ -49,18 +42,16 @@ export class ListPHIDetectionJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPHIDetectionJobsCommandInput,
-    ListPHIDetectionJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPHIDetectionJobsCommandInput, ListPHIDetectionJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListPHIDetectionJobsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListPHIDetectionJobsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class ListPHIDetectionJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPHIDetectionJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPHIDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPHIDetectionJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPHIDetectionJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPHIDetectionJobsCommandOutput> {
     return deserializeAws_json1_1ListPHIDetectionJobsCommand(output, context);
   }
 

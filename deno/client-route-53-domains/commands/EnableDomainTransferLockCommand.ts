@@ -1,21 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient.ts";
-import {
-  EnableDomainTransferLockRequest,
-  EnableDomainTransferLockResponse
-} from "../models/index.ts";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
+import { EnableDomainTransferLockRequest, EnableDomainTransferLockResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1EnableDomainTransferLockCommand,
-  serializeAws_json1_1EnableDomainTransferLockCommand
+  serializeAws_json1_1EnableDomainTransferLockCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type EnableDomainTransferLockCommandInput = EnableDomainTransferLockRequest;
-export type EnableDomainTransferLockCommandOutput = EnableDomainTransferLockResponse &
-  __MetadataBearer;
+export type EnableDomainTransferLockCommandOutput = EnableDomainTransferLockResponse & __MetadataBearer;
 
 export class EnableDomainTransferLockCommand extends $Command<
   EnableDomainTransferLockCommandInput,
@@ -49,18 +38,16 @@ export class EnableDomainTransferLockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableDomainTransferLockCommandInput,
-    EnableDomainTransferLockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableDomainTransferLockCommandInput, EnableDomainTransferLockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: EnableDomainTransferLockRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: EnableDomainTransferLockResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class EnableDomainTransferLockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EnableDomainTransferLockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EnableDomainTransferLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableDomainTransferLockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableDomainTransferLockCommandOutput> {
-    return deserializeAws_json1_1EnableDomainTransferLockCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableDomainTransferLockCommandOutput> {
+    return deserializeAws_json1_1EnableDomainTransferLockCommand(output, context);
   }
 
   // Start section: command_body_extra

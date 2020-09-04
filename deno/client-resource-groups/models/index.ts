@@ -1,16 +1,10 @@
-import {
-  SENSITIVE_STRING,
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "../../smithy-client/mod.ts";
+import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 /**
- * <p>The request does not comply with validation rules that are defined for the request parameters.</p>
+ * <p>The request includes one or more parameters that violate validation rules.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -18,87 +12,119 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CreateGroupInput {
   __type?: "CreateGroupInput";
   /**
-   * <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
-   *        punctuation, and spaces.</p>
+   * <p>The tags to add to the group. A tag is key-value pair string.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the resource group. Descriptions can consist of letters, numbers,
+   *             hyphens, underscores, periods, and spaces.</p>
    */
   Description?: string;
 
   /**
-   * <p>The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created.
-   *        A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with
-   *        <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name must be unique within your account.</p>
+   * <p>The name of the group, which is the identifier of the group in other operations. You
+   *             can't change the name of a resource group after you create it. A resource group name can
+   *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
+   *             with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group name
+   *             must be unique within each AWS Region in your AWS account.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The resource query that determines which AWS resources are members of this group.</p>
+   * <p>The resource query that determines which AWS resources are members of this
+   *             group.</p>
+   *         <note>
+   *             <p>You can specify either a <code>ResourceQuery</code> or a
+   *                     <code>Configuration</code>, but not both.</p>
+   *         </note>
    */
-  ResourceQuery: ResourceQuery | undefined;
+  ResourceQuery?: ResourceQuery;
 
   /**
-   * <p>The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
-   *        and tag values can have a maximum length of 256 characters.</p>
+   * <p>A configuration associates the resource group with an AWS service and specifies how
+   *             the service can interact with the resources in the group. A configuration is an array of
+   *                 <a>GroupConfigurationItem</a> elements.</p>
+   *         <note>
+   *             <p>You can specify either a <code>Configuration</code> or a
+   *                     <code>ResourceQuery</code> in a group, but not both.</p>
+   *         </note>
    */
-  Tags?: { [key: string]: string };
+  Configuration?: GroupConfigurationItem[];
 }
 
 export namespace CreateGroupInput {
   export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupInput =>
-    __isa(o, "CreateGroupInput");
+  export const isa = (o: any): o is CreateGroupInput => __isa(o, "CreateGroupInput");
 }
 
 export interface CreateGroupOutput {
   __type?: "CreateGroupOutput";
   /**
-   * <p>A full description of the resource group after it is created.</p>
+   * <p>The description of the resource group.</p>
    */
   Group?: Group;
-
-  /**
-   * <p>The resource query associated with the group.</p>
-   */
-  ResourceQuery?: ResourceQuery;
 
   /**
    * <p>The tags associated with the group.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The service configuration associated with the resource group. AWS Resource Groups
+   *             supports adding service configurations for the following resource group types:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity
+   *                     reservation pools. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
+   *                         Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  GroupConfiguration?: GroupConfiguration;
+
+  /**
+   * <p>The resource query associated with the group.</p>
+   */
+  ResourceQuery?: ResourceQuery;
 }
 
 export namespace CreateGroupOutput {
   export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is CreateGroupOutput =>
-    __isa(o, "CreateGroupOutput");
+  export const isa = (o: any): o is CreateGroupOutput => __isa(o, "CreateGroupOutput");
 }
 
 export interface DeleteGroupInput {
   __type?: "DeleteGroupInput";
   /**
-   * <p>The name of the resource group to delete.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  GroupName: string | undefined;
+  GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to delete.</p>
+   */
+  Group?: string;
 }
 
 export namespace DeleteGroupInput {
   export const filterSensitiveLog = (obj: DeleteGroupInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupInput =>
-    __isa(o, "DeleteGroupInput");
+  export const isa = (o: any): o is DeleteGroupInput => __isa(o, "DeleteGroupInput");
 }
 
 export interface DeleteGroupOutput {
@@ -111,14 +137,41 @@ export interface DeleteGroupOutput {
 
 export namespace DeleteGroupOutput {
   export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupOutput =>
-    __isa(o, "DeleteGroupOutput");
+  export const isa = (o: any): o is DeleteGroupOutput => __isa(o, "DeleteGroupOutput");
 }
 
 /**
- * <p>The caller is not authorized to make the request.</p>
+ * <p>A resource that failed to be added to or removed from a group.</p>
+ */
+export interface FailedResource {
+  __type?: "FailedResource";
+  /**
+   * <p>The error code associated with the failure.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message text associated with the failure.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The ARN of the resource that failed to be added or removed.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace FailedResource {
+  export const filterSensitiveLog = (obj: FailedResource): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is FailedResource => __isa(o, "FailedResource");
+}
+
+/**
+ * <p>The caller isn't authorized to make the request. Check permissions.</p>
  */
 export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
@@ -128,23 +181,57 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 
 export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
+}
+
+export interface GetGroupConfigurationInput {
+  __type?: "GetGroupConfigurationInput";
+  /**
+   * <p>The name or the ARN of the resource group.</p>
+   */
+  Group?: string;
+}
+
+export namespace GetGroupConfigurationInput {
+  export const filterSensitiveLog = (obj: GetGroupConfigurationInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetGroupConfigurationInput => __isa(o, "GetGroupConfigurationInput");
+}
+
+export interface GetGroupConfigurationOutput {
+  __type?: "GetGroupConfigurationOutput";
+  /**
+   * <p>The configuration associated with the specified group.</p>
+   */
+  GroupConfiguration?: GroupConfiguration;
+}
+
+export namespace GetGroupConfigurationOutput {
+  export const filterSensitiveLog = (obj: GetGroupConfigurationOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GetGroupConfigurationOutput => __isa(o, "GetGroupConfigurationOutput");
 }
 
 export interface GetGroupInput {
   __type?: "GetGroupInput";
   /**
-   * <p>The name of the resource group.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  GroupName: string | undefined;
+  GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to retrieve.</p>
+   */
+  Group?: string;
 }
 
 export namespace GetGroupInput {
   export const filterSensitiveLog = (obj: GetGroupInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetGroupInput => __isa(o, "GetGroupInput");
 }
@@ -159,26 +246,29 @@ export interface GetGroupOutput {
 
 export namespace GetGroupOutput {
   export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupOutput =>
-    __isa(o, "GetGroupOutput");
+  export const isa = (o: any): o is GetGroupOutput => __isa(o, "GetGroupOutput");
 }
 
 export interface GetGroupQueryInput {
   __type?: "GetGroupQueryInput";
   /**
-   * <p>The name of the resource group.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  GroupName: string | undefined;
+  GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to query.</p>
+   */
+  Group?: string;
 }
 
 export namespace GetGroupQueryInput {
   export const filterSensitiveLog = (obj: GetGroupQueryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupQueryInput =>
-    __isa(o, "GetGroupQueryInput");
+  export const isa = (o: any): o is GetGroupQueryInput => __isa(o, "GetGroupQueryInput");
 }
 
 export interface GetGroupQueryOutput {
@@ -191,23 +281,22 @@ export interface GetGroupQueryOutput {
 
 export namespace GetGroupQueryOutput {
   export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GetGroupQueryOutput =>
-    __isa(o, "GetGroupQueryOutput");
+  export const isa = (o: any): o is GetGroupQueryOutput => __isa(o, "GetGroupQueryOutput");
 }
 
 export interface GetTagsInput {
   __type?: "GetTagsInput";
   /**
-   * <p>The ARN of the resource group for which you want a list of tags. The resource must exist within the account you are using.</p>
+   * <p>The ARN of the resource group whose tags you want to retrieve.</p>
    */
   Arn: string | undefined;
 }
 
 export namespace GetTagsInput {
   export const filterSensitiveLog = (obj: GetTagsInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetTagsInput => __isa(o, "GetTagsInput");
 }
@@ -227,41 +316,200 @@ export interface GetTagsOutput {
 
 export namespace GetTagsOutput {
   export const filterSensitiveLog = (obj: GetTagsOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GetTagsOutput => __isa(o, "GetTagsOutput");
 }
 
 /**
- * <p>A resource group.</p>
+ * <p>A resource group that contains AWS resources. You can assign resources to the group by
+ *             associating either of the following elements with the group:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <a>ResourceQuery</a> - Use a resource query to specify a set of tag
+ *                     keys and values. All resources in the same AWS Region and AWS account that have
+ *                     those keys with the same values are included in the group. You can add a
+ *                     resource query when you create the
+ *                     group.</p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <a>GroupConfiguration</a> - Use a service configuration to
+ *                     associate the group with an AWS service. The configuration specifies which
+ *                     resource types can be included in the group.</p>
+ *             </li>
+ *          </ul>
  */
 export interface Group {
   __type?: "Group";
   /**
-   * <p>The description of the resource group.</p>
+   * <p>The name of the resource group.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 
   /**
-   * <p>The ARN of a resource group.</p>
+   * <p>The ARN of the resource group.</p>
    */
   GroupArn: string | undefined;
 
   /**
-   * <p>The name of a resource group.</p>
+   * <p>The description of the resource group.</p>
    */
-  Name: string | undefined;
+  Description?: string;
 }
 
 export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
 /**
- * <p>A filter name and value pair that is used to obtain more specific results from a list of groups.</p>
+ * <p>A service configuration associated with a resource group. The configuration options
+ *             are determined by the AWS service that defines the <code>Type</code>, and specifies
+ *             which resources can be included in the group. You can add a service configuration when
+ *             you create the
+ *             group.</p>
+ */
+export interface GroupConfiguration {
+  __type?: "GroupConfiguration";
+  /**
+   * <p>The current status of an attempt to update the group configuration.</p>
+   */
+  Status?: GroupConfigurationStatus | string;
+
+  /**
+   * <p>If present, the new configuration that is in the process of being applied to the
+   *             group.</p>
+   */
+  ProposedConfiguration?: GroupConfigurationItem[];
+
+  /**
+   * <p>If present, the reason why a request to update the group configuration failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The configuration currently associated with the group and in effect.</p>
+   */
+  Configuration?: GroupConfigurationItem[];
+}
+
+export namespace GroupConfiguration {
+  export const filterSensitiveLog = (obj: GroupConfiguration): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GroupConfiguration => __isa(o, "GroupConfiguration");
+}
+
+/**
+ * <p>An item in a group configuration. A group configuration can have one or more
+ *             items.</p>
+ */
+export interface GroupConfigurationItem {
+  __type?: "GroupConfigurationItem";
+  /**
+   * <p>Specifies the type of group configuration item. Each item must have a unique value for
+   *                 <code>type</code>.</p>
+   *         <p>You can specify the following string values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS::EC2::CapacityReservationPool</code>
+   *                </p>
+   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
+   *                         Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS::ResourceGroups::Generic</code> - Supports parameters that configure
+   *                     the behavior of resource groups of any type.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>A collection of parameters for this group configuration item.</p>
+   */
+  Parameters?: GroupConfigurationParameter[];
+}
+
+export namespace GroupConfigurationItem {
+  export const filterSensitiveLog = (obj: GroupConfigurationItem): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GroupConfigurationItem => __isa(o, "GroupConfigurationItem");
+}
+
+/**
+ * <p>A parameter for a group configuration item.</p>
+ */
+export interface GroupConfigurationParameter {
+  __type?: "GroupConfigurationParameter";
+  /**
+   * <p>The name of the group configuration parameter.</p>
+   *         <p>You can specify the following string values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For configuration item type <code>AWS::ResourceGroups::Generic</code>:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>allowed-resource-types</code>
+   *                      </p>
+   *                         <p>Specifies the types of resources that you can add to this group by
+   *                             using the <a>GroupResources</a> operation.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>For configuration item type
+   *                     <code>AWS::EC2::CapacityReservationPool</code>:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>None - This configuration item type doesn't support any
+   *                             parameters.</p>
+   *                     </li>
+   *                </ul>
+   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
+   *                         Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values of for this parameter.</p>
+   *         <p>You can specify the following string value:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For item type <code>allowed-resource-types</code>: the only supported
+   *                     parameter value is <code>AWS::EC2::CapacityReservation</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Values?: string[];
+}
+
+export namespace GroupConfigurationParameter {
+  export const filterSensitiveLog = (obj: GroupConfigurationParameter): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GroupConfigurationParameter => __isa(o, "GroupConfigurationParameter");
+}
+
+export enum GroupConfigurationStatus {
+  UPDATE_COMPLETE = "UPDATE_COMPLETE",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>A filter collection that you can use to restrict the results from a <code>List</code>
+ *             operation to only those you want to include.</p>
  */
 export interface GroupFilter {
   __type?: "GroupFilter";
@@ -271,221 +519,328 @@ export interface GroupFilter {
   Name: GroupFilterName | string | undefined;
 
   /**
-   * <p>One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.</p>
+   * <p>One or more filter values. Allowed filter values vary by group filter name, and are
+   *             case-sensitive.</p>
    */
   Values: string[] | undefined;
 }
 
 export namespace GroupFilter {
   export const filterSensitiveLog = (obj: GroupFilter): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GroupFilter => __isa(o, "GroupFilter");
 }
 
 export enum GroupFilterName {
-  ResourceType = "resource-type"
+  ConfigurationType = "configuration-type",
+  ResourceType = "resource-type",
 }
 
 /**
- * <p>The ARN and group name of a group.</p>
+ * <p>The unique identifiers for a resource group.</p>
  */
 export interface GroupIdentifier {
   __type?: "GroupIdentifier";
   /**
-   * <p>The ARN of a resource group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * <p>The name of a resource group.</p>
+   * <p>The name of the resource group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The ARN of the resource group.</p>
+   */
+  GroupArn?: string;
 }
 
 export namespace GroupIdentifier {
   export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is GroupIdentifier =>
-    __isa(o, "GroupIdentifier");
+  export const isa = (o: any): o is GroupIdentifier => __isa(o, "GroupIdentifier");
 }
 
 /**
- * <p>The underlying resource query of a resource group. Resources that match query results are part of the group.</p>
+ * <p>A mapping of a query attached to a resource group that determines the AWS resources
+ *             that are members of the group.</p>
  */
 export interface GroupQuery {
   __type?: "GroupQuery";
   /**
-   * <p>The name of a resource group that is associated with a specific resource query.</p>
+   * <p>The name of the resource group that is associated with the specified resource
+   *             query.</p>
    */
   GroupName: string | undefined;
 
   /**
-   * <p>The resource query which determines which AWS resources are members of the associated resource group.</p>
+   * <p>The resource query that determines which AWS resources are members of the associated
+   *             resource group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 }
 
 export namespace GroupQuery {
   export const filterSensitiveLog = (obj: GroupQuery): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is GroupQuery => __isa(o, "GroupQuery");
 }
 
+export interface GroupResourcesInput {
+  __type?: "GroupResourcesInput";
+  /**
+   * <p>The name or the ARN of the resource group to add resources to.</p>
+   */
+  Group: string | undefined;
+
+  /**
+   * <p>The list of ARNs for resources to be added to the group. </p>
+   */
+  ResourceArns: string[] | undefined;
+}
+
+export namespace GroupResourcesInput {
+  export const filterSensitiveLog = (obj: GroupResourcesInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GroupResourcesInput => __isa(o, "GroupResourcesInput");
+}
+
+export interface GroupResourcesOutput {
+  __type?: "GroupResourcesOutput";
+  /**
+   * <p>The ARNs of the resources that were successfully added to the group by this
+   *             operation.</p>
+   */
+  Succeeded?: string[];
+
+  /**
+   * <p>The ARNs of the resources that failed to be added to the group by this
+   *             operation.</p>
+   */
+  Failed?: FailedResource[];
+}
+
+export namespace GroupResourcesOutput {
+  export const filterSensitiveLog = (obj: GroupResourcesOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is GroupResourcesOutput => __isa(o, "GroupResourcesOutput");
+}
+
 /**
- * <p>An internal error occurred while processing the request.</p>
+ * <p>An internal error occurred while processing the request. Try again later.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (
-    obj: InternalServerErrorException
-  ): any => ({
-    ...obj
+  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
+    ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListGroupResourcesInput {
   __type?: "ListGroupResourcesInput";
   /**
-   * <p>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation.</p>
-   *          <ul>
+   * <p>The name or the ARN of the resource group</p>
+   */
+  Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
+   *             to a <code>ListGroupResources</code> operation. Filters the results to include only
+   *             those of the specified resource types.</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - Filter resources by their type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>
+   *                 <p>
+   *                   <code>resource-type</code> - Filter resources by their type. Specify up to
+   *                     five resource types in the format <code>AWS::ServiceCode::ResourceType</code>.
+   *                     For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.
+   *                 </p>
    *             </li>
    *          </ul>
+   *         <p>When you specify a <code>resource-type</code> filter for
+   *                 <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource
+   *             types against the types that are defined in the query associated with the group. For
+   *             example, if a group contains only S3 buckets because its query specifies only that
+   *             resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS
+   *             Resource Groups does not filter for EC2 instances. In this case, a
+   *                 <code>ListGroupResources</code> request returns a <code>BadRequestException</code>
+   *             error with a message similar to the following:</p>
+   *         <p>
+   *             <code>The resource types specified as filters in the request are not
+   *             valid.</code>
+   *          </p>
+   *         <p>The error includes a list of resource types that failed the validation because they
+   *             are not part of the query associated with the group. This validation doesn't occur when
+   *             the group query specifies <code>AWS::AllSupported</code>, because a group based on such
+   *             a query can contain any of the allowed resource types for the query type (tag-based or
+   *             AWS CloudFormation stack-based queries).</p>
    */
   Filters?: ResourceFilter[];
 
   /**
-   * <p>The name of the resource group.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The maximum number of group member ARNs that are returned in a single call by ListGroupResources, in paginated output. By default, this number is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The NextToken value that is returned in a paginated ListGroupResources request. To get the next page of results,
-   *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value provided by a previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that the service might return fewer results than the maximum even when there
+   *     are more results available. You should check <code>NextToken</code> after every operation to
+   *     ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListGroupResourcesInput {
   export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupResourcesInput =>
-    __isa(o, "ListGroupResourcesInput");
+  export const isa = (o: any): o is ListGroupResourcesInput => __isa(o, "ListGroupResourcesInput");
 }
 
 export interface ListGroupResourcesOutput {
   __type?: "ListGroupResourcesOutput";
   /**
-   * <p>The NextToken value to include in a subsequent <code>ListGroupResources</code> request, to get more results.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
   /**
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
-   *        <code>ErrorCode</code> and <code>Message</code> structures. Possible values
-   *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
+   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   QueryErrors?: QueryError[];
 
   /**
-   * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
    */
   ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace ListGroupResourcesOutput {
   export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupResourcesOutput =>
-    __isa(o, "ListGroupResourcesOutput");
+  export const isa = (o: any): o is ListGroupResourcesOutput => __isa(o, "ListGroupResourcesOutput");
 }
 
 export interface ListGroupsInput {
   __type?: "ListGroupsInput";
   /**
-   * <p>Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups operation.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - Filter groups by resource type. Specify up to five resource types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or AWS::S3::Bucket.</p>
-   *             </li>
-   *          </ul>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value provided by a previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
-  Filters?: GroupFilter[];
+  NextToken?: string;
 
   /**
-   * <p>The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that the service might return fewer results than the maximum even when there
+   *     are more results available. You should check <code>NextToken</code> after every operation to
+   *     ensure that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The NextToken value that is returned in a paginated <code>ListGroups</code> request. To get the next page of results,
-   *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
+   * <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to
+   *             a <code>ListGroups</code> operation.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-type</code> - Filter the results to include only those of the
+   *                     specified resource types. Specify up to five resource types in the format
+   *                             <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i>
+   *                   </code>.
+   *                     For example, <code>AWS::EC2::Instance</code>, or
+   *                     <code>AWS::S3::Bucket</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>configuration-type</code> - Filter the results to include only those
+   *                     groups that have the specified configuration types attached. The current
+   *                     supported values are:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>AWS:EC2::CapacityReservationPool</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
-  NextToken?: string;
+  Filters?: GroupFilter[];
 }
 
 export namespace ListGroupsInput {
   export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsInput =>
-    __isa(o, "ListGroupsInput");
+  export const isa = (o: any): o is ListGroupsInput => __isa(o, "ListGroupsInput");
 }
 
 export interface ListGroupsOutput {
   __type?: "ListGroupsOutput";
   /**
-   * <p>A list of GroupIdentifier objects. Each identifier is an object that contains both the GroupName and the GroupArn.</p>
+   * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
+   *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
    */
   GroupIdentifiers?: GroupIdentifier[];
 
   /**
-   * <p>A list of resource groups.</p>
-   */
-  Groups?: Group[];
-
-  /**
-   * <p>The NextToken value to include in a subsequent <code>ListGroups</code> request, to get more results.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>This output element is deprecated and shouldn't be used. Refer to
+   *                 <code>GroupIdentifiers</code> instead.</p>
+   */
+  Groups?: Group[];
 }
 
 export namespace ListGroupsOutput {
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ListGroupsOutput =>
-    __isa(o, "ListGroupsOutput");
+  export const isa = (o: any): o is ListGroupsOutput => __isa(o, "ListGroupsOutput");
 }
 
 /**
- * <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
+ * <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
  */
-export interface MethodNotAllowedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MethodNotAllowedException extends __SmithyException, $MetadataBearer {
   name: "MethodNotAllowedException";
   $fault: "client";
   Message?: string;
@@ -493,14 +848,13 @@ export interface MethodNotAllowedException
 
 export namespace MethodNotAllowedException {
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is MethodNotAllowedException =>
-    __isa(o, "MethodNotAllowedException");
+  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
- * <p>One or more resources specified in the request do not exist.</p>
+ * <p>One or more of the specified resources don't exist.</p>
  */
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
@@ -510,56 +864,57 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 
 export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
- *        <code>SearchResources</code> operations on CloudFormation stack-based queries. The error
- *        occurs if the CloudFormation stack on which the query is based either does not exist, or
- *        has a status that renders the stack inactive. A <code>QueryError</code> occurrence does
- *        not necessarily mean that AWS Resource Groups could not complete the operation, but the
- *        resulting group might have no member resources.</p>
+ *                 <code>SearchResources</code> operations on CloudFormation stack-based queries. The
+ *             error occurs if the CloudFormation stack on which the query is based either does not
+ *             exist, or has a status that renders the stack inactive. A <code>QueryError</code>
+ *             occurrence does not necessarily mean that AWS Resource Groups could not complete the
+ *             operation, but the resulting group might have no member resources.</p>
  */
 export interface QueryError {
   __type?: "QueryError";
   /**
-   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
-   */
-  ErrorCode?: QueryErrorCode | string;
-
-  /**
-   * <p>A message that explains the <code>ErrorCode</code> value. Messages might state
-   *        that the specified CloudFormation stack does not exist (or no longer exists).
-   *        For <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
-   *        CloudFormation stack has a status that is not (or no longer) active, such as
-   *        <code>CREATE_FAILED</code>.</p>
+   * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
+   *             the specified CloudFormation stack does not exist (or no longer exists). For
+   *                 <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
+   *             CloudFormation stack has a status that is not (or no longer) active, such as
+   *                 <code>CREATE_FAILED</code>.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Possible values are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   */
+  ErrorCode?: QueryErrorCode | string;
 }
 
 export namespace QueryError {
   export const filterSensitiveLog = (obj: QueryError): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is QueryError => __isa(o, "QueryError");
 }
 
 export enum QueryErrorCode {
   CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING"
+  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
 }
 
 export enum QueryType {
   CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0"
+  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0",
 }
 
 /**
- * <p>A filter name and value pair that is used to obtain more specific results from a list of resources.</p>
+ * <p>A filter name and value pair that is used to obtain more specific results from a list
+ *             of resources.</p>
  */
 export interface ResourceFilter {
   __type?: "ResourceFilter";
@@ -569,21 +924,21 @@ export interface ResourceFilter {
   Name: ResourceFilterName | string | undefined;
 
   /**
-   * <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.</p>
+   * <p>One or more filter values. Allowed filter values vary by resource filter name, and are
+   *             case-sensitive.</p>
    */
   Values: string[] | undefined;
 }
 
 export namespace ResourceFilter {
   export const filterSensitiveLog = (obj: ResourceFilter): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceFilter =>
-    __isa(o, "ResourceFilter");
+  export const isa = (o: any): o is ResourceFilter => __isa(o, "ResourceFilter");
 }
 
 export enum ResourceFilterName {
-  ResourceType = "resource-type"
+  ResourceType = "resource-type",
 }
 
 /**
@@ -592,22 +947,21 @@ export enum ResourceFilterName {
 export interface ResourceIdentifier {
   __type?: "ResourceIdentifier";
   /**
-   * <p>The ARN of a resource.</p>
-   */
-  ResourceArn?: string;
-
-  /**
    * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>The ARN of a resource.</p>
+   */
+  ResourceArn?: string;
 }
 
 export namespace ResourceIdentifier {
   export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is ResourceIdentifier =>
-    __isa(o, "ResourceIdentifier");
+  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
@@ -621,47 +975,77 @@ export interface ResourceQuery {
   Query: string | undefined;
 
   /**
-   * <p>The type of the query. The valid values in this release are <code>TAG_FILTERS_1_0</code> and <code>CLOUDFORMATION_STACK_1_0</code>.</p>
-   *          <p>
-   *             <i>
-   *                <code>TAG_FILTERS_1_0:</code>
-   *             </i> A JSON syntax that lets you specify a collection of simple tag filters for resource types and tags,
-   *        as supported by the AWS Tagging API <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a> operation.
-   *        If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you
-   *        specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches <i>any</i> of the specified values.</p>
-   *          <p>For example, consider the following sample query for resources that have two tags, <code>Stage</code> and <code>Version</code>, with two values each.
-   *        (<code>[{"Key":"Stage","Values":["Test","Deploy"]},{"Key":"Version","Values":["1","2"]}]</code>) The results of this query might include the following.</p>
-   *          <ul>
+   * <p>The type of the query. You can use the following values:</p>
+   *         <ul>
    *             <li>
-   *                <p>An EC2 instance that has the following two tags: <code>{"Key":"Stage","Value":"Deploy"}</code>, and <code>{"Key":"Version","Value":"2"}</code>
-   *                </p>
+   *                 <p>
+   *                   <i>
+   *                      <code>CLOUDFORMATION_STACK_1_0:</code>
+   *                   </i> A JSON syntax that
+   *                     lets you specify a CloudFormation stack ARN.</p>
    *             </li>
    *             <li>
-   *                <p>An S3 bucket that has the following two tags: {"Key":"Stage","Value":"Test"}, and {"Key":"Version","Value":"1"}</p>
+   *                 <p>
+   *                   <i>
+   *                      <code>TAG_FILTERS_1_0:</code>
+   *                   </i> A JSON syntax that lets you
+   *                     specify a collection of simple tag filters for resource types and tags, as
+   *                     supported by the AWS Tagging API <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters">
+   *                      <code>ResourceTypeFilters</code> parameter of the
+   *                             <code>tagging:GetResources</code>
+   *                   </a> operation. If you specify more
+   *                     than one tag key, only resources that match all tag keys, and at least one value
+   *                     of each specified tag key, are returned in your query. If you specify more than
+   *                     one value for a tag key, a resource matches the filter if it has a tag key value
+   *                     that matches <i>any</i> of the specified values.</p>
+   *                 <p>For example, consider the following sample query for resources that have two
+   *                     tags, <code>Stage</code> and <code>Version</code>, with two values each:</p>
+   *                 <p>
+   *                   <code>[{"Key":"Stage","Values":["Test","Deploy"]},{"Key":"Version","Values":["1","2"]}]</code>
+   *                </p>
+   *                 <p>The results of this query could include the following.</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>An EC2 instance that has the following two tags:
+   *                                 <code>{"Key":"Stage","Value":"Deploy"}</code>, and
+   *                                 <code>{"Key":"Version","Value":"2"}</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>An S3 bucket that has the following two tags:
+   *                                 <code>{"Key":"Stage","Value":"Test"}</code>, and
+   *                                 <code>{"Key":"Version","Value":"1"}</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
+   *                 <p>The query would not include the following items in the results, however. </p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>An EC2 instance that has only the following tag:
+   *                                 <code>{"Key":"Stage","Value":"Deploy"}</code>.</p>
+   *                         <p>The instance does not have <b>all</b> of the
+   *                             tag keys specified in the filter, so it is excluded from the
+   *                             results.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>An RDS database that has the following two tags:
+   *                                 <code>{"Key":"Stage","Value":"Archived"}</code>, and
+   *                                 <code>{"Key":"Version","Value":"4"}</code>
+   *                      </p>
+   *                         <p>The database has all of the tag keys, but none of those keys has an
+   *                             associated value that matches at least one of the specified values in
+   *                             the filter.</p>
+   *                     </li>
+   *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The query would not return the following results, however. The following EC2 instance does not have all tag keys specified in the filter, so it is rejected.
-   *        The RDS database has all of the tag keys, but no values that match at least one of the specified tag key values in the filter.</p>
-   *          <ul>
-   *             <li>
-   *                <p>An EC2 instance that has only the following tag: <code>{"Key":"Stage","Value":"Deploy"}</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>An RDS database that has the following two tags: <code>{"Key":"Stage","Value":"Archived"}</code>, and <code>{"Key":"Version","Value":"4"}</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <i>
-   *                <code>CLOUDFORMATION_STACK_1_0:</code>
-   *             </i> A JSON syntax that lets you specify a CloudFormation stack ARN.</p>
    */
   Type: QueryType | string | undefined;
 }
 
 export namespace ResourceQuery {
   export const filterSensitiveLog = (obj: ResourceQuery): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is ResourceQuery => __isa(o, "ResourceQuery");
 }
@@ -669,76 +1053,88 @@ export namespace ResourceQuery {
 export interface SearchResourcesInput {
   __type?: "SearchResourcesInput";
   /**
-   * <p>The maximum number of group member ARNs returned by <code>SearchResources</code> in paginated output. By default, this number is 50.</p>
+   * <p>The search query, using the same formats that are supported for resource group
+   *             definition. For more information, see <a>CreateGroup</a>.</p>
+   */
+  ResourceQuery: ResourceQuery | undefined;
+
+  /**
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that the service might return fewer results than the maximum even when there
+   *     are more results available. You should check <code>NextToken</code> after every operation to
+   *     ensure that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The NextToken value that is returned in a paginated <code>SearchResources</code> request. To get the next page of results,
-   *        run the call again, add the NextToken parameter, and specify the NextToken value.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value provided by a previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The search query, using the same formats that are supported for resource group definition.</p>
-   */
-  ResourceQuery: ResourceQuery | undefined;
 }
 
 export namespace SearchResourcesInput {
   export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchResourcesInput =>
-    __isa(o, "SearchResourcesInput");
+  export const isa = (o: any): o is SearchResourcesInput => __isa(o, "SearchResourcesInput");
 }
 
 export interface SearchResourcesOutput {
   __type?: "SearchResourcesOutput";
   /**
-   * <p>The NextToken value to include in a subsequent <code>SearchResources</code> request, to get more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of <code>QueryError</code> objects. Each error is an object that
-   *        contains <code>ErrorCode</code> and <code>Message</code> structures. Possible values
-   *        for <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
-   *        <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
+   * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
+   *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
+   *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
+   *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   QueryErrors?: QueryError[];
 
   /**
-   * <p>The ARNs and resource types of resources that are members of the group that you specified.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
    */
   ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace SearchResourcesOutput {
   export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is SearchResourcesOutput =>
-    __isa(o, "SearchResourcesOutput");
+  export const isa = (o: any): o is SearchResourcesOutput => __isa(o, "SearchResourcesOutput");
 }
 
 export interface TagInput {
   __type?: "TagInput";
   /**
-   * <p>The ARN of the resource to which to add tags.</p>
+   * <p>The ARN of the resource group to which to add tags.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p>The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters,
-   *        and tag values can have a maximum length of 256 characters.</p>
+   * <p>The tags to add to the specified resource group. A tag is a string-to-string map of
+   *             key-value pairs.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagInput {
   export const filterSensitiveLog = (obj: TagInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TagInput => __isa(o, "TagInput");
 }
@@ -751,24 +1147,23 @@ export interface TagOutput {
   Arn?: string;
 
   /**
-   * <p>The tags that have been added to the specified resource.</p>
+   * <p>The tags that have been added to the specified resource group.</p>
    */
   Tags?: { [key: string]: string };
 }
 
 export namespace TagOutput {
   export const filterSensitiveLog = (obj: TagOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is TagOutput => __isa(o, "TagOutput");
 }
 
 /**
- * <p>The caller has exceeded throttling limits.</p>
+ * <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -776,18 +1171,16 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
- * <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
+ * <p>The request was rejected because it doesn't have valid credentials for the target
+ *             resource.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
@@ -795,28 +1188,68 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
+}
+
+export interface UngroupResourcesInput {
+  __type?: "UngroupResourcesInput";
+  /**
+   * <p>The ARNs of the resources to be removed from the group.</p>
+   */
+  ResourceArns: string[] | undefined;
+
+  /**
+   * <p>The name or the ARN of the resource group from which to remove the resources.</p>
+   */
+  Group: string | undefined;
+}
+
+export namespace UngroupResourcesInput {
+  export const filterSensitiveLog = (obj: UngroupResourcesInput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UngroupResourcesInput => __isa(o, "UngroupResourcesInput");
+}
+
+export interface UngroupResourcesOutput {
+  __type?: "UngroupResourcesOutput";
+  /**
+   * <p>The resources that failed to be removed from the group.</p>
+   */
+  Failed?: FailedResource[];
+
+  /**
+   * <p>The ARNs of the resources that were successfully removed from the group.</p>
+   */
+  Succeeded?: string[];
+}
+
+export namespace UngroupResourcesOutput {
+  export const filterSensitiveLog = (obj: UngroupResourcesOutput): any => ({
+    ...obj,
+  });
+  export const isa = (o: any): o is UngroupResourcesOutput => __isa(o, "UngroupResourcesOutput");
 }
 
 export interface UntagInput {
   __type?: "UntagInput";
   /**
-   * <p>The ARN of the resource from which to remove tags.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The keys of the tags to be removed.</p>
    */
   Keys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource group from which to remove tags. The command removed both the
+   *             specified keys and any values associated with those keys.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace UntagInput {
   export const filterSensitiveLog = (obj: UntagInput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UntagInput => __isa(o, "UntagInput");
 }
@@ -824,19 +1257,19 @@ export namespace UntagInput {
 export interface UntagOutput {
   __type?: "UntagOutput";
   /**
-   * <p>The ARN of the resource from which tags have been removed.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The keys of tags that have been removed.</p>
+   * <p>The keys of the tags that were removed.</p>
    */
   Keys?: string[];
+
+  /**
+   * <p>The ARN of the resource group from which tags have been removed.</p>
+   */
+  Arn?: string;
 }
 
 export namespace UntagOutput {
   export const filterSensitiveLog = (obj: UntagOutput): any => ({
-    ...obj
+    ...obj,
   });
   export const isa = (o: any): o is UntagOutput => __isa(o, "UntagOutput");
 }
@@ -844,74 +1277,81 @@ export namespace UntagOutput {
 export interface UpdateGroupInput {
   __type?: "UpdateGroupInput";
   /**
-   * <p>The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores,
-   *        punctuation, and spaces.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The new description that you want to update the resource group with. Descriptions can
+   *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
    */
   Description?: string;
 
   /**
-   * <p>The name of the resource group for which you want to update its description.</p>
+   * <p>The name or the ARN of the resource group to modify.</p>
    */
-  GroupName: string | undefined;
+  Group?: string;
 }
 
 export namespace UpdateGroupInput {
   export const filterSensitiveLog = (obj: UpdateGroupInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupInput =>
-    __isa(o, "UpdateGroupInput");
+  export const isa = (o: any): o is UpdateGroupInput => __isa(o, "UpdateGroupInput");
 }
 
 export interface UpdateGroupOutput {
   __type?: "UpdateGroupOutput";
   /**
-   * <p>The full description of the resource group after it has been updated.</p>
+   * <p>The update description of the resource group.</p>
    */
   Group?: Group;
 }
 
 export namespace UpdateGroupOutput {
   export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupOutput =>
-    __isa(o, "UpdateGroupOutput");
+  export const isa = (o: any): o is UpdateGroupOutput => __isa(o, "UpdateGroupOutput");
 }
 
 export interface UpdateGroupQueryInput {
   __type?: "UpdateGroupQueryInput";
   /**
-   * <p>The name of the resource group for which you want to edit the query.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The resource query that determines which AWS resources are members of the resource group.</p>
+   * <p>The resource query to determine which AWS resources are members of this resource
+   *             group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The name or the ARN of the resource group to query.</p>
+   */
+  Group?: string;
 }
 
 export namespace UpdateGroupQueryInput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupQueryInput =>
-    __isa(o, "UpdateGroupQueryInput");
+  export const isa = (o: any): o is UpdateGroupQueryInput => __isa(o, "UpdateGroupQueryInput");
 }
 
 export interface UpdateGroupQueryOutput {
   __type?: "UpdateGroupQueryOutput";
   /**
-   * <p>The resource query associated with the resource group after the update.</p>
+   * <p>The updated resource query associated with the resource group after the update.</p>
    */
   GroupQuery?: GroupQuery;
 }
 
 export namespace UpdateGroupQueryOutput {
   export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
-    ...obj
+    ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupQueryOutput =>
-    __isa(o, "UpdateGroupQueryOutput");
+  export const isa = (o: any): o is UpdateGroupQueryOutput => __isa(o, "UpdateGroupQueryOutput");
 }

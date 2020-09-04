@@ -7,10 +7,7 @@ import { Stringable } from "./stringable.ts";
 export class XmlNode {
   private attributes: { [name: string]: any } = {};
 
-  constructor(
-    private name: string,
-    public readonly children: Stringable[] = []
-  ) {}
+  constructor(private name: string, public readonly children: Stringable[] = []) {}
 
   withName(name: string): XmlNode {
     this.name = name;
@@ -37,15 +34,13 @@ export class XmlNode {
     let xmlText = `<${this.name}`;
     // add attributes
     const attributes = this.attributes;
-    for (let attributeName of Object.keys(attributes)) {
-      let attribute = attributes[attributeName];
+    for (const attributeName of Object.keys(attributes)) {
+      const attribute = attributes[attributeName];
       if (typeof attribute !== "undefined" && attribute !== null) {
         xmlText += ` ${attributeName}="${escapeAttribute("" + attribute)}"`;
       }
     }
 
-    return (xmlText += !hasChildren
-      ? "/>"
-      : `>${this.children.map(c => c.toString()).join("")}</${this.name}>`);
+    return (xmlText += !hasChildren ? "/>" : `>${this.children.map((c) => c.toString()).join("")}</${this.name}>`);
   }
 }

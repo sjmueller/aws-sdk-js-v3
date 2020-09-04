@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  UpdateMLTransformRequest,
-  UpdateMLTransformResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { UpdateMLTransformRequest, UpdateMLTransformResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateMLTransformCommand,
-  serializeAws_json1_1UpdateMLTransformCommand
+  serializeAws_json1_1UpdateMLTransformCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateMLTransformCommandInput = UpdateMLTransformRequest;
-export type UpdateMLTransformCommandOutput = UpdateMLTransformResponse &
-  __MetadataBearer;
+export type UpdateMLTransformCommandOutput = UpdateMLTransformResponse & __MetadataBearer;
 
 export class UpdateMLTransformCommand extends $Command<
   UpdateMLTransformCommandInput,
@@ -50,14 +39,15 @@ export class UpdateMLTransformCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMLTransformCommandInput, UpdateMLTransformCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateMLTransformRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMLTransformResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class UpdateMLTransformCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateMLTransformCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMLTransformCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateMLTransformCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLTransformCommandOutput> {
     return deserializeAws_json1_1UpdateMLTransformCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient.ts";
-import {
-  MissionProfileIdResponse,
-  UpdateMissionProfileRequest
-} from "../models/index.ts";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
+import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/index.ts";
 import {
   deserializeAws_restJson1UpdateMissionProfileCommand,
-  serializeAws_restJson1UpdateMissionProfileCommand
+  serializeAws_restJson1UpdateMissionProfileCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type UpdateMissionProfileCommandInput = UpdateMissionProfileRequest;
-export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse &
-  __MetadataBearer;
+export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
 export class UpdateMissionProfileCommand extends $Command<
   UpdateMissionProfileCommandInput,
@@ -49,18 +38,16 @@ export class UpdateMissionProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMissionProfileCommandInput,
-    UpdateMissionProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMissionProfileCommandInput, UpdateMissionProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: UpdateMissionProfileRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: MissionProfileIdResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class UpdateMissionProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateMissionProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1UpdateMissionProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateMissionProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMissionProfileCommandOutput> {
     return deserializeAws_restJson1UpdateMissionProfileCommand(output, context);
   }
 

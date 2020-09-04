@@ -1,21 +1,15 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectoryServiceClient.ts";
-import {
-  GetDirectoryLimitsRequest,
-  GetDirectoryLimitsResult
-} from "../models/index.ts";
+import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetDirectoryLimitsCommand,
-  serializeAws_json1_1GetDirectoryLimitsCommand
+  serializeAws_json1_1GetDirectoryLimitsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type GetDirectoryLimitsCommandInput = GetDirectoryLimitsRequest;
-export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult &
-  __MetadataBearer;
+export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult & __MetadataBearer;
 
 export class GetDirectoryLimitsCommand extends $Command<
   GetDirectoryLimitsCommandInput,
@@ -50,14 +43,15 @@ export class GetDirectoryLimitsCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: GetDirectoryLimitsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetDirectoryLimitsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +61,11 @@ export class GetDirectoryLimitsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDirectoryLimitsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDirectoryLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDirectoryLimitsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDirectoryLimitsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDirectoryLimitsCommandOutput> {
     return deserializeAws_json1_1GetDirectoryLimitsCommand(output, context);
   }
 

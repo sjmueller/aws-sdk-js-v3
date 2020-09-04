@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient.ts";
-import {
-  CancelPipelineReprocessingRequest,
-  CancelPipelineReprocessingResponse
-} from "../models/index.ts";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
+import { CancelPipelineReprocessingRequest, CancelPipelineReprocessingResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1CancelPipelineReprocessingCommand,
-  serializeAws_restJson1CancelPipelineReprocessingCommand
+  serializeAws_restJson1CancelPipelineReprocessingCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type CancelPipelineReprocessingCommandInput = CancelPipelineReprocessingRequest;
-export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse &
-  __MetadataBearer;
+export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse & __MetadataBearer;
 
 export class CancelPipelineReprocessingCommand extends $Command<
   CancelPipelineReprocessingCommandInput,
@@ -49,18 +38,16 @@ export class CancelPipelineReprocessingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelPipelineReprocessingCommandInput,
-    CancelPipelineReprocessingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelPipelineReprocessingCommandInput, CancelPipelineReprocessingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: CancelPipelineReprocessingRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CancelPipelineReprocessingResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class CancelPipelineReprocessingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelPipelineReprocessingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelPipelineReprocessingCommand(
-      input,
-      context
-    );
+  private serialize(input: CancelPipelineReprocessingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CancelPipelineReprocessingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1CancelPipelineReprocessingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1CancelPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

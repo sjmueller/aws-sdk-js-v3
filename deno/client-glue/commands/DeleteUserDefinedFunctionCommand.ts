@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient.ts";
-import {
-  DeleteUserDefinedFunctionRequest,
-  DeleteUserDefinedFunctionResponse
-} from "../models/index.ts";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
+import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteUserDefinedFunctionCommand,
-  serializeAws_json1_1DeleteUserDefinedFunctionCommand
+  serializeAws_json1_1DeleteUserDefinedFunctionCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteUserDefinedFunctionCommandInput = DeleteUserDefinedFunctionRequest;
-export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse &
-  __MetadataBearer;
+export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse & __MetadataBearer;
 
 export class DeleteUserDefinedFunctionCommand extends $Command<
   DeleteUserDefinedFunctionCommandInput,
@@ -49,18 +38,16 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteUserDefinedFunctionCommandInput,
-    DeleteUserDefinedFunctionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteUserDefinedFunctionCommandInput, DeleteUserDefinedFunctionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +57,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteUserDefinedFunctionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserDefinedFunctionCommand(input, context);
   }
 
@@ -81,10 +65,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

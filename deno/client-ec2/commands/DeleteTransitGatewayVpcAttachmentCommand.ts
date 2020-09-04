@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  DeleteTransitGatewayVpcAttachmentRequest,
-  DeleteTransitGatewayVpcAttachmentResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { DeleteTransitGatewayVpcAttachmentRequest, DeleteTransitGatewayVpcAttachmentResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand
+  serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DeleteTransitGatewayVpcAttachmentCommandInput = DeleteTransitGatewayVpcAttachmentRequest;
-export type DeleteTransitGatewayVpcAttachmentCommandOutput = DeleteTransitGatewayVpcAttachmentResult &
-  __MetadataBearer;
+export type DeleteTransitGatewayVpcAttachmentCommandOutput = DeleteTransitGatewayVpcAttachmentResult & __MetadataBearer;
 
 export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
   DeleteTransitGatewayVpcAttachmentCommandInput,
@@ -49,18 +38,16 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTransitGatewayVpcAttachmentCommandInput,
-    DeleteTransitGatewayVpcAttachmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTransitGatewayVpcAttachmentCommandInput, DeleteTransitGatewayVpcAttachmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +61,14 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     input: DeleteTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

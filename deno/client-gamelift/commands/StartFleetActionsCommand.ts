@@ -1,21 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient.ts";
-import {
-  StartFleetActionsInput,
-  StartFleetActionsOutput
-} from "../models/index.ts";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1StartFleetActionsCommand,
-  serializeAws_json1_1StartFleetActionsCommand
+  serializeAws_json1_1StartFleetActionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type StartFleetActionsCommandInput = StartFleetActionsInput;
-export type StartFleetActionsCommandOutput = StartFleetActionsOutput &
-  __MetadataBearer;
+export type StartFleetActionsCommandOutput = StartFleetActionsOutput & __MetadataBearer;
 
 export class StartFleetActionsCommand extends $Command<
   StartFleetActionsCommandInput,
@@ -50,14 +39,15 @@ export class StartFleetActionsCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartFleetActionsCommandInput, StartFleetActionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: StartFleetActionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: StartFleetActionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class StartFleetActionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartFleetActionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartFleetActionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartFleetActionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetActionsCommandOutput> {
     return deserializeAws_json1_1StartFleetActionsCommand(output, context);
   }
 

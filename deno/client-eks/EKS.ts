@@ -2,107 +2,107 @@ import { EKSClient } from "./EKSClient.ts";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand.ts";
 import {
   CreateFargateProfileCommand,
   CreateFargateProfileCommandInput,
-  CreateFargateProfileCommandOutput
+  CreateFargateProfileCommandOutput,
 } from "./commands/CreateFargateProfileCommand.ts";
 import {
   CreateNodegroupCommand,
   CreateNodegroupCommandInput,
-  CreateNodegroupCommandOutput
+  CreateNodegroupCommandOutput,
 } from "./commands/CreateNodegroupCommand.ts";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
+  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand.ts";
 import {
   DeleteFargateProfileCommand,
   DeleteFargateProfileCommandInput,
-  DeleteFargateProfileCommandOutput
+  DeleteFargateProfileCommandOutput,
 } from "./commands/DeleteFargateProfileCommand.ts";
 import {
   DeleteNodegroupCommand,
   DeleteNodegroupCommandInput,
-  DeleteNodegroupCommandOutput
+  DeleteNodegroupCommandOutput,
 } from "./commands/DeleteNodegroupCommand.ts";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
+  DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand.ts";
 import {
   DescribeFargateProfileCommand,
   DescribeFargateProfileCommandInput,
-  DescribeFargateProfileCommandOutput
+  DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand.ts";
 import {
   DescribeNodegroupCommand,
   DescribeNodegroupCommandInput,
-  DescribeNodegroupCommandOutput
+  DescribeNodegroupCommandOutput,
 } from "./commands/DescribeNodegroupCommand.ts";
 import {
   DescribeUpdateCommand,
   DescribeUpdateCommandInput,
-  DescribeUpdateCommandOutput
+  DescribeUpdateCommandOutput,
 } from "./commands/DescribeUpdateCommand.ts";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
-  ListClustersCommandOutput
+  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand.ts";
 import {
   ListFargateProfilesCommand,
   ListFargateProfilesCommandInput,
-  ListFargateProfilesCommandOutput
+  ListFargateProfilesCommandOutput,
 } from "./commands/ListFargateProfilesCommand.ts";
 import {
   ListNodegroupsCommand,
   ListNodegroupsCommandInput,
-  ListNodegroupsCommandOutput
+  ListNodegroupsCommandOutput,
 } from "./commands/ListNodegroupsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListUpdatesCommand,
   ListUpdatesCommandInput,
-  ListUpdatesCommandOutput
+  ListUpdatesCommandOutput,
 } from "./commands/ListUpdatesCommand.ts";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateClusterConfigCommand,
   UpdateClusterConfigCommandInput,
-  UpdateClusterConfigCommandOutput
+  UpdateClusterConfigCommandOutput,
 } from "./commands/UpdateClusterConfigCommand.ts";
 import {
   UpdateClusterVersionCommand,
   UpdateClusterVersionCommandInput,
-  UpdateClusterVersionCommandOutput
+  UpdateClusterVersionCommandOutput,
 } from "./commands/UpdateClusterVersionCommand.ts";
 import {
   UpdateNodegroupConfigCommand,
   UpdateNodegroupConfigCommandInput,
-  UpdateNodegroupConfigCommandOutput
+  UpdateNodegroupConfigCommandOutput,
 } from "./commands/UpdateNodegroupConfigCommand.ts";
 import {
   UpdateNodegroupVersionCommand,
   UpdateNodegroupVersionCommandInput,
-  UpdateNodegroupVersionCommandOutput
+  UpdateNodegroupVersionCommandOutput,
 } from "./commands/UpdateNodegroupVersionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
@@ -173,17 +173,14 @@ export class EKS extends EKSClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -231,17 +228,14 @@ export class EKS extends EKSClient {
   ): void;
   public createFargateProfile(
     args: CreateFargateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFargateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFargateProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateFargateProfileCommandOutput) => void
   ): Promise<CreateFargateProfileCommandOutput> | void {
     const command = new CreateFargateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -273,17 +267,14 @@ export class EKS extends EKSClient {
   ): void;
   public createNodegroup(
     args: CreateNodegroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNodegroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNodegroupCommandOutput) => void),
     cb?: (err: any, data?: CreateNodegroupCommandOutput) => void
   ): Promise<CreateNodegroupCommandOutput> | void {
     const command = new CreateNodegroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -298,7 +289,7 @@ export class EKS extends EKSClient {
    *             prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting a
    *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
    *         <p>If you have managed node groups or Fargate profiles attached to the cluster, you must
-   *             delete them first. For more information, see <a>DeleteNodegroup</a> and<a>DeleteFargateProfile</a>.</p>
+   *             delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -315,17 +306,14 @@ export class EKS extends EKSClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -357,17 +345,14 @@ export class EKS extends EKSClient {
   ): void;
   public deleteFargateProfile(
     args: DeleteFargateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFargateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFargateProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteFargateProfileCommandOutput) => void
   ): Promise<DeleteFargateProfileCommandOutput> | void {
     const command = new DeleteFargateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -392,17 +377,14 @@ export class EKS extends EKSClient {
   ): void;
   public deleteNodegroup(
     args: DeleteNodegroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNodegroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNodegroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteNodegroupCommandOutput) => void
   ): Promise<DeleteNodegroupCommandOutput> | void {
     const command = new DeleteNodegroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -435,17 +417,14 @@ export class EKS extends EKSClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -470,17 +449,14 @@ export class EKS extends EKSClient {
   ): void;
   public describeFargateProfile(
     args: DescribeFargateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFargateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFargateProfileCommandOutput) => void),
     cb?: (err: any, data?: DescribeFargateProfileCommandOutput) => void
   ): Promise<DescribeFargateProfileCommandOutput> | void {
     const command = new DescribeFargateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -505,17 +481,14 @@ export class EKS extends EKSClient {
   ): void;
   public describeNodegroup(
     args: DescribeNodegroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNodegroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNodegroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeNodegroupCommandOutput) => void
   ): Promise<DescribeNodegroupCommandOutput> | void {
     const command = new DescribeNodegroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -544,17 +517,14 @@ export class EKS extends EKSClient {
   ): void;
   public describeUpdate(
     args: DescribeUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUpdateCommandOutput) => void),
     cb?: (err: any, data?: DescribeUpdateCommandOutput) => void
   ): Promise<DescribeUpdateCommandOutput> | void {
     const command = new DescribeUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -568,10 +538,7 @@ export class EKS extends EKSClient {
     args: ListClustersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListClustersCommandOutput>;
-  public listClusters(
-    args: ListClustersCommandInput,
-    cb: (err: any, data?: ListClustersCommandOutput) => void
-  ): void;
+  public listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   public listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -579,17 +546,14 @@ export class EKS extends EKSClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -615,17 +579,14 @@ export class EKS extends EKSClient {
   ): void;
   public listFargateProfiles(
     args: ListFargateProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFargateProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFargateProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListFargateProfilesCommandOutput) => void
   ): Promise<ListFargateProfilesCommandOutput> | void {
     const command = new ListFargateProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -633,8 +594,8 @@ export class EKS extends EKSClient {
   }
 
   /**
-   * <p>Lists the Amazon EKS node groups associated with the specified cluster in your AWS
-   *             account in the specified Region.</p>
+   * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your AWS
+   *             account in the specified Region. Self-managed node groups are not listed.</p>
    */
   public listNodegroups(
     args: ListNodegroupsCommandInput,
@@ -651,17 +612,14 @@ export class EKS extends EKSClient {
   ): void;
   public listNodegroups(
     args: ListNodegroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNodegroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodegroupsCommandOutput) => void),
     cb?: (err: any, data?: ListNodegroupsCommandOutput) => void
   ): Promise<ListNodegroupsCommandOutput> | void {
     const command = new ListNodegroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -686,17 +644,14 @@ export class EKS extends EKSClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -707,14 +662,8 @@ export class EKS extends EKSClient {
    * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
    *             account, in the specified Region.</p>
    */
-  public listUpdates(
-    args: ListUpdatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUpdatesCommandOutput>;
-  public listUpdates(
-    args: ListUpdatesCommandInput,
-    cb: (err: any, data?: ListUpdatesCommandOutput) => void
-  ): void;
+  public listUpdates(args: ListUpdatesCommandInput, options?: __HttpHandlerOptions): Promise<ListUpdatesCommandOutput>;
+  public listUpdates(args: ListUpdatesCommandInput, cb: (err: any, data?: ListUpdatesCommandOutput) => void): void;
   public listUpdates(
     args: ListUpdatesCommandInput,
     options: __HttpHandlerOptions,
@@ -722,17 +671,14 @@ export class EKS extends EKSClient {
   ): void;
   public listUpdates(
     args: ListUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUpdatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUpdatesCommandOutput) => void),
     cb?: (err: any, data?: ListUpdatesCommandOutput) => void
   ): Promise<ListUpdatesCommandOutput> | void {
     const command = new ListUpdatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -748,14 +694,8 @@ export class EKS extends EKSClient {
    *             example, if you tag a cluster with this operation, that tag does not automatically
    *             propagate to the subnets and worker nodes associated with the cluster.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -763,17 +703,14 @@ export class EKS extends EKSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -798,17 +735,14 @@ export class EKS extends EKSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -860,17 +794,14 @@ export class EKS extends EKSClient {
   ): void;
   public updateClusterConfig(
     args: UpdateClusterConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterConfigCommandOutput) => void
   ): Promise<UpdateClusterConfigCommandOutput> | void {
     const command = new UpdateClusterConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -905,17 +836,14 @@ export class EKS extends EKSClient {
   ): void;
   public updateClusterVersion(
     args: UpdateClusterVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterVersionCommandOutput) => void
   ): Promise<UpdateClusterVersionCommandOutput> | void {
     const command = new UpdateClusterVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -944,17 +872,14 @@ export class EKS extends EKSClient {
   ): void;
   public updateNodegroupConfig(
     args: UpdateNodegroupConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNodegroupConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNodegroupConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateNodegroupConfigCommandOutput) => void
   ): Promise<UpdateNodegroupConfigCommandOutput> | void {
     const command = new UpdateNodegroupConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -989,17 +914,14 @@ export class EKS extends EKSClient {
   ): void;
   public updateNodegroupVersion(
     args: UpdateNodegroupVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNodegroupVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNodegroupVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateNodegroupVersionCommandOutput) => void
   ): Promise<UpdateNodegroupVersionCommandOutput> | void {
     const command = new UpdateNodegroupVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

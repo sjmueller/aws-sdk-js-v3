@@ -1,21 +1,18 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient.ts";
 import {
   DisassociateResolverEndpointIpAddressRequest,
-  DisassociateResolverEndpointIpAddressResponse
+  DisassociateResolverEndpointIpAddressResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
-  serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand
+  serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +21,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateResolverEndpointIpAddressCommandInput = DisassociateResolverEndpointIpAddressRequest;
@@ -39,9 +36,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateResolverEndpointIpAddressCommandInput
-  ) {
+  constructor(readonly input: DisassociateResolverEndpointIpAddressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,18 +46,16 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateResolverEndpointIpAddressCommandInput,
-    DisassociateResolverEndpointIpAddressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateResolverEndpointIpAddressCommandInput, DisassociateResolverEndpointIpAddressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateResolverEndpointIpAddressRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResolverEndpointIpAddressResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -76,20 +69,14 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     input: DisassociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

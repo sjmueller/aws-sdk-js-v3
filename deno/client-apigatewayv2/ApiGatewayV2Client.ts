@@ -1,255 +1,110 @@
-import {
-  CreateApiCommandInput,
-  CreateApiCommandOutput
-} from "./commands/CreateApiCommand.ts";
-import {
-  CreateApiMappingCommandInput,
-  CreateApiMappingCommandOutput
-} from "./commands/CreateApiMappingCommand.ts";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand.ts";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand.ts";
-import {
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput
-} from "./commands/CreateDomainNameCommand.ts";
-import {
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput
-} from "./commands/CreateIntegrationCommand.ts";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand.ts";
+import { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "./commands/CreateApiMappingCommand.ts";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand.ts";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
+import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand.ts";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand.ts";
 import {
   CreateIntegrationResponseCommandInput,
-  CreateIntegrationResponseCommandOutput
+  CreateIntegrationResponseCommandOutput,
 } from "./commands/CreateIntegrationResponseCommand.ts";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand.ts";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand.ts";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand.ts";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand.ts";
 import {
   CreateRouteResponseCommandInput,
-  CreateRouteResponseCommandOutput
+  CreateRouteResponseCommandOutput,
 } from "./commands/CreateRouteResponseCommand.ts";
+import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand.ts";
+import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand.ts";
 import {
-  CreateStageCommandInput,
-  CreateStageCommandOutput
-} from "./commands/CreateStageCommand.ts";
-import {
-  DeleteApiCommandInput,
-  DeleteApiCommandOutput
-} from "./commands/DeleteApiCommand.ts";
-import {
-  DeleteApiMappingCommandInput,
-  DeleteApiMappingCommandOutput
-} from "./commands/DeleteApiMappingCommand.ts";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand.ts";
+  DeleteAccessLogSettingsCommandInput,
+  DeleteAccessLogSettingsCommandOutput,
+} from "./commands/DeleteAccessLogSettingsCommand.ts";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand.ts";
+import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "./commands/DeleteApiMappingCommand.ts";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand.ts";
 import {
   DeleteCorsConfigurationCommandInput,
-  DeleteCorsConfigurationCommandOutput
+  DeleteCorsConfigurationCommandOutput,
 } from "./commands/DeleteCorsConfigurationCommand.ts";
-import {
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput
-} from "./commands/DeleteDeploymentCommand.ts";
-import {
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput
-} from "./commands/DeleteDomainNameCommand.ts";
-import {
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput
-} from "./commands/DeleteIntegrationCommand.ts";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand.ts";
+import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand.ts";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand.ts";
 import {
   DeleteIntegrationResponseCommandInput,
-  DeleteIntegrationResponseCommandOutput
+  DeleteIntegrationResponseCommandOutput,
 } from "./commands/DeleteIntegrationResponseCommand.ts";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand.ts";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand.ts";
 import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand.ts";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand.ts";
+  DeleteRouteRequestParameterCommandInput,
+  DeleteRouteRequestParameterCommandOutput,
+} from "./commands/DeleteRouteRequestParameterCommand.ts";
 import {
   DeleteRouteResponseCommandInput,
-  DeleteRouteResponseCommandOutput
+  DeleteRouteResponseCommandOutput,
 } from "./commands/DeleteRouteResponseCommand.ts";
 import {
   DeleteRouteSettingsCommandInput,
-  DeleteRouteSettingsCommandOutput
+  DeleteRouteSettingsCommandOutput,
 } from "./commands/DeleteRouteSettingsCommand.ts";
-import {
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput
-} from "./commands/DeleteStageCommand.ts";
-import {
-  GetApiCommandInput,
-  GetApiCommandOutput
-} from "./commands/GetApiCommand.ts";
-import {
-  GetApiMappingCommandInput,
-  GetApiMappingCommandOutput
-} from "./commands/GetApiMappingCommand.ts";
-import {
-  GetApiMappingsCommandInput,
-  GetApiMappingsCommandOutput
-} from "./commands/GetApiMappingsCommand.ts";
-import {
-  GetApisCommandInput,
-  GetApisCommandOutput
-} from "./commands/GetApisCommand.ts";
-import {
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput
-} from "./commands/GetAuthorizerCommand.ts";
-import {
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput
-} from "./commands/GetAuthorizersCommand.ts";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand.ts";
-import {
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput
-} from "./commands/GetDeploymentsCommand.ts";
-import {
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput
-} from "./commands/GetDomainNameCommand.ts";
-import {
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput
-} from "./commands/GetDomainNamesCommand.ts";
-import {
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput
-} from "./commands/GetIntegrationCommand.ts";
+import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand.ts";
+import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand.ts";
+import { ExportApiCommandInput, ExportApiCommandOutput } from "./commands/ExportApiCommand.ts";
+import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand.ts";
+import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand.ts";
+import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "./commands/GetApiMappingsCommand.ts";
+import { GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand.ts";
+import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "./commands/GetAuthorizerCommand.ts";
+import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "./commands/GetAuthorizersCommand.ts";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand.ts";
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand.ts";
+import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand.ts";
+import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "./commands/GetDomainNamesCommand.ts";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand.ts";
 import {
   GetIntegrationResponseCommandInput,
-  GetIntegrationResponseCommandOutput
+  GetIntegrationResponseCommandOutput,
 } from "./commands/GetIntegrationResponseCommand.ts";
 import {
   GetIntegrationResponsesCommandInput,
-  GetIntegrationResponsesCommandOutput
+  GetIntegrationResponsesCommandOutput,
 } from "./commands/GetIntegrationResponsesCommand.ts";
-import {
-  GetIntegrationsCommandInput,
-  GetIntegrationsCommandOutput
-} from "./commands/GetIntegrationsCommand.ts";
-import {
-  GetModelCommandInput,
-  GetModelCommandOutput
-} from "./commands/GetModelCommand.ts";
-import {
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput
-} from "./commands/GetModelTemplateCommand.ts";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "./commands/GetModelsCommand.ts";
-import {
-  GetRouteCommandInput,
-  GetRouteCommandOutput
-} from "./commands/GetRouteCommand.ts";
-import {
-  GetRouteResponseCommandInput,
-  GetRouteResponseCommandOutput
-} from "./commands/GetRouteResponseCommand.ts";
-import {
-  GetRouteResponsesCommandInput,
-  GetRouteResponsesCommandOutput
-} from "./commands/GetRouteResponsesCommand.ts";
-import {
-  GetRoutesCommandInput,
-  GetRoutesCommandOutput
-} from "./commands/GetRoutesCommand.ts";
-import {
-  GetStageCommandInput,
-  GetStageCommandOutput
-} from "./commands/GetStageCommand.ts";
-import {
-  GetStagesCommandInput,
-  GetStagesCommandOutput
-} from "./commands/GetStagesCommand.ts";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand.ts";
-import {
-  ImportApiCommandInput,
-  ImportApiCommandOutput
-} from "./commands/ImportApiCommand.ts";
-import {
-  ReimportApiCommandInput,
-  ReimportApiCommandOutput
-} from "./commands/ReimportApiCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateApiCommandInput,
-  UpdateApiCommandOutput
-} from "./commands/UpdateApiCommand.ts";
-import {
-  UpdateApiMappingCommandInput,
-  UpdateApiMappingCommandOutput
-} from "./commands/UpdateApiMappingCommand.ts";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand.ts";
-import {
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput
-} from "./commands/UpdateDeploymentCommand.ts";
-import {
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput
-} from "./commands/UpdateDomainNameCommand.ts";
-import {
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput
-} from "./commands/UpdateIntegrationCommand.ts";
+import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "./commands/GetIntegrationsCommand.ts";
+import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand.ts";
+import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand.ts";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand.ts";
+import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand.ts";
+import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand.ts";
+import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "./commands/GetRouteResponsesCommand.ts";
+import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand.ts";
+import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand.ts";
+import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand.ts";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand.ts";
+import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand.ts";
+import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand.ts";
+import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand.ts";
+import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand.ts";
+import { UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput } from "./commands/UpdateApiMappingCommand.ts";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand.ts";
+import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand.ts";
+import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand.ts";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand.ts";
 import {
   UpdateIntegrationResponseCommandInput,
-  UpdateIntegrationResponseCommandOutput
+  UpdateIntegrationResponseCommandOutput,
 } from "./commands/UpdateIntegrationResponseCommand.ts";
-import {
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput
-} from "./commands/UpdateModelCommand.ts";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "./commands/UpdateRouteCommand.ts";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand.ts";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand.ts";
 import {
   UpdateRouteResponseCommandInput,
-  UpdateRouteResponseCommandOutput
+  UpdateRouteResponseCommandOutput,
 } from "./commands/UpdateRouteResponseCommand.ts";
-import {
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput
-} from "./commands/UpdateStageCommand.ts";
+import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand.ts";
+import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -257,38 +112,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -297,9 +148,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -314,6 +166,8 @@ export type ServiceInputTypes =
   | CreateRouteCommandInput
   | CreateRouteResponseCommandInput
   | CreateStageCommandInput
+  | CreateVpcLinkCommandInput
+  | DeleteAccessLogSettingsCommandInput
   | DeleteApiCommandInput
   | DeleteApiMappingCommandInput
   | DeleteAuthorizerCommandInput
@@ -324,9 +178,12 @@ export type ServiceInputTypes =
   | DeleteIntegrationResponseCommandInput
   | DeleteModelCommandInput
   | DeleteRouteCommandInput
+  | DeleteRouteRequestParameterCommandInput
   | DeleteRouteResponseCommandInput
   | DeleteRouteSettingsCommandInput
   | DeleteStageCommandInput
+  | DeleteVpcLinkCommandInput
+  | ExportApiCommandInput
   | GetApiCommandInput
   | GetApiMappingCommandInput
   | GetApiMappingsCommandInput
@@ -351,6 +208,8 @@ export type ServiceInputTypes =
   | GetStageCommandInput
   | GetStagesCommandInput
   | GetTagsCommandInput
+  | GetVpcLinkCommandInput
+  | GetVpcLinksCommandInput
   | ImportApiCommandInput
   | ReimportApiCommandInput
   | TagResourceCommandInput
@@ -365,7 +224,8 @@ export type ServiceInputTypes =
   | UpdateModelCommandInput
   | UpdateRouteCommandInput
   | UpdateRouteResponseCommandInput
-  | UpdateStageCommandInput;
+  | UpdateStageCommandInput
+  | UpdateVpcLinkCommandInput;
 
 export type ServiceOutputTypes =
   | CreateApiCommandOutput
@@ -379,6 +239,8 @@ export type ServiceOutputTypes =
   | CreateRouteCommandOutput
   | CreateRouteResponseCommandOutput
   | CreateStageCommandOutput
+  | CreateVpcLinkCommandOutput
+  | DeleteAccessLogSettingsCommandOutput
   | DeleteApiCommandOutput
   | DeleteApiMappingCommandOutput
   | DeleteAuthorizerCommandOutput
@@ -389,9 +251,12 @@ export type ServiceOutputTypes =
   | DeleteIntegrationResponseCommandOutput
   | DeleteModelCommandOutput
   | DeleteRouteCommandOutput
+  | DeleteRouteRequestParameterCommandOutput
   | DeleteRouteResponseCommandOutput
   | DeleteRouteSettingsCommandOutput
   | DeleteStageCommandOutput
+  | DeleteVpcLinkCommandOutput
+  | ExportApiCommandOutput
   | GetApiCommandOutput
   | GetApiMappingCommandOutput
   | GetApiMappingsCommandOutput
@@ -416,6 +281,8 @@ export type ServiceOutputTypes =
   | GetStageCommandOutput
   | GetStagesCommandOutput
   | GetTagsCommandOutput
+  | GetVpcLinkCommandOutput
+  | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
   | ReimportApiCommandOutput
   | TagResourceCommandOutput
@@ -430,10 +297,10 @@ export type ServiceOutputTypes =
   | UpdateModelCommandOutput
   | UpdateRouteCommandOutput
   | UpdateRouteResponseCommandOutput
-  | UpdateStageCommandOutput;
+  | UpdateStageCommandOutput
+  | UpdateVpcLinkCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -507,14 +374,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -522,9 +394,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApiGatewayV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApiGatewayV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -533,9 +403,7 @@ export type ApiGatewayV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -558,7 +426,7 @@ export class ApiGatewayV2Client extends __Client<
   constructor(configuration: ApiGatewayV2ClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -573,6 +441,7 @@ export class ApiGatewayV2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

@@ -1,83 +1,66 @@
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand.ts";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import {
   CreateConfigurationCommandInput,
-  CreateConfigurationCommandOutput
+  CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand.ts";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand.ts";
-import {
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
-} from "./commands/DescribeClusterCommand.ts";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand.ts";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand.ts";
 import {
   DescribeClusterOperationCommandInput,
-  DescribeClusterOperationCommandOutput
+  DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand.ts";
 import {
   DescribeConfigurationCommandInput,
-  DescribeConfigurationCommandOutput
+  DescribeConfigurationCommandOutput,
 } from "./commands/DescribeConfigurationCommand.ts";
 import {
   DescribeConfigurationRevisionCommandInput,
-  DescribeConfigurationRevisionCommandOutput
+  DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand.ts";
 import {
   GetBootstrapBrokersCommandInput,
-  GetBootstrapBrokersCommandOutput
+  GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand.ts";
 import {
-  ListClusterOperationsCommandInput,
-  ListClusterOperationsCommandOutput
-} from "./commands/ListClusterOperationsCommand.ts";
+  GetCompatibleKafkaVersionsCommandInput,
+  GetCompatibleKafkaVersionsCommandOutput,
+} from "./commands/GetCompatibleKafkaVersionsCommand.ts";
 import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand.ts";
+  ListClusterOperationsCommandInput,
+  ListClusterOperationsCommandOutput,
+} from "./commands/ListClusterOperationsCommand.ts";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand.ts";
 import {
   ListConfigurationRevisionsCommandInput,
-  ListConfigurationRevisionsCommandOutput
+  ListConfigurationRevisionsCommandOutput,
 } from "./commands/ListConfigurationRevisionsCommand.ts";
 import {
   ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
+  ListConfigurationsCommandOutput,
 } from "./commands/ListConfigurationsCommand.ts";
-import {
-  ListNodesCommandInput,
-  ListNodesCommandOutput
-} from "./commands/ListNodesCommand.ts";
+import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand.ts";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateBrokerCountCommandInput,
-  UpdateBrokerCountCommandOutput
-} from "./commands/UpdateBrokerCountCommand.ts";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand.ts";
 import {
   UpdateBrokerStorageCommandInput,
-  UpdateBrokerStorageCommandOutput
+  UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand.ts";
 import {
   UpdateClusterConfigurationCommandInput,
-  UpdateClusterConfigurationCommandOutput
+  UpdateClusterConfigurationCommandOutput,
 } from "./commands/UpdateClusterConfigurationCommand.ts";
 import {
-  UpdateMonitoringCommandInput,
-  UpdateMonitoringCommandOutput
-} from "./commands/UpdateMonitoringCommand.ts";
+  UpdateClusterKafkaVersionCommandInput,
+  UpdateClusterKafkaVersionCommandOutput,
+} from "./commands/UpdateClusterKafkaVersionCommand.ts";
+import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -85,38 +68,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -125,9 +104,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -139,17 +119,21 @@ export type ServiceInputTypes =
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
   | GetBootstrapBrokersCommandInput
+  | GetCompatibleKafkaVersionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClustersCommandInput
   | ListConfigurationRevisionsCommandInput
   | ListConfigurationsCommandInput
+  | ListKafkaVersionsCommandInput
   | ListNodesCommandInput
   | ListTagsForResourceCommandInput
+  | RebootBrokerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
   | UpdateBrokerStorageCommandInput
   | UpdateClusterConfigurationCommandInput
+  | UpdateClusterKafkaVersionCommandInput
   | UpdateMonitoringCommandInput;
 
 export type ServiceOutputTypes =
@@ -161,21 +145,24 @@ export type ServiceOutputTypes =
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
   | GetBootstrapBrokersCommandOutput
+  | GetCompatibleKafkaVersionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClustersCommandOutput
   | ListConfigurationRevisionsCommandOutput
   | ListConfigurationsCommandOutput
+  | ListKafkaVersionsCommandOutput
   | ListNodesCommandOutput
   | ListTagsForResourceCommandOutput
+  | RebootBrokerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput
   | UpdateBrokerStorageCommandOutput
   | UpdateClusterConfigurationCommandOutput
+  | UpdateClusterKafkaVersionCommandOutput
   | UpdateMonitoringCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -249,14 +236,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -264,9 +256,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KafkaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KafkaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -275,9 +265,7 @@ export type KafkaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KafkaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KafkaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -300,7 +288,7 @@ export class KafkaClient extends __Client<
   constructor(configuration: KafkaClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -315,6 +303,7 @@ export class KafkaClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

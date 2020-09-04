@@ -1,10 +1,9 @@
 import {
-  EventStreamPayloadHandler as IEventStreamPayloadHandler,
   BuildHandler,
-  BuildHandlerArguments
+  BuildHandlerArguments,
+  EventStreamPayloadHandler as IEventStreamPayloadHandler,
 } from "../types/mod.ts";
 
 export const eventStreamPayloadHandler: IEventStreamPayloadHandler = {
-  handle: (next: BuildHandler<any, any>, args: BuildHandlerArguments<any>) =>
-    next(args)
+  handle: (next: BuildHandler<any, any>, args: BuildHandlerArguments<any>) => next(args),
 };

@@ -1,214 +1,184 @@
 import {
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
-  AcceptDirectConnectGatewayAssociationProposalCommandOutput
+  AcceptDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/AcceptDirectConnectGatewayAssociationProposalCommand.ts";
 import {
   AllocateConnectionOnInterconnectCommandInput,
-  AllocateConnectionOnInterconnectCommandOutput
+  AllocateConnectionOnInterconnectCommandOutput,
 } from "./commands/AllocateConnectionOnInterconnectCommand.ts";
 import {
   AllocateHostedConnectionCommandInput,
-  AllocateHostedConnectionCommandOutput
+  AllocateHostedConnectionCommandOutput,
 } from "./commands/AllocateHostedConnectionCommand.ts";
 import {
   AllocatePrivateVirtualInterfaceCommandInput,
-  AllocatePrivateVirtualInterfaceCommandOutput
+  AllocatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePrivateVirtualInterfaceCommand.ts";
 import {
   AllocatePublicVirtualInterfaceCommandInput,
-  AllocatePublicVirtualInterfaceCommandOutput
+  AllocatePublicVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePublicVirtualInterfaceCommand.ts";
 import {
   AllocateTransitVirtualInterfaceCommandInput,
-  AllocateTransitVirtualInterfaceCommandOutput
+  AllocateTransitVirtualInterfaceCommandOutput,
 } from "./commands/AllocateTransitVirtualInterfaceCommand.ts";
 import {
   AssociateConnectionWithLagCommandInput,
-  AssociateConnectionWithLagCommandOutput
+  AssociateConnectionWithLagCommandOutput,
 } from "./commands/AssociateConnectionWithLagCommand.ts";
 import {
   AssociateHostedConnectionCommandInput,
-  AssociateHostedConnectionCommandOutput
+  AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand.ts";
 import {
   AssociateVirtualInterfaceCommandInput,
-  AssociateVirtualInterfaceCommandOutput
+  AssociateVirtualInterfaceCommandOutput,
 } from "./commands/AssociateVirtualInterfaceCommand.ts";
-import {
-  ConfirmConnectionCommandInput,
-  ConfirmConnectionCommandOutput
-} from "./commands/ConfirmConnectionCommand.ts";
+import { ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput } from "./commands/ConfirmConnectionCommand.ts";
 import {
   ConfirmPrivateVirtualInterfaceCommandInput,
-  ConfirmPrivateVirtualInterfaceCommandOutput
+  ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPrivateVirtualInterfaceCommand.ts";
 import {
   ConfirmPublicVirtualInterfaceCommandInput,
-  ConfirmPublicVirtualInterfaceCommandOutput
+  ConfirmPublicVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPublicVirtualInterfaceCommand.ts";
 import {
   ConfirmTransitVirtualInterfaceCommandInput,
-  ConfirmTransitVirtualInterfaceCommandOutput
+  ConfirmTransitVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmTransitVirtualInterfaceCommand.ts";
-import {
-  CreateBGPPeerCommandInput,
-  CreateBGPPeerCommandOutput
-} from "./commands/CreateBGPPeerCommand.ts";
-import {
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
-} from "./commands/CreateConnectionCommand.ts";
+import { CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput } from "./commands/CreateBGPPeerCommand.ts";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand.ts";
 import {
   CreateDirectConnectGatewayAssociationCommandInput,
-  CreateDirectConnectGatewayAssociationCommandOutput
+  CreateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationCommand.ts";
 import {
   CreateDirectConnectGatewayAssociationProposalCommandInput,
-  CreateDirectConnectGatewayAssociationProposalCommandOutput
+  CreateDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationProposalCommand.ts";
 import {
   CreateDirectConnectGatewayCommandInput,
-  CreateDirectConnectGatewayCommandOutput
+  CreateDirectConnectGatewayCommandOutput,
 } from "./commands/CreateDirectConnectGatewayCommand.ts";
 import {
   CreateInterconnectCommandInput,
-  CreateInterconnectCommandOutput
+  CreateInterconnectCommandOutput,
 } from "./commands/CreateInterconnectCommand.ts";
-import {
-  CreateLagCommandInput,
-  CreateLagCommandOutput
-} from "./commands/CreateLagCommand.ts";
+import { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand.ts";
 import {
   CreatePrivateVirtualInterfaceCommandInput,
-  CreatePrivateVirtualInterfaceCommandOutput
+  CreatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/CreatePrivateVirtualInterfaceCommand.ts";
 import {
   CreatePublicVirtualInterfaceCommandInput,
-  CreatePublicVirtualInterfaceCommandOutput
+  CreatePublicVirtualInterfaceCommandOutput,
 } from "./commands/CreatePublicVirtualInterfaceCommand.ts";
 import {
   CreateTransitVirtualInterfaceCommandInput,
-  CreateTransitVirtualInterfaceCommandOutput
+  CreateTransitVirtualInterfaceCommandOutput,
 } from "./commands/CreateTransitVirtualInterfaceCommand.ts";
-import {
-  DeleteBGPPeerCommandInput,
-  DeleteBGPPeerCommandOutput
-} from "./commands/DeleteBGPPeerCommand.ts";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "./commands/DeleteConnectionCommand.ts";
+import { DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput } from "./commands/DeleteBGPPeerCommand.ts";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
 import {
   DeleteDirectConnectGatewayAssociationCommandInput,
-  DeleteDirectConnectGatewayAssociationCommandOutput
+  DeleteDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationCommand.ts";
 import {
   DeleteDirectConnectGatewayAssociationProposalCommandInput,
-  DeleteDirectConnectGatewayAssociationProposalCommandOutput
+  DeleteDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationProposalCommand.ts";
 import {
   DeleteDirectConnectGatewayCommandInput,
-  DeleteDirectConnectGatewayCommandOutput
+  DeleteDirectConnectGatewayCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayCommand.ts";
 import {
   DeleteInterconnectCommandInput,
-  DeleteInterconnectCommandOutput
+  DeleteInterconnectCommandOutput,
 } from "./commands/DeleteInterconnectCommand.ts";
-import {
-  DeleteLagCommandInput,
-  DeleteLagCommandOutput
-} from "./commands/DeleteLagCommand.ts";
+import { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand.ts";
 import {
   DeleteVirtualInterfaceCommandInput,
-  DeleteVirtualInterfaceCommandOutput
+  DeleteVirtualInterfaceCommandOutput,
 } from "./commands/DeleteVirtualInterfaceCommand.ts";
 import {
   DescribeConnectionLoaCommandInput,
-  DescribeConnectionLoaCommandOutput
+  DescribeConnectionLoaCommandOutput,
 } from "./commands/DescribeConnectionLoaCommand.ts";
 import {
   DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput
+  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand.ts";
 import {
   DescribeConnectionsOnInterconnectCommandInput,
-  DescribeConnectionsOnInterconnectCommandOutput
+  DescribeConnectionsOnInterconnectCommandOutput,
 } from "./commands/DescribeConnectionsOnInterconnectCommand.ts";
 import {
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-  DescribeDirectConnectGatewayAssociationProposalsCommandOutput
+  DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand.ts";
 import {
   DescribeDirectConnectGatewayAssociationsCommandInput,
-  DescribeDirectConnectGatewayAssociationsCommandOutput
+  DescribeDirectConnectGatewayAssociationsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationsCommand.ts";
 import {
   DescribeDirectConnectGatewayAttachmentsCommandInput,
-  DescribeDirectConnectGatewayAttachmentsCommandOutput
+  DescribeDirectConnectGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAttachmentsCommand.ts";
 import {
   DescribeDirectConnectGatewaysCommandInput,
-  DescribeDirectConnectGatewaysCommandOutput
+  DescribeDirectConnectGatewaysCommandOutput,
 } from "./commands/DescribeDirectConnectGatewaysCommand.ts";
 import {
   DescribeHostedConnectionsCommandInput,
-  DescribeHostedConnectionsCommandOutput
+  DescribeHostedConnectionsCommandOutput,
 } from "./commands/DescribeHostedConnectionsCommand.ts";
 import {
   DescribeInterconnectLoaCommandInput,
-  DescribeInterconnectLoaCommandOutput
+  DescribeInterconnectLoaCommandOutput,
 } from "./commands/DescribeInterconnectLoaCommand.ts";
 import {
   DescribeInterconnectsCommandInput,
-  DescribeInterconnectsCommandOutput
+  DescribeInterconnectsCommandOutput,
 } from "./commands/DescribeInterconnectsCommand.ts";
-import {
-  DescribeLagsCommandInput,
-  DescribeLagsCommandOutput
-} from "./commands/DescribeLagsCommand.ts";
-import {
-  DescribeLoaCommandInput,
-  DescribeLoaCommandOutput
-} from "./commands/DescribeLoaCommand.ts";
-import {
-  DescribeLocationsCommandInput,
-  DescribeLocationsCommandOutput
-} from "./commands/DescribeLocationsCommand.ts";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand.ts";
+import { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "./commands/DescribeLagsCommand.ts";
+import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand.ts";
+import { DescribeLocationsCommandInput, DescribeLocationsCommandOutput } from "./commands/DescribeLocationsCommand.ts";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
   DescribeVirtualGatewaysCommandInput,
-  DescribeVirtualGatewaysCommandOutput
+  DescribeVirtualGatewaysCommandOutput,
 } from "./commands/DescribeVirtualGatewaysCommand.ts";
 import {
   DescribeVirtualInterfacesCommandInput,
-  DescribeVirtualInterfacesCommandOutput
+  DescribeVirtualInterfacesCommandOutput,
 } from "./commands/DescribeVirtualInterfacesCommand.ts";
 import {
   DisassociateConnectionFromLagCommandInput,
-  DisassociateConnectionFromLagCommandOutput
+  DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand.ts";
 import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand.ts";
+  ListVirtualInterfaceTestHistoryCommandInput,
+  ListVirtualInterfaceTestHistoryCommandOutput,
+} from "./commands/ListVirtualInterfaceTestHistoryCommand.ts";
 import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand.ts";
+  StartBgpFailoverTestCommandInput,
+  StartBgpFailoverTestCommandOutput,
+} from "./commands/StartBgpFailoverTestCommand.ts";
+import {
+  StopBgpFailoverTestCommandInput,
+  StopBgpFailoverTestCommandOutput,
+} from "./commands/StopBgpFailoverTestCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdateDirectConnectGatewayAssociationCommandInput,
-  UpdateDirectConnectGatewayAssociationCommandOutput
+  UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand.ts";
-import {
-  UpdateLagCommandInput,
-  UpdateLagCommandOutput
-} from "./commands/UpdateLagCommand.ts";
+import { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand.ts";
 import {
   UpdateVirtualInterfaceAttributesCommandInput,
-  UpdateVirtualInterfaceAttributesCommandOutput
+  UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -217,38 +187,34 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -257,9 +223,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -311,6 +278,9 @@ export type ServiceInputTypes =
   | DescribeVirtualGatewaysCommandInput
   | DescribeVirtualInterfacesCommandInput
   | DisassociateConnectionFromLagCommandInput
+  | ListVirtualInterfaceTestHistoryCommandInput
+  | StartBgpFailoverTestCommandInput
+  | StopBgpFailoverTestCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDirectConnectGatewayAssociationCommandInput
@@ -366,14 +336,16 @@ export type ServiceOutputTypes =
   | DescribeVirtualGatewaysCommandOutput
   | DescribeVirtualInterfacesCommandOutput
   | DisassociateConnectionFromLagCommandOutput
+  | ListVirtualInterfaceTestHistoryCommandOutput
+  | StartBgpFailoverTestCommandOutput
+  | StopBgpFailoverTestCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDirectConnectGatewayAssociationCommandOutput
   | UpdateLagCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -447,14 +419,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -462,9 +439,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -473,9 +448,7 @@ export type DirectConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -503,7 +476,7 @@ export class DirectConnectClient extends __Client<
   constructor(configuration: DirectConnectClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -518,6 +491,7 @@ export class DirectConnectClient extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

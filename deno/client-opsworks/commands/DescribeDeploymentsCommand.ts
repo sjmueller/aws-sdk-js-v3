@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient.ts";
-import {
-  DescribeDeploymentsRequest,
-  DescribeDeploymentsResult
-} from "../models/index.ts";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
+import { DescribeDeploymentsRequest, DescribeDeploymentsResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeDeploymentsCommand,
-  serializeAws_json1_1DescribeDeploymentsCommand
+  serializeAws_json1_1DescribeDeploymentsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeDeploymentsCommandInput = DescribeDeploymentsRequest;
-export type DescribeDeploymentsCommandOutput = DescribeDeploymentsResult &
-  __MetadataBearer;
+export type DescribeDeploymentsCommandOutput = DescribeDeploymentsResult & __MetadataBearer;
 
 export class DescribeDeploymentsCommand extends $Command<
   DescribeDeploymentsCommandInput,
@@ -49,18 +38,16 @@ export class DescribeDeploymentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDeploymentsCommandInput,
-    DescribeDeploymentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDeploymentsCommandInput, DescribeDeploymentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeDeploymentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDeploymentsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class DescribeDeploymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDeploymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDeploymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDeploymentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeploymentsCommandOutput> {
     return deserializeAws_json1_1DescribeDeploymentsCommand(output, context);
   }
 

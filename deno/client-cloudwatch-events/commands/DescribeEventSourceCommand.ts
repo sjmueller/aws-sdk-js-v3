@@ -1,21 +1,15 @@
 import {
   CloudWatchEventsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudWatchEventsClient.ts";
-import {
-  DescribeEventSourceRequest,
-  DescribeEventSourceResponse
-} from "../models/index.ts";
+import { DescribeEventSourceRequest, DescribeEventSourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventSourceCommand,
-  serializeAws_json1_1DescribeEventSourceCommand
+  serializeAws_json1_1DescribeEventSourceCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeEventSourceCommandInput = DescribeEventSourceRequest;
-export type DescribeEventSourceCommandOutput = DescribeEventSourceResponse &
-  __MetadataBearer;
+export type DescribeEventSourceCommandOutput = DescribeEventSourceResponse & __MetadataBearer;
 
 export class DescribeEventSourceCommand extends $Command<
   DescribeEventSourceCommandInput,
@@ -49,18 +42,13 @@ export class DescribeEventSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventSourceCommandInput,
-    DescribeEventSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventSourceCommandInput, DescribeEventSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger: {} as any,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +58,11 @@ export class DescribeEventSourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventSourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventSourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventSourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventSourceCommandOutput> {
     return deserializeAws_json1_1DescribeEventSourceCommand(output, context);
   }
 

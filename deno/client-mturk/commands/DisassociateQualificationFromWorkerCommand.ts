@@ -1,21 +1,14 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import {
   DisassociateQualificationFromWorkerRequest,
-  DisassociateQualificationFromWorkerResponse
+  DisassociateQualificationFromWorkerResponse,
 } from "../models/index.ts";
 import {
   deserializeAws_json1_1DisassociateQualificationFromWorkerCommand,
-  serializeAws_json1_1DisassociateQualificationFromWorkerCommand
+  serializeAws_json1_1DisassociateQualificationFromWorkerCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,7 +17,7 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DisassociateQualificationFromWorkerCommandInput = DisassociateQualificationFromWorkerRequest;
@@ -49,18 +42,16 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateQualificationFromWorkerCommandInput,
-    DisassociateQualificationFromWorkerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateQualificationFromWorkerCommandInput, DisassociateQualificationFromWorkerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DisassociateQualificationFromWorkerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateQualificationFromWorkerResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -74,20 +65,14 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     input: DisassociateQualificationFromWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> {
-    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

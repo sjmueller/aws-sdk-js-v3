@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient.ts";
-import {
-  RunPipelineActivityRequest,
-  RunPipelineActivityResponse
-} from "../models/index.ts";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
+import { RunPipelineActivityRequest, RunPipelineActivityResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1RunPipelineActivityCommand,
-  serializeAws_restJson1RunPipelineActivityCommand
+  serializeAws_restJson1RunPipelineActivityCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RunPipelineActivityCommandInput = RunPipelineActivityRequest;
-export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse &
-  __MetadataBearer;
+export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse & __MetadataBearer;
 
 export class RunPipelineActivityCommand extends $Command<
   RunPipelineActivityCommandInput,
@@ -49,18 +38,16 @@ export class RunPipelineActivityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RunPipelineActivityCommandInput,
-    RunPipelineActivityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RunPipelineActivityCommandInput, RunPipelineActivityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RunPipelineActivityRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RunPipelineActivityResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +57,11 @@ export class RunPipelineActivityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RunPipelineActivityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RunPipelineActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1RunPipelineActivityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RunPipelineActivityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunPipelineActivityCommandOutput> {
     return deserializeAws_restJson1RunPipelineActivityCommand(output, context);
   }
 

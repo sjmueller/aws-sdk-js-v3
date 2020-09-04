@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient.ts";
-import {
-  DescribeSubscriptionFiltersRequest,
-  DescribeSubscriptionFiltersResponse
-} from "../models/index.ts";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
+import { DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSubscriptionFiltersCommand,
-  serializeAws_json1_1DescribeSubscriptionFiltersCommand
+  serializeAws_json1_1DescribeSubscriptionFiltersCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeSubscriptionFiltersCommandInput = DescribeSubscriptionFiltersRequest;
-export type DescribeSubscriptionFiltersCommandOutput = DescribeSubscriptionFiltersResponse &
-  __MetadataBearer;
+export type DescribeSubscriptionFiltersCommandOutput = DescribeSubscriptionFiltersResponse & __MetadataBearer;
 
 export class DescribeSubscriptionFiltersCommand extends $Command<
   DescribeSubscriptionFiltersCommandInput,
@@ -49,18 +38,16 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSubscriptionFiltersCommandInput,
-    DescribeSubscriptionFiltersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSubscriptionFiltersCommandInput, DescribeSubscriptionFiltersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeSubscriptionFiltersRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubscriptionFiltersResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,24 +57,15 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSubscriptionFiltersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscriptionFiltersCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeSubscriptionFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeSubscriptionFiltersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscriptionFiltersCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscriptionFiltersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSubscriptionFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

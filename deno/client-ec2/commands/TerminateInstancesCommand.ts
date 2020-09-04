@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client.ts";
-import {
-  TerminateInstancesRequest,
-  TerminateInstancesResult
-} from "../models/index.ts";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
-  serializeAws_ec2TerminateInstancesCommand
+  serializeAws_ec2TerminateInstancesCommand,
 } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type TerminateInstancesCommandInput = TerminateInstancesRequest;
-export type TerminateInstancesCommandOutput = TerminateInstancesResult &
-  __MetadataBearer;
+export type TerminateInstancesCommandOutput = TerminateInstancesResult & __MetadataBearer;
 
 export class TerminateInstancesCommand extends $Command<
   TerminateInstancesCommandInput,
@@ -50,14 +39,15 @@ export class TerminateInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateInstancesCommandInput, TerminateInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: TerminateInstancesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TerminateInstancesResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class TerminateInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TerminateInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TerminateInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2TerminateInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TerminateInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateInstancesCommandOutput> {
     return deserializeAws_ec2TerminateInstancesCommand(output, context);
   }
 

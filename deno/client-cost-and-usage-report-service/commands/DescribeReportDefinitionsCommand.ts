@@ -1,21 +1,15 @@
 import {
-  CostandUsageReportServiceClientResolvedConfig,
+  CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CostandUsageReportServiceClient.ts";
-import {
-  DescribeReportDefinitionsRequest,
-  DescribeReportDefinitionsResponse
-} from "../models/index.ts";
+  ServiceOutputTypes,
+} from "../CostAndUsageReportServiceClient.ts";
+import { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeReportDefinitionsCommand,
-  serializeAws_json1_1DescribeReportDefinitionsCommand
+  serializeAws_json1_1DescribeReportDefinitionsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +18,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeReportDefinitionsCommandInput = DescribeReportDefinitionsRequest;
-export type DescribeReportDefinitionsCommandOutput = DescribeReportDefinitionsResponse &
-  __MetadataBearer;
+export type DescribeReportDefinitionsCommandOutput = DescribeReportDefinitionsResponse & __MetadataBearer;
 
 export class DescribeReportDefinitionsCommand extends $Command<
   DescribeReportDefinitionsCommandInput,
   DescribeReportDefinitionsCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
+  CostAndUsageReportServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +40,18 @@ export class DescribeReportDefinitionsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostandUsageReportServiceClientResolvedConfig,
+    configuration: CostAndUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReportDefinitionsCommandInput,
-    DescribeReportDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeReportDefinitionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReportDefinitionsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,10 +61,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeReportDefinitionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReportDefinitionsCommand(input, context);
   }
 
@@ -81,10 +69,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReportDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReportDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

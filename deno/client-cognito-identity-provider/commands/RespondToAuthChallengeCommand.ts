@@ -1,21 +1,15 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import {
-  RespondToAuthChallengeRequest,
-  RespondToAuthChallengeResponse
-} from "../models/index.ts";
+import { RespondToAuthChallengeRequest, RespondToAuthChallengeResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1RespondToAuthChallengeCommand,
-  serializeAws_json1_1RespondToAuthChallengeCommand
+  serializeAws_json1_1RespondToAuthChallengeCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +18,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type RespondToAuthChallengeCommandInput = RespondToAuthChallengeRequest;
-export type RespondToAuthChallengeCommandOutput = RespondToAuthChallengeResponse &
-  __MetadataBearer;
+export type RespondToAuthChallengeCommandOutput = RespondToAuthChallengeResponse & __MetadataBearer;
 
 export class RespondToAuthChallengeCommand extends $Command<
   RespondToAuthChallengeCommandInput,
@@ -49,18 +42,16 @@ export class RespondToAuthChallengeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RespondToAuthChallengeCommandInput,
-    RespondToAuthChallengeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RespondToAuthChallengeCommandInput, RespondToAuthChallengeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: RespondToAuthChallengeRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RespondToAuthChallengeResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,17 +61,11 @@ export class RespondToAuthChallengeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RespondToAuthChallengeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RespondToAuthChallengeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RespondToAuthChallengeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RespondToAuthChallengeCommandOutput> {
     return deserializeAws_json1_1RespondToAuthChallengeCommand(output, context);
   }
 

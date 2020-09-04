@@ -1,67 +1,43 @@
-import {
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput
-} from "./commands/CreateAccessPointCommand.ts";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand.ts";
-import {
-  DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput
-} from "./commands/DeleteAccessPointCommand.ts";
+import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand.ts";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
+import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand.ts";
 import {
   DeleteAccessPointPolicyCommandInput,
-  DeleteAccessPointPolicyCommandOutput
+  DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand.ts";
+import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand.ts";
 import {
   DeletePublicAccessBlockCommandInput,
-  DeletePublicAccessBlockCommandOutput
+  DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand.ts";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand.ts";
-import {
-  GetAccessPointCommandInput,
-  GetAccessPointCommandOutput
-} from "./commands/GetAccessPointCommand.ts";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
+import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand.ts";
 import {
   GetAccessPointPolicyCommandInput,
-  GetAccessPointPolicyCommandOutput
+  GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand.ts";
 import {
   GetAccessPointPolicyStatusCommandInput,
-  GetAccessPointPolicyStatusCommandOutput
+  GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand.ts";
+import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand.ts";
 import {
   GetPublicAccessBlockCommandInput,
-  GetPublicAccessBlockCommandOutput
+  GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand.ts";
-import {
-  ListAccessPointsCommandInput,
-  ListAccessPointsCommandOutput
-} from "./commands/ListAccessPointsCommand.ts";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand.ts";
+import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand.ts";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   PutAccessPointPolicyCommandInput,
-  PutAccessPointPolicyCommandOutput
+  PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand.ts";
+import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand.ts";
 import {
   PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput
+  PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand.ts";
-import {
-  UpdateJobPriorityCommandInput,
-  UpdateJobPriorityCommandOutput
-} from "./commands/UpdateJobPriorityCommand.ts";
-import {
-  UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput
-} from "./commands/UpdateJobStatusCommand.ts";
+import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand.ts";
+import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -69,39 +45,35 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "../middleware-retry/mod.ts";
+import { getLoggerPlugin } from "../middleware-logger/mod.ts";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
 import { getPrependAccountIdPlugin } from "../middleware-sdk-s3-control/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "../middleware-user-agent/mod.ts";
 import { HttpHandler as __HttpHandler } from "../protocol-http/mod.ts";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "../smithy-client/mod.ts";
 import {
   RegionInfoProvider,
@@ -110,9 +82,10 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
@@ -120,15 +93,18 @@ export type ServiceInputTypes =
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
@@ -138,21 +114,23 @@ export type ServiceOutputTypes =
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -226,14 +204,19 @@ export interface ClientDefaults
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
-   * Provider function that return promise of a region string
+   * The AWS region to which this client will send requests
    */
-  regionDefaultProvider?: (input: any) => __Provider<string>;
+  region?: string | __Provider<string>;
 
   /**
-   * Provider function that return promise of a maxAttempts string
+   * Value for how many times a request will be made at most in case of retry.
    */
-  maxAttemptsDefaultProvider?: (input: any) => __Provider<string>;
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -241,9 +224,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type S3ControlClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +233,7 @@ export type S3ControlClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -279,7 +258,7 @@ export class S3ControlClient extends __Client<
   constructor(configuration: S3ControlClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
-      ...configuration
+      ...configuration,
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
@@ -295,6 +274,7 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getPrependAccountIdPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

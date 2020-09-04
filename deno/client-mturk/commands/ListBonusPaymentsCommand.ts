@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient.ts";
-import {
-  ListBonusPaymentsRequest,
-  ListBonusPaymentsResponse
-} from "../models/index.ts";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
+import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListBonusPaymentsCommand,
-  serializeAws_json1_1ListBonusPaymentsCommand
+  serializeAws_json1_1ListBonusPaymentsCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type ListBonusPaymentsCommandInput = ListBonusPaymentsRequest;
-export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse &
-  __MetadataBearer;
+export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse & __MetadataBearer;
 
 export class ListBonusPaymentsCommand extends $Command<
   ListBonusPaymentsCommandInput,
@@ -50,14 +39,15 @@ export class ListBonusPaymentsCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: ListBonusPaymentsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBonusPaymentsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class ListBonusPaymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBonusPaymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBonusPaymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBonusPaymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBonusPaymentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBonusPaymentsCommandOutput> {
     return deserializeAws_json1_1ListBonusPaymentsCommand(output, context);
   }
 

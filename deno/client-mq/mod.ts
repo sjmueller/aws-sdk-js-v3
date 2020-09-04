@@ -1,5 +1,5 @@
-export * from "./mqClient.ts";
-export * from "./mq.ts";
+export * from "./MqClient.ts";
+export * from "./Mq.ts";
 export * from "./commands/CreateBrokerCommand.ts";
 export * from "./commands/CreateConfigurationCommand.ts";
 export * from "./commands/CreateTagsCommand.ts";

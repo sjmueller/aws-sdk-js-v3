@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient.ts";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { AssignTapePoolInput, AssignTapePoolOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssignTapePoolCommand,
-  serializeAws_json1_1AssignTapePoolCommand
+  serializeAws_json1_1AssignTapePoolCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -21,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type AssignTapePoolCommandInput = AssignTapePoolInput;
-export type AssignTapePoolCommandOutput = AssignTapePoolOutput &
-  __MetadataBearer;
+export type AssignTapePoolCommandOutput = AssignTapePoolOutput & __MetadataBearer;
 
 export class AssignTapePoolCommand extends $Command<
   AssignTapePoolCommandInput,
@@ -47,14 +39,15 @@ export class AssignTapePoolCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssignTapePoolCommandInput, AssignTapePoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: AssignTapePoolInput.filterSensitiveLog,
+      outputFilterSensitiveLog: AssignTapePoolOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,17 +57,11 @@ export class AssignTapePoolCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssignTapePoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssignTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AssignTapePoolCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssignTapePoolCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignTapePoolCommandOutput> {
     return deserializeAws_json1_1AssignTapePoolCommand(output, context);
   }
 

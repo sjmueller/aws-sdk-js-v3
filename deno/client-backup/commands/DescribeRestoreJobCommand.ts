@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient.ts";
-import {
-  DescribeRestoreJobInput,
-  DescribeRestoreJobOutput
-} from "../models/index.ts";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
+import { DescribeRestoreJobInput, DescribeRestoreJobOutput } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeRestoreJobCommand,
-  serializeAws_restJson1DescribeRestoreJobCommand
+  serializeAws_restJson1DescribeRestoreJobCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,12 +14,11 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeRestoreJobCommandInput = DescribeRestoreJobInput;
-export type DescribeRestoreJobCommandOutput = DescribeRestoreJobOutput &
-  __MetadataBearer;
+export type DescribeRestoreJobCommandOutput = DescribeRestoreJobOutput & __MetadataBearer;
 
 export class DescribeRestoreJobCommand extends $Command<
   DescribeRestoreJobCommandInput,
@@ -50,14 +39,15 @@ export class DescribeRestoreJobCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeRestoreJobInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRestoreJobOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -67,17 +57,11 @@ export class DescribeRestoreJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRestoreJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeRestoreJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRestoreJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRestoreJobCommandOutput> {
     return deserializeAws_restJson1DescribeRestoreJobCommand(output, context);
   }
 

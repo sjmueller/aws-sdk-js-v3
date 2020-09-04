@@ -1,21 +1,11 @@
-import {
-  DescribeConfigurationRequest,
-  DescribeConfigurationResponse
-} from "../models/index.ts";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient.ts";
+import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeConfigurationCommand,
-  serializeAws_restJson1DescribeConfigurationCommand
+  serializeAws_restJson1DescribeConfigurationCommand,
 } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "../../protocol-http/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
   FinalizeHandlerArguments,
@@ -24,17 +14,16 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
 export type DescribeConfigurationCommandInput = DescribeConfigurationRequest;
-export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse &
-  __MetadataBearer;
+export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse & __MetadataBearer;
 
 export class DescribeConfigurationCommand extends $Command<
   DescribeConfigurationCommandInput,
   DescribeConfigurationCommandOutput,
-  mqClientResolvedConfig
+  MqClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -47,20 +36,18 @@ export class DescribeConfigurationCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: mqClientResolvedConfig,
+    configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationCommandInput,
-    DescribeConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationCommandInput, DescribeConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
+      logger,
+      inputFilterSensitiveLog: DescribeConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -70,21 +57,12 @@ export class DescribeConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DescribeConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationCommandOutput> {
+    return deserializeAws_restJson1DescribeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra
